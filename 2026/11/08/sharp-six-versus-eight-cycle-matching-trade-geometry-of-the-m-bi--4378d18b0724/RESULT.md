@@ -1,0 +1,48 @@
+# Sharp six- versus eight-cycle matching-trade geometry of the Möbius–Kantor graph
+
+## Finding
+
+For the Möbius–Kantor graph \(G=GP(8,3)\), the exact perfect-matching reconfiguration graphs under alternating simple six-cycle and eight-cycle exchanges have a sharp change in connectivity and diameter. There are \(33\) perfect matchings. Under six-cycle exchanges alone the graph is the disjoint union of three isolated vertices and a connected thirty-vertex component of radius \(3\) and diameter \(4\). Under eight-cycle exchanges alone it is connected and has radius \(3\) and diameter \(4\). Under both operations it is connected, has \(132\) edges, and is self-centered with radius and diameter \(3\).
+
+More precisely, the eight-cycle-only graph is obtained from the double-edge triangle \(2K_3\) (a multigraph with two parallel edges between each pair of its three vertices) by subdividing each of its six edges once and attaching eight leaves to each original triangle vertex. This is an explicit structural model for all \(33\) perfect matchings under octagon trades.
+
+The complement of each matching is a two-factor, with cycle lengths \((8,8)\), \((16)\), or \((6,10)\), appearing respectively \(3\), \(6\), or \(24\) times. Those intrinsic types have six-only degrees \(0,8,6\), eight-only degrees \(12,2,1\), and combined degrees \(12,10,7\), respectively. In particular, the smallest allowed *maximum even cycle length* that makes all perfect matchings mutually reachable is \(8\).
+
+## Assumptions and scope
+
+The vertex set is \(\{u_i,v_i:i\in\mathbb Z/8\mathbb Z\}\). Its edge set consists exactly of \(u_i u_{i+1}\), \(u_i v_i\), and \(v_i v_{i+3}\), with indices modulo eight. There are \(16\) vertices and \(24\) edges. A perfect matching is a set of eight pairwise vertex-disjoint edges covering every vertex. Two perfect matchings \(M,N\) are adjacent in the \(\ell\)-trade graph precisely if \(M\triangle N\) is the edge set of a single simple cycle of length \(\ell\). For the combined graph, \(\ell\in\{6,8\}\). The trades use *all* simple cycles of those lengths, not merely faces of any particular surface embedding. All graphs here have one vertex for each actual perfect matching, without quotienting by symmetry.
+
+## Proof
+
+**Completeness of the matching census.** A recursive procedure chooses the smallest uncovered vertex and branches over all its remaining neighbours, collecting every perfect matching exactly once. The executable `verification/verify_gp.py` applies this procedure directly to the displayed edge set and obtains exactly \(33\) distinct matchings. For an independent exhaustive formulation, the graph is bipartite with parts \(L=\{u_0,u_2,u_4,u_6,v_1,v_3,v_5,v_7\}\) and \(R=V(G)\setminus L\), each of size eight. Every perfect matching is one of the \(8!\) bijections from \(L\) to \(R\), restricted to graph edges; the executable `verification/verify_permutations.py` tests all \(40{,}320\) bijections and also obtains exactly \(33\).
+
+**Exact move criterion.** A cycle of length \(2k\) is alternating for \(M\) if and only if exactly \(k\) of its edges belong to \(M\): these \(k\) matching edges must occupy alternating positions because they cover all cycle vertices without overlap. Flipping replaces these with the complementary \(k\) cycle edges and preserves the matching condition. The first program enumerates every simple six- and eight-cycle by depth-first extension from its minimum-index vertex and deduplicates their edge sets. It finds \(24\) distinct hexagons and \(30\) distinct octagons; applying every legal flip gives exactly \(96\) and \(36\) reconfiguration edges respectively. No edge is shared by those two move types, so the combined graph has \(132\) edges.
+
+The second program does not enumerate graph cycles. If matchings correspond to bipartite bijections \(p,q\), their symmetric difference is one alternating cycle of length \(2k\) precisely when \(p^{-1}q\) has exactly one nontrivial permutation cycle and that cycle has length \(k\); all remaining points are fixed. Therefore a three-cycle gives exactly a six-edge exchange, and a four-cycle exactly an eight-edge exchange. Exhaustively testing pairs of the \(33\) filtered bijections reproduces all three edge counts and the same degree and metric summaries.
+
+**Structural classification.** Removing the matching from the cubic graph leaves a two-regular spanning subgraph; tracing all its components establishes exactly \(3\) matchings with complementary type \((8,8)\), \(6\) with type \((16)\), and \(24\) with type \((6,10)\). The corresponding degree triples (six-only, eight-only, combined) are \((0,12,12)\), \((8,2,10)\), and \((6,1,7)\). In the eight-only graph, the three degree-twelve vertices are hubs; each is adjacent to eight degree-one vertices and four degree-two vertices. Every degree-two vertex is adjacent to two distinct hubs, and exactly two degree-two vertices join each of the three hub pairs. No other eight-only adjacencies occur, proving the subdivided double-triangle with attached leaves description. The code checks all these conditions explicitly, not just the degree sequence.
+
+**Connectivity and distances.** Breadth-first search is performed from every configuration over the complete exact adjacency sets, and its visited count is checked against each computed component. For six-only trades, the components have sizes \(30,1,1,1\), and the thirty-state component has eccentricity \(3\) at \(24\) states and \(4\) at six states. The unordered pair-distance counts within that component are \(96,216,120,3\) at distances \(1,2,3,4\). For eight-only trades, all \(33\) states are connected; the three hubs have eccentricity \(3\), the other \(30\) have eccentricity \(4\), and the pair-distance counts are \(36,198,54,240\). For both cycle lengths, all \(33\) states have eccentricity exactly \(3\); the pair-distance counts are \(132,342,54\) at distances \(1,2,3\). These total \(\binom{30}{2}=435\) and \(\binom{33}{2}=528\) as appropriate. Hence the sharp claimed radii and diameters follow.
+
+Finally, \(G\) is bipartite and has girth six, so no allowed simple alternating even cycle shorter than six is available. Six-cycle trades are disconnected, but admitting eight-cycles connects every perfect matching. Thus the least even upper bound on permitted cycle length sufficient for connectivity is exactly \(8\).
+
+## Verification
+
+Both `verification/verify_gp.py` and `verification/verify_permutations.py` are complete, standalone Python 3 standard-library programs. Run each with `python3` from the directory containing its path. Both terminate after exhaustive finite enumeration, print `PASS` markers, and enforce all claimed structural counts and exact distance distributions through assertions. The programs use different enumeration models: vertex-saturation recursion with explicit cycle flips, versus the complete enumeration of bipartite permutations and comparison by relative permutation cycles. Neither relies on an external graph-data library, network access, random sampling, or a precomputed result table.
+
+## Relationship to prior work
+
+Bryant and Dean (2014) identify the graph as the cubic symmetric graph \(F16\) and study Hamilton decompositions and perfect one-factorizations; their statements do not determine this graph of constrained matching exchanges. Bonamy et al. (2019) investigate reconfiguration under alternating four-cycles and discuss a more general bounded-even-cycle rule, but the Möbius–Kantor graph has no four-cycles and their general complexity statements do not supply the instance-specific six/eight-cycle geometry. Ito et al. (2019) study unrestricted alternating-cycle exchanges, whose reachability is guaranteed by symmetric difference; that unrestricted conclusion does not establish reachability under hexagons or octagons, nor the sharp distance-three property. A 2025 matching-polynomial tabulation reports the already-known count of \(33\) perfect matchings, which is used as background and is not claimed as original.
+
+The finding is the exact connectivity threshold together with a concrete 33-vertex structural model for the octagon-trade graph and the sharp metric classification of all three natural move rules. These are stronger specifications than counts of matchings, unrestricted connectivity, or edge-colouring Kempe-equivalence data.
+
+## Limitations
+
+This is a finite theorem for the displayed sixteen-vertex graph. No assertion is made for larger generalized Petersen graphs or for all cycle lengths beyond eight, for face-restricted trades, or for mixing times. The exhaustive program-based argument has been checked with two independent algorithms but has not undergone independent scholarly audit. Earlier unpublished, unindexed, or inaccessible calculations might contain equivalent reconfiguration data.
+
+## References
+
+1. D. Bryant and M. Dean, *Vertex-transitive graphs that have no Hamilton decomposition*, arXiv:1408.5211 (public version dated 2014-08-22), https://arxiv.org/abs/1408.5211.
+2. M. Bonamy et al., *The Perfect Matching Reconfiguration Problem*, arXiv:1904.06184 (2019), https://arxiv.org/abs/1904.06184.
+3. T. Ito et al., *Shortest Reconfiguration of Perfect Matchings via Alternating Cycles*, ESA 2019, DOI 10.4230/LIPIcs.ESA.2019.61, https://doi.org/10.4230/LIPIcs.ESA.2019.61.
+4. *Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions*, *Symmetry* 17 (2025), article 133, DOI 10.3390/sym17010133, https://doi.org/10.3390/sym17010133. The published matching count of \(33\) is prior work.

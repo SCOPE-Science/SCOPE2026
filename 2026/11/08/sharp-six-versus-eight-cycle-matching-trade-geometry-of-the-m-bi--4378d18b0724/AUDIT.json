@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Two standalone exact finite algorithms independently enumerate all 33 perfect matchings and 6/8 exchanges, one by vertex recursion and DFS of cycles, the other by 40320 bipartite bijections and relative permutation cycle lengths. Both reconstruct all graph components, eccentricity and pair-distance distributions and verify the subdivided double-triangle model. All universes and boundaries are finite and explicitly exhaustive; no sampling is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito et al. section 1 permits any alternating cycle, and guarantees reachability in that less restrictive rule.",
+        "Bonamy et al. analyze length-four and complexity at fixed even lengths, with no exact F16 classification.",
+        "Bryant and Dean discuss perfect one-factorizations, not graph distance between matchings."
+      ],
+      "reasoning": "Unrestricted matching connectivity cannot imply connectivity at cycles bounded by 8, since requiring shorter moves removes reconfiguration edges. General hardness of fixed even-length rules does not determine this instance or the structural octagon graph. Hamilton decomposition is another configuration problem.",
+      "searches": [
+        "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles Ito Kakimura Kamiyama Kobayashi Okamoto",
+        "The Perfect Matching Reconfiguration Problem Bonamy Bousquet Heinrich 2019",
+        "Möbius-Kantor 8-cycle flips perfect matching reconfiguration 33 states diameter"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1408.5211",
+      "https://arxiv.org/pdf/1904.06184",
+      "https://doi.org/10.4230/LIPIcs.ESA.2019.61",
+      "https://doi.org/10.3390/sym17010133",
+      "https://mathworld.wolfram.com/Moebius-KantorGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known 3-edge-colouring Kempe transformations act on assignments of three complete colour classes, rather than on a single perfect matching.",
+        "Known Möbius ladder matching-flip results concern another generalized cubic graph, not GP(8,3).",
+        "Ito et al. allow longer alternating cycles and Bonamy et al. focus on four-cycles."
+      ],
+      "reasoning": "Different state spaces and allowed cycle lengths prevent these from logically implying the exact 33-vertex graph and all-pair distances. A projection of an edge-colouring reconfiguration may yield some matching moves but cannot determine, without further calculation, all single-matching trades and full distance profiles.",
+      "searches": [
+        "Möbius-Kantor 8-cycle flips perfect matching reconfiguration 33 states diameter",
+        "\"Moebius-Kantor\" \"perfect matchings\" \"flip\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Relevant graph aliases GP(8,3), F16, Möbius–Kantor, 1-factor, dimer exchange, alternating hexagon/octagon trades were compared.",
+        "Matching-polynomial tabulation counts states but not configurations of 6-/8-cycle moves."
+      ],
+      "reasoning": "The equivalent exact statement would classify the 33-state six-/eight-cycle perfect-matching exchange graphs, or determine their structure by another encoding; neither a mere matching count nor a 3-edge-colouring Kempe graph is equivalent to that. Targeted searches found no matching theorem.",
+      "searches": [
+        "Möbius-Kantor graph GP(8,3) 33 perfect matchings hexagon six-cycle trades 3 isolated 30 connected",
+        "Möbius Kantor alternating six eight cycle flip graph perfect matching 33 configurations",
+        "\"Möbius-Kantor\" \"resonance graph\" perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A 2025 matching-polynomial table states exactly 33 perfect matchings of the Möbius–Kantor graph.",
+        "Two exhaustive programs verify all 33 without using the table."
+      ],
+      "reasoning": "Count 33 is explicitly excluded from the new contribution. The tabulated count does not determine which pairs are connected by 6- or 8-cycle exchanges, the hub graph, or any graph diameter. The complete tabulation was inaccessible, a residual priority risk.",
+      "searches": [
+        "\"Möbius-Kantor\" \"33\" \"perfect matchings\"",
+        "Möbius Kantor graph number of perfect matchings 33 Kekule"
+      ]
+    },
+    "rationale": "The distinctive octagon-only subdivision-and-leaves structure, sharp minimal 8-cycle connectivity threshold, and complete distance/eccentricity census are not supplied by the closest inspected primary works. The known matching count is credited. Searches of equivalent formulations and implication-strength prior statements did not identify an earlier covering theorem; residual indexing/full-text risks are explicit.",
+    "residual_risks": [
+      "Unindexed computational datasets or papers on toroidal hexagon resonance may have overlapping results.",
+      "The 2025 matching-polynomial article was accessible only as an indexed table excerpt because its full page returned HTTP 429.",
+      "No independent scholarly priority review has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact six/eight-cycle perfect-matching trade graphs; concerns Hamilton decomposition of graph-derived multigraphs rather than reachability between single perfect matchings.",
+        "evidence": [
+          "F16 identification in section 2; proposition 5 and lemma 6 in section 3; theorem 12 in section 4."
+        ],
+        "identifier_or_url": "arxiv:1408.5211",
+        "material_read": "Full accessible HTML, including sections 2–4 on F16, perfect one-factorizations and Hamilton decompositions; submission history.",
+        "method": "Read full relevant source, inspect theorem statements, compare F16 object and the quantified conclusion.",
+        "title": "Vertex-transitive graphs that have no Hamilton decomposition",
+        "trigger": "Same named cubic graph F16 and perfect one-factorizations"
+      },
+      {
+        "assessment": "NOT_COVERING: studies four-cycle flips and general hardness for fixed even cycle lengths; F16 has no four-cycle, and no instance-specific 6/8 structure is stated.",
+        "evidence": [
+          "Section 1.1: ordinary flips are length four; section 1.2: proposed k-perfect matching reconfiguration; section 1.3: PSPACE results."
+        ],
+        "identifier_or_url": "arxiv:1904.06184v1",
+        "material_read": "22-page open preprint text with abstract, introduction, model definitions, key theorem statements, and discussion of constant-length even cycle extensions.",
+        "method": "PDF full-text extraction, relevant sections and screenshot page 3; compare move lengths and claimed results.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Directly relevant perfect-matching flip rules and longer even cycles."
+      },
+      {
+        "assessment": "NOT_COVERING: guarantees connectivity when *all* alternating cycles are allowed; this does not imply reachability or distances with cycle lengths restricted to 6 and/or 8.",
+        "evidence": [
+          "Section 1: symmetric difference as an unrestricted single alternating cycle; comparison with 4-cycle model; no Möbius–Kantor instance."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.ESA.2019.61",
+        "material_read": "15-page open publication, including abstract, model definitions in section 1, comparison with four-cycle restricted model, and theorem statements.",
+        "method": "PDF full-text analysis and screenshot of page two; inspect model quantifiers and scope.",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Potential stronger coverage under unbounded alternating cycles; shortest transformation metrics."
+      },
+      {
+        "assessment": "COVERS the bare matching count 33, which is credited as prior; the available excerpt does not mention the proposed constrained trade graph. Full-text coverage risk remains.",
+        "evidence": [
+          "Indexed text: graph has 16 vertices, 24 edges, and 33 perfect matchings (Table 1)."
+        ],
+        "identifier_or_url": "doi:10.3390/sym17010133",
+        "material_read": "Search-indexed accessible Table 1 excerpt identifying 33 perfect matchings; complete article did not load (HTTP 429).",
+        "method": "Read indexed excerpt and bibliographic metadata; do not infer contents of unseen material.",
+        "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+        "trigger": "Exact earlier table containing the Möbius–Kantor number of perfect matchings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4378d18b-0724-4f6d-ba72-0194c719ba68",
+  "value": {
+    "rationale": "The graph is a canonical small arc-transitive cubic bipartite graph of girth six, where local alternating hexagon trades are a natural minimal available move. The theorem locates a sharp reachability threshold, identifies exactly the inaccessible matching states, and exhibits an explicit minimal octagon backbone with quantitative diameter improvement when both move types are used; this is a structurally motivated reconfiguration benchmark, not an arbitrary count.",
+    "status": "PASS"
+  }
+}
