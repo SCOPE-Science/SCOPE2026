@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify_bishops.py` was executed using Python 3 and produced `verification_output.txt`, ending in `VERIFY_OK`. For each even size \(2\), \(4\), and \(6\), checks independently enumerate all valid face masks, construct the complete prescribed matching, orient and topologically sort every cover incidence, reconstruct signed integer simplicial boundaries, verify \(\partial^2=0\), and perform every exact unit-pivot cancellation. The final reduced integer Morse differential is zero in all three cases.
+# Independent mathematical audit
 
-For the even-color six-by-six complex, the verified face cardinalities are \((1,18,98,184,100,8)\), there are \(1206\) covering incidences, and \(196\) cancellation pairs leave precisely \(14\) two-cells and \(3\) three-cells. The resulting CW attachment argument invokes the standard degree classification of maps into a wedge of two-spheres. The whole-board statement then follows from the canonical separation of the two square colors and the suspension–smash join identity.
+## correctness
 
-Verification does not extend to larger boards or certify uniqueness against every unindexed source. Independent audit: not performed.
+PASS
+
+Independently rebuilt both color classes via diagonal attacks, enumerated all independent subsets of one color, and checked matchings plus DAG acyclicity and exact signed integer critical boundaries. For n=2,4,6 the color critical cells have dimensions {0:1},{1:3},{2:14,3:3}, respectively; the latter 196 pairs on 408 augmented faces. The reduced Morse two-skeleton is simply connected; zero attaching degrees nullhomotope 3-cells by Hurewicz. The join X_n*X_n yields 14²=196, 2·14·3=84, 3²=9. No higher even n is proved.
+
+## originality
+
+PASS
+
+Triangle Ferrers theory requires a different staircase shape; general bishop placement numbers do not determine homotopy. Targeted published-record and primary-literature checks did not exhibit the same n=6 mixed integral wedge; best-of-knowledge PASS, not absolute novelty proof.
+
+## value
+
+PASS
+
+The 6×6 case is the first even board with two or more nonzero reduced homology dimensions, a motivated geometric combinatorics threshold with explicit torsion-free homotopy type rather than merely a face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,13 +1,21 @@
-# Scientific review: nonattacking bishops on even square boards
+# Independent mathematical audit
 
-**Correctness — PASS.** The three homotopy equivalences follow from explicitly defined, exhaustively checked acyclic face-poset matchings with exact integer Morse boundary elimination. For the six-by-six color component, its \(196\) matched pairs and \(17\) surviving critical faces yield a CW complex with fourteen two-cells and three three-cells, and all three attaching degrees vanish integrally. Hurewicz then gives a mixed-dimensional sphere wedge, and the chessboard-color join yields the stated full-board decomposition. The proof is finite and exact; the standalone checks terminate with `VERIFY_OK`.
+## correctness
 
-**Originality — PASS, subject to stated literature risk.** The relevant published triangular-Ferrers topology results concern the boards of Clark and Zeckner, whose defined row lengths and theorems do not cover \((6,4,4,2,2)\). Harris et al. study bishop independence numbers rather than the homotopy of all placements. A five-by-five bishop calculation cannot entail the six-by-six theorem or the even-board first-occurrence statement. Searches for bishop complexes, Ferrers rook complexes, equivalent matching-complex formulations, exact numerical ranks and stronger coverage found no direct antecedent. Unindexed work and uninspected portions of an inaccessible source remain risks; absence of a search hit is not a uniqueness proof.
+PASS
 
-**Value — PASS.** The full integral homotopy of a canonical chess-piece placement complex is a natural structural invariant, significantly stronger than placement counts or a maximum packing number. The six-by-six computation identifies the first even square board with homology in three distinct dimensions, contrasting sharply with the preceding two even boards. This exact motivated boundary case is useful for testing proposed patterns for the Ferrers-board matching-complex family; the result makes no unsupported claim of an infinite-family classification.
+Independently rebuilt both color classes via diagonal attacks, enumerated all independent subsets of one color, and checked matchings plus DAG acyclicity and exact signed integer critical boundaries. For n=2,4,6 the color critical cells have dimensions {0:1},{1:3},{2:14,3:3}, respectively; the latter 196 pairs on 408 augmented faces. The reduced Morse two-skeleton is simply connected; zero attaching degrees nullhomotope 3-cells by Hurewicz. The join X_n*X_n yields 14²=196, 2·14·3=84, 3²=9. No higher even n is proved.
 
-**Closest literature.** E. Clark and M. Zeckner, *Simplicial Complexes of Triangular Ferrers Boards*, arXiv:1008.4525 (2010); L. Harris et al., *Bishop Independence* (2013); R. Forman, *Morse Theory for Cell Complexes* (1998). The Clark–Zeckner primary text was examined for its definitions and Theorems 3.1 and 5.5, while the Harris paper's full text was inaccessible and only its abstract and metadata were checked.
+## originality
 
-**Limitations.** These equivalences cover only the indicated three even board sizes. No claim is made for \(n\ge8\), for odd boards, or for periodic boards. Independent evaluation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Triangle Ferrers theory requires a different staircase shape; general bishop placement numbers do not determine homotopy. Targeted published-record and primary-literature checks did not exhibit the same n=6 mixed integral wedge; best-of-knowledge PASS, not absolute novelty proof.
+
+## value
+
+PASS
+
+The 6×6 case is the first even board with two or more nonzero reduced homology dimensions, a motivated geometric combinatorics threshold with explicit torsion-free homotopy type rather than merely a face count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
