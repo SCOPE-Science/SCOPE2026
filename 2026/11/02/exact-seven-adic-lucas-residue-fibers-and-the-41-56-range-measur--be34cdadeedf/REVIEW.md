@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claim, including the precise least period, all regular and critical target fibers, every power of seven, and the limiting Haar measure, follows from explicit formulas. The matrix \(M^{16}=I+7B\) has a unit off-diagonal entry in \(B\), proving exact seven-adic lifting of \(F_{16d}\). Together with \(L_n^2-5F_n^2=4(-1)^n\), this yields an isometry on fourteen nonsingular index branches and an isometry for \(F_n/7\) on the two singular branches. Exact square-root counts yield each fiber. The square-value Haar measure gives \(41/56\). The independent-from-formula brute-force recurrence checks at all exponents one through six matched all 137,256 residue fibers. The infinite conclusion rests on proof, not extrapolation.
+PASS
 
-## Originality — PASS (qualified)
+For L0=2,L1=1 modulo 7^k, the companion matrix satisfies M^8=-I mod 7 and M^16=I+7U with unit off-diagonal U, giving exact period 16*7^(k-1); the Lucas state and its M-image form a 7-adic basis since their determinant -5 is a unit. The addition identity proves each of 14 nonsingular mod-16 branches is an isometry onto its mod-7 Lucas disk, yielding residue frequencies (2,2,4,4,2) on 0,1,3,4,6. The two singular branches use F_n/7 as a 7-adic isometry and L_n²-5F_n²=4, giving 7 times the number of roots z²=(y²-4)/(5*49) mod 7^(k-2), restricted to y=+/-2 mod 49. The root count and 7-adic square set have image support 5*7^(k-1)+2Q_(k-2) and Haar mass 5/7+2*(7/16)/49=41/56. Independent recurrence enumeration against the displayed formulas across all residues through k=5, with the package verifier reviewed through k=6; finite levels corroborate rather than prove arbitrary k. Crucial k=1 exceptional fibers handled separately.
 
-Lang and Lang's first-posted 2013 paper establishes the completeness criterion, including complete modulo seven and defective modulo forty-nine, without an exact seven-power frequency census. The 2010 Bundschuh work determines complete distributions for primes two and five; their 2011 paper addresses prime three. Somer and Carlip (2000) establish companion-Lucas nonstability and general lower bounds but not the exact prime-seven distribution; Carlip and Somer (2007), Theorem 6.1, assumes an unfulfilled higher-lifting parameter. All these mathematical implications were checked against the new statement. Targeted semantic research-record searches and web searches for seven-power Lucas frequencies did not return an equivalent theorem. A specialized inaccessible source or a stronger unlocated general theorem remains possible. Lack of search hits is not treated as a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Frequency distributions of linear recurrences modulo prime powers are a longstanding arithmetic object. A known qualitative fact—complete modulo seven but defective at higher powers—is sharpened to an exact description of every surviving residue and every fiber at every level. The two exceptional quadratic disks have increasing multiplicities and explain the nonstability structurally. The exact \(41/56\) measure is a natural limiting arithmetic statistic, not an arbitrary small-modulus table. The fact is useful as an explicit prime-seven benchmark alongside existing prime-two, prime-three, and prime-five frequency classifications. It does not claim a general theory of all Lucas sequences.
+Exact all-level 7-adic residue fiber and Haar support are not supplied by inspected residue-completeness or broad recurrence-frequency literature. Lang and Lang classify completeness of residue cycles, not exact fibers. Carlip–Somer 2007 discusses p-singular frequencies but inspected Theorem 6.1 invokes a parameter e>1, whereas first Lucas matrix lift here is at exponent one. Patel–Shah full paper studies one/two/four blocks of periods and does not visibly state this all-level 7-adic fiber formula. Best-of-knowledge PASS; a general theorem may have an unseen specialization.
 
-## Literature and residual risks
+## value
 
-The closest specific sources are Lang–Lang (arXiv:1304.2892), Somer–Carlip (DOI:10.1155/S0161171200003240), Carlip–Somer (DOI:10.21136/MB.2007.134189), and the two Bundschuh studies. Patel and Shah (2021) give an abstract-level one-, two-, or four-block classification of Lucas periods, but the full text requires a journal login; no full-document noncoverage assertion is made. The 2010 and 2011 specialized PDFs were not completely inspected; their accessible abstracts state only other primes. Possible previously published specialized prime-seven tables remain a residual historical risk. Only self-review was performed; no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical Lucas sequence modulo prime powers is a natural arithmetic dynamical system; the exact frequency distribution, image cardinality and 7-adic range measure 41/56 are nontrivial natural invariants beyond known completeness/noncompleteness and may inform future recurrence distribution research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

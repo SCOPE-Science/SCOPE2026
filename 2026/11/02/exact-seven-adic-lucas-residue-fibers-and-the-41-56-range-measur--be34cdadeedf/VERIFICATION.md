@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent-from-formula computation `artifacts/verify_lucas7.py` uses the defining Lucas recurrence to enumerate one shortest period at all moduli \(7^k\) for \(k=1,2,3,4,5,6\). It independently checks all target frequencies, support sizes, and matrix-period minimality. The exact program was executed successfully. The result was:
+## correctness
 
-```text
-LEVEL_OK k=1 modulus=7 period=16 image=7
-LEVEL_OK k=2 modulus=49 period=112 image=37
-LEVEL_OK k=3 modulus=343 period=784 image=253
-LEVEL_OK k=4 modulus=2401 period=5488 image=1759
-LEVEL_OK k=5 modulus=16807 period=38416 image=12307
-LEVEL_OK k=6 modulus=117649 period=268912 image=86137
-VERIFY_OK full_fibers=137256 levels=1..6 minimal_periods_and_exact_multiplicities
-```
+PASS
 
-The unrestricted theorem uses the precise matrix binomial lift, square identity, and isometry arguments in `RESULT.md`. Exhaustive computation through six finite moduli is not infinite certification. Source comparison is qualified: the 2010 and 2011 related primary PDFs were not read in full; their accessible abstracts explicitly concern primes other than seven. There is no independent audit or external proof certification.
+For L0=2,L1=1 modulo 7^k, the companion matrix satisfies M^8=-I mod 7 and M^16=I+7U with unit off-diagonal U, giving exact period 16*7^(k-1); the Lucas state and its M-image form a 7-adic basis since their determinant -5 is a unit. The addition identity proves each of 14 nonsingular mod-16 branches is an isometry onto its mod-7 Lucas disk, yielding residue frequencies (2,2,4,4,2) on 0,1,3,4,6. The two singular branches use F_n/7 as a 7-adic isometry and L_n²-5F_n²=4, giving 7 times the number of roots z²=(y²-4)/(5*49) mod 7^(k-2), restricted to y=+/-2 mod 49. The root count and 7-adic square set have image support 5*7^(k-1)+2Q_(k-2) and Haar mass 5/7+2*(7/16)/49=41/56. Independent recurrence enumeration against the displayed formulas across all residues through k=5, with the package verifier reviewed through k=6; finite levels corroborate rather than prove arbitrary k. Crucial k=1 exceptional fibers handled separately.
+
+## originality
+
+PASS
+
+Exact all-level 7-adic residue fiber and Haar support are not supplied by inspected residue-completeness or broad recurrence-frequency literature. Lang and Lang classify completeness of residue cycles, not exact fibers. Carlip–Somer 2007 discusses p-singular frequencies but inspected Theorem 6.1 invokes a parameter e>1, whereas first Lucas matrix lift here is at exponent one. Patel–Shah full paper studies one/two/four blocks of periods and does not visibly state this all-level 7-adic fiber formula. Best-of-knowledge PASS; a general theorem may have an unseen specialization.
+
+## value
+
+PASS
+
+The classical Lucas sequence modulo prime powers is a natural arithmetic dynamical system; the exact frequency distribution, image cardinality and 7-adic range measure 41/56 are nontrivial natural invariants beyond known completeness/noncompleteness and may inform future recurrence distribution research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

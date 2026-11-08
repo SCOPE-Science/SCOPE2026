@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:05:13.609769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For L0=2,L1=1 modulo 7^k, the companion matrix satisfies M^8=-I mod 7 and M^16=I+7U with unit off-diagonal U, giving exact period 16*7^(k-1); the Lucas state and its M-image form a 7-adic basis since their determinant -5 is a unit. The addition identity proves each of 14 nonsingular mod-16 branches is an isometry onto its mod-7 Lucas disk, yielding residue frequencies (2,2,4,4,2) on 0,1,3,4,6. The two singular branches use F_n/7 as a 7-adic isometry and L_n²-5F_n²=4, giving 7 times the number of roots z²=(y²-4)/(5*49) mod 7^(k-2), restricted to y=+/-2 mod 49. The root count and 7-adic square set have image support 5*7^(k-1)+2Q_(k-2) and Haar mass 5/7+2*(7/16)/49=41/56. Independent recurrence enumeration against the displayed formulas across all residues through k=5, with the package verifier reviewed through k=6; finite levels corroborate rather than prove arbitrary k. Crucial k=1 exceptional fibers handled separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carlip–Somer 2007 Theorem 6.1 uses parameter e>1, unlike M^16=I+7U with unit off-diagonal",
+          "General frequency bounds do not themselves evaluate every 7^k fiber"
+        ],
+        "reasoning": "A dominating prime-power recurrence theorem covering first-lift exponent e=1 would be decisive, but the inspected closest theorem does not apply with its stated hypothesis.",
+        "searches": [
+          "web: Somer Carlip stability of second-order recurrences modulo prime powers",
+          "web: Carlip Somer bounds for frequencies 2007 theorem 6.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1304.2892",
+        "https://doi.org/10.21136/MB.2007.134189",
+        "https://doi.org/10.23755/rm.v41i0.664",
+        "Git RESULT.md b0cd522fe804ea0813da88b6e304bb5589d8c7a8",
+        "Git artifacts/verify_lucas7.py 0c8c5e336661a768f4409b53b8deeb3985570134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From completeness/noncompleteness alone the stated fiber cardinalities and 41/56 Haar measure do not follow",
+          "Carlip–Somer e>1 hypothesis excludes the first-lift case at hand"
+        ],
+        "reasoning": "The claimed all-level fiber distribution strictly strengthens the explicit prior statements reviewed; a hidden general formula could imply it and remains a risk.",
+        "searches": [
+          "Resultary: Lucas number sequence modulo powers of 7 exact frequencies of each residue and 7-adic image square disks",
+          "web: Lang and Lang 2013 Lucas residue completeness",
+          "web: Patel Shah 2021 Lucas blocks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lang–Lang 2013: residue completeness for Lucas modulo 7, failure modulo higher powers",
+          "Patel–Shah 2021: one/two/four period blocks, not displayed exact residue fibers"
+        ],
+        "reasoning": "The equivalent form is the full set of attained Lucas values in Z_7 or the frequency partition modulo each 7^k; materially inspected sources did not yield that partition.",
+        "searches": [
+          "Resultary: Lucas number sequence modulo powers of 7 exact frequencies of each residue and 7-adic image square disks",
+          "web: Lucas recurrence 7-adic image squares and discriminant 5 frequencies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Own recurrence checks k<=5 match support counts 7,37,253,1759,12307; no identical historical all-k residue table identified",
+          "Known completeness at k=1 is much weaker"
+        ],
+        "reasoning": "An isolated finite table, if found, would need comparison with arbitrary-k counts and 7-adic measure, not merely first-level residues.",
+        "searches": [
+          "Resultary: Lucas number sequence modulo powers of 7 exact frequencies of each residue and 7-adic image square disks",
+          "web: Lucas modulo 7^k complete residue frequencies table"
+        ]
+      },
+      "rationale": "Exact all-level 7-adic residue fiber and Haar support are not supplied by inspected residue-completeness or broad recurrence-frequency literature. Lang and Lang classify completeness of residue cycles, not exact fibers. Carlip–Somer 2007 discusses p-singular frequencies but inspected Theorem 6.1 invokes a parameter e>1, whereas first Lucas matrix lift here is at exponent one. Patel–Shah full paper studies one/two/four blocks of periods and does not visibly state this all-level 7-adic fiber formula. Best-of-knowledge PASS; a general theorem may have an unseen specialization.",
+      "residual_risks": [
+        "A more general p-adic recurrence theorem could subsume first-lift e=1 formulas under alternate terminology.",
+        "Full primary text was not established for every potentially relevant older recurrence paper; this is best-of-knowledge priority only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms prior completeness statements but not all-level fiber multiplicities",
+          "evidence": "Lucas complete modulo 7 but not 7^k (k>=2) appears in the source discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.2892",
+          "material_read": "Abstract and result synopsis, not the entire manuscript",
+          "method": "arXiv source abstract and search",
+          "title": "Fibonacci system and residue completeness",
+          "trigger": "Lucas completeness mod 7 and noncompleteness mod 7^k"
+        },
+        {
+          "assessment": "Theorem 6.1 uses e>1 and is not a direct evaluation of this e=1 case",
+          "evidence": "The local matrix lift already has a unit coefficient after division by 7.",
+          "identifier_or_url": "https://doi.org/10.21136/MB.2007.134189",
+          "material_read": "Full accessible PDF, in particular statement and assumptions of Theorem 6.1 and surrounding frequency results",
+          "method": "public PDF text and page screenshot",
+          "title": "Bounds for frequencies of residues of second-order recurrences modulo prime powers",
+          "trigger": "Potential dominant frequency theorem"
+        },
+        {
+          "assessment": "No inspected theorem gives the explicit full 7^k fiber formula; this is not a whole-literature exclusion",
+          "evidence": "The paper describes blocks, not the above quadratic 7-adic fiber formula.",
+          "identifier_or_url": "https://doi.org/10.23755/rm.v41i0.664",
+          "material_read": "Accessible PDF title/abstract and theorem sections relevant to 1-, 2-, 4-block decompositions",
+          "method": "public PDF text and page screenshot",
+          "title": "Blocks within the period of Lucas sequence",
+          "trigger": "Closest block multiplicity analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classical Lucas sequence modulo prime powers is a natural arithmetic dynamical system; the exact frequency distribution, image cardinality and 7-adic range measure 41/56 are nontrivial natural invariants beyond known completeness/noncompleteness and may inform future recurrence distribution research.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1304.2892",
+    "https://doi.org/10.21136/MB.2007.134189",
+    "https://doi.org/10.23755/rm.v41i0.664",
+    "Git RESULT.md b0cd522fe804ea0813da88b6e304bb5589d8c7a8",
+    "Git artifacts/verify_lucas7.py 0c8c5e336661a768f4409b53b8deeb3985570134"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A more general p-adic recurrence theorem could subsume first-lift e=1 formulas under alternate terminology.",
+    "Full primary text was not established for every potentially relevant older recurrence paper; this is best-of-knowledge priority only.",
+    "Finite computations support but do not replace any infinite proof; independent assessment is best-of-knowledge, not a claim of complete historical priority.",
+    "Public-bound files not confidentiality-sanitized and no GitHub changes or publication made."
+  ],
+  "residual_risks": [
+    "A more general p-adic recurrence theorem could subsume first-lift e=1 formulas under alternate terminology.",
+    "Full primary text was not established for every potentially relevant older recurrence paper; this is best-of-knowledge priority only."
+  ],
+  "schema_version": 1
+}
