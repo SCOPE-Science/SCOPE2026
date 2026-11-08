@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All n>=2 and 0<=k<=n^2: exact mixed-row/column degree-one event count splits on their shared edge, yielding P and J and n^2(J-P^2). Cancellation yields the finite product identity for k=Theta(n). Taylor expansions are uniform for k/n in a compact positive range; the O(n^-4) remainder uses j=O(n) and O(n) terms. Fixed-c and critical-window asymptotics follow. Independently enumerated all 2x2 through 4x4 binary matrices and checked 1302 exact assertions. Critical boundary x=+-2/sqrt(3) and finite all-k sign pattern not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1302.2446 Theorem 1(c) assumes the (a,epsilon)-acceptability inequality on page 9, which implies p(1-p)=Omega(1/log n). Here p=k/n^2 asymptotically c/n violates the assumption.",
+        "Palka (1984) is bibliographically relevant to degree-class counts, but its full content was inaccessible; only an abstract description was available.",
+        "Matrix occupancy (1972) concerns related row-column sampling, but its content could not be compared beyond bibliographic information."
+      ],
+      "reasoning": "The strongest directly inspected full-text general result is inapplicable in the critical sparse regime, and the independent-margin approximation is too coarse to imply a nonzero covariance of order 1/n. Inaccessible older work is documented as a genuine residual risk, not falsely declared not covering.",
+      "searches": [
+        "McKay Skerman degree sequences random digraphs bipartite graphs arxiv 1302.2446 2013 joint degree distribution",
+        "Palka 1984 On the degrees of vertices in a bichromatic random graph 10.1007/BF01850725 full text",
+        "doi:10.1214/aoms/1177692562 matrix occupancy problem full text"
+      ]
+    },
+    "checked_sources": [
+      "McKay and Skerman, arXiv:1302.2446, original submission 2013-02-11; full text pages 1, 3, 5-10, 19-23, especially Theorem 1(c) and its acceptability condition",
+      "Palka, On the degrees of vertices in a bichromatic random graph (1984), doi:10.1007/BF01850725; bibliographic metadata and abstract, full text unavailable",
+      "Eicker, Siddiqui and Mielke, A matrix occupancy problem (1972), doi:10.1214/aoms/1177692562; bibliographic record only, full text unavailable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the surrogate B_k on page 8 of McKay--Skerman, the two degree sequences are independent, so covariance of their degree-one counts is identically zero.",
+        "The approximation theorem requires p(1-p)=Omega(1/log n), fails at p=Theta(1/n), and has an error not designed to determine the order-n^-1 covariance.",
+        "Palka studies degree statistics, but a matching mixed-covariance implication could not be checked from the available abstract."
+      ],
+      "reasoning": "The strongest inspected theorem does not imply the sign reversal even as a corollary: its assumptions exclude the sparse regime and its proxy covariance is zero. Earlier inaccessible papers prevent unconditional uniqueness claims, but provide no demonstrated dominating implication.",
+      "searches": [
+        "arxiv:1302.2446 Theorem 1(c) and Section 1.4 Binomial k-models pages 7-10",
+        "On the degrees of vertices in a bichromatic random graph 1984 abstract",
+        "Palka On the number of vertices of given degree in a random graph 1984"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fixed-edge binary matrix and bipartite graph models are explicitly equivalent in McKay--Skerman Section 1, pages 1-2, 5-6.",
+        "McKay--Skerman Theorem 1(c) concerns degree-sequence approximation rather than the signed first-order cross-degree-one covariance at sparse edge density."
+      ],
+      "reasoning": "The equivalent row/column singleton and loop-allowed digraph indegree/outdegree-one formulations have been compared to the named paper; those model equivalences alone do not state the signed critical-window dependence result.",
+      "searches": [
+        "random n by n zero-one matrix with fixed ones row and column singleton counts covariance asymptotic quadratic vanishing at mean degree two",
+        "fixed-edge random bipartite graph covariance degree one vertices two sides row column degree counts dependence",
+        "arxiv:1302.2446 pages 5-10: equivalent matrix, bipartite graph, and loop-allowed digraph descriptions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned no matching tabulated finite-k mixed degree-one covariance or the explicit square-root sign-reversal threshold.",
+        "The primary source model-level enumeration includes no table of signed covariance values."
+      ],
+      "reasoning": "No located exact table or database covers this invariant; absence of a search hit is not offered as a proof of novelty.",
+      "searches": [
+        "uniform random bipartite graph with fixed number of edges cross covariance between degree-one counts on left and right, sign reversal window centered at twice number of vertices",
+        "For G(n,n,m) uniformly chosen m-edge bipartite graph, covariance of numbers of degree-one vertices across two sides is positive only in a central square-root n window about m=2n despite negative covariance elsewhere",
+        "A matrix occupancy problem Eicker Siddiqui Mielke 1972 degree one row column"
+      ]
+    },
+    "rationale": "Best-knowledge new combination: exact fixed-edge two-sided unary-degree covariance and a nontrivial square-root critical window with a sign reversal at |x|=2/sqrt(3). McKay--Skerman analyzes the model but Theorem 1(c) explicitly excludes sparse p=Theta(1/n), while its surrogate has zero cross-part covariance. Earlier degree-count sources remain an acknowledged priority risk, not proof of coverage.",
+    "residual_risks": [
+      "The exact finite covariance may have appeared implicitly in earlier degree-count literature, particularly Palka (1984) or the older matrix occupancy literature; their full texts were not accessible.",
+      "No proof of uniqueness or universal originality follows from semantic searches or partition-specific publication results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No direct signed degree-one cross-count covariance; theorem excludes the sparse regime by its explicit density assumption.",
+        "evidence": [
+          "Theorem 1(c): p=k/n^2 required acceptable, entailing p(1-p)=Omega(1/log n).",
+          "Section 1.4: B_k has independent row- and column-sum vectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.2446",
+        "material_read": "Title/abstract; historical notes; G_k and B_k model definitions; acceptability condition and Theorem 1(c); selected discussion and concluding sparse-domain caveat, on selected full-text PDF pages 1-10 and 20-23.",
+        "method": "Primary PDF text inspection of the relevant model definitions, hypothesis and theorem, with visual screenshot spot-checks of pages 1 and 4; not a claim of complete cover-to-cover reading.",
+        "title": "Degree sequences of random digraphs and bipartite graphs",
+        "trigger": "Same uniform fixed-edge bipartite graph and complete degree-sequence scope"
+      },
+      {
+        "assessment": "Historical-priority risk explicitly unresolved; available description addresses degree-count distributions but does not establish a matching cross-part mixed moment.",
+        "evidence": [
+          "Periodica Mathematica Hungarica 15 (1984), pp. 121-126; abstract-level description of degree-count asymptotics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01850725",
+        "material_read": "Bibliographic title and accessible summary/abstract only; no primary full text obtained.",
+        "method": "Search of arXiv, public copies, publisher and bibliographic sources; full text not available",
+        "title": "On the degrees of vertices in a bichromatic random graph",
+        "trigger": "Potentially relevant historical exact or asymptotic degree-class results"
+      },
+      {
+        "assessment": "Coverage could not be determined; recorded as a residual priority risk.",
+        "evidence": [
+          "Annals of Mathematical Statistics 43 (1972), pp. 988-996, title and authors confirmed."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177692562",
+        "material_read": "Bibliographic record and citations only; full text unavailable.",
+        "method": "Search of openly accessible journal and bibliography records",
+        "title": "A matrix occupancy problem",
+        "trigger": "Older row-column occupancy identity could dominate the elementary finite calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fa66bee6-54d9-49b3-8158-0a2f7836b58a",
+  "value": {
+    "rationale": "Opposite-side degree-one counts are interpretable as counts of dangling vertices in a two-type network, central for local coverage/connectivity. Conditioning the total edge count couples the two sides in competing ways. The leading negative covariance cancels at the natural mean-degree threshold two and reveals a genuinely narrower O(sqrt(n)) positive-covariance window, an interpretable dependence reversal not apparent from marginal laws or dense degree-sequence approximations. The complete exact formula is also useful for finite fixed-edge inference.",
+    "status": "PASS"
+  }
+}
