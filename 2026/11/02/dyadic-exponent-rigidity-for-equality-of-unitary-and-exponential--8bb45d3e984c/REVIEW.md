@@ -1,15 +1,21 @@
-# Scientific review: dyadic-exponent equality theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The equality of the two divisor sums is exactly the integer divisibility condition \(D_t(p)\mid p^{2^t}+1\), since the prime appearing to exponent one contributes \(q+1\) on the unitary side and \(q\) on the exponential side. The \(t=1\) quotient is integer only for bases \(2,3\). For \(t=2\), the explicit reduced representative \((p-1)^2+1\) lies strictly between \(0\) and the positive denominator. For \(t\ge3\), the auxiliary upper bound \(3u\le y\) is proved inductively; the representative \((y+u)^2+1\) lies strictly between \(D\) and \(2D\), excluding divisibility. These computations fully cover all integer bases and unbounded exponents. Finite arithmetic checks corroborate but are not used to infer the theorem.
+## correctness
 
-## Originality — PASS, with risk
-Trudgian's section 4 raises the general equality problem and gives examples but no dyadic-exponent theorem. The particularly close published finite classification covers **all** exponents \(2\le a\le49\), including dyadic \(2,4,8,16,32\); these small cases are explicitly **not new**. Its theorem cannot imply exclusion of dyadic exponents \(64,128,256,\ldots\), whereas the presented argument proves the entire unbounded family. OEIS A236474 supplies examples, not an infinite-range classification. Equivalent unlocated specialist results remain possible.
+PASS
 
-## Mathematical value — PASS
-The equality question is motivated by an explicitly posed problem about two classical multiplicative divisor sums. The new result rules out an infinite, structurally natural exponent family in the two-prime support and sharpens the previously bounded \(a\le49\) classification to every power-of-two exponent, with a uniform arithmetic mechanism rather than a moving finite cutoff. It neither addresses unrelated exponent patterns nor claims a global theorem.
+Multiplicativity gives (p^(2^t)+1)(q+1)=q(p^(2^t)+1+D_t(p)) and reduces equality to p^(2^t)+1=q D_t(p), D_t(b)=sum_(j<t)b^(2^j)-1. For t=1, D=b-1, divisibility iff b-1 divides 2, giving (p,q)=(2,5),(3,5). For t=2, remainder (b-1)^2+1 is strictly between 0 and b^2+b-1. For t>=3 let y=b^(2^(t-2)), u=sum_(j<t-2)b^(2^j)-1; elementary induction gives y>=4 and 1<=u<=y/3. D=y^2+y+u and b^(2^t)+1=y^4+1 has representative R=(y+u)^2+1, with D<R<2D, strictly excluding divisibility for every integer b>=2. Independently tested modular remainders for b=2..49 and t=1..7 plus both actual p2,p3 t1 solutions. Infinite obstruction is from inequalities, not experiments. No claim about nondyadic exponents or >2 prime factors.
 
-## Limits
-Only distinct two-prime numbers with singleton cofactor and dyadic exponent are classified; the general global infinitude problem remains open in this proof. Full-prior-literature equivalence cannot be ruled out solely by searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.
+
+## value
+
+PASS
+
+The uniform infinite-exponent restriction on the basic two-prime singleton-cofactor equality problem is a motivated exact arithmetic classification, extending finite published coverage through exponent 49 to all dyadic exponents >=64. The simple elementary modular proof is self-contained and resolves a clear infinite family without pretending to settle Trudgian global infinitude.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

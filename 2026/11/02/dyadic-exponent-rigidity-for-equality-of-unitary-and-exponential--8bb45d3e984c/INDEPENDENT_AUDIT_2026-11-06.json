@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:08:24.862769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity gives (p^(2^t)+1)(q+1)=q(p^(2^t)+1+D_t(p)) and reduces equality to p^(2^t)+1=q D_t(p), D_t(b)=sum_(j<t)b^(2^j)-1. For t=1, D=b-1, divisibility iff b-1 divides 2, giving (p,q)=(2,5),(3,5). For t=2, remainder (b-1)^2+1 is strictly between 0 and b^2+b-1. For t>=3 let y=b^(2^(t-2)), u=sum_(j<t-2)b^(2^j)-1; elementary induction gives y>=4 and 1<=u<=y/3. D=y^2+y+u and b^(2^t)+1=y^4+1 has representative R=(y+u)^2+1, with D<R<2D, strictly excluding divisibility for every integer b>=2. Independently tested modular remainders for b=2..49 and t=1..7 plus both actual p2,p3 t1 solutions. Infinite obstruction is from inequalities, not experiments. No claim about nondyadic exponents or >2 prime factors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 49-layer paper treats all a<=49, including non-dyadic exponents; it is stronger on its finite domain but silent for a>=50.",
+          "Trudgian asks if infinitely many global equality values exist."
+        ],
+        "reasoning": "The prior broad finite theorem covers t<=5 and does not dominate the t>=6 assertion. This theorem is much narrower than global infinitude/nonexistence and cannot be presented as a resolution of it.",
+        "searches": [
+          "Resultary first 49 exponent layers p^a q 2026",
+          "unitary exponential divisor sum equality p powers of two exponent p^a q Trudgian"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md and verify.py",
+        "arXiv:1312.4615",
+        "Published Resultary first-49 exponent layers actual RESULT.md",
+        "OEIS:A236474",
+        "Resultary semantic search: unitary exponential divisor sum equality p powers of two exponent p^a q Trudgian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published finite theorem gives only 2<=a<=49 and explicitly excludes claims a>=50.",
+          "The dyadic remainder inequality holds for every integer base b>=2 and all t>=2, so is stronger within the dyadic subfamily."
+        ],
+        "reasoning": "The new infinite conclusion is not a substitution into the finite published theorem, while Trudgian has only motivating examples and the global open question. The small t cases must be credited as prior.",
+        "searches": [
+          "Resultary/2026 first 49 exponent layers RESULT.md proof",
+          "Trudgian arXiv:1312.4615 section on equality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trudgian posed global equality and listed examples but did not prove all dyadic exponent impossibility.",
+          "Published Resultary/2026 first 49 layers contains every dyadic a=2,4,8,16,32 and hence fully covers those finite small cases."
+        ],
+        "reasoning": "The new content is specifically the integer-base nondivisibility uniform for all t>=2, including dyadic exponents 64,128,...; prior finite cutoff cannot logically imply this unbounded family. The exact two small equalities are known.",
+        "searches": [
+          "unitary exponential divisor sum equality p powers of two exponent p^a q Trudgian",
+          "Tim Trudgian The sum of the unitary divisor function arXiv:1312.4615",
+          "Resultary The first 49 exponent layers of the unitary–exponential divisor-sum equality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A236474 lists known equality integers, and finite Resultary candidates are exhausted only through exponent a=49.",
+          "No infinite dyadic-exponent theorem is asserted by such finite listings."
+        ],
+        "reasoning": "Explicit tables cover the two survivors and bounded dyadic instances; they cannot establish the infinite integer-base remainder obstruction.",
+        "searches": [
+          "OEIS A236474 sum unitary divisors equals exponential divisors",
+          "Resultary 49 exponent layers table candidates.tsv"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.",
+      "residual_risks": [
+        "An earlier general divisibility lemma might imply the all-dyadic obstruction despite not mentioning divisor functions.",
+        "Known t<=5 dyadic exclusions must not be relabeled new; the new content is unbounded t>=6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PROBLEM_PARTIAL_COVERAGE",
+          "evidence": "Lists equality instances and general question; no all-dyadic two-prime obstruction in the inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4615",
+          "material_read": "Primary arXiv full-text section comparing divisor sums and posing infinitude question",
+          "method": "Read arXiv HTML mathematical statements and examples",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Original source of sigma* vs sigma^e equality question"
+        },
+        {
+          "assessment": "FINITE_PRIOR_COVERAGE",
+          "evidence": "Proves a in 2..49 and enumerates the t<=5 dyadic cases, but explicitly makes no claim for a>=50; hence does not imply t>=6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e",
+          "material_read": "Entire published RESULT.md proof and cutoff statement read from actual Git blob SHA 7234dc99577d2a97fe39be969fc1fd2d0616b9b5",
+          "method": "Read full pinned primary result via Git connector",
+          "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+          "trigger": "Exact same p^a q objects, potential stronger dominating prior theorem"
+        },
+        {
+          "assessment": "EXAMPLES_NOT_INFINITE_CLASSIFICATION",
+          "evidence": "Known equality values include 20 and 45, but sequence enumeration is not a proof that every dyadic exponent >=64 is impossible.",
+          "identifier_or_url": "https://oeis.org/A236474",
+          "material_read": "Index description, known examples and sequence scope",
+          "method": "Read published database description/search excerpts",
+          "title": "OEIS A236474 Numbers whose sum of unitary divisors is equal to sum of exponential divisors",
+          "trigger": "Exact database of matching equality examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform infinite-exponent restriction on the basic two-prime singleton-cofactor equality problem is a motivated exact arithmetic classification, extending finite published coverage through exponent 49 to all dyadic exponents >=64. The simple elementary modular proof is self-contained and resolves a clear infinite family without pretending to settle Trudgian global infinitude.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md and verify.py",
+    "arXiv:1312.4615",
+    "Published Resultary first-49 exponent layers actual RESULT.md",
+    "OEIS:A236474",
+    "Resultary semantic search: unitary exponential divisor sum equality p powers of two exponent p^a q Trudgian"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier general divisibility lemma might imply the all-dyadic obstruction despite not mentioning divisor functions.",
+    "Known t<=5 dyadic exclusions must not be relabeled new; the new content is unbounded t>=6.",
+    "Mathematical infinite claims rest on scrutinized proofs, not finite numerical verification. Best-of-knowledge originality is not a priority certificate. Public status files retain private provenance and were not sanitized; scientific PASS does not authorize publication."
+  ],
+  "residual_risks": [
+    "An earlier general divisibility lemma might imply the all-dyadic obstruction despite not mentioning divisor functions.",
+    "Known t<=5 dyadic exclusions must not be relabeled new; the new content is unbounded t>=6."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification and scope
-The proof uses exact polynomial congruences and induction. In the \(t=2\) case, the residue is \((b-1)^2+1\in(0,D)\). In the \(t\ge3\) case, \(1\le u\le y/3\) and the representative \(R\) lies in \((D,2D)\). No computational exhaustion over infinite parameters is asserted.
+# Independent mathematical audit
 
-Run the standalone Python-standard-library checker as `python verify.py`. Actual execution outcome: `VERIFY_OK integer_base_cases=464 remainder_bounds=348 initial_quotients=[(2, 5), (3, 5)]`.
+## correctness
 
-The finite checks evaluate all integer bases from \(2\) through \(59\), all eight exponent parameters from \(t=1\) through \(t=8\), residue congruences and interval bounds; selected direct divisor-sum identities are independently reconstructed. Tests are supporting evidence only.
+PASS
 
-The cited first public source was submitted in December 2013; no independent audit or external proof certification has been performed.
+Multiplicativity gives (p^(2^t)+1)(q+1)=q(p^(2^t)+1+D_t(p)) and reduces equality to p^(2^t)+1=q D_t(p), D_t(b)=sum_(j<t)b^(2^j)-1. For t=1, D=b-1, divisibility iff b-1 divides 2, giving (p,q)=(2,5),(3,5). For t=2, remainder (b-1)^2+1 is strictly between 0 and b^2+b-1. For t>=3 let y=b^(2^(t-2)), u=sum_(j<t-2)b^(2^j)-1; elementary induction gives y>=4 and 1<=u<=y/3. D=y^2+y+u and b^(2^t)+1=y^4+1 has representative R=(y+u)^2+1, with D<R<2D, strictly excluding divisibility for every integer b>=2. Independently tested modular remainders for b=2..49 and t=1..7 plus both actual p2,p3 t1 solutions. Infinite obstruction is from inequalities, not experiments. No claim about nondyadic exponents or >2 prime factors.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.
+
+## value
+
+PASS
+
+The uniform infinite-exponent restriction on the basic two-prime singleton-cofactor equality problem is a motivated exact arithmetic classification, extending finite published coverage through exponent 49 to all dyadic exponents >=64. The simple elementary modular proof is self-contained and resolves a clear infinite family without pretending to settle Trudgian global infinitude.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
