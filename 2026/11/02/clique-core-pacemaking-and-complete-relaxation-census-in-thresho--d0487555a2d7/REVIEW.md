@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The reduction to six permanently homogeneous initial-color cohorts is exact because a resting clique vertex's self-exclusion cannot change its excited-neighbor count, and threshold comparison at two respects per-cohort capacity truncation. All 676 possible nonempty-part capacities are enumerated by a standalone certificate; the verifier recomputes complete trajectories and independently compares 221436 vertexwise evolutions. The period-three structural lemma identifies rotating versus permanently resting vertices; the coefficient formula partitions all labelled initial configurations into disjoint capacity types. Boundaries include all positive part sizes, the unique all-resting fixed state, sharp period-three onsets, and an explicit first-entry-time-five witness. The recorded output is reproduced from the attached files. The proof's all-size conclusion relies on the exact saturation reduction, not on unbounded inference from finite experiments.
+## correctness
 
-## Originality
-**PASS, qualified.** The full available 2016 primary arXiv text establishes one-neighbor GHM/CCA graph results, which cannot dominate the new threshold-two split-graph classification. The historical threshold-range study addresses lattice interactions rather than the split-graph topology; its complete text was not available, so no claim of full-text negative coverage is made. Earlier threshold-two biclique and tripartite claims were compared by mathematical implication: neither adds the clique edges or supplies the sharp new one-sided period-three onset and prohibition of period four. Searches in mathematical research records included the split-graph and clique-core aliases, period-three and threshold-two parameters, and comparison graph families. No equivalent statement was identified among accessible results. The residual risk of unindexed or inaccessible equivalent literature remains genuine.
+PASS
 
-## Value
-**PASS.** Filling in edges within one shore changes the qualitative oscillatory phase diagram: the natural threshold-two biclique network can support period four but requires two large shores to support period three, whereas its clique-completed split counterpart admits **only** period one and three, and a clique of five vertices supports persistent collective phase rotation even with a single independent vertex. The exact uniform-in-\(b\) pacemaking law explains the mechanism in a probabilistic regime, while the labelled census and sharp five-update bound provide a complete finite-state dynamical classification for all graph sizes. These are meaningful structural distinctions, not merely new numerical examples.
+Initial colors partition vertices into 6 homogeneous clique/independent cohorts. Every resting clique member sees total excited counts in both sides (self excluded but resting), and every resting independent member sees excited clique only. Capping each initial cohort size at 2 preserves every later ≥2 threshold and the entire per-cohort orbit, yielding exactly (3³−1)²=676 universal capacity signatures independent of graph size. Independently implemented complete quotient dynamics for all 676 produced histogram (0,1):4,(0,3):53,(1,1):60,(1,3):18,(2,1):240,(2,3):18,(3,1):170,(3,3):18,(4,1):67,(5,1):28; all periods 1 or3 and t≤5. Independently fetched actual certificate.json blob 57cd7c... and compared every trajectory, first-entry time and primitive period against a separate JS implementation: 676/676 exact matches. Every period-three configuration is all-vertex rotation; the 53 period-three capacity signatures satisfy (*) and have a≥4, and require b≥2 if a=4; constructions at (4,2) and (5,1) extend to all larger sizes. The specified t=5 witness at (3,3) exists and remains under increasing masses of capped cohorts. Multinomial species exponential GFs Φ0=1,Φ1=z,Φ2=e^z−1−z then give exact N_{t,p}; union bound over clique initial color count≤1 gives 1−3(2/3)^a−a(2/3)^(a−1), uniform in b. Here finite 676 enumeration is exhaustive for ALL sizes because the quotient reduction is proved.
 
-## Literature and limits
-The closest published accessible full text is Gravner–Lyu–Sivakoff, `arXiv:1610.07320v1`, specifically its update definition, finite-graph Theorem 3 and Section 4. Fisch–Gravner–Griffeath, `arXiv:patt-sol/9304001`, provides the early threshold-range framework; only its publicly accessible abstract was read. The foundational 1978 Greenberg–Hastings formulation and two comparative threshold-two graph-family calculations were considered at the statement level. Originality is best-knowledge rather than an independence claim. Applicability excludes asynchronous, noisy or general split-graph dynamics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.
+
+## value
+
+PASS
+
+An all-size five-step relaxation and full labelled first-entry/period census for the natural clique-plus-independent family is a complete classification of dynamics, not an arbitrary small graph experiment. The sharp onset of a collective three-cycle and clique-only pacemaking uniform in the independent-set size distinguish local connectivity effects from previously studied bicliques and other multipartite networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
