@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and SymPy installed. The included `verification-output.txt` is the exact recorded successful execution output. The program constructs the symmetric quintic with the hyperplane equation substituted, differentiates exactly, and evaluates the full four-by-four local Hessian in the last-coordinate-one affine chart. It checks nonzero determinants for the diagonal and signed nodes in characteristic three and the signed node in characteristic five.
+## correctness
 
-It independently exhausts the prime-field projective points on the defining equations in characteristics three and five, tests singularity using the full six-coordinate Jacobian criterion, and verifies equality with the union of coordinate boundary and signed torus points. It reports 35 boundary points, ten signed nodes and one diagonal node in characteristic three, and 75 boundary points plus ten signed nodes in characteristic five. The output terminates in `VERIFY_OK`.
+PASS
 
-These computations are exact but finite. Infinite-field geometric completeness, the local ordinary-double-point classification over algebraic closures, and all-extension rational point counts are established by the symbolic arguments in `RESULT.md`; the program does not purport to certify every finite extension. No claim about a global resolution or about the nonreduced structure of the singular scheme is checked or made.
+The e5 derivative on the nonzero torus is −P/x_i², giving signed solutions; the elementary-sign equation has exactly ten projective 3+3 patterns in every odd characteristic and the two all-equal representatives coalesce into one additional point in p=3. The zero-coordinate strata separate smooth two-zero points from singular three-zero lines. The quadratic cone Q(u)=∑s_i u_i² on W={∑u_i=0} has polar radical the radial line ks, hence rank four on projectivization. The boundary point count is 20(q−2)+15=20q−25. Independent full projective F3/F5 singular censuses corroborate 46 and 85, but the written algebraic-closure argument proves completeness.
+
+## originality
+
+PASS
+
+Qualified PASS for the additional characteristic-three geometric singularity, not for the classical 20 lines/ten nodes. The inspected characteristic-zero and good-prime geometry explicitly excludes bad reduction at p=3; no inspected source supplies this bad-fiber eleventh ordinary node or full odd-prime point-support comparison. This is a best-of-knowledge priority assessment.
+
+## value
+
+PASS
+
+Determines a sharp bad-reduction singularity jump and all-extension rational support count in a classical Calabi–Yau-related threefold. The extra S6-fixed ordinary node changes a natural arithmetic-geometric boundary, beyond routine coordinate substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
