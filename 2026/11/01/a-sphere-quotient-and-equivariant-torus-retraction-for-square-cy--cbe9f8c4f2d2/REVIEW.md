@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is about the ordinary open-neighborhood complex of the square of an \(n\)-cycle for all \(n\ge9\). It supplies explicit coordinate homotopies on every maximal tetrahedron: the minimum of its two extreme barycentric coordinates is transferred equally to the two inner coordinates. The homotopy fixes the retained pair of triangular faces, agrees with neighboring tetrahedral charts on their intersections, and commutes with rotation and reflection. The core has \(n\) vertices, \(3n\) edges and \(2n\) triangles; all edges have two incident triangles, links are six-cycles, and a signed global 2-cycle gives an orientation. It is therefore an oriented genus-one surface. The cyclic quotient is also an oriented torus, and the remaining reflection is orientation-preserving with exactly four fixed points. Its quotient is a sphere. The homology character follows from covering transfer and reversal of the quotient torus's two generating loops. The verifier completed exact combinatorial checks for every integer from 9 through 64, including group action, gluing, orientations and Lefschetz traces. Finite checks are corroboration; the symbolic local proof establishes all cases. No issue remains in the new theorem's hypotheses or normalization.
+## correctness
 
-## Originality — PASS, with qualifications
-Matsushita (arXiv:1404.1549; first posted 2014-04-06) studies the neighborhood complex in the setting of Kronecker double coverings, but does not determine this ordinary dihedral quotient. Shukla (arXiv:1802.04526; first posted 2018-02-13), inspected in its arXiv full-text Theorems 2.5 and 4.4 and proof, already covers nonequivariant connected-sum-of-tori homotopy for four-regular circulant graphs and the particular torus here. That known fact is expressly excluded from the novelty claim. Its statements and full relevant proof neither analyze reflections nor the full-automorphism quotient, and a non-equivariant homotopy equivalence alone does not imply a quotient homotopy classification. Indexed mathematical searches by exact graph, parameters, analogous dihedral characters and orbit quotients returned neighboring but noncovering results for third-power cycle neighborhoods, toroidal grids and different dihedral graph complexes. Related previously recorded mathematical claims were checked by their statements; one treats the same graph's **independence**, rather than neighborhood, complex, while another treats fourth-power cycle neighborhoods. An unindexed equivalent equivariant calculation is still possible.
+PASS
 
-## Value — PASS
-The dihedral group is the **entire natural symmetry group** of the cycle-square graph. Passing from a genus-one neighborhood complex to a genus-zero full symmetry quotient is a meaningful structural classification not recoverable from previously published nonequivariant Betti numbers or torus homotopy type. The explicit uniform strong deformation retraction is equivariant, so it establishes the correct orbit-space topology instead of assuming ordinary homotopy equivalence respects quotients. The exact rational symmetry character supplies an independently usable refinement of the topology.
+N(i)={i-2,i-1,i+1,i+2} gives n tetrahedral generators; C_n^2 has full automorphism group D_n since adjacent gap-one edges have two common neighbors and gap-two edges have one for n>=9. T_n comprises triangles {i,i+1,i+3} and {i,i+2,i+3}; all distinct, connected six-cycle vertex links, orienting chain Σ(A_i−B_i), Euler zero -> torus. The barycentric min(a,d) map on each tetrahedron sends its unique long diagonal toward the two kept faces, is identity on overlap faces, and is D_n-compatible, yielding global equivariant SDR. Rotation quotient has one vertex, three loop edges and two faces with commutator relation, so torus; reflection reverses three loop edges, swaps open triangles, fixes exactly one vertex and three edge midpoints, preserves orientation; 4 branch points give Euler 2 => S². H1 action follows degree-one loop reversal and cover transfer, H2 orientation. Independently enumerated for n=9,10,11,12,15 f(K)=(n,4n,4n,n), f(T)=(n,3n,2n), tetra overlaps in T, six-cycle links and two faces per T edge. Universal claims use symbolic argument. Sources: Pinned RESULT.md Git blob 89c5db7cb65cdc9ed25cb450f38b8b579f3076a8, Steps 1-6 with explicit local homotopy.; Independent finite simplicial incidence checks n=9,10,11,12,15; orientation and quotient classification reasoned directly.
 
-## Boundaries and reproducibility
-The original quotient is asserted homotopy equivalent, not homeomorphic, to the sphere. There is no claim about low-order collisions, Borel invariants or independent priority certification. Reproduce via `python3 verify_square_cycle.py`, expecting the terminal marker `CYCLE_SQUARE_DIHEDRAL_VERIFY_OK`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shukla (2018/2019) covers the same C_n(1,2) nonequivariant torus homeomorphism/surface topology, expressly not new here. The D_n-equivariant deformation retraction, full dihedral quotient sphere and rational representation are stronger distinct assertions not entailed by that theorem. Best-of-knowledge PASS with explicit same-object prior coverage.
+
+## value
+
+PASS
+
+The exact full-symmetry orbit topology of a natural graph neighborhood complex is not determined by the already known torus type; the explicit equivariant retraction, symmetry characters and quotient sphere answer that motivated geometric gap. This is a nontrivial equivariant refinement of a known result, not an unsupported tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
