@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Proposition 5.2 vertex strings give exactly the finite Markov matrix. Similarity and tridiagonal determinant recurrence are algebraic identities. Dirichlet quadratic-form localization yields the Airy variational limit with coefficient a1*72^(1/3); the boundary and tightness arguments are explicitly supplied in RESULT.md. CHECK.py completed 359 diagnostics, with no extrapolation used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Máté–Nevai–Totik (1986) address general extreme zeros on unbounded intervals (abstract); Krasikov (2004) addresses symmetric recurrences with zero diagonal.",
+        "The audited Jacobi matrix has both linearly increasing diagonal and off-diagonal; the accessed classical abstracts do not provide its exact Airy coefficient."
+      ],
+      "reasoning": "General Jacobi extreme-zero methods are a material priority risk. The checked classical symmetric case does not directly include the present nonsymmetric recurrence before symmetrization with a nonzero growing diagonal; no explicit stronger result giving this cutoff entropy law was found.",
+      "searches": [
+        "largest zeros orthogonal polynomials recurrence coefficients a_n ~ a n b_n ~ b n Airy n^(1/3) strongest asymptotic",
+        "Asymptotics for the Greatest Zeros of Orthogonal Polynomials SIAM 1986",
+        "Turan inequalities and zeros of orthogonal polynomials Krasikov arxiv math/0401299",
+        "Jacobi matrix diagonal 2n+5 off diagonal 2 sqrt((n+2)(n+3)) Perron root Airy asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.39443v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d",
+      "https://doi.org/10.1112/jlms/s2-33.2.303",
+      "https://arxiv.org/abs/math/0401299"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] proves that the noncompact map is mixing and has infinite entropy by blockwise horseshoes; this does not quantify bounded-block survivors.",
+        "Source [2] concerns a Schweitzer-competition map with exponential block growth, and correction of order inverse largest block.",
+        "Source [3] has geometric infinite shift weights and q-to-one limit, not K-to-infinity increasing cutoffs."
+      ],
+      "reasoning": "The present positive transition counts and Airy spectral edge require new block counting and spectral scaling for a different model; neither inspected special theorem logically implies them without additional substantial hypotheses and computation.",
+      "searches": [
+        "arXiv:2610.39443v1 Proposition 5.2 Section 6",
+        "A finite-core Airy spectral edge and entropy law for infinite-entropy mixing map with alternating 6(k+2) full branches",
+        "infinite entropy mixing interval map increasing lap count truncation Perron spectral radius finite core 6N minus Airy correction",
+        "SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4",
+        "SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary Proposition 5.2 [1] is phrased by unbounded horseshoes, not the tridiagonal finite-core Perron spectrum.",
+        "The finite-core transition matrix is diagonally similar to the explicit Jacobi matrix in RESULT.md, so those formulations were searched together."
+      ],
+      "reasoning": "The exact finite-core entropy and its Airy boundary term are equivalent to an asymptotic largest-eigenvalue claim for the concrete tridiagonal matrices. Actual source and published-finding corpus queries did not locate that exact matrix or constant; absence of a hit is not a uniqueness proof.",
+      "searches": [
+        "Vinod Kumar P B infinite entropy D plus interval map compact survivor sharp entropy 6K Airy",
+        "Jacobi matrix diagonal 2n+5 off diagonal 2 sqrt((n+2)(n+3)) Perron root Airy asymptotic",
+        "published-finding corpus semantic search for mixing infinite entropy map, Perron Jacobi and Airy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published cutoff theorem [2] supplies a different four-adic map and a constant-scale Perron correction.",
+        "Published Airy law [3] concerns numerical radius of geometric weighted shifts and not this finite-core Jacobi matrix."
+      ],
+      "reasoning": "The searched public mathematical records and inspected nearest results did not contain a numerical table or exact formula for the source map bounded-block survivor spectrum; this does not exclude unindexed tables.",
+      "searches": [
+        "Vinod Kumar P B infinite entropy D plus interval map compact survivor sharp entropy 6K Airy",
+        "A finite-core Airy spectral edge and entropy law for infinite-entropy mixing map with alternating 6(k+2) full branches",
+        "infinite entropy mixing interval map increasing lap count truncation Perron spectral radius finite core 6N minus Airy correction",
+        "published-finding corpus semantic: finite cutoff Perron eigenvalue countable interval maps Airy entropy"
+      ]
+    },
+    "rationale": "Novelty is bounded to a specific noncompact published interval-map construction and its natural finite survivors: the matrix, exact root recurrence and Airy edge are not asserted in the motivating full text. Nearby inspected published finite cutoff and Airy shift theorems address inequivalent operators and do not imply the claim. General extreme-zero literature may contain methodological or historical priority; no checked stronger coverage was found.",
+    "residual_risks": [
+      "Unindexed or inaccessible general Jacobi-extreme-zero results may contain an equivalent Airy scaling theorem.",
+      "Classical Airy-edge asymptotics could offer alternative proofs of the spectral correction; historical priority remains provisional.",
+      "The finite-branch symbolic entropy equality assumes the standard finite Markov coding for expanding piecewise-affine interval maps; endpoint multiplicities are entropy-zero."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the map and infinite entropy but no finite block survivor Perron matrix or Airy edge",
+        "evidence": "Proposition 5.2, vertex sequences and block horseshoes; Section 6 construction",
+        "identifier_or_url": "https://arxiv.org/html/2610.39443v1",
+        "material_read": "Full text including Definition, Proposition 5.2 and Section 6",
+        "method": "Read arXiv HTML, inspected complete block definitions and proof of mixing and infinite entropy",
+        "title": "The entropy spectra of chaotic maps of an interval",
+        "trigger": "Same dynamical map and all affine vertex parameters"
+      },
+      {
+        "assessment": "Other map with four-adic growth and different successor matrix; no logical coverage",
+        "evidence": "Its C_r has cumulative m_k transitions and leading root m+1/3+..., unlike present tridiagonal linear row growth",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4",
+        "material_read": "Full finding and assumptions, key equation comparison",
+        "method": "Fetched public repository RESULT.md and compared T, matrix entries, correction scales",
+        "title": "Exact finite-cutoff zeta and Perron correction for a countable Markov map",
+        "trigger": "Nearest exact finite-block entropy/Perron result"
+      },
+      {
+        "assessment": "The operator is an infinite geometric weighted shift; not the current finite Jacobi truncation",
+        "evidence": "It states w(T_q)=L-a1*kappa^(1/3)*(1-q)^(2/3)+..., unlike this K-dependent matrix",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d",
+        "material_read": "Full finding and assumptions, mathematical operator and limit parameter",
+        "method": "Fetched public repository RESULT.md and compared hypotheses and limiting regimes",
+        "title": "A sharp Airy-edge law for four-periodic geometric weighted shifts",
+        "trigger": "Matching Airy zero and fractional edge exponent"
+      },
+      {
+        "assessment": "Possible methodological coverage; no checked direct implication of explicit result",
+        "evidence": "Studies asymptotics of zeros for broad orthogonal families",
+        "identifier_or_url": "https://doi.org/10.1112/jlms/s2-33.2.303",
+        "material_read": "Title and abstract/search metadata only",
+        "method": "Bibliographic and abstract comparison",
+        "title": "Asymptotics for the Zeros of Orthogonal Polynomials associated with Infinite Intervals",
+        "trigger": "Potential general dominating extreme-zero asymptotics"
+      },
+      {
+        "assessment": "No verified direct implication; remains general-literature risk",
+        "evidence": "The abstract states symmetric recurrence p_{k+1}=xp_k-c_k p_{k-1}",
+        "identifier_or_url": "https://arxiv.org/abs/math/0401299",
+        "material_read": "ArXiv abstract, not full manuscript",
+        "method": "Compared specified symmetric zero-diagonal recursion with present growing-diagonal Jacobi problem",
+        "title": "Turán inequalities and zeros of orthogonal polynomials",
+        "trigger": "General tridiagonal extreme-root bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e937cf1-7390-4205-8984-bb882507560b",
+  "value": {
+    "rationale": "Quantifies the natural compact survivors of a newly published explicit mixing infinite-entropy interval map, with an exact finite cutoff matrix and sharp Airy K^(-2/3) entropy correction. This motivated invariant distinguishes the rate at which finite observation windows recover unbounded complexity, rather than just recomputing infinite entropy or a simple point count.",
+    "status": "PASS"
+  }
+}
