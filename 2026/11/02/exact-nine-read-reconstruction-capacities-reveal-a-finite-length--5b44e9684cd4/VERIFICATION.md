@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `g++ -O3 -std=c++17 CHECKER.cpp -o checker && ./checker` with GCC/libstdc++. The recorded output is in `OUTPUT.txt`.
+# Independent mathematical audit
 
-The checker constructs each binary one-deletion, up-to-one-substitution ball in two independent ways: by integer bit deletion and by string erasure followed by optional bit flips. It asserts equality for all \(480\) input words of lengths five through eight. Every pairwise overlap is counted as a set intersection; every stored lower-bound clique is checked for compatibility.
+## correctness
 
-An exhaustive color-bounded maximum-clique search then rules out clique sizes exceeding \(18,26,26,24\) on the respective graphs. The coloring bound is admissible because each color class is an independent set; removing previously processed vertices and intersecting with neighborhoods gives exhaustive branching over candidate cliques. Successful completion is the upper-bound certificate, not merely a solver log or a failed timeout.
+PASS
 
-## Recorded checks
-- Length \(5\): \(69\) forbidden pairs, \(19\) search nodes, optimum \(18\).
-- Length \(6\): \(555\) forbidden pairs, \(23\) search nodes, optimum \(26\).
-- Length \(7\): \(2{,}373\) forbidden pairs, \(820\) search nodes, optimum \(26\).
-- Length \(8\): \(7{,}835\) forbidden pairs, \(6{,}756{,}323\) search nodes, optimum \(24\).
+For n<=4 all length-(n−1) binary outputs number fewer than nine, so all 2^n inputs are compatible. For n=5..8 the one-deletion-plus-at-most-one-flip sets yield a finite graph whose cliques are exactly admissible codebooks. Independently recomputed every ball and pair intersection, obtaining incompatible pair counts 69,555,2373,7835; every listed witness of sizes 18,26,26,24 satisfied pairwise intersection <9. Inspected CHECKER.cpp bitset construction, two independent ball implementations and its valid recursive proper-color clique upper bound; separately compiled and ran an independent C++ bitset branch-and-bound, matching node counts 19,23,820,6756323 and ruling out larger cliques. The finite exhaustive proof covers lengths 1..8 only; n=8 decline does not assert an infinite monotonicity law or nine physically distinct outputs at every codeword.
 
-For lengths one through four, the elementary bound from the total output alphabet proves that every word is compatible with every other word. These are finite exact results only. The source code does not assess priority, prove an infinite-length formula, or replace independent mathematical auditing.
+## originality
+
+PASS
+
+The nine-read deletion/substitution channel and its asymptotic redundancy constructions are established. The precise finite-length maxima and counterintuitive decline at n=8 were not located in the searched published records, with the primary 2026 full text inaccessible.
+
+## value
+
+PASS
+
+Short-blocklength reconstruction capacity is a natural exact coding invariant; 26 at n=7 followed by 24 at n=8 is a meaningful finite boundary demonstrating that length need not improve size under the precise pairwise read model. It is neither a trivial tiny-instance check nor a general asymptotic theorem; bounded 1..8 scope is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

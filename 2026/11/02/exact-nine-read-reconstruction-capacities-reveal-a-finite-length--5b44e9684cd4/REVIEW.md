@@ -1,15 +1,21 @@
-# Review of nine-read binary reconstruction capacities
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is fully finite and the graph reduction is an equivalence, not a heuristic. The channel uses one exact deletion and zero or one substitution with duplicate outputs removed. All \(480\) nontrivial output balls are crosschecked between independent representations. The four explicit codebooks attain the reported values; exhaustive maximum-clique enumeration with a proper greedy-color bound rules out all larger ones. The tiny lengths follow from an unconditional output-alphabet bound. `CHECKER.cpp` is the exact proof procedure and `OUTPUT.txt` is its replay result. The validity of color-based pruning and completeness of the branches were inspected separately from the outputs.
+## correctness
 
-## Originality
-**PASS within the checked literature, with residual priority risk.** The most relevant 2026 source proves an asymptotic nine-read construction for lengths at least ten, and the 2025 mixed-error papers supply pairwise bounds and other read-count constructions, not the unrestricted length-five-to-eight maxima. Published indexed results closest to the search concern conventional error correction, other read counts, or other deletion channels. The prior five-read finite-capacity sequence uses a strictly stronger code constraint and cannot imply the nine-read optimum. Actual searches, source sections and implication comparisons are recorded in `AUDIT.json`. Unindexed finite tables and independently performed computations cannot be excluded.
+PASS
 
-## Value
-**PASS.** The fixed nine-read regime is singled out by current code-construction research. The complete initial capacity profile supplies optimal short-block benchmarks and reveals a first strict blocklength decline from \(26\) to \(24\), showing that the formal finite-length reconstruction capacity need not increase with length. This is a natural boundary and not a routine extension to one more blocklength of an already-known nine-read table.
+For n<=4 all length-(n−1) binary outputs number fewer than nine, so all 2^n inputs are compatible. For n=5..8 the one-deletion-plus-at-most-one-flip sets yield a finite graph whose cliques are exactly admissible codebooks. Independently recomputed every ball and pair intersection, obtaining incompatible pair counts 69,555,2373,7835; every listed witness of sizes 18,26,26,24 satisfied pairwise intersection <9. Inspected CHECKER.cpp bitset construction, two independent ball implementations and its valid recursive proper-color clique upper bound; separately compiled and ran an independent C++ bitset branch-and-bound, matching node counts 19,23,820,6756323 and ruling out larger cliques. The finite exhaustive proof covers lengths 1..8 only; n=8 decline does not assert an infinite monotonicity law or nine physically distinct outputs at every codeword.
 
-## Limits
-The result neither provides an infinite-length formula nor classifies all optimum codes; the coding condition itself is formal and may be satisfied by words with fewer than nine available distinct outputs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nine-read deletion/substitution channel and its asymptotic redundancy constructions are established. The precise finite-length maxima and counterintuitive decline at n=8 were not located in the searched published records, with the primary 2026 full text inaccessible.
+
+## value
+
+PASS
+
+Short-blocklength reconstruction capacity is a natural exact coding invariant; 26 at n=7 followed by 24 at n=8 is a meaningful finite boundary demonstrating that length need not improve size under the precise pairwise read model. It is neither a trivial tiny-instance check nor a general asymptotic theorem; bounded 1..8 scope is explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
