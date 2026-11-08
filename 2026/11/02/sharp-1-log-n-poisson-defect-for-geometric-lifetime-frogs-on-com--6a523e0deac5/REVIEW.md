@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent killed-frog trajectories encode the reached set as a directed root component. The exact forbidden-set probability \(Q_s=(1+\mu s/(n-1))^{-1}\) gives factorial moments of indegree-zero targets. Quantitative inclusion–exclusion yields Poisson error \(o(\mu^{-2})\); an optional-stopping argument bounds extinction after a successful first jump by \(O(\mu^{-2})\); an explicit union bound eliminates internal edges in small unreachable sets at rate \(O(\mu/n)\). The root-no-jump event has probability exactly \((1+\mu)^{-1}\) and creates a macroscopic atom. These facts reconstruct both total-variation and coverage expansions. The exact rational checker passes 1,265 assertions; finite checks are not substitutes for the proof.
+## correctness
 
-**Originality — PASS, qualified.** Ball and Barbour (1990), *Poisson Approximation for Some Epidemic Models*, pp. 479–490, already obtain a Poisson approximation and the order \(O(1/\log n)\) for the almost-geometric epidemic. Their remarks recognize early-extinction effects and suggest a mixture, so these facts are explicitly excluded from the novelty claim. The new assertion is the precise coefficient one for this frog model, with quantitative mixture approximation of order \(O((\log n)^{-2})\) and an exact first correction to cover probability. De Carvalho and Machado (2022) address fixed survival parameters in the matching one-root model, while their 2024 work addresses a related high-survival threshold model but not this expansion. Full-text source comparison and record searches found no equivalent sharp coefficient. A sharper but unlocated general epidemic refinement remains a real historical-priority risk.
+PASS
 
-**Value — PASS.** Earlier work left the leading error term in its \(O(1/\log n)\) approximation unspecified. The theorem identifies the rare one-step extinction mechanism, proves that it alone accounts for the leading total-variation defect, and separates it from the Poisson late-coverage mechanism. This is a natural quantitative question in finite-population coverage and epidemic approximation, not a routine change of notation.
+Preassigned killed trajectories give directed root reachability and exact forbidden-set avoidance Q_s=(1+mu*s/(n-1))^-1. Target indegree-zero factorial moments for k vertices are (n-1)_k Q_(k-1)^k Q_k^(n-k), or exponent n-k-1 on excluding root arcs, then uniform small-k estimates with truncated inclusion-exclusion give Poisson law to o(mu^-2). After a first jump the active population is at least two; supermartingale rho^a with rho=2(1-p)/p bounds extinction before n/2 discoveries by O(mu^-2). A union bound for internally connected but externally inaccessible subsets s<=n/2 is O(mu/n), so unvisited and indegree-zero counts couple. The root no-jump event is independent of root-excluded indegree-zero variable and has exact probability q. Independent rational absorbing-recursion versus closed-reachable-set recursion passed n=2..8 for several rational p. The mathematical proof contains analytic estimates for all large n, not inferred from finite tests.
 
-**Scientific limitations.** Fixed \(c\), homogeneous complete graphs, geometric lifetimes, one initial root frog. The result does not assert a universal rate for all severe epidemics or initial conditions. Historical priority awaits independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Poisson survivor limit and O(1/log n) error in almost-geometric severe epidemic models are explicitly prior art, and Ball–Barbour already suggest Poisson/early-extinction mixtures. The specified exact coefficient one and O(mu^-2) quantitative finite-frog mixture were not derived in material read; residual possibility of a sharper epidemic theorem noted.
+
+## value
+
+PASS
+
+A sharp first-order refinement of a natural frog/epidemic coverage limit: isolates the exact q~1/log n mass at macroscopic early extinction from late isolated-vertex Poisson fluctuations. Quantitative coefficient and coverage correction matter because earlier general results stated only order bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
