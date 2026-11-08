@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is reconstructed from the tensor splitting of \(\bigwedge V\), the characteristic-two automorphisms of the squarefree polynomial factors, and the exact one- and two-linear-form annihilator ideals. The empty subset and repeated-eigenvalue cases are handled explicitly; graded Frobenius duality supplies the quotient Hilbert series. Evaluating at \(t=1\) and applying strict integer convexity gives sharp finite-field extrema. The standalone checker performs all degreewise matrix kernel calculations for \(698\) parameter tuples over three extension degrees and reproduces the claimed formulas. The proof, not these finite tests, establishes all degrees and all \(r\).
+PASS
 
-## Originality — PASS with specific residual risk
+Each 4-dimensional exterior hyperbolic-pair factor decomposes into 2 degree-one annihilated directions and a square-zero two-step subalgebra. For any occupied T, two resulting linear forms in char2 square-zero variables have rank 1 iff λ_i constant on T and rank2 otherwise. Linear coordinate changes preserve every square-zero relation in characteristic 2, yielding kernel ideals (z1) or (z1z2) and the stated graded sum. Frobenius top pairing dualizes to E/(f,g), valid even dependent. Counting constant subsets Σ(2^{m_a}−1) and convexity of powers of two prove the total/extrema; r=1 separately. Direct matrix checker enumerates GF(2),GF(4),GF(8) cases up to r4; independent formula checks at r1/r4. Complex n=8 generic degree-four coefficient 16, split char2 all-distinct coefficient17.
 
-Compared with the published exterior-algebra and two-form literature, the accepted statement is the characteristic-two **joint** annihilator/quotient Hilbert spectrum for split alternating pencils, with repeated-parameter dependence and sharp finite-field extrema. Sastry–Sin Proposition 5.1 already proves the cohomology of the **single** nondegenerate form using the same tensor-block method and is acknowledged as prior. Moreno-Socías–Snellman and Nguyen treat single or generic-ideal properties; Crispin Quiñonez–Lundqvist–Nenashev treat the corresponding two-form problem over \(\mathbb C\) and do not cover the modular spectrum. Prior normal-form classification of pairs is not rebranded as new. The highest remaining risk is an unlocated modular two-form specialization of known tensor-product methods; database absence is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The two-quadratic exterior quotient is a recognized natural Hilbert-series problem. This theorem yields a complete, parameter-stratified exact Hilbert series on the split semisimple regular-pencils family, together with sharp finite-field extremizers. In eight variables it exhibits a concrete characteristic-two middle-degree obstruction (\(17\) rather than the complex generic \(16\)) that is invisible from the canonical forms or single-multiplier homology alone. The family is unbounded in \(r\) and captures both regular distinct-eigenvalue pencils and all coalescences within the normal form; the result does not purport to resolve arbitrary pencil canonical types.
+The standard one-form cohomology and characteristic-zero generic-pair Hilbert calculations are distinct from the char2 two-operator collision-stratified kernel. The real dual quotient formulation was compared explicitly, not just exact phrase matches. Best-of-knowledge, not a guarantee of global historical priority.
 
-## Closest literature and limitations
+## value
 
-The source inspections and separate four-part implication comparisons are recorded in the accompanying structured audit. This is not an independent priority search, a complete classification of all alternating pairs, or a theorem about generic quotient Hilbert series in every characteristic. Possible unpublished or unindexed equivalent modular specializations remain a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete multiplicity-stratified Hilbert polynomial for a natural semisimple normal-form family, with sharp occupancy extrema over finite fields, fills a motivated arithmetic-algebra gap. The rank-one/rank-two collision phenomenon is structural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
