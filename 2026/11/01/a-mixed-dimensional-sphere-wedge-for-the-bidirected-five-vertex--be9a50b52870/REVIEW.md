@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and its directed-linear-forest complex are fully specified, including both arc orientations and the exclusion of directed cycles. The supplied standalone certificate checks all \(2^{16}\) subsets (no sampling), the 261 faces, the full 116-pair acyclic matching, and the signed integral Morse differential. The resulting CW model has one vertex, 19 two-cells, and eight three-cells, with zero integral boundary. Hurewicz identifies the degree of each three-cell attaching map with its integral cellular boundary in the 19-sphere two-skeleton; since those degrees all vanish, the attaching maps are nullhomotopic. This establishes \(\bigvee^{19}S^2\vee\bigvee^8S^3\), not merely mod-two Betti numbers. Cross-checks include the complete mod-two boundary ranks and Euler characteristic. Risk: the exact finite certificate is a necessary part of the argument and must be rerun from these files; it is not an independent external audit.
+## correctness
 
-## Originality — PASS (best-knowledge, not uniqueness proof)
-The closest full-text paper inspected, Deshpande–Sawant, arXiv:2602.14936, defines the complex, studies vertex-decomposability/shellability, and explicitly poses homotopy-type classification for directed-cycle examples as Problem 6.3, but does not calculate this wheel. Caputi–Collari–Smith, arXiv:2601.05670, studies bidirected paths and polygons, not a wheel with four additional spokes. published-finding corpus comparisons of direct aliases, the exact sphere ranks, wheel multipath complexes, and stronger coverage did not return a matching claim. The indexed bidirected-double-star result concerns trees, while the indexed five-vertex wheel *discrete-Morse complex* is a distinct simplicial construction. Other accessible indexed mathematical claims yielded no covering result. Residual risk: a nonindexed computation or an unpublished stronger theorem may encompass the example.
+PASS
 
-## Value — PASS
-This is the first genuine wheel beyond the degenerate three-rim complete graph. Bidirectionality introduces mutually overlapping directed cycles, making it a natural smallest test of the 2026 problem of classifying directed-linear-forest complex homotopy types beyond paths, polygons, and trees. The two nonzero homotopy sphere dimensions are an instructive, nonautomatic phenomenon: an f-vector or mod-two rank calculation would not certify the claimed wedge. The result is a complete exact integral homotopy type of a canonical object, not an arbitrary parameter slice. Larger wheel families remain open.
+Independently exhaustively evaluated 2^16 arc masks using degree-in/out≤1 and no directed cycle, finding 260 nonempty faces. Reconstructed exact pivot order acyclic matching with 116 nonempty pairs and critical cells 1 vertex,19 2-cells,8 3-cells. Independently formed signed algebraic Morse boundary, all eight three-to-two columns zero. Hurewicz of wedge19 S2 two-skeleton implies null three-cell attaching maps, hence wedge19 S2∨wedge8 S3.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published Dlf and multipath foundations study bidirected paths/polygons and broad classes, not hub-and-four-spoke wheel; published five-vertex wheel Morse complex concerns acyclic partial matchings, not multipath arcs.
+
+## value
+
+PASS
+
+An exact small mixed-dimensional example on the first nontrivial bidirected wheel complements known polygon/forest classifications and demonstrates two adjacent degrees in a natural cycle-rich directed-graph configuration complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

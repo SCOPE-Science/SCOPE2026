@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the directed-linear-forest wheel classification
+# Independent mathematical audit
 
-The Python 3 program `verify.py` is self-contained and reconstructs the graph, rather than loading a face list or a stale computation. Run:
-```
-python verify.py
-```
-It exhausts all \(65,536\) directed-arc masks, checking the indegree, outdegree, and no-directed-cycle conditions. It verifies \(261\) faces, of which 260 are nonempty. It then replays the fixed toggle order, checks \(116\) matching pairs and \(28\) critical cells (one of dimension zero, 19 of dimension two, eight of dimension three), checks every arrow in the reversed Hasse graph by topological sorting, and calculates all eight signed integral Morse boundary columns. Each such column vanishes **as an integer vector**, not merely mod two. The direct full simplicial \(\mathbb F_2\) boundary ranks are \(15\), \(61\), and \(40\), providing a separate finite consistency check.
+## correctness
 
-These computer checks are exhaustive for the specified graph and use no third-party mathematical software. Discrete Morse theory and the Hurewicz isomorphism in dimension two are the conceptual steps translating the certified CW differential to the claimed wedge homotopy type. The certificate is not a theorem about larger wheels and is not an independent audit.
+PASS
+
+Independently exhaustively evaluated 2^16 arc masks using degree-in/out≤1 and no directed cycle, finding 260 nonempty faces. Reconstructed exact pivot order acyclic matching with 116 nonempty pairs and critical cells 1 vertex,19 2-cells,8 3-cells. Independently formed signed algebraic Morse boundary, all eight three-to-two columns zero. Hurewicz of wedge19 S2 two-skeleton implies null three-cell attaching maps, hence wedge19 S2∨wedge8 S3.
+
+## originality
+
+PASS
+
+Published Dlf and multipath foundations study bidirected paths/polygons and broad classes, not hub-and-four-spoke wheel; published five-vertex wheel Morse complex concerns acyclic partial matchings, not multipath arcs.
+
+## value
+
+PASS
+
+An exact small mixed-dimensional example on the first nontrivial bidirected wheel complements known polygon/forest classifications and demonstrates two adjacent degrees in a natural cycle-rich directed-graph configuration complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
