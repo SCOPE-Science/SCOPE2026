@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:01:59.893603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On normalized Bergman monomial bases for -1<alpha<0, beta>alpha+2, the differential Hilbert coefficient B_ij=(i+1)/(i+j+1) sqrt(w_i(beta)/w_j(alpha)) has strictly positive Cauchy exterior minors. Dividing the kth compound by product of first k target row weights leaves row factors q_I decreasing and log convex, and positivity of maximizing vectors yields strict norm decrease; Holder gives log convexity. Fixed compact compound operator plus strong convergence of diagonal row weights to the first-row projection yields operator-norm convergence, whose selected exterior row norm equals k! sqrt(det G_k(alpha)) by Cauchy–Binet and the binomial moment kernel. Positive definite G and w_m(beta)~m! beta^{-m} imply the sharp fixed-k s_k~k sqrt((k-1)!) sqrt(det G_k/det G_{k-1}) beta^{-(k-1)/2}. At alpha=-1/2, k=1 constant 2sqrt(log 2). Independent finite-section SVD verified decreasing first three normalized singular-value products across beta=3,8,20,80; finite truncation not asserted to certify the limiting constants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhou Theorems 3.1/4.2 give boundedness, compactness, trace class and norm information for varying weights.",
+          "Chiotis–Lykova–Young discuss exterior products in superoptimal approximation, without the specialized beta-weight asymptotic matrix."
+        ],
+        "reasoning": "General exterior-product identities are computational machinery, not a theorem implying the precise strict monotonicity, log convexity, or asymptotic constants of this operator.",
+        "searches": [
+          "Resultary: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant",
+          "Li–Zhou arXiv:2610.05672v1 full text",
+          "Chiotis–Lykova–Young DOI:10.1112/tlm3.12035"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md c35da5af6231ef1912497cf8238a368ee4e5119e",
+        "SCOPE2026 frozen check_spectral.py 8498071ef1a46e9f3d56eaaa8f5cad7b033afbaf",
+        "Li–Zhou arXiv:2610.05672v1",
+        "Resultary semantic query: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Li–Zhou norm result is effectively a k=1 antecedent and not a ratio-of-compounds assertion for every k.",
+          "Here k is arbitrary fixed, and s_k is obtained from two successive exterior norms."
+        ],
+        "reasoning": "Single operator norm and Schatten membership do not determine individual singular-value rates; the stronger claim needs the proved exterior row limit.",
+        "searches": [
+          "Resultary: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant",
+          "Li–Zhou arXiv:2610.05672v1 full text",
+          "Chiotis–Lykova–Young DOI:10.1112/tlm3.12035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Li–Zhou normalized coefficient matrix is exactly the one used as input.",
+          "Classical exterior powers identify products of leading singular values, but their absolute row asymptotics require a new compact limit and Gram determinant calculation."
+        ],
+        "reasoning": "Compared approximation numbers, compact Schatten membership and singular values as aliases; previous norm/Schatten statements do not fix the whole fixed-index hierarchy.",
+        "searches": [
+          "Resultary: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant",
+          "Li–Zhou arXiv:2610.05672v1 full text",
+          "Chiotis–Lykova–Young DOI:10.1112/tlm3.12035"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-k Gram determinant G_k(alpha) is analytically defined for a continuum of alpha, so no finite numerical table in inspected sources resolves it for all alpha,k."
+        ],
+        "reasoning": "A precomputed finite spectral table or numerical norms would not imply all-beta monotonicity or large-weight asymptotics.",
+        "searches": [
+          "Resultary: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant",
+          "Li–Zhou arXiv:2610.05672v1 full text",
+          "Chiotis–Lykova–Young DOI:10.1112/tlm3.12035"
+        ]
+      },
+      "rationale": "Li–Zhou provide the differential Hilbert operator’s monomial coefficient matrix, boundedness, compactness, trace class and weighted norm framework, but the inspected full paper does not calculate large target-weight fixed-rank singular asymptotics, exterior-product log convexity or the evaluated Gram determinant hierarchy. Classic exterior-power and total positivity identities are ingredients, not newly claimed theorems. Best-of-knowledge noncoverage is qualified by operator-spectrum literature risk.",
+      "residual_risks": [
+        "An older singular-value asymptotic under approximation-number nomenclature could imply the stated constants; priority is best-of-knowledge.",
+        "The beta asymptotic holds for fixed k only; no uniform k growth.",
+        "The finite section at high beta truncates the input heavily and cannot estimate exact limiting Gram constants reliably."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides premises but NOT THE STATED full fixed-index target-weight asymptotics in inspected results",
+          "evidence": [
+            "Coefficient normalization and compactness are source theorems; no determinant-Gk hierarchy stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05672",
+          "material_read": "Full accessible arXiv PDF, operator monomial matrix, boundedness/compactness, Gram and norm, Schatten theorem and references",
+          "method": "arXiv PDF and page-image inspection",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Exact named operator and weight domain"
+        },
+        {
+          "assessment": "GENERAL METHODOLOGY ONLY; full-document noncoverage not claimed",
+          "evidence": [
+            "Exterior power norm identity is established independent mathematics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/tlm3.12035",
+          "material_read": "Public abstract/results metadata and accessible excerpts, not full journal text",
+          "method": "Bibliographic and excerpt inspection",
+          "title": "Exterior products of operators and superoptimal analytic approximation",
+          "trigger": "General exterior-power tools might dominate claimed proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All fixed approximation-number levels of an established two-weight differential Hilbert operator acquire exact beta-decay powers and positive Gram-determinant constants; this distinguishes persistent constant mode from rapidly suppressed higher ranks. It is a useful full hierarchy, not a routine reparameterization of a single norm estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 frozen RESULT.md c35da5af6231ef1912497cf8238a368ee4e5119e",
+    "SCOPE2026 frozen check_spectral.py 8498071ef1a46e9f3d56eaaa8f5cad7b033afbaf",
+    "Li–Zhou arXiv:2610.05672v1",
+    "Resultary semantic query: differential Hilbert operator weighted Bergman spaces singular values target weight large exterior powers determinant"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older singular-value asymptotic under approximation-number nomenclature could imply the stated constants; priority is best-of-knowledge.",
+    "The beta asymptotic holds for fixed k only; no uniform k growth.",
+    "The finite section at high beta truncates the input heavily and cannot estimate exact limiting Gram constants reliably."
+  ],
+  "schema_version": 1
+}

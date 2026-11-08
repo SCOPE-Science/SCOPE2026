@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Li--Zhou's orthonormal monomial matrix has strictly positive Cauchy minors. The normalized exterior row factors are decreasing and log-convex. Their strong limit retains exactly the lowest-index compound output row, and compactness makes this an operator-norm limit. Infinite Cauchy--Binet and the binomial generating function give the positive finite Gram determinants. Dividing successive compound products proves the fixed-index asymptotic with all constants specified. An exact standard-library checker verified 4,240 finite identities and inequalities; finite tests are not substitutes for the proof.
+PASS
 
-## Originality
+On normalized Bergman monomial bases for -1<alpha<0, beta>alpha+2, the differential Hilbert coefficient B_ij=(i+1)/(i+j+1) sqrt(w_i(beta)/w_j(alpha)) has strictly positive Cauchy exterior minors. Dividing the kth compound by product of first k target row weights leaves row factors q_I decreasing and log convex, and positivity of maximizing vectors yields strict norm decrease; Holder gives log convexity. Fixed compact compound operator plus strong convergence of diagonal row weights to the first-row projection yields operator-norm convergence, whose selected exterior row norm equals k! sqrt(det G_k(alpha)) by Cauchy–Binet and the binomial moment kernel. Positive definite G and w_m(beta)~m! beta^{-m} imply the sharp fixed-k s_k~k sqrt((k-1)!) sqrt(det G_k/det G_{k-1}) beta^{-(k-1)/2}. At alpha=-1/2, k=1 constant 2sqrt(log 2). Independent finite-section SVD verified decreasing first three normalized singular-value products across beta=3,8,20,80; finite truncation not asserted to certify the limiting constants.
 
-PASS, best-knowledge assessment. The initiating paper establishes the operator's compactness and Schatten membership and gives a Gram characterization of its top norm, but not the target-weight singular-value hierarchy, strict normalized compound monotonicity, or the finite-determinant asymptotic constants for every fixed singular index. Classical total positivity, matrix singular-value products, and exterior powers are acknowledged ingredients, not claimed discoveries. The closest related literature concerns different operators, fixed-weight singular-value tails, or membership-only statements. Earlier reformulations of the same weight-concentration mechanism remain a publication-priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result quantitatively resolves the entire fixed-rank approximation-number hierarchy in a naturally varying family newly studied for compactness and Schatten properties. Its exact positive constants are finite moment Gram determinants; the decreasing log-convex normalized spectral products provide sharp global lower envelopes, not just a large-weight order estimate. No result on growing rank or arbitrary two-weight mappings is claimed.
+Li–Zhou provide the differential Hilbert operator’s monomial coefficient matrix, boundedness, compactness, trace class and weighted norm framework, but the inspected full paper does not calculate large target-weight fixed-rank singular asymptotics, exterior-product log convexity or the evaluated Gram determinant hierarchy. Classic exterior-power and total positivity identities are ingredients, not newly claimed theorems. Best-of-knowledge noncoverage is qualified by operator-spectrum literature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+All fixed approximation-number levels of an established two-weight differential Hilbert operator acquire exact beta-decay powers and positive Gram-determinant constants; this distinguishes persistent constant mode from rapidly suppressed higher ranks. It is a useful full hierarchy, not a routine reparameterization of a single norm estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
