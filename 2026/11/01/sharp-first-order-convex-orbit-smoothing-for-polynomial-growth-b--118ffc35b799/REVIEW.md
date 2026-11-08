@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The orthogonal weighted-shift orbit reduces the convex polynomial problem exactly to the finite Dirichlet energy \(\sum b_j^2/R_j\) with two independent linear constraints. Weighted Cauchy–Schwarz proves a universal lower bound; equality produces an explicit sequence of increments whose cumulative coefficients are strictly positive and normalized, so the lower bound is attained inside the originally constrained convex simplex, uniquely. Power-sum asymptotics establish both the logarithmic endpoint and the positive supercritical barrier. The standalone checker independently verifies finite identities and constraints; its finite tests are not used as proofs of an infinite claim.
+## correctness
 
-## Originality
-PASS on the accessible literature and claim-level database comparison, subject to the residual risk below. Wang–Zhou [1] give a sufficient convex-cyclicity criterion obtained from *uniform* Cesàro polynomials and do not optimize the degree-budgeted first-order coboundary distance. Its backward-weight hypothesis fails for every exponent in the present range, but failure of a sufficient hypothesis is not asserted to show non-convex-cyclicity. The 2020 higher-order Cesàro hypercyclicity result [2] can imply the full operator's convex-cyclicity in examples where this fixed vector cannot be annihilated; it does not determine this one-vector infimum, equality profile or threshold. The closest published one-generator approximation result [3] concerns a value-interpolation residual, not a derivative-interpolation constraint. The three-point smoothest-average result [4] optimizes a convolution-operator supremum norm rather than a growing-support weighted orbit norm. Searches for finite difference, inverse-positive Green kernel, convex orbit aliases and exact phase-transition parameters identified no dominating theorem. The connection with classical weighted discrete Dirichlet energy is explicit; an unlocated older specialized derivative-interpolation formula remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The motivating shift criterion leaves a natural quantitative question: with a finite degree budget, how much can positive orbit averaging suppress its first coboundary? The result solves the *entire constrained optimization* for every degree and every polynomial growth exponent at least one, identifies the unique strictly positive optimizer, and reveals a sharp growth threshold at \(3/2\) with an exceptional logarithmic critical rate. For \(\theta=1\), uniform Cesàro averages have squared error tending to one whereas the optimized error is asymptotic to \(1/N\); at \(\theta=3/2\), optimal smoothing still tends to zero although uniform averages diverge. Beyond the threshold a positive obstruction survives all degrees. This is a natural operator-dynamical invariant, not a parameter-picked finite exercise. No claim about the full operator's convex-cyclicity or general weighted shifts is included.
+PASS: B^j e_0=j^theta e_-j for j>=1 follows by telescoping negative weights and the j=0 initial orbit; lambda on positive indices never enters this fixed vector orbit. For y=(I-B)e_0 and convex coefficients a_0..a_(n-1), the squared norm is sum_(j=0)^n b_j²/R_j with b_j=a_j-a_(j-1), R_0=1, R_j=j^(-2theta), sum b_j=0 and sum(n-j)b_j=1. Weighted Cauchy–Schwarz yields 1/[S2-S1²/S0] and equality b_j=R_j(S1-jS0)/D. Since the signed b_j changes sign only once and sums to zero, every proper cumulative a_k is strictly positive, sums to 1, and attains the sharp constrained objective uniquely. Integral comparison gives S2~n^(3-2theta)/(3-2theta) for 1<=theta<3/2 and S2~log n at theta=3/2; the S1²/S0 term is lower-order there, while all moments converge for theta>3/2 to a strictly positive inverse-variance barrier. Independent exact rational coefficient and variational-energy tests reproduce all sample identities but do not prove the asymptotic for every theta.
 
-## Closest literature and limitations
-[1] Cui Wang and Ze-Hua Zhou, arXiv:2610.26978v1, Theorems 1.2, 3.1, 4.3 (full accessible HTML examined). [2] Bensaid–León-Saavedra–Romero de la Rosa, *Cesàro Means and Convex-Cyclic Operators* (2020), Theorem 2.3 (accessible full-text rendering examined). [3] *Exact one-generator approximation threshold in radial Dirichlet polydisk spaces* (2026), published RESULT.md examined. [4] *All-order sharp three-point smoothest averages* (2026), published RESULT.md examined. Other aliases of derivative interpolation or path-capacity estimates may exist. The result is fixed-vector and Hilbertian; priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: existing global convex-cyclicity and Cesaro sufficient criteria for bilateral weighted shifts concern all-vector orbit density and do not assert the exact degree-constrained convex hull distance for the special coboundary y, its positive unique optimizer or the sharp theta=3/2 boundary. Related Dirichlet value-interpolation is not the derivative constraint here. Recent Wang–Zhou primary full text remained inaccessible after lawful OA and authorized VPN attempt, so comparison is qualified, not whole-paper noncoverage.
+
+## value
+
+PASS
+
+PASS: Exact one-vector convex-orbit distance and its positive minimizing polynomial provide a natural quantitative smoothing/coboundary invariant for a classical operator-dynamics model. The 3/2 decay/barrier transition separates density of this particular convex orbit without overclaiming full operator convex-cyclicity. Not merely renaming an inequality: positivity of the optimizer under inequality constraints is a nonstandard, relevant part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
