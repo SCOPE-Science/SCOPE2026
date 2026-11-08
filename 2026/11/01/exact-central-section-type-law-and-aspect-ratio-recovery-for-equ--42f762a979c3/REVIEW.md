@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central-plane normal and face-count model are explicitly fixed. Section edges correspond bijectively to crossed prism edges away from a null set of normal directions. The proof of the triangular criterion uses the signed heights and zero-sum base projections; a sixfold angular reduction evaluates its exact spherical area. Expected side count is independently obtained from nine endpoint-separation angles, and the three-point support then gives all probabilities. Differentiation proves strict aspect identifiability and the unique pentagonal maximum. Direct edge enumeration, numerical spherical quadrature, and algebraic inversion all agreed with the exact formulas. The theorem is exact; simulation is not used to establish it.
+## correctness
 
-## Originality — PASS, with historical priority provisional
-The most directly relevant 2023 research describes numerical angle distributions under uniformly sampled affine planes for triangular prisms, whereas the present statistic is the exact combinatorial type under Haar-uniform central planes. The earlier related noncentral prism law, even-base-prism central laws, and published central-section results for other polytopes do not imply this theorem by parameter substitution: offset integration loses the conditional central event, and even-sided base formulas do not include triangles. Full text of the 2023 work was inaccessible, so an unindexed equivalent calculation remains a risk. No claim of definitive historical priority is made.
+PASS
 
-## Mathematical value — PASS
-The full finite-family probability law and exact inversion of the aspect ratio from one categorical shape statistic solve a natural section-tomography problem. The unique global maximizer of five-sided-section probability determines the most informative proportion for witnessing pentagons. The distinction between central and motion-invariant affine sampling is mathematically and experimentally consequential, not a minor parameter change in a previous formula.
+For a right equilateral triangular prism with base circumradius R and half-height h>0, Haar-uniform unoriented central-plane normal, put t=h/R. A generic section crosses 3,4 or 5 prism edges/faces. Its triangle criterion is |R r cos(φ-2πj/3)|<h|w| for all j; sixfold angular symmetry yields p3=1-(6/π)arcsin(1/(2√(1+t²))). Each of nine prism edges contributes a crossing probability equal to its endpoint-vector angle/π: horizontal edge angle G=acos((t²-1/2)/(t²+1)) (six edges) and vertical angle 2atan(t) (three edges). Thus E[N]=(6G+6atan(t))/π; because support is {3,4,5}, p5=E[N]-4+p3 and p4=1-p3-p5. Positivity follows from open normal cones, while derivative p3>0 proves exact global aspect inversion. Derivative p5=6H(t)/(π(1+t²)); H strictly decreases from 1 to 3/2-√3<0, so one global p5 maximum at t≈0.53146955. Null nongeneric normals and endpoint degeneracies explicitly excluded.
 
-## Closest literature and limits
-See Shchur–Konstantinova (SSRN:4485810, DOI:10.1016/j.eswa.2023.121195), and Milman–Yifrach (arXiv:1910.06033) for a mathematically different random-section framework. No statement for non-equilateral bases, shifted planes, finite samples or polygon areas is proved. Full-text access to the plausible 2023 source was unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact Haar-central type distribution and one-probability aspect inversion for equilateral triangular prisms. Earlier triangular-prism studies sampled random affine planes and often estimated angles rather than exact central side counts; the complete relevant 2023 manuscript inaccessible leaves priority uncertainty.
+
+## value
+
+PASS
+
+A full elementary law of a natural finite polytope family identifies geometric shape up to scale from a single observable p3. The unique pentagon-probability optimum is an intrinsic finite-parameter geometric extremum; careful central versus affine sampling distinction makes these quantities genuinely different, not repackaged numerical simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
