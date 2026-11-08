@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every Parikh class is characterized by a normal-form calculation in the dihedral group. The proof then classifies all reachable shifted Parikh predicates and gives explicit distinguishing suffixes, including the exceptional order-four group. No infinite conclusion relies on numerical enumeration. The standalone verifier checks group products independently and minimizes the resulting quotient automata for twenty-nine group parameters. The only assumption is the standard complete-DFA/Myhill–Nerode convention specified in the theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest directly inspected works by Hoffmann (2020; arXiv:2004.11772, arXiv:2008.05420) establish regularity and general upper bounds but not the exact dihedral-family formula. Cano Gómez–Guaiana–Pin (2013, doi:10.1016/j.ic.2013.07.003) concerns partial commutations and different group-language acceptance predicates; its examples do not give the shifted identity predicates used here. Existing exact case studies of other finite groups do not imply the all-parameter parity formula. This literature check cannot exclude unindexed or inaccessible equivalent treatments.
+PASS
 
-## Mathematical value — PASS
-The exact state-count dichotomy is an invariant for a canonical infinite family of nonabelian group languages. It identifies a sharp structural dependence on the parity of the rotation order: commutative closure increases minimal DFA size in odd order and decreases it in large even order. The constructive quotient classification explains this behavior rather than merely tabulating numerical cases.
+At a word with x rotations and even positive y reflections, the rotation exponent is x−2j mod n for any 0≤j≤x by placement in alternating reflection gaps. Hence identity counts are: y=0 iff n|x; odd y never; positive even y with n even iff x even; with n odd iff x even or x≥n. Myhill–Nerode equivalence of commutative language prefixes is exactly equality of these shifted (x+u,y+v) predicates. For even n≥4, y=0 yields n congruence classes and y>0 yields four disjoint parity classes, each separated with specified suffixes; n=2 merges to four parity classes. For odd n≥3, the y=0 classes are n−1 short-tail states and n residue-cycle states, and y>0 gives 2n classes from y-parity and saturation min(x,n−1). Long a-suffixes/b² test separate the families. Thus 4n−1; original Cayley DFA is 2n by positive inverses. No experimental range is presented as proof. Independent from-scratch group-product dynamic programming found 2290 agreement triples for n=2..26, and independently enumerated pairwise distinguishable suffix signatures with b-suffix lengths 0,1,2 for all quotient witnesses n=2..54, recovering all claimed state counts. All source paths/7 blob identities and tree SHA validated against Git tree.
 
-## Scientific limitations
-Only the stated rotation/reflection alphabet, identity acceptance, and complete DFAs are covered; a separate independent audit has not been performed. Finite computational tests supplement but do not replace the universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the exact dihedral rotation/reflection identity-language all-parameter quotient count. Three primary works inspected on actual theorem statements: 2013 regularity/polynomial-of-group-languages, Hoffmann 2020 product upper bounds, Hoffmann 2021 shuffle regularity and upper bounds. None implies the exact minimal 4n−1/n+4 pattern; 2013 S3 and D4 examples use different acceptance predicates. Several Resultary semantic searches mostly returned dihedral homology and automata compression, not equivalent identity language. Unindexed or otherwise inaccessible work may still cover it; absence of hits is no proof of novelty.
+
+## value
+
+PASS
+
+This is a complete all-n exact state-complexity classification for a canonical, naturally given group identity language, with an explicit structural parity transition in the direction of complexity change. Group-theoretic parity and eventual saturation explain n+4 versus 4n−1; it is not a single arbitrary finite computation, mere parameter substitution, or direct consequence of the published generic regularity bounds. It supplies reusable explicit minimal right-quotient descriptions for a familiar nonabelian finite-group family. The limited alphabet and identity acceptance are essential scope restrictions, not hidden generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
