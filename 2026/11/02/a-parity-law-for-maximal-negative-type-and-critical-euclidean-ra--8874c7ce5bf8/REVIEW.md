@@ -1,17 +1,21 @@
-# Review of the wheel-metric negative-type classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-sum decomposition into rim-zero-mean and hub/rim-radial subspaces is orthogonal and invariant under the powered distance quadratic form. Every Fourier eigenvalue is derived explicitly; the radial eigenvalue is compared by a rigorous positive inequality for all rim lengths. This gives the sharp quotient for all real exponents \(p\ge0\), not only finite samples. The Schoenberg Gram criterion and an exact nullspace multiplicity count give the critical Euclidean ranks. A reproducible standard-library checker passed 10,009 exact-arithmetic and floating-point comparisons; these are supplementary evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For t=2^p, block form D=[0,1^T;1,t(J-I)+(1-t)A_Cn]. The zero-sum subspace splits orthogonally into radial hub/rim-constant and n-1 rim zero-mean Fourier modes, with Rayleigh eigenvalues [2(n-1)-(n-3)t]/(n+1) and t+2(t-1)cos(2pi k/n). The latter minimum 2c-(2c-1)t is no larger than radial (strict if t>1), since c=1 even or cos(pi/n) odd. Its one/two real null modes at t=2c/(2c-1) give critical Gram ranks n-1/n-2. All p>=0 and n>=4 follow analytically. The odd-n expansion follows from cos(pi/n). Independent numeric 85 spectral reconstructions were checked; these are not an all-n proof.
 
-Primary inspected literature supplies general negative-type interval criteria, matrix methods, or classical cycle-gap formulas but does not state the wheel-specific all-exponent spectral law or the parity-sensitive critical rank. In particular, the cycle path metric computed by Wolf is not the wheel's rim restriction once the hub introduces two-edge shortcuts, and the gap normalizations differ. Sánchez treats complete bipartite examples rather than the wheel cone. Murugan's vertex-transitivity assumption excludes wheels. published-finding corpus searches using wheel/cone/negative-type/Fourier aliases returned graph polytopes, wheel topology, and cycle inequalities rather than the same metric claim. General Fourier diagonalization is acknowledged as standard, and no database absence is treated as proof of novelty.
+## originality
 
-Residual risk: Full texts of Deza–Maehara (1990) and Buckley–Harary (1988) could not be checked, though the latter uses the different unit-edge Euclidean dimension concept. The former is a plausible source of general reductions that could contain an implicit stronger specialization. The available evidence did not indicate decisive coverage; this assessment is provisional and not an independence claim.
+PASS
 
-## Mathematical value — PASS
+Wheel all-p exact negative-type Rayleigh gap and parity-sensitive critical Euclidean Gram rank are not identified as consequences of the inspected general criteria or cycle-path formulas; conditional best-of-knowledge originality, not uniqueness certification.
 
-The exact supremal negative type is a natural invariant of finite metric geometry and controls the first exponent at which Hilbert snowflake realization becomes impossible. The wheel is a canonical one-hub extension of a cycle, and the odd/even rim transition gives a structural classification throughout an infinite graph family. The sharp normalized gap also supplies a quantitative stability margin for every exponent, while the critical embedding-rank defect distinguishes two independent degeneracy geometries. No wider graph-family classification or downstream theorem is asserted.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wheel metric generalized roundness is a natural canonical cone-over-cycle invariant. An exact all-exponent gap quantifies the Hilbertian snowflake boundary, and parity-dependent nullspace multiplicity determines minimal Euclidean embedding dimension; nontrivial infinite family, not arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

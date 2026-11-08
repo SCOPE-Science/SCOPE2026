@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone program `check_wheel.py` uses only standard Python and deterministic seed 20261026. Running `python check_wheel.py` completed **10,009 checks**. It directly evaluates the powered-distance matrix quadratic form and checks its invariant-subspace formula using exact rational inputs; enumerates all Fourier frequencies for wheel rims from 4 through 200; compares the claimed global minimum against the radial direction; evaluates critical exponents and parity; and computes sharp sine/cosine witness Rayleigh quotients directly from pairwise graph distances.
+## correctness
 
-Finite loops do not establish statements for unbounded dimension or arbitrary real exponents. The universal proof is the block Fourier diagonalization and analytic radial-dominance inequality in RESULT.md. Real-number calculations involving cosines have floating-point tolerance and are only corroborating checks. Source-inspection limitations, especially inaccessible 1990 metric-transform full text, affect originality rather than the reconstructed correctness proof.
+PASS
+
+For t=2^p, block form D=[0,1^T;1,t(J-I)+(1-t)A_Cn]. The zero-sum subspace splits orthogonally into radial hub/rim-constant and n-1 rim zero-mean Fourier modes, with Rayleigh eigenvalues [2(n-1)-(n-3)t]/(n+1) and t+2(t-1)cos(2pi k/n). The latter minimum 2c-(2c-1)t is no larger than radial (strict if t>1), since c=1 even or cos(pi/n) odd. Its one/two real null modes at t=2c/(2c-1) give critical Gram ranks n-1/n-2. All p>=0 and n>=4 follow analytically. The odd-n expansion follows from cos(pi/n). Independent numeric 85 spectral reconstructions were checked; these are not an all-n proof.
+
+## originality
+
+PASS
+
+Wheel all-p exact negative-type Rayleigh gap and parity-sensitive critical Euclidean Gram rank are not identified as consequences of the inspected general criteria or cycle-path formulas; conditional best-of-knowledge originality, not uniqueness certification.
+
+## value
+
+PASS
+
+Wheel metric generalized roundness is a natural canonical cone-over-cycle invariant. An exact all-exponent gap quantifies the Hilbertian snowflake boundary, and parity-dependent nullspace multiplicity determines minimal Euclidean embedding dimension; nontrivial infinite family, not arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
