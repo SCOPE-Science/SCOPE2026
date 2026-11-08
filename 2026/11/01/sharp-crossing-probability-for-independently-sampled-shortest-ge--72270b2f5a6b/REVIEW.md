@@ -1,19 +1,21 @@
-# Scientific review: Sharp crossing probability for independently sampled shortest geodesics on flat two-tori
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relative-start-point map from the intersection-parameter square to the flat torus is injective except on null boundary and collinearity sets, because any two putatively coincident representatives would belong to the interior of the same Euclidean Voronoi fundamental cell. Conditional intersection probability is therefore the exact parallelogram area divided by the lattice area, not an overcounted expected intersection number. An exact triangular-sector calculation yields the full rational shape profile, and the factored deficit gives the two sharp global extremizers. The separate executable checker verifies the polynomial identity exactly and exercises intersection equations from direct deck translations. Numerical tests are corroborative only.
+PASS
 
-## Originality — PASS, provisional priority
+For four independent Haar points, the minimizing displacements U,V are independent uniform vectors in the centered lattice Voronoi cell and the relative start point is Haar. Two different crossing parameters would give two distinct representatives of the same torus point inside the Voronoi fundamental cell because (s-s')U and (t-t')V lie in its interior for differences in (-1,1), contradicting uniqueness. Therefore the random arcs have at most one transverse crossing and p=E|det(U,V)|/area(V). In reduced coordinates (B=a²+b²>=1,q=2a in [0,1]), the cell is a centrally symmetric six-gon H defined by |u|<=1,|v|<=B,|v-u|<=B+1-q. Partition the positive half into four radial triangles with d=(B,B(2-q),q(B+1-q),B-q); triangle self- and cross-determinant integrals yield 54I=5(4B-q²)^3-3q²(2B-q)^2(2-q)^2. I separately expanded/factored this polynomial exactly via symbolic algebra, not by stochastic sampling. Consequently p=5/54-q²(2B-q)²(2-q)²/[18(4B-q²)^3]; logarithmic derivative in B and monotonic deficit at B=1 prove sharp 22/243 (unique hexagonal lattice) and 5/54 (all rectangular), including degenerate reduced-boundary coordinates.
 
-Glorieux and Yarmola, *Random triangles on flat tori* (arXiv:2003.08190v1), compute a three-geodesic triangle null-homotopy probability, using the same useful reduced Voronoi geometry. The triangle event and its triple integral are not equivalent to crossings of two independent minimizing arcs. Artzrouni (arXiv:0712.1477v1) studies crossings of fixed-length random-walk steps; Rademacher (arXiv:1008.3944v1) addresses broader random-simplex expectations without the flat-torus formula or exact upper extremizer. Reviewed mathematical records on flat-torus systoles and planar short-pair distances likewise do not imply this sharp crossing probability. An unindexed equivalent stochastic-geometric formula remains a historical-priority risk; no independent priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is a canonical intrinsic four-point probability on flat Riemannian two-tori. Its exact values at every reduced lattice shape and its two distinct sharp equality families provide a complete moduli-space classification. The Voronoi determinant identity may also be useful for other flat quotient geometries, but no such extension is claimed.
+Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.
 
-## Scientific scope and limitations
+## value
 
-The argument assumes independent area-uniform endpoints, almost-sure unique shortest geodesics, and a Euclidean flat two-torus. It does not cover curved metrics, higher-genus surfaces, nonshortest geodesics, or multiple-arc crossing correlations. Finite tests cannot certify universal results; the proof supplies the needed quantifiers. No independent mathematical review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Crossings of two independent minimizing geodesics define a canonical invariant of every flat two-torus. The closed rational moduli-space profile, universal sharp range, and geometrically distinct equality classes give a natural complete extremal classification. The exact Voronoi determinant identity can serve as a reusable structural tool but no further extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

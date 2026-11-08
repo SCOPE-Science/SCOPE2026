@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:48:50.198188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For four independent Haar points, the minimizing displacements U,V are independent uniform vectors in the centered lattice Voronoi cell and the relative start point is Haar. Two different crossing parameters would give two distinct representatives of the same torus point inside the Voronoi fundamental cell because (s-s')U and (t-t')V lie in its interior for differences in (-1,1), contradicting uniqueness. Therefore the random arcs have at most one transverse crossing and p=E|det(U,V)|/area(V). In reduced coordinates (B=a²+b²>=1,q=2a in [0,1]), the cell is a centrally symmetric six-gon H defined by |u|<=1,|v|<=B,|v-u|<=B+1-q. Partition the positive half into four radial triangles with d=(B,B(2-q),q(B+1-q),B-q); triangle self- and cross-determinant integrals yield 54I=5(4B-q²)^3-3q²(2B-q)^2(2-q)^2. I separately expanded/factored this polynomial exactly via symbolic algebra, not by stochastic sampling. Consequently p=5/54-q²(2B-q)²(2-q)²/[18(4B-q²)^3]; logarithmic derivative in B and monotonic deficit at B=1 prove sharp 22/243 (unique hexagonal lattice) and 5/54 (all rectangular), including degenerate reduced-boundary coordinates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Busemann-type random simplex inequalities concern general convex bodies, without evaluating lattice fundamental-cell shape constraints and equality classifications.",
+          "Artzrouni investigates fixed-length random-direction planar/spherical steps, not independent Haar endpoint pairs defining minimizing torus geodesics."
+        ],
+        "reasoning": "General determinant estimates could bound a convex-body expectation but do not supply both exact lattice sharp endpoints or the entire moduli profile.",
+        "searches": [
+          "random simplex determinant inequalities Busemann Rademacher 2010",
+          "Artzrouni crossing paths 2D random walks fixed length",
+          "Glorieux Yarmola reduced Voronoi hexagon"
+        ]
+      },
+      "checked_sources": [
+        "Glorieux & Yarmola 2020 arxiv:2003.08190 full PDF and relevant propositions",
+        "Artzrouni 2007 arxiv:0712.1477, topic/setup",
+        "Rademacher 2010 arxiv:1008.3944, Busemann comparison",
+        "Resultary semantic search flat torus random crossing probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Glorieux–Yarmola provides reduced Voronoi geometry, but the theorem classifies contractibility of random triangles, not crossing of two unrelated geodesics.",
+          "The present proof derives p through a one-crossing injectivity argument and a two-point determinant integral."
+        ],
+        "reasoning": "The prior Voronoi parametrization is an explicit borrowed technique. Neither the unrelated event probabilities nor general simplex inequalities imply the rational crossing profile or its two sharp equality classes.",
+        "searches": [
+          "Glorieux Yarmola 2020 theorem 1.1 and proposition 3.1 reduced Voronoi",
+          "Rademacher random simplex Busemann inequality flat tori"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glorieux–Yarmola study null-homotopy of a three-vertex geodesic triangle, expressed as a threefold Voronoi-cell functional F(D,D,D).",
+          "The audited independent two-chord crossing event has two independent minimizing displacements and an absolute-determinant functional, not the same event."
+        ],
+        "reasoning": "The shared torus/Voronoi framework does not make the random triangle probability or its extremizers logically equivalent to the present four-point crossing formula.",
+        "searches": [
+          "flat torus random geodesic crossings Voronoi cell four uniform points",
+          "Glorieux Yarmola Random triangles on flat tori 2003.08190 Prop 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic matches include sharp flat-torus systolic profile by modular distance and random-polygon short-pair coefficients, whose invariants differ from this crossing event.",
+          "No exact crossing-probability table or two-arc rational formula appeared among relevant hits."
+        ],
+        "reasoning": "No table coverage found; search nonhits are explicitly not priority proof. A valid match would require the precise four-Haar-point sampling and shortest-arc event.",
+        "searches": [
+          "Resultary probability crossing two independently sampled shortest geodesic segments flat torus Voronoi determinant equilateral rectangular",
+          "flat torus shortest geodesic crossing probability 22/243 5/54"
+        ]
+      },
+      "rationale": "Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.",
+      "residual_risks": [
+        "Equivalent stochastic integral geometry identity in unindexed torus-crossing literature remains possible.",
+        "Mathematical comparison to Artzrouni and Rademacher here uses identified statements rather than exhaustive section-by-section full-text rereading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The event is contractibility of a random three-geodesic triangle, not crossing of two independent minimizing arcs, though reduced Voronoi geometry is relevant.",
+          "evidence": [
+            "Proposition 2.2 uses F(D,D,D) threefold integral rather than E|det(U,V)|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.08190",
+          "material_read": "Read full open PDF, including introduction, Proposition 2.2, reduced-cell Proposition 3.1, Theorem 1.1 and proofs; rendered page 3",
+          "method": "Primary arXiv PDF full text and page image",
+          "title": "Random triangles on flat tori",
+          "trigger": "Same flat torus and random shortest geodesics, plausible equivalent event"
+        },
+        {
+          "assessment": "Fixed-length random-direction steps in planar/spherical domains, not torus minimizing displacement sampled from a Voronoi cell.",
+          "evidence": [
+            "Sampling and ambient spaces differ, so the theorems are not direct logical implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.1477",
+          "material_read": "Abstract and experimental setup as described by primary bibliographic materials; complete text not reread for this audit",
+          "method": "Scope comparison of cited random-walk crossing problem",
+          "title": "Crossing paths in 2D random walks",
+          "trigger": "Potential earlier formula for random segment crossing"
+        },
+        {
+          "assessment": "General convex-body monotonicity does not give the exact torus moduli profile in the material checked.",
+          "evidence": [
+            "No rational p(B,q) or rectangular sharp maximum is among the identified statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.3944",
+          "material_read": "Abstract, Busemann inequality reference and theorem context; not a complete new full-text read",
+          "method": "Primary mathematical statement and setup comparison",
+          "title": "On the monotonicity of the expected volume of a random simplex",
+          "trigger": "Potential dominating expected-determinant bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Crossings of two independent minimizing geodesics define a canonical invariant of every flat two-torus. The closed rational moduli-space profile, universal sharp range, and geometrically distinct equality classes give a natural complete extremal classification. The exact Voronoi determinant identity can serve as a reusable structural tool but no further extension is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two shortest arcs joining four independent area-uniform endpoints on Euclidean flat two-tori, not curved surfaces, non-shortest geodesics, or higher correlations.",
+    "Null ties and degenerate crossings excluded almost surely with justified measure-zero argument.",
+    "An unindexed equivalent stochastic-geometric formula may exist."
+  ],
+  "schema_version": 1
+}

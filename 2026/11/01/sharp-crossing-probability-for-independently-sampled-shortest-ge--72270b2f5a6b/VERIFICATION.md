@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and actual checks
+# Independent mathematical audit
 
-Run `python3 verification/check_crossing.py` with Python 3 and its standard library. The checker derives the exact double-integral polynomial via rational arithmetic at a full interpolation grid of four independent values in \(B\) and seven values in \(q\). Its bidegree certificate comes from the triangle-sector integral: at most degree three in \(B\) and degree six in \(q\); therefore the 28 exact matches establish the polynomial identity, not merely agreement at finite inputs.
+## correctness
 
-The script also checks both rational sharp endpoints, then independently samples two uniform Voronoi-cell displacement vectors and a uniform relative start point on the lattice torus. It solves all potential translated geodesic-segment crossing equations within the indicated translation window and compares the resulting crossing frequencies with the analytic formula. The simulation additionally checks that no realization has more than one intersection in the tested cases. The universal no-multiple-crossings statement is proved in RESULT.md, not inferred from simulation.
+PASS
 
-Expected final output includes `EXACT_BIDEGREE_INTERPOLATION_IDENTITY_PASSED 28`, `EXACT_SHARP_ENDPOINTS_PASSED`, `INDEPENDENT_PERIODIC_SEGMENT_CROSSINGS_PASSED 3`, `NO_DUPLICATE_INTERSECTIONS_PASSED`, and `ALL_CHECKS_PASSED`.
+For four independent Haar points, the minimizing displacements U,V are independent uniform vectors in the centered lattice Voronoi cell and the relative start point is Haar. Two different crossing parameters would give two distinct representatives of the same torus point inside the Voronoi fundamental cell because (s-s')U and (t-t')V lie in its interior for differences in (-1,1), contradicting uniqueness. Therefore the random arcs have at most one transverse crossing and p=E|det(U,V)|/area(V). In reduced coordinates (B=a²+b²>=1,q=2a in [0,1]), the cell is a centrally symmetric six-gon H defined by |u|<=1,|v|<=B,|v-u|<=B+1-q. Partition the positive half into four radial triangles with d=(B,B(2-q),q(B+1-q),B-q); triangle self- and cross-determinant integrals yield 54I=5(4B-q²)^3-3q²(2B-q)^2(2-q)^2. I separately expanded/factored this polynomial exactly via symbolic algebra, not by stochastic sampling. Consequently p=5/54-q²(2B-q)²(2-q)²/[18(4B-q²)^3]; logarithmic derivative in B and monotonic deficit at B=1 prove sharp 22/243 (unique hexagonal lattice) and 5/54 (all rectangular), including degenerate reduced-boundary coordinates.
 
-These checks require no downloaded files or nonstandard dependencies. The analytic proof supplies the exact all-lattice and all-sample-space claims; numerical frequencies cannot independently certify historical novelty, the universal bounds, or independent validation.
+## originality
+
+PASS
+
+Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.
+
+## value
+
+PASS
+
+Crossings of two independent minimizing geodesics define a canonical invariant of every flat two-torus. The closed rational moduli-space profile, universal sharp range, and geometrically distinct equality classes give a natural complete extremal classification. The exact Voronoi determinant identity can serve as a reusable structural tool but no further extension is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
