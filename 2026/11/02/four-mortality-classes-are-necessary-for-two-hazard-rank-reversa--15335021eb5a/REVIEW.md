@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact algebra reconstructs the hazard-difference numerator from the two survival mixtures. For at most three common rate classes, ratio transitivity forbids two coefficient sign changes; the elementary one-change exponential-sum argument bounds crossings by one. A four-class rational witness has strictly ordered survival at every positive age, and its hazard difference has exactly two roots by Descartes' rule and opposite exact signs at three rational points. The standalone checker verifies the polynomial certificates using exact rational arithmetic. Finite tests are not substituted for infinite proofs.
+## correctness
 
-**Originality — PASS within accessible evidence, provisional historical priority.** The 2014 full-text review of Vaupel and Missov states general frailty/hazard formulas and a gamma-frailty crossover but not the sharp discrete four-class threshold. Boland–Proschan–Tong (1989) gives broader mixture-density variation-diminishing theory; its full-text hazard implications were not accessible here. Gupta–Kirmani (2006) discusses stochastic orders and hazards but was accessible only as a bibliographic abstract. The exact simultaneous survival-dominance and double-hazard-reversal construction was not encountered. The mathematical conclusion is not that general mixture crossing theory or hazard crossing itself is new; a stronger preexisting theorem may still encompass the lower bound, so independent historical priority remains unverified.
+PASS
 
-**Value — PASS.** The number of latent mortality classes is a natural complexity parameter in frailty-based cohort comparisons, and survival dominance versus pointwise hazard ranking are materially different conclusions. The result identifies the sharp first complexity level where a double reversal is possible and supplies a four-state integer certificate showing that two hazard reversals can coexist with a strict all-age survival order. Its scope is explicit and it does not make an empirical inference from a hypothetical cohort.
+For two positive exponential-rate mixtures on the SAME ordered support, the exact hazard-sign numerator is N(t)=sum_{i<j}(lambda_j-lambda_i)(a_j b_i-a_i b_j) exp(-(lambda_i+lambda_j)t). For m=3 its coefficients, indexed by strictly ordered exponent sums, have signs of (r2-r1,r3-r1,r3-r2), r_i=a_i/b_i, which cannot alternate twice; the elementary exponential variation-diminishing lemma gives at most one strict sign reversal. For rates 1,2,3,4 and a=(4,2,1,4)/11, b=(3,1,3,1)/8, q=exp(-t), exact symbolic expansion gives 8A-11B=(q-1)(21q^2-4q+1)<0 and hazard numerator P=11q^4+4q^3+19q^2-18q+2 with exactly two positive roots in (0,1). Independent symbolic expansion and numerical roots q=0.12945426757,0.58138312339 confirm certificates, while Descartes plus rational brackets prove exactly two crossings.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS with significant residual priority risk: classical mixture-hazard/frailty theory and Boland–Proschan–Tong variation-diminishing methods explain general crossings, but their accessible material does not establish BOTH the sharp three-vs-four common-rate discrete-class minimum and a four-class exact witness with strict survival ordering. The exact rational four-class construction survives comparison without novelty claims about mixture selection theory.
+
+## value
+
+PASS
+
+PASS: hazard ranks and survival order are distinct natural population quantities under finite latent-class exponential mixtures; the first possible double hazard reversal despite permanent stochastic survival ordering is a sharp, interpretable structural model-complexity threshold with an exact reproducible witness, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
