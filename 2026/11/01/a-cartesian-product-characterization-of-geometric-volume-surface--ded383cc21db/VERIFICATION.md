@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The complete proof of the iff product statement uses only surface-area disintegration and test functions; its two directions and all quantifiers are given in RESULT.md. The building-block assertion is proved independently from polar-coordinate volume measure, a conditional unbiased sign choice, and the constant support height of balls and tangent polytopes. The explicit quadratic deficit is derived from the independent beta radial law and the exact surface mixture.
+## correctness
 
-The included `verify.py` (standard library only) evaluates the disk-times-interval rational example, verifies the conditional sign mean at rational radial ratios, and compares two independent rational expressions for the second-moment gap over many finite tuples of ball dimensions/radii. These finite arithmetic tests are **not** taken as proofs of the universal identities. The general argument is symbolic and does not use test outcomes, numerical extrapolation, or a literature search as a substitute for proof.
+PASS
 
-The interval boundary law means normalized counting measure on the two endpoints. The claimed quantitative bound applies only to the explicitly specified balls and centrally symmetric tangent polytopes, not to arbitrary centrally symmetric convex bodies. For an arbitrary centrally symmetric body the radial coupling produces cone measure and may not agree with ordinary surface measure. Other risks include the possibility of an equivalent preexisting Cartesian-product theorem not indexed by the searches.
+For orthogonal Euclidean products of full-dimensional compact convex bodies K_i, boundary hypersurface measure disintegrates into pairwise (D−1)-a.e.-disjoint strata ∂K_i×∏_{j≠i}K_j with weight p_i=(S_i/V_i)/∑_j(S_j/V_j)>0. Thus ν=∑p_i(ν_i⊗μ_{-i}) and μ=⊗μ_i. Necessity: test any continuous convex g on coordinate i, f(x)=g(x_i); ν−μ integral equals p_i(ν_i−μ_i) integral. Sufficiency: each factor convex order dominates under conditional convex test and average with p_i. Iterated argument gives separately-convex k-point inequality. The factor example is also justified: in a centered centrally symmetric star body, X=Tρ(Ω)Ω with independent T, density d t^{d−1}, and Ω cone-direction distribution. Given X, select sign ε=± with P(ε=1|X)=(1+T)/2 so E[ερΩ|X]=X, and symmetry leaves the endpoint angular distribution the cone law. Balls and centrally symmetric polytopes with constant support height have cone law=surface law. Moment identity Eμ r²=d/(d+2)Eν r² yields exact sharp λ-strongly convex gap; cylinder disk radius1×[-2,2] has p=(4/5,1/5) and second-moment gap (4/5)(1/2)+(1/5)(8/3)=14/15, giving 7λ/15. Checked d_i=1 boundary counting convention and that nonorthogonal affine maps are excluded. Arithmetic checker only corroborates symbolic general proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the general necessary-and-sufficient orthogonal product law with sharp quantitative corollary; existing one-body cases and mean-distance product examples are distinguished.
+
+## value
+
+PASS
+
+Product stability and reflection of a stochastic convex order under *Euclidean surface* mixing are useful structural facts: they preserve good examples, rule out hiding a bad factor, and give explicit high-dimensional good classes with heterogeneous radii and sharp strong-convexity gaps. Although the proof is short once the boundary disintegration is written, the iff characterization across arbitrary convex-body factors is a motivated mathematical tool, not a mere notational substitution or cylinder-only computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

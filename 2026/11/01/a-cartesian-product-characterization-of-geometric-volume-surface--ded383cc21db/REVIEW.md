@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The boundary is decomposed into orthogonal codimension-one strata with exact mass weights proportional to each factor's surface-to-volume ratio; multiply singular strata have codimension at least two. Necessity is established by a single-factor convex test. Sufficiency uses Fubini on convex sections of an arbitrary convex test and the exact boundary mixture; the repeated-point consequence is an independent convex-order substitution argument. The asserted concrete class has a fully explicit conditional-mean-preserving radial sign coupling: independent beta radial factor, symmetric cone-angle law, and constant-support-height equality of cone versus surface measures. The sharp strong-convexity gap follows by subtracting a quadratic and by an exact radial second-moment identity. An equality quadratic demonstrates the coefficient cannot increase. The standalone checker verifies arithmetic independently of the symbolic proof. Orthogonal products, positive dimensions, ordinary surface measure, and admissible factor shapes are explicitly specified.
+## correctness
 
-## Originality — PASS, subject to historical priority limits
-Primary full texts were inspected: Pasteczka's 2018 *Jensen-type geometric shapes* (Propositions 1–2, Theorem 2) has known ball, parallelotope, and tangent-polytope cases; Tokmachev's July 2026 article (Theorems 1–2 and planar proof) has convex-order comparison for stated single bodies; Shen's August 2026 article (Introduction and Section 4) has higher-dimensional counterexamples and a product dimension-lifting argument. None states the product iff test or its exact factor-surface mixture. In particular, an arbitrary circular cylinder is not a planar body, an ellipsoid, a parallelotope, or a polytope circumscribed about a sphere. Targeted mathematical-record searches for product, Jensen-type, convex order, martingale mixtures, and geometric surface measure did not reveal equivalent or dominating coverage. A retrieved Cartesian-product Bézout coefficient theorem concerns mixed volume instead. The proof is self-contained; its novelty assessment is not a universal publication-priority guarantee.
+PASS
 
-## Value — PASS
-The recent all-dimensional failure of the mean-distance inequality motivates identifying exact stable geometric classes rather than isolated positive examples. The product iff characterization is an exact structural inheritance-and-obstruction theorem for a geometrically non-tensorial probability law (ordinary **surface** measure). It yields arbitrarily high-dimensional new classes with curved or mixed-radii boundaries, all separately convex multi-point inequalities rather than only mean distances, and an optimal quantitative strong-convexity gap for a canonical explicit family. The cone-to-surface geometric bridge and precise converse give the theorem mathematical use beyond a mere renamed inequality.
+For orthogonal Euclidean products of full-dimensional compact convex bodies K_i, boundary hypersurface measure disintegrates into pairwise (D−1)-a.e.-disjoint strata ∂K_i×∏_{j≠i}K_j with weight p_i=(S_i/V_i)/∑_j(S_j/V_j)>0. Thus ν=∑p_i(ν_i⊗μ_{-i}) and μ=⊗μ_i. Necessity: test any continuous convex g on coordinate i, f(x)=g(x_i); ν−μ integral equals p_i(ν_i−μ_i) integral. Sufficiency: each factor convex order dominates under conditional convex test and average with p_i. Iterated argument gives separately-convex k-point inequality. The factor example is also justified: in a centered centrally symmetric star body, X=Tρ(Ω)Ω with independent T, density d t^{d−1}, and Ω cone-direction distribution. Given X, select sign ε=± with P(ε=1|X)=(1+T)/2 so E[ερΩ|X]=X, and symmetry leaves the endpoint angular distribution the cone law. Balls and centrally symmetric polytopes with constant support height have cone law=surface law. Moment identity Eμ r²=d/(d+2)Eν r² yields exact sharp λ-strongly convex gap; cylinder disk radius1×[-2,2] has p=(4/5,1/5) and second-moment gap (4/5)(1/2)+(1/5)(8/3)=14/15, giving 7λ/15. Checked d_i=1 boundary counting convention and that nonorthogonal affine maps are excluded. Arithmetic checker only corroborates symbolic general proof.
 
-## Limits and literature
-No result is claimed for nonorthogonal images or arbitrary convex bodies; only the radial class has the explicit strong-convexity coefficient. Historically equivalent results may be missed. Source identifiers: arXiv:2607.08869, arXiv:2608.06470, arXiv:1804.03688 (older background). The new result requires no unverified multivariate convex-order characterization by one-dimensional projections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the general necessary-and-sufficient orthogonal product law with sharp quantitative corollary; existing one-body cases and mean-distance product examples are distinguished.
+
+## value
+
+PASS
+
+Product stability and reflection of a stochastic convex order under *Euclidean surface* mixing are useful structural facts: they preserve good examples, rule out hiding a bad factor, and give explicit high-dimensional good classes with heterogeneous radii and sharp strong-convexity gaps. Although the proof is short once the boundary disintegration is written, the iff characterization across arbitrary convex-body factors is a motivated mathematical tool, not a mere notational substitution or cylinder-only computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
