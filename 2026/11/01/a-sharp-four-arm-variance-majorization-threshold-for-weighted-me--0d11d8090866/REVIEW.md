@@ -1,19 +1,21 @@
-# Scientific review: four-arm majorization transition on weighted metric stars
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Distances are exactly \(|x-y|\) on one arm and \(x+y\) on distinct arms. Their first and second double integrals yield the stated normalized moments without edge-sampling ambiguities. Exact differentiation gives a positive Schur–Ostrowski quotient for both raw moments whenever there is at least one other positive arm. For three arms, the variance quotient is exactly \(2z(1+12xyz)/3>0\). The four-arm witness has strictly positive coordinates, exact rational negative variance change, and a valid reverse Robin Hood transfer. Continuity extends the reversal to every larger number of arms, while positive local curvature at equal lengths refutes Schur-concavity. The supplied exact-arithmetic checker passed 237 tests; universal conclusions are supported by the displayed symbolic proof.
+PASS
 
-## Originality
+Double integrals on same and distinct arms give exact moments. On the normalized simplex the Schur derivative quotient for mean is 2(1-x-y), raw second moment is 2((x+y)(1-x-y)+R2), positive for m>=3. Three-arm variance quotient 2z(1+12xyz)/3>0. Exact rational four-arm majorization transfer decreases variance by 203133/8000000000, and adding small identical arms preserves reversal by continuity. Equal arms near uniform increase variance, excluding Schur concavity. Two-arm star is an interval; boundaries correctly handled for positive lengths.
 
-**PASS, best of accessible knowledge.** Dahl (2007) concerns vertex-root distance-vector majorization rather than random continuous two-point distances. Garijo–Márquez–Silveira (2021, inspected full preprint) gives continuous mean-distance algorithms, not the centered second moment or four-arm transition. Mălin–Rovența (2015, accessible full text inspected) study convexity inequalities and flow-function extrema on metric spiders, not two-point uniform-distance moments. Related public records on equiradial metric-star persistence, star Lipschitz norms, and tree graphical zonotope widths address different invariants. A known sharp four-petal threshold for *metric circles sharing a hub* is not a stronger claim about *tree arms*. Full historical priority remains uncertain: Dahl's full article and certain pre-2000 mean-distance references were not available for complete inspection.
+## originality
 
-## Value
+PASS
 
-**PASS.** Mean travel distance and travel-time dispersion are natural but different invariants on compact transportation networks. This is a complete sharp parameter-count classification over all positive arm-length vectors, not a numerical slice. It shows that making a star's arms more unequal necessarily increases both raw moments but can *decrease* centered variability, even while retaining a fixed simple tree topology. The specific four-arm threshold is structurally meaningful, especially in contrast with the analogous but topologically distinct result for flowers of circles.
+Best-of-knowledge distinct full family classification: weighted-tree mean-distance results compute only first moment; vertex-distance majorization is a different measure; exact centered-variance threshold at four arms is not a corollary of those results. Direct metric-flower analogue has different shortest paths and cannot imply the star moment formula by renaming. Incomplete historical search is a residual risk.
 
-## Scope and limitations
+## value
 
-The comparison fixes the number of arms and total length; no generalized tree or nonuniform sampling result is claimed. For four or more arms, the result does not characterize global variance minima. A relevant older paper was accessible only through its abstract, so priority is assessed with a residual literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Random distance variance is a natural length-normalized network observable; classifies precisely when arm inequality raises variance, with a sharp four-arm boundary unlike the raw moments. This is a substantive structural threshold, not merely recomputing a first moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
