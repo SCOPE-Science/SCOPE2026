@@ -1,19 +1,21 @@
-# Scientific review: stationary qubit phase-information optimum
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary reset channel contracts traceless differences, so its fixed point is unique. Directly solving the off-diagonal fixed-point equation gives the full-rank Bloch coefficient for every nonresonant phase. Substitution into the standard SLD qubit formula produces the displayed positive rational QFI. The exact reset-odds derivative has a polynomial with precisely one change in its ordered coefficient signs throughout the entire allowed phase range, including the half-turn boundary; Descartes' rule and endpoint signs prove the critical point unique and simple. The small-detuning polynomial scaling brackets this point and yields both sharp limits. Algebraic identities were checked symbolically, and an independent two-by-two SLD calculation agreed at 24 parameter pairs. No global fact is inferred from sampled values.
+PASS
 
-## Originality: PASS, with residual priority risk
+For 0<p<1, theta∈(0,2pi), channel contraction gives one stationary qubit with coherence z=p/[1-(1-p)e^{i theta}]. The full-rank equatorial SLD formula yields the rational QFI in x=p/(1-p), t=sin²(theta/2). Independently SymPy factorization checked dF/dx=xP_t(x)/A^4 identically, and at t=1 F=x²/(x+2)^4, unique maximizer x=2, F=1/64. Descartes one sign change of P_t across 0<t≤1 plus endpoint signs proves exactly one simple positive root. Scaling x=delta*y yields limiting -4y^4+4y²+2 with unique positive root and optimum QFI constant 2sqrt3/9. The excluded identity resonance is rank-changing; finite-difference SLD tests in inspected source do not replace proof.
 
-Wald et al. (arXiv:2410.11497v1) establish the geometric steady-state mixture and identify quasienergy resonances, but their accessible complete preprint analyzes two-qubit correlations, concurrence and local quantum uncertainty, not the single-qubit stationary phase-QFI maximum. Their general stationary density-matrix formula is credited as a premise, and its specialization alone is not counted as new. The result here is the exactly one-root global optimal-reset classification and its punctured near-resonance universal law. Li, Tong and Bao (arXiv:2610.31249) give a general quantum-Fisher reset-response identity for a continuous-time dissipative generator, not an implication of the discrete-time parameterized polynomial. O'Connor and colleagues (DOI 10.1088/1367-2630/ad345c) examine sequential-measurement Fisher-information rates, which differ from stationary unconditioned snapshot QFI. Scientific searches also checked phase estimation, geometric reset ages and one-qubit reset parameter optimization; no exact matching claim was established. A possibly unlocated general optimization result remains a genuine publication-priority risk; absence of a returned match is not a uniqueness certificate.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-For phase estimation from the stationary averaged state of a randomly reset gate device, reset frequency simultaneously trades off coherent phase accumulation and mixing. Proving one and only one best probability for every nonresonant phase removes an otherwise significant optimization ambiguity. The half-turn exact optimum and the singular linear-detuning / inverse-squared-information limits quantify opposite experimentally meaningful regimes. The result is a complete parameter classification, not just a single numerical optimum; its all-phase proof is structural and the singular scaling is not a generic consequence of a fixed-parameter derivative test.
+PASS qualified: Wald et al. 2024 establish geometric steady-state resolvent and correlations, not stationary single-qubit phase-QFI optimizer; Li–Tong–Bao 2026 general reset-rate QFI response concerns continuous-time Lindblad dynamics. All-phase Descartes characterization and punctured-resonance asymptotic are distinct. The latter source full text unavailable; priority risk remains.
 
-## Boundaries and limitations
+## value
 
-The result uses a pure equatorial reset state, a single phase gate, constant Bernoulli resets and no access to the reset history. It does not order finite-time, cost-normalized or trajectory-conditioned precision. The rank-changing identity-gate phase is explicitly excluded. Independent scientific audit and complete priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The globally optimal reset probability removes ambiguity in stationary phase sensing under a common gate/reset channel; exact half-turn and near-resonance regimes give nontrivial complete parameter control, not a generic SLD formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

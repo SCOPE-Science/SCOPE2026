@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:22:05.979322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<p<1, theta∈(0,2pi), channel contraction gives one stationary qubit with coherence z=p/[1-(1-p)e^{i theta}]. The full-rank equatorial SLD formula yields the rational QFI in x=p/(1-p), t=sin²(theta/2). Independently SymPy factorization checked dF/dx=xP_t(x)/A^4 identically, and at t=1 F=x²/(x+2)^4, unique maximizer x=2, F=1/64. Descartes one sign change of P_t across 0<t≤1 plus endpoint signs proves exactly one simple positive root. Scaling x=delta*y yields limiting -4y^4+4y²+2 with unique positive root and optimum QFI constant 2sqrt3/9. The excluded identity resonance is rank-changing; finite-difference SLD tests in inspected source do not replace proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Tong–Bao derive generic QFI control response for a continuous-time Lindblad evolution and different examples; such an identity alone does not specify this discrete-time quintic or boundary law."
+        ],
+        "reasoning": "Stronger or more general statements were checked for actual logical implication, including different quantifier/objective regimes.",
+        "searches": [
+          "Resultary:stationary qubit reset phase quantum Fisher information unique optimal reset rate CPTP gate",
+          "web:quantum reset stochastic resetting stationary state QFI phase gate optimal reset probability",
+          "Wald arXiv:2410.11497v1 §II; Li arXiv:2610.31249"
+        ]
+      },
+      "checked_sources": [
+        "Wald et al. arXiv:2410.11497v1 full HTML introduction, §II, §III and appendices overview",
+        "Li Tong Bao arXiv:2610.31249 abstract and source review",
+        "Resultary search stationary reset phase QFI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting Wald stationary state into a general qubit SLD QFI gives rational F but still requires nontrivial Descartes coefficient-sign proof and root scaling; a generic reset derivative identity does not automatically give uniqueness."
+        ],
+        "reasoning": "Separate the credited input from the mathematical statement needed for the reviewed theorem.",
+        "searches": [
+          "Resultary:stationary qubit reset phase quantum Fisher information unique optimal reset rate CPTP gate",
+          "web:quantum reset stochastic resetting stationary state QFI phase gate optimal reset probability",
+          "Wald arXiv:2410.11497v1 §II; Li arXiv:2610.31249"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wald §II same discrete-time reset process and geometric stationary state; equality of channel resolvent is credited, while SLD optimizer of theta is not that stationary-state formula."
+        ],
+        "reasoning": "Compare exact observable/object, not matching title; Unique optimal reset probability for stationary qubit phase information",
+        "searches": [
+          "Resultary:stationary qubit reset phase quantum Fisher information unique optimal reset rate CPTP gate",
+          "web:quantum reset stochastic resetting stationary state QFI phase gate optimal reset probability",
+          "Wald arXiv:2410.11497v1 §II; Li arXiv:2610.31249"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary qubit/reset query found related dissipative control and phase-sensing records but no table of p_*(theta); no search can certify absence."
+        ],
+        "reasoning": "No exact table found among inspected results; absence alone is not a novelty proof.",
+        "searches": [
+          "Resultary:stationary qubit reset phase quantum Fisher information unique optimal reset rate CPTP gate",
+          "web:quantum reset stochastic resetting stationary state QFI phase gate optimal reset probability",
+          "Wald arXiv:2410.11497v1 §II; Li arXiv:2610.31249"
+        ]
+      },
+      "rationale": "PASS qualified: Wald et al. 2024 establish geometric steady-state resolvent and correlations, not stationary single-qubit phase-QFI optimizer; Li–Tong–Bao 2026 general reset-rate QFI response concerns continuous-time Lindblad dynamics. All-phase Descartes characterization and punctured-resonance asymptotic are distinct. The latter source full text unavailable; priority risk remains.",
+      "residual_risks": [
+        "Li–Tong–Bao recent 2026 full text inaccessible, so not asserted whole-document noncoverage",
+        "Only stationary unconditioned snapshot QFI; finite gate count/preparation cost may reverse operational optimum",
+        "Resonance theta=0 mod 2pi excluded by rank change"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS stationary reset-mixture premise; not same SLD phase-QFI global optimum",
+          "evidence": "§II computes steady state under Poissonian resets; §III focuses correlations/entanglement, no stated quintic or phase-QFI optimizer",
+          "identifier_or_url": "https://arxiv.org/html/2410.11497v1",
+          "material_read": "Full HTML §I–V, especially §II reset geometric mixture and §III two-qubit examples, appendices headings",
+          "method": "read HTML text and substantive sections",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "identical Bernoulli reset plus unitary gate architecture"
+        },
+        {
+          "assessment": "MATERIAL PRIORITY RISK; do not infer full-document noncoverage",
+          "evidence": "Abstract reports unified reset-rate QFI response for dissipative quantum sensing and stationary/transient gains",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31249",
+          "material_read": "arXiv abstract; full text PDF/HTML inaccessible; contextual detailed secondary review only",
+          "method": "open-access abstract attempted full text",
+          "title": "Reset-Enhanced Dissipative Quantum Metrology",
+          "trigger": "recent QFI optimization under resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The globally optimal reset probability removes ambiguity in stationary phase sensing under a common gate/reset channel; exact half-turn and near-resonance regimes give nontrivial complete parameter control, not a generic SLD formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Li–Tong–Bao recent 2026 full text inaccessible, so not asserted whole-document noncoverage",
+    "Only stationary unconditioned snapshot QFI; finite gate count/preparation cost may reverse operational optimum",
+    "Resonance theta=0 mod 2pi excluded by rank change"
+  ],
+  "schema_version": 1
+}
