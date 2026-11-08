@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, field, and sequential local rule are fixed unambiguously. The update matrix \((I+L)^{-1}(I+U)\) follows from exactly one update per vertex and remains invertible. An explicit sequence of unit polynomial eliminations reduces the characteristic module to \(H_{k,m}\); its determinant and entry gcd determine both invariant factors. The exceptional adjacent missing-endpoint case \(k=1\) is included explicitly. Polynomial gcds and two-adic valuations then imply fixed-point dimensions, period orders, primitive census, and maximal-period attainment. The uniform gap count is an elementary exact bijection. The computation is replayable from actual standalone code and independent matrix and polynomial representations. Finite tests support but do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified
-The central claim concerns the one-deleted-edge complete graph, not an ordinary cycle. The earlier cycle all-scan formula is credited as prior knowledge and used solely to establish the new cross-graph equivalence; no scan count for a dense graph follows without computing its own invariant factors. Macauley–Mortveit's inspected cycle-equivalence arguments change scan orders on a fixed graph, Chen–Reidys derive general linear representations, and Defant treats cycle rules. None of the inspected primary text supplies the explicit dense-graph two-factor Smith decomposition or \(n(n-2)!\) schedule frequencies. Semantic published-record searches for the deleted-edge clique, one-missing-edge Coxeter transformation, fixed-point counts and cycle-equivalence aliases identified no covering theorem. Residual risk: an unnoticed equivalent result in older Coxeter literature may imply the classification; negative searches cannot establish definitive global novelty.
+PASS
 
-## Value — PASS
-The complete graph with one deleted edge is an algebraically natural near-maximally dense family, with exactly one exceptional adjacency. An exact dynamical equivalence to the sparse cycle family despite their divergent scan-class distributions is a structural phenomenon, not just a restatement of a known invariant. The complete period and orbit census, together with exact counting of labelled schedules realizing each regime, resolves a natural infinite-family recurrence question and quantifies scheduling sensitivity. No broader universal conjecture or artificial parameter slice is asserted.
+The self-inclusive sequential XOR sweep is a product of involutory local updates, hence invertible with scan matrix F=(I+L)^(-1)(I+U). Cyclic rotation and relabeling reduce the single deleted edge to oriented gap k. Unimodular elimination over F_2[x] leaves a 2x2 block H whose determinant is (x^k+1)(x^(n-k)+1); its entry gcd gives d1=gcd(x^k+1,(x^n+1)/(x+1)) and d2=product/d1. Gcd with x^t+1 gives fixed dimensions g+h-epsilon, while invariant-factor order and Moebius inversion yield the full cycle census and sharp order. The boundary k=1 is explicitly handled. Separately enumerated actual binary scan state maps for canonical gaps n=4..8 and times 1..16 and reproduced all fixed counts. The sparse cycle comparison uses the known cyclic-ascent classification, with an explicit caution that the submitted proof quotes rather than rederives that all-scan cycle lemma. This is set-conjugacy, not linear similarity.
 
-## Evidence and limitations
-For reproducibility, the self-contained verifier reports 5,910 exhaustive dense-graph scan cases and, independently, 5,910 cycle-graph scan cases for sizes three through seven, with 695,472 checked scan–state pairs in each graph family, and 15,438 exact linear/polynomial iterate comparisons for sizes through twenty-four. The proof is valid for \(n\ge4\); additional size-three checks are exploratory boundary checks. Source comparisons include arXiv:0802.4412, arXiv:1510.04930, arXiv:1511.06966 and publicly indexed related parity studies. There is no independent audit; larger alphabet, simultaneous updates and multiple missing edges are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General linear SDS representations by Chen–Reidys and fixed-graph source-to-sink cycle equivalence by Macauley–Mortveit are prior methods. Defant studies cycle Rule 150, not the one-edge-deleted dense clique all-scan Smith decomposition. The distinct contribution is the dense all-gap exact invariant factors with uniform scan frequencies and their comparison to Eulerian cycle scan frequencies. Equivalent Coxeter/transvection factorizations are an unresolved historical-priority risk.
+
+## value
+
+PASS
+
+Deleting one edge from K_n creates a canonical near-complete graph where scan order remains visible in an exact two-factor Smith normal form. The fact that its orbit populations match a sparse cycle model despite radically different scan-frequency distributions is a structural equivalence with complete orbit counts, not a routine renaming of a known cycle result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

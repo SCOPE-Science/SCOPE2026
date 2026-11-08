@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:08:10.814801Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The self-inclusive sequential XOR sweep is a product of involutory local updates, hence invertible with scan matrix F=(I+L)^(-1)(I+U). Cyclic rotation and relabeling reduce the single deleted edge to oriented gap k. Unimodular elimination over F_2[x] leaves a 2x2 block H whose determinant is (x^k+1)(x^(n-k)+1); its entry gcd gives d1=gcd(x^k+1,(x^n+1)/(x+1)) and d2=product/d1. Gcd with x^t+1 gives fixed dimensions g+h-epsilon, while invariant-factor order and Moebius inversion yield the full cycle census and sharp order. The boundary k=1 is explicitly handled. Separately enumerated actual binary scan state maps for canonical gaps n=4..8 and times 1..16 and reproduced all fixed counts. The sparse cycle comparison uses the known cyclic-ascent classification, with an explicit caution that the submitted proof quotes rather than rederives that all-scan cycle lemma. This is set-conjugacy, not linear similarity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Reidys arXiv:1510.04930 gives general linear sequential matrices.",
+          "Defant arXiv:1511.06966 studies asynchronous elementary cellular automata on cycles."
+        ],
+        "reasoning": "The broader matrix framework contains the setup but is not an evaluated gcd orbit census for this graph; cycle-only results cover the sparse side, not the dense all-gap formula.",
+        "searches": [
+          "Resultary semantic: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation",
+          "SCOPE frozen-repository GitHub code search: one edge deleted cliques sequential XOR",
+          "arXiv:1510.04930",
+          "arXiv:1511.06966"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md (blob b56340ae0376f7570f0832ebdfdc881407aee3de), VERIFICATION.md, independent read of verify.py",
+        "https://arxiv.org/abs/0802.4412",
+        "https://arxiv.org/abs/1510.04930",
+        "https://arxiv.org/abs/1511.06966",
+        "Resultary query: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-graph update-order cycle equivalence permits conjugacies among orderings of a fixed graph.",
+          "Dense K_n-uv scan maps have two Smith factors dependent on oriented distance of missing endpoints; cycle counts then match a sparse cycle with ascent k."
+        ],
+        "reasoning": "A theorem about scan-order mutations on one graph does not itself imply equality of cycle populations on two different adjacency graphs. New dense invariant factor calculation supplies the missing implication.",
+        "searches": [
+          "Resultary semantic: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation",
+          "SCOPE frozen-repository GitHub code search: one edge deleted cliques sequential XOR",
+          "arXiv:0802.4412"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F=(I+L)^(-1)(I+U) is a standard SDS linear representation.",
+          "Macauley–Mortveit arXiv:0802.4412 gives cycle equivalence under update-order transforms on a fixed graph, not across K_n-uv and C_n."
+        ],
+        "reasoning": "Equivalent Coxeter transformations and linear transvections were considered. No inspected source identifies the deleted-clique two-factor invariant form or cross-graph set conjugacy for all scans.",
+        "searches": [
+          "Resultary semantic: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation",
+          "SCOPE frozen-repository GitHub code search: one edge deleted cliques sequential XOR",
+          "arXiv:0802.4412",
+          "arXiv:1510.04930"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A cycle all-scan Eulerian multiplicity classification is acknowledged as pre-existing; no table of dense graph scan invariants was found.",
+          "Independent n=4..8 canonical-gap state maps agreed with fixed-space formula and the uniform gap count is a bijection."
+        ],
+        "reasoning": "Known sparse scan tables are not claimed new. No covering dense exact table surfaced in the targeted published-record semantic search, subject to historical indexing limits.",
+        "searches": [
+          "Resultary semantic: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation",
+          "SCOPE frozen-repository GitHub code search: one edge deleted cliques sequential XOR",
+          "arXiv:1511.06966"
+        ]
+      },
+      "rationale": "General linear SDS representations by Chen–Reidys and fixed-graph source-to-sink cycle equivalence by Macauley–Mortveit are prior methods. Defant studies cycle Rule 150, not the one-edge-deleted dense clique all-scan Smith decomposition. The distinct contribution is the dense all-gap exact invariant factors with uniform scan frequencies and their comparison to Eulerian cycle scan frequencies. Equivalent Coxeter/transvection factorizations are an unresolved historical-priority risk.",
+      "residual_risks": [
+        "A previously unnoticed Coxeter-transformation theorem for almost-complete graphs could imply this Smith decomposition.",
+        "The sparse cycle all-scan census was cited rather than fully reproved in the submitted dense-focused argument; finite source verifier independently checks all n<=7.",
+        "Cyclic-gap and ascent distributions differ; conjugacy is of permutations as sets only, not proven linearly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FIXED_GRAPH_CYCLE_EQUIVALENCE",
+          "evidence": "Equivalence is within a fixed graph and does not determine exact dense one-edge-deleted clique cycle counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+          "material_read": "Relevant source-sink update-order cycle equivalence theorem and surrounding definitions from accessible primary preprint",
+          "method": "Primary arXiv full text/PDF, relevant theorem and surrounding proof read with page text and visual PDF page check",
+          "title": "Cycle Equivalence of Graph Dynamical Systems",
+          "trigger": "General cycle equivalence and scan order transformations"
+        },
+        {
+          "assessment": "SPARSE_PRIOR_ONLY",
+          "evidence": "Focus on asynchronous elementary automata on cycles; dense deleted-clique Smith decomposition not given.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.06966",
+          "material_read": "Relevant cycle automata results and identity-scan discussion of accessible primary PDF",
+          "method": "Primary arXiv full text/PDF, relevant theorem and surrounding proof read with page text and visual PDF page check",
+          "title": "Flexible Toggles and Symmetric Invertible Asynchronous Elementary Cellular Automata",
+          "trigger": "Sparse cycle Rule 150 comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting one edge from K_n creates a canonical near-complete graph where scan order remains visible in an exact two-factor Smith normal form. The fact that its orbit populations match a sparse cycle model despite radically different scan-frequency distributions is a structural equivalence with complete orbit counts, not a routine renaming of a known cycle result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md (blob b56340ae0376f7570f0832ebdfdc881407aee3de), VERIFICATION.md, independent read of verify.py",
+    "https://arxiv.org/abs/0802.4412",
+    "https://arxiv.org/abs/1510.04930",
+    "https://arxiv.org/abs/1511.06966",
+    "Resultary query: sequential XOR graph dynamical system complete graph one missing edge cycle conjugacy rule 150 scan permutation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A previously unnoticed Coxeter-transformation theorem for almost-complete graphs could imply this Smith decomposition.",
+    "The sparse cycle all-scan census was cited rather than fully reproved in the submitted dense-focused argument; finite source verifier independently checks all n<=7.",
+    "Cyclic-gap and ascent distributions differ; conjugacy is of permutations as sets only, not proven linearly."
+  ],
+  "schema_version": 1
+}
