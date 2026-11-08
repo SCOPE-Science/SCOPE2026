@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Every update follows from the explicit fields \(X-x_i+y_i\) and \(Y-y_i+x_i\), including tie retention. The proof classifies even row sums (zero gives an exact row swap; nonzero creates uniform rows) and odd row sums (only \(\pm1\) can lead to oscillation). For odd orders the four matched-column types leave precisely four immediate-cycle families and two one-step-predecessor families. Multiplying their multinomial populations gives the exact basin formula; all other initial states become fixed within the stated bounds. Independent direct exhaustive and multinomial tests verify both the period and transient claims. Boundaries \(n=2,3\) are explicitly included and tested. The general result is proved rather than extrapolated from finite tests.
+
+## Originality — PASS, with stated residual risk
+The arXiv full-text treatment of majority dynamics by Benjamini et al. (2014) addresses stochastic or unimodular graphs and general period restrictions, not the exact matched-clique oscillation basin. The published dense-random-graph treatment of Fountoulakis et al. (2020) concerns typical consensus rather than this deterministic-network census. Bujtás et al. (2026) analyze majority C-chromatic numbers of Hamming graphs; their Theorem 4 has the same graph product but concerns the *maximum number of coloring classes*, not transient trajectories or basin cardinalities. Abstract-accessible Goles–Olivos (1980) gives only the eventual-period upper bound. Exact-name, alternate-name, matched-community, stable-partition and two-cycle formula searches found no covering statement. A different dynamical rule on the same graph and immediate-period counts on other paired graphs do not imply this new basin formula. Residual risks: an unindexed equivalent result, and inaccessible full details of the original short 1980 article.
+
+## Value — PASS
+The oscillatory basin is a natural dynamical invariant: it counts all initial states that ever reach a genuine oscillation rather than merely those periodic at time zero. The exact one-step tail classification distinguishes this from immediate-orbit counting, and determines the previously undetermined transition from no newly entering oscillations for even clique size to a nonzero explicit entrance population for odd clique size. The full probability has sharply different polynomial versus exponential asymptotics, despite each graph having two dense matched communities. The theorem also gives a uniform, sharp stabilization-time bound independent of graph order and covers an infinite natural graph family.
+
+## Closest literature and limitations
+Benjamini et al., arXiv:1405.2486 (initial May 11, 2014); Goles–Olivos, DOI:10.1016/0012-365X(80)90121-1; Fountoulakis–Kang–Makai, DOI:10.1002/rsa.20970; Bujtás et al., arXiv:2608.27669. The result is not a formula for each individual two-cycle's basin or for biased initial measures. Exact priority beyond the inspected accessible material remains uncertain, and independent audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
