@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical argument partitions all coordinate-ordered extended Hamming codebooks into five classes. Its essential identities are the count of fourteen zero-XOR affine-plane supports, three affine planes through each pair of affine points, and the exact conditional probability one third for an opposite four-window to be a plane. The conditional alternating-plane analysis gives an independent exact five-row joint count, not extrapolation from samples.
+## correctness
 
-`verify.py` uses Python's standard library only and reproduces all five joint multiplicities by enumerating \(5040\) normalized permutations. It computes each codebook in two independent forms (zero-XOR four-subsets and affine Boolean evaluations), verifies that there are thirty distinct codebooks each occurring \(168\) times, then compares all sixteen actual codeword pair weights against the proven enumerator formula. Execute `python3 verify.py` and check the final line `VERIFY_OK`.
+PASS
 
-The computational test is finite and exact, while the combinatorial proof supplies the exhaustive classification independently of program execution. The claim does not address other lengths or other code families. Independent external mathematical audit has not been performed.
+For all eight affine points, the 16 affine Boolean maps form the [8,4,4] code; nontrivial weight-four supports are exactly 14 zero-XOR affine planes. Four-point cyclic support has pair weight 4 plus its number of runs. Four complementary windows and alternating parity planes give coefficients A5=2T and A8=2Z. Each coordinate edge belongs to three plane supports (24 incidences); the remaining A6 and A7 follow from two linear equations. AGL(3,2) has 1344 automorphisms, hence 8!/1344=30 labeled codes. The event calculation and conditional parity-direction matching yield the joint counts. Independently reconstructed every normalized affine order (5040), distinct codebooks, pair weight spectrum and T,Z table: all formulas match; the proof supplies completeness, not only finite spot checks.
+
+## originality
+
+PASS
+
+Classical pair-channel definitions, Singleton bound, ten? existence of pair-MDS [8,4] and thirty labeled Fano planes are prior work. The remaining claim is all cyclic coordinate presentations classified by their five complete symbol-pair enumerators and parity/interleaving statistics. Saniga full public manuscript catalogs the thirty labeled Fano planes by defective arithmetic lines, with eight such types, not the cyclic symbol-pair enumerators or joint distribution. Nearby Resultary binary cyclic Hamming pair-generation results concern other codes/invariants. Residual risk is that Fano tables or earlier coding tables implicitly encode these five spectra.
+
+## value
+
+PASS
+
+The coordinate order is inherent in symbol-pair reading but invisible to ordinary Hamming weight. The classification quantifies exactly which coordinate presentations attain the optimal pair distance, providing a natural complete invariant for a canonical eight-coordinate code; it goes beyond reproducing a known isolated optimal example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
