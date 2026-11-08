@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Proper finite controlled walk; exact Bellman characterization; independently derived all-k rational formulas with strict polynomial sign inequalities; exhaustive labeled graph census of all 27,475 connected rooted cases through six vertices with exact rational Bellman/policy replay and no strict distance inversions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georgakopoulos et al. bound hitting/cover time on trees, grids and other graph families and give polynomial-time optimal choice computation; no stated small-order classification in the full source sections examined",
+        "Accessible prior claim 9ae9b5e3-1b86-40f4-ac89-25ec60904433 proves parent-first deadline optimality on complete rooted trees, not the cyclic obstruction"
+      ],
+      "reasoning": "General algorithmic solvability and tree optimality do not logically imply that every graph of order <=6 has a distance-first optimum or that a decorated cycle changes preference at precisely two leaves. No stronger blanket classification of arbitrary small connected graphs was located.",
+      "searches": [
+        "\"power of two choices\" random walk \"greedy\" hitting tree graph 7 vertices",
+        "random walk with power of two choices optimal hitting policy ranks by value not graph distance unicyclic graphs",
+        "arxiv:1911.05170 Sections 3, 4, 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.05170",
+      "https://www.cs.tau.ac.il/~azar/walk.pdf",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+      "accessible prior claims: 9ae9b5e3, 4180de2d, 49171f94"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 two-offer paper provides value-ranked decisions, not the value order for the specific seven-vertex example or a cutoff proof",
+        "The 1996 source supplies non-distance optimality for epsilon-biased walks, not a two-uniform-offer minimal-order theorem",
+        "The closest accessible prior claims concern cover-time choices on complete multipartite/bipartite graphs; their objective and graph class differ"
+      ],
+      "reasoning": "None of the inspected specific conclusions contains or directly implies the exact inequality \\(4(18k^2-10k-51)/(134k+147)>0\\) for the decorated C5 or universal non-inversion of all connected graphs up to order 6. The present theorem requires a separate exact Bellman computation and exhaustive labeled-graph census.",
+      "searches": [
+        "arxiv:1911.05170 Lemma 7.1 and Theorem 1.6",
+        "doi:10.1007/BF01300124 introduction and hitting-time strategy discussion",
+        "own accessible claim 4180de2d-ab4e-4109-9ec3-f946b1715d75",
+        "own accessible claim 49171f94-e5b9-4124-a4ef-5de3c446f9f3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1911.05170 Section 7, Lemma 7.1: rank alternatives by optimal expected target-hitting values",
+        "DOI:10.1007/BF01300124 introductory qualitative observation that moving closer need not be best for epsilon-biased walks"
+      ],
+      "reasoning": "The new claim is not the general Bellman optimality rule, nor the qualitative existence of some failure of distance heuristics. It concerns the two-iid-offer model and the exact smallest graph order plus a sharp all-k pendant-load cutoff. The epsilon-biased model permits an independently coin-gated arbitrary move and does not entail these exact two-offer thresholds.",
+      "searches": [
+        "\"two choice\" \"distance\" \"hitting time\" \"counterexample\" graph",
+        "choice random walk minimizing hitting time graph distance greedy policy failure seven vertices odd cycle pendant leaves",
+        "arxiv:1911.05170 Section 7 optimal hitting-value ordering"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching explicit table, graph atlas entry, or published small-graph threshold appeared in the accessed scientific searches",
+        "The independent exhaustive source enumerates 27,475 connected rooted labelled graph masks through order six"
+      ],
+      "reasoning": "An unlabeled graph atlas alone is not an optimal-control-value table. A failed search cannot certify priority; the exhaustive numerical part was derived from the actual graph masks, with each Bellman solution checked exactly.",
+      "searches": [
+        "smallest graph where greedy shortest path movement for two-choice random walk is suboptimal",
+        "choice random walk optimal hitting graph distance counterexample seven vertices",
+        "2019 arxiv full-text search shortest distance greedy counterexample"
+      ]
+    },
+    "rationale": "Inspected full relevant primary material establishes the algorithmic value-ranking principle and the qualitative earlier caveat about distance greedy in a different model, not the exact seven-vertex cutoff or the all-k decorated-cycle threshold. Database, literature and accessible claim comparisons found no dominating theorem; historic priority risk is noted.",
+    "residual_risks": [
+      "The 1996 literature already establishes qualitative distance-routing failure in a different control model; the original contribution is strictly the quantitative two-offer cutoff and family.",
+      "A historical small-graph value table or independent enumeration absent from indexed searches could contain this seven-vertex result.",
+      "The 2020 conference version was checked bibliographically but not separately in full beyond the later expanded original manuscript."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS optimal hitting-value comparison and polynomial-time policy computation, NOT the enumerative seven-vertex boundary nor explicit decorated-cycle k threshold",
+        "evidence": [
+          "Section 7 Lemma 7.1 states preference by optimal hitting time; Section 7 Theorem 1.6 states computability",
+          "Sections 3–4 give general graph and tree bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+        "material_read": "Accessible primary full-text Sections 1–7, especially Sections 2,3,4,7; PDF pages 1,22,24 inspected visually",
+        "method": "Read arXiv HTML source with targeted full-text comparison and original PDF page views",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Exactly the same independently sampled two-neighbor choice walk and expected hitting-time objective"
+      },
+      {
+        "assessment": "COVERS qualitative warning about distance-first failure and optimal bias strategies, but for coin-gated epsilon bias, not independently offered two-neighbor choices or minimum order seven",
+        "evidence": [
+          "Introductory statement: go closer to the root is not necessarily the best strategy",
+          "Model P=(1-epsilon)Q+epsilon B rather than two iid proposals"
+        ],
+        "identifier_or_url": "https://www.cs.tau.ac.il/~azar/walk.pdf",
+        "material_read": "Original primary PDF introduction, model definition and hitting-time strategy statements; PDF first page visually inspected",
+        "method": "Read source PDF text with targeted inspection and visual first-page confirmation",
+        "title": "Biased Random Walks",
+        "trigger": "Earlier explicit caveat that closer-to-target decisions may be suboptimal"
+      },
+      {
+        "assessment": "Abstract supports the general optimization context; not used to claim absence of a specific statement from its uninspected full text",
+        "evidence": [
+          "2020 conference source describes polynomial-time optimum for hitting and general graph bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+        "material_read": "Bibliographic abstract and relation to later arXiv manuscript",
+        "method": "Read repository abstract and comparison to expanded primary manuscript",
+        "title": "Choice and bias in random walks",
+        "trigger": "Earlier conference presentation of the same two-choice work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bad48277-daef-4ec8-aa68-00a49c8c6d0c",
+  "value": {
+    "rationale": "Sharp first graph order for a natural distance-based routing heuristic to fail in an established controlled random-walk model, with a family-wide exact pendant threshold and a coherent trap mechanism. Goes beyond general known qualitative nonoptimality and avoids arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}
