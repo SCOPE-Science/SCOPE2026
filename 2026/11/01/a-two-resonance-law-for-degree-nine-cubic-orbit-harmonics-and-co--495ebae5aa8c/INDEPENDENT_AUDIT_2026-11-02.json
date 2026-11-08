@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:52:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The addition theorem identifies the positive-semidefinite Legendre Gram rank with exact-degree evaluation rank after antipodal reduction to twelve representatives. The three signed epsilon*eta blocks give a 3-by-3 compression with common diagonal A and off-diagonal B. Direct exact polynomial expansion yields A-B=19305*r^2*(r^2-1)^2*(r^4-6*r^2+1)^2/[4*(r^2+2)^9]. PSD implies exactly the stated contrast-kernel parameter values for 24 distinct points, and positive ten-by-ten minors give rank exactly ten at both. For r=sqrt(2)-1, exact rational interval LDL certificates in the inspected verifier supply ranks for k=0..161, with exact null vectors and a positive rank-ten minor at k=9. For k>=162, all distinct normalized dot products satisfy |t|<sqrt(3)/2; the Bernstein Legendre bound and 11-term Gershgorin diagonal dominance imply a positive-definite 12-by-12 Gram matrix. I separately expanded the polynomial identities and block symmetries with symbolic arithmetic and calculated 66 finite rank tests. Computations cover the finite range; Bernstein-Gershgorin proves the infinite tail. The resonance criterion does not assert every possible defect outside the specific contrast subspace.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General spherical harmonic interpolation frameworks give addition/Legendre Gram representations and dimension 2k+1, not positivity of this particular orbit Gram matrix in every large degree.",
+          "Source distinguishes a previously calculated rhombicuboctahedral isolated sequence, which is not the entire continuous two-resonance law or truncated-cube all-degree sequence."
+        ],
+        "reasoning": "A general harmonic sampling or design theorem would cover the result only if it supplied the exact contrast factorization or special orbit ranks. None identified does; generic dimension bounds do not imply the degree-nine anomaly.",
+        "searches": [
+          "Resultary:cubic orbit harmonic sampling rank all degrees",
+          "Misner 2004 Spherical harmonic decomposition on a cubic grid",
+          "Nortje Ward Neuman Bai 2015 Spherical Harmonics for Surface Parametrisation and Remeshing"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:RESULT.md (blob d60cf6dccdf0282a5ea8e8023bead438b72b66c4)",
+        "SCOPE2026:truncated_cube_checker.py (blob 03db6b4bb6e05089ba628aacf6b8d81017f49b16)",
+        "arxiv:0806.3367",
+        "arxiv:1308.5101",
+        "arxiv:1803.00336",
+        "doi:10.1088/0264-9381/21/3/014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The addition theorem and Bernstein bound are two premises used to prove the claim, not already the orbit-specific conclusion.",
+          "The infinite-degree rank follows only after special dot-product separation and finite exact certificates."
+        ],
+        "reasoning": "Neither harmonic design properties nor universal Legendre bounds alone imply an exceptional rank at k=9, its absence elsewhere, or two r-resonances.",
+        "searches": [
+          "Pérez Saborid 0806.3367 addition theorem",
+          "Bannai Okuda Tagami 1308.5101 harmonic index t designs",
+          "Wang 1803.00336 Legendre Bernstein"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spherical harmonic addition theorem only equates Gram and evaluation rank; it does not give the r-dependent contrast-null polynomial.",
+          "Pinned RESULT.md computes an r-uniform factorization with two positive nondegenerate zeros."
+        ],
+        "reasoning": "A sphere-design condition annihilates a harmonic sum, while this claim concerns two explicit signed data contrasts in the left nullspace of the sampling operator. These are not automatically equivalent; no checked equivalent all-r statement was found.",
+        "searches": [
+          "Resultary:Degree 9 spherical harmonics evaluation ranks truncated cube rhombicuboctahedron cubic orbit signed contrast two resonances parameter factorization",
+          "Resultary:spherical harmonic sampling truncated cube 24 vertices all degree rank sequence degree 9 rhombicuboctahedron",
+          "SCOPE2026:pinned RESULT.md and REVIEW.md at assigned tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked sources include polyhedral geometry and harmonic interpolation but no direct rank table for the 12 antipodal representative Gram matrices."
+        ],
+        "reasoning": "No exact database/table entry supplying the claimed parameter-uniform contrast polynomial and all-degree truncated-cube ranks was identified. This absence is not proof of novelty; historic cubature tables are a residual risk.",
+        "searches": [
+          "Resultary:truncated cube spherical harmonic exact degree 9 rank",
+          "polyhedral cubature degree-nine truncated cube sampling matrix",
+          "SCOPE:truncated cube rhombicuboctahedron spectral interpolation"
+        ]
+      },
+      "rationale": "The proposition is a parameter-uniform characterization of annihilation of a specified signed block representation, plus a complete exact-degree rank sequence at one Archimedean vertex orbit; it is not the routine spherical-harmonic addition theorem, an isolated Archimedean interpolation table, or an ordinary cubature harmonic design. Comparison of existing cubic/harmonic records and the cited classical design/interpolation literature located no theorem covering the exact two-resonance identity together with the uniform infinite rank classification. This is a best-of-knowledge, not exhaustive priority, judgment.",
+      "residual_risks": [
+        "The standalone source interval verifier was read and its algebraic obligations inspected, but a full run of all its interval LDL pivots was not independently re-executed in this audit. Separate finite symbolic and numerical checks do not by themselves prove all degrees.",
+        "Older specialized polyhedral cubature or spherical-harmonic tables may have equivalent ranks and were not exhaustively searched."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard premise only; no support for an exact cubic-orbit rank table",
+          "evidence": "Addition theorem yields Gram=4pi/(2k+1)YY^T, not the special 3-block polynomial.",
+          "identifier_or_url": "arxiv:0806.3367",
+          "material_read": "Citation, theorem use and its normalized role in the entire pinned mathematical proof; original full article not independently retrieved",
+          "method": "Read assigned full RESULT.md plus cited theorem context",
+          "title": "The coordinate-free approach to spherical harmonics",
+          "trigger": "Addition theorem and Gram/evaluation equivalence"
+        },
+        {
+          "assessment": "Related harmonic moment cancellation; cannot infer signed evaluation nullspace classification from abstract",
+          "evidence": "The original contrasts are data-space signed epsilon*eta vectors, not an unweighted harmonic-design vanishing condition.",
+          "identifier_or_url": "arxiv:1308.5101",
+          "material_read": "Title, research-topic summary and the source proof comparison; full paper not retrieved",
+          "method": "Literature search and inspected assigned source",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Potential equivalent harmonic cancellation mechanism"
+        },
+        {
+          "assessment": "Insufficient material for whole-document exclusion; retained as priority uncertainty",
+          "evidence": "Grid decomposition does not in its accessible abstract specify the 24-point cubic orbit or two r-resonances.",
+          "identifier_or_url": "doi:10.1088/0264-9381/21/3/014",
+          "material_read": "Abstract-level description; full text inaccessible in this audit",
+          "method": "Bibliographic lookup and source reference inspection",
+          "title": "Spherical harmonic decomposition on a cubic grid",
+          "trigger": "Cubic symmetry and harmonic numerical sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cubic orbit has natural octahedral symmetry and the sign-contrast subspace is a canonical representation-theoretic obstruction. Identifying precisely two geometric resonance parameters and the one exceptional harmonic degree gives a complete sampling/interpolation phase diagram with a uniform all-degree analytic tail. This is useful geometric harmonic analysis, not an arbitrary small matrix rank exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026:RESULT.md (blob d60cf6dccdf0282a5ea8e8023bead438b72b66c4)",
+    "SCOPE2026:truncated_cube_checker.py (blob 03db6b4bb6e05089ba628aacf6b8d81017f49b16)",
+    "arxiv:0806.3367",
+    "arxiv:1308.5101",
+    "arxiv:1803.00336",
+    "doi:10.1088/0264-9381/21/3/014"
+  ],
+  "disposition": "passed",
+  "final_claim": "The 24-point signed-permutation cubic orbit has exactly two degree-nine signed position-contrast resonances r=sqrt(2)-1 and r=sqrt(2)+1, of degree-nine rank exactly ten; for the truncated-cube parameter, exact-degree spherical-harmonic ranks are 2k+1 for k<=5, ten for k=9, and twelve at all remaining k>=6.",
+  "limitations": [
+    "The standalone source interval verifier was read and its algebraic obligations inspected, but a full run of all its interval LDL pivots was not independently re-executed in this audit. Separate finite symbolic and numerical checks do not by themselves prove all degrees.",
+    "Older specialized polyhedral cubature or spherical-harmonic tables may have equivalent ranks and were not exhaustively searched."
+  ],
+  "residual_risks": [
+    "The standalone source interval verifier was read and its algebraic obligations inspected, but a full run of all its interval LDL pivots was not independently re-executed in this audit. Separate finite symbolic and numerical checks do not by themselves prove all degrees.",
+    "Older specialized polyhedral cubature or spherical-harmonic tables may have equivalent ranks and were not exhaustively searched."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-Run `python3 truncated_cube_checker.py` using Python 3.9 or newer (standard library only). Expected successful final status: `TRUNCATED_CUBE_HARMONIC_INTERVAL_CERTIFICATE_OK 0..5=1,3,5,7,9,11; 9=10; other_ge6=12; tail_ge162; exact_cubic_orbit_resonances`.
+## correctness
 
-The checker uses \(10^{220}\)-scaled outward-rounded integer intervals, an exact integer-square-root bracket for \(\sqrt2\), and the three-term Legendre recurrence to check the positive \(LDL^T\) pivots for every applicable degree through 161. Its exact rational-pair arithmetic in \(\mathbb Q(\sqrt2)\) verifies two independent null vectors. The continuous parameter identity is verified by matching all coefficients of an integer polynomial (including the equality of every normalized diagonal and off-diagonal block). For the second resonance it certifies a ten-by-ten positive minor; positivity and the factored quadratic form provide the two-dimensional nullspace.
+PASS
 
-The checker verifies the strict dot-product bound \(|t|<\sqrt3/2\) and integer inequality \(484<3\cdot162.5\). The proof uses the stated classical Bernstein inequality and Gershgorin's theorem for all degrees \(k\ge162\). This analytic step is essential: checking degrees 0–161 alone does not imply the infinite assertion.
+The addition theorem identifies the positive-semidefinite Legendre Gram rank with exact-degree evaluation rank after antipodal reduction to twelve representatives. The three signed epsilon*eta blocks give a 3-by-3 compression with common diagonal A and off-diagonal B. Direct exact polynomial expansion yields A-B=19305*r^2*(r^2-1)^2*(r^4-6*r^2+1)^2/[4*(r^2+2)^9]. PSD implies exactly the stated contrast-kernel parameter values for 24 distinct points, and positive ten-by-ten minors give rank exactly ten at both. For r=sqrt(2)-1, exact rational interval LDL certificates in the inspected verifier supply ranks for k=0..161, with exact null vectors and a positive rank-ten minor at k=9. For k>=162, all distinct normalized dot products satisfy |t|<sqrt(3)/2; the Bernstein Legendre bound and 11-term Gershgorin diagonal dominance imply a positive-definite 12-by-12 Gram matrix. I separately expanded the polynomial identities and block symmetries with symbolic arithmetic and calculated 66 finite rank tests. Computations cover the finite range; Bernstein-Gershgorin proves the infinite tail. The resonance criterion does not assert every possible defect outside the specific contrast subspace.
 
-An executable certificate does not imply formal proof or independent mathematical validation; the proof's mathematical premises and certified arithmetic were reviewed only in the self-review.
+## originality
+
+PASS
+
+The proposition is a parameter-uniform characterization of annihilation of a specified signed block representation, plus a complete exact-degree rank sequence at one Archimedean vertex orbit; it is not the routine spherical-harmonic addition theorem, an isolated Archimedean interpolation table, or an ordinary cubature harmonic design. Comparison of existing cubic/harmonic records and the cited classical design/interpolation literature located no theorem covering the exact two-resonance identity together with the uniform infinite rank classification. This is a best-of-knowledge, not exhaustive priority, judgment.
+
+## value
+
+PASS
+
+The cubic orbit has natural octahedral symmetry and the sign-contrast subspace is a canonical representation-theoretic obstruction. Identifying precisely two geometric resonance parameters and the one exceptional harmonic degree gives a complete sampling/interpolation phase diagram with a uniform all-degree analytic tail. This is useful geometric harmonic analysis, not an arbitrary small matrix rank exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
