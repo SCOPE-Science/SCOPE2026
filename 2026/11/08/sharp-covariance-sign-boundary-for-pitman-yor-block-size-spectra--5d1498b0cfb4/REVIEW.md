@@ -1,0 +1,19 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The statement is a single all-parameter covariance sign theorem with a macroscopic limiting cutoff. The Pitman–Yor EPPF, for the stated nondegenerate parameter domain, implies a precise marked-block factorization: a specified block of size \(r\) leaves a \(\mathrm{PD}(\alpha,\theta+\alpha)\) remainder. Summing that factorization proves the mixed moment and covariance formula. The exact Chinese-restaurant expectation recurrence gives strict increase in remaining sample size, establishes positive and negative endpoint signs, and thereby a unique sign boundary. Gamma-ratio asymptotics and strict monotonicity of \(\Gamma(\theta+1)/\Gamma(\theta+\alpha)\) in \(\theta\) prove the limiting critical fraction; the Ewens harmonic formula handles \(\alpha=0\). The two Brownian cases follow from independently documented excursion-partition parameter identifications. The standalone checker passed 706 assertions, including independent exact CRP enumeration for five rational parameter settings through \(n=8\); those finite checks do not substitute for the proof.
+
+## Originality — PASS, subject to historical priority uncertainty
+
+The primary Pitman reference establishes the EPPF and the deletion property, and both Maller–Shemehsavar references concern the same frequency spectrum and diversity variable. The later 2026 paper includes a general joint finite-sample transform and conditional limits for macroscopic frequency windows, so no novelty is assigned to the underlying moment's *computability*. The inspected full texts do not state the strict covariance sign ordering at each integer size, its parameter-dependent critical fraction, or the two Brownian cutoff constants as a sign boundary. The 2024 paper's accessible abstract describes joint distributional limits for finite spectrum components; full-text comparison was unavailable. A published one-switch result for uniform set partitions uses a different partition law and a logarithmic, rather than linear, cutoff. Earlier tagged-block-size covariance gives a weighted combination of the frequency covariances, insufficient to determine their individual signs. Priority risk remains because some general joint formulas may be manipulated to derive this theorem, and inaccessible or unlocated literature may already do so.
+
+## Value — PASS
+
+This is a qualitative classification for a natural occupancy spectrum, not merely a re-expression of a known moment: every block size belongs to a positive, zero or negative dependence regime, with exactly one change. For macroscopically large groups, the sign boundary occupies a nontrivial fraction of the full sample and is given by a parameter-sensitive analytic constant. Brownian-motion and Brownian-bridge excursion sampling yield different explicit constants despite sharing the same stability index, motivating the precise invariant and its practical relevance to frequency spectra. Neither a new general generating function nor a broader random-partition universality theorem is claimed.
+
+## Sources, comparison and residual limits
+
+Full material inspected: Pitman, *Poisson–Kingman partitions* (2002), Sections 6–8; Maller and Shemehsavar, *Limit Theorems for the Pitman–Yor Frequency Spectrum* (2026), Sections 2–4. Abstract-only access: Maller and Shemehsavar, *Asymptotics of the allele frequency spectrum and the number of alleles* (online 2024). Published comparison: *Block-size counts switch covariance sign at the Lambert-W scale* (2026, uniform set partitions). The closed covariance can be recovered from older EPPF and generating-function machinery, and the claimed contribution is the derived sign-shape and threshold theorem. Neither independent reproduction nor an exhaustive historical-priority search has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
