@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T15:15:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected windmill W_{n,m}=K1∨(n K_m), primitive period-two conservation implies each vertex fires once across two steps (constant firing totals 0 and 2 correspond fixed states), hence a unique representative phase with center firing. Reconstructed necessary and sufficient chip intervals d_v≤σ_v+q_v≤2d_v−1. A peripheral clique with k firers contributes binom(m,k)(m−k)^k(k+1)^(m−k) legal labelled assignments; a center-firing phase with K peripheral firers has exactly mn−K hub values, yielding H_{n,m}(z)=mn A_m(z)^n−z(A_m(z)^n)' and n(m−µ_m)α_m^n. The chip complement map σ↦2d−1−σ yields exact orbit-energy mean [(2m²+m)n−1]/2. Petal configurations under product law give iid X_i with mean µ, variance ν>0; uniform orbit law tilts by D_n=mn−∑X_i, and Cauchy–Schwarz gives total variation ≤sqrt(ν)/(2(m−µ)sqrt(n)). Hence Gaussian CLT for K, peripheral LLN energy, and independent asymptotically uniform hub chip interval yield the claimed joint independent Gaussian/Uniform limit. Independently implemented graph-step exhaustive enumeration for six (n,m) choices: (1,2) 6, (2,2) 60, (3,2) 450, (1,3) 60, (2,3) 4080, (1,4) 740 orbits; every K histogram and energy complement/mean identity matched. This finite test does not prove arbitrary n, m or the limit law. Assumptions m≥2, n≥1, labels fixed and primitive cycles only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang 2010 Proposition 2.5 proves equal firing totals over periodic cycles, a general structural theorem.",
+          "Wang–Lannan 2026 establishes universal eventual period two for a chip-density interval, without counting actual orbit states.",
+          "Levine 2008 studies complete graphs and phase locking, not clique bouquets with articulated hub."
+        ],
+        "reasoning": "Generic local existence/period criteria don't determine the label-sensitive K generating polynomial or energy distribution, and different graph families are not interchangeable.",
+        "searches": [
+          "arxiv:1003.0943 connected graph firing totals",
+          "arxiv:2608.04153 middle chip energy band every graph eventual 2 period",
+          "arxiv:0811.2800 complete graph parallel chip firing"
+        ]
+      },
+      "checked_sources": [
+        "https://math.mit.edu/research/highschool/primes/materials/2011/Scully-Zhang-Jiang.pdf",
+        "https://arxiv.org/abs/1003.0943",
+        "https://arxiv.org/abs/2608.04153",
+        "https://arxiv.org/abs/0811.2800",
+        "Resultary: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+        "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "Resultary query: windmill graph parallel chip firing primitive period two orbit polynomial Gaussian firing counts uniform energy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General local period-two predicate yields (d−q) or q chip choices after specifying firing patterns; the clique and hub factors still have to be enumerated.",
+          "Uniform energy limit needs explicit hub-size-biased ensemble and iid petal CLT, absent from earlier general statements."
+        ],
+        "reasoning": "The polynomial is derivable from the known criterion by substantive specialized counting; neither that theorem nor known middle-stair period result already states the exact enumeration or joint non-Gaussian limit.",
+        "searches": [
+          "windmill graph parallel chip firing primitive period two orbit polynomial Gaussian firing counts uniform energy",
+          "Scully–Zhang–Jiang Lemma 4.1 Section 4",
+          "Jiang 2010 Proposition 2.5",
+          "Wang–Lannan 2026 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scully–Zhang–Jiang Lemma 4.1 gives a local two-cycle validity inequality on a general graph.",
+          "Resultary generalized windmill general-position polynomial f09137092e5f is a static graph invariant, not dynamic orbit count."
+        ],
+        "reasoning": "The known criterion is one premise, but the exact weighted windmill polynomial and joint Gaussian–uniform ensemble are additional mathematical conclusions, not the same statement under renamed parameters.",
+        "searches": [
+          "windmill graph parallel chip firing primitive period two orbit polynomial Gaussian firing counts uniform energy",
+          "windmill friendship graph parallel chip-firing two-cycle orbit enumerator",
+          "Scully–Zhang–Jiang 2011 §4 Lemma 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Queried published corpus; nearest IDs f09137092e5f general-position polynomial and acea41c73be7 complete-multipartite period-four census, neither a primitive period-two windmill orbit table."
+        ],
+        "reasoning": "This is a genuinely natural exact discrete distribution, so old tables are a meaningful priority check; no covering tabulation found in searched records, but indexing limitations remain.",
+        "searches": [
+          "windmill graph parallel chip firing primitive period two orbit polynomial Gaussian firing counts uniform energy",
+          "friendship graph parallel chip firing 6n5^(n−1)",
+          "Resultary published generalized windmill graphs polynomials"
+        ]
+      },
+      "rationale": "Qualified PASS: Jiang 2010 already has equality of per-vertex firing totals; Scully–Zhang–Jiang 2011 explicitly proves general period-two local chip interval criterion, and these ingredients are fully credited, not renamed as new. The tested contribution is the complete labelled orbit polynomial on central clique windmills and the non-Gaussian energy ensemble independent of Gaussian firing fluctuations for n→∞ at fixed m. Wang–Lannan 2026 eventual-period-two middle density band is not a count of period-two state orbits. A Resultary exact generalized windmill general-position polynomial is a static graph invariant; another period-four census concerns a different graph class. No direct published polynomial or Gaussian–uniform joint result surfaced, but potential older windmill combinatorial enumeration remains a material risk.",
+      "residual_risks": [
+        "An old complete windmill 2-cycle orbit count or energy ensemble may appear in non-indexed dynamic enumerations.",
+        "One named prior paper's complete proof was not re-read; its theorem statement covers period existence but not obviously the exact distribution.",
+        "Joint Gaussian/uniform limit explicitly fixes clique width m; no claim for m→∞ or eventual basins."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERION_PRIOR_NOT_ENUMERATOR",
+          "evidence": [
+            "Lemma 4.1 identifies valid period-two state intervals; no labelled clique-windmill orbit generating polynomial in inspected §4."
+          ],
+          "identifier_or_url": "https://math.mit.edu/research/highschool/primes/materials/2011/Scully-Zhang-Jiang.pdf",
+          "material_read": "Entire PDF located; Section 4, pages 5–6 visually inspected including Lemma 4.1 and neighborhood interval condition",
+          "method": "lawful primary OA PDF with required visual screenshots",
+          "title": "Total Chip Numbers and Motors in the Parallel Chip-Firing Game",
+          "trigger": "source of known general two-cycle criterion"
+        },
+        {
+          "assessment": "FIRING_COUNT_PRIOR",
+          "evidence": [
+            "Connected graph periodic dynamics have equal total firings at all vertices; no windmill count or energy ensemble theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Full author preprint HTML, inspected Proposition 2.5 and periodic firing-count proofs",
+          "method": "public ar5iv full HTML",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "equal vertex firing totals over period"
+        },
+        {
+          "assessment": "EVENTUAL_PERIOD_BOUND_NOT_EXACT_ORBIT_COUNT",
+          "evidence": [
+            "Statement asserts eventual period within energy band, not enumerating labelled primitive cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04153",
+          "material_read": "ArXiv abstract and Theorem 1.2 statement as indexed, not complete proof here",
+          "method": "primary preprint theorem citation and abstract",
+          "title": "All parallel chip-firing games with 2|E|−|V|<|σ|<2|E| have period 2",
+          "trigger": "general energy-range period 2 covers all graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural explicit census for synchronous chip-firing dynamics on a well-studied articulation graph family. Beyond a simple local criterion substitution, the complete K-distribution reveals hub weighting, an exact mean, and a qualitatively distinct macroscopic uniform energy law independent of CLT-sized firing counts; all are useful for comparing chip-firing invariant ensembles. The result is explicitly not a classification of transient states, longer cycles or general graph periods.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://math.mit.edu/research/highschool/primes/materials/2011/Scully-Zhang-Jiang.pdf",
+    "https://arxiv.org/abs/1003.0943",
+    "https://arxiv.org/abs/2608.04153",
+    "https://arxiv.org/abs/0811.2800",
+    "Resultary: 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f",
+    "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+    "Resultary query: windmill graph parallel chip firing primitive period two orbit polynomial Gaussian firing counts uniform energy"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only primitive temporal two-cycles on labelled clique windmills W_{n,m} (m≥2,n≥1).",
+    "Gaussian–uniform limit only n→∞ with m fixed, not arbitrary growing width or transient dynamics."
+  ],
+  "residual_risks": [
+    "An old complete windmill 2-cycle orbit count or energy ensemble may appear in non-indexed dynamic enumerations.",
+    "One named prior paper's complete proof was not re-read; its theorem statement covers period existence but not obviously the exact distribution.",
+    "Joint Gaussian/uniform limit explicitly fixes clique width m; no claim for m→∞ or eventual basins."
+  ],
+  "schema_version": 1
+}
