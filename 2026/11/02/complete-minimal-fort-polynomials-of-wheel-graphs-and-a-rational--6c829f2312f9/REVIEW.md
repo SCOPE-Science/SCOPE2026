@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof characterizes the two hub-status classes by exact cyclic gap conditions, establishes when those forts are inclusion-minimal (including necessity of the hub), and uses labeled cyclic-composition counting to derive two rational generating functions. The exact determinant and logarithmic-derivative identities are explicit. A separate graph-level implementation checks 131,028 vertex subsets for rim orders four through fifteen, with coefficient and sequence agreement; the proof, rather than these finite tests, establishes all orders.
+## correctness
 
-**Originality — PASS, with residual publication-priority uncertainty.** Becker et al., arXiv:2404.05963, Section 5.1, explicitly publish the hub-containing wheel minimal-fort sequence and say that a general formula is not known. Their wheel lower-bound and finite-value results are acknowledged; they do not state the weighted all-minimal-fort generating functions. The present rational expressions answer that enumerative gap and refine it by fort cardinality. Related fort-hypergraph work (arXiv:2310.17904) and zero-forcing span work (arXiv:2309.06234) do not imply the two-series result. A journal version of the Becker paper appeared in 2025; its full final text was inaccessible, and an independently published equivalent formula remains possible.
+PASS
 
-**Mathematical value — PASS.** The primary paper explicitly singled out the unknown hub-containing sequence, making the exact rational generating function a motivated resolution rather than an arbitrary statistic. The result additionally determines every coefficient of both minimal-fort size distributions for an infinite natural graph family, with a concise structural explanation and a reproducible checker.
+For W_(n+1)=K1 vee C_n, hub-free forts are complements of maximal independent cyclic rim sets (gaps 2,3). Hub-including minimal forts have selected rim gap lengths 1,2,3 with neighboring sums >=4 and at least one 3, ensuring rim and hub essential. Weighted cyclic transfer T with det(I-zT)=1-zu^2-zu^3-z^2u^4+z^3u^6 yields both claimed logarithmic-derivative rational generating functions and the hub sequence. Independent direct minimal-fort enumeration n=3..9 corroborates all sizes, not an infinite proof.
 
-Scientific limitations: labeled wheel graphs only; no asymptotic uniqueness claim, no general graph-class formula, and no independent priority certification. Computations corroborate finite instances, not the all-order theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Becker et al publish the starting hub-containing wheel sequence and openly lack an explicit general term formula; the assessed bivariate rational functions resolve the same precise enumerative gap. Later journal revisions were not read in full; their potential change is retained as risk.
+
+## value
+
+PASS
+
+The exact rational solution to a specific published open wheel-graph sequence, refined simultaneously by fort size and hub status for every labeled wheel. Useful as a complete natural graph-parameter enumeration rather than arbitrary small-instance counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

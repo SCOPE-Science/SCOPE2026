@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 verify_wheel_minimal_forts.py` using only the Python 3 standard library. The script constructs each wheel from the definition, enumerates every nonempty vertex subset for the tested rim orders, checks the defining outside-neighbor condition directly, and checks inclusion-minimality against all smaller forts. It independently counts allowed cyclic gap words and maximal independent sets, and expands both rational generating functions by exact integer formal-series inversion.
+## correctness
 
-Observed execution: `VERIFY_OK: 131028 subsets checked across 12 wheels, published sequence of 13 terms matched; rational generating functions checked through rim order 40`.
+PASS
 
-The exhaustive graph-level comparison covers rim lengths \(4\) through \(15\), with the rim-length-three boundary separately checked in the rational series and directly in the mathematical proof. Higher-order coefficient checking is a finite algebraic consistency check only; the general statement follows from the cycle-gap bijections and formal transfer-matrix identity in `RESULT.md`. Independent mathematical audit has not been performed.
+For W_(n+1)=K1 vee C_n, hub-free forts are complements of maximal independent cyclic rim sets (gaps 2,3). Hub-including minimal forts have selected rim gap lengths 1,2,3 with neighboring sums >=4 and at least one 3, ensuring rim and hub essential. Weighted cyclic transfer T with det(I-zT)=1-zu^2-zu^3-z^2u^4+z^3u^6 yields both claimed logarithmic-derivative rational generating functions and the hub sequence. Independent direct minimal-fort enumeration n=3..9 corroborates all sizes, not an infinite proof.
+
+## originality
+
+PASS
+
+Qualified PASS: Becker et al publish the starting hub-containing wheel sequence and openly lack an explicit general term formula; the assessed bivariate rational functions resolve the same precise enumerative gap. Later journal revisions were not read in full; their potential change is retained as risk.
+
+## value
+
+PASS
+
+The exact rational solution to a specific published open wheel-graph sequence, refined simultaneously by fort size and hub status for every labeled wheel. Useful as a complete natural graph-parameter enumeration rather than arbitrary small-instance counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
