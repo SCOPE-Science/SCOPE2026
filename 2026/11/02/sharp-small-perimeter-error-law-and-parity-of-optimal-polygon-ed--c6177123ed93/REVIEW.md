@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For any fixed genuine polygon and positive edge weights, every occupied-edge sample configuration has an exact perimeter-deficit decomposition into vertex chord shortcuts. Marked endpoint intervals yield the mutually independent exponential limit, and exponential nearest-point tails give all fixed moment convergence. The exact one-corner integral proves the linear near-zero coefficient, while independent-convolution simplex volume produces the sharp order-\(m\) law. AM–GM and the cyclic recurrence classify all regular-polygon risk-optimal weights. The accompanying executable confirms finite geometry, integrals, parity and moments but is not used as the infinite proof.
+PASS
 
-## Originality
+On event all edges sampled (complement exponentially small) convex hull perimeter replaces precisely each vertex incident boundary segments by the chord through closest incident edge samples, yielding exact defect F_α(x,y)=x+y−√(x²+y²−2xy cosα). Disjoint O(1/n) endpoint intervals show joint independent exponential gaps with rates λ_i=w_i/L_i by common avoidance probability (1−B/n)^n→e^(−B). Uniform exponential nearest-point bounds and exponential missing-edge failure give all fixed moments. Solving F_α(x,y)=z gives x_z(y)=z(y−z/2)/((1+cosα)y−z); splitting integration at √z yields P(F≤z)=((λ+μ)/(1+cosα))z+o(z). Vertices use disjoint limiting endpoint exponentials, so independent m-fold convolution gives factor 1/m!. For regular m-gon maximize ∏(w_(i−1)+w_i) under ∑w=1 via AM–GM, with equality linear recurrence w_i=w_(i−2); odd m uniform unique, even m positive alternating family. Independent geometric chord inversion and equality products checked; full limit follows analytic proof.
 
-**PASS, with residual priority risk.** Reitzner–Schütt–Werner (2019; arXiv:1911.05917) establish face-number and missed-volume results, not the stated perimeter small-ball coefficient. Prochno–Schütt–Sonnleitner–Werner (2024; arXiv:2404.02870) treat Hausdorff deviation, whose maximum-type law does not determine the present sum-of-shortcuts law. The nearest indexed polygon sampling results address Hausdorff behavior, and the smooth ellipse minimax theorem concerns a different boundary class and criterion. An existing missing-area law uses related exponential endpoint limits but does not provide the nonlinear chord shortcut’s exact small-tail constant or the odd/even risk-optimizer family. Endpoint Poissonization and AM–GM alone are not claimed as novel. Unindexed perimeter-specific predecessor results remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Perimeter is a natural intrinsic-volume approximation error, and exceptionally accurate reconstructions are a motivated risk criterion distinct from minimizing expectation. The sharp joint-corner exponent and coefficient identify how local angles and edge sampling intensities control rare high-accuracy events. The optimizer’s parity transition is global, exact and structurally nonunique for even regular polygons, providing a practical boundary-sampling design distinction not supplied by a generic convergence-rate statement.
+Best-knowledge PASS: Reitzner–Schütt–Werner boundary polytopes study missing volume and face counts; Prochno–Schütt–Sonnleitner–Werner study Hausdorff max error. Shared Poisson endpoint asymptotics do not imply a sum of nonlinear chord-perimeter shortcuts and this exact small-ball coefficient or parity of risk-optimal sampling. Related smooth-ellipse minimax and regular-polygon Gumbel results optimize different losses.
 
-## Limits
+## value
 
-The sampling weights must remain fixed and strictly positive, and the small-error asymptotic applies after the sample-size limit. The leading small-error optimizer is not a claim about finite samples or other loss functions. Priority search is not exhaustive, and numerical checks are not a replacement for proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perimeter error is a natural geometric reconstruction loss, and its exceptionally accurate tail and optimal edge allocation answer a motivated design problem distinct from mean or Hausdorff accuracy. Odd/even nonunique optimum is a sharp structural phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
