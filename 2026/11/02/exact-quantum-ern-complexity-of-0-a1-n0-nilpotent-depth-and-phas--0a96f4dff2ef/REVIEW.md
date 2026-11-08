@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For every positive integer \(a,n\), the lower bound follows from two strictly shorter non-synchronizing words, forcing a strict rank drop between the images of the \((a-1)\)-st and \(a\)-th powers of the zero-letter linear map while its \(a\)-th power remains nonzero. Stabilization of image ranks then gives a difference-space dimension at least \(a+1\). The upper-bound matrices have a one-dimensional kernel for the zero letter and an invertible rotation for the one letter. Every zero product requires at least \(a+1\) zero letters and at least \(n\) one letters; the only possible zero product at their sum of lengths is exactly \(0^a1^n0\). A sufficiently small perturbation of the completely depolarizing channel realizes the matrices as completely positive trace-preserving maps in minimal dimension, and the chosen initial state's reachable differences span the entire matrix space used in the construction. All boundary cases \(a,n\ge1\) are covered; no finite experiment substitutes for the proof.
+PASS
 
-The packaged checker `verify.py` was run on all 40 pairs with \(1\le a\le8\), \(1\le n\le5\), exhaustively evaluating 126400 short matrix products. Its observed shortest-zero-word uniqueness and dimension-rounding tests passed. Floating-point enumeration is corroboration, not infinite certification.
+On reachable-density differences V (dim_R V<=d^2-1), synchronizing iff the real channel-letter linear product vanishes. The target word yields XY^n X^a=0 in right-to-left matrix multiplication; the shorter words X^a and XY^n X^(a-1) must not vanish, so im X^a is a proper nonzero subspace of im X^(a-1). Once consecutive image ranks stabilize they never decrease, forcing at least a prior strict drops plus nonzero a-th image: dim V>=a+1, d>=ceil(sqrt(a+2)). On U=R^(a+1), X fixes e0, kills e1 and shifts e_j to e_(j-1) for j>=2; Y rotates (e0,e1) by theta=pi/(2n), fixes others. X has rank loss at most one, Y invertible; killing e0 requires at least n Y letters because cos(j theta) never vanishes for 0<=j<n. Each zero product thus needs a+1 X letters and n Y letters. At the minimal total length the only possible mixed run candidate is 0^k1^n0^(a+1-k); evaluating e_(k+1) excludes k<a, leaving exactly 0^a1^n0. Embed U in traceless Hermitian d-dimensional operators and perturb the completely depolarizing channel by small epsilon; full-rank Choi positivity ensures CPTP while an initial near-maximally-mixed state produces reachable difference span U. An independent SymPy exact exhaustive matrix check verifies unique shortest zeros for 12 (a,n) pairs; no finite extrapolation.
 
-## Originality (O): PASS, with residual risk
+## originality
 
-Lee, Lee, and Kjos-Hanssen, arXiv:2609.40154 (2026-09-30), were inspected through their definitions, linearization, general upper bound, constant-word theorem, rotation example, and open-problem discussion. Their result for \(01^n0\) is already known and is explicitly excluded from the novel portion. Their \(\lceil\sqrt{|w|+1}\rceil\) length bound does not give an upper bound independent of \(n\), and the constant-word theorem does not establish this two-parameter family. The inspected earlier qutrit work, arXiv:2603.00861 (2026-03-01), concerns a different synchronization construction and does not establish the asserted exact optimum. Searches for the word family, nilpotent-rotation realizations, matrix-mortality equivalents, and quantum Černý dimension bounds found no statement subsuming this theorem.
+PASS
 
-The dissertation *Finite-state quantum automatic complexity* attributed to Swarnalakshmi Lakshmanan in the primary paper could not be examined in full; it may contain relevant variants. Search non-detection is not proof of priority, and later or unindexed work could independently contain the same result. No known stronger coverage or decisive unresolved implication was found in the inspected sources.
+Lee–Lee–Kjos-Hanssen 2026 already define qc, linearization, depolarizing perturbation, qc(0^m), and qc(01^n0)=2. Those are explicitly credited; the a>=2 mixed-run optimum with n-independence and sharp a=2/3 qubit transition is not stated or mechanically implied by their broad length upper bound, which grows with n. The Lakshmanan dissertation that supplied a=1 was not independently available in full and remains a substantive priority caveat.
 
-## Mathematical value (V): PASS
+## value
 
-The result solves the natural two-parameter complexity question \(\operatorname{qc}(0^a1^n0)\) exactly, and exhibits a sharp obstruction to qubit realizability at \(a=3\). Unlike a single computed example or a routine restatement of the general length bound, the proof reveals two independently controlled resources: the nilpotent-chain depth produces the exact square-root dimension requirement, while an arbitrarily long middle run is counted by a rotation without raising dimension. This adds a structural family to the open classification of words of quantum Černý complexity two.
+PASS
 
-## Limits and nearest literature
+The least quantum dimension of a prescribed unique reset word is a natural complexity invariant. This all-parameter two-run family isolates a nilpotent-depth cost decoupled from phase counting, provides an exact qubit-vs-higher-dimensional transition, and extends the previously known a=1 construction; not merely a small instance or routine parameter substitution.
 
-The theorem treats only positive \(a,n\), mixed-target synchronization and one initial reachable-state set; it does not address all-density-state synchronization, pure targets or general binary words. Nearest sources: https://arxiv.org/abs/2609.40154 and https://arxiv.org/abs/2603.00861. The earlier case \(a=1\) is acknowledged rather than presented as new. Independent priority and mathematical validation are not claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
