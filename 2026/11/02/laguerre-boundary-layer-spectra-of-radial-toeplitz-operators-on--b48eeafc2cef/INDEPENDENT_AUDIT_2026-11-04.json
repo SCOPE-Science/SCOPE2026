@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:45:16.284617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/laguerre-boundary-layer-spectra-of-radial-toeplitz-operators-on--b48eeafc2cef/RESULT.md at assigned tree 1872a005e51f701082cb36adc29fb75a788084e6",
+        "2026/11/02/laguerre-boundary-layer-spectra-of-radial-toeplitz-operators-on--b48eeafc2cef/checker.py"
+      ],
+      "rationale": "For fixed q>=2, alpha>-1 and sigma>0, the inspected radial angular-frequency blocks act on q-dimensional Jacobi polynomial subspaces for the Beta(xi+1,alpha+1) law. Under Y_xi=xi(1-t), every polynomial moment converges to Gamma(alpha+1), with positive limiting Hankel determinants and hence coefficientwise Jacobi-to-Laguerre orthonormal basis convergence. The symbol condition a(t)=c(1-t)^sigma+o((1-t)^sigma) plus boundedness gives a global power envelope, and higher fixed Beta moments yield uniform integrability. Thus xi^sigma M_xi converges in matrix norm to c times a positive-definite q-by-q Laguerre moment matrix. Finite negative-frequency blocks do not affect tails. Each of its q positive eigenvalue branches has xi^-sigma singular-value asymptotic; summing branch counting functions and inverting proves N^sigma s_N=|c|(sum_j nu_j^{1/sigma})^sigma in the limit. This yields compactness, p>1/sigma Schatten criterion and endpoint logarithmic coefficient. For sigma=1, Laguerre Jacobi trace q(q+alpha) gives the stated exact constant. Independently checked the q=2 alpha=1/2 sigma=1 matrix, trace, and positivity; numerical finite-block checks are not infinite proofs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrera-Castelán et al Theorem 1.1 describes asymptotic C*-algebra as matrices with scalar limits; Proposition 4.2 has qualitative block convergence.",
+          "Pushnitski studies an analytic Bergman order-one spectral setting, lacking fixed q>=2 full polyanalytic branches."
+        ],
+        "reasoning": "The qualitative algebraic boundary limit permits vanishing symbols to tend to zero but does not by itself determine rate, q nonzero branches, or trace.",
+        "searches": [
+          "arxiv:2306.06231 radial Toeplitz polyanalytic Bergman scalar matrix limits",
+          "polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics",
+          "Pushnitski arxiv:1710.02652 Toeplitz analytic Bergman spectral asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md and checker.py, source tree 1872a005e51f701082cb36adc29fb75a788084e6",
+        "Barrera-Castelán et al arXiv:2306.06231 original HTML Theorem1.1/Proposition4.2",
+        "Barrera-Castelán et al arXiv:2009.14301",
+        "Pushnitski arXiv:1710.02652",
+        "Resultary semantic search: polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior result states boundary limits of compressed radial operators and identifies the finite matrix representation.",
+          "A vanishing scalar limit alone establishes compactness but leaves leading rate, Schatten threshold and exact endpoint coefficient open."
+        ],
+        "reasoning": "Requires new power-law rescaling, polynomial basis convergence, positive matrix moment asymptotics and multi-branch counting inversion.",
+        "searches": [
+          "Barrera Castelán Maximenko Ramos Vazquez 2023 Theorem 1.1 Proposition 4.2",
+          "polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior radial Toeplitz representation is finite matrix Jacobi compression indexed by angular frequency.",
+          "Claim concerns first nonzero boundary-layer matrix in these blocks for vanishing symbol and global reordered q-branch tail."
+        ],
+        "reasoning": "The same block operator is used; exact representation is prior, but a qualitative scalar limit is not equivalent to quantitative matrix scaling and singular-value counting.",
+        "searches": [
+          "polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics",
+          "Barrera Castelán Maximenko Ramos Vazquez radial polyanalytic Toeplitz Jacobi blocks arxiv 2009.14301"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=2 Gamma matrix has normalized entries 1, -sigma/sqrt(alpha+1), and 1+sigma(sigma+1)/(alpha+1) times the Gamma ratio.",
+          "Finite numerical checks and known Laguerre polynomial tables alone do not identify the globally ordered operator singular-value asymptotics."
+        ],
+        "reasoning": "The natural finite matrix is explicitly derived from a high-frequency beta-to-Gamma limit, not read off an existing spectral table.",
+        "searches": [
+          "polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics",
+          "Laguerre Toeplitz singular values poly-Bergman q=2 matrix boundary"
+        ]
+      },
+      "rationale": "The beta/Jacobi radial-block decomposition and qualitative scalar boundary limits were previously established (Barrera-Castelán–Maximenko–Ramos-Vazquez). This audit credits those inputs; the Laguerre matrix as the leading vanishing boundary-layer coefficient and all-q ordered singular-value law do not appear in the inspected scalar-limit result. Analytic Bergman one-branch asymptotics are related prior results but do not alone yield the full-polyanalytic q-branch constant. Priority risk: general semiclassical Toeplitz boundary symbol calculus might imply this scaling.",
+      "residual_risks": [
+        "More general pseudodifferential Toeplitz boundary calculus might contain an equivalent q-branch coefficient.",
+        "Prior source arxiv:2009.14301 was not examined cover-to-cover.",
+        "Fixed q, alpha and sigma; not growing-order or nonradial extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS representation and qualitative scalar boundary limits; sharp power boundary matrix/tail formula not identified in inspected mathematical claims",
+          "evidence": "Barrera-Castelán–Maximenko–Ramos-Vazquez 2023, Theorem 1.1 and Proposition 4.2.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.06231",
+          "material_read": "Accessible primary HTML Theorem 1.1 on scalar-limit matrix algebra and Proposition 4.2 on block limits, plus adjacent definitions",
+          "method": "Read primary manuscript rendered HTML theorem statements and sections",
+          "title": "C*-algebras generated by radial Toeplitz operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Same operator decomposition and plausible stronger spectral theorem"
+        },
+        {
+          "assessment": "COVERS Jacobi/disk-polynomial blocks; rates not verified as previously established",
+          "evidence": "Barrera-Castelán–Maximenko–Ramos-Vazquez (2020).",
+          "identifier_or_url": "https://arxiv.org/abs/2009.14301",
+          "material_read": "Original paper bibliographic description and framework via cited manuscript; not independently read throughout",
+          "method": "Open-access primary framework comparison",
+          "title": "Radial operators on polyanalytic weighted Bergman spaces",
+          "trigger": "Original radial block matrices"
+        },
+        {
+          "assessment": "Analytic Bergman one-branch framework; does not directly cover full q-analytic space",
+          "evidence": "Pushnitski arXiv:1710.02652.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.02652",
+          "material_read": "Accessible arXiv primary abstract and mathematical scope",
+          "method": "OA abstract and theorem-scope comparison",
+          "title": "Spectral asymptotics for Toeplitz operators on the Bergman space",
+          "trigger": "Analytic Bergman one-branch possible dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md and checker.py, source tree 1872a005e51f701082cb36adc29fb75a788084e6",
+        "Barrera-Castelán et al arXiv:2306.06231 original HTML Theorem1.1/Proposition4.2",
+        "Barrera-Castelán et al arXiv:2009.14301",
+        "Pushnitski arXiv:1710.02652",
+        "Resultary semantic search: polyanalytic Bergman radial Toeplitz singular values boundary zero Laguerre moment Jacobi matrix asymptotics"
+      ],
+      "rationale": "Exact eigenvalue tail and endpoint ideal membership are central compact-operator invariants. Passing from known scalar limit/compactness to the explicit q-branch matrix and ordered tail coefficient provides substantive quantitative information; sigma=1 unexpectedly reduces to |c|q(q+alpha). The natural family is any bounded radial symbol with a fixed nonzero boundary vanishing order, not an artificial isolated example.",
+      "residual_risks": [
+        "More general pseudodifferential Toeplitz boundary calculus might contain an equivalent q-branch coefficient.",
+        "Prior source arxiv:2009.14301 was not examined cover-to-cover.",
+        "Fixed q, alpha and sigma; not growing-order or nonradial extensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "More general pseudodifferential Toeplitz boundary calculus might contain an equivalent q-branch coefficient.",
+    "Prior source arxiv:2009.14301 was not examined cover-to-cover.",
+    "Fixed q, alpha and sigma; not growing-order or nonradial extensions."
+  ],
+  "schema_version": 1
+}

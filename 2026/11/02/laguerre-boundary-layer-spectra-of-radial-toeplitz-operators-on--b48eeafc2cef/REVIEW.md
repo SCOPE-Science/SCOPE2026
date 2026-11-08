@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The proof reconstructs the angular-frequency Jacobi blocks on the full weighted polyanalytic space, with explicitly normalized beta probability laws. A beta-to-Gamma moment limit controls fixed-degree orthonormal polynomial bases, while a global boundary power envelope and bounded higher moments make matrix-entry limits rigorous. Positivity of the resulting Laguerre Gram matrix prevents loss of spectral branches. The counting-function inversion yields the ordered singular-value constant, not merely individual block limits. The first-order coefficient is the Laguerre Jacobi-matrix trace. The extracted numerical verifier passed 230 assertions, but the proof, not finite sampling, supports the infinite theorem. A key limitation is fixed finite polyanalytic order.
+PASS
 
-## Originality
+For fixed q>=2, alpha>-1 and sigma>0, the inspected radial angular-frequency blocks act on q-dimensional Jacobi polynomial subspaces for the Beta(xi+1,alpha+1) law. Under Y_xi=xi(1-t), every polynomial moment converges to Gamma(alpha+1), with positive limiting Hankel determinants and hence coefficientwise Jacobi-to-Laguerre orthonormal basis convergence. The symbol condition a(t)=c(1-t)^sigma+o((1-t)^sigma) plus boundedness gives a global power envelope, and higher fixed Beta moments yield uniform integrability. Thus xi^sigma M_xi converges in matrix norm to c times a positive-definite q-by-q Laguerre moment matrix. Finite negative-frequency blocks do not affect tails. Each of its q positive eigenvalue branches has xi^-sigma singular-value asymptotic; summing branch counting functions and inverting proves N^sigma s_N=|c|(sum_j nu_j^{1/sigma})^sigma in the limit. This yields compactness, p>1/sigma Schatten criterion and endpoint logarithmic coefficient. For sigma=1, Laguerre Jacobi trace q(q+alpha) gives the stated exact constant. Independently checked the q=2 alpha=1/2 sigma=1 matrix, trace, and positivity; numerical finite-block checks are not infinite proofs.
 
-**PASS (best-knowledge, self-review).** The closest exact objects are the Jacobi Toeplitz matrices in Barrera-Castelán–Maximenko–Ramos-Vazquez, arXiv:2009.14301 and arXiv:2306.06231. Their scalar block-limit results do not state or entail without substantial additional asymptotic work the matrix Laguerre limit or its all-branch ordered singular-value coefficient. Pushnitski, arXiv:1710.02652, handles the analytic one-branch Bergman spectral case; it does not directly determine the full-polyanalytic coefficient. Rozenblum–Vasilevski, arXiv:1907.06878, concerns singular symbols on the half-plane. Semantic research-record searches and targeted scholarly searches found no matching full-polyanalytic law. Historical-priority risk remains because searching is not a uniqueness proof and other symbolic-calculus results could conceal an equivalent statement.
+## originality
 
-## Value
+PASS
 
-**PASS (self-review).** The result quantitatively resolves an identified gap between a known matrix representation/qualitative compactness and the distribution of compact singular values. It produces a meaningful spectral invariant of the boundary profile, all \(q\) polyanalytic branches, exact Schatten thresholds and a logarithmic endpoint. The natural first-order vanishing case gives a surprisingly simple explicit coefficient \(|c|q(q+\alpha)\); the two-analytic example provides a closed finite spectral matrix for any positive power. This is more than the known analytic case or a routine restatement of compactness.
+The beta/Jacobi radial-block decomposition and qualitative scalar boundary limits were previously established (Barrera-Castelán–Maximenko–Ramos-Vazquez). This audit credits those inputs; the Laguerre matrix as the leading vanishing boundary-layer coefficient and all-q ordered singular-value law do not appear in the inspected scalar-limit result. Analytic Bergman one-branch asymptotics are related prior results but do not alone yield the full-polyanalytic q-branch constant. Priority risk: general semiclassical Toeplitz boundary symbol calculus might imply this scaling.
 
-## Closest sources and limits
+## value
 
-Primary comparisons: https://arxiv.org/abs/2306.06231 ; https://arxiv.org/abs/2009.14301 ; https://arxiv.org/abs/1710.02652 ; https://arxiv.org/abs/1907.06878 . Restrictions: bounded radial symbols, fixed order and standard power weights; no nonradial or growing-order results; no independent audit or definitive historical-priority certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact eigenvalue tail and endpoint ideal membership are central compact-operator invariants. Passing from known scalar limit/compactness to the explicit q-branch matrix and ordered tail coefficient provides substantive quantitative information; sigma=1 unexpectedly reduces to |c|q(q+alpha). The natural family is any bounded radial symbol with a fixed nonzero boundary vanishing order, not an artificial isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
