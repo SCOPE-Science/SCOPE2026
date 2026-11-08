@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:46:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/verify.py",
+        "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC."
+      ],
+      "rationale": "Direct inversion of 2x2 Gram gives R_B=q_B(Xbar)/S+b11/m, with S=sum_i(Xi-Xbar)^2, q_B(t)=(-t,1)B(-t,1)^T>0. Orthogonal decomp X=t*1+u in mean direction and H={sum u=0} has Lebesgue Jacobian sqrt(m). The event R_B>z is exactly a shrinking (m-1)-ball of squared radius q_B(t)/(z-b11/m). Rescale u by sqrt(z-b11/m), apply pointwise continuity of p and dominated convergence (bounded compact p, fixed B) for a finite positive coefficient; endpoint t is null set. Layer cake gives moment iff s<(m-1)/2. Holder with q_B^rho and int p=1 yields integral >= (int q_B^-1/2)^(1-m); equality requires unique positive continuous p*_B. Independent exact-rational inverse Gram checks, small-scatter volume and m=2 integral tail computations independently corroborate finite cases. Infinite asymptotics rest on dominated convergence and Holder.",
+      "residual_risks": [
+        "The optimality objective is the leading z→infinity tail constant, not any finite-threshold failure probability, classical A-optimal design or adaptive design.",
+        "Positive definiteness of B, iid continuous compactly supported p, fixed m>=2 are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mourtada provides nonasymptotic inequalities, not this exact leading constant.",
+          "Derezinski et al. optimize finite design pool expected risk via volume and importance sampling, generally dependent observations."
+        ],
+        "reasoning": "Neither tail inequalities nor dependent finite-pool mean-risk guarantees imply the candidate iid continuous-input high-z tail optimum.",
+        "searches": [
+          "Mourtada 2019 Theorem 4",
+          "Derezinski Clarkson Mahoney Warmuth PMLR 99 (2019) Theorems 4-5",
+          "Chkifa Dolbeault arXiv:2306.07435"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: affine least squares i.i.d. sampling inverse information trace extreme tail optimal sampling density",
+        "https://arxiv.org/pdf/1912.10754",
+        "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+        "https://arxiv.org/abs/2306.07435",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mourtada lower-tail exponents imply possible integrability conditions but not the exact integrated tube volume or Hölder equality density.",
+          "Finite-pool volume sampling differs from continuous iid sampling and mean-risk objective differs from leading extreme-risk tail."
+        ],
+        "reasoning": "The claimed coefficient and universal optimizer need new geometric/probabilistic computations beyond the inspected prior theorem statements.",
+        "searches": [
+          "Mourtada 2019 §3 covariance lower-tail theorem",
+          "PMLR 99 2019 Definition 11 and Theorems 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mourtada studies lower tail of random covariance and inverse moments, rather than exact coefficient depending on p(t)^m in a one-dimensional affine design.",
+          "Chkifa–Dolbeault analyze randomized point selection/conditioning and different algorithms."
+        ],
+        "reasoning": "General inverse-covariance lower tails and unweighted iid two-column affine collision volume are related but not equivalent claims; no exact m-independent density optimizer was located.",
+        "searches": [
+          "Resultary: affine least squares i.i.d. sampling inverse information trace extreme tail optimal sampling density",
+          "Mourtada arXiv:1912.10754",
+          "Chkifa Dolbeault arXiv:2306.07435"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby Resultary coordinate-sampling optimum concerns SPD quadratic convergence, not continuous affine design risk.",
+          "The explicit B=I p*(t)∝(1+t²)^-1/2 is derived from a variational objective, not a located table."
+        ],
+        "reasoning": "No exact published database/table for this collision-tail constant was found; uninspected specialist probability or numerical analysis sources remain possible.",
+        "searches": [
+          "Resultary: affine least squares i.i.d. sampling inverse information trace extreme tail optimal sampling density",
+          "affine regression inverse information heavy tail exact density optimizer"
+        ]
+      },
+      "rationale": "Randomized least-squares conditioning and inverse-covariance lower tails are established, as are finite-pool joint volume-sampling experimental designs. The candidate identifies an exact collision-tube coefficient for iid continuous affine designs and its uniquely optimal density across all m. Those statements were not found in inspected modern primary theorems, and different sampling models/criteria prevent immediate implication.",
+      "residual_risks": [
+        "A pre-existing small-ball/tube asymptotic for affine random design could imply the coefficient and an optimal design via a routine Hölder calculation; priority beyond inspected papers is provisional.",
+        "Additional treatment of design distributions with continuous inputs may give an equivalent optimizer under other statistical names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUNDS_NOT_EXACT_COEFFICIENT",
+          "evidence": "Bounds at general dimension do not specify affine small-scatter volume constant nor p*.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.10754",
+          "material_read": "Primary PDF introduction, §3 lower-tail Theorem 4 and negative-moment discussion, first rendered PDF page",
+          "method": "Read lawful OA PDF text, examined relevant theorem statement and screenshot",
+          "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+          "trigger": "Exact same inverse information and lower tail phenomenon"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING_OBJECTIVE",
+          "evidence": "Finite pool joint volume sampling and mean MSE; not iid continuous fixed-m extreme tail.",
+          "identifier_or_url": "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+          "material_read": "Primary PDF introduction, §1.3, Definition 11, Theorems 4/5 and §3 sampling proofs, first PDF page visually inspected",
+          "method": "Read full accessible primary PDF relevant sections and check hypotheses",
+          "title": "Minimax experimental design: Bridging the gap between statistical and worst-case approaches to least squares regression",
+          "trigger": "Optimal design and sampling distributions for least squares"
+        },
+        {
+          "assessment": "PARTIAL_READ_RELATED",
+          "evidence": "Alternative sampling algorithms and spectral bounds, no full-document not-covering assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07435",
+          "material_read": "Primary abstract and result overview; complete source not independently inspected in this run",
+          "method": "Read openly accessible abstract and theorem synopsis",
+          "title": "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+          "trigger": "Related choice of random input sites and Gram conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/RESULT.md",
+        "https://arxiv.org/pdf/1912.10754",
+        "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+        "https://arxiv.org/abs/2306.07435"
+      ],
+      "rationale": "Near-coincident iid sample locations create a natural catastrophic inverse-Gram risk. The theorem gives the exact tail exponent, coefficient and sample-size-independent optimal continuous sampling law while identifying the moment existence threshold. It answers a well-motivated numerical design problem with a precise optimizable extreme-risk metric; not merely known mean-risk optimization.",
+      "residual_risks": [
+        "Prior specialized mathematics may still dominate this claim despite the best-of-knowledge search.",
+        "A pre-existing small-ball/tube asymptotic for affine random design could imply the coefficient and an optimal design via a routine Hölder calculation; priority beyond inspected papers is provisional.",
+        "Additional treatment of design distributions with continuous inputs may give an equivalent optimizer under other statistical names."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-universal-tail-optimal-sampling-law-for-affine-least-squares--5b5270d498c4/verify.py",
+    "Independent private checker: independent_checks.py, independent_checks_output.txt; 119 assertions, 2026-11-05 UTC.",
+    "https://arxiv.org/pdf/1912.10754",
+    "https://proceedings.mlr.press/v99/derezinski19b/derezinski19b.pdf",
+    "https://arxiv.org/abs/2306.07435"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The optimality objective is the leading z→infinity tail constant, not any finite-threshold failure probability, classical A-optimal design or adaptive design.",
+    "Positive definiteness of B, iid continuous compactly supported p, fixed m>=2 are essential.",
+    "A pre-existing small-ball/tube asymptotic for affine random design could imply the coefficient and an optimal design via a routine Hölder calculation; priority beyond inspected papers is provisional.",
+    "Additional treatment of design distributions with continuous inputs may give an equivalent optimizer under other statistical names."
+  ],
+  "schema_version": 1
+}

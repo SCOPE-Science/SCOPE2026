@@ -1,19 +1,21 @@
-# Scientific review: rare-event optimal sampling for affine least squares
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact inverse-Gram expression reduces the chosen risk to a positive quadratic in the sample mean divided by the sample scatter, plus a constant. Orthogonal mean/scatter coordinates have Jacobian \(\sqrt m\); the rare event becomes a shrinking ball of dimension \(m-1\). Dominated convergence, a positive finite volume integral, and the layer-cake identity establish the exact coefficient and moment threshold. Hölder's equality case proves the unique minimizing continuous density for every sample size. The supplied exact-rational and deterministic-quadrature checker passed 1,528 tests; infinite claims follow from the proof rather than empirical checks.
+PASS
 
-## Originality
+Direct inversion of 2x2 Gram gives R_B=q_B(Xbar)/S+b11/m, with S=sum_i(Xi-Xbar)^2, q_B(t)=(-t,1)B(-t,1)^T>0. Orthogonal decomp X=t*1+u in mean direction and H={sum u=0} has Lebesgue Jacobian sqrt(m). The event R_B>z is exactly a shrinking (m-1)-ball of squared radius q_B(t)/(z-b11/m). Rescale u by sqrt(z-b11/m), apply pointwise continuity of p and dominated convergence (bounded compact p, fixed B) for a finite positive coefficient; endpoint t is null set. Layer cake gives moment iff s<(m-1)/2. Holder with q_B^rho and int p=1 yields integral >= (int q_B^-1/2)^(1-m); equality requires unique positive continuous p*_B. Independent exact-rational inverse Gram checks, small-scatter volume and m=2 integral tail computations independently corroborate finite cases. Infinite asymptotics rest on dominated convergence and Holder.
 
-**PASS, subject to the stated residual risk.** The complete numerical-approximation and random-design sources inspected concern distinct sampling distributions, nonasymptotic error bounds, or generic lower-tail inequalities. The closest mathematical neighboring cases use unit-length angular observation rows and beta-distributed affine regression: the former does not give the variable-length affine inverse-Gram coefficient, and the latter's moment threshold does not give a globally optimal sampling density. Neither statement implies the universal fixed-loss \(m\)-independent optimizer claimed here. No exact same mathematical model theorem or stronger implication was identified in the searches. Specialized small-scatter and experimental-design literature remains a publication-priority risk; failed searches are not proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Conditioning catastrophes occur in iid numerical least squares because sample sites can nearly coincide. This theorem gives their precise probability scale and identifies the unique way to suppress the leading tail among continuous independent-input designs. The optimal density remains unchanged as the sample budget varies, even when the moment-existence threshold changes. For \(m=4\) and a wide interval, the improvement in the leading catastrophic-risk coefficient over uniform sampling is nearly sevenfold. This exact and naturally motivated design objective is distinct from mean-risk or whole-distribution optimality.
+Randomized least-squares conditioning and inverse-covariance lower tails are established, as are finite-pool joint volume-sampling experimental designs. The candidate identifies an exact collision-tube coefficient for iid continuous affine designs and its uniquely optimal density across all m. Those statements were not found in inspected modern primary theorems, and different sampling models/criteria prevent immediate implication.
 
-## Closest literature and limitations
+## value
 
-The closest external full texts checked were Chkifa--Dolbeault (arXiv:2306.07435), Mourtada (arXiv:1912.10754), and Dereziński--Clarkson--Mahoney--Warmuth (PMLR 99, 2019). They are not claimed to be exhaustive. This result applies only to continuous iid unweighted affine designs, a fixed positive-definite loss matrix and an asymptotic rare-event objective; no independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near-coincident iid sample locations create a natural catastrophic inverse-Gram risk. The theorem gives the exact tail exponent, coefficient and sample-size-independent optimal continuous sampling law while identifying the moment existence threshold. It answers a well-motivated numerical design problem with a precise optimizable extreme-risk metric; not merely known mean-risk optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
