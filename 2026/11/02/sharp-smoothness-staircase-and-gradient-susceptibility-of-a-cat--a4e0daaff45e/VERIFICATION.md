@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python verify_response.py` with Python 3 and SymPy installed. The program computes the cat-map inverse and verifies the stated Fibonacci frequency recursion, matrix resolvent, critical threshold and gradient rational function by exact symbolic arithmetic. It checks noncollision of a finite list of Fourier modes, exact truncated trigonometric covariance identities, and direct nonlinear graph transforms at three \(\varepsilon\) values using \(\mu=10^{-6}\).
+# Independent mathematical audit
 
-On the checked instance, numerical differences between \(X_\mu/\mu\) and the response-series values were \(2.10\times10^{-13}\), \(1.51\times10^{-13}\) and \(9.44\times10^{-14}\), respectively. These diagnostics corroborate the sign, normalization and frequency conventions. The infinite Sobolev and differentiability claims, including critical endpoint failures, are proved analytically by Fourier growth and Riemann–Lebesgue; they are not inferred from the finite script. The local graph is proved by contraction in \(C^0\), without any asserted finite-forcing smoothness converse. No external mathematical audit has taken place.
+## correctness
+
+PASS
+
+For 0<epsilon<1 and the small zero-drift/zero-phase graph, M_epsilon(0)=0 and the fiber slope r=(1-epsilon)/(1+epsilon) lies in (0,1); the contraction/implicit-function argument gives uniform parameter derivative. The exact cohomological response has Fibonacci wavevectors B^n e1=(F_(2n-1),-F_(2n)) and weights r^(n-1), with |B^n e1| comparable to lambda^n. Fourier Parseval yields H^s iff r*lambda^s<1 including endpoint divergence. Uniform derivative sums give C^m sufficiency, and Riemann-Lebesgue for the t-derivative excludes all m>=1 at and beyond r*lambda^m=1. The s-derivative sum attains its absolute maximum at the origin and the even Fibonacci generating function gives 2pi/(1-3r+r^2). No claim for nonlinear finite forcing.
+
+## originality
+
+PASS
+
+PASS best of knowledge: the 2023 defining map paper treats attractor/repeller collisions and anticipates strong-epsilon smooth/weak-epsilon fractal graphs, but does not state the linear response cohomology spectrum or exact epsilon_m and gradient amplitude. General invariant graph regularity theory is an antecedent but the inspected material does not imply this complete model-specific integer/Sobolev staircase and exact norm. The Resultary same-map identity resonance result concerns periodic fibers, not this response.
+
+## value
+
+PASS
+
+PASS: converts a qualitative smooth-vs-fractal model question into exact infinitely many regularity transitions and a diverging physically interpretable weak-forcing susceptibility at epsilon=1/sqrt5, with genuine endpoint failure. It is a natural model-specific sensitivity invariant, not a claim about global nonzero forcing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

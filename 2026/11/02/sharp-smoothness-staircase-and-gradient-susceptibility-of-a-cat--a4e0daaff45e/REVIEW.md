@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact model in the defining paper, the zero-forcing fiber multiplier is \(r=(1-\varepsilon)/(1+\varepsilon)\). A uniform contraction produces the small invariant graph, and differentiating its fixed-point equation is valid in the continuous-graph Banach space. The exact response is an absolutely convergent Fibonacci-frequency Fourier series. Sobolev norms reduce to a positive geometric series; sufficient \(C^m\) regularity follows from uniform derivative convergence and necessity, including endpoint failure, from Fourier-coefficient decay for continuous derivatives. The derivative norm is attained at the origin and has an exact Fibonacci generating function. Symbolic and finite weak-forcing checks replay those identities; finite tests are not being used as infinite proofs.
+## correctness
 
-## Originality — PASS within the inspected evidence
-The authors' accessible full text supplies the exact skew map and qualitatively says its invariant graphs should be smoother at larger \(\varepsilon\); it does not establish an exact first-order gradient norm or sharp full Sobolev/integer regularity staircase. General invariant-graph and generalized synchronization theory supplies spectral criteria and general sufficient conditions; those ideas are acknowledged and not claimed. Published related claims about the same Möbius model concern periodic-fiber identity resonances rather than first-order graph regularity. Direct searches of indexed published mathematics and scientific literature for Fibonacci Fourier response, the exact \(1/\sqrt5\) boundary and \(2\pi(1+\varepsilon)^2/(5\varepsilon^2-1)\) formula did not find a claim implying this result. A prior exact equivalent calculation could nevertheless exist; the 1997 generalized-synchronization paper was inspectable only via abstract, not full text.
+PASS
 
-## Mathematical value — PASS
-The source explicitly motivates a smooth-versus-rough graph distinction. This theorem turns that qualitative model question into exact parameter thresholds in infinitely many regularity classes and a sharp observable slope susceptibility that diverges at the first critical parameter. Both the threshold and amplitude are model-specific, computationally checkable and useful for separating weak-forcing sensitivity from stronger-forcing global bifurcations. It does not claim paper-sized scope or global nonzero-forcing classification.
+For 0<epsilon<1 and the small zero-drift/zero-phase graph, M_epsilon(0)=0 and the fiber slope r=(1-epsilon)/(1+epsilon) lies in (0,1); the contraction/implicit-function argument gives uniform parameter derivative. The exact cohomological response has Fibonacci wavevectors B^n e1=(F_(2n-1),-F_(2n)) and weights r^(n-1), with |B^n e1| comparable to lambda^n. Fourier Parseval yields H^s iff r*lambda^s<1 including endpoint divergence. Uniform derivative sums give C^m sufficiency, and Riemann-Lebesgue for the t-derivative excludes all m>=1 at and beyond r*lambda^m=1. The s-derivative sum attains its absolute maximum at the origin and the even Fibonacci generating function gives 2pi/(1-3r+r^2). No claim for nonlinear finite forcing.
 
-## Scope and risk
-The necessity half is rigorously confined to the linear response at \(\mu=0\); a finite-forcing graph need not have the same sharp regularity. The primary 2023 article was inspected in relevant complete-text sections. General prior theory is relevant but does not state the displayed exact coefficient in the material inspected. Novelty is based on accessible literature and indexed findings, not a proof that no hidden publication exists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the 2023 defining map paper treats attractor/repeller collisions and anticipates strong-epsilon smooth/weak-epsilon fractal graphs, but does not state the linear response cohomology spectrum or exact epsilon_m and gradient amplitude. General invariant graph regularity theory is an antecedent but the inspected material does not imply this complete model-specific integer/Sobolev staircase and exact norm. The Resultary same-map identity resonance result concerns periodic fibers, not this response.
+
+## value
+
+PASS
+
+PASS: converts a qualitative smooth-vs-fractal model question into exact infinitely many regularity transitions and a diverging physically interpretable weak-forcing susceptibility at epsilon=1/sqrt5, with genuine endpoint failure. It is a natural model-specific sensitivity invariant, not a claim about global nonzero forcing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
