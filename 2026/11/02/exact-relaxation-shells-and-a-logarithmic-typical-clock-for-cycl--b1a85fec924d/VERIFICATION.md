@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of cyclic Rule 178 entry times
+# Independent mathematical audit
 
-Reproduction requires the standard Python 3 library and the companion `verify_rule178.py` in the same directory. Run `python3 verify_rule178.py` to compare the direct local-rule dynamics with the wall-gap formula and the cyclic-composition counting formula.
+## correctness
 
-The executable enumerates all \(262136\) labelled configurations for ring sizes \(3\le n\le17\). It records the first occurrence of a repeated global state to determine the actual first-periodic-entry time and least period. It separately checks the exact coefficient formula, the number of primitive two-cycles through the Lucas identity, and the terminal-shell counts. The recorded output file `verification_output.txt` ends with `RULE178_ALL_CHECKS_PASSED; enumerated_states= 262136`.
+PASS
 
-The proof for arbitrary ring length is in `RESULT.md`. A finite enumeration is not a replacement for that infinite-family argument. The logarithmic random-time law is established by mathematical probability inequalities in the proof, not by simulation. Independent validation has not been performed.
+Direct local truth-table conversion yields (Fx)_i=x_i xor(d_{i-1} OR d_i). Existing walls persist and each zero-wall gap of length g is invaded from both ends until at most one zero remains, giving T=max floor(g/2). Even cyclic wall parity and 2 binary lifts per wall word give C_n(t)=2+2 sum_even_k (n/k)[z^(n-k)](1+...+z^(2t+1))^k. Two-wall extremizers yield 2n or 4n terminal shell for n>=4; transfer-matrix even projection gives B_n=(L_n+2cos(2pi n/3))/2. Independent disjoint windows in the n-1 freely distributed walls prove logarithmic concentration. Independent dynamics and shell checks n=3..10 agree; finite enumeration does not prove all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
+
+## value
+
+PASS
+
+The full transient first-entry distribution and worst-versus-typical logarithmic clock are natural dynamic invariants of Rule 178: they refine known eventual two-period behavior and qualitative wall motion, and give an exact reproducible census for every ring length, including odd lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
