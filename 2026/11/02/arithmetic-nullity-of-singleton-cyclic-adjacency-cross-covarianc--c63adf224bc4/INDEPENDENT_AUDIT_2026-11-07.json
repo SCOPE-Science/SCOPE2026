@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:51:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed deletion of a designated singleton and contraction of a pair: each marginal B_(n-1)/B_n, disjoint joint B_(n-2)/B_n and incident joint zero. Thus the exact rank-one-minus-two-permutation matrix follows entrywise. Strict Bell log convexity gives r>p^2, while Asai--Kubo--Kuo normalized Bell ratio bound r/p^2<=n/(n-1) makes the constant eigenvalue (n-2)r-np^2<0. Fourier diagonalization of P_d gives -r(1+exp(-2πimd/n)) at m!=0; zero iff md=n/2 mod n, having exactly gcd(n,d) solutions when n/gcd even. Independent exact partition enumeration and rational-matrix rank verifies all n=3..7 and displacements; it is not a proof for general n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asai--Kubo--Kuo gives 1<=B_(n-2)B_n/B_(n-1)^2<=n/(n-1); closest Resultary block-size covariance concerns total blocks and marked r-blocks, not pair-position cross correlations."
+        ],
+        "reasoning": "The general Bell inequality proves only a sign of the constant Fourier mode after the local matrix is established, not the matrix and its gcd-sensitive nullity.",
+        "searches": [
+          "Asai Kubo Kuo Bell log-concavity bound arxiv:math/0104137",
+          "Resultary: uniform set partition singleton indicator cyclic adjacency pair indicators cross covariance circulant Fourier rank Bell numbers"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob 616e394d4c910204ea7bc4ad3b75380f2f717542",
+        "Git check.py blob 551fc163eec233f6154d5fbf9f59fcdcb83cd385",
+        "Callan arxiv:math/0508052 full text",
+        "Munagi Rocky Mountain J. Math. 46 (2016) mathematical full text",
+        "Asai Kubo Kuo arxiv:math/0104137 full text",
+        "Resultary uniform set partition singleton indicator cyclic adjacency pair indicators cross covariance circulant Fourier rank Bell numbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results identify the marginal total counts B_(n-1)/B_n and a Bell inequality. They do not assert the two-point joint incidences or their circulant spectral structure."
+        ],
+        "reasoning": "A general exchangeable law and elementary double-counting enable the new proof, but no stronger inspected theorem directly claims this exact cross-covariance or arithmetic nullity; the logical comparison is about joint vs marginal data.",
+        "searches": [
+          "Callan 2005 full text singleton-adjacency",
+          "Munagi 2016 full text circular displacement",
+          "Asai Kubo Kuo 2001 Bell inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Callan arxiv:math/0508052 proves equality in distribution of total singleton and total cyclic adjacency counts; Munagi 2016 extends total circular displacement count identity."
+        ],
+        "reasoning": "Distributional bijections for two separate totals do not fix the joint cross-covariance matrix; computing a joint probability for an incident/disjoint pair is a new input to the spectral calculation.",
+        "searches": [
+          "uniform set partition singleton indicator cyclic adjacency pair indicators cross covariance circulant Fourier rank Bell numbers",
+          "Callan 2005 conjugates singleton cyclic adjacencies partitions",
+          "Munagi 2016 circular adjacencies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Natural finite count tables B_n and d-adjacency marginals appear in Callan/Munagi; exact n=6 rank triple 5,6,3 derives from all-n nullity theorem."
+        ],
+        "reasoning": "No located database table establishes the all-n exact rank by gcd parity; Bell number tables alone give scalar probabilities but not spatial covariance eigenmodes.",
+        "searches": [
+          "uniform partitions singleton adjacency covariance matrix rank n d Bell",
+          "Resultary: uniform set partition singleton indicator cyclic adjacency pair indicators cross covariance circulant Fourier rank Bell numbers"
+        ]
+      },
+      "rationale": "Callan 2005 establishes aggregate singleton/adja equality in marginal distribution; Munagi 2016 gives circular-displacement total-adjacency bijections; Asai--Kubo--Kuo 2001 supplies the Bell ratio inequality. Those are properly treated as prior ingredients. None inspected establishes local I_i--A_j cross covariances nor its Fourier nullity and displacement rank structure. An unindexed general exchangeable-partition association scheme could imply this, which remains a bounded risk.",
+      "residual_risks": [
+        "Could be implied by an unindexed earlier association-scheme/exchangeability correlation theorem.",
+        "Only unrestricted uniform ordinary partitions and fixed displacement are covered; noncrossing or weighted models and higher moments are outside scope.",
+        "The finite partition enumeration does not replace Bell ratio and Fourier proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_TOTALS_PRIOR_NOT_CROSS_COVARIANCE",
+          "evidence": "Aggregate equidistribution does not provide E(I_i A_j^d) for spatially located positions.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0508052",
+          "material_read": "Full accessible short original text describing bijection for aggregate statistics",
+          "method": "Read full source and isolate distributional versus joint assertions",
+          "title": "On Conjugates for Set Partitions and Integer Compositions",
+          "trigger": "Origin of singleton/nearest-neighbor adjacency equidistribution"
+        },
+        {
+          "assessment": "TOTAL_DISPLACEMENT_MARGINAL_PRIOR",
+          "evidence": "The cited displacement count identities do not state the full cross-covariance Fourier spectrum.",
+          "identifier_or_url": "https://doi.org/10.1216/RMJ-2016-46-1-301",
+          "material_read": "Accessible full mathematical article text, including cyclic adjacency definitions, bijection and main identities",
+          "method": "Read source equations/proof and compare with covariance matrix",
+          "title": "On Singletons and Adjacencies of Set Partitions",
+          "trigger": "Direct circular displacement marginal results"
+        },
+        {
+          "assessment": "USED_LEMMA_PRIOR",
+          "evidence": "B_(n-2)B_n/B_(n-1)^2<=n/(n-1) supplies strict negativity after elementary algebra.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0104137",
+          "material_read": "Accessible mathematical full text, in particular normalized Bell-number inequality",
+          "method": "Read ratio bound and its index shifts against (n-2)r-np^2",
+          "title": "Bell Numbers, Log-Concavity, and Log-Convexity",
+          "trigger": "Critical strict sign of constant eigenmode"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance matrix of two canonical local statistics on uniform set partitions is a natural second-order invariant. Exact support overlap structure, strict sign reversal between incident and disjoint sites, and arithmetic gcd/parity rank-nullity classify dependence across all displacements, yielding information not present in equal marginal distributions. The finite n=6 ranks 5,6,3 demonstrate genuine displacement-dependent structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md blob 616e394d4c910204ea7bc4ad3b75380f2f717542",
+    "Git check.py blob 551fc163eec233f6154d5fbf9f59fcdcb83cd385",
+    "Callan arxiv:math/0508052 full text",
+    "Munagi Rocky Mountain J. Math. 46 (2016) mathematical full text",
+    "Asai Kubo Kuo arxiv:math/0104137 full text",
+    "Resultary uniform set partition singleton indicator cyclic adjacency pair indicators cross covariance circulant Fourier rank Bell numbers"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every uniform unrestricted set partition of Z/nZ (n>=3) and nonzero displacement d, the singleton-versus-equal-block-pair cross covariance is (r-p^2)11^T-r(I+P_d), p=B_(n-1)/B_n and r=B_(n-2)/B_n. Its full circulant eigen/singular spectrum, strict negative constant mode, exact nullity gcd(n,d) for n/gcd(n,d) even (zero otherwise), and negative displacement-independent aggregate covariance follow.",
+  "limitations": [
+    "Could be implied by an unindexed earlier association-scheme/exchangeability correlation theorem.",
+    "Only unrestricted uniform ordinary partitions and fixed displacement are covered; noncrossing or weighted models and higher moments are outside scope.",
+    "The finite partition enumeration does not replace Bell ratio and Fourier proof."
+  ],
+  "residual_risks": [
+    "Could be implied by an unindexed earlier association-scheme/exchangeability correlation theorem.",
+    "Only unrestricted uniform ordinary partitions and fixed displacement are covered; noncrossing or weighted models and higher moments are outside scope.",
+    "The finite partition enumeration does not replace Bell ratio and Fourier proof."
+  ],
+  "schema_version": 1
+}
