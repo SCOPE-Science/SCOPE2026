@@ -1,19 +1,21 @@
-# Scientific review: excitation recurrence on cocktail-party graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The local rule differs from global three-color rotation only when precisely one vertex is excited and its unique matched partner is resting. The proof exhausts every possibility for the other vertices: no resting, no refractory, at least two resting and one refractory, or exactly one resting. The four explicit chains show extinction or entry into a rotating three-cycle for every graph order at least six. Periodic colorings are characterized by nonempty color classes and a single-vertex predecessor-color exclusion. Three pairwise disjoint excluded families each contain \(n(2^{n-2}-1)\) colorings. The four-vertex exception is separately checked over its entire finite state space. The independently implemented neighbor-enumerating functional-graph checker found exactly the predicted cycles for all even orders from two through twelve.
+PASS
 
-## Originality
+When at least two vertices are excited the update equals uniform 0→1→2→0 rotation; zero excited states die. With one excited vertex u, only its matched partner v can fail to rotate, and then only if v rests. The explicit defect classification by r other resting and s other refractory vertices, r+s=2m-2>=4, exhausts r=0,s=0,r>=2,s>=1,r=1,s>=3 and leads to zero or a pure three-cycle; it excludes any other recurrent periods for m>=3. Three-color-surjective configurations with no singleton whose matched partner bears its predecessor color are exactly the pure cycles. The three forbidden singleton events are disjoint; inclusion–exclusion yields the stated integer Q_m. A truly independent direct state-map functional-graph enumeration checks primitive orbit counts n=4:2 length-four, n=6:90 length-three, n=8:1428 length-three; it does not establish the all-m theorem.
 
-PASS (qualified). Gravner–Lyu–Sivakoff (arXiv:1610.07320v1, 2016-10-24), in the material examined, characterize oscillation and synchronization on arbitrary connected graphs by cycle integrals, but do not give this complete-graph-minus-perfect-matching exact labelled primitive-orbit census. Doba (2018) studies general maximum cycle density and likewise does not provide this special-family count or its four-to-three-period transition. Epperlein–Siegmund (2013) establish existence results for phase-locked trajectories in generalized systems, not this count. Accessible related calculations for complete bipartite, crown, friendship and split graphs concern different edge sets and do not imply this formula. Searches under Greenberg–Hastings, excitable cellular automata, perfect matching deletion, cocktail-party graph, and primitive periodic orbit terminology found no equivalent statement. Residual priority risk remains for unindexed or inaccessible sources.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The graph family is canonical: the unique graph on \(2m\) vertices with a specified perfect matching as exactly its missing edges. Its recurrence differs sharply from the four-cycle boundary: enlarging by one matched pair eliminates four-period oscillation but yields exponentially many three-cycle attractors. The exact count and the exponentially small fraction of nonperiodic initial configurations distinguish orbit abundance from convergence behavior in a standard excitable network model. This is a complete all-size classification, not an arbitrary isolated parameter computation.
+The explicit primitive orbit census and four-to-three-period transition for the specific near-complete graph were not identified in general GHM excitation/synchronization results.
 
-## Limitations and closest literature
+## value
 
-The result does not claim new general graph synchronization theory, sharp transient bounds, a basin census, stochastic dynamics or higher-state Greenberg–Hastings behavior. The inspected general-graph theorems of Gravner–Lyu–Sivakoff (2016) and Doba (2018) are antecedents, not independently reproduced or challenged. Historical or terminology-related overlap remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp 4-cycle to 3-cycle transition and exact orbit census on a natural highly symmetric graph family; the derivation isolates a reusable singleton-defect obstruction. Nontrivial all-size combinatorial dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
