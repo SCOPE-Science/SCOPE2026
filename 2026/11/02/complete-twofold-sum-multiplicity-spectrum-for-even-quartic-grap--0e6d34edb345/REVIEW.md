@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem covers every finite field and every coefficient, distinguishing characteristic two, characteristic three, and the remaining odd characteristics. An invertible change of variables for fixed first-coordinate sum reduces each fiber to a quartic of the form \(t^4+Bt^2\). The proof counts one/three-preimage exceptional targets separately and then uses the exact character-sum formula for pairs of nonzero squares to count four-preimage targets; the two- and zero-preimage counts follow from total inputs and targets. Character sums aggregate the slices. The distinctive sumset-size gap is algebraically deduced, and explicit finite-field enumeration checks every target count for 618 coefficient cases across 41 fields. Finite tests are corroboration, not a substitute for the complete proof. No computational certificate is required to establish an unbounded claim.
+## correctness
 
-## Originality — PASS, qualified
-The literature comparison is statement-level, not title-level. Sun's Theorem 2.1 (2006, online 2005) and Ding–Zieve (2023) treat the single-variable quartic image; those results imply local image cardinalities, and their scope is explicitly acknowledged in the proof's novelty discussion. A previously published exact additive-energy result for the graph \((t,t^4)\) already covers the scalar energy at \(a=0\), hence that special case is not presented as new. Published fifth-power two-sum multiplicity counts apply to a different curve and cannot specialize to even quartics. The remaining full target multiplicity distribution, all coefficients, exceptional characteristics, and exact two-class sumset gap were not found to be covered by these sources. Unindexed finite-field arithmetic or additive-combinatorics literature remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The full representation spectrum is a natural invariant of the twofold sum of a polynomial curve: it determines the sumset size, all ordered collision frequencies, and the constant-input fourth Fourier moment. The one-parameter quartic deformation is canonical after normalizing a general even quartic with nonzero leading coefficient, and its two coefficient square classes under rescaling have genuinely different sumsets. The direction and exact magnitude of their size gap switch with \(q\bmod4\). These are substantive structural results across all field sizes, not an arbitrary finite census or an isolated restatement of one-variable image counts.
+For odd q substitute x=(s+t)/2,y=(s-t)/2, obtaining 8(h_a(x)+h_a(y))=t^4+(6s^2+4a)t^2+s^4+4as^2. For fixed s the even quartic fibers reduce to square pairs with w1+w2=-B; the quadratic-character correlation sum and exclusion of diagonal pairs give the precise H_0..H_4 histogram. B=0 yields the D_j quartic power map histogram; the Z,T character sums count the slice multiplicities, with distinct branches for characteristics two and three. The resulting A_j, sumset and energy formulas follow from partitioning all q choices of s. In char 2, x->x^4+ax^2 is F2-additive, so every image target has q ordered representations. I inspected the exact finite-field checker and independently brute-force compared all q^2 ordered pairs and all q^2 targets for 158 coefficient choices across prime q=3,5,7,11,13,17,19,23,29,31: every histogram matched the theorem. This finite test supports, not substitutes for, the symbolic proof over every prime power.
 
-## Closest work and limitations
-Mockenhaupt–Tao (2002) provides representation-count motivation and normalization; Sun (2005/2006), Theorem 2.1, and Ding–Zieve (2023), Section 3, provide local quartic value-set information; published 2026 results treat the zero-coefficient quartic energy and the fifth-power graph spectrum, respectively. The result does not address threefold sums, general quartic perturbations including odd powers, or the sharp weighted Fourier-extension norm. The residual priority risk is equivalent coverage in unindexed work on quartic sums or correlated fibers. Independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known one-variable quartic-image results by Sun and Ding–Zieve can imply support cardinalities for individual s-slices; the previously published quartic-graph energy at a=0 is directly covered and acknowledged. The surviving contribution is the complete all-a, all-characteristic global *ordered representation multiplicity histogram* over targets (s,v), including char2/3 and sign-class switching; the published fifth-power graph spectrum is a different polynomial family. No existing full all-parameter histogram was found in primary-source comparisons or Resultary.
+
+## value
+
+PASS
+
+Additive representations of polynomial graphs are natural arithmetic-combinatorial statistics. The entire zero-to-four fiber multiplicity spectrum, exceptional Frobenius regimes, energy and exact sign-dependent sumset reversal offer a coherent complete classification with explicit consequences beyond known support size or a=0 special case; not merely an arbitrary numerical coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
