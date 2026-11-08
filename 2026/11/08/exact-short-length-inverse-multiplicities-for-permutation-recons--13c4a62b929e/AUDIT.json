@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Every permutation of [n] is generated exactly once for 2<=n<=10; an injective base-16 key counts exact fibers, and all totals equal n!. A separate Python inverse signed-step enumeration confirms 30/12/24 for every maximizer at lengths 8/9/10. The length-eight orbit partition is independently checked. No inference beyond finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A398093 and A398094 explicitly require a graceful record, i.e. every adjacent difference occurs exactly once.",
+        "The unique n=8 maximum record repeats differences 4 and 2, so it is not graceful.",
+        "De Biasi proves NP-completeness and does not specify any finite maximum multiplicities."
+      ],
+      "reasoning": "Neither the complexity theorem nor a special-subdomain graceful enumeration covers the unrestricted maxima. Known general complement symmetry implies even fiber sizes but not any sharp numeric bound.",
+      "searches": [
+        "arXiv:1410.6396v2 Section 5 conclusion",
+        "OEIS:A398093",
+        "OEIS:A398094",
+        "OEIS:A398095"
+      ]
+    },
+    "checked_sources": [
+      "Al-Turkistany, MathOverflow question 135968 (2013-07-07)",
+      "De Biasi (2014), DOI:10.37236/4086, arXiv:1410.6396",
+      "OEIS A398093",
+      "OEIS A398094",
+      "OEIS A398095",
+      "Published recorded research on permutation-metric codes and prescribed-difference matching (non-equivalent objects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Biasi Theorem 5.3 addresses NP-complete decision rather than inverse multiplicity.",
+        "The graceful-only table at n=8 counts at most two reconstructions for its records, so it cannot determine a thirty-element unrestricted fiber.",
+        "The July 2013 public question and answer concern decision complexity, without a table of finite inverse multiplicities."
+      ],
+      "reasoning": "A general decision-hardness result neither implies nor contradicts a finite exact worst-case fiber spectrum. A constrained graceful enumeration is non-dominating because it excludes the repeated-value extremal record.",
+      "searches": [
+        "arXiv:1410.6396",
+        "OEIS:A398094",
+        "permutation reconstruction from ordered adjacent absolute differences De Biasi worst case fibers 8 9 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "De Biasi defines exactly the ordered absolute-difference reconstruction relation in Definition 5.2; Theorem 5.3 proves existence NP-completeness but gives no inverse-fiber table.",
+        "The signed-path reformulation is equivalent to the original ordered record and is implemented in the inverse verifier."
+      ],
+      "reasoning": "The exact statement quantifies the maximum number of distinct realizing permutations; existence and worst-case count are logically different. The sign-path reformulation is a bijection of solutions, not a separate literature theorem.",
+      "searches": [
+        "permutation reconstruction from ordered adjacent absolute differences De Biasi worst case fibers 8 9 10",
+        "permutation difference record ordered (4,2,4,1,4,2,4) thirty reconstructions",
+        "arXiv:1410.6396v2 Section 5, Definition 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact graceful reconstruction triangle T(n,k) has no unrestricted repeated-difference values.",
+        "Semantic searches of published records surfaced related permutation metrics and prescribed-difference matching, not a table of inverse fibers for this ordered numerical observation."
+      ],
+      "reasoning": "Checked cited OEIS entries and crossreferences are for graceful permutations; searched exact tuple and numerical parameter combinations without finding a matching unrestricted database. Absence is a residual priority risk, not proof of universal originality.",
+      "searches": [
+        "OEIS:A398093",
+        "OEIS:A398094",
+        "OEIS:A398095",
+        "permutation difference record ordered (4,2,4,1,4,2,4) thirty reconstructions",
+        "maximum number of permutations matching ordered consecutive absolute differences length eight nine ten",
+        "MathOverflow: question 135968"
+      ]
+    },
+    "rationale": "The same-object 2014 source proves NP-completeness, not exact inverse multiplicities. Graceful-only OEIS tables exclude repeated-difference extremal records, especially (4,2,4,1,4,2,4). Actual searched recorded results concern non-implicative metrics or different observations. Unseen-source priority remains possible.",
+    "residual_risks": [
+      "The published literature and searchable databases may omit a specialized prior table of unrestricted absolute-difference fibers.",
+      "The finite table is a computational classification without an all-length structural formula; broader theoretical value remains limited to finite inference benchmarking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Problem posed July 7, 2013; answer addresses decision complexity, not the sharp finite inverse multiplicities.",
+        "evidence": [
+          "Question dated Jul 7, 2013, defines absolute adjacent differences for permutations",
+          "De Biasi answer dated Jul 29, 2013 links an NP-completeness argument, without numerical inverse-fiber counts"
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/135968/how-hard-is-reconstructing-a-permutation-from-its-differences-sequence",
+        "material_read": "Original question, its example, comments and published answer summary",
+        "method": "Read publicly displayed question and answer text with dates",
+        "title": "How hard is reconstructing a permutation from its differences sequence?",
+        "trigger": "Earliest publicly dated source framing the same ordered absolute-difference inverse problem"
+      },
+      {
+        "assessment": "Direct setup and decision complexity; exact unrestricted maxima not stated in inspected relevant sections",
+        "evidence": [
+          "Definition 5.2 ordered positive differences; complementation observation; Theorem 5.3 NP-completeness; conclusion discusses graceful case"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1410.6396v2",
+        "material_read": "Full introduction, Section 5, conclusion and references, especially Definition 5.2 and Theorem 5.3",
+        "method": "Read public HTML full text in relevant sections",
+        "title": "Permutation Reconstruction from Differences",
+        "trigger": "Exact same inverse observation; possibility of already known multiplicity results"
+      },
+      {
+        "assessment": "First verified public publication 2014-10-02; exact count not asserted in abstract",
+        "evidence": [
+          "Published 2014-10-02; DOI 10.37236/4086"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v21i4p3",
+        "material_read": "Article title, author, abstract, DOI, publication date, issue and article number",
+        "method": "Read publisher article metadata",
+        "title": "Permutation Reconstruction from Differences, journal listing",
+        "trigger": "Verify original public date and source identity"
+      },
+      {
+        "assessment": "Only graceful permutations; no coverage of repeated-difference extremal records",
+        "evidence": [
+          "Entry explicitly conditions on graceful permutations; counts reconstructions modulo complementation"
+        ],
+        "identifier_or_url": "https://oeis.org/A398094",
+        "material_read": "Definition, comment, example table, links and references",
+        "method": "Read HTML entry",
+        "title": "OEIS A398094",
+        "trigger": "Closest known inverse-multiplicity table"
+      },
+      {
+        "assessment": "Only distinct graceful ordered records, not all realizable ordered records",
+        "evidence": [
+          "Entry defines graceful iff difference record a permutation of 1 through n-1"
+        ],
+        "identifier_or_url": "https://oeis.org/A398093",
+        "material_read": "Definition, examples, formula, crossreferences",
+        "method": "Read HTML entry",
+        "title": "OEIS A398093",
+        "trigger": "Related exact database/table"
+      },
+      {
+        "assessment": "Derives from the graceful-only A398094 triangle",
+        "evidence": [
+          "Formula is least k with A398094(k,n)>0"
+        ],
+        "identifier_or_url": "https://oeis.org/A398095",
+        "material_read": "Definition, formula, examples and crossreferences",
+        "method": "Read HTML entry",
+        "title": "OEIS A398095",
+        "trigger": "Possible broader coverage of first multiplicity occurrences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13c4a62b-929e-42ef-9f44-6b01483703c2",
+  "value": {
+    "rationale": "The exact worst inverse list size is a natural invariant of an established NP-complete reconstruction problem. The 30-to-12 fall and 24 rebound across n=8,9,10 expose nonmonotone finite behavior, while the uniquely maximizing n=8 record and its eight orbits give a complete natural extremal classification rather than a single arbitrary input example.",
+    "status": "PASS"
+  }
+}

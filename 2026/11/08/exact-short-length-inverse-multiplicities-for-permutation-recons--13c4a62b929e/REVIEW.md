@@ -1,0 +1,11 @@
+# Review of exact short-length permutation-difference multiplicities
+
+**Correctness: PASS.** The claim is an exact classification for \(2\le n\le10\), not an extrapolation. Base-16 key injection is guaranteed for all checked differences, and C++ lexicographic enumeration visits all \(n!\) permutations. For \(n=8,9,10\), an independently written Python inverse-sign search verifies each maximizing record's full preimage count; it also reconstructs the orbit partition at \(n=8\). Every histogram satisfies the identity \(\sum_d r_n(d)=n!\). These are proof-generating finite exhaustive algorithms, not extrapolated experiments.
+
+**Originality: PASS (best-knowledge, with residual risk).** De Biasi (2014), Section 5, proves decision NP-completeness and explicitly notes complementation, but gives no worst-fiber census. OEIS A398093/A398094/A398095 enumerate only graceful difference records; the unique length-eight maximum contains repeats and is outside their domain. Search comparisons against recorded research on inverse reconstruction, permutation metrics, prescribed differences and short profiles found no statement implying these unrestricted exact maxima. No global uniqueness or priority guarantee follows from search absence.
+
+**Value: PASS.** The named NP-complete inverse reconstruction problem has a natural and previously undetermined worst-case list size. The exact values reveal a large drop between adjacent lengths \(8\) and \(9\), with a new rise at \(10\), and classify the unique thirty-way ambiguity profile. This supplies sharp finite reconstruction ambiguity benchmarks, rather than an arbitrary fixed-instance count or an unmotivated variant.
+
+**Closest literature and limits.** Al-Turkistany's July 7, 2013 MathOverflow question states the original problem but supplies no extremal fiber table. De Biasi, *Permutation Reconstruction from Differences* (2014), DOI:10.37236/4086, is the direct antecedent. The graceful-only OEIS entries are a related but non-dominating restricted table. The result concerns ordered absolute differences, finite lengths at most ten, and no complexity or asymptotic improvement. Priority beyond the inspected materials is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
