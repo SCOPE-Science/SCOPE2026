@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_circular.py vc7_witnesses.json ldim9_tree.json` using the Python 3 standard library. The verifier recomputes all 720 oriented cyclic orders and all 35 query signatures directly from permutations; it does not trust any separately recorded concept-pattern matrix.
+## correctness
 
-Observed output:
+PASS
 
-```
-VC_SEVEN_WITNESSES_PASS 128
-VC_EIGHT_EXHAUSTIVE_OBSTRUCTION_PASS counts=[0, 1, 28, 290, 1572, 3669, 2903, 711, 0]
-LITTLESTONE_NINE_TREE_PASS nodes=511 leaves=512
-LITTLESTONE_TEN_CARDINALITY_OBSTRUCTION_PASS 720<1024
-SMALL_ORDER_CARDINALITY_AND_VC_PASS n=3..6
-CYCLIC_ORDER_ALL_CHECKS_PASS
-```
+The class consists of exactly (7-1)!=720 cyclic orders, represented as permutations beginning 0, and each orientation query is a well-defined Boolean comparison of clockwise positions. A fresh independent full enumeration found all 128 response strings on the seven displayed triples. For the upper VC bound, relabeling acts transitively on oriented triples up to response complementation, so any shattered eight-support has a representative containing (0,1,2); an exhaustive 720-concept bitmask search applies the necessary 2^(8-k) remaining-witness bound to each partial response cell, pruning only branches that cannot extend, with surviving-prefix counts [0,1,28,290,1572,3669,2903,711,0]. This proves no eight-support. Separately the supplied depth-nine JSON was evaluated by a new JS implementation against all 720 concept rows, confirming 511 internal queries and 512 unique valid leaf witnesses with no split contradiction. Cardinality 720<1024 excludes depth ten. Independently direct enumerations of n=3..6 lower supports and concept-count upper bounds agree. The computation is exhaustive over this finite universe; no n>=8 claim is made.
 
-The first JSON file is a mapping of all 128 response strings to cyclic-permutation indices. The second JSON file is the complete recursive binary query tree for depth nine. Each of its 512 leaf witnesses is checked against all responses on its path. The exhaustive VC upper check normalizes one selected triple by label symmetry and tests every further query choice with a necessary cell-cardinality condition, ensuring that no potential eight-query shattered support is pruned. The tree proves a lower bound only; the cardinality bound proves its upper bound.
+## originality
 
-Computations are deterministic, with finite loops and integer bit operations. These checks are not substitutes for an independent scientific audit or historical-priority determination.
+PASS
+
+The closest exact cyclic-order source establishes sizes through six and an n=7 lower bound but not the exact seven-label VC upper bound or adaptive depth-nine. General online learning and cyclic hypergraph equivalences provide definitions and encodings rather than these finite numbers. The specific result survives statement-level comparison; an older unindexed enumeration is possible.
+
+## value
+
+PASS
+
+A first strict divergence between fixed-query and adaptive-query complexity in a natural family of orientation concepts, with complete finite obstruction and certificate, is a motivated and reusable exact boundary for combinatorial learning; n=7 is the first unresolved natural size, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim concerns precisely 720 cyclic permutations and 35 Boolean ternary queries. Every seven-query pattern is witnessed, all eight-query supports are excluded by a symmetry-reduced complete finite test with a safe necessary-size pruning inequality, and every path of a full depth-nine tree is witnessed. A depth-ten tree requires 1024 distinct concepts; 720 are available. Checks were replayed from the actual three files in this package. No generalization from finite sampling is involved.
+PASS
 
-## Originality: PASS, with historical-priority caveat
+The class consists of exactly (7-1)!=720 cyclic orders, represented as permutations beginning 0, and each orientation query is a well-defined Boolean comparison of clockwise positions. A fresh independent full enumeration found all 128 response strings on the seven displayed triples. For the upper VC bound, relabeling acts transitively on oriented triples up to response complementation, so any shattered eight-support has a representative containing (0,1,2); an exhaustive 720-concept bitmask search applies the necessary 2^(8-k) remaining-witness bound to each partial response cell, pruning only branches that cannot extend, with surviving-prefix counts [0,1,28,290,1572,3669,2903,711,0]. This proves no eight-support. Separately the supplied depth-nine JSON was evaluated by a new JS implementation against all 720 concept rows, confirming 511 internal queries and 512 unique valid leaf witnesses with no split contradiction. Cardinality 720<1024 excludes depth ten. Independently direct enumerations of n=3..6 lower supports and concept-count upper bounds agree. The computation is exhaustive over this finite universe; no n>=8 claim is made.
 
-Direct comparison against the public P39-MATH-G study is particularly informative: it computes the same static invariant through six labels and explicitly leaves the seven-label dimension as an open value between seven and nine. This exact static classification and the distinct adaptive dimension are not implied by that interval, nor by the general VC/Littlestone bounds in Guingona et al. or Malliaris–Moran. The cyclic order representation of García-Colín et al. is equivalent at the level of query semantics but does not itself give the new extremal threshold in its inspected theorems. Older extendability and permutation-shattering papers may contain results not detected by these comparisons; independent historical-priority assessment is still necessary.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The seven-label value resolves an explicitly stated next finite case for the natural family of circular-order ternary queries. The difference between seven static and nine adaptive bits is nontrivial and identifies the first sharp adaptivity advantage, with complete constructive and obstruction certificates. The exact boundary is motivated by the existing incomplete seven-label shattering bounds, not an arbitrarily selected small subproblem.
+The closest exact cyclic-order source establishes sizes through six and an n=7 lower bound but not the exact seven-label VC upper bound or adaptive depth-nine. General online learning and cyclic hypergraph equivalences provide definitions and encodings rather than these finite numbers. The specific result survives statement-level comparison; an older unindexed enumeration is possible.
 
-## Scientific limitations
+## value
 
-The proof computes exact finite values only through seven labels. It relies on code whose finite exhaustive logic is explained in the proof and can be independently replayed; a separate implementation or human audit has not been performed. Partial inspection of some historical prior sources leaves residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A first strict divergence between fixed-query and adaptive-query complexity in a natural family of orientation concepts, with complete finite obstruction and certificate, is a motivated and reusable exact boundary for combinatorial learning; n=7 is the first unresolved natural size, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
