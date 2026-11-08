@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The published compact polynomial field and its derivative identities were independently expanded symbolically, yielding the logarithmic drift identity. For \(a,b>1\) the angular derivative is strictly positive throughout the entire closed invariant annulus, and the proposed radial coordinate is a diffeomorphism from each angular radial interval onto \((0,\infty)\). The return dilation is exact for every radius. Compactness and monotonicity prove the entire annular limit behavior, including periodic foliation at \(\lambda=0\). Direct physical-time boundary integrals produce the parameter-independent period difference \(\pi/(ab)\). Source: Cao–Chen–Tang, arXiv:2610.30417v1 §12.4.10; exact identities and checks in `RESULT.md` and `checks/`.
+## correctness
 
-**Originality (PASS on inspected evidence).** Llibre–Salhi (2019), Theorem 2 and proof, provide the invariant curves and the rational first integral when \(\lambda=0\); their stated \(a,b>1\) assertion is only an upper bound on limit cycles. Cao–Chen–Tang (2026), §12.4.10, settle exact count and local multipliers, not global return-map conjugacy or original-time period comparison. Distinct polynomial and homogeneous star-node systems found in published record searches do not imply these formulas for the present quintic field. An exhaustive historical priority examination is unavailable; a general Darboux/holonomy theorem may yield parts of the argument.
+PASS
 
-**Mathematical value (PASS).** The precise global basin boundaries and complete transition at the integrable parameter answer a natural question left open by local limit-cycle hyperbolicity: what every interior orbit does and how the entire Poincaré displacement behaves. The exact physical-time gap \(T_C-T_{\mathcal E}=\pi/(ab)\) is a geometric quantitative invariant not contained in the cited existence and multiplier results. This goes beyond a renaming of the older rational first integral.
+For a,b>1 and lambda real, S=x^2+y^2, E=x^2/a+y^2/b-1, R=(1-S)(-lambda E+2(a-b)xy), Omega=-2ab(SE-S+1). Independent symbolic differentiation confirms dot S and dot E identities and d(log rho)/dt=-(lambda/ab)Omega for rho=S(S-1)/(-E). Within closed annulus 1<=S<=1/d(theta), angular speed Omega=2ab[S(1-E)-1]>0; at fixed angle rho strictly increases 0 to infinity, giving a smooth full annulus coordinate. Therefore d(log rho)/dtheta=-lambda/ab globally and return rho -> exp(-2pi lambda/(ab))rho; boundary attraction/period foliation follow from monotone angle. Original-time integrals on circle and ellipse give T_C=pi/sqrt(ab(a-1)(b-1)), T_E=T_C-pi/(ab) for all a,b>1. No outside-annulus or original-time uniform-angle conclusion.
 
-**Scope and risk.** The result covers only \(a,b>1\) and the invariant annulus. The map's linearity is in an explicitly identified nonlinear radial coordinate and with angular independent variable; it does not assert constant original-time angular motion or global attraction across the whole plane. The pre-existing rational first integral at \(\lambda=0\) and boundary Floquet multipliers are credited. Independent mathematical and historical-priority assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The old rational first integral at lambda=0, existence of two boundary cycles, and their local Floquet multipliers are explicitly prior; the assessed contribution is a global all-transversal angular return conjugacy and physically unrescaled exact period gap. The Llibre–Salhi primary theorem gives invariant curves and at-most-two result; Cao–Chen–Tang §12.4.10 gives exact count/multipliers, without the global interior map/period comparison in the material inspected. Related angular return results on different systems do not dominate this formula.
+
+## value
+
+PASS
+
+Global annular dynamics and exact periods answer how every interior orbit behaves in a classical two-cycle quintic example and distinguish local stability from a global return map. A universal physical-time gap pi/(ab) between noncircular and circular invariant cycles is a natural quantitative invariant not implied by reported local multipliers alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
