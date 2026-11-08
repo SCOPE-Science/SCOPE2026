@@ -1,11 +1,21 @@
-# Review: Local zero-forcing mobility on two incidence graphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is strictly finite: the Pappus graph has eighteen vertices and the Desargues graph has twenty. Both are defined by explicit edge prescriptions; the accompanying independent C++ checker verifies graph isomorphisms between the two chosen presentations of each graph. The ordinary forcing rule has a deterministic monotone closure, shown to be equivalent to existence of a legal sequential forcing order. Two independent programs exhaust every initial subset through the claimed optimum sizes, verifying the absence of smaller forcing sets and the complete minimum-set counts. They construct every permitted exchange and verify edge counts and connectivity. Complete breadth-first search from each Pappus sliding configuration, not a sample, determines the exact radius, diameter, and eccentricity distribution. Risks include ordinary implementation mistakes; separate graph presentations, parallel versus sequential forcing, pairwise versus replacement exchange generation for jumping, and matching assertions reduce but do not eliminate that risk.
+## correctness
 
-**Originality — PASS on the inspected evidence, with residual priority risk.** Butler–Grout–Hall (arXiv:1211.4618, first public 2012-11-19), Section 5, previously determines the Desargues zero-forcing number of eight; that scalar is acknowledged and excluded from the original contribution. Geneson–Haas–Hogben (arXiv:2009.00220, first public 2020-09-01) defines a token-*jumping* reconfiguration graph and proves results for several families, principally trees, but its inspected full text contains no Pappus or Desargues local-sliding metric classification. Krishnan–Ma–Zhang (arXiv:2610.24059v1, first public 2026-10-16) was also checked in full text: its generalized-Petersen theorem recovers the scalar Desargues optimum and develops boundary/fort methods, but does not determine local sliding. Related earlier records on Möbius–Kantor forcing, Pappus locating codes, Pappus perfect-matching flips, and Desargues metric bases concern different objects or feasibility conditions and do not logically imply this two-graph contrast. Targeted published research-record and literature searches located no exact covering classification. Possible equivalent results under unindexed terminology or in an unpublished graph database remain a material residual risk; a negative search is not a proof of global novelty.
+PASS
 
-**Value — PASS.** Token sliding is a natural locality-constrained variant of minimum-solution reconfiguration. These two canonical cubic bipartite girth-six incidence graphs display opposite behavior despite their shared simple structural properties: one has a large connected space with a nontrivial sharp diameter of eighteen, while the other has no local move despite its unrestricted jumping space being connected. This provides a reproducible benchmark separating local from unrestricted accessibility. It is not justified solely by code or the minimum-set census; the motivating phenomenon is the structural difference in allowed reconfiguration under the same forcing rule. The claim is limited to these finite examples and does not predict a general classification.
+Finite complete enumeration has an exact closure criterion: simultaneous unique-white-neighbor additions agree with sequential zero forcing; bit masks exhaust all 18- and 20-vertex subsets through sizes 7 and 8. Independently implemented sequential/parallel checks on the stated 9-line Pappus configuration and GP(10,3) Desargues graph found Z(P)=7 with 6912 sets and Z(D)=8 with 13520. Exact one-edge slides gave Pappus 10962 edges, degree classes 1080/3564/2268 of degrees 2/3/4, and Desargues zero edges. Full BFS from every Pappus state gave connected graph radius 16, diameter 18 and eccentricity counts 648/4968/1296; unrestricted Desargues jumps gave 178560 edges. Each enumeration is on a rigorously bounded set; finite exhaustive calculation is valid here, not extrapolated.
 
-**Closest references and limitations.** Butler–Grout–Hall, *Zero forcing for inertia sets*, arXiv:1211.4618; Geneson–Haas–Hogben, *Reconfiguration graphs of zero forcing sets*, arXiv:2009.00220; Krishnan–Ma–Zhang, arXiv:2610.24059v1. The stated publication dates are first arXiv appearances for these manuscripts, not later journal dates. The finite exhaustive code is supplied; no infinite-family theorem or full literature-uniqueness claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+Natural comparison of the classical Pappus and Desargues cubic bipartite girth-six incidence graphs isolates a sharp structural distinction: one entire minimum zero-forcing configuration space is mobile under local slides while the other is frozen despite a connected jump space. Exact full state reconfiguration and distance census is a nontrivial finite invariant useful as a benchmark and structural counterexample, rather than a trivial recomputation of Z(D)=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

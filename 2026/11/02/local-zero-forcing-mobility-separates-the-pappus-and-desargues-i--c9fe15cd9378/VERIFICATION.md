@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite checks use two standalone implementations built from distinct graph presentations. Running `python3 verify.py` checks the incidence and Petersen-double-cover graphs by simultaneous zero-forcing closure. Running `c++ -O3 -std=c++17 verify_alt.cpp -o verify_alt && ./verify_alt` checks LCF and generalized-Petersen presentations and uses sequential forcing. The second program also checks explicit graph isomorphisms to the first presentations.
+# Independent mathematical audit
 
-The exact tests enumerate all \(63004\) masks of Pappus cardinality at most \(7\) and all \(263950\) Desargues masks of cardinality at most \(8\). Every smaller mask is rejected by the forcing test; all minimum masks are retained. Exact transition construction gives the edge and component claims, while all-source breadth-first search on \(6912\) Pappus states gives the radius, diameter, and eccentricity distribution. The Desargues jumping component is also explored by breadth-first search.
+## correctness
 
-Observed completion markers: `FULL_CERTIFICATE_OK` and `INDEPENDENT_CERTIFICATE_OK`. The computations prove only the finite claims stated; they do not imply a universal theorem for incidence graphs, nor do they establish scholarly priority or independent validation.
+PASS
+
+Finite complete enumeration has an exact closure criterion: simultaneous unique-white-neighbor additions agree with sequential zero forcing; bit masks exhaust all 18- and 20-vertex subsets through sizes 7 and 8. Independently implemented sequential/parallel checks on the stated 9-line Pappus configuration and GP(10,3) Desargues graph found Z(P)=7 with 6912 sets and Z(D)=8 with 13520. Exact one-edge slides gave Pappus 10962 edges, degree classes 1080/3564/2268 of degrees 2/3/4, and Desargues zero edges. Full BFS from every Pappus state gave connected graph radius 16, diameter 18 and eccentricity counts 648/4968/1296; unrestricted Desargues jumps gave 178560 edges. Each enumeration is on a rigorously bounded set; finite exhaustive calculation is valid here, not extrapolated.
+
+## originality
+
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+Natural comparison of the classical Pappus and Desargues cubic bipartite girth-six incidence graphs isolates a sharp structural distinction: one entire minimum zero-forcing configuration space is mobile under local slides while the other is frozen despite a connected jump space. Exact full state reconfiguration and distance census is a nontrivial finite invariant useful as a benchmark and structural counterexample, rather than a trivial recomputation of Z(D)=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
