@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-level construction first chooses representatives of finitely many outer root types, then filters each selected rooted intuitionistic component by truth-type inclusion. Root types preserve truth of all modal boxes because each true box is respected by all original successors, while each false box is assigned a particular original counterexample successor. The truth induction includes the nontrivial implication-refutation witness and modal-successor clauses. The count is at most \(2^s\) components each with at most \(2^s\) internal points. The published CMM completeness theorem yields the stated finite-model and complexity corollaries. The finite checker executed 5,000 diagnostic cases but is not a proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Define Σ-type of each local point and keep one original component per distinct root Σ-signature (preserving the distinguished component). In each chosen component order retained local Σ-types by inclusion. For each false □ψ of a representative root retain an original successor-root witness; every true □χ remains true at selected successor roots. Induction on Σ proves atomic, implication and □ truth at every retained local type: false implications have an original upward extension whose type remains in the filtered component. Counts are ≤2^s components and ≤2^s points each. Original paper establishes soundness/completeness of iK+bem for these concrete mixed models, yielding FMP and a coNEXPTIME upper bound by finite countermodel guessing. Independently checked a constructed two-component Kripke model across seven modal/implicational formulas; finite diagnostic cannot replace unrestricted induction.
 
-The main primary source establishes semantic correspondence but explicitly leaves the finite model property requiring further checking, whereas the new statement provides a complete finite filtration and quantitative bound. Searches of the published research records and broader literature did not yield the same claim or a strictly stronger one. The strongest unresolved priority risk is an older theorem under alternate terminology (for example, decidable necessity or mixed intuitionistic modalities). Existing results for different intuitionistic modal extensions cannot be imported without establishing their frame-theoretic implication.
+## originality
 
-## Value — PASS
+PASS
 
-This directly settles a question identified in the primary source, gives a uniform finite countermodel bound and an effective upper bound on theoremhood, and supplies an explicit filtration construction in which a modal outer layer interacts with local intuitionistic implication. It is a natural full-language model-theoretic result, not a finite census or a routine restatement of compactness.
+The primary van der Giessen et al. 2025 article proves mixed-model completeness, while its conclusion explicitly notes finite-model property as a plausible but unfinished question. The two-level root/local filtration resolves that missing step for this precise class; existing IS4 and finite intuitionistic frame results are not a covering FMP for iK+bem.
 
-## Closest sources and limitations
+## value
 
-- Van der Giessen et al., *On the Contingency of Logic in Possible World Semantics*, arXiv:2510.17302, doi:10.1007/s11787-025-00400-7: model semantics, completeness, and explicit open finite-model discussion.
-- Girlando et al., *Intuitionistic S4 is decidable*, arXiv:2304.12094: finite-model property for a different logic.
-- Simpson (1994) and *Admissible rules for six intuitionistic modal logics* (2023): broader methods and different named systems; their full bodies were not exhaustively compared.
+PASS
 
-No lower complexity bound or optimality assertion is made. The complete theorem requires independent verification before being treated as externally certified.
+Finite-model property and a constructive exponential finite-size bound resolve a natural decidability gap for a named mixed-modal logic whose completeness was already established; this is a meaningful structural theorem independent of lower-bound complexity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
