@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` in this directory using Python 3.9 or later; only the standard library is needed. The observed result is:
+## correctness
 
-```
-VERIFY_OK filtration_facets 128 reflection_cases 89 explicit_fixed_faces 1988
-```
+PASS
 
-The checker reconstructs every pure maximal facet independently from all strict vertex orders for cycle lengths 6, 7 and 8. It also constructs the same facets from the gap/root model, obtaining 128 total distinct facets over those three lengths. For each cycle length from 6 through 64 it computes every reflection conjugacy-class incidence orbit, determines maximal fixed faces directly from the complete pure facet list, and compares them with the symbolic orbit-range formula from the proof. There are 89 such tests, including both even-axis types. For lengths through 18 it independently enumerates fixed simplices and checks that their Euler characteristic is 2; the combined count of nonempty faces is 1988.
+Reconstructed all n(n−1) rooted-path maximal strong facets by removing the last critical cycle vertex, obtaining two adjacent unused edges and a single + to − sign block. For any reflection s_a, fixed barycentric coordinates give the incidence-orbit complex, no fixed individual incidence. Orbit types A/B form individually full simplices with m−1 or m−2 vertices; opposing types give forbidden alternating signs or use both orientations of one edge. Reproduced the complete orbit complex independently for all 89 odd/even reflection conjugacy instances 6≤n≤64; all are two disjoint simplices with the stated dimensions. The all-n result rests on the explicit sign-block/endpoint argument, not the 89 finite tests; reduced Lefschetz=χ(fixed)−1=1.
 
-The general result does **not** follow merely from numerical checks. Its unrestricted proof is the combinatorial classification of all maximal facets, incidence orbits, forbidden boundary orbits, and impossible mixed-type signs in `RESULT.md`. The signed reduced homological Lefschetz number additionally uses the standard equivariant barycentric subdivision/Lefschetz identity. No external or independent audit was performed.
+## originality
+
+PASS
+
+Primary Knudson–Owens-White provides rooted-path facets and ordinary homotopy, not geometric fixed-set classification. Published same PURE complex rotation-character calculation explicitly excludes reflections; prior FULL strong-complex dihedral characters concern a different complex and cannot cover this fixed PL topology.
+
+## value
+
+PASS
+
+Determines actual PL geometry of all reflection fixed loci and the missing reduced reflection Lefschetz character, rather than just nonequivariant homotopy or rotation traces; natural equivariant refinement over an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
