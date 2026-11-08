@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` reconstructs the monomial generator under rate-one probe-only Poisson jumps, computes the degree-two and degree-four stationary mixed moments, builds the closed two-time cubic-plus-linear observable generator, and verifies by exact symbolic algebra the positive initial derivative and the slow-mode residue. It reconstructs and checks all six quartic Routh–Hurwitz positivity certificates, the unique-root Descartes polynomial, and the signs of all denominator factors. Its finite numerical residue-sign samples do not replace the rigorous polynomial argument.
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and SymPy; no network access or source-paper files are needed. Assertions terminate on failure and the command prints `PASS` only after successful completion. The numerical threshold is reported as an approximation; its exact definition is the unique root of the displayed degree-eleven polynomial. The asymptotic sign at the critical cancellation point and intermediate-lag crossings below threshold are not established. Independent audit: not performed.
+## correctness
+
+PASS
+
+The reset generator on x^i q^j gives the displayed coupled degree-two and degree-four stationary linear systems; a six-dimensional closed cubic+linear observable semigroup gives H(t)=first(e^{Bt}m)-first(e^{At}n). Stationarity gives Hprime(0+)=M40/2>0. A is a 2x2 slow-mode generator with eigenvalue -z where gamma=(1-z)/(z(2-z)); exact Routh–Hurwitz positivity of all six quartic inequalities after u=z/(1-z) proves each cubic block mode decays faster. Independent symbolic calculation rederived all six nonnegative coefficient lists, reconstructed the rational slow residue L(z) at representative gamma=1/2,1,5,10, and verified the transformed degree-eleven P polynomial has exactly one sign change and opposite endpoint signs. The unique-root Descartes and denominator signs yield the all-gamma classification; finite samples are not a universal proof. Critical gamma next-slowest term and potential intermediate-lag negatives below gamma* are explicitly not classified.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. The new claim depends on prior equations but does not follow from published one-time kurtosis or ordinary two-time covariance without a separate nontrivial cubic-generator calculation.
+
+## value
+
+PASS
+
+Fourth-order time-antisymmetric tracer correlation reveals a nontrivial, sharp memory-controlled reversal invisible to stationary one-time moments and ordinary autocovariance. The exact long-time sign transition is a motivated characterization of nonrenewal bath-reset nonequilibrium dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

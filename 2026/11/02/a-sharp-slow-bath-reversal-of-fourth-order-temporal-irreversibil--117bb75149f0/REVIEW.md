@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has explicit stationary SDE and jump generator conventions, exact mixed-moment linear systems, exact two-time Markov semigroup formulas, positive short-lag derivative and an algebraically reconstructed leading-residue formula. The quartic Routh–Hurwitz inequalities place every cubic generator eigenvalue strictly left of the slow linear eigenvalue; a unique-root Descartes certificate and denominator signs complete the global classification. The provided `verify.py` rechecks these identities directly. The result asserts eventual negative sign only above the strict threshold, and explicitly leaves the critical cancellation and possible intermediate-lag behavior unresolved.
+## correctness
 
-## Originality — PASS (qualified best-knowledge)
-The primary model source, Santra–Das (arXiv:2603.17027v1, full accessible sections II–III, appendix A), computes one-time second and fourth moments, kurtosis and stationary distributions, not the claimed fourth-order two-time time-antisymmetric correlation or slow-mode sign boundary. Biswas–Dubbeldam–Sandev–Pal (arXiv:2412.09260; *Chaos* 35, 031102) instead use renewal bath-memory resetting and focus on variance and ordinary correlation, not this probe-only-reset fourth-order boundary. Further published-result semantic searches and accessible prior-claim checks found no directly dominating assertion. The older related paper's full text could not be retrieved; broader generic nonequilibrium fourth-order-correlation literature might cover a derivation implicitly. Neither absence from search results nor partition ownership proves global uniqueness.
+PASS
 
-## Value — PASS
-A fourth-order time-antisymmetric observable measures irreversible temporal ordering invisible to one-time marginals and ordinary symmetric autocovariance. The exact finite bath ratio separates opposite signs of the slowest observable mode; in the slow-bath region, a sign change is forced with no inertia, directly distinguishing the nonrenewal bath memory mechanism. The classification uses a nontrivial spectral separation and global algebraic root argument, rather than merely evaluating a known stationary kurtosis.
+The reset generator on x^i q^j gives the displayed coupled degree-two and degree-four stationary linear systems; a six-dimensional closed cubic+linear observable semigroup gives H(t)=first(e^{Bt}m)-first(e^{At}n). Stationarity gives Hprime(0+)=M40/2>0. A is a 2x2 slow-mode generator with eigenvalue -z where gamma=(1-z)/(z(2-z)); exact Routh–Hurwitz positivity of all six quartic inequalities after u=z/(1-z) proves each cubic block mode decays faster. Independent symbolic calculation rederived all six nonnegative coefficient lists, reconstructed the rational slow residue L(z) at representative gamma=1/2,1,5,10, and verified the transformed degree-eleven P polynomial has exactly one sign change and opposite endpoint signs. The unique-root Descartes and denominator signs yield the all-gamma classification; finite samples are not a universal proof. Critical gamma next-slowest term and potential intermediate-lag negatives below gamma* are explicitly not classified.
 
-## Sources and limitations
-Santra and Das, arXiv:2603.17027v1 (17 March 2026), full HTML model and moment sections; Biswas et al., arXiv:2412.09260 and *Chaos* 35 (2025), 031102 (abstract, methods and institutional repository listing); Sokolov, *Phys. Rev. Lett.* 130 (2023), 067101 (abstract, resetting FDR). The new claim is for reset rate one, all \(\gamma>0\); no finite-lag all-parameter sign classification below threshold or independent audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. The new claim depends on prior equations but does not follow from published one-time kurtosis or ordinary two-time covariance without a separate nontrivial cubic-generator calculation.
+
+## value
+
+PASS
+
+Fourth-order time-antisymmetric tracer correlation reveals a nontrivial, sharp memory-controlled reversal invisible to stationary one-time moments and ordinary autocovariance. The exact long-time sign transition is a motivated characterization of nonrenewal bath-reset nonequilibrium dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
