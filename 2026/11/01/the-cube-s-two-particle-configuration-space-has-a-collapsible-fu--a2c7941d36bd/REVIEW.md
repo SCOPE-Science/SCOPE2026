@@ -1,15 +1,21 @@
-# Scientific review of the cube two-particle symmetry quotient
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding specifies the geometric graph, unordered distinct-point configuration space, action of all 48 graph automorphisms, and the ordinary orbit-space topology. The positive/negative-part barycentric homotopy is continuous for all distinct points and stays collision-free, with an explicit nonzero coordinate difference, so it supplies the necessary equivariant strong deformation retraction instead of assuming one. The exact quotient of the barycentric cubical model is enumerated by an independently rerunnable checker. Its 8 vertices, 15 edges, 8 triangles, complete incidence tables, and all 15 instantaneous free-face tests are verified. The final vertex proves contractibility. The finite experiment is used only for the finite quotient; the continuous step is an algebraic proof.
+## correctness
 
-## Originality — PASS with residual publication-priority risk
-Actual published-result searches tested the cube graph, unordered two-particle graph configurations, full hyperoctahedral automorphisms, equivariant spaces, topological quotients, collapsibility, and alternative graph/complex formulations. The closest indexed graph-configuration computation concerns the cuboctahedral *line graph* of the cube, not the cube itself, and was checked in primary scientific text. The cube three-cut complex and other symmetric graph complexes have different definitions. Farley–Sabalka and Prue–Scrimshaw establish general graph braid and discretization theorems; Barnett–Farber treats ordered planar configurations. Their inspected theorems do not identify this specific topological orbit space, and their conclusions do not imply its collapsibility. Search failures alone are not novelty proofs; an unindexed equivalent or undiscovered general orbit theorem remains a risk.
+PASS
 
-## Value — PASS
-The cube is a canonical symmetric network and two collision-free moving points are a natural configuration-space object. Quotienting by the entire cube automorphism group gives a natural moduli space, not an ad hoc numerical slice. Its contractibility is stronger than vanishing rational invariant homology and contrasts with the original two-particle space's Euler characteristic \(-2\). The explicit small quotient and elementary collapse give a reusable geometric benchmark for symmetry reduction of graph-configuration spaces. No general classification is claimed.
+The continuous positive/negative barycentric-part retraction of two unequal graph points is graph-automorphism- and particle-swap-equivariant; difference remains ((1-u)+u/s)(α−β)≠0, and disjoint-support configurations are fixed, so it descends to the orbit quotient without a nonequivariant descent assumption. The finite deleted cubical configuration model has 28 vertices, 72 edges, 42 squares; independent reconstruction of all 142 vertices, 480 edges and 336 triangles in its barycentric subdivision and all 48 cube symmetries yielded exactly (8,15,8) orbit cells. Fresh independent quotient incidence calculation validated each of eight triangle–edge and seven edge–vertex elementary collapses at the instant applied, reducing to vertex 7; therefore X/G contractible. The proof does not confuse the Euler characteristic −2 of X with the quotient.
 
-## Scientific limits
-The work treats a single graph and two indistinguishable particles. It does not determine homotopy types of quotient spaces for other graphs, Borel-equivariant invariants, or any integral homology representations. Related specialist literature may exist outside checked indexes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graph braid cubical models and an existing equivariant module calculation for the cuboctahedral LINE GRAPH do not determine the ordinary orbit-space homotopy for two particles on Q3. The explicit equivariant deformation plus full 48-group quotient collapse is a distinct calculation and a motivated exact moduli-topology fact. No current covering statement found; risk remains for unindexed examples.
+
+## value
+
+PASS
+
+The full-symmetry quotient of graph configuration spaces is a natural moduli object and differs strongly from its nontrivial unreduced configuration space. Exact contractibility with a transparent finite Δ-complex collapse is a useful nonroutine example of a quotient changing topology, and can serve as a benchmark for equivariant graph braid computations. This specific canonical graph and full symmetry group are motivated, rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
