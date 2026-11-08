@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-The standalone `verify_paluniversal.c` enumerates each possible balanced binary length-\(2k\) host in lexicographic recursion, except that infeasible prefixes are removed with a mathematically proved necessary condition. It records one greedy prefix-match state for each of the \(2^{\lceil k/2\rceil}\) targets and counts accepted hosts by number of complete binary arches. Complements are counted by symmetry, with the first symbol fixed to zero in the search. It outputs exact integer totals for every \(1\le k\le15\).
+## correctness
 
-Build with a C11 compiler: `cc -std=c11 -O3 -Wall -Wextra -pedantic verify_paluniversal.c -o verify_paluniversal`, and invoke `./verify_paluniversal K` separately for all `K` from `1` through `15`. The terminal outcome at `K=15` is:
+PASS
 
-`k=15 checked_half=380442 accepted_half=380442 total=760884 classes iota_11=72 iota_12=29640 iota_13=352672 iota_14=345732 iota_15=32768`
+Both constant palindromes require k occurrences of each bit, establishing a 2k minimum, attained by concatenations of k 01/10 blocks. For each palindrome target the greedy prefix-embedding coordinate updates with each appended host bit. Branch pruning when matched length plus remaining positions<k is sound and exhaustive; every balanced host is visited once modulo bit-complement pairing. At accepted hosts, the greedy binary arch count equals unrestricted scattered-subsequence universality index. Independently wrote, compiled and executed a new exact C enumeration over k=1..15 with the same mathematical acceptance criterion but independent implementation, reconstructing every row and in particular 760884/32768/72; original C11 and separate unpruned Python verifier through k10 were read. A finite exhaustive proof covers exactly k1..15 and says nothing about k>15.
 
-The independent script `verify_paluniversal_independent.py` enumerates **all** balanced words without pruning and independently performs direct target-by-target greedy embedding tests for \(1\le k\le10\). The result is:
+## originality
 
-`VERIFY_INDEPENDENT_OK unpruned_complete_length_k=1..10 palindrome_index_distributions=true`
+PASS
 
-Correctness rests on the mathematical induction proving the branch-pruning condition, not on sampling. The verification does not address lengths beyond the stated scope and does not establish independent external audit.
+General arch decompositions and absent-subsequence algorithms are prior art; counting palindromic subsequences of a fixed host is also prior art. The exact all-palindrome-universal shortest-host restricted-language census stratified by ordinary index is not contained in those inspected articles or the Resultary general unconditioned arch distribution. A special tabulation could exist under different language-universality terminology.
+
+## value
+
+PASS
+
+Counting all shortest supersequences of the canonical regular restricted language of binary palindromes is a motivated finite extremal-enumerative problem. The complete 15-level table, arch-refined frequency spectrum, and exceptional 72 minimal-index hosts give independently usable exact benchmarks beyond the obvious fully universal baseline 2^k; no unbounded general classification is pretended.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
