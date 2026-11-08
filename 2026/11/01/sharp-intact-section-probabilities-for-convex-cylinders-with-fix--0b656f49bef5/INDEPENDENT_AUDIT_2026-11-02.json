@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:48:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C=B×[-H/2,H/2], affine plane normal (sin θ v,cos θ) has conditional offset intervals L_hit=H cos θ+w(v)sin θ and L_intact=[H cos θ−w(v)sin θ]_+. Integrating against sin θ dθ dφ gives p=2〈F_H(w/2)〉/(H+πr) with F_H(x)=H/2−x arctan(H/(2x)). Cauchy perimeter gives 〈w/2〉=r, and F_H″(x)=4H³/(H²+4x²)²>0. Jensen yields lower envelope (H−2r atan(H/(2r)))/(H+πr) with iff w≡2r; planar zonoid representation q(v)=πr/2 ∫|cos(v−α)|dν and another Jensen give the upper envelope (sqrt(H²+π²r²)−πr)/(H+πr), strict for full-dimensional B and approached by thin rectangles. Strong Jensen over 0≤q≤πr/2 proves the stated width-variance remainder. For disk, E=sin θ and direct density integration yields the displayed normalized CDF and beta limits. The proof covers all compact convex bases with nonempty interior and all H>0; invariant conditional offset measure, not independent normalized offsets. Independent SymPy identity and square-base angular integration match, p≈0.084448543074 at H=2,r=1 between 0.08347679447 and 0.11331102324; finite/numeric checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cauchy fixes angular mean width; planar zonoids represent widths as segment mixtures; published SCOPE mixed moment concerns projection shadows and not intersecting affine planes."
+        ],
+        "reasoning": "Classical convex-geometry tools imply the proof steps once the intact-event integral is derived, but do not already state the simultaneous sharp interval, equality classes, rigidity and eccentricity distribution.",
+        "searches": [
+          "intact untruncated planar sections right circular and convex cylinders Euclidean invariant random affine planes fixed perimeter sharp probability zonoid width constant width eccentricity",
+          "Cauchy perimeter formula planar zonoid representation Schneider Convex Bodies",
+          "Resultary 2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_sections.py at frozen commit",
+        "van der Jagt et al. 2023 open-access article PDF, Definition 1 and early results",
+        "Dirksen arXiv:1602.07854 abstract",
+        "Jongbloed et al. TEST 2021 oriented cylinder model (abstract)",
+        "Resultary scientific records from query on invariant cylinder intactness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 PDF first sections specify IUR measure and cross-sectional area densities; 2016 central sections and 2021 fixed vertical orientation describe different observables or measures."
+        ],
+        "reasoning": "Prior sampling model is an input to the argument, not a result that implies the fixed-perimeter complete envelope; distinguishing observables and quantifiers defeats title-level overlap.",
+        "searches": [
+          "van der Jagt Jongbloed Vittorietti 2023 arXiv:2305.02864 PDF Definition 1 and section-area results",
+          "Dirksen arXiv:1602.07854 abstract",
+          "Jongbloed McGarrity Sietsma 2021 oriented-cylinder sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Invariant random plane conditional-on-hit model and width integral from assigned proof; van der Jagt et al. Definition 1 uses invariant section-area sampling, Dirksen considers central sections."
+        ],
+        "reasoning": "Intact section means the entire infinite-cylinder intersection lies between caps; this conditional indicator is different from a distribution of central-section area or an unconstrained chord length. Neither of the inspected formulations computes its conditional probability.",
+        "searches": [
+          "intact untruncated planar sections right circular and convex cylinders Euclidean invariant random affine planes fixed perimeter sharp probability zonoid width constant width eccentricity",
+          "van der Jagt et al. 2023 DOI:10.5566/ias.2923, invariant section-area distribution",
+          "Dirksen 2016 arXiv:1602.07854, central hyperplane sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches projection-shadow covariances and positive Cauchy quadrature, not a table of invariant intact-section probabilities for arbitrary convex bases."
+        ],
+        "reasoning": "A database of directional widths or projection moments is not an exact database of the random affinely sampled intactness event; no matching exact table found in bounded search.",
+        "searches": [
+          "intact untruncated planar sections right circular and convex cylinders Euclidean invariant random affine planes fixed perimeter sharp probability zonoid width constant width eccentricity",
+          "2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae"
+        ]
+      },
+      "rationale": "Originality is best of knowledge after Resultary and published literature comparisons. IUR affine-plane sampling, Cauchy perimeter, zonoid representation and classical Jensen are prior tools; the inspected 2023 primary paper develops distributions of section area/chord length under an invariant model, not the event that no cap truncates a convex-cylinder slice. Dirksen treats central cylinder sections and maximum area, not affine-plane intactness with fixed base perimeter; oriented-cylinder model fixes orientation. No source inspected implies the sharp complete width envelopes and disk conditional eccentricity law. Unindexed or implicitly equivalent stochastic-geometry work remains a genuine risk.",
+      "residual_risks": [
+        "Unindexed stochastic-geometry equivalent event or implicit classical integral may exist.",
+        "Dirksen and oriented-cylinder primary full texts not completely inspected.",
+        "The formula applies only to Euclidean-motion-invariant affine planes conditional on intersection, full-dimensional convex bases, nonzero H; numerical sampling not infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces correct IUR measure and works with cross-sectional area/chord laws, not the assigned cap-intact width extremization in inspected material.",
+          "evidence": [
+            "Definition 1 random section model; section-area density definitions, 2023 Image Analysis & Stereology 42."
+          ],
+          "identifier_or_url": "https://www.ias-iss.org/ojs/IAS/article/download/2923/1186",
+          "material_read": "Primary PDF introduction, Definition 1 and early section-area/chord-length distribution statements, as displayed from actual PDF pages; not a whole-document claim about absence.",
+          "method": "Opened open-access PDF and inspected page screenshots and text.",
+          "title": "Existence and approximation of densities of chord length- and cross section area distributions",
+          "trigger": "Same random affine-hyperplane invariant sampling model"
+        },
+        {
+          "assessment": "Central sections and maximal area are different from affine random intact event, but uninspected full text is a residual risk.",
+          "evidence": [
+            "arXiv:1602.07854 title and abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.07854",
+          "material_read": "arXiv public abstract identifying central hyperplane sections and area optimization; complete text not obtained this run.",
+          "method": "arXiv abstract/index; no full-text negative coverage assertion.",
+          "title": "Hyperplane Sections of Cylinders",
+          "trigger": "Exact cylinder-section geometry and possible dual formulation"
+        },
+        {
+          "assessment": "Fixed vertical orientation has different conditional orientation law from isotropic IUR affine planes.",
+          "evidence": [
+            "TEST 30 (2021) 505–526; orientation condition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11749-020-00729-9",
+          "material_read": "Available model description for vertical fixed-orientation planes, not full article.",
+          "method": "Publisher/index model description and referenced research record.",
+          "title": "Smooth estimation of size distributions in an oriented cylinder model",
+          "trigger": "Cylinder random-plane model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural stereological sampling model needs to distinguish cap-truncated sections from complete sections. The result gives an exact shape-optimized probability interval, identifies all constant-width minimizers and the unachieved degenerate supremum, and supplies a quantitative width-rigidity test and disk eccentricity distribution. These solve specific substantive distribution/extremal questions, not merely repeat Cauchy perimeter identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify_sections.py at frozen commit",
+    "van der Jagt et al. 2023 open-access article PDF, Definition 1 and early results",
+    "Dirksen arXiv:1602.07854 abstract",
+    "Jongbloed et al. TEST 2021 oriented cylinder model (abstract)",
+    "Resultary scientific records from query on invariant cylinder intactness"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unindexed stochastic-geometry equivalent event or implicit classical integral may exist.",
+    "Dirksen and oriented-cylinder primary full texts not completely inspected.",
+    "The formula applies only to Euclidean-motion-invariant affine planes conditional on intersection, full-dimensional convex bases, nonzero H; numerical sampling not infinite proof."
+  ]
+}
