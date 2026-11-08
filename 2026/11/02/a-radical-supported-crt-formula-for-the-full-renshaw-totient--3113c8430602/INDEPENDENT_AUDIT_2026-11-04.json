@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:48:33.731434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd m each forbidden prime residue is t≡0 or 1 mod p; their disjoint local inclusion-exclusion expands to 3^{omega(m)} coprime CRT (a,b) pairs. Odd-length progression of representatives modulo ab yields the E0 parity sum over [1,m]. The mod-4 sign sequence of period four over 2m has two residual terms and yields E1; for e>=2 each admissible class mod odd m has exactly 2^{e-2} lifts t≡3 mod4. T(1)=T(2)=0. For odd primes p≠q, least positive inverses u=p^{-1} mod q and v=q^{-1} mod p satisfy pu+qv=pq+1, so u and v share parity; hence E0(pq)=-1+2(-1)^{u+1}. Prime-number-theorem equidistribution over residue classes mod fixed odd p proves sign density. Independent literal gcd enumeration agrees with the CRT formula for all n=1,...,150 (n=1 separately set to zero by definition). Finite checks corroborate the unrestricted CRT/progression argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Renshaw Theorem 13 provides finite comparison/error bounds for mixed odd parts; exact earlier prime-power and low-2-power branches do not imply parity correction for all prime supports.",
+          "Salazar counts restricted additive coprime representations modulo 6P, a different arithmetic quantity."
+        ],
+        "reasoning": "No inspected stronger theorem implies the exact all-modulus parity-corrected T; superficially similar 3^r CRT sieving is the reusable method, not an identical count.",
+        "searches": [
+          "Renshaw arxiv:2603.13939v1 Theorem 13 general modulus bounds",
+          "Salazar arxiv:2609.22305v2 3^r CRT sieve"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2603.13939v1 Renshaw original Theorems 2,3,9,13",
+        "arxiv:2609.22305v2 Salazar related CRT sieve",
+        "Schemmel totient and prime number theorem arithmetic progressions",
+        "Resultary totient semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renshaw original full 17-page preprint inspected, including the general mixed-modulus Theorem 13: estimates, not this signed CRT identity.",
+          "The prime number theorem in AP supplies branch-frequency corollary after the inverse formula, but not the latter."
+        ],
+        "reasoning": "Renshaw bounds do not entail exact T(m) with radical E0 and E1. The contribution is explicit signed refinement, not rebranding the local sieve or elementary PNT.",
+        "searches": [
+          "Renshaw theorem2 theorem3 theorem9 theorem13 arxiv:2603.13939v1",
+          "Salazar 2026 restricted coprime representations exact CRT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-part factor S(m)=m prod_{p|m}(1-2/p) is precisely the classical two-residue Schemmel totient.",
+          "New T(n) selects odd representatives and sometimes t≡3 mod4; it is a parity-decorated restricted count, not S(m) itself."
+        ],
+        "reasoning": "We compared T to Schemmel local sieve and CRT parity-bias sums explicitly. The Schemmel evaluation cannot recover E0,E1 solely from S(m); the inverse parity can vary between primes.",
+        "searches": [
+          "Renshaw A Totient Function Associated with Variants of Groups arxiv:2603.13939v1",
+          "Schemmel totient generalization two forbidden residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits mainly Euler totient, divisor-totient gaps and unrelated modular identities.",
+          "Finite tables of small T values cannot imply branch density or exact radical formula for unrestricted n."
+        ],
+        "reasoning": "No exact published Renshaw T database or table was identified that already determines general E0,E1; the observed table values alone are weaker.",
+        "searches": [
+          "Resultary Renshaw totient odd t gcd t n gcd (t-1)/2 n Schemmel exact CRT radical correction",
+          "Renshaw totient table odd semiprimes sign modular inverse"
+        ]
+      },
+      "rationale": "Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.",
+      "residual_risks": [
+        "An independently derived signed CRT sieve may already be in modular arithmetic literature; unsuccessful search alone is not priority proof.",
+        "Factorization supplied to algorithm; count includes m=1 exceptional T(1)=0 and T(2)=0."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior establishes T, S(m), selected exact cases and bounds, not inspected uniform radical E0/E1 corrections or modular-inverse branch density",
+          "evidence": [
+            "arxiv:2603.13939v1 §2 Theorems 2,3,9,13"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.13939",
+          "material_read": "Full accessible original 17-page PDF: definition, Theorems 2,3,9 and general Theorem 13 on mixed moduli; page-8 visual review and theorem-page text",
+          "method": "arXiv full PDF text and page screenshot",
+          "title": "A Totient Function Associated with Variants of Groups",
+          "trigger": "the very same T(n), could dominate proposed result"
+        },
+        {
+          "assessment": "Different additive-representation count; no whole-text noncoverage claim; general CRT sieve technique may overlap",
+          "evidence": [
+            "arxiv:2609.22305v2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22305",
+          "material_read": "Accessible arXiv bibliographic/abstract model description and references; complete article not obtained",
+          "method": "arXiv search and OA attempts",
+          "title": "Restricted Coprime Representations Modulo 6P: Exact CRT Formulas and Positivity Thresholds",
+          "trigger": "3^r signed CRT approach might be general enough"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Renshaw explicitly gave general mixed-modulus error bounds and exact special cases. A complete factorization-given, radical-supported exact parity correction for all moduli and an inverse-parity formula/density for two primes answers a natural arithmetic counting question even though the engine is elementary inclusion-exclusion. Its complexity is 3^omega(m), not polynomial in omega.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2603.13939v1 Renshaw original Theorems 2,3,9,13",
+    "arxiv:2609.22305v2 Salazar related CRT sieve",
+    "Schemmel totient and prime number theorem arithmetic progressions",
+    "Resultary totient semantic query",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-radical-supported-crt-formula-for-the-full-renshaw-totient--3113c8430602/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-radical-supported-crt-formula-for-the-full-renshaw-totient--3113c8430602/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An independently derived signed CRT sieve may already be in modular arithmetic literature; unsuccessful search alone is not priority proof.",
+    "Factorization supplied to algorithm; count includes m=1 exceptional T(1)=0 and T(2)=0."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "An independently derived signed CRT sieve may already be in modular arithmetic literature; unsuccessful search alone is not priority proof. Factorization supplied to algorithm; count includes m=1 exceptional T(1)=0 and T(2)=0."
+}

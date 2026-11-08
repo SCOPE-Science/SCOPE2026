@@ -1,15 +1,21 @@
-# Review of the radical-supported CRT evaluation
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof expands the local forbidden residues by inclusion-exclusion and evaluates the resulting signed arithmetic progressions over odd and twice-odd intervals. The crucial boundary cases \(m=1\), \(e=0,1\), and \(e\ge2\) are treated separately. Each prime contributes exactly three mutually exclusive assignments, and both correction sums are independent of prime-power exponents. The semiprime branch and its density use an exact CRT relation and the prime number theorem in arithmetic progressions. `verify.py` gives independent literal-enumeration checks of the stated implementation; these are not substitutes for the proof.
+## correctness
 
-## Originality
-**PASS, qualified by priority risk.** Renshaw, arXiv:2603.13939v1, proves bounds for general odd prime supports and exact special cases but does not supply the two all-support correction sums or branch-density rule. Salazar, arXiv:2609.22305v2, studies a distinct restricted additive representation function; sharing a CRT/inclusion-exclusion technique does not imply this result. A targeted search of mathematical research records and web literature did not expose equivalent coverage. The algebra is elementary, so an independent unindexed derivation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** This computes a new arithmetic function exactly for every modulus from its factorization where the motivating paper provided only bounds, isolates a prime-support invariant, and answers the ambiguous semiprime sign by a residue criterion with asymptotically balanced occurrence. The algorithm enumerates \(3^{\omega(m)}\) assignments rather than all residues up to \(n\). The gain is structural and evaluative, not a claim of optimal efficiency.
+For odd m each forbidden prime residue is t≡0 or 1 mod p; their disjoint local inclusion-exclusion expands to 3^{omega(m)} coprime CRT (a,b) pairs. Odd-length progression of representatives modulo ab yields the E0 parity sum over [1,m]. The mod-4 sign sequence of period four over 2m has two residual terms and yields E1; for e>=2 each admissible class mod odd m has exactly 2^{e-2} lifts t≡3 mod4. T(1)=T(2)=0. For odd primes p≠q, least positive inverses u=p^{-1} mod q and v=q^{-1} mod p satisfy pu+qv=pq+1, so u and v share parity; hence E0(pq)=-1+2(-1)^{u+1}. Prime-number-theorem equidistribution over residue classes mod fixed odd p proves sign density. Independent literal gcd enumeration agrees with the CRT formula for all n=1,...,150 (n=1 separately set to zero by definition). Finite checks corroborate the unrestricted CRT/progression argument.
 
-## Limitations
-Factorization is assumed; a related CRT sieve appears in Salazar's work for a different object; independent priority review and formal proof checking have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.
+
+## value
+
+PASS
+
+Renshaw explicitly gave general mixed-modulus error bounds and exact special cases. A complete factorization-given, radical-supported exact parity correction for all moduli and an inverse-parity formula/density for two primes answers a natural arithmetic counting question even though the engine is elementary inclusion-exclusion. Its complexity is 3^omega(m), not polynomial in omega.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
