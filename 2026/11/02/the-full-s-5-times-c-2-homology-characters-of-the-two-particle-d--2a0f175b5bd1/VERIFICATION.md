@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python3 CHECK.py` using Python 3.9 or newer. The checker requires only the standard library. It creates the twenty graph vertices as subsets of a five-element set, lists the thirty inclusion edges, and reconstructs the \(190\), \(540\), and \(375\) unordered cubical cells and both signed boundary maps.
+# Independent mathematical audit
 
-A complete sparse elimination of the integer second boundary reduced modulo \(3\) yields rank \(340\). The independent topological upper bound \(340\) comes from eleven fundamental graph cycles of length at most ten, which each admit a stationary second particle; together these give an equivariant first-homology isomorphism over \(\mathbb Q\). The checker establishes connectivity and these cycle lengths. It then checks exact differential equivariance under every one of the \(240\) group elements, reconstructs all fourteen character values, uses rim-hook character orthogonality to recover each named Specht summand, and verifies rational quotient dimensions.
+## correctness
 
-A successful run ends in `DESARGUES_B2_FULL_S5_C2_SPECHT_CHECKS_OK`. The rank lower bound modulo \(3\) is not on its own a rational rank equality; both bounds are needed and supplied. There is no claim of an integral Smith-normal-form computation or independent external verification.
+PASS
+
+The inclusion graph between 2- and 3-subsets of a five-set has 20 vertices and 30 edges; its unordered two-particle deleted-product complex has (190,540,375) cells. Independent signed-boundary reconstruction gives connected C1 skeleton rank 189 and rank(d2 mod3)=340; eleven parked fundamental cycles establish rational upper bound 340, hence H1(Q)=11 and H2(Q)=35. The inspected checker explicitly verifies all 240 group-action differential equivariances, 14 character class values and Murnaghan–Nakayama Specht multiplicities. Central ± eigenspaces give H1 6+5 and H2 15+20; quotient invariants (1,6,15) for C2 and (1,0,0) for S5/full. Higher homology vanishes because cubical dimension two.
+
+## originality
+
+PASS
+
+General graph-braid chain models and ordered two-point homology are older, as is the Petersen graph S5 example. The assessed novel claim is the full 240-element S5 × central complement character of ordinary unordered Desargues configuration space, not a general algorithm.
+
+## value
+
+PASS
+
+A complete two-degree rational automorphism-character classification for canonical Desargues cubic graph, including complement symmetry splitting and the exact quotient homology that scalar Betti numbers omit. Nontrivial finite group representation structure is a natural precise object beyond a routine rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
