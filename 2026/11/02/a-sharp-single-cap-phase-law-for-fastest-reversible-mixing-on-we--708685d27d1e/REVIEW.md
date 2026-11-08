@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is for \(n\ge3\) with strictly positive fixed masses, prices, budget and designated edge capacity. Centered path identities establish positivity and the exact \(V(d(z))\) and \(S_k(d(z))\) formulas. The positive quadratic root and monotone cap-versus-length relation show the two regimes join precisely at the uncapped threshold. The construction meets flux eigen-equations at every edge, and discrete Sturm oscillation identifies the resulting eigenvalue as the smallest positive generalized eigenvalue. A Rayleigh upper certificate, using both the total budget and the binding cap, proves optimality against every independent allocation, with equality forcing uniqueness. The fixed-data bottleneck expansion follows from the quadratic. The supplementary checker uses exact rational algebra and independently coded spectral computations. These tests are finite; the written proof supplies the universal quantifiers.
+PASS
 
-## Originality — PASS with specialist priority risk
+For n≥3 strictly positive masses, edge prices, budget and one cap U, centered path coordinates give S_i(d)>0 and V(d)=Σ d_i S_i(d). The uncapped Rayleigh dual test x(sqrt(c)) yields λ0=B/V(q), w_i^0=λ0S_i(q)/q_i and threshold U0=w_k^0. Active cap U<U0 has exactly one positive root z>q_k of UA z²+(UD−CE)z−AE=0 with A=S_k(d^c),D=V(d^c),C=ML MR/Mtot,E=B−c_kU. Flux choices satisfy eigenvector and budget identities, and Sturm oscillation identifies λ2. The Rayleigh test at x(d(z)) bounds every unrestricted allocation, including the extra positive penalty (z²−c_k)w_k, proving optimality and uniqueness via equality in flux equations. Expanding the quadratic at U→0 gives λ*=U/C−A²U²/(C³B)+O(U³). Independent exact/numeric small-path reconstruction agrees, including the 4-vertex radical example; finite sampling is supplementary, not the universal proof.
 
-Sun et al. (2006), Result 5, **already give the uncapped priced-path solution**, and section 6 gives the general stationary-mass reversible SDP and variance dual. Wan et al. (2008) and Fiedler (1990) treat uncapped tree connectivity design. Those known contributions are explicitly excluded from novelty. The new claim combines one active local capacity, arbitrary stationary masses and prices, an exact and unique quadratic cap branch, unrestricted all-edge uniqueness, and the two-term bottleneck law. The inspected primary statements do not imply this constrained explicit classification merely by substituting into an uncapped formula: an additional binding inequality changes the optimal eigenvector increment and fluxes. Specialist earlier or less-searchable capacity-constrained treatments may nevertheless overlap. In particular Fiedler's full original text was not accessible and the 2016 distributed-design article is not a comprehensive priority survey.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single limited-rate bridge is a natural physical restriction on reversible nearest-neighbor chains and weighted consensus networks. The solution classifies all cap values for every path size and arbitrary heterogeneous masses/prices, identifies a sharp transition, shows every other edge remains active, and quantifies the nearly disconnected limit and its first price-dependent correction. This is a reusable exact constrained-network design benchmark, not a renamed uncapped optimum or a numerical optimization for an arbitrary small graph.
+Sun–Boyd–Xiao–Diaconis 2006 already give the uncapped uniform-mass priced-path optimum and a general reversible SDP; no novelty is attributed to them. This theorem introduces a single binding link upper cap, general positive masses/prices, explicit two-regime quadratic, uniqueness against all conductance allocations and bottleneck correction. No directly subsuming published theorem was located; specialist constrained spectral network design remains a residual risk.
 
-## Residual limitations
+## value
 
-No claim is made for multiple capped edges, zero cap, general graphs, discrete-time chains, or a uniform \(U\to0\) expansion when other input data vary. Prior specialized treatments not fully accessible remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single capacity-limited bridge in a reversible birth–death chain/consensus path is a natural physical and optimization constraint. Exact cap threshold, globally optimal all-edge conductances and the severe-bottleneck two-term response provide a reusable sharp benchmark, not an arbitrary low-dimensional numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

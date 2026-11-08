@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:47:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 strictly positive masses, edge prices, budget and one cap U, centered path coordinates give S_i(d)>0 and V(d)=Σ d_i S_i(d). The uncapped Rayleigh dual test x(sqrt(c)) yields λ0=B/V(q), w_i^0=λ0S_i(q)/q_i and threshold U0=w_k^0. Active cap U<U0 has exactly one positive root z>q_k of UA z²+(UD−CE)z−AE=0 with A=S_k(d^c),D=V(d^c),C=ML MR/Mtot,E=B−c_kU. Flux choices satisfy eigenvector and budget identities, and Sturm oscillation identifies λ2. The Rayleigh test at x(d(z)) bounds every unrestricted allocation, including the extra positive penalty (z²−c_k)w_k, proving optimality and uniqueness via equality in flux equations. Expanding the quadratic at U→0 gives λ*=U/C−A²U²/(C³B)+O(U³). Independent exact/numeric small-path reconstruction agrees, including the 4-vertex radical example; finite sampling is supplementary, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al solve uncapped cost-weighted paths at uniform masses and give weighted general SDP, not an exact single-cap quadratic branch with cap boundary."
+        ],
+        "reasoning": "General SDP covers numerical optimization abstractly, but does not state this explicit all-input transition, unique rates or two-term severe-cap asymptotic; a stronger unseen cap theorem remains possible.",
+        "searches": [
+          "Sun et al 2006 Result 5 §5.2, §6",
+          "Fiedler 1990 Absolute algebraic connectivity of trees",
+          "Wan et al 2008 On the Structure of Graph Edge Designs"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://doi.org/10.1080/03081089008817967"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The active-cap KKT penalty z²−c_k and root UA z²+(UD−CE)z−AE change eigenvector increments relative to uncapped q_k."
+        ],
+        "reasoning": "Substitution of U into uncapped weights fails below U0; resolving new binding inequality and ensuring all-edge uniqueness needs the separate argument.",
+        "searches": [
+          "Sun et al 2006 full text Result 5; section 6",
+          "independent capped Rayleigh certificate and eigenflux analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversible generator −M^{-1}L(w), algebraic connectivity λ2, and budget Σc_iw_i≤B are same optimization after mass conjugation."
+        ],
+        "reasoning": "Compared weighted algebraic connectivity, continuous-time birth–death spectral-gap and generalized-mass dual formulations.",
+        "searches": [
+          "Sun Boyd Xiao Diaconis 2006 fastest mixing Markov process on a graph",
+          "Resultary: fastest mixing reversible weighted paths single conductance upper cap spectral gap path budget"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table covering arbitrary n,m_i,c_i,B,U and cap phase threshold was identified in checked sources."
+        ],
+        "reasoning": "Arbitrary-data closed form is not a finite look-up; older capacity-constrained examples might match special cases.",
+        "searches": [
+          "Sun et al 2006 §5.2 path examples",
+          "Resultary weighted path fast mixing query"
+        ]
+      },
+      "rationale": "Sun–Boyd–Xiao–Diaconis 2006 already give the uncapped uniform-mass priced-path optimum and a general reversible SDP; no novelty is attributed to them. This theorem introduces a single binding link upper cap, general positive masses/prices, explicit two-regime quadratic, uniqueness against all conductance allocations and bottleneck correction. No directly subsuming published theorem was located; specialist constrained spectral network design remains a residual risk.",
+      "residual_risks": [
+        "Earlier specialized one-edge-cap tree optimization or Fiedler original could imply the phase law.",
+        "The claim is continuous-time with one positive cap, not multiple caps, zero cap or general graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNCAPPED_PRECURSOR_ONLY",
+          "evidence": "Contains uncapped cost-weighted path formula and general reversible formulation, not explicit capped path-phase formula.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Complete 19-page author PDF, especially Result 5 section 5.2 and weighted section 6",
+          "method": "Read PDF full text, page images of relevant sections, compare objective and constraints",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Identical continuous-time fastest-mixing optimization, particularly weighted paths"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PRIORITY_RISK",
+          "evidence": "May contain related constrained path variants; no full-document noncoverage asserted.",
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Accessible abstracts/bibliography only; original full text not obtained",
+          "method": "Bibliographic and abstract-level comparison",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Historically relevant tree spectral design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single capacity-limited bridge in a reversible birth–death chain/consensus path is a natural physical and optimization constraint. Exact cap threshold, globally optimal all-edge conductances and the severe-bottleneck two-term response provide a reusable sharp benchmark, not an arbitrary low-dimensional numerical case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialized one-edge-cap tree optimization or Fiedler original could imply the phase law.",
+    "The claim is continuous-time with one positive cap, not multiple caps, zero cap or general graphs."
+  ],
+  "schema_version": 1
+}
