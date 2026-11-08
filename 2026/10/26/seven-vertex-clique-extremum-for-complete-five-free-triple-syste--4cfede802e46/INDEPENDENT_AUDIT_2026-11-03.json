@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:01:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md blob 073ea3341c4e9ee0fae3b35519dea9e4d414fcfe, full claim/definitions/proof",
+        "Frozen verify_clique7.cpp blob 01d7d527bf34cae15f828d8740264940935616ee, all loops and bitset encoding read",
+        "Frozen check_independent.py blob b6c2330009a656591cfc707972ccd963fae12e9b, full source read",
+        "New independent_clique7_check.cpp generated and compiled as private reproducibility artifact; observed all family/cover/shadow counts and 5 normalized witnesses",
+        "Eight actual Git blob IDs reconstruct assigned tree SHA 5dca6c1e1211c7c9163c88ec0c19565cc5a08628"
+      ],
+      "rationale": "On exactly seven vertices, K5^(3)-freeness is equivalent to a missing-triple family M covering every five-subset. Since no clique size>=5 is allowed and every 0,1,2-subset is a clique, c(G)=1+7+21+(35-t)+(35-s)=99-t-s where t=|M| and s counts 4-subsets containing a missing triple. Every valid nonempty M may be relabelled to contain one fixed triple; the certificate exhausts combinations of the other 34 triples for each t<=8, with case counts C(34,t-1). I read both source enumerators and implemented an independent compiled C++ verifier using binary-mask rather than source lexicographic enumeration. It examined exactly 1,34,561,5984,46376,278256,1344904,5379616 normalized families for t=1..8. Covering counts are 0,0,0,0,245,15300,235992,1861744; minimum feasible four-shadows for t=5,6,7 are 17,19,20. Every 8-family (covering or not) has shadow >=16, so every larger family contains an 8-subfamily and by monotonicity has t+s>=8+16=24. Thus feasible t<=7 have t+s>=22, and only t=5,s=17 ties. The independent code identified precisely five normalized minimizers and verified each equals the set of triples internal to a 3+4 partition, with 35 total distinct labelled templates. Each balanced partition has t=5,s=17, covers all 21 five-sets and gives c=77; no other equality cases. This establishes the whole finite theorem by exhaustive bounded enumeration plus an analytic monotonicity extension. A compiler/build is required to reproduce the C++ certificate, but the finite case space, loops and representation were independently checked; no timeout, sampling, or log-only inference.",
+      "residual_risks": [
+        "The certificate is computationally assisted; it depends on the correctness of the exhaustive index loops and standard integer/bitset operations, not a formal proof assistant.",
+        "No claim for n>7 follows from this finite computation.",
+        "The independent C++ certificate used a GNU-style convenience header; it compiled and ran correctly on the present environment but source reproducibility may require a C++17 toolchain with that header."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. full-text Theorem 1.5 and proof §5.4 choose n0 sufficiently large for stability/local replacement, with no numerical n0<=7.",
+          "Frankl et al. Theorem 13 assumes r>= (1-1/d)n, violated at r=4,d=3,n=7; Conjecture 14 is unproved generality.",
+          "Bodnár upper-bounds asymptotic densities of fixed clique sizes, with no finite n=7 equality classification.",
+          "1994/2022 covering literature establishes T(7,5,3)=5; that alone does not bound t+s for t>=6."
+        ],
+        "reasoning": "Neither general eventual theorem, conjectural numerical bound, nor covering minimum subsumes the complete finite t+s extremum and all equality families on seven vertices. An earlier exact near-n table with shadow counts would potentially dominate, but no accessible source presently establishes it.",
+        "searches": [
+          "arXiv:2606.02210v2 Theorem 1.5 and proof §5.4",
+          "arXiv:2111.09671v1 Theorem 13 and Conjecture 14",
+          "arXiv:2302.07571v2 §1 and main density theorem",
+          "Bluskov de Heer Sidorenko arXiv:2205.13905 §1 table T(n,5,3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.02210v2 full accessible HTML Theorem 1.5, §5",
+        "arXiv:2111.09671v1 full accessible HTML §1–§2",
+        "arXiv:2302.07571v2 full accessible HTML §1 and §6",
+        "arXiv:2205.13905 full arXiv extracted text §1–§2",
+        "Boyer et al. 1994 RIT landing abstract and ResearchGate excerpt, not full text",
+        "Published Resultary exact six-vertex RESULT.md entire file",
+        "Three actual Resultary semantic search results; targeted web searches including Turán-system alias and K5^3-free seven-clique wording"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer et al. 1994 minimum-cover census implies t>=5 and all extremal t=5 cover structures are known historically, but t+s minimization additionally compares upper shadows and nonminimum covers.",
+          "For n=7, d=3, r=4 the 2021 conjectural bound is (1+3.5+4.375)^2=78.765625, permitting 78, while the actual theorem for r>=14/3 does not apply.",
+          "Chen et al. 2026 §5.4 begins by choosing n0 sufficiently large to apply stability and switching estimates; it cannot be specialized to 7.",
+          "Independent exhaustive search shows 245 normalized feasible t=5 families, only 5 score-22, and an all-eight-family s>=16 cutoff independently establishes t>=8 cannot tie."
+        ],
+        "reasoning": "A proof of the stronger total-clique claim cannot be inferred solely from the prior t=5 minimum or the large-order theorem. The seven-order shadow optimization and uniqueness do remain mathematically distinct from statements actually inspected, subject to the unread 1994 source's possible implicit classification coverage.",
+        "searches": [
+          "arXiv:2205.13905 §1 covering-table and equations (1)–(2)",
+          "arXiv:2606.02210v2 Theorem 1.5, §5.4 proof",
+          "arXiv:2111.09671v1 Theorem 13 and Conjecture 14",
+          "1994 Boyer et al. publisher/repository/ResearchGate access attempts",
+          "published Resultary exact six-vertex K5^(3)-free result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing M for missing triples gives an exact Turán (7,5,3) cover of all 21 five-sets; the 35 triples and 35 four-sets contribute c=99-(|M|+|upper4shadow(M)|).",
+          "Chen et al. Theorem 1.5 uses the equivalent simplicial clique objective k(H) and balanced complete bipartite triple system, but quantifies only n>=n0 for unspecified n0.",
+          "Bluskov–de Heer–Sidorenko 2022 §1 table lists T(7,5,3)=5 and cites the complete minimum-cover catalogue by Boyer et al. 1994."
+        ],
+        "reasoning": "Exact edge-cover and upper-shadow aliases were checked. The 1994 covering-system classification covers minimum missing-family size, but the proposed optimization also needs upper-four-shadow minima for every feasible cover and excludes larger missing families. Neither the retrieved 2022 table nor the accessible 2026 theorem asserts this n=7 total-clique bound and its full equality set. The unread 1994 original remains a potential implicit prior implication.",
+        "searches": [
+          "Resultary: maximum total cliques seven vertices K5^3 free 3 uniform hypergraph 77 extremal unique 3+4 partition",
+          "Resultary: exact finite n seven forbidden complete five triple systems upper shadow covering triples clique count",
+          "web: seven vertex K5^3-free hypergraphs number cliques 77 3+4 partition",
+          "arXiv:2606.02210v2 §1 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary exact six-vertex result gives c6<=49 and 10 labelled extremizers, one isomorphism type, not n=7.",
+          "T(7,5,3)=5 is in a published 2022 table (with 1994 minimum-cover catalogue); no upper-shadow count in the material read.",
+          "Other seven-vertex search hits treat C_5^(3)-free tight-cycle conditions, not forbidden complete K_5^(3).",
+          "No matching precise 77/35 table surfaced in these bounded searches; absence is not novelty proof."
+        ],
+        "reasoning": "Prior exact covering table is directly relevant to t, and the original 1994 designs are a priority risk for implicit shadow computations. The known six-vertex and tight-cycle censuses have distinct order or forbidden family; none of the actually read tables provides the entire requested clique objective.",
+        "searches": [
+          "Resultary: maximum total cliques seven vertices K5^3 free 3 uniform hypergraph 77 extremal unique 3+4 partition",
+          "Resultary: Turán (7,5,3) missing 5 triples four-shadow minimal and equality classification",
+          "Resultary: exact finite n seven forbidden complete five triple systems upper shadow covering triples clique count",
+          "web: exact 7 vertex clique counting K5 triple free hypergraph 77 unique",
+          "web: T(7,5,3) 5 triple covers all 5 sets types",
+          "published Resultary: 2026/9/30/SCOPE-exact-six-vertex-clique-extremum-for-k-5-3-free-triple-systems--e360672524c1/RESULT.md"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact n=7 total-clique extremum and all equality systems, not for the known extremal construction, the T(7,5,3)=5 covering number, or the general large-order theorem. The 1994 Boyer–Kreher–Radziszowski–Sidorenko paper already classifies minimum (n,5,3) covering systems for n<=13, so the minimum missing-family size is prior work; the separate four-shadow optimization, global t>=8 exclusion, and 77-clique uniqueness are not shown by the sources materially inspected. Full 1994 text could not be read from RIT (403)/ResearchGate, and authorized institutional retrieval reported disconnected VPN: possible implicit prior coverage is a real residual risk, not a claim of noncoverage. The 2026 Chen–Deng–Hou–Liu–Zhang Theorem 1.5 asserts the same extremal construction for sufficiently large n with unspecified n0 and its proof fixes large constants; it does not imply n=7. Frankl–Gryaznov–Talebanfard Conjecture 14 is conjectural and yields only floor(78.765625)=78 at (n,r,ell)=(7,3,4); its Theorem 13 applies r>= (1-1/d)n, which fails here (4<14/3). Bodnár 2023 gives asymptotic generalized Turán density, not this exact seven-order total. The published six-vertex result establishes 49 and its own equality class, without seven-vertex implication. Genuine named searches plus full accessible primary comparisons support a bounded originality judgment, not a priority guarantee.",
+      "residual_risks": [
+        "Boyer–Kreher–Radziszowski–Sidorenko (1994) original 19-page minimum-cover classification was not fully accessible; it may encode the four-shadow optimizer implicitly. RIT PDF returned HTTP 403, ResearchGate PDF link failed, institutional job cfbe8cdeb72832bd75908c9a1e5e56cb reported VPN disconnected.",
+        "An unindexed exact n=7 covering-plus-upper-shadow table or effective n0<=7 improvement could cover the result.",
+        "The minimum covering number T(7,5,3)=5 and classification of minimum covers are already known; neither should be claimed as independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides eventual unique extremizer for unspecified n0, not seven-point exact assertion.",
+          "evidence": [
+            "Theorem 1.5 lines 92–109 states n>=n0; §5.4 lines 1403–1422 chooses n0 sufficiently large for multiple stability estimates."
+          ],
+          "identifier_or_url": "arXiv:2606.02210v2; https://arxiv.org/html/2606.02210v2",
+          "material_read": "Full accessible HTML: introduction/Theorem 1.5, counting objective and balanced construction in §1; counting proof §5 including Lemma 5.8 and §5.4 equations (34)–(38), final proof and dependence on large n0.",
+          "method": "Compare exact quantifiers, n0 selection, and equality conclusions with n=7.",
+          "title": "Vertex-colored Turán theorems with applications in extremal hypergraph problems",
+          "trigger": "Identical forbidden K5^3, total clique-count objective and balanced bipartite extremizer"
+        },
+        {
+          "assessment": "Theorem 13 misses this parameter; Conjecture 14 provides conjectural upper 78 after integer rounding, weaker than 77.",
+          "evidence": [
+            "Theorem 13 r>= (1-1/d)n; Conjecture 14 k(H)<=V((d-1)n/r,d-1)^{r/(d-1)}."
+          ],
+          "identifier_or_url": "arXiv:2111.09671v1; https://arxiv.org/html/2111.09671v1",
+          "material_read": "Full accessible HTML: §1.2 general hypergraph equivalence; §2 Theorem 13, Conjecture 14, nearby proof and parameter boundary (lines 314–340).",
+          "method": "Substitute n=7,d=3,r=4 into hypotheses and bound.",
+          "title": "A Variant of the VC-dimension with Applications to Depth-3 Circuits",
+          "trigger": "Original total-clique conjecture and potentially dominating finite-parameter theorem"
+        },
+        {
+          "assessment": "Asymptotic density theorem, no exact n=7 c=77/classification.",
+          "evidence": [
+            "Abstract and §1, §6 describe pi(n,K_g^k,K_r^k) and limiting bound, no n=7 exact optimizer."
+          ],
+          "identifier_or_url": "arXiv:2302.07571v2; https://arxiv.org/html/2302.07571v2",
+          "material_read": "Accessible full HTML introduction §1.2 and main generalized density claim; §6 on limiting pi(K4^3,K5^3)=3/8.",
+          "method": "Compare finite exact seven-vertex total, equality, and asymptotic normalized K4-clique density.",
+          "title": "Generalized Turán Problem for Complete Hypergraphs",
+          "trigger": "Possible stronger generalized-clique-count bound involving K4^3 within K5^3-free triple systems"
+        },
+        {
+          "assessment": "Covers lower bound t>=5 and constructions of covers, not stated/shown to optimize t+upper4shadow.",
+          "evidence": [
+            "§1 table records T(7,5,3)=5 and notes Boyer et al. classified all minimum designs through n<=13; §2 relates covers to triangles/anti-triangles."
+          ],
+          "identifier_or_url": "arXiv:2205.13905; https://arxiv.org/abs/2205.13905",
+          "material_read": "Full accessible arXiv extracted text; §1 definition, T(7,5,3)=5 table for n=5..17, introductory construction and references to 1994 complete covering census; §2 propositions on induced-C5-free graphs.",
+          "method": "Identify which part of t+s objective is previously covered.",
+          "title": "Turán numbers T(n,5,3) and graphs without induced 5-cycles",
+          "trigger": "Exact alias of the complementary missing-triple five-set covering subproblem"
+        },
+        {
+          "assessment": "Definitely prior full T(7,5,3) minimum-cover classification. Whether its design tables yield the full upper-shadow extremizers remains unverified; this does not alone require originality FAIL.",
+          "evidence": [
+            "RIT landing abstract: all extremal minimum-cover constructions for n<=13; arXiv:2205.13905 §1 cites it and records T(7,5,3)=5; authorized access status vpn_disconnected."
+          ],
+          "identifier_or_url": "Boyer, Kreher, Radziszowski, Sidorenko, Ars Combinatoria 37 (1994), 13–31; https://repository.rit.edu/article/648/",
+          "material_read": "Only RIT repository abstract, journal issue listing and ResearchGate abstract/introduction excerpt; full primary not read. RIT PDF download HTTP 403 and ResearchGate PDF URL unresolved; authorized institutional retrieval reported VPN disconnected.",
+          "method": "Compare accessible statements, explicitly retain unverified full-paper implications.",
+          "title": "On (n,5,3)-Turán systems",
+          "trigger": "Highly relevant original exact minimum-cover classification, potentially contains seven-point shadow counts"
+        },
+        {
+          "assessment": "Establishes n=6, 49 and one 3+3 extremal type; its proof uses complement triple/pair shadow peculiar to six vertices and does not entail seven-vertex inequality.",
+          "evidence": [
+            "RESULT.md six-vertex proof c=57-(f+s), optimal f=2 disjoint complementary triples; limitations explicitly restrict to n=6."
+          ],
+          "identifier_or_url": "Resultary/2026 main: 2026/9/30/SCOPE-exact-six-vertex-clique-extremum-for-k-5-3-free-triple-systems--e360672524c1/RESULT.md",
+          "material_read": "Complete RESULT.md via frozen GitHub read: six-vertex complement/pair-shadow proof, all extremizers and limitation paragraph.",
+          "method": "Check whether n=6 argument or exact table implies n=7 result.",
+          "title": "Exact six-vertex clique extremum for K5^(3)-free triple systems",
+          "trigger": "Direct published predecessor at adjacent finite order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md natural total-clique objective and exact n=7 scope",
+        "Published six-vertex Resultary theorem and its n=6-only proof",
+        "Chen et al. 2026 Theorem 1.5 eventual exact optimizer",
+        "Bluskov–de Heer–Sidorenko 2022 T(7,5,3) covering minimum table"
+      ],
+      "rationale": "The forbidden K5^(3)-clique count is a natural extremal objective from Frankl–Gryaznov–Talebanfard's conjecture and Chen et al.'s eventual sharp theorem. n=7 is the first odd order following a published exact n=6 determination; seven is not an arbitrary slice when testing the balanced 3+4 optimizer and finite parity behavior. The new exact bound 77 and complete 35-labelled equality classification are natural finite-order facts not mechanically obtained from the known T(7,5,3)=5, because the full upper-four-shadow score and families with t>5 must also be controlled. A future extremal-hypergraph study of exact finite thresholds or small forbidden-clique catalogues can use the precise n=7 base case and equality classification. This is a self-contained finite theorem, not a claim about general n or global conjecture resolution; correctness of code or novelty alone did not decide value.",
+      "residual_risks": [
+        "The result settles only a single small order; its utility is a precise natural finite base case rather than a general theorem.",
+        "If earlier covering design tables already include the shadow score/equality classification, the originality and independent value assessment would need revision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 1994 Boyer et al. Turán-system paper unavailable after lawful OA attempts and Oxford authorization blocked by VPN disconnection; potential implicit coverage in its classified minimum designs remains a genuine risk.",
+    "No exhaustive historical-priority certification; the known 2026 theorem covers sufficiently large n and the old covering number is not new.",
+    "Public frozen provenance fields require confidentiality-safe sanitization before any publication.",
+    "No independent external expert attestation or Lean formalization is claimed."
+  ],
+  "schema_version": 1
+}
