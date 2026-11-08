@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:10:35.981913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 63130f6d78e4c380187bfa960db3a9497bef5cad: spectral/edge decomposition and analytic maximization",
+        "verify_heat_lipschitz.py 40b75973341ae10289eb4e8f4d7977f7e8a39b09, exact rational small graph enumeration source",
+        "independent_five_checks.py C2 50 independent matrix exponential / linear program comparisons"
+      ],
+      "rationale": "Spectral decomposition of the combinatorial Laplacian has within-part eigenvalues q,p and part-mean eigenvalue p+q. For an edge, the output equals z(f(ai)-f(bj))+u(f(ai)-a_-i)+v(b_-j-f(bj)) with z=e^{-(p+q)t}, u=(p-1)/p(e^{-qt}-z), v=(q-1)/q(e^{-pt}-z). Sharp network-Lipschitz upper z+2 max(u,v) attained by explicit 0,+1,-1 potentials; for p<=q, v>=u follows a monotone exponential ratio. Differentiation gives transition n-m=2 and one maximum if n-m>=3. p=q=1 separately yields exp(-2t). Independent scipy matrix exponential + linear program over graph Lipschitz polytope matched formula in 50 p,q,t cases.",
+      "residual_risks": [
+        "Only unit-rate combinatorial heat, not normalized heat/other transport metric; finite LP tests support but do not establish general dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Ricci lower bounds; known multipartite contractivity criterion"
+        ],
+        "reasoning": "Same threshold is covered, but stronger general contraction does not give precise amplification where n-m>=3, attaining potentials or peak.",
+        "searches": [
+          "arXiv:1907.11036",
+          "arXiv:1202.0420"
+        ]
+      },
+      "checked_sources": [
+        "Cheng, Li and Wu, Ricci curvature and W1-exponential convergence of Markov processes on graphs, arXiv:1907.11036 primary PDF Examples 2.11, 3.21",
+        "Veysseire, Coarse Ricci curvature for continuous-time Markov processes arXiv:1202.0420",
+        "Resultary search: complete bipartite graph heat semigroup exact Wasserstein one distance graph metric Lipschitz amplification time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unit-jump Laplacian eigenvalues p,q,p+q and exact z+2max(u,v) vs different normalized examples"
+        ],
+        "reasoning": "Known contractivity criterion is not novel; inspected prior conclusions do not logically imply sharp full-time formula without an additional explicit optimizer calculation.",
+        "searches": [
+          "Cheng–Li–Wu arXiv:1907.11036 Examples 2.11,3.21",
+          "RESULT.md comparison section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng–Li–Wu Example 3.21 normalized walk and modified W1 distance"
+        ],
+        "reasoning": "Different generator and cost; an exponential estimate is not the exact original-metric all-time norm.",
+        "searches": [
+          "Resultary search: complete bipartite graph heat semigroup exact Wasserstein one distance graph metric Lipschitz amplification time",
+          "arXiv:1907.11036"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned transport-polytope and metric geometry records, not time-dependent heat norm tables"
+        ],
+        "reasoning": "No exact matching database row identified; no claim of exhaustive search.",
+        "searches": [
+          "Resultary search: complete bipartite graph heat semigroup exact Wasserstein one distance graph metric Lipschitz amplification time"
+        ]
+      },
+      "rationale": "Ollivier/Veysseire coarse Ricci and Cheng–Li–Wu graph W1 contraction give general machinery and some complete-bipartite normalized/modified-metric examples. A preexisting graph-variation theorem reportedly gives the same n-m<=2 contractivity threshold, which is not claimed new. Exact all-time unit-rate original-metric norm with optimizers and universal peak is narrower novel portion; hidden older explicit heat row transport calculations remain a priority risk.",
+      "residual_risks": [
+        "The contractivity threshold is known in related work; an earlier full-time transport formula for unit-rate K_{p,q} could imply the claimed new part."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Their normalized generator or modified cost metric is different; their estimates do not give this exact unit-edge per-edge-jump heat norm.",
+          "evidence": "Example 3.21 uses a modified transport metric; target fixes ordinary graph metric and combinatorial Laplacian.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.11036",
+          "material_read": "Opened full PDF and inspected Examples 2.11 and 3.21 together with their generator/metric definitions.",
+          "method": "Opened lawful full-text source and inspected relevant theorem/sections",
+          "title": "Ricci curvature and W1-exponential convergence of Markov processes on graphs",
+          "trigger": "Same complete-bipartite graph and Wasserstein contraction framework"
+        },
+        {
+          "assessment": "Background only; cannot claim whole-document exhaustive noncoverage.",
+          "evidence": "General curvature-based estimates lack this verified exact explicit formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.0420",
+          "material_read": "Abstract/available arXiv source description and theorem scope, not a complete page-by-page read.",
+          "method": "Abstract/theorem summary inspection; access extent limited",
+          "title": "Coarse Ricci curvature for continuous-time Markov processes",
+          "trigger": "General continuous-time Wasserstein contraction theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual claim and proof in frozen RESULT.md at 63130f6d78e4c380187bfa960db3a9497bef5cad",
+        "Compared primary literature listed in originality checked_sources"
+      ],
+      "rationale": "Sharp all-time Lipschitz/Wasserstein profile, including transient amplification and peak bound 2, is a natural exact stability invariant of a familiar graph semigroup and identifies a discontinuous contractivity boundary. A finite-graph family classification rather than a small example.",
+      "residual_risks": [
+        "Similar profiles for other edge conductances and graph families remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Scientific priority is best-knowledge qualified by originality residual risks. Nonpublishing metadata transport remains not_ready. No formal proof or expert attestations invented; no repository write.",
+  "schema_version": 1
+}
