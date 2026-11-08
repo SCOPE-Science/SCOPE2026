@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every order-convex set in the two-row product poset has a canonical description as a difference of nested ideals, which yields the exact quartic hypothesis count. A general convex-hull argument proves that supports are shattered exactly when they contain no three-chain. The explicit three- and four-support counts give the stated full polynomial. Two mutually incomparable strips provide independent interval-endpoint threshold parameters and a constructive adaptive lower bound; hypothesis counting gives the upper bound, and therefore the logarithmic leading coefficient. Exact finite adaptive values follow from an exhaustive, terminating version-space recurrence on precisely enumerated concept classes; lower-bound trees are explicitly embedded and independently replayed. There is no extrapolation of finite ranks to larger parameters.
+## correctness
 
-**Originality: PASS under accessible comparisons.** Seiffarth–Horváth–Wrobel (ECML PKDD 2019; arXiv:2001.04417) study separation of closed sets in abstract closure systems and on lattices; the inspected lattice and closing sections do not calculate order-convex two-row shattering polynomials or Littlestone dimensions. Stadtländer–Horváth–Wrobel (arXiv:2105.06251) address metric weak convexity and consistent hypothesis finding rather than the product-poset order-convex concept class. Thiessen–Gärtner (ECML PKDD 2022) concern graph-geodesic convexity. A closely related result for **order ideals** of the same rectangular poset treats a proper subfamily with different cardinality and shattering dimension, and does not imply these statements for all order-convex subsets. Searches by both statements and alternative descriptions did not reveal a dominating result. Historical priority under the terminology of convex subsets, intervals, or differences of ideals remains a risk.
+PASS
 
-**Mathematical value: PASS.** A natural width-two family has VC dimension at most four but Littlestone dimension with the sharp leading term \(4\log_2 n\). The entire shattering complex has explicit polynomial coefficients, not just a scalar VC dimension. The exact initial adaptive classification shows a nonmonotone pattern of attainment of the elementary hypothesis-count bound. These statements help distinguish ordinary poset-convexity learning from ideal-only learning and from graph-geodesic convexity, while avoiding an unsupported exact formula beyond the verified finite range.
+PASS: Every nonempty convex subset C of [2]x[n] has unique canonical downclosure J and I=J\C; J and I are ideals and maximal J elements lie outside I. Summing two-row row-prefix ideals gives N_n=(n^4+4n^3+17n^2+14n+12)/12. For an arbitrary poset a support is shattered iff it contains no strict 3-chain: convex hull of each trace is its up/down closure intersection. Two-row three- and four-point chain-free support counts yield the polynomial and VCdim 2,3,4 by n. Independent brute convex enumeration plus full trace checks passed n<=6. Two incomparable row strips support independent endpoint threshold trees, giving lower Ldim 4log2 n-O(1), while |C| gives 4log2 n+O(1). The submitted exact n<=10 Ldim table comes from a mathematically exhaustive exact version-space recursion with inspected verifier and stored witness certificate; independent executable replay this run covered n<=6, not 7..10. Larger-n exact Ldim not claimed.
 
-The finite classification is through \(n=10\) only. The complete historical literature has not been exhaustively inspected and no independently checked mathematical proof is claimed for the computer-assisted finite evaluations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A directly relevant overlooked 2015 full-text primary paper by Queyranne–Wolsey already proves the ideal-difference characterization of convex subsets of ANY finite poset (Lemma 1). That is expressly prior, not new. Its results are convex-set optimization and polyhedral formulations, not VC shattering polynomial or online Littlestone ranks for [2]x[n]. Other metric/geodesic convex learning papers use different objects. Best-of-knowledge originality rests only on new enumeration and learning results.
+
+## value
+
+PASS
+
+PASS: The object is the entire natural order-convex concept class of the minimal non-chain product [2]x[n], not an arbitrary slice. A sharp static VC cutoff, complete shattering polynomial, and unbounded adaptive Ldim with exact log coefficient distinguish batch from online learning. Exact small-n ranks and anomalous saturation furnish useful finite benchmarks. The general ideal-difference representation is credited as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

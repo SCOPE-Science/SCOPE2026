@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-All code uses only Python 3's standard library. Place `lattice_verify.py`, `structural_verify.py`, `certificates.json`, and `results.json` together and execute `python structural_verify.py`, `python lattice_verify.py`, and `python structural_verify.py` again. The first invocation verifies the original embedded lower-bound certificates before regeneration; the second exhaustively recomputes finite upper and lower ranks and rewrites certificates and tabulations; the last replays the regenerated certificates. Compare the regenerated `certificates.json` bytewise with the original if exact reproducibility is required.
+## correctness
 
-`lattice_verify.py` enumerates convex subsets as differences of nested order ideals, calculates their exact counts for widths one through ten, and computes the classical Littlestone recurrence over **every** candidate first query and both answer classes. The recorded version-space state counts are respectively 9, 63, 321, 1306, 4560, 14460, 43780, 132542, 416789, and 1390695 for widths one through ten. Each computation terminates with a completed root rank and therefore is an exhaustive finite calculation, not a time-limited search. The program independently compares its ideal-difference enumeration with all subsets passing the order-betweenness test for widths through eight.
+PASS
 
-`structural_verify.py` independently generates order-convex sets by directly testing all triples of comparable elements, checks **all** subsets of support sizes zero through four for widths one through eight, and confirms all coefficients against actual shattering traces. It also validates every query, split, and terminal witness in the four stored complete adaptive trees, with 256, 256, 512, and 512 leaves for widths seven, eight, nine, and ten.
+PASS: Every nonempty convex subset C of [2]x[n] has unique canonical downclosure J and I=J\C; J and I are ideals and maximal J elements lie outside I. Summing two-row row-prefix ideals gives N_n=(n^4+4n^3+17n^2+14n+12)/12. For an arbitrary poset a support is shattered iff it contains no strict 3-chain: convex hull of each trace is its up/down closure intersection. Two-row three- and four-point chain-free support counts yield the polynomial and VCdim 2,3,4 by n. Independent brute convex enumeration plus full trace checks passed n<=6. Two incomparable row strips support independent endpoint threshold trees, giving lower Ldim 4log2 n-O(1), while |C| gives 4log2 n+O(1). The submitted exact n<=10 Ldim table comes from a mathematically exhaustive exact version-space recursion with inspected verifier and stored witness certificate; independent executable replay this run covered n<=6, not 7..10. Larger-n exact Ldim not claimed.
 
-The universal count, shattered-support criterion, exact polynomial, adaptive lower bound and leading asymptotic are proved mathematically in `RESULT.md`. The exact adaptive ranks through width ten are proved by exhaustive recurrence with the supplied code and certificate checks. No finite computation is used to infer an unproved all-width rank formula. Independent external audit has not been performed.
+## originality
+
+PASS
+
+A directly relevant overlooked 2015 full-text primary paper by Queyranne–Wolsey already proves the ideal-difference characterization of convex subsets of ANY finite poset (Lemma 1). That is expressly prior, not new. Its results are convex-set optimization and polyhedral formulations, not VC shattering polynomial or online Littlestone ranks for [2]x[n]. Other metric/geodesic convex learning papers use different objects. Best-of-knowledge originality rests only on new enumeration and learning results.
+
+## value
+
+PASS
+
+PASS: The object is the entire natural order-convex concept class of the minimal non-chain product [2]x[n], not an arbitrary slice. A sharp static VC cutoff, complete shattering polynomial, and unbounded adaptive Ldim with exact log coefficient distinguish batch from online learning. Exact small-n ranks and anomalous saturation furnish useful finite benchmarks. The general ideal-difference representation is credited as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

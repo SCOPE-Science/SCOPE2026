@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:45:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/shattering-profiles-and-online-complexity-of-order-convex-sets-o--227608151f3e/RESULT.md",
+        "RESULT.md",
+        "lattice_verify.py"
+      ],
+      "rationale": "PASS: Every nonempty convex subset C of [2]x[n] has unique canonical downclosure J and I=J\\C; J and I are ideals and maximal J elements lie outside I. Summing two-row row-prefix ideals gives N_n=(n^4+4n^3+17n^2+14n+12)/12. For an arbitrary poset a support is shattered iff it contains no strict 3-chain: convex hull of each trace is its up/down closure intersection. Two-row three- and four-point chain-free support counts yield the polynomial and VCdim 2,3,4 by n. Independent brute convex enumeration plus full trace checks passed n<=6. Two incomparable row strips support independent endpoint threshold trees, giving lower Ldim 4log2 n-O(1), while |C| gives 4log2 n+O(1). The submitted exact n<=10 Ldim table comes from a mathematically exhaustive exact version-space recursion with inspected verifier and stored witness certificate; independent executable replay this run covered n<=6, not 7..10. Larger-n exact Ldim not claimed.",
+      "residual_risks": [
+        "Exact Ldim only n<=10, matching asymptotic leading coefficient for all n; no all-n exact Ldim formula.",
+        "Prior general ideal-difference theorem must be credited; online n>=7 finite certificate not independently replayed during this run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 work gives polynomial-time optimization and minimal linear inequalities for general poset convex hulls, not two-row VC/Ldim counts. Metric-graph convexity papers use path betweenness, rather than arbitrary interval order betweenness on [2]x[n]."
+        ],
+        "reasoning": "Generic optimization/polyhedral power does not imply the exact shattering polynomial or adaptive binary mistake-tree dimensions, although the needed ideal representation is known.",
+        "searches": [
+          "Queyranne Wolsey Modeling Poset Convex Subsets full article Theorem 8",
+          "Stadtländer Horváth Wrobel Learning Weakly Convex Sets in Metric Spaces",
+          "Thiessen Gärtner Online Learning of Convex Sets on Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Queyranne–Wolsey 2015, Modeling Poset Convex Subsets, full 19-page OA PDF, Lemma 1 and Theorem 8",
+        "Stadtländer–Horváth–Wrobel arxiv:2105.06251",
+        "Thiessen–Gärtner ECML PKDD 2022 on graph convex sets",
+        "Resultary two-row poset semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 Lemma 1 provides the general nested-ideal construction but supplies neither n^4 count specialization nor the VC=4 and Ldim~4log n dichotomy. Existing graph-based results do not equate their concept class with this poset-order interval family."
+        ],
+        "reasoning": "The known representation is insufficient by itself to supply all stated exact learning dimensions without additional combinatorial analysis; same-object general results do not contain the exact two-row learning claims.",
+        "searches": [
+          "Queyranne Wolsey 2015 Lemma 1 and Theorem 8",
+          "online geodesically convex sets graph VC versus Littlestone dimension",
+          "weakly convex metric sets online mistake bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Queyranne–Wolsey (2015), Lemma 1, proves C=ideal∩filter and difference of nested ideals for any poset. This covers the representation used in proof step 1."
+        ],
+        "reasoning": "The canonical ideal-difference decomposition follows known structural representation; the claim as assessed is not the representation but its explicit two-row count, all-support VC polynomial and sharp Ldim growth/exact finite table.",
+        "searches": [
+          "Queyranne Wolsey 2015 Modeling Poset Convex Subsets Lemma 1",
+          "order convex sets difference nested ideals filters VC Littlestone dimensions",
+          "Resultary two chain poset order convex shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching published table of all ten Ldim ranks with identical query class was found; finite counts were also independently recomputed through n=6."
+        ],
+        "reasoning": "Even if cardinality polynomial coincides with a poset enumeration table, the VC support-shattering polynomial and exact online query ranks are separate class invariants. Absence of discovered table is not conclusive priority evidence.",
+        "searches": [
+          "[2] times chain order convex sets Littlestone sequence 2 3 4 5 6 7 8 8 9 9",
+          "finite poset convex subsets polynomial n^4+4n^3+17n^2+14n+12",
+          "OEIS order convex subsets two chain poset"
+        ]
+      },
+      "rationale": "A directly relevant overlooked 2015 full-text primary paper by Queyranne–Wolsey already proves the ideal-difference characterization of convex subsets of ANY finite poset (Lemma 1). That is expressly prior, not new. Its results are convex-set optimization and polyhedral formulations, not VC shattering polynomial or online Littlestone ranks for [2]x[n]. Other metric/geodesic convex learning papers use different objects. Best-of-knowledge originality rests only on new enumeration and learning results.",
+      "residual_risks": [
+        "Older exact counts, VC ranks or online dimensions might exist under poset-convex/ideal-difference terminology.",
+        "Exact finite ranks n=7..10 were assessed by inspecting full recurrence/certificates, but were not independently executed this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows prior complete ideal-difference representation, optimization and inequalities; no VC/Littlestone discussion in inspected text",
+          "evidence": [
+            "Lemma 1 equivalents S=I∩F and nested ideal difference; sections 2-5 optimize convex sets"
+          ],
+          "identifier_or_url": "https://research.dial.uclouvain.be/bitstreams/ed69f9ce-5ee8-4d52-b5f9-c97240ab4499/download",
+          "material_read": "Full 19-page PDF: abstract, pp.1-5 definitions, Lemma 1 and proof, section summaries/Theorem 8 scope",
+          "method": "read extracted PDF text and inspect screenshot of printed p.4 (PDF p.7)",
+          "title": "Modeling Poset Convex Subsets",
+          "trigger": "Exact same order-convex subsets of finite posets"
+        },
+        {
+          "assessment": "Different metric-space weak-convexity concept family; not a direct implication of two-row poset interval convexity",
+          "evidence": [
+            "weak metric convexity differs from order betweenness"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.06251",
+          "material_read": "Abstract/model definitions and available research summary",
+          "method": "compare mathematical hypotheses and convexity notion",
+          "title": "Learning Weakly Convex Sets in Metric Spaces",
+          "trigger": "Learning dimension analog in generalized convexity"
+        },
+        {
+          "assessment": "Graph-geodesic concepts differ from poset order convex subsets",
+          "evidence": [
+            "online graph geodesic convex-set learning not exact Ldim table for [2]x[n]"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-26412-2_22",
+          "material_read": "Published title, abstract and theorem scope",
+          "method": "bibliographic/theorem scope comparison",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Closest online convex learning model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Queyranne–Wolsey 2015, Modeling Poset Convex Subsets, full 19-page OA PDF, Lemma 1 and Theorem 8",
+        "Stadtländer–Horváth–Wrobel arxiv:2105.06251",
+        "Thiessen–Gärtner ECML PKDD 2022 on graph convex sets",
+        "Resultary two-row poset semantic search"
+      ],
+      "rationale": "PASS: The object is the entire natural order-convex concept class of the minimal non-chain product [2]x[n], not an arbitrary slice. A sharp static VC cutoff, complete shattering polynomial, and unbounded adaptive Ldim with exact log coefficient distinguish batch from online learning. Exact small-n ranks and anomalous saturation furnish useful finite benchmarks. The general ideal-difference representation is credited as prior.",
+      "residual_risks": [
+        "Older exact counts, VC ranks or online dimensions might exist under poset-convex/ideal-difference terminology.",
+        "Exact finite ranks n=7..10 were assessed by inspecting full recurrence/certificates, but were not independently executed this run."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact Ldim only n<=10, matching asymptotic leading coefficient for all n; no all-n exact Ldim formula.",
+    "Prior general ideal-difference theorem must be credited; online n>=7 finite certificate not independently replayed during this run."
+  ],
+  "schema_version": 1
+}
