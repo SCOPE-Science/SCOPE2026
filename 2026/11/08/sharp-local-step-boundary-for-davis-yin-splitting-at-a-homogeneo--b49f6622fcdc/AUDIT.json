@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution gives the positive fixed point. Euclidean-normalization differentiation yields an exactly graph-diagonal Jacobian. All radial and tangential multipliers are determined by one positive-denominator formula; sign analysis of a concave step quadratic proves the sharp stable, neutral, and unstable regions, including the factorization at zero killing. Packaged VERIFY.py independently replays exact symbolic checks, an exact-rational path example and finite-difference tests (1208 assertions). The analytic proof, not finite checks, handles all finite connected graphs. The neutral nonlinear boundary is intentionally unproved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.13509 Theorem 3.4/5.1 guarantee convergence only under stated conservative small-step hypotheses; those results do not imply instability at larger positive fixed-point steps.",
+        "https://arxiv.org/abs/2610.12833 Theorem 4.2 analyzes a different normalized Riemannian gradient map.",
+        "Published result 'Sharp scalar stability and rate-optimal splitting for averaged proximal reflected gradient' addresses scalar averaged proximal reflected gradient, not the present nonlinear sphere normalization and graph resolvent."
+      ],
+      "reasoning": "A strong sufficient convergence theorem for small steps does not classify the exact upper local stability boundary. General splitting differentiability machinery can support deriving a Jacobian, but no inspected theorem covers this particular entire graph family and sharp 0-versus-positive shift crossover.",
+      "searches": [
+        "Davis Yin splitting for nonlinear eigenvector positive sphere constraint graph energy fixed-point bifurcation",
+        "three operator splitting proximal sphere quartic graph Laplacian spectral local iteration stable step radius",
+        "Davis Yin splitting local linearization nonlinear eigenvector constrained quartic graph Laplacian",
+        "shadow splitting methods for nonconvex optimisation Davis Yin strict saddle Jacobian"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.13509",
+      "https://arxiv.org/abs/2610.12833",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65K05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.13509: DYS I map is the same after choosing no explicit potential; its local rate uses a conservative Lyapunov parameter and is contingent on global step restrictions.",
+        "https://arxiv.org/abs/2610.12833: uses D F(u*)=I-τ Hess E(u*) for its distinct retracted-gradient method; the DYS I Jacobian has radial plus resolvent-normalization couplings."
+      ],
+      "reasoning": "Neither prior theorem implies the exact multiplier m_lambda=1-gamma(lambda+2 beta/n)/[(1-gamma(a+beta/n))(1+gamma(a+lambda))] over the full fixed-point interval, its top-mode sign boundary, or the graph-independent simultaneous crossing at a=0.",
+      "searches": [
+        "https://arxiv.org/abs/2609.13509 (1.6), (3.15), Theorem 3.4, Theorem 5.1",
+        "https://arxiv.org/abs/2610.12833 4.1 local convergence via Riemannian Hessian",
+        "DYS I graph Laplacian Gross Pitaevskii scheme uniform ground state sharp linearization step radius eigenvalues -1 local stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.13509 section 1.3 and Theorem 5.1: DYS I algorithm and sufficient local convergence, but no exact graph-mode multipliers or critical step.",
+        "https://arxiv.org/abs/2610.12833 Section 4.1: spectral rates for Riemannian gradient descent, not DYS I."
+      ],
+      "reasoning": "Aliasing the claim as an exact Jacobian spectrum, local spectral radius, unit-circle crossing, graph-Laplacian top-frequency threshold, and zero-killing all-mode crossing gives no direct equivalence in the examined mathematical statements. This is an evidence-limited priority check, not a uniqueness proof.",
+      "searches": [
+        "Global convergence of an efficient splitting method for the defocusing Gross-Pitaevskii ground state problem Li Zheng Zhang Davis Yin local stability bifurcation step size",
+        "Davis Yin three operator splitting normalized Gross Pitaevskii graph Laplacian constant mode linearization eigenvalues period doubling",
+        "discrete Gross Pitaevskii normalized Davis Yin local Jacobian sharp step size n over two beta mesh independent",
+        "DYS I graph Laplacian Gross Pitaevskii scheme uniform ground state sharp linearization step radius eigenvalues -1 local stability",
+        "Davis Yin splitting ground state cycle graph graph Laplacian fixed point period-doubling stability n/(2 beta)",
+        "\"Davis-Yin\" \"Gross-Pitaevskii\" \"bifurcation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-search hits for these queries had no exact table of critical graph steps or simultaneous all-mode -1 crossings; closest items treated unrelated graph spectra or scalar splitting.",
+        "The available same-topic prior claims were checked for the same DYS I map and parameters; one related graph-diffusion positivity result concerned a different matrix algorithm."
+      ],
+      "reasoning": "No matching numerical value/table or exact classification was found in accessible searches. Failure to retrieve a record is not a proof the claim is unpublished.",
+      "searches": [
+        "Davis Yin three operator splitting normalized Gross Pitaevskii graph Laplacian constant mode linearization eigenvalues period doubling",
+        "discrete Gross Pitaevskii normalized Davis Yin local Jacobian sharp step size n over two beta mesh independent",
+        "DYS I graph Laplacian Gross Pitaevskii scheme uniform ground state sharp linearization step radius eigenvalues -1 local stability",
+        "Davis Yin splitting ground state cycle graph graph Laplacian fixed point period-doubling stability n/(2 beta)",
+        "\"Gross-Pitaevskii\" \"DYS I\" \"-1\" graph threshold"
+      ]
+    },
+    "rationale": "The source paper proves conservative global and consequent local rates but does not supply an all-graph exact Jacobian/critical-step classification. The same-energy 2026 Riemannian-flow study treats a distinct update. Search comparisons found no equivalence or broader coverage, though historical-priority uncertainty remains; no uniqueness assertion.",
+    "residual_risks": [
+      "An unindexed paper about normalized Davis–Yin splitting may already derive an equivalent Jacobian or graph-specialized spectral threshold.",
+      "General nonconvex three-operator splitting differentiability literature could contain a more abstract implication; the graph-specific critical phase law was not identified as a stated result.",
+      "No independent researcher has completed a priority or mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers construction, conservative global guarantee and small-step local Lyapunov convergence, not the exact graph-specialized local Jacobian and largest-eigenmode -1 frontier.",
+        "evidence": "Eq. (1.6); Eq. (3.15); Theorem 5.1 Eq. (5.5) rate, without the claimed exact spectral crossing.",
+        "identifier_or_url": "arXiv:2609.13509v1; https://arxiv.org/abs/2609.13509",
+        "material_read": "Accessible HTML full text, specifically §§1.2–1.3, 3.2–3.4, 5 and local-convergence theorem/proof; algorithm Eq. (1.6), step constraints (3.15), Theorems 3.4 and 5.1.",
+        "method": "Direct HTML full-text reading of the equations and proof sections; mathematical implication comparison against the new sharp graph threshold.",
+        "title": "Global convergence of an efficient splitting method for the defocusing Gross–Pitaevskii ground state problem",
+        "trigger": "Exact parent DYS I algorithm, possible existing local stability claims"
+      },
+      {
+        "assessment": "Different numerical iteration: its gradient-descent Jacobian and rate are not DYS I and do not imply the graph-specific all-mode threshold.",
+        "evidence": "Section 4.1 derives derivative as identity minus a Riemannian Hessian times a step for its gradient iteration.",
+        "identifier_or_url": "arXiv:2610.12833v1; https://arxiv.org/abs/2610.12833",
+        "material_read": "Accessible full-text HTML, introduction/method discussion and §4.1 on local Hessian convergence of Riemannian gradient methods.",
+        "method": "Compare the actual iteration and its derivative to DYS I and graph-restricted map.",
+        "title": "Riemannian Hessian analysis of Sobolev gradient flows for the Gross–Pitaevskii ground state problem",
+        "trigger": "Same nonlinear eigenvalue energy and spectral local-rate theory, possible dominating convergence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b49f6622-fcdc-4c05-bfb2-20a6f9fcfa56",
+  "value": {
+    "rationale": "The homogeneous defocusing graph Gross–Pitaevskii problem is a natural numerical-optimization test bed. The exact critical step, its transition from top-frequency crossing under uniform leakage to simultaneous graph-independent crossing at zero leakage, and explicit unstable example diagnose parameter selection beyond the earlier sufficient small-step theory. The result is substantive locally even without global convergence or a complete nonlinear flip bifurcation.",
+    "status": "PASS"
+  }
+}
