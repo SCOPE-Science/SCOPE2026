@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python verify.py` with the Python standard library. The program constructs Ornstein–Uhlenbeck variances from independent closed-form and composite-Simpson evaluations; it also tests the deterministic Gaussian-supremum envelope, the short-time upper bound, and critical-crossover root calculations for several finite parameter combinations. The finite checks are consistency tests and cannot establish convergence or originality.
+# Independent mathematical audit
 
-The proof's substantive infinite-dimensional components are the continuous Gaussian maximal inequality, the explicit uniform expected-supremum estimate and Gaussian Mills asymptotics. The only coefficient requiring a strict numeric comparison is \(\sqrt{14/(3\pi)}/(1-e^{-1})<2\), which the checker tests. The end-to-end asymptotic deduction is mathematical, not an enumeration. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Integrated OU stochastic convolution gives q_N(t)=u_N A(t)²+2D_v∫_0^t A(s)²ds, strictly increasing, with uniform relative small-time expansion q=u_Nt²+(2D_v/3)t³ times (1+O(γt)). A one-particle hitting probability is at least Φ(−ℓ/√q) by terminal law. For t≤γ^(−1), E sup_{s≤t}X(s)≤sqrt[14/(3π)]/(1−e^(−1))√q<2√q using integrated velocity first moments; Borell yields upper bound exp[−(ℓ/√q−2)_+²/2]. Independence then forces T_N/t_N→P1 uniformly in arbitrary nonnegative triangular arrays by choosing (1±ε)t_N and Gaussian Mills estimates. The two scaling regimes arise by asymptotically inverting the exact q threshold, not numerical extrapolation. Independent variance/root checks corroborate finite instances.
+
+## originality
+
+PASS
+
+Qualified PASS: classical Lawley extreme first-passage conversion and Hesse integrated-OU hitting setup are prior; Bao 2026 focuses on many-particle transport including positive positional thermal diffusion in the compared accessible passages. The singular athermal initial-kinetic-temperature triangular-array continuum and explicit uniform first-passage inequalities are not shown by the inspected source descriptions. Bao v2 and general Gaussian boundary-crossing literature require further full-text comparisons.
+
+## value
+
+PASS
+
+The absence of positional Brownian noise makes the fastest search exponent switch from (logN)^(−1/3) to (logN)^(−1/2) at an explicit vanishing initial kinetic variance threshold. The crossover solves a natural edge regime of active search, with exact finite-N barriers and arbitrary u_N sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

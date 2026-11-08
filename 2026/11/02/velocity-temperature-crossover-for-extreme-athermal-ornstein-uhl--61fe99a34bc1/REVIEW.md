@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The precise triangular-array Gaussian model has a positive increasing exact positional variance. The proof independently reconstructs the Ornstein–Uhlenbeck stochastic integral, derives matching single-particle hitting bounds from terminal Gaussian tails and Borell's inequality with an explicitly bounded expected supremum, and converts those bounds into uniform extreme-time concentration. Its variance asymptotics are uniform over arbitrary nonnegative initial kinetic variances, justifying both finite and divergent crossover cases. The supplied independent deterministic checker confirms finite-parameter identities; no finite computation is used as an infinite-population proof.
+PASS
 
-## Originality: PASS (qualified best-knowledge)
+Integrated OU stochastic convolution gives q_N(t)=u_N A(t)²+2D_v∫_0^t A(s)²ds, strictly increasing, with uniform relative small-time expansion q=u_Nt²+(2D_v/3)t³ times (1+O(γt)). A one-particle hitting probability is at least Φ(−ℓ/√q) by terminal law. For t≤γ^(−1), E sup_{s≤t}X(s)≤sqrt[14/(3π)]/(1−e^(−1))√q<2√q using integrated velocity first moments; Borell yields upper bound exp[−(ℓ/√q−2)_+²/2]. Independence then forces T_N/t_N→P1 uniformly in arbitrary nonnegative triangular arrays by choosing (1±ε)t_N and Gaussian Mills estimates. The two scaling regimes arise by asymptotically inverting the exact q threshold, not numerical extrapolation. Independent variance/root checks corroborate finite instances.
 
-The motivating 2026 work by Bao identifies a thermal positional Brownian mechanism and a logarithmic fastest-search regime. The present Gaussian integrated-velocity problem excludes that mechanism and gives a two-to-three power competition under a population-dependent initial velocity variance, including a critical continuum. Classical Lawley first-passage extreme-value conversion, Hesse's one-particle integrated-OU barrier analysis and OU-area large-deviation studies are explicitly recognized as prior. Targeted scientific-record searches and recoverable claim comparisons revealed no direct matched statement. The full texts of all plausible older works were not accessible here; the substantive remaining priority risk is a more general Gaussian boundary-crossing extreme-value theorem or an uninspected result covering this triangular array.
+## originality
 
-## Value: PASS
+PASS
 
-A recently highlighted active-search problem changes mathematical regime when direct thermal positional diffusion vanishes. The theorem resolves its leading all-population scale and identifies the physical threshold at which the distribution of starting propulsion, even while vanishing in variance, changes the search-time exponent. The sharp crossover and certified finite-\(N\) inequalities are substantial quantitative structure rather than an arbitrary numerical special case.
+Qualified PASS: classical Lawley extreme first-passage conversion and Hesse integrated-OU hitting setup are prior; Bao 2026 focuses on many-particle transport including positive positional thermal diffusion in the compared accessible passages. The singular athermal initial-kinetic-temperature triangular-array continuum and explicit uniform first-passage inequalities are not shown by the inspected source descriptions. Bao v2 and general Gaussian boundary-crossing literature require further full-text comparisons.
 
-## Scientific limits
+## value
 
-Independent particles, Gaussian starting velocities, fixed positive OU friction/noise, and a one-sided stationary target geometry are essential. No full priority certification, no centered fluctuation limit, and no treatment of interacting particles is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The absence of positional Brownian noise makes the fastest search exponent switch from (logN)^(−1/3) to (logN)^(−1/2) at an explicit vanishing initial kinetic variance threshold. The crossover solves a natural edge regime of active search, with exact finite-N barriers and arbitrary u_N sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
