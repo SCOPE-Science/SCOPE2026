@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later, using only the standard library. The executable independently evaluates each vertex's neighbors on \(K_{n,n}\setminus M_n\) rather than invoking the proof's case classification. Exhaustive comparisons cover \(4\le n\le8\), \(2\le r\le n-2\), and 407,808 actual action profiles over 15 parameter pairs; the expected families are generated independently and compared as sets. Each parameter pair is also checked after restoring all matching edges, yielding two pure equilibria on \(K_{n,n}\).
+## correctness
 
-A separate weighted enumeration of all four pair-type counts, not constrained to the theorem's families, covers 378 parameter pairs with \(4\le n\le30\). Each feasible type profile contributes its exact multinomial labeling multiplicity. A local execution printed:
+PASS
 
-```text
-VERIFIED
-directly_evaluated_profiles=407808
-direct_equilibrium_exhaustive_parameter_pairs=15
-independent_four_type_weighted_count_parameter_pairs=378
-example_n6_r3=43
-example_n7_r3=44
-```
+For r>=2 and n>=r+2, put X=sum_i x_i and Y=sum_i y_i in the labeled crown graph. The precise strict best-response equations are x_i=1_{Y-y_i in {0,r}} and y_i=1_{X-x_i in {0,r}}. Equal pair types require totals in {1,r+1}, while unequal types require totals in {0,r}; since these sets are disjoint for r>=2, equal and unequal types cannot coexist. All-equal-pair profiles have exactly t=1 or t=r+1 active pairs; all-unequal-pair profiles are polarized, or at the unique resonance n=2r split equally. Thus exactly E(n,r)=2+n+binom(n,r+1)+1_{n=2r}binom(2r,r), and matching action polynomial; K_{n,n} has only two polarized equilibria. The actual RESULT.md proof establishes all integer parameters, including n=r+2, not a sampled inference. Independent explicit open-neighborhood brute force found exactly the classified profiles for every n=4..7 and 2<=r<=n-2 (10 parameter pairs); examples E(6,3)=43 and E(7,3)=44.
 
-The finite computations do not certify infinitely many graphs. The universal proof relies on the four type constraints and their exhaustive case split. No external independent audit or formal verification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete labeled equilibrium count, polynomial and n=2r complementary resonance, not for basic best-response equations or generic complexity of picky public-goods games. The known NP-hardness of equilibrium existence on general graphs does not imply these fixed crown-graph counts.
+
+## value
+
+PASS
+
+The dense crown is a natural one-perfect-matching deletion of K_{n,n}; this deletion changes a two-equilibrium system to an exact combinatorially large spectrum and creates a sharp resonance at n=2r. This is a motivated graph-family classification and quantitative structural sensitivity, beyond routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

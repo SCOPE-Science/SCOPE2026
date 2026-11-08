@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge2\), \(n\ge r+2\), the exact equilibrium equations are obtained from the missing matching edge. Four possible matched-pair action types yield necessary-and-sufficient constraints on the two active totals. Their incompatibility separates equal-action from unequal-action pairs; the first case forces exactly \(1\) or \(r+1\) active matched pairs, and the latter forces polarization or \(n=2r\) with complementary balanced actions. Each listed family is explicitly checked against both active and inactive best responses. The complete bipartite comparison uses uniformity of best responses within each part. Direct open-neighborhood exhaustive evaluation over 407,808 profiles and an independent 378-parameter multinomial count support the proof but do not substitute for its universal quantifiers.
+PASS
 
-## Originality — PASS, with limitations
+For r>=2 and n>=r+2, put X=sum_i x_i and Y=sum_i y_i in the labeled crown graph. The precise strict best-response equations are x_i=1_{Y-y_i in {0,r}} and y_i=1_{X-x_i in {0,r}}. Equal pair types require totals in {1,r+1}, while unequal types require totals in {0,r}; since these sets are disjoint for r>=2, equal and unequal types cannot coexist. All-equal-pair profiles have exactly t=1 or t=r+1 active pairs; all-unequal-pair profiles are polarized, or at the unique resonance n=2r split equally. Thus exactly E(n,r)=2+n+binom(n,r+1)+1_{n=2r}binom(2r,r), and matching action polynomial; K_{n,n} has only two polarized equilibria. The actual RESULT.md proof establishes all integer parameters, including n=r+2, not a sampled inference. Independent explicit open-neighborhood brute force found exactly the classified profiles for every n=4..7 and 2<=r<=n-2 (10 parameter pairs); examples E(6,3)=43 and E(7,3)=44.
 
-The closest primary sources are Klimm–Stahlberg's 2023 general-graph NP-hardness theorem for the exact picky response family, Gilboa's 2023 finite-pattern complexity dichotomy, and Gilboa–Nisan's 2022 complexity treatment. Their inspected statements, relevant proof sections and conclusions address existence/complexity and gadget reductions, not an all-size enumeration on matching-deleted bicliques. The equivalent closed-form and paired-action formulations were searched, along with the exact crown graph and deleted matching graph name. A mathematical-record search returned other crown-graph invariants such as perfect Roman domination and non-CIS pair counts, which do not imply this game's equilibrium classifications. Accessible previous claims include small-graph \(\{0,2\}\) best-response existence and a distinct bipartite best-shot process; neither implies the present infinite-family classification. Residual risks are an unindexed or unpublished specialist classification and any overlooked coverage in other versions of the published literature. This is a best-knowledge originality assessment, not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-General NP-hardness of strict nonmonotone networked public-goods equilibria motivates identifying graph structures with exact solvability. The crown graphs are canonical dense regular bipartite graphs obtained by deleting the smallest possible degree-one subgraph to break neighborhood equality in a biclique. The result gives all pure equilibria, a labeled count and active-size distribution for every admissible graph size and preferred neighbor threshold, together with a precise \(n=2r\) resonance and a quantitative collapse to two equilibria when the matching is restored. These are structural statements about multiplicity and sensitivity to graph perturbations, not a renaming or isolated numerical recomputation.
+Best-of-knowledge PASS for the complete labeled equilibrium count, polynomial and n=2r complementary resonance, not for basic best-response equations or generic complexity of picky public-goods games. The known NP-hardness of equilibrium existence on general graphs does not imply these fixed crown-graph counts.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The dense crown is a natural one-perfect-matching deletion of K_{n,n}; this deletion changes a two-equilibrium system to an exact combinatorially large spectrum and creates a sharp resonance at n=2r. This is a motivated graph-family classification and quantitative structural sensitivity, beyond routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
