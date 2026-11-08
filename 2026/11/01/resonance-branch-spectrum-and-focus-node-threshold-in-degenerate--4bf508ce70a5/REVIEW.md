@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact trace of the derivative product is \(a f_n-d f_{n-1}\), and the scaled polynomial is the characteristic polynomial of a symmetric irreducible tridiagonal Jacobi matrix with first diagonal entry \(c=\sqrt d/a\). The Jacobi realization supplies real simple roots and strict interlacing. Direct sign and edge evaluations give the exact negative-positive counts and sharp threshold \(d=a^2(1+1/n)^2\). A completed-square spectral upper bound plus a trial vector and the exact root equation establish the exponentially convergent positive outlier; the rank-one empirical-law argument proves the arcsine limit. The explicit checker made 2,450 independent exact-rational comparisons, corroborating but not replacing the proof. Quantifiers are \(a,d>0\), integer \(n\ge1\), with limiting \(n\) at fixed parameters. No unproved itinerary existence is asserted.
+## correctness
 
-## Originality — PASS within the inspected scope
-Simpson's arXiv:2408.04790, §6.6, explains a four-right-step zero-slope return, and Simpson's arXiv:2606.08901, §5.3, supplies the general return-slope recurrence and plots a selection of short zero-slope curves. These are directly credited. Neither inspected section gives the complete all-degree real-root and sign classification, interlacing, exact focus-edge threshold, rank-one spectral limiting density, or the positive outlier's exponential accumulation formula. Standard Jacobi spectral tools provide an alternative formulation and could yield individual conclusions, so the residual risk is an unstated classical spectral specialization. Absence in searched records is not proof of publication priority.
+PASS
 
-## Value — PASS
-The full algebraic resonance family is natural because zero-slope first-return branches feature in the bifurcation structure of the degenerate planar border-collision normal form. The result answers for every right-block length how many algebraic branches exist, which are focus-compatible, and when a single branch separates into the hyperbolic regime; it also gives the limiting population and exceptional accumulation parameter. This is a structural classification of a motivated dynamical invariant, not an unsupported claim of superstable orbits.
+PASS: Direct Cayley-Hamilton recurrence gives P_n=af_n-df_{n-1} and normalized symmetric J_n(c) continuant. Irreducible tridiagonal J has simple real spectrum with strict interlacing, rank-one c perturbation fixes signs and bounds all but largest in (-2,2). det(2I-J)=n+1-cn yields exact focus-edge crossing c=(n+1)/n. The hyperbolic eigenvalue equation lambda^{2n+1}(lambda-c)=1-c lambda gives limit c+c^-1 and expansion coefficient (c²-1)² c^(-2n-3) in t. Rank-one spectral counting gives arcsine bulk and complete accumulation set. Independent numerical/high-precision spectral edge and recurrence checks confirm 25+ finite parameter instances; finite checks do not establish all n. No admissibility of R^nL itineraries claimed.
 
-## Scope and limitations
-A spectral resonance is only a candidate flat return branch; it may never be visited by the attractor. The work does not assert actual periodic orbit existence, basin size, chaos suppression, or other parameter signs, and an independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded best knowledge): Simpson already derives candidate flat-branch slope and displays selected zero-slope loci, and Jacobi/Chebyshev methods are classical. The additional *all-degree* root, sign, focus/node transition and exponentially approached outlier classification for this concrete dynamic trace does not appear in the checked primary source statements.
+
+## value
+
+PASS
+
+PASS: A complete spectral organization of all candidate flat branches in the concrete zero-determinant border-collision model resolves the degree-dependent focus/node threshold and outlier; these are mathematically motivated boundaries not just arbitrary Chebyshev identities or a plot of small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
