@@ -1,15 +1,21 @@
-# Scientific review: pointed essential-loop dispersion
+# Independent mathematical audit
 
-## Correctness — PASS
-The covering strip is convex and simply connected; each nonzero deck power represents precisely one nontrivial based homotopy class and a straight segment realizes the shortest path to its deck image. Parity minimization yields the exact pointwise squared loop-length formula. An area-uniform point has uniform transverse coordinate, so the distribution and both exact moment branches follow by direct one-variable integration. The global extremum is certified by the nonnegative polynomial factorization of the deficit, with a unique zero at the specified aspect ratio. Exact and quadrature checks are available in `checker.py`, but the proof does not rely on finite samples.
+## correctness
 
-## Originality — PASS, with historical risk
-The Kalvoda–Krejčiřík–Zahradová flat model has the same twisted-strip geometry but computes spectral data, not based-loop spatial moments. Sabourau–Yassine concern global unbased Finsler systoles; Eyll concerns systolic-area stability and variance of conformal factors; Katz–Sabourau concern global extremal surfaces and systolic bands. Existing two-free-endpoint Möbius distance results and closed-flat-manifold injectivity-radius profiles do not imply this pointed, nonprimitive-class-inclusive distribution and its sharp variance. Primary-source sections and published research-record comparisons were inspected. Historical priority is necessarily provisional: an obscure earlier local-systole computation could remain unindexed.
+PASS
 
-## Mathematical value — PASS
-A based essential-loop length is a natural local measurement of topologically nontrivial metric scale. Its minimizer switches from once-winding to twice-winding at an exact geometric threshold, generating a genuine point-mass phase change. The complete all-width law and rigid sharp variance extremizer give a meaningful moduli classification; the optimal ten-percent twice-winding region supplies a geometric interpretation of the extremum. The normalization compares quantities of the same length degree and does not introduce an arbitrary slice.
+In the simply connected convex strip cover, every based nonzero homotopy class corresponds to deck power k≠0, and straight segments attain each deck-distance minimum. Even k give minimum 4L², odd k give L²+4y²; hence λ²=L²+min(3L²,4y²). Uniform transverse y gives X=min(1,Q²), Q uniform [0,H/(sqrt3 L)]. Exact integrations yield both W branches; the polynomial (9r−10)²(27r²+60r+100)/(7500r⁴) proves unique maximum at 10/9 and the 1/10 atom. Independently checked 117 deck distances and six exact rational moments/deficits. Boundaries and nonprimitive classes are properly included; calculations not substituted for proof.
 
-## Limits and status
-The result applies to intrinsic flat metrics, not embedded ribbons or arbitrary curved bands. It concerns based rectifiable loops, not smooth periodic geodesics through every basepoint. Numerical checks are finite corroboration; historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: flat Möbius-strip Laplacian paper studies the same metric but not the distribution of shortest nonzero based homotopy loops. Global Finsler systolic bounds and conformal stability do not imply the pointwise winding transition, atom or sharp variance maximizer. The elementary deck minimization is known geometry, but no exact distribution/shape extremizer found; obscure pointed systolic prior art remains possible.
+
+## value
+
+PASS
+
+PASS: the shortest nontrivial based loop is an intrinsic local topological length scale. Its area distribution has a sharp winding-number phase transition, an atom onset, and a uniquely optimal variance ratio over moduli; the rigid aspect ratio and ten-percent double-winding region are exact useful geometric data. The calculation is elementary but a motivated complete distribution/classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
