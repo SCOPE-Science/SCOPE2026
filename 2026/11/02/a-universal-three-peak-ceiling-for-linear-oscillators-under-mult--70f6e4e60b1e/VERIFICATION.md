@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim is proved in `RESULT.md` by the exact derivative identities, monotonicity of expectations under positive Stieltjes weights, and the strictly negative large-frequency derivative limit. No formalized theorem prover or independent auditor is claimed.
+## correctness
 
-Execute `python verify_spectral_bound.py` in an environment with NumPy and SciPy. The code runs independent state-space frequency-domain matrix inversions, checks the Stieltjes spectral expression, inspects the derivative-sign invariant for finite random ensembles, and verifies a mathematically exact witness with two positive critical squared frequencies. The checker uses finite random samples and must not be mistaken for an exhaustive argument.
+PASS
 
-At the tested parameters the independent frequency-domain transfer comparisons numbered 1080, with maximum relative difference below \(10^{-13}\). The monotone normalized derivative was sampled at 248262 neighboring pairs; sampled critical-point counts never exceeded two. The sharp one-noise example has positive critical squared frequencies near \(0.34064583403484\) and \(0.95935416596516\).
+For all finite m>=1, positive A_j, nu_j, gamma and omega_0, the stationary spectrum equals f(omega^2)=B(z)/P(z), B=sum_j(2A_j nu_j)/(z+nu_j^2), P=(omega_0^2-z)^2+4gamma^2 z>0. The sign of its derivative is G=P B'-P' B. If c=4gamma^2-2omega_0^2>=0 then G<0. For c<0, G'=2Z H with H=d+c z-2z E_z[t]-E_z[t^2], and distribution p_j proportional a_j/(z+t_j)^3 shifts toward larger t_j; H strictly decreases, hence G has at most one maximum and at most two positive zeros. G(infinity)=-3 sum a_j<0; at most one positive off-center maximum, and by evenness at most three global-frequency peaks. Independently reconstructed single-rate polynomial 3z^2-39z/10+2451/2500 with roots 0.3406458 and 0.9593542 in the strict three-peak example. Continuity preserves strict peaks under arbitrarily many sufficiently weak extra channels; finite random trials are not the proof.
 
-Limits: historical priority has not been independently certified; the model requires nonnegative exponential covariance mixtures and a single scalar linear oscillator. Results for signed/cross-correlated, oscillatory or non-exponential kernels cannot be inferred.
+## originality
+
+PASS
+
+Best-of-knowledge O PASS for the arbitrary-positive-mixture Stieltjes derivative shape theorem. Masoliver and Porrà derive the transfer-spectrum and classify single exponential noise, including a three-peak regime, which are acknowledged prior results. The inspected 1993 source gives no arbitrary-m positive-mixture theorem, and positive summation of unimodal terms alone is not a valid implication. Search covered OU superpositions and general oscillator resonance terminology; no dominating result was verified, but a general total-positivity/Stieltjes variation theorem could implicitly cover the same conclusion.
+
+## value
+
+PASS
+
+A rate-independent ceiling on observable spectral resonances for a second-order scalar system under arbitrarily many positive relaxation channels constrains which multi-peak observations can be attributed to colored forcing alone. It is a natural structural spectral bound (not a tiny numeric check), sharp already with one channel, with a practical distinction between multiple forcing scales and multiple mechanical modes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
