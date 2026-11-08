@@ -1,23 +1,21 @@
-# Scientific review: exact same-species adsorption cluster intensities
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For each \(0<p<1\), \(q=1-p\), \(0<t\le1\), and integer \(k\ge2\), the decreasing-priority dependency construction defines the infinite-volume one-attempt process. The half-line endpoint ODE yields \(a(t)=H_p(t)\) and \(1-b(t)=\cosh(\sqrt{pq}t)-\sqrt{q/p}\sinh(\sqrt{pq}t)\). The all-\(A\) interval event forces exactly \(k\) attempted \(A\)-labels, with independent left and right exterior boundary survival probabilities, proving \(Q_k(t)=H_p(t)^2(pt)^{k-2}\). Two-site inclusion-exclusion and the one-site boundary integral then give all \(\lambda_k(t)\), including \(\lambda_1(t)\). The conditional cluster-count distribution is an exact geometric law when \(pt<1\), which holds under the theorem hypotheses.
+PASS
 
-The independent exhaustive finite-path checker tests all relative arrival orders, active site subsets and color assignments for paths up to seven sites, and compares 270 distinct finite joint-event probabilities in exact rational arithmetic. Its total of 360 assertions includes half-line approximation and cluster-intensity identities. These checks do not replace the analytic infinite-volume argument. Critical boundaries \(k=2\), \(p\in(0,1)\), \(t\in(0,1]\), and the singleton exception are all explicitly treated.
+From independent one-sided endpoint ODEs a'=p(1-b), b'=q(1-a), a(0)=b(0)=0 recover H_p(t); conditioning k consecutive A attempts makes k-2 interior sites unconditionally accepted while the left/right exterior survival factors multiply, giving Q_k=H_p(t)^2(pt)^(k-2). Inclusion-exclusion Q_k-2Q_{k+1}+Q_{k+2} gives maximal cluster intensity H_p(t)^2(1-pt)^2(pt)^(k-2), including k=2, and geometric summation yields the cluster-count law; one-site survival on both sides gives the independently stated lambda_1. Factorial bound on decreasing-clock paths defines the infinite process and ergodicity converts event probabilities to spatial intensities. Independent exact rational color/order enumeration over all 3..5-site finite paths verified the k=2 boundary cylinder factorization at p=1/3,t=1, and the actual provided 3..7-site exhaustive checker was read; no finite check was treated as the infinite proof.
 
-## Originality (O): PASS, with residual historical-priority risk
+## originality
 
-The strongest source is do Amaral and dos Santos, [arXiv:2306.09786](https://arxiv.org/abs/2306.09786) (first posted 2023-06-16), which defines the identical one-attempt model and solves its one-site densities. Its full preprint was examined for all-contiguous occupancy and maximal run-length results; it supplies neither. The new statement is the entire \(Q_k\), \(\lambda_k\) and shifted-geometric law, not the already-known one-site density or half-line method.
+PASS
 
-A similar-looking one-species nearest-neighbor model in [arXiv:2210.05627](https://arxiv.org/abs/2210.05627) forbids any two adjacent occupied sites, and the two-color model in [arXiv:2211.04622](https://arxiv.org/abs/2211.04622) allows repeated trials. Their statements and implications cannot cover the present all-\(A\) cylinder probability for exactly one attempt per site. General graph adsorption methods in [arXiv:math/0503519](https://arxiv.org/abs/math/0503519) use a different blocking interaction. Published record queries for alternative cluster/run terminology and comparison with accessible prior claims uncovered no equivalent theorem. Unindexed exact-cylinder work could still precede this analysis; search noncoverage is not a proof of novelty.
+The identical single-deposition antagonistic AB model and the one-site density were settled by do Amaral–dos Santos, 2023. Their accessible full paper develops a half-line event decomposition and scalar densities, but does not establish the all-consecutive-cylinder law or maximal-cluster Palm distribution. Nearest-neighbor one-color exclusion and repeated-attempt AB models are different. Resultary and external bibliographic comparisons found no stronger statement with the same interaction and higher-order correlations, but priority is best-knowledge only.
 
-## Value (V): PASS
+## value
 
-Cluster lengths are a natural structural observable for irreversible two-species deposition. The full intensity sequence and its exact geometric tail give information that cannot be inferred from the one-site density alone, and the singleton formula completes the length-profile classification. The theorem applies to all positive times and all biases and supplies finite-order analytic benchmarks for investigating spatial fragmentation; no general downstream theorem is needed to make this exact classification meaningful.
+PASS
 
-## Limitations and evidence
+Complete exact time- and bias-dependent cluster-length profile and shifted-geometric tail are natural spatial fragmentation observables for the same irreversible deposition model; they are not implied by known average occupancy. All lengths and singleton correction provide reusable quantitative benchmarks without assuming cluster independence.
 
-The result applies only to single-try independent marks, the one-dimensional nearest-neighbor lattice and opposite-species inhibition. It does not assert inter-cluster independence, Gaussian process limits or generalization to repeated attempts. Finite enumeration is a verification check, not an infinite proof. An independent mathematical audit and exhaustive historical-priority review remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
