@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the clade-membership theorem
+# Independent mathematical audit
 
-Run `python3 verify_hierarchy.py` from this directory using Python 3.10 or newer; only the standard library is needed. The program independently enumerates all rooted binary labeled phylogenies on two through seven leaves, constructs every laminar subfamily on two through six leaves, computes the exact recursive Littlestone depth from incidence vectors, checks the full prefix-shattering construction, and checks positive-branch Cartesian-product identities through five leaves.
+## correctness
 
-Expected final marker: `CLUSTER_QUERY_ALL_CHECKS_PASS`. Binary hypothesis counts at leaves \(n=2,3,4,5,6,7\) are respectively \(1,3,15,105,945,10395\); all-hierarchy counts through six leaves are \(1,4,26,236,2752\). Expected dimensions in both versions are \(n-2\).
+PASS
 
-The unbounded theorem rests on the five independently stated mathematical proof steps in `RESULT.md`; no finite computation can establish it alone. The recursive tester performs exact integer/mask operations, with no floating-point tolerances or stochastic claims. This does not constitute independent third-party audit, and historical novelty cannot be certified by exhaustive finite tests.
+For every n>=2, concepts are full proper nontrivial clade indicators of rooted n-leaf hierarchies, both maximal(binary) and arbitrary(nonbinary). All-positive labeling of any shattered set forces laminarity and at most n-2 clades. The nested prefix queries P_2,...,P_{n-1} are shattered by explicit binary graftings; no extra intermediate prefix clade is created. For the online upper bound, conditioning a query A (|A|=k) positive yields exactly independent inner H_k and outer contracted H_{n-k+1} hierarchies, and all crossing queries fixed zero. The product Littlestone identity adds ranks, giving positive branch depth n-3 by strong induction, precluding root depth n-1. VC<=Ldim transfers equality to binary classes. Outgroup rooting transfers unrooted n-label split-membership to rooted (n-1)-label clades (n>=3); n=2 query domain empty. Independent concept-mask exact recursion for n=4 returned 26 hierarchies and Ldim2, consistent with the general proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact Boolean whole-subset clade-membership VC=Littlestone formula, not the established hierarchy tree representation. Avdiukhin et al. obtain online sample-complexity/dimensions from labelled triplet comparisons, a distinct example domain and label structure, and the numerical n-2 recurrence under different concepts cannot imply this Boolean query theorem without an explicit dimension-preserving reduction. Hendriksen–Francis analyze hierarchy metrics and refinement; Chase–Freitag–Reyzin general query learning does not compute this class. Unrooted result is an exact reduction proven in the source, not an independently claimed unrelated novelty. Resultary relevant hits involve phylogenetic rank, ultrametric orbit counts and general tree-likeness instead.
+
+## value
+
+PASS
+
+Whole-clade membership is an interpretable exact feature-query model for phylogenetic hierarchies. Exact equality of the static and adaptive shattering dimensions for both binary and multifurcating concepts is a natural structural classification, and unrooted outgroup transfer gives a useful separate model with n-3. It explains a linear online mistake budget despite superexponentially many binary trees, clarifies the effect of query semantics and is not just a textbook count of maximal hierarchies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

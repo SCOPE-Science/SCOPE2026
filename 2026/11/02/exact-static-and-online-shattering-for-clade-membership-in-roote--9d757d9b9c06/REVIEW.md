@@ -1,11 +1,21 @@
-# Scientific review: exact clade-query shattering
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound is an all-size induction grounded in the exact factorization of any positive-clade version space into independent smaller hierarchy classes. The independent query-product Littlestone lemma is proved via the recursive tree definition. Binary-prefix grafting realizes every static pattern; rooting at an outgroup transports both dimensions to unrooted split queries. Boundary sizes \(n=2,3\), the subset/proper-clade convention, and all quantifiers are explicit. The packaged Python checker reproduces finite binary examples through seven leaves and nonbinary examples through six, tests all prefix patterns, and checks the factorization. Computation is supporting evidence, not an infinity proof.
+## correctness
 
-**Originality — PASS under accessible comparison.** Primary full-text comparisons distinguish this Boolean query language from Hendriksen–Francis hierarchy geometry and Avdiukhin et al.'s multiclass labeled-triplet learning. The general query-learning literature inspected does not establish the statement. Matching implication matters: the known triplet sample-space result does not specialize to a single full-clade Boolean query without a reduction preserving Littlestone dimension; no such implication is present in the inspected papers. Relevant published mathematical-record searches returned no matching clade-query theorem. Historical priority beyond accessible material remains uncertain.
+PASS
 
-**Value — PASS.** For a canonical class with \((2n-3)!!\) fully binary hypotheses, the exact adversarial online shattering depth is only \(n-2\) under natural *whole-clade* membership observations. The positive-branch factorization provides a reusable, structural explanation rather than an arbitrary computation. The theorem simultaneously covers binary and unresolved-polytomy phylogenies and gives the exact unrooted split analogue, separating it sharply from triplet-query complexity. No downstream algorithmic result or global priority is claimed.
+For every n>=2, concepts are full proper nontrivial clade indicators of rooted n-leaf hierarchies, both maximal(binary) and arbitrary(nonbinary). All-positive labeling of any shattered set forces laminarity and at most n-2 clades. The nested prefix queries P_2,...,P_{n-1} are shattered by explicit binary graftings; no extra intermediate prefix clade is created. For the online upper bound, conditioning a query A (|A|=k) positive yields exactly independent inner H_k and outer contracted H_{n-k+1} hierarchies, and all crossing queries fixed zero. The product Littlestone identity adds ranks, giving positive branch depth n-3 by strong induction, precluding root depth n-1. VC<=Ldim transfers equality to binary classes. Outgroup rooting transfers unrooted n-label split-membership to rooted (n-1)-label clades (n>=3); n=2 query domain empty. Independent concept-mask exact recursion for n=4 returned 26 hierarchies and Ldim2, consistent with the general proof.
 
-**Closest literature and limitations.** Hendriksen and Francis (arXiv:1906.02411) supply the hierarchy formulation; Avdiukhin et al. (arXiv:2302.04492) analyze a different multiclass triplet-query representation; Chase–Freitag–Reyzin (MFCS 2024) give general query-learning tools. No claim about noisy, restricted, triplet, or identification queries is justified. Obscure equivalences remain a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact Boolean whole-subset clade-membership VC=Littlestone formula, not the established hierarchy tree representation. Avdiukhin et al. obtain online sample-complexity/dimensions from labelled triplet comparisons, a distinct example domain and label structure, and the numerical n-2 recurrence under different concepts cannot imply this Boolean query theorem without an explicit dimension-preserving reduction. Hendriksen–Francis analyze hierarchy metrics and refinement; Chase–Freitag–Reyzin general query learning does not compute this class. Unrooted result is an exact reduction proven in the source, not an independently claimed unrelated novelty. Resultary relevant hits involve phylogenetic rank, ultrametric orbit counts and general tree-likeness instead.
+
+## value
+
+PASS
+
+Whole-clade membership is an interpretable exact feature-query model for phylogenetic hierarchies. Exact equality of the static and adaptive shattering dimensions for both binary and multifurcating concepts is a natural structural classification, and unrooted outgroup transfer gives a useful separate model with n-3. It explains a linear online mistake budget despite superexponentially many binary trees, clarifies the effect of query semantics and is not just a textbook count of maximal hierarchies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
