@@ -1,0 +1,19 @@
+# Scientific review: arithmetic wall crossing in twisted triangular Fermat line divisors
+
+## Correctness — PASS
+
+The claim holds for all fields with characteristic prime to the integer degree parameter and for all three nonzero coefficients. The factorization into three root-torsor families and the exact criterion for an inner triple intersection are elementary and exhaustive: any three lines are concurrent precisely when the root parameters multiply to one. Each geometric singularity is an ordinary multiple point because the branches are distinct straight lines. The normalization is the disjoint union of three finite-étale families of projective lines. Tracking the nonrational fibers above the three rational coordinate vertices is essential and is correctly done; the correction for the inner scheme is one copy per ordinary node or two copies per ordinary triple point. The resulting Grothendieck identity yields the point and zeta formulas over every finite extension. Exact independent point enumerations passed for 11,994 parameter instances in six prime fields and for the nonsplit cubic example over the degree-three extension. Those tests are corroborative, not a substitute for the uniform proof.
+
+## Originality — PASS, with priority risk
+
+The known split Fermat arrangement and its incidence structure are not claimed as novel. Szpond (arXiv:1909.04089, full article material concerning the classical complex Fermat arrangement) does not supply the three coefficient-torsor arithmetic class or the finite-field zeta factorization. Marchesi--Vallès (arXiv:1903.08885, full introduction, §2 and §3) provides the underlying triple-product concurrence mechanism but not the root-torsor rational-point behavior. Kutler--Usatine (doi:10.1017/S0305004123000099, full HTML abstract, introduction and statement of theorems) studies a different motivic zeta function (Denef--Loeser) over algebraically closed fields, not the Hasse--Weil zeta function of a twisted divisor over finite fields. Searches for equivalent descriptions in mathematical records, exact terminology, and prior accessible mathematical claims found no covering result. An older equivalent use of arrangement inclusion--exclusion or a finite-field twisted reflection arrangement remains possible and is an explicit residual risk; novelty is not inferred solely from failure of search.
+
+## Mathematical value — PASS
+
+The question is naturally attached to the classical three-pencil Fermat arrangement: what survives over finite fields when its geometric component lines need not descend? The answer is not the split arrangement point count, because the singular coordinate vertices may be rational while no line is rational. The single coefficient-product wall describes a complete, nonarbitrary three-parameter family, including a change from three families of double-point torsors to one triple-point torsor; the result computes a natural full Hasse--Weil invariant, not just a sample numerical statistic. In the explicitly realizable nonsplit branch over the \(7\)-power fields, the whole nine-line divisor has exactly three points over infinitely many ground fields. This sharp descent phenomenon and uniform class formula provide the substantive motivation. The proof is short; no theorem-sized downstream contribution is claimed.
+
+## Closest literature and limitations
+
+The geometric concurrency criterion is already in the three-pencil literature. The source works emphasize complex arrangements and other zeta invariants; the present finite-étale Hasse--Weil formula is a direct but specific arithmetic calculation for nonsplit forms. No assertion is made about wild or nonreduced cases in characteristic dividing the degree. Historical priority cannot be fully ruled out without exhaustive literature access.
+
+Self-review: passed. Independent audit: not yet performed.
