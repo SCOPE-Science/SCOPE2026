@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact finite classification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.10 or higher and no third-party dependencies. The script builds \(T_8\) and each of the three explicitly switched graphs from the vertex pairs of \(K_8\), checking each strongly regular parameter identity on every pair. It constructs all faces of each Lovász open-neighborhood complex by two exhaustive enumeration algorithms and asserts equality. It computes all simplicial boundary ranks over \(\mathbb F_2\) by bitwise elimination, then verifies their reduced homology again using independent low-pivot rank elimination on much smaller complexes obtained by sequential elementary free-face collapses. It also checks full and collapsed Euler–Poincaré identities and class-distinguishing clique counts. No random sampling or external dataset is required.
+## correctness
 
-The complete exact face vectors and boundary ranks are embedded in `verification_output.txt`. Verification succeeds exactly when the final line reads `VERIFY_FOUR_28_VERTEX_NEIGHBORHOOD_COMPLEXES_EXACT_MOD2_PASS`. The full complexes have respectively \(105896,105896,105832,105868\) nonempty simplices; the collapse certificates delete \(49150,50538,51041,50161\) pairs, respectively. The reduced homology groups agree exactly in all degrees.
+PASS
 
-The computation is finite and exhaustive, not a proof for other parameter sets. The group coefficients are \(\mathbb F_2\); agreement of ranks does not certify integral torsion-freeness or a particular homotopy decomposition. The four-class graph census is independently sourced from the classical strongly regular graph classification. No independent external audit has been performed.
+All four graphs are constructed on the 28 edges of K8, one as T8=L(K8) and three by specified matching, 8-cycle, and 3+5 Seidel-switch sets. Checked degree12 and the common-neighbor strongly regular conditions (lambda6, mu4), and inspected code for exact clique counts distinguishing the four classes. Independently enumerated every face as a subface of an open-neighborhood simplex for each graph, rather than trusting saved output; face totals 105897,105897,105833,105869 including the empty face. Full GF(2) boundary-column elimination gives exactly the stated reduced profiles in every dimension: T8 H3=553,H5=8; three Chang types respectively (H3,H4)=(253,12), (H2,H3,H4)=(1,166,4), and (H2,H3,H4)=(2,175,24). The source independently re-enumerates faces, performs legitimate elementary collapses preserving homology, and compares collapsed ranks, Euler characteristic and clique counts. This is a complete finite mod-two computation only; integral or homotopy claims are not inferred.
+
+## originality
+
+PASS
+
+No checked primary/topology source or relevant prior published result supplies the four exact mod-two neighborhood-homology vectors for the complete strongly regular (28,12,6,4) class. A T7-only published result and a general Alexander duality theorem are not the requested T8 and Chang calculations. PASS to best knowledge, not absolute publication priority.
+
+## value
+
+PASS
+
+A natural complete cospectral/strongly-regular parameter class is tested with the same topological functor. Its four distinct reduced mod-two Betti profiles, and even different support dimensions, prove that open-neighborhood homology distinguishes graphs that elementary spectral/strong-regular parameters cannot. The exact finite classification is a motivated invariant comparison, not arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review: neighborhood homology of the four \((28,12,6,4)\) graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The graphs arise from a fully specified \(28\)-vertex triangular graph and three exact Seidel switches. For each graph the verifier checks all strongly regular pairs, enumerates every simplex twice by independent routines, and performs every boundary rank computation over \(\mathbb F_2\) without sampling or floating point. All Euler–Poincaré identities hold. A separately implemented low-pivot rank calculation after \(49150,50538,51041,50161\) actual elementary collapse pairs agrees with the original full-complex calculation. The classical Chang classification certifies that these four representatives exhaust the entire \((28,12,6,4)\) graph family. No inference beyond the finite parameter class or mod-two coefficients is made.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest same-invariant published calculation, *Mixed-dimensional mod-two neighborhood homology first appears at \(T_7\)*, treats triangular graphs through \(T_7\) only and explicitly makes no assertion about \(T_8\) or any Chang graph. Matsushita–Wakatsuki provide foundational Alexander duality but not these numerical homology groups. Fröberg's open-access article addresses algebraic Stanley–Reisner resolutions for other graph families. Chang-graph encyclopedic and software references classify the graphs and switching classes, not their topological homology. Indexed scientific-record searches for Chang, triangular \(T_8\), and Hom aliases did not reveal an implication-equivalent theorem. This is a best-knowledge literature comparison, not proof of global novelty; an unindexed equivalent calculation remains possible.
+PASS
 
-## Value — PASS
-This is a complete, motivated four-class topological classification in a canonical cospectral family. Although graph degree, intersection parameters, spectrum, and number of vertices agree, the four open-neighborhood complexes have four different mod-two homology signatures, proving pairwise distinct homotopy types. The distinction is an exact natural invariant, not a numerical increment for an arbitrary chosen graph. Integral homology and the spaces' individual homotopy decompositions remain open within this work.
+All four graphs are constructed on the 28 edges of K8, one as T8=L(K8) and three by specified matching, 8-cycle, and 3+5 Seidel-switch sets. Checked degree12 and the common-neighbor strongly regular conditions (lambda6, mu4), and inspected code for exact clique counts distinguishing the four classes. Independently enumerated every face as a subface of an open-neighborhood simplex for each graph, rather than trusting saved output; face totals 105897,105897,105833,105869 including the empty face. Full GF(2) boundary-column elimination gives exactly the stated reduced profiles in every dimension: T8 H3=553,H5=8; three Chang types respectively (H3,H4)=(253,12), (H2,H3,H4)=(1,166,4), and (H2,H3,H4)=(2,175,24). The source independently re-enumerates faces, performs legitimate elementary collapses preserving homology, and compares collapsed ranks, Euler characteristic and clique counts. This is a complete finite mod-two computation only; integral or homotopy claims are not inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No checked primary/topology source or relevant prior published result supplies the four exact mod-two neighborhood-homology vectors for the complete strongly regular (28,12,6,4) class. A T7-only published result and a general Alexander duality theorem are not the requested T8 and Chang calculations. PASS to best knowledge, not absolute publication priority.
+
+## value
+
+PASS
+
+A natural complete cospectral/strongly-regular parameter class is tested with the same topological functor. Its four distinct reduced mod-two Betti profiles, and even different support dimensions, prove that open-neighborhood homology distinguishes graphs that elementary spectral/strong-regular parameters cannot. The exact finite classification is a motivated invariant comparison, not arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
