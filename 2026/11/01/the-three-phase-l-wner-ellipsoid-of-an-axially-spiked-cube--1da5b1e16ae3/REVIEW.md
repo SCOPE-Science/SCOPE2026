@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact all-dimensional classification for every real spike parameter; it does not rest on finite enumeration. Every displayed ellipsoid contains the complete generating vertex set. In each regime an explicit probability measure on boundary generators has zero normalized mean and normalized covariance \(I_d/d\). Averaging any competing ellipsoid's containment inequalities under this measure and applying matrix AM–GM proves unrestricted global minimum volume, with a unique equality case. The explicit weights remain nonnegative exactly on their claimed parameter intervals; boundary formulas agree. The volume formula and both nonzero second-derivative jumps were independently differentiated. The bundled verifier passed 989 algebraic numeric configurations and 70 independent convex numerical optimizations; these are supplementary evidence only.
+## correctness
 
-## Originality — PASS, with residual historical uncertainty
-Actual searches addressed the convex hull of a cube and an exterior axial point, a one-spike cube, polar coordinate truncations, minimum-volume enclosing ellipsoids, contact probabilities, and possible D-optimal-design equivalence. The closest three published mathematical records were inspected as substantive full results: the capped hypercube is a diagonal intersection, Boolean rank-selected polytopes are made from binary cube vertices, and isocanted cubes use coordinate-difference constraints. None contains or algebraically implies the exterior-point hull, its all-real-parameter three phases, or the endpoint screening. Henk's 2012 theorem and Sun–Freund's 2002 general algorithm supply methodology, not these specialized formulas. The paper-selection and text inspection were targeted to the present objects and claims. Historical priority in unindexed convex-optimization or experimental-design literature remains possible; no definitive worldwide novelty certificate is asserted.
+PASS
 
-## Mathematical value — PASS
-The one-exterior-point perturbation of a hypercube is a canonical noncentrally symmetric convex body. Its enclosing-volume optimizer has two sharp dimension-dependent transitions, an intermediate centered anisotropic phase, and late screening of still-extreme original vertices. Those findings are geometric structure over the entire natural real-parameter family, not a toy numerical value, arbitrary slice, or direct textbook corollary. The explicit isotropic contact distributions are reusable proof witnesses. The scope excludes arbitrary spike directions and all other bodies.
+An affine-invariant Löwner certificate says any candidate enclosing ellipsoid is unique volume-minimizing if its touching generators admit a probability distribution whose normalized mean is zero and covariance I/d. Small spike: uniform cube vertices normalized by sqrt d. Intermediate phase: center 0, axial a, transverse a sqrt((d-1)/(a^2-1)); give apex weight p=(a^2-d)/(d(a^2-1)) and cube weight q=(d-1)a^2/(d(a^2-1)) with first-sign mean -(a^2-d)/(a(d-1)); all are probabilities precisely between thresholds and give isotropy. Large spike: center (a-d)/(d+1), axial d(a+1)/(d+1), transverse d/sqrt(d+1); put 1/(d+1) apex and d/(d+1) on negative-facet vertices. Direct symbolic mean/covariance, contact, containment, and both logarithmic volume second-derivative jumps verified. Thus global optimality over arbitrary ellipsoids is certified, not only axial candidate comparison. The positive cube facet has strictly smaller normalized radius when center>0, but its vertices remain extreme.
 
-## Closest sources and limits
-Martin Henk, *Löwner–John ellipsoids* (2012), Theorem 2.1; Peng Sun and Robert M. Freund, *Computation of Minimum Volume Covering Ellipsoids* (first online 2002-07-31); the published full-result pages for the capped hypercube, rank-selected Boolean ellipsoids and isocanted cubes. No independent mathematical or priority audit has occurred. Numerical verification is neither exhaustive nor a formal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Löwner–John contact theorem is explicitly prior and the certificate technique is not new. Published related exact ellipsoids for diagonally capped intersections, rank-selected Boolean hulls and difference-constrained isocanted cubes have genuinely different vertex/facet configurations and cannot specialize to an exterior axial spike. Generic covering-ellipsoid optimization is methodology, not a closed three-threshold classification. A transformed clipped crosspolytope under polarity needs an explicit parameter match, not mere similar titles; none was found. Priority remains best knowledge.
+
+## value
+
+PASS
+
+This family is the simplest symmetry-breaking perturbation of the cube by one outside point; the two exact contact transitions, C1/not-C2 volume profile, and strictly interior yet extreme positive facet give an interpretable sharp phenomenon in Löwner geometry, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

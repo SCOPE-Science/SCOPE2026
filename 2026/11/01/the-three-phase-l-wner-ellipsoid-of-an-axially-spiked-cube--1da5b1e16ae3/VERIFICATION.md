@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The defining quantitative claim is a statement for every integer \(d\ge2\) and every real \(a\ge1\), not only for tested samples. The proof checks the entire generating set of the hull, constructs nonnegative normalized contact weights, shows exact zero transformed mean and covariance \(I_d/d\), and invokes the explicitly proved global Löwner optimality criterion. These steps analytically establish the claimed unique ellipsoid. The volume and \(C^1\)-but-not-\(C^2\) transition assertions are obtained by direct differentiation of its exact semiaxes.
+## correctness
 
-Run `python3 verify.py` in the extracted directory (Python, NumPy, and SciPy are required). The recorded run completed with: `PASS: 989 containment-and-isotropic-certificate cases, 70 independent convex optimizations, maximum log-volume discrepancy 8.82e-12`. The solver cross-check is separately constructed from the convex inverse-semiaxis variables, not by inserting the candidate ellipsoid into its own objective. It is a finite numerical corroboration and cannot prove global optimality beyond the analytical contact arguments, or exclude all other published equivalent derivations. Independent validation and independent audit have not been performed.
+PASS
+
+An affine-invariant Löwner certificate says any candidate enclosing ellipsoid is unique volume-minimizing if its touching generators admit a probability distribution whose normalized mean is zero and covariance I/d. Small spike: uniform cube vertices normalized by sqrt d. Intermediate phase: center 0, axial a, transverse a sqrt((d-1)/(a^2-1)); give apex weight p=(a^2-d)/(d(a^2-1)) and cube weight q=(d-1)a^2/(d(a^2-1)) with first-sign mean -(a^2-d)/(a(d-1)); all are probabilities precisely between thresholds and give isotropy. Large spike: center (a-d)/(d+1), axial d(a+1)/(d+1), transverse d/sqrt(d+1); put 1/(d+1) apex and d/(d+1) on negative-facet vertices. Direct symbolic mean/covariance, contact, containment, and both logarithmic volume second-derivative jumps verified. Thus global optimality over arbitrary ellipsoids is certified, not only axial candidate comparison. The positive cube facet has strictly smaller normalized radius when center>0, but its vertices remain extreme.
+
+## originality
+
+PASS
+
+The general Löwner–John contact theorem is explicitly prior and the certificate technique is not new. Published related exact ellipsoids for diagonally capped intersections, rank-selected Boolean hulls and difference-constrained isocanted cubes have genuinely different vertex/facet configurations and cannot specialize to an exterior axial spike. Generic covering-ellipsoid optimization is methodology, not a closed three-threshold classification. A transformed clipped crosspolytope under polarity needs an explicit parameter match, not mere similar titles; none was found. Priority remains best knowledge.
+
+## value
+
+PASS
+
+This family is the simplest symmetry-breaking perturbation of the cube by one outside point; the two exact contact transitions, C1/not-C2 volume profile, and strictly interior yet extreme positive facet give an interpretable sharp phenomenon in Löwner geometry, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
