@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The standalone script `verify.py` uses exact `fractions.Fraction` arithmetic; invoke `python3 verify.py` in the directory containing `verify.py`. Its completed exact run printed:
+# Independent mathematical audit
 
-```
-VERIFY_OK rational_weight_profiles=154population_size_profiles=1120integer_occupancy_vectors=42000independent_exact_lottery_tests=560periodicity_tests=770two_agent_modular_tests=1827
-```
+## correctness
 
-The independent finite checks compare the raw chore-removal inequalities with the Adams priority-vector construction; for at most three agents an additional solver enumerates exact rational convex mixtures of all admissible occupancy vectors. They also verify the claimed translation of admissible sets by the rational entitlement numerator vector and the two-agent residue formula. No random seed, floating-point approximation, or external library is required.
+PASS
 
-This is finite corroboration only. Infinite quantifiers, all positive real weights, and exact score-tie boundaries are justified by the mathematical proof in `RESULT.md`, not by enumeration. External independent validation has not been performed.
+Under identical unit chores, ex-post WEFX is equivalent to (x_i-1)/w_i <= x_j/w_j for all ordered agents, and unbiased ex-ante WEF requires E[x_i]=m*w_i. With m<n the admissible counts are zero-one and their hypersimplex admits the quota iff mw_i<=1; with m=n only all-one counts are WEFX. With m>n each x_i>=1 and y_i=x_i-1 selects the first L=m-n weighted Adams priority scores k/w_i; the scores tied at the Lth threshold form a uniform matroid base polytope and give the exact coordinate convex-hull feasibility test. Tied weights k_i/alpha and rational outside weights imply every w_i rational whenever m>=n and compatible. For rational w=a/b each score band of width b adds a_i priorities and preserves ties, proving period b of feasible counts. For two agents the integer interval (m-1)w <= x <= (m-1)w+1 gives compatibility exactly m mod b in {0,1}. Independent rational exhaustive two-agent enumeration tested all coprime denominators 2..16, m<=50; all-general proof is the priority argument.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty: Adams apportionment, dependent rounding and hypersimplex integrality are prior mathematics, while the connection to unbiased lotteries over ex-post weighted chore-EFX allocations and the arithmetic compatibility classification was not found in read primary sources. The fixed-Adams-support quota condition could conceivably appear under apportionment terminology.
+
+## value
+
+PASS
+
+Compatibility between strict ex-post proportional fairness and unbiased ex-ante fairness is a meaningful allocation-design question with impossibility boundaries. A decidable all-agent criterion, irrational-entitlement obstruction, period law and complete two-agent modular classification are structural insights rather than an arbitrary finite parameter test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

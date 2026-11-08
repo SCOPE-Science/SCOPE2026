@@ -1,15 +1,21 @@
-# Scientific assessment: homogeneous weighted chore lotteries
+# Independent mathematical audit
 
-## Correctness — PASS
-For identical unit chores, WEFX gives the exact integer inequalities \( (x_i-1)/w_i\le x_j/w_j \), and an unbiased lottery must have expectations \(mw_i\). In the sparse regime the feasible count polytope is a hypersimplex; for \(m\ge n\) the selected Adams priorities give all and only feasible count vectors, and tied scores form a uniform-matroid base polytope. Its convex-hull inequalities yield the claimed test. The rationality argument sums the weights of tied agents; the periodicity proof pairs successive length-\(b\) priority bands; the two-agent formula follows from an interval of length one. These prove all asserted parameter ranges. The packaged exact-rational verifier separately enumerated 154 weight profiles, 1,120 profile-size instances, 42,000 occupancy vectors, 560 independent finite lottery tests, 770 periodicity tests, and 1,827 modular checks. Finite checks corroborate, not establish, universality.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The motivating Lin–Wu–Zhou (arXiv:2609.13970v1) paper's Section 4 gives an existential two-agent impossibility instance for weighted ex-ante WEF and ex-post WEF1. It does not state an if-and-only-if condition for all populations, chore counts, and entitlements. The deterministic priority ranking is the classical Adams divisor method and is *not* claimed as a new invention. Cembrano et al.'s examined divisor-method results and Correa et al.'s ex-ante proportional randomized rounding do not themselves constrain the lottery to the Adams outcome set or derive the required exact convex-hull test, rationality, periodicity and two-agent congruence. A separate 2026 subsidies paper repeats the binary-chores obstruction without these conclusions. Targeted scientific-literature and published-result searches identified no equivalent claim. The original weighted-item/apportionment connection and possible unindexed convex-hull theorems are residual publication-priority risks.
+PASS
 
-## Value — PASS
-The 2026 existential incompatibility example leaves an intrinsically motivated question: when is a lottery ex-ante weighted envy-free while *every* outcome is WEFX, in a setting where deterministic WEFX and fractional Pareto efficiency are otherwise easy? This theorem supplies a complete exact feasible/infeasible test, a small-support construction when feasible, and arithmetic consequences. The phase change \(m<n\), \(m=n\), \(m>n\), universal irrationality obstruction, denominator periodicity and two-agent residue classification are structural, not arbitrary test-grid deductions. Their sharpness and scope are explicit.
+Under identical unit chores, ex-post WEFX is equivalent to (x_i-1)/w_i <= x_j/w_j for all ordered agents, and unbiased ex-ante WEF requires E[x_i]=m*w_i. With m<n the admissible counts are zero-one and their hypersimplex admits the quota iff mw_i<=1; with m=n only all-one counts are WEFX. With m>n each x_i>=1 and y_i=x_i-1 selects the first L=m-n weighted Adams priority scores k/w_i; the scores tied at the Lth threshold form a uniform matroid base polytope and give the exact coordinate convex-hull feasibility test. Tied weights k_i/alpha and rational outside weights imply every w_i rational whenever m>=n and compatible. For rational w=a/b each score band of width b adds a_i priorities and preserves ties, proving period b of feasible counts. For two agents the integer interval (m-1)w <= x <= (m-1)w+1 gives compatibility exactly m mod b in {0,1}. Independent rational exhaustive two-agent enumeration tested all coprime denominators 2..16, m<=50; all-general proof is the priority argument.
 
-## Closest literature and limitations
-Lin–Wu–Zhou (2026) motivates the question; classical Adams apportionment provides the deterministic foundation. The newer randomized-apportionment papers permit different ex-post outcomes; a paper stating the Adams-support lottery hull could nevertheless subsume this result. Only identical positive unit chores and the strong chore-removal WEFX convention are proved. Broader binary costs, heterogeneous agents, and a least-period characterization are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge novelty: Adams apportionment, dependent rounding and hypersimplex integrality are prior mathematics, while the connection to unbiased lotteries over ex-post weighted chore-EFX allocations and the arithmetic compatibility classification was not found in read primary sources. The fixed-Adams-support quota condition could conceivably appear under apportionment terminology.
+
+## value
+
+PASS
+
+Compatibility between strict ex-post proportional fairness and unbiased ex-ante fairness is a meaningful allocation-design question with impossibility boundaries. A decidable all-agent criterion, irrational-entitlement obstruction, period law and complete two-agent modular classification are structural insights rather than an arbitrary finite parameter test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
