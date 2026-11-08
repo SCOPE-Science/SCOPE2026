@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a two-incidence-excess constraint, a unique two-particle gap encoding with strict ignition boundaries, all legal moves, exact connectivity with a one-unit anchor-shift loop, and a complete degree census for every integer k>=3. Two independent programs reproduce finite cases and the mathematical proof covers all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonato et al., arXiv:1507.06524v1, establish path/cycle burning numbers and characterize burning schedules, but do not state component and degree distributions under local moves.",
+        "Pereira et al. 2024 study finding optimal sequences algorithmically; the relevant sections inspected do not imply reconfiguration of all optimizers."
+      ],
+      "reasoning": "An algorithm that finds a shortest schedule does not determine all shortest schedules or the graph induced by a local slide operation. Minimum time for a cycle does not entail mobility or degree counts. None of the inspected sources states a stronger result covering this precise state graph.",
+      "searches": [
+        "enumeration of shortest burning sequences on labeled cycles near square order circumference; circular interval cover excess",
+        "one-vertex phase transition cyclic burning sequence reconfiguration C_{k^2-1} move source single edge",
+        "A survey of graph burning, Bonato 2021",
+        "A Row Generation Algorithm for Finding Optimal Burning Sequences of Large Graphs, ESA 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.06524v1, Section 2, Theorem 10, Corollary 11",
+      "DOI:10.55016/ojs/cdm.v16i1.71194, Section 2",
+      "DOI:10.4230/LIPIcs.ESA.2024.94, Sections 1–3",
+      "A four-round burning cutoff for the different graph family H(n,5)",
+      "A threshold-two burning source-number construction on noncycle graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known minimum cycle burning number gives k=ceil(sqrt(n)), hence k rounds at n=k²−2, but no schedule reconfiguration invariant.",
+        "The separate zero-defect and one-defect classifications involve at most one excess incidence and cannot derive the two-defect transfer dynamics without new analysis."
+      ],
+      "reasoning": "The theorem is an infinite-family characterization for n=k²−2 with n(k−1)! times a quadratic factor schedules, (k−1)! connected components and explicit degrees 2,3,4; the earlier statements have different n or only scalar minima, so do not imply this statement.",
+      "searches": [
+        "strict optimal burning sequences on cycle C_{k^2-2}, source-slide reconfiguration connected components degree distribution two overlapping balls",
+        "one-vertex phase transition cyclic burning sequence reconfiguration C_{k^2-1} move source single edge",
+        "arXiv:1507.06524v1 Section 2 formula (1) Theorem 10 Corollary 11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published burning-sequence ball-cover/separation formulation gives the standard domain but not the reconfiguration graph on two-below-square cycles.",
+        "The two-gap-unit transfer encoding is a refinement of optimum-schedule structure not supplied by the cited original source."
+      ],
+      "reasoning": "A strictly valid k-round burning sequence has ball radius list k−1,...,0; for n=k²−2 the two-incidence-excess classification and source-slide degree spectrum are stronger than the minimum-round invariant. No equivalent exact statement was found in checked materials.",
+      "searches": [
+        "graph burning optimal burning sequences cycle C_(k^2) C_(k^2-1) C_(k^2-2) count exact enumeration",
+        "strict optimal burning sequences on cycle C_{k^2-2}, source-slide reconfiguration connected components degree distribution two overlapping balls",
+        "graph burning counting minimum burning sequences cycles C_n optimal",
+        "arXiv:1507.06524v1, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed result on the graph family H(n,5) proves a four-round burning cutoff rather than reconfiguration of ordinary cycles.",
+        "An indexed threshold-two burning construction uses a different propagation rule and cannot determine the two-defect ordinary-cycle state graph."
+      ],
+      "reasoning": "These are the closest inspected index hits for graph burning, but neither has the same object and move rule nor an exact all-k component/degree table. Index incompleteness remains a priority risk.",
+      "searches": [
+        "graph burning optimal burning sequences cycle C_(k^2) C_(k^2-1) C_(k^2-2) count exact enumeration",
+        "enumeration of shortest burning sequences on labeled cycles near square order circumference; circular interval cover excess",
+        "strict optimal burning sequences on cycle C_{k^2-2}, source-slide reconfiguration connected components degree distribution two overlapping balls",
+        "one-vertex phase transition cyclic burning sequence reconfiguration C_{k^2-1} move source single edge",
+        "cycle burning near-square graph two defect exchange particle dynamics"
+      ]
+    },
+    "rationale": "The original graph-burning theorem supplies minimum rounds and validity but not the two-defect source-slide graph; the survey and algorithmic paper inspected do not cover the component or degree classifications. Dedicated searches of indexed mathematical claims and alternate statements found no covering result. This is a best-knowledge assessment, with a genuine residual risk of unindexed literature.",
+    "residual_risks": [
+      "Searches cannot exclude nonindexed or unpublished prior classifications.",
+      "Only relevant portions of long source texts were assessed; assertions of whole-literature novelty are not made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the process, valid schedules and cycle burning number; exact two-defect source-slide state graph is not stated in relevant inspected sections.",
+        "evidence": [
+          "arXiv:1507.06524v1 posted 2015-07-23",
+          "Section 2 formulas on distance-separated sources and ball covers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06524",
+        "material_read": "Accessible original PDF, especially Section 2, formula (1), Theorem 10 and Corollary 11, including page-2 PDF image check",
+        "method": "Inspected text and rendered relevant page of the full PDF",
+        "title": "How to burn a graph",
+        "trigger": "Primary original graph-burning framework and exact burning number of cycles"
+      },
+      {
+        "assessment": "Confirms standard cycle burning and background, does not provide the exact two-defect reconfiguration component-degree theorem in inspected passages.",
+        "evidence": [
+          "Contributions to Discrete Mathematics 16 (2021), 185–197, Section 2"
+        ],
+        "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v16i1.71194",
+        "material_read": "Public survey PDF, introductory definitions and main cycle-related results, with relevant PDF-page images inspected",
+        "method": "Read accessible PDF text and examined rendered pages",
+        "title": "A survey of graph burning",
+        "trigger": "Potential broader classification of optimal cycle schedules"
+      },
+      {
+        "assessment": "Gives optimization procedures, not all-optima one-source-slide reconfiguration structure or the exact state graph for n=k²−2.",
+        "evidence": [
+          "ESA 2024, paper 94, Sections 1–3"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.94",
+        "material_read": "Accessible ESA 2024 full PDF, introduction and methodological sections 1–3; rendered first page inspected",
+        "method": "Read relevant primary full-text sections and PDF image",
+        "title": "A Row Generation Algorithm for Finding Optimal Burning Sequences of Large Graphs",
+        "trigger": "Potential algorithmic enumeration and optimum-solution connectivity coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c72afd6-2609-4f97-ae58-6bdc84efd95e",
+  "value": {
+    "rationale": "A natural two-vertex deficit below the square-size burning capacity changes state-space mobility: each cyclic source order becomes one connected component with nonuniform degrees 2, 3, 4, and the exact count and degree census hold for an infinite family. These reconfiguration invariants are not consequences of the scalar minimum burning number.",
+    "status": "PASS"
+  }
+}
