@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All definitions and normalization are explicit: the number of vertices is even and at least six, and \(H_{ab}\) is \(N-1\) times a covariance. The proof conditions on one chord, uses the exact residual perfect matching law, distinguishes every affected adjacent comparison, and sums six disjoint positional cases. The unrestricted formula does not rest on computer sampling. Exhaustive exact enumeration on four small orders, including every possible marked edge, agrees with both the formula and its direct local-probability derivation; the short-chord mean, variance and mixed covariance are also checked. The derivation uses only elementary counting and makes no unproved asymptotic inference.
+## correctness
 
-**Originality — PASS under the inspected sources and accessible comparisons, with residual priority uncertainty.** Kim's 2017 published-lineage proof treats marginal descent indicators and pairs of descent indicators, whereas these are *edge–descent* mixed moments for a *specified* edge. Cameron–Killpatrick's short-chord enumeration treats the short-chord marginal; Marmor's Schur-positive short-chord-set work discusses a different involutive weak-order descent statistic and provides no explicit prescribed-edge ordinary-descent covariance map. The published uniform-permutation fixed-point/descent locality result concerns a different distribution and a fixed-point event that is impossible here. Earlier results on random marked-pair induced descent statistics average over endpoint locations and do not imply conditioning on the exact labels. An implicit specialization of a multivariate matching enumerator remains possible.
+PASS
 
-**Value — PASS.** The all-orders, all-edges classification gives a natural and complete dependence map for two classical matching statistics. It exposes strict negative bulk dependence for long chords, positive bulk dependence for adjacent chords, nonuniform boundary profiles and a persistent positive short-chord covariance. These facts are not supplied by either marginal distribution alone and distinguish true location-sensitive local constraints from endpoint-averaged sampling. No broad new probabilistic limit theorem is claimed.
+For a uniformly random perfect matching of even N≥6 and its fixed-point-free involution π, condition on X_ab=1 and use a uniform residual matching of N-2 labels. Nonincident adjacent positions have descent probability p0=(N-2)/(2(N-3)); four (or three for adjacent endpoints) incident positions have the stated partner-count probabilities. Summing them yields six exhaustive cases of H_ab=(N-1)Cov(X_ab,D), including H_1N=1, corner zeros, interior short-chord (N-2)/(2(N-3)) and nonadjacent interior -1/(N-3). Exact sum over short chords yields Cov(S,D)=(N-2)/(2(N-1)), ES=1, Var(S)=(N-2)/(N-1). An independently written exhaustive perfect-matching generator checked every prescribed chord for N=6,8,10,12 (15,105,945,10395 matchings), matching conditional averages exactly. Combinatorial conditional proof covers all even N; finite search alone is not the proof.
 
-**Limits.** Uniform matchings on linearly ordered labels only. Historical priority cannot be certified by an unsuccessful literature search, and the finite executable checks do not substitute for the all-size proof. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+A complete location-sensitive joint covariance map between a specified chord and ordinary permutation descents is a naturally motivated refinement of classical matching descent and short-chord marginals. It reveals an exact interior sign dichotomy, nontrivial affine boundary effects, and a finite positive limiting short-chord/descents covariance, useful for studying local dependencies in random matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

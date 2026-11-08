@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 check_matching_descents.py` with Python 3's standard library. It enumerates all 15, 105, 945, and 10,395 perfect matchings at even orders 6, 8, 10, and 12, respectively, computes the induced involution and ordinary descents, and independently compares each prescribed-edge conditional descent mean against the closed formula and a position-by-position exact-rational counting formula. It checks the moments of the short-chord count, its covariance with descents and the invariant total-edge covariance identity at every even order up to 100. The 215 assertions succeed.
+## correctness
 
-The code is a finite independent arithmetic cross-check. The proof for unbounded even orders is contained in `RESULT.md`; exhaustive small-order checks alone cannot establish an infinite theorem. The priority comparison is necessarily limited to the inspected literature and available records; independent mathematical validation is not performed.
+PASS
+
+For a uniformly random perfect matching of even N≥6 and its fixed-point-free involution π, condition on X_ab=1 and use a uniform residual matching of N-2 labels. Nonincident adjacent positions have descent probability p0=(N-2)/(2(N-3)); four (or three for adjacent endpoints) incident positions have the stated partner-count probabilities. Summing them yields six exhaustive cases of H_ab=(N-1)Cov(X_ab,D), including H_1N=1, corner zeros, interior short-chord (N-2)/(2(N-3)) and nonadjacent interior -1/(N-3). Exact sum over short chords yields Cov(S,D)=(N-2)/(2(N-1)), ES=1, Var(S)=(N-2)/(N-1). An independently written exhaustive perfect-matching generator checked every prescribed chord for N=6,8,10,12 (15,105,945,10395 matchings), matching conditional averages exactly. Combinatorial conditional proof covers all even N; finite search alone is not the proof.
+
+## originality
+
+PASS
+
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
+
+## value
+
+PASS
+
+A complete location-sensitive joint covariance map between a specified chord and ordinary permutation descents is a naturally motivated refinement of classical matching descent and short-chord marginals. It reveals an exact interior sign dichotomy, nontrivial affine boundary effects, and a finite positive limiting short-chord/descents covariance, useful for studying local dependencies in random matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
