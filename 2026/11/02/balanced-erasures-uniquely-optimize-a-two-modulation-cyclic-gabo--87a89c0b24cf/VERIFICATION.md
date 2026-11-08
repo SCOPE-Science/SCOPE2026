@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python CHECK.py` using Python 3 and NumPy. The completed local replay reported: `PASS: 4126 numerical spectral comparisons across 190 parameter families; monotonicity and hyperbolic root tests.` It enumerates every cyclic translation-erasure subset for dimensions \(3\) through \(11\), every non-antipodal nonzero modulation index and admissible erasure count. For each surviving pattern, it independently constructs the full complex frame operator and each real path-block matrix, compares the extremal eigenvalues, compares the sharp predicted minimal condition number, and verifies the complete optimizer count. The checker additionally compares hyperbolic-root evaluations with the smallest path eigenvalues for multiple positive coefficients and lengths up to \(99\).
+## correctness
 
-Numerical eigenvalue tolerances are used. These checks supplement rather than prove the result for unbounded dimensions. The all-dimensional certificate is the explicit rank-two edge sum, exact unitary path reduction, Perron and hyperbolic monotonicity arguments, and integer gap-counting proof in `RESULT.md`. No unsupplied external result, external certificate or pre-existing local log is needed to follow the analytical proof.
+PASS
+
+Every retained translation contributes two rank-one Gabor atoms on edge (k,k+1) with diagonal two at each endpoint and offdiagonal modulus 2q, q=|cos(pi*ell/N)| in (0,1). Removing pairs creates positive-length path components or isolated vertices. Gauging phases along each path gives the exact disjoint union of blocks 2H_m(q) with diagonal 1,2,...,2,1 and q super/subdiagonals. The eigenvalue alpha_m is the unique hyperbolic root t_m via q(cosh t+sinh t*tanh(mt/2))=1, and increases strictly with m; beta_m increases strictly from Perron-positive Rayleigh extension. Therefore the condition number is beta_(max gap)/alpha_(min gap). Integer averaging forces min gap<=floor((N-h)/h), max gap>=ceil((N-h)/h), and strict monotonicity makes precisely balanced positive gap lists optimal, counted by (N/h)*binomial(h,r). For h>N/2 an isolated vertex is unavoidable. Independent complex Hermitian operator reconstruction and numerical spectra for 18,966 N,ell,h,E combinations across 190 families with N=3..11 agreed with Jacobi blocks and optimal masks, after correcting an initial integer-dtype bug in the *independent test*; the all-N proof is analytic, not finite enumeration.
+
+## originality
+
+PASS
+
+Existing Gabor block-equivalence and erasure-robustness theory supplies foundational structure, and Resultary has similar-looking two-character harmonic frames, but not this two-tap, N-dimensional paired translation-erasure optimization. The exact Jacobi spectral decomposition, strict monotonicity, sharp optimal erasure geometry and labeled count were not covered by inspected primary statements. The elementary graph eigenvalue tools are not claimed new.
+
+## value
+
+PASS
+
+Finite-frame conditioning after structured adversarial erasures is a natural signal-recovery design invariant. The result solves all configurations exactly under a motivated two-tap/two-modulation model, including a sharp survival threshold and complete equality classification, not a generic balanced-gap platitude.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

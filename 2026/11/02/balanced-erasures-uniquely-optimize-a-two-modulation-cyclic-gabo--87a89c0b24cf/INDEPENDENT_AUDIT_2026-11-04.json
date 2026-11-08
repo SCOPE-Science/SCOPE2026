@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:04:42.412427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every retained translation contributes two rank-one Gabor atoms on edge (k,k+1) with diagonal two at each endpoint and offdiagonal modulus 2q, q=|cos(pi*ell/N)| in (0,1). Removing pairs creates positive-length path components or isolated vertices. Gauging phases along each path gives the exact disjoint union of blocks 2H_m(q) with diagonal 1,2,...,2,1 and q super/subdiagonals. The eigenvalue alpha_m is the unique hyperbolic root t_m via q(cosh t+sinh t*tanh(mt/2))=1, and increases strictly with m; beta_m increases strictly from Perron-positive Rayleigh extension. Therefore the condition number is beta_(max gap)/alpha_(min gap). Integer averaging forces min gap<=floor((N-h)/h), max gap>=ceil((N-h)/h), and strict monotonicity makes precisely balanced positive gap lists optimal, counted by (N/h)*binomial(h,r). For h>N/2 an isolated vertex is unavoidable. Independent complex Hermitian operator reconstruction and numerical spectra for 18,966 N,ell,h,E combinations across 190 families with N=3..11 agreed with Jacobi blocks and optimal masks, after correcting an initial integer-dtype bug in the *independent test*; the all-N proof is analytic, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asipchuk et al formulate block structure for suitable subgroup indices and general frame sparsity, not arbitrary h translated-pair erasures and exact minimax conditioning.",
+          "Salanevich–Strachan treat noise/random erasures and Alltop frames, not path-block extrema for this specific deterministic sparse model."
+        ],
+        "reasoning": "General block reductions or generic frame bounds do not yield the exact all-erasure sorted-run optimality and enumerations without additional spectral arguments.",
+        "searches": [
+          "Asipchuk De Carli Rodriguez Block-equivalent finite Gabor frames arXiv:2605.16139",
+          "Salanevich Strachan Robustness to noise and erasures of Gabor frames arXiv:2509.01325",
+          "Bodmann Paulsen Frames Graphs Erasures math/0406134"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 52ed1a618b1c9c08e238b6ad07426c5914fab771, CHECK.py ffa537852bcae10d99e6c56de76075f5a6b9307f; tree b5f3da28b52ed84e11998c398c2f2c60a3469039",
+        "Asipchuk–De Carli–Rodriguez arXiv:2605.16139",
+        "Salanevich–Strachan arXiv:2509.01325",
+        "Resultary: Exact adversarial-erasure spectra for two-character cyclic harmonic frames"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary paired deletion patterns can produce path partitions not covered by subgroup-coset hypotheses; those patterns and equality classification are essential.",
+          "Existing Alltop/random-erasure results have different window and random/probabilistic assumptions."
+        ],
+        "reasoning": "The submitted global condition-number optimizer is not an immediate corollary of the prior generic results under their stated conditions.",
+        "searches": [
+          "arXiv:2605.16139 main theorem block equivalent finite Gabor frames subgroup hypothesis",
+          "arXiv:2509.01325 Salanevich Strachan theorem erasures MUB Alltop"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/11 two-character cyclic harmonic-frame result concerns 2D Fourier analysis with individual erasures, not C^N two-tap paired-translation erasures.",
+          "Related nonlinear spectrogram Jacobian results optimize a nonlinear map, not this linear frame operator."
+        ],
+        "reasoning": "Both dimension and deletion mechanism are essential; a renamed balanced-cycle-gap theorem would imply the claim only if the same Jacobi edge-block operator were covered.",
+        "searches": [
+          "Resultary: two tap finite cyclic Gabor two modulation paired translation erasures frame condition number balanced gaps optimal",
+          "Resultary: Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "Resultary: exact local conditioning optimal weighting two-tap cyclic spectrograms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent small-N spectral census verified 18,966 cases; no independent older exact table located in cited mathematical work."
+        ],
+        "reasoning": "The theorem provides all N,h and q, not a recomputed fixed table; potential frame-design databases might nevertheless imply special cases.",
+        "searches": [
+          "two tap cyclic Gabor erasures condition number exact census",
+          "two modulation paired translation frame erasure masks N h q exact matrix eigenvalues"
+        ]
+      },
+      "rationale": "Existing Gabor block-equivalence and erasure-robustness theory supplies foundational structure, and Resultary has similar-looking two-character harmonic frames, but not this two-tap, N-dimensional paired translation-erasure optimization. The exact Jacobi spectral decomposition, strict monotonicity, sharp optimal erasure geometry and labeled count were not covered by inspected primary statements. The elementary graph eigenvalue tools are not claimed new.",
+      "residual_risks": [
+        "An unindexed theorem about optimal conditioning of deleted weighted cycle edges could imply balanced-gap extremality.",
+        "The antipodal q=0 case is excluded and may have nonunique optimizers.",
+        "Finite numerics are not certification of the all-N all-real-q theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General subgroup/block equivalence but not optimal paired arbitrary translation erasures in the two-tap model.",
+          "evidence": "The prior structural result requires different index organization than arbitrary erasure runs.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.16139",
+          "material_read": "Read full arXiv PDF framing and main block equivalence theorem with subgroup-structured indices; rendered PDF page inspected.",
+          "method": "arXiv full PDF",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Very close finite Gabor block methodology, newer revision Oct 2026"
+        },
+        {
+          "assessment": "Different random/Alltop measurement families and bounds, no identified same path-Jacobi exact optimum.",
+          "evidence": "Scope mismatch in windows, erasure model and type of quantitative bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.01325",
+          "material_read": "Read accessible full arXiv PDF statements for noise/erasure bounds and Alltop construction; rendered PDF page inspected.",
+          "method": "arXiv full PDF",
+          "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+          "trigger": "Closest finite Gabor erasure resistance"
+        },
+        {
+          "assessment": "Not asserted absent from whole document; stated frame object differs in ambient dimension and paired-removal rule.",
+          "evidence": "Two-character 2D frequency frame versus two-tap N-dimensional analysis operator.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0",
+          "material_read": "Read published indexed theorem-level summary giving 2D harmonic frame with individual erasure patterns; not whole full text.",
+          "method": "Resultary search and published source summary",
+          "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "trigger": "Published same-sounding cyclic erasure optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-frame conditioning after structured adversarial erasures is a natural signal-recovery design invariant. The result solves all configurations exactly under a motivated two-tap/two-modulation model, including a sharp survival threshold and complete equality classification, not a generic balanced-gap platitude.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 52ed1a618b1c9c08e238b6ad07426c5914fab771, CHECK.py ffa537852bcae10d99e6c56de76075f5a6b9307f; tree b5f3da28b52ed84e11998c398c2f2c60a3469039",
+    "Asipchuk–De Carli–Rodriguez arXiv:2605.16139",
+    "Salanevich–Strachan arXiv:2509.01325",
+    "Resultary: Exact adversarial-erasure spectra for two-character cyclic harmonic frames"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equal unnormalized two-tap window only, paired complete-translation erasures and exactly two non-antipodal modulations.",
+    "No all-window, multi-modulation or non-paired erasure claim."
+  ],
+  "schema_version": 1
+}
