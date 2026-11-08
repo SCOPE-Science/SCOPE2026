@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Full-rank Gaussian projected columns yield an exact flat-spectrum Nyström projector identity. The leave-one-out basic residual has a \\(\\chi^2_1\\) law. Conditional on the other \\(k-2\\) columns, two remaining projected Gaussian columns live in a two-dimensional plane and their squared residuals have joint mean \\(3/2\\) from the exact \\(\\sin^4\\) angular moment \\(3/8\\), giving covariance \\(1/2\\). This proves the rank-\\(k\\) variance \\(a^2(k+3)/(2k)\\), expected spread proxy \\(3a^2/(2k)\\), and correlation \\(1/4\\), for every \\(k\\ge2\\). One more probe makes each leave-one-out span full rank. The \\(k=2\\) Laplace transform follows from independent \\(\\chi^2_4\\) lengths and a \\(\\operatorname{Beta}(1/2,1/2)\\) angle. All calculation and scope boundaries were checked; 479 numerical diagnostics passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Madhavan et al. (2026), arXiv:2603.05721v1, Theorems 3.3–3.5, provide general trace-estimation bias and MSE upper bounds.",
+        "Epperly–Tropp–Webber (2024), arXiv:2301.07825v2, Proposition 5.3, bounds XNysTrace variance using Nyström approximation errors."
+      ],
+      "reasoning": "The general upper bounds apply to the projector specialization but do not imply equality with the exact coefficient \\((k+3)/(2k)\\) or the \\(1/4\\) correlation. The earlier exact rank condition for Nyström capture explains the zero-error regime but does not determine how the rank-matched leave-one-out residuals co-vary.",
+      "searches": [
+        "\"FlexTrace\" \"rank\" \"variance\" \"projector\"",
+        "\"XNysTrace\" \"rank\" \"variance\" \"projector\"",
+        "XTrace exact variance projection rank samples exchangeable trace estimator rank k k samples residual variance",
+        "XTrace rank k projector k probes sharp variance phase transition k+1 probes"
+      ]
+    },
+    "checked_sources": [
+      "Madhavan–Alexanderian–Saibaba (2026), arXiv:2603.05721v1, https://arxiv.org/html/2603.05721",
+      "Epperly–Tropp–Webber (2023/2024), arXiv:2301.07825v2, https://arxiv.org/pdf/2301.07825",
+      "Published bibliographic record for XTrace (SIAM J. Matrix Anal. Appl. 45, 2024), DOI:10.1137/23M1548323",
+      "Searches for Gaussian residuals, inverse-Wishart reciprocal diagonals, and exact projector-rank estimator variance; no directly covering scientific text identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "XTrace Proposition 3.1 gives \\(\\mathbb E[\\mathrm{proxy}]/\\mathrm{MSE}=(1-c)/(1+(k-1)c)\\), with \\(c\\) the common correlation of distinct basic estimates.",
+        "The proof here computes \\(c=1/4\\) on the rank-matched flat spectrum and obtains \\(3/(k+3)\\); XTrace Proposition 5.3 gives only a general upper bound on variance."
+      ],
+      "reasoning": "The numerical factor follows from the earlier general proposition only after a new independent joint-moment evaluation. The general proposition already owns the abstract correlation-to-proxy reduction and is not presented as a novelty. The new claim is the exact special-case covariance, resulting sharp variance and diagnostic calibration cliff.",
+      "searches": [
+        "XTrace Proposition 3.1 error estimate correlation",
+        "\"XNysTrace\" \"rank\" \"variance\" \"projector\"",
+        "FlexTrace exchangeable trace estimation low rank phase transition exact second moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The statistic is the mean squared distance of Gaussian columns from the spans of all other columns. Each distance is a reciprocal diagonal entry of an inverse Gram/Wishart matrix; this equivalence was compared against the classical single-diagonal chi-square law.",
+        "The checked XNysTrace primary source treats covariance as an uncomputed quantity in its general error-estimator identity (Section 3.1)."
+      ],
+      "reasoning": "The single-coordinate reciprocal-chi-square/Wishart identity fixes the marginal distribution but not the pairwise joint moment. The present conditional two-plane argument produces that moment and hence the exact estimator-level calibration law; none of the searched equivalent formulations supplied a directly covering pairwise statement.",
+      "searches": [
+        "\"pairwise covariance\" \"leave-one-out residuals\" Gaussian",
+        "\"inverse Wishart\" \"reciprocal\" \"diagonal\" covariance",
+        "leave-one-out Gaussian square matrix regression residuals exact pairwise covariance chi-square 1/2 XNysTrace",
+        "diagonal inverse Wishart reciprocal Schur complements pairwise moments residual variance Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked XTrace/XNysTrace primary text includes step-spectrum experiments, a general posterior error estimator, and spectral bounds, but no exact flat-projector coefficient or rank-one-probe variance table.",
+        "Public mathematical search results included general Wishart-diagonal chi-square facts but no pairwise statistic table implying the claimed calibration coefficient."
+      ],
+      "reasoning": "No searched database table or indexed exact formula matched the rank-critical moment coefficients or the one-probe transition. Absence from indexed searches alone is not a uniqueness proof.",
+      "searches": [
+        "\"XNysTrace\" \"rank\" \"variance\" exact projector",
+        "\"FlexTrace\" \"rank\" \"variance\" \"projector\"",
+        "XNysTrace estimator rank projector leaves one out covariance one quarter between individual estimates",
+        "Nyström exchangeable trace estimator Gaussian rank threshold calibration variance (k+3)/(2k)"
+      ]
+    },
+    "rationale": "The primary FlexTrace analysis proves estimator-level bounds but does not calculate the flat-rank Gaussian pair moment. XNysTrace Proposition 3.1 already gives a general correlation-dependent calibration identity, and Proposition 5.3 gives a broad variance bound; the exact correlation \\(1/4\\), finite-rank variance coefficient, \\(k\\)-dependent proxy ratio, and rank-crossing one-probe transition require the independent conditional two-dimensional calculation shown in the proof. No covering result appeared in the checked records, although unindexed Gaussian regression identities remain a priority risk.",
+    "residual_risks": [
+      "The result may be implicit in unindexed classical joint Wishart/projection-residual identities; the single-coordinate inverse-Wishart law is known.",
+      "The earlier general posterior-error identity is strictly stronger as a formula conditional on the actual pairwise correlation; novelty is only the exact spectral-model correlation and its consequences.",
+      "Any extension from the idealized fixed projector spectrum and unnormalized Gaussian probes would need a new analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes broad bounds and exchangeability but does not compute this rank-matched pairwise Gaussian covariance or the exact calibration coefficient.",
+        "evidence": [
+          "arXiv:2603.05721v1, Algorithm in Section 3.1 and Theorems 3.3–3.5",
+          "arXiv HTML text Sections 3.2.1–3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.05721",
+        "material_read": "Primary HTML text: estimator definition and Algorithm, Sections 3.1–3.2 including Theorems 3.1–3.5, and rank-deficient shortcut in the implementation section.",
+        "method": "Read substantive sections of the accessible arXiv primary full-text HTML and compared the exact estimator algebra.",
+        "title": "FlexTrace: Exchangeable Randomized Trace Estimation for Matrix Functions",
+        "trigger": "Identical full-sketch and leave-one-out matrix-function estimator; its rank-critical MSE is the main target."
+      },
+      {
+        "assessment": "The paper provides the general algebraic estimator, a correlation-dependent calibration formula, and upper variance bounds. It does not identify the Gaussian flat-projector pairwise correlation as 1/4 or quantify the resulting exact rank-critical variance/proxy ratio.",
+        "evidence": [
+          "arXiv:2301.07825v2, equations (1.7)–(1.9)",
+          "Proposition 3.1; Proposition 5.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.07825",
+        "material_read": "Primary full-text PDF, pp. 4–5 (XNysTrace formula), p. 12 (Proposition 3.1 and proxy interpretation), pp. 18–20 (variance/covariance analysis including Proposition 5.3); relevant text and page images were inspected.",
+        "method": "Read the arXiv primary PDF full-text excerpts and inspected corresponding page images to check displayed equations and logical scope.",
+        "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+        "trigger": "A stronger antecedent: the XNysTrace basic estimator on a scaled projector coincides with the target under a scalar rescaling; its error-proxy formula is directly relevant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "59db7c41-8eb4-4399-9072-4eaa56ad9598",
+  "value": {
+    "rationale": "A new exact reliability benchmark isolates a rank-critical failure of the standard leave-one-out squared-error diagnostic: its expected value decreases as \\(1/k\\) even though the actual absolute MSE stays at least \\(a^2/2\\), while one additional probe completely removes the error. The precise phenomenon is a motivated issue for sample-budget decisions and uncertainty calibration in function-of-matrix trace estimation, rather than a rote simplification of the estimator. The result does not extrapolate to relative-error failure or arbitrary matrices.",
+    "status": "PASS"
+  }
+}
