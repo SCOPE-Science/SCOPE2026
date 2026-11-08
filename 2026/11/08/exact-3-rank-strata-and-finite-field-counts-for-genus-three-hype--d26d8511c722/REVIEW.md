@@ -1,0 +1,11 @@
+# Scientific review — 3-rank strata of even genus-three octics in characteristic three
+
+**Correctness — PASS.** Coefficient extraction from the standard Hasse–Witt formula gives an explicit block matrix. Semilinear stable ranks produce all three possible 3-ranks, while squarefreeness rules out the sole rank-zero possibility. Character generating functions provide the exact all-extension smooth-curve count, and the disjoint divisor count gives each stratum. A separately executed enumerator checked every coefficient triple over three finite fields. The finite tests supplement, but do not replace, the infinite proof.
+
+**Originality — PASS, with residual historical risk.** Gutierrez–Shaska already provide the even-polynomial normal form and involution quotients. Elkin–Pries already prove that genus-three hyperelliptic curves in characteristic three have \(a\)-number at most one and characterize general rank-zero curves in another normal form. The finding does not claim these facts. The distinctive statements are the exact smooth marked extra-involution rank strata, the four \(\mathbb G_m\) components of the rank-one locus, and their closed counts over all finite extensions. Full relevant primary sections were inspected; analogous earlier findings in other characteristics or other curve families do not imply these parameter-specific counts. No specialist has independently determined historical priority, and unindexed literature remains a risk.
+
+**Value — PASS.** The additional involution marks a classical, geometrically motivated locus within genus-three hyperelliptic moduli. Determining whether it can meet the 3-rank-zero stratum, identifying the rank-one boundary, and exactly counting each arithmetic stratum across all extensions are natural structural and arithmetic questions rather than isolated coefficient experiments. The result distinguishes the marked-family geometry without claiming a moduli-space quotient census.
+
+**Limits.** Characteristic exactly three, smooth normalized even octics, and marked triples only. Full Newton polygons, Ekedahl–Oort types, and curve-isomorphism counts are not classified. Independent priority and correctness assessment remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.
