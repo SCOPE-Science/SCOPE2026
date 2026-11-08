@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py collapse_templates.json` with Python 3. The output file `verification_output.txt` records the actual run. No packages are required beyond the standard library.
+## correctness
 
-The program checks an exhaustive 170-element normalized face-orbit poset with the bounded integer witness-center criterion. It replays 58 free orbit-pair deletions down to 54 core types and checks complete concrete complexes at five distinct orders. It constructs the fundamental four-cycle over \(\mathbb F_2\), the cut cocycle, the cap-product chain, and a closed dual-facet loop whose three-cochain evaluates oddly on the octahedral three-cycle. These data prove a nonzero degree-one times degree-three cup product. The universal proof additionally uses the explicit bound \(n\ge17\), guaranteeing that the local integer residues and adjacency tests do not wrap ambiguously.
+PASS
 
-This is finite exact computation plus a mathematical reduction of the infinite family, not an exhaustive execution for infinitely many sizes. This package has not undergone independent mathematical audit.
+The source normalizes faces of eight-neighbor open cycles by their unique cyclic gap exceeding eight for n>=17; 170 orbit types and 54 surviving core types are supported by a concrete 58-pair certificate. Independently transcribed all 58 ordered pairs and reconstructed the COMPLETE integer-line one-vertex coface incidence, finding exactly one active coface per lower orbit and 54 final orbits. Rebuilt all faces at n=17,18,19,23, verified 170n and 54n counts, cocycle alpha on every triangle, 8n four-cycle facets, alpha cap Gamma equal to the 16-facet octahedral sphere, and the closed dual adjacency cocycle evaluating oddly on that sphere. The local incidence bound, not finite examples alone, extends the collapse to all n>=17; algebraic cap/cup duality proves nontrivial multiplication. No manifold or integral ring classification is claimed.
+
+## originality
+
+PASS
+
+The closest public cycle-power neighborhood result has graph power THREE: a 10n-collapse to a 3D sphere-bundle core, not graph power FOUR or an H1*H3 nonvanishing obstruction. Generic simple-homotopy equivalence N(G)~Hom(K2,G) does not determine any particular fourth-power homotopy or ring. Focused Resultary and public literature alias searches located no mathematical implication or table covering this exact n>=17 statement. Best-of-knowledge PASS with acknowledged incomplete indexing and only abstract-level Kozlov inspection.
+
+## value
+
+PASS
+
+A uniform reduction of a canonical infinite family from dimension seven to four and an explicit nonzero multiplicative cohomology invariant is a substantive structural topology result. The obstruction rules out sphere-wedge homotopy for all n>=17 and is not obtained from additive Betti counts or from reparameterizing the third-power result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

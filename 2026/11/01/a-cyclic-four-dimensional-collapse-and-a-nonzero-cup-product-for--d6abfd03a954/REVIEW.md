@@ -1,15 +1,21 @@
-# Review of the fourth-power cycle neighborhood result
+# Independent mathematical audit
 
-## Correctness
-The central infinite-family collapse reduces to a literal complete local enumeration of 170 orbit types, 54 preserved types and 58 ordered free-face pairs. The bounded witness-center argument makes this check independent of the order \(n\ge17\); finite replays at several values are secondary safeguards, not the universal proof. The cap and dual-cochain argument proves the nonzero mod-two product without assuming a manifold classification. All packaged code and the accompanying certificate were executed successfully.
+## correctness
 
-## Originality
-Kozlov's general simple-homotopy equivalence between neighborhood and Hom complexes does not specify the collapse or cohomology product for fourth powers. Bagchi–Datta's sphere-bundle triangulation theory does not imply this graph-specific statement. The closest indexed related calculation is the third-power family, not the fourth-power family. Targeted literature searches, mathematical-record searches and accessible prior titles/claims produced no statement covering this exact implication. Unindexed equivalent work remains a real risk; a published-result index alone cannot establish uniqueness.
+PASS
 
-## Value
-An exact infinite-family collapse from a seven-dimensional neighborhood complex to a four-dimensional cyclic core is a structural result. More importantly, the nonzero positive-degree cup product establishes a persistent multiplicative obstruction invisible to sphere-wedge Betti-rank comparisons; it rules out any wedge-of-spheres homotopy model at all these orders. The invariant is motivated by standard questions about homotopy and cohomology rings of graph neighborhood complexes rather than an arbitrary numerical slice.
+The source normalizes faces of eight-neighbor open cycles by their unique cyclic gap exceeding eight for n>=17; 170 orbit types and 54 surviving core types are supported by a concrete 58-pair certificate. Independently transcribed all 58 ordered pairs and reconstructed the COMPLETE integer-line one-vertex coface incidence, finding exactly one active coface per lower orbit and 54 final orbits. Rebuilt all faces at n=17,18,19,23, verified 170n and 54n counts, cocycle alpha on every triangle, 8n four-cycle facets, alpha cap Gamma equal to the 16-facet octahedral sphere, and the closed dual adjacency cocycle evaluating oddly on that sphere. The local incidence bound, not finite examples alone, extends the collapse to all n>=17; algebraic cap/cup duality proves nontrivial multiplication. No manifold or integral ring classification is claimed.
 
-## Scope and remaining risk
-No complete homotopy type, integral ring, geometric manifold identification or orders below seventeen are asserted. Verification is self-review only, and publication priority cannot be guaranteed from available sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest public cycle-power neighborhood result has graph power THREE: a 10n-collapse to a 3D sphere-bundle core, not graph power FOUR or an H1*H3 nonvanishing obstruction. Generic simple-homotopy equivalence N(G)~Hom(K2,G) does not determine any particular fourth-power homotopy or ring. Focused Resultary and public literature alias searches located no mathematical implication or table covering this exact n>=17 statement. Best-of-knowledge PASS with acknowledged incomplete indexing and only abstract-level Kozlov inspection.
+
+## value
+
+PASS
+
+A uniform reduction of a canonical infinite family from dimension seven to four and an explicit nonzero multiplicative cohomology invariant is a substantive structural topology result. The obstruction rules out sphere-wedge homotopy for all n>=17 and is not obtained from additive Betti counts or from reparameterizing the third-power result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
