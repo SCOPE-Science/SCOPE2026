@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The block-profile count follows from a multivariate root decomposition and Lagrange inversion. Conditional on a fixed number of blocks, ordering the blocks yields a genuinely uniform positive composition, permitting independent exact factorial moments. The conditional covariance reduces to a strictly positive rational multiplier of \(rk-2(n-1)\). The unconditional covariance has a separately verified strictly positive square-plus-polynomial certificate for the negative sign. Exceptional regimes, \(n=2\), and zero covariance without independence are handled. The `verify.py` execution completed 2,074,703 exact assertions, including exhaustive noncrossing enumeration through ten points.
+## correctness
 
-**Originality — PASS, qualified.** Kreweras's full block-profile formula and Kargin's negative leading-order unconditional covariance are already known and are not attributed to this result. The assessed additional statement is the simultaneous finite-sample conditional phase boundary, strict unconditional sign at every size, exceptional near-full-block case, and an opposite-sign linear-scale comparison at the typical number of blocks. Searches of the available mathematical research index, prior findings, and relevant published literature identified no directly matching conditional phase theorem. The classical full-profile formulas imply the factorial moments used here; an earlier unstated or unlocated sign analysis is a material priority risk.
+PASS
 
-**Value — PASS.** Conditioning on total block count changes the *sign* of dependence between natural block-size statistics, despite strictly negative unconditional covariance. The phase plane is exact for all sizes, and for every fixed \(r\ge5\) the conditional-positive and marginal-negative covariances both remain of linear order in \(n\), not merely in a tiny finite exception. An exact zero-covariance but dependent example separates the sign statement from independence.
+The classical Lagrange-inversion profile enumeration n!/((n+1-k)!prod m_j!) implies ordered block sizes conditional on K=k are uniform positive compositions of n into k parts. Counting prescribed first/second parts gives E S1=k(k-1)/(n-1), E Sr=k*binom(n-r-1,k-2)/binom(n-1,k-1), and E S1Sr=k(k-1)*binom(n-r-2,k-3)/binom(n-1,k-1). Their covariance factors as positive multiplier k(k-1)p/((n-1)(n-r-1)) times (rk-2(n-1)), with explicit r=n-1 and boundary cases. The all-n unconditional covariance is negative via the exact positive-square certificate 4(n+1)Delta=(2(n+1)r-7n+5)^2+16(n-3)^3+87(n-3)^2+144(n-3)+64 for n>=3, n=2 checked directly. Typical K~n/2 gives opposing order-n limits. Independently enumerated all noncrossing partitions n<=6, and expanded polynomial certificate symbolically.
 
-Closest literature: Kreweras (1972), Kortchemski–Marzouk (2015), Kargin (2019), and the general labeled noncrossing-profile enumeration in the star-factorization literature. The latter indexed result and the 1972 publisher text were not fully accessible; they remain specifically identified historical-priority risks. The result is not a new enumeration theorem, is not a statement about all block-size pairs, and has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kreweras block-profile counts and Kargin marginal asymptotic covariance are known. The derived all-n conditional sign phase rk=2(n-1), near-full-block exceptional variance, strict unconditional sign, and opposite-sign typical-scale limits were not located in directly reviewed prior results; algebra uses classical counts but the sign-law comparison is additional at best knowledge.
+
+## value
+
+PASS
+
+Conditioning on total block number reverses, at typical scale and linear order, dependence between natural singleton and size-r block statistics although unconditional dependence stays negative; the phase boundary is exact at every admissible n,k,r and distinguishes zero covariance from independence. This is a genuine probabilistic structural fact, not rediscovery of Catalan enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

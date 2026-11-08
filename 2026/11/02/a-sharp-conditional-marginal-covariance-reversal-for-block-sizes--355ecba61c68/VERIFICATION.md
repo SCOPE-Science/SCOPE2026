@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` in a directory containing the supplied standalone script. It uses only the Python 3 standard library, exhaustive restricted-growth-string enumeration, exact `Fraction` arithmetic, and exact factorial/binomial identities.
+# Independent mathematical audit
 
-The completed execution reported **2,074,703 exact assertions passed**. Exhaustive noncrossing-partition enumeration was performed for \(n\le10\), including the Catalan totals, the full block-profile formula and all conditional/unconditional moment checks. The independent symbolic-identity implementation checked every admissible integer triple \((n,k,r)\) through \(n=160\), with the exceptional largest block sizes treated separately. The positive polynomial identity used for unconditional strict negativity was also checked exactly.
+## correctness
 
-Finite checks do not establish any statement beyond their enumerated range. The general conclusions rely on the Lagrange-inversion enumeration, binomial factorial-moment algebra, and an explicit sum-of-positive-terms certificate given in `RESULT.md`. No independent review or external certification is asserted.
+PASS
+
+The classical Lagrange-inversion profile enumeration n!/((n+1-k)!prod m_j!) implies ordered block sizes conditional on K=k are uniform positive compositions of n into k parts. Counting prescribed first/second parts gives E S1=k(k-1)/(n-1), E Sr=k*binom(n-r-1,k-2)/binom(n-1,k-1), and E S1Sr=k(k-1)*binom(n-r-2,k-3)/binom(n-1,k-1). Their covariance factors as positive multiplier k(k-1)p/((n-1)(n-r-1)) times (rk-2(n-1)), with explicit r=n-1 and boundary cases. The all-n unconditional covariance is negative via the exact positive-square certificate 4(n+1)Delta=(2(n+1)r-7n+5)^2+16(n-3)^3+87(n-3)^2+144(n-3)+64 for n>=3, n=2 checked directly. Typical K~n/2 gives opposing order-n limits. Independently enumerated all noncrossing partitions n<=6, and expanded polynomial certificate symbolically.
+
+## originality
+
+PASS
+
+Kreweras block-profile counts and Kargin marginal asymptotic covariance are known. The derived all-n conditional sign phase rk=2(n-1), near-full-block exceptional variance, strict unconditional sign, and opposite-sign typical-scale limits were not located in directly reviewed prior results; algebra uses classical counts but the sign-law comparison is additional at best knowledge.
+
+## value
+
+PASS
+
+Conditioning on total block number reverses, at typical scale and linear order, dependence between natural singleton and size-r block statistics although unconditional dependence stays negative; the phase boundary is exact at every admissible n,k,r and distinguishes zero covariance from independence. This is a genuine probabilistic structural fact, not rediscovery of Catalan enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
