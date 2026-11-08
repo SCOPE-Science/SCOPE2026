@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:22:05.978080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For -1<rho<1 and h>0, the exact correlated normal-product density is exp(rho*z/d)K0(|z|/d)/(pi sqrt d). K1>K0>0 makes its tails strictly monotone. On -h<c<h the log endpoint-density ratio has strictly negative derivative, goes from +infinity to -infinity, and equals 2 rho h/d at c=0, giving one interior maximum with correct sign; outside that interval mass is monotone. K0(t)=-log(t/2)-gamma+O(t^2|log t|) and K1(t)=1/t+O(t|log t|) yield c=(rho/d)h^2[log(2d/h)-gamma]+o(h^2) and gain rho^2 h^3[log(2d/h)-gamma]^2/(pi*d^(5/2)). Independent scipy root checks with rho=0.4,h=.2; rho=-.7,h=.1; rho=.5,h=.003 confirmed sign and small-width scale (the original source checker.py and exact Git blobs were inspected). Finite tests are not proof. rho=0 yields c=0 and zero gain; near rho=+/-1 uniformity is not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaunt 2022 §2 includes mode, median and CDF for arbitrary scale and averaging; newer Gaunt–Sutcliffe 2026 gives VG CDF, but neither inspected statement implies maximizing a sliding interval or its logarithmic asymptotic."
+        ],
+        "reasoning": "Stronger or more general statements were checked for actual logical implication, including different quantifier/objective regimes.",
+        "searches": [
+          "Resultary:correlated normal random product Z=UV highest probability interval fixed half-width unique optimal center displacement Bessel K0",
+          "web:correlated normal product highest density interval optimal sliding interval Bessel K0 Gaunt 2022 survey",
+          "Gaunt 2022 DOI:10.1111/stan.12267; arXiv:2610.16540"
+        ]
+      },
+      "checked_sources": [
+        "Gaunt 2022 DOI 10.1111/stan.12267 full text §§1–2 and appendix context",
+        "Gaunt & Sutcliffe arXiv:2610.16540 abstract",
+        "Resultary semantic similarity search on normal-product concentration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard density f and monotonicity yield the necessary endpoint equality; the unique root and asymptotic improvement require further Bessel analysis not contained in the prior stated density, mode or CDF results."
+        ],
+        "reasoning": "Separate the credited input from the mathematical statement needed for the reviewed theorem.",
+        "searches": [
+          "Resultary:correlated normal random product Z=UV highest probability interval fixed half-width unique optimal center displacement Bessel K0",
+          "web:correlated normal product highest density interval optimal sliding interval Bessel K0 Gaunt 2022 survey",
+          "Gaunt 2022 DOI:10.1111/stan.12267; arXiv:2610.16540"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaunt Eq.(1) gives exactly the K0 density of the same product; equality of density is credited; fixed-width mass optimization has additional two-endpoint condition."
+        ],
+        "reasoning": "Compare exact observable/object, not matching title; Unique optimal fixed-width intervals for correlated Gaussian products and their logarithmic displacement",
+        "searches": [
+          "Resultary:correlated normal random product Z=UV highest probability interval fixed half-width unique optimal center displacement Bessel K0",
+          "web:correlated normal product highest density interval optimal sliding interval Bessel K0 Gaunt 2022 survey",
+          "Gaunt 2022 DOI:10.1111/stan.12267; arXiv:2610.16540"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary concentration queries gave a block-product small-ball result for unrelated extremizers; neither Gaunt article presented an exact table of optimal center c_(rho,h)."
+        ],
+        "reasoning": "No exact table found among inspected results; absence alone is not a novelty proof.",
+        "searches": [
+          "Resultary:correlated normal random product Z=UV highest probability interval fixed half-width unique optimal center displacement Bessel K0",
+          "web:correlated normal product highest density interval optimal sliding interval Bessel K0 Gaunt 2022 survey",
+          "Gaunt 2022 DOI:10.1111/stan.12267; arXiv:2610.16540"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the exact density and mode are classical; the all-width maximizing interval, unique center and small-width logarithmic displacement/gain are distinct objects not found in inspected 2022 product-distribution survey. Recent 2026 VG CDF paper was abstract-access only, leaving explicit risk.",
+      "residual_risks": [
+        "arXiv:2610.16540 full PDF/HTML inaccessible; full-document noncoverage not asserted",
+        "Possible prior general unimodal skew variance-gamma concentration-function theorem",
+        "Asymptotics hold at fixed nonzero |rho|<1, not uniformly near rho=0 or endpoints"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS distribution and mode; not an all-h interval optimizer statement",
+          "evidence": "Eq.(1) K0 density; §1 enumerates PDF/CDF/moments/mode and median; no global sliding-interval optimizer in those inspected parts",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/stan.12267",
+          "material_read": "Online full article introduction, §2.1 density and §2.8 mode/median discussion, appended Bessel overview",
+          "method": "open full HTML and relevant sections",
+          "title": "The basic distributional theory for the product of zero mean correlated normal random variables",
+          "trigger": "exact same zero-mean Gaussian product law"
+        },
+        {
+          "assessment": "UNRESOLVED whole-document comparison, priority risk; abstract addresses CDF and absolute moments",
+          "evidence": "Abstract states CDF and odd absolute moments for VG and correlated product, no interval maximization stated",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16540",
+          "material_read": "arXiv abstract only; full PDF and HTML inaccessible",
+          "method": "OA arXiv abstract and attempted full text",
+          "title": "Closed-form evaluation of the cumulative distribution function and absolute moments of the variance-gamma distribution",
+          "trigger": "new 2026 same-product CDF paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The concentration function for a highly skewed singular density is a natural small-ball statistic; its maximizing interval differs strictly from the mode and admits sharp nonanalytic displacement and gain constants, a motivated exact parametric classification rather than a mechanical density restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "arXiv:2610.16540 full PDF/HTML inaccessible; full-document noncoverage not asserted",
+    "Possible prior general unimodal skew variance-gamma concentration-function theorem",
+    "Asymptotics hold at fixed nonzero |rho|<1, not uniformly near rho=0 or endpoints"
+  ],
+  "schema_version": 1
+}
