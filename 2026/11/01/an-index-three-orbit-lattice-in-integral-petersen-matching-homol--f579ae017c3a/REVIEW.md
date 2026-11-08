@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite complex is defined on exactly the fifteen Petersen edges, not confused with the Petersen graph realized as the matching complex of a complete graph. Complete face enumeration produces 331 nonempty simplices and the face vector \((15,75,145,90,6)\). The specified 160-pair Morse matching passes an exhaustive directed-Hasse acyclicity check. Integral unit cancellations leave exactly a point, five 2-cells and five 3-cells with zero integer differential. The explicit chain inclusions and projections demonstrate that those critical generators are an integral homology basis; every lifted cycle has zero original simplicial boundary. For every one of the 120 natural automorphisms, the exact projected action has the claimed character. The degree-two signed-permutation orbit has unimodular determinant \(-1\); the degree-three fixed line is rank one with a primitive generator, and its ten translates have integral Smith diagonal \((1,1,1,1,3)\). The proof concerns finite computation exhaustively certified by standalone code, not an extrapolation from finite fields.
+## correctness
 
-**Originality — PASS, with residual risk.** Prior same-object work already states the ordinary wedge homotopy type and both rational characters, so neither is claimed. The new statements are specifically the **unimodular integral degree-two orbit basis**, the **full integral degree-three generator matrices**, and the **index-three orbit-lattice obstruction**. The previous characters and wedge decomposition do not imply these lattice statements. Zaslavsky's full author manuscript §§3.2 and 8.2 gives matching orbit types and signed-graph automorphisms, not integral matching-homology actions. Jonsson's matching-complex chapter and other work on complete and chessboard matchings supply methods, not these exact lattice calculations. Literature indexing remains incomplete; an equivalent unindexed integral computation cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** The Petersen graph is a distinguished highly symmetric cubic graph, and its integral matching-complex representation is a natural refinement of a previously determined rational representation. The contrast between an honest primitive permutation basis in degree two and a proper index-three orbit lattice in degree three is representation-theoretically structural, detecting exactly the prime at which rational orbit spanning fails integrally. Explicit integral matrices enable further modular and equivariant calculations. This is not a cosmetic restatement of Betti numbers or a minor numerical increment.
+Petersen P=KG(5,2) has 15 edges; ordinary matching complex simplices are pairwise disjoint edges. Independently enumerated face vector (15,75,145,90,6), 331 nonempty simplices, and mod-two boundary ranks 14,61,79,6, giving Betti 5 in dimensions 2 and 3. Inspected complete deterministic verify_integral_petersen.py: its specified 160-pair Hasse matching has explicit acyclicity topological sorting and exact integer unit cancellations, leaving one critical vertex and five 2- and five 3-cells with all critical differentials zero, so integral homology is torsion-free Z^5 in both dimensions. Code builds integral cycle inclusions/projections, signed S5 action on all 120 permutations, and four generators. In generator_matrices.json, H2 signed orbit matrix has determinant −1. The H3 T-fixed primitive vector (0,0,−1,1,1) has ten pair orbit columns: independently calculated rank 5 and Smith diagonal (1,1,1,1,3) directly from the actual supplied 5×10 matrix, proving index three and quotient Z/3 of lattices, not homology torsion. Full script was inspected, but did not independently run its complete signed 120-element action construction.
 
-**Closest literature and limitations.** Jonsson's 2007 monograph treats general matching complexes; Zaslavsky's 2011 full manuscript classifies Petersen matching orbits but does not calculate integral homology modules. Previously available rational and nonequivariant results are excluded from novelty. The index-three result refers to a sublattice of a free group, not torsion in topological homology. The Jonsson chapter was accessible through contents/preview rather than a complete lawful full text; this leaves a specific literature-inspection risk. Independent audit and publication-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zaslavsky author manuscript classifies Petersen matching orbits and signed-graph automorphisms, not the integral S5 homology lattices. Earlier same-object rational characters and nonequivariant wedge are explicitly excluded. The integral determinant and Smith index cannot be inferred from rational characters and are meaningful new invariants; Resultary two-particle Petersen configuration and 3-cut complexes refer to different spaces.
+
+## value
+
+PASS
+
+Primitive orbit bases, generator matrices and a genuine index-three failure of generation by a natural stabilizer-fixed orbit are specific exact integral-equivariant data that rational character tables cannot resolve for a canonical graph matching complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

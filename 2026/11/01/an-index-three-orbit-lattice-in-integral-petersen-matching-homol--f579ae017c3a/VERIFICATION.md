@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Execute `python verify_integral_petersen.py` with SymPy installed. This is a self-contained deterministic computation; the result printed by the packaged code is recorded in `verification_output.txt`. Its exact integral matrices and orbit columns are embedded in `generator_matrices.json`. No logs from other calculations, remote attestations or unprovided data are used.
+## correctness
 
-The verification reconstructs the Petersen graph as \(\operatorname{KG}(5,2)\), enumerates its 331 nonempty matching simplices, checks the 160-pair Hasse acyclicity, and performs signed integer unit cancellations. It checks vanishing of the original lifted-cycle boundaries, complete cancellation projection/inclusion, Coxeter relations, and all 120 automorphism character values. For degree two the orbit basis has determinant \(-1\); for degree three the stabilized line generator is primitive and the ten-column orbit matrix has Smith factors \((1,1,1,1,3)\). These two exact lattice tests are what prove the new statements.
+PASS
 
-The executable requires Python 3 and SymPy and is finite for the specified graph. There is no claim of generalization to arbitrary graphs. The code is an ordinary mathematical checker and not an independent review or an external certification. The published background gives the model and its symmetry, while earlier nonequivariant and rational calculations are not claimed as novel.
+Petersen P=KG(5,2) has 15 edges; ordinary matching complex simplices are pairwise disjoint edges. Independently enumerated face vector (15,75,145,90,6), 331 nonempty simplices, and mod-two boundary ranks 14,61,79,6, giving Betti 5 in dimensions 2 and 3. Inspected complete deterministic verify_integral_petersen.py: its specified 160-pair Hasse matching has explicit acyclicity topological sorting and exact integer unit cancellations, leaving one critical vertex and five 2- and five 3-cells with all critical differentials zero, so integral homology is torsion-free Z^5 in both dimensions. Code builds integral cycle inclusions/projections, signed S5 action on all 120 permutations, and four generators. In generator_matrices.json, H2 signed orbit matrix has determinant −1. The H3 T-fixed primitive vector (0,0,−1,1,1) has ten pair orbit columns: independently calculated rank 5 and Smith diagonal (1,1,1,1,3) directly from the actual supplied 5×10 matrix, proving index three and quotient Z/3 of lattices, not homology torsion. Full script was inspected, but did not independently run its complete signed 120-element action construction.
+
+## originality
+
+PASS
+
+Zaslavsky author manuscript classifies Petersen matching orbits and signed-graph automorphisms, not the integral S5 homology lattices. Earlier same-object rational characters and nonequivariant wedge are explicitly excluded. The integral determinant and Smith index cannot be inferred from rational characters and are meaningful new invariants; Resultary two-particle Petersen configuration and 3-cut complexes refer to different spaces.
+
+## value
+
+PASS
+
+Primitive orbit bases, generator matrices and a genuine index-three failure of generation by a natural stabilizer-fixed orbit are specific exact integral-equivariant data that rational character tables cannot resolve for a canonical graph matching complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
