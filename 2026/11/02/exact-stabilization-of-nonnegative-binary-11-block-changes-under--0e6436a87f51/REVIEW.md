@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eight-state binary-addition matrix has entries defined directly by the carry rule and the local adjacent-ones change. The explicit infinite zero-suffix expectation is a convergent geometric carry calculation. Exact rational multiplication produces the seven required nonnegative generating polynomials and the proper-rational difference between the seventh and eighth shifts. The characteristic polynomial and Cayley–Hamilton relation propagate the vanishing nonnegative part of this difference to every larger shift. The standalone checker independently reconstructs the matrices, proves the finite algebraic identities symbolically, and runs direct integer comparisons. The existence of natural densities follows by periodic approximation with a geometrically vanishing unresolved-carry probability; direct finite counts alone are not used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The statistic counts overlapping adjacent 11 pairs, not runs. I reconstructed the eight states (previous input/output bit and carry), the exact 1/2-weight digit transitions, the zero-suffix carry expectation and F_a=e_000 M_1 M_0^(a-1) M_1 H. The characteristic identity det(lambda I-M_0)=lambda^6(lambda-1)(lambda-1/(2z)) makes later consecutive differences scale by 1/(2z) once a>=7. The explicitly factored F_8-F_7 has numerator degree 8 and denominator degree 9, so it has no nonnegative Laurent powers at infinity; the same is true for every later increment. Rational symbolic reconstruction of Q_1,...,Q_8 agrees with the six exceptions and the sharp plateau Q_a=(54+65z+44z^2+12z^3)/256 for all a>=7. The carry persistence probability O(2^-L) permits finite-cylinder approximation, proving natural density existence. Q_6 differs from Q_7 and all j>3 have zero mass, and any finite integer with larger change would give a positive-measure cylinder, ruling out pointwise j>3. Finite enumerations are corroboration, not a substitute for Cayley-Hamilton.
 
-Sobolewski–Spiegelhofer [1] gives a general recursion for conditional distributions and a Gaussian theorem for shifts with many one-blocks. It does not state or display the exact seven-gap stabilization or its four fixed nonnegative masses for shifts with two separated one-bits. The broader follow-up [2] similarly concerns a many-block asymptotic regime, while the digit-sum work [3] studies a different statistic. OEIS A014081 [4] provides values of the underlying count, not its exact sparse-shift change law. Targeted source, formula, digit-pattern-alias, and mathematical-record searches did not locate an equivalent result. Because a prior general recursion can compute each finite case, a previously unnoticed specialization or unindexed proof remains a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The simplest nontrivial sparse two-one-bit shifts form a naturally motivated hard finite-block regime of digit-change problems. The theorem does not simply compute an isolated parameter: it proves a sharp point of exact stabilization for the entire nonnegative probability law across infinitely many increasingly separated shifts, with an exact Cusick-type positivity density of \(175/256\). The negative distribution remains parameter-dependent, making the one-sided stabilization structurally informative.
+Qualified PASS: the broad published exact conditional recurrences for 11-block changes compute each individual shift in principle, and the many-one-block Gaussian theorem is prior work. I found no inspected statement fixing the precise uniform finite a=7 stabilization and four nonnegative masses for all a>=7. This is a mathematical statement stronger than isolated recurrence evaluation, but its derivability by a simple unreported specialization of prior recurrences is a substantive priority risk.
 
-## Scientific limitations
+## value
 
-The result is restricted to the `11` block count and shifts \(2^a+1\), with \(a\ge1\). The negative-law and general-shift problems are not solved; bibliographic priority is not independently certified. The base-2023 paper's conditional recurrences are broader algorithms, and the originality assertion is about the new explicit uniform stability theorem rather than the existence of a recurrence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sparse-shift 11-block law is a natural sharp arithmetic stability invariant: it determines exactly when the nonnegative mass function stops depending on the separation of two changed bits, not merely an isolated finite table. It refines a pre-existing general recurrence to an all-separation structural threshold and exact four masses, likely useful to researchers of block-counting and generalized Cusick-type density phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
