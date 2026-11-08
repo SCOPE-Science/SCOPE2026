@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-With \(P_+P_-=0\), exact endpoint column norms and dual row norms are computed directly. The complex two-dimensional Fourier-multiplier bound follows from a proven \(\ell_1\) endpoint inequality, orthogonal diagonalization at \(p=2\), Riesz–Thorin interpolation, and transpose duality. All sharp pairing suprema have explicit unit-norm algebra-row or algebra-column extremizers. The strict inequality follows algebraically for every non-Hilbert exponent; no numerical approximation substitutes for an infinite family proof. Boundaries \(p=1\), \(p\to2\), and arbitrary finite \(n\ge2\) are covered.
+## correctness
 
-## Originality — PASS (self-review)
-The motivating article explicitly proves the algebra's failure at \(p=1\), proves success for block-diagonal algebras, and leaves the interior-exponent behavior of its Example 5.2 open. Its particular column is different from the projection column here; the new classification for the **algebra** at all \(1<p<\infty\), excluding \(2\), does not follow from its stated \(p=1\) counterexample or its block-diagonal theorem. Recent published mathematical-record searches on the precise two-projection, Hadamard, row-column, C*-like and all-exponent norm comparison found related matrix-norm and projection findings but no equivalent published classification. Unindexed arguments remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The example answers a motivated non-Hilbert exponent question for the same smallest unital non-block-diagonal algebra that motivated the open inquiry. Exact strict, sharp quantitative gaps and the \(p=2\) if-and-only-if classification are more informative than a perturbative near-\(p=1\) corollary. The proof is finite-dimensional yet establishes a continuum of operator-norm obstructions and extends to all finite column lengths.
+Verified P_++P_-=I, P_+P_-=0. The 4-by-2 spatial projection column has ell_1 norm 2 and ell_2 norm 1; interpolation and an extremizing coordinate vector give norm 2^(2/p-1) on 1<=p<=2, while transpose duality gives the row norm above 2. Every algebra test row/column has operator norm at least its chosen plus/minus eigenvalues, so the product is bounded by the sharp two-point multiplier norm K_p=2^|1/p-1/2|. The explicit phase multiplier P_++iP_- attains K_p; the test row or column built from P_+, iP_- has norm exactly one by endpoint interpolation. At p=2 the commutative C*-algebra gives recovery. Limits p=1, p=2, arbitrary n>=2 and complex phases are covered. The 15 finite checks verify critical matrices but not the continuum.
 
-## Closest sources and limitations
-Primary full text: Calin et al., *C*-like modules and matrix p-operator norms*, arXiv:2505.19471 (2025); *Ann. Funct. Anal.* 17 (2026), Example 5.2 and its concluding open statement, https://link.springer.com/article/10.1007/s43034-025-00492-8. Related: Delfín, *L^p-modules and L^p-correspondences* (2026), doi:10.1007/s43037-025-00469-8. No claim is made about the exact original weighted-column witness. Priority beyond accessible indexing and independent verification remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Calin et al. already use exactly this Hadamard-diagonal algebra to disprove C*-like recovery at p=1; that part is covered and not novel. The inspected original example explicitly leaves non-Hilbert interior exponents open, and its positive block-diagonal theorem excludes this representation. The projected all-real-p classification, exact sharp pairing gaps and dual row phenomenon are not mathematical implications of the published endpoint example alone. Best-of-knowledge O=PASS for this remainder, not the algebra or p=1 observation.
+
+## value
+
+PASS
+
+The same smallest unital non-block-diagonal algebra in the published motivation is classified for a continuum of exponents. Sharp quantitative witness gaps and exact p=2 boundary answer a concrete open module-norm question rather than merely restating an interpolation inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
