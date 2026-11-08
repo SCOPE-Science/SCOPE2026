@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic argument proves the exact covariance and energy identity, the explicit gamma-function Fourier coefficient formula, the subcritical Fourier-shell asymptotic, the half-Hölder logarithmic endpoint, and the supercritical \(L^2\) boundary limit. The coefficient of the singular term is obtained only after a two-scale localization of the nonlinear weight; merely computing the unweighted Fourier energy would not justify it.
+## correctness
 
-The bundled executable `cusp_checker_std.py` uses no non-standard Python packages and was run as `python3 cusp_checker_std.py`. It produced `PASS: 40 independent finite checks (not an infinite proof)`. Its tests compare gamma ratios with independent midpoint Fourier quadrature and evaluate finite shell sums against asymptotic predictions for selected exponents. The proof of the full continuum of parameters, infinite Fourier tails and convergence limits is mathematical, not computational.
+PASS
 
-No external mathematical audit, proof certification or independent validation has been performed. The closest historical studies and the full-text-access limitation for the earlier fractional-noise work are documented in REVIEW.md and AUDIT.json.
+The covariance is U(z)/(1-|z|^2), with U the positive Poisson extension of spectral density; the expected Gaussian zero intensity and harmonicity give the exact deficit as (4pi)^-1 disk energy of log U. Fourier coefficients of |2sin(theta/2)|^alpha have Gamma-ratio formula, asymptotic k^(-1-alpha). Unweighted shell Fourier Parseval gives sum k|g_k|^2(1-r^(2k)); its leading asymptotic is eps^(2alpha) for alpha<1/2, eps log(1/eps) at 1/2. Near the unique cusp U tends to baseline a; outer arcs have O(eps) energy, so the nonlinear denominator localizes there. Above 1/2, L2 boundary derivatives yield global Q_alpha eps. Independent quadrature confirmed nine Gamma Fourier coefficients at alpha=.25,.5,.75 and frequencies 1,2,5. No almost-sure zero statement is proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for a quantitative three-regime finite-deficit convergence rate at a strictly positive continuous cusp, not for Gaussian zero intensity or broad stationary theory. Noda–Shirai treat finitely dependent/trigonometric-polynomial densities including zeros, a different spectral class. Shirai 2025 focuses fixed-direction radial density. The current shell-energy is a natural Fourier-Sobolev refinement with nonlinear localization and constants; a rough-density general theorem or fractional-Gaussian-noise literature may imply it.
+
+## value
+
+PASS
+
+The transition between locally controlled singular energy and globally controlled Sobolev boundary energy is a mathematically natural sharp regularity threshold at alpha=1/2. The exact radial zero-deficit decay and logarithmic critical law refine established Gaussian zero estimates for a canonical positive Hölder-cusp spectral density; all three constants have clear mathematical meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

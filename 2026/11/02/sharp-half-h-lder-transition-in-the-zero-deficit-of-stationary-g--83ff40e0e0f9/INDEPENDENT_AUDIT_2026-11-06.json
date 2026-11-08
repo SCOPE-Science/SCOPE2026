@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:12:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md, cusp_checker_std.py and verified tree 1173c1e445449304fbf02dbf97b85181f32a54d0",
+        "Direct quadrature independent_checks_6590.py (9 Fourier coefficients)",
+        "Noda–Shirai Springer 2022/2023 full HTML sections on finite-dependent spectral densities"
+      ],
+      "rationale": "The covariance is U(z)/(1-|z|^2), with U the positive Poisson extension of spectral density; the expected Gaussian zero intensity and harmonicity give the exact deficit as (4pi)^-1 disk energy of log U. Fourier coefficients of |2sin(theta/2)|^alpha have Gamma-ratio formula, asymptotic k^(-1-alpha). Unweighted shell Fourier Parseval gives sum k|g_k|^2(1-r^(2k)); its leading asymptotic is eps^(2alpha) for alpha<1/2, eps log(1/eps) at 1/2. Near the unique cusp U tends to baseline a; outer arcs have O(eps) energy, so the nonlinear denominator localizes there. Above 1/2, L2 boundary derivatives yield global Q_alpha eps. Independent quadrature confirmed nine Gamma Fourier coefficients at alpha=.25,.5,.75 and frequencies 1,2,5. No almost-sure zero statement is proved.",
+      "residual_risks": [
+        "Outer-arc regularity and Fourier localization are analytical arguments rather than machine certificates; numerical tests do not prove uniform asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noda–Shirai 2023 Theorems concern trigonometric-polynomial spectral densities and zeros",
+          "Shirai 2025 abstract analyzes local angular radial density and spectral boundary conditions"
+        ],
+        "reasoning": "The strictly positive non-polynomial cusp family is not a special case of finitely dependent densities, and local pointwise angular density asymptotics do not by themselves yield integrated shell trichotomy.",
+        "searches": [
+          "stationary Gaussian power series spectral density positive cusp alpha half Holder zero deficit Fourier energy convergence",
+          "Shirai 2501.02586 stationary coefficients zeros spectral density cusp"
+        ]
+      },
+      "checked_sources": [
+        "Noda–Shirai 2023 full HTML https://link.springer.com/article/10.1007/s10959-022-01203-y",
+        "Shirai arXiv:2501.02586 abstract",
+        "Mukeru et al 2020 reference and stated fGn scope",
+        "Resultary query stationary Gaussian power series spectral density positive cusp alpha half Holder zero deficit Fourier energy convergence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Noda–Shirai published article introduction specifies finitely dependent trigonometric polynomial densities and zeros",
+          "The assigned proof controls non-polynomial Hölder Fourier tails k^(-1-alpha) plus the baseline nonlinear energy denominator"
+        ],
+        "reasoning": "The general expected-zero intensity identity is prior work. It does not imply a sharp 1/2-transition constant without evaluating a singular Fourier shell; direct spectral polynomial cases are smooth away from zeros.",
+        "searches": [
+          "stationary Gaussian power series spectral density positive cusp alpha half Holder zero deficit Fourier energy convergence",
+          "Noda Shirai 2106.02860 theorem finite-dependent zeros spectral polynomial",
+          "Shirai 2501.02586 theorem density stationary Gaussian series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Noda–Shirai 2023 full text Eq. (1.3), covariance Poisson factorization and expected-zero deficit",
+          "Assigned exact energy identity and Gamma Fourier tail formula"
+        ],
+        "reasoning": "Equivalent formulation is the convergence rate of Dirichlet shell energy of log Poisson extension near a Hölder cusp. Generic Fourier Sobolev regularity predicts exponent but does not itself state the weighted zero-count coefficient.",
+        "searches": [
+          "stationary Gaussian power series spectral density positive cusp alpha half Holder zero deficit Fourier energy convergence",
+          "Gaussian analytic functions stationary spectral cusp Dirichlet energy Poisson extension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact constants are Fourier Gamma functions or a global boundary integral, not entries in a numerical table"
+        ],
+        "reasoning": "No exact table was found containing the three-branch deficit; finite numerical matches cannot establish uniqueness.",
+        "searches": [
+          "stationary Gaussian power series spectral density positive cusp alpha half Holder zero deficit Fourier energy convergence",
+          "stationary Gaussian analytic functions expected zeros fractional Gaussian cusp critical alpha one-half"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a quantitative three-regime finite-deficit convergence rate at a strictly positive continuous cusp, not for Gaussian zero intensity or broad stationary theory. Noda–Shirai treat finitely dependent/trigonometric-polynomial densities including zeros, a different spectral class. Shirai 2025 focuses fixed-direction radial density. The current shell-energy is a natural Fourier-Sobolev refinement with nonlinear localization and constants; a rough-density general theorem or fractional-Gaussian-noise literature may imply it.",
+      "residual_risks": [
+        "Related rough-density theorem or fractional Gaussian noise source might already imply the trichotomy; only primary Noda–Shirai full text was accessible.",
+        "Comparison with Shirai 2025 was restricted to abstract and scope, not entire text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-dependence polynomial spectral class, no identical positive cusp convergence-rate theorem in material examined",
+          "evidence": [
+            "Introduction lines 59-80: class and approach, covariance equations; article original published Nov 23 2022"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10959-022-01203-y",
+          "material_read": "Open-access publisher full HTML introduction, covariance framework, theorem setup and discussion of trigonometric-polynomial spectral densities",
+          "method": "Direct full HTML article and targeted theorem/intro reading",
+          "title": "Expected Number of Zeros of Random Power Series with Finitely Dependent Gaussian Coefficients",
+          "trigger": "Direct stationary Gaussian expected-zero theorem"
+        },
+        {
+          "assessment": "Risk remains: cannot assert article-wide noncoverage",
+          "evidence": [
+            "Abstract studies radial density and zeros of spectral measure, no exact three-branch shell statement in abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.02586",
+          "material_read": "ArXiv indexed abstract, scope and publication metadata only",
+          "method": "Search results and abstract; no full text obtained",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "Potential dominating general stationary density result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Noda–Shirai expected-zero covariance framework",
+        "Assigned shell energy and explicit cusp model"
+      ],
+      "rationale": "The transition between locally controlled singular energy and globally controlled Sobolev boundary energy is a mathematically natural sharp regularity threshold at alpha=1/2. The exact radial zero-deficit decay and logarithmic critical law refine established Gaussian zero estimates for a canonical positive Hölder-cusp spectral density; all three constants have clear mathematical meaning.",
+      "residual_risks": [
+        "A broader general energy theorem might simplify or subsume the result; no such decisive comparison found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Outer-arc regularity and Fourier localization are analytical arguments rather than machine certificates; numerical tests do not prove uniform asymptotic.",
+    "Related rough-density theorem or fractional Gaussian noise source might already imply the trichotomy; only primary Noda–Shirai full text was accessible.",
+    "Comparison with Shirai 2025 was restricted to abstract and scope, not entire text.",
+    "A broader general energy theorem might simplify or subsume the result; no such decisive comparison found."
+  ],
+  "schema_version": 1
+}
