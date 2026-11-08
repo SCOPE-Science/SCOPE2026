@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full graph edge list, the two independent face-generation algorithms, complete acyclic Hasse matchings, and all exact unit-pivot signed integral chain reductions are encoded in the standalone verifier. The augmented face counts are 124, 346, and 658, with respective critical positive-cell profiles \(2S^2\), \(10S^3\), and three four-cells plus one five-cell. The last integral cellular boundary is zero, and the Hurewicz isomorphism \(\pi_4(\bigvee^3S^4)\cong H_4(\bigvee^3S^4;\mathbb Z)\) kills the last attaching-map ambiguity. The stage inclusions are null by target connectivity. Independent direct mod-two simplicial ranks agree.
+PASS
 
-## Originality
+For the explicitly labelled 18-edge Herschel graph, independently enumerated 124,346,658 augmented faces for cutoffs r=1,2,3, and acyclic greedy Morse matchings with the claimed critical dimensions (2 S2;10 S3;3 S4 and 1 S5). Our Hasse totals 338,1139,2525 exclude the 11 vertex-to-empty incidences; adding them gives package totals 349,1150,2536. Signed integer reduction confirms the r=3 top 3x1 attaching column is zero. Hurewicz removes the attaching ambiguity; target connectivity forces both stage inclusions nullhomotopic.
 
-**PASS against inspected primary and mathematical-record evidence.** Deshpande–Singh (arXiv:2001.05448) treats other graph families; Deshpande–Shukla–Singh (arXiv:2001.06775) classifies chordal graphs, a hypothesis violated here by induced four-cycles. The public Herschel ordinary-independence result supplies exactly the first stage and deletion/link results; the present higher-cutoff homotopy types and null inclusions are not covered by that claim. Targeted searches of the graph, cutoff nomenclature, algebraic invariants and equivalent topological formulas identified no covering result. The residual risk is equivalent unindexed work, not a proved global uniqueness assertion.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Herschel graph is the canonical smallest non-Hamiltonian polyhedral graph with eighteen edges. Its ordinary independence topology was already a natural object of study. The new exact first two higher-independence stages, notably the mixed-dimensional third cutoff and the completely null adjacent inclusion maps, give a meaningful initial filtration classification beyond previously published data; the result is not just a face count or numerical Betti table.
+Best-of-knowledge statement/implication comparison. Published Ind_1 calculation is credited as known first filtration stage, but neither next stage dimensions/ranks nor null stage inclusions follow from it.
 
-## Closest literature and limitations
+## value
 
-The closest same-object public result is the ordinary Herschel independence-complex calculation and vertex-deletion classification. General higher-independence results cover graph classes that do not include this specific nonchordal graph. Computation is exhaustive only for this eleven-vertex graph and cutoffs one through three. Published-source searching cannot exclude unindexed equivalents. Independent validation has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Herschel graph is a canonical minimal nonhamiltonian polyhedral graph; two new higher-cutoff homotopy types and both null maps give a complete three-stage filtration boundary with mixed sphere dimensions, not an arbitrary small numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

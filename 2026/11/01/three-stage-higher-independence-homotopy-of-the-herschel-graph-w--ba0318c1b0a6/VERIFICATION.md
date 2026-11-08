@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_herschel_higher_independence.py`. It uses only the Python standard library and reads no external data. Its actual output is `verification_herschel_output.txt`, terminating in `HERSCHEL_HIGHER_INDEPENDENCE_1_2_3_INTEGRAL_OK`.
+## correctness
 
-The program checks all \(2^{11}\) subsets independently for each of the three cutoff values, both by induced-component exploration and by the absence of a connected induced \((r+1)\)-set. Both constructions agree on every face. The augmented face counts are 124, 346, and 658.
+PASS
 
-For cutoffs one, two, and three respectively, the program checks 349, 1,150, and 2,536 directed Hasse incidences and 61, 168, and 327 disjoint match pairs. All matched incidences are reversed and the resulting directed graphs are topologically sorted without cycles. Critical cells occur exclusively as two dimension-two cells; ten dimension-three cells; and three dimension-four plus one dimension-five cells.
+For the explicitly labelled 18-edge Herschel graph, independently enumerated 124,346,658 augmented faces for cutoffs r=1,2,3, and acyclic greedy Morse matchings with the claimed critical dimensions (2 S2;10 S3;3 S4 and 1 S5). Our Hasse totals 338,1139,2525 exclude the 11 vertex-to-empty incidences; adding them gives package totals 349,1150,2536. Signed integer reduction confirms the r=3 top 3x1 attaching column is zero. Hurewicz removes the attaching ambiguity; target connectivity forces both stage inclusions nullhomotopic.
 
-Exact alternating-sign boundary matrices are reduced by all 556 elementary integral unit-pivot cancellations. Every pivot is exactly \(+1\) or \(-1\), and the final Morse differential is zero over the integers at all three cutoffs. In particular, the unique last five-cell's boundary is the zero integer column, not a modular numerical observation. Independent direct mod-two simplicial boundary ranks corroborate the resulting homology.
+## originality
 
-The proof of the homotopy type invokes discrete Morse reduction and, at cutoff three, the Hurewicz isomorphism for the four-skeleton. Computation alone does not establish broader-family theorems, and no stage beyond cutoff three is claimed. Independent external audit has not been performed.
+PASS
+
+Best-of-knowledge statement/implication comparison. Published Ind_1 calculation is credited as known first filtration stage, but neither next stage dimensions/ranks nor null stage inclusions follow from it.
+
+## value
+
+PASS
+
+The Herschel graph is a canonical minimal nonhamiltonian polyhedral graph; two new higher-cutoff homotopy types and both null maps give a complete three-stage filtration boundary with mixed sphere dimensions, not an arbitrary small numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
