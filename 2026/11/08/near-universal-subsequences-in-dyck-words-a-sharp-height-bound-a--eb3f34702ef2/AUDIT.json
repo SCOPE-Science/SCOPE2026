@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Greedy arch number equals maximum matching of adjacent unlike pairs; counting matched and unmatched letters across any prefix gives exact height bound. Every index-(n-2) Dyck path has height <=3; first-return decomposition gives exact 3x3 matrix generating function and rational coefficient z^3(1-z)/(1-2z)^3. Sympy symbolic equality and standalone exhaustive independent checks over 82,499 Dyck paths support but do not replace infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2311.10658 counts paths accepted by a DFA for regular languages, not the unbounded-height Dyck language",
+        "Unrestricted binary-word generating function does not impose ballot-prefix constraints",
+        "arxiv:2406.16394 height-two Dyck enumeration does not include height-three universality cut"
+      ],
+      "reasoning": "A general algorithm or height-two count is not a theorem giving the third-layer coefficient. The new global height bound and bounded-height transfer generate the exact coefficient; domain restriction requires new reasoning. The known highest two layers are explicitly treated as context.",
+      "searches": [
+        "Dyck paths fixed semilength subsequence universality n-2 count (n-2)(n+1)2^(n-5)",
+        "arxiv:2311.10658v1",
+        "arxiv:2406.16394v1",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2311.10658",
+      "https://arxiv.org/pdf/2003.04629",
+      "https://arxiv.org/pdf/2304.04583",
+      "https://arxiv.org/pdf/2406.16394",
+      "https://arxiv.org/pdf/2301.06145",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known arch theorem determines index of one word but not enumeration of Dyck words",
+        "Known height-two counts explain index n and n-1 union, but index n-2 includes height-three paths",
+        "Exhibit 000111000111 (semilength 6, height 3, index 3) shows even height-three enumeration overcounts index n-2"
+      ],
+      "reasoning": "The theorem combines a sharp index-height restriction with a weighted Dyck/arch finite-state system. The main third-layer formula is not a simple special case of the general all-word rational GF, bounded-height Catalan enumeration, or Dyck-factor results for infinite automatic words.",
+      "searches": [
+        "Dyck words subsequence universality index distribution number of arches Catalan words",
+        "Dyck paths fixed semilength subsequence universality n-2 count (n-2)(n+1)2^(n-5)",
+        "arxiv:2301.06145",
+        "arxiv:2311.10658",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Index equals maximum disjoint adjacent unlike-pair matching; direct proof included",
+        "arxiv:2003.04629 arch method",
+        "arxiv:2301.06145 counts Dyck factors in automatic words instead"
+      ],
+      "reasoning": "Searches covered arch number, disjoint transition matchings, balanced-parenthesis height and Dyck-path formulations. Matching is a proven reformulation, not presumed independent novelty; neither its known concept nor classical height-two count covers exact deficit-two count.",
+      "searches": [
+        "Dyck words subsequence universality index distribution number of arches Catalan words",
+        "Dyck balanced parentheses arch universality index height 3 generating function",
+        "Dyck words subsequence universality index n-1 peaks binomial(n,2p-n)",
+        "arxiv:2301.06145"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed record does not list Dyck-specific index histogram",
+        "Full mathematical sources inspected above do not present D_(n,n-2)=(n-2)(n+1)2^(n-5)"
+      ],
+      "reasoning": "The database search retrieved adjacent concepts but not the exact Dyck+arch deficit-two table. Search absence alone does not prove priority, so residual unindexed-table risk is retained.",
+      "searches": [
+        "Dyck paths fixed semilength subsequence universality n-2 count (n-2)(n+1)2^(n-5)",
+        "Dyck balanced parentheses arch universality index height 3 generating function",
+        "Dyck paths near maximal scattered factor universality peak distribution binomial",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "rationale": "Closest published arch and general counting results describe unrestricted or regular languages; Dyck-specific publications enumerate height-restricted paths or Dyck factors of automatic sequences. The deficit-two exact coefficient requires joint ballot and arch constraints and is not implied by these examined statements; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An equivalent unindexed enumeration of Dyck paths by subsequence-universality index, or equivalent disjoint-transition-matching count, may exist.",
+      "Classical height-two count and peak distribution are prior enumeration facts and are not themselves independently novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "REGULAR accepted-language algorithms; no semilength Dyck index-n-2 exact formula in inspected material",
+        "evidence": [
+          "arxiv:2311.10658v1; sections on counting automaton-accepted universal words"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Abstract, introduction, counting-algorithm section and text search for Dyck/Catalan",
+        "method": "Original open-access PDF examination",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Counting k-universal words inside a formal language"
+      },
+      {
+        "assessment": "Arch framework is prior and used here; no Dyck near-extremal census in inspected material",
+        "evidence": [
+          "arxiv:2003.04629v1; greedy arch factorization"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Abstract, introduction and arch characterization",
+        "method": "Original open-access PDF examination",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Arch theorem underpinning universality index"
+      },
+      {
+        "assessment": "Unrestricted words and ranking, not the Dyck-specific deficit-two law",
+        "evidence": [
+          "arxiv:2304.04583v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Abstract, introduction and counting discussion; search for Dyck",
+        "method": "Original open-access PDF examination",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "General k-universal binary enumerators"
+      },
+      {
+        "assessment": "Height-at-most-two constrained paths are already classical; no scattered-subsequence universality index and no height-three deficit-two count",
+        "evidence": [
+          "arxiv:2406.16394v1; Section 1 height-two Dyck enumeration; Sections 2-3 constrained valleys"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.16394",
+        "material_read": "Abstract, introduction, preliminaries, and constructions and recurrences through Section 3.1; remaining sections not independently inspected",
+        "method": "Original open-access PDF examination",
+        "title": "Dyck Paths Enumerated by the Q-bonacci Numbers",
+        "trigger": "Potential stronger height-two enumeration coverage"
+      },
+      {
+        "assessment": "Classifies Dyck factors of automatic sequences and pattern avoidance; not all Dyck words by subsequence universality index",
+        "evidence": [
+          "arxiv:2301.06145; Theorem 4.5 counts Dyck factors of automatic words, a different domain"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.06145",
+        "material_read": "Abstract, sections 1-2, sections 4-5 and text search for universality/subsequences",
+        "method": "Original open-access PDF examination",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Direct Dyck-word literature with primary MSC 68R15"
+      },
+      {
+        "assessment": "Counts all binary words, not ballot-constrained Dyck words; rational formula cannot be substituted for the Dyck restriction",
+        "evidence": [
+          "F(z,u)=(1+z)/(1-z-2uz^2) enumerates all binary words"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "material_read": "Complete RESULT.md theorem and proof via repository file read",
+        "method": "Public primary mathematical record",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest indexed unrestricted-word generating function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb3f3470-2ef2-4483-99d8-1a39433eea0d",
+  "value": {
+    "rationale": "The third near-maximal layer of the natural scattered-subsequence universality statistic on the Dyck context-free language has a complete infinite exact census. The sharp height obstruction bridges two structural invariants and permits rational transfer despite unbounded Dyck height; the result distinguishes height-three paths with different universality indices, beyond a routine existing bounded-height count.",
+    "status": "PASS"
+  }
+}
