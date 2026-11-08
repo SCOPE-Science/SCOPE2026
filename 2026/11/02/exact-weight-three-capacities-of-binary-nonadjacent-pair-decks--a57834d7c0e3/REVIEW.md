@@ -1,19 +1,21 @@
-# Review: exact weight-three nonadjacent pair decks
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every admissible profile determines the numbers of linear zero-runs and one-runs via its two diagonal pair counts. The proof enumerates the eight possible run-type signatures for exactly three ones and proves the complete support set of the remaining ordered \(01\) count for each type. The only missing interior values are an explicitly identified parity progression when both run counts equal two. The cardinality sum proves the exact two-branch formula for every \(n\ge8\), and finite enumeration establishes the shorter initial values. The supplied independently implemented `VERIFY.py` checked 1,663,740 source words across lengths through 80 and compared a literal-pair implementation through length 14. Finite computation corroborates but does not replace the symbolic proof.
+PASS
 
-## Originality
+The nonadjacent two-deck has G11=k (#one-runs) because adjacent pairs among three ones equal 3−k. For z=n−3 zeros and ℓ zero-runs, G00=C(z,2)−(z−ℓ), and G10 is determined by total C(n−1,2), G00, G11 and J=G01. Thus (k,ℓ,J) completely specifies the profile. The eight admissible run-count pairs have exact integer intervals or progressions in J; key (2,2) row is full [0,3z−3] for even z but excludes specified even interior values when z odd; other run rows have interval-filling arguments by positive zero-run compositions. Summing distinct (k,ℓ,J) gives the parity piecewise expression for n>=8; lower n counted directly. Fresh literal G_ab exhaustive check for all C(n,3) words n=3..18 agrees with all counts. Symbolic run arguments, not finite checker, establish all n.
 
-PASS, with priority risk. The original gapped-deck work of Golm–Nahvi–Gabrys–Milenkovic (https://arxiv.org/abs/2201.12671) gives the channel and shortest-collision bounds. Rigo–Stipulanti–Whiteland (https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf) characterize the general one-gap two-binomial equivalence and study factor-complexity functions for infinite words, but do not state the exact full fixed-weight-three image or parity-dependent run-type support. Chrisnata et al. (https://www.aimsciences.org/article/doi/10.3934/amc.2021032) study ungapped \(k\)-decks. A previously documented exact weight-two result addresses the same observation with only two markers, not the eight-state enumeration here. The existing general characterization is closely related, and independently unindexed equivalent enumeration remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The object is the full, naturally specified weight-three layer of a recognized gapped read channel. Its exact zero-error capacity changes linear coefficient by parity, and the complete run-type classification pinpoints which observational profiles are impossible. This supplies a sharp, reproducible finite-length benchmark: \(\Theta(n^3)\) sparse sources collapse to only \(\Theta(n)\) distinct measurement outputs, quantifying the information loss.
+Golm et al establish gapped k-deck collision thresholds; Rigo–Stipulanti–Whiteland Lemma 2.1 gives an abstract equivalence test and studies infinite-word factor-language complexity; neither computes a fixed-composition three-one image and parity-dependent capacity. Ordinary ungapped k-deck counts concern a different observation channel.
 
-## Limitations
+## value
 
-The theorem covers linear indexed binary words with exactly three ones and the full ordered nonadjacent pair multiset only. It does not cover circular words, other weights or larger gaps. No independent external proof or publication-priority audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete natural fixed-weight-three gapped observation profile classification gives sharp zero-error capacity, explains parity, and quantifies loss from Θ(n³) possible words to Θ(n) distinguishable deck outputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

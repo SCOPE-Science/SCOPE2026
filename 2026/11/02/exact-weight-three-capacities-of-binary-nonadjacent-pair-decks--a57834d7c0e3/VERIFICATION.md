@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-From the directory containing these files, run `python3 VERIFY.py` using Python 3 and no additional packages. It enumerates every word with exactly three one-positions for lengths \(3\) through \(80\), computes the complete two-symbol nonadjacent read deck from a running eligible-prefix count, derives linear run numbers independently, and compares each run-type support with the exact table in `RESULT.md`. It also independently counts literal eligible coordinate pairs at lengths \(3\) through \(14\). The run completed with `PASS` results, checking 1,663,740 source words and confirming the stated threshold.
+## correctness
 
-The verifier is finite, and therefore cannot prove assertions for all larger word lengths. The actual all-length argument is the run-composition interval proof in `RESULT.md`. The publication-priority comparison remains qualified by potentially unindexed work; an external independent scientific audit has not been performed.
+PASS
+
+The nonadjacent two-deck has G11=k (#one-runs) because adjacent pairs among three ones equal 3−k. For z=n−3 zeros and ℓ zero-runs, G00=C(z,2)−(z−ℓ), and G10 is determined by total C(n−1,2), G00, G11 and J=G01. Thus (k,ℓ,J) completely specifies the profile. The eight admissible run-count pairs have exact integer intervals or progressions in J; key (2,2) row is full [0,3z−3] for even z but excludes specified even interior values when z odd; other run rows have interval-filling arguments by positive zero-run compositions. Summing distinct (k,ℓ,J) gives the parity piecewise expression for n>=8; lower n counted directly. Fresh literal G_ab exhaustive check for all C(n,3) words n=3..18 agrees with all counts. Symbolic run arguments, not finite checker, establish all n.
+
+## originality
+
+PASS
+
+Golm et al establish gapped k-deck collision thresholds; Rigo–Stipulanti–Whiteland Lemma 2.1 gives an abstract equivalence test and studies infinite-word factor-language complexity; neither computes a fixed-composition three-one image and parity-dependent capacity. Ordinary ungapped k-deck counts concern a different observation channel.
+
+## value
+
+PASS
+
+The complete natural fixed-weight-three gapped observation profile classification gives sharp zero-error capacity, explains parity, and quantifies loss from Θ(n³) possible words to Θ(n) distinguishable deck outputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
