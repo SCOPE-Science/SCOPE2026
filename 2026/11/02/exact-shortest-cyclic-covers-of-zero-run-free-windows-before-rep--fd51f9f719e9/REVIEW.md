@@ -1,15 +1,21 @@
-# Scientific review: first-regime zero-run-free cyclic covers
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The graph's exact deficits and their exceptional overlap at \(k=2h\) have been recomputed. Every required added flow must connect each surplus source to some deficient target. For \(h\le k\le2h\), a shorter bridge would force overlapping or touching copies of \(0^{h-1}\), creating forbidden \(0^h\), except for a source simultaneously beginning and ending with the shorter run, which has already been excluded as balanced. Universal bridges of length \(k-h\) exist, balance the graph, and yield real Eulerian covers. The finite verifier separately validates literal cyclic covers, graph distances, and exact minimum-cost assignments. This verifies the all-parameter reasoning without treating finite enumeration as its proof.
+PASS
 
-## Originality: PASS with residual risk
+The legal de Bruijn overlap digraph is strongly connected (append a nonzero character then construct any target). At k>h, indegree/outdegree defects arise precisely at vertices beginning/ending with 0^(h-1), with the overlap correction at k=2h. Source set S and sink set T each have M vertices. For d=k-h, every S-to-T directed path must have length >=d because a shorter arrival in 0^(h-1) would force forbidden 0^h from overlapping marked zero runs; appending the final d symbols of each T yields a unique legal bridge. Any additional balanced edge flow in a covering cycle decomposes into >=M S→T paths and nonnegative circuits, giving lower bound d*M; adding chosen M shortest bridges yields an Eulerian multigraph. Independent legal graph assembly, BFS every defect source→sink and extra cost matched in 8 cases q=2,3 h=2,3; binary q=2,h=3 gives 14,28,53 and ternary q=3,h=3,k=6 gives 696.
 
-The closest same-object source, Chee et al. (2024), maximizes distinct-window run-limited cycles rather than minimizing cyclic covers with necessary repeated windows. Bernardini et al. (2022) provide general Eulerian-walk algorithms without an explicit all-parameter formula in this restricted family. An earlier private binary no-adjacent-equal-symbol covering result subsumes the \(q=2,h=2\) slice but not the higher-alphabet and higher-forbidden-run theorem. Moreno's 2005 restricted-language thesis was inspected only by abstract because its PDF was unavailable; equivalent treatment there remains a real literature risk. The four detailed implication checks and source-reading limitations are retained in `AUDIT.json`.
+## originality
 
-## Value: PASS
+PASS
 
-The minimum cycle is a natural optimal universal readout/test word for a channel that prohibits long zero runs. An exact closed first-regime formula, full path-level classification of optimal augmentations, and a parameter boundary at \(k=2h\) go beyond isolated computational examples. The correction measures precisely the minimum cost of restoring flow balance while respecting the same physical run constraint. The theorem makes no unwarranted claim about broader windows or the number of distinct cyclic optima.
+Directed Chinese-postman theory explains computing repeat-allowed shortest covers, while Chee et al. maximize run-restricted no-repeat de Bruijn sequences; Moreno thesis focuses constrained language cycles and lexicographic Euler tours. The inspected material does not establish the stated first-overlap closed cost and all-optimal bridge classification. A hidden exact restricted-language postman specialization remains a material originality risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Explicit all-parameter first-window-regime optimal cyclic cover length and complete minimal augmentation structure for a natural run-length-limited language; separates unavoidable duplicate windows from prescribed distinct factors and resolves dependence on alphabet and forbidden run length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

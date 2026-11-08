@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:40:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The legal de Bruijn overlap digraph is strongly connected (append a nonzero character then construct any target). At k>h, indegree/outdegree defects arise precisely at vertices beginning/ending with 0^(h-1), with the overlap correction at k=2h. Source set S and sink set T each have M vertices. For d=k-h, every S-to-T directed path must have length >=d because a shorter arrival in 0^(h-1) would force forbidden 0^h from overlapping marked zero runs; appending the final d symbols of each T yields a unique legal bridge. Any additional balanced edge flow in a covering cycle decomposes into >=M S→T paths and nonnegative circuits, giving lower bound d*M; adding chosen M shortest bridges yields an Eulerian multigraph. Independent legal graph assembly, BFS every defect source→sink and extra cost matched in 8 cases q=2,3 h=2,3; binary q=2,h=3 gives 14,28,53 and ternary q=3,h=3,k=6 gives 696.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al., Maximum Length RLL Sequences in de Bruijn Graph, arXiv:2403.01454, studies longest no-repeat constrained cycles, not shortest repeat-allowed covering tours.",
+          "E. Moreno, De Bruijn graphs and sequences in languages with restrictions, doctoral thesis 2005, text of Chapter 4 §§4.1–4.2 examines restricted Eulerian de Bruijn cycles and lexicographic minimization; no exact extra-flow formula observed in those passages."
+        ],
+        "reasoning": "Generic shortest-factor-set walk theory and postman flows are broader algorithmically; they do not directly give the specialized all-(q,h,k) closed formula or the classification of every optimum. This is an explicit solved subclass, rather than a claim of discovering Chinese-postman reduction.",
+        "searches": [
+          "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows",
+          "https://arxiv.org/abs/2403.01454",
+          "https://theses.hal.science/tel-00628709"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2403.01454",
+        "https://theses.hal.science/tel-00628709",
+        "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+        "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chee et al., Maximum Length RLL Sequences in de Bruijn Graph, arXiv:2403.01454, studies longest no-repeat constrained cycles, not shortest repeat-allowed covering tours.",
+          "E. Moreno, De Bruijn graphs and sequences in languages with restrictions, doctoral thesis 2005, text of Chapter 4 §§4.1–4.2 examines restricted Eulerian de Bruijn cycles and lexicographic minimization; no exact extra-flow formula observed in those passages."
+        ],
+        "reasoning": "Chee’s maximum no-repeat sequence bounds are not lower bounds on total length when every legal window must occur with repetitions. The audited result recovers the no-defect h=k case; earlier restricted-language Eulerian existence is that boundary, not the new h<k correction.",
+        "searches": [
+          "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows",
+          "https://arxiv.org/abs/2403.01454",
+          "https://theses.hal.science/tel-00628709"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee et al., Maximum Length RLL Sequences in de Bruijn Graph, arXiv:2403.01454, studies longest no-repeat constrained cycles, not shortest repeat-allowed covering tours.",
+          "E. Moreno, De Bruijn graphs and sequences in languages with restrictions, doctoral thesis 2005, text of Chapter 4 §§4.1–4.2 examines restricted Eulerian de Bruijn cycles and lexicographic minimization; no exact extra-flow formula observed in those passages."
+        ],
+        "reasoning": "Equivalent optimization is a directed Chinese-postman augmentation of the legal k-word overlap graph. A generic postman algorithm computes the cost for a given graph, but does not provide the claim that all nonzero defect-pair distances equal d=k-h for every parameter in this range.",
+        "searches": [
+          "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows",
+          "https://arxiv.org/abs/2403.01454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chee et al., Maximum Length RLL Sequences in de Bruijn Graph, arXiv:2403.01454, studies longest no-repeat constrained cycles, not shortest repeat-allowed covering tours.",
+          "E. Moreno, De Bruijn graphs and sequences in languages with restrictions, doctoral thesis 2005, text of Chapter 4 §§4.1–4.2 examines restricted Eulerian de Bruijn cycles and lexicographic minimization; no exact extra-flow formula observed in those passages."
+        ],
+        "reasoning": "The searched Resultary findings did not include a run-limited shortest cyclic-cover table. Moreno’s restricted-word Eulerian cycle discussion addresses exact-once edges when possible, whereas extra mandatory traversals are the invariant here.",
+        "searches": [
+          "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows",
+          "https://theses.hal.science/tel-00628709",
+          "https://doi.org/10.4230/LIPIcs.CPM.2022.16"
+        ]
+      },
+      "rationale": "Directed Chinese-postman theory explains computing repeat-allowed shortest covers, while Chee et al. maximize run-restricted no-repeat de Bruijn sequences; Moreno thesis focuses constrained language cycles and lexicographic Euler tours. The inspected material does not establish the stated first-overlap closed cost and all-optimal bridge classification. A hidden exact restricted-language postman specialization remains a material originality risk.",
+      "residual_risks": [
+        "The full Moreno thesis outside inspected Chapter 4 or an unindexed later constrained shortest-superstring work may contain an equivalent postman cost theorem.",
+        "The formula is asserted only for h<=k<=2h; no conclusion should be extrapolated to longer windows or multiple forbidden factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected chapter does not state the cost correction; whole-thesis noncoverage cannot be asserted",
+          "evidence": "Chapter 4 theorem handles restricted-language de Bruijn cycles and lexicographic Euler tours; audited problem allows repeated k-windows.",
+          "identifier_or_url": "E. Moreno, 2005 doctoral thesis, https://theses.hal.science/tel-00628709",
+          "material_read": "Accessible PDF-extracted text of Chapter 4 sections 4.1–4.2 (including Theorem 4.2.1), not the entire thesis; page screenshot retrieval was blocked",
+          "method": "Compared restricted de Bruijn cycles, Eulerian constraints and lexicographic minimization with repeat-allowed shortest covers",
+          "title": "De Bruijn graphs and sequences in languages with restrictions",
+          "trigger": "Natural exact same forbidden-language overlap graphs"
+        },
+        {
+          "assessment": "The stated maximum/no-repeat problem does not entail minimum repeat-allowed covering length",
+          "evidence": "Title and abstract specify maximum length run-limited sequences in de Bruijn graph.",
+          "identifier_or_url": "Chee et al., arXiv:2403.01454",
+          "material_read": "Accessible abstract and primary result description, not full paper",
+          "method": "Compared optimization objective and repetition constraints",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+          "trigger": "Same zero-run-restricted de Bruijn overlap graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Explicit all-parameter first-window-regime optimal cyclic cover length and complete minimal augmentation structure for a natural run-length-limited language; separates unavoidable duplicate windows from prescribed distinct factors and resolves dependence on alphabet and forbidden run length.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2403.01454",
+    "https://theses.hal.science/tel-00628709",
+    "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+    "Resultary published-search: constrained de Bruijn cyclic universal sequence forbidden zero run shortest postman covering windows"
+  ],
+  "disposition": "passed",
+  "final_claim": "For labeled q>=2, h>=2 and h<=k<=2h, shortest cyclic cover of every legal length-k factor avoiding 0^h has L=A_(q,h)(k)+(k-h)*M, where M(h)=0 and M(k)=(q-1)*(q^(k-h-1)-1_(k=2h)). Every optimal extra-flow path matches a defect source to sink via its unique k-h edge bridge; any bijection yields an Eulerian optimal cover.",
+  "limitations": [
+    "Best-of-knowledge mathematical novelty with specified residual access/priority risks; does not certify exhaustive historical priority.",
+    "Each claim assessed with its own exact stated domain and boundary conditions; no inference beyond proved quantifiers.",
+    "Finite calculations support but do not replace general proofs.",
+    "The full Moreno thesis outside inspected Chapter 4 or an unindexed later constrained shortest-superstring work may contain an equivalent postman cost theorem.",
+    "The formula is asserted only for h<=k<=2h; no conclusion should be extrapolated to longer windows or multiple forbidden factors."
+  ],
+  "residual_risks": [
+    "The full Moreno thesis outside inspected Chapter 4 or an unindexed later constrained shortest-superstring work may contain an equivalent postman cost theorem.",
+    "The formula is asserted only for h<=k<=2h; no conclusion should be extrapolated to longer windows or multiple forbidden factors."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Inspected chapter does not state the cost correction; whole-thesis noncoverage cannot be asserted",
+      "evidence": "Chapter 4 theorem handles restricted-language de Bruijn cycles and lexicographic Euler tours; audited problem allows repeated k-windows.",
+      "identifier_or_url": "E. Moreno, 2005 doctoral thesis, https://theses.hal.science/tel-00628709",
+      "material_read": "Accessible PDF-extracted text of Chapter 4 sections 4.1–4.2 (including Theorem 4.2.1), not the entire thesis; page screenshot retrieval was blocked",
+      "method": "Compared restricted de Bruijn cycles, Eulerian constraints and lexicographic minimization with repeat-allowed shortest covers",
+      "title": "De Bruijn graphs and sequences in languages with restrictions",
+      "trigger": "Natural exact same forbidden-language overlap graphs"
+    },
+    {
+      "assessment": "The stated maximum/no-repeat problem does not entail minimum repeat-allowed covering length",
+      "evidence": "Title and abstract specify maximum length run-limited sequences in de Bruijn graph.",
+      "identifier_or_url": "Chee et al., arXiv:2403.01454",
+      "material_read": "Accessible abstract and primary result description, not full paper",
+      "method": "Compared optimization objective and repetition constraints",
+      "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+      "trigger": "Same zero-run-restricted de Bruijn overlap graphs"
+    }
+  ]
+}
