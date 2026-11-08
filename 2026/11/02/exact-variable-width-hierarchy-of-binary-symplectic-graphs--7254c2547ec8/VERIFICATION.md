@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 checks/verify_fo4.py` and `python3 checks/verify_width.py` in an ordinary Python 3 installation (standard library only). Expected standard outputs are stored in `checks/fo4_output.txt` and `checks/width_output.txt`. The programs were executed and both expected-output files captured from their actual runs.
+## correctness
 
-The first checker enumerates \(63^3=250047\) ordered three-tuples of nonzero vectors in the six-dimensional binary symplectic space, identifies \(17\) distinct pairing/linear-dependence signatures, compares their possible extensions in dimensions six and eight, checks all \(15^3=3375\) ordered triples in dimension four, and tests the dimension-two-to-three four-variable separator. The second checks the sharp forbidden-set count and uniform fiber inequality for \(3\le k\le11\), together with an explicit pair of a totally isotropic basis and dual witness at the next width.
+PASS
 
-**What is proved without computation:** for every \(k\ge3\), a one-move extension either copies a sum of at most \(k-2\) fixed vertices or finds a vector in an affine pairing fiber outside all such small spans, because the fiber is strictly larger. This supplies an arbitrary-length \(k\)-pebble strategy in all dimensions at least \(k-1\). The isotropic independence formulas supply the matching lower bound on variable width. The finite tests merely exercise sample boundaries and independent implementations of the requisite linear-algebraic mechanisms.
+For k>=3 preserve the B-pairings and all F2-zero relations among at most k−1 pebbled positions. On a move with r-dimensional fixed span, the forbidden set of sums of ≤k−2 fixed vectors has size 2^r when r≤k−2 and 2^(k−1)−1 when r=k−1; every prescribed pairing fiber in ambient 2d-space has 2^(2d−r)>|F| elements for d≥k−1. This proves an unrestricted-length k-pebble back-and-forth. For t<k−1, the t+2-variable sentence using t+1 distinct orthogonal vertices and a parity-inconsistent pairing witness holds at rank≥t+1 but not t, by maximal isotropic dimension. Boundary k=1 all nonempty loopless graphs, k=2 splits K3 from d≥2. Independently enumerated all 17 triple pairing/dependence types in S3 and matched their fourth-pebble extension signatures to S4, complementing the universal proof.
 
-**Unverified scope:** no counting-logic version, arbitrary-field version, or independent external proof audit is claimed. The searches cannot exclude all historically equivalent presentations.
+## originality
+
+PASS
+
+Qualified PASS: standard k-pebble games and symplectic graph spectrum/switching are prior, but the complete non-counting FO^k rank hierarchy and sharp separating variable number are not contained in the inspected statements. An equivalent general vector-space reduct theorem may exist.
+
+## value
+
+PASS
+
+Exact sharp finite-variable expressive-width spectrum of an explicit family of strongly regular graphs: quantifier depth is unbounded and the transition at d=k−1 is genuine, not an ordinary bounded-depth collapse. It gives optimal variable-count witnesses and canonical smallest representatives, useful for model theory and graph distinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

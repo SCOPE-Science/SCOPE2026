@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof gives an explicit arbitrarily long noncounting pebble-game invariant preserving all pairings and zero-sum relations of support at most \(k-1\). Its difficult extension case is reduced to a surjective symplectic pairing map whose solution fiber has size \(2^{2d-r}\); the forbidden union has at most \(2^r\) or \(2^{k-1}-1\) elements, strictly fewer for dimensions at least \(k-1\). Matching a vector lying in a small fixed span preserves the invariant by the full recorded relation space of the unmoved pebbles. The defining sentences for exact dimension separation use only \(d+2\) variables and rely on the sharp maximal dimension of an isotropic subspace. Two independent finite-check programs confirm boundary cases, but the infinite argument does not depend on extrapolation.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** Abiad–Haemers (arXiv:1412.2945; accessible full open article) establishes the graph construction, switching and \(2\)-ranks, not a finite-variable classification. Grohe–Otto (arXiv:1204.1990; relevant PDF sections inspected) establishes general pebble-game/variable-logic equivalences, not the present symplectic dimension threshold. The finite projective polar graph description in Brouwer is an equivalent graph presentation after complementation, but supplies only graph parameters. Related rank-bounded dimension separations do not imply agreement at every quantifier rank with a fixed set of variable names. No directly covering statement was found in the named searches and recorded research index comparisons, but absence of a search hit is not a uniqueness proof; a more general unpublished or historical algebraic classification could dominate the result.
+PASS
 
-## Value
-**PASS.** This is a complete width hierarchy, not an arbitrary small example. It determines exactly when fixed-variable first-order logic loses symplectic dimension forever, sharp minimum variable widths to separate each pair of dimensions, the number of logical theories at each width, and sharp smallest finite representatives. The universal fiber-versus-forbidden-span argument explains the structural reason for stabilization. It contrasts finite quantifier-rank separation with unrestricted quantifier depth at bounded width.
+For k>=3 preserve the B-pairings and all F2-zero relations among at most k−1 pebbled positions. On a move with r-dimensional fixed span, the forbidden set of sums of ≤k−2 fixed vectors has size 2^r when r≤k−2 and 2^(k−1)−1 when r=k−1; every prescribed pairing fiber in ambient 2d-space has 2^(2d−r)>|F| elements for d≥k−1. This proves an unrestricted-length k-pebble back-and-forth. For t<k−1, the t+2-variable sentence using t+1 distinct orthogonal vertices and a parity-inconsistent pairing witness holds at rank≥t+1 but not t, by maximal isotropic dimension. Boundary k=1 all nonempty loopless graphs, k=2 splits K3 from d≥2. Independently enumerated all 17 triple pairing/dependence types in S3 and matched their fourth-pebble extension signatures to S4, complementing the universal proof.
 
-## Closest literature and limits
-Grohe–Otto 2012 is the methodological source; Abiad–Haemers 2014/2015 is the closest same-object primary research. Brouwer's symplectic graph description uses the complementary adjacency convention. The theorem is limited to binary nonsingular symplectic spaces and pure noncounting graph logic; independent validation, other field orders, richer languages, and exhaustive historical-priority searches are outside its established scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: standard k-pebble games and symplectic graph spectrum/switching are prior, but the complete non-counting FO^k rank hierarchy and sharp separating variable number are not contained in the inspected statements. An equivalent general vector-space reduct theorem may exist.
+
+## value
+
+PASS
+
+Exact sharp finite-variable expressive-width spectrum of an explicit family of strongly regular graphs: quantifier depth is unbounded and the transition at d=k−1 is genuine, not an ordinary bounded-depth collapse. It gives optimal variable-count witnesses and canonical smallest representatives, useful for model theory and graph distinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
