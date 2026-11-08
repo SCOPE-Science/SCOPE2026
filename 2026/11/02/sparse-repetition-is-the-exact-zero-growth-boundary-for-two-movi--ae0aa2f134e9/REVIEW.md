@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies the interval map, half-open dyadic holes, arbitrary sequence of hole choices, exact finite-word counting convention, and limsup/liminf rates. The transfer matrices \(A\) and \(B\) prohibit respectively \(00\) and \(11\). For every schedule prefix the matrix product counts exactly all legal \((n+1)\)-bit cylinders, giving the Lebesgue mass. Factorization of alternating blocks gives row-sum norm exactly one plus block length; AM–GM gives the upper bound. Disjoint doubled identical-letter pairs in constant runs give the lower bound. The rate criterion follows from \(t\log(1+1/t)	o0\). The parity-digit conjugacy makes the perfectly alternating case nonincreasing, establishing the exact count and countable survivor. The static case has the standard Fibonacci recurrence. No finite enumeration is used to certify the all-schedule quantifiers.
+PASS
 
-## Originality — PASS under the inspected priority comparisons
+The binary cylinders 00 and 11 give A=[[0,1],[1,1]], B=[[1,1],[1,0]], so N_n=1^T product M_j 1 and Lebesgue mass N_n/2^(n+1). Each disjoint pair AA or BB doubles the column-one vector; total selected pairs ≥ceil(d_n/2), yielding N_n≥2^(1+ceil(d_n/2)). Cutting at each equal neighboring pair gives d_n+1 alternating matrix blocks; AB and BA are triangular unipotents, their length-ell maximal row sum is ell+1, and AM-GM yields N_n≤2(1+n/(d_n+1))^(d_n+1). The limiting function t log(1+1/t)→0 proves both limsup and liminf iff statements without claiming a universal entropy limit. Bit-flip conjugacy transforms perfect alternation to forbidden 01, giving exactly n+2 monotone words. Independent direct itineraries across every schedule through n=10 verified counts and integer inequalities. All claims are specific to those two holes, not arbitrary holes.
 
-The closest primary texts concern moving holes with bases \(b\ge3\), and explicitly exclude \(b=2\) because their connecting-word argument fails: Kong–Sun–Wang, arXiv:2505.02336v2, Theorem 1.1 and final remark 7(i); Kong–Li–Ma–Simon, arXiv:2610.31128v1, Theorem 1.1 and Remark 1.2. An existing higher-alphabet moving-bigram finite-census formula already covers matrix bookkeeping in that setting; this is not claimed anew. Periodic-finite-type capacity theory, including Manada et al. (first online 2025-10-14), covers periodic schedule capacities and can yield the alternating example as a specialization. The precise new assertion is the if-and-only-if sparse-repetition condition for **every aperiodic or periodic schedule** in the previously excluded binary case, with quantitative finite-time bounds. Inspected random-transfer and oscillating-hole studies do not assert these bounds. Targeted published-record searches returned closest static-hole or periodic-symbolic results, not this arbitrary-schedule criterion.
+## originality
 
-Residual priority risk: unindexed results about growth of particular pairs of Fibonacci/unipotent matrices could imply the zero-rate criterion. This is a genuine best-knowledge assessment, not a claim of formal uniqueness.
+PASS
 
-## Mathematical value — PASS
+Best-knowledge PASS for the uniform all-schedule zero-growth density equivalence; general moving-hole dimension papers explicitly require base ≥3 for the relevant theorem and periodic capacity results cover at most periodic instances. The matrix word-count mechanics itself is elementary and not claimed independently novel. An unindexed direct binary matrix-product theorem could cover this claim.
 
-Two opposite quarter-cylinders are the smallest natural pair of length-two forbidden binary words giving two individually mixing positive-entropy survivor sets. The all-schedule result gives a sharp, computable qualitative boundary: zero growth is equivalent to sparse repetition of a hole choice, and any positive upper density forces positive upper growth. The uniform quantitative bounds provide usable finite-time escape estimates even when the schedule has no limiting frequency, addressing the exceptional binary case explicitly left out of recent general moving-hole results. This is more than a periodic transfer-matrix example or a nominal alphabet substitution, because it classifies arbitrary nonstationary schedules at a singular zero-growth boundary.
+## value
 
-## Scope and closest sources
+PASS
 
-See the precise comparisons and remaining priority risks in AUDIT.json and the references in RESULT.md. The periodic case is illustrative rather than independently asserted as novel; the finite verifier supports but cannot replace the proof.
+The contrast between two Fibonacci-growth static holes and zero-growth alternating switching is a natural open-dynamical effect; the sharp arbitrary-schedule density boundary and uniform finite-size bounds are useful for nonautonomous symbolic escape rates.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
