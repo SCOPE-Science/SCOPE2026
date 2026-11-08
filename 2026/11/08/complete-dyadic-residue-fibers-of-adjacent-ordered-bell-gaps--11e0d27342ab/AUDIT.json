@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The 2-adic EGF yields exact error v2=n+1. Both adjacent-difference branches have uniquely minimal j=3 term, giving exact v2 differences 7+v2(t-s); finite quotients show each branch is a bijection onto a distinct mod128 ball. This rigorously gives all fibers, least gap period and sharp onset, exceptional terms and closure. Exact saved verifier checks finite ranges but is not relied upon for all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Poonen Theorem 5: exact F_n period 2^(k-4) mod 2^k, valid from n=k-1.",
+        "Poonen Theorem 4: F_(n+2^m)-F_n=2^(m+4) mod2^(m+5); its adjacent subtraction gives zero to this precision, without a nonzero gap slope.",
+        "The new result proves exact D_n period 2^(k-6) and complete image, a different output statistic."
+      ],
+      "reasoning": "The strongest directly relevant primary theorems are credited. They imply some gap period upper bounds after subtraction but do not determine smallest gap period or complete residue frequencies. Their constant shift increment is annihilated by differencing and hence cannot imply the nonzero j=3 gap isometry needed for bijection.",
+      "searches": [
+        "Poonen Theorems 4-6 original PDF full text",
+        "Asgari-Jahangiri arxiv:1701.07276 Sections 3-4",
+        "Fubini numbers consecutive differences modulo powers of two",
+        "ordered Bell numbers first differences residues modulo 128",
+        "Poonen Fubini difference isometry 2-adic",
+        "Fubini numbers modular image residues modulo powers of two sharp preperiod least period",
+        "Some new identities and congruences for Fubini numbers Diagana Maiga pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://www.fq.math.ca/Scanned/26-1/poonen.pdf",
+      "arxiv:1308.1637; https://cs.uwaterloo.ca/journals/JIS/VOL17/Mezo/mezo19.pdf",
+      "https://www.mat.univie.ac.at/~slc/opapers/s05barsky.pdf",
+      "arxiv:1701.07276",
+      "DOI:10.1016/j.jnt.2016.09.032",
+      "https://oeis.org/A000670",
+      "published mathematical-result records queried for exact first differences, aliases, and two-adic gap closures"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Poonen F-period statements are prior art and not claimed as original.",
+        "Taking D_(n+2^m)-D_n subtracts two copies of Poonen’s constant shift 2^(m+4), leaving 0 mod2^(m+5); this does not give the claimed first-difference scaled isometry with coefficient 2^7.",
+        "The new branch difference valuations v2(G_e(t)-G_e(s))=7+v2(t-s) imply exact gap fibers and sharp period."
+      ],
+      "reasoning": "The implication direction was explicitly tested: a constant leading shift for individual F values cancels in the adjacent difference and yields only a coarse gap congruence. It cannot imply residue surjectivity, multiplicities, or an exact gap period without additional arithmetic. The new statement has different object and stronger gap-specific conclusions.",
+      "searches": [
+        "Poonen PDF Theorem 4 explicit difference of consecutive instances",
+        "Poonen 1988 preferential arrangements consecutive differences uniform two-adic residues 114 and 110 modulo 128",
+        "Two-adic closure of sequence of adjacent ordered Bell differences first differences",
+        "Fubini numbers consecutive differences modulo powers of two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Poonen omega(n) is the same Fubini number F_n; compare gap D_n=omega(n+1)-omega(n) as an arithmetic first difference.",
+        "Asgari-Jahangiri r=1 corresponds to shifted Fubini numbers, but period results remain about values rather than their differences.",
+        "No identified source asserts exact adjacent-gap image 110/114 mod128."
+      ],
+      "reasoning": "Equivalent names, r=1 shift, and differences of the same primary sequence were compared. A termwise congruence of F values does not determine value fibers of first differences; subtracting Poonen Theorem 4 cancels the leading constant. The new j=3 coefficient in the gap interpolation provides an additional nontrivial exact valuation law.",
+      "searches": [
+        "Exact dyadic modular distribution of first differences of Fubini numbers or ordered Bell numbers including adjacent gaps",
+        "Poonen 1988 preferential arrangements consecutive differences uniform two-adic residues 114 and 110 modulo 128",
+        "Two-adic closure of sequence of adjacent ordered Bell differences first differences",
+        "Fubini numbers consecutive differences modulo powers of two",
+        "ordered Bell numbers first differences residues modulo 128",
+        "Poonen Fubini difference isometry 2-adic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A000670 contains base Fubini terms and antecedent congruence notes.",
+        "The six initial D values are direct differences of known F values but their precise role as the entire set of off-ball exceptions is a new all-level assertion."
+      ],
+      "reasoning": "A finite list of F_n or D_n terms is not an exact classification at every 2-power level. No all-level adjacent-gap residue histogram or two-adic closure table was found.",
+      "searches": [
+        "OEIS:A000670",
+        "Exact dyadic modular distribution of first differences of Fubini numbers or ordered Bell numbers including adjacent gaps",
+        "ordered Bell numbers first differences residues modulo 128"
+      ]
+    },
+    "rationale": "The only exact earlier dyadic-period theorem located (Poonen 1988) concerns Fubini values and is expressly acknowledged; its leading constant shift cancels on taking first differences. No inspected primary statement determines the exact adjacent-difference residue image, one-per-residue law, reduced gap period, sharp onset, or 2-adic closure. A full related 2017 congruence article was not accessible, and historic priority remains qualified.",
+    "residual_risks": [
+      "Diagana–Maïga 2017: title and abstract accessible but full text unavailable; an unlocated theorem about adjacent gaps would be a historical coverage risk.",
+      "Other unindexed equivalent treatments of first-difference Fubini congruences might exist.",
+      "The result is restricted to powers of two and first differences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong covering prior work for Fubini values, but not the new adjacent-gap image/fiber law; shift leading coefficient cancels on differencing",
+        "evidence": "Theorem 4: F_(n+2^m)-F_n=2^(m+4) (mod 2^(m+5)), n>=m+4. Theorem 5: exact period 2^(k-4) of F values mod2^k from k-1.",
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/26-1/poonen.pdf",
+        "material_read": "Full 1988 paper, particularly Lemma 1, Theorems 4-6, consecutive-shift congruences, and proof of the power-of-two period",
+        "method": "Read full-text PDF and compared mathematical implications, including subtracting the shift congruence for adjacent indices",
+        "title": "Periodicity of a Combinatorial Sequence",
+        "trigger": "Exact same Fubini sequence; likely strongest existing dyadic periodicity"
+      },
+      {
+        "assessment": "Covers decimal last-digit periodicity of F values and combinatorial extensions, not exact first-difference fibers mod powers of two",
+        "evidence": "Section 1 recounts Gross 1962: F_(n+4)=F_n mod10 for n>=1; first arxiv posting 2013-08-07.",
+        "identifier_or_url": "arxiv:1308.1637; https://cs.uwaterloo.ca/journals/JIS/VOL17/Mezo/mezo19.pdf",
+        "material_read": "Full primary paper, particularly the introductory Fubini congruence and proof of decimal periodicity",
+        "method": "Read HTML arxiv full text and full PDF; visually inspected page 2",
+        "title": "Periodicity of the Last Digits of Some Combinatorial Sequences",
+        "trigger": "Archival Fubini periodicity, published same underlying sequence"
+      },
+      {
+        "assessment": "Broad Fubini p-power eventual congruence, without one-to-one first-difference value spectrum",
+        "evidence": "Proposition 1 states g_(n+(p-1)p^h)=g_n mod p^h for n>=h.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/opapers/s05barsky.pdf",
+        "material_read": "Full primary paper, Proposition 1 and surrounding remarks on Fubini EGF",
+        "method": "Read PDF text and visually inspected page 13",
+        "title": "Analyse p-adique et suites classiques de nombres",
+        "trigger": "Precedent p-adic Fubini congruences"
+      },
+      {
+        "assessment": "Treats r-Fubini periods, explicitly cites Poonen for ordinary case; no adjacent first-difference fiber theorem found",
+        "evidence": "Introduction cites Poonen as determining ordinary Fubini periods; Section 4 concerns r-Fubini period lengths.",
+        "identifier_or_url": "arxiv:1701.07276",
+        "material_read": "Full primary article, Introduction, Section 2 defining r-Fubini, Sections 3-4 periods, references",
+        "method": "Read arxiv HTML and full PDF",
+        "title": "On the Periodicity Problem of Residual r-Fubini Sequences",
+        "trigger": "Plausible later stronger coverage of modular periods of Fubini relatives"
+      },
+      {
+        "assessment": "The abstract does not assert a gap-value spectrum; full-text noncoverage cannot be claimed",
+        "evidence": "Abstract describes p-adic Laplace transform, identities, congruences and generalized Fubini numbers; no result statements specifying adjacent differences.",
+        "identifier_or_url": "DOI:10.1016/j.jnt.2016.09.032",
+        "material_read": "Title, abstract and bibliographic record; lawful full text unavailable after open-access search",
+        "method": "Read published abstract; searched for lawful full-text access",
+        "title": "Some New Identities and Congruences for Fubini Numbers",
+        "trigger": "Possibly related p-adic Fubini congruences"
+      },
+      {
+        "assessment": "Describes Fubini numbers and known congruences, not full two-adic image of adjacent differences",
+        "evidence": "Starting values 1,1,3,13,75,541,...; various modular-period notes.",
+        "identifier_or_url": "https://oeis.org/A000670",
+        "material_read": "Initial values, known congruences, comments",
+        "method": "Read OEIS entry",
+        "title": "OEIS A000670",
+        "trigger": "Check exact sequence and potential tabulated gap invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11e0d273-42ab-40cc-99f4-07ba6a7b6ad4",
+  "value": {
+    "rationale": "Adjacent increments of weak-ordering counts are a natural arithmetic growth sequence. Their exact first-difference output residues, uniform gap frequencies, minimal period, six early exceptions and two-adic closure form a complete structural distribution theorem beyond known Fubini value period congruences, not a mere restatement or finite table.",
+    "status": "PASS"
+  }
+}
