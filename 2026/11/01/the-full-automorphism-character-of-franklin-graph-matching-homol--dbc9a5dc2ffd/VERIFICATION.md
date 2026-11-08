@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite verification
 
-The full claim is specific to a finite graph; no infinite-parameter extrapolation is involved. In a directory containing all the included artifacts, run:
+# Independent mathematical audit
 
-```sh
-python3 verify_franklin_character.py
-python3 verify_chain_independent.py
-```
+## correctness
 
-The first program regenerates the eighteen graph edges from the LCF specification, the 1,091 simplices, the complete 48-element automorphism group and the four-element Hamiltonian-cycle orbit. It checks that the four-letter permutation action has image all of \(S_4\) and kernel exactly the identity and central half-turn, and that the sign of the eighteen-edge permutation distinguishes this central half-turn. It constructs a 539-pair discrete-Morse matching and checks the entire directed Hasse graph for acyclicity. Only one critical vertex and twelve critical three-simplices survive. This is an exact finite acyclic-Morse certificate for the homotopy premise.
+PASS
 
-For each of 48 automorphisms the first program computes the oriented fixed-simplex trace separately from the fixed-edge-orbit alternating-sum polynomial. It checks equality, the ten full conjugacy classes, the exact character formula, and all ten rational irreducible multiplicities. It writes the regenerated complete summary to `franklin_character_certificate.json` and prints `FRANKLIN_CHARACTER_VERIFIED` upon success.
+Independently generated the 18-edge graph, all 1091 nonempty matching faces, 539 acyclic Morse pairs and full 3942-incidence DAG giving one critical vertex and twelve critical 3-cells. Exhaustive backtracking found exactly 48 automorphisms. Recomputed orientation-sensitive invariant-matching traces; distribution (12:1, 4:1, 2:6, -2:14, 0:26), character average zero; checked 10-class values and rational S4×C2 multiplicities against source table.
 
-The second program independently enumerates matching faces and performs binary boundary elimination, obtaining ranks \((1,17,100,236,169,17)\) and reduced Betti sequence \((0,0,0,12,0,0)\). It prints `FRANKLIN_INDEPENDENT_CHAIN_VERIFIED`. Finite-field ranks corroborate the integral Morse conclusion but are not substituted for it.
+## originality
 
-The recorded certificate and the embedded source code are both included for reproducibility. They provide exact finite mathematical checks, not formal proof-assistant certification, independent human assessment, publication-priority certification, or a theorem about larger crossed-prism graphs. Rational quotient homology follows mathematically from invariant rational homology under finite simplicial group actions after equivariant subdivision, not from a homotopy-type claim about those quotients.
+PASS
+
+Independent, best-of-knowledge search and mathematical comparison support a distinct exact claim. Resultary Franklin edge-orbit matching-complex splitting supplies the same nonequivariant wedge12 S3 and deletion/link profiles, but not its group character. Published octahedral matching-complex character involves a different graph despite the same abstract automorphism group. Full rational homology character adds intrinsic equivariant information beyond the top Betti number.
+
+## value
+
+PASS
+
+Complete rational automorphism-module decomposition for a canonical cubic matching complex goes beyond its known nonequivariant type and determines rational quotient invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
