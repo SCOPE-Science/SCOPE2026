@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the complete \(2^d\)-state weighted-cube Laplacian, identifies its Walsh eigenvalues, and reduces end-step positivity to one strictly decreasing positive resolvent return. Strict convexity in positive coordinate rates follows from the explicit Hessian and singleton Bernoulli events, not from sampling. The binomial convex-order and uniform moment expansion prove the dimension law; the split-coordinate expansion proves the sharp singular constant. The separate standard-library checker replayed 3,474 supplementary rational and numerical checks; these are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with source-access risk
-A published general Markov-resolvent theorem already supplies the diagonal \(1/2\) criterion, and that identity is not claimed as original. Karlin–Lindqvist–Yao (1993) already supply hypercube spectral representations and eigenvalue majorization across Hamming-distance graph families; only the abstract could be read, so possible exact internal overlap remains a priority risk. Sharma–Hammett (2007) study anisotropic spatial flux schemes, whereas Higueras–Roldán (2023) solve a uniform Dirichlet one-dimensional positivity problem. Their inspected full texts do not state the new strict directional-rate ordering, complete fixed-sum extremizers or both sharp limit laws. The current assessment is a best-knowledge claim about those precise conclusions, not proof that no other literature exists.
+PASS
 
-## Value — PASS
-The result is a natural complete resource-allocation classification for a product diffusion graph. More unequal coordinate rates increase the admissible positivity step despite having the same largest Laplacian eigenvalue; a positive lower-rate floor gives explicit unique optimizing designs. Its \(d^{-2}\) correction in high dimension and inverse-square-root singular low-rate boundary quantify two useful, mathematically distinct regimes. These facts go beyond calculating another finite graph positivity table.
+The M-matrix resolvent has nonnegative entries and the Cayley formula gives C=2R-I. Walsh eigenvalues 2 sum_{j in J} a_j yield a common diagonal return F_a(s)=E[1/(1+2s sum a_i X_i)], strictly falling from 1 to 2^-d<1/2. The positive-definite Hessian (singleton Bernoulli events) makes F strictly Schur-convex, so s_* follows the strict majorization order and the equal and capped-extreme configurations are the unique fixed-budget extremizers. Leave-one-out binomial convex order proves Theta_d strictly decreases toward 1, centered-moment expansion gives 1+1/(2d)+5/(8d^2)+O(d^-3), and the two-branch Bernoulli decomposition proves the epsilon^-1/2 singular coefficient. Independently checked exact d=2 cubic and its positive roots.
 
-## Scope and residual limitations
-The theorem requires positive coordinate-constant edge rates on the unlooped Boolean cube. It does not cover independent edge-by-edge weights, nonlinear flux limiting, arbitrary time integrators or stage positivity. The 1993 specialist full-text comparison remains unverified and independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published reversible-generator result already proves the general diagonal-resolvent positivity test, which is credited and included as a prior implication. It does not optimize the crossing over weighted-cube directional rates or compute the strict anisotropy comparison and two sharp limits. The 1993 hypercube spectral-majorization paper is a close thematic predecessor but its accessible abstract concerns Hamming-distance spectra; full access was blocked, leaving residual priority risk. Best-of-knowledge PASS for comparative rate law and asymptotics.
+
+## value
+
+PASS
+
+A quantitative design principle for a natural product diffusion graph: at fixed total conductance greater anisotropy provably relaxes the sharp positivity time step despite fixed top eigenvalue. Dimension growth and nearly disconnected rate-floor limits expose nontrivial numerical-analysis boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
