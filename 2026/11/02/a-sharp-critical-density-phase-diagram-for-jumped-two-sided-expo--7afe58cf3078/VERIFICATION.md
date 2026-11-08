@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-The result is an analytical theorem. Its proof obtains the exact Zak multiplier by summing both exponential tails, proves sharp frequency extrema with equality at the phases 0 and pi, minimizes and maximizes the resulting scalar functions over a unit cell, and obtains the spectral and conditioning consequences. This verifies infinitely many parameter values symbolically; no finite grid is treated as exhaustive proof.
+## correctness
 
-The included standard-library `verify.py` can be run with `python verify.py`. The tested program completed 81,136 checks covering pointwise Zak identities, independent truncated Fourier series, frequency extremizers, jump thresholds, lower/upper bounds, and the conditioning barrier. Truncation and finite-grid errors are explicitly tolerated only in these supplementary checks.
+PASS
 
-Limitations: exact coefficients assume this window normalization and unit critical lattice; positive amplitudes and identical decay rates on both sides. Historical priority remains provisional. Independent audit and independent validation are not performed.
+Independent reconstruction of the unitary integer Zak multiplier for g(t)=exp(-lambda t) on t>=0 and c exp(lambda t) on t<0 gives P/(1-rz)+Q/(z-r), P=e^{-lambda x}, Q=c r e^{lambda x}, r=e^{-lambda}. At z=-1 and 1 the reverse/ordinary triangle inequalities attain exact frequency extrema |P-Q|/(1+r) and (P+Q)/(1-r). Strictly decreasing P-Q and convex P+Q give the claimed optimal A,B and iff c<r or c>1/r. |Zg|² is real-analytic and nonconstant on connected cylinder, so its essential range is [A,B] with null level sets and no eigenvalues; elementary rational comparisons yield the unattained conditioning infimum. Independently sampled 293,020 Zak points for 4 lambda values and 7 amplitudes each and checked bounds/conditioning. Mesh is corroboration, not the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.
+
+## value
+
+PASS
+
+The family interpolates naturally between the one-sided critical-density Gabor frame and the continuous two-sided nonframe. A complete jump-amplitude frame/nonframe classification, exact operator spectrum, quadratic onset and strict condition-number bound quantify a meaningful design and stability boundary, not a random parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

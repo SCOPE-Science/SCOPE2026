@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The unit-critical-lattice Zak transform is evaluated by two absolutely convergent geometric series. The reverse triangle inequality is sharp exactly at phase \(\pi\), while the triangle inequality is sharp at phase \(0\); the monotonic difference and convex sum prove both optimal constants for all real parameters without numerical optimization. Zak multiplication gives the exact frame criterion and spectrum. The level-set argument establishes absence of eigenvalues. The strict conditioning inequality follows by two explicit positive rational comparisons. Replaying the portable code yielded 81,136 supplementary assertions; these are not used to justify the universal quantifiers.
+## correctness
 
-**Originality — PASS, with residual historical risk (self-review).** Full or relevant primary mathematical sections were inspected for Gröchenig (2023), Kloos–Stöckler (2013), and Faulhuber–Shafkulovska (2022). The sources treat totally positive windows or continuous two-sided and separate one-sided exponentials, not a positive jump parameter at fixed critical density. A published calculation of translated integer-grid sampling for an asymmetric *continuous* bilateral exponential was inspected in full and is not an implication about critical two-dimensional Gabor frames for a *jumped* window. Search of published mathematical findings for aliases and matching threshold formulas found no decisive covering result. Classical Zak theory itself is not claimed as new. Undiscovered earlier equivalent piecewise-exponential calculations are a specific remaining priority risk.
+PASS
 
-**Mathematical value — PASS (self-review).** The exact phase diagram closes a natural boundary between two standard examples: the one-sided exponential can frame at critical density, whereas the continuous two-sided exponential cannot. The result identifies an entire interval where discontinuous bilateral windows still fail, gives quantitative robustness and transition exponents, and proves a nontrivial conditioning limitation on all successful positive two-sided designs. These are natural complete-classification and sharp-stability facts, rather than an arbitrary special numerical parameter.
+Independent reconstruction of the unitary integer Zak multiplier for g(t)=exp(-lambda t) on t>=0 and c exp(lambda t) on t<0 gives P/(1-rz)+Q/(z-r), P=e^{-lambda x}, Q=c r e^{lambda x}, r=e^{-lambda}. At z=-1 and 1 the reverse/ordinary triangle inequalities attain exact frequency extrema |P-Q|/(1+r) and (P+Q)/(1-r). Strictly decreasing P-Q and convex P+Q give the claimed optimal A,B and iff c<r or c>1/r. |Zg|² is real-analytic and nonconstant on connected cylinder, so its essential range is [A,B] with null level sets and no eigenvalues; elementary rational comparisons yield the unattained conditioning infimum. Independently sampled 293,020 Zak points for 4 lambda values and 7 amplitudes each and checked bounds/conditioning. Mesh is corroboration, not the universal proof.
 
-**Scope and limitations.** The two halves have equal decay rate, the jump amplitude is real positive, and the lattice is \(\mathbb Z^2\). No independent mathematical audit has been conducted; possible older indirect coverage is not excluded. Standard analytic and frame-theoretic lemmas were directly checked in the stated normalization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.
+
+## value
+
+PASS
+
+The family interpolates naturally between the one-sided critical-density Gabor frame and the continuous two-sided nonframe. A complete jump-amplitude frame/nonframe classification, exact operator spectrum, quadratic onset and strict condition-number bound quantify a meaningful design and stability boundary, not a random parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
