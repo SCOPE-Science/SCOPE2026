@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-From this directory, execute `python3 verify.py`. The standard-library program independently enumerates all simplices of the circulant, including the absence of five-vertex independent sets, checks every signed term in the explicit integral three-cycle, computes the complete mod-two ranks of all three boundary maps, and tests the oriented action of the sixteen rotations and sixteen reflections. It checks the complete nine-row orbit-reduced boundary matrix and the complete triangle-incidence classification. The expected output is in `verification_output.txt`.
+## correctness
 
-The exact rank argument does not mistake finite experimentation for an infinite proof: the entire finite chain matrix is built and eliminated over a field. A nonzero integral three-cycle and mod-two rank seventy-nine together give rational rank exactly seventy-nine. A primitive coefficient vector then identifies the whole integral top-cycle lattice, not merely a nonzero class over one coefficient field.
+PASS
 
-The computation does not claim the quotient's integral homology, fundamental group, homeomorphism type, or the behavior of a varying family of circulants. The rational quotient conclusion separately uses the standard finite-group coinvariant argument after barycentric subdivision. No independent mathematical audit has yet occurred.
+Independently generated the f-vector (16,80,144,80), five disjoint translation orbits of tetrahedra, nine-orbit signed boundary identity B(1,-1,2,-1,1)=0, and all 144 triangle coefficients. F2 boundary ranks 15,65,79 with an explicit nonzero integral H3 cycle imply rational d3 rank 79; coefficient gcd1 yields entire integral kernel Z. Every facet occurs, and all 32 oriented dihedral actions fix z. Connectedness and rational lower homology vanish by chain ranks; finite-group rational coinvariants give quotient rational homology Q in degrees0,3 only.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit primitive chain, facet support and symmetry action; shellability, 80 facets and rank-one abstract top homology are acknowledged prior art.
+
+## value
+
+PASS
+
+This is the minimal exceptional shellable but non-vertex-decomposable well-covered circulant highlighted in foundational literature; its forced nonunit coefficients and all-facet primitive cycle give a concrete top-dimensional carrier obstruction and its symmetry behavior. The exact exceptional structure is mathematically motivated, not an arbitrary circulant census row.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
