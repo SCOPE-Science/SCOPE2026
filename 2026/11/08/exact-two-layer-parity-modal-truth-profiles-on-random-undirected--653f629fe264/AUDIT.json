@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A basis extension gives a bijection from all alternating matrices with prescribed AS=Y to an unconstrained alternating (n-r)x(n-r) block, proving exactly 2^{binom(n-r,2)} completions if S^T Y is alternating. Taking S=1 and then S=[1,d] with exception rank-one d=0 and d=1 yields the exact joint count. Direct orthogonality enumeration gives the marginal law for both parities of n, including n=2. The embedded checker independently exhausts every simple labelled graph through n=6, all state pairs; this is verification, not a replacement for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+        "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "arXiv:2610.39108v1 Sections 2,5"
+      ],
+      "reasoning": "The fixed-graph automata results have stronger temporal iteration but only special deterministic graph families; they do not imply a distribution under uniform random graph choice. The 2026 Presburger paper is about satisfiability and explicitly leaves modular quantifiers outside its core syntax, so it does not subsume random-model counting.",
+      "searches": [
+        "published-finding corpus: iterate parity update mod 2 for random undirected graphs first two rounds degree parity",
+        "published-finding corpus: Exact distribution of first and second synchronous mod-two neighbor parity states for uniform Erdős–Rényi G(n,1/2), A1 and A²1, exceptional all-zeros and all-ones outcomes",
+        "web: random graph parity majority dynamics two rounds mod 2 distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39108v1 HTML Sections 1,2,5; earliest public 2026-10-29",
+      "arXiv:2105.12612v1 abstract and publisher OA doi:10.1002/rsa.21115 Sections 1,2,5",
+      "arXiv:2409.11152v1 and publisher OA doi:10.1002/rsa.70034; Lemmas 3.4–3.5",
+      "doi:10.1155/2017/2867354 full OA HTML: symmetric AX=B theorem",
+      "published-finding corpus named records: 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 and 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1002/rsa.21115 Section 5 uses A+D and random rank distribution for partition counts",
+        "doi:10.1155/2017/2867354 symmetric solution theorem",
+        "arXiv:2610.39108v1 Theorems 5 and 6 prove decidability and complexity, not distribution"
+      ],
+      "reasoning": "The new object is a dependent composition A(A1) with the same hollow symmetric matrix. Earlier deterministic A+D solvability/rank results and general symmetric AX=B consistency do not alone give the alternating fiber sizes nor the enumeration after the first-image constraint. The new exact joint-law statement is not a special case of the inspected displayed claims. The matrix-completion technique itself is not claimed new.",
+      "searches": [
+        "published-finding corpus: two successive parity neighborhood aggregation random simple graph degree parity vector second-step parity A squared times all ones exact joint law",
+        "published-finding corpus: Symmetric hollow binary matrix A prescribed A1=d and Ad=t, orthogonality parity constraints, fiber cardinalities, pair law",
+        "web: symmetric matrix AX=B alternating finite field graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2105.12612v1 Section 5 concerns random symmetric matrix ranks and random partition counts",
+        "doi:10.1155/2017/2867354 Theorem 4 concerns symmetric solutions AX=B, not alternating matrices conditioned by their own first image"
+      ],
+      "reasoning": "Checked graph-process wording, matrix-square notation, degree parity conditioning, and symmetric matrix fiber wording. The symmetric equation criterion is an algebraic cousin but does not state the law for the dependent pair (A1,A²1); no inspected source has an equivalent statement.",
+      "searches": [
+        "published-finding corpus: two successive parity neighborhood aggregation random simple graph degree parity vector second-step parity A squared times all ones exact joint law",
+        "published-finding corpus: distribution of A^2 1 over F2 for uniformly random symmetric zero-diagonal binary adjacency matrices",
+        "web: \"A^2 1\" \"random graph\" \"parity\" GF2",
+        "web: \"parity of neighbors\" \"two rounds\" random graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked results contained no matching exact joint table",
+        "arXiv:2409.11152v1 Lemma 3.4 already proves uniform even degree parity; Lemma 3.5 conditions on this vector for even-decomposability, not the two-layer joint law"
+      ],
+      "reasoning": "Searched named record database, exact symbolic forms, and parity-update terminology. No displayed exact table for all labelled pairs (d,t), even at small n. This is a limited search, not an exhaustive claim about all databases.",
+      "searches": [
+        "published-finding corpus: Symmetric hollow binary matrix A prescribed A1=d and Ad=t, orthogonality parity constraints, fiber cardinalities, pair law",
+        "web: \"random symmetric matrix\" \"degree parity\" \"square\" F2",
+        "web: degree parity vector neighbor parity two step random graph"
+      ]
+    },
+    "rationale": "The 2026 local/global Presburger paper supplies motivation but studies satisfiability and not probabilistic finite-model semantics. Direct prior random graph full texts give partition counts or even-decomposability, not two-step joint distributions. Deterministic fixed-graph parity dynamics is not a stronger random-graph law. A classical symmetric equation theorem explains a related algebraic method but omits the alternating restriction and nonlinear joint law. Residual risk is explicitly recorded; priority is not certified.",
+    "residual_risks": [
+      "The alternating-matrix completion lemma is close to established symmetric linear-equation facts; it is not independently claimed novel.",
+      "Possible older equivalent formulation of the dependent update law in an unindexed graph-code, binary matrix, or parity-dynamics source.",
+      "The 2026 motivating paper treats satisfiability, not random-model semantics, and excludes modular constraints from its core syntax.",
+      "Independent priority audit and mathematical validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates local counting predicates; does not count probability of iterated parity updates. Core syntax excludes modular constraints though discussion says they are routine to add.",
+        "evidence": [
+          "arXiv:2610.39108v1, published 2026-10-29, Section 2 Definition 3 and Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39108v1",
+        "material_read": "Abstract, Sections 1–2 definitions and Theorems 5–6, Section 5 discussion on modular quantifiers and limitations",
+        "method": "Read accessible full arXiv HTML at specific sections and searched for modulo/divisible",
+        "title": "Deciding two-variable logic with global and local Presburger quantification",
+        "trigger": "Recent source on layered local counting logic and global aggregation"
+      },
+      {
+        "assessment": "Studies degree-congruence partitions and ranks, not conditional joint states A1 and A²1; gives useful mathematical context but no directly dominating statement.",
+        "evidence": [
+          "Balister et al. (2021/2023), Sections 1–2 and 5; doi:10.1002/rsa.21115"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21115",
+        "material_read": "Full OA publisher HTML: introduction, theorem on partition counts, Section 5 on symmetric matrix rank distributions and A+D",
+        "method": "Read relevant complete sections in publisher OA HTML, additionally checked 2021 preprint abstract",
+        "title": "Counting partitions of G(n,1/2) with degree congruence conditions",
+        "trigger": "Strong same-model comparison: fair random undirected graph, degree parity and symmetric binary matrices"
+      },
+      {
+        "assessment": "The uniform even first-step distribution is already explicit in Lemma 3.4; Lemma 3.5 conditions on it. The studied event is even-decomposability, not the next parity-neighborhood vector.",
+        "evidence": [
+          "Janzer–Yip (2024/2025), Lemmas 3.4–3.5 and introduction; doi:10.1002/rsa.70034"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.70034",
+        "material_read": "Accessible OA article introduction, statements, uniform even degree-parity Lemma 3.4 and degree-parity conditioning Lemma 3.5; 2024 preprint introduction",
+        "method": "Opened publisher article and searched its degree-parity conditioning claim; checked preprint",
+        "title": "The Probability That a Random Graph is Even-Decomposable",
+        "trigger": "A related fair-random-graph result conditioning on degree parity"
+      },
+      {
+        "assessment": "Shows symmetric solution existence under consistency and symmetric cross-block conditions, but not hollow symmetric/alternating solution counts nor the dependent two-step random-graph distribution. Algebraic component may be standard.",
+        "evidence": [
+          "Prokip (2017), Theorem 4 and Corollary 7; doi:10.1155/2017/2867354"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2017/2867354",
+        "material_read": "Publisher OA full HTML introduction, Theorem 4, Theorem 5, Corollary 7 and proof descriptions",
+        "method": "Read primary full-text HTML",
+        "title": "The Structure of Symmetric Solutions of the Matrix Equation AX = B over a Principal Ideal Domain",
+        "trigger": "Potential stronger symmetric linear-matrix extension theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "653f629f-e264-487b-9cbe-66f4c7902f4e",
+  "value": {
+    "rationale": "This is the complete all-n finite-model distribution for the first repeated parity-neighbor update, the first layer at which the graph-generated unary predicate is correlated with the very edges used to aggregate it. It captures a nontrivial orthogonality restriction and isolated atoms, which independent-layer binomial approximations miss. It is a natural complete classification of labelled two-state trajectories usable for any Boolean query on two iterated modular local-count predicates; neither arbitrary slicing nor a routine parameter increment.",
+    "status": "PASS"
+  }
+}
