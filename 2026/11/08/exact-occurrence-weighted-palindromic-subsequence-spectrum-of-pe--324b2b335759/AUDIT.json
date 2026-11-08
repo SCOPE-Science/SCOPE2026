@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every subsequence embedding is uniquely specified by its periodic-block indices and residue letters; weak descents force strict increases. Slack compositions yield binomial(k+L-d-1,L). Palindrome symmetric inequalities give d=m-1+e (odd) and d=m+e (even), and q*binomial(m-1,e)*(q-1)^(m-1-e) halves have e adjacent equalities. Formal series summation proves the displayed rational GF. Exhaustive 36 profiles/314 coefficients and 2992 GF identities passed from the included executable. Finite checks corroborate but the all-integer proof is combinatorial.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The generic perfect-tree algorithm computes occurrences of each fixed length pattern for any host string",
+        "It supplies neither the closed all-(q,k,L) formula nor a bivariate rational enumeration in the permutation-power subclass"
+      ],
+      "reasoning": "Although the general method could calculate E pointwise, no source statement implies the proposed closed form without new summation and weak-descent analysis. The published distinct-subsequence prefix census likewise only identifies which values are positive.",
+      "searches": [
+        "binomial(k+m-e-1,2m) palindromic subsequences",
+        "palindromic subsequence embeddings weak descents cyclic increasing word complete generating function",
+        "doi:10.1142/S1793830917500422, §§1-3"
+      ]
+    },
+    "checked_sources": [
+      "Mahalingam–Pandoh arxiv:2108.02729v1 (full text)",
+      "Torres-Jimenez et al. DOI:10.1142/S1793830917500422 (full text)",
+      "Müllner–Ryzhikov arxiv:1901.07502v1 (full text)",
+      "published-finding corpus semantic index (multiple matching query families)",
+      "Accessible earlier distinct-string word-prefix claims for scientific implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahalingam–Pandoh Theorem 5.4 concerns maximum distinct-string counts in the range with many letters",
+        "Müllner–Ryzhikov concerns longest subsequence bounds",
+        "The earlier full-prefix permutation-word count determines presence of patterns but not the number of embeddings"
+      ],
+      "reasoning": "The new theorem covers all occurrence multiplicities at all lengths for the specified family. None of the inspected published claims subsumes that weighted enumeration; a generic algorithm is not a stated closed form, and distinct-string counts cannot reconstruct occurrence multiplicities.",
+      "searches": [
+        "Exact number of distinct palindromic scattered subsequence words of every length in (a_1 a_2 ... a_q)^k for permutation alphabet; bivariate rational generating function",
+        "palindromic subsequence complexity and length generating polynomial of periodic distinct-symbol words",
+        "arxiv:1901.07502v1",
+        "arxiv:2108.02729v1",
+        "2017 NIST generic algorithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines SP_l as number of distinct palindrome strings, whereas E counts all index selections",
+        "At q=3,k=2 the distinct one-letter count is 3 but occurrence-weighted count is 6"
+      ],
+      "reasoning": "Distinct-string support and index-embedding multiplicities are distinct data. A weak-descent lattice-point sum gives E but is absent from the searched predecessor.",
+      "searches": [
+        "exact palindrome subsequence embedding multiplicities in (012..q-1)^k q-ary periodic word rational bivariate generating function indexed positions",
+        "palindromic scattered subsequences counted with multiplicity by occurrence positions in periodic permutation powers",
+        "arxiv:2108.02729v1, §§2-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table 1 lists occurrences of all length-three subsequences of one irregular binary host, not the palindromic permutation-power spectrum",
+        "published-finding corpus closest indexes concerned distinct subsequences, substring palindromes or palindromic duplication codes"
+      ],
+      "reasoning": "No exact formula/table for the all-parameter spectrum was found. A fixed example of occurrence counts is not the same classification, nor does an empty query result prove uniqueness.",
+      "searches": [
+        "exact palindrome subsequence embedding multiplicities in (012..q-1)^k q-ary periodic word rational bivariate generating function indexed positions",
+        "binomial(k+m-e-1,2m) palindromic subsequences",
+        "published-finding corpus semantic searches for palindromic embedding counts and formula aliases",
+        "2017 NIST Table 1"
+      ]
+    },
+    "rationale": "The exact aggregate **occurrence-multiplicity** sequence and its rational GF are not consequences of known support-only counts of distinct palindromic strings, and generic enumerators compute particular counts without stating the all-parameter rational classification. A relevant predecessor for distinct-string counts and a generic multiplicity-counting algorithm were read in full, with no identical theorem found. Priority cannot be certified against unindexed literature.",
+    "residual_risks": [
+      "An unindexed publication may already state an equivalent occurrence-weighted generating function.",
+      "The result covers only periods with pairwise distinct letters, not arbitrary run lengths.",
+      "Finite exhaustive tests do not themselves prove the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines SP_l counting distinct palindrome subsequence strings, gives general bounds/extremal results, but not an occurrence-weighted closed spectrum of powers of a permutation word",
+        "evidence": [
+          "arXiv:2108.02729v1 pp. 2-3 definitions of SP_l and distinction from occurrence counts",
+          "arXiv:2108.02729v1 pp. 12-17 bounds and extremal family"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729v1",
+        "material_read": "Entire 19-page open preprint, sections 2-5, including definitions, Theorem 3.6, section 4 bounds, Proposition 5.1, Theorem 5.4, references and appendices",
+        "method": "Full-text examination of arXiv PDF, including displayed formulas and original page images",
+        "title": "Counting Scattered Palindromes in a Finite Word",
+        "trigger": "Same palindrome subsequence object and lengthwise count, but its counts identify distinct strings rather than positional occurrences"
+      },
+      {
+        "assessment": "General generic algorithm can compute a fixed subsequence-count instance, but neither restricts to palindromes nor derives explicit q,k,length binomial sums or their rational GF",
+        "evidence": [
+          "2017 source (author manuscript dated 2016-06-06), pp. 1-3 statement, Table 1, generic algorithm",
+          "DOI:10.1142/S1793830917500422"
+        ],
+        "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=920771",
+        "material_read": "Entire 8-page freely available author manuscript, including introduction, example occurrence table, generic perfect-tree algorithm and complexity analysis",
+        "method": "Full PDF and first/third page images; detailed study of sections 1-3",
+        "title": "A Near-Optimal Algorithm to Count Occurrences of Subsequences of a Given Length",
+        "trigger": "Same multiplicity notion, potential broader counting machinery"
+      },
+      {
+        "assessment": "Asymptotic and structural longest palindrome bounds, not a length-by-length count of position-index palindrome occurrences in permutation powers",
+        "evidence": [
+          "arXiv:1901.07502v1 introduction and Theorem 13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07502v1",
+        "material_read": "Full seven-page open preprint; problem statements, length bounds and proof scope",
+        "method": "Full-text inspection with first and fourth PDF page images",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Potential coverage by longest-palindromic-subsequence combinatorics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "324b2b33-5759-4ebb-aa24-8f2b20693bd6",
+  "value": {
+    "rationale": "The occurrence-weighted palindromic spectrum is a natural frequency statistic, materially different from support-only distinct-string enumeration. The classification is exact for every alphabet size q>=3, period power k>=1, and all lengths, with a rational bivariate GF and a sharp unique-embedding characterization of longest palindromes. The mathematical value is the infinite structural classification and direct all-parameter formula, not a small benchmark improvement.",
+    "status": "PASS"
+  }
+}
