@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is given in `RESULT.md`. The accompanying `verification.py` checks deterministic numerical consequences, not infinite asymptotic truth. It requires Python 3.10 or later, NumPy and SciPy (specified in `requirements.txt`). After extracting these files into one directory, run `python verification.py`.
+## correctness
 
-In the assessed package execution, the checker completed **71 assertions**, with no failures or integration warnings when warnings were promoted to errors. It compared the exact Mellin/Beta first-passage negative moments against independent endpoint-weighted numerical integration; checked the equilibrium renewal-age law against direct normalization; compared multiple stationary spatial covariances from scaled-Bessel first-passage densities with their explicit large-distance constants and Gamma-ratio upper bounds; and replayed the exact inverse-first-passage moment identity for integer order.
+PASS
 
-Finite-distance quadrature cannot certify an infinite-distance limit, an untested parameter value, or scientific novelty. The proof of universal asymptotics uses the exact Laplace/Mellin calculation, an explicit Poisson jump-count bound, and covariance summation. Independent mathematical and publication-priority audits have not been performed.
+Dual coalescing lineages prove the fixed-age covariance m^2+(1-m^2)P(T_n<=t), where T_n has rate-one jumps in each direction. The stationary Pareto equilibrium-age survival H(t) is 1-t/mu below tau0 and tau0^(alpha-1)t^(1-alpha)/alpha above, giving exact C_n=(1-m^2)E[H(T_n)]. Solving the walk Laplace recurrence yields q(s)^n; Mellin/Beta inversion gives 2n Gamma(2b)Gamma(n-b)/((n+b)Gamma(b)Gamma(n+b)) for n>b. Cauchy–Schwarz and the Poisson(2tau0) jump bound remove the short-age cutoff at superpolynomial relative precision, and the gamma ratio gives the sharp constant. Covariance summation proves threshold alpha=3/2 and weighted triangular sums prove all variance prefactors. For alpha<=1 age diverges in probability, finite dual lineages coalesce a.s., giving only finite-dimensional mixture. Independent calculations checked b=1 exact moment 2/(n^2-1) and stationary-age continuity; not a spatial asymptotic simulation or proof.
+
+## originality
+
+PASS
+
+The 2026 common-clock Pareto Ising source studies magnetization distribution and relaxation; 2023 Grange source uses independent sitewise Poisson resetting, a distinct clock process; global Poisson Ising source has exponential, not power-law renewal tails. No inspected general theorem directly states the sharp Pareto shared-clock two-point coefficient and alpha=3/2 susceptibility law. Broader renewal/coalescence Tauberian coverage remains plausible.
+
+## value
+
+PASS
+
+The naturally defined equal-time spatial covariance reveals a continuously varying algebraic decay, a sharp summability threshold distinct from existence of the renewal equilibrium age, and anomalous spatial block-fluctuation scaling. This gives a substantive spatial observable beyond previously studied magnetization distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

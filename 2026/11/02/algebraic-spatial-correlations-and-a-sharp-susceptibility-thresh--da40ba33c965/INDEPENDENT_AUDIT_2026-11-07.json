@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:49:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dual coalescing lineages prove the fixed-age covariance m^2+(1-m^2)P(T_n<=t), where T_n has rate-one jumps in each direction. The stationary Pareto equilibrium-age survival H(t) is 1-t/mu below tau0 and tau0^(alpha-1)t^(1-alpha)/alpha above, giving exact C_n=(1-m^2)E[H(T_n)]. Solving the walk Laplace recurrence yields q(s)^n; Mellin/Beta inversion gives 2n Gamma(2b)Gamma(n-b)/((n+b)Gamma(b)Gamma(n+b)) for n>b. Cauchy–Schwarz and the Poisson(2tau0) jump bound remove the short-age cutoff at superpolynomial relative precision, and the gamma ratio gives the sharp constant. Covariance summation proves threshold alpha=3/2 and weighted triangular sums prove all variance prefactors. For alpha<=1 age diverges in probability, finite dual lineages coalesce a.s., giving only finite-dimensional mixture. Independent calculations checked b=1 exact moment 2/(n^2-1) and stationary-age continuity; not a spatial asymptotic simulation or proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2602.15495v1 includes common Pareto renewal clock but derives spatial mean magnetization; arxiv:2207.08590v6 has two-point functions under independent local Poisson resets."
+        ],
+        "reasoning": "The local reset two-point solution cannot specialize to common-clock renewal by parameter substitution. The global Poisson model lacks long-tailed survival needed for the claimed power law.",
+        "searches": [
+          "arxiv:2602.15495v1 Sections II–III",
+          "arxiv:2207.08590v6 two-point functions",
+          "arxiv:2002.04867 global Poisson resetting"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2602.15495v1 full primary HTML",
+        "arxiv:2207.08590v6 full primary PDF",
+        "arxiv:2002.04867 abstract/background",
+        "Resultary Pareto resetting and spatial correlations search",
+        "Independent exact b=1 Mellin moment check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical voter duality and renewal age formulas are ingredients, not the composite Mellin normalization or alpha=3/2 spatial-susceptibility classification; the closest cited primary sources study different outputs or clock structures."
+        ],
+        "reasoning": "Neither a marginal magnetization law nor a sitewise-Poisson two-point law implies the global-Pareto stationary spatial covariance and block fluctuation regime. A general renewal/coalescence Tauberian theorem could conceivably imply it; not asserted absent.",
+        "searches": [
+          "Anagha V K Nagar arxiv:2602.15495v1 Sections II-III",
+          "Pascal Grange arxiv:2207.08590v6 Sections 2.1-2.3",
+          "Magoni Majumdar Schehr arxiv:2002.04867"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anagha V K–Nagar arxiv:2602.15495 studies common global resetting but one-point magnetization; Grange arxiv:2207.08590 treats local resetting."
+        ],
+        "reasoning": "Compared zero-temperature kinetic Ising/voter equivalence, local vs global resets, renewal ages, and connected covariance: none of the inspected same-model literature supplies this exact spatial asymptotic.",
+        "searches": [
+          "Resultary: Global power law reset zero temperature Ising chain voter two point correlations susceptibility Pareto resetting",
+          "Pareto renewal global voter two point coalescence tail",
+          "zero temperature Glauber Ising spatial covariance reset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 23381feacbe8 concerns renewal age/residual correlation, not the spin-pair covariance of shared-clock resets."
+        ],
+        "reasoning": "No same-model table of the explicit n^{-2(alpha-1)} coefficient or exact block variance was found. Related renewal statistics are different functions of the clock law.",
+        "searches": [
+          "Ising power law resetting alpha 3/2 susceptibility spatial covariance",
+          "Resultary stationary renewal age residual record 23381feacbe8",
+          "coalescing random walk inverse fractional moments table"
+        ]
+      },
+      "rationale": "The 2026 common-clock Pareto Ising source studies magnetization distribution and relaxation; 2023 Grange source uses independent sitewise Poisson resetting, a distinct clock process; global Poisson Ising source has exponential, not power-law renewal tails. No inspected general theorem directly states the sharp Pareto shared-clock two-point coefficient and alpha=3/2 susceptibility law. Broader renewal/coalescence Tauberian coverage remains plausible.",
+      "residual_risks": [
+        "A general coalescing-process renewal/Tauberian theorem could imply individual asymptotics without matching model name.",
+        "Stationary quantities are annealed; the same initial environment is reused, not redrawn at each reset."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the stated equal-time spatial two-point asymptotic in inspected claims",
+          "evidence": "The paper calculates time-dependent and stationary spatially averaged magnetization and its distribution; it does not state n-separated pair covariance and alpha=3/2 susceptibility.",
+          "identifier_or_url": "https://arxiv.org/html/2602.15495v1",
+          "material_read": "Full accessible arXiv HTML, especially Sections II–III on renewal ages and magnetization observables",
+          "method": "Read primary HTML sections on model and claimed quantities",
+          "title": "Ising Model with Power Law Resetting",
+          "trigger": "Same global Pareto reset model"
+        },
+        {
+          "assessment": "DIFFERENT_CLOCK_MODEL",
+          "evidence": "Each lattice site is reset independently at Poisson epochs, unlike a common Pareto renewal clock recalled to one fixed initial environment.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08590",
+          "material_read": "Full accessible PDF, including reset construction and Section 2.3 two-point functions",
+          "method": "Read full primary PDF and visually inspected relevant page",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Voter dynamics and two-point correlations"
+        },
+        {
+          "assessment": "BACKGROUND; full noncoverage not certified",
+          "evidence": "Global resetting protocol is exponential/Poisson, not long-tail Pareto with stationary survival H(t) proportional to t^(1-alpha).",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+          "material_read": "Abstract and cited context, not full source text",
+          "method": "Read available abstract/background references",
+          "title": "Ising model with stochastic resetting",
+          "trigger": "Earlier global Ising resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The naturally defined equal-time spatial covariance reveals a continuously varying algebraic decay, a sharp summability threshold distinct from existence of the renewal equilibrium age, and anomalous spatial block-fluctuation scaling. This gives a substantive spatial observable beyond previously studied magnetization distributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2602.15495v1 full primary HTML",
+    "arxiv:2207.08590v6 full primary PDF",
+    "arxiv:2002.04867 abstract/background",
+    "Resultary Pareto resetting and spatial correlations search",
+    "Independent exact b=1 Mellin moment check"
+  ],
+  "disposition": "passed",
+  "final_claim": "For zero-temperature voter/Glauber dynamics on Z reset globally at Pareto renewal times to the same i.i.d. initial spin environment, the annealed stationary covariance C_n is asymptotic to (1-m^2)/alpha*(4*tau0)^(alpha-1)*Gamma(alpha-1/2)/sqrt(pi) times n^(-2(alpha-1)) for alpha>1; susceptibility is finite iff alpha>3/2 with the stated three block-average variance regimes. For alpha<=1 only a local weak long-time uniform-spin mixture is asserted.",
+  "limitations": [
+    "Infinite one-dimensional zero-temperature voter chain, independent initial spins, common reset clock.",
+    "Susceptibility means equal-time connected spatial covariance sum, not thermodynamic field-response susceptibility; alpha<=1 claim only finite-dimensional weak limit."
+  ],
+  "residual_risks": [
+    "A general coalescing-process renewal/Tauberian theorem could imply individual asymptotics without matching model name.",
+    "Stationary quantities are annealed; the same initial environment is reused, not redrawn at each reset."
+  ],
+  "schema_version": 1
+}

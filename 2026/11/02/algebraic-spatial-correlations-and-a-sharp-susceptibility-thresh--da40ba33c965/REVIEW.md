@@ -1,19 +1,21 @@
-# Scientific review: spatial correlations under global Pareto renewal resetting
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact coalescing-dual identity reduces the connected equal-time covariance to \((1-m^2)\mathbb E[H(T_n)]\). The stationary renewal-age survival \(H\) is evaluated with the correct length-bias normalization. The walk's Laplace exponent has jump rate one **per direction**. An exact beta-integral identity proves its negative fractional moment, while a Poisson jump-count bound makes the short-age cutoff correction superpolynomial. Summability and the weighted covariance identity give the sharp susceptibility and block-variance regimes. All hypotheses and boundaries are specified; the infinite-mean case is explicitly a local-weak limit, not a stationary-age statement. A standalone numerical verifier completed 71 checks, independently probing special-function normalizations and selected finite-distance correlations; none is used as an infinite proof.
+PASS
 
-## Originality
+Dual coalescing lineages prove the fixed-age covariance m^2+(1-m^2)P(T_n<=t), where T_n has rate-one jumps in each direction. The stationary Pareto equilibrium-age survival H(t) is 1-t/mu below tau0 and tau0^(alpha-1)t^(1-alpha)/alpha above, giving exact C_n=(1-m^2)E[H(T_n)]. Solving the walk Laplace recurrence yields q(s)^n; Mellin/Beta inversion gives 2n Gamma(2b)Gamma(n-b)/((n+b)Gamma(b)Gamma(n+b)) for n>b. Cauchy–Schwarz and the Poisson(2tau0) jump bound remove the short-age cutoff at superpolynomial relative precision, and the gamma ratio gives the sharp constant. Covariance summation proves threshold alpha=3/2 and weighted triangular sums prove all variance prefactors. For alpha<=1 age diverges in probability, finite dual lineages coalesce a.s., giving only finite-dimensional mixture. Independent calculations checked b=1 exact moment 2/(n^2-1) and stationary-age continuity; not a spatial asymptotic simulation or proof.
 
-**PASS, qualified.** Direct examination of Anagha V K and Apoorva Nagar, *Ising Model with Power Law Resetting* (arXiv:2602.15495v1), Sections II–III, shows its main one-dimensional results concern the spatial mean magnetization and its renewal-time distribution, not the zero-temperature two-point spatial tail, exact coefficient, summability boundary or block-average variance. Grange, *Voter model under stochastic resetting* (arXiv:2207.08590v6), considers independent sitewise Poisson resets, a different law at the level of every dual lineage. The earlier global Poisson Ising model and classical coalescing duality supply methods but not this Pareto spatial classification. Searches over aliases and parameter reductions did not establish a dominating source; they cannot prove exhaustive novelty. A possible more general renewal/coalescence Tauberian statement is a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The resetting tail becomes a continuously variable, precisely normalized spatial correlation exponent, and an intrinsic summability transition occurs at \(\alpha=3/2\) despite the existence of an equilibrium renewal-age distribution for all \(\alpha>1\). The block magnetization is self-averaging but can have anomalous variance scaling or a logarithmic critical factor. These observables answer a natural spatial-structure question left open by magnetization-only descriptions and provide exact benchmarks for zero-temperature nonequilibrium coarsening.
+The 2026 common-clock Pareto Ising source studies magnetization distribution and relaxation; 2023 Grange source uses independent sitewise Poisson resetting, a distinct clock process; global Poisson Ising source has exponential, not power-law renewal tails. No inspected general theorem directly states the sharp Pareto shared-clock two-point coefficient and alpha=3/2 susceptibility law. Broader renewal/coalescence Tauberian coverage remains plausible.
 
-## Scope and residual risks
+## value
 
-The proof is annealed, infinite-volume, zero-temperature and uses one spatially iid environment recalled at every global reset. It does not establish finite-temperature behavior, quenched laws, or a field-response susceptibility. Broader theorems may cover parts of the reasoning; independent correctness and priority verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The naturally defined equal-time spatial covariance reveals a continuously varying algebraic decay, a sharp summability threshold distinct from existence of the renewal equilibrium age, and anomalous spatial block-fluctuation scaling. This gives a substantive spatial observable beyond previously studied magnetization distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
