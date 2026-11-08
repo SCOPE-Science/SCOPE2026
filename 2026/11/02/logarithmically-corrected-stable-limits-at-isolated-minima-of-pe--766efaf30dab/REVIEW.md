@@ -1,19 +1,21 @@
-# Review of the isolated-minimum stable-limit theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof specifies the full jump generator, its symmetry, the torus projection's uniform exponential total-variation mixing, local stationary densities, finitely many Morse minima, normalizing sequence, and the Skorokhod topology. The key calculation is the nondegenerate Laplace expansion of the rescaled predictable kernel; each contributing minimizer supplies \((2\pi\alpha_0)^{d/2}\rho_i\gamma/\sqrt{\det H}\). The uniform semigroup-mixing bound gives a mean-square triangular averaging error \(O((\log n)^d/n)\), independent of the initial state. Symmetry removes drift, and semimartingale characteristic convergence gives the claimed Lévy process. The supplementary deterministic code passed 95 checks; its finite tests are not substituted for proof.
+PASS
 
-## Originality
+With uniform exponential mixing of the torus/regime projection, continuous positive invariant density at finitely many positive-definite Morse minima, symmetric variable-order kernel and fixed initial state, the predictable rescaled jump intensity n b_n^{-alpha(z,i)} gamma(z,i) is bounded above by (log n)^{d/2}. Laplace stationary averaging at quadratic minima contributes (2 pi alpha0)^{d/2} sum rho gamma/sqrt(det H); mixing L² error is O((log n)^d/n). The drift is zero by pointwise kernel symmetry; jump compensator and modified second characteristic yield the deterministic stable Lévy characteristics and standard J1 semimartingale convergence. Sharpness at larger/smaller scales follows from tightness and nonatomic fixed-time stable laws. Independent Bessel/cosine Laplace normalization arithmetic and source SciPy verifier reviewed, not misused as stochastic proof. Additional density assumption is explicitly independent of cited mixing theorem.
 
-PASS, subject to explicit priority risk. Sandrić, arXiv:2610.30342v1 (October 21, 2026), proves a zero limit under the conventional scaling for null minimum sets and asks for another scaling; the current Morse-minimum theorem gives a nonzero functional limit with explicit coefficient. Franke (2006) covers conventional scaling and its abstract was compared, but its full paper was not accessible in this review. Kuhwald–Pavlyukevich (2016) already use a logarithmic Laplace prefactor for time-periodic additive independent-increment noise; that overlap is credited. Their metastable exit-time theorem does not imply a spatially dependent regime-switching functional stable limit. No equivalent claim appeared in the accessible research and own-record comparisons; these searches do not prove global uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. This resolves a natural, explicitly identified null-minimizer case of a recent functional limit question, gives the correct nontrivial normalization, and identifies how local quadratic geometry and stationary occupation masses combine into an effective stable Lévy intensity. The scale is provably sharp among normalizations asymptotically larger or smaller by unbounded factors. Degenerate minima and more general null minimizer sets remain outside the theorem.
+Sandrić (2026) Theorem 3.1 proves conventional n^{1/alpha0} scaling and zero limit when minimum set has measure zero; final paragraph explicitly leaves finding a nontrivial alternative normalization open. Franke (2006) abstract covers the conventional scaling but full paper is inaccessible. Kuhwald–Pavlyukevich (2016) has time-periodic independent-increment exit asymptotics with related log Laplace factors; it does not entail a spatial-index Markov-modulated full-process J1 limit. Thus qualified best-of-knowledge originality survives, with a real uninspected Franke risk.
 
-## Limits and closest sources
+## value
 
-The main primary source is Sandrić (2026), whose full public HTML proof and concluding open problem were inspected. Kuhwald–Pavlyukevich (2016) was compared through accessible full-text mathematical sections. Franke (2006) was checked only at abstract level; its inaccessible original full text is a material historical-priority risk. Results elsewhere could also imply special instances. The analytical proof is self-reviewed, not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Answers the specific zero-measure minimizing-index open normalization question for a natural nondegenerate Morse class, identifying sharp log correction, Hessian/invariant-density coefficient and functional limit. Not a renaming of conventional scaling or a simulation artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

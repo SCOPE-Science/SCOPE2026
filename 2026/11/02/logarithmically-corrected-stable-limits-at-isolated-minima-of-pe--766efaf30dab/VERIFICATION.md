@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification and limits
+# Independent mathematical audit
 
-The rescaled jump compensator is checked by the change of variables \(y\mapsto b_n y\) in the symmetric Lévy kernel. Its stationary average is evaluated using a nondegenerate Laplace saddlepoint expansion on the spatial torus, with the \((\log n)^{d/2}\) factor exactly canceling the \((\log b_n)^{-d/2}\) volume of the minimizing neighborhoods. The uniform exponential-mixing covariance inequality controls the triangular-array error by \(O((\log n)^d/n)\) on finite time intervals. Standard semimartingale characteristic convergence then establishes the functional stable limit; this last implication rests on the referenced general convergence theorem.
+## correctness
 
-The accompanying `verify_scaling.py` produced the retained `verification_output.txt` with 95 passing deterministic checks, including one-, two-, and three-dimensional cosine-index torus integrals, weighted two-regime saddlepoint sums, and logarithmic normalization identities. These are checks of the analytic coefficients, **not** stochastic-process simulation or proof by extrapolation. To rerun: `python verify_scaling.py` in an environment with Python 3 and SciPy.
+PASS
 
-Assumptions not supplied solely by the cited mixing result include continuous strictly positive invariant densities at the minimizer locations. The convergence is for fixed initial states and symmetric stable-like kernels; no general degenerate-minimum result, independent review, or historical-priority certification is implied.
+With uniform exponential mixing of the torus/regime projection, continuous positive invariant density at finitely many positive-definite Morse minima, symmetric variable-order kernel and fixed initial state, the predictable rescaled jump intensity n b_n^{-alpha(z,i)} gamma(z,i) is bounded above by (log n)^{d/2}. Laplace stationary averaging at quadratic minima contributes (2 pi alpha0)^{d/2} sum rho gamma/sqrt(det H); mixing L² error is O((log n)^d/n). The drift is zero by pointwise kernel symmetry; jump compensator and modified second characteristic yield the deterministic stable Lévy characteristics and standard J1 semimartingale convergence. Sharpness at larger/smaller scales follows from tightness and nonatomic fixed-time stable laws. Independent Bessel/cosine Laplace normalization arithmetic and source SciPy verifier reviewed, not misused as stochastic proof. Additional density assumption is explicitly independent of cited mixing theorem.
+
+## originality
+
+PASS
+
+Sandrić (2026) Theorem 3.1 proves conventional n^{1/alpha0} scaling and zero limit when minimum set has measure zero; final paragraph explicitly leaves finding a nontrivial alternative normalization open. Franke (2006) abstract covers the conventional scaling but full paper is inaccessible. Kuhwald–Pavlyukevich (2016) has time-periodic independent-increment exit asymptotics with related log Laplace factors; it does not entail a spatial-index Markov-modulated full-process J1 limit. Thus qualified best-of-knowledge originality survives, with a real uninspected Franke risk.
+
+## value
+
+PASS
+
+Answers the specific zero-measure minimizing-index open normalization question for a natural nondegenerate Morse class, identifying sharp log correction, Hessian/invariant-density coefficient and functional limit. Not a renaming of conventional scaling or a simulation artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
