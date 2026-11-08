@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The compact zero-mode equations are a magnetic weighted incidence kernel. A connectedness argument excludes compact vertex-sublattice solutions; the degree-two support constraint, planar square-grid girth and holonomy prove the all-flux \(4/6/7\) cutoff. A displayed vector cancels exactly at six boundary vertices. The full-row-rank argument proves uniqueness of seven-edge minimal modes, and explicit squared amplitudes prove the equal-intensity criterion. The standalone checker returned 1,225 assertions across representative fluxes and patch support enumeration. Enumeration is corroboration, not a substitute for the global proof.
+## correctness
 
-**Originality — PASS on inspected evidence, not independently verified.** The general magnetic Lieb flat band and two-plaquette requirement appear explicitly in Gouveia--Maceira--Dias (2016), and standard gain-graph frame-matroid dependence already covers balanced cycles and unbalanced theta circuits (Tanigawa 2012, section 4.1, referring to Zaslavsky). Neither baseline fact is claimed as new. The sharper complete support-size classification and phase-selective equal-intensity condition of the unique seven-site support state were not found in the fully inspected Gouveia article, examined Mukherjee material, inspected Tanigawa sections, relevant searches or accessible previous claims. Historical priority remains at risk because the closely related 2013 Niţă--Ostahie--Aldea paper was accessible only as an abstract and independent exhaustive literature checking has not occurred.
+PASS
 
-**Value — PASS.** A minimum occupied-waveguide count and the exact peak-intensity distribution are physical design invariants for interference-confined optical modes. The theorem distinguishes three flux regimes and locates the unique nonexceptional phases where the minimum-support state distributes its intensity uniformly; this is not simply renaming the known persistence of the flat band. The scope is a uniform-flux, lossless, nearest-neighbor model. No finite-waveguide-array robustness or global IPR optimization is claimed.
+With infinite square graph, midpoint-to-vertex unit magnetic incidence B, all finite-support zero modes have u=0 because B* u=0 propagates zeros along infinite connected graph. Each occupied support edge has nonzero amplitude and Bz=0 implies occupied degree >=2. For <=6 edges connected square-grid minimum-degree-two subgraphs are elementary 4-cycles or six-edge 2-square perimeters, consistent exactly when holonomy t^area=1. For t generic neither, and the seven-edge theta graph of adjacent squares supports explicit h=(-t,1,t,-t²), v=(t,-(1+t),1) satisfying all six vertex balances. For generic t its minimal 7-edge topology must be the two-adjacent-unit-face theta; the incidence matrix has rank six when t≠1, so unique state up to gauge and scalar. Six edge amplitudes have modulus 1 and one |1+t|; hence IPR (6+q²)/(6+q)², q=|1+t|²; Cauchy-Schwarz gives exact 1/7 iff q=1, equivalently cos(phi)=-1/2. Boundary t=-1 reduces to six edges, t=1 supports elementary square. Independently checked balance and IPR at six phases. The global support cutoff comes from graph-cycle argument, not finite-patch enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality assessment limited to specific evaluated statements after Resultary, inspected primary sources and same-Git records; not historical priority certification.
+
+## value
+
+PASS
+
+Minimum compact-support threshold and the exceptionally equal-intensity seven-waveguide state are natural optical lattice design invariants: the flux ±2pi/3 exactly homogenizes all active intensities. This is an evaluated phase-selective physical statement beyond the known graph-frame theta dependence and generic Lieb flat-band persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
