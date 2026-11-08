@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For each odd m, m reflection cut classes each have q^((m+1)/2) words; primitive classes are disjoint, and nonprimitive words have divisor period at most m/3. This yields Omega_q(m q^(m/2)) language members. A direct second-moment calculation with overlapping matches yields uniform lower appearance probability mu/(mu+1+2/(q-1)). Sum the geometric upper bound over all lengths and restrict the lower bound to the largest odd m<=floor(log_q N). The finite verifier passes and the symbolic estimates handle every N sufficiently large.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rubinchik--Shur prove expected distinct single-palindrome factors Theta(sqrt N) and square factors; they do not assert the two-palindrome-factor estimate.",
+        "Borchert--Rampersad study deterministically extremal and infinite palindrome-pair richness, not random-word averages."
+      ],
+      "reasoning": "The expected number of all distinct substrings, or that of single palindromes, does not supply the intermediate two-palindrome statistic or its extra logarithmic factor. The deterministic maximum also does not fix the expectation under independent symbols.",
+      "searches": [
+        "published-finding corpus: random string factor complexity for concatenations of two palindromes palindromic pairs asymptotic expected count",
+        "Rubinchik--Shur arXiv:1505.08043 Theorem 1.1 and Sections 3--6",
+        "Borchert--Rampersad arXiv:1509.05396 Sections 1--4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1503.09112",
+      "https://arxiv.org/pdf/1505.08043",
+      "https://arxiv.org/pdf/1509.05396",
+      "https://oeis.org/A007055",
+      "https://doi.org/10.1016/0012-365X(82)90123-6 (bibliographic and indirectly characterized only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kemp/Guo address the combinatorial class and factorization multiplicity.",
+        "Rubinchik--Shur address a proper subclass: single palindromic factors.",
+        "Uniform occurrence of any arbitrary word is supplied here by an explicit second-moment inequality controlling overlap."
+      ],
+      "reasoning": "The language census gives potential pattern counts but cannot by itself imply lower bounds on how many distinct patterns a random host actually contains; for overlapping patterns, an occurrence-probability argument is additionally necessary. The one-palindrome expected value is a lower bound of strictly smaller asymptotic order and does not imply the assertion.",
+      "searches": [
+        "Kemp 1982, bibliographic information and Guo--Shallit--Shur attribution",
+        "Rubinchik--Shur Theorem 1.1",
+        "published-finding corpus: primitive palindrome pairs unique cut rotation reflection dihedral enumeration",
+        "web: random word expected number distinct palindrome pair factors asymptotic sqrt n log n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo--Shallit--Shur Section 3 equates palindrome pairs with conjugates of their reversals and attributes language growth and decomposition-count formulas to Kemp 1982.",
+        "Exact reflection-cut classes are used as already known language combinatorics, while the probability of occurrence inside random host strings is a distinct additional question."
+      ],
+      "reasoning": "Equivalence under circular reflection or primitive split uniqueness does not alone give expected number of distinct factors inside random length-N words, which requires probabilistic occurrence bounds. No equivalent random-factor asymptotic was identified.",
+      "searches": [
+        "published-finding corpus: random words distinct products of two palindromes q ary subword occurrence expected sqrt n log n",
+        "web: \"palindrome pair\" \"random\" \"expected\" factors",
+        "Guo--Shallit--Shur arXiv:1503.09112 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007055 counts binary words in the full palindrome-pair language by word length, e.g. 8,32,100,260 at lengths 3,5,7,9; the table is not an expectation over finite random hosts.",
+        "published-finding corpus nearest hits were generic substring-complexity expectation/concentration and palindromic-duplication coding."
+      ],
+      "reasoning": "A table enumerating allowed word patterns and tables for unrelated substring or code invariants do not resolve the expected number of those distinct patterns observed within one random word.",
+      "searches": [
+        "OEIS A007055 (https://oeis.org/A007055)",
+        "published-finding corpus: expected number of distinct palindrome-pair factors in a uniformly random q-ary word has order square root n times logarithm n"
+      ]
+    },
+    "rationale": "The original claim is the asymptotic expected number of distinct two-palindrome factors in an iid uniformly random host. Inspected prior work counts all admissible two-palindrome words, treats only single-palindrome random expectations, or treats deterministic extremes; no checked statement dominates this random-factor expectation. Kemp full text was inaccessible, and historical-priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "Kemp 1982 full text unavailable; an older, unindexed observation about random two-palindrome factors could exist.",
+      "The result gives order only and does not show a sharp coefficient, limiting distribution or nonuniform-input analogue.",
+      "A general theorem on expected factors of sparse languages, not identified in the searched literature, could imply this case as a corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers palindrome-pair representation and language counts, not expected distinct factors in random hosts",
+        "evidence": [
+          "Section 3, page 5: a palindrome pair iff conjugate to its reverse; Remark 1 credits Kemp for language growth; Theorem 3 counts decompositions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.09112",
+        "material_read": "Full-text Section 3, Proposition 5, Theorem 3, Remark 1, Theorem 4, definitions and references",
+        "method": "Open-access arXiv PDF text and rendered page inspection",
+        "title": "On the Combinatorics of Palindromes and Antipalindromes",
+        "trigger": "Closest structural characterization and attribution of exact palindrome-pair language census"
+      },
+      {
+        "assessment": "Theorem 1.1 gives Theta(sqrt N) for distinct palindromes and discusses square factors, but not products of two palindromes",
+        "evidence": [
+          "Theorem 1.1(1), page 2: expectation for single palindromes is Theta(sqrt N) over fixed-size alphabet."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+        "material_read": "Full-text abstract, Theorem 1.1, Sections 3--6 and random-pattern method discussion",
+        "method": "Open-access arXiv PDF text and rendered page inspection",
+        "title": "The Number of Distinct Subpalindromes in Random Words",
+        "trigger": "Nearest probability analogue: random one-palindrome factor richness"
+      },
+      {
+        "assessment": "Studies infinite factor-richness properties, extremal finite words and minimal forbidden factors; no random expectation theorem identified",
+        "evidence": [
+          "Abstract and introductory section specify deterministic extremal counts and Sturmian/Thue--Morse questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+        "material_read": "Full-text abstract, introduction and relevant factor-richness sections, conclusions",
+        "method": "Open-access arXiv PDF text and rendered page inspection",
+        "title": "Words with many Palindrome Pair Factors",
+        "trigger": "Exact same factor class under deterministic host words"
+      },
+      {
+        "assessment": "Counts the number of binary words that are themselves palindrome pairs at each length, not expected distinct factors of a random word",
+        "evidence": [
+          "OEIS A007055 definition and initial sequence; comments cite Kemp and Guo--Shallit--Shur."
+        ],
+        "identifier_or_url": "https://oeis.org/A007055",
+        "material_read": "Entry definition, initial values, comments and formulas",
+        "method": "Direct web page reading",
+        "title": "OEIS A007055",
+        "trigger": "Potential exact table encoding the claimed invariant"
+      },
+      {
+        "assessment": "Not assessed as fully non-covering because original entire text was inaccessible; known language enumeration is credited explicitly",
+        "evidence": [
+          "Guo--Shallit--Shur Remark 1 assigns the exact census and its asymptotic to Kemp; the original full text was not read."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(82)90123-6",
+        "material_read": "Bibliographic details and description of the results as quoted in Guo--Shallit--Shur Section 3; original full text unavailable",
+        "method": "Attempted open-access source, institutional lookup returned unavailable; indirect scholarly citation only",
+        "title": "On the number of words in the language of two-palindrome products",
+        "trigger": "Original 1982 census of palindrome-pair language"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9cba4af-53d5-4daa-85b1-36402152d578",
+  "value": {
+    "rationale": "A natural refinement of probabilistic palindromic richness exhibits a genuinely different logarithmically enhanced growth law, explained by primitive two-palindrome cut multiplicity. This applies to all fixed q>=2, all large N, and is not just a narrow finite count or repetition of Kemp's language census.",
+    "status": "PASS"
+  }
+}
