@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For all coprime \(2\le a<b\), the normalization is generically one-to-one, the derivatives \(T_a',T_b'\) have disjoint simple roots, and the Gauss map is base-point-free of degree \(a+b-1\). Classical characteristic-zero biduality makes its degree equal to the dual degree. The derivative Chebyshev equation prevents a repeated finite Wronskian root, and the degree-\(b\) vanishing sequence \((0,b-a,b)\) gives the remaining infinity weight. Local Gauss expansions give the claimed Puiseux pair. Exact symbolic computations on 73 coprime pairs independently cross-check the algebraic identities. The global conclusions do not extrapolate from the tests.
+
+**Originality — PASS, with residual historical risk.** Yoshinaga, Proposition 7.2, determines normalization, nodes, and chamber topology, not the dual degree, normalized inflection divisor, or the infinity singularity of the dual. Freudenburg–Freudenburg §3 likewise studies plane Chebyshev embeddings and nodes. Fomin–Shustin examines expressive geometry; only its accessible portions and abstract were read, so a hidden equivalent result remains a priority risk. Dimca–Sticlaru treats the different equal-degree reducible curve family. Searches for Chebyshev dual curves, inflections, Wronskians, and Puiseux infinity gave no directly covering statement. None of these observations proves exhaustive priority.
+
+**Value — PASS.** The new formulas resolve natural projective-dual and ramification invariants for the very coprime Chebyshev family recently used to study real rational plane arrangements. The squarefree theorem precludes higher affine ramification, while the cusp type at infinity identifies a distinguished and potentially high-delta contribution to the dual's geometry. This connects real normalization data with the previously unspecified complex dual geometry in an infinite two-parameter family.
+
+**Limits.** No classification of coincident dual cusp images or other singularities, and no positive-characteristic extension. General Wronskian/biduality theorems are standard inputs. Historical priority and independent mathematical audit remain open.
+
+Self-review: passed. Independent audit: not yet performed.
