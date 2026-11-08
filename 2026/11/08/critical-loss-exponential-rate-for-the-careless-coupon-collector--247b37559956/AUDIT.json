@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact k-set stationarity recurrence and product; monotone subset coupling and union-bound lower estimate; uniform n(1-p)^t mixing by discrepancy erasure; geometric-block expected-time upper bound; uniform Riemann convergence of the log product for p=c/n. All boundary hypotheses verified; 491 exact and numerical finite diagnostics passed, with separate analytic proof for infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long explicitly fixes p in (0,1), and uses finite constants depending on p.",
+        "published-finding corpus balanced nonuniform reset rates concern a global reset-to-empty event, not independent deletion of each present coupon."
+      ],
+      "reasoning": "Searched for dominating stationary-cache/renewal, global-reset and exact entry-flux theorems. Identified no uniform moving-p theorem covering c/n. Different global catastrophe mechanisms do not imply independent per-type thinning results.",
+      "searches": [
+        "coupon collector per-item decay after single uniform refresh stationary occupancy product mixed factorial moments rare event hitting time large deviations",
+        "post-loss per-round thinning coupon collector exact stationary distribution exchangeable all n arbitrary probability p joint present moments",
+        "stochastic cache update one item each step independent expiration of all items exact product stationary probability",
+        "arxiv:2605.14511v1, Theorems 5.5 and 5.13",
+        "published-finding corpus:2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.20705v1 (primary full-text Sections 3–4)",
+      "arxiv:2605.14511v1 (primary full-text Sections 5.1–5.5)",
+      "arxiv:2604.26298 (abstract only)",
+      "published-finding corpus semantic records: 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed; 2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf; 2026/10/4/SCOPE-exact-two-crossing-transport-law-for-bernoulli-pair-balancing--952d735cb8e8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original p=c/n theorem establishes e^{Theta(n)} rather than the logarithmic exponential rate.",
+        "Long Theorem 5.13 and Corollary 5.15 specify fixed p, and its constant R_n=n!q^{n(n+1)/2}/n^n is not uniform for c/n.",
+        "New result I(c)>log(1+c) contradicts, rather than specializes, the original mean-field sharpness hypothesis."
+      ],
+      "reasoning": "The new theorem is a strictly stronger exact-rate statement in the critical p=c/n regime and not a corollary of earlier fixed-p or marginal statements. It does not assert or rederive the covered fixed-p first-entry theorem.",
+      "searches": [
+        "arxiv:2602.20705v1, Section 4.3",
+        "arxiv:2605.14511v1, Section 5.5",
+        "2605.14511 stationary full state probability product k q^k / [n-(n-k)q^k] critical thinning c/n",
+        "careless coupon collector critical window p=c/n rate integral e^{c x}-1+x exponent expected hitting time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stationary inclusion a_{n,k} is a factorial-moment / inclusion-probability transform; in particular a_{n,n} is the all-full stationary mass.",
+        "Long arxiv:2605.14511v1, Proposition 5.4 gives all-full stationary ENTRY FLUX for fixed p, but not the k-set inclusion product or c/n limit."
+      ],
+      "reasoning": "Tested exact factorial-moment, occupancy, stationary target-mass and stationary-entry rephrasings of the same claim. An entry flux equals full mass times 1-q^n, but the fixed-p approximation is not uniform when p=c/n and cannot imply the new rate.",
+      "searches": [
+        "Careless coupon collector independent per-round coupon losses stationary full occupancy probability product exact exponential rate p=c/n completion hitting time",
+        "post-loss careless collector p_n=c/n sharp exponential mean completion time stationary factorial moments integral rate function",
+        "2605.14511 stationary full state probability product k q^k / [n-(n-k)q^k] critical thinning c/n",
+        "arxiv:2602.20705v1",
+        "arxiv:2605.14511v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cruciani–Dudeja Proposition 18 describes an exact finite hitting-time algorithm, not the closed stationary inclusion product or sharp large-n critical rate.",
+        "published-finding corpus exchangeable Bernoulli envelope studies unrestricted exchangeability extremals rather than this specified correlated stationary law."
+      ],
+      "reasoning": "Finite output of a generic algorithm is not the same as a previously derived stationary product or evaluated critical exponential limit; searched the particular formula and parameters without a covering table/database result.",
+      "searches": [
+        "Cruciani Dudeja careless coupon collector stationary probability all coupons collected product formula mean field predicted exponential asymptotic false",
+        "Careless Coupon Collector 2602.20705 2605.14511 critical p=Theta(1/n) logarithmic hitting time exponent integral",
+        "careless coupon collector critical window p=c/n rate integral e^{c x}-1+x exponent expected hitting time",
+        "published-finding corpus:2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf"
+      ]
+    },
+    "rationale": "Primary 2026 model paper has critical e^{Theta(n)} and mean-field comparison but lacks the sharp integral rate. A 2026 sharp stationary-entry paper covers the same process only at fixed p and its p-dependent constants do not imply p=c/n. published-finding corpus semantic queries and available ledger-claim deduplication found no directly covering critical-loss result. Remaining broad-equivalence/historical risks explicitly noted.",
+    "residual_risks": [
+      "A broader existing independent-thinning cache-occupancy formula may imply the finite stationary mass and, with Riemann analysis, its critical rate without sharing the phrase careless coupon collector.",
+      "Independent historical-priority and proof audits have not occurred.",
+      "Only mean exponential rate, no asymptotically exact prefactor or limiting distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING critical rate: states only e^{Theta(n)} for c/n and a heuristic with nonsharp upper bound; 2026 source provides no stationary inclusion product or integral rate",
+        "evidence": [
+          "arxiv:2602.20705v1, Definition of CCCP; Section 3; Sections 4.1–4.3; Introduction Future research directions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.20705v1",
+        "material_read": "Definition, the marginal/metastable analysis and full Section 4 on hitting time, including its exact algorithm and asymptotic bounds/future directions",
+        "method": "Read primary full-text HTML sections and compared exact model, scaling and asserted results",
+        "title": "The Careless Coupon Collector’s Problem",
+        "trigger": "Exact post-loss mechanism, critical p=c/n metastability, heuristic proposed as sharp"
+      },
+      {
+        "assessment": "NOT_COVERING: sharp high-tail and hitting limits require fixed p in (0,1); uniform estimates in p=c/n are absent, so no implication for the new integral rate. Credits fixed-p evidence of correlated high tails.",
+        "evidence": [
+          "arxiv:2605.14511v1, Section 5.1; Theorem 5.5; Theorem 5.13; Corollary 5.15; Remark 5.16"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.14511v1",
+        "material_read": "Full Sections 5.1–5.5, including transition and flux identities, Theorems 5.5, 5.10, 5.13, Corollary 5.15 and Remark 5.16; checked hypotheses and p-dependence",
+        "method": "Read primary full-text HTML statements, hypotheses and proofs for their applicability to p=c/n",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Same exact post-loss model with stationary-entry flux and an explicit heuristic comparison"
+      },
+      {
+        "assessment": "Different deterministic sliding-window removal rather than per-round Bernoulli loss; no direct covering result established from material checked",
+        "evidence": [
+          "arxiv:2604.26298, title and abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.26298",
+        "material_read": "Abstract and bibliographic information only; no full-text priority exclusion claimed",
+        "method": "Compared source description and type of expiration with independent post-loss thinning",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "Nearby coupon-expiration process could represent alternative dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "247b3755-9956-49bd-acb8-294ff8cf2826",
+  "value": {
+    "rationale": "The first 2026 treatment leaves the critical model at e^{Theta(n)} and predicts the exponential rate log(1+c) via independence. The theorem derives the precise rate I(c), proves strict I(c)>log(1+c) for every c>0, and gives a full exact stationary inclusion law, a substantive structural correction with plausible follow-on uses for metastable rare-state analysis.",
+    "status": "PASS"
+  }
+}
