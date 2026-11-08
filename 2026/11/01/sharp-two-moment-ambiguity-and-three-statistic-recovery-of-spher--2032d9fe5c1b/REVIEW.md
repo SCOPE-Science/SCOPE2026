@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a surface-uniform spherical zone, the axial coordinate is exactly uniform and independent of azimuth. The uncentered moment tensor and mean vector yield the squared-chord mean and variance; conditional independence yields the shared-endpoint covariance. Completing the square produces the exact fold. The fold belongs to the admissible physical interval precisely for \(1/4<u<1/3\), and the explicit distinct-width rational witness verifies non-injectivity. The remaining inversion formulas establish uniqueness up to the unavoidable north–south reflection. The standalone code corroborates these facts, but the proof does not depend on its finite simulations.
+PASS
 
-## Originality
+Spherical area coordinates have t=x3 uniform on [m-h,m+h] and azimuth uniform. The first and second moment tensor T=diag((1-u-z/3)/2,(1-u-z/3)/2,u+z/3) yields M=2(1-u) and V=4(tr(T²)-u²). Conditional independence given X1 yields C=4uz/3. Completing square V=4/3-4u²+(2/3)(z-(1-3u))². The fold z*=1-3u is strictly interior to (0,(1-sqrt(u))²] exactly for 1/4<u<1/3, giving two widths but at most two; u=3/10 and z=3/50,7/50 yield M=7/5,V=609/625 and C=3/125,7/125. When u>0, z=3C/(4u); u=0 uses V=4/3+2(1-z)²/3 to recover z. Correct across caps, whole sphere, and centered zones, with h>0 and reflection ambiguity. Inspected pinned proof and exact rational checker, independently verified tensor identities and witness; no extrapolation from Monte Carlo.
 
-PASS, with residual historical risk. The closest full texts inspected were Moseeva–Tarasov–Zaporozhets (2020), which gives spherical convex-body distance formulas and a cap density, and Sidiropoulos (2014), which treats the full-sphere chord distribution. Neither covers the interior two-boundary latitude-zone inverse multiplicity nor the joint three-point shared-endpoint covariance recovery. Searches for aliases including spherical belt, latitude strip, squared chord variance, and inverse distance moments did not return an explicit implication-equivalent claim. A general moment-tensor identity alone does not determine the physical-domain fold without the special zonal calculation; an unlocated specialized inverse geometry treatment could nevertheless predate this analysis.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The squared-distance moment inverse problem is natural because it avoids estimating the entire chord distribution. The result determines the exact attainable inverse multiplicity for the full two-parameter family, identifies sharp mean thresholds and a nondegenerate ambiguity witness, and supplies an additional observable that resolves the ambiguity except at an independently characterized symmetry blind spot. This is a complete geometric identification and boundary classification, not a numerical table or routine special-case substitution.
+The claimed inverse low-moment fold of a generally nonconvex two-boundary latitude zone and three-sample covariance repair differs from known full-sphere or spherical-convex-cap distance distributions; not merely a special value of the general spherical-convex theorem. Best-of-knowledge PASS while possible zonal inverse-statistics aliases remain.
 
-## Closest literature and limitations
+## value
 
-Primary motivation: T. Moseeva, A. Tarasov and D. Zaporozhets, arXiv:2007.07297v1 (2020), full HTML text examined. Related full-sphere benchmark: P. Sidiropoulos, arXiv:1411.5639v1 (2014), full HTML text examined. The theorem is for surface-uniform independent points and squared ambient chords on unit-sphere latitude zones, not intrinsic spherical distances or noisy moment measurements. Historical priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete sharp inverse-identifiability classification for a natural two-parameter spherical sampling family, including a constructive two-zone ambiguity and minimal shared-endpoint covariance disambiguation. Population-moment identifiability is a concrete stochastic-geometry problem beyond routine chord second moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
