@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** Supporting-edge geometry gives the pathwise occupancy identity; multinomial probabilities give the complete generating function and exact mean. Positive distinct exponential bases make the asymptotic leading-root and integer multiplicity extraction valid, including repeated side fractions. The implicit-function theorem at a regular equilateral polygon establishes positive-dimensional non-similar examples for every side count at least four. The standalone geometric/occupancy checks completed; finite trials are diagnostics, not proofs.
+
+**Originality: PASS, provisional.** The closest primary literature, Har-Peled (arXiv:1111.5340), studies points sampled in polygon interiors, and Reitzner–Schütt–Werner (arXiv:1911.05917) develops general boundary-polytope asymptotics, not an inverse classification by all sample-size vertex-count laws. A previously established four-point triangular reconstruction is a special dimension-three identification and does not imply the general all-side-count equivalence or higher-polygon nonidentifiability. Searches for polygon boundary vertex-count occupancy, equivalent inverse moment laws, and side-length profile recovery located no stronger exact covering theorem. General occupancy and exponential-sum methods remain standard ingredients; historical priority of the combined inverse classification is provisional.
+
+**Value: PASS.** This resolves a natural full-information inverse question for random boundary hull *combinatorics*: all count distributions, even at infinitely many sample sizes, encode exactly a normalized unordered length multiset and no angular or cyclic ordering information. It gives a constructive inverse and a sharp shape-identification threshold (triangles versus every greater side count), with continuous geometric counterfamilies. These are structural conclusions beyond simply computing one occupancy expectation.
+
+**Limits:** Exact infinite expectation sequence is required for inversion; the procedure may be ill-conditioned and provides no finite-data stability bound. Earlier stochastic-geometry publications may contain equivalent unindexed statements, so independent historical verification is still required.
+
+Self-review: passed. Independent audit: not yet performed.
