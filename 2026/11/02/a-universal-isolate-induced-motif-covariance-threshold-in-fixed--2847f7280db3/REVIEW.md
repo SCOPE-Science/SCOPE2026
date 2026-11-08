@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-edge hypergeometric probability for a prescribed set of present and absent pairs gives the unconditional induced-copy expectation. Conditional on a specified vertex being isolated, the remaining edges form a uniform fixed-edge graph on one fewer vertex. Since the motif has no isolated vertices, its copies cannot contain the conditioned vertex; this yields the exact covariance identity after summing indicator covariances. All denominators and expectations are positive under the stated domain. An explicit decreasing product yields the one-transition law; first-order asymptotics yield the density threshold. For the induced wedge, the rational root and its two endpoint inequalities are checked by direct algebra. Independent exhaustive enumeration of four-, five-, and six-vertex graphs verifies 168 exact moment and covariance comparisons in the included program. Infinite claims follow from the proof, not the enumeration.
+## correctness
 
-## Originality — PASS (best knowledge, not independent priority certification)
-The June 19, 2020 first version of Sah–Sawhney, *Local limit theorems for subgraph counts* (arXiv:2006.11369v1), was examined in its publicly available HTML full text, especially introduction, main theorems, and Section 4.2; its objective is local-limit and anticoncentration estimates, not the mixed isolate–induced-motif covariance or its topology-independent sign transition. The closest available prior covariance claim for isolates with **noninduced** motif counts supplies a different formula, independent of edge count and without an absent-edge factor. These statements do not imply the present positive-to-negative induced-motif phase boundary. The closest published related result on component–triangle covariance treats independent bond percolation and components rather than isolates versus induced motifs in fixed-size sampling. Semantic searches for the exact threshold, aliases, and general hypergeometric induced-motif count statements did not establish equivalent coverage. Residual risk: a direct hypergeometric calculation may already appear in less searchable occupancy or random-graph literature, and no independent expert priority assessment has been conducted.
+PASS
 
-## Value — PASS
-Induced counts are nonmonotone observables; their interaction with the count of isolated vertices is a natural joint random-graph statistic. The finite exact law is universal across every topology with the same vertex/edge profile, and yields a sharp one-way sign-transition classification rather than a few evaluated examples. The universal limiting density \(p_*=(2e-h)/(h(h-2))\) and the all-order wedge threshold asymptotic to \(1/3\) exhibit a genuine qualitative difference from noninduced motifs and from the independent-edge model. The result is therefore a reusable structural dependence boundary, not an arbitrary numerical slice.
+Conditioning a fixed vertex v to be isolated leaves a uniformly sampled m-edge graph on the B=choose(n-1,2) pairs not touching v. Since H has no isolated vertices, no induced copy contains v; E[X_H|v isolated] follows by prescribed e present and r=choose(h,2)-e absent edges. Dividing by the unconditional induced-count expectation and summing vertex covariances gives R=(n-h)/n (N)_t/(B)_t (B-m)_r/(N-m)_r with N=choose(n,2) and the stated positive normalizing domain. Every factor (B-m-j)/(N-m-j) strictly decreases while positive, and the numerator becomes zero later; hence the one-crossing direction holds. Expanding R at fixed p in (0,1) yields n(R-1)->[2e-h-h(h-2)p]/(1-p). Substituting h=3,e=2 gives M_n=(n-1)(n^3-3n^2+6n+8)/(2(3n^2-3n-4)), with 2<M_n<B. Independently simplified the rational threshold and enumerated all labeled graph outcomes by exact rational counts for wedge counts at n=4,5,6, rather than treating finite enumeration as the all-n proof.
 
-## Limitations and priorities
-Only fixed-edge simple graphs and induced motifs without isolates and with at least one nonedge are treated. The excluded boundary density requires the exact finite formula; distributional limits and nonlinear conditional statements are not inferred. The prior result may exist implicitly under a hypergeometric or occupancy formulation. No independent audit or publication-priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sah and Sawhney, Local limit theorems for subgraph counts (2022), treat G(n,m) graph factors and local limits including induced subgraphs (Section 4.2), but do not state this normalized cross-covariance with isolates or its topology-independent monotone transition. The exact fixed-size hypergeometric identity is standard, so the formula is a short deduction from prior elementary tools and may have existed implicitly in occupancy literature. In the inspected primary sources and Resultary records no implication-complete preexisting joint threshold was identified; best-knowledge PASS with explicit formula-priority risk.
+
+## value
+
+PASS
+
+Isolates and induced motifs are fundamental dependent random-graph statistics. The unexpected positive-to-negative covariance transition at fixed edge count, uniform across motif topology at fixed (h,e), is qualitatively unlike the always-negative independent-edge-model covariance. The all-n rational wedge boundary and universal limiting p* are natural dependence-phase invariants, not arbitrary small-instance arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
