@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All positive starts become odd after at most three steps. For any odd n>=29, the composite, prime followed by composite, and twin-prime branches give a smaller odd state within 1, 2 or 3 steps, respectively; the strict decreasing stopping-time argument forces entry to the 13-state invariant graph. Euler prime-power bounds give phi(n)>=sqrt(n/2), so every inverse-totient solution phi(n)<=30 occurs at n<=1800. Full exact sieve enumeration yields the displayed inverse lists, which recursively close the two exceptional basins. All 24 exceptions are explicitly checked; the remaining basin is exhaustive. Finite testing of n<=100000 is supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leonetti–Luca Theorem 2: eventual periodicity for all k>=0, bound depending on initial state.",
+        "Period-size record: M <= [T(k-1)+1]^2, with no uniform bound on T."
+      ],
+      "reasoning": "Both works cover broader shift ranges, but have weaker conclusions for k=3. For unknown T the period-size estimate alone cannot bound M independently of T, and neither theorem classifies basins or proves the finite-exception property.",
+      "searches": [
+        "published-finding corpus: phi(n)+k cycles k=3 totient function prime triple chain composite",
+        "published-finding corpus: shifted totient φ(n)+3 φ(n)+k finite state all cycles",
+        "arXiv:2302.01783v1 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.01783v1 original source, Theorem 2 and proof",
+      "10.1017/S0004972723000394 journal abstract and MSC metadata",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae full RESULT.md",
+      "OEIS:A051953 main entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 of Leonetti–Luca: global eventual periodicity but no cycle identities.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae RESULT.md: necessary period-size inequality and equality condition, special example 23->25->23."
+      ],
+      "reasoning": "The new claim implies the k=3 instance of eventual periodicity, not conversely. A known example of period 2 does not imply uniqueness or basins. Conditional bounds in terms of arbitrary period T do not rule out longer cycles. The new proof uses uniform one-to-three-step descent and a complete inverse-totient cutoff to settle precisely those missing claims.",
+      "searches": [
+        "published-finding corpus: shifted Euler totient map f(n)=phi(n)+3 full classification periodic orbits 9 11 13 15 23 25",
+        "published-finding corpus: Euler totient plus three dynamical system orbit classification cycles",
+        "arXiv:2302.01783v1 pp.1–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/pdf/2302.01783 Theorem 2",
+        "OEIS:A051953 entire cototient entry",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae RESULT.md, Finding and Proof"
+      ],
+      "reasoning": "Writing F(n)=n+3-c(n), where c is the cototient, gives an exact reformulation, not a different problem. The named sources use F or c but do not provide the exact finite exceptional basins. The 2026 record includes one known two-cycle; that partial overlap is acknowledged.",
+      "searches": [
+        "published-finding corpus: shifted Euler totient map f(n)=phi(n)+3 full classification periodic orbits 9 11 13 15 23 25",
+        "published-finding corpus: φ(n)+3 periodic points fixed point 9 two-cycle 23 25 three-cycle 11 13 15 complete attractor",
+        "web: \"phi(n)+3\" \"23\" \"25\"",
+        "OEIS:A051953"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A051953 records n-phi(n) with formulas and tables, not iterated F orbit basins.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae Verification includes the known (23,25) cycle."
+      ],
+      "reasoning": "The cototient table and a known two-cycle are not the assertion that the complete first and second basins have cardinalities 13 and 11 or that every n>=67 enters (11,13,15). No exact matching database/table was found in the checked material.",
+      "searches": [
+        "OEIS:A051953",
+        "web: site:oeis.org \"phi(n)+3\" \"9\" \"25\"",
+        "published-finding corpus: Leonetti Luca On iterates of shifted Euler's function 2023 k=3 three cycles fixed 9 length 3 (11,13,15) length 2 (23,25)"
+      ]
+    },
+    "rationale": "The primary 2023 full-text paper proves eventual periodicity and a trajectory bound, but no explicit k=3 attractor census or basin sets. The closest published period-sensitive bound already gives 23<->25 as an example, a covered component not asserted as new; its conditional M-versus-T bound does not imply the cofinite 3-cycle basin. OEIS A051953 defines the cototient but does not enumerate dynamic basins. Exact and alias searches found no dominating result. Unindexed equivalent work is an acknowledged risk.",
+    "residual_risks": [
+      "Equivalent full k=3 orbit classification may exist in unindexed literature or private computations.",
+      "The detailed finite inverse-totient table should be independently audited before relying on it in a publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers eventual periodicity and growth bounds, not the complete k=3 cycles or exceptional basins.",
+        "evidence": "Theorem 2, PDF p.2; proof pp.4–5; arXiv v1 dated 3 February 2023.",
+        "identifier_or_url": "arXiv:2302.01783v1; https://arxiv.org/pdf/2302.01783",
+        "material_read": "Abstract, introductory proposition, Theorem 2, its complete proof and Remark 4, plus Theorem 3 context (PDF pp.1–5).",
+        "method": "Primary open-access PDF read as text with visual page inspection.",
+        "title": "On the iterates of shifted Euler's function",
+        "trigger": "The original paper studies exactly F_k(n)=phi(n)+k and provides the motivation."
+      },
+      {
+        "assessment": "Provides M <= [T(k-1)+1]^2 and extremal equality classification. The 23<->25 orbit was known and is credited. Does not imply the global k=3 basin census.",
+        "evidence": "RESULT.md, Finding and Verification explicitly give (23,25) for (T,k)=(2,3).",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae",
+        "material_read": "Complete public RESULT.md (Finding, assumptions, proof, verification, relationship, limitations, references).",
+        "method": "Read exact public repository file via read-only GitHub connector.",
+        "title": "Sharp period-size bound and extremal structure for shifted Euler cycles",
+        "trigger": "Strongest retrieved result on the same map; could dominate a cycle classification."
+      },
+      {
+        "assessment": "Reports arithmetic-function values and identities, not the complete shifted iteration graph or finite basins.",
+        "evidence": "OEIS A051953, definition and formulas.",
+        "identifier_or_url": "https://oeis.org/A051953",
+        "material_read": "Definition, comments, formulas, examples, programs and cross-references on entry page.",
+        "method": "Direct webpage inspection.",
+        "title": "OEIS A051953, Cototient(n) := n - phi(n)",
+        "trigger": "Equivalent arithmetic-function input could contain a table of the same iterates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06c908bf-67da-48e7-9c23-a20bae3d7dcf",
+  "value": {
+    "rationale": "The first nontrivial small odd shift is completely analyzed for every positive input. Besides coexistence of periods 1, 2 and 3, it proves that only 24 starts avoid the period-3 attractor, with a sharp universal threshold 67. These exact global basin sizes are mathematically informative and not consequences of the published eventual-periodicity and conditional period-size bounds.",
+    "status": "PASS"
+  }
+}
