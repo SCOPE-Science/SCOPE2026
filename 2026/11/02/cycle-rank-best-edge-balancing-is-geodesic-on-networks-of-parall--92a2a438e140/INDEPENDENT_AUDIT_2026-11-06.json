@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:42:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/cycle-rank-best-edge-balancing-is-geodesic-on-networks-of-parall--92a2a438e140/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/cycle-rank-best-edge-balancing-is-geodesic-on-networks-of-parall--92a2a438e140/VERIFICATION.md",
+        "/mnt/data/scope_worker-06_20261106T1529Z/local_checks.log"
+      ],
+      "rationale": "Every simple cycle of this block graph is exactly the union of two of its internally vertex-disjoint terminal paths. In a block with k negative and r-k positive path products there are k(r-k) negative cycles; ranks on its negative/positive paths are r-k/k respectively. For any negative cycle, a maximum-rank edge belongs to a minority path, or to either path when tied. A flip reduces d=min(k,r-k) by precisely 1, and decreases negative-cycle count by r-2d+1>=1. Different blocks are edge-disjoint, and a global lower bound on flips is sum d, so every legal trajectory is a shortest route to balance. The stochastic law follows by conditioning on the first updated negative cycle in a tied block: each negative/positive path pair is equally likely and each edge in that pair is a tie maximizer, giving E[len_negative/(len_negative+len_positive)]. Independently enumerated every path-parity class and all legal transitions for several 3-/4-path bundles; tested the exact tie law 134/315 for lengths (2,3,4,5), negative paths 1 and 3.",
+      "residual_risks": [
+        "Direct finite computations independently checked specific cases only; infinite assertions are supported by the reconstructed analytic proof, not computer output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katai and Iwai (1978), Studies on the balancing, the minimal balancing, and the minimum balancing processes for social groups with planar and nonplanar graph structures, accessible abstract describes minimum balancing and blocks.",
+          "Cappello and Steffen (2022), Frustration-critical signed graphs, concerns switching/frustration rather than this greedy rank-based dynamic."
+        ],
+        "reasoning": "A blockwise optimum principle is known and subsumes only the minimum distance component; the present statement additionally quantifies all legal greedy moves and tied path-length probabilities. Full 1978 proof could not be inspected, leaving a named risk, not a categorical novelty guarantee.",
+        "searches": [
+          "signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence",
+          "Katai Iwai 1978 minimum balancing process social groups graph blocks"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.02394",
+        "https://doi.org/10.1016/0022-2496(78)90060-3",
+        "https://arxiv.org/abs/1606.03347",
+        "https://arxiv.org/abs/2112.02664",
+        "Resultary semantic search query 1: signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original triangle BED proves probabilistic convergence for complete signed networks; it does not imply all-choice shortest flips for a different simple-cycle rule.",
+          "Old minimum balancing studies identify frustration/minimum sign reversals, but distance optimum alone cannot force greedy geodesicity."
+        ],
+        "reasoning": "The asserted universal all-tie-break trajectory property and weighted tie law are logically stronger/different than the prior conclusions; preserve access risk for possible hidden specialized theorem.",
+        "searches": [
+          "signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence",
+          "social balance best edge dynamics convergence vs optimal flips"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chatterjee, Svoboda, Žikelić, Pavlogiannis, Tkadlec (2022), Social balance on networks, defines maximal edges among unbalanced triangles in complete graphs.",
+          "The audited model ranks negative SIMPLE CYCLE incidence on parallel-path blocks and may have no triangles at all."
+        ],
+        "reasoning": "The two rules are not equivalent on the target sparse graphs. Switching-equivalence/frustration index gives the destination distance but not that every tie-breaking greedy trajectory is shortest.",
+        "searches": [
+          "signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence",
+          "best edge dynamics signed networks negative simple cycles banana graph theta shortest path balanced"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Giscard, Rochet and Wilson (2016), Evaluating balance on social networks from their simple cycles, gives algorithms/estimators for cycle imbalance counts.",
+          "The example P(q_B=+)=134/315 is an exact consequence of a general all-r formula, not an isolated table claim."
+        ],
+        "reasoning": "Published cycle-count datasets do not automatically tabulate rank-greedy trajectory probabilities. No exact database covering the displayed stochastic law was identified.",
+        "searches": [
+          "signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence",
+          "signed simple cycle imbalance length biased tie outcomes exact numerical table"
+        ]
+      },
+      "rationale": "This is specifically a cycle-based extension using counts of all negative simple cycles, not the original triangle-based BED dynamics. Classical minimum balancing and block decomposition are prior mathematics. The additional all-tie-break geodesicity and length-sensitive stochastic endpoint law were not located as direct results; a 1978 primary paper remains inaccessible in full.",
+      "residual_risks": [
+        "Full Katai–Iwai (1978) text could not be obtained: authorized Oxford retrieval returned vpn_disconnected. Its exact greedy dynamics and possible stronger coverage are unverified.",
+        "The original BED is triangle-based; presenting this as a theorem about that unmodified algorithm would be false.",
+        "Uniform cycle/edge sampling is required for the displayed stochastic law; arbitrary sampling still yields deterministic optimal flip count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses triangles on complete networks, whereas audited process is newly specified simple-cycle incidence rule.",
+          "evidence": "2022 PRE paper states convergence of triangle BED and discusses sparse-network extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.02394",
+          "material_read": "Full primary arXiv preprint definition of best-edge on imbalanced triangles, principal theorems/extension discussion; PDF page screenshots",
+          "method": "full-text targeted reading and screenshot",
+          "title": "Social balance on networks: Local minima and best-edge dynamics",
+          "trigger": "original algorithm name and graph domain"
+        },
+        {
+          "assessment": "Credited for minimum balancing process and blocks; cannot exclude every older greedy-geodesicity statement without full text.",
+          "evidence": "1978 J. Math. Psych. 18:140–176 abstract addresses graph balancing process and minimum balancing.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-2496(78)90060-3",
+          "material_read": "Available abstract only; same-paper arXiv/OA search unsuccessful; authorized institutional full-text request failed with vpn_disconnected",
+          "method": "publisher abstract and authorized Oxford institutional download attempt; no bypass",
+          "title": "Studies on the balancing, the minimal balancing, and the minimum balancing processes for social groups with planar and nonplanar graph structures",
+          "trigger": "older same-subject minimum balancing process"
+        },
+        {
+          "assessment": "Counts negative simple cycles but not the maximum-rank single-edge sign-flip rule.",
+          "evidence": "Giscard et al. (2016) counts signed simple cycles as balance measure.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.03347",
+          "material_read": "Article abstract and relevant count-model discussion",
+          "method": "public arXiv abstract/textual material; not a complete algorithm-specific theorem examination",
+          "title": "Evaluating balance on social networks from their simple cycles",
+          "trigger": "same negative-cycle counting observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.02394",
+        "https://doi.org/10.1016/0022-2496(78)90060-3",
+        "https://arxiv.org/abs/1606.03347",
+        "https://arxiv.org/abs/2112.02664",
+        "Resultary semantic search query 1: signed social networks structural balance best-edge dynamics negative simple cycles parallel paths theta banana cactus geodesic frustration index shortest sequence"
+      ],
+      "rationale": "The result gives an all-choice shortest-path guarantee for a well-defined simple-cycle best-edge rule on a nontrivial unbounded-cycle-rank class; arbitrary overlapping negative cycles make a general convergence analysis nontrivial. The strict energy decrement and path-length-sensitive final polarity quantify dynamics, beyond merely the minimum frustration index. The block structure and rule are motivated natural boundaries, not an unmotivated slice of arbitrary signings.",
+      "residual_risks": [
+        "Natural exact result judged worthwhile independently of reproducibility or novelty alone; downstream generalization not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Katai–Iwai (1978) text could not be obtained: authorized Oxford retrieval returned vpn_disconnected. Its exact greedy dynamics and possible stronger coverage are unverified.",
+    "The original BED is triangle-based; presenting this as a theorem about that unmodified algorithm would be false.",
+    "Uniform cycle/edge sampling is required for the displayed stochastic law; arbitrary sampling still yields deterministic optimal flip count."
+  ],
+  "schema_version": 1
+}
