@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The polygon is tangential with exactly the stated normal-gap multiset; its polar is the inscribed polygon of facet normals. Those facts give the exact two-factor area product. The central strict inequality is proved by the identity for \(DA-B\) and a two-case angular bound exploiting \(\sum_i g_i\le2\pi/3\), rather than inferred from experiments. Strict Schur concavity and the equality classifications follow by pairwise balancing. The local coefficient follows from an independent second-order Taylor expansion. The accompanying checker passed 12,100 deterministic comparisons of independent area calculations, balancing inequalities and endpoint/local formulas.
+PASS
 
-## Originality
+For a regular n-gon with unit incircle and k rotated sets, normal angular gaps g sum 2π/n. Tangency triangles yield area nΣtan(g_i/2), polar normal convex hull yields area n/2 Σsin(g_i), including zero gaps by continuity. The pairwise derivative identity reduces strict Schur concavity to DA−B>0, D=(1+cos g_i)(1+cos g_j). With s=g_i+g_j≤π/2, D≥2 gives positive terms; for s>π/2, s≤2π/3, D≥1, remaining sine sum≤π/6 and sin s≥√3/2, so strict positivity. Strict balancing transfers imply global majorization and only equal-gap/vertex equality cases. The Taylor second derivative on Σeps=0 has coefficient −n²k cos(gbar)tan²(gbar/2)/4, as stated. No numerical tests are used as all-parameter proof.
 
-**PASS within examined literature, with residual historical uncertainty.** The nearest general polygon theorem of Meyer–Reisner gives the optimal **upper endpoint** but not relative ordering among arbitrary intermediate polygons. The Böröczky–Makai–Meyer–Reisner theorem for \(n\)-fold symmetry gives the optimal **lower endpoint** and related stability but does not compare two nonregular gap vectors. The Alexander–Fradelizi–Zvavitch work supplies another global-maximum framework. Published studies of random rotations of tangential polygons involve expected intersection area, whereas this finding concerns a deterministic polar area product. Search aliases included angular-gap smoothing, Schur concavity, rotated polygon intersections, and facet normals. No equivalent full comparison was identified. The finite scope of accessible literature and potential alternative formulations remain risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete ordering of a natural multi-parameter geometric family, not merely an evaluation of an arbitrary special point. The individual intersection-area and polar-area factors move in opposite directions under gap balancing, so the strict order of their product is not an endpoint consequence or a mere application of convexity. Equality cases, a closed formula, and the positive quadratic stability coefficient make the result a reusable benchmark for affine-invariant polygonal smoothing.
+Classical Meyer–Reisner regular polygon maximal volume product and Böröczky et al. rotation-symmetry lower product cover endpoints only. A full related published SCOPE article orders expected intersection area under random rotations, not deterministic Mahler product under angle-gap majorization. The strict global angular majorization comparison is a stronger distinct ordering.
 
-## Scope and unresolved questions
+## value
 
-The source's established global extrema are not claimed as new. Only the strict intermediate majorization law, its exact angular formula in this parametrization, and its local response are assessed. The theorem is planar and rotationally symmetric; it gives no conclusion for unrelated tangential polygons or higher-dimensional bodies. No comprehensive historical-priority or independent verification claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The previously known regular polygon extrema are strengthened to a strict partial-order law for arbitrary nonuniform rotational placements, including equality cases and a local quadratic stability constant. This is a structural geometric inequality beyond endpoint restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

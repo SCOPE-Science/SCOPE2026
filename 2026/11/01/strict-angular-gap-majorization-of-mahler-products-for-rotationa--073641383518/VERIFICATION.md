@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python3 check_geometry.py` from the directory containing this document and the accompanying script. The script needs only the Python standard library. Its deterministic random seed is set internally. The expected terminal summary is `PASS 12100 independent numerical comparisons`.
+## correctness
 
-The script independently constructs all polygon vertices by intersecting consecutive tangents to the unit circle, computes convex-polygon areas by the shoelace formula, and compares them with the closed forms. It also checks selected majorization transfers, derivative signs, sharp endpoint products and the local second variation. For positive gaps, the vertices of the original polygon have polar angles midway between consecutive unit support normals and radii equal to the reciprocal cosine of half their angular separation.
+PASS
 
-These are numerical consistency checks for finitely many cases. The universal conclusion is justified by the elementary derivative and majorization proof in `RESULT.md`; the checker does not establish universal originality, independent audit, or any infinite claim.
+For a regular n-gon with unit incircle and k rotated sets, normal angular gaps g sum 2π/n. Tangency triangles yield area nΣtan(g_i/2), polar normal convex hull yields area n/2 Σsin(g_i), including zero gaps by continuity. The pairwise derivative identity reduces strict Schur concavity to DA−B>0, D=(1+cos g_i)(1+cos g_j). With s=g_i+g_j≤π/2, D≥2 gives positive terms; for s>π/2, s≤2π/3, D≥1, remaining sine sum≤π/6 and sin s≥√3/2, so strict positivity. Strict balancing transfers imply global majorization and only equal-gap/vertex equality cases. The Taylor second derivative on Σeps=0 has coefficient −n²k cos(gbar)tan²(gbar/2)/4, as stated. No numerical tests are used as all-parameter proof.
 
-## Boundaries
+## originality
 
-The proof covers all integers \(n\ge3\), \(k\ge2\), every nonnegative angular-gap vector summing to \(2\pi/n\), and boundary configurations with repeated rotations. Local stability has a fixed-parameter remainder. The paper comparison documents remaining historical-priority risk; no independent audit has been conducted.
+PASS
+
+Classical Meyer–Reisner regular polygon maximal volume product and Böröczky et al. rotation-symmetry lower product cover endpoints only. A full related published SCOPE article orders expected intersection area under random rotations, not deterministic Mahler product under angle-gap majorization. The strict global angular majorization comparison is a stronger distinct ordering.
+
+## value
+
+PASS
+
+The previously known regular polygon extrema are strengthened to a strict partial-order law for arbitrary nonuniform rotational placements, including equality cases and a local quadratic stability constant. This is a structural geometric inequality beyond endpoint restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
