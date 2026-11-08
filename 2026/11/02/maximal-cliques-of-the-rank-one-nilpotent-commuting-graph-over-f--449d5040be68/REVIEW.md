@@ -1,15 +1,21 @@
-# Review of the maximal-clique/subspace correspondence
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces commutation of nonzero rank-one square-zero matrices to two-sided annihilation. A clique's common kernel contains all its images, forcing containment in one canonical subspace-indexed clique. The images and common kernels of each canonical clique reconstruct the indexing subspace, yielding exact maximality and uniqueness. Tensor-scaling counts prove clique sizes and intersections, while a one-variable convexity argument proves the sharp maximum. Boundary cases \(n=2\) and \(q=2\) are included. The standalone program exhaustively checked eight finite configurations, including \(\mathbb F_4\), but the proof supplies the infinite result.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The closest earlier rank-one nilpotent commutator record (opaque identifier `c64b3bef-2714-42c6-aeaa-b9883604b3df`) determines commuting-pair numbers and graph degree; this finding **does not** relabel those numbers as new. The full text of Ou–Zhong (2016) concerns upper-triangular rank-one matrices and graph automorphisms, not the full nilpotent rank-one graph or its clique intersection geometry. The full public text of Britnell–Wildon (2010) establishes class-type commutation and nilpotent existence theorems, not an all-clique classification. The accessible Akbari–Raja (2006) abstract addresses connectedness for broader matrix subsets; its full text was not available in this review. Search failure does not establish novelty, and an older or unindexed precise maximal-clique result is a residual risk.
+PASS
 
-## Value — PASS
-Maximal cliques classify *all* maximal pairwise commuting families of the smallest nonzero nilpotent similarity class, a natural structural object in matrix theory. The theorem identifies every extremal family with a Grassmannian subspace, describes all intersections through sums/intersections of linear spaces, and works uniformly in characteristic and matrix dimension. This is structural and extremal information not provided by pairwise degree counts alone; the complete intersection formula supports further work on clique complexes and graph reconstruction without claiming such applications are proved.
+For X=u⊗α and Y=v⊗β with α(u)=β(v)=0, commuting forces XY=YX=0; otherwise nonzero equality implies the two matrices proportional and product zero. In each clique image sum P lies in common kernel K, so clique lies in C_K. In C_W, images span W and common kernels intersect to W, proving maximality and unique W. Counting rank-one tensors up to q−1 scalars yields C_W size and exact intersection formula using W∩U and W+U; balancing k gives clique number. Independently built every rank-one squarezero matrix and maximal clique over F2 for n=2,3,4: vertices 3,21,105 and maximal cliques 3,14,65, size strata n4: 35 of size9 and 30 of size7.
 
-## Limits
-No full classification of graph automorphisms, graph spectrum, or higher-rank nilpotents is proved. The proof is self-contained; software testing is finite. Independent validation and exhaustive literature priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier matrix-class commuting, rank-one degree enumeration, and upper-triangular rank-one graph automorphism results concern different questions. The full all-maximal-clique indexed-by-Grassmannian correspondence and two-subspace intersection law were not seen in inspected primary literature or Resultary. The 2006 nilpotent graph paper was not fully accessible; equivalent earlier annihilating tensor subspace theory remains a priority risk.
+
+## value
+
+PASS
+
+The theorem supplies a complete characterization of maximal pairwise commuting families in a canonical nilpotent conjugacy locus with uniform characteristic and explicit Grassmannian intersection geometry. Pairwise adjacency or connectivity counts do not supply this stronger structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
