@@ -1,9 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional on the common reset clock (or common Brownian noise), the particle coordinates are independent centered Gaussians. Their common variance processes obey exactly solvable first- and second-moment equations. The fourth-order Poisson-versus-Gaussian damping gap is \(\lambda s^2(4-s)\) and is strictly positive, proving finite-time cross-energy covariance ordering without stationary assumptions. On the critical curve, explicit time rescaling and bounded-convergence analysis prove the two compact-uniform scaling functions. Subtracting the common mean-square term is negligible after multiplication by \(s^3\). The stationary regime is checked separately. Finite numerical/rational checks supplement rather than substitute for the analytic argument.
+## correctness
 
-**Originality — PASS, best knowledge.** Galla (arXiv:2602.21635v1) establishes the diffusion approximation and the long-time Gaussian squared-position covariance, not a time-resolved singular joint limit \(t\asymp s^{-2}\). Earlier proportional resetting work of Pierce and Biroli et al. does not provide the two time-profile functions. Accessible historical findings on the same source already determine stationary even-moment thresholds and comparisons; those are credited and explicitly **not** repackaged as new. The assessed novelty is only the two universal limiting transient profiles and their critical-time bias, which is not implied by a stationary covariance limit without proving a noncommuting large-time/small-reset limit. The main residual risk is a stronger general semigroup/linear-jump transient comparison theorem, or an unlocated transient asymptotic result.
+PASS
 
-**Value — PASS.** The approximation reproduces the entire transient one-particle variance curve, yet on the physically relevant critical fourth-moment relaxation scale it has a qualitatively different cross-particle energy response: saturation versus exponential amplification. The exact profile and the universal initial discrepancy give a practical dynamic window for detecting a bad diffusion approximation, more informative than a stationary divergence criterion alone. The continuous time parameter and the all-parameter finite-time ordering make this a structural dynamics result, not an arbitrary finite sample.
+Conditioning on the common reset clock (Poisson model) or common Brownian multiplier (Itô model) makes particles independent centered Gaussians with common random conditional variance Z. Thus equal-time squared-position interparticle covariance is Var(Z), not ordinary X covariance. Its first moment satisfies m1'=-a1m1+2D; second conditional-variance moments obey m2'=-a2m2+4Dm1 with a2P=(lambda/s)(1-(1-s)^4)-4gamma and a2G=4(lambda-gamma)-6lambda s. Positive convolution kernels and exact gap a2P-a2G=lambda s²(4-s)>0 prove 0<CP(t)<CG(t) for all t>0, all real gamma, 0<s<1. Along gamma_s=lambda(1-3s/2+theta s²), a1=2lambda s(1-theta s), a2P=lambda s²(4(1-theta)-s), a2G=-4lambda theta s². Rescaling t=u/(lambda s²) yields compact-uniform positive-kernel convergence and scaled covariance limits (1-exp(-4(1-theta)u))/(1-theta) and (exp(4theta u)-1)/theta, after a vanishing scaled m1² term. The difference expansion is 8u²+O_theta(u³). Independent high-precision direct convolution quadrature checked strict inequality and convergence at 12 critical parameter/time combinations. Stationary fourth-moment thresholds follow a2 signs, not from finite simulations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS qualified: Galla (2026) already derives the weak-reset common-noise Gaussian approximation and stationary higher covariance, and prior exact Poisson reset work supplies component dynamics. The specific sharp joint transient scaling at t=O(s^-2), its separate Poisson versus Gaussian functions and universal initial difference are not directly present in the inspected primary statements. Moment ODE specialization may make it derivable from existing ingredients, but it requires the singular-time limit; global priority remains open.
+
+## value
+
+PASS
+
+Quantifies a subtle but operationally meaningful breakdown of a Gaussian approximation that matches the entire particle variance curve exactly but strongly distorts time-resolved interparticle squared-energy correlations at the critical scale; one asymptotic saturates while the other grows exponentially. This is not merely the previously known stationary divergence criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

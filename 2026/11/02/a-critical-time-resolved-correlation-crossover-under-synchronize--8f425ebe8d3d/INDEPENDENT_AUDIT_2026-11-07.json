@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:15:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/verify.py"
+      ],
+      "rationale": "Conditioning on the common reset clock (Poisson model) or common Brownian multiplier (Itô model) makes particles independent centered Gaussians with common random conditional variance Z. Thus equal-time squared-position interparticle covariance is Var(Z), not ordinary X covariance. Its first moment satisfies m1'=-a1m1+2D; second conditional-variance moments obey m2'=-a2m2+4Dm1 with a2P=(lambda/s)(1-(1-s)^4)-4gamma and a2G=4(lambda-gamma)-6lambda s. Positive convolution kernels and exact gap a2P-a2G=lambda s²(4-s)>0 prove 0<CP(t)<CG(t) for all t>0, all real gamma, 0<s<1. Along gamma_s=lambda(1-3s/2+theta s²), a1=2lambda s(1-theta s), a2P=lambda s²(4(1-theta)-s), a2G=-4lambda theta s². Rescaling t=u/(lambda s²) yields compact-uniform positive-kernel convergence and scaled covariance limits (1-exp(-4(1-theta)u))/(1-theta) and (exp(4theta u)-1)/theta, after a vanishing scaled m1² term. The difference expansion is 8u²+O_theta(u³). Independent high-precision direct convolution quadrature checked strict inequality and convergence at 12 critical parameter/time combinations. Stationary fourth-moment thresholds follow a2 signs, not from finite simulations.",
+      "residual_risks": [
+        "The transient functions may be an implicit algebraic/singular limit of equations already in the Galla appendix; novelty is limited to the explicit two-model theta-crossover.",
+        "Moment closure is special to linear synchronous reset and Gaussian conditional independence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Single-particle rescaling papers treat stationary density, passage times and/or advection, without the exact common two-particle fourth-order scaling limit.",
+          "Galla includes Gaussian stationary correlations but no all-u comparison with exact Poisson on the theta-critical drift window in inspected sections."
+        ],
+        "reasoning": "General linear moment semigroup theory can reproduce the ODE step but does not immediately assert this singular comparison; possible implicit corollary remains.",
+        "searches": [
+          "arXiv:2602.21635 common-noise approximation, appendix",
+          "arXiv:2204.07215",
+          "arXiv:2406.08387"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/verify.py",
+        "https://arxiv.org/html/2602.21635",
+        "https://arxiv.org/html/2204.07215v1",
+        "https://arxiv.org/html/2406.08387v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galla provides Gaussian-side conditional correlations and a stationary formula; static limits do not determine joint t~s^-2 behavior of exact Poisson resetting.",
+          "The exact Poisson fourth-moment generator must be retained through the parameter-dependent singular scaling to derive CP."
+        ],
+        "reasoning": "Existing method is the premise; both scaling functions need additional Volterra-kernel analysis, not a direct quotation from prior work.",
+        "searches": [
+          "arXiv:2602.21635 main equations and supplemental S2.2",
+          "arXiv:2406.08387 exact rescaling model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galla defines same weak-reset Itô surrogate, common multiplicative noise, and stationary two-particle squared-position correlations.",
+          "The claim compares full finite-time Poisson and Gaussian profiles along gamma_s and u/(lambda s²), a different limiting observable."
+        ],
+        "reasoning": "Equality of second moment at each time is old, while fourth-order temporal comparison and two noncommuting critical limits form a distinct claim.",
+        "searches": [
+          "Resultary semantic search: synchronized proportional Poisson resetting common Gaussian noise approximation transient fourth-moment squared position correlations critical scale s inverse square",
+          "GitHub repository search: synchronized weak resetting critical correlation crossover",
+          "arXiv:2602.21635 supplemental finite-time covariance equations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No precise source/database tabulates the pair of limiting functions parameterized continuously by theta and u; relevant findings concern other reset observables."
+        ],
+        "reasoning": "A continuous dynamical scaling family is not essentially a finite-data table; failed lookup is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: synchronized proportional Poisson resetting common Gaussian noise approximation transient fourth-moment squared position correlations critical scale s inverse square",
+          "GitHub repository search: synchronized weak resetting critical correlation crossover"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS qualified: Galla (2026) already derives the weak-reset common-noise Gaussian approximation and stationary higher covariance, and prior exact Poisson reset work supplies component dynamics. The specific sharp joint transient scaling at t=O(s^-2), its separate Poisson versus Gaussian functions and universal initial difference are not directly present in the inspected primary statements. Moment ODE specialization may make it derivable from existing ingredients, but it requires the singular-time limit; global priority remains open.",
+      "residual_risks": [
+        "The transient functions may be an implicit algebraic/singular limit of equations already in the Galla appendix; novelty is limited to the explicit two-model theta-crossover.",
+        "Moment closure is special to linear synchronous reset and Gaussian conditional independence.",
+        "A semantic search or repository code-search miss is not proof of global publication priority.",
+        "No public scientific certification, expert attestation or formal proof is inferred from the computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier stationary covariance and Gaussian model confirmed; exact-vs-approximate two-function Poisson/Gaussian critical transient crossover not stated in inspected material",
+          "evidence": [
+            "Common multiplicative Brownian and stationary correlation formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.21635",
+          "material_read": "Full relevant HTML main equations 4–8, Appendix B and supplemental S2.2 equations S25–S33",
+          "method": "full arXiv HTML mathematical derivations read",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Exact same Gaussian surrogate model, potential direct coverage"
+        },
+        {
+          "assessment": "Different single-walker model and observables, not synchronized two-particle energy covariance",
+          "evidence": [
+            "Single particle with advective reset problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.07215v1",
+          "material_read": "Full relevant single-walker reset/drift and stationary calculation",
+          "method": "open arXiv HTML mathematical sections",
+          "title": "An advection-diffusion process with proportional resetting",
+          "trigger": "Potential exact rescaling semigroup generality"
+        },
+        {
+          "assessment": "No joint weak-reset noise approximation or fourth-order pair covariance critical scaling",
+          "evidence": [
+            "Exact reset-by-rescaling single-walker stationary and passage laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "Relevant complete stationary law/first-passage sections",
+          "method": "arXiv HTML full relevant mathematics",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Potential earlier exact Poisson rescaling limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/a-critical-time-resolved-correlation-crossover-under-synchronize--8f425ebe8d3d/verify.py"
+      ],
+      "rationale": "Quantifies a subtle but operationally meaningful breakdown of a Gaussian approximation that matches the entire particle variance curve exactly but strongly distorts time-resolved interparticle squared-energy correlations at the critical scale; one asymptotic saturates while the other grows exponentially. This is not merely the previously known stationary divergence criterion.",
+      "residual_risks": [
+        "The transient functions may be an implicit algebraic/singular limit of equations already in the Galla appendix; novelty is limited to the explicit two-model theta-crossover.",
+        "Moment closure is special to linear synchronous reset and Gaussian conditional independence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Linear equal-parameter independent Brownian particles, zero initial data, simultaneous resets, fixed theta in (0,1), compact u intervals; neither general nonlinear reset processes nor uniform finite-s rescaling claimed."
+}
