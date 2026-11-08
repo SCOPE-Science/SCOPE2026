@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The source IF-SSPRK2 tableau reduces with constant Q to exact exponential endpoint trapezoid. The Loewner surplus has Peano representation as the weighted integral of e^{sA}L_A(Q)e^{sA^T}. Rank-one tests force all triples (v,Av,A²v) to be dependent and hence minimal polynomial degree <=2 by the maximal-cyclic-vector lemma. The corresponding rank-two PSD certificate is equivalent to 4a>=b², and completion of squares proves sufficiency. Opposite-sign eigenvalues preclude any nonscalar Hurwitz exception. Exact rational factorization and counterexample calculations passed in the standalone checker; the proof covers infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.15703 Theorem 3.2: positive-semidefinite numerical outputs for arbitrary A; Theorem 3.4: norm accuracy, not a Loewner comparison with exact solution.",
+        "arxiv:1705.07507 studies data-order monotonicity for Riccati evolution; it does not order a trapezoid approximation against its exact constant-source integral."
+      ],
+      "reasoning": "These theorems have broader system classes or different guarantees but neither entails that the numerical defect is PSD or characterizes the quadratic-minimal-polynomial condition. Output PSD and same-input upper error order are logically independent.",
+      "searches": [
+        "arxiv:2606.15703 Section 3 Theorems 3.2 and 3.4",
+        "arxiv:1705.07507 Section 3.5 and 4.1",
+        "Dieci Eirola 1994 positive definiteness Riccati equation numerical quadrature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15703 (full HTML)",
+      "Dieci–Eirola 1994 (accessible PDF, inspected selected sections)",
+      "arxiv:1705.07507 (full HTML, inspected relevant sections)",
+      "Dieci–Eirola 1996 (bibliographic abstract only)",
+      "published-finding corpus published semantic records for covariance, Lyapunov, quadrature, and Loewner-order terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang–Lan–Jing: SPSD preservation permits numerical covariance below exact covariance along some direction (e.g. A=diag(-1,-2), Q=ones), so cannot imply the new Loewner-upper guarantee.",
+        "Dieci–Eirola: positivity of transformed numerical iterates, not universal sign of exponential trapezoid quadrature error.",
+        "Koskela–Mena: monotonicity with respect to data rather than one-step quadrature bias."
+      ],
+      "reasoning": "The direct formulas establish a strict implication gap: positive semidefiniteness of both exact and approximate outputs is insufficient for ordering them; the stable rank-one witness has an indefinite error. No decisive older full-text statement was found that subsumes the iff theorem.",
+      "searches": [
+        "arxiv:2606.15703 Eq. (5) and Theorem 3.2",
+        "https://dieci.math.gatech.edu/preps/LuTiPosDefDRE.pdf sections 2-4",
+        "arxiv:1705.07507 Riccati monotonicity",
+        "\"Preserving monotonicity in the numerical solution of Riccati differential equations\" 1996"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For constant Q, an IF-SSPRK2 step is exactly endpoint quadrature for e^{sA}Qe^{sA^T}; the iff theorem is equivalently positivity of the superoperator Q -> A²Q+2AQA^T+Q(A^T)²."
+      ],
+      "reasoning": "Matrix-function convexity titles are insufficient: the target is operator positivity of congruence-orbit curvature on every rank-one PSD forcing, not scalar exp convexity or operator convexity of the exponential on self-adjoint arguments. No exact covering comparison was identified.",
+      "searches": [
+        "\"Loewner convexity of exponential matrix congruence\"",
+        "\"covariance\" \"trapezoidal rule\" \"semidefinite\" inequality",
+        "\"A squared equals a I plus b A\" universal convexity exponential covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source gives an explicit scheme and accuracy tables, but neither a catalogue of drift matrices nor a table of Loewner-order defect classification.",
+        "The 1994 source supplies positivity-preserving methods, not a complete drift classification for this exact endpoint exponential quadrature."
+      ],
+      "reasoning": "No exact published classification/table or identical numerical parameter set was identified. The claim is universal and structural, not a finite table reconstruction. This search is not a proof of novelty.",
+      "searches": [
+        "\"trapezoidal\" \"Lyapunov\" \"Loewner\" covariance matrix",
+        "\"quadrature\" \"Lyapunov\" \"positive semidefinite\" \"upper bound\" trapezoidal",
+        "\"IF SSPRK2 Lyapunov exact solution upper covariance bias quadrature\""
+      ]
+    },
+    "rationale": "A statement-level comparison finds that positivity of a computed covariance in the 2026 IF-SSPRK2 paper does not imply a numerical-minus-exact Loewner upper bound. The 1994 matrix discretization positivity results and the 2017 Riccati monotonicity results have materially different order relations. Targeted comparisons found no covering universal iff structural classification. Some older literature, especially the 1996 Riccati monotonicity article, was not available in full, so priority risk remains.",
+    "residual_risks": [
+      "An older 1996 paper on monotonicity of Riccati integrators was inaccessible in full and could contain overlapping one-sided quadrature results.",
+      "General literature on matrix-convex exponential-congruence or positive superoperators could restate the iff condition under different vocabulary.",
+      "published-finding corpus and literature search are non-exhaustive; scientific novelty is a best-knowledge assessment, not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The scheme and universal SPSD preservation are covered; same-input Loewner dominance and the quadratic drift iff criterion are not stated in inspected text",
+        "evidence": [
+          "Eq. (2) is variation of constants; Eq. (5) defines IF-SSPRK2; Theorem 3.2 states SPSD output; Theorem 3.4 is a norm error estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+        "material_read": "HTML full text, Sections 1-5, specifically equations (2), (5), Theorems 3.2 and 3.4 and associated discussions",
+        "method": "Read rendered mathematical HTML and matched the update algebraically to the constant-input formula",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Defines the exact IF-SSPRK2 method and central PSD result"
+      },
+      {
+        "assessment": "Different positivity-preserving construction and order requirement; no matching exact-exponential covariance upper-defect structural classification in inspected sections",
+        "evidence": [
+          "Positivity of numerical Riccati/Lyapunov solutions is the aim; trapezoidal quadrature in Section 3 serves positivity of a constructed scheme, not sign of the exact exponential trapezoid remainder."
+        ],
+        "identifier_or_url": "https://dieci.math.gatech.edu/preps/LuTiPosDefDRE.pdf",
+        "material_read": "Accessible preprint including opening definitions and the section describing trapezoidal discretization and positivity",
+        "method": "Inspected PDF text and corresponding rendered pages",
+        "title": "Positive Definiteness in the Numerical Solution of Riccati Differential Equations",
+        "trigger": "Earlier positivity-preserving Lyapunov/Riccati integration with trapezoidal discretization"
+      },
+      {
+        "assessment": "Comparisons between input data and their Krylov projected Riccati approximations do not imply an all-Q exponential endpoint quadrature bias sign",
+        "evidence": [
+          "The source discusses Riccati-data monotonicity and approximation; the target is a distinct Loewner inequality comparing same-data exact/numerical one-step outputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.07507",
+        "material_read": "Rendered arXiv full text, especially theoretical comparison sections 3.5 and 4.1",
+        "method": "Read the monotonicity theorem statements and hypotheses as compared to constant-forcing same-data error",
+        "title": "Analysis of Krylov Subspace Approximation to Large Scale Differential Riccati Equations",
+        "trigger": "Potentially stronger Riccati comparison and order monotonicity"
+      },
+      {
+        "assessment": "Not resolved at theorem level; older same-phenomenon priority remains possible",
+        "evidence": [
+          "Title/abstract establish thematic relevance, but cannot rule out an equivalent result without a full text."
+        ],
+        "identifier_or_url": "https://research.aalto.fi/en/publications/preserving-monotonicity-in-the-numerical-solution-of-riccati-diff/",
+        "material_read": "Bibliographic metadata and abstract only; full paper not obtained",
+        "method": "Compared available bibliographic description and related citations without representing it as a full-text exclusion",
+        "title": "Preserving Monotonicity in the Numerical Solution of Riccati Differential Equations",
+        "trigger": "Plausible older source using the term monotonicity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5caaf006-8955-4b89-bac9-59b3d9f86b88",
+  "value": {
+    "rationale": "For covariance-propagation schemes, preserving nonnegative output is strictly weaker than furnishing a conservative upper uncertainty envelope. The theorem determines the exact dimension-free drift structure giving universal Loewner overestimation and proves impossibility for every nonscalar stable drift, with explicit rank-one forcing and a positive meshwise consequence. The condition is a nontrivial quadratic minimal-polynomial classification with nonnormal square-zero exceptions, not a scalar midpoint exercise. Limitations to constant input and exact arithmetic are stated.",
+    "status": "PASS"
+  }
+}
