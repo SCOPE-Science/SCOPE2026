@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For finite \(k\ge3\) and arbitrary positive real arm lengths, the same-arm triangular density and cross-arm bounded-convolution density sum to the stated spline. Its right value and right derivative at the origin identify total length and degree. Its signed second distributional derivative is a finite atom measure. Given already recovered arms, subtracting known singleton and internal-pair atoms leaves the least unrecovered length as a strictly negative leading atom with coefficient \(-2(k-2)\) times its multiplicity. Positivity of all lengths excludes hidden positive pairs at that least location. Induction recovers all arms, including all degeneracies. The one/two-arm interval counterexample establishes the necessary degree boundary. Direct independent rational checks in `verify.py` passed 77483 tests. No asymptotic extrapolation is used in the proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-Wei–Walteros–Batta (2019/2020), whose author-supplied manuscript was inspected in substantive sections, already give general **forward** distance densities for arbitrary networks. The present special-case spline is therefore not a novelty claim. Their Theorems 4 and 5 and conclusions concern forward probability calculations, with no inverse star-identifiability theorem in the inspected complete author manuscript. The full 2026 Li–Özaydın arXiv article addresses **homology persistence of restricted star configurations**, a different and richer invariant, not the scalar measure of pair distance. Dover–Özaydın (2013) address topology of restricted configurations; Garijo–Márquez–Silveira (2023) and Baptista–Kennedy–Mugnolo (2024) address mean distances. An accessible published mathematical note on unordered-particle persistence also gives topological barcodes, not a metric-pair-distance inverse. Related existing calculations of weighted-star first/second moments are strictly weaker than a complete distribution-based recovery theorem. No inspected statement dominates the inverse claim. Remaining risks: unindexed network inverse literature, and derivations implicit rather than explicitly articulated in prior general forward methods. Literature search cannot certify historical priority.
+PASS
 
-## Value — PASS
-Random pairwise travel distances are observable metric-network data, and determining whether they identify intrinsic edge lengths is a natural inverse-geometric question. This result completely classifies weighted stars without prior knowledge of branching degree and gives an explicit reconstruction algorithm with multiplicity and cancellation guarantees. Its sharp path exception delineates when topology is not identifiable. It goes materially beyond isolated moment computations while making no claim about arbitrary networks, noise stability, or downstream applications beyond the proved result.
+For k>=3 and ai>0 with L=sum_i ai, independently obtained convolution density: f(t)=2/L + k(k-3)t/L^2 - 2(k-2)/L^2 sum(t-ai)_+ + 2/L^2 sum_{i<j}(t-ai-aj)_+. At origin f(0+)=2/L and slope f′(0+)=k(k-3)/L^2, strictly determining L and k for integers k>=3. Distributional curvature μ=L^2 f″ = -2(k-2)sum δ_ai +2sum δ_ai+aj. A peeling algorithm subtracts the already recovered arm singleton/pair contributions; its smallest nonzero remaining support is always a negative atom at the least unrecovered positive length, as every remaining cross pair is strictly larger. Its integer mass fixes multiplicity, including coincident original cancellations. Termination after k copies proves uniqueness for arbitrary real positive lengths, not just rational tests. Independent Fraction checks compared direct same-arm/cross-arm densities to spline for 597 cases and reconstructed examples incl. (1,2,3) cancellation. The k<=2 interval exception has identical distance law for arbitrary splitting.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge PASS for inverse identifiability from just the scalar two-point probability law; Wei-Walteros-Batta provide forward network-distance densities, Li-Özaydın and published metric-star persistence provide richer filtered configuration invariants rather than a direct law-to-weights inversion. An earlier unindexed inverse theorem remains possible.
+
+## value
+
+PASS
+
+Unlabeled pairwise metric distance is a fundamental graph sampling invariant. Recovering unknown arm count and ALL positive lengths from a single exact population distribution—even under cancellation of curvature breakpoints—solves a natural inverse problem with a constructive robust-in-algebra, though not statistically stable, procedure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

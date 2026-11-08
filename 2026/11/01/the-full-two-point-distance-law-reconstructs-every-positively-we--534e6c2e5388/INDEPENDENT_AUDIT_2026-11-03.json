@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:11:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=3 and ai>0 with L=sum_i ai, independently obtained convolution density: f(t)=2/L + k(k-3)t/L^2 - 2(k-2)/L^2 sum(t-ai)_+ + 2/L^2 sum_{i<j}(t-ai-aj)_+. At origin f(0+)=2/L and slope f′(0+)=k(k-3)/L^2, strictly determining L and k for integers k>=3. Distributional curvature μ=L^2 f″ = -2(k-2)sum δ_ai +2sum δ_ai+aj. A peeling algorithm subtracts the already recovered arm singleton/pair contributions; its smallest nonzero remaining support is always a negative atom at the least unrecovered positive length, as every remaining cross pair is strictly larger. Its integer mass fixes multiplicity, including coincident original cancellations. Termination after k copies proves uniqueness for arbitrary real positive lengths, not just rational tests. Independent Fraction checks compared direct same-arm/cross-arm densities to spline for 597 cases and reconstructed examples incl. (1,2,3) cancellation. The k<=2 interval exception has identical distance law for arbitrary splitting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li-Özaydın calculate persistence of restricted two-point configuration spaces; published Resultary stronger-looking unordered barcodes are richer topological invariants with individual endpoint thresholds"
+        ],
+        "reasoning": "Homology barcodes require an entire filtered configuration space; they need not be recoverable from the probability law of distance. Conversely a scalar distribution uniquely yields weights here but is not a theorem implied by those topology formulas without an additional reduction.",
+        "searches": [
+          "arxiv:2603.00914",
+          "Resultary: metric star graph reconstruct arm lengths from two point distance probability distribution inverse"
+        ]
+      },
+      "checked_sources": [
+        "Wei-Walteros-Batta 2020 Networks Theorems4-5",
+        "arxiv:2603.00914",
+        "Resultary unordered star persistence",
+        "Resultary: metric star graph reconstruct arm lengths from two point distance probability distribution inverse",
+        "On the distance between random events on a network Wei Walteros Batta 2020",
+        "arxiv:2603.00914",
+        "Resultary exact persistence of two unordered separated particles on metric stars",
+        "metric measure graph Gromov distance distribution identifiability star tree",
+        "Frozen source 2026/11/01/the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md SHA 0d4a73f874a476f17f70a89e96fc79aed29a3f4d",
+        "Frozen verifier 2026/11/01/the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/verify.py SHA a53d937aa0be72abe631525272a003abdce72f36"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wei et al Theorem4 forward network density; topological persistence records filtered connectivity, not the scalar histogram law"
+        ],
+        "reasoning": "Earlier statements do not logically imply recovery solely from unlabeled scalar pair distances absent the new signed-curvature inversion; none of the inspected primary statements gives that implication.",
+        "searches": [
+          "https://doi.org/10.1002/net.21919",
+          "arxiv:2603.00914"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forward pair-distance distribution computed by Wei-Walteros-Batta for arbitrary weighted networks; does not expressly invert unknown weighted star parameters in inspected theorem and discussion"
+        ],
+        "reasoning": "Forward calculation and inverse identification are not equivalent: explicit formula does not automatically imply injectivity when negative singleton atoms cancel with positive pair sums. Peeling proof resolves this obstruction.",
+        "searches": [
+          "Resultary: metric star graph reconstruct arm lengths from two point distance probability distribution inverse",
+          "https://doi.org/10.1002/net.21919"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact population density has continuous piecewise linear spline with atoms at all individual ai and pair sums; inverse valid for arbitrary finite k and arbitrary positive real ai"
+        ],
+        "reasoning": "A database of finite star weights or a forward table cannot provide injectivity for all positive continuous parameter vectors; no exact distributional-inverse table found.",
+        "searches": [
+          "https://doi.org/10.1002/net.21919",
+          "Resultary: metric star graph reconstruct arm lengths from two point distance probability distribution inverse"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for inverse identifiability from just the scalar two-point probability law; Wei-Walteros-Batta provide forward network-distance densities, Li-Özaydın and published metric-star persistence provide richer filtered configuration invariants rather than a direct law-to-weights inversion. An earlier unindexed inverse theorem remains possible.",
+      "residual_risks": [
+        "Only exact continuous population distribution is inverted, not finite samples; near-canceling atoms make inversion poorly conditioned.",
+        "Earlier network tomography or inverse random-distance law results under unindexed nomenclature may cover the statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides much more general FORWARD law; inspected material does not provide the current inverse peeling theorem; no claim that merely searching title proves absence",
+          "evidence": "Wei-Walteros-Batta, Networks 75 (2020), Theorems4-5, author manuscript",
+          "identifier_or_url": "https://doi.org/10.1002/net.21919",
+          "material_read": "author manuscript full-text HTML examined: introduction, forward formulas, Theorems4-5 including density piecewise-linearity, selected special/network discussion",
+          "method": "author-lawful full text HTML and in-document navigation",
+          "title": "On the Distance Between Random Events on a Network",
+          "trigger": "same exact sampling law on general networks"
+        },
+        {
+          "assessment": "Different filtration/persistent homology invariant, not identity of scalar distance probability law",
+          "evidence": "Li-Özaydın arxiv:2603.00914v1",
+          "identifier_or_url": "https://arxiv.org/html/2603.00914v1",
+          "material_read": "full HTML material examined: definitions, filtered ordered configuration spaces and main topological model",
+          "method": "open arxiv HTML",
+          "title": "Persistent Combinatorial Model of the Restricted Second Configuration Space of Metric Star Graphs",
+          "trigger": "same positive metric stars, two-point distances but richer data"
+        },
+        {
+          "assessment": "This richer invariant reveals lengths via H1 bars but does not give an implication from the one-dimensional sampled distance law",
+          "evidence": "published Resultary record 2026/10/11/SCOPE-exact-persistence...",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-persistence-of-two-unordered-separated-particles-on-metric--ce01bbf73bfa",
+          "material_read": "complete RESULT.md read: explicit H0/H1 barcode and strong deformation retraction",
+          "method": "GitHub frozen published result full text",
+          "title": "Exact persistence of two unordered separated particles on metric stars",
+          "trigger": "published mathematically adjacent exact arbitrary star length result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unlabeled pairwise metric distance is a fundamental graph sampling invariant. Recovering unknown arm count and ALL positive lengths from a single exact population distribution—even under cancellation of curvature breakpoints—solves a natural inverse problem with a constructive robust-in-algebra, though not statistically stable, procedure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No arbitrary graph identifiability, no noisy samples or stability estimate, k<=2 is an interval and arms not identifiable."
+  ],
+  "schema_version": 1
+}
