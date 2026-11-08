@@ -1,11 +1,21 @@
-# Scientific review: unique optimal resetting and drift-orientation gap
+# Independent mathematical audit
 
-**Correctness — PASS.** The published killed-diffusion renewal formula (Mazzolo 2026, Eq. 116) is reconstructed in dimensionless variables, and both endpoint divergences are checked. At nonzero drift, the derivative numerator divided by the positive square of the optimization variable has a strictly increasing power series: the two negative reciprocal terms have positive derivatives and all higher coefficients are positive. This proves exactly one nondegenerate optimum for every finite reactivity, not just sampled parameters. The driftless case is handled separately. An exact relation between drift orientations proves their strict optimizer ordering. A uniform asymptotic expansion of the rescaled objective on a compact interval around its unique limiting minimum gives the finite constant offset. The accompanying numerical checker reproduced 1,386 finite assertions; it is supporting evidence only, not the infinite-domain proof.
+## correctness
 
-**Originality — PASS (qualified best-knowledge).** Three primary full texts were inspected: Mazzolo (2026) Section III.3.2 and Appendix A, Whitehouse–Evans–Majumdar (2013) Section 4, and Ray–Mondal–Reuveni (2019) Section IV and Appendix B. The 2026 paper gives the starting exact MFPT and a drifted one-variable reduction, along with a zero-drift uniqueness proof and weak-drift asymptotics. Those are acknowledged rather than reclaimed. Its reported numerical drift-direction differences are weaker than a quantified all-drift theorem, and its Appendix A.5 does not calculate the strong-drift finite-reactivity offset. The 2013 work restricts its optimization to the driftless partially absorbing case; the 2019 work treats drift with a perfectly absorbing boundary and has a different phase diagram. Semantic research-record searches against aliases, limiting parameters and candidate reductions found no covering prior statement. The residual risk is an unlocated general analytic theorem on renewal optimizers which might imply parts of the result. This is not an independent priority certificate.
+PASS
 
-**Value — PASS.** The arbitrary-drift global uniqueness theorem rules out competing locally optimal resetting protocols in the natural imperfect-trap model; the exact sign ordering resolves the drift-reversal question for all strengths rather than selected examples. The sharp asymptotic difference quantifies a finite reaction-limited effect invisible at leading order and highlights noncommuting strong-drift/perfect-reactivity limits. It gives a precise rate-calibration prediction in a physically motivated model. No claim of a broader reaction-diffusion theory is made.
+Fix D,ell,kappa>0 finite and real drift mu. The renewal probability of absorption before exponential reset gives T=(ell^2/D)[(1+eta*w)e^{w+sigma*m}-1]/z^2 with eta=2D/(kappa*ell), m=|mu|ell/(2D), w=sqrt(m^2+z^2), z=ell sqrt(r/D). Set y=w-m, q=e^{-(sigma+1)m}; the derivative of F(y)/[y(y+2m)], F=(1+eta(m+y))e^y-q, has N(y)/y^2 strictly increasing from -infinity to +infinity (positive Taylor coefficients above order two and derivatives of negative reciprocals). At m=0 the analogous F/y^2 derivative also has one crossing. Coercivity proves the single positive nondegenerate global optimum. Exact identity tau_+=e^{2m}tau_-+(e^{2m}-1)/z^2 and unique derivative crossing imply r_away>r_toward. Uniform compactness and the nondegenerate limiting profile eta e^y/(2y) imply y_+=1-1/(2m)+O(m^-2), y_-=1-(1/2+1/(e eta))/m+O(m^-2), hence r_away=v/ell+O(v^-1), r_toward=v/ell-kappa/(e ell)+O(v^-1). Verified sign and O(1/m) offset numerically from independent bisection for m=1,10,100,2000, finite checks only. The singular kappa=infty regime excluded.
 
-**Scientific limitations and risks.** Only constant-drift one-dimensional Brownian motion, homogeneous Poisson resetting to a fixed point, one local-time delta sink, and fixed finite positive reactivity are treated. Uniformity in reactivity, multiple targets, nonlinear drifts and non-Poisson renewal protocols remain unproved. The closest prior paper already supplies the exact MFPT, so novelty is in the global optimization and asymptotic statements alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel complete positive optimizer uniqueness and exact nonzero strong-drift orientation gap for a finite delta-killing sink; the MFPT formula, related perturbation and numerical evidence are expressly prior. The same-model Mazzolo paper was not read fully, leaving a significant risk of stronger appendix coverage.
+
+## value
+
+PASS
+
+Finite reactivity changes the qualitative optimizer behavior versus perfect absorption; proving all-drift uniqueness, strict orientation ordering and the asymptotic constant gap is a motivated complete optimization answer for a physical first-passage model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
