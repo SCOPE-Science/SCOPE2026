@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every unweighted simple cycle of order at least three, the proof reconstructs all traces: singletons and pairs are shattered, a triple has an all-positive path and a missing-middle-pair trace only if its extreme vertices are antipodal, and both semicircles explicitly realize all eight traces. Four vertices on a shortest path contain two vertices at subdiametral distance with an intervening point, preventing a required trace. Counting unique antipodal pairs yields all coefficients. In even order, every triangle is a face of a unique matched-pair tetrahedral boundary; deleting one face per tetrahedron produces a disk union homotopy equivalent to the complete graph on matched pairs, and null-attached faces add exactly one two-sphere each. A deterministic finite checker tests every one-through-four support and mod-two boundary ranks for n=3..18; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2011 Theorem 2 explicitly assumes a unique shortest path for any pair and proves VC dimension at most two.",
+        "2023 full paper, Section 2 path convention and Section 6 VC dimension, uses uniqueness and studies shortest-path ranges mostly on edges.",
+        "Classical unrestricted cyclic arcs may have VC dimension three, but their domain of path lengths is larger."
+      ],
+      "reasoning": "The known unique-shortest-path bounds do not dominate a system retaining ties. Generic VC dimension three for circular arcs does not determine which triples shatter, and cannot imply the integral Betti-number wedge law.",
+      "searches": [
+        "VC-dimension and shortest path algorithms Abraham Delling Fiat Goldberg Werneck 2011 Theorem 2",
+        "Differentially Private Range Query on Shortest Paths Section 6 VC dimension shortest paths ranges unique",
+        "cycle graph geodesic range space VC dimension even odd antipodal shattering topology"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2212.07997",
+      "https://sites.rutgers.edu/jie-gao/wp-content/uploads/sites/375/2023/09/DP-Range-shortest-path.pdf",
+      "https://doi.org/10.1007/978-3-642-22006-7_58",
+      "https://doi.org/10.1016/j.ipl.2019.01.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The explicit 2011 proof excludes a middle point only because it lies on the unique path between the outer two; even antipodes in a cycle violate uniqueness.",
+        "Deng et al. (2023) Section 6 invokes the unique-path bound and does not give any all-shortest-path parity enumeration.",
+        "Zhu et al. (2019) address directed unique round-trip paths and bound a different range system."
+      ],
+      "reasoning": "The precise all-ties concept family has a dimension-three exception on every even cycle and a two-dimensional shattered-support homology, neither a consequence nor a special case of the cited unique-shortest-path results.",
+      "searches": [
+        "arXiv:2212.07997 2022-12-15 first version",
+        "VC-dimension and shortest path algorithms uniqueness proof theorem 2",
+        "On the VC-dimension of unique round-trip shortest path systems 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abraham et al., ICALP 2011, Theorem 2, unique-shortest-path system, doi:10.1007/978-3-642-22006-7_58",
+        "Deng et al., arXiv:2212.07997 / WADS 2023, Section 6 and footnote 2, unique shortest paths, vertex/edge range distinction"
+      ],
+      "reasoning": "Fixing a unique geodesic between each pair is not equivalent to retaining every tied geodesic; the latter adds the antipodal-triple traces in even cycles. A priori equivalence to a restricted circular-arc system is possible as a reparametrization, but general circular-arc VC bounds do not supply the exact support census or homotopy type.",
+      "searches": [
+        "VC dimension cycle shortest path shattered triples antipodal",
+        "shattering geodesics cycles VC dimension exact",
+        "all shortest paths on cycle VC shattering complex antipodal pairs and triangles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact cycle-geodesic all-support table identified among accessible topical searches.",
+        "Direct exhaustive trace and boundary-matrix calculations for cycle orders three through eighteen reproduce all asserted coefficients and mod-two Betti numbers."
+      ],
+      "reasoning": "No equivalent exact database entry was located. Absence in a search or in a finite comparison cannot establish a first-ever discovery; the structural all-order argument is independent of the search.",
+      "searches": [
+        "shattering polynomial geodesic vertex sets shortest paths even odd cycle graphs antipodal triples",
+        "homotopy type shattered-set simplicial complex geodesic paths even cycles wedges circles spheres",
+        "shortest path range spaces finite cycles VC dimension parity shattering polynomial"
+      ]
+    },
+    "rationale": "The 2011 unique-shortest-path VC bound (Theorem 2) and the 2022/2023 shortest-path ranges paper explicitly restrict to unique selected paths in relevant arguments; neither implies the all-ties vertex-path classification or its homotopy. The 2019 paper concerns unique directed round-trip paths. The complete parity-sensitive support classification and wedge decomposition were not found in accessible searches or comparable mathematical claims. Unindexed earlier work is a residual priority risk.",
+    "residual_risks": [
+      "An equivalent cycle-path shattering classification might exist in older graph-range or cyclic-arc literature under terminology not indexed by searches.",
+      "The 2019 round-trip paper was not inspected in entirety; its definitions concern a different model, but an unexpected reduction is not ruled out.",
+      "Topological equivalence may have been observed as an exercise in a different setting without searchable metadata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The relevant dimension-two discussion is for unique shortest paths; the paper primarily studies edge ranges and privacy guarantees, not all tied vertex geodesics or shattered complex topology.",
+        "evidence": [
+          "arXiv:2212.07997, first public v1 2022-12-15",
+          "WADS 2023, Section 6, PDF pp. 362–363; footnote 2 and definition of range query in Section 2."
+        ],
+        "identifier_or_url": "https://sites.rutgers.edu/jie-gao/wp-content/uploads/sites/375/2023/09/DP-Range-shortest-path.pdf",
+        "material_read": "Full-text paper, Introduction, Section 2 convention, Section 6 pages 362–363 including footnotes and Lemma 15, and conclusion; relevant PDF pages visually inspected.",
+        "method": "Read published open full text and inspect relevant formatted pages.",
+        "title": "Differentially Private Range Query on Shortest Paths",
+        "trigger": "2016–2024 primary literature on VC range systems of shortest paths"
+      },
+      {
+        "assessment": "The proof depends on one shortest path per pair; it cannot rule out antipodal tied semicircles and gives no coefficientwise or topological data.",
+        "evidence": [
+          "ICALP 2011, Section 3, Theorem 2; shortest-path uniqueness assumption in preliminaries."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-22006-7_58",
+        "material_read": "Publicly indexed full-text rendition of Section 3, Theorem 2 and its proof, together with the explicit uniqueness assumption preceding it; institutional abstract and citation record.",
+        "method": "Read primary proof excerpt and institution-hosted publication metadata.",
+        "title": "VC-Dimension and Shortest Path Algorithms",
+        "trigger": "Direct antecedent of shortest-path VC dimension two"
+      },
+      {
+        "assessment": "This is a directed unique round-trip path system, not the all-ties vertex-geodesic family of an undirected cycle; residual full-text risk remains.",
+        "evidence": [
+          "Information Processing Letters 145 (2019), pp.1–5, abstract, doi:10.1016/j.ipl.2019.01.001."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ipl.2019.01.001",
+        "material_read": "Public abstract, definitions and opening discussion available in the indexed article excerpt; complete full-text comparison not available in this inspection.",
+        "method": "Read institutional abstract and publicly accessible indexed excerpt.",
+        "title": "On the VC-Dimension of Unique Round-Trip Shortest Path Systems",
+        "trigger": "Nearby paper with shortest-path ranges and VC dimension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eeb9c033-ac3d-4d19-bf05-1f9ce922e8ab",
+  "value": {
+    "rationale": "The exact all-order shattering complex resolves the mathematically natural ambiguity that occurs when shortest paths have ties. It explains a sharp odd/even VC jump and derives an explicit mixed-dimensional integral homotopy type, not merely a scalar dimension bound. Its coefficientwise and topological invariants characterize a useful canonical range space and separate geodesic paths from unique path systems, graph balls, and geodesic convexity. The precise count and sphere multiplicities are naturally forced by antipodal pairs, not selected arbitrary finite parameters.",
+    "status": "PASS"
+  }
+}
