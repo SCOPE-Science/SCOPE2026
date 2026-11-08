@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`CHECKER.py` uses only Python's standard library. Run `python CHECKER.py`; the expected final line is:
+## correctness
 
-`PEIRCE_POTTS_COMMUTING_IDEMPOTENTS_OK 31`
+PASS
 
-The program enumerates all elements of the selected truncated path algebras, computes their products from actual path concatenation, filters all idempotents, and tests commutativity for ordered pairs and triples. The independent prediction evaluates both label-coloring sums and the Fortuin–Kasteleyn spanning-subgraph expansion; equality of these two predictions is separately asserted. There are 31 exhaustive small cases over \(\mathbb F_2\), \(\mathbb F_3\), and the genuine extension \(\mathbb F_4=\mathbb F_2[t]/(t^2+t+1)\), including parallel arrows, opposite arrows, a loop, a directed cycle truncated before length three, and triangular algebras with nonzero radical square and cube. The exact run output is embedded in `VERIFY_OUTPUT.txt`.
+For any commutative base k-algebra R, commuting idempotents project to Boolean label coordinates in (A/J)⊗R. Polynomial joint spectral projectors p_alpha produce an orthogonal idempotent system reducing to d_alpha. The conjugator w=Σ p_alpha d_alpha is a unit (1 modulo nilpotent J); decomposition J=H_alpha+N_alpha by equal/cross labels gives unique normalization w=(1+x)(1+h) with x=n(1+h)^{-1}. Both inverses are polynomial, so each labeled functor fiber is truly affine scheme A^{dim N}, not just a bijection of k-points, and reducedness/smoothness hold in all characteristics. Cut dimension κ and Fortuin–Kasteleyn expansion then yield exact point counts, weighted max-cut/chromatic cutoff, and truncated-quiver polynomial recovery. Independently computed ordered commuting idempotents in upper triangular 2x2 over F2,F3 and genuine F4 (counts for m=1,2: (6,28),(8,40),(10,52)); these and inspected 31-case source checker are corroborative only.
 
-The general algebraic proof is independent of the program. Step 3 of `RESULT.md` is the critical nonstandard scheme-level inverse: the unit \(w=1+h+n\) uniquely factors as \((1+n(1+h)^{-1})(1+h)\), polynomially over arbitrary base rings. This proves the fiber is an actual affine scheme, not just a rational-point bijection. Direct finite enumeration cannot verify the theorem for all algebras, fields or arities.
+## originality
+
+PASS
+
+Classical conjugacy of orthogonal idempotents and Potts random-cluster identities are explicitly credited; those ingredients alone do not state the complete scheme decomposition for any radical nilpotency and all arities. Existing radical-square-zero orbit-count work counts conjugacy classes instead of actual points. An unknown older idempotent-variety theorem could subsume this, so originality is qualified.
+
+## value
+
+PASS
+
+Full smooth affine scheme and arithmetic count for unbounded split-basic algebras, governed only by off-diagonal Peirce dimensions, is a structural classification. Nilpotency independence, cut/chromatic maximum-dimensional strata, and finite reconstruction of a graph polynomial are natural useful invariants not a renaming of the Potts polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
