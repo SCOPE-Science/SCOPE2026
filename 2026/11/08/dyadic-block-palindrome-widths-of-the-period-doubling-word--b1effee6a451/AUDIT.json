@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For n=4^m, the valuation reflection identity p(n-1-a)=nu_2(a) mod 2 partitions every greedy boundary into pairs (2j-1,2j): one length-two border if nu_2(2j) is odd, otherwise two length-one borders, with unbordered center 10. The exact count T=(n/2-2)/3 yields (2n+1)/3. The injective 2-uniform morphism doubles all shortest borders because the base intermediate factors end in 0, excluding odd borders of their images. A separate structural proof of greedy maximality is supplied. Code verify.py reproduced all k=0..13 and independently optimized k<=8 plus all binary words through length ten. The infinite statement rests on the proof, not diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.13147v2, Theorem 2 counts all alphabet words of a given width and Theorem 4 gives asymptotically constant expected width under a uniform random word; neither states dyadic fixed-point widths.",
+        "arXiv:1806.00198v3, Theorem 1 gives a general linear-time greedy algorithm, not a formula for any period-doubling prefixes.",
+        "Barro–Kaboré–Bognini, Australasian Journal of Combinatorics 83 (2022), Theorems 4.1, 4.2, 5.1 explicitly describe other palindrome-constrained sequential factorization protocols."
+      ],
+      "reasoning": "Universal computability of each finite width does not supply a single formula for infinitely many dyadic prefix lengths; the proof needs a complete 2-adic boundary classification and exact count. Prior palindromic factorization theorems have different selection and symmetry conditions and do not imply the width claim.",
+      "searches": [
+        "published-finding corpus search: Gabric Shallit smallest and largest block palindrome factorizations 2023 period doubling",
+        "published-finding corpus search: Goto I Bannai Inenaga maximal block palindrome period doubling",
+        "Web search: \"block palindrome factorization\" \"period-doubling\" word",
+        "Web search: \"period-doubling\" \"shortest border\" palindrome greedy",
+        "Web search: \"block palindromic\" \"automatic sequence\" width"
+      ]
+    },
+    "checked_sources": [
+      "Goto et al., arXiv:1806.00198v3 (2018), Sections 1, 3–4",
+      "Gabrić and Shallit, arXiv:2302.13147v2 (2023), Sections 1–5",
+      "Barro, Kaboré and Bognini, Australas. J. Combin. 83 (2022), Sections 2, 4–5",
+      "published-finding corpus public finding: 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+      "published-finding corpus public finding: 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barro–Kaboré–Bognini (2022), Definition 2.1: pzl factors are shortest novel palindromic prefixes; Definition 2.2: pc factors are longest previously repeating palindromic prefixes.",
+        "Goto et al. (2018), Section 3: BP factors are matched by literal prefix/suffix equality, allowing unpaired nonpalindromic center.",
+        "Gabrić–Shallit (2023), Sections 1, 2, 3: the width invariant and general extremal distribution are defined but no substitute-specific dyadic phase law.",
+        "Published published-finding corpus record 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 concerns a dynamical difference lift, not string borders."
+      ],
+      "reasoning": "None of the examined statements has premises and conclusions that imply the exact two-cycle for L_k. The present claim restricts the general BP invariant to a concrete fixed point but proves previously unspecified infinite structural information, rather than merely evaluating the 2018 algorithm for bounded inputs.",
+      "searches": [
+        "Web search: \"period doubling word\" \"palindromic factorization\" blocks",
+        "Web search: \"period-doubling\" \"block palindromes\" width",
+        "published-finding corpus search: largest block palindrome factorization period doubling finite prefixes dyadic powers width 2^k",
+        "published-finding corpus search: block palindrome factorizations Thue Morse automatic words exact width"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goto et al., arXiv:1806.00198v3, Section 3, identify longest-width BP factorizations with shortest-border peeling; no period-doubling-specific output formula.",
+        "Gabrić–Shallit, arXiv:2302.13147v2, Sections 1–5, treat general BP width and extremal counts but no dyadic period-doubling classification.",
+        "Closest published published-finding corpus semantic match 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 concerns crossing substrings, not equal mirrored border blocks."
+      ],
+      "reasoning": "The present statement is an infinite all-exponent closed form for a maximum mirrored equal-block width. The published nearest same-word results use attractors or palindromic Ziv–Lempel/Crochemore factors, which are not equivalent under reversal or word coding to the shortest-border nested decomposition. The general BP algorithm is not the explicit valuation count.",
+      "searches": [
+        "published-finding corpus search: largest block palindrome width on prefixes of the period doubling word fixed point 0->01 1->00 at lengths 2^k alternating 1/3 2/3",
+        "published-finding corpus search: shortest bifix peeling greedy block-palindrome factorization Feigenbaum sequence 2-adic valuation",
+        "Web search: \"block palindrome\" \"period doubling\" \"Thue Morse\" sequence",
+        "Web search: \"period doubling\" \"block palindrome\" factorization width"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numeral sequence 1,3,11,43,171 also appears in generic arithmetic-recursion exercises (multiply by four then subtract one), but those occurrences assign no block-palindrome interpretation.",
+        "Gabrić–Shallit, arXiv:2302.13147v2 Table 1 enumerates arbitrary binary words by length and BP width, not these widths for period-doubling prefixes."
+      ],
+      "reasoning": "Integer-coincidence searches are not novelty proof; the identified sequence-as-numerals is not a theorem about shortest-border peeling of the fixed point. No exact specialized table or database entry covering the structural factorization was identified.",
+      "searches": [
+        "published-finding corpus search: period doubling block palindromicity dyadic prefixes exact 2*4^m+1 over three",
+        "Web search: \"1, 1, 3, 3, 11, 11, 43, 43\" palindrome",
+        "Web search: \"1,3,11,43,171\" period doubling palindromic",
+        "Web search: \"largest block palindrome\" \"period-doubling\" \"2/3\""
+      ]
+    },
+    "rationale": "The closest primary studies establish general maximum block-palindrome factorization algorithms and random-word counts, or different palindromic decompositions of the same period-doubling word. Their definitions and conclusions do not give the two-adic dyadic-prefix formula. Targeted mathematical-record and scholarly queries recovered no equivalently covering statement; unindexed equivalence remains a genuine risk.",
+    "residual_risks": [
+      "An unindexed publication might state an equivalent all-dyadic-prefix block-palindrome result.",
+      "The same-word 2022 paper was checked from substantial extracted public full text but its independent page-image preview was unavailable; its stated factorization definitions are different.",
+      "A generic algorithm can compute a width for any fixed dyadic prefix, but no searched source supplies the infinite valuation count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General shortest-border greedy theorem and algorithm, but no fixed-point or dyadic-width formula",
+        "evidence": [
+          "PDF page 3 Section 3: largest BP has shortest borders and is unique",
+          "PDF Section 4: enumeration of maximal BPs over arbitrary input strings; zero period-doubling matches in text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.00198",
+        "material_read": "PDF complete bibliographic introduction, Section 3 with Theorem 1, and Section 4 with maximal block palindrome enumeration",
+        "method": "Public arXiv full-text extracted lines and PDF page-3 visual inspection",
+        "title": "Block Palindromes: A New Generalization of Palindromes",
+        "trigger": "Foundational source and possible algorithmic dominance of the entire invariant"
+      },
+      {
+        "assessment": "General distribution, average, and extremal problems; not explicit period-doubling dyadic maxima",
+        "evidence": [
+          "Theorem 2 counts largest BP width by alphabet/word length",
+          "Theorem 4 establishes bounded average width for uniform random words",
+          "No matches for period-doubling, automatic, Thue in full-text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13147",
+        "material_read": "PDF Sections 1–5, including definitions, Theorems 2, 4, 6, 7, 8, references and tables",
+        "method": "Public arXiv full-text extracted lines and PDF page-2 visual inspection",
+        "title": "Smallest and Largest Block Palindrome Factorizations",
+        "trigger": "Main guiding 2023 paper and probable stronger count theorem"
+      },
+      {
+        "assessment": "Studies sequential palindromic Ziv–Lempel/Crochemore, not block-palindrome maximal symmetric width",
+        "evidence": [
+          "Definition 2.1: shortest novel palindrome factor",
+          "Definition 2.2: longest previously occurring palindrome factor",
+          "Theorems 4.1/4.2 and 5.1 give explicit Pq decompositions in those distinct senses"
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/83/ajc_v83_p435.pdf",
+        "material_read": "Open-access PDF extracted text: Section 2 Definitions 2.1/2.2, Section 4 Theorems 4.1/4.2, Section 5 Theorem 5.1",
+        "method": "Full publication PDF text as served by public search; page-image retrieval attempted but unavailable",
+        "title": "On the palindromic zl-factorization and c-factorization of the generalized period-doubling sequences",
+        "trigger": "Same-word factorization paper and strongest plausible scientific overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1effee6-a451-42b1-b8bc-cc33b0d1059a",
+  "value": {
+    "rationale": "The exact maximal block-palindrome width is a natural invariant introduced in the cited 2018/2023 literature. This gives a structural classification at every substitution scale for a canonical, nonperiodic automatic sequence; it contrasts linearly growing deterministic widths with the bounded asymptotic expected width of random words and identifies two sharp normalized phases 2/3 and 1/3. Both optimal block layouts and their all-level counts follow directly from valuation parity, and the result has no arbitrary cutoff.",
+    "status": "PASS"
+  }
+}
