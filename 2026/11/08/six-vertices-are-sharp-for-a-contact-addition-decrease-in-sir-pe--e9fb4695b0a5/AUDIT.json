@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The finite-state exact first-event recurrence is well founded by decreasing 2|S|+|I|. All labeled graphs n<=5 are quotiented under every vertex permutation; 1,738 configurations across 1/2/6/21 connected isomorphism classes are rationally computed. All nonzero simplified numerator and denominator polynomials have nonnegative coefficients and positive evaluation at beta=1, certifying the sign uniformly over beta>0. Exact six-vertex fractions computed twice, by full-state recursion and independently by subset-only no-recovery recursion; their difference is 24352320312500/56704429847324259>0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van Mieghem arXiv:1402.1731, §5 studies maximum mean prevalence and SIS threshold.",
+        "Holme arXiv:1708.06456, §§I–II sets the three objectives as mean final size, node removal and sentinel timing; no peak capacity objective."
+      ],
+      "reasoning": "General equations determine the SIR chain but do not imply the claimed monotone sign comparisons. Expected final size and expected extinction duration are different functionals from the realized maximum-hitting probability; the previous related results have no implication of this universal peak-risk boundary.",
+      "searches": [
+        "\"SIR\" \"adding an edge\" \"peak\" infection probability",
+        "\"SIR\" \"maximum simultaneously infected\" edge addition non monotone",
+        "https://arxiv.org/pdf/1402.1731, §§1–5",
+        "https://arxiv.org/pdf/1708.06456, §§I–III"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1402.1731",
+      "https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf",
+      "https://arxiv.org/pdf/1310.3932",
+      "https://arxiv.org/pdf/1708.06456",
+      "https://arxiv.org/abs/1402.1731",
+      "https://doi.org/10.1371/journal.pone.0084429",
+      "https://arxiv.org/abs/1708.06456"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Holme 2013 studies discrete-time epidemic duration; not peak-level probability.",
+        "Economou 2015 solves SIS peak distribution; unlike SIR, SIS permits reinfection, so the state space and edge response are different.",
+        "The 2017 all-small-graphs paper computes expected outbreak size/vaccination/sentinel, not realized max infected."
+      ],
+      "reasoning": "None of the inspected theorems has a stronger parameter scope including this claim. The exact transition calculus is shared with prior work but neither the five-vertex monotonicity nor the six-vertex counterexample follows from the stated prior outcomes.",
+      "searches": [
+        "nonmonotonic probability of maximum simultaneous infectives under adding transmission contact edge in Markovian SIR graph; six-vertex counterexample",
+        "peak prevalence chance of reaching k simultaneous infections contact network edge addition; SIR versus SIS",
+        "finite-state SIR hit all infected at once chance decline after added triangle; 6 nodes minimal",
+        "network SIR outbreak final size monotonically increases with edges but concurrent epidemic peak may not",
+        "Markovian SIR epidemic adding an edge reduces probability of peak simultaneous infections exceeding threshold small graphs",
+        "https://arxiv.org/pdf/1310.3932, Results and Methods",
+        "https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf, §§3.1 and 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Economou et al., Section 3.1, formula for SIS maximum number simultaneously infected; their p.19 explicitly says analogous SIR can be studied, not that it is solved.",
+        "The exact peak-level method in Economou et al. permits reinfection (SIS), so it cannot entail the edge-monotonicity boundary for a permanently removed class (SIR)."
+      ],
+      "reasoning": "The pathwise maximum infectious count is equivalent to a hitting probability for the SIR chain, but not to maximum expected instantaneous prevalence or SIS maximum occupancy. The closest identified hit-probability method has different reinfection rules, so does not imply edge-addition monotonicity or a six-vertex minimum.",
+      "searches": [
+        "nonmonotonic probability of maximum simultaneous infectives under adding transmission contact edge in Markovian SIR graph; six-vertex counterexample",
+        "peak prevalence chance of reaching k simultaneous infections contact network edge addition; SIR versus SIS",
+        "finite-state SIR hit all infected at once chance decline after added triangle; 6 nodes minimal",
+        "https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf, pp. 12-13,19"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holme 2017 studies exact 3–7-vertex results for three other epidemiological objectives, not full-peak edge augmentation.",
+        "Previously studied small-network seed rankings and mean extinction times are distinct from a peak-capacity probability after a single new contact."
+      ],
+      "reasoning": "No located table or database computes the claim-specific graph-edge-seed-threshold all-rate signs; earlier small-graph enumeration for different objectives does not cover a new objective by implication.",
+      "searches": [
+        "small graphs SIR peak simultaneous infection number exact enumeration 6 vertices edge addition",
+        "SIR contact network edge addition peak prevalence can decrease peak probability",
+        "https://arxiv.org/pdf/1708.06456, exact graphs through seven vertices",
+        "Holme (2017) exact SIR small graph tables, objectives and appendices"
+      ]
+    },
+    "rationale": "Checked exact claim implications rather than matching titles: focused primary-literature searches and full-text inspection distinguish mean prevalence, SIS maximum-infective counts, and SIR final-size/duration results from the sharp all-rate SIR peak-hitting boundary. Originality is provisional relative to unindexed prior work.",
+    "residual_risks": [
+      "Historical-priority risk from unindexed or inaccessible published tables or alternative nomenclature, not a proof of universal novelty.",
+      "A detailed independent scientific review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational model and mean-prevalence results; does not state edge addition monotonicity of peak hitting probability",
+        "evidence": [
+          "arXiv:1402.1731 p.2 model definition, §5 summary p.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.1731",
+        "material_read": "Full-text pages 1–3 and Section 5 Summary page 8; compared equations for instantaneous mean prevalence and maximum of the mean with sample-path peak hitting",
+        "method": "Read arXiv public PDF text and checked rendered page 2",
+        "title": "Exact Markovian SIR and SIS epidemics on networks and an upper bound for the epidemic threshold",
+        "trigger": "Identical continuous-time SIR model and seemingly stronger exact governing equations"
+      },
+      {
+        "assessment": "Exact SIS maximum infected method, but SIR handled as suggested extension; no sharp graph edge-augmentation threshold",
+        "evidence": [
+          "§3.1 pp.12–13 computes SIS maximum levels",
+          "p.19 explicitly suggests extending methods to SIR"
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf",
+        "material_read": "Abstract, Introduction, Sections 2.1, 3.1 and 4/conclusion plus discussion of possible SIR extension; pages 2–5, 12–13, 19",
+        "method": "Read lawful accepted-manuscript PDF text and viewed rendered pages 12,13,19",
+        "title": "A stochastic SIS epidemic model with heterogeneous contacts",
+        "trigger": "Same maximum-number-simultaneously-infectious objective, possible stronger coverage"
+      },
+      {
+        "assessment": "Discrete-time SIR extinction time rather than Markovian peak-hit probability; no implication of all-rate edge monotonicity",
+        "evidence": [
+          "arXiv:1310.3932 pp.1–3, Results; PLOS ONE 2013 Methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.3932",
+        "material_read": "Abstract, Introduction, Results and Methods, with emphasis on stated discrete-time outbreak-extinction objective",
+        "method": "Read public arXiv PDF text; rendered first page",
+        "title": "Extinction times of epidemic outbreaks in networks",
+        "trigger": "Earlier SIR graph contact addition and nonmonotone behavior"
+      },
+      {
+        "assessment": "Three objectives are expected final size, vaccination, and sentinel time; not sample-path peak hitting under one added edge",
+        "evidence": [
+          "arXiv:1708.06456 pp.1–3, definitions and code methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.06456",
+        "material_read": "Abstract, Introduction, §§II.A–II.C, formulation of exact state-transition computations and specified objectives; searched document for peak",
+        "method": "Read public arXiv PDF text and rendered pages 2–3",
+        "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "trigger": "Exact small-graph SIR classification through seven vertices could dominate the present six-vertex cutoff"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e9fb4695-b0a5-4220-95f4-a271097945c7",
+  "value": {
+    "rationale": "The network size required for the failure of peak-overload risk monotonicity under adding one contact is a natural structural cutoff. A minimum-six counterexample combined with a complete all-rate classification below it clarifies why final-outbreak reach and pathwise concurrent load can have distinct edge responses; the small witness magnitude does not nullify the sharp size boundary. This is an exact network-risk fact, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
