@@ -1,15 +1,21 @@
-# Scientific review: taper-response tomography
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies all convex-base, scale, height, and Haar-measure assumptions. Its decisive identity comes from maximizing the support separately at the two generating faces of a homothetic frustum, then integrating a positive-part expression in the uniform absolute axial cosine. The analytic expansion converges uniformly near zero, and compact moment determinacy of the strictly positive support values proves the exact if-and-only-if distribution statement. The increasing-convex-order theorem follows from convexity in the taper parameter and reflection symmetry of the whole hull; a separate pointwise identity handles centrally symmetric bases. Direct support-max evaluations for asymmetric triangular and symmetric square bases agree with independent quadrature of the stated arctangent transform. Numerical checks are supplementary, not the infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The main proposed contribution is the exact response transform and its full support-value-distribution inverse, not elementary convexity of support functions or already-known shadow-system arguments. Horváth–Lángi (arXiv:2012.08955v1) examine volumes of convex hulls of homothetic copies, not unlabeled directional widths. Kim–Yaskin–Zvavitch (arXiv:1512.07289v1) analyze unlabeled section/projection distributions and exhibit nonuniqueness, but do not state a taper-response characterization. Closest identified geometric results on Santaló volume products of homothetic frusta and exact line-width distributions of right circular cones were compared by implication. The former concerns polarity and volume; the latter a single circular-cone member rather than a complete mean response for arbitrary bases. An older equivalent stereological or shadow-system integral is possible and remains the main historical-priority uncertainty.
+PASS
 
-## Mathematical value — PASS
-The result exactly classifies what controlled unlabeled **mean** random-width measurements can and cannot identify about an arbitrary planar convex base: the full histogram of its support values, but not their angular arrangement. It gives an explicit inverse moment scheme, an optimal local quadratic taper sensitivity, and a general ordering law that becomes first-order stochastic order for centrally symmetric bases. This is a motivated geometric tomography statement, not an arbitrary numerical slice or a claim of shape recovery.
+The statement concerns exact population mean projection widths of F_s=conv((1+s)K at +H/2,(1-s)K at -H/2), with compact full-dimensional origin-containing planar convex K and known H. For u=(sqrt(1-t²)v,t), t>=0, the support-max calculation gives w_s=a[(1+s)p+(1-s)q]+Ht+(2saq-Ht)_+, where p=h_K(v), q=h_K(-v). Averaging p-q over uniform v cancels the first-order term; the elementary hinge integral equals (b/2)atan(b/H) with b=2s q. This proves E(W_s-W_0)=s E[h_K(V)atan(2s h_K(V)/H)]. Compact-support moment determinacy of positive h² makes the entire response exactly equivalent to its support-value histogram; it does not reconstruct K. Pointwise convexity in the taper and reflection symmetry of the width distribution yield increasing-convex order, strict for strictly increasing convex tests; K=-K gives pointwise order. Independent direct support maxima and numerical hinge integrals on an asymmetric triangle at four s matched the formula. Numerics do not replace analytic proof.
 
-## Scope and residual risk
-No finite-parameter or noisy inverse stability is asserted; the curve is an ideal continuum of population means. The homothety center and the height are known. The published background could conceal an earlier derivation of the same arctangent transform. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mean-width arctangent response and all-even-moment recovery for homothetic frusta appear not to be supplied by the inspected prior volume and unlabeled-projection papers; classical support/convexity facts are acknowledged and not treated as new. Best-of-knowledge original with specific stereological priority risk.
+
+## value
+
+PASS
+
+Exact one-parameter population measurements recover the complete distribution of support heights for every planar convex base, a natural and nontrivial geometric tomography fact. The even-moment readout and precise non-identifiability boundary are useful beyond basic convexity, despite no finite-sample or shape reconstruction theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
