@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A cover forces conjugate length-ell prefix and suffix, so their one-counts agree. Unequal flanks yield the exact lower threshold. Equal flanks yield a central run covered from its ends precisely when \\(2r\\ge b\\). Unique occurrence of the one-run then yields the exact individual-factor census. Cyclic roots admit at most two conjugate blocks, with a two-block root precisely at even b and \\(a=c\\). The standalone direct enumerator passes 1,250 cases and 26,029 length tests; unrestricted correctness rests on the four-part proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "CPM 2023 Theorem 22 provides a linear-time algorithm for the cyclic-cover problem on arbitrary strings; Definitions 1 and 10 treat cover and quasi-cover notions.",
+        "Grossi et al., WALCOM 2023 and the 2025-online journal revision present an algorithm for every input, with the singleton-middle-run example explicitly displayed."
+      ],
+      "reasoning": "These papers are algorithmically broader in the domain of input strings, and every finite instance of the present theorem is computable by their algorithms. However the examined mathematical statements give no uniform length-threshold or factor-count formula for \\(0^a1^b0^c\\) with \\(b\\ge2\\), no outer-flank symmetry bifurcation and no one-letter instability theorem. The present result does not claim a stronger general algorithm.",
+      "searches": [
+        "\"Linear-Time Computation of Cyclic Roots and Cyclic Covers of a String\"",
+        "\"Finding the Cyclic Covers of a String\"",
+        "cyclic covers powers of words periodic strings characterization cyclic covers rotations"
+      ]
+    },
+    "checked_sources": [
+      "https://ir.cwi.nl/pub/32986/32986.pdf",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.15/LIPIcs.CPM.2023.15.pdf",
+      "https://ir.cwi.nl/pub/35209/35209.pdf",
+      "https://ir.cwi.nl/pub/32986/",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2023.15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 manuscript footnote: for \\(X=a^kba^k\\), factors \\(a^iba^j\\) with \\(i+j\\ge k\\) are cyclic covers; this is precisely the already-known central-run-length-one case.",
+        "The 2023/2025 general algorithms and endpoint-conjugacy lemma allow decision of instances but do not contain the proved three-run \\(b\\ge2\\) counting law in their inspected statements."
+      ],
+      "reasoning": "The new theorem requires a separate comparison of prefix and suffix Parikh counts and the exact depth at which central 1 positions become covered. The known \\(b=1\\) statement is not strong enough to imply the \\(b\\ge2\\) threshold, while the known instance algorithms do not state the uniform formula; no verbatim or stronger claimed theorem was identified. Unindexed or implicit equivalent arguments remain possible.",
+      "searches": [
+        "Finding the cyclic covers of a string Grossi Iliopoulos Jansson Lim Sung Zuba 2023 full text",
+        "Linear-Time Computation of Cyclic Roots and Cyclic Covers of a String 2023 full text",
+        "\"cyclic cover\" \"a^kba^k\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grossi et al., WALCOM 2023, author manuscript pp. 2-4: covers are classified by a prefix up to conjugacy; footnote 6 discusses \\(0^k10^k\\) with a singleton middle letter.",
+        "Iliopoulos et al., CPM 2023, pp. 2-4 and Theorem 22: general cyclic-cover and cyclic-root computations for arbitrary strings."
+      ],
+      "reasoning": "The searched aliases include rotation covers, cyclic covers, binary three-run spectra, and cyclic roots. The singleton middle-run symmetric example is a true special case and is excluded by \\(b\\ge2\\). The remaining formulae classify all lengths and factor multiplicities in a natural three-run parameter family, not merely a reformulation of that special example.",
+      "searches": [
+        "\"cyclic covers\" \"three runs\" binary words",
+        "\"cyclic cover\" \"a^kba^k\" \"a^m\"",
+        "cyclic cover spectrum all lengths of binary words with at most two letter transitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest full-text exact family found in the inspected primary literature is \\(0^k10^k\\), cited as an example in the 2023 manuscript and shown in Figure 3 of the later journal version.",
+        "No published parameter table or statement matching the all-\\(b\\ge2\\) length and factor-count spectra was retrieved from the named searches."
+      ],
+      "reasoning": "No source found records the claimed entire three-run parameter family or the enumeration of individual covering factors. Negative indexed search is weak novelty evidence and is not presented as exhaustive; independent priority review remains outstanding.",
+      "searches": [
+        "binary three run word 0^a 1^b 0^c exactly cyclic cover lengths shortest cyclic cover threshold equal outer run a=c",
+        "\"cyclic covers\" \"lengths\" \"runs\"",
+        "\"cyclic cover\" \"three runs\" binary words"
+      ]
+    },
+    "rationale": "2023/2025 works define and algorithmically solve cyclic covering for arbitrary finite words, and explicitly include the singleton-middle-run symmetric example. The present \\(b\\ge2\\) theorem gives a complete all-parameter formula and factor multiplicities, with an unbounded symmetry-instability consequence not matched by the inspected statements. The general algorithms are credited; absence of indexed equivalence is not definitive proof of novelty.",
+    "residual_risks": [
+      "Unindexed or differently titled results may contain an equivalent closed classification.",
+      "Some general algorithms could imply formulas after nontrivial specialisation; mathematical logical derivability from an algorithm is not mistaken for a printed closed-form result.",
+      "The \\(b=1\\) symmetric family is already known and is explicitly excluded from the new domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior endpoint-conjugacy definition and complete \\(b=1\\) symmetric family acknowledged; no length-refined formula for \\(b\\ge2\\) in examined sections.",
+        "evidence": [
+          "p. 3 footnote 6 specifies \\(0^k10^k\\)",
+          "pp. 2-4 defines cyclic covers and their representation by lengths",
+          "pp. 9-10 describes the general finite-input algorithm"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/32986/32986.pdf",
+        "material_read": "Introduction, pp. 1-4 (especially footnote on \\(0^k10^k\\)), general algorithm overview and concluding remarks pp. 9-10",
+        "method": "Read full-text passages and inspected page images of the definition, footnote and algorithm setup",
+        "title": "Finding the Cyclic Covers of a String (author manuscript, WALCOM 2023)",
+        "trigger": "Definition and nearest explicit small-run family, footnote 6"
+      },
+      {
+        "assessment": "Gives linear-time general algorithms and distinguishes notions, but no explicit three-run parameter-uniform spectra in the examined statements.",
+        "evidence": [
+          "Definition 1 defines cyclic cover and cyclic root",
+          "Theorem 22 gives an O(n) algorithm",
+          "Remark 4 separates the distinct older cyclic-cover problem"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol259-cpm2023/LIPIcs.CPM.2023.15/LIPIcs.CPM.2023.15.pdf",
+        "material_read": "Definition 1, Examples 2-3, theorem and core algorithm passages on pp. 1-8, and relevant concluding discussion",
+        "method": "Inspected full-text extraction and page images (notably pages 2 and 4)",
+        "title": "Linear-Time Computation of Cyclic Roots and Cyclic Covers of a String (CPM 2023)",
+        "trigger": "Potentially stronger general theorem for both cyclic roots and covers"
+      },
+      {
+        "assessment": "Figure 3 again treats the singleton-middle-run symmetric family; journal manuscript adds algorithmic treatment but does not display the new two-transition spectrum in the examined material.",
+        "evidence": [
+          "p. 2 Figure 3: \\(X=a^kba^k\\) and the special factor family",
+          "p. 2 Lemma 1: all covers of a fixed length conjugate to prefix",
+          "journal version available online 2025-06-16, not earliest 2023 public source"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/35209/35209.pdf",
+        "material_read": "Introduction, Lemma 1 and Figure 3 on pages 1-2, definitions and algorithm sections from searchable full text",
+        "method": "Inspected the updated full-text PDF with page image of Figure 3 and matching statements",
+        "title": "Finding the cyclic covers of a string (open-access journal version, online 2025)",
+        "trigger": "Later version could strengthen the older example or contain an equivalent classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e0fe90d-1205-44b8-8c08-d719f6286f82",
+  "value": {
+    "rationale": "This is the complete cyclic-cover and cyclic-root length spectrum, the all-length number of distinct covering factor strings, and their total count for all two-transition binary words with non-singleton middle run. It reveals a discontinuity of unbounded magnitude under one inserted zero and a b-independent covering-factor total for unequal flanks. The all-length structural counting law is not a textbook renaming or a finite known-table recomputation.",
+    "status": "PASS"
+  }
+}
