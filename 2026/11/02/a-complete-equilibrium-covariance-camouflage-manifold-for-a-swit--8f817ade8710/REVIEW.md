@@ -1,15 +1,21 @@
-# Scientific review: equilibrium-covariance camouflage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The strictly stationary model is well posed because both stiffnesses are positive. The vector generator recurrence yields the exact second and fourth moments. The covariance solves a two-dimensional matrix evolution; its initial right derivative is fixed by the stationary quadratic balance. The characteristic polynomial and variance yield a completely factorized if-and-only-if condition, and positivity of switching rates exhausts the parameter domain. ODE uniqueness establishes the covariance at every lag, not merely at a sampled set. The fourth cumulant is a strictly positive rational expression throughout the open parameter domain. Exact symbolic and rational replay of `verify.py` passed 229 checks. The proof of global positivity and uniqueness is analytic; finite tests serve only as reproducibility checks.
+PASS
 
-## Originality — PASS, qualified
+For positive D, 0<k1<k2 and strictly positive switching rates, stationary second-moment generator gives w=2D(2K-Q^T)^(-1)pi and stationary fourth moments z=12D(4K-Q^T)^(-1)w. Stationary covariance is 1^T exp[(Q^T-K)t]w, C(0)=v, C'(0+)=-D and satisfies a two-root ODE with trace T and determinant Delta. A single exponential requires rho=D/v and the characteristic equation, equivalent, after clearing strictly positive factors, to F=(alpha+beta)^2+2(beta-alpha)(k2-k1)-4k1k2=0. Solving the positive-rate locus gives alpha=(rho-k1)(rho+k2)/(k2-k1), beta=(k2-rho)(rho+k1)/(k2-k1) and k1<rho<k2. ODE uniqueness proves sufficiency. The computed fourth cumulant 9D^2(rho-k1)(k2-rho)/[rho^2(rho^2+rho(k1+k2)+3k1k2)] is strictly positive. My independent SymPy matrix inversion and characteristic identity checked the full symbolic rational identities, not only sample numbers. Excludes coincident stiffnesses, zero switching rates, nonstationary process and finite-data identification.
 
-The physical model and stationary Gaussian-mixture law were established by Biroli et al. (arXiv:2312.02570). General Markov-modulated OU autocovariance and moment machinery were established by Huang et al. (arXiv:1412.7952); the forward formulae themselves are not claimed as new. Zhang and Wang (DOI:10.1080/03610918.2015.1132321) study stationary marginals; Frydel (arXiv:2407.12213) considers on/off trap fluctuations. Inspected materials did not yield the exact two-parameter, positive-stiffness covariance-camouflage classification or the restricted fourth-cumulant formula. The main possible prior implication is an unrecognized specialized corollary of the Huang et al. forward matrix formula, which could weaken independent originality. Biroli et al.'s separately mentioned supplementary material was not independently examined. Neither a negative search nor the partition of a database proves worldwide novelty; independent publication-priority review remains unperformed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact classification resolves a natural inverse question in switching confinement: whether complete stationary temporal covariance can rule out a hidden switching potential. It cannot, even when the competing equilibrium OU diffusivity is fixed. The result is not an arbitrary numerical coincidence: every effective rate admits a two-dimensional continuum of counterexamples, with the complete positive-rate locus and a strictly positive measurable fourth-order obstruction. It distinguishes temporal second-order identifiability from one-time spatial distributional information. The result does not establish performance from finite noisy data, nor extend to non-Markov environments.
+Best-of-knowledge PASS qualified: the stationary Gaussian mixture and forward Markov-modulated OU covariance/moment systems were already known. The distinctive claim is the exhaustive inverse positive-rate two-dimensional covariance-camouflage family for every rho plus its positive fourth-cumulant discriminator. General linear moment machinery is a strong premise, and may permit an algebraic rederivation, but the inspected primary statements do not provide this inverse classification. This is not a claim of novelty of Gaussian mixtures or formulas for generic MMOU moments.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete nonidentifiability result for a natural Markov switching physical trap: even the entire stationary two-time position covariance and power spectrum can be indistinguishable from equilibrium, while a quantified fourth cumulant separates the models. The complete inverse family is a meaningful structural classification, not an arbitrary sample or mere renamed moment identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
