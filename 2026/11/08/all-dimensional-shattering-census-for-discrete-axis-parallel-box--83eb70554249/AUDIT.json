@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For any support of size at least three, shattering iff each element is a strict coordinate minimum or maximum among support points: necessity via excluding one point from a box containing all others; sufficiency by bounding boxes for nonempty labels and a singleton outside the support, guaranteed by N>=K+1. Each coordinate has at most two extrema, but binary coordinates only one. For m>=3, single specified minimum/maximum events each have L_m(n) assignments; a pair of different specified points can have both extrema only in opposite orientations, with E_m(n) choices each. Three intersections are impossible, so two-level inclusion–exclusion yields exactly the coefficient formula. For maximal support size K, role bijections give the leading coefficient factorization. Singleton and two-point boundary cases are separately proved. A direct trace enumerator tested 48,917 supports exhaustively on fourteen grids and 28,500 additional supports on three larger grids; tests corroborate but do not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gillibert–Lachmann–Müllner, arXiv:2004.13861, Introduction (standard anchored dimension d and unanchored 2d), Section 2 (wrapping torus definitions), Section 3 (trace upper bounds), and Section 4 (periodic construction).",
+        "Moran–Rashtchian, arXiv:1511.08245, Introduction and Section 2 (bounds relating Hilbert functions, shattering and down-shifting).",
+        "An accessible prior claim for all P_m square P_n supplies a sharper exact formula in d=2, but its degree is at most four and it has no general d-ary formula."
+      ],
+      "reasoning": "The known maximum dimension 2d does not imply counts of all shattered m-point supports. Periodic coordinates allow wraparound and a distinct dimension law. General shattering inequalities do not specialize to equalities without the present private-extreme and inclusion-exclusion calculation. There is already strong coverage at d=2 from the planar path-grid census; the proposed higher-dimensional d>=3 theorem is not subsumed by its restricted parameter domain. The d=2 formula is included for coherence, not claimed novel.",
+      "searches": [
+        "The VC-Dimension of Axis-Parallel Boxes on the Torus arxiv 2004.13861",
+        "2018 2019 2020 2021 axis parallel boxes VC dimension finite domain learning combinatorial",
+        "Shattered Sets and the Hilbert Function arxiv 1511.08245"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2004.13861 (first public 2020-04-28; full text inspected)",
+      "https://arxiv.org/abs/1511.08245 (first public 2015-11-25; Introduction/Section 2 inspected as supporting literature)",
+      "https://extremalcombinatorics.com/notes/sec_VC.html (classical rectangles VC proof inspected)",
+      "Published mathematical-record similarity results concerning finite chains, rectangularization, and product profiles; no direct finite-grid box shattering claim in accessible summaries.",
+      "Earlier two-dimensional Cartesian path-grid convexity calculation: two-dimensional Cartesian path-grid shattering census; compared formula and implication for the new arbitrary-dimensional result."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2004.13861 the nonperiodic two-sided dimension is described as classical, but the primary theorem addresses periodic boxes with asymptotic order d log d.",
+        "The private-minimum-only criterion for anchored lower orthants cannot be applied coordinate-by-coordinate to two-sided intervals without an additional opposite-extreme interaction, represented here by the E_m term.",
+        "The path-grid two-factor formula contains no assertion about triples or greater numbers of independent nontrivial coordinate axes, so cannot imply an all-d formula or the general top-degree coefficient by specialization alone."
+      ],
+      "reasoning": "Known two-factor path-grid convexity already covers the d=2 parameter slice. New result proves a uniform d-dimensional formula for all coordinate alphabets and degree m through K, including degrees above four; this is not a restatement of the older planar polynomial. The anchored one-sided formula and torus bounds also do not determine it.",
+      "searches": [
+        "2020 The VC-Dimension of Axis-Parallel Boxes on the Torus Section 1 VC dimensions anchored nonanchored",
+        "Shattered Sets and the Hilbert Function Theorems 2.2 2.3",
+        "finite grids shattering profile lower orthants versus axis parallel boxes private extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2004.13861, Sections 1-4: different periodic box family and dimension, not finite-grid coefficients.",
+        "arXiv:1511.08245, Sections 1-2: abstract shattering/Hilbert-function results, not discrete box profiles.",
+        "Earlier two-dimensional Cartesian path-grid convexity calculation: exact complete coefficient polynomial for P_m square P_n, equivalent to the d=2 interval-box family after empty-concept boundary adjustment; its 3- and 4-support counts coincide with this theorem at d=2."
+      ],
+      "reasoning": "The two-dimensional path-grid convexity census is a genuine equivalent special case, not an absence of prior work. The new theorem is higher-dimensional, with arbitrarily many coordinate factors, all coefficients and top-degree factorization; the older d=2 polynomial alone neither asserts nor logically implies those d>=3 coefficients. Synonyms searched include rectangles, orthotopes, product-of-interval ranges and finite chain boxes.",
+      "searches": [
+        "exact number of shattered point sets finite grid axis aligned boxes shattering polynomial",
+        "axis aligned boxes shattering points unique minimum maximum each point VC dimension",
+        "counting shattered configurations finite grid rectangles axis aligned boxes minimum maximum",
+        "Exact counting polynomial for VC-shattered point sets by axis-parallel boxes in finite Cartesian grids products of chains"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact finite-grid coefficient table was identified from the searches for the sample profiles 1,9,36,16,1 and 1,16,120,160,16.",
+        "Direct enumeration of 14 finite grids is recorded in verification_output.txt; it is not asserted to constitute a survey of all external tables.",
+        "The earlier path-grid polynomial provides exact coefficients for every two-dimensional grid: this is genuine prior coverage, not a missing table."
+      ],
+      "reasoning": "An external table matching a few small coefficients would not alone imply the all-parameter theorem, but a known recurrence or formula could dominate the result. No such record was located in the accessible comparisons; this remains a residual risk.",
+      "searches": [
+        "number of shattered subsets of grid by axis-aligned rectangles exact count",
+        "OEIS shattered rectangles grid",
+        "1, 9, 36, 16, 1 shattered grid boxes",
+        "1, 16, 120, 160, 16 VC dimension boxes"
+      ]
+    },
+    "rationale": "An accessible prior two-dimensional Cartesian path-grid census gives the complete shattering polynomial for the same interval-box geometry (plus an empty hypothesis), so the planar formula and private-extreme criterion are explicitly credited and not claimed new. The present theorem concerns arbitrary products of finite chains: unbounded VC degree, all coefficient formulas for every d, and the highest-degree factorization. The planar formula by itself does not determine higher-dimensional coefficients; nor do arXiv:2004.13861 (periodic torus dimension) or arXiv:1511.08245 (abstract Hilbert bounds). Extensive alternative-terminology search located no dominating arbitrary-dimensional enumeration. Best-knowledge priority remains qualified.",
+    "residual_risks": [
+      "Exact enumerations might appear under alternate terms such as orthogonal range spaces, discrete orthotopes, or product-order convexity and were not exhaustively searched.",
+      "An elementary derivation from the familiar coordinate-extremum VC proof might occur in a textbook or notes not indexed in search.",
+      "Independent mathematical validation and an exhaustive historical priority assessment have not been performed.",
+      "A general-dimensional extension of the earlier planar convex-grid census might exist elsewhere under product-order or computational-geometry terminology, beyond inspected records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the proposed finite, non-wrapping coefficientwise counting theorem; it addresses cyclic intervals/torus and VC bounds.",
+        "evidence": "Introduction reports standard nonperiodic VC dimensions d and 2d; Section 2 defines wraparound torus intervals; Section 3 bounds trace counts; no finite-grid full profile formula appears.",
+        "identifier_or_url": "arxiv:2004.13861; https://arxiv.org/abs/2004.13861",
+        "material_read": "Full accessible text, Introduction, Section 2 definitions and stripes, Section 3 upper bounds, Section 4 extraction construction, Open Questions.",
+        "method": "Read open-access arXiv text rendition of the primary paper and compared the domain and assertions.",
+        "title": "The VC-Dimension of Axis-Parallel Boxes on the Torus",
+        "trigger": "Same family name and known VC-dimension bounds; plausible dominating work."
+      },
+      {
+        "assessment": "NOT_COVERING within the inspected theorem statements; the source treats polynomial Hilbert bounds and abstract Boolean set systems.",
+        "evidence": "Section 2 gives general Hilbert-function and down-shift relations and does not evaluate a discrete box-family polynomial.",
+        "identifier_or_url": "arxiv:1511.08245; https://arxiv.org/abs/1511.08245",
+        "material_read": "Accessible Introduction and Section 2 (preliminaries, Hilbert/shattering theorems); not a complete historical review of all references.",
+        "method": "Read open-access primary arXiv text and compared stated theorems with the proposed exact coefficients.",
+        "title": "Shattered Sets and the Hilbert Function",
+        "trigger": "Potentially general theorem governing all shattered-set profiles."
+      },
+      {
+        "assessment": "Classical VC dimension only; no finite-grid all-degree counts in the inspected section.",
+        "evidence": "Example 1.3.4 proves VC dimension four in the plane using extrema; it does not enumerate all shattered configurations on discrete grids.",
+        "identifier_or_url": "https://extremalcombinatorics.com/notes/sec_VC.html",
+        "material_read": "Definition 1.3.1 through Example 1.3.4 and its dimension-four argument.",
+        "method": "Read public notes text; compared classical extreme-point upper bound with coefficientwise counting.",
+        "title": "Extremal Combinatorics, Section 1.3 VC-Dimension",
+        "trigger": "Canonical classical VC argument for rectangles and intervals."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83eb7055-4249-43dd-a61a-56fa48e0030b",
+  "value": {
+    "rationale": "The result determines a complete structural classification and every support-count coefficient of a natural finite definable range space on arbitrary products of chains. This is not only the standard continuous VC dimension: the binary-versus-ternary threshold changes the dimension, and two equal-dimension grids (ternary square versus four-dimensional Boolean cube) have different shattering polynomials. The exact coefficient formula gives uniform-random-support probabilities, while the largest-degree coefficient has a simple product form not apparent from a dimension bound. Arbitrarily unequal alphabet lengths and tied coordinates are covered.",
+    "status": "PASS"
+  }
+}
