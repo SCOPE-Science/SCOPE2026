@@ -1,0 +1,46 @@
+# Exact stabilization-time tails and a Poisson cutoff for majority dynamics on rings
+
+## Finding
+
+For every integer \(n\ge3\), consider the binary synchronous nearest-neighbour majority automaton on the labelled simple ring \(C_n\), in which the new bit is the majority of the two neighbours and the site's current bit. Let \(T_n(x)\) be the first time the trajectory of initial word \(x\) reaches a periodic configuration (a fixed state, or the exceptional alternating two-cycle). For each integer \(t\ge0\), put \(m=2t+3\), and define \((m-1)\)-square matrices \(A_m^{\pm}\) with indices \(0,\ldots,m-2\) by having an entry \(1\) from every index \(h\) to \(0\), together with an entry \(\pm1\) from \(h\) to \(h+1\) whenever \(h\le m-3\) (summing entries when transitions share endpoints). Then **the complete labelled initial-state stabilization-time distribution** has exact cumulative counts
+\[
+\boxed{\#\{x\in\{0,1\}^n:T_n(x)\le t\}=\operatorname{tr}((A_m^+)^n)+\operatorname{tr}((A_m^-)^n)+2\mathbf1_{\{2\mid n\}}.}
+\]
+For independent fair initial bits, if integers \(t=t_n\ge0\) are chosen so that \(n2^{-(2t_n+3)}\to\lambda\in(0,\infty)\), then
+\[
+\boxed{\mathbb P\{T_n\le t_n\}\longrightarrow e^{-\lambda}.}
+\]
+Equivalently the absorption time is concentrated in an order-one lattice window around \(\tfrac12\log_2 n-\tfrac32\), with a Poisson extreme-value profile (no unqualified continuous Gumbel limit, because times are integral). Moreover the number of sites changing between times \(t\) and \(t+1\) equals exactly the number of length-\(2t+3\) **alternating cyclic windows in the initial word**.
+
+## Assumptions and scope
+
+The graph is \(C_n\) for every \(n\ge3\); all vertices update simultaneously. For local neighbours \(a,c\) and centre \(b\), the new centre is the majority of \(a,b,c\). This equals strict open-neighbour majority with centre-bit retention in a neighbour tie. Initial bits are independently Bernoulli \(1/2\) only when probabilities are stated. The time \(T_n\) is the first *periodic-entry* time, not time to unanimous consensus: the periodic states include nonunanimous fixed words whose constant runs have length at least two, and the two alternating configurations when \(n\) is even. All labelled initial words are counted individually.
+
+## Proof
+
+**Persistent seeds and moving interfaces.** Any adjacent equal pair is immutable: both endpoints agree with each other and hence retain that bit under three-site majority forever. If an initial word is not globally alternating, at least one such pair exists. Every unseeded site belongs to a maximal alternating segment between immovable equal-pair seeds. As long as it has no immobilized neighbour it has two neighbours of the opposite bit, so it flips; upon first meeting an immutable neighbour it joins its neighbour's constant block and remains immutable. Thus frozen regions advance by precisely one site per update into each alternating segment. More precisely, for each site \(i\) and time \(t\ge0\),
+\[
+\mathbf1_{\{F^{t+1}(x)_i\ne F^t(x)_i\}}=\prod_{j=-t-1}^{t}\mathbf1_{\{x_{i+j}\ne x_{i+j+1}\}},
+\]
+with all indices cyclic. The formula follows by induction on time using the two claims about immobilized endpoints and flipping interiors. It also holds for globally alternating inputs, whose two-cycle is present already at time zero. Hence no new nontrivial cycles arise: a nonalternating input eventually becomes fixed; an alternating input, possible only for even \(n\), is the unique primitive two-cycle orbit. For nonalternating initial words, \(T_n\le t\) exactly when no initial cyclic block of length \(m=2t+3\) is alternating.
+
+**Forbidden-run transfer identity.** Write initial edge differences \(y_i=x_i\oplus x_{i+1}\in\{0,1\}\). Their total parity is even; conversely each even-parity cyclic difference word corresponds to exactly two initial bit words. An alternating length-\(m\) site block is the same as a run of \(m-1\) consecutive edge differences equal to \(1\). Except for the all-ones difference word (the globally alternating configuration when \(n\) is even), a word with no such long run has a zero and, starting after each zero, at most \(m-2\) consecutive ones. The finite automaton with state \(h\in\{0,\ldots,m-2\}\) recording the number of ones since the most recent zero resets to \(0\) on a zero and increments to \(h+1\) on a one only if \(h<m-2\). Its cyclic trace \(\operatorname{tr}((A_m^+)^n)\) counts difference words with a zero and no forbidden run; replacing each one-edge weight by \(-1\) gives their signed parity sum \(\operatorname{tr}((A_m^-)^n)\). Half their sum counts even-parity difference words, and multiplication by the two possible initial bits cancels the half. The all-ones word contributes precisely two configurations when \(n\) is even. This proves the exact formula, including small \(n\), all \(t\), and the alternating exception.
+
+**Poisson extreme-value cutoff.** Let \(J_j\) be the event that the initial edge-difference word has a \(0\) immediately followed by \(m-1\) ones starting at edge \(j\), and define \(U_n=\sum_{j=0}^{n-1}\mathbf1_{J_j}\). A non-globally-alternating cyclic difference word has a run of at least \(m-1\) ones if and only if one of these events occurs. For the globally alternating word there is no zero, and the orbit is periodic from time zero. Therefore, for *every* \(n,t\), \(\{T_n\le t\}=\{U_n=0\}\). Under independent fair initial bits, the cyclic edge differences have uniform distribution on the even-parity words. Each \(J_j\) prescribes \(m\) edge values and, provided \(m<n\), has probability exactly \(2^{-m}\). Two events with cyclic separation strictly between \(0\) and \(m\) are incompatible, because one demands a zero where the other demands a one. For any fixed \(k\), a cyclically separated \(k\)-tuple of starts with disjoint \(m\)-edge windows has joint probability exactly \(2^{-km}\) when \(km<n\): the even-parity condition leaves every proper subset of edge differences uniformly independent. In the scaling \(n2^{-m}\to\lambda\), necessarily \(m=O(\log n)\) and \(m/n\to0\). The number of admissible ordered distinct \(k\)-tuples is \(n^k(1+O(k^2m/n))\). Hence the factorial moments of \(U_n\) converge to \(\lambda^k\) for every fixed \(k\). The method of factorial moments gives \(U_n\Rightarrow\operatorname{Poisson}(\lambda)\), whence \(\mathbb P(T_n\le t_n)\to e^{-\lambda}\). The location claim follows by taking \(m=2t+3\) and bounding the tails by \(n2^{-m}\) on the late side and by the Poisson/exclusion argument on the early side.
+
+## Verification
+
+The standalone `verify_rule232.py` exhausts all \(2^n\) initial binary states for every \(3\le n\le14\), tracks first periodic entry, verifies the exact initial-alternating-window criterion for site flips, and independently evaluates the two signed transfer-matrix traces at every \(0\le t\le5\). Its captured result in `verify_rule232.log` reports agreement for all those cases. These bounded tests support, but do not replace, the all-size combinatorial proof and the factorial-moment limit theorem.
+
+## Relationship to prior work
+
+Fukś [1] identifies rule 232 as the one-dimensional majority automaton and studies it as the second stage of a density-classification construction. In particular its Section III describes the persistence of equal pairs and alternating preimages in a special one-type-block regime. The present theorem differs in its **full random-input first-entry-time distribution** for the unmodified rule 232 alone on arbitrary finite rings, including both types of frozen blocks and parity of the periodic ring, and a quantitative logarithmic-window Poisson law. The related classifications of ordinary majority cycles do not themselves count preperiodic waiting times. The proof uses the elementary local freezing observation but requires an explicit parity-refined cyclic automaton and a rare-run limit argument.
+
+## Limitations
+
+The result applies to a synchronous binary three-input majority rule on one-dimensional *cyclic* graphs, not to asynchronous updates, noisy voting, asymmetric tie-breaking, or graphs of higher degree. The Poisson law is formulated along sequences where the lattice-scale parameter converges; without such a subsequence, integer-time oscillations prevent an ordinary continuous Gumbel limit. It does not determine the probability of consensus with a particular opinion or extend to multi-colour majority. Earlier symbolic-combinatorics work could conceivably contain the same exact waiting-time law under equivalent pattern-avoidance language; an independent historical-priority audit has not been performed.
+
+## References
+
+1. H. Fukś, *Solution of the density classification problem with two cellular automata rules*, *Physical Review E* **55** (1997), R2081–R2084, DOI 10.1103/PhysRevE.55.R2081. Public arXiv source https://arxiv.org/abs/comp-gas/9703001, posted 7 March 1997, especially Section III on majority rule 232 and persistent equal-bit pairs.
+2. M. J. Krawczyk, *New aspects of symmetry of elementary cellular automata*, arXiv:1304.5771, 21 April 2013; examines the cyclic state networks and elementary-rule symmetries, including rule 232, without an identified comparable random relaxation-time law.
