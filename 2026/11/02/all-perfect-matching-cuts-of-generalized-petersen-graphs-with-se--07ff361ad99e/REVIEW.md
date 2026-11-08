@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge5\), the reduction from crossing-neighbor constraints to forced inner labels and cyclic outer words is reversible. Each seven-bit local condition is enumerated exhaustively (128 patterns, 28 allowed), then its de Bruijn graph is pruned to two loops and two five-cycles. Closed walks are preserved by pruning, so the all-\(n\) classification follows. Independent brute-force graph-coloring checks through \(n=10\) and outer-bit enumeration through \(n=18\) agree. The finite certificate is reproduced by the included verifier.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest modern primary papers by Le and Telle (arXiv:2107.06399) and Bonnet, Chakraborty, and Duron (arXiv:2302.11667) treat perfect-matching-cut definitions, algorithms, and hardness. Their statements do not determine the number of PMCs of \(P(n,2)\). Chia and Thomassen's 2011 complete treatment of Hamilton cycles of \(P(n,2)\) concerns a different invariant and does not imply this all-\(n\) cut enumeration. Accessible published research records and searches by equivalent conditions found no dominating formula. An unindexed older specialization remains a genuine priority risk; no independent priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-Exact PMC counts are natural but nontrivial in this classic cubic graph family. The finding identifies a complete residue-five rigidity: one cut in general and six when \(5\mid n\), with all structures explicitly classified. This is not a finite table, restatement of general complexity bounds, or an implication of the inspected Hamiltonian enumerations.
+In cubic generalized Petersen P(n,2), a perfect-matching edge cut is equivalent to a binary 2-coloring with exactly one opposite-color neighbor per vertex. Outer x_i determine d_i<=1 and uniquely force inner y_i=x_i xor(1-d_i); inner equations at offsets ±2 are necessary and sufficient. Every cyclic solution is a closed walk in the 6-bit overlap graph of all admissible 7-bit windows. Fresh independent full 128-window enumeration yielded 28 accepted, iterative zero-in/out pruning removed 20,4,2 states, leaving 12 edges in two loops and two directed five-cycles. This is an exhaustive finite certificate for all n via closed walks, not finite-n extrapolation. Each nontrivial cycle repeats when 5|n, giving 2+10 colorings and hence 1+5 perfect matching cuts after identifying complementary labels in connected P(n,2).
 
-## Scientific limits
-The theorem does not concern other jumps, disconnected perfect matchings, or general PMC algorithmic complexity. The mathematical proof is an exact finite-state classification, not a claim of external or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Le–Telle and Bonnet–Chakraborty–Duron investigate perfect-matching-cut algorithms/complexity, but inspected primary texts do not classify these cuts of P(n,2). Chia–Thomassen count Hamiltonian cycles in P(n,2), not disconnected two-factors that can complement a perfect-matching cut. A stronger unindexed graph-specific 2-factor/cut classification may preempt the result; reviewed conclusion is best-knowledge for exact modulo-five cut count.
+
+## value
+
+PASS
+
+P(n,2) is a standard cubic graph family and a cut that is also a perfect matching is a natural rigid combinatorial invariant. The exact all-n formula and complete periodicity classification reveal a sharp arithmetic residue-five structure, not just a finite table or consequence of generic NP-hardness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

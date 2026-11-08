@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:14:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and finite certificate under exact source Git tree",
+        "fresh independent checks /mnt/data/scope_worker10_next/checks.py"
+      ],
+      "rationale": "In cubic generalized Petersen P(n,2), a perfect-matching edge cut is equivalent to a binary 2-coloring with exactly one opposite-color neighbor per vertex. Outer x_i determine d_i<=1 and uniquely force inner y_i=x_i xor(1-d_i); inner equations at offsets ±2 are necessary and sufficient. Every cyclic solution is a closed walk in the 6-bit overlap graph of all admissible 7-bit windows. Fresh independent full 128-window enumeration yielded 28 accepted, iterative zero-in/out pruning removed 20,4,2 states, leaving 12 edges in two loops and two directed five-cycles. This is an exhaustive finite certificate for all n via closed walks, not finite-n extrapolation. Each nontrivial cycle repeats when 5|n, giving 2+10 colorings and hence 1+5 perfect matching cuts after identifying complementary labels in connected P(n,2).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Le–Telle supply algorithmic/complexity results; Bonnet–Chakraborty–Duron prove hard graph classes, not all-n counts."
+        ],
+        "reasoning": "General decision algorithms do not imply a special-family exact enumeration without solving the graph-specific local constraints; their inspected text does not provide this classification.",
+        "searches": [
+          "generalized Petersen P(n,2) perfect matching cuts 1+5 if n divisible five enumeration locally bijective coloring",
+          "arxiv:2107.06399 The Perfect Matching Cut Problem Revisited",
+          "arxiv:2302.11667 Cutting Barnette graphs perfectly is hard"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.06399 full text",
+        "arXiv:2302.11667 full text",
+        "Chia–Thomassen Ars Combinatoria 100 (2011) theorem description",
+        "Resultary q4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamiltonian-cycle enumeration counts connected spanning cycles; complements of cut-perfect-matchings are unions of induced cycles and may be disconnected."
+        ],
+        "reasoning": "The structural invariants do not imply one another from the inspected prior results, even though both involve cubic 2-factors.",
+        "searches": [
+          "generalized Petersen P(n,2) perfect matching cuts 1+5 if n divisible five enumeration locally bijective coloring",
+          "Chia Thomassen P(n,2) Hamiltonian cycles and perfect matching cuts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a cubic graph, every cut perfect matching is equivalent to a partition into induced degree-two cycles, or 2-coloring with exactly one differently colored neighbor."
+        ],
+        "reasoning": "Equivalent coloring and 2-factor formulations were checked; no matched primary theorem determines the exact residue-five count.",
+        "searches": [
+          "generalized Petersen P(n,2) perfect matching cuts 1+5 if n divisible five enumeration locally bijective coloring",
+          "perfect matching cut cubic graph two-coloring exactly one different neighbor induced two regular spanning subgraphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact 7-bit truth table has 128 cases, 28 allowed and 12 cyclic-core edges; fresh verification independent of prior log."
+        ],
+        "reasoning": "A finite graph census does not prove an all-n formula. No verified older table covering the entire variable n family was found.",
+        "searches": [
+          "generalized Petersen P(n,2) perfect matching cuts 1+5 if n divisible five enumeration locally bijective coloring",
+          "Petersen generalized P(n,2) perfect matching cut OEIS 1 6 modulo 5"
+        ]
+      },
+      "rationale": "Le–Telle and Bonnet–Chakraborty–Duron investigate perfect-matching-cut algorithms/complexity, but inspected primary texts do not classify these cuts of P(n,2). Chia–Thomassen count Hamiltonian cycles in P(n,2), not disconnected two-factors that can complement a perfect-matching cut. A stronger unindexed graph-specific 2-factor/cut classification may preempt the result; reviewed conclusion is best-knowledge for exact modulo-five cut count.",
+      "residual_risks": [
+        "A graph-theory catalog or equivalent perfect-matching/two-factor result may implicitly contain the mod-five classification.",
+        "The method covers only inner jump two, not arbitrary P(n,k)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No P(n,2) enumeration in inspected algorithmic results",
+          "evidence": "Statements address decision complexity/algorithms for broad graph classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.06399",
+          "material_read": "Complete accessible primary text and problem formulations",
+          "method": "Read full preprint through web and searched generalized Petersen terms",
+          "title": "The Perfect Matching Cut Problem Revisited",
+          "trigger": "Same cut notion and possible class-specific algorithms"
+        },
+        {
+          "assessment": "Hardness for connected cubic bipartite planar classes, not exact P(n,2) cut counts",
+          "evidence": "NP-completeness cannot imply mod-five enumeration of a particular generalized Petersen family.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.11667",
+          "material_read": "Full accessible primary text, definitions and hardness statements",
+          "method": "Read full preprint through web",
+          "title": "Cutting Barnette graphs perfectly is hard",
+          "trigger": "Same perfect matching cut invariant"
+        },
+        {
+          "assessment": "Counts Hamiltonian cycles, not all matching cuts; risk remains another P(n,2) graph catalog",
+          "evidence": "Hamiltonicity is a connected 2-factor constraint, distinct from cut-compatible induced 2-factors.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20100/volume-100-paper-1.pdf",
+          "material_read": "Published article statement and theorem count discussed, not independently reanalyzed entire source PDF",
+          "method": "Consulted bibliographic/full theorem comparison in source review",
+          "title": "Grinberg's Criterion Applied to Some Non-Planar Graphs",
+          "trigger": "Known P(n,2) Hamiltonian cycle census as candidate stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "the exact theorem and proof in assigned RESULT.md",
+        "specific relevant prior mathematical context named in originality axis"
+      ],
+      "rationale": "P(n,2) is a standard cubic graph family and a cut that is also a perfect matching is a natural rigid combinatorial invariant. The exact all-n formula and complete periodicity classification reveal a sharp arithmetic residue-five structure, not just a finite table or consequence of generic NP-hardness.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A graph-theory catalog or equivalent perfect-matching/two-factor result may implicitly contain the mod-five classification.",
+    "The method covers only inner jump two, not arbitrary P(n,k)."
+  ],
+  "schema_version": 1
+}
