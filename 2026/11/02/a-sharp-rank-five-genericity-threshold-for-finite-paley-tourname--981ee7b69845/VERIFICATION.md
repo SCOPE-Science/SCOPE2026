@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The attached C++17 program enumerates every prime \(q\equiv3\pmod4\) with \(7\le q<191\) plus \(q=27\). These are **all** prime powers in the range: higher odd powers are at least \(3^5=243\) or \(7^3=343\). For each order, the program constructs the actual field and square set; its field of order 27 is \(\mathbb F_3[X]/(X^3+2X+1)\), a field since the cubic has no roots in \(\mathbb F_3\). It directly verifies the antisymmetric tournament relation.
+## correctness
 
-Translation invariance reduces four-subset testing to all unordered triples \(1\le a<b<c<q\) added to \(0\). Every possible sign pattern is checked by exact bitset intersections, excluding the four selected vertices. The output records \(\binom{q-1}{3}\) tested four-sets per order and an explicit first failed pattern when relevant; no random sampling is involved. A second minimum over the all-positive orientation pattern tests \(S_4\). In each checked order, \(S_4\) holds exactly when \(P_4\) holds.
+PASS
 
-Reproduction commands:
+For prime powers q≡3 (mod4), q≥7, reconstruct Paley edge orientation via quadratic character and 16-witness sum for each 4-point sign pattern. Expanding products gives 16N≥q−38−11√q>0 for every q≥191 by the degree-3/4 Weil bounds and exact sums for one/two factors; this establishes ALL high-order cases. The actual C++17 source enumerates every admissible order 7≤q<191 including F_27 via the irreducible cubic X³+2X+1, every four-subset containing zero (translation is a tournament automorphism) and all 16 orientation masks. Its source has explicit classification checks, and independent direct finite-character calculations for q=7,59,67,71,103,107 recover the pass/fail and q103=(0,1,16,47) all-positive obstruction. P4 iff rank-five EF equivalence with countable random tournament: rank-five extension axioms and 5-round back-and-forth (including padding of shorter patterns). Thus P4 iff S4 within this Paley family and iff q∈{67,71,79,83} or q≥107. The finite enumeration is not extended past its proven cutoff and not used as an infinite proof.
 
-```sh
-g++ -O2 -std=c++17 -Wall -Wextra -pedantic paley_tournament_p4_verifier.cpp -o paley_check
-./paley_check
-```
+## originality
 
-The attached output is the complete stdout of this command and terminates in `EXHAUSTIVE_FINITE_CASES_OK`. For order 103, the explicit witness \(\{0,1,16,47\}\) has no common dominated vertex. An independent direct quadratic-residue check of that set gave an empty witness list.
+PASS
 
-The proof for \(q\ge191\) is symbolic and independent of the finite certificate: it uses the exact degree-one and degree-two character sums and Weil bounds for squarefree polynomials of degrees three and four to show every desired extension class has positive size. The theorem makes no claim that finite checking by itself establishes the infinite result.
+Best-of-knowledge PASS for the exact prime-power q-membership classification of Paley P4 / rank-five random theory, and exact Paley-only S4⇔P4. Classical Paley character-sum sufficient bounds, q=67 P4 and weak domination tables predate this claim. Directly relevant 2026 paper poses S4 versus P4 for all vertex-transitive doubly regular tournaments; the specific Paley threshold is not supplied in inspected sections. This is no priority certification.
 
-The logical step uses the five-round Ehrenfeucht–Fraïssé game and the rank-five form of the four-point extension axioms. No independent external audit has been conducted.
+## value
+
+PASS
+
+A sharp eventual threshold with a nonmonotone q=103 exception and a complete finite-field parameter classification answers a natural logical genericity/dominator question in a canonical tournament family. It also settles a motivated restricted instance of a published S4/P4 comparison; it is not an arbitrary finite sample or a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

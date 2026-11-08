@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prime powers q≡3 (mod4), q≥7, reconstruct Paley edge orientation via quadratic character and 16-witness sum for each 4-point sign pattern. Expanding products gives 16N≥q−38−11√q>0 for every q≥191 by the degree-3/4 Weil bounds and exact sums for one/two factors; this establishes ALL high-order cases. The actual C++17 source enumerates every admissible order 7≤q<191 including F_27 via the irreducible cubic X³+2X+1, every four-subset containing zero (translation is a tournament automorphism) and all 16 orientation masks. Its source has explicit classification checks, and independent direct finite-character calculations for q=7,59,67,71,103,107 recover the pass/fail and q103=(0,1,16,47) all-positive obstruction. P4 iff rank-five EF equivalence with countable random tournament: rank-five extension axioms and 5-round back-and-forth (including padding of shorter patterns). Thus P4 iff S4 within this Paley family and iff q∈{67,71,79,83} or q≥107. The finite enumeration is not extended past its proven cutoff and not used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graham–Spencer and Bonato–Gordinowicz–Prałat furnish general k-existential closure constructions and large-q sufficient bounds; the latter notes q67 P4."
+        ],
+        "reasoning": "Large sufficient q bounds and one sporadic example neither give the exceptional q103 failure nor classify all admissible q and all 16 patterns.",
+        "searches": [
+          "Paley tournaments 4-existentially closed all orientation four vertices rank five 67 71 79 83 107",
+          "https://doi.org/10.4153/CMB-1971-007-1",
+          "https://cdm.ucalgary.ca/article/view/62061"
+        ]
+      },
+      "checked_sources": [
+        "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+        "https://aeb.win.tue.nl/graphs/Paley.html",
+        "https://cdm.ucalgary.ca/article/view/62061",
+        "https://doi.org/10.4153/CMB-1971-007-1",
+        "Resultary semantic query: Paley tournaments 4-existentially closed all orientation four vertices rank five 67 71 79 83 107"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 work obtains S3⇔P3 for vertex-transitive doubly regular tournaments and poses k4 comparison; finite q<191 P4 status comes from direct 16-pattern enumeration."
+        ],
+        "reasoning": "Earlier P3 and S4 results do not imply the exact P4 classification without an additional Paley-specific argument and finite checks.",
+        "searches": [
+          "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+          "https://aeb.win.tue.nl/graphs/Paley.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P4 corresponds to 16 sign extension axioms of quantifier rank 5. S4 means all-positive common-dominator pattern, strictly weaker in arbitrary tournaments. The 2026 paper asks about S4 and P4 equivalence beyond P3."
+        ],
+        "reasoning": "The rank-five language formulation is logically equivalent to P4 and hence would be covered by a known exact P4 census, but inspected sources do not give the full prime-power census.",
+        "searches": [
+          "Paley tournaments 4-existentially closed all orientation four vertices rank five 67 71 79 83 107",
+          "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+          "https://aeb.win.tue.nl/graphs/Paley.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer domination number table lists S4-positive q=67..83 and 107..311, and q103 S4-negative. The exact 16-mask P4 census is not tabulated."
+        ],
+        "reasoning": "A known S4 domination table covers the all-positive portion but does not logically imply P4 in arbitrary tournaments; this audit checks all Paley patterns separately.",
+        "searches": [
+          "https://aeb.win.tue.nl/graphs/Paley.html",
+          "https://www.erdosproblemaday.com/report/902",
+          "Paley tournaments 4-existentially closed common dominator table 103 107"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact prime-power q-membership classification of Paley P4 / rank-five random theory, and exact Paley-only S4⇔P4. Classical Paley character-sum sufficient bounds, q=67 P4 and weak domination tables predate this claim. Directly relevant 2026 paper poses S4 versus P4 for all vertex-transitive doubly regular tournaments; the specific Paley threshold is not supplied in inspected sections. This is no priority certification.",
+      "residual_risks": [
+        "Historical q-specific 16-pattern data or a Paley automorphism reduction to S4 could make exact P4 criterion implicit in the older domination tables.",
+        "Character-sum Weil bounds are a standard theorem assumed as input; verifier only exhausts q<191."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact k4 all-q theorem",
+          "evidence": [
+            "Proves S3/P3 equivalence and asks S_k vs P_k for k=4 in broader vertex-transitive doubly regular family."
+          ],
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+          "material_read": "Relevant §§4–5, Proposition 4.8, 2026 Problem 5.6 from the available 18-page PDF",
+          "method": "Read published primary PDF and checked relevant theorems and problem statements; inspected PDF screenshot",
+          "title": "2- and 3-existentially closed tournaments",
+          "trigger": "Same Paley tournaments and S_k/P_k extension properties"
+        },
+        {
+          "assessment": "PARTIAL: established q67 case",
+          "evidence": [
+            "q67 four-existential closure explicitly known, which is acknowledged in final claim."
+          ],
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/view/62061",
+          "material_read": "Title, abstract, and q67 result from published summary; full article not re-read in this execution",
+          "method": "Publisher journal page and record reference",
+          "title": "Bounds and constructions for n-e.c. tournaments",
+          "trigger": "Classical Paley n-existential closure"
+        },
+        {
+          "assessment": "COVERING only all-positive S4 tabulation",
+          "evidence": [
+            "Domination size 4 for q103, size 5 for q67–83 and q107–311."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Paley.html",
+          "material_read": "Published table entries for Paley tournaments and domination numbers",
+          "method": "Read table",
+          "title": "Paley graphs — tournament domination table",
+          "trigger": "Exact S4 table including q103"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp eventual threshold with a nonmonotone q=103 exception and a complete finite-field parameter classification answers a natural logical genericity/dominator question in a canonical tournament family. It also settles a motivated restricted instance of a published S4/P4 comparison; it is not an arbitrary finite sample or a textbook renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://cdm.ucalgary.ca/article/download/78881/58831/277078",
+    "https://aeb.win.tue.nl/graphs/Paley.html",
+    "https://cdm.ucalgary.ca/article/view/62061",
+    "https://doi.org/10.4153/CMB-1971-007-1",
+    "Resultary semantic query: Paley tournaments 4-existentially closed all orientation four vertices rank five 67 71 79 83 107"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only Paley tournaments q≡3(mod4), q≥7 and edge-language quantifier rank five; excludes arbitrary vertex-transitive doubly regular tournaments and higher logical ranks.",
+    "Full historical priority cannot be certified from bounded primary and catalogue searches."
+  ],
+  "residual_risks": [
+    "Historical q-specific 16-pattern data or a Paley automorphism reduction to S4 could make exact P4 criterion implicit in the older domination tables.",
+    "Character-sum Weil bounds are a standard theorem assumed as input; verifier only exhausts q<191."
+  ],
+  "schema_version": 1
+}
