@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T02:01:48.115584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/the-second-asymptotic-correction-to-centroid-spherical-depth-in--22091715478a/RESULT.md",
+        "2026/11/01/the-second-asymptotic-correction-to-centroid-spherical-depth-in--22091715478a/verify.py"
+      ],
+      "rationale": "PASS. Similarity-normalized regular d-simplex points have independent Dirichlet(1,...,1) barycentric vectors. Exact geometry gives centroid in the diameter ball iff ΣP_iQ_i<=1/m (m=d+1), equivalently Σ(E_i-mean E)(F_i-mean F)<=0 with independent Exp(1). Conditional on E, standardized coefficients b_i sum zero and sum squares one; exact characteristic function of Σb_i(F_i-1) has log Σ_{j>=2}(it)^j M_j/j. Gaussian Fourier inversion yields 1/2+(2π)^(-1/2)[M3/3-3M5/5+5M3M4/4-35M3^3/54] with integrated remainder O(m^-2) on controlled samples, negligible complement using exponential moments, small-max and empirical concentration. Checked the expansion signs and Gaussian moments directly, not via Monte Carlo. Exact exponential central moments μ2=1, μ3=2, μ4=9, μ5=44, covariance contractions mVar(U2)->8 and mCov(U2,U3)->36, plus E U2=1-1/m,E U3=2-6/m+O(m^-2), give E M3=2m^-1/2-27m^-3/2+o(m^-3/2), E M5=44m^-3/2, E M3 M4=18m^-3/2, E M3^3=8m^-3/2, so coefficient -9-132/5+45/2-140/27=-4883/270. Checked normalization m=d+1; finite 3,000-sign checks and Monte Carlo in verify.py are corroboration ONLY. The analytic good-event and Fourier-tail argument is needed for the asymptotic theorem; no finite-dimensional monotonicity claimed.",
+      "residual_risks": [
+        "The Fourier-tail and good-event uniform remainder is an analytic argument, not certified by the finite Monte Carlo verifier.",
+        "No statement of finite-dimensional monotonicity follows from the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General nonnormal correlation and cumulant expansion results can in principle generate higher coefficients; accessible 2006 summary describes through order 1/m."
+        ],
+        "reasoning": "A general Edgeworth formalism alone is not the exact specialized coefficient unless it explicitly or mechanically gives the m^-3/2 coefficient with required contractions; unchecked full 2006 text is residual risk.",
+        "searches": [
+          "Ogasawara 2006 DOI:10.1016/j.csda.2004.11.001",
+          "Withers 1984 JRSS B power series cumulants",
+          "Resultary high dimensional simplex probability"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.csda.2004.11.001",
+        "https://www.researchgate.net/publication/288978882_Tendency_toward_negative_correlations_for_positively-skewed_independent_random_variables",
+        "https://arxiv.org/abs/2608.27491"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The final asymptotic is for m=d+1 with explicit terms m^-1/2 and m^-3/2, sign and exact rational coefficient."
+        ],
+        "reasoning": "Qualitative sign bias and first-order expansion do not determine the next nonzero coefficient. General theory may reduce the novelty if already specialized elsewhere; risk is documented.",
+        "searches": [
+          "Ogasawara 2006 indexed order m^-1",
+          "Bardsley 2014 qualitative negative correlation",
+          "arxiv:2608.27491"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign of centered exponential covariance is identical to sign of sample correlation (positive sample variances). This maps exactly to a nonnormal-correlation Edgeworth class."
+        ],
+        "reasoning": "Comparison must include the statistical alias, not merely geometric diameter-ball papers; known general framework is acknowledged, but available terms do not give the evaluated second correction.",
+        "searches": [
+          "centroid diameter ball regular simplex Dirichlet inner product",
+          "negative empirical covariance independent exponentials",
+          "sample correlation coefficient under nonnormality Ogasawara 2006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest mathematical findings concern different simplex sections, intrinsic volumes or stochastic polytopes; no exact 4883/270 table was located."
+        ],
+        "reasoning": "No directly covering exact data table found; search absence does not establish absolute novelty.",
+        "searches": [
+          "Resultary semantic: regular simplex random diameter ball centroid depth independent Dirichlet exponential sample covariance Edgeworth second asymptotic correction",
+          "sample covariance independent exponential sign probability 4883/270"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge with significant explicit historical-priority risk. Existing general asymptotic/Edgeworth work on sample correlation for nonnormal variables provides a framework, but the accessible description of Ogasawara (2006) states expansion through m^-1 and does not display the explicitly evaluated m^-3/2 coefficient for the independent exponential-centered covariance sign statistic. The present calculation is a concrete second nonzero simplex-volume coefficient; an exact specialized older evaluation could subsume it but was not verified. The full 2006 primary article was inaccessible after searching preprint/OA and authorized institutional access; the absence of access alone is not a negative originality verdict.",
+      "residual_risks": [
+        "High relevance Ogasawara (2006) complete full text and appendices inaccessible; may contain a dominating general expansion or specialized evaluated coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_COVERAGE_RISK",
+          "evidence": "Reported terms through order 1/m; full proof and appendices were not accessible, so specialized order m^-3/2 computations cannot be ruled out.",
+          "identifier_or_url": "https://doi.org/10.1016/j.csda.2004.11.001",
+          "material_read": "Publisher/index abstracts and bibliographic description, not full text",
+          "method": "Compared accessible scope/order and normalization; preprint and OA access sought before authorized institutional access",
+          "title": "Asymptotic expansion of the sample correlation coefficient under nonnormality (H. Ogasawara, 2006)",
+          "trigger": "Direct competing general Edgeworth expansion for nonnormal sample correlation"
+        },
+        {
+          "assessment": "NOT_CONFIRMED_COVERING",
+          "evidence": "Qualitative negative sample correlation tendency does not state both simplex-volume asymptotic coefficients.",
+          "identifier_or_url": "https://www.researchgate.net/publication/288978882_Tendency_toward_negative_correlations_for_positively-skewed_independent_random_variables",
+          "material_read": "Accessible title and indexed description, not established full text",
+          "method": "Compared accessible summary to concrete exponential Dirichlet coefficient",
+          "title": "Tendency toward negative correlations for positively-skewed independent random variables (E. Bardsley, 2014)",
+          "trigger": "Same sign-bias phenomenon for skew independent variables"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Incenter of a triangle with random points is distinct from arbitrary-dimensional centroid high-d second coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27491",
+          "material_read": "Abstract, bibliographic description and exact planar question; full article not obtained",
+          "method": "Compared planar incenter and all-dimensional regular-simplex centroid definitions",
+          "title": "The Probability That the Incenter of a Triangle Lies in a Random Diameter Disk (Rabinowitz)",
+          "trigger": "Similar random diameter-ball depth geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/the-second-asymptotic-correction-to-centroid-spherical-depth-in--22091715478a/RESULT.md",
+        "https://doi.org/10.1016/j.csda.2004.11.001",
+        "https://www.researchgate.net/publication/288978882_Tendency_toward_negative_correlations_for_positively-skewed_independent_random_variables"
+      ],
+      "rationale": "PASS. The centroid-diameter-ball depth of two independent uniform-volume simplex points is a natural similarity-invariant high-dimensional probability. Its first two nonzero coefficients give a concrete rate and the first signed correction beyond the positive m^-1/2 leading term; the -4883/270 correction is not implied by the leading coefficient. The exact value calibrates the non-Gaussian sample-correlation skewness phenomenon and is useful as a precise benchmark for higher-order asymptotics.",
+      "residual_risks": [
+        "The Fourier-tail and good-event uniform remainder is an analytic argument, not certified by the finite Monte Carlo verifier.",
+        "No statement of finite-dimensional monotonicity follows from the asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/01 centroid RESULT.md METADATA.json verify.py at c28b4266dfbab93d91d6bdc1c317b603480caaa8",
+    "Ogasawara 2006 DOI abstract/bibliographic description",
+    "Bardsley 2014 indexed article description",
+    "Rabinowitz arxiv:2608.27491 indexed abstract",
+    "Withers 1984 JRSS B cited higher-order cumulant framework"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "High relevance Ogasawara (2006) complete full text and appendices inaccessible; may contain a dominating general expansion or specialized evaluated coefficient.",
+    "The Fourier-tail and good-event uniform remainder is an analytic argument, not certified by the finite Monte Carlo verifier.",
+    "No statement of finite-dimensional monotonicity follows from the asymptotic."
+  ],
+  "residual_risks": [
+    "High relevance Ogasawara (2006) complete full text and appendices inaccessible; may contain a dominating general expansion or specialized evaluated coefficient.",
+    "The Fourier-tail and good-event uniform remainder is an analytic argument, not certified by the finite Monte Carlo verifier.",
+    "No statement of finite-dimensional monotonicity follows from the asymptotic."
+  ],
+  "schema_version": 1
+}
