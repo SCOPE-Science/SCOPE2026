@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Contraction of e^{-hA} constructs the unique stationary series. Conditional on iid Bernoulli orders, eigenmodes are independent Gaussians with explicit geometric conditional variances. Their means and covariances yield the exact formulas, strict f monotonicity proves the unique covariance minimax parameter, and positive fourth cumulants exclude Gaussian stationary distributions. A standalone exact-rational 20,450-check verifier confirms stationary second/fourth moment recursions, geometric tail formulas and finite minimax examples. Finite checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leimkuhler and Sachs (2020) Theorem 8 gives an invariant Gaussian for a fixed symmetric GLE-BAOAB scheme.",
+        "Li, Wang and Wang (2025) establish ergodicity and O(h^2) distributional approximation for a fair random-order splitting method."
+      ],
+      "reasoning": "The general ergodicity/error bounds do not imply an exact spectral minimax choice or fourth cumulant. Gaussian invariance of a different symmetric splitting does not imply Gaussian invariance of this randomly chosen asymmetric composition.",
+      "searches": [
+        "randomized Langevin splitting Gaussian stationary non Gaussian mixture with fourth cumulant",
+        "randomized operator splitting Langevin Gibbs Gaussian quartic moments",
+        "arxiv:2012.04245v1 Section 3.2.1",
+        "arxiv:2510.07676v1 Sections 2,5,6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2012.04245v1 (full arXiv HTML, sections 1,2,3.2.1)",
+      "arxiv:2210.11281v1 (full-text indexed sections I,III,IV)",
+      "arxiv:2510.07676v1 (complete indexed text, algorithm and convergence sections)",
+      "Published mathematical records on fractional-midpoint Langevin bias, harmonic low-cost Langevin invariant covariance, and random-sensor Ornstein–Uhlenbeck thresholds (public identifiers checked separately)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 algorithm fixes order probability 1/2 and proves quantitative approximation, not a formula for arbitrary ordering probability.",
+        "The 2020 exact Gaussian statement uses a different deterministic symmetric splitting and an extended-phase Langevin model.",
+        "The 2022 product formula bounds unitary approximation under randomized corrections, not invariant Ornstein–Uhlenbeck noise variances."
+      ],
+      "reasoning": "No inspected theorem implies all exact p-dependent mode errors, their Chebyshev midpoint minimax, and the positive cross-square covariance. In particular an O(h^2) upper bound cannot yield the exact value or the impossibility of exact Gaussian invariance. The 2025 analysis is highly relevant and remains the largest precedence risk.",
+      "searches": [
+        "random order drift diffusion Lie-Trotter splitting Ornstein Uhlenbeck Gaussian invariant law cannot be Gaussian fourth cumulant exact variance",
+        "exact stationary covariance random order Langevin drift diffusion SPD Gaussian sampler optimal Bernoulli ordering probability fourth cumulants cross mode square correlation",
+        "arxiv:2510.07676v1 Algorithm 1 and Theorem 5.2",
+        "arxiv:2012.04245v1 Theorem 8",
+        "arxiv:2210.11281v1 Sections I,III,IV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li, Wang and Wang (2025) Algorithm 1 uses two Lie-Trotter orders with probability 1/2; arxiv:2510.07676v1.",
+        "The present exact-subflow recursion is also a fixed-coefficient AR(1) with iid two-variance Gaussian-mixture innovations; standard stationary cumulant recursions alone do not choose p optimally across the SPD spectrum."
+      ],
+      "reasoning": "Compared the claim under alternative wording (random switching, Gaussian AR(1) mixtures, exact OU splitting). The searched source analyzes the same operator ordering with fixed fair mixing, but states no exact p-dependent covariance minimax or cross-mode square covariance formula. Generic AR(1) facts are methods used here, not a dominating complete sampler classification.",
+      "searches": [
+        "random order drift diffusion Lie-Trotter splitting Ornstein Uhlenbeck Gaussian invariant law cannot be Gaussian fourth cumulant exact variance",
+        "randomized splitting Ornstein Uhlenbeck covariance matching unique mixing probability depending on eigenvalue no common probability",
+        "Ornstein Uhlenbeck randomized Lie Trotter splitting exact stationary covariance non Gaussian fourth cumulant",
+        "randomized splitting Langevin stationary kurtosis harmonic Gaussian target",
+        "arxiv:2510.07676v1 algorithm 1, section 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searches returned no exact benchmark table specifying p*, anisotropic covariance error, or cross-mode squared correlations for this scheme.",
+        "Closest retrieved mathematical records concern different Langevin integrators, stationarity or Gaussian-chaos models."
+      ],
+      "reasoning": "No relevant exact table or enumerated database cell was identified; this negative search is not evidence of universal uniqueness or an exhaustive literature review.",
+      "searches": [
+        "exact stationary covariance random order Langevin drift diffusion SPD Gaussian sampler optimal Bernoulli ordering probability fourth cumulants cross mode square correlation",
+        "random order Langevin invariant covariance exact stationary",
+        "random splitting Langevin Gaussian fourth moment invariant distribution"
+      ]
+    },
+    "rationale": "The exact all-eigenspectrum Bernoulli-order minimax stationary covariance calibration and the unavoidable positive fourth-cumulant/cross-square mechanism are not implied by the inspected convergence-order and fixed-splitting results. Closest same-algorithm work fixes probability 1/2; the classification works for every probability. Moment-recursion and scalar midrange facts themselves are standard and not separately claimed. Specialist precedence remains a risk.",
+    "residual_risks": [
+      "Classical theory of Gaussian-mixture autoregressions may contain an earlier exact reduction of this model; the general cumulant identity itself is standard.",
+      "Another random-splitting analysis could contain a weighted-order harmonic calculation under different terminology.",
+      "Source comparisons were performed without independent specialist review, and bibliographic retrieval is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different deterministic symmetric GLE splitting; not the random-order p-dependent overdamped OU scheme.",
+        "evidence": [
+          "2020-12-08 arXiv v1 metadata",
+          "Theorem 8 in section 3.2.1 identifies an exactly Gaussian quadratic marginal for gle-BAOAB"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.04245v1",
+        "material_read": "Abstract; introduction and problem model; symmetric splitting construction overview; section 3.2 and Theorem 8 with Gaussian quadratic invariant law.",
+        "method": "Public arXiv HTML text (not a PDF excerpt).",
+        "title": "Efficient Numerical Algorithms for the Generalized Langevin Equation",
+        "trigger": "Gaussian stationary bias and splitting methods for numerical Langevin sampling"
+      },
+      {
+        "assessment": "Quantum-unitary product-formula error bounds, not stationary Gaussian diffusion calibration.",
+        "evidence": [
+          "2022-10-20 first public date",
+          "Main construction averages randomized corrections to Hamiltonian unitary product formulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.11281",
+        "material_read": "Introduction; statement of randomized product formula construction; section III design; section IV proof outline and lemmas.",
+        "method": "Public full-text page indexed by the source, including theorem/lemma formulations.",
+        "title": "Doubling the order of approximation via the randomized product formula",
+        "trigger": "Randomized product-formula averages as a possible dominating result"
+      },
+      {
+        "assessment": "Most directly comparable algorithm; fair-order stochastic splitting has general O(h^2) invariant-law error bounds, but no inspected exact all-p eigenvalue minimax or stationary fourth-cumulant classification.",
+        "evidence": [
+          "2025-10-09 arXiv v1 date",
+          "Algorithm 1 chooses drift-first with probability 1/2",
+          "Theorem 5.2 focuses on uniform-in-time law approximation, not exact Gaussian harmonic bias formulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.07676",
+        "material_read": "Abstract and introduction; section 2.1 Algorithm 1 with probability 1/2; principal convergence/ergodicity statements in sections 3-5; section 6 experiments; in-document checks for covariance, variance, kurtosis, quadratic.",
+        "method": "Public indexed complete article text, not only an abstract snippet.",
+        "title": "Ergodicity and error estimate of laws for a random splitting Langevin Monte Carlo",
+        "trigger": "The same two possible drift/diffusion step orderings, highest-priority plausible coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba2056df-054f-4419-b22e-89b617995db3",
+  "value": {
+    "rationale": "Completes the natural choice of a single global random-order probability for exact drift/noise Langevin splitting, with an exact all-SPD spectral-norm covariance error optimum and a rigorous obstruction showing that covariance matching cannot validate the Gaussian law. Positive cross-mode square dependence supplies a concrete diagnostic invisible to covariance monitoring, relevant for Gaussian numerical sampling benchmarks.",
+    "status": "PASS"
+  }
+}
