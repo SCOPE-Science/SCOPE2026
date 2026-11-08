@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The precise generating function agrees with the published definition of \(S_{4,2}\). A self-contained finite polynomial congruence (3), complete in degrees \(0\) through \(23\), supplies all required coefficients of the Mahler quotient modulo \(32\). The proof establishes \(4\mid h_n\) before using its stronger congruences, handles the boundary \(n=0\) separately, and proves the three valuation classes for every positive index by induction and repeated descent. The source conjecture's index shifts were checked individually. The verifier tests both the finite input identity and independent coefficients; it does not replace the unbounded proof.
+PASS
 
-## Originality
+H(x)=(1-x)^(-8)∏_{j≥1}(1-x^(4^j))^(-6), and H(x)=R(x)H(x^4), R(x)=(1-x^4)^2/(1-x)^8. Independently multiplied the explicit degree-15 polynomial P and verified all 24 coefficients of (1-x^16)(1-x^4)^2−(1-x)^8(1-x^16+P(x)) are 0 modulo 32, a complete *finite* polynomial certificate. Independently multiplied the partition generating factors modulo 32 through n=256; all valuations matched v2(h_n)=3 for n odd, 2 if v2(n) odd, 4 if v2(n) positive even. Analytically, the Mahler recursion proves 4|h_n, odd congruence h_n≡8n mod32, 2 mod4 congruence h_n≡4 mod8, and h_(4t)≡h_t+8t mod32. Finite descent proves all n≥1. Checked Conjecture6.6 index shifts: b_j=floor(v2(h_(j+1))/2) equals 2 iff v2(j+1) is positive even, yielding listed recurrences and 4-automaticity. Geometric-density sums are 1/2,1/3,1/6. Index h0=1 treated separately.
 
-**PASS within the inspected evidence.** The closest directly applicable primary source is Ulas and Żmija (arXiv:1904.03398), Section 6, Conjecture 6.6(4): it explicitly asks for the exact relations derived here rather than proving them, and its core proofs address prime bases. A neighboring composite-base result requiring \(\nu_2(m)\ge2\) does not imply the present case \(m=2\). Searches for the exact relations, the generating function, equivalent binary-valuation formulas, automaticity, and density statements found no covering result in the examined sources. The accessible abstract of Żmija's later paper concerns prime-ary partitions; its unavailable full text and any unindexed implicit general theorem remain genuine bibliographic risks. No assertion of absolute priority is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The paper itself isolates the composite base \(4\) as a new phenomenon and formulates an explicit conjecture for \(m=2\). The exact all-index formula resolves that conjecture, gives a finite-state explanation of the pattern, and determines the complete valuation distribution. This is not a sample computation or routine normalization of an already covered parameter family.
+The strongest direct prior primary article explicitly formulates the same k4,m2 sequence relations as Conjecture 6.6(4), not a theorem. Its known prime-base or m divisible by four results exclude this m2 case. The submitted all-index binary valuation formula strictly resolves this particular conjecture and determines its densities; a later article available only at abstract level remains a stated priority risk.
 
-## Limits and source comparisons
+## value
 
-The conclusion is restricted to a single natural but explicitly conjectured parameter pair. Higher-adic digits and the other colors in Conjecture 6.6 remain outside the claim. The closest sources are Ulas–Żmija (2019, arXiv:1904.03398), Ulas–Żmija (2018, arXiv:1809.04628), and Żmija (2023, DOI: 10.1007/s10474-023-01382-y, abstract only). The evidence supports a self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise all-index proof of an explicitly published open case of Conjecture 6.6 is a well-motivated mathematical contribution. The congruence certificate, Mahler recursion, finite automaton and three exact natural densities reveal arithmetic structure rather than a low-cutoff computation; general conjectures remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
