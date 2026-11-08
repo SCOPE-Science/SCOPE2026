@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed theorem is quantified for each strictly positive diffusion coefficient, on-state relaxation rate, and symmetric switching rate under joint stationary initialization. The conditional stationary characteristic functions solve the two coupled generator equations; independent gamma-difference and Gaussian variables represent the resulting positional law. Direct generator substitution confirms the bounded-jump Poisson corrector, and its exact martingale bracket establishes the variance coefficient. Stationary ergodicity, a fixed jump bound and finite fourth moments justify the martingale central limit theorem and boundary-term removal. A positive-probability single-switch construction proves divergence of the work exponential moment separately for each sign of the tilting parameter. Exact algebra, transform identities and independent finite-sample simulations are reproduced by `verify.py` (4 rational parameter checks, 18 transform identities and 3 simulations). Numeric simulations do not prove either asymptotic limit.
+PASS
 
-## Originality — PASS, qualified
+For stationary two-state symmetric rate-q on/off harmonic diffusion, the stationarity equations yield a=E[X^2 1_{S=0}]=D/k+D/q and b=E[X^2 1_{S=1}]=D/k. The work jump compensator is g=qk(1-2S)X^2/2, mean c=kD/2. The exact Poisson corrector h_0=kX^2/2,h_1=-kD/(2q) satisfies Lh=c-g; the corrected work M=W-cT+h(T)-h(0) has jump magnitude kD/(2q), continuous bracket 2Dk^2 integral_0^T X_t^2 1_{off} dt and switch bracket k^2 D^2 T/(4q). Stationary ergodicity gives sigma^2=2D^2k+9D^2k^2/(4q); bounded jumps and finite fourth moments justify the martingale CLT and exact variance-rate limit. The conditional position MGF equals exp(Du^2/(2k))*(1-Du^2/q)^(-q/(2k)-1+S), finite only |u|<sqrt(q/D), thus E exp(cX^2|S=s)=infinity for every c>0. Exactly one off-to-on switch yields E exp(theta W)=infinity for theta>0, and one on-to-off for theta<0 using Jensen, for EVERY finite T>0. Polynomial moments finite via gamma tails and finite Poisson switches. Independently checked rational generator and variance for parameter pairs (3/2,5/3,7/4) and (1,1,1) including 17/4 at unit parameters. No numerical CLT inference.
 
-The base on/off trap and its stationary distribution and rate-independent mean thermodynamic flux were previously established, including by Frydel (arXiv:2407.12213v1). Santra, Das and Nath (arXiv:2104.00609) establish positional and first-passage results; Alston, Cocconi and Bertrand (arXiv:2202.02630) discuss nonequilibrium mean thermodynamic behavior. Frydel's broader 2026 semi-Markovian formulation (arXiv:2607.05173, section III.2) identifies mean injected power, not the present time-integrated work fluctuation law. Classical Markov-additive-functional limit theorems explain a possible proof strategy but do not themselves give the explicit variance rate or universal divergence of both work exponential moments in this model. Targeted literature and mathematical-record searches found no direct statement implying the complete claim. This is evidence of a gap, not a certification of novelty; uninspected fluctuation-theorem literature and equivalent tilted-generator formulations remain residual priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The time-integrated stochastic work is the physical input needed to maintain a nonequilibrium alternating trap. Previous stationary means are independent of switching rate, while the exact variance rate diverges as switching becomes slow and retains a strictly positive fast-switching floor. The combination of a conventional central limit theorem and the absence of *any* finite bilateral exponential moments is a substantive structural boundary for fluctuation-theorem and large-deviation methods. This is a natural full-observable statement for the original model, not an arbitrarily sliced moment calculation.
+Frydel 2024 derives the same fluctuating harmonic stationary distribution and rate-independent average energetics, explicitly credited. Frydel 2026 studies more general waiting-time switching and mean injected power, but its available article statements do not include this Poisson accumulated-work variance and two-sided non-Cramér obstruction. Pal/Sabhapandit 2013 moves the trap center, a different observable/model. Generic martingale machinery alone does not supply the exact model coefficient. Qualified originality, potential unpublished work-current computations remain.
 
-## Closest literature and limits
+## value
 
-The relevant comparison is between stationary one-time distributions or mean injected power and the complete fluctuation law of an additive work observable. The 2013 work-fluctuation treatment by Pal and Sabhapandit concerns a continuously fluctuating *trap location*, not the Poisson on/off *trap stiffness*. The theorem does not establish a full large-deviation principle, nor extend to asymmetric or non-Poisson switching. Independent priority and scientific audits remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural stochastic-thermodynamics work current has a completely explicit mean, Gaussian central limit and variance rate despite lacking every nonzero finite-horizon exponential tilt. This sharp contrast limits standard generating-function/large-deviation methods and quantifies the dependence on switching rate q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

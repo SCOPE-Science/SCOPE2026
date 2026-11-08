@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:46:58.469178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary two-state symmetric rate-q on/off harmonic diffusion, the stationarity equations yield a=E[X^2 1_{S=0}]=D/k+D/q and b=E[X^2 1_{S=1}]=D/k. The work jump compensator is g=qk(1-2S)X^2/2, mean c=kD/2. The exact Poisson corrector h_0=kX^2/2,h_1=-kD/(2q) satisfies Lh=c-g; the corrected work M=W-cT+h(T)-h(0) has jump magnitude kD/(2q), continuous bracket 2Dk^2 integral_0^T X_t^2 1_{off} dt and switch bracket k^2 D^2 T/(4q). Stationary ergodicity gives sigma^2=2D^2k+9D^2k^2/(4q); bounded jumps and finite fourth moments justify the martingale CLT and exact variance-rate limit. The conditional position MGF equals exp(Du^2/(2k))*(1-Du^2/q)^(-q/(2k)-1+S), finite only |u|<sqrt(q/D), thus E exp(cX^2|S=s)=infinity for every c>0. Exactly one off-to-on switch yields E exp(theta W)=infinity for theta>0, and one on-to-off for theta<0 using Jensen, for EVERY finite T>0. Polynomial moments finite via gamma tails and finite Poisson switches. Independently checked rational generator and variance for parameter pairs (3/2,5/3,7/4) and (1,1,1) including 17/4 at unit parameters. No numerical CLT inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel 2024 gives stationary position/energetics and entropy production, while semi-Markov 2026 gives general age-structured stationary distributions and mean injected power for arbitrary waiting times; neither inspected result states exact long-time Poisson accumulated-work second cumulant or two-sided finite-time MGF divergence."
+        ],
+        "reasoning": "Broader physical model coverage does not automatically dominate a stronger probabilistic observable. A generic CLT for additive Markov functionals would require this explicitly calculated corrector and bracket.",
+        "searches": [
+          "https://arxiv.org/html/2407.12213v1 (Frydel 2024 same trap)",
+          "https://arxiv.org/abs/2607.05173 (Frydel 2026 semi-Markov broad model)",
+          "https://doi.org/10.1103/7pxv-tg3b"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2407.12213v1",
+        "https://arxiv.org/abs/2607.05173",
+        "https://doi.org/10.1103/7pxv-tg3b",
+        "https://arxiv.org/abs/2104.00609",
+        "https://arxiv.org/abs/2202.02630",
+        "https://doi.org/10.1103/PhysRevE.87.022138"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original 2024 paper gives stationary exponential-tailed positions and mean energetic observables; this implies divergence of exp(cX^2) but not of signed accumulated switching work without a positive-probability one-switch argument. The 2026 semi-Markov formula for mean power does not imply the Poisson second cumulant or full CLT."
+        ],
+        "reasoning": "The final work-variance coefficient and two-sided divergence require a new martingale Poisson equation plus sign-conditioned path analysis. Strongly related primary sources were read for available relevant sections; an unindexed integrated-current computation remains conceivable.",
+        "searches": [
+          "Frydel 2024 arXiv:2407.12213v1 full PDF stationary distribution sections",
+          "Frydel 2026 Phys Rev E 114 024105 (2026-08-03) DOI:10.1103/7pxv-tg3b",
+          "Pal Sabhapandit 2013 DOI:10.1103/PhysRevE.87.022138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Work is the signed stiffness-change current (k/2)sum Delta S X^2. Frydel 2026 Eq.(36) considers switching-work injection observable, but its accessible results concern stationary moment/mean power, not the integrated-current CLT. 2013 fluctuating trap-location work is a different perturbation."
+        ],
+        "reasoning": "Compared stochastic-energetics jump-work and compensated additive-functional formulations, not merely article titles. Shared mean injection rate does not fix asymptotic quadratic variation or existence of exponential work moments.",
+        "searches": [
+          "Resultary: fluctuating harmonic trap off on Brownian switching work variance central limit infinite exponential moment",
+          "web: \"fluctuating harmonic trap\" \"work fluctuations\" variance asymptotic",
+          "Frydel 2026 DOI:10.1103/7pxv-tg3b injected power"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stationary spatial density/moments for fluctuating harmonic trap exist as exact prior formulas; no prior rate-dependent sigma^2=2D^2k+9D^2k^2/(4q) work-variance table identified."
+        ],
+        "reasoning": "The primary result is an all-parameter analytic law, not an isolated finite table. Prior stationary moments a,b suffice for the mean but not alone for time-integrated work covariance; a negative search does not prove novelty.",
+        "searches": [
+          "Resultary: switched harmonic trap work variance and MGF divergence",
+          "web: Poisson stiffness switching Brownian harmonic work cumulant exact rate q"
+        ]
+      },
+      "rationale": "Frydel 2024 derives the same fluctuating harmonic stationary distribution and rate-independent average energetics, explicitly credited. Frydel 2026 studies more general waiting-time switching and mean injected power, but its available article statements do not include this Poisson accumulated-work variance and two-sided non-Cramér obstruction. Pal/Sabhapandit 2013 moves the trap center, a different observable/model. Generic martingale machinery alone does not supply the exact model coefficient. Qualified originality, potential unpublished work-current computations remain.",
+      "residual_risks": [
+        "Work fluctuation properties of comparable stochastic stiffness-switching traps may have been derived with a different heat/work sign convention outside indexed sources.",
+        "No exact finite-T work probability law or nonstationary start is proved; central limit theorem does not imply a full large-deviation principle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: stationary distribution and mean, not complete current CLT in inspected sections",
+          "evidence": "Exponential stationary spatial tails and mean energetics are established prior; paper does not supply displayed sigma^2 or exact finite-time work MGF claim in inspected relevant text.",
+          "identifier_or_url": "https://arxiv.org/html/2407.12213v1",
+          "material_read": "Full accessible 2024 primary PDF (12 pages), inspected stationary distribution, Fourier solution and rate-independent mean thermodynamic observable sections, including PDF visual check of work/energetics page.",
+          "method": "primary open-access full-text and PDF screenshot",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "precisely same symmetric off/on trap"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR: stationary moments and injected power, not the work-current variance theorem",
+          "evidence": "Published August 3 2026; exact stationary expressions for moment/power and mean potential energy are explicitly identified.",
+          "identifier_or_url": "https://doi.org/10.1103/7pxv-tg3b",
+          "material_read": "Publisher open-access article abstract, main result descriptions/section indexing and references; no claim of line-by-line exhaustive reading.",
+          "method": "publisher primary available article text",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "broader semi-Markov version of exact same trap"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL (moving center rather than on/off stiffness)",
+          "evidence": "Location-driven work does not subsume stiffness-switching signed jump current.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.022138",
+          "material_read": "Primary title/abstract and model description (trap center motion), not whole text.",
+          "method": "publisher bibliography and model abstract",
+          "title": "Work fluctuations for a Brownian particle in a harmonic trap with fluctuating locations",
+          "trigger": "matching work fluctuations title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural stochastic-thermodynamics work current has a completely explicit mean, Gaussian central limit and variance rate despite lacking every nonzero finite-horizon exponential tilt. This sharp contrast limits standard generating-function/large-deviation methods and quantifies the dependence on switching rate q.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Work fluctuation properties of comparable stochastic stiffness-switching traps may have been derived with a different heat/work sign convention outside indexed sources.",
+    "No exact finite-T work probability law or nonstationary start is proved; central limit theorem does not imply a full large-deviation principle."
+  ],
+  "schema_version": 1
+}
