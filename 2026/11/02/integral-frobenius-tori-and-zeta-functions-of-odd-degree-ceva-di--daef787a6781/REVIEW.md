@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric singularities follow from three explicit line families and the identity that mixed intersections have third index equal to minus the sum of the first two. Ordinary multiple-point delta and branch normalization give additive dimension \(u_n=n^2+3\binom{n-1}{2}\) and cycle-graph torus dimension \(2n^2-2\). The restriction \(p>n\) makes the truncated logarithm legitimate at every local singularity; over the perfect finite base the unipotent group is a vector group. The nonsplit Frobenius fixed subgraph is a seven-vertex tree, so an equivariant spanning tree proves that the **integral** character lattice is regular in \(n^2-1\) pairs. The exact zeta formulas follow from normalization orbit counts. A separate standalone program checked those combinatorics and ten direct finite-field enumerations. These are corroboration, not infinite proofs.
+## correctness
 
-## Originality — PASS, qualified
-The Ceva/Fermat point configuration is explicitly studied in Harbourne–Seceleanu (2013) and Nagel–Seceleanu (2015); Hesse-related degree-three geometry is covered by Artebani–Dolgachev (2006). Those papers' inspected mathematical developments concern incidence/pencils or point ideals, not the stated all-odd-degree arithmetic Picard isomorphism and two zeta-function regimes. Public mathematical-record searches on the same objects, finite-field torus decomposition, equivalent subgroup actions, and rational-point formula did not reveal a directly covering result. The general normalization theorem is an ingredient, not the evaluated integral Frobenius decomposition. Historical priority is not independently established: a specialized paper outside the inspected set might give this as an application, and results derivable from standard structure theorems may have circulated informally.
+PASS
 
-## Mathematical value — PASS
-The family is a classical, geometrically distinguished sequence with increasingly large nonnodal singularities; its generalized Jacobians have both toric and unipotent parts of quadratic growth. The infinite-family **integral** induced-torus description, uniform nonsplit rational-point count, and exact extension-field zeta functions constitute a natural complete two-regime arithmetic classification, not an arbitrary low-parameter computation. The assumption \(p>n\) and omission of other Frobenius classes are genuine scope limits. The result offers a benchmark for more general cyclotomic Frobenius actions and Picard structures of line arrangements.
+Geometrically the divisor comprises 3n distinct lines, three ordinary n-fold family concurrency points and n² ordinary triple points. A normalization has 3n disjoint P1 components. Ordinary r-fold local gluing contributes torus rank r-1 and unipotent dimension (r-1)(r-2)/2, giving u=n²+3(n-1)(n-2)/2. The branch-incidence bipartite graph has V=3n+n²+3, E=3n(n+1), so H1 graph rank 2n²-2. In nonsplit q≡-1 mod n with odd n, Frobenius inversion fixes exactly 7 vertices/6 edges comprising a tree, and a paired-edge invariant spanning tree makes the integral cycle lattice a direct sum of n²-1 regular two-dimensional permutation modules. This establishes isomorphism (not just isogeny) to Weil restriction tori. Descent of truncated principal-unit groups uses p>n. Normalization branch-orbit counts produce stated zeta factors and q^m-point counts. Independent projective-point enumeration verified (n,q)=(5,11),(5,19),(7,13),(7,29); sampled checks are not the all-n proof. The source verifier additionally checks finite invariant graph trees and orbit incidence.
 
-## Closest work and limitations
-Nagel–Seceleanu 2015 gives the Fermat-point ideals and relevant geometry; Harbourne–Seceleanu 2013 gives the degree-three origin and a general exponent observation; Artebani–Dolgachev 2006 describes the degree-three Hesse relation. None of the inspected passages states the computed generalized Jacobian group scheme or the uniform nonsplit formula. The result concerns odd \(n\ge5\), \(p>n\), and \(q\equiv\pm1\pmod n\), rather than all finite-field Frobenius types. Verification code samples seven odd degrees and ten finite prime fields; the general proof is symbolic/combinatorial. Further specialist literature review would be useful before a publication claim of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fermat/Ceva special point configurations and Hesse n=3 precede this work. Inspected literature develops ideal containments, Rees algebra or classical lines, not the uniform integral Frobenius torus, generalized Jacobian rational group and zeta pair across odd n. Best-of-knowledge original, with a plausible unindexed generalized-Jacobian literature risk.
+
+## value
+
+PASS
+
+The exact integral arithmetic torus of a singular line arrangement is a useful structural invariant; distinguishing a Weil restriction isomorphism from an isogeny gives finite rational Picard groups. The nonsplit n-independent 3q+1 count and all-extension zeta are natural global consequences, not arbitrary enumerated slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

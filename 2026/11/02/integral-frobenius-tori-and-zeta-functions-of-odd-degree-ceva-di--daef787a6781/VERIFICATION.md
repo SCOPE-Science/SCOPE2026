@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification and boundaries
+# Independent mathematical audit
 
-Run `python3 verifier.py` with Python 3 (standard library only). The supplied `verifier_output.txt` is the actual successful output, ending `VERIFY_OK`.
+## correctness
 
-The script constructs the branch incidence graph for odd \(n=3,5,7,9,11,13,15\). It checks the vertex/edge counts, the seven fixed vertices and six fixed edges, builds a stable spanning tree from that fixed tree, and verifies that the remaining \(2n^2-2\) fundamental cycles form \(n^2-1\) exchanged pairs. This is an exhaustive graph check for each listed degree; the argument for arbitrary odd degree is in `RESULT.md`.
+PASS
 
-It enumerates all \(q^2+q+1\) projective points over ten prime fields, with \(n=5,7,9,11,13\) and both \(q\equiv1\) and \(q\equiv-1\pmod n\). For those ten instances direct counts agree with the two point-count formulas. It also performs an independent formal logarithmic-derivative check of the zeta expressions through extension degree eight. This is finite experimental corroboration, not an exhaustive enumeration over all parameters.
+Geometrically the divisor comprises 3n distinct lines, three ordinary n-fold family concurrency points and n² ordinary triple points. A normalization has 3n disjoint P1 components. Ordinary r-fold local gluing contributes torus rank r-1 and unipotent dimension (r-1)(r-2)/2, giving u=n²+3(n-1)(n-2)/2. The branch-incidence bipartite graph has V=3n+n²+3, E=3n(n+1), so H1 graph rank 2n²-2. In nonsplit q≡-1 mod n with odd n, Frobenius inversion fixes exactly 7 vertices/6 edges comprising a tree, and a paired-edge invariant spanning tree makes the integral cycle lattice a direct sum of n²-1 regular two-dimensional permutation modules. This establishes isomorphism (not just isogeny) to Weil restriction tori. Descent of truncated principal-unit groups uses p>n. Normalization branch-orbit counts produce stated zeta factors and q^m-point counts. Independent projective-point enumeration verified (n,q)=(5,11),(5,19),(7,13),(7,29); sampled checks are not the all-n proof. The source verifier additionally checks finite invariant graph trees and orbit incidence.
 
-Local normalization and truncated-logarithm arguments are given in `RESULT.md`. The characteristic hypothesis \(p>n\) is essential to this argument. The group-scheme claim requires the proof of the integral Frobenius cycle lattice, not merely its characteristic polynomial. No outside scientific audit or machine-checked infinite formalization has been performed.
+## originality
+
+PASS
+
+Fermat/Ceva special point configurations and Hesse n=3 precede this work. Inspected literature develops ideal containments, Rees algebra or classical lines, not the uniform integral Frobenius torus, generalized Jacobian rational group and zeta pair across odd n. Best-of-knowledge original, with a plausible unindexed generalized-Jacobian literature risk.
+
+## value
+
+PASS
+
+The exact integral arithmetic torus of a singular line arrangement is a useful structural invariant; distinguishing a Weil restriction isomorphism from an isogeny gives finite rational Picard groups. The nonsplit n-independent 3q+1 count and all-extension zeta are natural global consequences, not arbitrary enumerated slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
