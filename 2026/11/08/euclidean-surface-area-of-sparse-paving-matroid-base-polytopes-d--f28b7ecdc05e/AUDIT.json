@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For distinct circuit-hyperplanes H,H′ the sparse-paving intersection bound gives x(H)+x(H′)<=2r-2 on the whole hypersimplex, so their excised strict vertex corners are disjoint. A single new facet is the orthogonal product of two standard simplices and has exact (n-2)-area sqrt(r(n-r))/((r-1)!(n-r-1)!). For each removed vertex, exactly r coordinate-one and n-r coordinate-zero original facet caps are lost, each with the computed pyramid volume. The alternating Eulerian formula gives the hypersimplex baseline. Subtracting additive caps and adding complete new facets proves the stated formula. Positivity follows from a>=r(n-r) and c sqrt(r(n-r))>sqrt(2), and the rank-monotonicity comparison follows from the explicitly proved consecutive-rank inequality. The canonical n=6,r=3 example has exact area 4sqrt(5)+3/2. Independent convex-hull computations passed 73 cases and 76 rank profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanely et al. Theorem 5.11: Ehrhart formulas for all paving matroids, and Remark 5.12 for sparse paving.",
+        "Ferroni Theorems 4.6 and 4.7: relaxation gluing and Ehrhart changes.",
+        "Ferroni–Schröter Corollary 2.10: f-polynomial depends on both the number of circuit-hyperplanes and the number of intersection pairs of size r-2."
+      ],
+      "reasoning": "The broader paving-matroid slicing theorem gives ingredients for the present argument but does not evaluate ordinary Euclidean surface area or rank ordering; the face-enumeration theorem does not imply metric face sizes. The special rank-two metric-center records concern inradius, not boundary measure.",
+      "searches": [
+        "arxiv:2201.12442",
+        "arxiv:2105.04465",
+        "doi:10.1017/S0963548325000021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2105.04465",
+      "arxiv:2201.12442",
+      "doi:10.1017/S0963548325000021",
+      "arxiv:2010.10227"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing Ehrhart coefficients are lattice-normalized and already independent of intersection patterns.",
+        "The face-polynomial has an additional parameter for circuit-hyperplane intersections.",
+        "The new proof computes two distinct metric cap losses and one added facet size, and establishes strict rank monotonicity."
+      ],
+      "reasoning": "The cited Ehrhart statements do imply equal normalized boundary measure for equal (n,r,lambda), but not the claimed numerical ordinary Euclidean measure without a separate metric computation. The f-vector theorem supplies a contrast, not the formula. The strict rank-balanced coefficient ordering is not stated in these works.",
+      "searches": [
+        "arxiv:2105.04465 Section 4.3",
+        "arxiv:2201.12442 Remark 5.12",
+        "Ferroni Schroter Face enumeration for split matroid polytopes Corollary 2.10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferroni, arXiv:2105.04465, Section 4.3, provides Ehrhart polynomial of every sparse-paving matroid, rather than Euclidean boundary measure.",
+        "Hanely et al., arXiv:2201.12442, introduction calls the second Ehrhart coefficient normalized boundary surface area."
+      ],
+      "reasoning": "The second Ehrhart coefficient is a lattice-normalized sum. The new facets normal to a circuit-hyperplane have Euclidean covolume sqrt(r(n-r)), whereas coordinate facets have covolume sqrt(n-1); these differ, so an Ehrhart coefficient is not the stated Euclidean area. No alternative Euclidean-perimeter or facet-valuation expression covering the result was found.",
+      "searches": [
+        "\"sparse paving\" \"Euclidean\" \"surface area\" polytope",
+        "\"matroid base polytopes\" \"Euclidean surface\" facet",
+        "\"hypersimplex\" \"surface area\" \"circuit hyperplane\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2025 full-text face-count formula contains an intersection-pair parameter; neither it nor the inspected 2021 and 2022 sources displays the new Euclidean coefficient."
+      ],
+      "reasoning": "No published exact table or identity was located with the stated Euclidean additive correction or the rank-balanced extremum. A null search is not a uniqueness proof.",
+      "searches": [
+        "sparse paving matroid Euclidean boundary surface area exact formula",
+        "matroid hypersimplex removed vertices surface area formula",
+        "doi:10.1017/S0963548325000021"
+      ]
+    },
+    "rationale": "A direct formula for ordinary Euclidean Hausdorff surface area is not stated in the inspected cited sources. Existing sparse-paving Ehrhart formulas determine lattice-normalized boundary measure, which weighs facets using their distinct covolumes, not the present Euclidean area; the missing face-class calculation and per-vertex metric correction are supplied here. A 2025 face-vector theorem has an extra intersection-pair parameter, while the new Euclidean area ignores that parameter. Literature and mathematical-record searches located no dominating Euclidean surface-area statement; prior-work equivalence remains a residual risk.",
+    "residual_risks": [
+      "Earlier equivalent formula might exist in convex-geometric valuations of matroid polytopes under different terminology.",
+      "The new formula can be deduced using known hypersimplex cutting geometry, so independent historical and significance assessment is still needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ehrhart and stacking inputs; no displayed ordinary Euclidean surface-area or rank-monotonicity law in examined material.",
+        "evidence": "Theorems 4.6–4.7 and Section 4.3; no occurrences for Euclidean or surface area in the parsed PDF.",
+        "identifier_or_url": "https://arxiv.org/pdf/2105.04465",
+        "material_read": "Parsed full-text searches for Euclidean and surface area; read abstract, introduction, matroid definitions, and Sections 4.1–4.3, including Theorems 4.6–4.7.",
+        "method": "Direct searchable author PDF and visual first-page check.",
+        "title": "Matroids are not Ehrhart positive",
+        "trigger": "Exact sparse-paving Ehrhart and relaxation results could cover the claim."
+      },
+      {
+        "assessment": "Provides systematic Ehrhart slicing and sparse-paving Ehrhart formula, not the Euclidean surface-area correction.",
+        "evidence": "Introduction, Theorem 5.11, Remark 5.12; the surface term is explicitly described in Ehrhart-normalized setting.",
+        "identifier_or_url": "https://arxiv.org/pdf/2201.12442",
+        "material_read": "Parsed full-text search and introduction; Section 3 on relaxation, Section 5.3 and Remark 5.12; inspected first-page rendering.",
+        "method": "Direct lawful open-access author PDF with searchable text.",
+        "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+        "trigger": "More general paving-matroid slicing might dominate any sparse-paving measure statement."
+      },
+      {
+        "assessment": "Face numbers depend on an additional pairwise-intersection statistic; no Euclidean facet measures stated.",
+        "evidence": "Corollary 2.10 and Section 2.5.",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548325000021",
+        "material_read": "Publisher full-text HTML, Section 2.5 including Corollary 2.10, and related face-count results.",
+        "method": "Readable primary full-text HTML.",
+        "title": "Face enumeration for split matroid polytopes",
+        "trigger": "Could determine geometric boundary via facet count or characterize interactions."
+      },
+      {
+        "assessment": "Establishes combinatorial and facet facts, not the Euclidean area law.",
+        "evidence": "Proposition 19 and surrounding hypersimplex facet discussion.",
+        "identifier_or_url": "https://arxiv.org/pdf/2010.10227",
+        "material_read": "Read introduction, hypersimplex facet discussion near Proposition 19, with visual first-page check.",
+        "method": "Direct open-access PDF.",
+        "title": "Reconstructibility of Matroid Polytopes",
+        "trigger": "Background on the hypersimplex facet structure and possible polytope isomorphisms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f28b7ecd-c05e-4a5c-9b48-a1d48fb9ed0a",
+  "value": {
+    "rationale": "Sparse-paving matroid polytopes form a large, naturally defined class. Ordinary Euclidean surface area, unlike lattice boundary normalization, is metric and depends on facet normal norms. The theorem gives a complete exact valuation on all connected sparse-paving base polytopes, proving that intersection patterns cannot affect it even though published f-vector formulas are sensitive to those patterns. The rank-balanced maximal loss is a nontrivial sharp inequality for the per-circuit metric defect. The explicitly constructed six-element pair has the same Euclidean area but different face vectors. This is motivated geometric structure, not an arbitrary finite recomputation; it does not claim to classify all intrinsic volumes.",
+    "status": "PASS"
+  }
+}
