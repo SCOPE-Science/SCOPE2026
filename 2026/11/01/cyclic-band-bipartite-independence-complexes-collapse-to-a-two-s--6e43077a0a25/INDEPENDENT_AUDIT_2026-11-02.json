@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T02:58:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/METADATA.json"
+      ],
+      "rationale": "Taking complements turns the bipartite independence complex into a clique complex with two full pure vertex cliques and mixed edges a_i b_(i+q), q=0..t-1. Adding a layer s>=3 creates new edge e=(a_i,b_(i+s-1)); n>=2s-1 prevents wraparound and its common-neighbor link is exactly two cliques A_1..A_(s-1) and B_0..B_(s-2) with cross-adjacency r<=q, independent of previously inserted same-layer edges. Each A_r (r>=2) is dominated by A_1, and after removing them each B_q (q<=s-3) is dominated by B_(s-2); link collapses via codimension-one pairs to an edge and then to a vertex. Lifting link pairs by union with e removes only new faces; each is a genuine free codimension-one face, so the enlarged whole complex collapses to its pre-insertion complex. Ferrers link has (s+1)2^(s-2) faces including empty, yielding (s+1)2^(s-3) pairs per new edge; summing n times over s=3..t gives n(t2^(t-2)-2), with t=2 an empty sum. Exact pure-simplex and mixed-annulus face counting gives 2^(n+1)-1+nt2^(t-1). For t=2, the mixed strip is an annulus capped along both boundary cycles by the full a and b simplices, hence homotopy S2. Replayed the inspected full package checker from its Git-SHA-verified bytes: for all n=3..11 in the specified range it reconstructs actual complete face sets and verifies every free-face pair and final remainder. This is finite support only; the Ferrers link argument proves all stable parameters.",
+      "residual_risks": [
+        "A general theorem for cyclic co-bipartite clique complexes could imply the homotopy S2 without using this name.",
+        "The near-scope Resultary Rips result and circle-graph works were not read in full, limiting definitive novelty conclusions.",
+        "No claims below n<2t-1 or about equivariant collapse; finite replay does not prove all parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek concerns chordal graphs and dismantling; K_nn minus cyclic bands for these parameters is not generally chordal (induced 4-cycles persist). Circle-graph complex results address families or properties without the stated deleted-matching stable range and canonical free-face collapse."
+        ],
+        "reasoning": "The broader structural results do not visibly give the exact homotopy S2 plus explicit n(t2^(t-2)-2) collapses; failed broad search is not independent proof of novelty.",
+        "searches": [
+          "arXiv:1508.02426 Adamaszek",
+          "arXiv:2302.02527 Chakraborty",
+          "arXiv:2412.01125 Bakshi et al."
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/verify.py",
+        "https://arxiv.org/abs/1508.02426",
+        "https://arxiv.org/abs/2302.02527",
+        "https://arxiv.org/abs/2412.01125",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The opposite-complement distinction invalidates an apparent transfer implication. Chordal-complex dismantling does not apply to nonchordal K_nn-H. The Ferrers link dominance argument and exact number of elementary collapses require new reasoning."
+        ],
+        "reasoning": "No inspected broader prior statement has hypotheses and conclusion from which the entire claimed collapse follows.",
+        "searches": [
+          "Resultary independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e",
+          "arXiv:1508.02426"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary transfer theorem identifies the scale-2 Rips complex of K_nn - H with Ind(H), for an excluded low-degree graph H; the current K is Ind(K_nn - H), where H is the band of deleted matchings. These are generally different simplicial complexes."
+        ],
+        "reasoning": "No complement/duality substitution was found that transforms the published Rips/Ind(H) result into Ind(K_nn-H) with this exact collapse count; the graph argument explicitly compares the face predicates.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e",
+          "search terms crown graphs cyclic-band bipartite independence complex Ferrers link"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest published exact formula in Resultary is for the other independence complex Ind(H) and its Rips barcode, not a known table for Ind(K_nn-H)."
+        ],
+        "reasoning": "A bounded index/literature search did not reveal an exact table for this family. The proof provides a parameter-uniform collapse rather than merely copying numerical face counts.",
+        "searches": [
+          "Resultary cyclic matching bipartite complement query",
+          "arXiv:1508.02426",
+          "arXiv:2412.01125"
+        ]
+      },
+      "rationale": "A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.",
+      "residual_risks": [
+        "A general theorem for cyclic co-bipartite clique complexes could imply the homotopy S2 without using this name.",
+        "The near-scope Resultary Rips result and circle-graph works were not read in full, limiting definitive novelty conclusions.",
+        "No claims below n<2t-1 or about equivariant collapse; finite replay does not prove all parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LIMITED; chordal-family theorem not directly applicable, but full text not inspected",
+          "evidence": "The graph is bipartite and generally has induced 4-cycles, whereas the paper restricts to chordal graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.02426",
+          "material_read": "Indexed title, abstract and graph-family scope; primary full text could not be retrieved from arXiv this turn",
+          "method": "ArXiv index and cross-comparison of chordality requirement",
+          "title": "A note on independence complexes of chordal graphs and dismantling",
+          "trigger": "General graph independence collapse theorem, may dominate"
+        },
+        {
+          "assessment": "DIFFERENT functor from summary; uninspected full text remains a narrower priority risk",
+          "evidence": "Indexed statement is Rips_2(K_nn-H)=Ind(H), whereas claim computes Ind(K_nn-H) itself.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e",
+          "material_read": "Resultary title and scientific indexed summary only, not complete full document",
+          "method": "Resultary semantic search, then checked described graph-complex transformation",
+          "title": "Independence-complex transfer and three-periodic Rips barcodes of bipartite factor complements",
+          "trigger": "Same K_nn-H family, risk of direct earlier coverage"
+        },
+        {
+          "assessment": "LIMITED; no decisive whole-paper NOT_COVERING assertion",
+          "evidence": "Even if the graph lies in a circle-graph class, general wedge results do not by themselves determine this exact n,t collapse count.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.01125",
+          "material_read": "Indexed abstract/title and topic only; direct full text not inspected",
+          "method": "Search and source-scope comparison",
+          "title": "Independence complexes of circle graphs",
+          "trigger": "Possible covering circle-graph classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/verify.py",
+        "https://arxiv.org/abs/1508.02426",
+        "https://arxiv.org/abs/2302.02527",
+        "https://arxiv.org/abs/2412.01125",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e"
+      ],
+      "rationale": "Deleting consecutive matchings from a complete bipartite graph is a natural structured graph operation. A uniform explicit strong simplicial collapse onto a fixed two-sphere homotopy type throughout a two-parameter stable range, together with exact pair and face counts, is stronger and more useful than an Euler-characteristic observation or a random small-parameter census. It gives a direct constructive topological simplification of a family whose complexes grow exponentially.",
+      "residual_risks": [
+        "A general theorem for cyclic co-bipartite clique complexes could imply the homotopy S2 without using this name.",
+        "The near-scope Resultary Rips result and circle-graph works were not read in full, limiting definitive novelty conclusions.",
+        "No claims below n<2t-1 or about equivariant collapse; finite replay does not prove all parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cyclic-band-bipartite-independence-complexes-collapse-to-a-two-s--6e43077a0a25/verify.py",
+    "https://arxiv.org/abs/1508.02426",
+    "https://arxiv.org/abs/2302.02527",
+    "https://arxiv.org/abs/2412.01125",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complex-transfer-and-three-periodic-rips-barcodes-o--5408625c1e7e"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A general theorem for cyclic co-bipartite clique complexes could imply the homotopy S2 without using this name.",
+    "The near-scope Resultary Rips result and circle-graph works were not read in full, limiting definitive novelty conclusions.",
+    "No claims below n<2t-1 or about equivariant collapse; finite replay does not prove all parameters."
+  ]
+}

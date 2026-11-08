@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the exact newly inserted-edge link as a two-clique Ferrers graph, exhibits a uniform sequence of dominated-vertex collapses of each link, lifts that collapse to valid elementary pairs on the full complex, and identifies the terminal complex as an annulus capped by two contractible disks. The exact pair-count and face-count recurrences are algebraically checked. The standalone finite verifier reconstructs the actual intermediate complexes and replays every free-face pair, including maximality, rather than taking output logs as a proof. The proof of the general range rests on the explicit no-wraparound inequality; finite enumerations alone are not the justification.
+## correctness
 
-## Originality
-PASS, with stated publication-priority risk. The closest 2015 dismantling theorem treats chordal graphs; the 2023 and 2024 circle-graph independence studies do not give this cyclic-band two-parameter sphere classification or the stated free-face sequence. A previously published low-degree bipartite Rips transfer identifies the independence complex of the **deleted** graph, not the **remaining** graph, so it does not imply this conclusion. Title variants and complement/flag formulations were compared; no direct or stronger covering statement was found in the sources inspected. Lack of a database hit is not proof of absolute novelty, and unindexed equivalents cannot be ruled out.
+PASS
 
-## Value
-PASS. A complete homotopy classification in a natural two-parameter family obtained by cyclic deletion of perfect matchings is structurally informative. It gives a stable parameter boundary and an explicit simple-homotopy reduction through high-dimensional flag complexes to a natural two-dimensional core; these are not isolated arbitrary numerical invariants. The face count gives a further reproducible scaling law but is subordinate to the structural theorem.
+Taking complements turns the bipartite independence complex into a clique complex with two full pure vertex cliques and mixed edges a_i b_(i+q), q=0..t-1. Adding a layer s>=3 creates new edge e=(a_i,b_(i+s-1)); n>=2s-1 prevents wraparound and its common-neighbor link is exactly two cliques A_1..A_(s-1) and B_0..B_(s-2) with cross-adjacency r<=q, independent of previously inserted same-layer edges. Each A_r (r>=2) is dominated by A_1, and after removing them each B_q (q<=s-3) is dominated by B_(s-2); link collapses via codimension-one pairs to an edge and then to a vertex. Lifting link pairs by union with e removes only new faces; each is a genuine free codimension-one face, so the enlarged whole complex collapses to its pre-insertion complex. Ferrers link has (s+1)2^(s-2) faces including empty, yielding (s+1)2^(s-3) pairs per new edge; summing n times over s=3..t gives n(t2^(t-2)-2), with t=2 an empty sum. Exact pure-simplex and mixed-annulus face counting gives 2^(n+1)-1+nt2^(t-1). For t=2, the mixed strip is an annulus capped along both boundary cycles by the full a and b simplices, hence homotopy S2. Replayed the inspected full package checker from its Git-SHA-verified bytes: for all n=3..11 in the specified range it reconstructs actual complete face sets and verifies every free-face pair and final remainder. This is finite support only; the Ferrers link argument proves all stable parameters.
 
-## Closest literature and limitations
-See RESULT.md for precise citations. A general classification that implicitly covers this family remains a residual originality risk. No result is claimed for the nonstable range, arbitrary deletion patterns, or symmetry quotients. No independent validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.
+
+## value
+
+PASS
+
+Deleting consecutive matchings from a complete bipartite graph is a natural structured graph operation. A uniform explicit strong simplicial collapse onto a fixed two-sphere homotopy type throughout a two-parameter stable range, together with exact pair and face counts, is stronger and more useful than an Euler-characteristic observation or a random small-parameter census. It gives a direct constructive topological simplification of a family whose complexes grow exponentially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
