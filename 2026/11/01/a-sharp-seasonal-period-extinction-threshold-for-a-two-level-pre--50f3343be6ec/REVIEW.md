@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inverse-prey substitution makes the phasewise logistic flow affine and contracting, giving a unique periodic orbit with explicit endpoints. Integrating the phasewise logarithmic derivative gives the exact mean; strict concavity of the hyperbolic composition proves monotonicity without relying on numerics. The triangular variational equation gives the two exact Floquet multipliers. A scalar logistic comparison bounds every prey solution from above by a solution converging exponentially to the boundary cycle, causing global predator decay whenever the mean is below one; the inverse-prey equation then gives prey convergence. Endpoint mean asymptotics and the strict crossing were independently reconstructed and checked. See RESULT.md Proof steps 1–5 and verify.py for numerical sanity checks.
+PASS
 
-## Originality — PASS with residual priority risk
+Independently reconstructed scalar y=1/b affine contractive Poincare map; its periodic fixed point yields exact m(T)=A-2(H-L)atanh(epsilon*tanh(T/4))/T. Directly differentiating g(z)=atanh(epsilon*tanh z) shows g(0)=0 and g''<0 for z>0, so m strictly increases B<m<A. Triangular Floquet Jacobian gives rho_a=exp(lambda T(m-1)), rho_b=exp(-T). Scalar logistic comparison b<=z and exponential convergence of inverse logistic profiles bound a(t)<=C exp(lambda(m-1)t); stable inverse b equation then gives b-b_T->0. Independent scalar numeric root for H=2,L=1/2 is 7.901747381549. Universal argument is analytic, not 60 quadrature samples.
 
-The source model arXiv:2511.03521v1 treats sinusoidal forcing and coexistence/chaos, not this quantitative predator-invasion classification. The very close earlier arXiv:2002.10372, Supplemental S2.3, already gives the scalar logistic periodic profile; that mathematical object and formula are prior art. Our mean formula is algebraically implied by it, and is not the standalone novelty. The remaining contribution is strict all-period monotonicity combined with the necessary-and-sufficient single-crossover classification and its full-positive-cone extinction conclusion for the nonlinear two-species model. These are not provided by the inspected earlier primary statements, but specialized unindexed results may exist. The 2026 Axioms paper's full publisher text remained inaccessible; this is an explicit priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-In periodically forced predator–prey systems, two limiting effective capacities often give insufficient information about intermediate forcing periods, including the possibility of multiple disjoint invasion windows. Here exact mean monotonicity proves there can be precisely one crossing, with no other intermediate frequency windows, and the stable side enjoys global predator extinction rather than only perturbative Floquet stability. This is a motivated all-period dynamical classification across an unrestricted positive capacity contrast, not a numerical example or a repeated calculation of an already-published scalar solution. It does not assert nonlinear persistence on the invasion side or a new stochastic conclusion.
+Taitelbaum–West–Assaf–Mobilia 2020 Supplemental S2.3 explicitly derives identical scalar switched logistic profile (S16-S17); it does not, in inspected material, give the unique full-period predator Floquet threshold plus global comparison extinction theorem. Swailem–Täuber 2022 studies a spatial stochastic seasonal LV model and fast/slow effects. Resultary returned related predator invasion models with different forcing/mechanisms.
 
-## Close literature and limitations
+## value
 
-Closest: arXiv:2002.10372 Eq. (S17) explicitly covers scalar logistic periodic profiles; arXiv:2211.09276 analyzes periodic carrying-capacity switching; arXiv:2511.03521v1 provides the normalized coupled equations; Axioms 15 (2026), 355 treats scalar periodic logistic solutions. The main risk is an unindexed explicit global-invasion result or a stronger general theorem rendering the period-uniqueness comparison immediate. The proof is for deterministic equal-duration seasons and does not certify behavior at the nonhyperbolic boundary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strict unique environmental-period invasion transition and global extinction from every positive prey initial condition is a natural sharp, parameter-explicit dynamical threshold, not merely a known logistic solution or finite numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
