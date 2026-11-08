@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The process has a precise two-orientation backward generator and an exponentially held sticky-left boundary. Explicit polynomial solutions for its first and second conditional moments satisfy the interior equations and both physical boundary conditions. Averaging at the center yields the reported formulas. Independent exact-rational series expansion of the published full escape-time transform reproduces both moments. Analytic strict convexity gives unique mean/variance optima, Descartes' rule and sign tests isolate the distinct coefficient-of-variation optimum, and opposite monotonicities plus strict convex scalarizations prove the full mean–variance Pareto segment. The packaged standard-library checker passed exact rational equation, boundary, and independent-transform checks for 16 parameter values; numerical checks are not substituted for the universal proof.
+PASS
 
-## Originality — PASS, qualified
+For the center-started 1D telegraph process with left sticky wall, right absorbing wall, Poisson reversal rate alpha/2, b=alpha R/v>0, the backward moment equations and sticky waiting-time boundary conditions are explicitly solved in pinned RESULT.md. The first two moment polynomials give M(b)=3+3b/2+1/b, V(b)=5b^2/2+10b+12+8/b+3/b^2 and Q(b)=V/M^2. Independently differentiated the exact rational expressions and checked M_second=2/b^3>0, V_second=5+16/b^3+18/b^4>0 and Q_derivative=16(2b^3-3b^2-9b-5)/(3b^2+6b+2)^3. The quartic 5b^4+10b^3-8b-6 and the cubic 2b^3-3b^2-9b-5 each have one positive root by Descartes; b_M=sqrt(2/3)<b_V≈0.975331842868198<1<3<b_Q≈3.16896685513906. On [b_M,b_V], M strictly increases while V strictly decreases, so the full nondominated mean/variance frontier is exactly this interval, all points supported by unique positive weights. Q decreases then increases and its minimum b_Q lies outside, dominated in M,V by b_V. Q-1=(b^4+4b^3+8b+8)/(3b^2+6b+2)^2>0; inf Q≈1.099983697266. The source exact Laplace transform provides independent moment cross-check, but these raw moments and the mean optimizer were prior known.
 
-The exact model, full first-passage Laplace transform, mean exit-time identity and optimal mean tumbling rate are known from Angelani (arXiv:2311.11873v1). The new target claim is narrower: the globally sharp three-risk optimizer ordering, complete mean–variance Pareto frontier and quantitative separation of relative versus absolute fluctuation objectives. The accessible primary text concentrates on mean exit times and contains no corresponding global variance/CV risk-design classification. The generic-boundary paper by Angelani (2023) and Bressloff's (2023) sticky-wall occupation-time treatment were considered for stronger implicit coverage. Searches of publication-indexed research claims for exact model/source, alternate terminology, optimizers and parameter equivalents did not identify a dominating claim. Publication priority is not independently established; the existing full transform makes the moment identities straightforward corollaries, and a broad unindexed Pareto characterization remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a physical escape process whose mean-optimal turning rate was already known, variance and relative uncertainty describe distinct and experimentally relevant reliability criteria. Their unique optimizers occur at three separated, exactly characterized rates; the complete supported Pareto set identifies every efficient speed-versus-absolute-variability compromise, while the relative-risk minimizer is strictly inefficient in both underlying absolute quantities. This structural tension is not a generic normalization identity and is invisible from optimizing mean first-passage time alone. No higher-dimensional or universal active-matter assertion is made.
+Angelani, Optimal escapes in active matter, gives precisely the same sticky-wall stochastic model, exact first-passage transform and mean optimum; all raw moments are implied by that stronger transform. These are explicitly acknowledged prior components. Inspected closest primary papers do not directly state the triple global optimizer ordering, full mean–variance Pareto frontier or the dominated relative-risk optimum. Newness is confined to their joint extremal classification, not differentiating known transform by itself.
 
-## Closest literature and limitations
+## value
 
-- L. Angelani, *Optimal escapes in active matter* (arXiv:2311.11873v1, 2023-11-20): same process and stronger exact transform, known mean optimizer; does not state the sharp three-risk and Pareto classification.
-- L. Angelani, *One-dimensional run-and-tumble motions with generic boundary conditions* (2023): generic sticky boundary framework and mean exit times; different claimed results.
-- P. C. Bressloff, *Encounter-based model of a run-and-tumble particle II* (arXiv:2302.01158): sticky-wall absorption and occupation-time framework, but no matching relative/absolute risk frontier in the inspected full text.
+PASS
 
-Limits: one-dimensional, unbiased center start, memoryless reversal, one sticky wall and one absorbing exit. All claims need external priority and independent mathematical assessment before certification.
+The global selection of reversal rate for three competing natural risk objectives (mean, absolute variance, relative variance), and a complete supported Pareto frontier with the surprising fact that the relative-risk optimizer is inferior in both absolute objectives, is a motivated qualitative design boundary. It is mathematically more informative than routine raw-moment differentiation, while making no larger model generality claim.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
