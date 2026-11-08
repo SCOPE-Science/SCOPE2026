@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact run-gap factor decomposition is proved for all words with four \(1\)'s. It distinguishes distinct factor *strings* from occurrences and enumerates the \(\binom n4\) words at every length \(4\le n\le128\) with integer arithmetic. Independent direct-substring enumeration agrees for every \(n\le50\). The family verifier confirms all displayed minimizers and that the total count equals the exhaustive count in each of the 110 target lengths. Exhaustion establishes only a finite-range theorem; no infinite inference is claimed.
+## correctness
 
-**Originality — PASS with residual risk.** The nearest April 2026 primary paper studies fixed-Parikh minima but proves up to three instances of a minority symbol, and explicitly treats the interior case as conjectural; its length-18 table does not imply the 110 exact minima or all labeled equality words from 19 to 128. Fici–Saarela's universal conjectured bound, a maximum-distinct-square paper, and the occurrence-count OEIS table neither imply nor tabulate the new claim. Search results for equivalent weight-four formulations and prior mathematical research records did not identify a covering theorem. Search incompleteness and a possible unindexed prior computation remain genuine priority risks.
+PASS
 
-**Value — PASS.** This concerns the first nonboundary fixed-Parikh class explicitly left unresolved in a new paper. The exact minima for 110 consecutive lengths and a complete 2/4/8 periodic census of all minimizing words provide a motivated finite cutoff, a reproducible testbed, and precise guidance for any eventual infinite proof. Correctness alone is not invoked as significance.
+A four-one word is determined by its five zero-run lengths. Any Abelian-square factor contains 0, 2 or 4 ones; zero-only squares give floor(max(r_i)/2); two-one factors are unique triples (gap,u,v) obeying equal-half parity and |u-v|<=gap with occurrence bounds (union prevents duplicate substrings); four-one factors are unique (u,v) under exact half-boundary inequalities. An independently coded direct-substring vs run-count comparison checked all four-one words through length 22. Separately compiled and ran the assigned combinatorial C++ counting implementation afresh through n=128; it exhaustively processed 275234400 four-one configurations and output minimum and multiplicity table for every n=4..128, matching floor((n+2)/4) and 2,2,8,4 for all 110 target lengths. Separately checked every proposed optimizer word and reversal at each of the 110 lengths against the exact run formula, verified the full proposed family has the exhaustively certified minimizer count, and therefore ruled out additional minimizers within the finite range. It does not extrapolate to n>=129; independent direct substring checking covers a shorter range than the optimized enumeration.
 
-**Limitations.** The claim is finite through 128; equality families may change above this cutoff. Independent direct-substring replay reaches 50, and no independent external review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+The motivating 2026 fixed-Parikh distinct Abelian-square problem leaves four occurrences of a minority letter as the first unclassified interior class. Exact minima and every extremizer for 110 consecutive nontrivial lengths are independently useful finite combinatorial classification data; the exact 0/2/4-one factor decomposition supports reproducibility. Finite exhaustive results are valuable here because the parameter range is stated exactly, not generalized beyond certification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
