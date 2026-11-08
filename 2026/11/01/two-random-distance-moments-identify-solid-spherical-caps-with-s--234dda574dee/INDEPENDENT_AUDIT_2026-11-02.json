@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:06:41.432998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the solid cap R>0, 0<t<=2, u=2−t, axial density proportional to 1−z² and conditional transverse uniform disks yield Z_j=∫z^j(1−z²)dz/∫(1−z²)dz. Independent expansion of ||X−Y||² and ||X−Y||⁴ gives M1=R²*3(2−u)A/[40(1+u)²], M2=R⁴*(2−u)²B/[70(1+u)²], A=7u³+14u²+20u+8, B=41u⁴+82u³+99u²+108u+36. Q=160(1+u)²B/(63A²); exact differentiation gives Q'=3200(1+u)u²(66u³+117u²+56u+12)/(63A³)>0 for 0<u<2, with Q(0)=10/7, Q(2−)=7/4 and Q−10/7=(25/63)u³+O(u⁴). Thus Q determines shape, M1 fixes R, inverse has sharp 1/3 Hölder at the full ball. Independently recomputed polynomial integrals/derivative/cubic coefficient symbolically, not relying on Monte Carlo. No noisy statistical assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu–Fischbach arXiv:math-ph/0201046 derives random-distance distribution for a full sphere with arbitrary radial density.",
+          "Bonnet et al. arXiv:2010.03351 proves mean ordinary distance inequalities for arbitrary convex bodies."
+        ],
+        "reasoning": "Full sphere with radial density is not a half-space-truncated cap, and general convex mean-distance inequalities do not imply two-even-moment injectivity or sharp conditioning.",
+        "searches": [
+          "spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability",
+          "general random distance spherical object moments arxiv math-ph/0201046"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math-ph/0201046",
+        "arxiv:2007.07297",
+        "arxiv:2010.03351",
+        "doi:10.1063/1.3559719 (abstract/metadata only)",
+        "Resultary semantic search: spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moseeva–Tarasov–Zaporozhets works on spherical convex bodies on S^{d−1}, not three-dimensional solid cap volume.",
+          "Tu–Fischbach §I/II uses n-ball with radial density; Bonnet et al. treats ordinary mean distance, not pair of even moments."
+        ],
+        "reasoning": "Different underlying measure and metric or insufficient moment information prevent a direct implication. Only a new explicit rational monotonicity proof identifies cap height and radius.",
+        "searches": [
+          "spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability",
+          "arxiv:2007.07297 spherical cap random distances surface vs volume",
+          "DOI:10.1063/1.3559719 moments distribution distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General moment-tensor/inertia expressions yield forward polynomial integral identities; García-Pelayo DOI 10.1063/1.3559719 deals with general pair-distance moments.",
+          "The claim requires strict monotonicity of special ratio Q(u) and a cubic order at spherical symmetry."
+        ],
+        "reasoning": "General moment calculus is an alternative formulation of forward formulas but does not as stated solve the exact nonlinear inverse mapping for solid caps.",
+        "searches": [
+          "spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability",
+          "distance moments of spherical cap volume uniform pair squared fourth invert shape radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known spherical-cap mass/inertia tables supply low-order tensor moments; not a table of inverse Q monotonicity and endpoint exponent.",
+          "No matching exact two-moment inverse record found in Resultary search."
+        ],
+        "reasoning": "This is a continuous two-parameter inverse theorem, not a table lookup; forward inertia tables may reduce computation but do not supply proof of injectivity.",
+        "searches": [
+          "spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability",
+          "spherical cap axial moments table second fourth random point distances"
+        ]
+      },
+      "rationale": "Best-of-knowledge new part is GLOBAL TWO-EVEN-MOMENT INVERSION and sharp cubic-root endpoint, not forward integration alone. Tu–Fischbach arXiv:math-ph/0201046 develops general full spherical-object pair-distance densities (different geometry); Bonnet et al. arXiv:2010.03351 studies first ordinary-distance moment / intrinsic width inequalities; Moseeva et al. arXiv:2007.07297 addresses surface points/spherical angular distance. García-Pelayo 2011 general even-moment methods may reproduce forward formulas but full text inaccessible; no inspected implication produces strict cap-shape inverse with optimal exponent.",
+      "residual_risks": [
+        "García-Pelayo full text unavailable; a previously published exact cap inverse may exist in unindexed material.",
+        "No estimation from samples or stability under noisy raw moment measurements is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SOLID_CAP_INVERSE",
+          "evidence": [
+            "Spherically symmetric volume density in a ball; no global two-even-moment cap height/radius inverse in read framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0201046",
+          "material_read": "Primary 13-page PDF, abstract, introduction and arbitrary radial density framework",
+          "method": "Accessible primary arXiv full PDF, inspected mathematical setup and equations",
+          "title": "Random Distance Distribution for Spherical Objects: General Theory and Applications to n-Dimensional Physics",
+          "trigger": "General exact distribution of pair distances in spherical bodies"
+        },
+        {
+          "assessment": "DIFFERENT_MEASURE",
+          "evidence": [
+            "Points on spherical surface and intrinsic angular distances, not 3D solid volume and ambient distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.07297",
+          "material_read": "Primary 10-page PDF, introduction and spherical cap surface distribution theorem",
+          "method": "Accessible arXiv PDF, definitions and principal theorem read",
+          "title": "Random sections of spherical convex bodies",
+          "trigger": "Exact random-distance distribution for spherical caps"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL",
+          "evidence": [
+            "Single ordinary distance expectation versus two even moments and nonlinear cap inverse."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.03351",
+          "material_read": "Primary 22-page PDF introduction and main inequality statement relating ordinary E||X−Y|| to V1",
+          "method": "Accessible primary arXiv full PDF, inspected theorem and setup",
+          "title": "Sharp inequalities for the mean distance of random points in convex bodies",
+          "trigger": "Natural general convex-body distance theorem"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED",
+          "evidence": [
+            "Generic polynomial distance-moment identities may specialize to the forward algebra; absence of full text prevents claiming total noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.3559719",
+          "material_read": "Bibliographic details and abstract/accessible search metadata only; no full proof",
+          "method": "Public abstract only; direct full text unavailable in this run",
+          "title": "Moments of the distribution of distance",
+          "trigger": "Potentially broad exact moments source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solid spherical caps form a canonical two-parameter convex-body model, and two independent-point Euclidean even distance moments are natural stereological observations. The exact feasible ratio interval, unique global inverse and optimal cubic ill-conditioning at the full ball are precise, nonmechanical, potentially useful shape-identification results; not simply a known inertia table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/two-random-distance-moments-identify-solid-spherical-caps-with-s--234dda574dee/RESULT.md",
+    "GitHub frozen RESULT.md blob 9d4ff65c84ec0cb427492210a478d73f72312802",
+    "GitHub frozen verification-code blob e9f98828be1e2d48cf1b5cc87f79a5432992514b",
+    "arxiv:math-ph/0201046",
+    "arxiv:2007.07297",
+    "arxiv:2010.03351",
+    "doi:10.1063/1.3559719 (abstract/metadata only)",
+    "Resultary semantic search: spherical cap solid ball uniform points squared distance second fourth moments identify cap height radius stability"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "García-Pelayo full text unavailable; a previously published exact cap inverse may exist in unindexed material.",
+    "No estimation from samples or stability under noisy raw moment measurements is proved.",
+    "Whole-source source-privacy sanitization not completed, so do not publish."
+  ],
+  "schema_version": 1
+}

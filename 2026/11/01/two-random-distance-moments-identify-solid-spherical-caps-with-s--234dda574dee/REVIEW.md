@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated parameter domain \(R>0\), \(0<t\le2\) gives a genuine full-dimensional cap. The axial marginal and uniform-disk conditional moments yield exact finite polynomial integrals. Expanding the two independent-point distance moments, then substituting those integrals, produces the stated rational formulas. The derivative of the normalized ratio factors into polynomials with positive coefficients and a nonnegative quadratic endpoint factor. This proves strict identification on the entire open shape interval, includes the full-ball endpoint, and supplies both endpoint values. The cubic term at the ball and a uniform lower bound for the derivative divided by the squared distance to that endpoint prove the sharp inverse regularity. `cap_verify.py` independently checks algebra, quadrature and direct volume-pair simulation; Monte Carlo is corroboration, not a proof.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Checked original literature concerns a different probability measure (surface spherical caps and angular distances), a different functional (mean ordinary distance per mean width), or general forward distance/moment identities without the exact two-even-moment spherical-cap inverse and sharp cubic-root endpoint. The most relevant inspected primary texts are arXiv:2007.07297, arXiv:2010.03351 and arXiv:math-ph/0201046. The closely related generic moments paper DOI:10.1063/1.3559719 was accessible at the abstract level but not in full; its general identity may reduce the novelty of forward moment evaluations, not demonstrably the global strict monotonicity and optimal inverse exponent. The historical claim remains provisional.
+PASS
 
-## Mathematical value — PASS
-A solid spherical cap is a natural two-parameter convex body, while Euclidean distances between unlabeled uniform point pairs are natural stereological observations. The result gives the complete exact feasible range, an explicit constructive two-measurement inverse, a matching impossibility from one measurement, and a sharp stability boundary at spherical symmetry. The value rests on the complete inverse classification and precise conditioning, not on arithmetic formula evaluation alone.
+For the solid cap R>0, 0<t<=2, u=2−t, axial density proportional to 1−z² and conditional transverse uniform disks yield Z_j=∫z^j(1−z²)dz/∫(1−z²)dz. Independent expansion of ||X−Y||² and ||X−Y||⁴ gives M1=R²*3(2−u)A/[40(1+u)²], M2=R⁴*(2−u)²B/[70(1+u)²], A=7u³+14u²+20u+8, B=41u⁴+82u³+99u²+108u+36. Q=160(1+u)²B/(63A²); exact differentiation gives Q'=3200(1+u)u²(66u³+117u²+56u+12)/(63A³)>0 for 0<u<2, with Q(0)=10/7, Q(2−)=7/4 and Q−10/7=(25/63)u³+O(u⁴). Thus Q determines shape, M1 fixes R, inverse has sharp 1/3 Hölder at the full ball. Independently recomputed polynomial integrals/derivative/cubic coefficient symbolically, not relying on Monte Carlo. No noisy statistical assertion.
 
-## Limits and residual risks
-The theorem does not estimate the moments from finitely many observations and makes no noise-robust statistical assertion. It is not an inverse result for a spherical surface, other rotational solids or caps in arbitrary dimension. General moment calculus predates the result, and an unlocated equivalent cap-specialization is still possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new part is GLOBAL TWO-EVEN-MOMENT INVERSION and sharp cubic-root endpoint, not forward integration alone. Tu–Fischbach arXiv:math-ph/0201046 develops general full spherical-object pair-distance densities (different geometry); Bonnet et al. arXiv:2010.03351 studies first ordinary-distance moment / intrinsic width inequalities; Moseeva et al. arXiv:2007.07297 addresses surface points/spherical angular distance. García-Pelayo 2011 general even-moment methods may reproduce forward formulas but full text inaccessible; no inspected implication produces strict cap-shape inverse with optimal exponent.
+
+## value
+
+PASS
+
+Solid spherical caps form a canonical two-parameter convex-body model, and two independent-point Euclidean even distance moments are natural stereological observations. The exact feasible ratio interval, unique global inverse and optimal cubic ill-conditioning at the full ball are precise, nonmechanical, potentially useful shape-identification results; not simply a known inertia table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
