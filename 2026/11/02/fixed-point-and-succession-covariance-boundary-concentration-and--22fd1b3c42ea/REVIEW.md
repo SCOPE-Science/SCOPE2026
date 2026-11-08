@@ -1,15 +1,21 @@
-# Review of the fixed-point/succession covariance law
+# Independent mathematical audit
 
-## Correctness — PASS
-The marked-succession conditional law is uniform over \(n-1\) possible starting values, and the unused values form a uniformly random bijection. Explicitly counting forbidden starting values gives both types of matrix entry. Endpoint/interior row summations give the aggregate covariance. Solving the homogeneous row system yields the complete parity-dependent nullspace. The second-moment formulas use the standard fixed-point probabilities and the two-succession block enumeration. Exact independent enumeration through eight letters and rational rank checks through order thirty support the analytical proof.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-The nearest source, Diaconis–Evans–Graham (2013 preprint/2014 journal), proves marginal set equidistribution and not the same-permutation cross-covariance operator. Ma–Qi–Yeh–Yeh (2024) derive joint enumerators involving successions and other Eulerian statistics, with fixed-point statistics on an equidistributed *different statistic* side; this does not determine the covariance within one permutation. Reilly–Tanny (1979) addresses succession counts. An independently published broader bivariate result not located by the searches could imply the present identity; historical priority is not independently established.
+PASS
 
-## Mathematical value — PASS
-The two indicators' marginal equality makes their actual coupling a motivated probability question. The complete signed covariance kernel, near-total boundary concentration, and parity-specific one-dimensional invisible succession contrast give structural information that neither marginal distribution yields. This is a natural exact second-order characterization useful for understanding multiple permutation diagnostics rather than a numerically selected special case.
+For uniform π∈S_n, conditional on B_i=1, the first succession value H is uniform in 1..n−1 and the other positions form a random bijection. Counting H that preclude π(j)=j yields positive entries (n−2)/[n²(n−1)(n−2)] when j=1,n,i,i+1 and −2/[n²(n−1)(n−2)] elsewhere. Summing rows gives Cov(F,U)=2/[n(n−1)] with endpoint share (n−1)/n. Two distinct succession events have probability 1/[n(n−1)], even overlapping, by ordered-block counting, so Var(U)=(n²−n−1)/n². For covariance matrix M, endpoint row forces sum x_i=0 and interior rows force x_i=−x_(i−1); alternating vector sums to zero iff n is odd, giving rank n−2 odd, n−1 even. Independently exhaustively enumerated all permutations n=3..7 and checked 110 matrix entries.
 
-## Limits
-The result concerns second moments under the uniform law only; no independence or nonlinear identification is claimed. Finite enumeration is a cross-check, not proof of the infinite assertion. Literature priority remains uncertain outside the inspected works.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published marginal fixed-point/succession set equidistribution is not a same-permutation cross-covariance coupling; published fixed-point/descent covariance uses different B_i. The whole n×(n−1) signed kernel, endpoint fraction, and odd-nullspace are not explicitly supplied by examined results, subject to uninspected older joint enumerators.
+
+## value
+
+PASS
+
+The known marginal equidistribution makes the dependence within one permutation a natural unanswered coupling question. The exact signed kernel exhibits boundary-dominated positive aggregate dependence and a parity-specific invisible linear contrast, a structural full-matrix classification rather than a sample-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

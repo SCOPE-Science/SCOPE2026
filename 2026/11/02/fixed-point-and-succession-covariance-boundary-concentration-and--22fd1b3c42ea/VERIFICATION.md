@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the covariance operator
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python's standard library. The program independently enumerates every permutation of orders three through eight and computes, in rational arithmetic, all products of fixed-point and succession indicators. It verifies all predicted matrix entries, aggregate covariance and component variances, and computes exact matrix rank for every order from three through thirty. It also confirms the alternating null mode in odd orders.
+## correctness
 
-Observed output: `PASS 266 assertion groups; exhaustive permutations through n=8; exact matrix rank n=3..30`.
+PASS
 
-The infinite-size result is established by the conditional counting proof and the explicit kernel calculation in `RESULT.md`, not by the finite test. This verification does not evaluate absolute originality or constitute independent validation.
+For uniform π∈S_n, conditional on B_i=1, the first succession value H is uniform in 1..n−1 and the other positions form a random bijection. Counting H that preclude π(j)=j yields positive entries (n−2)/[n²(n−1)(n−2)] when j=1,n,i,i+1 and −2/[n²(n−1)(n−2)] elsewhere. Summing rows gives Cov(F,U)=2/[n(n−1)] with endpoint share (n−1)/n. Two distinct succession events have probability 1/[n(n−1)], even overlapping, by ordered-block counting, so Var(U)=(n²−n−1)/n². For covariance matrix M, endpoint row forces sum x_i=0 and interior rows force x_i=−x_(i−1); alternating vector sums to zero iff n is odd, giving rank n−2 odd, n−1 even. Independently exhaustively enumerated all permutations n=3..7 and checked 110 matrix entries.
+
+## originality
+
+PASS
+
+Published marginal fixed-point/succession set equidistribution is not a same-permutation cross-covariance coupling; published fixed-point/descent covariance uses different B_i. The whole n×(n−1) signed kernel, endpoint fraction, and odd-nullspace are not explicitly supplied by examined results, subject to uninspected older joint enumerators.
+
+## value
+
+PASS
+
+The known marginal equidistribution makes the dependence within one permutation a natural unanswered coupling question. The exact signed kernel exhibits boundary-dominated positive aggregate dependence and a parity-specific invisible linear contrast, a structural full-matrix classification rather than a sample-size table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
