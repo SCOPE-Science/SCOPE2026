@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1, the Catalan-matroid basis theorem and basis exchange reduce complete shattering to feasibility of all-on/all-off. Greedy forbidden-up-position completion proves the prefix bound, and reverse-plus-flip duality proves the suffix bound. The resulting height recursion gives a bijection to exact weighted strip walks; the tridiagonal transfer count is an integer identity, not an empirical pattern. The d=0 and d=1 specializations and the explicit n>=4 nonpure support follow algebraically. The standalone checker exhausts all supports for n<=7 and top coefficients to n=24, without claiming finite checks prove universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ardila, arXiv:math/0209354, Section 3, computes a two-variable activity-weighted Tutte polynomial over bases, not the cardinality enumerator of subsets simultaneously independent and coindependent.",
+        "Engström--Sanyal--Stump, arXiv:1911.12290, Sections 1, 2, 4, compute lexicographic standard complexes and a marking-path statistic; their face count equals the Catalan number and differs from the ordinary shattering enumerator.",
+        "Chase--Freitag, arXiv:1801.07640, Sections 1 and 3, establish general banned-sequence bounds rather than this family-specific coefficient count."
+      ],
+      "reasoning": "Although the established general matroid theorem supplies a necessary and sufficient membership test, it does not provide the explicit coefficients, transfer operator, top-two coefficient formulas, or the explicit nonpure facet. The cited broader matroid and order-shattering results are mathematically distinct; their stated conclusions do not imply the full enumerator without substantive additional derivation.",
+      "searches": [
+        "Standard complexes of matroids and lattice paths lexicographic Catalan ordinary shattering",
+        "Catalan matroid Tutte polynomial shattering independent coindependent set polynomial",
+        "matroid both independent and coindependent count tridiagonal walk paths",
+        "Dyck paths shattered coordinate projection matroid bases"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1801.07640 (2018-01-23, MSC primary 03C45)",
+      "arxiv:1911.12290 (2019-11-27, lattice-path standard complex)",
+      "arxiv:math/0209354 (2002-09-25, Catalan matroid)",
+      "arxiv:2109.04805 (2021-09-10, linear zero sets)",
+      "DOI 10.1007/s003730200003 (2002, accessible abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published prior general matroid-basis result: shattered sets coincide with simultaneous independent and coindependent sets; its conclusion includes VC and online dimensions, but not the Catalan coefficientwise census.",
+        "Anstee--Rónyai--Sali, Shattering News (2002), accessible abstract describes order-shattering, whose number of supports equals the original family cardinality; this differs from ordinary shattering in the claimed examples.",
+        "Engström--Sanyal--Stump, arXiv:1911.12290, lexicographic standard complex counts exactly the bases, rather than all ordinary shattered supports."
+      ],
+      "reasoning": "The new claim is restricted to the all-size Catalan ordinary-shattering polynomial, two top-layer enumerations and a nonpure facet; it does not republish a known general criterion as new. The accessible primary statements do not dominate this refined claim. A different published enumerator might still coincide under an unsearched bijection.",
+      "searches": [
+        "Model theory and combinatorics of banned sequences VC dimension 2018",
+        "Shattering News Anstee Ronya Sali order-shattered ordinary shattered Catalan",
+        "lattice path matroid both independent coindependent count tridiagonal path graph adjacency powers",
+        "Catalan matroid standard complex independent dual invariant cardinality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ardila, arXiv:math/0209354, Theorem 2.1 and Proposition 2.4, identifies Catalan bases and independence; a general matroid basis-trace criterion identifies shattered supports as independent and coindependent.",
+        "Engström--Sanyal--Stump, arXiv:1911.12290, Corollary 2.3, defines a separate standard complex with face count equal to the number of bases."
+      ],
+      "reasoning": "The general simultaneous-independence characterization is expressly treated as prior knowledge. The proposed additional statement counts all such supports by size for Catalan matroids and gives the exact finite-strip weighted-walk representation plus nonpurity. The standard complex is not the ordinary shattering complex: at semilength four the former has fourteen faces, while the latter has twenty-eight.",
+      "searches": [
+        "Catalan matroid independent coindependent sets free sets shattering support counting",
+        "Dyck path Catalan matroid VC shattered support polynomial number all labelings coordinate projections independent and coindependent",
+        "matroid bases independence and coindependence shattering complex lex standard complex Catalan Motzkin strip walks",
+        "Catalan matroid feasible set disjoint bases independent coindependent enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches retrieved no exact Catalan ordinary-shattering coefficient table or formula; the absence of a hit is only negative search evidence, not uniqueness proof.",
+        "Direct complete-support enumerations in verify_catalan_shattering.py independently yield rows at semilengths one through seven."
+      ],
+      "reasoning": "Known tables for Catalan bases, Tutte activities, and order-shattered sets cannot substitute for ordinary shattered-support counts, since they count different objects. Search coverage is incomplete and the equivalence of a differently named sequence cannot be excluded.",
+      "searches": [
+        "\"1, 8, 26, 40, 16\" Dyck",
+        "\"1, 10, 43, 100, 121, 32\" combinatorics",
+        "\"1, 6, 13, 8\" shattering Dyck",
+        "Dyck path shattering polynomial coefficient 3^n-1 over 2 exact maximum 2^n"
+      ]
+    },
+    "rationale": "The general matroid criterion, Catalan bases, and lexicographic standard complexes are existing results and are explicitly excluded from novelty. The proposed claim adds the complete Catalan ordinary-shattering coefficient census, explicit transfer/spectral formulas, exact next-to-top counts, and nonpure maximal-face witnesses. Full relevant primary material and targeted research-database and public-literature comparisons found no statement dominating these new enumerative conclusions; historical priority remains qualified by specified residual risks.",
+    "residual_risks": [
+      "Priority under common-independent/coindependent-set enumerators or lattice-path-strip-walk terminology is not fully excluded; a differently named formula could subsume the stated polynomial.",
+      "The 2002 Shattering News full text was not accessible from reviewed public pages, although its abstract concerns order-shattering rather than the ordinary traces counted here.",
+      "Independent mathematical review and externally certified historical novelty are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes model-theoretic and combinatorial motivation for exact shattering profiles but does not specialize to Catalan up-step traces or count their ordinary shattered supports.",
+        "evidence": [
+          "arXiv v1 dated 2018-01-23; introduction on Sauer--Shelah shatter functions, Section 3 banned sequence problems; publication lists primary MSC 03C45."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.07640",
+        "material_read": "Public full-text rendering: introduction, banned binary sequence definitions and bounds in Section 3, applications and concluding material.",
+        "method": "Read arXiv full-text rendering and compared claim objects and counted sequences.",
+        "title": "Model theory and combinatorics of banned sequences",
+        "trigger": "Verifiable 03C45 source in the applicable public-date interval; general combinatorics of banned binary labeling patterns."
+      },
+      {
+        "assessment": "Their lexicographic standard complexes form proper subcomplexes of the ordinary shattered-support family in tested Catalan examples, so their exact enumeration does not imply the proposed coefficients.",
+        "evidence": [
+          "arXiv v1 dated 2019-11-27; Corollary 2.3 says standard-complex face count equals bases; Section 4 concerns lexicographic path-marking subsets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.12290",
+        "material_read": "Public full-text rendering: introduction, Section 2 (standard complexes, duality, Corollary 2.3), Section 4 (lattice-path marking and Theorem 4.8), relevant proof material.",
+        "method": "Compared definitions, face-count implications, and construction to ordinary shattering.",
+        "title": "Standard complexes of matroids and lattice paths",
+        "trigger": "Very close lattice-path matroid simplicial complex, duality, and enumeration; a plausible dominator."
+      },
+      {
+        "assessment": "Establishes the base family and independence theory used in the proof. Its Tutte polynomial is not this all-size independent-and-coindependent-set enumerator.",
+        "evidence": [
+          "arXiv v1 dated 2002-09-25; basis theorem, explicit independent-set condition and Tutte polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0209354",
+        "material_read": "Public full-text rendering: Theorem 2.1, Propositions 2.4 and 2.5, duality result, Section 3 (Tutte polynomial), and introduction.",
+        "method": "Inspected the exact matroid characterization, self-duality and the activity-weighted polynomial for logical implication to the target enumeration.",
+        "title": "The Catalan matroid",
+        "trigger": "Primary object source, basis exchange, rank conditions and existing polynomial enumerators."
+      },
+      {
+        "assessment": "Its zero-set class has different hypotheses; it does not provide the Catalan coefficientwise support enumeration.",
+        "evidence": [
+          "arXiv v1 dated 2021-09-10; Theorem 3.10 and preliminaries."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Public full-text rendering: introduction, Definitions 2.1--2.8, and the main zero-set dimension theorem and its proof.",
+        "method": "Inspected hypothesis class of linear-combination zero sets and compared to characteristic sets of Dyck paths.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Recent exact VC and online dimensions, checking possible general domination."
+      },
+      {
+        "assessment": "The abstract reports order-shattered sets in arbitrary families, which does not directly cover the Catalan ordinary-shattering polynomial; inaccessible full text remains a priority risk.",
+        "evidence": [
+          "Graphs and Combinatorics 18 (2002), 59--73; abstract: the number of order-shattered sets equals family size."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s003730200003",
+        "material_read": "Publicly indexed abstract and bibliographic material only; primary full text was not accessible in the reviewed sources.",
+        "method": "Compared the abstract distinction between ordinary and order-shattering, and checked the numerical face-count consequence of the order-shattered family size.",
+        "title": "Shattering News",
+        "trigger": "Potential priority under order-shattering or standard-monomial terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "900e52ee-307a-4b78-9ff3-77cf6231b795",
+  "value": {
+    "rationale": "An all-ranks shattering profile refines the previously known VC dimension and distinguishes ordinary shattering from order-shattering/lexicographic-standard complexes. It counts a natural learning-theoretic object exactly at every size and semilength, yields a simple computable strip transfer and spectral expression, and exposes explicitly nonpure facets of the resulting simplicial complex. The nontrivial intermediate coefficients (13,26,40,100,...) show the census is not a mere uniform-matroid binomial substitution; the full polynomial answers a motivated natural classification problem.",
+    "status": "PASS"
+  }
+}
