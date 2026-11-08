@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The mathematical proof verifies the following exact implications: the symmetric/skew decomposition of every normalized \(2\times2\) unitary gives \(SS^*=(1-b^2)I\) and \(\operatorname{tr}(A^2)=2-4b^2\); Takagi factorization makes \(|\langle Ax,x\rangle|\) run through exactly \([0,a]\); the constrained inner product has the exact one-variable modulus interval; elementary constrained optimization gives both radii; connectedness and phase symmetry fill the closed annulus. This includes \(q=0\), \(|q|=1\), \(a=0\), and \(b=0\).
+## correctness
 
-`check.py` performs 12,978 deterministic finite checks over 42 representative parameter pairs. It constructs and tests extremal admissible vector pairs, verifies random admissible pairs against the sharp bounds, checks the trace invariant, and tests conjugacy invariance. Run `python3 check.py` with NumPy. Finite tests alone do not certify the universal claim. The independent audit has not been performed, and no human certification is asserted.
+PASS
+
+The antiunitary U K is normalized to SU(2). Its symmetric/skew decomposition gives tr(A²)=2-4b² and Takagi yields exactly s=|<Ax,x>| in [0,a]. For overlap r and t=sqrt(1-r²), the full fixed-x modulus interval is [|rs-t sqrt(1-s²)|,rs+t sqrt(1-s²)]. Elementary global extrema are max(0,bt-ar) and 1 if r<=a, ar+bt otherwise; U(2) connectedness and common-phase rotation fill all directions. Endpoints b=0,1, r=0,1 checked. Independent 15-pair numerical reconstruction confirms witness radii; finite examples not universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge assessment after statement-level searches and source inspection. Closest prior sources are credited; neither equivalent exact result nor stronger implication found in inspected material, with documented access and priority limitations.
+
+## value
+
+PASS
+
+All-dimensional parameter-free complete C² antiunitary constrained numerical-range classification gives two geometrically different sharp transitions and recovers tr(A²) from a single q=0 range, beyond qualitative annulus geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

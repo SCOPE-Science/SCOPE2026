@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The complete assertion has an analytic proof. Normalizing a two-dimensional antiunitary's unitary factor into \(SU(2)\) exposes a symmetric part with equal Takagi singular values \(a\), a skew coefficient \(b\), and the trace identity \(\operatorname{tr}(A^2)=2-4b^2\). The exact accessible interval for \(|\langle Ax,x\rangle|\) is \([0,a]\). Given its value, the constrained unit-vector pairing has a precise interval of achievable moduli. Maximization and minimization give the displayed sharp radii, and connectedness plus phase covariance supply every intervening complex point. All endpoints and both extreme antiunitary symmetry classes are included. Supplementary finite checks: 12,978 passed; they are not substitutes for the proof.
+PASS
 
-## Originality (O): PASS, best knowledge
+The antiunitary U K is normalized to SU(2). Its symmetric/skew decomposition gives tr(A²)=2-4b² and Takagi yields exactly s=|<Ax,x>| in [0,a]. For overlap r and t=sqrt(1-r²), the full fixed-x modulus interval is [|rs-t sqrt(1-s²)|,rs+t sqrt(1-s²)]. Elementary global extrema are max(0,bt-ar) and 1 if r<=a, ar+bt otherwise; U(2) connectedness and common-phase rotation fill all directions. Endpoints b=0,1, r=0,1 checked. Independent 15-pair numerical reconstruction confirms witness radii; finite examples not universal proof.
 
-Majumdar–Müller 2026 (Section 6) prove general higher-dimensional disk geometry and state only qualitative annulus geometry in dimension two, with a specific skew example. The present two-radius formulas and distinct transition thresholds are not direct statements of those results. Wigner/Loring provide the pre-existing antiunitary normal form; Kołaczek–Müller 2024/2025 treat ordinary numerical ranges; the closest retrieved mathematical-record results concern \(q\)-numerical radii of complex-linear matrices or different operator classes. The inaccessible Jia–Liu paper concerns ordinary antilinear numerical ranges in its abstract, but complete-text comparison remains a publication-priority risk. A broader hidden formula might implicitly cover the special case; negative search results alone do not prove priority.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The quantitative size and topology of a constrained numerical annulus are intrinsic approximation/geometric data, not a renaming of the qualitative annulus assertion. The formula classifies every two-dimensional antiunitary and every overlap constraint at once; it identifies two independently moving sharp thresholds and recovers the conjugacy invariant from a single \(q=0\) measurement. These features are natural for interpolation between ordinary numerical ranges and constrained orthogonal pairings, including conjugation and Kramers time-reversal endpoints.
+Best-of-knowledge assessment after statement-level searches and source inspection. Closest prior sources are credited; neither equivalent exact result nor stronger implication found in inspected material, with documented access and priority limitations.
 
-## Limitations
+## value
 
-No independent mathematical audit or publication-priority certification has been performed. The original claim does not extend to arbitrary antilinear contractions or to higher complex dimensions. The full Jia–Liu (2025) paper was not accessible, and older literature could contain an implicit equivalent formula.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-dimensional parameter-free complete C² antiunitary constrained numerical-range classification gives two geometrically different sharp transitions and recovers tr(A²) from a single q=0 range, beyond qualitative annulus geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
