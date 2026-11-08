@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof follows from exact active-ball inequalities after a rigorously bounded anisotropic rescaling: active-span directions scale by \(\varepsilon\), transverse directions by \(\sqrt\varepsilon\). Its beta integral gives the rank-indexed leading volume and its full-rank radial identity gives a uniform second-order expansion. The strict sign follows from the polar polytope strictly containing the unit ball on a positive set of directions. A standalone numerical checker independently exercises two- and three-dimensional cases, exact lens volume, and nonregular second-order inertia. Computations supplement, but are not the basis of, the proof.
+PASS
 
-## Originality — PASS, provisionally
+Positive spanning supplies γ>0 with min_u <u,z><=-γ||z||. Active inequalities ||x||²−2R<u,x>≤2Rε+ε² force x_L=O(ε), x_perp=O(√ε); inactive constraints have strict slack. Set x=εz+√ε y, and rescaled domain tends to {(z,y): ||y||²≤2R, z∈(1−||y||²/(2R))P}. Dominated convergence and beta integral give exponent (d+k)/2 and the stated Γ coefficient. For k=d, exact radial solution sqrt(R²a²+2Rh)−Ra with h=ε+ε²/(2R) yields correction [d vol(P)−(d+2)M2(P)]/(2R), strictly negative because P strictly contains unit ball. Two 3D balls with center distance 2R independently have 2πR ε²+(4π/3)ε³, agreeing with rank1 formula.
 
-The closest 2019 primary paper, Bezdek's *Volumetric bounds for intersections of congruent balls* (arXiv:1912.05118), develops global comparison bounds and finite enclosing-sphere contact geometry. Full available text of its main statements and contact-simplex discussion was compared with the claimed epsilon-collapse asymptotic: it does not provide the contact-rank power, anisotropic polar limit, or full-rank inertia coefficient. Bezdek's earlier intrinsic-volume paper and the later survey provide related background and lens bounds without the same statement. Searches for circumradius-near intersection volume, polar limits, rank dependence, and simplex examples, including a mathematical-results index, did not yield a direct covering claim. Such searches cannot prove uniqueness: older geometric probability or asymptotic convexity literature might contain an equivalent. A plausibly related indexed note on Gaussian threshold optimization was identified, but its stated implication concerns Gaussian maxima and tangent polytope volumes, not the present ball-body expansion; complete public text was not available for comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Near-empty ball intersections are natural extremal objects in ball-body geometry. A volume-only observable detects the active contact rank through a discrete exponent, while the exact beta coefficient records polar contact geometry and the next nonzero full-rank correction measures polar inertia. The result applies to arbitrary finite contact polytopes satisfying a clear geometric condition, rather than a chosen low-dimensional numerical example; it also resolves all ranks in a unified limit law.
+Best-of-knowledge originality: compared exact mathematical statement and logical implication against the listed primary sources and semantically searched published Resultary records. Bezdek’s volumetric bounds concern comparisons and global constraints, not the anisotropic ε→0 blow-up and k-dependent gamma factor. The derivation is not a corollary of quoted fixed-radius inequalities. Failed search is not novelty proof; residual risks remain.
 
-## Limits and risk
+## value
 
-The positive-spanning condition excludes degenerate boundary-contact strata. Constants are not uniform when contacts approach a rank transition. Historical priority remains provisional because not every older monograph or inaccessible index hit could be inspected; no independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive-spanning contact rank is a natural invariant of minimum-enclosing-ball geometry. A sharp collapse exponent and universal polar-inertia correction explain a geometric phase change not captured by coarse volumetric inequalities; the coefficient identifies rank from volume scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

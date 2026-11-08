@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction notes
+# Independent mathematical audit
 
-Run `python VERIFY.py` with NumPy and SciPy. The checker generates a regular triangle's active unit normals, computes exact radial exit distances from the intersection of equal balls, and confirms the asymptotic leading volume \(3\sqrt3\) and relative first correction \(-\varepsilon/R\) as \(\varepsilon\) decreases. It checks the exact volume \(2\pi R\varepsilon^2+(4\pi/3)\varepsilon^3\) of a three-dimensional lens arising from antipodal active centers. It independently estimates the rank-two collapse of an equilateral active triangle embedded in three-space with Sobol integration, and compares a nonsymmetric triangle with the polar-inertia correction computed from its polygon triangulation.
+## correctness
 
-The checker outputs `ALL_CHECKS_PASSED` and `NONREGULAR_SECOND_ORDER_PASSED` when all its assertions succeed. These are numerical and symbolic spot checks, not infinite-dimensional certification or a substitute for the analytic proof in `RESULT.md`.
+PASS
 
-Mathematical scope is fixed finite point configurations with a common enclosing-ball radius and positive-spanning active contacts. No claims are made about unequal-radius intersections or uniform statistical estimates. Independent audit has not been performed.
+Positive spanning supplies γ>0 with min_u <u,z><=-γ||z||. Active inequalities ||x||²−2R<u,x>≤2Rε+ε² force x_L=O(ε), x_perp=O(√ε); inactive constraints have strict slack. Set x=εz+√ε y, and rescaled domain tends to {(z,y): ||y||²≤2R, z∈(1−||y||²/(2R))P}. Dominated convergence and beta integral give exponent (d+k)/2 and the stated Γ coefficient. For k=d, exact radial solution sqrt(R²a²+2Rh)−Ra with h=ε+ε²/(2R) yields correction [d vol(P)−(d+2)M2(P)]/(2R), strictly negative because P strictly contains unit ball. Two 3D balls with center distance 2R independently have 2πR ε²+(4π/3)ε³, agreeing with rank1 formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared exact mathematical statement and logical implication against the listed primary sources and semantically searched published Resultary records. Bezdek’s volumetric bounds concern comparisons and global constraints, not the anisotropic ε→0 blow-up and k-dependent gamma factor. The derivation is not a corollary of quoted fixed-radius inequalities. Failed search is not novelty proof; residual risks remain.
+
+## value
+
+PASS
+
+The positive-spanning contact rank is a natural invariant of minimum-enclosing-ball geometry. A sharp collapse exponent and universal polar-inertia correction explain a geometric phase change not captured by coarse volumetric inequalities; the coefficient identifies rank from volume scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
