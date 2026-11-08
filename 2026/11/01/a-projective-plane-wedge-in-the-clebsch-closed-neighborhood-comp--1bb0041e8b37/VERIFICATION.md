@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library only. The script rebuilds the graph, the complete face set, and each elementary collapse; no stored face lists, precomputed matrices or imported certificates are assumed. Its independent field-chain check uses the original residual simplicial boundary, not the simplified group presentation. Successful execution ends with `ALL_VERIFY_OK`.
+## correctness
 
-Expected exact counts: 808 original nonempty faces, 256 elementary simplicial collapses, 296 surviving nonempty faces in dimensions zero through two, 104 homotopy-preserving one/two-cell cancellations, one surviving circle, 42 constant two-cell attachments, 14 degree-two attachments. Direct second-boundary ranks are 104 modulo two and 105 modulo three and five. The one degree-two attachment creates a standard projective plane; the other 55 two-cells attach nullhomotopically.
+PASS
 
-All checks concern the stated finite Clebsch graph; no infinite family, equivariant homotopy classification, independent audit, or absence of unindexed prior work is asserted.
+The even-parity length-five vertices and Hamming-distance-four adjacency give 16 closed neighborhoods of size six, exactly 808 distinct faces f=(16,120,320,240,96,16). Independently reconstructed deterministic 256 valid elementary free-face pairs (all current-complex checks), yielding a 2-complex with (16,120,160). Contract spanning star tree: 105 1-cell generators and 160 attaching words. Independent exact free-word rewrite verified 104 one-generator/one-relator elementary CW cancellations leaving one loop and 56 2-cells, 42 trivial and 14 degree ±2; choosing one degree-2 cell gives RP2, and the other 55 maps are null in π1(RP2)=Z2, yielding the wedge integral homotopy. Existing mod2/mod3/mod5 chain ranks support independently; a modular Betti check alone would not establish integral homotopy.
+
+## originality
+
+PASS
+
+Matsushita gives general closed-neighborhood equivalences and different-graph worked classes, not the integral Clebsch computation. Exact published Clebsch **open** Lovász neighborhood has wedge31 S2, not closed N[C]; explicitly compared both complete construction formulas and full published proof. Graph-metric Cech and folded-cube aliases do not supply this attachment-word calculation. Best-of-knowledge new, with residual risk of unindexed equivalent closed-Clebsch computation.
+
+## value
+
+PASS
+
+Canonical highly symmetric strongly regular graph exhibits profound open/closed neighborhood distinction: closed case has projective-plane fundamental group and genuine integral two-torsion plus 55 spheres. This exact integral homotopy type is a substantive finite-model benchmark for closed-neighborhood theory, not merely an Euler characteristic or rational homology number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

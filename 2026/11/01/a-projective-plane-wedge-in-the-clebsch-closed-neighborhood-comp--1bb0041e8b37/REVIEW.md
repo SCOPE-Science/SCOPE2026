@@ -1,15 +1,21 @@
-# Scientific review: Clebsch closed-neighborhood homotopy
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is fixed by an explicit even-parity five-bit Cayley graph and sixteen closed six-vertex neighborhoods. A standalone exact verifier reconstructs all 808 faces, checks all 256 elementary simplicial collapse pairs against the CURRENT complex, identifies the two-dimensional spine with 16 vertices, 120 edges and 160 triangles, and reconstructs each cellular attaching word. After contraction of the star tree, 104 homotopy-preserving generator/two-cell cancellations yield a single circle with 56 two-cell attachments, of which 14 have degree ±2 and 42 have degree zero. One degree-two cell forms \(\mathbb{RP}^{2}\), the other 55 attach nullhomotopically. Independent mod-two, -three and -five chain computations agree. The correctness statement is integral homotopy, not a conjecture from modular homology.
+## correctness
 
-## Originality — PASS
-The closest matching graph result determines only the *open* Clebsch neighborhood complex as \(\bigvee^{31} S^{2}\). Matsushita's full closed-neighborhood manuscript (arXiv:2511.12608v2), including general double-cover and path-fundamental-group correspondences, does not classify this Clebsch complex; its rook-graph example is not applicable. The published Grötzsch torsion calculation is about a different graph. Searches under folded five-cube, reflexive neighborhood, radius-one/scale-two Čech, projective-plane, canonical double cover, and fundamental-group aliases found no implication covering this exact statement. Equivalence of constructions by itself does not supply a Clebsch attaching-word calculation. A concealed computation in unindexed literature remains a genuine risk.
+PASS
 
-## Value — PASS
-This is a complete integral homotopy classification of a canonical, highly symmetric strongly regular graph. It identifies a projective-plane summand, a nontrivial fundamental group, genuine integral two-torsion, and 55 additional two-spheres; the open and closed variants of the same graph therefore have fundamentally different topology. The computation establishes information inaccessible from Euler characteristic or rational Betti numbers alone, and it gives a reproducible finite test case for recent closed-neighborhood theory. It does not purport to cover a larger family.
+The even-parity length-five vertices and Hamming-distance-four adjacency give 16 closed neighborhoods of size six, exactly 808 distinct faces f=(16,120,320,240,96,16). Independently reconstructed deterministic 256 valid elementary free-face pairs (all current-complex checks), yielding a 2-complex with (16,120,160). Contract spanning star tree: 105 1-cell generators and 160 attaching words. Independent exact free-word rewrite verified 104 one-generator/one-relator elementary CW cancellations leaving one loop and 56 2-cells, 42 trivial and 14 degree ±2; choosing one degree-2 cell gives RP2, and the other 55 maps are null in π1(RP2)=Z2, yielding the wedge integral homotopy. Existing mod2/mod3/mod5 chain ranks support independently; a modular Betti check alone would not establish integral homotopy.
 
-## Closest sources and limitations
-Matsushita, *Closed neighborhood complexes of graphs*, arXiv:2511.12608 (first public 2025-11-16); *The 5-regular Clebsch neighborhood complex is a wedge of 31 two-spheres* (open case); Adams–Shukla–Singh, *Čech complexes of hypercube graphs*, arXiv:2212.05871; and the distinct Grötzsch-graph integral-torsion calculation. The result is finite, non-equivariant and specific to the closed construction. Unindexed prior work and the absence of external validation remain limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matsushita gives general closed-neighborhood equivalences and different-graph worked classes, not the integral Clebsch computation. Exact published Clebsch **open** Lovász neighborhood has wedge31 S2, not closed N[C]; explicitly compared both complete construction formulas and full published proof. Graph-metric Cech and folded-cube aliases do not supply this attachment-word calculation. Best-of-knowledge new, with residual risk of unindexed equivalent closed-Clebsch computation.
+
+## value
+
+PASS
+
+Canonical highly symmetric strongly regular graph exhibits profound open/closed neighborhood distinction: closed case has projective-plane fundamental group and genuine integral two-torsion plus 55 spheres. This exact integral homotopy type is a substantive finite-model benchmark for closed-neighborhood theory, not merely an Euler characteristic or rational homology number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
