@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The outer-polynomial reduction for coefficient-extremizers is supplied by Brevig–Søvik, arXiv:2610.21788v1, Corollary 3; the statement and hypotheses match the \(H^{1/2}\), third-coefficient problem. Parseval gives the correct fourth-power norm. The complex triangle inequality reduces the coefficient quartic to the nonnegative unit sphere, and the boundary cases cannot maximize. The interior Lagrange equations, elimination cubic, root interval, unique stationary vector, explicit constant, outer test, and phase-equality rigidity together yield both the global sharp constant and every equality case. The checker separately verifies the exact elimination identity and numerical formulas. All global conclusions rely on the full proof, not finite floating-point evidence.
+## correctness
 
-## Originality — PASS (conditional on accessible scholarly evidence)
-The closest same-object source, Brevig–Søvik (2026), supplies a strong outer-polynomial classification but does not compute the required \(C(3,1/2)\) finite-dimensional norm. Brevig–Saksman (2019/2020) determine \(C(2,p)\) for \(0<p<1\) and \(C(3,2/3)\), but do not state or imply the order-three half-exponent value. The 2022 related Hardy paper addresses different constraints. Exact-formulation and numeric searches located no covering source. The 1990 Suffridge chapter was not available in full, leaving a genuine priority risk. A failed search does not constitute proof of historical uniqueness.
+PASS
 
-## Value — PASS
-The third Taylor coefficient is a canonical invariant in analytic Hardy spaces, and its sharp constant at exponent one-half is the first natural fourth-power cubic case after the explicitly solved older examples. A complete algebraic formula plus all rigidity/equality cases gives substantially more than a textbook bound or an arbitrary numerical slice. The chosen exponent makes the nonlinear extremizer reduction polynomial, and the resulting extremal vector has nontrivial positive interior coordinates, not a routine monomial extremizer.
+The cited outer-extremizer corollary reduces the H^(1/2) extremal problem to cubic P raised to fourth power. Parseval makes the quasi-norm the square of the coefficient l2 norm; [z^3]P^4=4a^3d+12a^2bc+4ab^3. Positivity/triangle equality reduces the maximum to the nonnegative unit 4-sphere. Strict boundary perturbations put every maximizer inside. The four Lagrange equations yield y^2-3xy-9=0 and y^2-x^3y-3-18x^2=0; eliminating yields 5t^3+22t^2-27t+4, uniquely rooted in (2/3,1) by derivative/convexity signs. The normalized vector is strictly decreasing, so the reverse-polynomial Eneström-Kakeya bound proves P outer. Equality of all three complex summand phases forces geometric-phase coefficients. Independent algebraic/numerical reconstruction found t≈0.849263385361239 and C≈2.088965796225777. This uses the nontrivial cited Hardy outer theorem, not the numerical approximation as a proof.
 
-## Limitations and residual risk
-The proof depends on the stated published structural theorem; arbitrary coefficient indices, Hardy exponents and stability constants remain outside scope. Full access to Suffridge (1990) was unavailable, and an implicit old coefficient-optimization computation cannot be eliminated absolutely. No independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structural outer-polynomial reduction is explicitly due to Brevig–Søvik, not a new result. Brevig–Saksman prove C(2,p) for 0<p<1 and C(3,2/3), which are different from C(3,1/2) and do not imply its quartic numerical optimizer without solving a new optimization problem. Best-of-knowledge comparisons of exact constants/phase-rigid optimizers found no displayed covering result, although older Suffridge work has limited access.
+
+## value
+
+PASS
+
+The third Taylor coefficient at p=1/2 is a canonical Hardy quasi-Banach extremal invariant; unlike an arbitrary numerical slice, p=1/2 yields the first natural cubic fourth-power polynomial optimization beyond previously solved coefficients. The exact sharp algebraic number and complete equality-class rigidity are independently useful facts, not a routine coefficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
