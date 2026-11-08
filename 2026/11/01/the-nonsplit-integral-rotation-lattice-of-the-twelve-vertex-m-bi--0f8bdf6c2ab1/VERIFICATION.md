@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_mobius12.py`. The program uses only Python's standard library and performs exhaustive exact finite linear algebra on the specified twelve-vertex simplicial complex. Expected printed status: `VERIFY_OK`. It reports face counts \((12,48,76,48,12)\), binary boundary ranks \((11,37,36,12)\), three explicit octahedral homology generators, rotation columns \((3,5,1)\), mod-two nilpotent ranks \((2,1,0)\), and the repeating characteristic-zero signed Lefschetz trace pattern \((3,-1,-1,-1)\).
+## correctness
 
-The program establishes all characteristic-two finite-chain claims and the signed face traces by complete enumeration. The integral rank and homology concentration are taken from the cited published nonequivariant theorem; the integral extension classification follows from the written algebraic argument. The program is not a substitute for an independent mathematical review. No claim about other ladder sizes is deduced from these computations.
+PASS
+
+The graph is the 12-cycle with opposite matching edges. Independently constructed its 12,48,76,48,12 independent faces and mod-2 boundary ranks 11,37,36,12, yielding H2(F2) dimension3; explicit octahedral sphere cycles on three disjoint 3K2 supports form a basis mod 2, with rotation columns (3,5,1) and one unipotent Jordan block of size three. Signed fixed-face Lefschetz numbers give rational traces (3,-1,-1,-1) at rotation powers and eigenvalues (-1,i,-i), while Agarwal–Basak Theorem 12 gives integral torsion-free H2 rank3 via a wedge of three S2. A split Z[i]⊕Z_- lattice would satisfy (rho-I)^2=0 mod2, contrary to the checked block; W=ker(rho²+1) is saturated Gaussian integer rank-one, quotient is sign, and extension classes W/(rho+1)W=Z/2. Independently checked the claimed integer matrix has fourth power identity, characteristic constituents, and Smith factors (1,1,4) for rho-I. This proves precisely the integral C4 structure, not an equivariant geometric splitting.
+
+## originality
+
+PASS
+
+The nonequivariant three-sphere wedge and rational dihedral character are prior results; neither determines the integral extension. The mod-two Jordan obstruction distinguishes the nonzero class, and no matching integral lattice assertion was found in the compared primary full text or published records. This is best-of-knowledge priority, not a claim of exhaustive global novelty.
+
+## value
+
+PASS
+
+The integral obstruction resolves a mathematically natural gap explicitly left by the rational dihedral representation of a canonical smallest rank-three Möbius-ladder case. It shows why rational isotypic splitting fails integrally and changes rotation coinvariants from (Z/2)^2 to Z/4. The precise C4 lattice is needed to compute integral equivariant invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
