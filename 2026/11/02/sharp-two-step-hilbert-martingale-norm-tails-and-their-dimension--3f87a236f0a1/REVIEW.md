@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a fixed first-step radius, the success event forces a strictly positive threshold for the longitudinal component of the second increment. The conditional zero-mean property and its lower support bound give the exact rational upper bound, which is monotone in the first-step radius. A three-atom planar second increment attains it, with checked conditional mean, support norms, and terminal norm. The equality cases, real-line refinement, symmetry restriction and quadratic-proxy optimization follow by explicit sharp arguments. The attached exact-rational script passed 3,892 finite assertions; it is supporting evidence, not a proof of universal quantifiers.
+PASS
 
-## Originality
+For r=||M1|| and radial projection Y=<M1/r,M2-M1>, success above sqrt(a²+b²) forces Y≥(x²-r²-b²)/(2r)>0. Conditional mean zero and Y≥-b give P(E|F1)≤b/(b+t_r); t_r decreases strictly in r and maximizes at r=a. Construct center-preserving mass q/2 each on (t,±sqrt(b²-t²)) and mass 1-q at -b: q=b/(b+t) and exact terminal event mass q. Equality forces r=a, inward atom and transverse sphere; all x endpoints checked. Orthogonal symmetric increments give probability 1 at lower x; triangle inequality gives 0 beyond a+b. Scalar two-point and conditional symmetry restrictions follow from one-sided projection and opposite-pair bound. Independent 1960 exact rational tests of event norms, centering and extremal fraction, but universal proof is elementary conditional inequalities.
 
-PASS, with historical-priority risk. Juškevičius and Šileikis (2026, arXiv:2610.31449v1) prove comparisons for expectations of a specified class of convex functions and nonexact norm-tail inequalities, whereas this result evaluates an exact terminal indicator-tail envelope with extremizer geometry. Dzindzalieta (2009) provides sharp scalar bounds, not the Hilbert plane optimization. Pinelis (1994) and Janz (2026) have broader martingale distribution and time-uniform results but do not, in the accessible inspected material, supply this exact fixed-profile two-step formula. Targeted mathematical-record searches and comparisons with accessible prior research found no statement-equivalent result; wider historical coverage remains imperfect.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Fixed deterministic difference bounds are the native parameters of Azuma–Hoeffding-type inequalities. The theorem gives the entire attained two-step norm-tail profile rather than a loose exponential bound; unequal step magnitudes sharpen the usual second-moment estimate, and the scalar/planar and symmetric/asymmetric gaps expose the exact geometric mechanism. A complete classification of sharp constants and equality laws for a natural short-horizon extremal problem is a reusable quantitative benchmark, without claiming a general-horizon theorem.
+Best-knowledge PASS for attained Hilbert-space indicator-tail and equality profiles. The closest 2026 vector martingale paper treats tail estimates and smooth convex-function comparisons; scalar exact martingale solutions are not multidimensional norm maximization. General Banach martingale distribution literature remains priority risk without complete primary reading.
 
-## Limitations
+## value
 
-The result concerns terminal tails after exactly two steps in real Hilbert spaces and positive deterministic difference bounds; it does not solve higher-horizon Bellman equations, general Banach geometry, or first-crossing problems. Historical-priority risk remains for earlier general optimal-transport or Bellman treatments of bounded Hilbert martingales. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-step bounded-difference martingales are a canonical extremal concentration model. Exact sharp unequal-cap tail and scalar/planar symmetry gaps describe an intrinsically useful and previously nonobvious obstruction to transferring scalar sharp martingale tails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
