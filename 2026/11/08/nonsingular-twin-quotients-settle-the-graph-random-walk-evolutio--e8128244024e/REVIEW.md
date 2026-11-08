@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof reconstructs clone blocks intrinsically as the maximal vector subspaces with left-multiplication rank at most one; this uses the explicitly assumed nonsingularity of the quotient adjacency matrix. It then derives both a conformality identity and a support-preserving graph automorphism for any real algebra isomorphism. The edge equation \(c_i^2=c_jd_j\) forces degree constancy on even-walk classes; the two possible patterns yield regularity or bipartite biregularity. Explicit positive diagonal maps establish sufficiency. The argument checks nonempty blocks, positive degrees, nonzero images of neighborhood sums, the case of a connected bipartite quotient, and the real-field hypothesis. The standalone checker examines seven base/clone configurations and exhaustively confirms the multiplication-rank lemma on \(38{,}244\) test vectors in \(\mathbb F_5\), but is not used as proof of the general statement.
+
+## Originality — PASS, qualified
+The earliest surveyed source (arXiv:2610.22248v1, Question 26) asks for the whole-graph criterion. The 2017 source establishes it when the expanded graph itself has nonsingular adjacency; that theorem does not imply the present case with repeated twins, where adjacency rows coincide. The 2024 source contains partial singular-graph families and recommends a twin-partition approach but does not classify all independent blow-ups of a nonsingular quotient. The complete-bipartite isomorphism and regular/biregular sufficiency are already known and explicitly credited. Semantic literature and mathematical-record searches did not expose a stronger or equivalent twin-quotient theorem; no search result alone establishes absence. An unindexed or differently phrased earlier argument remains possible.
+
+## Mathematical value — PASS
+The result addresses the named, active singular-graph extension of an isomorphism criterion for nonassociative graph algebras. It supplies a uniform theorem for every finite connected graph with nonsingular false-twin quotient, not a collection of isolated examples. The proof gives a new intrinsic reconstruction method for the rank-one clone spaces, and the complete multipartite specialization is an immediately usable classification. Its scope still excludes singular twin quotients and does not claim the conjecture in full.
+
+## Closest literature and residual risks
+The strongest direct earlier theorem is Cadavid–Rodiño Montoya–Rodríguez (arXiv:1710.10516), Theorem 2.3, restricted to nonsingular expanded graphs; the most relevant singular-graph follow-up is Cadavid–Rodiño Montoya–Rodríguez–Vidal (arXiv:2405.12341). The October 2026 survey arXiv:2610.22248v1, Question 26, formulates the question generally. The main priority risk is an unindexed equivalent formulation using false twins, equitable blow-ups, or orthogonal decompositions of the evolution multiplication tensor. No classification beyond the specified hypothesis or other coefficient fields is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
