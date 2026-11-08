@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Möbius inversion reduces all irreducible polynomial counts for prime-power degree to a single integer-valued polynomial. For each rational prime, all prime-power field sizes are partitioned according to divisibility by that prime. The divisible branch has attained minimum t; the unit branch has attained minimum h_l(k), using primitive roots, explicit two-adic lifting, and Dirichlet prime witnesses. Subtracting the denominator valuation produces the exact uniform gcd. The Fermat-prime corollary follows from elementary factorization of x^odd+1. Finite independently computed examples confirm, but do not prove, the theorem.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The closest explicit finite-field paper (Bodin, arXiv:0910.1680) contains the classic Möbius count, but the inspected section does not classify common divisors as the field size varies. General fixed-divisor theorems (Peruginelli 2014 and a full-text survey) provide broader abstract machinery, not the explicit formula or Fermat-prime consequence in the inspected material. Published related records on Artin-Schreier factors, cyclotomic degree multiplicities and Fermat-prime witness questions have different hypotheses and conclusions and do not imply this exact family classification. Hyde's potentially related article on cyclotomic factors of necklace polynomials could not be fully inspected; an unlocated equivalent statement remains possible.
+PASS
 
-**Value — PASS.** The gcd of all finite-field irreducible-degree counts is a natural arithmetic invariant. This determines its full prime factorization simultaneously for every prime-power degree; even in the two-power subfamily the invariant exhibits prime jumps precisely at Fermat-prime thresholds, connecting elementary finite-field enumeration to a notable open primality family without claiming to settle that question. This is more structural than a finite table of values.
+Classical Möbius inversion yields p^a I_{p^a}(q)=q^t(q^k-1), t=p^(a-1),k=t(p-1). For each rational prime l, q divisible by l attains valuation t at q=l; for odd l not dividing q the unit branch is zero if l-1 does not divide k (primitive residue + Dirichlet) or 1+v_l(k) if l-1 divides k (primitive root mod l² + LTE + Dirichlet). For l=2 the sharp unit valuation is 1 when k odd and v2(k)+2 when k even. Taking the minimum and subtracting a exactly at l=p gives the stated complete prime factorization. For n=2^a the odd primes l satisfy l-1 power-of-two dividing 2^(a-1), precisely prime Fermat numbers; no infinitude is asserted. Independent exact gcd over prime-power field sizes q<=80 agrees in eight (p,a) cases, including (2,5)->510. Finite checks supplement the all-prime valuation proof.
 
-**Limits.** Degrees with more than one distinct prime factor, unrelated polynomial sequences and the Fermat-prime infinitude question remain outside the result. The general fixed-divisor theory gives abstract algorithms and must not be represented as novel.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gauss/Bodin irreducible-polynomial counting supplies the input necklace formula, while fixed-divisor theory supplies generic computability/bounds but not the evaluated simultaneous prime-power degree formula. The theorem is more than polynomial factorization over Q[X]: it computes gcds of numerical values over all finite field sizes. The exact prime-by-prime formula and Fermat-prime appearance were not in the relevant inspected source statements or Resultary matches. Hyde on cyclotomic factors of necklace polynomials remains plausible but unread full-text; historical-priority conclusion is bounded.
+
+## value
+
+PASS
+
+The gcd of numbers of monic irreducibles as field size varies is a natural arithmetic invariant. A uniform prime-valuation classification for every prime-power degree and a precise Fermat-prime threshold provide independently useful arithmetic data and an exact distinction between degree families, without claiming to solve the infinitude question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

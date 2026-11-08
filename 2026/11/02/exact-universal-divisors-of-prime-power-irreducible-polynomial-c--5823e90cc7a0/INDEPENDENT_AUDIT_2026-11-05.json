@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:09:30.271263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Classical Möbius inversion yields p^a I_{p^a}(q)=q^t(q^k-1), t=p^(a-1),k=t(p-1). For each rational prime l, q divisible by l attains valuation t at q=l; for odd l not dividing q the unit branch is zero if l-1 does not divide k (primitive residue + Dirichlet) or 1+v_l(k) if l-1 divides k (primitive root mod l² + LTE + Dirichlet). For l=2 the sharp unit valuation is 1 when k odd and v2(k)+2 when k even. Taking the minimum and subtracting a exactly at l=p gives the stated complete prime factorization. For n=2^a the odd primes l satisfy l-1 power-of-two dividing 2^(a-1), precisely prime Fermat numbers; no infinitude is asserted. Independent exact gcd over prime-power field sizes q<=80 agrees in eight (p,a) cases, including (2,5)->510. Finite checks supplement the all-prime valuation proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prasad–Rajkumar–Reddy 2017 survey, Sections 2–3, treats general fixed-divisor theory and bounds.",
+          "Bodin 2009 begins with the classical one-variable Gauss irreducible-polynomial formula and goes on to multivariable generating series."
+        ],
+        "reasoning": "Broader general fixed-divisor machinery may compute any fixed-degree instance, but the specific uniform degree p^a valuations and Fermat-prime threshold require an evaluated local proof not supplied in inspected theorems.",
+        "searches": [
+          "A Survey on Fixed Divisors arxiv:1709.08026",
+          "Peruginelli 2014 primary decomposition polynomial fixed divisor",
+          "Bodin generating series irreducible polynomials arxiv:0910.1680",
+          "Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes"
+        ]
+      },
+      "checked_sources": [
+        "Git blob 942132ff87af6342639009a1a4fa49b802e3aef2 RESULT.md; verify.py 71280ba6e4c465cc1db03835d639fd8a55ba3019",
+        "https://arxiv.org/pdf/0910.1680",
+        "https://arxiv.org/pdf/1709.08026",
+        "https://arxiv.org/abs/1811.08601",
+        "Resultary semantic query: Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical enumeration determines I_n(q) as an integer-valued polynomial but says nothing by itself about exact common valuation across all q.",
+          "The source proof constructs sharp modular prime witnesses using Dirichlet and LTE."
+        ],
+        "reasoning": "Prior counting plus generic fixed-divisor theory implies existence/computability in principle, but not automatically the claimed evaluated Fermat-prime factorization. The construction sharpens local lower bounds for each prime.",
+        "searches": [
+          "Bodin arxiv:0910.1680 Gauss formula for counts",
+          "A Survey on Fixed Divisors Theorem 2.1 arxiv:1709.08026",
+          "Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I_{p^a}(q) is the integer-valued prime-power necklace polynomial (q^(p^a)-q^(p^(a-1)))/p^a.",
+          "Hyde concerns cyclotomic factors of the polynomial, mathematically different from the common integer divisors of all evaluations."
+        ],
+        "reasoning": "Fixed divisor over integer inputs and over prime-power field sizes agree here because Dirichlet produces prime witnesses in every needed unit residue class; rational polynomial factorization does not automatically provide fixed divisors.",
+        "searches": [
+          "Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes",
+          "necklace polynomial fixed divisor prime-power degree",
+          "arxiv:1811.08601 cyclotomic factors necklace polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent finite gcd examples 1,3,30,30,510 for degrees 2,4,8,16,32 corroborate the formula.",
+          "No pre-existing exact universal prime-power-degree tabulation was obtained from the actual source searches."
+        ],
+        "reasoning": "Finite integer lists or standard necklace values do not imply the formula for every p,a; an older specialist table or OEIS entry remains possible.",
+        "searches": [
+          "gcd_q irreducible monic polynomials degree 2 power Fermat primes",
+          "Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes",
+          "sequence universal divisors of necklace polynomials OEIS"
+        ]
+      },
+      "rationale": "Gauss/Bodin irreducible-polynomial counting supplies the input necklace formula, while fixed-divisor theory supplies generic computability/bounds but not the evaluated simultaneous prime-power degree formula. The theorem is more than polynomial factorization over Q[X]: it computes gcds of numerical values over all finite field sizes. The exact prime-by-prime formula and Fermat-prime appearance were not in the relevant inspected source statements or Resultary matches. Hyde on cyclotomic factors of necklace polynomials remains plausible but unread full-text; historical-priority conclusion is bounded.",
+      "residual_risks": [
+        "The full Hyde paper on necklace polynomial factorization could not be inspected; it may contain a stronger arithmetic statement.",
+        "Generic fixed divisor theory could contain an implicit specialization not identified in inspected sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "supplies classical count, focuses on generating series across variables rather than universal divisor",
+          "evidence": [
+            "One-variable irreducible-polynomial counts are treated as background in introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0910.1680",
+          "material_read": "Abstract, Section 1 and one-variable Gauss/Möbius count context, PDF page 1 inspected",
+          "method": "full-text primary PDF targeted reading",
+          "title": "Generating series for irreducible polynomials over finite fields",
+          "trigger": "same irreducible-count formula"
+        },
+        {
+          "assessment": "general fixed-divisor structure, no observed evaluation of prime-power necklace family",
+          "evidence": [
+            "Theorem 2.1 general bounds are non-explicit for this family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.08026",
+          "material_read": "Introduction and Section 2 Theorems 2.1-2.3, plus named general fixed divisor bounds; PDF page 1 inspected",
+          "method": "full-text primary survey targeted reading",
+          "title": "A Survey on Fixed Divisors",
+          "trigger": "potential stronger general fixed-divisor result"
+        },
+        {
+          "assessment": "possible indirect equivalence not ruled out, explicitly residual risk",
+          "evidence": [
+            "The paper is about polynomial cyclotomic factors; full text not read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.08601",
+          "material_read": "Metadata/abstract and literature title only; complete paper inaccessible through tried sources",
+          "method": "abstract-level comparison only",
+          "title": "Cyclotomic factors of necklace polynomials",
+          "trigger": "highly relevant same necklace polynomial family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gcd of numbers of monic irreducibles as field size varies is a natural arithmetic invariant. A uniform prime-valuation classification for every prime-power degree and a precise Fermat-prime threshold provide independently useful arithmetic data and an exact distinction between degree families, without claiming to solve the infinitude question.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git blob 942132ff87af6342639009a1a4fa49b802e3aef2 RESULT.md; verify.py 71280ba6e4c465cc1db03835d639fd8a55ba3019",
+    "https://arxiv.org/pdf/0910.1680",
+    "https://arxiv.org/pdf/1709.08026",
+    "https://arxiv.org/abs/1811.08601",
+    "Resultary semantic query: Universal fixed divisor gcd irreducible polynomials finite fields prime power degree necklace polynomial Fermat primes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full Hyde paper on necklace polynomial factorization could not be inspected; it may contain a stronger arithmetic statement.",
+    "Generic fixed divisor theory could contain an implicit specialization not identified in inspected sections."
+  ],
+  "schema_version": 1
+}
