@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the rank-oriented four-cube multipath result
+# Independent mathematical audit
 
-The package contains `verify_boolean_cube_multipath.py` and `morse_certificate.json`, and the complete exact output from an execution of the program in `verification_output.txt`. Execute the program with Python 3.9 or later in the same directory as the certificate. It uses only standard-library modules.
+## correctness
 
-The source independently builds the four rank-incidence bipartite graphs, exhaustively enumerates their matching simplices and reconstructs the deterministic greedy discrete-Morse pairs. On each of the two middle graphs it checks 78 pairs on 162 nonempty faces, confirms exactly one critical vertex and five critical triangles, and topologically sorts all 432 directed Hasse incidences after reversing paired arrows. Exact mod-two boundary elimination independently gives ranks 11, 37 and 30 and second Betti number five in each middle factor. The five critical triangles and no critical edges imply the integral homotopy wedge, rather than only numerical field homology.
+PASS
 
-An independent recursive dynamic program processes all 32 original digraph arcs directly from incoming/outgoing-degree restrictions, generating 664225 admissible subsets including the empty subset. It agrees coefficientwise with the product of four factor enumerators and checks the complete face polynomial. All 24 coordinate permutations are processed using exact signed fixed-face Lefschetz traces, with full consistency across conjugacy classes; the rational irreducible decomposition is computed by integer character inner products.
+Reconstructed the rank-oriented Boolean 4-cube (16 vertices, 32 arcs) and proved the simplicial join factorization by the independent in/out constraints at each rank. Enumerated the 12-edge rank-one-to-two matching complex with face polynomial 1+12t+48t^2+72t^3+30t^4; reproduced 78 acyclic pivot pairs, one critical vertex and five critical triangles, so each middle factor is wedge^5 S^2 while outer factors are wedge^3 S^0. The join has 225 seven-spheres. Independent signed fixed-face Lefschetz calculation over all 24 coordinate permutations yielded middle character (5,-1,1,2,1), whole character (225,1,1,0,1), multiplicities (10,9,28,28,19) summing to 225. The equivariant claim is rational homology, not an equivariant wedge homeomorphism.
 
-The checks establish this finite four-dimensional case and a rank-level combinatorial decomposition. They do not establish a general formula for higher-dimensional Boolean lattices, an equivariant wedge splitting, or the uniqueness of the result in the literature. The independent audit has not been performed.
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. The assembled S4 character and 225 sphere count require nontrivial finite topology and equivariant traces beyond the cited general theorem. No exact table of the Hasse multipath B4 wedge and its irreducible character was identified; search failure alone is not proof of absence. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+The Boolean lattice B4 is a canonical ranked graph, and its upward-Hasse multipath complex cleanly tests a structural rank-join property. The exact integral wedge and full coordinate S4 homology representation refine the natural invariant beyond a graph-size count; the 10-dimensional invariant subspace and irreducible multiplicities are genuinely motivated equivariant information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
