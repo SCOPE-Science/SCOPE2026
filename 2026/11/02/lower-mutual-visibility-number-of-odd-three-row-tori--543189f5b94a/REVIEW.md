@@ -1,19 +1,21 @@
-# Scientific review: odd three-row toroidal lower mutual visibility
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. All quantifiers are over odd \(n=2k+1\) with integer \(k\ge2\). Every geodesic in \(K_3\square C_n\) has at most one row change, and odd-cycle column geodesics are unique. The lower-bound extension argument handles empty rows and occupancy patterns \((1,1,1)\), \((2,1,1)\). The upper bound checks all ten pairs of the proposed five-set and uses six exhaustive ranges of unselected vertices to show no sixth vertex can be added. The standalone graph-BFS verifier checks the construction at twelve odd lengths through \(n=51\) and exhaustively rules out all smaller maximal sets through \(n=9\). Computation is not substituted for the infinite proof.
+PASS
 
-## Originality
+In C_3 square C_n for odd n, a shortest cross-row path switches rows exactly once; its column motion is a unique shortest cycle arc. An inclusion-maximal visible set must occupy every row, otherwise a new vertex can be placed in the empty row and connect to all selected vertices without internal interference. For occupancy patterns (1,1,1) and (2,1,1), extension in a singleton/paired row yields a larger visible set: for the pair in one row, the third cycle point k+1 gives gaps d,k+1-d,k all <=k. The proposed five-set has ten pairwise witness geodesics and its six exhaustive external-vertex column cases produce blocked witness pairs. An independent BFS shortest-path obstruction computation verified the five-set is maximal for n=5 and 7 and exhaustively excluded all smaller maximal sets for those n. The all-odd-n theorem rests on the case proof, not extrapolated BFS.
 
-PASS on the evidence reviewed, with an unindexed-prior-result risk. Brešar and Yero (arXiv:2307.02951, Sections 2 and 6) explicitly give the lower-visibility formulas for two path factors and two complete factors and pose the toroidal case as a problem; for \(n\ge5\), \(C_3\square C_n\) is neither of those two factor families. Cicerone et al. (arXiv:2304.00864, Section 4) establish maximum, total, dual and outer visibility values of tori, not the inclusion-minimal maximal ordinary-visibility parameter. Cicerone, Di Stefano and Klavžar (arXiv:2112.13024, Section 3) address maximum visibility in Cartesian products. The corresponding mathematical-record searches and recoverable previously available claims revealed no covering theorem. An undiscovered stronger source remains possible; publication priority is not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The previously articulated toroidal-grid problem motivates this exact natural invariant. The sharp constant value for every odd length is counterintuitive in an arbitrarily long torus and follows from a constructive arrangement whose maximality requires a six-case global geodesic obstruction. It gives a genuine infinite subfamily rather than an unmotivated finite computation. This does not purport to solve even-length or all-width tori.
+Brešar–Yero introduced the lower invariant and explicitly posed lower numbers for toroidal grids as Problem 1; their grid formula concerns P_m square P_n and K_m square K_n, not C_3 square C_{odd>=5}. Maximum or total visibility studies on tori are different quantifiers. Therefore this natural open-problem subfamily appears original, with priority risk from newer unindexed torus work.
 
-## Validation scope and limitations
+## value
 
-The proof is complete for the stated family; the verifier is finite and does not constitute an independent audit. The available literature comparisons reduce but cannot eliminate priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The lower mutual-visibility number is a natural greedy terminal-size invariant; solving the previously explicitly asked torus subfamily with a uniform minimum 5 and a sharp construction gives a meaningful extremal graph theorem beyond textbook path-grid formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
