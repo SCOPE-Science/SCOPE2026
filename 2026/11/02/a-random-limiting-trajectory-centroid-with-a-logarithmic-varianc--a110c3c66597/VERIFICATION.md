@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The independent path-enumeration and second-moment checker is contained in `checker.py` in this package. It uses Python's standard library, `Fraction`, direct trajectory-law propagation, and scalar moment recurrences. The command `python3 checker.py` passed 177 exact/computed assertions on the supplied file. Exact paths were enumerated for three exploration probabilities and two centered step distributions of equal variance; the endpoint second-moment identity was separately tested at seven time indices. The leading logarithmic finite-size correction was evaluated from a half-million-step scalar recurrence at several fixed probabilities, checking stability of the remaining order-one coefficient.
+## correctness
 
-Analytic verification consists of the definitions and complete derivation in `RESULT.md`: exact conditioning, a square-summable martingale, integral generating functions, elementary integration-by-parts evaluation, and singularity transfer. Independent mathematical audit has not been performed. The numerical checks neither establish the infinite asymptotic nor decide literature priority; those are addressed respectively by the proof and the qualified literature comparisons.
+PASS
+
+Conditioning on the exploration/relocation decision gives exact v_n, t_n=E(S_n X_n), and s_n=E(S_n²) recurrences. Martingale difference xi_j and weights h_k~1/k give an L²-bounded convergent martingale; an O(log n/n²) mean-square discrepancy and Borel–Cantelli yield a.s. centroid convergence. The explicit generating function F(z)=((1-pz)/(1-z))²I(z) has a double pole whose coefficient yields L=sigma² p(2+p)/(2(1-p)), and a log-singular term yields -sigma² p(1+p)/(1-p)² (log n)/n. Independently checked moment recurrences for multiple p, and the integral I(1) coefficient by quadrature; numerical checks corroborate not prove the asymptotic.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge: the preferential-relocation model and logarithmic endpoint MSD are established. The assessed statement concerns the unscaled empirical centroid's a.s./L2 convergence, exact nonzero variance and sharp logarithmic finite-size correction, not endpoint scaling or weak occupation-measure limits.
+
+## value
+
+PASS
+
+The empirical centroid of a canonical preferential relocation process is a natural time-average observable, quite different from its known logarithmically spreading endpoint. An exact nondegenerate limit variance plus leading logarithmic convergence correction is useful for occupation fluctuations and random recursive path averages, beyond a routine variance substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

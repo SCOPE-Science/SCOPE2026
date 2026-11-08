@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:50:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md/checker.py; exact moment recurrences, martingale projection and singularity transfer."
+      ],
+      "rationale": "Conditioning on the exploration/relocation decision gives exact v_n, t_n=E(S_n X_n), and s_n=E(S_n²) recurrences. Martingale difference xi_j and weights h_k~1/k give an L²-bounded convergent martingale; an O(log n/n²) mean-square discrepancy and Borel–Cantelli yield a.s. centroid convergence. The explicit generating function F(z)=((1-pz)/(1-z))²I(z) has a double pole whose coefficient yields L=sigma² p(2+p)/(2(1-p)), and a log-singular term yields -sigma² p(1+p)/(1-p)² (log n)/n. Independently checked moment recurrences for multiple p, and the integral I(1) coefficient by quadrature; numerical checks corroborate not prove the asymptotic.",
+      "residual_risks": [
+        "Only fixed p∈(0,1), centered finite-variance steps; does not assert a Gaussian limit law for A_infty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 general result covers scaled occupation measures; 2012 Hoppe-tree barycenter limits cover a different recursive spatial process."
+        ],
+        "reasoning": "Weak convergence of scaled occupation does not give an unscaled O(1) centroid variance or log(n)/n correction, but unavailable full primary texts prevent conclusive exclusion of stronger buried results.",
+        "searches": [
+          "Mailler Uribe Bravo fading memory random walks occupation measures barycenter moment",
+          "preferential relocation walk empirical trajectory mean barycenter limiting variance logarithmic correction"
+        ]
+      },
+      "checked_sources": [
+        "Boyer and Solis-Salas arXiv:1403.6069 abstract/metadata and known endpoint formula",
+        "Mailler and Uribe Bravo arXiv:1810.02735 metadata/abstract, full text inaccessible",
+        "Rafler arXiv:1207.1636 abstract/metadata, full text inaccessible",
+        "Oxford authorized full-text request for Mailler/Uribe Bravo returned vpn_disconnected",
+        "Resultary semantic search: preferential relocation walk empirical trajectory mean barycenter limiting variance logarithmic correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known v_n= p sigma²/(1-p) sum(1-p^k)/k; published scaled occupation convergence; related barycenter on Hoppe trees."
+        ],
+        "reasoning": "The known marginal v_n cannot determine cross-covariances of trajectory positions, which are required for Var(A_n). Scaled weak occupation limits do not suffice for O(1) second moments.",
+        "searches": [
+          "Boyer Solis-Salas 2014 endpoint MSD Mailler Uribe Bravo 2018 random recursive trees",
+          "preferential relocation walk empirical trajectory mean barycenter limiting variance logarithmic correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer–Solis-Salas same walk MSD; Mailler–Uribe Bravo occupation-measure scaling; Rafler recursive set barycentre."
+        ],
+        "reasoning": "Unscaled trajectory mean is a barycenter of a dependent recursive tree, but Rafler's parent and increment mechanisms differ; no literal identity of the corresponding law established from abstracts.",
+        "searches": [
+          "preferential relocation walk empirical trajectory mean barycenter limiting variance logarithmic correction",
+          "random recursive tree barycentre preferential relocation memory walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target law is for all n and continuous p, with no natural finite exact database; published endpoint MSD formula is explicitly prior."
+        ],
+        "reasoning": "This is an analytic limit/moment classification, not a table recomputation. Independent finite enumeration only checks recurrence coefficients.",
+        "searches": [
+          "preferential relocation walk empirical trajectory mean barycenter limiting variance logarithmic correction",
+          "pref relocation empirical centroid covariance exact formula"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the preferential-relocation model and logarithmic endpoint MSD are established. The assessed statement concerns the unscaled empirical centroid's a.s./L2 convergence, exact nonzero variance and sharp logarithmic finite-size correction, not endpoint scaling or weak occupation-measure limits.",
+      "residual_risks": [
+        "Same-family 2018 primary paper's inaccessible full text or appendices could already contain an unscaled barycenter theorem; this is substantive priority uncertainty.",
+        "General random recursive tree martingale limit may imply the stated first-order variance, though the precise logarithmic correction requires further analysis.",
+        "Physical interpretation of random A∞ is model- and sampling-rule-specific."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes endpoint MSD and model, not the new unscaled centroid limiting variance.",
+          "evidence": "Published E X_n²=p sigma²/(1-p) sum_{k≤n}(1-p^k)/k.",
+          "identifier_or_url": "arXiv:1403.6069",
+          "material_read": "Public arXiv landing/search results and original result identified from record; no full primary-text inspection verified in this run.",
+          "method": "Available abstract/metadata and specific known endpoint MSD comparison.",
+          "title": "Random walks with preferential relocations to places visited in the past and their application to biology, Boyer and Solis-Salas",
+          "trigger": "Same preferential relocation rule and logarithmic endpoint spreading."
+        },
+        {
+          "assessment": "Occupation-measure scaling is relevant but available material did not imply exact unscaled centroid law; priority risk unresolved at full-text level.",
+          "evidence": "General scaled occupation result; no inspected formula for unscaled random barycenter.",
+          "identifier_or_url": "arXiv:1810.02735; DOI:10.1088/1742-5468/ab081f",
+          "material_read": "Accessible abstract/metadata only; arXiv/OA full text unavailable; authorized Oxford retrieval blocked because VPN disconnected.",
+          "method": "Primary bibliographic/abstract-level comparison; authorized Oxford request reported vpn_disconnected; no document-wide noncoverage asserted.",
+          "title": "Random walks with preferential relocations and fading memory: a study through random recursive trees, Mailler and Uribe Bravo",
+          "trigger": "Broad same-family tree representation and occupation-measure results potentially dominate unscaled centroid."
+        },
+        {
+          "assessment": "Fixed-root-weight Hoppe tree adds increments on every edge; relocation walk's newest vertex and zero-increment relocation branches differ; a broader embedding remains unruled out.",
+          "evidence": "Different recursive parent and edge law in available description.",
+          "identifier_or_url": "arXiv:1207.1636",
+          "material_read": "Public abstract/metadata only; full paper not read in this run.",
+          "method": "Compare described tree parent law and edge increment mechanism.",
+          "title": "Hoppe trees, random recursive sets and their barycentre, Rafler",
+          "trigger": "Very close barycenter invariant on a recursive spatial tree."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md martingale/generating-function proof and direct moment recurrences",
+        "Boyer–Solis-Salas 2014; Mailler–Uribe Bravo 2018 abstracts"
+      ],
+      "rationale": "The empirical centroid of a canonical preferential relocation process is a natural time-average observable, quite different from its known logarithmically spreading endpoint. An exact nondegenerate limit variance plus leading logarithmic convergence correction is useful for occupation fluctuations and random recursive path averages, beyond a routine variance substitution.",
+      "residual_risks": [
+        "Fixed p and finite variance required; the exact distribution of the limit remains unknown, but the exact variance law is independently useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Mailler/Uribe Bravo and Rafler full primary text inaccessible this run; Oxford permission blocked by disconnected VPN.",
+    "Historical priority qualified; model only fixed independent exploration probability and finite second moment."
+  ],
+  "schema_version": 1
+}
