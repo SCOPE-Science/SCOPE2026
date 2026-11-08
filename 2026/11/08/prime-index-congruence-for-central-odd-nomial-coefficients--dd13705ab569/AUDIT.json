@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An exact formal-series identity (1-x)^p ≡1-x^p-p Σ_{j=1}^{p-1}x^j/j mod p^2 proves the result by geometric-series division. The second correction term cannot contribute to degree dp. The first contributes zero if p does not divide 2d+1, and otherwise -H_{(p-1)/2}; the latter equals (2^p-2)/p mod p by binomial expansion of 2^p. Boundary d=0 and p=3 included. Independent exact coefficient algorithms agreed on 319 tested (p,d) cases, 33 exceptional.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1306.5811 Theorem 1 requires zero as unique interior lattice point; x^{-d}+...+x^d fails this for d>=2.",
+        "arXiv:1008.3887 Lemma 2.5 is modulo p and pertains to trinomials."
+      ],
+      "reasoning": "A general Dwork-type congruence under a distinct polytope assumption and an exact p-index congruence modulo p do not imply this all-radius p^2 dichotomy. The analytic trace formula contains the coefficients but does not evaluate their congruences.",
+      "searches": [
+        "Dwork congruences for constant terms Laurent polynomial modulo p^2",
+        "generalized central trinomial prime-index prime-square congruence",
+        "central (2k+1)-nomial coefficient modulo p^2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1008.3887",
+      "https://arxiv.org/html/1403.5942v1",
+      "https://arxiv.org/pdf/1306.5811",
+      "https://oeis.org/A005191",
+      "https://doi.org/10.1016/j.disc.2015.04.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rudolph-Lilith–Muller (2014) Proposition 1: trigonometric expression for central odd-nomial coefficients, with no arithmetic prime-square classification.",
+        "Sun (2010) Lemma 2.5: T_p(b,c) congruent b mod p, strictly weaker for d=1.",
+        "Mellit–Vlasenko (2013) Theorem 1: Dwork congruences conditional on interior-point restriction, not valid as a cited implication for full d>=2 family."
+      ],
+      "reasoning": "The claim distinguishes exactly p dividing 2d+1, then determines a Fermat-quotient correction modulo p^2 independent of the quotient. None of the inspected source claims implies this division-dependent correction without new coefficient analysis.",
+      "searches": [
+        "arxiv 1403.5942 Proposition 1 congruence modulo prime squared",
+        "arxiv 1008.3887 Lemma 2.5 Tp modulo p",
+        "arxiv 1306.5811 Theorem 1 Newton polyhedron restriction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1403.5942 defines the identical central (2d+1)-nomial objects and supplies trace identities.",
+        "OEIS A005191 identifies the d=2 case; no prime-square formula is listed."
+      ],
+      "reasoning": "Checked the coefficient-extraction form, constant-term walk interpretation, prime-index harmonic/Fermat-quotient correction, and pentanomial/trinomial specializations. No equivalent statement was found.",
+      "searches": [
+        "central multinomial coefficients prime number power p modulo p squared 2^p - 1",
+        "coefficient of x^{dp} (1+x+...+x^{2d})^p modulo p^2",
+        "central pentanomial coefficient at prime index modulo p^2 harmonic Fermat quotient",
+        "central trinomial coefficient T_p p^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005191 documents the central pentanomial integer sequence and references, including known divisibility remarks; no formula at general prime index modulo p^2 was identified."
+      ],
+      "reasoning": "An integer sequence table of particular coefficients does not imply a uniform theorem for all primes and all radii; no database entry with the exact two-parameter congruence was located.",
+      "searches": [
+        "OEIS A005191 central pentanomial congruences prime p modulo p squared",
+        "central multinomial coefficient Fermat quotient modulo p^2"
+      ]
+    },
+    "rationale": "A complete two-branch prime-square formula for all central odd-nomial coefficients at prime index was not located after direct and equivalent-form searches and comparison with the closest archival primary sources. Sun establishes a weaker modulo-p lemma for trinomials; Rudolph-Lilith–Muller provide analytic trace formulas but no prime-square law; Mellit–Vlasenko impose a Newton-polytope hypothesis failing for radii at least two. Search absence is not mathematical proof of priority and an older equivalent identity remains a residual risk.",
+    "residual_risks": [
+      "An unlocated classical identity for prime rows of uniform odd-nomial coefficients could imply the complete formula under another name.",
+      "The full 2015 journal continuation with Dirichlet kernels was not accessible; its abstract alone does not support a claim that its entire contents lack the same congruence.",
+      "Independent mathematical audit and historical-priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant d=1 special class, but Lemma 2.5 only yields congruence modulo p; no all-radius prime-square dichotomy identified.",
+        "evidence": "arXiv:1008.3887 Lemma 2.5 and Section 1 statements",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.3887",
+        "material_read": "Abstract, introduction, prime-index Lemma 2.5 and proof, targeted scans of other prime-square statements",
+        "method": "Read publicly available PDF text and corresponding page image",
+        "title": "Congruences involving generalized central trinomial coefficients",
+        "trigger": "Closest prime-index trinomial congruences and potentially dominating theorem"
+      },
+      {
+        "assessment": "Provides exact analytic representations, not a modular p^2 classification or Fermat-quotient dichotomy.",
+        "evidence": "arXiv:1403.5942 Proposition 1 and equations (1), (12)",
+        "identifier_or_url": "https://arxiv.org/html/1403.5942v1",
+        "material_read": "Entire available five-page HTML article, including definitions, Section II trace result, Section III explicit trigonometric formula",
+        "method": "Read publicly available full-text arXiv HTML",
+        "title": "On an explicit representation of central (2k+1)-nomial coefficients",
+        "trigger": "Same precise odd-nomial objects, plausible full coverage"
+      },
+      {
+        "assessment": "The stated assumption excludes the symmetric Laurent polynomial with interior support for d>=2; no direct implication of the exceptional modulo-p^2 value.",
+        "evidence": "arXiv:1306.5811 Theorem 1 and its Newton-polyhedron condition",
+        "identifier_or_url": "https://arxiv.org/pdf/1306.5811",
+        "material_read": "Abstract, Theorem 1 and hypothesis, proof setup and congruence corollaries",
+        "method": "Read publicly available primary PDF text and page image",
+        "title": "Dwork’s congruences for the constant terms of powers of a Laurent polynomial",
+        "trigger": "Potential broader prime-power congruence for same constant-term functions"
+      },
+      {
+        "assessment": "Known sequence and divisibility data, but no displayed all-prime p^2 congruence.",
+        "evidence": "OEIS A005191 comments, formulas, links (accessed 2026-11-06 UTC)",
+        "identifier_or_url": "https://oeis.org/A005191",
+        "material_read": "Full entry including comments, formulas, references, and sequence data",
+        "method": "Read published OEIS webpage",
+        "title": "OEIS A005191 central pentanomial coefficients",
+        "trigger": "Exact-sequence database/table comparison for d=2"
+      },
+      {
+        "assessment": "Abstract is focused on Fourier/Dirichlet kernel representations; cannot rule out extra congruence remarks without full text.",
+        "evidence": "Discrete Mathematics 338 (2015), abstract and issue metadata",
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.04.001",
+        "material_read": "Published abstract and metadata only; full publisher content unavailable from search environment",
+        "method": "Read journal landing-page abstract; primary full text access unsuccessful",
+        "title": "On a link between Dirichlet kernels and central multinomial coefficients",
+        "trigger": "Journal continuation with same objects and authors, potential stronger formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd13705a-b569-4f4f-a09f-def62e12bb0a",
+  "value": {
+    "rationale": "A natural and complete two-parameter prime-square classification for central odd-nomial (equivalently symmetric-walk return) counts, with an unexpected singular exceptional branch determined solely by divisibility of alphabet size and the base-two Fermat quotient. Extends beyond the classical trinomial and pentanomial examples and provides a reusable coefficient method; not just a table recomputation. The exact branch can coincide at Wieferich primes, which is explicitly acknowledged.",
+    "status": "PASS"
+  }
+}
