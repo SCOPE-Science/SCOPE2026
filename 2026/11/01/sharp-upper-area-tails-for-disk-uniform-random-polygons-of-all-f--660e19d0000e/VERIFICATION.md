@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify_polygon_tail.py` with NumPy, SciPy, and SymPy installed. On the tested environment, its exact symbolic checks verified \(15\) instances of the angular Gram determinant/inverse and normalization, and \(6\) Taylor-coefficient identities; the seeded near-cap importance-sampling comparisons for \(n=3,4,5,6\) at \(\varepsilon=0.001\) yielded ratios \(0.99656,0.99938,0.99764,0.99469\) to the leading prediction.
+## correctness
 
-Run `python test_enlarged.py` with NumPy and SciPy installed. Its independently enlarged reference-domain simulation obtained ratios \(1.00140\pm0.00098\) and \(0.99985\pm0.00120\) at \(\varepsilon=0.001\) for \(n=3,4\) respectively (one estimated Monte Carlo standard error). The enlarged-domain test is numerical and does not prove that finite chosen enlargement encloses the entire rare event for arbitrary \(\varepsilon\); the limit follows from the analytic local bounds.
+PASS
 
-Both programs are finite consistency checks, not infinite certificates. The mathematical proof uses compact localization around the unique regular-polygon maximizers, the nondegenerate mixed linear–quadratic Taylor expansion, exact beta-ball integration, and the uniform remainder comparison. Neither a complete CDF nor a growing-order limit is established. No independent external audit was performed.
+For fixed n>=4, maximum convex-hull area is M_n=(n/2)sin(2pi/n), uniquely at inscribed regular n-gons up to relabeling/rotation. Compactness localizes rare events and forces cyclic convex order. The ordered-angle gap density at equal gaps is (n-1)!/(2pi)^{n-1}, including labeling/rotation. Radial inward displacements u_i enter area deficit linearly with coefficient a=sin(2pi/n), and n-1 angular gaps enter with positive quadratic Gram b(I+11^T), b=a/4, determinant n b^{n-1}. Independent radial-simplex beta-ball integration gives exponent (3n-1)/2 and C_n=2^n(n-1)!/(sqrt(n)pi^{(n-1)/2}a^{(3n-1)/2}Gamma((3n+1)/2)). Remainder O(epsilon^{3/2}) on the localized mixed cap gives relative O(sqrt(epsilon)). Independently recalculated C_3=0.21780894633947 agreeing exactly with known 32/(27pi sqrt3); C_4=0.02994311458867. Finite samples and calculations do not establish all-n probability laws by themselves.
+
+## originality
+
+PASS
+
+Koroleva–Nikitin give regular n-gon upper endpoint laws only with vertices uniform on the circumference: their angular-only exponent is (n-1)/2; interior area-uniform sampling adds n linear radial constraints and changes the constant. Other references cover convex-position probability, lower-volume tails, or n=3; the fixed-n all-n>=4 interior law is not verified to be implied by them.
+
+## value
+
+PASS
+
+Exact large-deviation endpoint exponent and prefactor for a natural random-convex-hull statistic under interior rather than boundary sampling; the n radial plus n-1 angular mechanism is structurally useful and yields all fixed polygon sizes, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

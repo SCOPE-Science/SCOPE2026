@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:12:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed n>=4, maximum convex-hull area is M_n=(n/2)sin(2pi/n), uniquely at inscribed regular n-gons up to relabeling/rotation. Compactness localizes rare events and forces cyclic convex order. The ordered-angle gap density at equal gaps is (n-1)!/(2pi)^{n-1}, including labeling/rotation. Radial inward displacements u_i enter area deficit linearly with coefficient a=sin(2pi/n), and n-1 angular gaps enter with positive quadratic Gram b(I+11^T), b=a/4, determinant n b^{n-1}. Independent radial-simplex beta-ball integration gives exponent (3n-1)/2 and C_n=2^n(n-1)!/(sqrt(n)pi^{(n-1)/2}a^{(3n-1)/2}Gamma((3n+1)/2)). Remainder O(epsilon^{3/2}) on the localized mixed cap gives relative O(sqrt(epsilon)). Independently recalculated C_3=0.21780894633947 agreeing exactly with known 32/(27pi sqrt3); C_4=0.02994311458867. Finite samples and calculations do not establish all-n probability laws by themselves.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koroleva–Nikitin §2.2/Lemma 2.3 proves circular-boundary near-maximal area law, not interior points.",
+          "Paouris–Pivovarov 2013 concerns small-volume estimates and different tail side."
+        ],
+        "reasoning": "An extremal-area inequality and boundary circle law are ingredients, not an area-uniform disk upper-tail theorem.",
+        "searches": [
+          "Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+        ]
+      },
+      "checked_sources": [
+        "Pinned polygon RESULT.md, verify_polygon_tail.py, test_enlarged.py and all metadata",
+        "arxiv:1301.1360 full section 2.2",
+        "arxiv:1402.3512",
+        "Resultary semantic query: Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1301.1360 specifies vertices uniformly sampled on the circumference and proves angular near-maximal polygons.",
+          "The mixed linear radial + quadratic angular integral supplies extra n degrees and changes exponent from (n-1)/2 to (3n-1)/2."
+        ],
+        "reasoning": "Cannot obtain the new exact area-uniform disk family by substituting n in a boundary-only theorem; radial law and density must be derived.",
+        "searches": [
+          "Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koroleva–Nikitin arxiv:1301.1360 considers circumference-sampled polygons, with angular-only deficits.",
+          "Marckert arxiv:1402.3512 treats convex-position event and vertex-count distributions."
+        ],
+        "reasoning": "Same extremizing regular polygon does not make distributions identical; radial integrations add n powers and an explicit gamma factor.",
+        "searches": [
+          "Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published disk-triangle n=3 endpoint constant equals 32/(27pi sqrt3).",
+          "Published Resultary query returned different random polygon/small circumradius or angular sampling settings."
+        ],
+        "reasoning": "The known n=3 constant is excluded from the originality claim and serves as a normalization check, not a table of all n>=4 constants.",
+        "searches": [
+          "Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+        ]
+      },
+      "rationale": "Koroleva–Nikitin give regular n-gon upper endpoint laws only with vertices uniform on the circumference: their angular-only exponent is (n-1)/2; interior area-uniform sampling adds n linear radial constraints and changes the constant. Other references cover convex-position probability, lower-volume tails, or n=3; the fixed-n all-n>=4 interior law is not verified to be implied by them.",
+      "residual_risks": [
+        "A historical general interior-point small-cap theorem using mixed Morse–Bott boundary coordinates might imply C_n without matching title.",
+        "No joint n->infty asymptotics, full Z_n distribution, or overlapping-subset extreme-value limit.",
+        "Monte Carlo near-tail agreement is not an analytic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "It is a circumference-vertex angular law; no area-uniform interior radial sampling case is proved",
+          "evidence": [
+            "arxiv:1301.1360 §2.2, Lemma 2.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+          "material_read": "Complete accessible arXiv manuscript text with section 2.2 and Lemma 2.3; PDF page 5 screenshot checked",
+          "method": "arxiv HTML/full text and PDF page screenshot",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Close regular n-gon upper-area endpoint law"
+        },
+        {
+          "assessment": "Convex-position probability is not the rare upper-area endpoint constant; cannot exclude hidden appendices",
+          "evidence": [
+            "arxiv:1402.3512 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.3512",
+          "material_read": "Abstract, theorem descriptions and bibliographic record only, not full manuscript",
+          "method": "arxiv bibliographic review",
+          "title": "Probability that n random points in a disk are in convex position",
+          "trigger": "Same disk sample and convex hull"
+        },
+        {
+          "assessment": "n=3 is prior and explicitly excluded from n>=4 originality",
+          "evidence": [
+            "Triangle C3=32/(27pi sqrt3)"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/DiskTrianglePicking.html",
+          "material_read": "Published n=3 comparison as cited in source package",
+          "method": "reference comparison and independent exact C3 evaluation",
+          "title": "Disk Triangle Picking",
+          "trigger": "Known n=3 formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact large-deviation endpoint exponent and prefactor for a natural random-convex-hull statistic under interior rather than boundary sampling; the n radial plus n-1 angular mechanism is structurally useful and yields all fixed polygon sizes, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned polygon RESULT.md, verify_polygon_tail.py, test_enlarged.py and all metadata",
+    "arxiv:1301.1360 full section 2.2",
+    "arxiv:1402.3512",
+    "Resultary semantic query: Resultary semantic: Area-uniform n random points disk convex hull near maximum regular polygon upper area tail epsilon (3n-1)/2 constant; arxiv:1301.1360 Sections 2.2, Lemma 2.3; arxiv:1402.3512"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A historical general interior-point small-cap theorem using mixed Morse–Bott boundary coordinates might imply C_n without matching title.",
+    "No joint n->infty asymptotics, full Z_n distribution, or overlapping-subset extreme-value limit.",
+    "Monte Carlo near-tail agreement is not an analytic proof."
+  ],
+  "residual_risks": [
+    "A historical general interior-point small-cap theorem using mixed Morse–Bott boundary coordinates might imply C_n without matching title.",
+    "No joint n->infty asymptotics, full Z_n distribution, or overlapping-subset extreme-value limit.",
+    "Monte Carlo near-tail agreement is not an analytic proof."
+  ],
+  "schema_version": 1
+}
