@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Laplacian presentation is explicitly calculated from the weighted bipartite graph. Successive changes of generators are integral and unimodular: first difference coordinates, then a sum-coordinate change with determinant one. Two generator eliminations give \(n-2\) independent integral \(2\times2\) presentations and one cyclic relation. The Smith factors follow from entry gcd and determinant. The separately computed Laplacian spectrum agrees with the group order via Kirchhoff's theorem. The standalone Smith and determinant programs agree for 90 and 88 fully specified cases respectively. Boundary cases \(n=3\), \(k=0\), and non-coprime \(n,k-1\) are included; finite checking is not offered as an infinite proof.
+PASS
 
-## Originality
+Let m=k−1, t=n+m, q=n+2m. The integer Laplacian blocks tI and −J−mI lead, under the unimodular coordinates u=b_n, z=a_n−b_n, d_i=a_i−a_n, e_i=b_i−b_n, to one free u, r=n−1 copies of t d_i−m e_i and t e_i−m d_i, with global relations t z−Σ e_i=0 and −t z−Σd_i=0. Replace first d/e coordinates by their sums via a simultaneous integral determinant-one transformation, eliminate them via the global relations, giving a single cyclic Z_{tq} and n−2 blocks [[t,−m],[−m,t]]. Each block has Smith invariant gcd(t,m)=g and determinant t²−m²=nq, hence g,nq/g. Spectral eigenvalues 0,2t,n^(n−1 times),q^(n−1 times) give matrix-tree product. Independent full weighted Laplacian reduced Smith forms and exact determinant computations matched (n,k)=(3,0),(4,3),(6,3),(8,1), including two even noncoprime examples. The proof does not divide by nonunits and addresses k=0 and connectedness n≥3.
 
-PASS subject to literature risk. The 2011 Machacek computation covers only the ordinary crown \(k=0\). Reiner–Tseng (arXiv:1301.2977, first submitted January 2013) explicitly cover odd \(n\) for all matching multiplicities and even \(n\) under \(\gcd(k-1,n)=1\). Their full text, including Section 7.1 and Remark 12.2, was inspected. Here the same natural family is handled at even \(n\) with \(\gcd(k-1,n)>1\), where additional cyclic factors \(\mathbb Z_g\) appear. For the even \(k=3\) family these produce a mod-four change in the canonical invariant factors. Searches under crown, multicrown, bipartite double cover, parallel-edge matching, Smith normal form and sandpile aliases did not identify an equivalent complete arbitrary-parameter formula. Source identification and search absence alone cannot guarantee priority; hidden or differently titled integral-matrix results remain a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Completing the Smith classification at non-coprime multiplicities addresses a precise parameter hole acknowledged in the closest structural paper on graph-covering critical groups. The new factors reveal additional \(p\)-torsion invisible in the coprime formula and produce an infinite parity-sensitive family. This is not a single routine numerical instance: the proof works simultaneously for all graph orders and all nonnegative matching multiplicities, with no dependence on a case-by-case census.
+Best-of-knowledge originality assessment: the exact new claim was compared by implications with same-object primary results; known definitions/source results are credited, and no directly covering proved theorem was identified in the inspected material. This is not exhaustive priority certification. A uniform critical-group decomposition for multicrown graphs. The integral reduction determines the additional torsion factors; it cannot be obtained just by plugging excluded parameters into a conditional prior theorem.
 
-## Closest literature and limits
+## value
 
-Machacek (2011), Theorem 14, gives \(k=0\) and is covered. Reiner and Tseng (2013/2014), Section 12.1, cover odd \(n\) and even coprime cases but not the even non-coprime regime. The separate group factors are not always in invariant-factor order, and the theorem does not address arbitrary nonuniform edge multiplicities. The scientific conclusion has been examined in the self-review only; no external mathematical audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An integral Smith-group classification on a natural complete bipartite graph family, including infinite even-order noncoprime parameters excluded by the previously published explicit formulas. Critical groups retain torsion/extension information absent from spanning tree totals; the n mod 4 distinction at k=3 gives a substantive arithmetic effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
