@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Analytic proof: `RESULT.md` provides the full positive-equilibrium reduction, establishes exact equivalence with the original four-dimensional system, proves strict global monotonicity of the parameter curve, and checks both endpoint cases. In particular, the high-bias patch-survival threshold is determined by the true maximal permitted asymmetry, not by extrapolating numerical observations.
+## correctness
 
-Reproducibility: run `python3 check.py` with standard Python 3. The complete expected stdout is in `check_output.txt`. This script exercises 72 explicitly generated positive equilibrium states, comparing all four original ODE residuals to numerical tolerance, and checks monotonic samples and the onset expansion. These are finite tests. All-parameter claims, infinite-bias limits, and the absence of hidden equilibria are analytic results, not computational certificates.
+PASS
 
-The cross-source priority comparison is limited by broad possible results on nonlinear graph equilibria and a contextual source for which the full text was unavailable. Independent audit has not been conducted.
+From positive boundary flux, exclude one-patch boundary states; add equations to derive u=K/(1+t²) and solve the linear chemical sums/differences. Independently verified the exact tanh addition identity tanh z=t+gamma t(1-t²)/(1+t²)=(t+w)/(1+tw), with w=gamma t/[1+(1-gamma)t²]. The inverse-atanh branch is strictly increasing because atanh(v)/v and the positive rational prefactors increase, w increasing throughout its admissible domain. Checked exact coefficient (4+3gamma²+gamma³)/3 of t² and t_gamma endpoint root. Endpoints force threshold chi_c and infinity; two signs generate precisely the two nonuniform states. No transient stability or general graph assertions.
+
+## originality
+
+PASS
+
+Kim–Zhang–Zhao–Cooney arXiv:2610.31049 Sec.3 Example two patches establishes the homogeneous linear threshold Eq.(3.18), numerical asymmetry patterns and a Jensen mass deficit Eq.(3.19), but does not globally enumerate all stationary roots or prove a monotone inverse-tanh parametrization/high-bias survival dichotomy. Continuum PDE stationary literature is a different model. A general nonlinear network result might imply it but was not found.
+
+## value
+
+PASS
+
+A complete nonlinear equilibrium diagram is independently meaningful: excludes folds, hidden branches and coexistence below threshold and identifies a sharp migration-to-growth survival transition. The result goes beyond the source linear instability and numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

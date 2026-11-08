@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:17:10.887557Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "independently simplified exact tanh addition law",
+        "computed inverse-tanh small-t coefficient symbolically",
+        "checked admissible endpoint t_gamma and monotonicity factor derivatives",
+        "reconstructed positivity and boundary equilibrium count"
+      ],
+      "rationale": "From positive boundary flux, exclude one-patch boundary states; add equations to derive u=K/(1+t²) and solve the linear chemical sums/differences. Independently verified the exact tanh addition identity tanh z=t+gamma t(1-t²)/(1+t²)=(t+w)/(1+tw), with w=gamma t/[1+(1-gamma)t²]. The inverse-atanh branch is strictly increasing because atanh(v)/v and the positive rational prefactors increase, w increasing throughout its admissible domain. Checked exact coefficient (4+3gamma²+gamma³)/3 of t² and t_gamma endpoint root. Endpoints force threshold chi_c and infinity; two signs generate precisely the two nonuniform states. No transient stability or general graph assertions.",
+      "risks": [
+        "No formal Lean or expert attestation; independent analytic reasoning and bounded symbolic tests do not certify every hidden assumption."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim et al. arXiv:2610.31049v1 full HTML, Eq.(3.18) linear threshold, Eqs.(3.19)–(3.22) Jensen/plots; Wang–Yan–Gai arXiv:1312.0258 continuum Neumann PDE."
+        ],
+        "reasoning": "Continuous Keller–Segel PDE stationary results and fixed migration logistic patch results use different equilibrium equations; neither inspected statement dominates this discrete softmax formula.",
+        "searches": [
+          "two patch Keller Segel logistic softmax chemotaxis exact stationary bifurcation unique positive asymmetry high sensitivity",
+          "Kim Zhang Zhao Cooney Keller Segel Model Chemotaxis Metapopulation Graphs Graphons 2610.31049 stationary two-patch bifurcation",
+          "https://arxiv.org/html/2610.31049v1"
+        ]
+      },
+      "checked_sources": [
+        "Kim et al. arXiv:2610.31049v1 full HTML, Eq.(3.18) linear threshold, Eqs.(3.19)–(3.22) Jensen/plots; Wang–Yan–Gai arXiv:1312.0258 continuum Neumann PDE.",
+        "Resultary semantic search: two patch Keller Segel logistic softmax chemotaxis exact stationary bifurcation unique positive asymmetry high sensitivity",
+        "Git frozen package https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/global-equilibrium-classification-and-a-high-bias-survival-trans--2c8f1fdf432c",
+        "Independent exact arithmetic /mnt/data/scope05_independent_checks_20261102.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim et al. arXiv:2610.31049v1 full HTML, Eq.(3.18) linear threshold, Eqs.(3.19)–(3.22) Jensen/plots; Wang–Yan–Gai arXiv:1312.0258 continuum Neumann PDE."
+        ],
+        "reasoning": "Eq.(3.18) supplies chi_c but the existence of a linear bifurcation does not count every positive solution or rule out folds. Jensen mass deficit is a bound, not strict globally monotone mass response or the gamma=1 high-bias transition.",
+        "searches": [
+          "two patch Keller Segel logistic softmax chemotaxis exact stationary bifurcation unique positive asymmetry high sensitivity",
+          "Kim Zhang Zhao Cooney Keller Segel Model Chemotaxis Metapopulation Graphs Graphons 2610.31049 stationary two-patch bifurcation",
+          "https://arxiv.org/html/2610.31049v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al. arXiv:2610.31049v1 full HTML, Eq.(3.18) linear threshold, Eqs.(3.19)–(3.22) Jensen/plots; Wang–Yan–Gai arXiv:1312.0258 continuum Neumann PDE."
+        ],
+        "reasoning": "two-site graph chemotaxis, exponential biased random walk, logistic softmax migration stationary tanh equation. Kim–Zhang–Zhao–Cooney arXiv:2610.31049 Sec.3 Example two patches establishes the homogeneous linear threshold Eq.(3.18), numerical asymmetry patterns and a Jensen mass deficit Eq.(3.19), but does not globally enumerate all stationary roots or prove a monotone inverse-tanh parametrization/high-bias survival dichotomy. Continuum PDE stationary literature is a different model. A general nonlinear network result might imply it but was not found.",
+        "searches": [
+          "two patch Keller Segel logistic softmax chemotaxis exact stationary bifurcation unique positive asymmetry high sensitivity",
+          "Kim Zhang Zhao Cooney Keller Segel Model Chemotaxis Metapopulation Graphs Graphons 2610.31049 stationary two-patch bifurcation",
+          "https://arxiv.org/html/2610.31049v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kim et al. arXiv:2610.31049v1 full HTML, Eq.(3.18) linear threshold, Eqs.(3.19)–(3.22) Jensen/plots; Wang–Yan–Gai arXiv:1312.0258 continuum Neumann PDE."
+        ],
+        "reasoning": "No finite database or enumeration underlies the continuous-parameter result; direct model and published-record searches performed.",
+        "searches": [
+          "two patch Keller Segel logistic softmax chemotaxis exact stationary bifurcation unique positive asymmetry high sensitivity",
+          "Kim Zhang Zhao Cooney Keller Segel Model Chemotaxis Metapopulation Graphs Graphons 2610.31049 stationary two-patch bifurcation",
+          "https://arxiv.org/html/2610.31049v1"
+        ]
+      },
+      "rationale": "Kim–Zhang–Zhao–Cooney arXiv:2610.31049 Sec.3 Example two patches establishes the homogeneous linear threshold Eq.(3.18), numerical asymmetry patterns and a Jensen mass deficit Eq.(3.19), but does not globally enumerate all stationary roots or prove a monotone inverse-tanh parametrization/high-bias survival dichotomy. Continuum PDE stationary literature is a different model. A general nonlinear network result might imply it but was not found.",
+      "residual_risks": [
+        "An unindexed two-node softmax reduction or broader graph bifurcation theorem could cover these formulas.",
+        "Other continuum PDE full texts not exhaustively inspected; they are not asserted globally NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold/local bifurcation, pattern simulations, Jensen steady mass deficit; no global four-equilibrium theorem or high-bias endpoint in inspected material",
+          "evidence": "https://arxiv.org/html/2610.31049v1",
+          "identifier_or_url": "arXiv:2610.31049v1",
+          "material_read": "full arXiv HTML structure: Sections 2, 3 Example two patches Eqs.3.17–3.22 and Sections 5.4, 6 numerical discussion",
+          "method": "full HTML with relevant main sections inspected",
+          "title": "The Keller–Segel Model for Chemotaxis on Metapopulation Graphs and Graphons",
+          "trigger": "identical two-patch model and linear instability threshold"
+        },
+        {
+          "assessment": "PDE branch results cannot be assumed to imply discrete two-patch softmax stationarity; residual literature risk retained",
+          "evidence": "https://arxiv.org/abs/1312.0258",
+          "identifier_or_url": "arXiv:1312.0258v4",
+          "material_read": "reported mathematical setting (continuous Neumann PDE), abstract/summary only in this run",
+          "method": "abstract-level comparison; full not independently read",
+          "title": "Qualitative analysis of stationary Keller–Segel chemotaxis models with logistic growth",
+          "trigger": "possible stronger stationary branch comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "A complete nonlinear equilibrium diagram is independently meaningful: excludes folds, hidden branches and coexistence below threshold and identifies a sharp migration-to-growth survival transition. The result goes beyond the source linear instability and numerical plots.",
+      "rationale": "A complete nonlinear equilibrium diagram is independently meaningful: excludes folds, hidden branches and coexistence below threshold and identifies a sharp migration-to-growth survival transition. The result goes beyond the source linear instability and numerical plots.",
+      "residual_risks": [
+        "Value judgment is for exact stated claim/domain, not speculative downstream theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed two-node softmax reduction or broader graph bifurcation theorem could cover these formulas.",
+    "Other continuum PDE full texts not exhaustively inspected; they are not asserted globally NOT_COVERING.",
+    "All five original source packages have private provenance metadata and no publication-ready replacements; completed science is not public release."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct addition of both logistic equations yields the exact mean-population identity. Summing and subtracting the chemical equations gives unique chemical coordinates. Their substitution into the population-difference balance reduces all positive equilibria, without approximation, to a scalar hyperbolic-tangent equation. An exact addition-law factorization gives the complete admissible interval. Two strictly increasing positive terms prove global bijectivity and rule out any folds or additional equilibria. Endpoint evaluation gives the strict high-bias survival dichotomy. Seventy-two numerical parameter-state checks corroborate, but do not replace, these proofs.
+## correctness
 
-**Originality — PASS with residual historical risk.** The closest paper, Kim–Zhang–Zhao–Cooney (arXiv:2610.31049v1), analyzes the linear threshold, numerically plots patterned states and proves a Jensen mass deficit. It does not state or imply the complete count for arbitrary chemotactic sensitivity, the no-fold scalar parametrization, or the survival transition at \(2r=\eta_n\). The one-dimensional continuum Keller–Segel PDE results of Wang–Yan–Gai (arXiv:1312.0258v4) concern another dynamical object. Searches for general multiple-patch logistic migration and published comparison records did not reveal the same softmax two-patch result; nonexhaustive search is not proof of absolute priority. The historical generality risk is recorded in AUDIT.json.
+PASS
 
-**Mathematical value — PASS.** A linear Turing threshold and numerical branch plots alone do not exclude disconnected positive equilibrium branches, subcritical persistence or folds. Complete counting and a monotone global branch give the exact stationary phase diagram. The sharp \(2r/\eta_n=1\) dichotomy resolves a concrete question of how severely extreme directional migration empties a patch despite local logistic replenishment. These properties require nonlinear analysis beyond the previously known Jensen deficit.
+From positive boundary flux, exclude one-patch boundary states; add equations to derive u=K/(1+t²) and solve the linear chemical sums/differences. Independently verified the exact tanh addition identity tanh z=t+gamma t(1-t²)/(1+t²)=(t+w)/(1+tw), with w=gamma t/[1+(1-gamma)t²]. The inverse-atanh branch is strictly increasing because atanh(v)/v and the positive rational prefactors increase, w increasing throughout its admissible domain. Checked exact coefficient (4+3gamma²+gamma³)/3 of t² and t_gamma endpoint root. Endpoints force threshold chi_c and infinity; two signs generate precisely the two nonuniform states. No transient stability or general graph assertions.
 
-**Limits.** Stationarity only; no claims about nonlinear orbital stability, transient basins, other graph sizes or nonlogistic growth. The accompanying diagnostics are finite. Comprehensive historical priority and independent mathematical validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kim–Zhang–Zhao–Cooney arXiv:2610.31049 Sec.3 Example two patches establishes the homogeneous linear threshold Eq.(3.18), numerical asymmetry patterns and a Jensen mass deficit Eq.(3.19), but does not globally enumerate all stationary roots or prove a monotone inverse-tanh parametrization/high-bias survival dichotomy. Continuum PDE stationary literature is a different model. A general nonlinear network result might imply it but was not found.
+
+## value
+
+PASS
+
+A complete nonlinear equilibrium diagram is independently meaningful: excludes folds, hidden branches and coexistence below threshold and identifies a sharp migration-to-growth survival transition. The result goes beyond the source linear instability and numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
