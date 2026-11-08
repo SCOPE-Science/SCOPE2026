@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Use the included `verify_k34.py` with Python 3.9+ standard library; no external package or inputs are needed. `verification_output.txt` contains the exact printed output. The script constructs all weight-three reduced Świątkowski generators, computes differential columns, tests every \(\partial^2\) coefficient, determines four finite-field boundary ranks, constructs the exact actions of four generators on all chain bases, and checks chain-map commutation on all basis vectors. It then evaluates the alternating traces of all \(144\) natural graph automorphisms and resolves their degree-one and degree-two rational characters into the complete \(3\times5\) outer-product irreducible character table.
+## correctness
 
-The exact algebraic argument relating these checks to rational homology requires the independent first-homology theorem of Ko and Park (2011): for \(K_{3,4}\), \(\beta_1=6\). It is not derived by merely extrapolating finite-field ranks. The natural equivariant map onto graph-cycle homology provides the first-degree representation. The rational character identity uses the finite-dimensional chain Euler identity. The finite-group orbit-space conclusion uses rational transfer, which does not assert homotopy type.
+PASS
 
-The output confirms \(C=(364,1326,1476,491)\), differential nonzero counts \((2652,5904,2946)\), rank vectors modulo \(3,5,101\) all equal \((363,957,491)\), and the characteristic-two rank vector \((363,956,491)\). The characteristic-two difference is compatible with the known degree-one \(\mathbb Z/2\) torsion; **no full integral torsion classification is independently proved here**. The integral homology groups are known externally from An (2026), so no novelty is claimed for them.
+PASS. Three UNORDERED points on the graph K(3,4) are modeled by the weight-three reduced Świątkowski complex, with chain dimensions (364,1326,1476,491). Independently reconstructed all basis monomials, full integer differentials and verified both compositions d^2=0 on every column. F2 boundary ranks are (363,956,491); F3 and F5 ranks (363,957,491). The known integral H1 rank six and connectivity, together with these lower bounds and Euler characteristic, force rational Betti vector (1,6,28,0). Reconstructed signed diagonal chain-action traces for all 144 group elements of S3 x S4, including local-half-edge basepoint changes and vertex wedge reordering. Alternating Lefschetz traces plus the graph-cycle H1 module give the stated seven H2 Specht constituents (one multiplicity two), H1 standard(3) tensor standard(4), and no positive-degree full-group invariants. F3 ranks are not misconstrued as integral torsion certification.
 
-Independent mathematical audit remains unperformed. Computational replay verifies the specified finite checker, not an unlimited theorem or publication priority.
+## originality
+
+PASS
+
+PASS by statement-level comparison. An (2026) full paper explicitly computes integral homology for K(4,3): H1=Z^6+Z/2 and H2=Z^28, hence these ordinary Betti numbers and torsion are prior work. Its equivariant Theorem 5.2 is for H_m(B_m K(a,b)), which with m=3 is H3 and vanishes here; it does not give the seven-constituent H2 module. The earlier natural chain-model theorem supplies a method and functoriality, not this decomposition. Searches against graph configuration and S3xS4 representation literature found no covering K(3,4) rational H2 character.
+
+## value
+
+PASS
+
+PASS. The complete bipartite graph K3,4 is the first asymmetric small nonplanar bipartite example with rich three-particle graph braid homology. Its known degree-two rank 28 leaves a genuinely undetermined natural action of all vertex-part permutations. The complete Specht decomposition, including a repeated constituent, is a concrete structural invariant and the vanishing fixed subspace determines rational homology of the full quotient. This is an object- and invariant-motivated classification, not a recomputation of An’s ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
