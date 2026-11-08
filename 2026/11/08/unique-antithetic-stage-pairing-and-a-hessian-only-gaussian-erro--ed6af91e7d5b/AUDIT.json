@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Uniform Taylor expansion of two RK2 steps yields local defect h^3[-A/3+xi H]+O(h^4), with E xi=0 and Var xi=4/45. Uniform pair-endpoint Gronwall gives O(h^2). Linearized variation of constants and bounded-increment triangular-array CLT give h^(5/2) Gaussian covariance 2/45 integral. For any noncomplementary coupling the exact scalar linear multiplier has random order-h^2 term and the h^(3/2) CLT has strictly positive variance, proving universal uniqueness. Rational expansion and moment identities checked by standalone verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 paper defines semi-implicit and fully implicit randomized stages, not the explicit composed antithetic scheme.",
+        "The 2017 paper provides generalized convergence bounds for time-irregular inputs, not coupling-unique exact constants."
+      ],
+      "reasoning": "Broad classical results on numerical errors do not by themselves supply the explicit covariance and uniqueness statement. No inspected stronger theorem implies the full claim; unknown general coupling or quasi-Monte-Carlo work remains an explicit risk.",
+      "searches": [
+        "antithetic randomized Runge Kutta method convergence Gaussian limit pairing stages 2020",
+        "randomized ODE integration antithetic stage pair variance h five halves Hessian",
+        "arXiv:2404.19059v1 section 1.2 schemes and sections 2-3",
+        "arXiv:1701.03444v1 section 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.12131v1 full HTML",
+      "arXiv:1701.03444v1 full HTML",
+      "arXiv:2404.19059v1 full HTML",
+      "DOI:10.1090/S0025-5718-99-01056-X abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 work assumes independent one-step stage parameters, while the claimed pairing deliberately makes two consecutive parameters dependent.",
+        "The 2024 implicit algorithm changes its stage equation; no direct reduction gives the explicit pairing theorem.",
+        "Related stage-coupling optimization of a fixed-step scalar stability factor cannot imply the fixed-horizon nonlinear Gaussian theorem: the objective, scaling and observables differ."
+      ],
+      "reasoning": "There is no established implication from the located prior results to both (i) uniqueness of complementary couplings for universal order-two strong accuracy and (ii) the exact propagated-Hessian h^(5/2) limit, though foundational antithetic and CLT techniques overlap.",
+      "searches": [
+        "arXiv:2006.12131v1 convergence theorem and stability sections",
+        "arXiv:1701.03444v1 numerical analysis conclusions",
+        "arXiv:2404.19059v1 implicit method definitions",
+        "paired randomized Runge Kutta antithetic complementary uniform second order convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bochacik et al. explicitly assume iid uniform stage positions across all steps, so complementary adjacent dependence is excluded in their defined algorithm.",
+        "Kruse and Wu give Lp and almost-sure error rates for time-irregular coefficient classes; no exact antithetic law or Gaussian Hessian covariance was located in the inspected paper sections."
+      ],
+      "reasoning": "The proposed reparameterization is not a simple change of notation of iid-stage RK2: replacing one of two adjacent stages by its complement changes the joint law while preserving each one-step marginal, killing the entire order-h^2 random term. Mean-square fixed-step stability for a scalar test is not equivalent to fixed-horizon global error scaling or the bias-corrected CLT.",
+      "searches": [
+        "antithetic variates randomized Runge Kutta differential equations paired stage antithetic normal fluctuations",
+        "paired randomized Runge Kutta antithetic complementary uniform second order convergence",
+        "arXiv:2006.12131v1 algorithm (16)",
+        "arXiv:1701.03444v1 sections 1 and 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An accessible summary of the 1999 quasi-randomized paper describes a distinct quasi-randomized integration construction; its complete proofs and appendices were not available.",
+        "The inspected arXiv full texts present qualitative convergence/stability estimates, not a table of the specified covariance and uniqueness constants."
+      ],
+      "reasoning": "No exact coefficient table for this precise stage-pair law was located in the material actually examined. The inaccessible older paper is a bounded unresolved comparison, not evidence of absence.",
+      "searches": [
+        "antithetic variates randomized Runge Kutta differential equations paired stage antithetic normal fluctuations",
+        "Randomized Runge-Kutta method -- stability and convergence under inexact information",
+        "1999 Coulibaly Lécot quasi-randomized Runge Kutta DOI:10.1090/S0025-5718-99-01056-X"
+      ]
+    },
+    "rationale": "Primary full-text statements describe iid stage sampling, worst-case convergence/stability, or implicit stages. None of the inspected primary theorem statements gives the uniquely coupled smooth autonomous pair-endpoint h^2 rate together with bias-corrected h^(5/2) Gaussian Hessian covariance. A historical quasi-randomized method was accessible only in summary; general antithetic theory remains a residual precedence risk.",
+    "residual_risks": [
+      "Historical 1999 quasi-randomized Runge-Kutta full text and appendices unavailable for close reading.",
+      "General antithetic variance reduction or numerical modified-equation theory could encode a special case or broader corollary without matching keywords.",
+      "No independent publication-precedence or correctness assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_SAMPLING_LAW_AND_CLAIM",
+        "evidence": "Equation (16) requires independent stages; convergence under inexact information and absolute-stability regions do not imply the pair-dependent h^(5/2) covariance formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2006.12131",
+        "material_read": "Full HTML including scheme (16), convergence and stability theorem discussion and later sections",
+        "method": "Read definitions, equations and result scopes, compare single-step iid and paired dependence",
+        "title": "Randomized Runge-Kutta method—stability and convergence under inexact information",
+        "trigger": "Same explicit randomized RK2 algorithm, stage distribution and stability"
+      },
+      {
+        "assessment": "BROADER_RATE_CONTEXT_NOT_EXACT_COUPLING",
+        "evidence": "Theorems concern convergence-rate bounds in time-irregular equations, not complementary stage coupling or a Gaussian covariance constant.",
+        "identifier_or_url": "https://arxiv.org/abs/1701.03444",
+        "material_read": "Full HTML introduction, scheme descriptions, main Lp/almost-sure error conclusions and related discussion",
+        "method": "Compare regularity, error observables and dependence of stage randomization",
+        "title": "Error analysis of randomized Runge-Kutta methods for differential equations with time-irregular coefficients",
+        "trigger": "Existing convergence estimates for randomized RK2"
+      },
+      {
+        "assessment": "DIFFERENT_IMPLICIT_METHODS",
+        "evidence": "Equations (S1) and (S2) are implicit while the baseline explicit variant uses iid uniforms.",
+        "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+        "material_read": "Full HTML including introduction, explicit baseline and implicit stage definitions and results",
+        "method": "Compare method equations in section 1.2 and stated stability focus",
+        "title": "Convergence and stability of randomized implicit two-stage Runge-Kutta schemes",
+        "trigger": "Another randomized two-stage RK analysis with overlapping terminology"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_PRECEDENCE_RISK",
+        "evidence": "Quasi-randomized Runge-Kutta approaches antedate the focal 2020 source; no full-text comparison can be asserted.",
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-99-01056-X",
+        "material_read": "Accessible bibliographic abstract or summary only; full paper and appendices not inspected",
+        "method": "Compared published scope in accessible summary and recorded access limitation",
+        "title": "A quasi-randomized Runge-Kutta method",
+        "trigger": "Historical alternative to independent random stages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed6af91e-7d5b-4b6b-bc49-1fc6bb8b5f78",
+  "value": {
+    "rationale": "Preserving uniform individual stages while choosing antithetic adjacent dependence uniquely restores universal strong order two without more gradient/function evaluations. The exact propagated Hessian covariance quantifies nontrivial residual stage randomness and is positive on a canonical smooth sine ODE. This is a meaningful design distinction from fixed-step stability and ordinary iid randomization, not a change of notation or merely a numerical constant.",
+    "status": "PASS"
+  }
+}
