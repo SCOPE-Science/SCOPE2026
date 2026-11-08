@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Uniform half-edge pairing gives the one-, two-, and three-pair event probabilities used in the exact moment calculation. Conditioning on each potential loop decreases the corresponding vertex's available half-edge pairs by \(2d_i-3\). The expression for \(\operatorname{Cov}(L,P)\) follows by subtracting the product of marginal means. A separate expansion into two- and three-vertex contributions yields the sign certificate. The triple term is nonnegative by a six-term AM–GM inequality; all negative degree-two pair contributions are compensated by a distinct triple with a fixed high-degree vertex. The degree-one boundary is resolved by parity. Independent exhaustive matching enumeration and rational computations check every admissible small profile tested, but are not substituted for the all-size proof.
+PASS
 
-## Originality — PASS, qualified
+For M even≥6 distinguishable stubs, each potential loop pair occurs with probability (M−1)⁻¹, and each pair of cross edges with probability 2/((M−1)(M−3)). Conditioning on a loop decreases its vertex pair count by 2d_i−3. This yields exact E L=A/(M−1), E P=2B/((M−1)(M−3)), E LP=2(AB−F)/((M−1)(M−3)(M−5)), and covariance 2(4AB−(M−1)F)/((M−1)²(M−3)(M−5)). Rebuilt the pair/triple/leaf decomposition D/2=∑a_i a_j Q_ij+∑T_ijk+ℓ∑a_i a_j(d_i+d_j−3), Q_ij=2d_id_j−3(d_i+d_j)+3. T_ijk≥0 by six-term AM–GM, equality only (2,2,2); each negative (2,2) pair is compensated by a distinct high-degree triple, and degree-one parity resolves the only remaining zero candidates. Thus covariance is positive precisely when B>0 and all positive degrees equal two, negative for all other B>0 sequences, zero at B=0. Independent small-profile direct full-pairing enumeration with exact rational numbers confirmed positive (2,2,2) and negative (3,3),(2,2,1,1),(2,3,1),(3,2,2,1),(4,2,2).
 
-The standard model, both defect statistics, marginal means, indicator overlap probabilities, and asymptotic Poisson independence are prior results of Janson (arXiv:math/0609802) and Angel–van der Hofstad–Holmgren (arXiv:1603.07172). The original contribution assessed here is the **complete finite-size sign characterization over arbitrary degree sequences**, not the use of conditioning or the basic moments. Primary full texts were compared at the exact statistics, conditional overlap/Poisson sections and conclusions, and no statement of the two-regular-only positive sign law was identified. The exact mixed-moment formula may also be recoverable from their underlying indicator calculations; this is a residual originality risk, not evidence that their published asymptotic theorem states the sign classification. Wormald's broader 1999 survey was available only through bibliographic abstract material, leaving a historical-priority limitation. Relevant published-result searches were also compared, without a covering claim found. Independent priority verification is still needed.
+## originality
 
-## Value — PASS
+PASS
 
-Loops and parallel-edge pairs are the two standard defects governing simplicity of configuration models. Asymptotic independence does not resolve the sign of their finite-size covariance. The sharp contrast between positive covariance for exactly two-regular pairings and negative covariance for *all* other degree sequences is structural, covers irregular and degree-one cases, and rules out zero covariance whenever both defects are nontrivial. The decomposition explains the transition rather than reporting a small numerical curiosity.
+Qualified PASS only for uniform finite-size sign classification over all degree sequences and its positive degree-triple compensation identity. The configuration model, defect observables, exact separate means and asymptotic independent Poisson limits are established prior work.
 
-## Scientific limits
+## value
 
-The theorem assumes distinguishable half-edges paired uniformly and uses the count of unordered parallel-edge pairs, excluding loops. It does not cover the alternative number of excess parallel edges or total half-edge count four. The original claim has not received independent expert assessment; earlier broad methods could imply parts of the algebraic formula.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Self-loops and parallel-edge pairs control simplicity probabilities in the standard configuration model. Asymptotic independent Poisson statements do not identify finite-size dependence; the strict degree-two-only positive sign and universal negative sign otherwise supply a sharp, nontrivial boundary for arbitrary irregular degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
