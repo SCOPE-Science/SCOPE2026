@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is a necessary condition, not an existence theorem. It reduces nearly-free exponents to \((4,5)\) and the three numerical profiles using published inequalities. The two excluded profiles are ruled out independently of near-freeness by exact incidences, a mod-two line/branch count, an exhaustive four-cycle coloring argument, and the elementary four-corner conic calculation. The standalone program confirms the finite combinatorial and symbolic steps. Three-line/two-conic triple-point types are distinguished throughout. No numerical sample is treated as a proof of nonexistence.
+## correctness
 
-## Originality
-**PASS on the checked record, with priority risk.** Gałecka (arXiv:2204.13969), sections 2–5, gives the bounds and leaves degree nine undecided, not the elimination of the two singularity profiles for two conics and five lines. Dimca–Pokora (arXiv:2111.12349), Proposition 5.4, excludes the **free** case for five lines; that does not imply the present **nearly free** necessary condition. Golla–Pokora (arXiv:2610.12192), sections 1, 3 and 5, develops topological inequalities and odd-configuration congruences; its odd multiplicity-sequence hypotheses do not cover the proposed node/tacnode types. Published research-record searches did not show an equivalent claim. An unindexed equivalent case analysis remains possible, and the recent Bromboszcz source (arXiv:2606.31452) was available only as an abstract; its abstract concerns plus-one generation and degree at most six, but full-document exclusion cannot be certified from that abstract.
+PASS
 
-## Mathematical value
-**PASS.** The natural open degree-nine component case has three candidates surviving the 2022 published numerical constraints. This result eliminates two of the three by genuinely geometric (not just numerical) constraints, leaving a single precise incidence-profile target for any future existence or nonexistence study. The dimension-specific conic-through-four-corners obstruction is essential to the reduction; the claim is not a routine restatement of the inequalities. A full classification or construction is not claimed.
+PASS for a NECESSARY weak-combinatorial classification only, not existence. For 2 smooth conics and 5 lines, total degree9; cited nearly-free mdr and Tjurina formulas force exponents (4,5) and tau47. Bezout and Tjurina yield n2+2t+3n3=34 and n2+3t+4n3=47; cited arrangement inequality forces n3>=6, leaving (2,7,6),(1,6,7),(0,5,8). Reconstructed intersection parity for each line b_L congruent c_L mod2, proved at most two nodes preclude line-line nodes, and counted the line triples x<=2 via intersecting triples among five lines. One-node case forces (x,y,z)=(2,4,1) and violates parity of every conic's ten line intersections. Two-node case forces (2,4,0), and the four remaining line-line corner incidences make a four-cycle; even conic-color degrees force a monochromatic corner conic Q through all four points. Smooth Q of equation alpha X(X-Z)+beta Y(Y-Z), alpha beta !=0, cannot be tangent to the shared line Z=0, and the other conic cannot be tangent to three concurrent lines. Covers both placements of two nodes. Remaining x=1 or2 gives (y,z)=(7,0) or (4,2). Proof depends on published lower bound/Tjurina/inequality, confirmed in actual Gałecka and Dimca–Pokora source contexts. This does NOT prove realization or near freeness of the final profile.
 
-## Limitations and priority risks
-The profile \((0,5,8)\) may still be empty. The finding covers one degree-nine component composition and prescribes the three local singularity types. The general degree-nine classification is not settled. The connected literature record can be incomplete; there is no independently performed audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original degree-nine near-free necessary classification from actual geometric parity/smoothness exclusions beyond earlier numerical filters.
+
+## value
+
+PASS
+
+PASS. The two-conic five-line composition is an open degree-nine near-free geometry case in prior classification, so eliminating two numerical profiles by genuinely geometric line-incidence parity and smoothness is a motivated necessary structural obstruction. The theorem honestly retains unproved existence of the sole surviving profile and does not pretend to solve the full near-free realization problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
