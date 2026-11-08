@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:14:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 1ce39e2144c50413a8409bce0e7e826fad096c7b",
+        "Frozen CHECK.py Git blob 719fb26c5bdc12c387fec487b868897de660de5f",
+        "Independent exact-integer reimplementation /mnt/data/scope_worker10_20261102_2104_delivery/independent_check.py and 11-mode output check_output.txt",
+        "Frozen tree 089c5673d7b92fb276b1cbd504fb808261bda542 and seven Git blobs; current default-branch counterparts all same SHA",
+        "https://arxiv.org/abs/2610.19648 Lem3.7, Eq2.9, Eq3.87, Thm1.2–1.3",
+        "https://arxiv.org/html/1710.10365v3 Fourier–Bessel normalization"
+      ],
+      "rationale": "Reconstructed with unnormalized arc length (2π) and normalized Fourier basis: angular orthogonality yields ∥Ef∥_{L6_rad L2_ang}²=(2π)²[∫r(Σ|a_k|²J_|k|(r)²)^3 dr]^(1/3). Minkowski bounds this by (2π)²Σ|a_k|²I_|k|^(1/3). Xu Thm1.2 gives I0>Ik all positive modes. The new all-positive-degree strict ordering is exhausted by I1>1/10 and I2..11<1/10 plus analytic k≥12. Reconstructed each of the 2001-node exact rational Taylor intervals for k=1...11 independently from the frozen CHECK.py, using 150 terms, 10^90 outward floors/ceils, alternating remainder, exact Simpson weights. All 11 comparisons passed: S1>51/500, S2..S11<7/100; approximate S1=.102828921 and S11=.021030018. Angular Bessel integral representation proves |J_n^(a)|≤1 and |(rJ_n^6)^(4)|≤52704 for r≤40, giving composite Simpson error <1/500; Watson/Xu Lem3.7 bounds each k2..11 tail r≥40 by <1/100, so I2..11<41/500<1/10. Xu Eq3.87 I_n(5)<13/40 for n≥4 and Landau Eq2.9 sup|J_n|<7/(10 n^(1/3)) imply I_n(6)<91/(400 n^(1/3))<1/10 for all n≥12; the final inequality is verified by integer cubing. Sharp Γ=4π²(I0^(1/3)−I1^(1/3)) and equality constants or pure first ± harmonics follow from Xu Thm1.3, which is cited and independently checked for normalization. The 22,011 finite grid/order checks do not establish the infinite cutoff; that is analytic.",
+      "residual_risks": [
+        "The imported Xu high-order fifth moment bound, Watson amplitude bound, and sharp stability/equality theorem are trusted mathematical premises after material primary-text inspection, not formalized independently.",
+        "No Lean/expert proof attestation; the exact finite checker certifies only its finite grid/order arithmetic with a separately justified error theorem.",
+        "Only integer Bessel orders and d2 radial-angular mixed exponent q6; no all-exponent modal ordering or ordinary unmixed extension claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu Thm1.2 proves I0>Ik all k≥1 at d=2 and proves full adjacent strict ordering only d≥3, a crucial parameter exclusion.",
+          "Carneiro–Oliveira e Silva–Sousa Thm1 (ii) handles the degree-zero extremizer for admissible even exponents; Thm2's stated range for d2 is q>6 and so does not cover q=6.",
+          "Ciccone–Sousa explicitly cites a previous universal bound Λ_{2,6}(k)^6<Λ_{2,6}(0)^6/3 (k≥1), which compares with zero and cannot select the largest positive k."
+        ],
+        "reasoning": "Broader dimension/exponent theorems either omit d2 sixth power or only dominate every positive mode by zero. General sharp coefficient with an unidentified supremum is not the exact optimizer identification. Xu 3.87 and Landau bound genuinely cover sufficiently large k but do not settle intermediate positive orders alone.",
+        "searches": [
+          "https://arxiv.org/abs/2610.19648 Thm1.2 proof §3.2.3, Thm1.3 §4",
+          "https://arxiv.org/html/1710.10365v3 Thms1–2",
+          "https://link.springer.com/article/10.1007/s00041-025-10201-7 Props3–4,6",
+          "\"Bessel first kind order six power radial integrals I_k(q) circular Fourier extension sharp second largest nonconstant mode\""
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.19648 Theorems1.2–1.3, Eq2.9, Lem3.7, Prop3.11, Eq3.87",
+        "https://arxiv.org/html/1710.10365v3 Theorems1–2",
+        "https://link.springer.com/article/10.1007/s00041-025-10201-7 Section2 Eq6 and Propositions3–4,6",
+        "https://arxiv.org/html/1509.06309v2 Theorem1 and Table1",
+        "Resultary semantic search four queries: returned 26,83,81,90 results; no direct same-object assertion",
+        "ArXiv identifier checks 1509.03092 (cubic graphs), 1509.06309 (six-Bessel estimates)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu Eq(3.87) proves I_k(5)<13/40 for k≥4, and Eq(2.9) gives sup |J_k|<0.7k^(-1/3); together they imply I_k(6)<0.2275 k^(-1/3), enough only for k≥12 via the stated threshold.",
+          "The imported high-mode bound and Xu's k1>k2>k3 leave k4,...,11 undecided relative to k1; an additional independently certified 11-order Simpson comparison is logically needed.",
+          "Oliveira e Silva–Thiele works with J_{n+m}J_nJ_m and J0/J1 factors, not the same single-order diagonal sixth moment; its strong six-factor estimates do not supply the missing ordering."
+        ],
+        "reasoning": "The prior equations give indispensable analytic premises and a partial order; the claimed conclusion is not already a corollary because the specific finite bridge from k4 through k11 was not provided. Publication of proof would need correct bibliographic identification of the six-Bessel comparator (arxiv:1509.06309, not the incorrect 1509.03092 in the package).",
+        "searches": [
+          "https://arxiv.org/abs/2610.19648 Eq(3.87), Eq(2.9), Lem3.7, Prop3.11 and Thm1.3",
+          "https://link.springer.com/article/10.1007/s00041-025-10201-7 Eq6 and Prop3",
+          "https://arxiv.org/html/1509.06309v2 Theorem1",
+          "\"Sharp radial-angular mixed norm Fourier extension and global stability on spheres Bessel Jk sixth moment maximizing first harmonic degree 1\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu Thm1.3 at d=2 supplies Γ=(2π)^2(I0^(1/3)−(max_{k≥1}I_k)^(1/3)), leaving argmax unspecified; it explicitly states first-harmonic selection when d≥3 only.",
+          "Xu Prop3.11 proves I0(q)>I1(q)>I2(q)>I3(q) when 4<q≤6 but makes no k≥4 positive-mode maximum assertion.",
+          "Ciccone–Sousa Prop3 first-positive-mode result is q=∞; other finite-exponent propositions require d≥3; parameter reduction does not identify d2,q6."
+        ],
+        "reasoning": "Equivalent formulations are the all-order Bessel sixth-moment comparison, selection of the first nonconstant Fourier harmonic in the radial-angular norm, and evaluation of the previously variational global stability spectral gap. These are not supplied by the inspected theorems, which only order the first few modes or use other dimensions/exponents.",
+        "searches": [
+          "\"Sharp radial-angular mixed norm Fourier extension and global stability on spheres Bessel Jk sixth moment maximizing first harmonic degree 1\"",
+          "\"global stability radial angular mixed norm Fourier extension circle d=2 q=6 harmonic k=1 maximal nonconstant\"",
+          "https://arxiv.org/abs/2610.19648 Thm1.3 and Prop3.11",
+          "https://arxiv.org/html/1710.10365v3 Thm1",
+          "https://link.springer.com/article/10.1007/s00041-025-10201-7 Sec2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oliveira e Silva–Thiele Theorem1 and Table1 bound six-Bessel multiorder oscillatory products for the ordinary circle restriction problem; these do not assert ordering of I_k(6)=∫r|J_k|^6 dr over all k≥1.",
+          "Xu Prop3.11 is an exact three-positive-mode comparison but not a table or universal theorem for all k≥4.",
+          "The proof under audit supplies exact enclosures for k1...11 plus a uniform analytic k≥12 cutoff; numerical catalogues of low k cannot replace that quantifier."
+        ],
+        "reasoning": "No exact external table/database covering the all-k first harmonic maximum was identified in the Resultary or primary searches. This is a bounded best-of-knowledge statement; an unindexed earlier calculation remains possible.",
+        "searches": [
+          "\"Bessel first kind order six power radial integrals I_k(q) circular Fourier extension sharp second largest nonconstant mode\"",
+          "\"integral ∫ r J_1(r)^6 dr versus ∫ r J_n(r)^6 dr n≥2\"",
+          "https://arxiv.org/html/1509.06309v2 Theorem1 and Table1",
+          "https://arxiv.org/abs/2610.19648 Proposition3.11",
+          "\"arxiv:1509.03092\" and \"arxiv:1509.06309\" direct identifier checks"
+        ]
+      },
+      "rationale": "The one new assertion is the global d=2,q=6 first-positive-degree selection I_1(6)>I_k(6) for ALL integers k>=2. Xu (2026) Thms 1.2-1.3 give zero-mode dominance and a sharp stability coefficient depending on an unevaluated maximum over positive degrees; its Prop.3.11 treats only k=1,2,3, unlike all positive k. Carneiro–Oliveira e Silva–Sousa (2019), Ciccone–Sousa (2025), and Oliveira e Silva–Thiele (2017) were compared in the actual full texts; their statements/quantifiers do not determine this q6 first-positive-degree index. Resultary searches of 26,83,81,90 ranked results and complementary bibliographic searches found no matching statement, not a proof of global priority.",
+      "residual_risks": [
+        "An unindexed older exact all-positive-order sixth-moment comparison may exist; unsuccessful searches do not prove worldwide priority.",
+        "Imported 2026 Xu results and Landau/Watson estimates were read and applied but not re-proved from first principles.",
+        "Source package misidentifies Oliveira e Silva–Thiele preprint as arXiv:1509.03092; actual paper is arXiv:1509.06309. This requires correction before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PREMISES_AND_PARTIAL_LOW_ORDER_COMPARISON_NOT_THE_ALL_POSITIVE_MODE_ARGMAX",
+          "evidence": "Thm1.2 gives d2 zero-mode dominance, Prop3.11 gives I1>I2>I3, Eq3.87 and Landau bound give an all-large-order bound, and Thm1.3 leaves λ* over k≥1 without the d2 index.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19648",
+          "material_read": "Author full arXiv HTML: introduction and Theorems 1.1–1.4; Sections 2–4, Bessel bounds Eq2.9, Lem3.7, Prop3.11, Eq3.87, equality discussion of Thm1.3.",
+          "method": "Direct full-text HTML reading and theorem/parameter/implication comparison.",
+          "title": "Sharp radial–angular mixed norm Fourier extension and global stability on spheres",
+          "trigger": "Most direct identical operator, d=2,q=6, sharp gap and full harmonic scope."
+        },
+        {
+          "assessment": "DEGREE_ZERO_COVERAGE_BUT_NOT_FIRST_POSITIVE_DEGREE",
+          "evidence": "Theorem1(ii) guarantees degree-zero extremizer at even exponents; Theorem2 strict q range at d=2 excludes q=6; no all-k k=1 maximality result.",
+          "identifier_or_url": "https://arxiv.org/html/1710.10365v3",
+          "material_read": "Full arXiv HTML abstract, introduction and Theorems 1–2, modal reductions and stated quantifier ranges.",
+          "method": "Direct arXiv HTML reading with d2/q6 substitution.",
+          "title": "Sharp mixed norm spherical restriction",
+          "trigger": "Original sharp radial-angular circle extension at q=6, possible stronger theorem."
+        },
+        {
+          "assessment": "FIRST_HARMONIC_SELECTION_IN_OTHER_REGIMES",
+          "evidence": "The q=∞ first-positive-mode theorem and finite d≥3 cases do not cover d2,q6. Its d2,q6 Eq(6) only places positive modes below a fraction of zero.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-025-10201-7",
+          "material_read": "Open HTML introduction; Sections 2–3; Propositions 3–4,6 and parameter hypotheses, including citation Eq(6).",
+          "method": "Full primary HTML theorem and argument comparison.",
+          "title": "Global and local maximizers for some Fourier extension estimates on the sphere",
+          "trigger": "Strongest apparent pre-Xu claim about first harmonic and Bessel spectra."
+        },
+        {
+          "assessment": "MULTIORDER_SIX_BESSEL_PRODUCTS_FOR_UNMIXED_EXTENSION_NOT_IDENTICAL_GLOBAL_DIAGONAL_ORDERING",
+          "evidence": "Theorem1 bounds errors for I_{0,0,n}, I_{1,0,n}; central products include J_nJ_{n+m} with other Bessel factors, rather than r|J_k|^6 maximization for all k.",
+          "identifier_or_url": "https://arxiv.org/html/1509.06309v2",
+          "material_read": "Full author arXiv HTML abstract, introduction, Theorem1, Table1, main named core integrals, relevant lemmas and section treatment of multiorder factors.",
+          "method": "Direct full-text arXiv HTML and comparison of exact integrands/order parameters.",
+          "title": "Estimates for certain integrals of products of six Bessel functions",
+          "trigger": "High-priority original 2015/2017 paper with sixfold Bessel product integrals."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xu Thm1.3 leaves d2 sharp second-mode index undetermined",
+        "Carneiro et al original mixed restriction at q=6",
+        "Frozen RESULT.md proof and independent exact-arithmetic comparisons"
+      ],
+      "rationale": "The first admissible even exponent q=6 in circular mixed Fourier extension is a natural endpoint for exact sharp analysis. A contemporary theorem gives the sharp quadratic stability coefficient as a maximum over positive harmonic degrees but does not name the maximizing degree at d=2; the present all-order comparison identifies k=1, uniquely selecting the first harmonic and explicit optimal stability gap/equality class. This is a mathematically motivated sharp invariant and missing spectral classification, not a routine special-function table recomputation or tiny arbitrary parameter slice. An independently reproducible rational separator and rigorous k≥12 analytical cutoff make the exact selection usable.",
+      "residual_risks": [
+        "Scope is deliberately fixed d=2,q=6; no claims about other q or all adjacent positive moment pairs.",
+        "The imported 2026 modal framework significantly reduces the genuinely new work, but does not imply the finite/intermediate mode comparisons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-k theorem uses published fifth-moment and Bessel amplitude estimates; the independent finite computations do not validate infinite order claims on their own.",
+    "The original bibliographic identifier arxiv:1509.03092 in RESULT/METADATA points to an unrelated cubic-graph paper. The actual comparator is arxiv:1509.06309.",
+    "Best-of-knowledge originality only; no global novelty guarantee or formal mathematical verification.",
+    "Unchanged public files have an operational UUID and unsupported first-public-date provenance. No publishable replacement files delivered; scientific PASS is not an import/verification certificate."
+  ],
+  "schema_version": 1
+}

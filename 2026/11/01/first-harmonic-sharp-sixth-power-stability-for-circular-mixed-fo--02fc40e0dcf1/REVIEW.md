@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed comparison is for integer Bessel orders at the single exponent six. The exhaustive proof splits the orders into \(1\), \(2\) through \(11\), and \(12\) onward. The first two groups are handled by an exact-integer interval Simpson certificate; the fourth-derivative error is bounded independently of order using the angular representation. The analytic Hankel-amplitude tail bound covers the omitted radial interval for the finite orders, while the published fifth-moment and Landau inequalities cover the infinitely many remaining orders. All arithmetic comparisons are strict. The angular Fourier normalization and transfer to the **sharp** stability coefficient agree with the cited mixed-norm theorem. The proof does not replace an infinite quantifier with a numerical cutoff.
+## correctness
 
-## Originality — PASS relative to inspected results
-The closest source, Xu (arXiv:2610.19648v1, 2026), establishes degree-zero dominance and a general sharp stability coefficient, but leaves the largest nonzero mode in the planar case unidentified. Its estimates \(I_k(5)<13/40\) and \(|J_k|<0.7k^{-1/3}\) do not alone compare every \(I_k(6)\) with \(I_1(6)\). Their new combination with a rigorous finite integral certificate closes that comparison. The 2017 mixed-norm paper establishes degree-zero extremality at the sixth exponent; the 2025 study handles the largest nonzero degree at infinity and some higher-dimensional fixed exponents; neither identifies the circular sixth-moment second mode. Older results for much larger exponents or near the critical fourth exponent also do not imply the fixed sixth-exponent statement. The sixfold-product literature concerns different multiorder or ordinary-extension integrals. A prior unindexed equivalent proof remains a residual priority risk, and no independent literature audit is asserted.
+PASS
 
-## Value — PASS
-The sixth exponent is the **first even admissible exponent** for the circle, and the maximizing nonzero harmonic degree determines the best global quadratic stability constant and its equality cases. Identifying that degree removes a genuine parameter left open in the newest full theorem. The proof supplies a simple reproducible rational separator and a finite/infinite comparison technique, rather than another arbitrary numerical Bessel table entry. It does not claim to solve the open full modal ordering problem at general exponents.
+Reconstructed with unnormalized arc length (2π) and normalized Fourier basis: angular orthogonality yields ∥Ef∥_{L6_rad L2_ang}²=(2π)²[∫r(Σ|a_k|²J_|k|(r)²)^3 dr]^(1/3). Minkowski bounds this by (2π)²Σ|a_k|²I_|k|^(1/3). Xu Thm1.2 gives I0>Ik all positive modes. The new all-positive-degree strict ordering is exhausted by I1>1/10 and I2..11<1/10 plus analytic k≥12. Reconstructed each of the 2001-node exact rational Taylor intervals for k=1...11 independently from the frozen CHECK.py, using 150 terms, 10^90 outward floors/ceils, alternating remainder, exact Simpson weights. All 11 comparisons passed: S1>51/500, S2..S11<7/100; approximate S1=.102828921 and S11=.021030018. Angular Bessel integral representation proves |J_n^(a)|≤1 and |(rJ_n^6)^(4)|≤52704 for r≤40, giving composite Simpson error <1/500; Watson/Xu Lem3.7 bounds each k2..11 tail r≥40 by <1/100, so I2..11<41/500<1/10. Xu Eq3.87 I_n(5)<13/40 for n≥4 and Landau Eq2.9 sup|J_n|<7/(10 n^(1/3)) imply I_n(6)<91/(400 n^(1/3))<1/10 for all n≥12; the final inequality is verified by integer cubing. Sharp Γ=4π²(I0^(1/3)−I1^(1/3)) and equality constants or pure first ± harmonics follow from Xu Thm1.3, which is cited and independently checked for normalization. The 22,011 finite grid/order checks do not establish the infinite cutoff; that is analytic.
 
-## Sources, assumptions and limitations
-Principal full-text source: Xu, arXiv:2610.19648v1, Sections 2–4. Comparators: Carneiro–Oliveira e Silva–Sousa, arXiv:1710.10365; Ciccone–Sousa, arXiv:2312.07309 / JFAA 2025; Oliveira e Silva–Thiele, arXiv:1509.03092; and Landau's uniform Bessel estimate. The claim depends on Xu's published high-order fifth-moment bound, Bessel modulus estimate and sharp mixed stability theorem. The exact-arithmetic checker verifies the newly required finite integrations, not those published analytical premises. Numerical values are not mistaken for independently established interval proofs. The finding is specific to the mixed circle norm at \(q=6\). Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one new assertion is the global d=2,q=6 first-positive-degree selection I_1(6)>I_k(6) for ALL integers k>=2. Xu (2026) Thms 1.2-1.3 give zero-mode dominance and a sharp stability coefficient depending on an unevaluated maximum over positive degrees; its Prop.3.11 treats only k=1,2,3, unlike all positive k. Carneiro–Oliveira e Silva–Sousa (2019), Ciccone–Sousa (2025), and Oliveira e Silva–Thiele (2017) were compared in the actual full texts; their statements/quantifiers do not determine this q6 first-positive-degree index. Resultary searches of 26,83,81,90 ranked results and complementary bibliographic searches found no matching statement, not a proof of global priority.
+
+## value
+
+PASS
+
+The first admissible even exponent q=6 in circular mixed Fourier extension is a natural endpoint for exact sharp analysis. A contemporary theorem gives the sharp quadratic stability coefficient as a maximum over positive harmonic degrees but does not name the maximizing degree at d=2; the present all-order comparison identifies k=1, uniquely selecting the first harmonic and explicit optimal stability gap/equality class. This is a mathematically motivated sharp invariant and missing spectral classification, not a routine special-function table recomputation or tiny arbitrary parameter slice. An independently reproducible rational separator and rigorous k≥12 analytical cutoff make the exact selection usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
