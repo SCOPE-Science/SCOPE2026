@@ -1,11 +1,21 @@
-# Review of the Frobenius--reciprocal fiber-spectrum theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** For every target \(y\ne0\), the norm \(r=N(x)\) of a preimage is shown bijectively equivalent to a root in \(K\) of \(r^2+(\operatorname{Tr}(a)-N(y))r+N(a)=0\); conversely \(x=(r+a)/y\) really has norm \(r\). The separate zero fiber, quadratic discriminant sums in odd characteristic, absolute-trace counts in even characteristic, and coefficient class sizes are derived without asymptotic or enumeration hypotheses. Direct field enumeration checks representative prime-power extensions independently, but does not substitute for the general argument.
+## correctness
 
-**Originality: PASS (qualified).** Ugolini, arXiv:1304.3283 (2013), investigates \(k(x+x^{-1})\), not this full Frobenius-twisted arbitrary-coefficient fiber spectrum. The accessible norm-one-torus literature covers closely related base-coefficient image-size phenomena, so that case alone is not asserted to be new. The non-base coefficients, the norm-square dichotomy, the uniform image/fiber classification, and the complete coefficient census are not implied by those narrower results. Searches for Frobenius--reciprocal maps and their polynomial formulation located no exact match. Residual risk: older general norm and value-set results could imply the classification without matching terminology.
+PASS
 
-**Mathematical value: PASS.** The full five-/three-regime stratification addresses a natural exact value-set problem for a Frobenius-twisted inverse map, records all indegrees rather than only mean image size, and identifies the complete small-field permutation exceptions. The coefficient norm, not just the extension order, changes the entire target-fiber distribution. This is a complete and structurally motivated finite-field classification, not a selected numerical slice.
+PASS. Multiplying by x gives yx=N(x)+a. For y≠0, taking norm reduces every preimage uniquely to a nonzero root r in F_q of r²+(Tr(a)-N(y))r+N(a)=0; conversely x=(r+a)/y has norm r and returns exactly y. The zero target is a q+1 norm fiber precisely for a in F_q*. For odd q the discriminant D(z)=(z-Tr(a))²-4N(a), split-character sum -1 and distinguished D(0) classes yield all zero/one/two-root norm counts; for even q absolute trace distinguishes the base/outside cases and double root z=Tr(a). Multiplying each nonzero norm class by q+1 targets and counting coefficients reproduces all table entries. An independent finite-field enumeration of every nonzero a and every nonzero x for q=2,3,5,7,11 confirmed all 5 cases, class sizes and image/fiber histograms (17,353 evaluated (a,x) pairs). The algebra proves all prime powers, not this finite experiment.
 
-**Limitations.** Only quadratic field extensions and nonzero coefficient parameters are covered. The comparison to historical literature remains qualified and independent replication remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge separate statement/implication comparison supports survival of the claimed exact classification; priority is bounded by named inspected sources. Unavailable/abstract-only sections are explicitly reserved as risks, not treated as proof of novelty.
+
+## value
+
+PASS
+
+PASS. A uniform full-fiber classification for the natural Frobenius-plus-reciprocal map across every coefficient and characteristic determines image size, high-multiplicity exceptional fibers, norm-square phase split, and exact rare bijections. The complete parameterized spectrum is more informative than generic degree bounds or a single value-set cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
