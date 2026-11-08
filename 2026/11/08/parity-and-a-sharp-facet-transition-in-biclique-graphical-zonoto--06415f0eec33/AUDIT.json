@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The full graph-cut halfspace representation is proved by discrete coarea, with explicit Euclidean normal lengths and support constants. The complete-bipartite Laplacian's spectral gap makes all nonsingleton cut planes strictly farther than the singleton planes for \\(N\\ge8\\). Exactly the singleton constraints of the larger part force its center coordinates to vanish and yield the cube bounds. The key inequality \\(ap+(p-2a)b\\ge p\\sqrt{a+b}\\) for integers \\(p\\ge4\\) and \\(1\\le a<p/2\\) follows from a nonnegative-coefficient or negative-discriminant argument; it proves all nonmiddle cut constraints redundant. For even p the only remaining inequalities correspond to \\(a=p/2\\), producing the exact square-root cap and sharp threshold \\(N=p^2\\). Endpoint equality, positive affine dimension, and cube-section vertex counts follow explicitly. The standard-library checker independently compared these center predicates with every cardinality-reduced graph cut for fifteen parameter pairs, plus checks of tight cut families and vertex counts. This is a proof for all stated integers, not an inference from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full published RESULT.md: 'Euclidean inradius of weighted graphical zonotopes is a cut expansion constant' proves the radius for all connected weighted graphs and states in Limitations that it does not characterize every Chebyshev center when nonunique.",
+        "Other indexed center-locus statements concern cycle graphical zonotopes or hypercube-graph graphical zonotopes, not all biclique graphs.",
+        "Published biclique Löwner ellipsoid statement concerns minimum enclosing volume ellipsoids rather than maximum inscribed Euclidean balls."
+      ],
+      "reasoning": "The general weighted-graph formula already covers the radius and is explicitly excluded from novelty. Its all-graph scope does not dominate a new exact center-set classification because it supplies no set of all maximizers or parity threshold. The cycle and hypercube-graph center descriptions have different graph families, and the Löwner problem is dual in optimization direction, not logically a center-set result.",
+      "searches": [
+        "published-finding corpus: For complete bipartite graphical zonotopes K_{p,q}, all Euclidean inball centers form a cube hyperplane section for odd p and an extra half-cardinality cut truncation when p+q >= p² for even p.",
+        "published-finding corpus: Euclidean inradius, Chebyshev centers, volume and mixed volumes of graphical zonotopes convex prisms and random shadows",
+        "published-finding corpus: incenter locus of complete bipartite graphical zonotope K_{m,n} cut distances"
+      ]
+    },
+    "checked_sources": [
+      "Padrol--Pilaud--Poullot, arXiv:2111.12422 (2021-11-24), Springer open access HTML, deformation-cone and graphical-zonotope sections",
+      "Chapoton--Pilaud, arXiv:2201.06896 (2022-01-18), accessible 49-page PDF relevant sections and searches",
+      "published-finding corpus published record: Euclidean inradius of weighted graphical zonotopes is a cut expansion constant (complete RESULT.md)",
+      "published-finding corpus indexed: A Walsh-spectral collapse of the incenter locus of Boolean-cube graphical zonotopes",
+      "published-finding corpus indexed: Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+      "Accessible previous geometric claims concerning cycle-graphical-zonotope incenter loci and tree-zonotope geometry (deduplication comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general prior paper supplies r=(1/2)min_S boundary(S)/norm(centered indicator), and proves that the symmetry center is one incenter, but explicitly reserves uniqueness and all-center classification.",
+        "Padrol--Pilaud--Poullot's paper describes the deformation cone, while Chapoton--Pilaud describes K_{p,q} through a shuffle and counts faces; neither gives Euclidean inball-center geometry.",
+        "No published source inspected yields the p-squared balanced-cut transition as a direct corollary without solving additional cut inequalities."
+      ],
+      "reasoning": "A radius formula is strictly weaker than a complete optimizer-set formula: different center polytopes can have equal radii. Combining the generic cut halfspaces with graph spectral estimates and the strict integer quadratic inequality gives genuinely additional structure. This assessment does not assert formal priority over all possible older work.",
+      "searches": [
+        "published-finding corpus: complete bipartite graphical zonotope sharp incenter center dimension phase transition p^2 mixed cuts",
+        "published-finding corpus: polyhedral erosion of graph zonotope by Euclidean ball, complete bipartite zonotope cube section",
+        "Web: complete bipartite graphical zonotope Chebyshev center incenter set Euclidean",
+        "Published published-finding corpus record 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest indexed biclique zonotope result concerns its Löwner outer ellipsoid, not maximal contained Euclidean balls.",
+        "No matching all-center-locus classification surfaced in the queried web literature; the closely relevant complete-bipartite shuffle paper deals with face enumerations."
+      ],
+      "reasoning": "Chebyshev center, incenter locus, maximal inscribed-ball centers, and Euclidean erosion by an inball were compared as equivalent formulations. None of the retrieved statements identifies the central cube section or the extra balanced-half cut family at \\(N=p^2\\). A search failure by itself is not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: complete bipartite graphical zonotope sharp incenter center dimension phase transition p^2 mixed cuts",
+        "Web: complete bipartite graphical zonotope Chebyshev center incenter set Euclidean",
+        "Web: complete bipartite graphical zonotope inradius incenter set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chapoton--Pilaud arXiv:2201.06896 Section 2.4 and Appendix A.1 give exact vertex/facet enumerations for biclique graphical zonotopes; no incenter-locus table is given in inspected sections.",
+        "published-finding corpus indexed records for biclique graphical zonotopes list outer ellipsoids and cubic-moment circumradii rather than a complete incenter polytope."
+      ],
+      "reasoning": "Face-vector tables do not encode Euclidean distances to supporting hyperplanes. An implicit parameterized LP formulation could in principle yield the locus but is not an exact table covering its parity, facets, and p-squared transition.",
+      "searches": [
+        "published-finding corpus: Complete bipartite K_{a,b} graphical zonotope set of all Euclidean incenters Chebyshev centers classification cut facets",
+        "Web: graphical zonotope K_{m,n} inscribed sphere center",
+        "Web: complete bipartite graphical zonotope inradius incenter set"
+      ]
+    },
+    "rationale": "The 2021 primary paper studies graphical zonotope deformation cones, the 2022 complete-bipartite shuffle paper studies their combinatorial realization and face counts, and the prior published-finding corpus theorem determines the radius via a general cut quotient but expressly does not classify all Chebyshev centers. Full prior published-finding corpus RESULT.md and the relevant primary-paper material were inspected. The new contribution is the exact incenter-locus polytope, its odd/even structure, and the genuine phase threshold \\(N=p^2\\), none implied as an explicit classification by the statements checked. Historical priority remains provisional because older polytope-erosion literature is not exhaustively searchable.",
+    "residual_risks": [
+      "Historical priority is provisional; a result may exist in older metric erosion, graph-zonotope, or optimization literature under a different name.",
+      "Two auxiliary indexed published records were compared from their abstracts/summaries rather than complete text, and those summaries cannot exclude undisclosed stronger coverage.",
+      "A generic all-cut halfspace formula is standard and provides an implicit center-set LP; novelty is the explicit all-parameter reduction and sharp phase transition, not the LP construction or the already-known radius."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes deformation and face structure, not optimizer loci of Euclidean inscribed balls",
+        "evidence": "Section 1 states Theorem 2.6 addresses irredundant deformation cone inequalities; Section 2.3 constructs graphical zonotopes via edge segments and graph arrangements.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00586-x",
+        "material_read": "Open-access full HTML introduction, preliminaries including graph zonotopes in Section 2.3, description of main deformation-cone results, and term searches for 'inradius' and 'Chebyshev' across accessible full HTML",
+        "method": "Read source HTML and searched the complete page text",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Foundational paper defining graph zonotopes and their facet/deformation geometry"
+      },
+      {
+        "assessment": "Gives construction, interval/lattice properties, and face counts; inspected statements do not contain the Euclidean incenter-set theorem",
+        "evidence": "Definition 75 P star Q=(P times Q)+Z_{m,n}; Propositions 100 and 101 calculate face counts, and global term searches found no inradius or Chebyshev occurrences.",
+        "identifier_or_url": "https://arxiv.org/pdf/2201.06896",
+        "material_read": "Accessible 49-page PDF text, Sections 1.4 and 2.4, Proposition 100 and Proposition 101 around page 19, PDF screenshots of pages 9 and 19, and global text searches for 'inradius' and 'Chebyshev'",
+        "method": "Read PDF text and inspected original page screenshots",
+        "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+        "trigger": "Same objects: complete-bipartite graph zonotopes as the shuffle of two point-polytopes"
+      },
+      {
+        "assessment": "Radius and existence of symmetry incenter already covered; entire incenter locus explicitly left unclassified",
+        "evidence": "Limitations: 'The theorem does not characterize every Chebyshev center when the center is nonunique; it only proves that the symmetry center is one.'",
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab/RESULT.md",
+        "material_read": "Complete publicly published RESULT.md including Finding, Proof, Relationship to prior work, and Limitations",
+        "method": "Fetched public source and compared claimed quantifiers and conclusions",
+        "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+        "trigger": "Potential dominating general theorem about intrinsic Euclidean inballs of weighted graph zonotopes"
+      },
+      {
+        "assessment": "Distinct hypercube graph versus biclique; not known to imply this theorem",
+        "evidence": "Statement characterizes centers of Boolean-cube graph zonotopes through Walsh interactions and a dimension-five transition.",
+        "identifier_or_url": "published-finding corpus:2026/10/11/SCOPE-a-walsh-spectral-collapse-of-the-incenter-locus-of-boolean-cube--24f8de7b2a90",
+        "material_read": "Indexed finding statement and short summary only, not full article",
+        "method": "Semantic published-finding corpus search and mathematical-object comparison",
+        "title": "A Walsh-spectral collapse of the incenter locus of Boolean-cube graphical zonotopes",
+        "trigger": "Close index hit for a different graphical-zonotope center-locus classification"
+      },
+      {
+        "assessment": "Minimum enclosing ellipsoid is not the maximum inscribed-ball center problem",
+        "evidence": "Index states minimum-volume enclosing ellipsoid has shape (pq/4)L and lists touching vertices; no incenter-locus characterization.",
+        "identifier_or_url": "published-finding corpus:2026/10/11/SCOPE-exact-l-wner-ellipsoid-and-contact-vertices-of-complete-bipartit--3af21ae2f6c8",
+        "material_read": "Indexed claim and short summary only, not full article",
+        "method": "Semantic published-finding corpus search and objective/implication comparison",
+        "title": "Exact Löwner ellipsoid and contact vertices of complete-bipartite graphical zonotopes",
+        "trigger": "Exactly same zonotope family, plausible dominating Euclidean extremal statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06415f0e-ec33-45ba-9b73-2e385f34e7a9",
+  "value": {
+    "rationale": "Complete biclique graphical zonotopes are standard building blocks of generalized permutahedra and shuffle constructions. The center set of the largest inscribed ball is a canonical metric invariant not determined by the known face vector or radius. The theorem gives a natural complete classification, an odd/even dichotomy, a sharp order-squared phase transition in which new balanced-subset supporting inequalities genuinely become active, and exact vertex counts in the untruncated regime. This structure is meaningful independent of any downstream theorem and is not simply a finite numerical lookup.",
+    "status": "PASS"
+  }
+}
