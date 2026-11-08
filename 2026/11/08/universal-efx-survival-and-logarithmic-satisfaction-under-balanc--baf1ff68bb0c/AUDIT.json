@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For each agent, the own-bundle sum is Gamma(r,1). The largest rival remainder after arbitrary single-good deletion is (r-1)M+Gamma(r-1,1), with M an independent Exp(r) minimum. The survivor CDF follows from a direct convolution and yields the stated exact rational finite expansion. Disjoint agent-good rows make all individual EFX-success indicators independent, giving Binomial(n,p). The rival survivor tail has leading term r t^(r-2)e^(-t)/(r-2)!, so Gumbel centering and a three-region dominated-convergence argument give p~log(n)/(r(r-1)n). Binomial concentration and CLT yield the count limits. Twenty exact-versus-independent-quadrature cases (r=2..5,n=2..6), the harmonic identity for r=2, and five direct-valuation Monte Carlo comparisons passed. The limit does not depend on these finite experiments. No independent validation was performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.34625, Section 3 proves online epistemic EFX and restricted EF1 bounds with frequency predictions.",
+        "arxiv:2609.28333, Section 5 concerns worst-case success probabilities of online algorithms on adversarial inputs.",
+        "arxiv:2609.23577, Section 4 studies worst-case online EFX success that can approach zero."
+      ],
+      "reasoning": "Worst-case over allocation algorithms and adversarial realized utilities supplies no closed-form average success law for a fixed balanced allocation under iid continuous utility realizations, and does not determine the EFX-satisfied-agent count. Asymptotic bounds in these models cannot imply the stated exact binomial parameter.",
+      "searches": [
+        "fair division random iid valuations ex post EF1 versus EFX probability threshold",
+        "arxiv:2610.34625",
+        "arxiv:2609.28333",
+        "arxiv:2609.23577"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.34625",
+      "https://arxiv.org/abs/2610.34906",
+      "https://arxiv.org/abs/2609.28333",
+      "https://arxiv.org/abs/2609.23577",
+      "https://arxiv.org/html/2504.03951v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier mathematical result concerning balanced exponential EF1 uses the sum of the smallest r-1 rival values and rate-dependent hypoexponential tails, with an n^(-(r-1)/r) root scale.",
+        "Current EFX computation instead requires largest r-1 values and yields log(n)/(r(r-1)n), hence neither is an immediate re-expression of the other.",
+        "arxiv:2610.34906 evaluates exact EF rather than EFX; arxiv:2504.03951 studies worst-case counts."
+      ],
+      "reasoning": "EFX implies EF1 but a probability/asymptotic for EF1 need not determine the EFX probability or its exact count; reverse implication fails. The new distribution function and leading gamma-tail scaling require a separate calculation and are not forced by previous statements. Exact EF probability is n^-n in this fixed balanced iid model, likewise not determining EFX.",
+      "searches": [
+        "random fair division complete allocations EFx exponential goods fixed bundle sizes largest r-1 goods gamma survival",
+        "fair division random iid valuations ex post EF1 versus EFX probability threshold",
+        "EFX envy-free up to any good random independent exponential valuations preallocated balanced goods r per agent sharp logarithmic probability none all binomial",
+        "arxiv:2610.34906",
+        "arxiv:2504.03951"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2504.03951, Section 3 counts EFX allocations for given valuation instances; it does not evaluate a fixed allocation under random continuous values.",
+        "arxiv:2610.34906, Sections 4 and 7 use probability of exact EF, not EFX after deletion.",
+        "published-finding corpus semantic searches returned no equivalent exponential EFX-survival formula among closest titles and summaries."
+      ],
+      "reasoning": "Counting EFX allocations for a fixed valuation profile is not the probability a preselected balanced allocation passes EFX under independent exogenous values. EF, EF1, and EFX compare different rival bundle statistics. The present event uses the largest r-1 values, and its per-agent probability is not an exact-EF or EF1 probability.",
+      "searches": [
+        "independent exponential additive valuations random allocation EFX probability expectation envy free up to any good asymptotic number agents bundles",
+        "random fair division complete allocations EFx exponential goods fixed bundle sizes largest r-1 goods gamma survival",
+        "probability random allocation is EFX exact law harmonic numbers multiple agents many goods",
+        "EFX envy-free up to any good random independent exponential valuations preallocated balanced goods r per agent sharp logarithmic probability none all binomial",
+        "arxiv:2504.03951"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned unrelated random-priority lottery classification and stochastic-dominance findings, rather than a random-valuation EFX table.",
+        "arxiv:2504.03951 Table 1 concerns minimum numbers of EFX allocations, not a random-valuation success count."
+      ],
+      "reasoning": "No inspected exact table or stored scientific record contains the general-r exponential EFX rational formula or the fixed-r universal sharp asymptotic. Negative retrieval is limited evidence and is not itself a novelty certificate.",
+      "searches": [
+        "independent exponential additive valuations random allocation EFX probability expectation envy free up to any good asymptotic number agents bundles",
+        "random fair division complete allocations EFx exponential goods fixed bundle sizes largest r-1 goods gamma survival",
+        "probability random allocation is EFX exact law harmonic numbers multiple agents many goods",
+        "fair division random iid valuations ex post EF1 versus EFX probability threshold",
+        "EFX envy-free up to any good random independent exponential valuations preallocated balanced goods r per agent sharp logarithmic probability none all binomial"
+      ]
+    },
+    "rationale": "The sharp EFX survival constant and the logarithmic binomial EFX-satisfaction law were not found in inspected directly relevant primary works or in targeted research-record searches. The nearest earlier fixed exponential-lottery calculation concerns EF1, which deletes a most-valuable rival good and studies a different sum of smallest values; neither its CDF nor its limit implies the EFX largest-remainder calculation. The papers about lotteries focus on exact EF, while online papers randomize the allocation under worst-case utilities. This is a provisional original-claim assessment, not a proof of uniqueness across all literature.",
+    "residual_risks": [
+      "Relevant work on random EFX existence or counting could contain a special-case corollary not indexed by title or phrase; the targeted comparisons do not establish global priority.",
+      "arxiv:2610.34434 (Envy-Free Allocations for Random Non-Additive Valuations) was identified via abstract, but its full text was not accessible through the inspected route; it concerns adaptive existence after preference randomization rather than a fixed iid exponential allocation.",
+      "The existing EF1 exponential risk result shares a distributional model but not the fairness event; the EFX tail and new exact binomial interpretation are independently derived.",
+      "The asymptotic is proved only for fixed r; no uniformity in r is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses adaptive online arrivals and frequency predictions, not exogenous iid values for an already fixed balanced allocation.",
+        "evidence": [
+          "arxiv:2610.34625, Theorem 3.3 on EEFX and Section 5 Theorem 5.3 on four-agent EF1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34625",
+        "material_read": "Full-text arXiv HTML/accessible text: introduction and main results, Section 3 on EEFX and picking sequences, Section 5 bounds on EF1.",
+        "method": "Read accessible primary full text and compare mathematical objects and quantifiers.",
+        "title": "Online Fair Division with Frequency Predictions",
+        "trigger": "Recent EFX-vs-EF1 motivation and possibly stronger EFX coverage"
+      },
+      {
+        "assessment": "Analyzes probability of exact envy-freeness and its optimization, not EFX and not the distribution of row-wise EFX success.",
+        "evidence": [
+          "arxiv:2610.34906, introduction states EF is its fairness notion; Section 7.2 treats identical shared valuations and exact EF."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+        "material_read": "Primary full-text introduction and contributions, Sections 4, 5 and 7 including Proposition 7.2 and the exact-EF discussion.",
+        "method": "Read primary accessible HTML/text for modeled utilities and precise ex-post fairness predicate.",
+        "title": "Fair Division of Lotteries",
+        "trigger": "Strongest plausible fixed-allocation uncertain-values paper"
+      },
+      {
+        "assessment": "Bounds worst-case probability over randomized online allocation algorithms and fixed adversarial valuation inputs, not stochastic utilities after fixed assignment.",
+        "evidence": [
+          "arxiv:2609.28333, Section 5.3 gives an EFX bound with n+1 goods, a different bundle-size regime and probability space."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28333",
+        "material_read": "Primary full-text introduction, Section 5 lower-bound statements and EFX success probability discussion.",
+        "method": "Read accessible primary text and compare uncertainty source and theorem quantifiers.",
+        "title": "Online Fair Division Against an Oblivious Adversary",
+        "trigger": "EFX survival probabilities and sharp n-dependent impossibility"
+      },
+      {
+        "assessment": "Fully online algorithm randomness on fixed adversarial values; not the proposed independent exogenous continuous valuation model.",
+        "evidence": [
+          "arxiv:2609.23577, Theorem 4.1 adversarial EFX success probabilities; model in Section 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+        "material_read": "Primary full-text introduction, model and Section 4 theorem references on EFX impossibility.",
+        "method": "Read primary HTML/text for probability and adversarial-input assumptions.",
+        "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+        "trigger": "Plausibly dominating probability model for EFX"
+      },
+      {
+        "assessment": "Counts feasible EFX allocations for fixed valuations and min counts over instances, not random realized values of a pre-fixed balanced allocation.",
+        "evidence": [
+          "arxiv:2504.03951, Table 1 and Theorem 3.3 on #P-completeness of counting EFX allocations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.03951v1",
+        "material_read": "Primary full-text HTML: Sections 1-3 and Table 1, including number-of-EFX-allocations results and counting hardness.",
+        "method": "Read full-text EFX definitions and central counting theorem to compare exact counted object.",
+        "title": "Understanding EFX Allocations: Counting and Variants",
+        "trigger": "Strongest plausible exact EFX counting/thesis overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "baf1ff68-bb0c-4a30-8303-30db9974107d",
+  "value": {
+    "rationale": "EFX is a standard strong fairness requirement, and ex-post compliance of an ex-ante balanced allocation under independently uncertain values is a natural quantity of interest. The exact rational finite law and universal fixed-r decay constant sharpen qualitative impossibility results. A binomial logarithmic-satisfaction effect distinguishes individual success from system-wide success, making the exact invariant relevant without invoking an unrelated downstream theorem. It is not a table recomputation or a mere parameter substitution. The domain is deliberately stated so no claim is made for optimal adaptive allocations.",
+    "status": "PASS"
+  }
+}
