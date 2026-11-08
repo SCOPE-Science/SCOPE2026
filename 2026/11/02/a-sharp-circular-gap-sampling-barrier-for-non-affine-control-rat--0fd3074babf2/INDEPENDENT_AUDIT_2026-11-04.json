@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:16:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<a<1 the time map has strictly positive derivative rho=(T/2)(1-a cos(2pi(sigma-c))). The physical slew rate of affine pseudotime u=u0+K tau is |K|/rho; saturating the tightest nodal inequality yields exactly (1-a max_node cos(2pi(s-c)))/(1-a). The closest circular node distance increases to half the largest cyclic gap at its midpoint, hence the sharp worst-phase (1-a cos(pi*g))/(1-a). All N cyclic gaps sum to one, so g>=1/N uniquely for equally spaced phases. For the two-point right Radau mesh normalized nodes {0,1/3}, g=2/3 and amplitude a=9/10 gives 29/2. The stated ceiling sample-count, N^-2 expansion and endpoint domain follow by solving this formula. Verified independent numeric mesh instances and exact rational Radau witness; no finite check replaces this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2610.17842",
+          "arxiv:1903.05508",
+          "arxiv:2610.17842"
+        ],
+        "reasoning": "Existing Gauss/Radau collocation convergence, rate constraints and flexible time maps address broader optimal-control programs but do not imply the fixed finite-mesh sharp worst-phase rate inflation factor without additional analysis.",
+        "searches": [
+          "circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral",
+          "arxiv:2610.17842",
+          "arxiv:1903.05508"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.17842",
+        "arxiv:1903.05508",
+        "arxiv:1607.02798",
+        "arxiv:2207.05467",
+        "doi:10.1109/TAC.2020.2976051",
+        "Resultary semantic query: circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral; closest: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739 (D-optimal flow sampling, distinct constraint)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2610.17842",
+          "arxiv:1903.05508",
+          "arxiv:1607.02798",
+          "arxiv:2610.17842"
+        ],
+        "reasoning": "Minnozzi–Sagliano provide on-mesh rate inequalities and sine-based time dilation; these premises combined with the chain rule plus circle covering yield the result, but their accessible abstract does not state the final worst-phase factor. Nie–Kerrigan give an on-mesh direct-rate implementation not the claimed sinusoidal worst-phase minimax statement in the inspected section.",
+        "searches": [
+          "circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral",
+          "arxiv:2610.17842",
+          "arxiv:1903.05508",
+          "arxiv:1607.02798"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2610.17842",
+          "arxiv:2610.17842"
+        ],
+        "reasoning": "Replacing continuous physical-time rate by the maximum reciprocal time dilation translates the question exactly into a circular closest-sample covering radius; generic optimal circle coverings alone omit the control-rate normalization and attainment. This supplies the method but does not show prior specialized rate-factor coverage.",
+        "searches": [
+          "circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral",
+          "arxiv:2610.17842"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query: circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral; closest: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739 (D-optimal flow sampling, distinct constraint)",
+          "arxiv:2610.17842"
+        ],
+        "reasoning": "No indexed exact table of this (mesh,amplitude)-dependent control-rate factor found. The simple N=2 rational 29/2 witness is an implication of the new formula, not an independent novelty basis; covering radius 1/(2N) is classical.",
+        "searches": [
+          "circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral",
+          "Resultary semantic query: circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral; closest: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739 (D-optimal flow sampling, distinct constraint)"
+        ]
+      },
+      "rationale": "Nodewise rate enforcement and harmonic non-affine time maps predate this work, and the circle-covering lemma is elementary/known; the specifically optimized sharp continuous-to-node physical-time rate factor for affine pseudotime controls was not located in relevant inspected results. This is best-of-knowledge priority, not ownership of mesh circle covering or of nodewise constraints.",
+      "residual_risks": [
+        "The full motivating arXiv:2610.17842 v4 was not directly read; newer versions or an older specialized time-warp implementation may cover the exact formula.",
+        "Optimality is over arbitrary phase grids, not optimal Radau quadrature weights or an optimized trajectory; additional constraints can invalidate a sharpness witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract explicitly discusses direct rate constraints and non-affine mappings but does not establish or exclude a specialized exact phase-gap bound. VPN full text unavailable.",
+          "evidence": [
+            "https://arxiv.org/abs/2610.17842",
+            "arxiv:2610.17842"
+          ],
+          "identifier_or_url": "arxiv:2610.17842",
+          "material_read": "Public abstract, bibliographic dates and explicit summary of rate constraints, non-affine mappings; not full equations or all sections",
+          "method": "arXiv mirror abstract",
+          "title": "Minnozzi and Sagliano, Theoretical and Computational Advances in Birkhoff Pseudospectral Transcription for Aerospace Optimal Control",
+          "trigger": "Identical time map and nodal rate-constraint framework"
+        },
+        {
+          "assessment": "Provides general on-mesh inequalities; this inspected material is not the claimed sine-dilation gap law. No negative assertion about the unseen remainder.",
+          "evidence": [
+            "https://arxiv.org/pdf/1903.05508",
+            "arxiv:1903.05508;doi:10.1109/TAC.2020.2976051"
+          ],
+          "identifier_or_url": "arxiv:1903.05508;doi:10.1109/TAC.2020.2976051",
+          "material_read": "PDF page 3, Section IV.B on-mesh implementation, collocation differentiation and discrete rate inequalities",
+          "method": "read PDF screenshot",
+          "title": "Nie and Kerrigan, Efficient Implementation of Rate Constraints for Nonlinear Optimal Control",
+          "trigger": "On-mesh rate-constraint antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Inter-node actuator slew-rate feasibility is operationally and mathematically natural in pseudospectral transcription. The exact amplification for any mesh and phase, unique minimax mesh, sharp N-dependent safety margin and concrete fLGR factor 14.5 form a useful all-mesh quantitative boundary, not an arbitrary grid observation. Its value is limited to the affine-control subspace and the chosen harmonic map.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.17842",
+    "arxiv:1903.05508",
+    "arxiv:1607.02798",
+    "arxiv:2207.05467",
+    "doi:10.1109/TAC.2020.2976051",
+    "Resultary semantic query: circular covering gap optimal sampling collocation physical time slew rate phase time warp affine pseudospectral; closest: 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739 (D-optimal flow sampling, distinct constraint)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full motivating arXiv:2610.17842 v4 was not directly read; newer versions or an older specialized time-warp implementation may cover the exact formula.",
+    "Optimality is over arbitrary phase grids, not optimal Radau quadrature weights or an optimized trajectory; additional constraints can invalidate a sharpness witness."
+  ],
+  "residual_risks": [
+    "The full motivating arXiv:2610.17842 v4 was not directly read; newer versions or an older specialized time-warp implementation may cover the exact formula.",
+    "Optimality is over arbitrary phase grids, not optimal Radau quadrature weights or an optimized trajectory; additional constraints can invalidate a sharpness witness."
+  ],
+  "schema_version": 1
+}
