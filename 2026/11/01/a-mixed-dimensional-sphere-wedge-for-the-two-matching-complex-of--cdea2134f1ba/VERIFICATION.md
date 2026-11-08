@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite homotopy classification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file. No nonstandard libraries or external data files are required. The script deterministically examines every mask of twenty potential bipartite edges. Faces are row-major masks with every row and column containing at most two edges. It enumerates all nonempty faces and maximal faces.
+## correctness
 
-It constructs a complete vertex-toggling discrete-Morse matching, verifies every pair, and checks global acyclicity of the entire oriented Hasse diagram by topological sorting. The resulting critical vector is one degree-zero cell, 42 degree-six cells, and three degree-seven cells. It computes the exact signed integer Morse attaching matrix using recursive gradient-path elimination; the full matrix has shape 42 by 3 and all entries are zero. The program also directly computes the original simplicial boundary ranks over the two-element field, independently of the Morse reduction.
+PASS
 
-Expected terminal output includes `FACES_OK`, `MATCHING_OK`, `ACYCLIC_OK`, `INTEGRAL_MORSE_OK`, `RAW_MOD2_OK`, `HOMOTOPY_OK` and finally `ALL_VERIFY_OK`. An assertion failure aborts verification; printed messages alone are not an independent scientific audit. The code exhausts the specific finite graph and does not establish any uniform formula or equivariant conclusion. The attachment-to-homotopy deduction uses the ordinary Hurewicz theorem for a 5-connected 6-skeleton.
+Independently enumerated every one of 2^20 masks; exactly 37,440 nonempty faces and 2,490 maximal facets, all eight-edge. Independently reproduced 18,697 acyclic matched pairs, critical cells 1 vertex,42 dim6,3 dim7 and checked all 126 signed integer critical boundary entries zero. A 5-connected wedge42 S6 six-skeleton gives trivial 7-cell attachments via Hurewicz; homotopy wedge42 S6∨3 S7. Nonzero H6 below pure top dimension 7 obstructs shellability.
+
+## originality
+
+PASS
+
+Higher-matching Singh complete bipartite theorem requires m>r≥n or square r=n−1 and does not apply to (4,5,2). Reiner–Roberts rational homology alone does not imply integer wedge. Exact Resultary K4,4 and K3,5 values are different graphs.
+
+## value
+
+PASS
+
+Natural next unsolved rectangular two-matching case after K4,4 and K3,5, exact mixed integral homotopy and elementary non-shellability obstruction; independently useful finite classification rather than arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
