@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:11:18.314473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Alternation decouples A and B visits, greedy selection has greatest success probability whenever a new offered neighbor exists, and a monotone count coupling gives optimality at every deadline. Each side is a sum U_m of independent geometric waits of success r(2m-r)/m²; parity gives T^A=max(2U_a-2,2U_b-1), T^B=max(2U_a-1,2U_b-2). Geometric-delay factorization U_a=U_b+W independent and log-concavity of each completion CDF imply the monotone CDF ratio and source ordering for a>=b. Direct coupling yields expected difference P(U_a>U_b)-P(U_b>U_a). For a-n ~delta n/log n, independent centered collectors converge to Gumbels with δ shift, maximum has log(1+expδ) shift and win probability logistic, giving tanh(δ/2) signed difference. Independently checked coupon CDF and source inequality for 1<=b<=a<=6, deadlines <=28 using exact rational dynamics. The written step-4 fixed-K remainder mean omits a vanishing-as-K→infinity correction; the double-limit argument survives after accounting for it. Finite tests not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related work addresses broad graph upper bounds or coupon collection with distinct offers rather than the two parity classes with replacement. Resultary closest published relevant item concerned discounted hitting domination, a different statistic."
+        ],
+        "reasoning": "No inspected stronger prior theorem provided the exact biclique source distribution ordering; independent limit profiles remain plausible special cases of general extremes but not an identified coverage.",
+        "searches": [
+          "two choice random walk bipartite graph all-deadline optimal source part",
+          "Doumas Spektor 2026 two multi-draw coupon collector models arXiv:2607.01463",
+          "Resultary: two choice random walk complete bipartite cover time source start Gumbel"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree d8a4eef7dd6206871bbd97ed603c1b94f5afbc4e; RESULT.md a71a7b7f1715f45504c13e0c7e53366af15c3514; checker.py 19ec8860e0bf97bfe1f8b12092efef0811ed360e",
+        "Georgakopoulos et al arXiv:1911.05170",
+        "Xu–Tang Journal of Applied Probability 48 (2011)",
+        "Doumas–Spektor arXiv:2607.01463"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General greedy collector and complete-graph results do not give a priori comparison between starting A versus B on a forced-alternating bipartite walk."
+        ],
+        "reasoning": "The new content is two independent delayed collector CDF comparison and critical limit; prior greedy policy is explicitly not claimed new.",
+        "searches": [
+          "Xu Tang generalized coupon collector optimal least collected policy",
+          "Georgakopoulos et al two-choice random walk complete graph benchmark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General two-choice random-walk bounds and one-part coupon policies are established, but all-deadline starting-side choice on K_(a,b) is not derived in inspected article sections."
+        ],
+        "reasoning": "The source-dependent max of two independent coupon streams with parity offsets is extra to one collector; a one-collector greedy theorem alone does not give the ratio comparison or signed logistic correction.",
+        "searches": [
+          "Georgakopoulos Haslegrave Sauerwald Sylvester power of two choices random walks arXiv:1911.05170",
+          "Xu Tang generalized coupon collector 2011 two choices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of all a,b with with-replacement source optimum was retrieved; checker computes finite small instances from Bellman and coupon dynamics."
+        ],
+        "reasoning": "No matching exact database found; failed search not novelty proof, and generic cover-time tables do not certify these full symbolic inequalities.",
+        "searches": [
+          "K_(a,b) cover time source stochastic ordering exact CDF two neighbor offers",
+          "Resultary: two choice random walk complete bipartite cover time source start Gumbel"
+        ]
+      },
+      "rationale": "Two-choice random walks and one-collector multiple-choice coupon asymptotics are prior work. The exact all-deadline biclique source stochastic ordering, independent-delay ratio argument, and near-balanced signed logistic source-advantage window are not stated in inspected relevant work; qualified best-of-knowledge originality.",
+      "residual_risks": [
+        "Possible unlocated total-positivity or coupon-comparison theorem implies the source CDF ratio implicitly.",
+        "Minor proof exposition issue: for fixed K, remainder mean has a nonzero O(1/K) offset; double limit corrects this without affecting theorem.",
+        "Only the with-replacement two-choice complete-bipartite walk and stated scaling are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No matching exact complete-bipartite all-deadline source ranking identified in inspected sections",
+          "evidence": "General control strategy/bounds do not supply independent two-stream parity formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+          "material_read": "Accessible primary full text, model, benchmarks and graph-family cover bounds",
+          "method": "Primary manuscript reading of relevant model and cover-time statements",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Same two-choice random-walk control model"
+        },
+        {
+          "assessment": "Distinct one-collector optimization rather than biclique source-order logistic result",
+          "evidence": "Coupon policies and different offer-retention conventions cannot be transplanted without parity/source analysis.",
+          "identifier_or_url": "https://people.ece.cornell.edu/atang/pub/11/Coupon_collector.pdf",
+          "material_read": "Original accessible PDF model, optimal collection policy and expectation results",
+          "method": "Original PDF/primary page reading",
+          "title": "A Generalized Coupon Collector Problem",
+          "trigger": "Nearest one-collector multi-offer comparison"
+        },
+        {
+          "assessment": "Related asymptotics, not whole-paper exclusion",
+          "evidence": "Distinct-offer retention versus independent with-replacement parity streams in audited theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+          "material_read": "Accessible abstract and relevant source statements/model distinctions",
+          "method": "Primary search and abstract-level inspection",
+          "title": "Two Multi-Draw Coupon Collector Models with Different Retention Rules",
+          "trigger": "Recent refined coupon-collector asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal source part being the larger lower-degree side is a counterintuitive full stochastic optimization result; its exact signed window provides a nontrivial sharp transition even though the expected advantage is bounded by one step. This natural cover-time problem is not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree d8a4eef7dd6206871bbd97ed603c1b94f5afbc4e; RESULT.md a71a7b7f1715f45504c13e0c7e53366af15c3514; checker.py 19ec8860e0bf97bfe1f8b12092efef0811ed360e",
+    "Georgakopoulos et al arXiv:1911.05170",
+    "Xu–Tang Journal of Applied Probability 48 (2011)",
+    "Doumas–Spektor arXiv:2607.01463"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Possible unlocated total-positivity or coupon-comparison theorem implies the source CDF ratio implicitly.",
+    "Minor proof exposition issue: for fixed K, remainder mean has a nonzero O(1/K) offset; double limit corrects this without affecting theorem.",
+    "Only the with-replacement two-choice complete-bipartite walk and stated scaling are proved."
+  ],
+  "schema_version": 1
+}
