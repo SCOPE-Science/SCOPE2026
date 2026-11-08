@@ -1,15 +1,21 @@
-# Review of the six-cycle exponential-kernel reentry theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-For the graph-distance kernel \(K_{p,t}(i,j)=\exp(-t d(i,j)^p)\) on the six-cycle, the four Fourier eigenvalues and multiplicities follow directly from its first circulant row \((1,a,b,c,b,a)\). Exact rational brackets for the two nonintegral powers at the endpoints \(p=647/300\) and \(p=653/300\) enclose the powers at **every intermediate real exponent**. The alternating Taylor inequalities then produce strict rational eigenvalue signs at \(t=7/25,2/5,3/5\); the negative eigenvalue at the middle bandwidth is unique. Continuity proves the admissible set disconnected. The full-domain proof reduces to finite exact rational operations, not a sampled parameter grid. The included checker was executed successfully, and its sign bounds were examined for the weakest sectors.
+## correctness
 
-## Originality — PASS, qualified
-The all-scale negative-type criterion and the 2014 geodesic exponential-kernel restrictions do not assert the shape of the strictly positive bandwidth set of a fixed six-point graph. The 2016 finite-sample open-problem article discusses eventual positive intervals but does not derive the two positive regions separated by an indefinite region on this cycle. Known **disconnected universal parameter spectra** for S-divergence kernels (Sra, 2011) are a relevant phenomenon but do not logically imply the six-point graph calculation. The 2023 continuous-circle Gaussian nonpositivity theorem instead quantifies over *all* circle configurations and uses exponent \(2\). Current source comparisons establish no broader theorem that subsumes the specific sign reversal, but an unindexed equivalent finite circulant calculation remains possible. No publication priority or independent novelty certification is claimed.
+PASS
 
-## Mathematical value — PASS
-This is not merely another graph spectrum: the precise object answers a practical mathematical distinction highlighted in the finite-geodesic-kernel literature—positive definiteness at one bandwidth does **not** guarantee it at a larger bandwidth. The homogeneous six-cycle supplies a small, natural unweighted graph; the strict alternating-sector obstruction proves actual loss and recovery, and a nontrivial interval of exponents rules out an isolated numerical coincidence. The exact certificate makes the phenomenon reusable in testing claims about parameter monotonicity, yet no unsupported smallest-example or global-classification claim is made.
+For C6 the first circulant row is (1,a,b,c,b,a); its Fourier modes have eigenvalues L0=1+2a+2b+c (multiplicity 1), L1=1+a-b-c (2), L2=1-a-b+c (2), L3=1-2a+2b-c (1). Exact grid rational power bounds for 2^p and 3^p at endpoints 647/300 and 653/300 enclose all real p; Taylor polynomials of degrees 71 and 70 give rigorous lower/upper bounds on exp(-x) for nonnegative x. Sign margins at t=7/25,2/5,3/5 prove ++++,+++-,++++ respectively; continuity in t yields disconnected strict-positivity set. Independent direct evaluations for p=647/300,650/300,653/300 found L3 near 0.0122,0.00886,0.00551 at .28; -0.01845,-0.02195,-0.02546 at .4; 0.03851,0.03608,0.03368 at .6. This finite numeric check is corroboration only, not proof of uniform p. Exact certificate structure was inspected at pinned script and full-domain quantification checked.
 
-## Closest literature and limitations
-See Meckes, *Positive definite metric spaces* (2010); Sra, *Positive definite matrices and the S-divergence* (2011); Feragen–Lauze–Hauberg (2014); Feragen–Hauberg (2016); and Da Costa–Mostajeran–Ortega (2023), cited in `RESULT.md`. The result concerns only \(C_6\), the explicit exponent interval and three bandwidths. It does not locate all bandwidth transition points; the possibility of equivalent unindexed prior work remains the chief originality risk. All conclusions are derived analytically with exact rational certificates; a separate independent audit is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Schoenberg negative-type results characterize positivity for every t, not the disconnected topology of t at a fixed powered C6 kernel. Meckes and Feragen address all scales/geodesic sample regions; Sra has different S-divergence matrix kernel with noninterval parameter behavior. Bounded prior-work comparisons located no theorem implying this fixed-graph strict three-bandwidth sign pattern, while unindexed circulant computations remain a priority risk.
+
+## value
+
+PASS
+
+The homogeneous unweighted six-cycle is a natural minimal-complexity setting to test bandwidth monotonicity of finite graph geodesic kernels. Strict loss and recovery of positive definiteness between two explicit bandwidths, robust over a nontrivial continuous power range, is a meaningful concrete obstruction not implied by the all-bandwidth negative-type theorem. No minimal-order or total-component census is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

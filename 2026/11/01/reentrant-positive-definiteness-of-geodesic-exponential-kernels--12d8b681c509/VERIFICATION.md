@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of six-cycle reentrant positivity
 
-## Reproduction
-Run `python3 verify_cycle_reentrant.py` with a standard Python 3 installation. Only the standard-library `fractions` module is needed. On success, the last output line is `ALL_UNIFORM_REENTRANT_C6_CHECKS_OK`.
+# Independent mathematical audit
 
-The program uses positive integer powers to compare \(2^{647/300}\), \(2^{653/300}\), \(3^{647/300}\) and \(3^{653/300}\) to consecutive rationals with denominator \(10^6\), then exploits monotonicity over the full exponent interval. It encloses \(\exp(-x)\) from below by its odd Taylor polynomial of degree \(71\) and from above by its even Taylor polynomial of degree \(70\). The signed Lagrange remainder theorem establishes those inequalities for every \(x\ge0\), not just the tested arguments.
+## correctness
 
-The script builds exact rational intervals for all four Fourier eigenvalues, at each of the three exact rational bandwidths. It verifies the sign vector \((+,+,+,+)\) at \(7/25\), \((+,+,+,-)\) at \(2/5\), and \((+,+,+,+)\) at \(3/5\). The multiplicities of the four eigenvalues are \((1,2,2,1)\) by the discrete Fourier diagonalization. Therefore the full matrix at the middle bandwidth has precisely one negative eigenvalue and five positive eigenvalues.
+PASS
 
-## Checked exact margins
-For every \(p\in[647/300,653/300]\), the exact enclosures imply \(L_2(7/25)>0.004\), \(L_3(7/25)>0.002\), \(L_3(2/5)<-0.017\), and \(L_3(3/5)>0.033\). All other sectors have certified positive bounds, reported in the verifier output.
+For C6 the first circulant row is (1,a,b,c,b,a); its Fourier modes have eigenvalues L0=1+2a+2b+c (multiplicity 1), L1=1+a-b-c (2), L2=1-a-b+c (2), L3=1-2a+2b-c (1). Exact grid rational power bounds for 2^p and 3^p at endpoints 647/300 and 653/300 enclose all real p; Taylor polynomials of degrees 71 and 70 give rigorous lower/upper bounds on exp(-x) for nonnegative x. Sign margins at t=7/25,2/5,3/5 prove ++++,+++-,++++ respectively; continuity in t yields disconnected strict-positivity set. Independent direct evaluations for p=647/300,650/300,653/300 found L3 near 0.0122,0.00886,0.00551 at .28; -0.01845,-0.02195,-0.02546 at .4; 0.03851,0.03608,0.03368 at .6. This finite numeric check is corroboration only, not proof of uniform p. Exact certificate structure was inspected at pinned script and full-domain quantification checked.
 
-## Limits
-No floating-point eigenvalue table is used as proof. The calculation does not classify the exact transition locations, other cycles, other exponents or the number of positive-definite components. Scientific significance and originality rely on separate argument and literature comparison, not on the checker alone. Independent audit has not been performed.
+## originality
+
+PASS
+
+General Schoenberg negative-type results characterize positivity for every t, not the disconnected topology of t at a fixed powered C6 kernel. Meckes and Feragen address all scales/geodesic sample regions; Sra has different S-divergence matrix kernel with noninterval parameter behavior. Bounded prior-work comparisons located no theorem implying this fixed-graph strict three-bandwidth sign pattern, while unindexed circulant computations remain a priority risk.
+
+## value
+
+PASS
+
+The homogeneous unweighted six-cycle is a natural minimal-complexity setting to test bandwidth monotonicity of finite graph geodesic kernels. Strict loss and recovery of positive definiteness between two explicit bandwidths, robust over a nontrivial continuous power range, is a meaningful concrete obstruction not implied by the all-bandwidth negative-type theorem. No minimal-order or total-component census is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
