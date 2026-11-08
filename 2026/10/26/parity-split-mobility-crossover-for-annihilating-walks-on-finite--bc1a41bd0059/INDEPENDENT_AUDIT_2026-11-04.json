@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:11:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim specifies a finite K_{1,m}, integer m>=1, total hub departure rate nu>0 (not per-edge), unit departure from each occupied leaf, uniform hub destination, instantaneous pair annihilation, and hitting time of <=1 particle. For a hub-vacant state B_k, b_0=b_1=0 and b_k=1/k+a_{k-1} for k>=2. For hub-occupied A_k, a_0=0 and (k+nu)a_k=1+k(1+nu/m)b_{k-1}+nu(m-k)b_{k+1}/m. With b_{k+1}=1/(k+1)+a_k when k<m and an empty final term when k=m, this becomes a_k=b_{k-1}+(t+c)/k-d/(k+1), t=m/(m+nu), c=m*nu/(m+nu), d=nu(m+1)/(m+nu). At k=1,2 the boundary b_0=b_1=0 applies; at k>=3 this is a_k-a_{k-2}=1/(k-1)+(t+c)/k-d/(k+1). Summing separately by parity gives the two exact harmonic formulas printed in RESULT.md and b_k. Finite state, strict decrease in particle count at collisions and positive probability of collision from each transient state yield finite mean and uniqueness. Substituting k=m yields the full-occupancy formulas. Harmonic asymptotics give for fixed nu the even/odd logarithmic constants gamma_E+nu(1-log2)-1 and gamma_E+nu log2, respectively; odd-minus-even is 1+nu(2log2-1)>0. For nu_m=o(m), errors from t-1 and c-nu_m are o(log m+nu_m); for nu_m/m->theta in (0,infty) divide by m and obtain theta/(1+theta) times 1-log2 (even) or log2 (odd). Independent numerical generator solves, not supplied verifier logs: full labeled generator transient systems m=1..6 with nu in {1,3,2m+1}, totaling 657 transient state comparisons, max absolute discrepancy <1.5e-13; 8 additional asymptotic spot checks for m=1001,1002,10001,10002 with fixed nu=2 or nu≈m/2 show convergence. These finite calculations are corroborative only; infinite result follows from analytic recurrence and harmonic estimates. Independently reconstructed Git tree SHA from seven file blobs equals ffcdd9afa3efd479b4481ae4e2855365553b02e8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Athreya & Swart (arXiv:1203.6477) Proposition 6 in Section 2.2 proves non-explosion/moment bounds for general branching/coalescing/annihilation systems and other sections develop duality; no star-specific mean formula found in material searched.",
+          "Krapivsky et al. (arXiv:cond-mat/9406109), Section II mean-field reaction equations and Section III Smoluchowski one-dimensional density scaling with particle-specific diffusion coefficient D, rather than star hub site clock and finite absorption.",
+          "Cristali et al. Theorems 2-6 treat two-type motion, and Proposition 1 isolates homogeneous one-type initial star state; no arbitrary site-clock formula in its statement."
+        ],
+        "reasoning": "General Markov generator or annihilation duality could derive absorption expectations after explicit finite star computation but a framework alone does not state evaluated arbitrary-nu harmonic coefficient; two-type results are for different reaction and speed conventions. No stronger theorem explicitly dominating the final parameterized claim was identified in inspected texts. This does not exclude unlocated broader work.",
+        "searches": [
+          "Resultary 2026-11-04: coalescing annihilating random walks on star graph expected absorption time hub leaves transition sharp asymptotic, 24 hits",
+          "Web 2026-11-04: annihilating random walks star continuous time expected extinction absorption harmonic numbers even odd",
+          "Athreya-Swart arXiv:1203.6477v2, full available ar5iv HTML, especially Sections 1.2-1.4 and 2.2 finite processes",
+          "Krapivsky-Ben-Naim-Redner arXiv:cond-mat/9406109v1 complete PDF, Sections I-V"
+        ]
+      },
+      "checked_sources": [
+        "Cristali et al. arXiv:1908.03218v4 full public PDF, Proposition 1 and Sections 1-2",
+        "Athreya-Swart arXiv:1203.6477 public ar5iv HTML, Sections 1 and 2.2",
+        "Krapivsky-Ben-Naim-Redner arXiv:cond-mat/9406109v1 full 18-page preprint",
+        "Resultary semantic search, four directly relevant queries on 2026-11-04",
+        "Independent open-web targeted searches on 2026-11-04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cristali Proposition 1(ii) gives distribution of count of discrete moves for even leaf population from empty center under equal per-particle speeds; current theorem changes rate convention (total hub rate nu, leaf departure 1), initial state (full hub plus leaves) and final clock-time observable.",
+          "Athreya-Swart Proposition 6 and duality results do not evaluate an absorption hitting time at specified star rates.",
+          "Krapivsky et al. identify mean-field density decay exponents, not finite-state absorption means; their heterogeneity attaches to particles rather than hub location."
+        ],
+        "reasoning": "A known exact step-count case follows from the same general Markov framework, but none of these stated results yields the new all-occupancy, all-hub-rate mean and scaling laws as an immediate corollary. The new formula is elementary after symmetry reduction and might be derivable quickly from prior methods; credit is limited to this explicit new parameterized result, not a new general annihilation theory.",
+        "searches": [
+          "Cristali et al. arXiv:1908.03218v4 Section 2 pages 7-8, Proposition 1 proof",
+          "Athreya-Swart arXiv:1203.6477v2 Sections 1, 2.2 and broader duality results",
+          "Krapivsky et al. arXiv:cond-mat/9406109v1 Sections II-V",
+          "Web 2026-11-04: exact expected extinction time annihilating random walks star varying hub rate and leaves parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cristali et al., arXiv:1908.03218v4, Proposition 1(ii), studies T_1(S_{2n})=2 sum of independent geometric variables, for 2n initially occupied leaves, a vacant hub, and selection of one particle per discrete step; Section 2 proof, pages 7-8.",
+          "The present claimed rate nu is the total physical departure rate from occupied hub, leaving each occupied leaf at rate one; continuous clock occupation times are not determined by Cristali's stated step count distribution alone."
+        ],
+        "reasoning": "Lumping the star to A_k and B_k yields a two-dimensional birth/collision chain, equivalent to a continuous-time finite-state absorption problem with location-dependent rates. Older identical-topology special discrete-step results do not identify the full function (m,nu,k,hub) or nu-dependent parity constants. They are properly credited.",
+        "searches": [
+          "Resultary 2026-11-04: annihilating random walks star graph continuous time location dependent hub jump rate leaf rate exact extinction expectation parity harmonic, 24 hits",
+          "Resultary 2026-11-04: one-type annihilating particles star graph first time at most one particle full occupancy site-dependent mobility, 24 hits",
+          "Web 2026-11-04: single species annihilation on star graphs unequal site-dependent jump rates expected time",
+          "Cristali et al. arXiv:1908.03218v4, Sections 1-2, Proposition 1 and its proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary similarity searches produced unrelated star-graph random-walk, topological and dynamics findings rather than a value table for nu-dependent single-type star mean.",
+          "Cristali et al. 2021 already provide an exact homogeneous one-type step-count formula; that is a known-table result and is not claimed new."
+        ],
+        "reasoning": "A database of homogeneous step counts does not constitute a database of physical-time expectations for every initial occupancy and every real nu>0. No exact arbitrary-rate table was identified; a negative search alone is weak evidence.",
+        "searches": [
+          "Resultary 2026-11-04: reaction diffusion annihilating random walk graph star exact mean consensus time rates, 24 hits",
+          "Resultary 2026-11-04: one-type annihilating particles star graph first time at most one particle full occupancy site-dependent mobility, 24 hits",
+          "Cristali et al. arXiv:1908.03218v4 Proposition 1(ii) exact geometric distribution and expectation"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty for the arbitrary positive site-dependent hub-total-rate all-initial-state continuous-time expectation and its two parity-specific rate-scaling limits. A closely related single-species star system is explicitly covered in Cristali et al. Proposition 1: homogeneous discrete move-count distribution for 2n initially occupied leaves with empty hub, NOT a fresh finding. Its transition-step law does not provide arbitrary hub-total-rate clock means without another generator calculation. Athreya-Swart develop general constructions and dualities; Krapivsky-Ben-Naim-Redner study particle-specific heterogeneous diffusion densities on extended systems. Full preprints inspected. Searches of published findings and literature did not exhibit the matching all-rate claim; nonhits do not prove originality. General finite-state resolvent methods could mechanically produce these formulas when applied with this generator, and unknown prior star-specific papers may exist; those are residual priority risks.",
+      "residual_risks": [
+        "An older table, general star-specific exact formula or phase-type process theorem may imply the result without matching search terms.",
+        "The homogeneous special case is already known and the new recurrence is elementary; mathematical contribution rests on arbitrary site clock and asymptotic parameter regimes, not generic annihilation recurrence.",
+        "Published-search recall is limited and no exhaustive historical priority guarantee is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-existing exact homogeneous one-type discrete-step star law explicitly credited; not the all-rate continuous-time formula or mobility limits",
+          "evidence": [
+            "Proposition 1(ii), page 2; Section 2 proof pages 7-8, equations (4)-(5); introduction Section 1.1 distinguishes discrete step process and particle-color asymmetric speeds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03218",
+          "material_read": "Full text available as 21-page arXiv v4 PDF; read abstract, introduction, central results, Proposition 1 in detail, Section 2 proof and comparison in Sections 3-5; not every line of all appendices.",
+          "method": "Compare exact initial states, per-particle selection clocks, discrete-step count law, type-dependent speed versus site-dependent hub rate, and implications",
+          "title": "Two-type annihilating systems on the complete and star graph",
+          "trigger": "Same one-type annihilating walkers on finite stars; exact result Proposition 1"
+        },
+        {
+          "assessment": "General non-explosion, comparisons and moment/duality framework; no evaluated star rate-dependent hitting means found",
+          "evidence": [
+            "Section 2.2 Proposition 6; Section 1 main results; no star graph textual match in full accessible HTML."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1203.6477",
+          "material_read": "Full 907-line open-access HTML accessible and searchable; read Sections 1.1-1.4 and 2.2 including Proposition 6, searched remaining sections for star/absorption rates; not claiming line-by-line reading of every proof.",
+          "method": "Trace mathematical object of finite branco processes and exact results for hitting-time formulas",
+          "title": "Systems of branching, annihilating, and coalescing particles",
+          "trigger": "General annihilating finite-state theory potentially covering claim"
+        },
+        {
+          "assessment": "Different geometry, quantity and rates; does not state the tested star expectation or even/odd hub-mobility crossover",
+          "evidence": [
+            "Section II equations (1a)-(1b) for particle-species concentrations; Section III equations (28)-(31) for diffusion coefficient distribution on extended media."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9406109",
+          "material_read": "18-page arXiv v1 PDF accessible; read abstract, introduction, Sections II and III mathematical models, Section IV numerical results, Section V discussion and searched all text for star; not claiming examination of every formula.",
+          "method": "Compare heterogeneity of particle diffusivity and spatial density scalings to finite star site-specific hub clock absorption observables",
+          "title": "Kinetics of Heterogeneous Single-Species Annihilation",
+          "trigger": "Old heterogeneous annihilation literature likely to overlap site-dependent rate modification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The expected time for irreversible pair annihilation on a natural high-degree finite network is a meaningful kinetic observable. Changing the total central departure rate while fixing leaf clocks creates a nontrivial site-mobility parameter and reveals parity-sensitive behavior of the fully occupied system. The result gives exact all-initial-state finite means and identifies both the logarithmic-order rate where a new leading logarithmic coefficient appears and the order-m rate with different nonzero linear-time constants, all with explicit coefficients. A future investigator comparing mobility prescriptions, annihilation-vs-coalescence, or discrete-vs-continuous clocks could use these exact reference formulas. This is a modest but genuine self-contained structural/asymptotic fact; not a general-graph theorem, higher-moment law, or claim that elementary lumping itself is novel.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Cristali et al. arXiv:1908.03218v4 full public PDF, Proposition 1 and Sections 1-2",
+    "Athreya-Swart arXiv:1203.6477 public ar5iv HTML, Sections 1 and 2.2",
+    "Krapivsky-Ben-Naim-Redner arXiv:cond-mat/9406109v1 full 18-page preprint",
+    "Resultary semantic search, four directly relevant queries on 2026-11-04",
+    "Independent open-web targeted searches on 2026-11-04"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Total hub rate nu is not a rate per incident edge.",
+    "First hit to <=1 particle; no law of T beyond expectation or arbitrary graph extension.",
+    "Only full occupancy has the cited large-m asymptotics; all-state formulas hold for every allowed k.",
+    "Public metadata currently contains operational IDs and uncorrected historical audit state; cannot publish unchanged.",
+    "No authority for external attestation; independent analysis here is not a formal proof assistant certification."
+  ],
+  "residual_risks": [
+    "An older table, general star-specific exact formula or phase-type process theorem may imply the result without matching search terms.",
+    "The homogeneous special case is already known and the new recurrence is elementary; mathematical contribution rests on arbitrary site clock and asymptotic parameter regimes, not generic annihilation recurrence.",
+    "Published-search recall is limited and no exhaustive historical priority guarantee is possible."
+  ],
+  "schema_version": 1
+}
