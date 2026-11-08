@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification follows from a complete elementary facet description, two explicit covers by simplices, two nerve-lemma reductions, an integral cellular chain calculation, and a stabilizer-equivariant contracting-barycenter argument. There is no unproved extrapolation from computed values. The independent verifier reconstructs all faces for four orders and checks homology over three characteristics and all symmetry characters. Universal correctness rests on the combinatorial proof rather than finite experiments.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2018 bipartite-Kneser graph paper proves the automorphism group but not the induced action on the two-independence complex. The 2020 higher-independence classification includes complete multipartite graphs, but deleting a perfect matching changes the relevant induced components and is not a covered case. Its cycle result includes the six-cycle \(\(n=3\)\) boundary case; that special case is not claimed as new. The 2021 chordal results do not cover the crown graphs for \(n\ge4\). A separately indexed cube four-cut calculation has a coincident three-sphere rank but studies a distinct complex (32 four-cut facets versus eight higher-independence facets); identical Betti numbers do not imply the new equivariant result. Searches for crown, bipartite-Kneser, dissociation and equivalent labels found no covering theorem. Unindexed equivalent work remains a risk.
+PASS
 
-## Value — PASS
-The crown graphs are the distance-transitive, highly symmetric first bipartite Kneser family. The result gives a complete all-order integral homotopy classification, identifies a canonical exterior-square homology lattice rather than only its dimension, and proves contractibility of both natural symmetry orbit spaces. Its eight-facet cube case gives a pure nonshellable three-complex. These topological and equivariant effects are not recovered from ordinary graph automorphism information or the previously known complete multipartite homotopy formula.
+The mixed-face restrictions yield the exhaustive facet cover Δ(A), Δ(B), and Q_ij tetrahedra; for n>=3 each nonempty intersection of cover members is a simplex with a canonical stabilizer-fixed barycenter. The nerve is ΣL_n where L_n is covered by simplices T_i on incident pair-symbols; their intersections are individual vertices, giving the graph K_n as the second equivariant nerve. The finite-group-equivariant nerve criterion is satisfied by all invariant intersections, so |Ind_2(C_n)| ≃_G Σ|K_n| with side-swap interchanging suspension cones. Thus G-quotient is a cone and contractible. H_1(K_n;Z)=ker[Λ²Z^n→U_n]=Λ²U_n, and side-swap reverses suspension orientation, giving ε over Z. At n=4 the tetrahedral facet cover is pure 3D with nonzero H_2 and cannot be pure shellable. Independently enumerated all actual faces vs facets and computed binary Betti ranks n=3,4,5 as 1,3,6 in H_2; all 12,48,240 S_n×C2 oriented Lefschetz traces matched (-1)^e[((f-1)(f-2))/2 - t]. These finite tests only corroborate the universal equivariant nerve argument.
 
-## Limits
-The result is confined to the second independence parameter and to the stated geometric group quotients. The calculation has not received independent validation. A search cannot establish absolute literature uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete crown-graph Ind_2 family is not included in known complete-multipartite/cycle formulas, and the claimed G-equivariant suspension plus quotient contractibility strengthens a same-snapshot sister claim that only asserts non-equivariant homotopy and homology action.
+
+## value
+
+PASS
+
+The full bipartite Kneser family is a natural infinite symmetric family, and an explicit geometric equivariant suspension is more informative than Betti counts: it identifies an integral lattice, the side-swap sign, and contractible geometric quotients for two natural group actions. The latter do not follow from a nonequivariant sphere wedge or rational character.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
