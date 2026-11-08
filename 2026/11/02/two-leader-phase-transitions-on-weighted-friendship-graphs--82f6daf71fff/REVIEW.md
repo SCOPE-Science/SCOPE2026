@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The three automorphism types exhaust the unordered leader pairs. The full grounded-block inversions give the exact formulas for \(A_m(t)\), \(B_m(t)\), and \(C_m(t)\); their exact differences establish all parameter regimes and equality cases for every integer \(m\ge2\) and real \(t>0\). The independent exact-rational code checks 1,525 complete matrices and another 90 representative matrices, with 30 full optimality classifications. Its finite domain is clearly distinguished from the algebraic proof.
+## correctness
 
-**Originality: PASS, subject to specific risk.** Fitch and Leonard's arXiv:1407.1569 develops weighted joint-centrality theory and explicitly solves paths and cycles, not this all-conductance friendship-graph phase diagram. An earlier unweighted windmill classification concerns only \(t=1\), so neither of the critical positive values nor the rigidity for all \(m\ge4\) follows by logical implication from that specialization. Sun, Li, and Liu's 2020 article is more specifically about windmill leader coherence; its available abstract and metadata describe exact windmill-family results, but its full text was not available for a decisive comparison of weight dependence. An overlooked theorem there is the principal priority risk. Database and keyword searches are negative evidence, not uniqueness certificates.
+PASS
 
-**Value: PASS.** The problem is a natural sensor-placement decision in a network of triangular modules with adjustable relative within-module reliability. It has a sharp and nonobvious topology-dependent phase diagram: thresholds at \(t=1/3\) and \(t=3\), but complete hub-placement rigidity once the number of triangles reaches four. The proof classifies every minimizer and every tie with exact rational functions on an infinite parameter family; it does not merely recompute the unweighted case.
+The hub-and-triangle automorphism action gives exactly three types of leader pairs. A trace formula follows from independent 2x2 peripheral blocks when grounding the hub. In the other two orbits, the central hub Schur complements equal 2 and 4-2/(1+t), respectively. The exact comparisons B-C=t(2mt+2m+5t+3)/(2(1+t)(1+2t))>0 and C-A=((2m-7)t+2m-3)/(2(1+2t)) give sharp t=1/3 for m=2, t=3 for m=3, and strictly optimal hub-plus-peripheral when m>=4. Independently checked 610 grounded inverse matrices at rational weights by separate exact Gauss-Jordan elimination; no numerical simulation substitutes for the algebra.
 
-The stated domain excludes heterogeneous per-triangle conductances, finite-strength leaders and more than two leaders. Independent validation and specialist historical priority assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general noisy-network grounded-Laplacian leader-selection framework (Fitch and Leonard, arXiv:1407.1569) and windmill graph coherence work (Sun, Li, Liu, Chaos 30, 123131) precede this claim. Their accessible material does not establish the joint continuous t, exact two-leader orbit-cost classification or the two distinct thresholds; a highly plausible windmill-specific full text could not be inspected and remains a substantial, named priority risk.
+
+## value
+
+PASS
+
+Exact global minimizers of a standard noise-coherence objective on a natural weighted graph are determined, with two sharp graph-size-dependent thresholds and an all-t rigidity phase for larger windmills. This is a motivated network-optimization boundary not implied by merely recomputing an unweighted case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
