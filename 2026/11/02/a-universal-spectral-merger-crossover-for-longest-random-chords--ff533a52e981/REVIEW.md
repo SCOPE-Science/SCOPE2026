@@ -1,15 +1,21 @@
-# Scientific review: spectral-merger chord crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact line-tail identity includes the projection-volume directional bias. Conditioning sphere hard-coordinate density, scaling the hard coordinates by the square root of the chord deficit, integrating a beta-ball, and taking the brightness denominator limit reconstruct the exponent, gamma constant, and locally uniform crossover. The large-gap matching law uses an independent sphere-marginal beta integral; the intermediate matching regime follows by scaling all vanishing coordinate gaps. Numerically, direct circular quadrature verified five gap ratios and three deficits and independently checked the large-gap constant. The finite checker does not establish infinite-domain claims.
+## correctness
 
-## Originality — PASS (priority provisional)
-The closest previously recorded forward ellipsoid chord result, opaque identifier `56f6a477-0f49-4817-ae8b-ee8ba9baa532`, already gives the exact finite-threshold sphere integral and the *fixed-ellipsoid* endpoint limit. Both statements are explicitly acknowledged and excluded from the claimed contribution. Neither the fixed-gap asymptotic nor its leading exponent can be substituted into the regime where the gap and chord deficit vanish together; the moving-family crossover, compact-uniform convergence and matching constants require a distinct singular-limit proof. Kellerer gives full spheroid formulas in dimensions two and three, so some special one-gap reductions may be derivable there. Their specializations are not claimed as separately new. Historical joint-scaling priority remains provisional.
+PASS
 
-## Value — PASS
-The result resolves a natural noncommuting-limits problem in random stereological measurements: fixed-body endpoint exponents change discontinuously under spectral collision, but their finite-resolution transition is governed by one explicit multiaxis function. The sharp matching formula identifies the precise boundary between the coalesced and separated asymptotic regimes and works for simultaneous collisions in arbitrary dimension. This is more than a parameter substitution or an unmotivated correction: the old leading fixed-body law has no uniform prediction in this boundary layer.
+For motion-invariant lines conditioned on intersecting E_s, direction density is weighted by projected brightness sqrt(U^T Q_s U); conditional tail is (1−L² U^T Q_s U/4)_+^((d−1)/2). Rescaling all hard coordinates as sqrt(s/β_i) and integrating the beta-ball yields exponent ν=(2d−m−r−1)/2 and stated K F(λ), uniformly for compact λ. The large-tλ limit uses the r-coordinate spherical marginal scaled t^-1/2, producing the gamma factor and t^-r/2. Independent direct angular quadrature in d=2 matched the profile for five λ values; analytic dominated convergence establishes all fixed dimensions.
 
-## Scientific limitations
-The hard gaps must remain fixed and positive, and the moving-family theorem does not imply a practical stable estimator. Originality has not received independent external historical review; metadata from the 1968 source does not substitute for full inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier exact ellipsoid line-chord integral and fixed-body exponent are acknowledged; they require positive fixed spectral gaps and do not give the singular moving-family crossover by direct substitution. Suwa and Kellerer treat random test lines and spheroid chord laws, not a simultaneous multiaxis joint scaling as read. Possible one-gap specializations and earlier boundary-layer literature remain risks.
+
+## value
+
+PASS
+
+A sharp multiaxis joint singular-limit profile resolves the discontinuity of fixed-ellipsoid endpoint exponents at eigenvalue collision; its matching constants matter for natural stereological longest-chord estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

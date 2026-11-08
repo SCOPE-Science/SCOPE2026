@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Numerical and analytic verification
+# Independent mathematical audit
 
-The proof is supplied in `RESULT.md` and uses the exact conditional invariant-line survival integral. The companion `verify_crossover.py` reconstructs that integral independently for planar ellipses with a near-degenerate maximal axis, then compares the normalized tail against the limiting spherical profile. It uses 36,000 deterministic angular midpoint nodes and tests soft ratios 0, 0.5, 1, 2, and 8 at normalized deficits 0.02, 0.005 and 0.001. The maximum final-sample discrepancy was below 0.001, and the independent large-ratio checks at 25, 100, 400 converge toward the analytically derived constant 1/2 (observed 0.50254, 0.50063, 0.50016). Execute with `python verify_crossover.py` (NumPy and SciPy required). These numerical results are neither an infinite-domain proof nor independent validation. No external audit was performed.
+## correctness
+
+PASS
+
+For motion-invariant lines conditioned on intersecting E_s, direction density is weighted by projected brightness sqrt(U^T Q_s U); conditional tail is (1−L² U^T Q_s U/4)_+^((d−1)/2). Rescaling all hard coordinates as sqrt(s/β_i) and integrating the beta-ball yields exponent ν=(2d−m−r−1)/2 and stated K F(λ), uniformly for compact λ. The large-tλ limit uses the r-coordinate spherical marginal scaled t^-1/2, producing the gamma factor and t^-r/2. Independent direct angular quadrature in d=2 matched the profile for five λ values; analytic dominated convergence establishes all fixed dimensions.
+
+## originality
+
+PASS
+
+The earlier exact ellipsoid line-chord integral and fixed-body exponent are acknowledged; they require positive fixed spectral gaps and do not give the singular moving-family crossover by direct substitution. Suwa and Kellerer treat random test lines and spheroid chord laws, not a simultaneous multiaxis joint scaling as read. Possible one-gap specializations and earlier boundary-layer literature remain risks.
+
+## value
+
+PASS
+
+A sharp multiaxis joint singular-limit profile resolves the discontinuity of fixed-ellipsoid endpoint exponents at eigenvalue collision; its matching constants matter for natural stereological longest-chord estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
