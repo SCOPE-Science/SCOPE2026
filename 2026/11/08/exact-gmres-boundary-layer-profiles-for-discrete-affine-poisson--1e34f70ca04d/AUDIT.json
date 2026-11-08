@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 and nonzero real L,R, the exact identity A b=L e1+R en and path-stencil propagation produce pairwise orthogonal projected supports through floor(n/2). A two-dimensional determinant identity yields each residual term, while distinct Dirichlet sine eigenmodes prove the exact termination grade. Two full profiles and mesh-scale tolerance limits follow by exact sums and continuity. verify.py reproduces 235 exact rational projection tests plus all listed grade/full-profile checks; finite checks supplement the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liesen and Strakoš 2004, Theorem 3.2 and general tridiagonal extension, focuses on nonnormal estimates, not these equalities.",
+        "Zhang 2007 chapter 4 gives right-hand-side bounds and endpoint special cases.",
+        "Titley-Peloquin et al. 2013 give a general RHS-weighted least-squares characterization; complete text was not inspected."
+      ],
+      "reasoning": "General variational characterizations necessarily apply but do not by themselves imply an explicit answer for these parameters; a published explicit reduction for the same affine vector would dominate, but none was identified in materially read primary results. Generic numerical bounds neither subsume exact values nor imply grade trichotomy.",
+      "searches": [
+        "finite-step GMRES for Toeplitz convection diffusion constant forcing exact residual curves",
+        "GMRES minimum residual discrete Laplacian constant right hand side exact sqrt(n-2k) half dimension",
+        "GMRES tridiagonal Toeplitz affine right-hand side exact residual projection boundary"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.24751",
+      "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+      "https://www.ms.uky.edu/~qye/NAgroup/weizhang.pdf",
+      "https://doi.org/10.1137/S1064827503430746",
+      "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Soodhalter (2026): structural attainable behavior for mainly nonsymmetric tridiagonal systems; structured RHS described as further direction.",
+        "Liesen–Strakoš (2004): Jordan-block residual formulas and tridiagonal approximations but not the complete affine-harmonic residual identity.",
+        "Zhang (2007): general tridiagonal Toeplitz GMRES and endpoint initial residual analysis, not the exact parameterized family."
+      ],
+      "reasoning": "Prior works establish generic methods and qualitative RHS sensitivity but do not already assert the finite-dimensional all-L,R norm formula, spectral grade bifurcation, or two full residual/tolerance profiles. This is a limited novelty claim about an explicit natural structural subclass, not novelty of projection or the underlying GMRES method.",
+      "searches": [
+        "GMRES tridiagonal Toeplitz matrices constant right hand side ones Dirichlet forcing exact convergence boundary layers first iteration",
+        "finite-step GMRES for Toeplitz convection diffusion constant forcing exact residual curves",
+        "exact GMRES residual 1D Dirichlet Poisson tridiagonal Laplacian affine forcing boundary interpolation b_j=L+(R-L)j/(n+1) first half iteration Krylov grade",
+        "GMRES minimum residual discrete Laplacian constant right hand side exact sqrt(n-2k) half dimension",
+        "MINRES tridiagonal Toeplitz linear forcing ramp b_j=j exact residual ratio sum squares and grade n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Symmetric GMRES coincides with MINRES in exact arithmetic; checked both solver names.",
+        "Theorem is equivalently an orthogonal-projection rule for discrete-harmonic forcing in a path Laplacian; relevant Toeplitz/MINRES positivity records did not state it."
+      ],
+      "reasoning": "A generic GMRES residual-as-polynomial or pseudoinverse identity is not a covering closed-form profile without evaluating the discrete-affine Krylov image. Neither scalar renaming nor the MINRES dual title gives the pairwise determinant identity, three grades, and mesh-scale tolerance constants.",
+      "searches": [
+        "GMRES tridiagonal Toeplitz matrices constant right hand side ones Dirichlet forcing exact convergence boundary layers first iteration",
+        "exact GMRES residual 1D Dirichlet Poisson tridiagonal Laplacian affine forcing boundary interpolation b_j=L+(R-L)j/(n+1) first half iteration Krylov grade",
+        "MINRES tridiagonal Toeplitz linear forcing ramp b_j=j exact residual ratio sum squares and grade n",
+        "GMRES one dimensional Laplacian b all ones exact convergence residual norm sqrt"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical records returned general MINRES and GMRES geometry or positivity findings, not a matching exact Poisson-profile table.",
+        "Previously reported GMRES and MINRES mathematical statements inspected for overlap did not give the discrete-affine Poisson formula."
+      ],
+      "reasoning": "No relevant exact database entry or table of all affine Poisson right-hand sides was located. Absence from an index is not a uniqueness proof.",
+      "searches": [
+        "exact GMRES residual 1D Dirichlet Poisson tridiagonal Laplacian affine forcing boundary interpolation b_j=L+(R-L)j/(n+1) first half iteration Krylov grade",
+        "GMRES minimum residual discrete Laplacian constant right hand side exact sqrt(n-2k) half dimension",
+        "GMRES residual Poisson tridiagonal constant right hand side sqrt n-2k boundary support"
+      ]
+    },
+    "rationale": "Full comparison of recent structured-Toeplitz GMRES and older primary analyses found no direct or dominating theorem for all discrete-affine Poisson data with exact first-half profiles, the three grade classes, and sharp constant-versus-ramp tolerance scaling. Generic geometric and RHS-dependent bound principles acknowledged; inaccessible/unindexed historical literature remains a real priority risk.",
+    "residual_risks": [
+      "General weighted-polynomial formulations from 2013 or an unindexed Poisson-Krylov computation might contain an equivalent special-case answer; full content was not inspected.",
+      "The finite-propagation and orthogonal-projection ingredients are classical; novelty is claimed only for the combined explicit natural-family numerical classification, not the ingredients.",
+      "Search recall limitations and unindexed preprints could hide historical coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: primarily nonsymmetric parameterization and small-system attainable curves; does not derive the exact symmetric Dirichlet affine-data projection/termination theorem",
+        "evidence": [
+          "Chen and Soodhalter (2026), discussion of future work on structured discretization right-hand sides; arXiv:2609.24751v1, September 21, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.24751",
+        "material_read": "full available arXiv HTML: abstract; analytical parameterization and examples; discussion of structured right-hand sides in final section",
+        "method": "Read relevant theorems, assumptions, examples and concluding scope",
+        "title": "Constraints on admissible behavior of GMRES applied to tridiagonal Toeplitz systems",
+        "trigger": "Same matrix class and stated need for structured discretization right-hand sides"
+      },
+      {
+        "assessment": "NOT_COVERING: explicit formulas center on scaled Jordan and extensions, with general Toeplitz bounds; no equivalent affine-harmonic Poisson exact finite-step profile found",
+        "evidence": [
+          "Liesen and Strakoš (2004), abstract and §§2–3; scaled Jordan model and nonnormal tridiagonal extensions"
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+        "material_read": "full lawful PDF with sections 1–5; Theorem 3.2 and supporting figures/pages, including introduction, tridiagonal extension, conclusions",
+        "method": "Primary PDF text and visually inspected first page and page 9",
+        "title": "Convergence of GMRES for Tridiagonal Toeplitz Matrices",
+        "trigger": "General tridiagonal Toeplitz GMRES convergence analysis could dominate a special family"
+      },
+      {
+        "assessment": "NOT_COVERING among materially inspected sections: general RHS bounds and canonical endpoint-vector cases, not the exact affine-harmonic two-parameter formula and grade trichotomy",
+        "evidence": [
+          "Zhang (2007), thesis §3.4.4 and chapter 4; right-hand-side case analyses"
+        ],
+        "identifier_or_url": "https://www.ms.uky.edu/~qye/NAgroup/weizhang.pdf",
+        "material_read": "full lawful PDF inspected including chapter contents and sections 3.4.4, 4.2–4.3 relevant to right-hand-side dependence",
+        "method": "PDF text plus rendered section pages",
+        "title": "GMRES on a Tridiagonal Toeplitz Linear System",
+        "trigger": "Thesis title directly targets the entire Toeplitz matrix family"
+      },
+      {
+        "assessment": "NOT_COVERING: convection-diffusion and block nonnormal discretization; explains slow boundary-driven phases qualitatively, not symmetric 1D affine-harmonic Poisson equalities",
+        "evidence": [
+          "Liesen and Strakoš (2005), 2D convection-diffusion model and block-Toeplitz analysis"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S1064827503430746",
+        "material_read": "lawful deposited full PDF introduction, model, GMRES analysis and conclusion sections relevant to boundary effects",
+        "method": "PDF inspection, including rendered model and analysis pages",
+        "title": "GMRES Convergence Analysis for a Convection-Diffusion Model Problem",
+        "trigger": "Boundary-induced slow convergence might entail or explain the same result"
+      },
+      {
+        "assessment": "RISK, NOT DISMISSED ON SNIPPETS: general weighted polynomial least-squares principle is applicable, but no verified evidence of the particular closed-form affine Poisson profile",
+        "evidence": [
+          "Titley-Peloquin, Pestana and Wathen (2013), abstract: weighted polynomial least-squares bounds"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3A682cdddf-e26c-4540-bb82-37ab23d09648",
+        "material_read": "open repository abstract, bibliographic information and reported weighted-polynomial formulation only",
+        "method": "Repository abstract/metadata review; complete theorem text not independently inspected",
+        "title": "GMRES convergence bounds that depend on the right-hand-side vector",
+        "trigger": "General right-hand-side-sensitive GMRES bounds potentially encompass exact special cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e34f70c-a04d-4066-8b5e-b1c8bfc1e5f3",
+  "value": {
+    "rationale": "This is the entire naturally defined two-parameter family of discrete harmonic Dirichlet data for a canonical Poisson stencil. The sharp finite-step residual and termination classification, plus incompatible constant/ramp tolerance fractions on the same coefficient matrix, supplies structural solver insight that qualitative estimates and a numerical sample would not provide. It addresses the 2026 structural-RHS direction, without overstating generality.",
+    "status": "PASS"
+  }
+}
