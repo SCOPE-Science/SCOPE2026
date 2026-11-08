@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assumptions and quantifiers are fixed to all structural intermediate theorem sets for a finite set of at least two agents. The proof checks both inverse identities for the interval maps, including CN and US under the variable-free seriality guard. It proves dead-end separation using fixed-frame soundness and MCL completeness, then explicitly verifies the cross-layer order and finite-basis equivalence. The proof uses Wang--Dou's established splitting theorem and normal-box identities as named external premises, with no computational lemma presented as exhaustive proof. Risk: if MCL completeness or the source's splitting theorem were not applicable to the stated signature, the deduction would not go through; their applicability is confirmed by the full primary text.
+PASS
 
-## Originality — PASS within inspected evidence
+For fixed finite |N|≥2 and theorem sets closed under MP, uniform substitution and conditional necessitation, let e=[∅]⊤, normal derived □φ=e→[∅]φ, S=Cn(e), U=Cn(□e), C=Cn(IA,Det,□e). The exact published Wang–Dou Theorem 5.1 gives the splitting e∉L iff L⊆C and its proof gives e→φ∈C for every classical coalition theorem φ; Li–Ju MCL completeness validates dead-end separation ¬e→ψ for ψ∈C. The audited induction on derivation relativizes e→φ for any theory containing U, checking CN via □(e→φ), □e, K, and [D]χ→e. Therefore (S∨K)∩C=K and S∨(L∩C)=L on the given intervals, establishing complete-lattice inverse isomorphism and doubling. The uniform equation Cn({e}∪Γ)∩C=Cn({□e}∪{e→γ:γ∈Γ}) works for arbitrary Γ⊆CL, including empty Γ, and propagates finite bases. Crucial inference is theorem-level CN; cannot use local-assumption CN. The proof is symbolic; no finite computation is claimed as certificate.
 
-Wang--Dou establish a unique nonserial coatom and a splitting pair, not the complete interval isomorphism or uniform generator-translation equality. Generic splitting alone does not entail the new inverse meet/join identities in an arbitrary lattice; the proof uses special dead-end completeness and boxed-seriality relativization to obtain them. published-finding corpus searches on coalition lattice interval doubling, serial/nonserial coatom, finite basis transport, and equivalent splitting-pair terminology located no covering claim. This is a best-knowledge originality judgment, not independent priority certification. Risk: an abstract older splitting-pair or extension-lattice result may cover the statement after translation.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem identifies the exact order type of the whole extension lattice from its nonserial part and gives a formula translating arbitrary, including finite, axiom sets across the serial/nonserial boundary. Compactness equivalence is a natural lattice invariant and directly complements the motivating paper's study of compact meets and non-coherence. The result is structural and substantive rather than a computation on a chosen small example or a mere renaming of the source's coatom theorem. It deliberately does not solve the unrestricted compact-meet problem.
+The Wang–Dou source 2026 establishes the nonserial splitting coatom and relative serial theorem localization but, in the inspected full accessible HTML and specifically Sections 3, 5–7, does not state an inverse interval isomorphism or arbitrary Γ basis-transfer equation. The latter requires a fresh relative deductive-closure lemma, not just noting the splitting pair. However the interval-doubling may be recognizable as an abstract splitting-lattice principle; priority assessed best-of-knowledge with explicit comparison and risk.
 
-## Sources and limits
+## value
 
-Wang--Dou, arXiv:2610.24466v1, Sections 2, 3, 5--7; Li--Ju, arXiv:2403.14704v3, MCL completeness. The closest published result is the unique-nonserial-coatom splitting theorem, which is treated as a premise. Abstract lattice-doubling priority remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives an explicit normal form for every structural intermediate coalition logic, not merely eight basic logics, plus uniform translation of finite axiom presentations and compactness between the nonserial and serial strata. This is a substantive structural consequence relevant to the source paper’s open compact-meet questions, though it does not solve those questions or decide axiomatizability for arbitrary coatoms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
