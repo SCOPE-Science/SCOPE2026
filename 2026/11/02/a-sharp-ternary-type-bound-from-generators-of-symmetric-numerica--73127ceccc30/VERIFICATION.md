@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify.py` using Python 3.9 or later. It will independently construct Apéry sets by Dijkstra's shortest-path method on residues modulo the multiplicity, then calculate the same semigroups by dynamic-programming membership. The Frobenius numbers and symmetry are checked by an exact genus count. For every qualifying input, a direct pseudo-Frobenius gap test is compared with the proposed one- or two-generator candidate filter, with separate testing when the Frobenius number is divisible by three.
+# Independent mathematical audit
 
-A completed run returned:
+## correctness
 
-```
-VERIFY_OK symmetric_inputs=1122 residue_classes=0:182,1:383,2:557 sharp_families=22 independent_apery_dp=yes
-```
+PASS
 
-The census uses multiplicities four through nine with at most four listed generators and additional generators in the next fourteen positions, and 22 further parameterized sharpness cases. There is no probabilistic arithmetic and no timeouts in the reported successful run. The census is finite; the proof in `RESULT.md` establishes the universal statement.
+For symmetric numerical semigroup S of multiplicity m≥4, reflection about Frobenius F identifies gaps f of H=S/3 with elements x=F−3f in residue r=F mod3; f is pseudo-Frobenius exactly when x is minimal under subtraction of positive S∩3Z. If r=0 then H is symmetric and PF(H)={F/3}. If r=1 or 2, any factorization of a source element in class r contains a generator of class r or a pair of generators of opposite class 3−r, so the residue module equals (G_r ∪ pair sums of G_{3−r}) + S0. Taking its minimal candidates c<F gives the exact PF list (F−c)/3 and the binomial generator-count bound. Apéry calculation for S=<m,m+d,...,m+(m−2)d> with 3|d and gcd(m,d)=1 gives PF(H)={d/3,...,(m−1)d/3} and type m−1, unboundedly sharp. Independent Apéry/member DP matches seven admissible parameter pairs. The universal claim rests on module duality and Apéry proof, not bounded enumeration.
+
+## originality
+
+PASS
+
+Known all-divisor pseudo-Frobenius formulas for two-generated source semigroups, and divisor-two half quotients, cover some special cases or different dimensions. Feihu Liu 2026 treats particular quotient Apéry/Frobenius/genus, not this all-embedding-dimension ternary symmetric-source residue generator candidate theorem as checked. The general generator computation may be derivable via other older quotient algorithms, retained as priority risk.
+
+## value
+
+PASS
+
+Entire PF(H) and type of a natural quotient of any symmetric source can be reduced to finitely many source generators and pairs, with a sharp size bound in unbounded families. It is a structural bridge between symmetry, Apéry module minimal elements and pseudo-Frobenius invariants, not a narrow recomputation of known two-generator tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
