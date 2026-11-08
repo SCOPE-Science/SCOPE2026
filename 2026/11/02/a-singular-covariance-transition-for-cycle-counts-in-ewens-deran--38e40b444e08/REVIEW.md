@@ -1,19 +1,21 @@
-# Scientific review: dependence transition in Ewens derangements
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cycle-weight exponential formula gives the normalizer and the joint factorial moments. The parity proof reconstructs the exact edges \(u=0,1\), uses the universally valid bound \(1/3\le d_k\le1/2\) for \(k\ge2\), and proves strict shrinking of the alternating ratios \(d_{k+s}/d_k\) without relying on computation. The standard analytic singularity expansion gives the second-order fixed-length covariance. A standalone standard-library verifier passed 2003 checks; finite enumeration was not used as an infinite proof. The detailed proof and domain appear in `RESULT.md`.
+PASS
 
-## Originality — PASS, with explicit residual historical risk
+Marking distinct r,s cycles in the weighted exponential formula gives E C_r=(theta/r)Z_(n-r)/Z_n and E(C_r C_s)=theta²/(rs) Z_(n-r-s)/Z_n, hence exact covariance (already known). For theta=1, Z_m=sum_{j<=m}(-1)^j/j!; alternating remainders yield strict alternating sign of Z_(u+r+s)Z_u-Z_(u+r)Z_(u+s) including u=0,1; factorial leading remainder gives (-1)^u e/[rs(u+1)!]. For fixed theta!=1, Z_m=e^-theta m^(theta-1)/Gamma(theta)(1+3theta(theta-1)/(2m)+O(m^-2)); mixed finite differences of log Z give -(theta-1)rs/n² and covariance theta²(1-theta)/n²+O(n^-3). Independent exact rational tests: 360 theta=1 parity checks plus 210 theta=3/2 eventual sign checks, not an all-parameter proof.
 
-The complete exact mixed-moment formula is already a consequence of da Silva–Jamshidpey–Tavaré (2020), equation (6). It is not claimed novel. The narrower and substantive statement assessed here is the **strict alternating sign for all uniform derangements and all distinct cycle lengths**, its factorial amplitude, and the **universal parameter-dependent nonunit second-order sign**. Searches for these sign and rate results in research records, web-indexed literature and relevant primary texts found no express equivalent. Betz–Ueltschi–Velenik (2009) covers the general weighted-permutation framework and asymptotic cycle lengths, not this covariance transition in the inspected sections. The 2020 full-text treatment provides the moments and Poisson limit but not the all-size strict sign theorem or the \(n^{-2}\)/factorial dichotomy. A standard coefficient-extraction method could potentially lead to the nonunit part from those formulas; older literature may have made such an inference, and priority remains unconfirmed independently.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cycle counts converge jointly to independent Poisson variables, so a first-order limit cannot describe their finite-sample dependence. The result distinguishes a robust sign and polynomial scale for nonunit Ewens parameters from a strict, unexpectedly alternating factorial dependence at the uniform parameter. The universal leading \(n^{-2}\) coefficient, independent of selected cycle lengths, and the exact parity law are natural complete classifications, rather than arbitrary computed cases. The theorem identifies a genuine singular boundary in a standard conditioned probabilistic-combinatorial model.
+Best-of-knowledge PASS qualified for exceptional all-finite-size theta=1 parity sign and factorial scale versus nonunit n^-2 transition. Published Ewens-derangement factorial moments already imply the covariance identity (not claimed novel); inaccessible full original derangements paper may conceivably contain a sign theorem.
 
-## Closest literature and limitations
+## value
 
-Primary sources: Betz–Ueltschi–Velenik, arXiv:0908.2217v1 (2009), and da Silva–Jamshidpey–Tavaré, arXiv:2006.04840v1 (2020). The last source gives the previously known factorial moments, and the first develops the broader weighted-permutation framework. No independent research audit has occurred. All parameter-fixed asymptotics exclude nonuniform scaling and moving lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign and magnitude of dependence between natural small-cycle statistics has a sharp singular change at uniform derangement weight. The exact all-size parity law and length-independent leading nonunit n^-2 term distinguish qualitative phases and furnish a useful asymptotic diagnostic beyond restating known factorial moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

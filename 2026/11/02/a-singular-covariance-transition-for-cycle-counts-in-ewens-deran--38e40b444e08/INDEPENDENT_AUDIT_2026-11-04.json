@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:16:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marking distinct r,s cycles in the weighted exponential formula gives E C_r=(theta/r)Z_(n-r)/Z_n and E(C_r C_s)=theta²/(rs) Z_(n-r-s)/Z_n, hence exact covariance (already known). For theta=1, Z_m=sum_{j<=m}(-1)^j/j!; alternating remainders yield strict alternating sign of Z_(u+r+s)Z_u-Z_(u+r)Z_(u+s) including u=0,1; factorial leading remainder gives (-1)^u e/[rs(u+1)!]. For fixed theta!=1, Z_m=e^-theta m^(theta-1)/Gamma(theta)(1+3theta(theta-1)/(2m)+O(m^-2)); mixed finite differences of log Z give -(theta-1)rs/n² and covariance theta²(1-theta)/n²+O(n^-3). Independent exact rational tests: 360 theta=1 parity checks plus 210 theta=3/2 eventual sign checks, not an all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Betz–Ueltschi–Velenik, arXiv:0908.2217, covers general cycle-weighted random permutations.",
+          "Tavaré, The magical Ewens sampling formula, section 7.2.2 considers derangements."
+        ],
+        "reasoning": "General cycle-weight generating functions or conditional Ewens moments provide framework, but inspecting these statements gives no direct strict all-n theta=1 covariance sign or nonunit coefficient. Full derangements article not inspected: priority limitation.",
+        "searches": [
+          "Betz Ueltschi Velenik 2009 random permutations cycle weights",
+          "Resultary: Ewens random derangements covariance two different cycle lengths parity alternating theta one positive negative asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.04840",
+        "https://arxiv.org/abs/0908.2217",
+        "https://arxiv.org/abs/2008.04664"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing factorial moments already yield exact formula (1).",
+          "The strict theta=1 law uses alternating remainder inequalities; the theta!=1 law uses a mixed logarithmic singularity expansion."
+        ],
+        "reasoning": "Formula (1) alone is mechanically implied and not credited as novel. The proved sign/singularity refinements are not an immediate pointwise restatement of first and second factorial moments; possible uninspected prior derivation is a residual risk.",
+        "searches": [
+          "arxiv:2006.04840 factorial moments equations 5–7",
+          "arxiv:0908.2217"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P.H. da Silva–Jamshidpey–Tavaré, arXiv:2006.04840, gives factorial moments for Ewens derangements.",
+          "Ewens conditioned on C_1=0 has normalizer e^{-theta z}(1-z)^-theta."
+        ],
+        "reasoning": "Rephrased covariance as a 2x2 shifted Toeplitz minor of the derangement normalizer Z_m and factorial-moment relation; the identity itself is covered, but the strict parity and distinct scales are additional statements.",
+        "searches": [
+          "Resultary: Ewens random derangements covariance two different cycle lengths parity alternating theta one positive negative asymptotic",
+          "Ewens derangement factorial moments small cycle count correlation alternating sign"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rational finite checks verify claimed signs, but no relevant published indexed covariance table appeared in Resultary search."
+        ],
+        "reasoning": "The targeted object is a parameterized analytic covariance, not a known indexed fixed finite census; searched absence alone is not originality evidence.",
+        "searches": [
+          "Ewens derangement covariance two cycle lengths OEIS sign table",
+          "Resultary: Ewens random derangements covariance two different cycle lengths parity alternating theta one positive negative asymptotic"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS qualified for exceptional all-finite-size theta=1 parity sign and factorial scale versus nonunit n^-2 transition. Published Ewens-derangement factorial moments already imply the covariance identity (not claimed novel); inaccessible full original derangements paper may conceivably contain a sign theorem.",
+      "residual_risks": [
+        "Original derangement factorial-moment article full text not read; it may contain a theorem that entails or states the present strict covariance sign.",
+        "No uniform-in-theta assertion near theta=1 follows from pointwise theta!=1 asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports classical conditioned Ewens distribution but the inspected material does not formulate the current theta-dependent sign transition",
+          "evidence": "Section 7.2.2 details derangements under Ewens laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.04664",
+          "material_read": "Full public HTML including derangements subsection 7.2.2 and neighboring cycle-count discussion",
+          "method": "Full-text HTML reading",
+          "title": "The magical Ewens sampling formula",
+          "trigger": "Broad Ewens/derangements literature"
+        },
+        {
+          "assessment": "Strong prior cover of covariance identity; finer covariance sign may or may not be treated in unread sections",
+          "evidence": "Published factorial-moment expressions for the conditioned no-singleton law imply (1); no whole-document NOT_COVERING conclusion made.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "Abstract and available indexed moment descriptions only; full source not read",
+          "method": "Abstract/bibliographic inspection",
+          "title": "Random derangements and the Ewens Sampling Formula",
+          "trigger": "Closest exact factorial-moment formulas"
+        },
+        {
+          "assessment": "Explains normalization but does not establish exact finite parity law in material inspected",
+          "evidence": "General weighted permutation cycle generating function covers the model framework.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2217",
+          "material_read": "Accessible abstract and framework description; original article not fully read",
+          "method": "Abstract comparison",
+          "title": "Random permutations with cycle weights",
+          "trigger": "General cycle-weight model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign and magnitude of dependence between natural small-cycle statistics has a sharp singular change at uniform derangement weight. The exact all-size parity law and length-independent leading nonunit n^-2 term distinguish qualitative phases and furnish a useful asymptotic diagnostic beyond restating known factorial moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2006.04840",
+    "https://arxiv.org/abs/0908.2217",
+    "https://arxiv.org/abs/2008.04664"
+  ],
+  "disposition": "passed",
+  "limitations": "Only distinct fixed lengths 2<=r<s and n>=r+s; pointwise fixed theta>0 asymptotics. Nonunit sign is eventual; no monotonicity or independence is asserted.",
+  "residual_risks": [
+    "Original derangement factorial-moment article full text not read; it may contain a theorem that entails or states the present strict covariance sign.",
+    "No uniform-in-theta assertion near theta=1 follows from pointwise theta!=1 asymptotic."
+  ],
+  "schema_version": 1
+}
