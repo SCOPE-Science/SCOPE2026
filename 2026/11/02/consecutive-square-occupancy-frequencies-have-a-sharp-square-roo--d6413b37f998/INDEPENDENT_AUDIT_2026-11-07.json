@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:00:43.524695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct frequencies r,s and N>=r+s, the mixed binomial-multinomial moment gives Cov(C_r,C_s)=B²p_rp_s(R_B-1). Direct algebra gives the adjacent-N ratio B(B-2)/(B-1)² times [1+rs/((N+1-r-s)(N+1))], strictly decreasing in N; therefore R_B is log-concave and its positive superlevel set is an interval. In the fixed-loading N/B=λ regime, the 1/B logarithmic term equals -[λ²-(r+s-1)λ+rs]/(λ B). A double root occurs precisely when (s-r-1)²=4r, i.e. r=k²,s=(k+1)². The next term at λ=a=k(k+1) is +1/B². Uniform local expansion yields B² log R→1-u²/a and endpoints aB±sqrt(aB)+O_k(1); p_r,p_s→Poisson(a) masses, yielding the displayed finite nonzero limiting covariance. Independent rational checks for k=1, B=50,100,200 found intervals [91,110],[187,214],[381,420], consistent with the sharp sqrt(2B) window. The proof, not these samples, covers unbounded B.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2007 survey treats frequency moments for general infinite vectors; Barbour–Gnedin treats infinite-box low-count fluctuations."
+        ],
+        "reasoning": "The broader raw probability model encompasses equal boxes but not an identified uniform second-order critical-window result; a generic exact moment identity does not immediately provide sharp integer endpoints without the asymptotic cancellation analysis.",
+        "searches": [
+          "Barbour–Gnedin arXiv:0809.4387",
+          "Gnedin–Hansen–Pitman arXiv:math/0701718",
+          "Resultary exact covariance laws"
+        ]
+      },
+      "checked_sources": [
+        "Gnedin–Hansen–Pitman (2007) arXiv:math/0701718, Section 2, full PDF page text and screenshot",
+        "Barbour–Gnedin (2009) arXiv:0809.4387, abstract/bibliography",
+        "Resultary occupancy query and two comparators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gnedin et al. note covariance follows by analogous elementary computations; the explicit surveyed formula is for variance of a single class."
+        ],
+        "reasoning": "Classical moments imply R_B but not, as a stated result, the double discriminant and B^-2 resonance. The novelty clause is the second-order theorem, not the exact multinomial identity.",
+        "searches": [
+          "Gnedin et al. 2007 pages 149-150",
+          "Barbour & Gnedin 2009 small counts",
+          "Resultary SCOPE-a-one-switch-covariance-law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General multinomial factor moments imply an exact mixed covariance formula, already conventional."
+        ],
+        "reasoning": "Consecutive-square occupancy count pair translates into the discriminant-zero case of the large-B pairwise covariance; this is the genuinely narrower high-order asymptotic object.",
+        "searches": [
+          "Resultary: occupancy counts different frequencies covariance equal boxes positive consecutive squares critical double root",
+          "Gnedin–Hansen–Pitman 2007 section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published one-switch record studies Cov(K,C_r), summing frequencies, and the precision-matrix record treats occupied indicators."
+        ],
+        "reasoning": "Neither is a table for off-diagonal Cov(C_{k²},C_{(k+1)²}) or its sqrt-B positive sign window. No exact covering table found; absence is not proof of priority.",
+        "searches": [
+          "OEIS/occupancy covariance parameter exact table searches",
+          "Resultary occupancy-richness frequency and occupied-indicator records"
+        ]
+      },
+      "rationale": "Fixed-sample multinomial mixed moments and generic frequency covariance expressions are classical and not novel. The assessed result is the arithmetic classification of double-root pairs, strict one-interval sign geometry, the critical second-order covariance profile and O(1)-localized sqrt(B) sign window. Gnedin–Hansen–Pitman (2007) explicitly allows straightforward covariance derivation, while its main survey uses a different infinite-frequency asymptotic regime. Nearby Resultary records about occupied-box richness covariance and precision matrices use aggregate/different observables; they do not imply this individual pair-criticality statement.",
+      "residual_risks": [
+        "Earlier equal-box multivariate occupancy asymptotic literature may contain the same second-order degeneracy under another parameterization; not exhaustively searched.",
+        "The exact endpoint claim is only O_k(1) localized, not exact last positive N."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit mixed frequency moments are routine in source; its stated survey focus and checked moment formulas do not assert consecutive-square mesoscopic sign transitions",
+          "evidence": "Gnedin–Hansen–Pitman (2007), Section 2, pp.148–150, displayed Kn,r and Var(Kn,r).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701718",
+          "material_read": "Original 26-page survey, introduction and Section 2 moment formulas including equation (4), page image of p.149 examined",
+          "method": "web original PDF page text and screenshot of PDF page 4",
+          "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+          "trigger": "nearest canonical occupancy-frequency theory"
+        },
+        {
+          "assessment": "An aggregated richness–frequency covariance has different random observables; cannot directly cover the assessed individual frequency-pair window",
+          "evidence": "Resultary ID 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Published Resultary abstract/statement and scope of K versus frequency count",
+          "method": "Resultary semantic query result",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "high-ranked published comparable covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Covariance of sample frequency counts is natural for occupancy inference, and at the consecutive-square degeneracy the first asymptotic order loses the sign entirely. A provable positive dependence window of only square-root width, with a closed local limit, fills this precise asymptotic gap and identifies all distinct integer pairs for which it arises. The fact is not a known covariance table entry or an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gnedin–Hansen–Pitman (2007) arXiv:math/0701718, Section 2, full PDF page text and screenshot",
+    "Barbour–Gnedin (2009) arXiv:0809.4387, abstract/bibliography",
+    "Resultary occupancy query and two comparators"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed k as B→∞, B≥3, uniform boxes; u at boundary yields zero first profile and finite sign requires exact R_B; no nonuniform or full joint distribution claims."
+  ],
+  "residual_risks": [
+    "Earlier equal-box multivariate occupancy asymptotic literature may contain the same second-order degeneracy under another parameterization; not exhaustively searched.",
+    "The exact endpoint claim is only O_k(1) localized, not exact last positive N."
+  ],
+  "schema_version": 1
+}

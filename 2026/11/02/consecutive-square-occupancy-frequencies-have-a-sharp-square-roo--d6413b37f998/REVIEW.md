@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact mixed factorial moment gives the covariance identity without asymptotic assumptions. The ratio between adjacent sample sizes is a strictly decreasing positive function, proving an interval superlevel set. Explicit second-order expansions are uniform on compact positive loading ranges, and the double discriminant zero occurs precisely for consecutive squares. The nonzero second-order term at the center fixes the order-\(\sqrt B\) window and the covariance limit. The standalone checker independently exercised 10,634 finite cases, with exhaustive sample-space enumeration on small systems. Finite checks do not prove the asymptotic conclusion; the analytic expansion does.
+## correctness
 
-## Originality — PASS with residual priority risk
-Gnedin–Hansen–Pitman's occupancy survey (arXiv:math/0701718, Section 2) explicitly covers elementary mixed occupancy-moment calculations, so the raw covariance formula is not claimed original. Barbour–Gnedin (arXiv:0809.4387) studies joint small-count fluctuations in infinite-frequency allocations. Their examined statements do not imply the arithmetic double-zero classification, a finite nonzero critical covariance, or the finite-uniform-box positive interval centered at a product of successive integers. The published richness–frequency covariance result aggregates over frequency classes, and the occupied-box-indicator precision result concerns different random variables. These comparisons establish no identified implication but not exhaustive historical priority.
+PASS
 
-## Mathematical value — PASS
-Occupancy-frequency covariance is central in species-frequency inference and occupancy goodness-of-fit diagnostics. A conventional first-order fixed-loading expansion predicts a zero at the exceptional loading but gives no sign. The complete classification of double-zero pairs as consecutive squares exposes an order-\(\sqrt B\) band of positive covariance nested inside negative-covariance regimes, with a nonzero exact second-order limit. This structurally different dependence scale provides a useful refinement to first-order approximations.
+For distinct frequencies r,s and N>=r+s, the mixed binomial-multinomial moment gives Cov(C_r,C_s)=B²p_rp_s(R_B-1). Direct algebra gives the adjacent-N ratio B(B-2)/(B-1)² times [1+rs/((N+1-r-s)(N+1))], strictly decreasing in N; therefore R_B is log-concave and its positive superlevel set is an interval. In the fixed-loading N/B=λ regime, the 1/B logarithmic term equals -[λ²-(r+s-1)λ+rs]/(λ B). A double root occurs precisely when (s-r-1)²=4r, i.e. r=k²,s=(k+1)². The next term at λ=a=k(k+1) is +1/B². Uniform local expansion yields B² log R→1-u²/a and endpoints aB±sqrt(aB)+O_k(1); p_r,p_s→Poisson(a) masses, yielding the displayed finite nonzero limiting covariance. Independent rational checks for k=1, B=50,100,200 found intervals [91,110],[187,214],[381,420], consistent with the sharp sqrt(2B) window. The proof, not these samples, covers unbounded B.
 
-## Limits and checked literature
-The result concerns fixed frequency indices and uniform boxes, not variable indices, nonuniform allocation, the full covariance spectrum, or stochastic association. Gnedin, Hansen and Pitman (2007), Barbour and Gnedin (2008), the published richness–frequency covariance record, and the published occupied-indicator precision record were inspected at statement/proof level. Broader urn-model literature could contain an equivalent refinement under other notation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-sample multinomial mixed moments and generic frequency covariance expressions are classical and not novel. The assessed result is the arithmetic classification of double-root pairs, strict one-interval sign geometry, the critical second-order covariance profile and O(1)-localized sqrt(B) sign window. Gnedin–Hansen–Pitman (2007) explicitly allows straightforward covariance derivation, while its main survey uses a different infinite-frequency asymptotic regime. Nearby Resultary records about occupied-box richness covariance and precision matrices use aggregate/different observables; they do not imply this individual pair-criticality statement.
+
+## value
+
+PASS
+
+Covariance of sample frequency counts is natural for occupancy inference, and at the consecutive-square degeneracy the first asymptotic order loses the sign entirely. A provable positive dependence window of only square-root width, with a closed local limit, fills this precise asymptotic gap and identifies all distinct integer pairs for which it arises. The fact is not a known covariance table entry or an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
