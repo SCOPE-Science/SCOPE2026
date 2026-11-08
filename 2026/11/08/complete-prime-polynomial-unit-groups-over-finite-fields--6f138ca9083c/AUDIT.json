@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact structural equivalence: any missing irreducible P below half degree supplies composite unit P^2; every reducible representative below modulus degree has a small irreducible factor and so cannot be a unit. Constants exclude q>2. Degree product S(3)=10 and the existence of an irreducible of every degree prove no cases above degree six. Exact polynomial totient gives the sharp order 12. A direct gcd/irreducibility enumeration for all moduli through degree eight reproduces the 18 cases and orders, independently of the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li 2611.01793v1 Theorem 2.4 classifies integer moduli; Question 6.6 explicitly asks about polynomial-ring analogues.",
+        "FLINT defining-polynomials documentation gives standard irreducible-polynomial counts but no unit-group completeness classification."
+      ],
+      "reasoning": "The stronger *integer* classification does not imply the polynomial result: canonical representatives, constants, and degree cutoffs differ. The broad finite-field existence/counting literature provides tools, not the exact prime-representative group property.",
+      "searches": [
+        "\"complete groups of prime units\" polynomial rings finite fields",
+        "\"prime polynomial units\" group finite fields q[t] theorem",
+        "arXiv:2611.01793v1 Section 2 Theorem 2.4",
+        "arXiv:2611.01793v1 Question 6.6",
+        "Function-field analogue of complete groups of prime units, exact small degree classification and irreducible polynomial sieve"
+      ]
+    },
+    "checked_sources": [
+      "Trey Li, Groups of Prime Units, arXiv:2611.01793v1, Section 1, Theorem 2.4, and Question 6.6",
+      "FLINT finite-field irreducible-polynomial degree counts",
+      "Elementary polynomial-quotient and unique-factorization background",
+      "Published mathematical research statement searches for polynomial prime-unit groups, canonical irreducible representatives, and the exact 18-modulus classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li theorem: complete integer prime-unit groups have order at most eight and occur at nine integer moduli; polynomial analogues are posed as a separate question.",
+        "Finite-field irreducibility counts describe polynomial factors; they do not classify when every nonidentity unit representative is irreducible."
+      ],
+      "reasoning": "There is no implication from the source integer-modulus classification to the q=2 iff prime-polynomial divisor statement. The proof requires the new small-factor obstruction in the canonical polynomial residue system and shows a distinct sharp maximum of twelve.",
+      "searches": [
+        "arXiv:2611.01793v1 complete groups of prime units Section 2",
+        "arXiv:2611.01793v1 Question 6.6",
+        "\"irreducible representatives\" \"units\" \"polynomial\" quotient every finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trey Li 2611.01793v1 Section 1 defines integer prime-unit groups using canonical positive residues, and Question 6.6 proposes irreducible-polynomial representatives over finite fields.",
+        "Finite-field quotient polynomial representatives and gcd criterion are standard: FLINT documentation and elementary polynomial division."
+      ],
+      "reasoning": "The precise equivalent is that every reducible canonical nonconstant residue modulo f is a nonunit, not merely that certain small primes divide f. The classified object is all units, not a selected subgroup. Neither equivalent formulation appears as a theorem in the compared primary literature.",
+      "searches": [
+        "\"groups of prime units\" \"F_2\" polynomials complete",
+        "\"all units\" \"irreducible polynomials\" \"modulo\" polynomial",
+        "\"F_2[t]\" \"every unit\" \"irreducible\" modulo",
+        "finite fields polynomial prime units complete unit groups F2[t] classify irreducible representatives",
+        "function-field analog prime units full group F_2[t] f irreducible residues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 18-modulus classification or degree/order histogram was identified in retrieved scholarly records.",
+        "Li 2611.01793v1 tabulates nine integer complete groups but does not tabulate polynomial analogues."
+      ],
+      "reasoning": "The theorem is not a mere list match: the conditional irreducible-product criterion proves exact exhaustiveness for every polynomial degree. The integer table of nine examples cannot be adapted to supply the 18 function-field cases.",
+      "searches": [
+        "\"finite field\" \"all units\" irreducible modulo polynomial classification",
+        "\"F2[x]\" \"all invertible\" \"irreducible\" modulus",
+        "\"complete\" \"groups of prime units\" function field polynomial f_2",
+        "For every finite field F_q, classify moduli f such that every nonidentity unit in F_q[t]/(f) has an irreducible standard polynomial representative; exactly 18 monic f over F_2[t] of degree at most six, maximum group order 12"
+      ]
+    },
+    "rationale": "Direct full-text comparison with Li 2611.01793v1 (Introduction, complete integer groups, and open Question 6.6), exact-formulation searches, and searches of published mathematical research findings disclosed no implication covering the all-q canonical-polynomial classification, the 18 moduli, or maximal group order 12. This is a qualified historical-priority finding; an undiscovered prior result is possible.",
+    "residual_risks": [
+      "An unindexed historical solution of the function-field complete-subgroup case cannot be ruled out by search.",
+      "The result uses canonical degree-bounded representatives and does not address other choices of representatives.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of canonical finite-field complete classification; Question 6.6 explicitly introduces the polynomial analogue",
+        "evidence": [
+          "Section 1 defines canonical integer prime residues; Theorem 2.4 identifies nine complete integer moduli and maximum order eight; Question 6.6 asks for F_q[t] analogues."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.01793v1",
+        "material_read": "Abstract; Introduction, Sections 1-2 through Theorem 2.4, Section 6 and Question 6.6, and bibliography relevant to the classification",
+        "method": "Read public HTML full text and compared definitions, theorem statements, assumptions, examples, and open questions",
+        "title": "Groups of Prime Units",
+        "trigger": "Identical defining concept and explicit function-field question"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; standard formula for degree-d irreducibles, no prime-unit group claim",
+        "evidence": [
+          "The number of monic irreducibles of degree d is given by the Möbius inversion formula."
+        ],
+        "identifier_or_url": "https://flintlib.org/doc/algorithms/finite-fields/defining-polynomials.html",
+        "material_read": "Counting irreducible and primitive polynomials section",
+        "method": "Read documentation of finite-field factor counts",
+        "title": "Defining polynomials (FLINT documentation)",
+        "trigger": "Irreducible-polynomial counting and degree existence used in the cutoff"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; no classification of prime-polynomial unit groups",
+        "evidence": [
+          "Every residue class modulo f has a unique representative of degree less than deg f."
+        ],
+        "identifier_or_url": "https://calc-path.com/abstract-algebra/modules/polynomial-rings",
+        "material_read": "Polynomial quotient representative and unit facts",
+        "method": "Read standard algebra reference",
+        "title": "Polynomial rings and unique factorization",
+        "trigger": "Canonical residue representatives and unit criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f138ca9-083c-4713-9bf2-5b5bfed71d6d",
+  "value": {
+    "rationale": "The full finite-field analogue for complete prime-unit groups answers a natural concrete subcase of Li Question 6.6, classifying all coefficient fields and moduli (18 binary moduli only), with an exact obstruction criterion, degree cutoff, and sharp group-order maximum 12. This is a natural complete classification, not an arbitrary bound-limited slice, though its proof is elementary. It does not claim the unresolved subgroup-order, compactness, or infinitude problems.",
+    "status": "PASS"
+  }
+}
