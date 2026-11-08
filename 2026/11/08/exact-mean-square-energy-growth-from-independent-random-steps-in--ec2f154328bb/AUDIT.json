@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "A full proof establishes ellipticity, unique h-dependent positive invariants, positive-definite cone Perron eigenmatrices, strict logarithmic determinant inequality, and exact exponential energy bounds for every nonzero initialization. Exact matrix expansion and simple-eigenvalue perturbation establish the two-point weak-jitter coefficient. The new standalone verifier passed 75 symbolic, exact-rational, enumeration and numeric checks; finite checks are not used as a substitute for the analytic infinite-horizon argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General random-product and continuous-time parametric-oscillator mechanisms may imply qualitative instability under additional hypotheses, but the inspected original time-step papers do not derive the discrete exact second-moment spectral factor or coefficient \\(2h^2/(4-h^2)\\).",
+        "The continuous-time stochastic conservative-system abstract describes weak-noise moment Lyapunov expansions for randomly perturbed dynamics, not independent symplectic-Euler integration steps."
+      ],
+      "reasoning": "A stronger generic theorem could cover some qualitative instability implications. The final claim includes an exact operator-specific spectral identity and a sharp discrete weak-jitter coefficient, not a claim of first discovery of stochastic parametric instability. The inaccessible continuous-time specialist source leaves a stated risk.",
+      "searches": [
+        "stochastic time stepping symplectic map noise destroys modified energy average exponential growth explicit jitter coefficient",
+        "discrete random-step symplectic Euler parametric stochastic instability mean-square stability",
+        "arxiv:1108.0322 §2",
+        "doi:10.1137/S003613999529589X"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1801.01340",
+      "https://arxiv.org/abs/1108.0322",
+      "https://strathprints.strath.ac.uk/164/",
+      "https://doi.org/10.1137/S003613999529589X",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 controls E|Q(Y_n)-Q(y0)| over finite h-dependent windows subject to an almost-sure closeness condition; it does not bound the n→infinity fixed-jitter energy.",
+        "The symplectic-variable-step source derives parametric resonance of deterministic periodic variation; its instability criterion depends on modulation frequency and does not imply a positive iid quadratic-moment exponent for every nonconstant law."
+      ],
+      "reasoning": "Neither finite-horizon upper control nor deterministic periodic parametric-resonance formulas supply the all-law positivity of the Perron exponent or the exact coefficient. The result is consistent with their proved regimes.",
+      "searches": [
+        "arxiv:1801.01340 Theorem 6 and Remarks 12-13",
+        "arxiv:1108.0322 Sec 2",
+        "stochastic time stepping symplectic map noise destroys modified energy average exponential growth explicit jitter coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The first paper uses Y_{k+1}=Psi_{H_k}(Y_k), but its Theorem 6 establishes finite long-time energy approximation under stepsize-scaled noise rather than the limit n→infinity at fixed jitter.",
+        "The second paper studies deterministic sinusoidal time-step modulation and resonance windows.",
+        "The closest indexed stochastic geometric-integrator findings involve Langevin schemes and stationary covariance bias, rather than this oscillator iid-step Perron map."
+      ],
+      "reasoning": "The coordinate swap between drift-kick and kick-drift Euler and the covariance-lift interpretation were explicitly considered; neither converts the inspected prior finite-time/periodic results into the proposed exact arbitrary-iid-law theorem.",
+      "searches": [
+        "random symplectic Euler step sizes harmonic oscillator second moment covariance transfer Perron spectral radius exponential mean energy",
+        "two random elliptic area preserving 2x2 matrices covariance growth no invariant quadratic form",
+        "\"random steps\" \"symplectic Euler\" \"harmonic oscillator\"",
+        "arxiv:1801.01340 §§2,7",
+        "arxiv:1108.0322 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected numerical-integrator source or nearest indexed result supplies the cubic \\(2048\\lambda^3-264\\lambda^2-441\\lambda-1568\\), its Perron root, or the general binary-jitter determinant.",
+        "The exact source-paper examples and tables address convergence diagnostics, randomized trajectories and Hamiltonian plots rather than iid-step covariance eigenvalues."
+      ],
+      "reasoning": "The proof supplies exact identities from the transfer matrix and does not merely recompute a published spectral table; missing hits do not by themselves establish uniqueness.",
+      "searches": [
+        "random symplectic Euler step sizes harmonic oscillator second moment covariance transfer Perron spectral radius exponential mean energy",
+        "discrete random-step symplectic Euler parametric stochastic instability mean-square stability",
+        "\"symplectic Euler\" \"random time step\" \"energy\" growth",
+        "randomized timestep symplectic Euler harmonic oscillator mean square energy growth stochastic time steps"
+      ]
+    },
+    "rationale": "Abdulle and Garegnani (arXiv:1801.01340, Sections 2 and 7), Richardson and Finn (arXiv:1108.0322, Section 2), the accessible additive-noise oscillator abstract, and related published mathematical findings were compared for operators and implications. Their inspected mathematical claims concern step-scaled finite-time accuracy, deterministic periodic time-step resonance, or additive/continuous-time noise; they do not state the universal iid fixed-step second-moment spectral instability together with the explicit Bernoulli transfer and sharp coefficient. Specialist precedence from uninspected full texts is a residual risk.",
+    "residual_risks": [
+      "The full 1998 continuous-time conservative-system moment-exponent paper could not be inspected; a stronger general theorem may overlap with the qualitative instability although it is not evidenced to furnish this discrete formula.",
+      "The full 2004 additive-noise oscillator manuscript could not be retrieved; the abstract concerns a different stochastic system.",
+      "Generic random-matrix product theory may imply portions of the positivity mechanism; the specific transfer and weak-jitter coefficient are the assessed distinction.",
+      "Unindexed numerical-ODE literature could contain an equivalent discrete oscillator calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE_TIME_ONLY; not the exact infinite-horizon iid fixed-jitter claim",
+        "evidence": [
+          "Equation (4) defines the iid random time step method; Assumption 1 scales variance with h.",
+          "Theorem 6 and Remarks 12–13 give energy bounds on prescribed h-dependent finite time windows and note variable step energy drift."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "Original 38-page preprint including §2 (scheme and assumptions), §7 (Theorem 6, proof, Remarks 12–13), summary and numerical long-time energy discussion",
+        "method": "Full-text page and equation inspection with PDF screenshots and targeted passages",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Same randomized-step symplectic-integrator mechanism"
+      },
+      {
+        "assessment": "DIFFERENT_RANDOMIZATION; deterministic periodic modulation not iid mean-square transfer",
+        "evidence": [
+          "Section 2 analyzes time steps varying as Delta_0(1+epsilon cos omega t), with a resonance threshold omega approximately twice oscillator frequency.",
+          "Their first-order leapfrog form has the conjugate update ordering but no iid second-moment eigenproblem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0322",
+        "material_read": "Original full-text introduction, Section 2 modified equations and resonance analysis, with corresponding PDF pages inspected",
+        "method": "Original full HTML and PDF page inspection",
+        "title": "Symplectic integrators with adaptive time steps",
+        "trigger": "Harmonic oscillator, symplectic Euler and time-step variation"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_ASSESSED_FULL_TEXT; additive driving noise rather than time-step noise",
+        "evidence": [
+          "Abstract describes long-time second-moment growth for an oscillator driven by additive stochastic noise; full accepted manuscript retrieval timed out."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/164/",
+        "material_read": "Repository abstract and metadata; accepted manuscript download was unavailable",
+        "method": "Repository record and abstract comparison",
+        "title": "Numerical simulation of a linear stochastic oscillator with additive noise",
+        "trigger": "Exact second-moment growth in an oscillator under numerical discretization"
+      },
+      {
+        "assessment": "UNRESOLVED_SPECIALIST_PRECEDENCE_RISK; continuous-time perturbed ODE rather than iid steps of a deterministic integrator",
+        "evidence": [
+          "Abstract describes asymptotic moment-Lyapunov expansions for linear stochastic systems close to a harmonic oscillator and random stiffness/damping."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S003613999529589X",
+        "material_read": "Publisher abstract and bibliography only; full text could not be accessed",
+        "method": "Publisher abstract, open-access/preprint lookup and bibliography comparison",
+        "title": "Moment Lyapunov exponent and stability index for linear conservative system with small random perturbation",
+        "trigger": "Potentially stronger continuous-time stochastic moment-exponent theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec2f1543-28bb-497a-9a8e-9bbed6e5ed12",
+  "value": {
+    "rationale": "A random-time-step symplectic method can individually preserve area at every update yet have unbounded average energy; the precise all-nondegenerate-distributions dichotomy and exact \\(O(\\varepsilon^2)\\) growth coefficient make a natural benchmark for long-time probabilistic geometric integration, and quantify sensitivity close to the deterministic stability boundary. The result is limited to the canonical harmonic oscillator and does not claim a general method-sized advance.",
+    "status": "PASS"
+  }
+}
