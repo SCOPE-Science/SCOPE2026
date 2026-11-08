@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every integer p>=3, explicit Fourier orthogonality gives p exact 2x2 blocks with a necessary swap at the cyclic boundary. Gaussian polar coordinates reduce the log determinant to twice a sum of iid log Gamma(shape 2) radii and a cyclic sum of uniform-angle logs. Conditional Haar invariance gives vanishing cross-covariances. Gamma digamma/trigamma identities yield exact finite p mean p(1-2 gamma-log4) and variance p(2 pi^2/3-3). Removing one boundary term leaves a one-dependent stationary sequence with finite moments and positive long-run variance, proving the stated CLT; Chebyshev gives the geometric-volume limit. The original full matrix and derived product were compared in the saved checker (254 recorded checks).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2509.01325, random Gabor frame-bound/erasure estimates and a Gaussian trace second-moment calculation; no stated exact log-volume law.",
+        "arxiv:2605.16139, general subgroup-decomposition theorem is structural rather than a distributional determinant theorem."
+      ],
+      "reasoning": "A generic frame-bound estimate could bound determinant crudely, but it neither evaluates its mean/variance nor yields the dimension-linear variance and normal fluctuation law. General block equivalence covers the deterministic first step only, not the random statistical statement.",
+      "searches": [
+        "random Gabor matrix log determinant spectrum circular gaussian critical finite lattice subgroup",
+        "random Gabor frames robustness to noise erasures Gaussian window",
+        "arxiv:2509.01325",
+        "arxiv:2605.16139"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.16139 (first submitted 2026-05-15; v2 inspected)",
+      "arxiv:1902.01062",
+      "arxiv:2509.01325"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2605.16139, Lemma 3.1 and Theorem 1.1 give frame-operator block structure.",
+        "arxiv:1902.01062, theorems and structured-frame section concern extreme singular values and frame bounds.",
+        "arxiv:2509.01325, main theorems and Gaussian moment estimate concern frame-bound and robustness behavior."
+      ],
+      "reasoning": "The closest general result implies only the existence of blocks, which is insufficient to determine their joint distribution. The new calculation captures the shared Gaussian radii and identifies variance 2π²/3−3, versus the smaller independent-block variance. The earlier random-frame estimates do not recover this equality, and no cited published statement is known to dominate the new CLT.",
+      "searches": [
+        "Block-equivalent finite Gabor frames Asipchuk De Carli Rodriguez 2026 full text",
+        "Extreme Singular Values of Random Time-Frequency Structured Matrices Salanevich full text",
+        "Robustness to noise and erasures of Gabor frames in finite dimensions full text",
+        "random Gabor determinant central limit theorem complex Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2605.16139, Theorem 1.1 gives subgroup block-equivalence without a Gaussian log-volume law.",
+        "arxiv:1902.01062 studies random Gabor extreme singular values, not exact log-determinant moments or their Gaussian limit."
+      ],
+      "reasoning": "The claim is equivalent to a log determinant of cyclically linked two-by-two Gaussian Gram matrices. The general block decomposition in the first paper reduces the algebraic operator but does not imply the exact correlated-block fluctuation variance or a CLT; the second paper bounds extreme singular values and does not establish a product-of-singular-values law.",
+      "searches": [
+        "random Gaussian window finite cyclic Gabor log determinant CLT",
+        "Gabor frame log determinant Gaussian fluctuations",
+        "arxiv:2605.16139",
+        "arxiv:1902.01062"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Literature comparisons found extreme-singular-value, random-frame, and block-structure results but no published exact table of the stated finite-size log-determinant mean and variance.",
+        "The coefficients arise from Gamma(shape 2) radial log-moments and a uniform angular factor; the special cyclic covariance is not a known independent-Wishart table."
+      ],
+      "reasoning": "A table of independent two-by-two complex Wishart log-determinants cannot directly cover the result, because consecutive blocks reuse the same random Gaussian column. The adjacent covariance contributes an extra term. The searched published sources do not tabulate that correction.",
+      "searches": [
+        "random Gabor frame log volume Gamma trigamma adjacent vector determinants finite Gaussian 42C15",
+        "random Gaussian window finite cyclic Gabor critical subgroup modulations two translations exact expected log determinant log frame volume variance central limit theorem",
+        "arxiv:1902.01062",
+        "arxiv:2509.01325"
+      ]
+    },
+    "rationale": "The structurally closest original paper (arxiv:2605.16139) proves subgroup block equivalence but no law of correlated Gaussian block determinants. Two earlier random Gabor papers (arxiv:1902.01062 and arxiv:2509.01325) estimate extreme singular values, frame bounds, and robustness, not exact log-volume moments or this CLT. Targeted published mathematical literature and indexing searches did not identify equivalent or broader coverage. Publication-priority risk remains for differently indexed work.",
+    "residual_risks": [
+      "An equivalent log-volume result might exist in differently indexed random cyclic matrix literature.",
+      "The analytic argument is for the stated complex-Gaussian window law and mask only; it does not provide condition-number estimates.",
+      "No independent publication-priority or mathematical audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Structural block equivalence encompasses a preliminary step, but no Gaussian random-window determinant law, exact fluctuation variance, or CLT is stated.",
+        "evidence": [
+          "Theorem 1.1: subgroup modulations give blocks.",
+          "Lemma 3.1: frame matrix as Hadamard product of modulation and translation matrices.",
+          "Sections 4-5 treat sparsity/diagonality rather than random log-volume."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.16139v2",
+        "material_read": "Abstract, Introduction, Theorem 1.1, Section 3 frame-operator structural lemmas, Section 4 cyclotomic results and the main theorem descriptions; full HTML term checks for random, determinant and probability.",
+        "method": "Read publicly accessible full-text HTML and inspect the precise subgroup theorem and proof machinery.",
+        "title": "Block-equivalent finite Gabor frames",
+        "trigger": "Same subgroup-modulation setting and direct block theorem"
+      },
+      {
+        "assessment": "Addresses extreme singular values and generic random masks; no explicit log-determinant moment or CLT covering the correlated cyclic blocks.",
+        "evidence": [
+          "Section 2: extreme singular-value inequalities.",
+          "Section 3: full-modulation diagonal case, not the claimed even-modulation square basis."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1902.01062v1",
+        "material_read": "Abstract, introduction, Theorems 2.2-2.3, structured frame section 3, and full HTML determinant-term inspection.",
+        "method": "Read public HTML theorem statements, assumptions, estimates and structured-set formulas.",
+        "title": "Extreme Singular Values of Random Time-Frequency Structured Matrices",
+        "trigger": "Random finite Gabor matrices and Gaussian comparison might imply determinant estimates"
+      },
+      {
+        "assessment": "Shows random Gabor frame-bound and erasure estimates, including trace moments, but not the exact correlated log-determinant identity or its CLT.",
+        "evidence": [
+          "Section 4 Proposition 4.8 evaluates a Gaussian trace second moment, which does not imply the logarithmic determinant statistics.",
+          "No determinant statement found by full-text term lookup."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.01325v1",
+        "material_read": "Abstract, main results/introduction, Gaussian random frame estimates in Section 4, and full HTML determinant-term inspection.",
+        "method": "Read public HTML passages on Gaussian windows and frame-bound estimates.",
+        "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+        "trigger": "Gaussian-window finite frames and robustness might subsume a typical frame-volume law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "63c4c43b-db9a-40ae-a2e8-60cf756e3b29",
+  "value": {
+    "rationale": "The determinant of a square Gabor synthesis matrix is a natural geometric measure of global analysis-map volume. For a minimal two-translation and half-modulation critical design, the proof identifies an exact finite-size mean, an exact variance affected by reuse of random coordinates, and a growing-dimensional normal fluctuation law. These give a quantitative typical-case invariant not supplied by the structural block theorem or generic frame-bound estimates; no unmotivated parameter slice or condition-number consequence is claimed.",
+    "status": "PASS"
+  }
+}
