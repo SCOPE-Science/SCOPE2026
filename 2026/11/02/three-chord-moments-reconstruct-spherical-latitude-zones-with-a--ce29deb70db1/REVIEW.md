@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-On the unit sphere, normalized area coordinates make latitude \(Z\) uniform on \([m-h,m+h]\) independently of longitude. The first three moments of the inner product of two independent sampled points follow from contractions of first-, second-, and third-order coordinate tensors. The explicit quadratic for the second inner-product moment has roots related by \(q\mapsto2/3-q\); direct subtraction of the cubic moment separates all distinct physically feasible roots. The feasibility interval and its crossing of \(1/3\) provide a complete, boundary-aware proof of the sharp fold window. Exact symbolic calculations and direct numerical integration of the original point-pair construction corroborate the identities; finite diagnostics are not treated as infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2020 Moseeva–Tarasov–Zaporozhets full mathematical text treats spherical convex bodies and derives spherical cap distance densities, but does not state a global two-boundary latitude-zone reconstruction theorem. The full 2018 Mémoli–Needham framework addresses other classes of distance-distribution rigidity and does not imply the stated finite-moment inversion. The 2020 Balch–Peterson–Shonkwiler lens-space results concern homogeneous quotient manifolds, not spherical zones. Searches for zonal pair-correlation moments, annular spherical regions, Legendre moments, and inverse distance distributions found no covering source. An undiscovered equivalent formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a complete and sharp finite-statistic inverse classification for a natural two-parameter family of curved spherical regions. Its two-moment ambiguity is not an arbitrary numerical collision: it arises from a precise isotropy fold of the second coordinate tensor, occurs exactly in a sharply bounded range of latitudes, and is removed by the next tensor order. The result also supplies an exact nonisometric witness, a constructive recovery rule, and a geometric interpretation of both cutoffs. It does not claim a general spherical tomography theorem or finite-sample stability.
+Uniform area on a spherical latitude zone gives height Z uniform on [a,b], mean m and second height moment q=m²+h²/3. For independent points X,Y, contraction of first, second and third coordinate moment tensors yields μ1=m², μ2=1/2−q+3q²/2, μ3=m²(20m⁴−60m²q+12m²+45q²−18q+3)/2. Since L²=2(1−X·Y), these equal the first three even chord moments by an invertible triangular map. μ2 determines q up to reflection q↔2/3−q; both distinct roots feasible iff 1/2<m<1/√3, and μ3 difference −4m²(5m²−1)(3q−1) is nonzero for two distinct feasible roots. Thus first three identify (m,h), with reflected axis the only isometry ambiguity. An exact pair m=11/20, h=√17/20 versus √57/20 has equal E[L²]=279/200 and E[L⁴]=583/200 but differing E[L⁶]=5523679/800000 and 5722119/800000. Independently recomputed these fractions and fold difference in SymPy.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Moseeva–Tarasov–Zaporozhets random sections/spherical cap distance distributions concern geodesically convex regions and full distance distributions, not the exact first-three-moment reconstruction of generally nonconvex two-boundary latitude zones. Mémoli–Needham provide general metric-measure distance distribution inverse context, not the sharp two-moment fold of this two-parameter family. Basic tensor contractions are acknowledged prior tools; exact threshold is assessed new on read evidence.
+
+## value
+
+PASS
+
+Sharp finite-moment identifiability and a constructive two-moment failure for canonical spherical zones is a motivated inverse-geometric statistic; the exact boundary 1/2<m<1/√3 and third-moment obstruction distinguish geometry not captured by lower moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
