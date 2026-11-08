@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact single-source-to-target transmission probability is \(q^d\) precisely when the unique path is chronologically traversable. The per-pair argument gives the bounds, proves sharpness, and characterizes every equality case (including short paths); a uniform permutation gives probability \(2/d!\) of a monotone interval. The Riemann-sum limit establishes the divergent ratio. An independent contact-by-contact exact-rational checker exhaustively replayed \(10,494\) assertions through seven vertices. Risks are limited to the deliberately narrow model: one contact per edge, no recovery, a uniform single seed and distinct event times.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full text of Holme–Masuda (2015), preprint arXiv:1407.6598 (2014), gives simulations linking temporal contacts, direct reproduction number and outbreak size, but not all-order path-optimal expectations. Enright–Meeks–Skerman (2021), preprint arXiv:1802.05905 (2018), Section 2.2, Proposition 4, optimizes a different quantity: worst-case temporal reachability, not uniform-seed expectation at positive stochastic transmission. The published record *Local maxima determine temporal zero forcing on injectively timed paths* (identifier `593121ec75a3`) was read; it studies a different multi-seed synchronous process. Random temporal-graph literature covers related factorial ordering probabilities. The remaining historical-priority risk is an unlocated equivalent average-reachability formula for edge-ordered paths; search noncoverage is not a proof of novelty.
+PASS
 
-## Value — PASS
-The exact extremal comparison isolates temporal ordering as an arbitrarily strong determinant of mean finite-outbreak size even while network shape and direct index-case reproduction are identical. It solves the complete natural scheduling optimization, establishes all equality cases, gives a random calendar benchmark, and proves the asymptotic scale. Its value is conceptual and limited to this exactly defined SI-style contact model, not a clinical prediction or a general epidemic threshold theorem.
+The exact model is a path P_n, n>=2, one uniformly chosen seed, one independently successful contact per edge of probability 0<q<=1, and a distinct time order. By uniqueness of the underlying path, target v can be reached from u exactly if the consecutive edge contacts increase in that direction, with probability q^{|u-v|}. Each adjacent unordered pair contributes 2q/n; distance-two pairs contribute q^2/n; every length d>=3 contributes 0 or q^d/n according to monotonicity of its edge-time subword. This yields min 1+2(n-1)q/n+(n-2)q^2/n and max 1+2(n-1)q/n+sum_{d=2}^{n-1}(n-d)q^d/n. For n>=4 all positive long-interval contributions vanish iff signs of adjacent time differences alternate; all are present iff the entire time list is monotone; n=2,3 tie. Independent random order makes each length-d interval monotone with probability 2/d!, yielding mean 1+(2/n)sum_{d=1}^{n-1}(n-d)q^d/d!. The index case has q*deg(u) expected direct offspring, hence 2(n-1)q/n after uniform averaging, independent of order. For q=1-1/n dominated convergence gives min->4, max/n->1/e, random mean->2e-1 and max/min~n/(4e). Reviewed RESULT.md, definitions and independent event-by-event verify.py. Unique-path proof is global; the finite event simulation for n<=7 and q in {1/2,2/3,1} is corroboration, not infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The all-order uniform-seed stochastic mean, equality calendars, random-order factorial average, and common-direct-offspring unbounded separation are not asserted in the inspected older temporal-outbreak and reachability results. The general temporal SI reachability argument and R0 inadequacy are prior art. The same-source zero-forcing result has a different propagation and objective; an unlocated average-reachability theorem remains a historical risk.
+
+## value
+
+PASS
+
+This is a motivated exact extremal question for time-respecting single-contact epidemics: calendars on the same graph and with the same index-case direct reproduction mean yield an unbounded ratio of final outbreak sizes. Both sharp equality classifications and random-calendar baseline give useful quantitative comparators, beyond a textbook reachability observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:09:48.143819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact model is a path P_n, n>=2, one uniformly chosen seed, one independently successful contact per edge of probability 0<q<=1, and a distinct time order. By uniqueness of the underlying path, target v can be reached from u exactly if the consecutive edge contacts increase in that direction, with probability q^{|u-v|}. Each adjacent unordered pair contributes 2q/n; distance-two pairs contribute q^2/n; every length d>=3 contributes 0 or q^d/n according to monotonicity of its edge-time subword. This yields min 1+2(n-1)q/n+(n-2)q^2/n and max 1+2(n-1)q/n+sum_{d=2}^{n-1}(n-d)q^d/n. For n>=4 all positive long-interval contributions vanish iff signs of adjacent time differences alternate; all are present iff the entire time list is monotone; n=2,3 tie. Independent random order makes each length-d interval monotone with probability 2/d!, yielding mean 1+(2/n)sum_{d=1}^{n-1}(n-d)q^d/d!. The index case has q*deg(u) expected direct offspring, hence 2(n-1)q/n after uniform averaging, independent of order. For q=1-1/n dominated convergence gives min->4, max/n->1/e, random mean->2e-1 and max/min~n/(4e). Reviewed RESULT.md, definitions and independent event-by-event verify.py. Unique-path proof is global; the finite event simulation for n<=7 and q in {1/2,2/3,1} is corroboration, not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Enright–Meeks–Skerman, arXiv:1802.05905",
+          "Casteigts et al., arXiv:2011.03738, abstract only"
+        ],
+        "reasoning": "General temporal contact networks and randomized simple temporal graphs are a broader model but do not imply sharp fixed-path optimization for all q and all contact orders. In particular, worst-source reachability is not the uniform-source expected size.",
+        "searches": [
+          "Resultary: Temporal graph path one contact per edge choose ordering random seed expected SI outbreak maximizing minimizing alternating zigzag reachability",
+          "Primary full-text: arXiv:1407.6598; https://pmc.ncbi.nlm.nih.gov/articles/PMC4368036/"
+        ]
+      },
+      "checked_sources": [
+        "Holme and Masuda, arXiv:1407.6598 / PLOS ONE 2015",
+        "Enright–Meeks–Skerman arXiv:1802.05905, Section 2.2",
+        "Casteigts et al. arXiv:2011.03738 (abstract/bibliography)",
+        "Resultary 593121ec75a3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "PLOS ONE DOI 10.1371/journal.pone.0120567",
+          "arXiv:1802.05905, Section 2.2"
+        ],
+        "reasoning": "Holme–Masuda gives qualitative poor prediction of final size by a reproduction number, while Enright–Meeks–Skerman studies minimax reachability; neither statement implies the exact mean extremizers, all-q formula or n/(4e) asymptotic without new path counting.",
+        "searches": [
+          "Resultary: Temporal graph path one contact per edge choose ordering random seed expected SI outbreak maximizing minimizing alternating zigzag reachability",
+          "Primary full-text: arXiv:1407.6598; https://pmc.ncbi.nlm.nih.gov/articles/PMC4368036/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holme–Masuda (2015), PLOS ONE 10:e0120567",
+          "Enright–Meeks–Skerman (2021), Proposition 4",
+          "Resultary 593121ec75a3"
+        ],
+        "reasoning": "The q=1 specialization is a mean temporal reachability problem, not the maximum-source reachability minimized by Enright–Meeks–Skerman. The Resultary path record addresses multi-seed zero forcing, not single-seed SI transmission.",
+        "searches": [
+          "Resultary: Temporal graph path one contact per edge choose ordering random seed expected SI outbreak maximizing minimizing alternating zigzag reachability",
+          "Primary full-text: arXiv:1407.6598; https://pmc.ncbi.nlm.nih.gov/articles/PMC4368036/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 593121ec75a3: minimum zero-forcing seeds, not the expected outbreak distribution"
+        ],
+        "reasoning": "A search of matching edge-ordered path, temporal SI, and temporal zero-forcing records did not identify an exact table/formula for these mean extrema; no inference of novelty from absence alone.",
+        "searches": [
+          "Resultary: Temporal graph path one contact per edge choose ordering random seed expected SI outbreak maximizing minimizing alternating zigzag reachability",
+          "Primary full-text: arXiv:1407.6598; https://pmc.ncbi.nlm.nih.gov/articles/PMC4368036/"
+        ]
+      },
+      "rationale": "The all-order uniform-seed stochastic mean, equality calendars, random-order factorial average, and common-direct-offspring unbounded separation are not asserted in the inspected older temporal-outbreak and reachability results. The general temporal SI reachability argument and R0 inadequacy are prior art. The same-source zero-forcing result has a different propagation and objective; an unlocated average-reachability theorem remains a historical risk.",
+      "residual_risks": [
+        "An unindexed exact mean-reachability path theorem might cover a specialization or all-q expression.",
+        "Random-temporal graph literature beyond the inspected abstract could imply the factorial expectation formula; it is not independently claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different stochastic empirical networks and final-size prediction; no sharp one-shot path all-orders theorem",
+          "evidence": [
+            "Empirical SIR transmission simulations and R0/outbreak disagreement are the actual primary claims."
+          ],
+          "identifier_or_url": "arXiv:1407.6598; https://pmc.ncbi.nlm.nih.gov/articles/PMC4368036/",
+          "material_read": "Full publicly accessible article text, empirical temporal SIR model, methods and outbreak comparisons",
+          "method": "Public full-text HTML",
+          "title": "The Basic Reproduction Number as a Predictor for Epidemic Outbreaks in Temporal Networks",
+          "trigger": "Same temporal epidemic and reproduction-number motivation"
+        },
+        {
+          "assessment": "Minimizes maximum source reachability, not uniform-seed mean nor Bernoulli transmissions",
+          "evidence": [
+            "Proposition 4 bounds minimum possible maximal reachability on paths."
+          ],
+          "identifier_or_url": "arXiv:1802.05905",
+          "material_read": "Accessible preprint, Section 2.2 and Proposition 4 on paths, with relevant surrounding argument",
+          "method": "Open preprint text",
+          "title": "Assigning Times to Minimise Reachability in Temporal Graphs",
+          "trigger": "Same edge-time path reachability"
+        },
+        {
+          "assessment": "Different synchronous multi-seed zero-forcing process",
+          "evidence": [
+            "Determines minimum initial corrupted set, not expected one-seed SI outbreak."
+          ],
+          "identifier_or_url": "Resultary:593121ec75a3",
+          "material_read": "Full published RESULT.md describing local maxima and forcing-number identity",
+          "method": "Published research record",
+          "title": "Local Maxima Determine Temporal Zero Forcing on Injectively Timed Paths",
+          "trigger": "Closest same-object published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact extremal question for time-respecting single-contact epidemics: calendars on the same graph and with the same index-case direct reproduction mean yield an unbounded ratio of final outbreak sizes. Both sharp equality classifications and random-calendar baseline give useful quantitative comparators, beyond a textbook reachability observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Holme and Masuda, arXiv:1407.6598 / PLOS ONE 2015",
+    "Enright–Meeks–Skerman arXiv:1802.05905, Section 2.2",
+    "Casteigts et al. arXiv:2011.03738 (abstract/bibliography)",
+    "Resultary 593121ec75a3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No recovery, repeated/simultaneous contacts, nonuniform source or general contact graphs.",
+    "The unbounded ratio uses q_n tending to one; for fixed q<1 the maximum remains bounded."
+  ],
+  "schema_version": 1
+}
