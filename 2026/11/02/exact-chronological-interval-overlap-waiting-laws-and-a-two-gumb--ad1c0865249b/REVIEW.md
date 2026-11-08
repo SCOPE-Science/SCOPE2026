@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's event is exactly common intersection of the closed empirical first-to-last intervals. For each realization, the maximum first occurrence is the discovery time of the final new label; this proves the two-stage condition without approximations. Inclusion–exclusion gives the first-completion-and-last-label weights and the post-completion reappearance probabilities. The strong Markov property supplies the independence needed for the convolution, and uniform symmetry yields independent geometric waiting phases. Exact moments and the PGF follow; a Bonferroni-controlled classical coupon-collector calculation proves each Gumbel convergence, with independence preserved. The packaged `CHECK.py` returned 117928 exact finite assertions from direct enumeration and rational arithmetic. Finite enumeration is corroborative and not a substitute for the proof of all integer sizes.
+## correctness
 
-## Originality — PASS, with residual historical risk
-De Loera et al., *A Model for Birdwatching and other Chronological Sampling Activities* (arXiv:2205.05743, first public 2022-05-11), supply a fixed-time lower probability bound (Theorem 12) and an expectation upper bound of twice the coupon-collector mean (Theorem 13). Their text and appendices were examined, including the displayed proofs. Neither bound determines the full CDF, the stopping-time decomposition or its two-Gumbel limit; those results do not logically follow from just the inequalities. An authorial dissertation's Section 4.4 reproduces the bounds; only the indexed substantive section was available for that secondary comparison, so full dissertation noncoverage is not claimed. Searches of synonymous interval-overlap, first/last appearances, complete empirical nerve, and second coupon collection expressions did not reveal an equivalent theorem. General coupon-collector formulas describe ingredients but do not identify this stopping rule with the two stages; a residual risk of a missed equivalence in broad word-pattern or coupon literature remains.
+PASS
 
-## Value — PASS
-This is the full waiting-time distribution of the principal complete-simplex event in a published model for time-stamped categorical observations. It goes substantially beyond an existing mean bound: it includes arbitrary nonuniform probabilities, an independent-geometric representation under uniformity, variance and generating function, and a nonstandard sum-of-two-Gumbels limit rather than the one-Gumbel ordinary collector limit. The new information directly answers the natural deadline and fluctuation questions. It is not a marginal numerical strengthening of an expectation bound.
+For iid labels with p_i>0 and closed empirical first/last intervals, max first occurrence becomes τ, the final new label arrival time; common intersection at n is equivalent to every other label appearing at least once strictly after τ. This gives pathwise T=τ+second collection suffix, independent of pre-τ data by strong Markov. Inclusion-exclusion for P(τ=t,L=ℓ) and probability all other labels reappear yields the exact arbitrary-p finite-n CDF. Under p_i=1/m the two phases have mutually independent Geom(j/m) waiting times j=1..m and j=1..m−1; exact PGF, mean 2mH_m−1, variance 2m²H_m^(2)−2mH_m, first possible time 2m−1, and sum of two independent standard Gumbel limits by classical coupon-collector with Bonferroni bounds. Independent exhaustive words m=2,3,4 through n=8 and a separate dynamic-programming comparison validate finite cases; do not conflate nonuniform CDF and uniform limit.
 
-## Closest literature and limitations
-J. A. De Loera et al., arXiv:2205.05743, Theorems 12–13, is the closest directly covering model. E. Jaramillo Rodriguez's 2023 dissertation, Section 4.4, repeats the expectation upper bound (section-indexed source only). Standard coupon-collector theory supplies the classical one-phase waiting calculations. The stationary iid assumption is essential; no independent mathematical audit or exhaustive historical priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact complete-interval-overlap waiting distribution and two-Gumbel limit for the published birdwatching chronological-interval model: prior authors gave fixed-time lower probability bound and expected-time upper bound, not the full CDF.
+
+## value
+
+PASS
+
+The natural fixed-time and deadline questions for simultaneous chronological intervals require the full waiting distribution, not merely the known upper mean bound. The arbitrary-weight CDF and uniform two-Gumbel scaling are mathematically precise new fluctuation information for the original motivating model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

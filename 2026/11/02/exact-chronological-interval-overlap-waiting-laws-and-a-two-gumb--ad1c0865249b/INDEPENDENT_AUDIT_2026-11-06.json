@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-chronological-interval-overlap-waiting-laws-and-a-two-gumb--ad1c0865249b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-chronological-interval-overlap-waiting-laws-and-a-two-gumb--ad1c0865249b/CHECK.py",
+        "/mnt/data/scope_worker03_20261106T2340Z/independent_checks_output.txt"
+      ],
+      "rationale": "For iid labels with p_i>0 and closed empirical first/last intervals, max first occurrence becomes τ, the final new label arrival time; common intersection at n is equivalent to every other label appearing at least once strictly after τ. This gives pathwise T=τ+second collection suffix, independent of pre-τ data by strong Markov. Inclusion-exclusion for P(τ=t,L=ℓ) and probability all other labels reappear yields the exact arbitrary-p finite-n CDF. Under p_i=1/m the two phases have mutually independent Geom(j/m) waiting times j=1..m and j=1..m−1; exact PGF, mean 2mH_m−1, variance 2m²H_m^(2)−2mH_m, first possible time 2m−1, and sum of two independent standard Gumbel limits by classical coupon-collector with Bonferroni bounds. Independent exhaustive words m=2,3,4 through n=8 and a separate dynamic-programming comparison validate finite cases; do not conflate nonuniform CDF and uniform limit.",
+      "residual_risks": [
+        "Requires stationary independent labels, all p_i>0, and singleton intervals permitted; no dependent or physical-time extension.",
+        "Gumbel convergence is weak convergence only; no error rate claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 is a lower probability estimate for complete simplex; Theorem 13 p.19 explicitly bounds T by two FULL coupon collections, giving ET≤2 Eτ, not the exact law. The sharper second phase excludes only the last new label.",
+          "Double Dixie cup requires each color appear twice in arbitrary order; the target rule singles out latest discovered label and demands later reappearance of others."
+        ],
+        "reasoning": "An expectation bound does not determine variance or full finite CDF, and standard double-Dixie-cup stopping time is not equivalent to this chronological event.",
+        "searches": [
+          "arxiv:2205.05743 Theorems 12 13 Appendix",
+          "coupon collector double Dixie cup Gumbel second copy"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-chronological-interval-overlap-waiting-laws-and-a-two-gumb--ad1c0865249b/RESULT.md",
+        "Resultary semantic search: chronological empirical intervals birdwatching all intervals common intersection first time coupon collector double Gumbel",
+        "https://arxiv.org/pdf/2205.05743",
+        "https://escholarship.org/uc/item/0v78993q"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier expectation inequality ET≤2mH_m is consistent with exact 2mH_m−1; it does not imply that one-unit sharpening nor variance or limiting sum of independent Gumbels.",
+          "Published probability lower bounds do not determine the exact event law."
+        ],
+        "reasoning": "The all-p convolution and uniform PGF are stronger than these prior inequalities; known single coupon collector Gumbel results are inputs after the new pathwise identification.",
+        "searches": [
+          "De Loera Jaramillo-Rodriguez Oliveros Torres arxiv:2205.05743",
+          "Jaramillo Rodriguez dissertation 2023 section 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Loera et al., arXiv:2205.05743 Section 3, identify chronological interval model, Theorems 12/13 as probability lower bound and ET upper bound.",
+          "The new pathwise stopping-time rule is a second coupon collection, not simply standard collecting all coupons once."
+        ],
+        "reasoning": "Two independent classical coupon collectors provide a distributional representation once the interval-overlap event has been identified; that event equivalence is not stated in the inspected original theorem.",
+        "searches": [
+          "chronological empirical intervals birdwatching all intervals common intersection first time coupon collector double Gumbel",
+          "\"birdwatching\" \"two Gumbel\" \"interval\"",
+          "arxiv:2205.05743 stochastic chronological intervals last label"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Authorial dissertation Section 4.4 repeats complete-intersection expected-time discussion; full dissertation not claimed inspected.",
+          "Independent enumeration m≤4 is an audit check rather than evidence of an earlier published probability table."
+        ],
+        "reasoning": "No matching arbitrary-p exact convolution table or fixed-m symbolic law found in focused source comparison.",
+        "searches": [
+          "chromatic chronological interval complete simplex exact distribution table",
+          "thesis Jaramillo chronological sampling Section 4.4"
+        ]
+      },
+      "rationale": "Exact complete-interval-overlap waiting distribution and two-Gumbel limit for the published birdwatching chronological-interval model: prior authors gave fixed-time lower probability bound and expected-time upper bound, not the full CDF.",
+      "residual_risks": [
+        "An equivalent two-stage waiting law might exist under chronological coverage/word-pattern or renewal terminology not surfaced by focused searches.",
+        "The thesis was not exhaustively read; equivalent appendix material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "model and inequalities are known; exact 2-collection law not stated by inspected theorem",
+          "evidence": "De Loera et al. 2022/2023, Theorems 12 and 13",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.05743",
+          "material_read": "Section 1 interval/complete simplex definition, Section 3.3 and Theorems 12–13 with proofs; p.19 uses first and second full collection as an UPPER bound, unlike the exact last-new-color exclusion",
+          "method": "open arXiv PDF full relevant scientific material with rendered PDF pages",
+          "title": "A Model for Birdwatching and other Chronological Sampling Activities",
+          "trigger": "same exact object and event"
+        },
+        {
+          "assessment": "repeats or contextualizes waiting bound; full-text noncoverage NOT asserted",
+          "evidence": "Jaramillo Rodríguez 2023, Section 4.4",
+          "identifier_or_url": "https://escholarship.org/uc/item/0v78993q",
+          "material_read": "Indexed Section 4.4 discussion and result pointers, not a whole thesis inspection",
+          "method": "section-indexed academic thesis excerpt",
+          "title": "Combinatorial Analysis of Barcodes and Interval Graphs for Applications in Data Science",
+          "trigger": "authorial extension of the same chronological model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-chronological-interval-overlap-waiting-laws-and-a-two-gumb--ad1c0865249b/RESULT.md",
+        "https://arxiv.org/pdf/2205.05743",
+        "https://escholarship.org/uc/item/0v78993q"
+      ],
+      "rationale": "The natural fixed-time and deadline questions for simultaneous chronological intervals require the full waiting distribution, not merely the known upper mean bound. The arbitrary-weight CDF and uniform two-Gumbel scaling are mathematically precise new fluctuation information for the original motivating model.",
+      "residual_risks": [
+        "No extension to dependent sampling, variable species probabilities or multidimensional barcodes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires stationary independent labels, all p_i>0, and singleton intervals permitted; no dependent or physical-time extension.",
+    "Gumbel convergence is weak convergence only; no error rate claimed.",
+    "An equivalent two-stage waiting law might exist under chronological coverage/word-pattern or renewal terminology not surfaced by focused searches.",
+    "The thesis was not exhaustively read; equivalent appendix material remains possible.",
+    "No extension to dependent sampling, variable species probabilities or multidimensional barcodes.",
+    "Scientific best-of-knowledge judgment, not a formal proof certificate or priority attestation; no publication authorization."
+  ],
+  "schema_version": 1
+}
