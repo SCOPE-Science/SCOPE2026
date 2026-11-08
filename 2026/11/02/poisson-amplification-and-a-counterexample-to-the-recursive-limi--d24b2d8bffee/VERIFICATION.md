@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The published formula uses the uniform product distribution on Boolean valuations of a complete rooted \(n\)-ary depth-two Kripke tree. To replicate the finite tests, execute `python3 checker.py` in a directory containing that file. Its checks comprise direct enumeration of one balanced pair for \(1\le n\le8\), direct enumeration of disjoint pairs for the listed \((k,n)\) up to \((3,3)\), an independent root-success-count dynamic program, and brute-force enumeration of all relevant leaf valuations for five small complete trees. It verifies exact rational probabilities for every tested threshold, including \(t>n\), and prints `ALL_CHECKS_OK` on success.
+## correctness
 
-The infinite proof is analytic, not computational: a central-binomial constant coefficient, Stirling's asymptotic, and three elementary binomial limits. The checked finite instances cannot by themselves validate those limits. The comparison with the original recursive-limit construction uses Definition 26 and Conjecture 38 of arXiv:2610.26187v1. Neither historical uniqueness nor independent audit has been established.
+PASS
+
+Independent constant-term computation of ((z^{-1}+2+z)/4)^n gives c_n=binom(2n,n)/4^n. Distinct children and disjoint proposition pairs are independent, yielding an exact binomial upper tail. Stirling shows nc_n^k~pi^{-k/2}n^{1-k/2}; Chebyshev, binomial Poisson convergence, Markov give 1, Poi(1/pi) tail, 0. At the explicit zero-substitution recursion, the inner limit zero forces outer recursive value zero. Direct leaf enumeration n≤5 corroborated the probability. The assertion of refuting the source Conjecture 38 is conditional on its original fixed-full-branching convention, which could not be reverified from inaccessible full text.
+
+## originality
+
+PASS
+
+Nested rare-event amplification distinguishes the convergent ordinary proportion from substituting a vanishing local limit. The original work already gives balanced-count central-binomial ingredient and studies recursive limits; it has not been read in full this run, so exact conjecture applicability and prior similar examples carry a high residual risk. The stated exact probabilistic theorem is separately established, and located public summaries do not state these three phase regimes.
+
+## value
+
+PASS
+
+This explicit natural formula family tests when recursive asymptotic substitution fails and identifies a nontrivial Poisson-critical second threshold. The fixed tree convention and comparison limitation should accompany any dissemination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
