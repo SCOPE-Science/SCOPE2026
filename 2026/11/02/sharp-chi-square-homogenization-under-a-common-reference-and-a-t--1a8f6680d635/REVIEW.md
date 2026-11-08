@@ -1,19 +1,21 @@
-# Review of the two-experiment chi-square budget theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All hypotheses (common reference, absolute continuity, finite marginal divergences, two tensor factors, nonzero denominator) are explicit. The score-vector representation gives exact product moments. The geometric deficit identity separates score imbalance from angular misalignment. The ratio optimization has one critical stationary point, and the admissible-boundary transition occurs exactly at total budget \(2\). A positive binary likelihood construction realizes the bound for every budget. The exact-arithmetic checker independently evaluates the finite product measures. These finite checks do not establish the universal theorem on their own; the universal steps are the displayed Hilbert-space identities and one-variable derivative signs.
+PASS
 
-## Originality — PASS, with residual priority risk
+Read entire RESULT.md at frozen blob 9603e4dec06aa04e08f2547046e1bec67b2fd51d. Centered likelihood scores u_i yield D_original=s+t² and D_hom=(1+(s+2tc)/4)²-1. Cauchy–Schwarz makes c=1 the worst case. The exact difference factors at c=1 as (s-2t)(s+6t-8)/16, excluding amplification for s<=2. For t=alpha*s, the derivative in s is nonnegative, strictly unless equal signals; the t-derivative has unique interior root t_T=(sqrt(T(T+16))-T)/4 for T>2. The 2-atom h=m,-1/m with Q weights makes positive densities, realizing every equality case. Independent SymPy algebra rechecked deficit factorization, both derivatives, quadratic onset delta²/36, and finite boundary cases; these support rather than replace the functional argument.
 
-The most relevant inspected primary source, Kontorovich (arXiv:2610.31164v1, Sections 2, 5, 7.4), establishes unrestricted failure for \(\chi^2\) and a distinct two-observation example with unequal reference measures. Its product identity is prior art and is explicitly credited. Neither the exact common-reference budget threshold nor the supremal amplification curve appears in the inspected sections. Searches for equivalent two-factor ratios, geometric-mean formulations, and budgeted chi-square bounds located no directly matching prior claim. Classical divergence inequalities may implicitly encode a similar finite-dimensional optimization; historical priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's unrestricted impossibility result does not tell a practitioner when averaging two heterogeneous experiments is safe. The exact threshold \(2\), a sharp real-budget amplification curve, the quadratic onset, and a classification of extremizers give a complete answer for the natural two-experiment common-baseline setting, rather than an isolated numerical improvement or arbitrary finite sample. The binary realization shows the worst case cannot be avoided by restricting the observation alphabet.
+Kontorovich arXiv:2610.31164 (October 22, 2026) proves lack of unconstrained uniform chi-square homogenization, with a two-experiment construction using unequal reference laws; that is different from the common-Q, fixed-marginal-budget optimal constant. Only its abstract and indexed descriptions were accessible, so this best-of-knowledge judgment explicitly reserves full-text comparison.
 
-## Limitations
+## value
 
-Two factors, common reference, finite Pearson chi-square divergence. No claim for heterogeneous reference measures or all sample sizes. Independent audit and final historical-priority determination are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the sharp safe-versus-amplification phase boundary, complete optimum and extremizers for a natural constrained two-experiment specialization of a currently studied divergence homogenization question. The distinction is substantive and parameter-wide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
