@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The spectral formula gives all projector branches. The two three-coordinate derivative rows have been differentiated explicitly, then optimized using inequalities valid for every \(c,s\ge0\), \(c^2+s^2=1\) and \(-1\le t\le1\). Integrating these bounds gives the global Lipschitz modulus. The determinant-zero affine-line case is handled separately for nonattainment. Two explicit rank-one boundary perturbations give the exact limiting lower bounds. `verify.py` passed 407 independent exact-rational and high-precision checks; its finite tests are not treated as the unrestricted proof.
+PASS
 
-## Originality
+For arbitrary real symmetric X=[[m+d,z],[z,m-d]] with Frobenius PSD projection X_+, spectral eigenvalues m+-r, r=hypot(d,z), provide exact positive/mixed/negative formulas. In the mixed region the input-coordinate partial derivatives of output (11) and (12) have absolute row sums. With c=d/r, s=abs(z)/r, t=m/r these are optimized on t=-1,0,1 and c^2+s^2=1, yielding 3/2 for each diagonal and 9/8 for each off-diagonal, both strict away from rank-one limits. Piecewise segment integration yields global bounds; if a line is entirely determinant-zero, all its points share one rank-one direction and entrywise 1-Lipschitz holds. Explicit rank-one perturbations give first-order equality approach, so no two distinct finite matrices attain either larger Lipschitz supremum. Block embedding gives only L_n>=3/2, not sharp n>=3. Independent random finite-difference directional checks sampled 20,000 mixed-region perturbations; observed slopes below respective targets (1.4848,1.1148); the analytic inequality, not samples, proves uniform optimality.
 
-PASS, with residual publication-priority risk. Higham's nearest-semidefinite formula and Malick–Sendov's complete generalized-Jacobian framework are strongly relevant, but neither source states the sharp two-coordinate sensitivity split or analyzes nonattainment. The standard Lorentz-cone coordinate maximum norm cannot be substituted for the entrywise matrix maximum norm because the change of variables is not an isometry for those norms. The Šilhavý paper was assessable through its full bibliographic abstract but its full text was inaccessible; earlier unindexed equivalent calculations remain possible. The positive originality judgment is evidence-limited rather than a uniqueness certificate.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is the complete sharp local-to-global coordinatewise stability classification in the first nontrivial dimension for semidefinite repair: diagonal errors can be magnified by 50%, off-diagonal errors by 12.5%, and both worst cases are unattained finite differences. These are material robustness boundaries for spectral eigenvalue clipping, not a mere restatement of the Hilbert-norm nonexpansiveness theorem. The diagonal phenomenon embeds into all higher dimensions, although exact larger-dimensional constants are not claimed.
+Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: optimization of every coordinate derivative row in the transformed entrywise norm. Residual priority and access risks retained.
 
-## Scope and closest literature
+## value
 
-The result concerns real \(2\times2\) symmetric input, Frobenius-nearest PSD output, and maximum absolute entry differences. The closest primary sources are Higham (1988), Malick–Sendov (2006), and Šilhavý (2015); the last presents a material access limitation. Earlier comparable endpoint analyses for the standard Lorentz cone have different coordinate norms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact stability constants for the standard 2x2 PSD projector measured in an entrywise norm used in covariance approximation, and the genuinely different sharp diagonal/off-diagonal gains plus nonattainment. These are motivated sensitivity moduli not supplied by the Frobenius nonexpansivity theorem, and a nontrivial sharp inequality for a natural cone projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

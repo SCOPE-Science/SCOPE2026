@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:04:09.815563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary real symmetric X=[[m+d,z],[z,m-d]] with Frobenius PSD projection X_+, spectral eigenvalues m+-r, r=hypot(d,z), provide exact positive/mixed/negative formulas. In the mixed region the input-coordinate partial derivatives of output (11) and (12) have absolute row sums. With c=d/r, s=abs(z)/r, t=m/r these are optimized on t=-1,0,1 and c^2+s^2=1, yielding 3/2 for each diagonal and 9/8 for each off-diagonal, both strict away from rank-one limits. Piecewise segment integration yields global bounds; if a line is entirely determinant-zero, all its points share one rank-one direction and entrywise 1-Lipschitz holds. Explicit rank-one perturbations give first-order equality approach, so no two distinct finite matrices attain either larger Lipschitz supremum. Block embedding gives only L_n>=3/2, not sharp n>=3. Independent random finite-difference directional checks sampled 20,000 mixed-region perturbations; observed slopes below respective targets (1.4848,1.1148); the analytic inequality, not samples, proves uniform optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higham gives Frobenius-optimal spectral positive-part formula; Malick–Sendov give a generalized Jacobian of arbitrary-dimensional PSD projection."
+        ],
+        "reasoning": "General formulas supply prerequisites for differentiation, not the exact induced ℓ∞→ℓ∞ coordinate gain optimization or separate nonattainment statement. Šilhavý 2015 full text not accessible, so no blanket denial of coverage there.",
+        "searches": [
+          "Higham 1988 Computing a nearest symmetric positive semidefinite matrix",
+          "Malick Sendov 2006 author manuscript Theorem 3.7",
+          "Resultary: positive semidefinite cone projection 2x2 symmetric entrywise infinity maximum norm sharp Lipschitz constant 3/2 9/8"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob ca1e16a8a9292adc9cbb8ab87f7fc119be97b40b",
+        "verify.py Git blob 7330ed037e08572d7032c1b5056d5502a2543d52",
+        "Higham 1988; Malick–Sendov 2006 author manuscript",
+        "Resultary search: Resultary: positive semidefinite cone projection 2x2 symmetric entrywise infinity maximum norm sharp Lipschitz constant 3/2 9/8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Frobenius projection is globally 1-Lipschitz in Frobenius norm; the desired input/output norm is entrywise maximum, and Frobenius-to-entrywise estimates are too coarse. Exact normalized row derivative calculus and global nonattainment are additional claims."
+        ],
+        "reasoning": "The earlier matrix formula does not numerically imply these sharp constants without solving the norm optimization on eigenvalue and eigenvector variables.",
+        "searches": [
+          "Higham 1988 equation for matrix X_+",
+          "Malick Sendov 2006 generalized Jacobian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2x2 real PSD cone is a Lorentz cone under linear change (m,d,z), but the matrix entrywise max norm becomes max(|m|+|d|,|z|), not the ordinary coordinate max norm used by standard Lorentz projection constants."
+        ],
+        "reasoning": "An apparent Lorentz-cone duplicate requires carrying the nonisometric norm transformation; no inspected identical cross-norm 3/2/9/8 result appears.",
+        "searches": [
+          "Resultary: positive semidefinite cone projection 2x2 symmetric entrywise infinity maximum norm sharp Lipschitz constant 3/2 9/8",
+          "Malick Sendov 2006 Clarke generalized Jacobian PSD cone",
+          "standard Lorentz cone projection infinity norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related projection-norm studies on different cones/norms; the inspected nearest-PSD and generalized-Jacobian sources do not contain a table of both 2x2 entrywise sharp values."
+        ],
+        "reasoning": "No identical entrywise-coordinate 3/2 and 9/8 table was located; the search is necessarily nonexhaustive.",
+        "searches": [
+          "Resultary: positive semidefinite cone projection 2x2 symmetric entrywise infinity maximum norm sharp Lipschitz constant 3/2 9/8",
+          "https://eprints.maths.manchester.ac.uk/363/",
+          "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: optimization of every coordinate derivative row in the transformed entrywise norm. Residual priority and access risks retained.",
+      "residual_risks": [
+        "A specialized entrywise-norm corollary hidden in the unavailable Šilhavý 2015 paper or unindexed projection literature could cover the exact values.",
+        "The 20k finite directional checks are only sanity checks; the strict segment inequality and rank-one limit supply proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides original nearest PSD projection; no inspected coordinatewise sharp induced norms",
+          "evidence": [
+            "Higham 1988 establishes Frobenius nearest PSD matrix."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/363/",
+          "material_read": "Repository abstract, publication information, matrix projection formula",
+          "method": "Publisher/deposit record and supporting mathematical formula",
+          "title": "Computing a nearest symmetric positive semidefinite matrix",
+          "trigger": "Projection operator identification"
+        },
+        {
+          "assessment": "Establishes general Jacobian formulas but not the two requested optimized max-norm scalar moduli",
+          "evidence": [
+            "Theorem 3.7 describes generalized derivatives, not separate maximal coordinate gain constants."
+          ],
+          "identifier_or_url": "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+          "material_read": "Full author-manuscript PDF, projection definitions and generalized derivative theorem, page image checked",
+          "method": "Open author manuscript, PDF text and visual first page",
+          "title": "Clarke generalized Jacobian of the projection onto the cone of positive semidefinite matrices",
+          "trigger": "Derivative results could dominate pointwise gradient calculation"
+        },
+        {
+          "assessment": "Unresolved: derivative formulas may overlap; cannot assert whole paper noncovering",
+          "evidence": [
+            "Abstract identifies singular-boundary projection differentiability, a close subject."
+          ],
+          "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca22052/",
+          "material_read": "Abstract only; full article could not be read",
+          "method": "Publisher abstract",
+          "title": "Differentiability of metric projection onto convex set with singular boundary points",
+          "trigger": "Potentially same singular-rank-one boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact stability constants for the standard 2x2 PSD projector measured in an entrywise norm used in covariance approximation, and the genuinely different sharp diagonal/off-diagonal gains plus nonattainment. These are motivated sensitivity moduli not supplied by the Frobenius nonexpansivity theorem, and a nontrivial sharp inequality for a natural cone projection.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md Git blob ca1e16a8a9292adc9cbb8ab87f7fc119be97b40b",
+    "verify.py Git blob 7330ed037e08572d7032c1b5056d5502a2543d52",
+    "Higham 1988; Malick–Sendov 2006 author manuscript",
+    "Resultary search: Resultary: positive semidefinite cone projection 2x2 symmetric entrywise infinity maximum norm sharp Lipschitz constant 3/2 9/8"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized entrywise-norm corollary hidden in the unavailable Šilhavý 2015 paper or unindexed projection literature could cover the exact values.",
+    "The 20k finite directional checks are only sanity checks; the strict segment inequality and rank-one limit supply proof.",
+    "No GitHub modifications or dispatcher closeout were made; publication has not occurred."
+  ],
+  "schema_version": 1
+}
