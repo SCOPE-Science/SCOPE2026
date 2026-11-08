@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification certificate
+# Independent mathematical audit
 
-The standalone artifact `verify.py` uses the Python 3 standard library only. It constructs the one-deletion/at-most-one-substitution output balls in two different ways for every input at lengths \(3\) through \(9\), checks exact agreement, then constructs all pairwise compatibility edges and verifies each explicit codebook. Its exact maximum-clique routine uses a sound greedy-coloring upper bound and branches over every remaining choice. The upper bounds are logically exhaustive because a clique contains at most one vertex from each proper-coloring class, and every omitted branch is dominated by an existing witness.
+## correctness
 
-The recorded result is provided verbatim in `verification_output.txt`, ending with `EXACT_CERTIFICATE_OK`. The maximum at length \(9\) is \(16\), with a concrete 16-word witness; the exhaustive program checks the corresponding upper bound. A separate exact graph-clique implementation independently gave matching sizes for lengths \(6\) through \(9\).
+PASS
 
-The completeness claim concerns only these finitely many lengths; it does not extrapolate to all binary lengths. The evidence is a finite mathematical derivation and a replayable enumeration, not an independent mathematical audit or a formal-proof-assistant certificate.
+The distinct-output ball is the union of Hamming radius-one neighborhoods of every one-deletion descendant; codebooks are exactly cliques of the graph with an edge iff intersection cardinality <5. Inspected the actual verify.py and its complete bit-set maximum-clique branch-and-bound proof: independent sets in its greedy coloring give a safe upper bound for each remaining branch; every compatible extension is considered. Reimplemented channel-ball construction and full exact maximum-clique search independently for all lengths 3..9: maxima (8,5,5,6,8,12,16), edges (28,38,115,552,2917,15194,75483), and at n=9 exactly 416465 recursive calls. Verified the seven lower-bound witnesses logically against the same channel model. This is a complete finite-domain computation, not an infinite claim. A codeword is padded to exactly n bits; repeated output words are deduplicated.
+
+## originality
+
+PASS
+
+Direct five-read primary work studies constructions and bounds; a closely related full exact finite classification refers to disjoint-ball (one-read) codes and cannot settle maximum five-read code cardinalities. Actual Resultary and primary-source comparisons found no dominating exact table. The novelty conclusion is best-of-knowledge and limited to this finite profile, not channel definitions or algorithms.
+
+## value
+
+PASS
+
+The natural finite-blocklength five-read reconstruction capacity is a primary optimization invariant. A complete n=3..9 capacity profile, including a 512-vertex n9 optimum and the counterintuitive decrease 8 to 5 from n3 to n4, is a meaningful benchmark for designs and finite-channel bounds, even without an all-length theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:56:26.052337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distinct-output ball is the union of Hamming radius-one neighborhoods of every one-deletion descendant; codebooks are exactly cliques of the graph with an edge iff intersection cardinality <5. Inspected the actual verify.py and its complete bit-set maximum-clique branch-and-bound proof: independent sets in its greedy coloring give a safe upper bound for each remaining branch; every compatible extension is considered. Reimplemented channel-ball construction and full exact maximum-clique search independently for all lengths 3..9: maxima (8,5,5,6,8,12,16), edges (28,38,115,552,2917,15194,75483), and at n=9 exactly 416465 recursive calls. Verified the seven lower-bound witnesses logically against the same channel model. This is a complete finite-domain computation, not an infinite claim. A codeword is padded to exactly n bits; repeated output words are deduplicated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Sun–Ge (2026) Theorem 4.6 constructs five-read codes with asymptotic-type redundancy 3 log_2 n+4; it is a lower bound on attainable code size, not an optimum for every n≤9.",
+          "Song–Cai–Quek read-intersection bounds apply under additional Hamming-distance conditions and do not certify this entire maximum-clique spectrum."
+        ],
+        "reasoning": "General constructions and constrained distance bounds do not dominate an exact all-codeword finite optimum without a matching universal upper bound; no such implication was identified in inspected relevant material.",
+        "searches": [
+          "arXiv:2604.25294",
+          "arXiv:2505.04232",
+          "arXiv:2501.03833"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.25294",
+        "https://arxiv.org/abs/2505.04232",
+        "https://arxiv.org/abs/2501.03833",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The only directly comparable channel requires five distinct outputs; stronger uniqueness decoding (one-read) implies feasible five-read codes but not their maximum.",
+          "Li–Sun–Ge construction supplies code sizes, not the global packing upper bound for short words."
+        ],
+        "reasoning": "The new finite optimum is not numerically or logically implied by reported lower bounds and stronger one-read separation criteria.",
+        "searches": [
+          "arXiv:2604.25294 (definition and Theorem 4.6)",
+          "arXiv:2501.03833",
+          "Resultary one-read census RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published one-read binary DS_{1,2}(7)=3, DS_{1,2}(8)=5 classification requires disjoint output balls; here distinct five reads require pairwise overlaps strictly less than five.",
+          "Li–Sun–Ge use the same one-deletion/at-most-one-substitution error operation in their five-read reconstruction framework."
+        ],
+        "reasoning": "The model is a five-distinct-read reconstruction packing: intersection <5, not the one-read channel with intersection zero. Reinterpreting the coding convention does not turn one-read exact capacities into the asserted seven five-read capacities.",
+        "searches": [
+          "binary reconstruction codes five distinct reads one deletion at most one substitution exact maximum code size length 3 9",
+          "Resultary: 2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+          "arXiv:2604.25294"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full RESULT.md for the Resultary one-read census explicitly uses pairwise disjoint balls and obtains 3 and 5, not the five-read 8 and 12 for corresponding n.",
+          "Current exact list covers 3≤n≤9, with 512 input words at n9."
+        ],
+        "reasoning": "No located exact table on precisely the five-read, distinct-output model subsumes these values. Failed search is not a proof that no private table exists.",
+        "searches": [
+          "binary reconstruction codes five distinct reads one deletion at most one substitution exact maximum code size length 3 9",
+          "Resultary exact one-deletion/one-substitution lengths 7 and 8"
+        ]
+      },
+      "rationale": "Direct five-read primary work studies constructions and bounds; a closely related full exact finite classification refers to disjoint-ball (one-read) codes and cannot settle maximum five-read code cardinalities. Actual Resultary and primary-source comparisons found no dominating exact table. The novelty conclusion is best-of-knowledge and limited to this finite profile, not channel definitions or algorithms.",
+      "residual_risks": [
+        "An unindexed exact five-read small-blocklength table could duplicate some or all entries.",
+        "Enumeration certifies only n=3..9; neither asymptotic optimality nor uniqueness of the optimal codes is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct five-read construction exists but does not specify exact optimal maximum codebook sizes for n=3..9 in the inspected main results.",
+          "evidence": [
+            "Theorem 4.6; error-ball definitions, read count and redundancy bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.25294",
+          "material_read": "Section II channel definitions, Section IV.D and Theorem 4.6 five-read construction, conclusion",
+          "method": "arXiv primary preprint/PDF review",
+          "title": "Correcting One Deletion and One Substitution with a Constant Number of Reads",
+          "trigger": "Identical channel and five-read parameter"
+        },
+        {
+          "assessment": "Disjoint-ball one-read model is stricter than five-distinct-read reconstruction; does not furnish n=7,8 five-read maxima.",
+          "evidence": [
+            "Finding DS_{1,2}(7)=3 and DS_{1,2}(8)=5; Assumptions impose disjointness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+          "material_read": "Full RESULT.md including Finding, scope and proof",
+          "method": "Authorized public repository file read",
+          "title": "Exact binary one-deletion one-substitution codes at lengths seven and eight",
+          "trigger": "Closest public finite exact-size record for same elementary deletion/substitution operation"
+        },
+        {
+          "assessment": "No independently established full-document exclusion; residual possibility of specialized table is retained.",
+          "evidence": [
+            "Public problem statement and main construction scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.04232",
+          "material_read": "Accessible bibliographic description and relevant problem/construction statements; complete proof not claimed read",
+          "method": "arXiv public material and manuscript comparisons",
+          "title": "Binary Reconstruction Codes for Correcting One Deletion and One Substitution",
+          "trigger": "Related earlier read-count constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural finite-blocklength five-read reconstruction capacity is a primary optimization invariant. A complete n=3..9 capacity profile, including a 512-vertex n9 optimum and the counterintuitive decrease 8 to 5 from n3 to n4, is a meaningful benchmark for designs and finite-channel bounds, even without an all-length theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2604.25294",
+    "https://arxiv.org/abs/2505.04232",
+    "https://arxiv.org/abs/2501.03833",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343"
+  ],
+  "disposition": "passed",
+  "limitations": "Binary alphabet; exact one deletion and at most one substitution; distinct output words and five distinct reads; lengths 3 through 9 only. No decoder, asymptotic capacity, uniqueness, formal proof or external attestation.",
+  "residual_risks": [
+    "An unindexed exact five-read small-blocklength table could duplicate some or all entries.",
+    "Enumeration certifies only n=3..9; neither asymptotic optimality nor uniqueness of the optimal codes is established."
+  ],
+  "schema_version": 1
+}
