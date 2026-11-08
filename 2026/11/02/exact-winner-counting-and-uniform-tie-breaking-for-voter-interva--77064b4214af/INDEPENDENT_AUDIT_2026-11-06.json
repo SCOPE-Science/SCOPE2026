@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:48:17.636818Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each selected nonempty interval is contained in the first selected inclusion-maximal support type along an increasing-endpoint antichain path. If c follows p, first-owned strict subordinate types are precisely those inside c and not inside p; selecting t locally with >=1 maximal-copy gives B_pc(t)=binom(H_pc+a_c,t)-binom(H_pc,t). Coverage gain g_pc depends only on previous maximal right endpoint. A max-plus weighted count DP with state (last maximal interval, chosen cardinality) therefore enumerates each labeled committee once and sums precisely score-tied counts. Empty-support labels contribute binomial multiplicity at terminalization. O(m³+m²k²+n+m²) rational/integer arithmetic and <=m-bit counts are credible; telescoping counting gives exact unbiased weighted-backtracking sampler. Inspected source verify.py. Independent structurally different path-counting code matched brute-force optimum and winner multiplicity on 500 seeded instances up to 9 labeled candidates with zero voter weights and empty supports, including illustrative score 9 and 7 winners. Finite samples cannot prove ideal uniformity; counting bijection does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized Thiele rules on voter-interval profiles have known polynomial-time winner determination; general #winner counting is hard."
+        ],
+        "reasoning": "Broad optimization results contain the present score as a special case but do not imply #optimal committees or exact uniform sampling from their stated algorithms.",
+        "searches": [
+          "voter interval approval Chamberlin Courant count optimal committees uniform random tie breaking",
+          "arXiv:2604.05953",
+          "arXiv:2605.03067",
+          "Cohen–Gonen 2019"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10479-018-3025-6",
+        "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf",
+        "Resultary semantic search: voter interval approval Chamberlin Courant count optimal committees uniform random tie breaking"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohen–Gonen prove solution optimization for interval unions; counting including nested labels is lost by their dominance preprocessing. Janeczko–Faliszewski motivate and investigate tied-winner counting generally."
+        ],
+        "reasoning": "Neither inspected method states or logically entails the predecessor-dependent subordinate-choice weight B_pc, its O(m² k²) recurrence, or a uniform tied winner generator.",
+        "searches": [
+          "https://u.math.biu.ac.il/~cohenr5/publications/interval.pdf",
+          "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf",
+          "voter interval approval Chamberlin Courant count optimal committees uniform random tie breaking"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Max-weight union of intervals is exactly the weighted coverage objective for selecting k labels, but an optimization DP often eliminates contained candidates and does not count those labeled optimum committees."
+        ],
+        "reasoning": "Compared weighted coverage score, candidate labeling and cardinality constraints, not merely electoral terminology; counting all solutions is stronger than returning an optimal union.",
+        "searches": [
+          "voter interval approval Chamberlin Courant count optimal committees uniform random tie breaking",
+          "Cohen–Gonen 2019 interval union optimization",
+          "Janeczko–Faliszewski 2023 winner ties"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no finite table target: theorem covers arbitrary n,m,k and labeled candidates, with exact binomial multiplicities at each DP state."
+        ],
+        "reasoning": "An exact database/table lookup is inapplicable as an exhaustive substitute for an unbounded counting algorithm; searched for #winners intervals instead.",
+        "searches": [
+          "voter interval approval Chamberlin Courant count optimal committees uniform random tie breaking",
+          "Janeczko–Faliszewski 2023 Ties in Multiwinner Approval Voting"
+        ]
+      },
+      "rationale": "Cohen–Gonen optimize maximum interval union (and may drop contained intervals, which destroys tied-labeled counts), while Janeczko–Faliszewski establish a general winner-counting problem and hardness outside restricted domains. Manurangsi–Sornat and Avramidis et al. supply interval-domain winner determination for Thiele-type rules, not exact multiplicity or uniform sampling. No inspected prior implication provides the canonical labeled path-counting formula. Possible #optimal-solutions semiring DP in broad interval coverage literature is a priority risk.",
+      "residual_risks": [
+        "An algorithm for full weighted generating polynomials of interval unions might implicitly give the same counting recurrence under a different name.",
+        "Uniform ideal random selection presumes unbiased integer random choices; finite pseudorandom draws do not establish uniformity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPTIMIZATION_ONLY_NO_LABELED_COUNTING",
+          "evidence": "Contained interval elimination is safe for some optimal coverage objectives but not for counting distinct optimal labeled committees.",
+          "identifier_or_url": "https://doi.org/10.1007/s10479-018-3025-6",
+          "material_read": "Author-hosted 15-page PDF; introductory definitions and Section 2 interval algorithm and containment-removal optimization",
+          "method": "Read author OA manuscript PDF with page image and text",
+          "title": "On Interval and Circular-Arc Covering Problems",
+          "trigger": "Same interval-union maximization objective and possible dominant stronger theorem"
+        },
+        {
+          "assessment": "GENERAL_COUNTING_PROBLEM_NOT_VOTER_INTERVAL_THEOREM",
+          "evidence": "Defines count of tied winning committees, hardness for general domains, and motivation for uniform tie-breaking; no displayed voter-interval counting recurrence.",
+          "identifier_or_url": "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf",
+          "material_read": "Nine-page public PDF, introduction and complexity statements",
+          "method": "Read OA conference PDF pages and relevant results",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Direct exact number-of-winners and uniform fairness problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fair random selection from tied committees needs exact counts, which decision/optimization algorithms do not supply, especially with nested duplicate supports and empty candidates. A polynomial exact counting and uniform reconstruction theorem for natural voter-interval elections provides a nontrivial algorithmic complement to known winner determination.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/AUDIT.json",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/METADATA.json",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/RESULT.md",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/REVIEW.md",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/SLOGAN.txt",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/VERIFICATION.md",
+    "2026/11/02/exact-winner-counting-and-uniform-tie-breaking-for-voter-interva--77064b4214af/verify.py",
+    "https://doi.org/10.1007/s10479-018-3025-6",
+    "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact polynomial-time counting of all labeled optimal fixed-k committees for weighted voter-interval Chamberlin–Courant coverage, including duplicate/nested/empty candidate intervals, and exact uniform winning-committee sampling with fair random bits.",
+  "limitations": [
+    "Voter-interval candidate approvals and nonnegative rational voter weights; approval-based coverage CC, not arbitrary Thiele, circular arcs, negative weights or arbitrary approval matrices.",
+    "An algorithm for full weighted generating polynomials of interval unions might implicitly give the same counting recurrence under a different name.",
+    "Uniform ideal random selection presumes unbiased integer random choices; finite pseudorandom draws do not establish uniformity."
+  ],
+  "schema_version": 1
+}

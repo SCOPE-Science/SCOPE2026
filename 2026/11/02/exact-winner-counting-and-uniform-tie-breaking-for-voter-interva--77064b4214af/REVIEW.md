@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** A unique path of maximal elected intervals and first-container assignment gives a bijection from labeled committees to polynomially countable decorated paths. The max-plus multiplicity recurrence counts only optimal committees, and unbiased weighted backtracking samples each such committee equally. The standalone verifier passed 1,167,656 exhaustive small-instance comparisons, 5,000 weighted randomized comparisons and 7,000 validity checks of sampled committees; finite tests supplement, not replace, the proof.
+## correctness
 
-**Originality — PASS, subject to residual priority uncertainty.** Cohen–Gonen (2019) solve maximum-weight *optimization* by pruning contained intervals, a step which invalidates direct counting of all labeled tied committees. Janeczko–Faliszewski (2023) study exactly this counting/tie-breaking objective in general and establish hardness, not a voter-interval algorithm. Manurangsi–Sornat (2026) and Avramidis et al. (2026) solve Thiele winner determination on voter-interval domains; Li et al. (2020) provide an offline interval-coverage optimization DP. Full texts and relevant proofs/algorithms were compared at the statement/implication level. No directly equivalent count-and-uniform-sampling result was identified in the accessible literature or the mathematical record searches, but unindexed or overlooked equivalents remain possible.
+PASS
 
-**Value — PASS.** Tied outcomes are a recognized substantive issue for committee elections. Moving from one winning committee to the exact number and a provably unbiased tie-breaking lottery is not achieved by an optimization oracle alone. The decomposition handles labeled candidates whose approval sets are nested, repeated, empty or score-redundant, precisely the cases in which simple optimization-state counting would lose solutions.
+Each selected nonempty interval is contained in the first selected inclusion-maximal support type along an increasing-endpoint antichain path. If c follows p, first-owned strict subordinate types are precisely those inside c and not inside p; selecting t locally with >=1 maximal-copy gives B_pc(t)=binom(H_pc+a_c,t)-binom(H_pc,t). Coverage gain g_pc depends only on previous maximal right endpoint. A max-plus weighted count DP with state (last maximal interval, chosen cardinality) therefore enumerates each labeled committee once and sums precisely score-tied counts. Empty-support labels contribute binomial multiplicity at terminalization. O(m³+m²k²+n+m²) rational/integer arithmetic and <=m-bit counts are credible; telescoping counting gives exact unbiased weighted-backtracking sampler. Inspected source verify.py. Independent structurally different path-counting code matched brute-force optimum and winner multiplicity on 500 seeded instances up to 9 labeled candidates with zero voter weights and empty supports, including illustrative score 9 and 7 winners. Finite samples cannot prove ideal uniformity; counting bijection does.
 
-**Scientific limitations.** This is a weighted-coverage (Chamberlin–Courant) result only, not a general arbitrary-Thiele counting algorithm. It assumes explicit voter intervals, exact rational scores and unbiased discrete sampling. It does not settle priority against inaccessible/unindexed research.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cohen–Gonen optimize maximum interval union (and may drop contained intervals, which destroys tied-labeled counts), while Janeczko–Faliszewski establish a general winner-counting problem and hardness outside restricted domains. Manurangsi–Sornat and Avramidis et al. supply interval-domain winner determination for Thiele-type rules, not exact multiplicity or uniform sampling. No inspected prior implication provides the canonical labeled path-counting formula. Possible #optimal-solutions semiring DP in broad interval coverage literature is a priority risk.
+
+## value
+
+PASS
+
+Fair random selection from tied committees needs exact counts, which decision/optimization algorithms do not supply, especially with nested duplicate supports and empty candidates. A polynomial exact counting and uniform reconstruction theorem for natural voter-interval elections provides a nontrivial algorithmic complement to known winner determination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
