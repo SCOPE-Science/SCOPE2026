@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hub-grounded wheel Laplacian L=diag(s_i)+L(C_m;c_i) injectively encodes all edge conductances. Strict concavity of log det L on connected feasible designs and dihedral invariance give a globally unique two-orbit symmetric optimum (not merely symmetric-subproblem optimality); all budget is spent by homogeneity. Fourier eigenvalues s+4c sin²(pi k/m) and exact cycle product give T(u)=(B/(mP))^m(1-u^m)^2/[(1-u)^2+ru]^m with t=c/s=u/(1-u)^2. Derivative sign equals (2-r)(1+u^m)-2(u+u^{m-1}), yielding sharp cutoff r=2 (all rim edges zero if r>=2). For 0<r<2, phi_m(u)=(u+u^{m-1})/(1+u^m) is strictly increasing, so exactly one u in (0,1-r/2), with global optimum. Identity a-u=u^{m-1}(1-u²)/(1+u^m), a=1-r/2, gives asymptotic ratio t→2(2-r)/r² and coefficient ((4-r)/r)² at fixed r. Endpoint m>=3 and price r>0 were checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known equal-price wheel result gives t_m→2 and 18*2^{-m}.",
+          "General convex logdet, effective-resistance stationarity and matrix-tree theorem are older frameworks; Khosoussi focuses different edge selection."
+        ],
+        "reasoning": "A fully price-dependent D-optimal exact wheel formula would dominate; none was found in inspected sources, although strong general theory is relevant.",
+        "searches": [
+          "Resultary wheel ellipsoid 39d62ea47ea0",
+          "Khosoussi et al arXiv:1604.01116",
+          "Suliman Weinstein arXiv:2302.05966",
+          "Boyd 2006 graph Laplacian convex optimization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 11 2026 wheel ellipsoid 39d62ea47ea0",
+        "Khosoussi et al arXiv:1604.01116",
+        "Suliman Weinstein arXiv:2302.05966",
+        "Boyd 2006 convex optimization of graph Laplacian eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: unique equal-price wheel rim-to-spoke optimum and asymptotic 2-t~18*2^-m.",
+          "New: r>=2 exact rim deletion and 0<r<2 unique phi_m^{-1}(1-r/2) with general limit coefficient ((4-r)/r)^2."
+        ],
+        "reasoning": "The prior r=1 equality is a strict special case; the all-r price derivative and phase transition are not logically implied by just that special case.",
+        "searches": [
+          "Resultary October 11 2026 wheel theorem",
+          "Khosoussi et al 2016 graph spanning-tree optimizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted spanning tree enumerator = grounded Laplacian determinant by matrix-tree theorem.",
+          "Earlier equal-cost wheel Löwner ellipsoid induces same rim-to-spoke D-optimal ratio at r=1."
+        ],
+        "reasoning": "Equivalent ellipsoid/logdet formulations cover r=1 precisely, but not the full price r>0 family with distinct rim and spoke resource weights.",
+        "searches": [
+          "Resultary wheel graph weighted spanning tree conductance optimization rim spoke prices 2 threshold D-optimal log determinant",
+          "Resultary October 2026 wheel Löwner ellipsoid 39d62ea47ea0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published prior table/result captures r=1 exactly; no all-r exact wheel cost table was returned."
+        ],
+        "reasoning": "A single equal-price line cannot determine r=2 screening and arbitrary-r scaling; known special cases are explicitly subtracted from originality.",
+        "searches": [
+          "Resultary: wheel graph weighted spanning tree conductance optimization rim spoke prices 2 threshold D-optimal log determinant",
+          "published Resultary 2026/10/11 wheel symmetric edge polytope"
+        ]
+      },
+      "rationale": "The October 11 2026 published Resultary/SCOPE wheel Löwner ellipsoid solves the equal-price D-optimal-equivalent case r=1 and the 18*2^-m correction; the reviewed RESULT explicitly credits and excludes that special case from originality. Khosoussi et al optimize weighted spanning tree connectivity through discrete edge selection; general Laplacian logdet optimal design supplies tools but not the all-positive two-price wheel phase diagram. What remains assessed as original is r=2 deletion threshold, arbitrary r optimizer and r-dependent exponential coefficient, subject to possible specialized experimental-design coverage.",
+      "residual_risks": [
+        "Specialist cost-sensitive D-optimal wheel design papers could reproduce the all-r formula or threshold.",
+        "The r=1 specialization is previously published and explicitly excluded as an original result.",
+        "Asymptotic coefficient holds at fixed r in (0,2), not uniformly when r approaches endpoints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS r=1, explicitly credited rather than asserted new; not all positive price ratios",
+          "evidence": "published October 11, 2026 result, t_m asymptotic",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+          "material_read": "Published statement and exact rim-to-spoke t_m result with 2-t_m~18*2^-m",
+          "method": "published Resultary full finding evidence and structural comparison",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+          "trigger": "exact equal-cost wheel D-optimal duality"
+        },
+        {
+          "assessment": "Does not present the all-price continuous wheel theorem in inspected text",
+          "evidence": "Khosoussi Sukhatme Huang Dissanayake 2016",
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "Objective definition, edge-selection optimization and algorithm scope",
+          "method": "open preprint source and statement comparison",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "graph spanning-tree optimization potentially encompassing the result"
+        },
+        {
+          "assessment": "General framework, but no checked exact wheel two-price phase diagram",
+          "evidence": "Suliman Weinstein 2023",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+          "material_read": "Graph spectral optimization framework and relation to ellipsoid weights",
+          "method": "preprint mathematical comparison",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "related general graph logdet/ellipsoid formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A wheel is a canonical redundant transportation or sensing graph and conductance-price tradeoff is a motivated continuous optimization problem. The exact price ratio 2 controls whether rim investments vanish entirely, and the finite-size law provides a sharp quantitative design correction. Unlike the earlier equal-price formula, this is a complete cost-sensitive structure theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Wheel W_m with m>=3, positive orbit-constant P,Q, continuous nonnegative edge conductances; not integer graph design, arbitrary edge prices or uniform asymptotic r->0/2."
+  ]
+}
