@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:42:58.372355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify_flag_rank_radius4.cpp",
+        "Independent GF(2),GF(3) crossing-rank exhaustive runs",
+        "Alfarano-Mushrraf-Zullo arXiv:2606.12934 radius <=3 statements"
+      ],
+      "rationale": "The flag-rank weight is sum of ranks of north-east crossing submatrices of an upper-triangular n-by-n matrix. At total four, a rank-two cut must have adjacent rank-one cuts, and all others zero, forcing a three-index local block with central 2x2 invertible submatrix: (n-2)q^2|GL(2,q)|. Otherwise exactly four rank-one cuts: maximal nonzero superdiagonal 0,1 (single or two disjoint adjacent edges),2,3 yields five disjoint classes, respectively C(n,4)(q-1)^4; (n-1)C(n-2,2)q^2(q-1)^3; C(n-2,2)q^4(q-1)^2; (n-2)(n-3)q^4(q-1)^2; (n-3)q^6(q-1). Direct rank-elimination and complete enumeration over q=2 for n=3,4,5, and q=3 for n=3,4, reproduced each six-class count (including s_2(4,4)=173 and s_3(4,4)=3526). The six-class structural proof is uniform over prime-power q and n>=3. The radius <=4 ball congruence is sum of diagonal-only binomial terms modulo q, yielding C(n-1,4), a NECESSARY condition for nontrivial linear perfect distance-nine codes, not existence.",
+      "residual_risks": [
+        "The exhaustive check did not independently rerun GF(4) tests; proof uses field-independent rank facts and polynomial GL(2,q)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General flag-rank theory and perfect-code bounds do not give evaluated exact s_q(n,4) by rank-two and rank-one crossing strata in inspected accessible portions."
+        ],
+        "reasoning": "The formula specializes general rank-stratification methods but requires complete local pattern classification. No known stronger explicit all-radius theorem was confirmed, though same-object manuscript full text is inaccessible.",
+        "searches": [
+          "On perfect flag-rank metric codes arXiv:2606.12934",
+          "Maximum Flag-Rank Distance Codes arXiv:2303.16653",
+          "Degenerate flag varieties in network coding DOI:10.3934/amc.2021027"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_flag_rank_radius4.cpp",
+        "arXiv:2606.12934 abstract and attempted full text",
+        "arXiv:2303.16653 abstract",
+        "DOI:10.3934/amc.2021027 metadata",
+        "Resultary semantic query: flag rank metric spheres radius four upper triangular matrices counting weight 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known radius-zero-through-three formulas are explicitly reused in the ball congruence; the radius-four result adds five rank-one cases and first rank-two case.",
+          "The congruence q|C(n-1,4) is only a divisibility obstruction to perfect linear codes."
+        ],
+        "reasoning": "General upper bounds and lower-radius counts do not logically entail the six-term exact radius-four enumeration. The corollary is not overstated as perfect-code existence.",
+        "searches": [
+          "arXiv:2606.12934",
+          "arXiv:2303.16653"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026 primary abstract/source descriptions state exact radii 0,1,2,3 and bounds for larger radii.",
+          "2023 work addresses maximum flag-rank-distance codes rather than sphere volumes."
+        ],
+        "reasoning": "A radius-four exact formula cannot be inferred just by extrapolating smaller spheres; it introduces a new crossing rank-two possibility with |GL(2,q)| factor. An unseen appendix in same-object paper remains material risk.",
+        "searches": [
+          "flag rank metric spheres radius four upper triangular matrices counting weight 4",
+          "Alfarano Mushrraf Zullo arXiv:2606.12934 On perfect flag-rank metric codes",
+          "Alfarano Neri Zullo arXiv:2303.16653"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact radius-four coefficient table returned; existing cited article publicly states small spheres up to radius three."
+        ],
+        "reasoning": "An exact table anywhere for these upper triangular flag rank values would settle originality, regardless of nomenclature. Absence from search is not novel-priority proof.",
+        "searches": [
+          "flag rank metric spheres radius four upper triangular matrices counting weight 4",
+          "arXiv:2606.12934 spheres radius 4 search",
+          "Resultary flag-rank metric radius four sphere query"
+        ]
+      },
+      "rationale": "Prior flag-rank metric papers construct the metric and count spheres to radius three in the accessible 2026 source description, but the exact radius-four rank-two stratum was not found. Full same-object predecessor manuscript could not be accessed; this is a qualified best-of-knowledge O pass with an explicit priority risk, not a claim it lacks an appendix.",
+      "residual_risks": [
+        "The most directly relevant primary manuscript arXiv:2606.12934 could not be inspected in full after arXiv/OA attempts; institutional access vpn_disconnected. This risk alone does not negate the assessed best-of-knowledge O pass.",
+        "Equivalent quiver crossing rank strata may appear in less obvious coding literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potentially relevant same-paper appendices cannot be excluded. Qualifying risk explicitly retained, not labeled whole-document noncovering.",
+          "evidence": [
+            "Public abstract explicitly mentions exact radius <=3 and perfect codes; full paper unavailable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.12934",
+          "material_read": "Bibliographic abstract and discoverable descriptions of radii 0-3; no reliable full text read",
+          "method": "arXiv and lawful OA attempts; authorized institutional request returned vpn_disconnected",
+          "title": "On perfect flag-rank metric codes",
+          "trigger": "Direct same-metric same-sphere-length predecessor; likely decisive overlap"
+        },
+        {
+          "assessment": "Distance-bound framework, not shown to contain s(n,4); whole-document comparison pending.",
+          "evidence": [
+            "Flag-rank distance extremal-code focus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.16653",
+          "material_read": "Title, abstract and cited structural bounds, not complete full text",
+          "method": "Primary scholarly discovery",
+          "title": "Maximum Flag-Rank Distance Codes",
+          "trigger": "Broad dominant parameter theory"
+        },
+        {
+          "assessment": "Metric framework antecedent; detailed sphere formulas not verified.",
+          "evidence": [
+            "Fourier and Nebe 2023 flag network coding model."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021027",
+          "material_read": "Publication bibliographic description, not full article",
+          "method": "Primary publisher metadata",
+          "title": "Degenerate flag varieties in network coding",
+          "trigger": "Original metric and possible general rank counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Flag-rank metric model Fourier-Nebe",
+        "Alfarano-Mushrraf-Zullo radius<=3 and perfect-code context"
+      ],
+      "rationale": "The first nontrivial rank-two crossing stratum gives a natural exact sphere size beyond known lower radii, directly relevant to packing/perfect-code necessary arithmetic conditions. An all-q all-n finite-degree polynomial is independently reusable coding data.",
+      "residual_risks": [
+        "No construction of a perfect distance-nine code; congruence only necessary.",
+        "This work does not determine radii >=5."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full comparison to very relevant 2026 primary paper limited to abstract; named operational access limitation retained.",
+    "No claims of GF4 retesting; original source checker GF4 code inspected."
+  ],
+  "schema_version": 1
+}
