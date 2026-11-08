@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python3 verify.py` with the Python standard library. The exact output from the run is stored in `verify_output.txt`.
+# Independent mathematical audit
 
-The checker enumerates all reduced-row-echelon subspaces of the radical for five prime-field configurations. For every subspace, it applies left and right multiplication by each original degree-one generator, tests membership by row reduction, and counts genuine two-sided ideals. It adds the unique full-algebra ideal and compares all counts by dimension against the stated formula. In the two-generator configurations it separately enumerates the four-dimensional ideal set, checks the three twisted-cubic Plücker quadrics and the fixed linear Plücker subspace, and checks the direct projective parameterization for surjectivity. It uses neither the predicted ideal list nor the cone equations to select candidate ideals.
+## correctness
 
-Expected final output marker: `FREE_CUBE_ZERO_IDEAL_CENSUS_OK 5 EXHAUSTIVE_CASES`.
+PASS
 
-Observed counts for the seven-dimensional two-generator algebra: over \(\mathbb F_2\), \((1,15,35,15,7,3,1,1)\), total \(78\); over \(\mathbb F_3\), \((1,40,130,40,13,4,1,1)\), total \(230\). The entries index ideal dimensions from zero to seven.
+Let M=J²=V⊗V. For any proper two-sided ideal I⊂J, its projection U⊂V and intersection W=I∩M necessarily obey V⊗U+U⊗V⊂W. The quotient M/(V⊗U+U⊗V) is (V/U)⊗², so choosing W amounts to a w-plane B there and choosing I amounts to an arbitrary linear graph map U→(V/U)⊗²/B. Conversely each triple defines an ideal (J³=0). The dimension formula and Grassmannian/vector-bundle ranks give the Gaussian-binomial finite-field polynomial for all n≥1, all prime-power q, with whole A included separately. For n=2 and dim I=4, only U=0,W=M (vertex) or dim U=1,B=0 occur. The Plücker coordinates [Z:a³:a²b:ab²:b³] yield the reduced twisted-cubic projective cone, with singular vertex J² and q²+q+1 rational points. Independent arithmetic q=2,3,5,7 returns respectively 7,13,31,57 such ideals; source exhaustive closure checks n=1 q=2/3/5 and n=2 q=2/3. Nonreduced ideal scheme structure and all components for arbitrary n are expressly excluded.
 
-These finite checks are not an exhaustive search over all finite fields, all generator ranks, or arbitrary infinite fields. The general assertions rely on the written structural proof and on the Plücker-coordinate argument.
+## originality
+
+PASS
+
+Qualified PASS applies ONLY to the general n-parameter noncommutative ideal triple classification and q-rank polynomial, not the n=2 twisted-cubic-cone geometry. The latter is equivalent to the classical length-3 punctual Hilbert scheme Hilb³(A²,0), already described as a cone over a twisted cubic in earlier literature; this is explicitly credited and cannot be claimed new. No prior general all-n formula was located, but possible general quiver Grassmannian/ideal-zeta coverage remains a risk.
+
+## value
+
+PASS
+
+The exact all-ranks two-sided ideal count, motivic bundle stratification and arbitrary-n algebraically uniform classification are natural invariants of the free J³=0 local algebra. The n=2 singular geometry illustrates but does not alone substantiate novelty, as the cubic cone is previously known through punctual Hilbert schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

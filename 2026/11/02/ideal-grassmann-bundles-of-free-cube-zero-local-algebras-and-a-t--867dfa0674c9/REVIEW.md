@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplication decomposition \(A=k\oplus V\oplus V^{\otimes2}\) forces all proper ideals inside the radical. Taking the degree-one projection of an ideal gives \(U\), while left and right products force the exact kernel \(V\otimes U+U\otimes V\) into \(W=I\cap V^{\otimes2}\). The quotient-tensor isomorphism, graph-lift reconstruction and converse closure are explicit, so the classification has no hidden genericity or characteristic hypothesis. Grassmannian and affine-bundle dimensions give the polynomial count, and a dual Plücker calculation gives the three defining quadrics of the exceptional projective cone. The projective cone's affine charts and tangent dimension prove the singular-point statement. Independent direct-subspace enumeration covers five small prime-field configurations; it is corroboration, not a substitute for the arbitrary-field proof. Remaining correctness risks concern nonreduced scheme structures, which are excluded from the claim.
+## correctness
 
-## Originality — PASS (best-knowledge, not priority certification)
-Hubery (arXiv:1303.4585) establishes general component techniques for Grassmannians of submodules, not the special closed-form ideal census or the twisted-cubic-cone model. Luo (arXiv:1308.6059) studies homological PCM-freeness of radical-cube-zero local algebras, not ideal loci. Babson–Huisgen-Zimmermann–Thomas (arXiv:1407.2673) analyze generic module representations of truncated path algebras, not the complete two-sided regular-bimodule ideal varieties. Feigin–Reineke (arXiv:2510.21319) treat a different family of sub-bimodules over acyclic path algebras; loops and the cubic truncation are outside the smooth special case of their theorem. The nearest accessible prior ideal census for radical-square-zero quiver algebras only handles a quotient for ideals containing the radical square; it does not imply the four-dimensional ideals off the vertex or the cubic-cone geometry. Targeted mathematical-record and literature queries found no identical all-dimensional formula or cone assertion. An earlier unlocated explicit classification is a residual priority risk, and negative searches alone are not a proof of novelty.
+PASS
 
-## Value — PASS
-Two-sided ideal loci are intrinsic structure spaces of finite-dimensional algebras. The first nontrivial radical extension in the free local family introduces genuine affine lift parameters and yields an exact all-dimensional ideal-count polynomial for arbitrarily many generators and all finite fields. More strikingly, the smallest two-generator case exhibits a singular reduced ideal Grassmannian isomorphic to a projective twisted-cubic cone, while having the same finite-field point count as a projective plane. This identifies a natural geometric boundary missed by radical-square-zero ideal descriptions, not an arbitrary parameter slice. It does not claim a general theory of all ideal-scheme components.
+Let M=J²=V⊗V. For any proper two-sided ideal I⊂J, its projection U⊂V and intersection W=I∩M necessarily obey V⊗U+U⊗V⊂W. The quotient M/(V⊗U+U⊗V) is (V/U)⊗², so choosing W amounts to a w-plane B there and choosing I amounts to an arbitrary linear graph map U→(V/U)⊗²/B. Conversely each triple defines an ideal (J³=0). The dimension formula and Grassmannian/vector-bundle ranks give the Gaussian-binomial finite-field polynomial for all n≥1, all prime-power q, with whole A included separately. For n=2 and dim I=4, only U=0,W=M (vertex) or dim U=1,B=0 occur. The Plücker coordinates [Z:a³:a²b:ab²:b³] yield the reduced twisted-cubic projective cone, with singular vertex J² and q²+q+1 rational points. Independent arithmetic q=2,3,5,7 returns respectively 7,13,31,57 such ideals; source exhaustive closure checks n=1 q=2/3/5 and n=2 q=2/3. Nonreduced ideal scheme structure and all components for arbitrary n are expressly excluded.
 
-## Limits
-All geometric claims refer to reduced varieties. Only the indicated finite fields were exhaustively checked. Publication priority is best-knowledge, not exhaustive; independent validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS applies ONLY to the general n-parameter noncommutative ideal triple classification and q-rank polynomial, not the n=2 twisted-cubic-cone geometry. The latter is equivalent to the classical length-3 punctual Hilbert scheme Hilb³(A²,0), already described as a cone over a twisted cubic in earlier literature; this is explicitly credited and cannot be claimed new. No prior general all-n formula was located, but possible general quiver Grassmannian/ideal-zeta coverage remains a risk.
+
+## value
+
+PASS
+
+The exact all-ranks two-sided ideal count, motivic bundle stratification and arbitrary-n algebraically uniform classification are natural invariants of the free J³=0 local algebra. The n=2 singular geometry illustrates but does not alone substantiate novelty, as the cubic cone is previously known through punctual Hilbert schemes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
