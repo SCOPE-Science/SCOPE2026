@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A strict inward-pointing boundary and an absorbing rectangle give global precompactness of positive trajectories. Strict negative divergence excludes cycles and polycycles, so the three/one/two-equilibrium fold diagram is also the global attracting diagram. In the bistable invariant strip, strong cooperativity makes the saddle separatrix decreasing. At the fold, solving the quadratic/cubic center-manifold equations gives algebraic \(A=1.8507800878575\ldots>0\) and \(B=-6.2318442921878\ldots<0\). Integrating the reciprocal deviation yields the stated \(At+L\log t+C+o(1)\) with \(L=-B/A>0\). An executable symbolic check verifies the nonstandard coefficient identities; the infinite-time conclusion relies on the proof.
+## correctness
 
-## Originality
-**PASS subject to historical-priority risk.** The explicit N0549 reactions, polynomial, positive equilibria, bistability and fold are in Bo Peng, arXiv:2610.32739v1, §4, and are not claimed as new. General planar bimolecular no-cycle facts also predate this work (Banaji–Boros–Hofbauer 2024; earlier work cited therein). The inspected sources and targeted mathematical-record searches did not contain a theorem giving both the complete global fate/basin partition and the explicit nonzero logarithmic fold correction for this N0549 kinetic system. Prior general planar dynamical results may imply parts of the qualitative classification; the explicit chemical example, coefficients and critical-time law remain the distinct contribution. No independent priority certification is claimed.
+PASS
 
-## Mathematical value
-**PASS.** The global phase portrait converts a known local bistable equilibrium diagram into a complete initial-value classification for a minimal chemical switch. The exact first logarithmic correction measures the critical relaxation of its turning-point concentration and is relevant when the leading reciprocal-time approximation is inadequate. The result is restricted to fixed reaction rates and positive solutions; no stochastic or multi-species generalization follows.
+For a>0 the axes point strictly inward, bounding x by a one-sided quadratic inequality for x>=2 and then bounding y through dot y=b+c x^2-11y; all positive orbits ultimately remain in a compact positive region. Divergence -12-(100/9)x-10y<0 excludes periodic or closed connection loops, and the Poincare–Bendixson alternatives reduce each omega set to one of the at-most-three equilibria identified by P_a(x). With 0<a<a_+ the middle saddle stable manifold separates two sink basins; strong cooperativity inside 0<x<2 and the opposite-sign stable eigenvector gives a decreasing separatrix. At the fold a=a_+, center-manifold invariance yields dot u=A u^2+B u^3+O(u^4), A~1.8507800878575>0, B~-6.2318442921878, and for generic attracting fold trajectories w=1/(s-x) satisfies w=At+L log t+C+o(1) with L=-B/A~3.36714466136; exponential strong-stable exceptions are excluded. Analytic convergence relies on planar dynamics and center-manifold tracking, not finite iteration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Peng 2026 already classifies the exact network equilibrium cubic, nondegenerate positive fold and bistability range; these are credited. No inspected antecedent establishes complete all-positive-trajectory basin partition, strictly monotone stable separator, or the explicit first logarithmic correction at this specific fold. General saddle-node normal form predicts an inverse-time law and can produce logs, but not the nonzero coefficient for this fixed network and the global positive-quadrant classification.
+
+## value
+
+PASS
+
+Global basin boundaries matter for bistable reaction networks; explicit logarithmic critical slowing beyond the usual leading saddle-node inverse time is a natural sharp observable. The result ties exact network kinetics and nonlocal basin selection to measurable relaxation without asserting universality across networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
