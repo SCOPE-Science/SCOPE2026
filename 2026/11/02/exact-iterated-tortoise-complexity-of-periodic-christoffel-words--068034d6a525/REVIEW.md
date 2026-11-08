@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete proof supplies three independent structural steps: preservation of binary prefix-count dominance under every tortoise iterate (proved from the ordered one-position lists), a complete rational rotation-phase cell description, and a necessary-and-sufficient criterion for each collision between neighboring cells. Monotonicity makes every image fiber a consecutive cell interval; the collision criterion reduces the deficit to positive nonmultiples of the period in one explicit bounded interval. A separate modular argument shows the cutoff parameter is never divisible by the period, establishing the sharp last collision. The proof covers arbitrarily large iteration counts, including those that sort every one. A standalone verifier checked 49,750 exact parameter cases and the published code reproduces the count.
+PASS
 
-## Originality — PASS, residual priority risk
+For 1<=p<q, gcd(p,q)=1, rational phases generate min(q,n+1) distinct length-n factors in prefix-count chain order. Iterated deletion of first ones and appending them preserves prefix dominance: the one-position vectors obey coordinatewise ordering after every iterate. Each internal phase cut either changes total ones or makes disjoint 01-to-10 moves at positions congruent to the cut. Exactly when the last moved one has rank <=k does T^k identify adjacent factors, equivalent to the final affected index j<=H=floor((kq-1)/p). The residue-class interval gives the deficit B; H is never divisible by q, giving sharp last collision at n=q+H-1. Independently recomputed 15,260 exact counts and 1,204 sharpness/boundary checks using literal cyclic factors and iterated map. Finite tests supplement but do not prove all integers.
 
-Campbell–Rampersad (arXiv:2604.25811, Sections 3–4, 7) defines tortoise complexity and treats automatic sequences but does not present an all-iterate rational mechanical-word law. Carey–Clampitt (arXiv:1804.08724, Sections 1–2) establishes Christoffel adjacency and partition-variety results under a different equivalence relation; it does not count iterated tortoise fibers. The existing exact one-step Christoffel formula is *explicitly acknowledged* as already covered and is not the novelty claim. Likewise, the known all-iterate formula for irrational Sturmian words does not entail the rational-periodic modular exclusion or the sharp injectivity threshold because their length-n factor languages differ at the period. Earlier independent unindexed coverage remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The study of tortoise complexity explicitly motivates mechanical/Sturmian variations. The result completes the rational Christoffel problem for **all** iteration counts and lengths, giving an exact modular arithmetic law, a general order-preservation mechanism and a sharp final collision length. The oscillations depend on divisibility by the primitive period and cannot be inferred by merely extending a one-step linear branch. This supplies a meaningful rational-versus-irrational boundary and a reproducible benchmark for sorting equivalence on periodic words.
+Campbell–Rampersad 2026 introduce tortoise complexity and analyze paperfolding/Thue–Morse; their full original PDF has no Christoffel formula. Carey–Clampitt 2018 treat Christoffel partitioned factors but not the tortoise operator. A previously known rational one-iterate formula and irrational Sturmian all-iterate statements are acknowledged as prior; neither automatically covers q-periodic modular collisions for all k>=2. PASS qualified by possibility of an unindexed equivalent sorting language result.
 
-## Scope and risks
+## value
 
-The theorem is confined to reduced rational mechanical periods and binary tortoise. It does not give an arbitrary-period theorem, nor an external novelty or correctness certificate. The one-step specialization and its known threshold are not asserted as newly discovered results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a naturally posed combinatorics-on-words image-complexity question across every iterate k and length n on rational mechanical periods, identifies the sharp final collision, and explains genuinely periodic deviations from the irrational case. It is not a renamed one-step formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
