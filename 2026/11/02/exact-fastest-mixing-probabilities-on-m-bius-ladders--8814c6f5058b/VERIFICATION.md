@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and NumPy/SciPy installed. The independently computed summary is in `verification_output.json`.
+## correctness
 
-The numerical checks test the complete transition matrix against Fourier eigenvalues for integer \(m\) from 3 through 18, compare the closed-form optimum with a separately built linear program for integer \(m\) from 3 through 100, and check the explicit three-mode dual weights and all eigenvalue bounds over the latter range. They also test 1,200 asymmetrically assigned feasible transition matrices (seed 20261025). The initial script run had an overly tight numerical tolerance on a finite-size asymptotic check; that check's tolerance was corrected and the delivered script was rerun successfully. This was a numerical tolerance in a non-proof cross-check, not a failed theorem instance.
+PASS
 
-The analytic proof, not the finite test range, establishes optimality for every integer \(m\ge3\). The verification does not test global uniqueness beyond the rotation-invariant class and does not independently certify priority or any external review channel.
+For symmetric stochastic P, convex ||P-J||2 and cyclic averaging reduce the global optimum to (a,b). Fourier t_k=2(1-cos(pi*k/m)) separates odd/even modes. A positive three-extremal-mode combination cancels a,b, forces mu>=sigma; equality yields unique invariant a,b. Checked remaining modes including 1-4a>=-mu and strict positive hold. Independent linear programming over all Fourier eigenvalue inequalities for each m=3..40 agreed with analytic formula. Cycle baseline and asymptotic 4x gap reconstructed analytically.
+
+## originality
+
+PASS
+
+Boyd et al. develop general fastest-mixing semidefinite formulations and symmetrization, solved cycles and edge-transitive graphs; those principles are credited. The precise parity-sensitive optimum for the two-orbit Möbius ladder with m>=4 is not supplied in examined worked graphs. m=3 is K3,3 and already covered as an edge-transitive case.
+
+## value
+
+PASS
+
+This graph family is a canonical cubic circulant where local cycle and long antipodal jump weights compete; an explicit global optimum and fourfold leading gap ratio reveal the quantitative effect of sparse shortcuts, beyond an SDP existence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
