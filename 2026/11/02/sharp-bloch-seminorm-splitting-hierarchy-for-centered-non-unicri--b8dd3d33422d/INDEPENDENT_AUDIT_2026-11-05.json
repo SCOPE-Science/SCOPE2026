@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:18:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rational Blaschke product expansion after vanishing e1,...,e{k-1} starts at ε^k[e_k z^{n-k}-conj(e_k)z^{n+k}]. The unperturbed Bloch norm has a strict nondegenerate radial maximum at ρ²=(n-1)/(n+1). Uniform C1 expansion on an annulus, radial localization O(ε^k), and angular cosine maximization produce the claimed coefficient (1-ρ²)ρ^{n-1}[(n+k)ρ^k-(n-k)ρ^{-k}]|e_k|. The positivity inequality reduces to strict monotonicity artanh(x)/x. Roots-of-unity plus zero entries realize every 2≤k<n, and fixed-k Taylor expansion gives n³C→4k(k²-1)/(3e). Independently compared the rational derivative of z^{n-k}(z^k−t)/(1−tz^k) with the first-variation coefficient for bounded sample (n,k), not a universal numerical proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2003.03884 Theorem 1.1, p.2; arxiv:2203.15142"
+        ],
+        "reasoning": "Dubinin bounds (1−|z|²)|f’| using critical values and Zolotarev products, not a first nonzero zero-divisor perturbation. Baranov et al. give broad universal numerical lower bounds, not exact centered Taylor coefficients.",
+        "searches": [
+          "Bloch seminorm splitting hierarchy centered non-unicritical analytic map",
+          "arxiv:2003.03884 Theorem 1.1, p.2"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 4b39ba8bda89dd08ba2cb25ce25bd56b0ea52b86",
+        "checker.py blob 45092da7c34541e70226fe4095613b2ef7c43886",
+        "arxiv:2203.15142 (full accessible paper)",
+        "arxiv:2003.03884 (full accessible paper)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2203.15142 monomial 2/e limiting example; arxiv:2003.03884 distortion at constrained critical values"
+        ],
+        "reasoning": "Existing monomial limit and derivative distortion do not calculate exact local coefficient for a general n-tuple with first e_k nonzero, or its fixed-k n^{-3} law.",
+        "searches": [
+          "Bloch seminorm splitting hierarchy centered non-unicritical analytic map",
+          "arxiv:2203.15142 monomial 2/e limiting example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2203.15142; finite-Blaschke product local norm perturbation and symmetric polynomials"
+        ],
+        "reasoning": "Bloch seminorm is a supremum of weighted derivative. Monomial z^n and centered Blaschke products are the same objects as in the prior lower-bound problem, but the e_k directional coefficient is a stronger local claim.",
+        "searches": [
+          "Bloch seminorm splitting hierarchy centered non-unicritical analytic map",
+          "arxiv:2203.15142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: Bloch seminorm splitting hierarchy centered non-unicritical analytic map"
+        ],
+        "reasoning": "No matching indexed e_k expansion was retrieved. Related harmonic H1 splitting and Blaschke elementary factor norms concern different quantities; absence is only limited search evidence.",
+        "searches": [
+          "Bloch seminorm splitting hierarchy centered non-unicritical analytic map",
+          "Resultary query: Bloch seminorm splitting hierarchy centered non-unicritical analytic map"
+        ]
+      },
+      "rationale": "The cited general lower bound for Bloch seminorms and Dubinin derivative distortion theorem are already known. The local directional ε^k splitting coefficient hierarchy, angular minimizer directions and n^{-3} degree law are not asserted by the inspected primary theorems.",
+      "residual_risks": [
+        "An unindexed local stability theorem for monomials could imply the coefficient hierarchy.",
+        "Only fixed-degree/then small-ε regime is established; n-uniform perturbation not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lower bounds and limit 2/e, not the local centered zero-splitting expansion in inspected main result",
+          "evidence": [
+            "Universal lower estimate around 0.695356; z^n yields limiting 2/e, no e_k perturbation calculation in checked theorem."
+          ],
+          "identifier_or_url": "arxiv:2203.15142",
+          "material_read": "abstract, introduction, main lower-bound theorem and monomial limit argument on p.8",
+          "method": "read lawful arXiv PDF and inspected page images",
+          "title": "On Bloch seminorm of finite Blaschke products in the unit disk",
+          "trigger": "same invariant and natural extremizing monomial"
+        },
+        {
+          "assessment": "Bound uses Zolotarev products and critical-value constraints; does not imply e_k-direction coefficient as stated",
+          "evidence": [
+            "Theorem 1.1 is pointwise sharp under |critical values|≤λ, not a Taylor coefficient for split zeros."
+          ],
+          "identifier_or_url": "arxiv:2003.03884",
+          "material_read": "introduction, theorem 1.1 on p.2 and critical-value assumptions",
+          "method": "lawful arXiv PDF text and visual page 2",
+          "title": "Distortion and critical values of the finite Blaschke product",
+          "trigger": "possibly stronger general derivative bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the first instability of a canonical monomial extremal under centered, nonregular zero splitting, with all possible vanishing orders realized and a sharp degree-dependence. A natural perturbative refinement of finite-inner-function seminorm geometry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed local stability theorem for monomials could imply the coefficient hierarchy.",
+    "Only fixed-degree/then small-ε regime is established; n-uniform perturbation not proved.",
+    "No external expert attestation, Lean proof, repository write or public publication was performed."
+  ],
+  "schema_version": 1
+}

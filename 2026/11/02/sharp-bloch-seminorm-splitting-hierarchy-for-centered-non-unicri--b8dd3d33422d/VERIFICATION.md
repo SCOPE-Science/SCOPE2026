@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` proves the Bloch-norm expansion for all fixed \(n\ge3\) and centered zero splittings with first nonzero elementary symmetric sum \(e_k\), \(2\le k<n\). Its critical steps are a uniform rational Taylor expansion, strict radial localization near the norming circle, a cosine first variation, positivity via \(\operatorname{artanh}(x)/x\), and a fixed-mode degree asymptotic.
+## correctness
 
-The independent finite arithmetic route in `checker.py` evaluates derivative perturbations of \(z^{n-k}(z^k-t)/(1-tz^k)\) and compares against the closed coefficient, tests signs and large-degree scaling, and checks non-real centered tuples numerically. It completed 572 deterministic assertions. To rerun: `python checker.py`, with `mpmath` installed. Finite checks do not establish the infinite quantifiers; their role is corroboration and fault detection.
+PASS
 
-No independent mathematical audit has been carried out. Historical priority may depend on results not included in the inspected full texts. The \(k=n\) regular-polygon (unicritical) case and uncentered directions are outside the claimed contribution.
+The rational Blaschke product expansion after vanishing e1,...,e{k-1} starts at ε^k[e_k z^{n-k}-conj(e_k)z^{n+k}]. The unperturbed Bloch norm has a strict nondegenerate radial maximum at ρ²=(n-1)/(n+1). Uniform C1 expansion on an annulus, radial localization O(ε^k), and angular cosine maximization produce the claimed coefficient (1-ρ²)ρ^{n-1}[(n+k)ρ^k-(n-k)ρ^{-k}]|e_k|. The positivity inequality reduces to strict monotonicity artanh(x)/x. Roots-of-unity plus zero entries realize every 2≤k<n, and fixed-k Taylor expansion gives n³C→4k(k²-1)/(3e). Independently compared the rational derivative of z^{n-k}(z^k−t)/(1−tz^k) with the first-variation coefficient for bounded sample (n,k), not a universal numerical proof.
+
+## originality
+
+PASS
+
+The cited general lower bound for Bloch seminorms and Dubinin derivative distortion theorem are already known. The local directional ε^k splitting coefficient hierarchy, angular minimizer directions and n^{-3} degree law are not asserted by the inspected primary theorems.
+
+## value
+
+PASS
+
+Quantifies the first instability of a canonical monomial extremal under centered, nonregular zero splitting, with all possible vanishing orders realized and a sharp degree-dependence. A natural perturbative refinement of finite-inner-function seminorm geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
