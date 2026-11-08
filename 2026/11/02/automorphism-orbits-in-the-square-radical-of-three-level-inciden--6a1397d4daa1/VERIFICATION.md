@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite computational verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard-library Python 3 interpreter. The program independently compares coefficients of the rational Burnside formula to directly constructed projective-multiset orbits, for seven alphabet sizes and several widths. It separately enumerates the complete orbit partition of actual two-row finite-field matrices under row swaps, row and column nonzero scalings, and column permutations, for eight small configurations; the nonprime field is implemented explicitly as `F_2[z]/(z^2+z+1)`. Finally, it checks the width-two closed formula for eight values of the field size.
+## correctness
 
-The program reports `INCIDENCE_LOEWY_ORBITS_OK 23 independent parameter checks`. Matrix orbit counts (rank zero, rank one, rank two) include \((1,4,2)\) for \(q=2,t=2\), \((1,6,9)\) for \(q=3,t=3\), \((1,6,10)\) for \(q=4,t=3\), and \((1,4,4)\) for \(q=5,t=2\). This is finite verification only: it does not constitute a proof of the all-parameter result or a publication-priority certificate.
+PASS
+
+For incidence algebra I(P_{2,s,t};Fq) with s,t>=1, J^3=0 and J^2=M_{2xt}(Fq). Radical characteristic and primitive-idempotent lifting show every algebra automorphism on J² is a row/column monomial map, while diagonal conjugation and poset permutations realize all such maps; s cancels. Column scaling/permutation gives multisets from {zero} union P1(Fq); projective row diagonals/involution act as z->az, z->a/z on q-1 nonaxis ratios and exchange axes. Burnside cycle enumerators give displayed rational Fq, O1=3,O2=7+floor((q-1)/2), rank strata 1,2t,remainder, quasipolynomiality and leading t^(q+1)/(2(q-1)(q+1)!). Independent finite group-multiset orbit counts agree for q=2,3,4,5,7 and t=1,2. No full radical or semilinear action is asserted.
+
+## originality
+
+PASS
+
+Incidence-algebra automorphism decompositions are classical, and Mullen counted permutation-equivalence matrices including 7 binary 2x2 cases; the materially read primary treatment does not give column-projective monomial action and uniform q-dependent radical-square orbit generating function. Qualified risk of unindexed monomial-matrix tables.
+
+## value
+
+PASS
+
+A complete explicit all-q all-t orbit profile and rank split for a naturally occurring radical-square representation is a meaningful finite-algebra invariant; even the independence from the middle antichain size is structural, rather than a generic Burnside exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

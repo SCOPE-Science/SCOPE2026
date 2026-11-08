@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof first shows that the entire induced incidence-algebra automorphism action on the radical square is exactly two-sided monomial equivalence, rather than assuming a larger \(\operatorname{GL}_2\) action. Projectivizing columns converts that relation to a multiset action of a cyclic group with inversion, whose rotation and reflection cycle types yield the closed formula by Burnside's lemma. The rank classification is exhaustive and disjoint. Independent finite computations test the closed formula against two alternative orbit constructions (projective multisets and actual finite-field matrices), including characteristic two and a nonprime field.
+## correctness
 
-**Originality — PASS, subject to stated publication-priority risk.** Incidence-algebra automorphism decomposition is prior art (Baclawski; Khripchenko; Brusamarello--Lewis). Row/column permutation equivalence of finite matrices and the binary two-by-two seven-orbit case are prior art (Mullen); those are not presented as new. The new assessed claim is the incidence-radical-square orbit identification together with its all-prime-power, all-top-width, independent row/column-scaling orbit series and rank census. Direct statements/implications were compared to full available antecedents and targeted mathematical records; no dominating theorem establishing this exact action and series was found. One plausible 2011 source was abstract-only, and unindexed monomial-matrix work remains a risk.
+PASS
 
-**Value — PASS.** The second Loewy layer is a natural canonical characteristic subspace of a family of nonsemisimple associative algebras. Orbit counts under its actual algebra-automorphism group distinguish nilpotent elements up to algebraic symmetry. The complete parameter-uniform classification, rank distribution, and finite-field-dependent quasipolynomial profile substantially refine an isolated small-matrix count; the middle-layer independence is a structural rigidity feature.
+For incidence algebra I(P_{2,s,t};Fq) with s,t>=1, J^3=0 and J^2=M_{2xt}(Fq). Radical characteristic and primitive-idempotent lifting show every algebra automorphism on J² is a row/column monomial map, while diagonal conjugation and poset permutations realize all such maps; s cancels. Column scaling/permutation gives multisets from {zero} union P1(Fq); projective row diagonals/involution act as z->az, z->a/z on q-1 nonaxis ratios and exchange axes. Burnside cycle enumerators give displayed rational Fq, O1=3,O2=7+floor((q-1)/2), rank strata 1,2t,remainder, quasipolynomiality and leading t^(q+1)/(2(q-1)(q+1)!). Independent finite group-multiset orbit counts agree for q=2,3,4,5,7 and t=1,2. No full radical or semilinear action is asserted.
 
-**Closest literature and limits.** Mullen (1981) uses row and column permutations without general independent nonzero rescaling; the numerical binary boundary is already covered. Can (2021) treats torus double orbits on an entire incidence monoid, not the present automorphism action on \(J^2\). The all-field, all-width formula and its rank refinement remain publication-priority assessments rather than independently certified novelty. Other poset shapes and whole-radical orbits are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Incidence-algebra automorphism decompositions are classical, and Mullen counted permutation-equivalence matrices including 7 binary 2x2 cases; the materially read primary treatment does not give column-projective monomial action and uniform q-dependent radical-square orbit generating function. Qualified risk of unindexed monomial-matrix tables.
+
+## value
+
+PASS
+
+A complete explicit all-q all-t orbit profile and rank split for a naturally occurring radical-square representation is a meaningful finite-algebra invariant; even the independence from the middle antichain size is structural, rather than a generic Burnside exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
