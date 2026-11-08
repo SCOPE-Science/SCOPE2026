@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Standalone checks
+# Independent mathematical audit
 
-`verification.py` requires Python 3 and only the standard library. From this directory run `python3 verification.py`. The script verifies every row of `support_certificate.csv` directly from both definitions of the cellular automata, rederives palette periods and transient depths, validates pointwise equality of eventual period, and compares complete microscopic phase trajectories on 145,440 labelled colorings with all ten GHM and six CCA formulas. Independent exact support-weight testing covers 800 additional model-by-shore-size cases. Its recorded observed output is in `verification_output.txt`.
+## correctness
 
-## Logical status and limits
+PASS
 
-These tests are finite. The infinite-family claim is proved by the exact reduction to 49 palette pairs, the bijective return maps on recurrent palettes, and symbolic surjection counting. The table of 49 pairs is a complete finite-state certificate, not a sample of large graphs. The proof does not assert that the two models share transient times or all periodic configurations. No independent validation or certification has been performed.
+For a complete biclique all vertices on a shore see only the opposite shore occupied palette. The seven nonempty palette masks per shore form an exact 49-state factor for any sizes; updates on each present color are defined by the actual distinct CCA and GHM rules. At the recurrent fixed full/full palette, all colors rotate and microscopic period is three. The recurrent support two-cycle swaps both present colors after two steps and hence has microscopic period four. Nonrecurrent supports cannot yield microscopic periodic states. Exhausting the 49 transition pairs proves the cardinality-and-union period criterion and the first-entry clocks. Each prescribed size-k support has sigma_k(a)=sum (-1)^{k-j} binom(k,j)j^a labelled fillings; summing its product by the 49 first-entry classes produces the ten integer formulas and all-parameter identity sum=3^(a+b). Independently reconstructed the 49 palettes, both update maps, GHM weighted first-entry histogram, and sum formula for (a,b)=(1,1),(2,3),(3,4),(5,7),(8,9); no reliance on a finite-size extrapolation.
+
+## originality
+
+PASS
+
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. 
+
+## value
+
+PASS
+
+Equality of ultimate basins for two genuinely distinct excitation rules, despite CCA maximum transient two versus GHM four and different four-cycle multiplicities, is a substantive structural comparison. The closed ten-layer census captures all labelled sizes using one 49-state reduction and offers an exact benchmark for graph excitable media. The earlier CCA table alone cannot answer this GHM problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

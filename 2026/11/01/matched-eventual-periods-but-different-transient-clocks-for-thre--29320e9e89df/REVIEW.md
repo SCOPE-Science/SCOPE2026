@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The microscopic update factors exactly through 49 pairs of nonempty occupied-color sets because every shore sees only the other shore's palette. An exhaustive 49-row certificate establishes the two recurrent support graphs and a common period classification. The critical step from support recurrence to labelled recurrence is justified: on every recurrent support, the local color maps are bijective on the represented colors, with exact microscopic return periods one, three or four. Inclusion-exclusion for onto maps produces the ten GHM entry classes and pointwise common period basins. An independent microscopic implementation checked 145,440 labelled configurations and support-weight formulas in 800 cases. These finite checks corroborate, rather than replace, the exact finite-state proof valid for arbitrary shore sizes.
+PASS
 
-## Originality
+For a complete biclique all vertices on a shore see only the opposite shore occupied palette. The seven nonempty palette masks per shore form an exact 49-state factor for any sizes; updates on each present color are defined by the actual distinct CCA and GHM rules. At the recurrent fixed full/full palette, all colors rotate and microscopic period is three. The recurrent support two-cycle swaps both present colors after two steps and hence has microscopic period four. Nonrecurrent supports cannot yield microscopic periodic states. Exhausting the 49 transition pairs proves the cardinality-and-union period criterion and the first-entry clocks. Each prescribed size-k support has sigma_k(a)=sum (-1)^{k-j} binom(k,j)j^a labelled fillings; summing its product by the 49 first-entry classes produces the ten integer formulas and all-parameter identity sum=3^(a+b). Independently reconstructed the 49 palettes, both update maps, GHM weighted first-entry histogram, and sum formula for (a,b)=(1,1),(2,3),(3,4),(5,7),(8,9); no reliance on a finite-size extrapolation.
 
-PASS, with historical uncertainty. Gravner–Lyu–Sivakoff (arXiv:1610.07320, Theorem 3) prove a general synchronization/oscillation criterion, but not exact GHM transient-shell counts or equality of eventual least periods under the two different updates. The previously established six-class CCA biclique census (identifier `64a0fe05-13b5-4052-a816-81f6ace14c3e`) is prior and is not claimed new. The present result adds a ten-class **GHM** census and a pointwise cross-model period-basin identity. Directed searches, mathematical-record searches and relevant accessible source text did not locate equivalent coverage; absence from a search cannot establish universal novelty. Restricted or unindexed older literature remains a risk.
+## originality
 
-## Value
+PASS
 
-PASS. Synchronization or oscillation alone does not specify least period, basin size, transient-depth distribution or orbit count. The pointwise equality of three eventual-period basins across two mechanistically distinct excitable-media rules, despite a factor-three difference in recurrent four-cycle orbits and a two-versus-four step stabilization horizon, is a structural and natural comparison. Exact formulas cover all labelled bicliques without asymptotic assumptions.
+No decisive statement-equivalent or stronger-prior implication in the inspected comparisons; this is a bounded best-of-knowledge judgment rather than guaranteed priority. See four named check analyses and actual material-read logs. 
 
-## Limits
+## value
 
-Only three-color threshold-one synchronous dynamics on complete bipartite graphs; no claim about a general graph, all temporal trajectories agreeing, or independent historical certification. The primary general theory's qualitative synchronization results are credited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equality of ultimate basins for two genuinely distinct excitation rules, despite CCA maximum transient two versus GHM four and different four-cycle multiplicities, is a substantive structural comparison. The closed ten-layer census captures all labelled sizes using one 49-state reduction and offers an exact benchmark for graph excitable media. The earlier CCA table alone cannot answer this GHM problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
