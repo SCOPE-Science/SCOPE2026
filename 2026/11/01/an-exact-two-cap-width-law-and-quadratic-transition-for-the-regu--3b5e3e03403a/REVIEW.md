@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the explicitly normalized 24-cell, every pair of distinct vertices has inner product in \(\{-1,-1/2,0,1/2\}\); precisely 96 unordered pairs have inner product \(1/2\). A common direction in two caps requires \(2s\le\sqrt{2+2\langle v,z\rangle}\), so only these 96 pairs can meet when \(s\ge\sqrt{2/3}\). Three simultaneously met caps must have three pair products \(1/2\), forcing \(3s\le\sqrt6\), which is impossible above the lower endpoint and a zero-measure equality there. Thus inclusion–exclusion stops *exactly* after pairs. The Haar \(S^3\) coordinate marginal gives the single-cap \(P(s)\), and the Haar two-dimensional projection is uniform on a disk, giving \(Q(s)\) from a one-variable elementary integral. The expansion \(Q(\sqrt3/2-\delta)=4\delta^2/(\pi\sqrt3)+O(\delta^3)\) proves the stated quadratic transition. The independent exact-rational vertex enumeration and numerical checks in `verify.py` corroborate all normalizations, but do not replace the continuum proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The relevant recent isoperimetric theorem of Novaga–Song fixes the 24-cell normalization and studies surface-area minimization; its complete accessible first version does not derive random projection-width probabilities. Abas's published abstract concerns exact random-width/brightness laws for **three-dimensional** convex polytopes and does not assert this four-dimensional 24-cell law; the full Abas document could not be examined, so non-coverage is limited to the abstract and dimensional statement. The closest published 24-cell brightness note determines extrema of *three-dimensional* orthogonal shadow volumes, not the law of *one-dimensional* projection lengths; that observable does not determine the claimed upper-tail CDF by a stated result. A separate cube width-law note computes spherical-cap crossings for a different vertex Gram configuration. A simplex-cap overlap theorem concerns regular-simplex centers and is not an exact 24-cell/96-edge cap computation. Previously published mathematical claims, exact-phrase searches, parameter variants and implication comparisons revealed no direct covering result. General geometric-probability methods could yield the formula after specialization, and an older unindexed exact 24-cell distribution may exist; neither possibility is ruled out absolutely.
+PASS
 
-## Mathematical value — PASS
-The 24-cell is the geometrically distinguished regular four-dimensional parallelohedron in the October 2026 isoperimetric theorem. Its random one-dimensional projection width is a natural integral-geometric descriptor distinct from brightness. The result yields the **exact CDF throughout 93.6% of all directions**, not merely an isolated numerical moment, and shows that the sharp change of analytic regularity at the first edge-cap contact has a coefficient recording all 96 edges. This is a meaningful partial exact law and a structural bridge between the polytope's adjacency geometry and a Haar statistic. The unclassified low-width portion is acknowledged, and no broader classification is claimed.
+Exact 24 vertices V=±e_i and 16 half-sign vectors are unit and antipodal. Pair Gram multiset from independent exact-rational enumeration: inner products -1:12, -1/2:96, 0:72, +1/2:96. For s>=sqrt(2/3), two caps can intersect only if v.z=1/2 (since 2s<=sqrt(2+2 v.z)); three such caps cannot overlap in positive surface measure since 3s<=sqrt(6), equality only lower endpoint. Hence measure inclusion-exclusion exactly 24 single caps minus 96 adjacent double caps. Haar marginal density on S^3 is 2 sqrt(1-t^2)/pi and an orthonormal coordinate pair is uniform on the unit disk, giving P and elementary disk-segment Q. Independent exact Gram enumeration and numerical value at s=sqrt(2/3) 0.9363568184518474 confirm normalization. Expanding y(s)=2 delta+O(delta²) and Q(s0-delta)=4 delta²/(pi sqrt3)+O(delta³) at s0=sqrt3/2 yields the claimed coefficient. The simulation code was inspected but not used to prove the continuum identity.
 
-## Sources and limits
-- M. Novaga and L. Song, *The isoperimetric problem for four-dimensional parallelohedra*, arXiv:2610.01653v1 (2026-10-01), especially Lemma 2.3 and Theorem 1.1.
-- O. Abas, *Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability*, arXiv:2609.26202v1 (2026-08-10), abstract only.
-- *The regular 24-cell has exactly 24 least-bright and 192 most-bright projection directions*, mathematical note (2026), full scientific result and proof inspected for the distinct invariant.
-- *Exact directional width law of the cube and its first spherical-cap transition*, mathematical note (2026), full scientific result and proof inspected for different cap-incidence structure.
-- *Exact third-order union formula at the first multiple-overlap threshold for simplex-centred spherical caps*, mathematical note (2026), full scientific result and proof inspected for different center set.
+## originality
 
-The first literature checks establish best-knowledge priority, not historical uniqueness. The Haar simulation and finite exact-coordinate tests are reproducibility diagnostics, not independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original as a *specific 24-cell Haar one-dimensional width upper CDF and 96-pair transition coefficient*. Distinguish the classical one/two spherical-cap integration method from the new incidence-specific result. Novaga–Song identifies the same 24-cell but its Theorem 1.1 and Lemma 2.3 concern parallelohedral isoperimetry and vertex geometry, not width probabilities. A full published 24-cell Resultary result concerns 3D brightness extrema, not 1D random-width law; cube-width Resultary result has different vertex-incidence matrix. Abas abstract refers to 3D polyhedra and unavailable full text is retained as residual priority risk.
+
+## value
+
+PASS
+
+The regular 24-cell is a canonical four-dimensional regular parallelohedron; its Haar directional width is a natural integral-geometric invariant. The formula resolves the law on ~93.6% of all directions and identifies the first non-smooth overlap phase boundary with coefficient encoding the polytope’s 96 edges. This is a mathematically motivated exact partial distribution, not just a numeric check or recycled facet volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
