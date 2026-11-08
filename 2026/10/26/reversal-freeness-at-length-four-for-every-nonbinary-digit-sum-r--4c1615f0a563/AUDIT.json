@@ -4,11 +4,13 @@
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arxiv:2406.09302 explicitly asks for generalized Thue-Morse reflection evaluation beyond the already-known ternary case; arxiv:2610.14637 concerns binary-alphabet H-complexity; Allouche–Shallit 2000 concerns palindromicity but not distinct reversed factors"
+        "arxiv:2406.09302 explicitly asks for generalized Thue-Morse reflection evaluation beyond the already-known ternary case; arxiv:2610.14637 concerns binary-alphabet H-complexity; Allouche–Shallit 2000 concerns palindromicity but not distinct reversed factors",
+        "Starosta, arXiv:1104.2476, Property V gives all length-three factors of the same digit-sum residue words, but is not a length-four plain reversal-freeness theorem."
       ],
       "reasoning": "The 2000 article rules out sufficiently long palindromes for residue moduli at least three, not distinct reversed pairs. The 2026 binary H-complexity theorem works over two symbols with reversal-plus-complementation; it cannot imply a claim involving alphabets of arbitrary size m>=3.",
       "searches": [
@@ -21,11 +23,13 @@
       "arxiv:2406.09302 (p.31 Question 62)",
       "Allouche–Shallit, DMTCS 4 (2000) Sections 2,5",
       "arxiv:2610.14637 Section 6.2",
-      "published-finding corpus claim and alias searches; own accessible weekly claim ledger"
+      "Starosta, arXiv:1104.2476, Properties IV–V; factor triples and richness",
+      "Rampersad–Shallit, arXiv:math/0311121; abstract and theorems 1–6 on reversed subwords"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arxiv:2406.09302 explicitly asks for generalized Thue-Morse reflection evaluation beyond the already-known ternary case; arxiv:2610.14637 concerns binary-alphabet H-complexity; Allouche–Shallit 2000 concerns palindromicity but not distinct reversed factors"
+        "arxiv:2406.09302 explicitly asks for generalized Thue-Morse reflection evaluation beyond the already-known ternary case; arxiv:2610.14637 concerns binary-alphabet H-complexity; Allouche–Shallit 2000 concerns palindromicity but not distinct reversed factors",
+        "Rampersad–Shallit, arXiv:math/0311121, constructs different words avoiding reversed subwords. Starosta 2011 classifies the same objects under twisted anti-morphisms, rather than ordinary reversal."
       ],
       "reasoning": "The present all-m theorem implies the modulus-three equality reported by 2024 authors and extends it to every m>=4. Their question and cited palindrome-only theorem do not conversely prove absence of distinct reversed factors. The 2026 binary group action does not cover m>=3.",
       "searches": [
@@ -42,26 +46,22 @@
       "searches": [
         "\"reflection complexity\" \"digit sum\" \"modulo\" \"2026\"",
         "\"generalized Thue Morse\" \"reversed factors\" reflection complexity",
-        "Allouche Campbell Li Shallit Stipulanti Question 62 reflection complexity Thue Morse modulo l binary digit sum proved",
-        "published-finding corpus: For binary digit-sum residues mod m>=3, no length four substring appears together with its reversal; reflection complexity equals factor complexity n>=3"
+        "Allouche Campbell Li Shallit Stipulanti Question 62 reflection complexity Thue Morse modulo l binary digit sum proved"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
         "arxiv:2406.09302 explicitly asks for generalized Thue-Morse reflection evaluation beyond the already-known ternary case; arxiv:2610.14637 concerns binary-alphabet H-complexity; Allouche–Shallit 2000 concerns palindromicity but not distinct reversed factors"
       ],
-      "reasoning": "No matching exact parameter statement in available records or current-week own claim ledger; the nearest digit-sum/Thue-Morse record concerns unrelated power series, and nearest reversal records concern other objects. This is negative evidence only, not a proof of uniqueness.",
-      "searches": [
-        "published-finding corpus: Allouche Campbell Li Shallit Stipulanti Question 62 generalized Thue Morse t3 digit ones mod 3, reflection equality ell>4 all lengths 3",
-        "published-finding corpus: For binary digit-sum residues mod m>=3, no length four substring appears together with its reversal; reflection complexity equals factor complexity n>=3",
-        "own accessible weekly ledger finding claims checked for reflection and digit-sum residue aliases"
-      ]
+      "reasoning": "Earlier tables include the generalized Thue–Morse factor-count and length-three factor classification; the length-four ordinary-reversal obstruction itself was not identified in the compared primary sources. Negative search results alone do not prove priority.",
+      "searches": []
     },
-    "rationale": "Primary 2024 Question 62 expressly presents the all-modulus generalization as a question and supplies only the modulus-three equality. The claim establishes the sharp reversal-free cutoff of four for all moduli at least three. Earlier work treats palindrome avoidance only; newer 2026 paper treats a binary alphabet and a different orbit invariant. Genuine residual risk is a synonymous earlier reverse-factor theorem not indexed by these searches.",
+    "rationale": "The existing self-review compares the previously known modulus-three case and the generalized Thue–Morse question to the all-modulus reversal-free cutoff. Earlier factor-complexity and length-three factor descriptions are not new contributions. Synonymous historical prior results remain possible.",
     "residual_risks": [
       "An equivalent local reversed-pair obstruction might have been proved under terminology other than reflection complexity or in unindexed papers.",
       "Only the most relevant parts of long primary 2024 PDF and newer 2026 HTML were material-read, not every theorem or appendix.",
-      "No independent referee has checked the new proof."
+      "No independent referee has checked the new proof.",
+      "The 2011 explicit length-three factor classification is prior art, so early factor counts should not be presented as independently new."
     ],
     "source_inspections": [
       {
@@ -90,13 +90,22 @@
         "method": "Read primary HTML full-text with targeted text searches; PDF access failed",
         "title": "Generalized reflection complexity",
         "trigger": "Recent paper with closely overlapping title and Thue–Morse terminology"
+      },
+      {
+        "assessment": "Previously identifies all two- and three-letter factors and D_m antimorphism symmetry. Its x-minus-letter reversal is not ordinary reversal for m>=3; the length-four no-reflection statement is not contained in the inspected results.",
+        "evidence": "Definitions Psi_x(k)=x-k, Pi_x(k)=x+k, Property V for L3(t_{b,m}), Table 2 for factor complexity.",
+        "identifier_or_url": "https://arxiv.org/pdf/1104.2476",
+        "material_read": "Definition and Proposition 2, Properties IV-V and the factor-complexity table",
+        "method": "Primary open-access preprint text and visual inspection of its local factor classifications",
+        "title": "Generalized Thue-Morse words and palindromic richness",
+        "trigger": "Exact same digit-sum residue words, stronger dihedral-language invariance and factor-complexity formula"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "4c1615f0-a563-4fee-bd3b-645ccee87fc1",
   "self_review_status": "passed",
   "value": {
     "rationale": "The source explicitly poses the generalization of known modulus-three reflection equality for nonbinary digit-sum words. An all-modulus exact sharp local obstruction answers it for every m>=4, including m=4 omitted from prior heuristic, and reduces every n>=3 reflection count to ordinary factor counting. This is a mathematically motivated structural theorem rather than a parameter-table update.",

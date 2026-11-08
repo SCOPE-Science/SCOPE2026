@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:50:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all m>=3, with binary base fixed at 2 and t_m(j)=s_2(j) mod m, the exact carry identity d_j=1-v_2(j+1) mod m forces at least one +1 among every adjacent pair. If both a triple and its reverse occur, its consecutive differences must contain +1 and -1, hence are exactly (1,-1) or (-1,1) (since +1!=-1 mod m); the triple is a palindrome. If a length-four factor and its reversal both occur, its overlapping triples must be palindromes, forcing alternating letters. An alternating quadruple with differences (-1,1,-1) is impossible: its start is odd, j+1,j+3 are consecutive even integers and exactly one has v_2=1, forcing a zero increment. Hence an alternating quadruple can begin with +1 only, while its reverse would have to begin with -1. The local contradiction implies all n>=4; for n=3 all reversal-identified factors are already identical. Constructions j=2^v(2k+1)-2 or -1 realize every triple with first or second increment +1 and each initial residue, establishing 2m^2-m triples, 2m palindromic triples, all m^2 pairs, and r(2)=m(m+1)/2. Independent bounded prefix checks and independent exact constructed witnesses corroborate but are not used to infer the infinite conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Starosta works with the SAME T_{2,m} alphabet and finds invariance under the dihedral antimorphism group D_m; its antimorphisms Psi_x map a symbol a to x-a, followed by reversing order. This is not unmodified reversal R when m>=3. Its Table 2 provides ordinary complexity counts, covering numerical r(1),r(2),r(3) after separate reversal analysis.",
+          "Allouche–Shallit bound/exclude long palindromes (Theorem 8) in digit-sum words, but cannot on its own exclude distinct mutually reversed factors.",
+          "Rampersad–Shallit studies existence and avoidance properties in other words; not a universal prohibition for these specific residue words.",
+          "The available 2026 newer paper abstract describes binary-alphabet generalized reflection/H-complexity, not arbitrary m>=3 ordinary reversal."
+        ],
+        "reasoning": "Checked actual objects, alphabets and symmetry groups. General D_m closure of the factor language cannot imply ordinary R closure or R exclusion for m>=3; prior palindrome absence does not imply distinct-pair absence; broad existence results do not prove the studied family has this special cutoff. Existing ordinary factor-complexity formulas are conceded as covered. The 2026 source was only read at abstract level; its uninspected full text is residual risk.",
+        "searches": [
+          "Starosta, Generalized Thue-Morse words and palindromic richness, arXiv:1104.2476, Propositions and Table 2",
+          "Allouche–Shallit, Sums of Digits, Overlaps, and Palindromes, DMTCS 4 (2000), Section 5/Theorem 8",
+          "Rampersad–Shallit, Words avoiding reversed subwords, arXiv:math/0311121",
+          "Blažek–Dvořáková–Pelantová, Generalized reflection complexity, arXiv:2610.14637 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Allouche et al., arXiv:2406.09302 Question 62 and Theorem 56",
+        "Starosta arXiv:1104.2476 factor language, D_m group, Table 2",
+        "Allouche–Shallit DMTCS 4 (2000) Section 5",
+        "Rampersad–Shallit arXiv:math/0311121",
+        "Balková arXiv:1107.5033 factor frequencies",
+        "Blažek et al. arXiv:2610.14637 abstract only",
+        "Dvořáková–Pelantová, Reflection on the Reflection Complexity (2026) HTML",
+        "Resultary three semantic search queries and closest returned entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Allouche et al. give prior result m=3 equality, and ask the extension m>4; this audit claim implies that old equality but the prior implication does not reverse.",
+          "Starosta describes Psi_x-palindromes and the larger D_m symmetry, not R=ordinary reversal; since Psi_x=R composed with symbol involution, its factor-language preservation alone does not say any particular factor and its unmodified reverse both occur.",
+          "The 2000 palindrome theorem concerns w=reverse(w) rather than two different present factors w,reverse(w).",
+          "The submitted carry/valuation obstruction gives the first four-symbol co-occurrence restriction independent of tabulated rho_m(n)."
+        ],
+        "reasoning": "No inspected theorem entails ordinary no-reversed-pair factors at n=4 for every m>=3, nor its all-n consequence. Parts of final claim (m=3 reflection equality, ordinary short-factor counts) are indeed covered. Originality is restricted to the uniform sharp local cutoff and its all-modulus reversal consequence.",
+        "searches": [
+          "Allouche et al. arXiv:2406.09302, Question 62/Theorem 56",
+          "Starosta arXiv:1104.2476 factor language and antimorphism properties",
+          "Allouche–Shallit DMTCS 2000, theorem on palindromes",
+          "Rampersad–Shallit arXiv:math/0311121 reversed subwords"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 reflection-complexity article defines r(n) as the reversal-orbit count on present factors; its Question 62 states the known modulus-three equality and asks about generalized Thue-Morse words of larger alphabets.",
+          "Reversal-free length four means every length-four present factor has its reverse absent, which immediately propagates to all longer lengths; this implies reflection-complexity equality, but equality alone does not logically force reversal-freeness if palindromes are possible.",
+          "Resultary ranked records matched Thue-Morse power series and unrelated reversal objects rather than the claimed binary-digit-sum modulo m reversal-exclusion theorem."
+        ],
+        "reasoning": "Searched for ordinary reversed factors, reflection complexity equality, generalized Thue-Morse digits and binary popcount residues. The precise m>=4 ordinary-reversal-free-at-four statement was not located; this negative search does not prove priority. The m=3 equality in Question 62 is prior art and excluded from novelty.",
+        "searches": [
+          "Resultary: For m>=3 binary digit sum modulo m Thue Morse reflection complexity factors reversal free length four no reversed factor",
+          "Resultary: Question 62 Allouche Campbell Li Shallit Stipulanti generalized Thue-Morse m>=4 reflected factors answer",
+          "Web: generalized Thue-Morse reflection complexity modulo binary digit sum reversal factors",
+          "Allouche et al. arXiv:2406.09302, Question 62"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Starosta Table 2 contains exact ordinary factor counts and short-factor classification for T_{2,m}, so first-three-factor totals are not new; table does not list the ordinary reversed-cooccurrence cutoff.",
+          "Resultary published-record matches did not include the all-modulus cutoff/equality claim; nearest records concern unrelated Thue–Morse powers, phase invariants and string attractors.",
+          "Question 62 explicitly treats general modulus extension as a question rather than listing an all-m formula."
+        ],
+        "reasoning": "Checked exact parameter tables for possible implication, not just numerically identical entries. Existing factor counts are subsumed prior art; they do not mechanically answer the reversal-exclusion question, which requires factor-to-reverse co-occurrence information. No exact table carrying that relationship was found.",
+        "searches": [
+          "Resultary semantic searches for digit-sum modulo m reversal-free length four and Allouche Question 62 (3 actual queries)",
+          "Starosta arXiv:1104.2476, Table 2",
+          "Allouche et al. arXiv:2406.09302, Question 62 and related factor bounds"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-modulus ordinary-reversal exclusion at factor length four, hence reflection-complexity equality for m>=4, answering the explicit extension question in Allouche et al. (2024). Existing earlier literature has already proved the m=3 equality, described palindromes of these words, and (Starosta 2011) classified short factor languages/ordinary factor complexity and D_m twisted-reflection invariance. Those prior facts are NOT claimed as new; the new obstruction concerns ordinary reversal R, which is different from antimorphisms Psi_x over m>=3. No inspected primary theorem or published-record result implies the uniform no-reversed-pair length-four conclusion. Historical synonymous prior art remains possible.",
+      "residual_risks": [
+        "Possible earlier equivalent statement under reversal-free terminology not discovered by scholarly/Resultary searches; search absence is not novelty proof.",
+        "The 2026 similarly titled generalized reflection article was read only at abstract level due access restrictions; its full text might discuss related results.",
+        "The factor and palindromic literature has stronger results for other invariants, and an unknown implication could alter priority.",
+        "Initial factor complexity values and D_m antimorphism invariance are already present in prior sources; only uniform ordinary reversed-pair cutoff is asserted to be original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Modulus-three equality is acknowledged prior; the all-modulus extension is stated as an open question, not supplied as a proved uniform cutoff.",
+          "evidence": "Question 62 explicitly states the m=3 identity r=rho and suggests similar equality for moduli greater than four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+          "material_read": "Definitions, Theorem 56, Question 62 on PDF page 31 and nearby relevant text",
+          "method": "Public full PDF text with visual page-31 screenshot",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Names the exact reflection invariant and an explicit question about generalized Thue–Morse digit sums"
+        },
+        {
+          "assessment": "Provides same object, short factor language and ordinary complexity prior art. Its twisted-antimorphism invariance does not assert ordinary reversal-freeness.",
+          "evidence": "D_m antimorphisms Psi_x(a)=x-a combined with reversal; Table 2 counts factors in T_{2,m}.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.2476",
+          "material_read": "Definition of generalized digit-sum word, dihedral antimorphism group, relevant finite factor characterizations and Table 2 factor complexity",
+          "method": "Public full-text PDF examined with relevant page screenshot",
+          "title": "Generalized Thue-Morse words and palindromic richness",
+          "trigger": "Same T_{2,m} mathematical objects and potentially dominating symmetry/complexity theorem"
+        },
+        {
+          "assessment": "Bounded palindrome occurrence is prior; the proof does not classify distinct mutually reversed factors.",
+          "evidence": "Its palindrome theorem concerns an equality of a word with its reverse, not co-occurrence of distinct words.",
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/EMIS/journals/DMTCS/volumes/abstracts/pdfpapers/dm040101.pdf",
+          "material_read": "Definitions, valuation identities and Section 5/Theorem 8 on palindrome lengths in this 10-page paper",
+          "method": "Read lawful full PDF text with screenshot of relevant page",
+          "title": "Sums of Digits, Overlaps, and Palindromes",
+          "trigger": "Earlier original treatment of the same digit-sum residue words"
+        },
+        {
+          "assessment": "General words with reversal avoidance are constructed, without a theorem forcing the specific mod-m binary digit-sum word to avoid all reversed quadruples.",
+          "evidence": "Published constructions and bounds are for avoidance classes and not this all-residue specific word family.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0311121",
+          "material_read": "Abstract, results and constructive criteria in full six-page paper",
+          "method": "Public arXiv PDF text and page screenshot",
+          "title": "Words avoiding reversed subwords",
+          "trigger": "Earlier primary reversed-factor obstruction literature, potentially broader covering result"
+        },
+        {
+          "assessment": "Studies factor frequencies and related complexity, not ordinary reversal co-occurrence at the length-four cutoff.",
+          "evidence": "Main objects are frequencies of factors of T_{b,m}, rather than paired occurrences of w and reverse(w).",
+          "identifier_or_url": "https://arxiv.org/abs/1107.5033",
+          "material_read": "Abstract, definitions and relevant factor-frequency discussion",
+          "method": "Public primary PDF text inspected",
+          "title": "Factor Frequencies in Generalized Thue-Morse Words",
+          "trigger": "Same generalized Thue-Morse objects; possible exact statistics or table coverage"
+        },
+        {
+          "assessment": "Described binary-alphabet generalized H-complexity, not evidently m>=3 ordinary R symmetry; full-text overlap remains a residual risk.",
+          "evidence": "Accessible abstract treats generalized reflection complexity for binary alphabets.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.14637",
+          "material_read": "Accessible arXiv abstract only; full PDF/HTML not available in this run",
+          "method": "Read metadata and abstract; explicitly not treated as whole-document exclusion",
+          "title": "Generalized reflection complexity",
+          "trigger": "Recent similarly titled work on Thue–Morse complexity and reflection"
+        },
+        {
+          "assessment": "No theorem in inspected text proving all-modulus unmodified-reversal-freeness for T_{2,m}.",
+          "evidence": "Discusses reflection-complexity invariants and different families/open problems.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-026-00743-y",
+          "material_read": "Accessible full HTML: definitions, selected results and open-problem sections",
+          "method": "Read public full-text HTML, targeted mathematical queries",
+          "title": "Reflection on the Reflection Complexity",
+          "trigger": "Recent primary reflections on existing reflection-complexity results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Answers a specifically posed and natural reflection-complexity extension for all binary-digit-sum residue words m>=4 with a sharp constant local obstruction; length-three palindromes persist, yet all length-four reflected pairs are excluded. The theorem reduces entire infinite-family reflection counting to ordinary factor counting for n>=3 and identifies the precise obstruction, not a simple parameter substitution or an arbitrary finite census. Previously known short ordinary complexity counts are explicitly not treated as novel.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Allouche et al., arXiv:2406.09302 Question 62 and Theorem 56",
+    "Starosta arXiv:1104.2476 factor language, D_m group, Table 2",
+    "Allouche–Shallit DMTCS 4 (2000) Section 5",
+    "Rampersad–Shallit arXiv:math/0311121",
+    "Balková arXiv:1107.5033 factor frequencies",
+    "Blažek et al. arXiv:2610.14637 abstract only",
+    "Dvořáková–Pelantová, Reflection on the Reflection Complexity (2026) HTML",
+    "Resultary three semantic search queries and closest returned entries"
+  ],
+  "disposition": "passed",
+  "final_claim": "For binary popcount mod every integer m>=3, no factor of length 4 co-occurs with its ordinary reverse, and hence none at any length n>=4; every reflected present triple is a palindrome. Reflection complexity equals ordinary factor complexity for n>=3; exact r(1)=m, r(2)=m(m+1)/2, r(3)=2m^2-m, with exactly 2m three-letter palindromes. New relative to prior literature is uniform ordinary-reversal cutoff; initial ordinary complexity values and m=3 reflection equality are prior.",
+  "limitations": [
+    "The theorem does not compute full ordinary factor complexity rho_m(n) at n>=4.",
+    "The 2026 similarly titled source was only accessible as abstract, not read in full; no whole-paper noncoverage inference.",
+    "Historical gap for a prior unrelated task is preserved without invented review.",
+    "No GitHub publication or formal/expert attestation performed."
+  ],
+  "residual_risks": [
+    "Possible earlier equivalent statement under reversal-free terminology not discovered by scholarly/Resultary searches; search absence is not novelty proof.",
+    "The 2026 similarly titled generalized reflection article was read only at abstract level due access restrictions; its full text might discuss related results.",
+    "The factor and palindromic literature has stronger results for other invariants, and an unknown implication could alter priority.",
+    "Initial factor complexity values and D_m antimorphism invariance are already present in prior sources; only uniform ordinary reversed-pair cutoff is asserted to be original."
+  ],
+  "schema_version": 1
+}

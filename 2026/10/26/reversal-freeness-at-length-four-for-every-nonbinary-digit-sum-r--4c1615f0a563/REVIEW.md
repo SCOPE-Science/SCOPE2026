@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all integer moduli \(m\ge3\), the carry identity forces each pair of adjacent differences to contain \(1\). A reflected triple must have increments \((1,-1)\) or \((-1,1)\), making it palindromic; a reflected quadruple would force both alternating orientations, but the orientation with steps \((-1,1,-1)\) is impossible because one of two consecutive even numbers has valuation one. The all-length conclusion follows from length-four containment. Explicit binary constructions realize every allowed triple, giving exact initial counts. Independent implementation of the digit-count and dyadic-recursion definitions agreed, and all tested factor sets matched.
+## correctness
 
-**Originality — PASS, with residual risk.** The paper introducing reflection complexity (arXiv:2406.09302, Question 62) already reports the modulus-three identity, and asks about its extension to generalized Thue–Morse words. This result handles all \(m\ge3\), particularly every \(m\ge4\), through a structural reflected-factor obstruction stronger than the known modulus-three example. Earlier palindrome theorems for digit-sum words do not preclude distinct reversed factors. Recent work on generalized reflection complexity focuses on a binary alphabet and a different group action; its Section 6.2 is not a theorem on digit-sum residues in alphabet sizes \(m\ge3\). No equivalent conclusion was found in targeted searches, but hidden or synonymous prior coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** The all-modulus theorem answers a concretely published extension question, supplies the exact sharp local cutoff length four, and turns an infinite family of reflection enumerations into ordinary factor complexity computations without requiring those ordinary counts. It is not a routine numerical census.
+For all m>=3, with binary base fixed at 2 and t_m(j)=s_2(j) mod m, the exact carry identity d_j=1-v_2(j+1) mod m forces at least one +1 among every adjacent pair. If both a triple and its reverse occur, its consecutive differences must contain +1 and -1, hence are exactly (1,-1) or (-1,1) (since +1!=-1 mod m); the triple is a palindrome. If a length-four factor and its reversal both occur, its overlapping triples must be palindromes, forcing alternating letters. An alternating quadruple with differences (-1,1,-1) is impossible: its start is odd, j+1,j+3 are consecutive even integers and exactly one has v_2=1, forcing a zero increment. Hence an alternating quadruple can begin with +1 only, while its reverse would have to begin with -1. The local contradiction implies all n>=4; for n=3 all reversal-identified factors are already identical. Constructions j=2^v(2k+1)-2 or -1 realize every triple with first or second increment +1 and each initial residue, establishing 2m^2-m triples, 2m palindromic triples, all m^2 pairs, and r(2)=m(m+1)/2. Independent bounded prefix checks and independent exact constructed witnesses corroborate but are not used to infer the infinite conclusion.
 
-**Closest literature/limitations.** Allouche et al. (2024/2025), Question 62; Allouche–Shallit (2000), Section 5 on palindromes; Blažek–Dvořáková–Pelantová (2026), Section 6.2 on a different binary alphabet and group-complexity statistic. A literature search does not prove novelty; independent scrutiny is still needed. The theorem says nothing about a closed form for ordinary length-\(n\) factor complexity beyond the first three lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new all-modulus ordinary-reversal exclusion at factor length four, hence reflection-complexity equality for m>=4, answering the explicit extension question in Allouche et al. (2024). Existing earlier literature has already proved the m=3 equality, described palindromes of these words, and (Starosta 2011) classified short factor languages/ordinary factor complexity and D_m twisted-reflection invariance. Those prior facts are NOT claimed as new; the new obstruction concerns ordinary reversal R, which is different from antimorphisms Psi_x over m>=3. No inspected primary theorem or published-record result implies the uniform no-reversed-pair length-four conclusion. Historical synonymous prior art remains possible.
+
+## value
+
+PASS
+
+Answers a specifically posed and natural reflection-complexity extension for all binary-digit-sum residue words m>=4 with a sharp constant local obstruction; length-three palindromes persist, yet all length-four reflected pairs are excluded. The theorem reduces entire infinite-family reflection counting to ordinary factor counting for n>=3 and identifies the precise obstruction, not a simple parameter substitution or an arbitrary finite census. Previously known short ordinary complexity counts are explicitly not treated as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
