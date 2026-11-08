@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The precise Schur interval (-1/2,1), stationary augmented Lyapunov equation and rational stationary variance are derived. Two exact algebraic factorizations establish global wrong-sign exclusion and the strict 1/9 bound. A uniform boundary-layer expansion together with two-sided compactness of every minimizer proves the sharp sqrt(1+q) tuning and risk law. Actual verify.py was executed successfully using symbolic Lyapunov elimination, identity checks, derivatives, singular expansion and exact rational cases. Results need no Gaussian assumption, only independent finite-variance innovations. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2306.05300, lines of Theorem 4.3 and Appendix C.2 explicitly restrict 0<=beta<1 and give finite-epoch gradient noise autocorrelation (not geometric AR1)",
+        "arxiv:2312.14567, Assumption 1 requires pairwise independent gradient noise",
+        "arxiv:2401.06738 presents nonasymptotic rates and adaptive mini-batches instead of fixed-step AR1 optimal stationary variance"
+      ],
+      "reasoning": "A general discrete Lyapunov matrix formula could specialize to the rational V, so the rational formula alone is not claimed to establish novelty. The global wrong-sign exclusion and singular optimized 1/9 transition require additional full-parameter optimization and are not directly contained in the compared prior theorems.",
+      "searches": [
+        "heavy ball AR(1) colored noise exact optimal momentum autocorrelation stationary variance stochastic gradient",
+        "Kühn Rosenow 2023 correlated noise heavy ball Theorem 4.3",
+        "2024 Noise-adaptive Stochastic Heavy-Ball Momentum arxiv 2401.06738"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.05300",
+      "https://arxiv.org/abs/2401.06738",
+      "https://arxiv.org/abs/2312.14567",
+      "https://arxiv.org/abs/2103.17182",
+      "Published finding: Exact stationary covariance and stability factorization for constant-template STORM",
+      "Published finding: Noise amplification imposes a deterministic stability tax in Positive-Negative Momentum"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2306.05300 Theorem 4.3 conditions 0<=beta<1, Appendix J varies only beta=0,0.5,0.75,0.9,0.95; the noise autocorrelation is triangular within epoch",
+        "arxiv:2103.17182 specifies two momentum buffers and a noise-amplitude normalization rather than the AR1-driven scalar homogeneous recurrence",
+        "arxiv:2312.14567 explicitly assumes pairwise independent gradient noise"
+      ],
+      "reasoning": "Known colored-noise covariance equations can be used as a method but do not alone give the all-minimizer sign statement. Neither nonnegative-beta theorems nor independent-noise bounds imply behavior at beta<0. The distinct q->-1 sharp limiting optimum is proved by new endpoint comparison and a variational scaling argument.",
+      "searches": [
+        "Correlated Noise in Epoch-Based SGD Theorem 4.3 Appendix J negative beta",
+        "Positive-Negative Momentum arxiv 2103.17182 beta0 beta1",
+        "Exact stationary risk and optimal momentum Polyak heavy-ball colored noise versus white noise scalar quadratic and lag-one covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kühn–Rosenow (2023), arxiv:2306.05300, Theorem 4.3 and Appendix C.2: a covariance computation for finite-epoch noise, beta>=0",
+        "Xie et al. (2021), arxiv:2103.17182: dual-buffer PNM rather than negative coefficient in classical heavy ball"
+      ],
+      "reasoning": "The natural equivalent statement is H2 stationary-variance minimization for a second-order filter driven by AR(1) innovations. The nearest optimization and stochastic-filter search results did not state the all-minimizers opposite-sign rule, or the sharp 1/9 and sqrt boundary-layer law. PNM may feature signed buffer combinations but is not the same recurrence.",
+      "searches": [
+        "AR(1) heavy-ball stationary variance optimal negative momentum and noise correlation",
+        "autoregressive noise negative momentum SGD optimal",
+        "AR(1) correlated gradient-noise heavy-ball stationary risk global minimizers opposite correlation sign when step equals inverse curvature, one ninth limiting variance at negative correlation q approaches -1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published constant-template STORM stationary covariance finding concerns constant-template STORM, not heavy ball with AR1 noise",
+        "Earlier exact mean-square jitter tolerance for heavy-ball acceleration considers random steps rather than correlated additive innovations",
+        "No searched exact table or stored claim explicitly gives the one-ninth limit or opposite-correlation global optimum"
+      ],
+      "reasoning": "No exact duplicate/stronger table was found in those checked results. Search and partition constraints cannot prove uniqueness; conclusions are qualified by unsearched literature.",
+      "searches": [
+        "Autocorrelated AR1 gradient noise heavy-ball momentum stationary variance exact optimum negative momentum and noise correlation",
+        "Stochastic heavy ball optimally tunes positive versus negative momentum from sign of temporal gradient noise correlation and asymptotic 1/9 high-antipersistence gain",
+        "accessible prior mathematical claim titles and statements in numerical optimization"
+      ]
+    },
+    "rationale": "The focal 2023 primary work characterizes stationary heavy-ball fluctuations for finite-epoch anticorrelated noise and restricts nonnegative momentum; its explicit variance relations do not state the AR(1) full-sign classification or one-ninth optimally tuned boundary layer. The checked 2024 stochastic-heavy-ball works concern independent noise or minibatch tuning. The 2021 two-buffer positive-negative momentum method is a distinct algorithm. Published semantic search and the accessible deduplication claims yielded no implication-equivalent claim; specialized classical ARMA/control theory remains a residual publication-precedence risk.",
+    "residual_risks": [
+      "A pre-existing AR(1) stochastic heavy-ball/H2 filter-design result could implicitly state the same optimal momentum sign or singular ratio under different control-theory terminology; publication precedence is not independently resolved.",
+      "Only passages relevant to the precise comparison were inspected in several long primary texts; lack of an identified match is not a universal whole-corpus absence claim.",
+      "The AR(1) benchmark is not exactly the without-replacement epoch noise process of the primary motivating paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state claimed full negative-beta AR1 optimization theorem; supplies a relevant covariance framework for a different correlated-noise law",
+        "evidence": [
+          "Theorem 4.1 triangular finite-epoch noise autocovariance",
+          "Theorem 4.3 assumes 0<=beta<1",
+          "Appendix J tests beta=0,0.50,0.75,0.90,0.95"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+        "material_read": "Open-access full-text sections 1, 4.1, 4.3; Appendix C.2 and J passages including equations and beta ranges",
+        "method": "Direct passage-level examination of primary open-access text",
+        "title": "Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances",
+        "trigger": "Same scalar heavy-ball covariance and temporal noise correlation"
+      },
+      {
+        "assessment": "Different finite-time acceleration and batch-size question; no fixed-alpha AR1 stationary optimum established in inspected material",
+        "evidence": [
+          "Abstract and introduction establish accelerated minibatch convergence and adaptive step schedules"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.06738",
+        "material_read": "Open-access introduction and stated main contribution sections on minibatch threshold and noise-adaptive convergence",
+        "method": "Direct reading of relevant primary open-access text",
+        "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+        "trigger": "Same heavy-ball quadratic objective, risk/stability"
+      },
+      {
+        "assessment": "Pairwise independent noise and decaying-step rate bounds cannot specialize to nonzero stationary AR1 correlation without changing hypotheses",
+        "evidence": [
+          "Assumption 1 (Independent gradient noise): pairwise independence",
+          "Abstract addresses step-decay convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14567",
+        "material_read": "Open-access introduction, main theorem context, and Assumption 1",
+        "method": "Direct reading of relevant primary open-access text",
+        "title": "Accelerated Convergence of Stochastic Heavy Ball Method under Anisotropic Gradient Noise",
+        "trigger": "Same stochastic heavy-ball algorithm"
+      },
+      {
+        "assessment": "Signed combination of two buffers differs from classical single-parameter heavy ball with beta<0; no AR1 covariance sign theorem in checked passages",
+        "evidence": [
+          "Two-buffer PNM has parameters beta0, beta1 and separate noise normalization",
+          "Theorem 1 concerns generic stochastic gradient noise and convergence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.17182",
+        "material_read": "Open-access introduction, method section, theorem assumptions and Appendix A method relation passages",
+        "method": "Direct examination of relevant primary open-access text",
+        "title": "Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization",
+        "trigger": "Negative momentum terminology and potential algorithmic equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6f3da69d-d7fc-4bb9-8369-f60460cf5289",
+  "value": {
+    "rationale": "The work resolves a natural tunable sign question that arises when gradient noise is temporally correlated: a globally wrong-sign choice always increases last-iterate stationary risk, whereas the opposite sign can reduce it. A nontrivial sharp endpoint variational analysis shows optimally tuned momentum yields an asymptotic ninefold variance reduction at extreme antipersistence and gives the sqrt tuning scale. These are structural and calibrated design facts beyond a single numeric example; no broader empirical applicability is asserted.",
+    "status": "PASS"
+  }
+}
