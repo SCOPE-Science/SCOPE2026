@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no nonstandard packages. The program enumerates all \(5!=120\) vertex total orders; for each it constructs the unique-earlier-neighbor matching and every simplicial subface. It verifies 12 vertices, 28 edges, eight triangles, 18 inclusion-maximal matchings among 37 distinct generated ones, and the complete sequence of eight free-edge/triangle cancellations displayed in `RESULT.md`. It confirms a connected 12-vertex/20-edge residual graph, first Betti number nine, equivariance of all faces under roof reflection, and the zero signed chain traces yielding degree-one trace one. The script has been executed successfully from this package.
+## correctness
 
-The checks are exhaustive for the **specified** five-vertex house graph. The calculation supplies no inference about all houses of arbitrary size, other matching-complex definitions, or integral eigenspace splitting. The self-contained algorithm itself is an independently replayable finite mathematical certificate; external independent review has not occurred.
+PASS
+
+For the unfilled 5-vertex house graph (edges 01,12,23,30,14,24), an incidence (v,w) is present only when w is the unique earlier neighbor of v in a total order. Exhausting 5!=120 orders independently gives 37 distinct generated matchings, 18 maximal, and 48 nonempty simplices with f=(12,28,8). Every one of the eight displayed edge/triangle pairs was checked in order as a unique free coface, leaving a connected graph with 12 vertices, 20 edges; its cycle rank is 20-12+1=9. This proves the integral wedge-of-nine-circles homotopy type by actual simplicial collapse, not just homology. The reflection (0 3)(1 2) permutes directed incidences, with signed chain traces (0,0,0) as stated; the Lefschetz number is zero and H1 reflection trace is +1, hence rational eigendimensions (5,4). The triangle is explicitly unfilled; the full strong, pure strong, ordinary Morse and graph-edge matching complexes are distinct.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality of the exact house-graph strong-complex homotopy and involution character; foundational definitions and ordinary-house calculation are prior art, not the same theorem.
+
+## value
+
+PASS
+
+The house graph is a minimal natural graph simultaneously containing an induced square and roof triangle; the nine-circle homotopy and nontrivial reflection character quantify the strong-versus-ordinary Morse-complex distinction on an identical graph where ordinary Morse gives five 3-spheres. Exact integral homotopy and symmetry, not a cheap Euler check, are meaningful test cases for strong-matching topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
