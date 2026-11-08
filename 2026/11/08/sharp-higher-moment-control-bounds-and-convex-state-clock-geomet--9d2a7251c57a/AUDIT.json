@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For each t>0 the transient Green function exists and is nonnegative. A common-source rate group changes exactly one row of M, so all G entries equal nonnegative-affine numerator divided by a positive nonnegative-affine determinant. Log derivatives of positive entries lie in [-1,1]. The raw mth moment is a strictly positive finite sum of products of m such entries, giving [-m,m]; time scaling yields edge sum -m; one-step exponential and two-state recurrent excursion networks attain the negative and limiting positive extremes. Full state-clock scaling makes U_m a finite positive exponential polynomial, yielding gradient -mean counts and Hessian their covariance. Checks passed: six exact symbolic sharpness orders, 864 group-derivative checks, 864 finite-change checks, 576 Hessian checks on 144 networks. Finite checks corroborate rather than establish general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nam and Gunawardena, arXiv:2608.08375v1, pp. 2-3, 11, 29-31, 44: graph-operator rational formulas cover all integer FPT moments and positive spanning-forest structures.",
+        "Liang and Bao, arXiv:2608.06368, Sections II-V and Discussion: universal edge/unit mean law, arbitrary multirate control budget."
+      ],
+      "reasoning": "General all-moment formulas imply computability of each derivative but do not by themselves assert a uniform sharp inequality; the rate-uniform one-source bound follows from the separately proved positivity of affine coefficients. The mean-only 2026 theorem does not dominate the m>=2 order-dependent claim. General multi-source rate controls are not claimed.",
+      "searches": [
+        "Markov chain Green function sensitivity absorption fundamental matrix first passage second moment variance rate response",
+        "universal control budget for first-passage kinetics Shiling Liang Ruicheng Bao extension to higher moments",
+        "universal mth-order sensitivity bound first passage moment and full state-rate control log-sum-exp"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Explicit mean-only [-1,1] local theorem; Discussion asks higher-moment question",
+        "identifier": "arXiv:2608.06368",
+        "title": "A Universal Control Budget for First-Passage Kinetics"
+      },
+      {
+        "comparison": "All raw moments as positive rational graph expressions; not sharp elasticity constraints",
+        "identifier": "DOI:10.1007/s11538-025-01524-z",
+        "title": "Algebraic formulas for first-passage times of Markov processes in the linear framework"
+      },
+      {
+        "comparison": "All-order Hill/Kac graph operator formulas; not a sharp m-order rate law",
+        "identifier": "arXiv:2608.08375",
+        "title": "Algebraic formulas for first-passage times of Markov processes in the linear framework: generalising the work of Hill and Kac"
+      },
+      {
+        "comparison": "Abstract general moment elasticity calculus; full-text comparison not available",
+        "identifier": "DOI:10.1002/nla.791",
+        "title": "Perturbation analysis of continuous-time absorbing Markov chains"
+      },
+      {
+        "comparison": "Other moment extremals/propagator positivity, no same observable bound",
+        "identifier": "Published publicly indexed mathematical result records (titles as stated)",
+        "title": "Relevant published indexed mathematical claim titles and abstracts"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liang and Bao, arXiv:2608.06368, Discussion (paragraph on higher moments): higher-moment local bound posed as a harder question; main theorem concerns MFPT.",
+        "Nam and Gunawardena, 2025 DOI:10.1007/s11538-025-01524-z, Abstract and moment sections: exact algebraic all-moment expressions.",
+        "Caswell, 2011 DOI:10.1002/nla.791, abstract: all-moment perturbation formulas.",
+        "New positive-affine Green-entry lemma and explicit +m upper-extremal two-state network."
+      ],
+      "reasoning": "The new result entails Liang-Bao m=1 but explicitly excludes that as novelty. Moment formulas in Nam-Gunawardena and derivative calculus in Caswell are stronger descriptions of raw moments or their derivatives, but their available statements do not provide the claimed rate-independent optimal bound for m>=2. The new convexity statement concerns simultaneous state-clock factors and an exact occupancy-count covariance Hessian, not ordinary positivity of moments. Caswell source uncertainty is recorded. Not a narrow numerical corollary or a numerical table entry.",
+      "searches": [
+        "finite Markov chain first passage time higher moments logarithmic sensitivity individual transition rate bound m moment control budget",
+        "Markov chain Green function sensitivity absorption fundamental matrix first passage second moment variance rate response",
+        "universal control budget for first-passage kinetics Shiling Liang Ruicheng Bao extension to higher moments",
+        "universal mth-order sensitivity bound first passage moment and full state-rate control log-sum-exp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liang and Bao, arXiv:2608.06368, Discussion: explicitly asks whether the mean local unit bound travels to higher completion moments.",
+        "Caswell, DOI:10.1002/nla.791, publisher abstract: general moment sensitivities/elasticities, no explicit universal numerical bound stated in accessible abstract.",
+        "Nam and Gunawardena, DOI:10.1007/s11538-025-01524-z: all-moment rational spanning-forest formulas."
+      ],
+      "reasoning": "The statement is invariant under transpose generator conventions and the alternate killed-chain Green matrix m!(-Q)^{-m}1. In these exact equivalent variables, a one-source rate change alters one matrix row. Accessible prior sources explicitly cover mean sensitivities or general derivative formulas but do not state the sharp all-order [-m,m] bound, its +m extremal network, or the state-clock covariance Hessian. A more complete Caswell text could affect priority.",
+      "searches": [
+        "finite Markov chain first passage time higher moments logarithmic sensitivity individual transition rate bound m moment control budget",
+        "hitting time raw moments log-convex under state-dependent time changes finite continuous-time Markov networks state clocks Hessian covariance",
+        "Markov chain time to absorption moments positive polynomial holding times state rate scaling log convex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed result, \"Sharp variance envelope at fixed success probability under memoryless catastrophe\": restarted variance extrema, not CTMC first-passage raw-moment rate control.",
+        "Published indexed result, \"A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains\": numerical propagator positivity, not absorption-moment elasticity.",
+        "Published indexed result, \"Two autocorrelations give the sharp reversible-chain variance floor\": stationary autocorrelation bounds, not passage-moment sensitivities."
+      ],
+      "reasoning": "Seven actual semantic searches returned indexed records for finite Markov chains, moments and rate controls, including the nearest IDs named above, but none had a claim implying the [-m,m] one-source sensitivity theorem, positive and negative sharpness, or joint state-clock log-convexity. The search is supporting evidence only, not proof of uniqueness; accessible local prior claim statements also showed no implication.",
+      "searches": [
+        "finite Markov chain first passage time higher moments logarithmic sensitivity individual transition rate bound m moment control budget",
+        "rate elasticity of hitting time moments first passage multivariate spanning forests positivity arborescence",
+        "hitting time raw moments log-convex under state-dependent time changes finite continuous-time Markov networks state clocks Hessian covariance"
+      ]
+    },
+    "rationale": "The 2026 mean paper explicitly poses transfer of the local sensitivity bound to higher moments as an open question. The claim proves a sharp [-m,m] response law and state-clock covariance Hessian for every integer m, with matching upper and lower examples. Known all-moment formulas (Nam/Gunawardena) and general moment derivative calculus (Caswell) are credited and not claimed as new. Seven actual semantic searches and accessible prior claim comparisons found no statement implying both sharp higher-order universal bound and convex Hessian. Inaccessible Caswell full text remains a priority risk, not falsely checked.",
+    "residual_risks": [
+      "Caswell (2011) directly treats sensitivities of all absorption-time moments; full paper not accessible, so a hidden overlapping bound cannot be excluded",
+      "Other independent unpublished or differently indexed theorems could state the same sharp inequality or state-clock convexity",
+      "The proof is same-model reviewed, not independently checked"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves m=1, calls higher-moment local bounds a harder open question; no m>=2 bound stated in checked text",
+        "evidence": [
+          "Article equations for mean sensitivity [-1,1] and sum -1",
+          "Discussion: higher moments have their own scaling weight, and whether the local bound transfers is explicitly queried"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.06368",
+        "material_read": "Complete freely available article text through author-shared preprint, including Sections II–V, Discussion and Appendix A (higher-moment open-question paragraph)",
+        "method": "Direct text reading and identification of definitions, main bounds, group-control results and Discussion question",
+        "title": "A Universal Control Budget for First-Passage Kinetics",
+        "trigger": "Direct motivating August 2026 mean-rate sensitivity theorem; highest risk of higher-moment overlap"
+      },
+      {
+        "assessment": "Provides explicit rational spanning-forest moment expressions, not network-independent extremal sensitivity envelopes",
+        "evidence": [
+          "Publisher abstract: conditional FPT moments and splitting probabilities as rational rate functions",
+          "Positive forest coefficients and inverse-generator moment formula"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11538-025-01524-z",
+        "material_read": "Full open-access article: abstract, introduction, moment identities, graph expansions and discussion",
+        "method": "Read primary publisher full text and checked its moment formulas and sensitivity occurrences",
+        "title": "Algebraic formulas for first-passage times of Markov processes in the linear framework",
+        "trigger": "All-order moment formulas could dominate new inequalities"
+      },
+      {
+        "assessment": "Develops stronger general computation via graph operators and forests, but did not exhibit proposed all-order rate bound or covariance Hessian in inspected sections",
+        "evidence": [
+          "Abstract explicitly says all unconditional/conditional moments as rational functions",
+          "Positive rational moment expressions and Hill operator theory"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.08375",
+        "material_read": "Full PDF accessible; inspected title/abstract, foundational formulation, page 11 moment formula, pages 29–31 major theorems, and pages 44–45 discussion",
+        "method": "Selected full-text theorem/proof sections and appendices examined, not merely abstract",
+        "title": "Algebraic formulas for first-passage times of Markov processes in the linear framework: generalising the work of Hill and Kac",
+        "trigger": "Current generalized all-moment formulas with positive algebraic coefficients"
+      },
+      {
+        "assessment": "Potentially strong predecessor for derivative formulas; no [-m,m] rate-uniform theorem visible in accessible abstract; complete-text uncertainty explicitly retained",
+        "evidence": [
+          "Publisher abstract expressly covers sensitivity and elasticity of absorption-time moments, variance and standard deviation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.791",
+        "material_read": "Publisher abstract, bibliographic metadata and references; complete paper text inaccessible in accessible routes",
+        "method": "Read publisher summary and attempted publisher full-text route; no further material available",
+        "title": "Perturbation analysis of continuous-time absorbing Markov chains",
+        "trigger": "Directly overlapping all-moment elasticity computations, published 2011"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d2a7251-c57a-476a-95f5-65b708f2542b",
+  "value": {
+    "rationale": "The motivating 2026 work explicitly identifies higher-moment local sensitivity as a natural hard extension. Rare-long completion excursions affect high raw moments; sharp m-order response bounds answer how strongly one rate/source group can perturb their magnitude independently of kinetic architecture. The covariance Hessian supplies a global convex map for multi-state clock tuning, with an exact sensitivity budget. Explicit +/-m examples show a substantive sharp boundary, not an arbitrary numerical slice or restatement of a known table.",
+    "status": "PASS"
+  }
+}
