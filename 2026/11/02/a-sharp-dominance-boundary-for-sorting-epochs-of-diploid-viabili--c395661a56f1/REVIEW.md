@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact deterministic one-locus viability-selection theorem. The proof derives the rational allele-frequency map from Hardy–Weinberg genotype frequencies; a positive-variance identity establishes monotonicity of every genotype-viability map; and a fully factored, positive-denominator two-epoch commutator proves the strict adjacent-swap rule. A sign classification of one concave quadratic establishes a unique overdominance crossover, including the fixed-point equality. A symbolic checker replayed the factorization and 673 exact assertions; the theorem relies on the stated algebra and inequalities, not on extrapolating finite tests. Risks: assumptions of infinite population and fixed dominance are essential.
+PASS
 
-## Originality — PASS under best-knowledge source comparisons
+Direct Hardy–Weinberg viability selection gives F_s=N_s/D_s, N_s=x[1+s(h+(1-h)x)], D_s=1+s[2hx+(1-2h)x²]>0. A positive fitness-tilted binomial K yields F_s'(x)=Var_w(K)/(2x(1-x))>0. Frozen polynomial commutator for strengths a>b>0 has strictly positive denominator and factor ab(a-b)x²(1-x)²U_h(x)² Q_{h,a,b}(x), with U_h=h+(1-2h)x and Q=(1-h)(1-x)+hx[1+a+b+ab(h(1-x)+x)]. On h in [0,1], U,Q>0, so adjacent exchanges and strict monotonicity of following maps prove unique (mod equal strengths) descending maximum and ascending minimum for any finite horizon and x in (0,1). At h>1 Q(0)<0<Q(1) and Q is a concave quadratic, with one root below common equilibrium x*=h/(2h-1); commutator reverses sign below that root and also vanishes at x*. Independently evaluated exact witness h=2,a=2,b=1: differences at x=1/20 = -7907344/26731501383, x=1/4 = 100/47117, x=2/3=0. Actual symbolic checker code contains complete factorization test; finite spot checks are supporting, not infinite proof.
 
-The inspected primary texts by Ewing et al. (2010, complete arXiv page including methods/results) and Wittmann et al. (2023, full journal HTML) give stochastic selective-sweep or seasonally alternating-allele results, not a fixed-positive-strength rearrangement inequality. Teshima–Przeworski (2005/2006) studies static selective sweeps and dominance, and Cvijović et al. (2015) studies mutation fate under fluctuating selection. Hedrick's 1974 and 1976 temporal-selection papers are closely relevant but their technical PDFs were not accessible for full examination; their accessible abstracts address polymorphism maintenance under environmental heterogeneity. Published mathematical-result and primary-literature comparisons, including permutation, commutator, rearrangement and dominance aliases, yielded no verified prior statement implying the exact theorem. Risk: classical selection-map or general composition inequalities, or inaccessible early results, could cover it; absence of a search hit cannot certify uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A prescribed series of environmental conditions may confer differing selection strengths while retaining the same direction of allele advantage. Because diploid viability selection is frequency-dependent, its finite-horizon response depends on temporal order, unlike the simple haploid multiplicative-odds update. The theorem optimizes allele frequency over all permutations without a weak-selection approximation and determines exactly when the ordering principle fails as heterozygote advantage appears. This is a motivated, model-specific distinction, not a numerical curiosity. It is not an empirical genetic intervention claim.
+Qualified PASS for exact all-horizon strength permutation extremality and h=1 sharp dominance boundary. Earlier temporally variable genetic selection studies focus on polymorphism persistence, fixation and changing favored allele; none of the inspected statements implies the same-direction fixed-positive-strength commutator sign and optimal sorting. Relevant 1974/1976 Hedrick technical PDF content not fully read; historical priority remains open.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A nontrivial global rearrangement principle for nonlinear rational allele-frequency maps, with sharp crossover to overdominant behavior. It classifies all finite permutations for a natural one-locus model and provides an exact minimal two-epoch failure regime beyond h=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
