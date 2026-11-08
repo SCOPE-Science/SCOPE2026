@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Positive-run composition formulas give an exact two-row likelihood-ratio quotient, strictly increasing across run-pair indices; zeros at support boundaries have been checked. A finite exchangeability mixture proves the sharp distribution-wide upper envelope. The three-color obstruction has an explicit negative minor \(-240\). The independent suffix-recurrence verifier checks exhaustive three-color compositions with positive counts for lengths three through seven; its 161,557 integer assertions completed. The all-length statement relies on the symbolic quotient, not an extrapolation from finite tests.
+## correctness
 
-**Originality — PASS with historical-priority risk.** The known fixed-composition counting formulas are excluded. A material inspection of Makri et al. (2007) and sections of Balado--Silvestre (2026) shows enumeration and conditional tests, not the present ordered half-composition family or the multicolor minimality boundary. Schuster (1991) and Schuster--Gu (1997) treat directly related conditional run laws, but accessible abstracts describe representations/recurrences, not a likelihood-ratio comparison; their full texts were inaccessible. The lack of complete full texts leaves a real, specifically recorded priority risk. Current research-record searches found nearby results on transition covariances, not this law.
+PASS
 
-**Mathematical value — PASS.** The ordering controls every threshold of a classical nonparametric runs statistic simultaneously and identifies the least-favorable finite-exchangeable null law without assuming independent trials or a mixing model. The precisely minimal three-symbol failure distinguishes a genuinely binary total-positivity phenomenon from a misleading general multicolor heuristic, making the boundary itself useful in multistate runs tests.
+For a fixed binary composition (k,n-k), splitting into positive 0/1 run lengths yields A(2s)=2*C(k-1,s-1)*C(n-k-1,s-1) and A(2s+1)=(n-2s)/s times their product. The next-row/old-row ratio h_s=k(n-k-s)/[(k-s+1)(n-k-1)] is nondecreasing along the shared support, and strictly increasing between adjacent run-pairs when k<floor(n/2); any new right-tail support has old count zero. Handle k=0 and odd central equality by complements. Finite exchangeability conditions on K, a convex mixture of fixed-composition laws, so balanced tails dominate. Direct three-color exact suffix recurrence gives old (3,1,4) counts at r=7,8 of 60,14 and new (2,2,4) of 120,24, a negative minor -240; the recurrence exhausts all positive 3-color balancing moves for n<=7 and proves the first obstruction at n=8. The boundary restriction to three positive classes and elementary balancing is essential.
 
-Closest relevant literature: Mood (1940), Schuster (1991), Schuster and Gu (1997), Makri et al. (2007), and Balado--Silvestre (2026). Exact run enumerations are not claimed as novel. Independently verify the older papers for priority before attributing a first discovery.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical conditional run-count distribution, exchangeable representation, and multicolor run enumeration are prior. The evaluated claim instead orders entire binary laws across compositions by monotone likelihood ratio and proves a sharp positive three-color cutoff; these implications were not found in earlier displayed distribution formulas. Best-of-knowledge PASS, with substantial uninspected original text of Schuster–Gu and earlier order-theoretic run-statistics literature as priority risk.
+
+## value
+
+PASS
+
+The monotone-likelihood-ratio envelope identifies the sharp worst-case run-count tails over all finitely exchangeable binary sequences; the fully classified first genuine 3-color failure pinpoints the limit of binary theory. These are interpretable nontrivial ordering facts with direct applications to conditional run statistics, beyond textbook enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

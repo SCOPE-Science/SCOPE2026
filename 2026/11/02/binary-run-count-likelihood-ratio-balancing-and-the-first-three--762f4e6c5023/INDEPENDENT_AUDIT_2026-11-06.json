@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:13:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source 2026/11/02/binary-run-count-likelihood-ratio-balancing-and-the-first-three--762f4e6c5023/RESULT.md, blob bc605f70a9b2052d8e84400c69151ff71bf7b9c9",
+        "Frozen source code 2026/11/02/binary-run-count-likelihood-ratio-balancing-and-the-first-three--762f4e6c5023/verify_binary_runs_mlr.py"
+      ],
+      "rationale": "For a fixed binary composition (k,n-k), splitting into positive 0/1 run lengths yields A(2s)=2*C(k-1,s-1)*C(n-k-1,s-1) and A(2s+1)=(n-2s)/s times their product. The next-row/old-row ratio h_s=k(n-k-s)/[(k-s+1)(n-k-1)] is nondecreasing along the shared support, and strictly increasing between adjacent run-pairs when k<floor(n/2); any new right-tail support has old count zero. Handle k=0 and odd central equality by complements. Finite exchangeability conditions on K, a convex mixture of fixed-composition laws, so balanced tails dominate. Direct three-color exact suffix recurrence gives old (3,1,4) counts at r=7,8 of 60,14 and new (2,2,4) of 120,24, a negative minor -240; the recurrence exhausts all positive 3-color balancing moves for n<=7 and proves the first obstruction at n=8. The boundary restriction to three positive classes and elementary balancing is essential.",
+      "residual_risks": [
+        "The finite cutoff is exhaustive only for the explicitly positive, three-symbol, one-unit balancing class; nothing about zero counts or larger alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schuster–Gu analyze conditional and unconditional multisymbol run distributions; Balado–Silvestre enumerate binary run quantities.",
+          "Full 1997 theorem text was unavailable; its broader coverage cannot be definitively dismissed."
+        ],
+        "reasoning": "Existing exact count polynomials could enable computation of each minor but do not themselves prove its sign across all compositions; significant uninspected coverage risk remains.",
+        "searches": [
+          "Schuster Gu 1997 DOI:10.1080/03610919708813389",
+          "arXiv:2602.10005",
+          "binary words runs conditional on number of ones monotone likelihood ratio balanced composition three color balancing runs counterexample"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query binary words runs conditional on number of ones monotone likelihood ratio balanced composition three color balancing runs counterexample",
+        "Resultary 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "Schuster 1991 Statistics & Probability Letters",
+        "Schuster–Gu 1997 DOI:10.1080/03610919708813389",
+        "Balado–Silvestre arXiv:2602.10005",
+        "Makri–Philippou–Psillakis 2007 DOI:10.1239/aap/1198177236"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known conditional counts and transition-covariance signs are different from all cross-composition LR minors."
+        ],
+        "reasoning": "One must additionally prove the adjacent ratio sign and check all positive 3-color moves; those are reconstructed here, but implication from inaccessible literature is a residual risk.",
+        "searches": [
+          "Schuster 1991 exchangeable runs",
+          "Schuster Gu 1997 multisymbol runs",
+          "Resultary SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schuster studies conditional run distributions using exchangeable Bernoulli indicators, not an explicit balanced-composition LR ordering in the inspected abstract."
+        ],
+        "reasoning": "The conditional distribution formula is not new; an LR-order theorem across k is the additional quantified implication.",
+        "searches": [
+          "binary words runs conditional on number of ones monotone likelihood ratio balanced composition three color balancing runs counterexample",
+          "Eugene F Schuster 1991 distribution theory of runs via exchangeable random variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 8-letter witness and exact n<8 exhaustive finite cutoff were independently enumerated; no located published exact table asserts both first obstruction and LR envelope."
+        ],
+        "reasoning": "A pre-existing general multisymbol run table could contain the witness implicitly and must not be claimed wholly absent without full source access.",
+        "searches": [
+          "binary words runs conditional on number of ones monotone likelihood ratio balanced composition three color balancing runs counterexample",
+          "arXiv:2602.10005",
+          "DOI:10.1080/03610919708813389"
+        ]
+      },
+      "rationale": "The classical conditional run-count distribution, exchangeable representation, and multicolor run enumeration are prior. The evaluated claim instead orders entire binary laws across compositions by monotone likelihood ratio and proves a sharp positive three-color cutoff; these implications were not found in earlier displayed distribution formulas. Best-of-knowledge PASS, with substantial uninspected original text of Schuster–Gu and earlier order-theoretic run-statistics literature as priority risk.",
+      "residual_risks": [
+        "Schuster and Gu (1997) is directly about multisymbol runs; arXiv and lawful OA full text were not obtained, and Oxford authorization returned vpn_disconnected, so its whole-document implications remain unknown.",
+        "Schuster (1991) exchangeable-run representation was verified from abstract rather than entire 1991 article.",
+        "A classical TP2 or likelihood-ratio ordering theorem for the conditional runs table could imply the binary part without matching this title."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR distributions; full-article LR implications unverified",
+          "evidence": "Conditional run distribution via exchangeable Bernoulli variables, 1991.",
+          "identifier_or_url": "https://econpapers.repec.org/article/eeestapro/v_3a11_3ay_3a1991_3ai_3a5_3ap_3a379-386.htm",
+          "material_read": "Abstract and citation metadata, not entire paid article",
+          "method": "Publisher indexing/EconPapers abstract",
+          "title": "Distribution theory of runs via exchangeable random variables",
+          "trigger": "Same conditional binary fixed-composition run statistic"
+        },
+        {
+          "assessment": "INACCESSIBLE plausible primary; no whole-document noncoverage verdict",
+          "evidence": "Oxford reported vpn_disconnected after open attempts, leaving material coverage risk.",
+          "identifier_or_url": "https://doi.org/10.1080/03610919708813389",
+          "material_read": "Title, bibliographic metadata and available indexed summaries; no article full text",
+          "method": "arXiv/preprint and lawful OA search, then institutional Oxford attempt",
+          "title": "On the conditional and unconditional distributions of the number of runs in a sample from a multisymbol alphabet",
+          "trigger": "Potential direct multicolor covering theorem"
+        },
+        {
+          "assessment": "Earlier enumeration acknowledged; no verified all-k LR result in inspected passages",
+          "evidence": "Binary Hamming-weight-constrained run count formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.10005",
+          "material_read": "Abstract and indexed summaries/section descriptions",
+          "method": "Public arXiv index, partial inspection",
+          "title": "Systematic Enumeration of Fundamental Quantities Involving Runs in Binary Strings",
+          "trigger": "Nearby enumeration of binary run statistics"
+        },
+        {
+          "assessment": "Related covariances rather than LR ordering",
+          "evidence": "Covariance sign changes for adjacent/disjoint indicators, not all-threshold run-count distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+          "material_read": "Resultary title and full retrieved summary, not original proof",
+          "method": "Resultary semantic result",
+          "title": "Exact dependence phases of fixed-composition run transitions",
+          "trigger": "Prior SCOPE record on same binary fixed-composition statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic query binary words runs conditional on number of ones monotone likelihood ratio balanced composition three color balancing runs counterexample",
+        "Resultary 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "Schuster 1991 Statistics & Probability Letters",
+        "Schuster–Gu 1997 DOI:10.1080/03610919708813389",
+        "Balado–Silvestre arXiv:2602.10005",
+        "Makri–Philippou–Psillakis 2007 DOI:10.1239/aap/1198177236"
+      ],
+      "rationale": "The monotone-likelihood-ratio envelope identifies the sharp worst-case run-count tails over all finitely exchangeable binary sequences; the fully classified first genuine 3-color failure pinpoints the limit of binary theory. These are interpretable nontrivial ordering facts with direct applications to conditional run statistics, beyond textbook enumeration alone.",
+      "residual_risks": [
+        "Significance is the ordered distribution and precise 3-color boundary, not re-derivation of ordinary run counts; full older literature is still a priority risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No three-color stochastic-dominance claim; first obstruction only three strictly positive classes and one-unit balancing.",
+    "The institutional full text was inaccessible; this is not treated as a scientific correctness failure."
+  ],
+  "schema_version": 1
+}

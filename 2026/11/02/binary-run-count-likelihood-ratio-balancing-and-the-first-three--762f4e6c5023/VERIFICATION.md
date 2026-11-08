@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The standalone exact-integer verifier was executed from the supplied file and printed `EXACT_ASSERTIONS=161557`, the two eight-letter three-color count arrays, and `THREE_COLOR_MLR_COUNTEREXAMPLE=R7_vs_R8`. These checks include binary word enumeration to length 11, every binary row-pair minor through length 40, and exhaustive three-color positive-count balancing minors for lengths at most 7. The infinite binary likelihood-ratio claim is proved symbolically in RESULT.md; no finite run certifies it by extrapolation. The three-color cutoff is a finite exhaustive statement. The original journal issue of the selected baseline was published in 2007; the cited 2008-02-20 precise date is catalogued and should not be confused with a claim about the first printed issue or with the mathematical finding date. Independent verification has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For a fixed binary composition (k,n-k), splitting into positive 0/1 run lengths yields A(2s)=2*C(k-1,s-1)*C(n-k-1,s-1) and A(2s+1)=(n-2s)/s times their product. The next-row/old-row ratio h_s=k(n-k-s)/[(k-s+1)(n-k-1)] is nondecreasing along the shared support, and strictly increasing between adjacent run-pairs when k<floor(n/2); any new right-tail support has old count zero. Handle k=0 and odd central equality by complements. Finite exchangeability conditions on K, a convex mixture of fixed-composition laws, so balanced tails dominate. Direct three-color exact suffix recurrence gives old (3,1,4) counts at r=7,8 of 60,14 and new (2,2,4) of 120,24, a negative minor -240; the recurrence exhausts all positive 3-color balancing moves for n<=7 and proves the first obstruction at n=8. The boundary restriction to three positive classes and elementary balancing is essential.
+
+## originality
+
+PASS
+
+The classical conditional run-count distribution, exchangeable representation, and multicolor run enumeration are prior. The evaluated claim instead orders entire binary laws across compositions by monotone likelihood ratio and proves a sharp positive three-color cutoff; these implications were not found in earlier displayed distribution formulas. Best-of-knowledge PASS, with substantial uninspected original text of Schuster–Gu and earlier order-theoretic run-statistics literature as priority risk.
+
+## value
+
+PASS
+
+The monotone-likelihood-ratio envelope identifies the sharp worst-case run-count tails over all finitely exchangeable binary sequences; the fully classified first genuine 3-color failure pinpoints the limit of binary theory. These are interpretable nontrivial ordering facts with direct applications to conditional run statistics, beyond textbook enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
