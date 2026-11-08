@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_modular.py` with the Python standard library and `python3 verify_independent.py` with SymPy. They compute the full 3906 parameter space and all 31 lines for each of the 800 smooth members, testing geometric smoothness by distinct methods. Both completed and produced `MODULAR_VERIFY_OK` and `INDEPENDENT_VERIFY_OK`. `spectrum.csv` contains the full 15-row count; `extremizers.csv` contains every marked equation attaining sixteen bitangents.
+## correctness
 
-The correctness of the geometric discriminant criterion and the bitangent Veronese equivalence is explained in `RESULT.md`; finite brute force does not substitute for these lemmas. The calculation does not establish anything about quartics outside the specified family or independent priority of the data. Independent audit: not performed.
+PASS
+
+The algebraic geometric-smoothness test requires A*B*C nonzero, all three axial discriminants nonzero and det M != 0 in F5 where M=[[2A,D,E],[D,2B,F],[E,F,2C]]. This criterion handles singularities over algebraic closure, not only rational points. A rational line yields a square geometric contact divisor iff its binary quartic is proportional to a square of a binary quadratic over F5; the quadratic discriminant splits hyperflex, rational pair and conjugate pair. The independent modular reimplementation exhausts all (5^6-1)/4=3906 normalized sextuples, finds all 800 smooth and checks each of the 31 rational lines, matching 15 signatures and seven 16-bitangent extremizers. This exhausts the finite parameter universe claimed, with no inference to all quartics or other fields.
+
+## originality
+
+PASS
+
+Qualified PASS: classical complex symmetric/Ciani quartic literature analyzes geometric 28-bitangent orbit actions, not the marked-coordinate F5 whole-family rational contact-type measure. Known Fermat example has 16 rational bitangents (not new), and the 800 smooth count has appeared, but the full 15-stratum joint distribution across the entire 800-member family is additional on inspected evidence.
+
+## value
+
+PASS
+
+PASS: bitangent rationality and contact splitting are intrinsic arithmetic-geometric invariants; the marked Ciani pencil/family is a natural symmetry-defined genus-three locus. A complete 800-case finite-field census and sharp seven-extremizer classification provide exact reference data, not an arbitrary narrow instance or a reprint of a Fermat example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
