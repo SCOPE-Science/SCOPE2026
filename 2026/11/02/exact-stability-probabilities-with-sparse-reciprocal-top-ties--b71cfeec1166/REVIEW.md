@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent random priorities for uniformly refined top ties give conditional independent blocking events and the exact integral. Polynomial messages on rooted forests correctly integrate out every subtree; polynomial factors admit exact rational integration with polynomial bit complexity. A rank-two integral kernel proves the path recurrence and cycle eigenvalue formula. The standalone checker passes 9,016 finite graph cases, 3,110 forest cases, 21 path lengths and 19 cycle lengths, including a directly realizable market with 46,656 refinements. Finite checks support but do not replace the proof.
+## correctness
 
-**Originality — PASS, subject to access limitations.** The classical Knuth/Pittel integral already handles independent uniform full preferences, so the product-kernel idea is not claimed as novel. The 2019 open-access paper by Aziz and coauthors gives an exact procedure if one side is certain, not the reciprocal-top-tie forest rule or the explicit degree-two spectral laws. Chen's 2026 preprint proves #P-completeness even with top ties; its available abstract does not state the forest procedure or path/cycle formulas. Searches for equivalent random-tie stability calculations, blocking-graph factorizations, and the exact spectral constants found no applicable implication in inspected materials. The preprint's PDF was inaccessible, creating a real residual priority risk; no claim of exhaustive literature coverage or independent originality validation is made.
+PASS
 
-**Value — PASS.** This identifies a natural tractable structural subclass within a newly proved #P-complete probability problem, allowing uncertainty on both sides and giving closed probabilities and exponential rates when reciprocal tie competition is sparse. It is an exact probability characterization of a motivated observable market property rather than an arbitrary finite enumeration.
+Each agent has a uniform latent matched-partner priority x_u∈[0,1] within the top indifference class. Conditional on all x, distinct unmatched reciprocal top-tie edges block independently with probability x_u x_v, yielding the exact graph integral ∫∏_edges(1-x_u x_v) and its finite edge-subset expansion. Tree elimination retains affine messages A−Bx; multiplying and integrating a degree-d child polynomial costs O(d²), summed to O(s²) rational operations with polynomial bit lengths. On paths and cycles, the rank-two kernel Kf(x)=∫_0^1(1-xy)f(y)dy has eigenvalues (2±√7)/6, giving the stated path recurrence and c_j eigenvalue power sum. The source verifier code was read, and independent exact fraction checks tested all 63 bipartite forests from three matching pairs plus the six-cycle factor 5027/23328. The general forest result relies on the induction, not a finite census.
 
-The result is limited to uniform independent tie-breaking, a fixed perfect matching, and top indifference classes containing matched partners. The result does not settle unrestricted counting complexity or optimal matching selection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Knuth/Pittel product kernel in fully uniform preferences is classical; the new contribution is its reciprocal-top-tie graph restriction, exact polynomial-time forest messages and all-length degree-two spectra under independent uncertain ties on both sides. Aziz et al Theorem 8 gives tractability when one side is certain, a different hypothesis. Chen 2026 gives general #P-completeness from public abstract; full text inaccessible, so a possible forest result in an unseen section is a named residual risk rather than asserted noncoverage.
+
+## value
+
+PASS
+
+Stability probability of a fixed matching is a natural uncertainty measure. Sparse reciprocal competition trees provide a mathematically motivated tractability island within a generally hard exact-counting problem; path/cycle formulas yield precise explicit exponential rates. The result makes no arbitrary-graph algorithm claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

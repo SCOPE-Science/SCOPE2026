@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 31eb5a246a28d488c93bad4037a0693138b670b6",
+        "Git verify_stability.py blob 8861503b1a4c22786eed5aecee9e986aa39145c0",
+        "independent_checks_output.txt: MATCHING_STABILITY_FORESTS 63 CYCLE6 5027/23328"
+      ],
+      "rationale": "Each agent has a uniform latent matched-partner priority x_u∈[0,1] within the top indifference class. Conditional on all x, distinct unmatched reciprocal top-tie edges block independently with probability x_u x_v, yielding the exact graph integral ∫∏_edges(1-x_u x_v) and its finite edge-subset expansion. Tree elimination retains affine messages A−Bx; multiplying and integrating a degree-d child polynomial costs O(d²), summed to O(s²) rational operations with polynomial bit lengths. On paths and cycles, the rank-two kernel Kf(x)=∫_0^1(1-xy)f(y)dy has eigenvalues (2±√7)/6, giving the stated path recurrence and c_j eigenvalue power sum. The source verifier code was read, and independent exact fraction checks tested all 63 bipartite forests from three matching pairs plus the six-cycle factor 5027/23328. The general forest result relies on the induction, not a finite census.",
+      "residual_risks": [
+        "No polynomial exact algorithm is claimed for general reciprocal top-tie graphs.",
+        "The independence assumption requires agents independently refining top ties; correlated tie breaking invalidates edge factorization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aziz et al polynomial-time result requires one entire side to have certain preferences; a bipartite reciprocal-tie forest may have uncertainty on both sides. Chen abstract asserts #P-completeness in broader one-top-tie model."
+        ],
+        "reasoning": "The two known sufficient/hardness results do not imply the positive forest exact algorithm or degree-two closed formula; unseen Chen details are an explicit risk.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/ Theorem 8",
+          "https://doi.org/10.5281/zenodo.23308285 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/",
+        "https://doi.org/10.5281/zenodo.23308285",
+        "https://doi.org/10.1137/0402048",
+        "Resultary query: stability probability random independent tie breaking stable matching reciprocal top choice forest path cycle exact integral"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-side-certain theorem cannot be used on both-uncertain forests; dense uniform integral does not specify tree dynamic programming. The #P hardness theorem does not rule out sparsity algorithms."
+        ],
+        "reasoning": "Statements and hypotheses are incomparable: the assessed forest case is an algorithmically useful graph restriction, not a claim against general hardness.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/ Section 5, Theorem 8",
+          "https://doi.org/10.5281/zenodo.23308285 abstract",
+          "https://doi.org/10.1137/0402048"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform random tie refinements can be represented by uniform latent priorities, leading to an edge-kernel integral; Knuth/Pittel previously used a related dense uniform-preference integral."
+        ],
+        "reasoning": "The product kernel is not itself novel, but its exact dependence on reciprocal top-tie H, tree messages and degree-two spectra require a graph-sparsity hypothesis absent from dense uniform market formulas.",
+        "searches": [
+          "stability probability random independent tie breaking stable matching reciprocal top choice forest path cycle exact integral",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent computation reproduced six-cycle probability 5027/23328. Indexed matches pointed to small Gale–Shapley or fairness distributions, not path/cycle probability tables."
+        ],
+        "reasoning": "No searched exact table was found; absence of indexed results is not proof of novelty.",
+        "searches": [
+          "stability probability random independent tie breaking stable matching reciprocal top choice forest path cycle exact integral",
+          "stable matching reciprocal indifference graph cycles paths eigenvalues sqrt 7"
+        ]
+      },
+      "rationale": "The Knuth/Pittel product kernel in fully uniform preferences is classical; the new contribution is its reciprocal-top-tie graph restriction, exact polynomial-time forest messages and all-length degree-two spectra under independent uncertain ties on both sides. Aziz et al Theorem 8 gives tractability when one side is certain, a different hypothesis. Chen 2026 gives general #P-completeness from public abstract; full text inaccessible, so a possible forest result in an unseen section is a named residual risk rather than asserted noncoverage.",
+      "residual_risks": [
+        "Chen October 2026 primary PDF could not be inspected; its unseen propositions might cover sparse special cases. Authorized Oxford VPN disconnected, no bypass attempted.",
+        "A general treewidth counting algorithm or old Knuth specialization may imply the forest algorithm under alternative language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-side-certain tractable regime, not all reciprocal top-tie forests with two uncertain sides.",
+          "evidence": [
+            "Section 5 Theorem 8 conditions on one side being certain."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/",
+          "material_read": "Accessible full open-access journal HTML, model definitions and Section 5 including Theorem 8 and proof",
+          "method": "Primary full-text HTML theorem reading",
+          "title": "Stable Matching with Uncertain Linear Preferences",
+          "trigger": "Original compact-indifference model and positive exact algorithm"
+        },
+        {
+          "assessment": "Hardness abstract does not settle its unseen restricted-class results; original may cover some cases.",
+          "evidence": [
+            "Public 2026-10-12 abstract describes #P-completeness even in top-tie compact indifference."
+          ],
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.23308285",
+          "material_read": "Zenodo abstract, dated record and file metadata only; primary PDF inaccessible from open/arXiv routes; authorized Oxford returned vpn_disconnected",
+          "method": "Abstract-only and documented access-block limitation",
+          "title": "The complexity of stability probability under compact indifference",
+          "trigger": "Same top-indifference fixed-matching probability and general hardness"
+        },
+        {
+          "assessment": "Dense preference integral acknowledged as prior art, not the novel graph-restricted forest algorithm.",
+          "evidence": [
+            "Knuth product-integral technique predates this work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402048",
+          "material_read": "Public bibliographic abstract and related mathematical discussion, not complete publisher PDF",
+          "method": "Bibliographic/secondary formula comparison",
+          "title": "The Average Number of Stable Matchings",
+          "trigger": "Classical Knuth uniform random-preference integral"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7066306/",
+        "https://doi.org/10.5281/zenodo.23308285",
+        "Exact graph-kernel/tree decomposition proof"
+      ],
+      "rationale": "Stability probability of a fixed matching is a natural uncertainty measure. Sparse reciprocal competition trees provide a mathematically motivated tractability island within a generally hard exact-counting problem; path/cycle formulas yield precise explicit exponential rates. The result makes no arbitrary-graph algorithm claim.",
+      "residual_risks": [
+        "Sparse reciprocal top-tie graphs are restrictive; tie-breaking correlation or strong preferences above partners fall outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge mathematical and originality assessment; not a formal certificate or historical-priority guarantee.",
+    "Publication plan not_ready due verified existing public metadata provenance/privacy and unverified first_public_date; no source edits were prepared."
+  ],
+  "schema_version": 1
+}
