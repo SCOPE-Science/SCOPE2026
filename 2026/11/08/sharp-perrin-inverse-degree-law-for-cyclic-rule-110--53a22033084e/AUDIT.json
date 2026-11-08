@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Every predecessor is a closed labeled walk of the explicit four-state de Bruijn graph; the all-one trace is the Perrin sequence. A zero-edge reduction gives 2x2 transfer matrices H_k, satisfying H_{k+3}=H_{k+1}+H_k. The bivariate recurrence for D(a,b)=H_{a+b+1}-H_aH_b and 19 exact finite positive base matrices establish entrywise merging for all positive indices except ordered (1,2). Any cyclic sequence with at least two positive gaps admits a nonexceptional adjacent pair. Iterative merging bounds every output with a zero by h_{m-1}, which is strictly less than P_n for n>=5. Small cases checked. verify_certificate.py checks the complete finite lemma and direct zero-run transfer; verify_direct.py exhausts every input for n=1..18. Finite enumeration is corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Powley gives a general method for all individual periodic output traces, but no all-length maximizing inequality.",
+        "The closest published computational records concern different rules, different neighborhoods, or periodic dynamics rather than Rule 110 worst-case one-step inverse fibers."
+      ],
+      "reasoning": "General de Bruijn trace counting can evaluate any given output and does not logically imply a uniform all-length maximum, absent an optimization argument. Rule 115 absent support periods, rule 128 transient thresholds and five-site quadratic reversibility do not dominate the asserted Rule 110 extremum.",
+      "searches": [
+        "elementary cellular automata maximum number predecessors Rule 110 cyclic all ones",
+        "periodic Rule 110 inverse multiplicity all ones Perrin 2 3 cycle",
+        "2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be",
+        "2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf",
+        "2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+      "https://en.wikibooks.org/wiki/Cellular_Automata/Examples_on_Rule_110",
+      "https://delta.cs.cinvestav.mx/~mcintosh/comun/ccord/ccord.html",
+      "https://mathworld.wolfram.com/Rule110.html",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html",
+      "2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be",
+      "2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf",
+      "2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Powley Theorem 9.5 supplies the homogeneous value but not comparison with mixed outputs.",
+        "The known pair transition matrices exactly match those in the proof.",
+        "McIntosh discusses periodic tiles and gliders rather than optimizing inverse fiber size."
+      ],
+      "reasoning": "The claim is not the known identity d_n(1^n)=P_n. It is the quantified inequality d_n(y)<P_n for all n>=5 and every y containing a zero, plus unique equality. This follows from the explicit new merger lemma, not from homogeneous-eigenvalue computation or generic matrix availability alone.",
+      "searches": [
+        "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "https://en.wikibooks.org/wiki/Cellular_Automata/Examples_on_Rule_110",
+        "https://delta.cs.cinvestav.mx/~mcintosh/comun/ccord/ccord.html",
+        "periodic Rule 110 all-one output maximum predecessor count compared to heterogeneous outputs",
+        "Rule 110 transfer matrices homogeneous configurations Perrin sequence predecessor in-degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Powley Chapter 9, Theorem 9.5 and Example 9.2: homogeneous preimage counts, not maximizers among all configurations.",
+        "Wikibooks Rule 110: explicit D(0), D(1) matrices; no universal maximum statement."
+      ],
+      "reasoning": "The same fiber maximum can be phrased as the maximum in-degree, maximum cyclic predecessor count, worst-case inverse branching or maximum trace of length-n words in the two labeled matrices. The inspected matrix descriptions give a formula for a specified output but not the optimization and unique equality case for arbitrary output words.",
+      "searches": [
+        "periodic binary cellular automaton Wolfram rule 110 one-step image preimage degree maximum exact n",
+        "cyclic Rule 110 predecessor distributions singleton outputs",
+        "maximal one step inverse degree preimage fibers of Wolfram rule 110 on finite cyclic binary rings Perrin numbers",
+        "Rule 110 maximum number of preimages in-degree configuration all ones",
+        "Rule 110 Perrin sequence preimages all ones periodic boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld and Perrin-sequence sources contain standard Rule 110 and Perrin background, without an all-output extremizer table.",
+        "Powley Appendix F tabulates homogeneous characteristic polynomials, not the maximum across all output words."
+      ],
+      "reasoning": "A table of the homogeneous Perrin counts is not a table of the global maxima, and numerical agreement alone does not supply the equality classification. No directly matching public table or exact all-n statement was located; this is not a proof of priority.",
+      "searches": [
+        "Rule 110 Perrin numbers predecessor preimage maximal cyclic rings",
+        "Rule 110 max number of preimages for an output",
+        "rule 110 predecessor counts all outputs maximum preimage fibonacci perrin",
+        "https://en.wikibooks.org/wiki/Cellular_Automata/Examples_on_Rule_110"
+      ]
+    },
+    "rationale": "The novelty is the sharp global maximum and unique maximizing output for every cyclic length at least five. Powley 2009 implies the homogeneous Perrin count but does not supply the comparison with every heterogeneous output. The indexed Rule 110 preimage matrices are also classical and not claimed as new. The finite-base positive-matrix merger with its one exceptional orientation gives the missing sharp comparison. No equivalent or dominating explicit published statement was found in the actual searches; unindexed or obscure historical tables remain a substantive residual risk.",
+    "residual_risks": [
+      "Historical priority of the all-output extremal inequality has not been independently established; archived software, unindexed papers and unpublished observations may contain it.",
+      "The earliest verified public source date is from a dated Rule 110 context source, not a publication date for the new theorem.",
+      "The large thesis page image could not be retrieved, but the relevant full chapter text was accessible and examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes the homogeneous Rule 110 preimages and general trace method; does not state or prove the unique global maximum over all outputs for every length.",
+        "evidence": "Example 9.2 allows preimage runs 01 or 011 for all-one output; Theorem 9.5 counts homogeneous outputs via eigenvalues; §9.3 treats periodic heterogeneous examples but does not compare their fibers to a global maximum.",
+        "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "material_read": "Relevant primary full-text passages in Chapter 9, §§9.1–9.3: Example 9.2, Theorem 9.5, the de Bruijn trace derivation, and §9.3 periodic-output comparisons; the whole thesis was not read.",
+        "method": "Inspected the publicly accessible extracted PDF text at sections 9.1–9.3 and cross-referenced the named equations; direct page-image retrieval was blocked by the large PDF response.",
+        "title": "Global properties of cellular automata — Chapter 9",
+        "trigger": "Direct primary thesis on periodic preimages and Rule 110 homogeneous configurations"
+      },
+      {
+        "assessment": "Contains both source matrices and examples, but no maximum inverse-degree statement or equality classification.",
+        "evidence": "D(0) and D(1) are exactly those reconstructed in RESULT.md; the sections characterize individual outputs and Garden-of-Eden patterns rather than a global maximizer.",
+        "identifier_or_url": "https://en.wikibooks.org/wiki/Cellular_Automata/Examples_on_Rule_110",
+        "material_read": "HTML sections on the local rule, labeled preimage matrices, cyclic lattice examples, subset diagram and Garden-of-Eden patterns.",
+        "method": "Read the actual webpage text, including the complete displayed D(0) and D(1) matrices and cyclic-lattice section.",
+        "title": "Cellular Automata/Examples on Rule 110",
+        "trigger": "Direct matrix equivalence and exact finite cyclic preimage examples"
+      },
+      {
+        "assessment": "Periodic triangles, glider motifs and lattices, not a universal one-step in-degree bound.",
+        "evidence": "Displays June 4, 2000 original date and May 14, 2002 additions; abstract states it indexes typical locations of triangles in Rule 110.",
+        "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/comun/ccord/ccord.html",
+        "material_read": "Title page, explicit original/public date, abstract, contents and linked introduction.",
+        "method": "Read dated HTML title and introduction.",
+        "title": "A Concordance for Rule 110",
+        "trigger": "Date-verified older Rule 110 primary study and periodic-structure context"
+      },
+      {
+        "assessment": "Background facts only; no all-output predecessor-degree comparison.",
+        "evidence": "Lists Rule 110 and its reflected/complemented rule equivalents and standard general references.",
+        "identifier_or_url": "https://mathworld.wolfram.com/Rule110.html",
+        "material_read": "Webpage entry with definition, symmetry-related rules and bibliography.",
+        "method": "Read accessible HTML content.",
+        "title": "Rule 110 — MathWorld",
+        "trigger": "Check standard rule definition, symmetry aliases and computational significance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53a22033-084e-49a6-8ec9-9ca4cc00723a",
+  "value": {
+    "rationale": "Worst-case inverse branching of the computationally universal elementary Rule 110 automaton quantifies a natural reconstruction ambiguity on every cyclic ring. Its unique maximizing output and exact Perrin growth for all n>=5 give more than a special homogeneous-output count: no other cyclic output can match it. The structured transfer-merger proof and exceptional pair are reusable mathematical tools. No multistep or full histogram claims are made.",
+    "status": "PASS"
+  }
+}
