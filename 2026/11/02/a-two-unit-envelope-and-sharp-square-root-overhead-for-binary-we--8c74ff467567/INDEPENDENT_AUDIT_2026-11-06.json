@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:58:40.940483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 every length-k two-one target 0^a1 0^b1 0^c has K=k-2 zeros. With host Z>=K zeros and R ones, let zero-levels z_i. The target occurs iff distinct i<j satisfy z_i>=a, z_j-z_i>=b, Z-z_j>=c. Every adjacent-one target b=0 requires two ones in each length-d zero-level window, d=Z-K+1. There are T=k-1 windows; each host one meets at most d windows, so Rd>=2T. Hence |W|>=k-3+d+ceil(2T/d)>=k-3+ceil(2sqrt(2T)), using integer max product at fixed d+r. Construct Z=K+d-1 zeros and one at every zero-level congruent 0 or floor(d/2) modulo d (d>=2 chosen near sqrt(2T)). Every d-window has exactly two markers, separated by at most ceil(d/2); use the first marker of a-window and last of (a+b)-window to satisfy all three subsequence gap inequalities, including distinct markers for b=0. Exact residue count gives R<=ceil(2T/d)+2. Optimizing d gives length <=k-1+ceil(2sqrt(2T)); sandwich yields lim (L_k-k)/sqrt k =2sqrt2. Independently exhaustively checked k=2..8 minima and tested all target a,b,c and integer bounds for 103 k values through 500, not used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full binary k-universality gives an available 2k upper bound, larger than k+2sqrt(2k)+O(1).",
+          "Published Resultary result counts the distribution of full-universality index, not minimal hosts covering just weight-two words."
+        ],
+        "reasoning": "The stronger target coverage property gives a weaker optimization bound and no forcing lower bound for the smaller language; it does not dominate the sharp present result.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "arXiv:2007.09192 whole language k-universality"
+        ]
+      },
+      "checked_sources": [
+        "Fleischmann et al arXiv:2007.09192 full text",
+        "Lagoutte–Tavenas arXiv:1309.0422 accessible text",
+        "Resultary full binary universality and absent-subsequence entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "NP-hardness of arbitrary-subfamily common supersequence does not determine optimum for the entire structured family.",
+          "Length 2k full-universality bound is asymptotically too loose to imply 2sqrt2."
+        ],
+        "reasoning": "No cited prior theorem logically forces both the new lower bound and explicit two-residue host for all k>=2.",
+        "searches": [
+          "Lagoutte Tavenas 2013 shortest common supersequence arbitrary selected two-one words",
+          "Fleischmann 2020 edit distance k-universality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fleischmann et al treat complete k-subsequence universality, where all binary targets must occur.",
+          "Lagoutte–Tavenas treat arbitrary sets of selected strings and hardness."
+        ],
+        "reasoning": "The complete weight-two target family is neither complete all-words universality nor arbitrary-set SCS input; exact all-k near-optimum and sharp asymptotic constant are additional.",
+        "searches": [
+          "Fleischmann Kosche Koß Manea Siemer arXiv:2007.09192",
+          "Lagoutte Tavenas arXiv:1309.0422 SCS binary words two ones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published records concern full universality and absent subsequences, not the complete two-one layer length L_k.",
+          "Independent short exact values k=2..8 are consistent with bounds; finite tables cannot imply all-k theorem."
+        ],
+        "reasoning": "No exact database/table found for asymptotic weight-two layer; negative search cannot certify originality.",
+        "searches": [
+          "Resultary fixed weight two binary scattered subsequence complete layer supersequence",
+          "Resultary string two marker sequence shortest universal host"
+        ]
+      },
+      "rationale": "General k-subsequence universal words cover all 2^k targets, unlike the complete weight-two layer; arbitrary selected sets of length-k two-one words are an input to a shortest-common-supersequence complexity problem, rather than the exact complete-layer optimum. The sharp 2sqrt2 overhead plus two-unit all-k envelope are neither obtained by simply restricting their quantified statements nor present in the inspected source material.",
+      "residual_risks": [
+        "A preexisting unindexed paper on universal supersequences for every fixed-weight-two binary target may establish the same square-root envelope.",
+        "Optimal exact L_k for large individual k remains unknown from this theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT exact coverage for complete fixed weight-two layer",
+          "evidence": "All words of length k, not all words with exactly two ones.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+          "material_read": "Accessible full arXiv HTML, definitions of k-universality, edit distance, and results",
+          "method": "Read HTML text beyond abstract; compared target language and parameters",
+          "title": "The Edit Distance to k-Subsequence Universality",
+          "trigger": "Exact phrase subsequence universality and nearby all-target optimization"
+        },
+        {
+          "assessment": "Different arbitrary-subfamily hardness statement; no all-complete-layer length formula identified",
+          "evidence": "Arbitrary collections of two-one patterns as reductions, not all binomial(k,2) words.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.0422",
+          "material_read": "Accessible arXiv abstract and mathematical body discussion of restricted binary cases and reductions",
+          "method": "Read accessible arXiv text; contrasted input family and optimization",
+          "title": "The Complexity of Shortest Common Supersequence in Restricted Cases",
+          "trigger": "Arbitrary fixed-length sparse binary input strings"
+        },
+        {
+          "assessment": "Different invariant (all-word universality index)",
+          "evidence": "Generating function (1+z)/(1-z-2uz^2) concerns all target words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Resultary abstract and formula for finite length distribution of universality index",
+          "method": "Semantic result only, not full article",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Closest published similar title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum universal host length for an entire Hamming weight layer is a canonical combinatorics-on-words invariant, and the exact square-root overhead constant plus additive-two envelope constitutes a nontrivial infinite-family extremal construction and lower bound. The finite optimum is deliberately not claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fleischmann et al arXiv:2007.09192 full text",
+    "Lagoutte–Tavenas arXiv:1309.0422 accessible text",
+    "Resultary full binary universality and absent-subsequence entries"
+  ],
+  "disposition": "passed",
+  "limitations": "All binary scattered subsequences of length k with exactly 2 ones; k>=2. Result is an additive-two envelope, not a complete optimum at every k; no weights >=3.",
+  "residual_risks": [
+    "A preexisting unindexed paper on universal supersequences for every fixed-weight-two binary target may establish the same square-root envelope.",
+    "Optimal exact L_k for large individual k remains unknown from this theorem."
+  ],
+  "schema_version": 1
+}
