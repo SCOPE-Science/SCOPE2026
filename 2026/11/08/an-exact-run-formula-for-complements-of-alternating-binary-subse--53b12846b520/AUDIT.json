@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every k,r>=0, the prefix-balance argument forces each complement remainder to split into 01 or 10 pairs. At every halfway point of a 10 pair the deleted-pattern prefix has an unclosed 0; a separating 01 pair forces it closed, proving distinct 10-runs need distinct deleted 01 pairs. Conversely, replacing each 10-run of length ell by 0(10)^ell 1=(01)^(ell+1) constructs a matching shuffle, with arbitrary extra deleted 01 pairs. Selecting 2j boundaries among r+1 gives exactly binomial(r+1,2j) words with j such runs. Edge cases k=0,r=0 and saturation r<=2k follow. Independent direct deletion enumeration passed 45 cases and shuffle-pointer DP 23,535 cases; bounded tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.20790v1, Section 3: a general dynamic program can compute C(W,U) instance-by-instance, but no closed-form count follows as a stated theorem.",
+        "arXiv:2603.20790v1, Theorem 4.5: singleton self-complement is characterized by perfect self-shuffle; its hypothesis is different.",
+        "https://nuitp.webs.upv.es/examples/gilbreath.html: the alternating-riffle paired-output theorem assumes two oppositely phased alternating source streams and has no fixed aligned-deletion budget."
+      ],
+      "reasoning": "General computability does not amount to a uniform two-parameter symbolic classification; stronger possible shuffle theorems were checked by identifying which input stream is fixed and which is being counted. Gilbreath’s theorem supplies a paired-output constraint only under different phase hypotheses, whereas the present theorem also determines exact admissible 10-run counts.",
+      "searches": [
+        "Adamson Fleischmann Huch complement scattered factors formula alternating two-letter periodic words",
+        "\"shuffle\" \"(ab)^n\" \"(ab)^k\" complement number",
+        "\"Gilbreath\" \"shuffle\" alternating words theorem 01 10",
+        "\"alternating words\" \"complement\" \"shuffle\" binomial coefficients"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2603.20790",
+      "https://arxiv.org/html/2603.20790v1",
+      "https://nuitp.webs.upv.es/examples/gilbreath.html",
+      "https://mathworld.wolfram.com/GilbreathPrinciple.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.20790v1, Sections 3-5: algorithms, singleton assertions, self-shuffle characterization; none implies all outputs in the aligned alternating case have at most k reversed-pair runs.",
+        "https://mathworld.wolfram.com/GilbreathPrinciple.html: general riffle pairing property, not a fixed-removal-count classification.",
+        "The current proof uses the prefix balance identity and one deleted 01 pair per reversed-run, a mechanism not present in the identified prior statements."
+      ],
+      "reasoning": "Precisely the same pair (W,U) is considered, not merely a similarly named setting. Special singleton results cannot cover counts beyond one; an exponential-time general enumeration algorithm could derive each numerical case but has no stronger statement about the exact binomial spectrum or sharp saturation transition. Gilbreath-style pairing is only part of necessity, not the run criterion or sufficiency.",
+      "searches": [
+        "\"complement scattered factors\" \"alternating\" \"binomial\"",
+        "\"alternating\" \"shuffle\" \"run\" \"binomial\" 01 10",
+        "\"shuffle quotient\" \"alternating\" \"binomial\"",
+        "complement scattered factor sets C((01)^n,(01)^k) alternating word binary binomial sum even entries formula runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.20790v1, Definitions 5-6: C(W,U) is exactly the residual word set of a shuffle/deletion embedding.",
+        "arXiv:2603.20790v1, Section 4 and Section 5: inspected combinatorial claims concern singleton criteria, self-shuffles and algorithms; the exact two-parameter alternating remainder formula is not stated.",
+        "Searches of published records returned related results about deletion-sphere variance and binary multispectra, not complements of fixed alternating scattered factors."
+      ],
+      "reasoning": "The equalities C(W,U)={V:W belongs to U shuffle V}, and a deletion remainder set, were compared by their quantified claims. Neither the authors’ inverse algorithms nor the other returned deletion-channel results yields the run-budget characterization or the binomial sum without a new structural argument.",
+      "searches": [
+        "complement scattered factor sets C((01)^n,(01)^k) alternating word binary binomial sum even entries formula runs",
+        "shuffle quotient alternating word (ab)^n by (ab)^k resulting complement factors number exact binomial r+1 choose 2j",
+        "2026 Adamson Fleischmann Huch C((01)^{k+r},(01)^k) complement scattered factors exact number pair blocks 01 10",
+        "distinct shuffle complements of alternating words deleting (ab)^k from (ab)^n exact number binomial sum",
+        "\"complement scattered factors\" alternating binomial formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.20790v1, conclusion: even a closed formula for particular complementary-subsequence cases is identified as open.",
+        "The elementary identity number of binary block words with j runs of 10 equals binomial(r+1,2j) is classical and not claimed as new in isolation.",
+        "The inspected web and mathematical-record results did not expose an exact table or formula for this particular complement set."
+      ],
+      "reasoning": "The combinatorial binomial coefficient is standard, but the substantive new content is the proven equality between deletion admissibility and the number of 10-block runs. No located table of these fixed-host fixed-pattern distinct complements subsumed that equality.",
+      "searches": [
+        "\"C(w,u)\" \"alternating\" \"scattered\" complement",
+        "\"complement scattered factors\" formula",
+        "upper bound formula for C(w,u) alternating repeated 01 word strings",
+        "alternating string two-color split one subsequence (01)^k other arbitrary balanced paired string 10-run budget"
+      ]
+    },
+    "rationale": "A full primary-source inspection of Adamson, Fleischmann and Huch (arXiv:2603.20790v1, first public 2026-03-21) found general algorithms, special singleton and self-shuffle results, and a stated open direction of closed formulas for |C(w,u)| in specific cases, but not an exact alternating two-parameter remainder-language classification or the binomial spectrum. Adjacent shuffle and deletion literature does not imply the precise 10-run budget. Searches of equivalent statements, parameters, stronger coverage and published mathematical records identified no dominating claim. Priority risk from older unindexed shuffle-quotient work remains.",
+    "residual_risks": [
+      "Searches are not a proof of uniqueness; earlier unindexed combinatorial shuffle-quotient identities might encode the same result.",
+      "The Gilbreath-style theorem was checked at the available web-statement level rather than by exhaustive priority tracing of all mathematical-riffle sources.",
+      "Independent historical-priority and mathematical review are not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: offers general computation and special cases but not the alternating formula; Section 5 expressly leaves case-specific cardinality formulas open.",
+        "evidence": [
+          "arXiv record first submission 2026-03-21",
+          "Definitions 5-6, Theorems 3.1-3.3, 4.3, 4.5; conclusion Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+        "material_read": "Full accessible HTML, with direct examination of abstract, definitions, the Section 3 algorithms, all pertinent Section 4 singleton and shuffle results including Theorem 4.5, and the Section 5 conclusion.",
+        "method": "Primary full-text HTML reading, statement/hypothesis comparison; initial public submission checked in arXiv record.",
+        "title": "(Sets of) Complement Scattered Factors",
+        "trigger": "Exact origin and likely strongest source defining the complement-scattered-factor object."
+      },
+      {
+        "assessment": "NOT_COVERING: gives a paired-output property for an alternating-opposite-phase shuffle; no exact fixed-pattern 10-run budget or count.",
+        "evidence": [
+          "Main Goal 1 and Main Goal 2 express paired outputs from two alternating source streams."
+        ],
+        "identifier_or_url": "https://nuitp.webs.upv.es/examples/gilbreath.html",
+        "material_read": "Accessible page introducing the alternating two-pile shuffle, paired-output statement and main goals.",
+        "method": "Read theorem hypotheses and the listed simplification invariants, compared direct shuffle to fixed-pattern complement.",
+        "title": "Gilbreath's Card Trick - alternating riffle property",
+        "trigger": "Possible stronger classical alternating-shuffle theorem covering the paired-output condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53b12846-b520-42c5-a625-06f60aed35f7",
+  "value": {
+    "rationale": "The March 2026 source expressly seeks closed formulas for |C(w,u)| in natural cases. The aligned two-parameter alternating family is a canonical minimal nonunary test bed. The result is a complete infinite two-parameter language-and-count classification, identifies the minimum deleted alternating-pair budget for each output, and establishes a sharp saturation transition r=2k; it is more than a routine isolated count or restatement of a binomial runs identity.",
+    "status": "PASS"
+  }
+}
