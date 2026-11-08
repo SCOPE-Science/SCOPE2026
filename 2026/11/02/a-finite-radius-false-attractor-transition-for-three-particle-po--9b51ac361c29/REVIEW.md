@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source-defined normalized Gaussian weights and unbiased local covariance denominator reduce algebraically to the two explicit covariance expressions in `RESULT.md`. All denominators are positive on the stated open interval. The resulting relaxed hyperbolic-tangent map has relaxation factor strictly between zero and one. Strict concavity and monotonicity give every fixed point and basin, while Taylor expansion and telescoping inverse squares give the exact critical limit. The branch asymptotics follow from the inverse hyperbolic tangent. The independent full-weight formula was compared numerically with the reduction on a parameter grid, and the extracted verifier completes 2,095 checks; these are supplementary to the proof, not infinite certificates.
+PASS
 
-## Originality — PASS (qualified)
+Direct weighted covariance calculation for weights (u,1,v)/(1+u+v), D=2(S+P)/(1+S)^2, CthetaG=(x^2-a^2)[Sx-a(v-u)]/[2(S+P)], CGG=S(a^2-x^2)^2/[2(S+P)] yields F(x)=(1-omega)x+omega a*tanh(ax/kappa^2), with 0<omega<1 for |x|<a. Strict increase/concavity of tanh gives unique stable ±x* for a^2/kappa^2>1 and origin otherwise; convex-map ordering prevents overshoot. At equality F=x-omega0*x^3/(3a^2)+O(x^5), telescoping 1/x_n^2 gives limit sqrt(n)|x_n|. The artanh inversion provides both branch asymptotics. Independent test directly evaluates covariances, without presuming reduced map, on 120 samples. Finite checks corroborate rather than prove the all-n limits.
 
-The primary PEKI text arXiv:2610.31907v1 defines the target method, proves cross-cluster suppression and linear-case contraction, and acknowledges spurious clusters in a separate experiment, but does not state this exact nonlinear three-particle finite-ridge phase diagram or its critical time scale. The important prior arXiv:2402.00027v3 supplies a weighted-ensemble ODE; the stationary hyperbolic-tangent equation is compatible with that more general covariance framework and is not claimed as an independently new scalar fixed-point theorem. The exact discrete-time PEKI map, global attraction proof, nonzero observation-residual branch, and critical iterate asymptotics were not located in inspected primary texts or indexed comparison results. General nonlinear EKI analyses could imply an equivalent specialization and remain a priority risk; independent historical audit is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification gives a sharp boundary \(\kappa=a\) where a supposedly mode-resolving localized inverse solver changes from one to three possible stationary middle-particle states, with all such states still data-inconsistent. It quantifies the residual floor and critical slowdown at an exactly reproducible, minimal multimodal benchmark. This is useful for testing radius-selection and convergence diagnostics: observing three separated groups of particles is not alone evidence that every group solves the observation equation. Its narrow ensemble assumptions and fixed deterministic ridge are explicitly declared and preclude claims about general finite-horizon stochastic performance.
+Original statement is the complete global discrete-time basin diagram, strictly positive false-attractor residual at each fixed positive polarization scale, pitchfork threshold kappa=a and exact critical rate for a specific finite-ridge polarized EKI; earlier cited method papers give ingredients and linear or continuous-time theory but no inspected implication of this entire result. Best-of-knowledge with explicit priority risk.
 
-## Related science and remaining limitations
+## value
 
-Yang–Wu 2026 (arXiv:2610.31907v1) gives the original update and motivating multicluster behavior. Wacker 2024/2025 (arXiv:2402.00027v3) is the closest conceptual antecedent for local weighted covariance and explicitly differs by considering a continuous-time ODE without the same positive-ridge discrete gain. Tong–Morzfeld (arXiv:2201.10821) studies localization and convergence in another setting. The scalar hyperbolic-tangent bifurcation is classical; novelty is claimed only for its exact appearance and consequences in this PEKI specialization. Only accessible records and inspected sources inform priority; absolute historical uniqueness is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal multimodal inverse-problem configuration with two already-correct particles exhibits a rigorously persisting false middle-particle attractor. The precise finite-polarization threshold, residual and ridge-dependent critical slowdown delimit what the practical local weighting accomplishes; the toy model is mathematically motivated and not a routine restatement of generic EKI convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
