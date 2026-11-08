@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:55:32.657119Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 529d163206bc078acb7558a4f5d3961e424c78c5, proof §§1–6, exact domain and scalings.",
+        "Assigned check_peak.py Git blob c5d12e60b6973a8c04b9bf6678fd76f6877514b0, inspected but not accepted as proof.",
+        "Independent symbolic derivative of log-density ratio and independent numerical root checks."
+      ],
+      "rationale": "The prescribed f(t) is the absorbing first-hitting density for dX=v dt+sqrt(2D)dB, with c=L²/(4D)>0 and b=v²/(4D)≥0. For Q_tau(t)=∫_{max(0,t−tau)}^t f(u)du, Q_prime(t)>0 for t<tau, and for t=tau+s, Q_prime=f(s+tau)−f(s). The log ratio G(s)=c tau/[s(s+tau)]−(3/2)log(1+tau/s)−b tau has G_prime=tau[(3/2)s(s+tau)−c(2s+tau)]/[s²(s+tau)²]. Its quadratic numerator has one positive root and G runs from +infinity to −b tau (or 0 from below if b=0), so a unique descending zero yields the unique strict post-shutoff global maximum. Density unimodality makes delta<m<delta+tau and gives 0<d t_star/d tau<1 and d delta/d b<0 by implicit differentiation. Dimensionless substitution yields w=aT+(3/2)log(1+Tw)+w/(1+Tw) with w=c/delta, T=tau/c, a=bc. Root-order estimates supply all three T→infinity regimes, including varying aT/log T→theta. Independently reconstructed the G derivative symbolically and solved representative regimes: (T,a)=(100,0) gives delta≈0.0958106364483 for c=1, and (100,1) gives delta≈0.00877020045074; both match exact density-equality and slope signs. Source verifier is finite evidence only, not the infinite proof.",
+      "residual_risks": [
+        "Does not cover negative drifts or changed boundary conditions; the normalized first-hitting density assumption is specifically v≥0.",
+        "The original verifier is floating point and samples finitely many points, so its tests have no universal coverage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu–Warrick–Conklin 1999, §2 and §§3–4, provides finite pulse and step input transport moments and model comparisons but no global peak-lag monotonicity or asymptotic crossover theorem.",
+          "Bailly-Comte–Pistre 2021, impulse-return time modes and Peclet parametrizations, studies impulse tracer response rather than finite rectangular input after-shutoff peak.",
+          "The inverse-Gaussian log-density satisfies ell″(t)=(-2c+(3/2)t)/t^3; its sign changes, so generic globally log-concave moving-average theorems do not directly prove the claim."
+        ],
+        "reasoning": "Checked whether a genuinely broader step-input, signal-filtering, or impulse-peak theorem would dominate the finite-pulse result. Their formulas help derive the convolution but do not alone imply the full quantified maximum and singular double-scale crossover. No blanket claim is made that a general shifted-density theorem cannot exist.",
+        "searches": [
+          "Resultary: inverse Gaussian moving average finite pulse maximum",
+          "web: \"breakthrough curves step inputs moment method finite pulse tracer peak\"",
+          "Yu–Warrick–Conklin 1999 full PDF DOI:10.1029/1999WR900225",
+          "Bailly-Comte–Pistre 2021 DOI:10.1007/s10040-021-02327-x"
+        ]
+      },
+      "checked_sources": [
+        "Yu, Warrick & Conklin (1999), A moment method for analyzing breakthrough curves of step inputs, Water Resources Research, DOI:10.1029/1999WR900225; read entire six-page primary PDF including finite pulse formulas, moment tables, and §§2–3.",
+        "Kim, Eckford & Chae (2014), Symbol Interval Optimization for Molecular Communication with Drift, arXiv:1407.5776; read open preprint model sections, governing inverse Gaussian arrival density, and optimization setting.",
+        "Haselmayr, Efrosinin & Guo (2018), Normal Inverse Gaussian Approximation for Arrival Time Difference in Flow-Induced Molecular Communications, arXiv:1809.09995; inspected primary PDF model, mathematical result and discussion.",
+        "Bailly-Comte & Pistre (2021), A parsimonious approach for large-scale tracer test interpretation, Hydrogeology Journal, DOI:10.1007/s10040-021-02327-x; inspected OA full-text relevant impulse RTD peak formula and tracer tables.",
+        "Kreft & Zuber (1978), On the physical meaning of the dispersion equation and its solutions for different initial and boundary conditions, Chemical Engineering Science, DOI:10.1016/0009-2509(78)85196-3; bibliographic and accessible abstract information only; authorized institutional full text inaccessible."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Yu–Warrick–Conklin moment equations compute integrals of breakthrough responses, not the first derivative zero condition, and do not supply the special log-log/drift transition.",
+          "Kim–Eckford–Chae optimizes molecular symbol interval and first-arrival impulse effects, not the post-shutoff maximum of a finite-rate source.",
+          "Haselmayr–Efrosinin–Guo models differences of two individual inverse-Gaussian hitting times, a distinct random variable.",
+          "The 1978 Kreft–Zuber text was not available beyond bibliographic/abstract material; its potential implications cannot be excluded."
+        ],
+        "reasoning": "Distinguished exact logical implication from shared kernel, parameters, numerical matching, or similar terminology. Inspected available primary propositions/results on their own objects; no directly covering or stronger statement was found. The inaccessible plausible archival paper is explicitly retained as priority risk and does not, alone, override best-of-knowledge acceptance.",
+        "searches": [
+          "DOI:10.1029/1999WR900225 full six-page PDF",
+          "arxiv:1407.5776",
+          "arxiv:1809.09995",
+          "DOI:10.1007/s10040-021-02327-x",
+          "DOI:10.1016/0009-2509(78)85196-3 OA and authorized full-text attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The moving-window absorbed flux Q_tau(t)=∫_{max(0,t−tau)}^t f(u)du is an integral of the classical inverse-Gaussian first-passage density; its post-shutoff stationary points solve the equal-height endpoint equation f(delta+tau)=f(delta).",
+          "Kim–Eckford–Chae (2014), arXiv:1407.5776, formulates a first-passage impulse symbol model and symbol-duration ISI optimization, not uniform finite-release source optimization.",
+          "Yu–Warrick–Conklin (1999), DOI:10.1029/1999WR900225, gives related breakthrough-step and finite-pulse convolutions, without an equal-height uniqueness/lag crossover result in its six-page text."
+        ],
+        "reasoning": "Compared first-passage impulse/step response, finite rectangular pulse convolution, and shifted-density equal-level formulations mathematically rather than relying on titles. The convolution and endpoint equality are prior/basic calculus, while their complete strict global peak and singular drift crossover were not found as established statements in the inspected accessible primary material.",
+        "searches": [
+          "Resultary: finite pulse tracer absorbing first-passage flux maximum drift-diffusion",
+          "web: \"finite duration constant rate tracer injection peak arrival time at absorbing boundary advection diffusion\"",
+          "web: \"rectangular input inverse Gaussian first passage flux peak lag\"",
+          "arxiv:1407.5776"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1999 paper tables and formulae concern temporal moments/dispersion parameters, not the maximizer and lag as a continuous function of duration and drift.",
+          "The 2021 field tracer tables and peak-mode formula concern fitted or observed single-injection RTDs, not an all-duration pulse lag or transition function.",
+          "The claim is a continuous universal parameter theorem, not a finite enumerated invariant; absence of a matching numerical table does not prove novelty."
+        ],
+        "reasoning": "Examined relevant exact models, numerical tables and database-like published records for explicit dominance. Their output quantities differ from the lag-in-duration function, and no exact table was identified as already encoding the full theorem. This is bounded comparison, not novelty by failed search.",
+        "searches": [
+          "Yu–Warrick–Conklin 1999 DOI:10.1029/1999WR900225, original tables of step/finite-pulse moments",
+          "Bailly-Comte–Pistre 2021 DOI:10.1007/s10040-021-02327-x, tracer tables and impulse-mode equations",
+          "Resultary: advection-dispersion tracer release peak lag"
+        ]
+      },
+      "rationale": "Novelty is assessed for the joint global one-maximum finite-pulse absorbed first-passage-flux theorem, strict pulse-duration/drift sensitivities and explicit driftless-to-drifting long-release crossover, not for the inverse-Gaussian first-passage law, impulse mode, moving-window convolution or step/fixed-pulse transport formulas, which are established. The closest primary 1999 Yu–Warrick–Conklin paper was newly inspected in full: it handles finite-pulse/step-input breakthrough curves via temporal moments rather than the maximum or logarithmic drift crossover. Relevant first-arrival and tracer-interpretation primary papers likewise do not assert the combined theorem in the material read. A stronger older translated-kernel theorem or inaccessible Kreft–Zuber paper may still imply some or all statements. Best-of-knowledge PASS with historical priority uncertainty, not a novelty certificate.",
+      "residual_risks": [
+        "Kreft–Zuber 1978 exact complete original paper was unavailable; it could supply stronger finite release results not visible in bibliographic material.",
+        "A general theorem on moving-window modes or translated inverse-Gaussian first-passage profiles may imply some or all of the peak uniqueness and drift crossover despite not surfacing in indexed comparisons.",
+        "Strict distinction between absorbing first-passage flux and resident concentration/constant-concentration boundary models; extending the theorem to those different observables is unsupported.",
+        "Inspected Kim (2014) and Haselmayr (2018) materials are bounded and not assertions of exhaustive whole-document coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes impulse/step response conversions and finite-pulse/step moment tools as prior art; inspected text does not assert peak uniqueness, strict sensitivity or the singular asymptotic crossover.",
+          "evidence": [
+            "DOI:10.1029/1999WR900225, §2 equations on first/second temporal moments, §3 tables and §4 discussion of step tracer breakthrough; explicitly analyzed finite-pulse contributions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/1999WR900225",
+          "material_read": "Full six-page PDF (pp. 1–6), equations on impulse/step and finite-pulse relations, sections 2–4, parameter-moment tables and conclusion.",
+          "method": "Lawful online PDF textual extraction, mathematical comparison of formulas, and page screenshots of pages 2 and 6.",
+          "title": "A moment method for analyzing breakthrough curves of step inputs",
+          "trigger": "Closest 1999 step/pulse transport paper, same tracer equation and breakthrough model"
+        },
+        {
+          "assessment": "Prior impulse-release kernel and symbol interval optimization; no finite rectangular constant-source peak-lag theorem in inspected sections.",
+          "evidence": [
+            "arXiv:1407.5776, §II source sends molecules at beginning of symbol interval and models inverse-Gaussian arrival times."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.5776",
+          "material_read": "Open preprint PDF early pages and sections on first-passage governing equation, signal and ISI objective; not represented as full-paper reading.",
+          "method": "Open-access arXiv PDF text and rendered page inspection.",
+          "title": "Symbol Interval Optimization for Molecular Communication with Drift",
+          "trigger": "Same inverse-Gaussian hitting-time density with drift and downstream absorbing receiver"
+        },
+        {
+          "assessment": "Distribution of difference of two single-particle arrival times, not a time-uniform source response or absorbed-flux maximization.",
+          "evidence": [
+            "arXiv:1809.09995, main model defines individual arrival-time differences and a normal-inverse-Gaussian approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09995",
+          "material_read": "Open preprint PDF abstract, model, main difference-law calculations, and comparison/discussion.",
+          "method": "Open-access arXiv PDF text and a rendered page.",
+          "title": "Normal Inverse Gaussian Approximation for Arrival Time Difference in Flow-Induced Molecular Communications",
+          "trigger": "Same drift transport and inverse-Gaussian first passage, possibly stronger arrival-time result"
+        },
+        {
+          "assessment": "Impulse RTD mode and field tracer estimates; not a constant finite-release post-shutoff peak/crossover theorem.",
+          "evidence": [
+            "Hydrogeology Journal 2021, impulse RTD mode formula and field interpretation; model observable differs from Q_tau maximizing over finite releases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10040-021-02327-x",
+          "material_read": "Accessible open full-text HTML sections on impulse tracer residence-time distributions, equations for Pe/arrival peak, and field tracer table.",
+          "method": "Lawful OA primary article HTML, searching and reading relevant formulas and associated table.",
+          "title": "A parsimonious approach for large-scale tracer test interpretation",
+          "trigger": "Tracer-time mode, peak and resident-versus-flux measurements in applied hydrogeology"
+        },
+        {
+          "assessment": "Classical flux/resident distinction is credited; unknown whether full original develops a broader finite-pulse peak statement.",
+          "evidence": [
+            "Kreft–Zuber (1978), Chemical Engineering Science DOI:10.1016/0009-2509(78)85196-3; full text not accessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0009-2509(78)85196-3",
+          "material_read": "Bibliographic/abstract information and secondary citations only; primary full text unavailable.",
+          "method": "Lawful open-access search and authorized institutional document request, which reported VPN disconnected; no bypass or claim of reading.",
+          "title": "On the physical meaning of the dispersion equation and its solutions for different initial and boundary conditions",
+          "trigger": "Original classical transport boundary/flux formulations; plausible implications for finite release response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md theorem and six-step analytic argument.",
+        "Yu–Warrick–Conklin 1999 DOI:10.1029/1999WR900225, contrasting moment-based finite-pulse analysis.",
+        "Bailly-Comte–Pistre 2021 DOI:10.1007/s10040-021-02327-x, impulse peak interpretation."
+      ],
+      "rationale": "Finite continuous-rate contaminant or tracer release at an absorbing downstream receiver is a mathematically natural transport observable. Its time of maximum loading after shutoff, strict reaction to source duration and drift, and the singular b=0 versus fixed b>0 delay scales with a quantitative crossover are substantive model-sensitive information not given by the classical impulse mode or by temporal moments. In particular, the driftless delay decays as inverse log T while fixed positive drift yields inverse T, so the limit is genuinely nonuniform as drift approaches zero. The result is an exact self-contained family theorem with clear physical and mathematical motivation, not simply a numerical fit, arbitrary parameter slice or new label on a textbook identity.",
+      "residual_risks": [
+        "Idealized model does not cover sorption/reaction/recirculation or concentration measurement as opposed to first-passage absorbed flux.",
+        "Potential classical implicit coverage may reduce mathematical priority although the observable is independently motivated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Yu, Warrick & Conklin (1999), A moment method for analyzing breakthrough curves of step inputs, Water Resources Research, DOI:10.1029/1999WR900225; read entire six-page primary PDF including finite pulse formulas, moment tables, and §§2–3.",
+    "Kim, Eckford & Chae (2014), Symbol Interval Optimization for Molecular Communication with Drift, arXiv:1407.5776; read open preprint model sections, governing inverse Gaussian arrival density, and optimization setting.",
+    "Haselmayr, Efrosinin & Guo (2018), Normal Inverse Gaussian Approximation for Arrival Time Difference in Flow-Induced Molecular Communications, arXiv:1809.09995; inspected primary PDF model, mathematical result and discussion.",
+    "Bailly-Comte & Pistre (2021), A parsimonious approach for large-scale tracer test interpretation, Hydrogeology Journal, DOI:10.1007/s10040-021-02327-x; inspected OA full-text relevant impulse RTD peak formula and tracer tables.",
+    "Kreft & Zuber (1978), On the physical meaning of the dispersion equation and its solutions for different initial and boundary conditions, Chemical Engineering Science, DOI:10.1016/0009-2509(78)85196-3; bibliographic and accessible abstract information only; authorized institutional full text inaccessible."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one-dimensional homogeneous constant drift/dispersion, L,D,tau>0, v≥0, perfect absorbing first-passage receiver and constant-rate source [0,tau].",
+    "Peak times are for absorbed first-arrival mass flux Q_tau, not resident concentrations or finite-capacity receptors.",
+    "The driftless, fixed-positive-drift, and varying-drift formulas are as T→infinity and not numerical approximations uniformly at all moderate T.",
+    "No conclusion for first-passage distributions under negative drift, time-varying coefficients, sorption, nonabsorbing boundaries or coupled interactions.",
+    "Classical complete archival source Kreft–Zuber (1978) inaccessible through authorized institutional connection; explicit priority risk retained, not automatic O failure."
+  ],
+  "residual_risks": [
+    "Kreft–Zuber 1978 exact complete original paper was unavailable; it could supply stronger finite release results not visible in bibliographic material.",
+    "A general theorem on moving-window modes or translated inverse-Gaussian first-passage profiles may imply some or all of the peak uniqueness and drift crossover despite not surfacing in indexed comparisons.",
+    "Strict distinction between absorbing first-passage flux and resident concentration/constant-concentration boundary models; extending the theorem to those different observables is unsupported.",
+    "Inspected Kim (2014) and Haselmayr (2018) materials are bounded and not assertions of exhaustive whole-document coverage."
+  ],
+  "schema_version": 1
+}
