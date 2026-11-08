@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T03:16:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/axial-displacement-of-random-simplex-sections-exact-means-and-a--735dd551990e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/axial-displacement-of-random-simplex-sections-exact-means-and-a--735dd551990e/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/axial-displacement-of-random-simplex-sections-exact-means-and-a--735dd551990e/VERIFICATION.md"
+      ],
+      "rationale": "For t<1, a generic hyperplane-section vertex is precisely a crossed simplex edge. Gaussian/Haar two-ray angles split into n distinguished edges and n(n-1)/2 others, yielding exact arccosine F_n(t). The derivative sign algebra reduces to (n-2)(n+1)(2t+nt²), zero for n=2 and strictly negative for n>=3, with stated centroid curvature. A Gaussian normal gives exact sign-count V=K_m(m-K_m); for t=1 the apex replaces collapsing incident edges and iid Gaussian rank is uniform, giving V=1+K(n-K). For fixed t>0, empirical CDF convergence yields V/m²=>Phi(tZ)(1-Phi(tZ)); at t=c/sqrt m, an empirical-CDF stochastic-equicontinuity expansion and a joint independent CLT produce Gaussian sign imbalance with variance 1/4-1/(2pi)+c²/(2pi), hence the squared-normal deficit. Independent arithmetic checks reconstructed F_n and derivatives for n=2..24; the actual verify.py includes finite simulations and rank checks, which do not prove infinite limits.",
+      "residual_risks": [
+        "Generic edge-crossing formula invalid at endpoint t=1, handled separately; simplex must be regular and normal Haar."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2606.07163",
+          "arXiv:2312.01325",
+          "arXiv:1509.06408"
+        ],
+        "reasoning": "Inspected broader volume-extremum results for simplex hyperplane sections concern deterministic volume and cannot determine random combinatorial vertex counts or Gaussian rank laws.",
+        "searches": [
+          "restricted hyperplane sections regular simplex Brazitikos Pandis 2026",
+          "noncentral simplex sections König 2023",
+          "random projections regular simplex Affentranger Schneider 1992"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90",
+        "https://arxiv.org/abs/2606.07163",
+        "https://arxiv.org/abs/1509.06408",
+        "https://arxiv.org/abs/2312.01325"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+          "arXiv:2606.07163"
+        ],
+        "reasoning": "The old t=0 identities are recovered as special cases, but do not imply formulas for general t, especially the endpoint where generic crossing fails. Deterministic section-volume extrema do not imply a random vertex-count expectation or limit distribution.",
+        "searches": [
+          "published central chi-square simplex section vertex counts 2026-10-11",
+          "Brazitikos Pandis restricted hyperplane sections 2606.07163"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90"
+        ],
+        "reasoning": "A Gaussian iid sign threshold is an equivalent probabilistic model, but the known central case fixes the threshold at sample mean and does not cover t>0 or the t~m^-1/2 law.",
+        "searches": [
+          "random regular simplex noncentral hyperplane section vertex count Gaussian threshold ranks",
+          "centroid-to-vertex axial displacement random section chi-square crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90"
+        ],
+        "reasoning": "Exact central mean and central fluctuation coefficient are already tabulated/proved and credited; the noncentral t parameter, endpoint uniform-rank jump, and critical displacement coefficient were not found as a prior exact table.",
+        "searches": [
+          "Resultary exact mean chi-square central simplex section vertex counts",
+          "Resultary joint face vector central section asymptotics"
+        ]
+      },
+      "rationale": "Known Resultary central expected vertex count, central chi-square limit and joint central face-vector law are appropriately credited. They are all centered t=0 results; they do not entail axial strict monotonicity, noncentral finite means, the t=1 jump, or the dimension-dependent displacement crossover. Prior random projection and deterministic section volume papers study different random variables/models.",
+      "residual_risks": [
+        "Older Gaussian threshold empirical-process literature may contain mathematically equivalent critical-window limits under a statistical name.",
+        "No uniform theorem for all dimension-dependent displacement t_n is claimed; only fixed and fixed-coefficient critical scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS t=0 formula and chi-square base coefficient only",
+          "evidence": "Uniform Haar normals through centroid, fixed threshold bar X, coefficient 1/4-1/(2pi), without axial displacement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+          "material_read": "Entire RESULT.md: exact central expectation, Gaussian sign-count derivation, limit, prior literature",
+          "method": "Resultary full-text GitHub read",
+          "title": "Exact mean and chi-square fluctuations of Haar central simplex-section vertex counts",
+          "trigger": "Exactly same regular simplex section count at t=0"
+        },
+        {
+          "assessment": "COVERS joint central face counts, not t>0 or endpoint changes",
+          "evidence": "Their exact face-vector identity uses K=#(Xi>sample mean) and only centroidal hyperplanes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90",
+          "material_read": "Entire RESULT.md: full central face-vector law, joint fluctuations, scope, limitations",
+          "method": "Resultary full-text GitHub read",
+          "title": "Joint chi-square face-vector fluctuations of random central regular-simplex sections",
+          "trigger": "Potential dominating joint face-count theorem"
+        },
+        {
+          "assessment": "Different observable: geometric section volume optimization, not random vertex counts",
+          "evidence": "The main statements optimize sections under positional/orientation restrictions and do not derive Gaussian section-vertex distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.07163",
+          "material_read": "Full available arXiv HTML with sections on regular simplex/crosspolytope extremal section volumes",
+          "method": "Primary arXiv full HTML read",
+          "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+          "trigger": "Same simplex sections, potential stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/axial-displacement-of-random-simplex-sections-exact-means-and-a--735dd551990e/RESULT.md"
+      ],
+      "rationale": "Moving the section through the centroid-to-vertex axis is the natural first noncentral deformation of a standard random polytope section. The exact finite mean, sharp geometric endpoint discontinuity, and two-scale fluctuation crossover answer structural probabilistic questions, not numerical sampling or a mere renaming.",
+      "residual_risks": [
+        "Generic edge-crossing formula invalid at endpoint t=1, handled separately; simplex must be regular and normal Haar."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older Gaussian threshold empirical-process literature may contain mathematically equivalent critical-window limits under a statistical name.",
+    "No uniform theorem for all dimension-dependent displacement t_n is claimed; only fixed and fixed-coefficient critical scaling.",
+    "Generic edge-crossing formula invalid at endpoint t=1, handled separately; simplex must be regular and normal Haar.",
+    "Existing public METADATA.json and AUDIT.json each retain scope_run_id (an operational identifier); unmodified publication would violate confidentiality. The audit has not supplied fully guarded, complete UTF-8 sanitized replacements and provenance checks."
+  ],
+  "schema_version": 1
+}

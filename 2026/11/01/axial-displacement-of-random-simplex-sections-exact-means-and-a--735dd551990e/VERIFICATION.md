@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-The accompanying `verify.py` is a standalone Python 3 script depending on NumPy. Run `python verify.py`. The saved script was executed from its actual path and returned:
+## correctness
 
-`VERIFY_OK: 2183 deterministic assertions, including rank enumeration and numerical samples.`
+PASS
 
-Checks cover the exact Euclidean ray-angle geometry independently of the final formula, derivative and centroid curvature by finite differences, uniform distinguished-rank enumeration, consistency of the fixed-dimensional mean, Gaussian hyperplane simulations, and diagnostics for both limiting regimes. Random checks use a fixed seed; they are nonexhaustive and approximate. The exact rank enumeration has a finite parameter range. Universal correctness requires the analytic proof in `RESULT.md`, particularly the Gaussian local empirical-CDF equicontinuity and the distinction between \(t<1\) and \(t=1\). Historical novelty and scientific value are assessed separately in `REVIEW.md` and `AUDIT.json`. Independent scientific audit has not been performed.
+For t<1, a generic hyperplane-section vertex is precisely a crossed simplex edge. Gaussian/Haar two-ray angles split into n distinguished edges and n(n-1)/2 others, yielding exact arccosine F_n(t). The derivative sign algebra reduces to (n-2)(n+1)(2t+nt²), zero for n=2 and strictly negative for n>=3, with stated centroid curvature. A Gaussian normal gives exact sign-count V=K_m(m-K_m); for t=1 the apex replaces collapsing incident edges and iid Gaussian rank is uniform, giving V=1+K(n-K). For fixed t>0, empirical CDF convergence yields V/m²=>Phi(tZ)(1-Phi(tZ)); at t=c/sqrt m, an empirical-CDF stochastic-equicontinuity expansion and a joint independent CLT produce Gaussian sign imbalance with variance 1/4-1/(2pi)+c²/(2pi), hence the squared-normal deficit. Independent arithmetic checks reconstructed F_n and derivatives for n=2..24; the actual verify.py includes finite simulations and rank checks, which do not prove infinite limits.
+
+## originality
+
+PASS
+
+Known Resultary central expected vertex count, central chi-square limit and joint central face-vector law are appropriately credited. They are all centered t=0 results; they do not entail axial strict monotonicity, noncentral finite means, the t=1 jump, or the dimension-dependent displacement crossover. Prior random projection and deterministic section volume papers study different random variables/models.
+
+## value
+
+PASS
+
+Moving the section through the centroid-to-vertex axis is the natural first noncentral deformation of a standard random polytope section. The exact finite mean, sharp geometric endpoint discontinuity, and two-scale fluctuation crossover answer structural probabilistic questions, not numerical sampling or a mere renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
