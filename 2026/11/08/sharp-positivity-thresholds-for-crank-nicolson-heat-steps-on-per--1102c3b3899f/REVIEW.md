@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The torus Fourier eigenvalues and the Cayley identity reduce complete entrywise positivity to a single strictly decreasing diagonal return integral. Dimension monotonicity follows by adding a nonnegative nondegenerate independent frequency. Period monotonicity follows pointwise in Laplace-transform time from the discrete exponential Fourier alias formula and a strict adjacent-order Bessel coefficient comparison, for which a Riccati proof is supplied. The 1D exact Green kernel, 2D central-binomial elliptic expansion, finite \(3\times3\) spectral identity, and uniform high-dimensional Taylor remainder were reconstructed against their hypotheses. The exact matrix verifier passes 3,602 checks. All infinite claims are supported by arguments rather than finite enumeration.
+
+## Originality — PASS, qualified
+The baseline fixed-generator resolvent-return test is already in the published *resolvent-return law for Crank–Nicolson positivity* (2026); the one-dimensional periodized resolvent kernel is in the published *backward-Euler-filtered Crank–Nicolson* (2026). Neither is claimed new. Higueras–Roldán (2023) address the homogeneous-Dirichlet heat equation, not multidimensional periodic tori; Faragó–Korotov–Szabó (2010) report exact one-dimensional and sufficient two-dimensional conditions in another boundary context. The assessed novelty is the **entire** periodic-torus sharp frontier with both strict monotonicities, the exact square-lattice elliptic threshold and uniform large-dimensional expansion. Full theorem-level text of the directly relevant 2023 original and both 2026 published-finding corpus results was inspected. Only metadata/abstract/accessible excerpts were available for some earlier background work. Further specialized historical overlap cannot be excluded, but no inspected source implies the complete asserted package.
+
+## Value — PASS
+The standard high-order-in-time heat discretization is A-stable yet may map nonnegative heat vectors to negative values. The exact positive-CFL frontier across all periodic grid sizes and spatial dimensions is a motivated numerical maximum-principle question; exact two-dimensional and large-dimensional scales quantify how far conservative sufficient bounds can be improved. Strict grid-size dependence makes mesh refinement itself relevant to positivity, and the elliptic threshold provides an independently reproducible planar benchmark. The value claim is deliberately limited to this natural discretization, without claiming generalized boundary guarantees or a new integration method.
+
+## Remaining scientific risks
+An older specialist paper might already contain some or all of the periodic-torus thresholds, especially the classical square lattice Green-function identity; no independent publication-priority review has been performed. Floating-point evaluation of small finite-grid improvements loses significance at large periods, so exact formulas and analytic proofs, not decimal signs, establish strictness. This review does not address nonuniform or nonlinear heat schemes.
+
+Self-review: passed. Independent audit: not yet performed.
