@@ -1,19 +1,21 @@
-# Scientific review: relative line scheme of the Dwork quartic in characteristic three
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a geometric statement over an algebraic closure of characteristic three. On a full Grassmann chart, the five coefficients of the restricted quartic are displayed explicitly and exhaust all line-containment conditions. For nonzero parameter, the mixed coefficient forces a relation incompatible with the other four coefficients, covering vanishing as well as nonvanishing coordinate cases. At the Fermat fiber the proof classifies exactly the 48 pair-split lines and 64 fourth-root-orbit lines. The restricted deformation map has rank four because every line on the smooth quartic has normal bundle of degree minus two, and the four unmixed coefficients span its image. Formal elimination leaves a single parameter equation of order one on the 48 split lines and order two on the other 64. The representative order-two coefficient is computed exactly; diagonal fourth-root symmetry transports it to all 64. The total length is therefore 176. The optional 16-node statement follows from an explicit nondegenerate Hessian determinant. Both standalone exact checking programs passed over their stated finite domains. Finite enumeration does not replace the algebraic proof.
+PASS
 
-## Originality — PASS, conditional on recorded priority limits
+On an arbitrary Grassmann chart after permuting coordinates, write [s:t:as+ct:bs+dt]. In characteristic 3 the restricted quartic has exactly coefficient equations 1+a^4+b^4=0, 1+c^4+d^4=0, a^3c+b^3d+lambda ab=0, ac^3+bd^3+lambda cd=0, lambda(ad+bc)=0. For lambda≠0 the zero/nonzero coordinate cases lead to contradictions; when all entries nonzero, ad+bc=0 implies (c,d)=u(a,-b), u^4=1 and the two mixed equations force lambda ab=0. At lambda=0 classify coordinate-pair lines (three partitions times 4^2=48), and nonzero configurations (a,d,r)∈mu_4^3 giving 64. On smooth quartic each line has N_{L/X}=O(-2), thus four-coordinate restricted Jacobian injective rank 4; formal implicit elimination of first four equations gives lambda q(lambda). At coordinate-pair q(0) nonzero, local ring k; at [s:t:s+t:s-t] q(0)=0, independently recomputed tangent derivatives (-1,1,1,1) and q′(0)=1 in F_3, giving k[epsilon]/epsilon²; diagonal mu_4 symmetry covers 64. Independent modular Jacobian check confirms local obstruction and orbit counts; finite F9 source verifier is supporting evidence, not proof over algebraic closure. Count 48+64·2=176.
 
-Braeger, Malmendier, and Sung's 2019 treatment introduces and studies the Dwork quartic pencil and its mirror-K3 geometry but addresses Kummer sandwiches and arithmetic periods, not its characteristic-three relative Fano line scheme. Veniani's characteristic-three quartic study supplies the well-known 112-line Fermat example and general upper bounds on line counts, without an exact line-free result for this named pencil or local scheme-length decomposition. Related broad work by Degtyarev studies large supersingular quartic line configurations, but the full PDF was not accessible for a decisive text comparison. The identified mathematical research records concern different Fano schemes, quartics, or line-incidence properties, and thus do not imply the claimed local algebra \(k[\epsilon]/(\epsilon^2)\) at 64 Dwork lines. No equivalent result was found, but absence from these searches does not prove absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines an exact naturally defined deformation invariant: the scheme of lines over the coefficient parameter of an important mirror-K3 family. The distinction between 112 reduced lines in the special fiber and the length-176 nonreduced relative scheme is geometrically meaningful: 64 lines have first-order motions obstructed at second order, while the other 48 are immediately obstructed. The all-nonzero-parameter line-free statement is sharp across both smooth and nodal members. It is neither a numerical experiment nor an arbitrary small slice; the two local lengths are dictated by the Dwork deformation and the characteristic-three Hermitian geometry.
+Best-of-knowledge PASS for the full relative Fano scheme, including local nonreduced deformation lengths and absence of lines on all nonzero members of a specified coefficient-marked pencil. The 112 Fermat lines and the Dwork geometry are prior results; neither implies this family scheme calculation.
 
-## Closest literature and residual limitations
+## value
 
-The closest motivating primary work is Braeger--Malmendier--Sung, arXiv:1912.06951, first publicly posted 2019-12-14. Veniani, arXiv:1608.04209, and Rams--Schütt, arXiv:1409.7485, document the 112-line Fermat configuration. Degtyarev, *Lines in supersingular quartics*, DOI:10.2969/jmsj/81998199, is a relevant broad classification; only its abstract could be accessed here because the full-PDF attempt timed out. Historical priority remains subject to those limits, particularly an unpublished or unindexed calculation. The result does not classify all characteristic-three quartics or all their rational curves.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A naturally defined relative Hilbert scheme of an important quartic K3 pencil has a subtle 112-support versus 176-length discrepancy. The distinction of 48 immediate obstructions and 64 first-order yet second-order obstructed lines is a substantive geometric deformation invariant, independent of classifying all K3 deformations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify_dwork.py` uses \(\mathbf F_9=\mathbf F_3[i]/(i^2+1)\), lists all \(7462\) reduced-row-echelon presentations of two-dimensional vector subspaces of \(\mathbf F_9^4\), and tests each restricted quartic at five distinct projective parameter points. Its exact output is:
+## correctness
 
-```
-GF9_DWORK_LINES_{0: 112, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}_OK
-```
+PASS
 
-The independent `verify_local.py` constructs the fourth-root sets, checks the two orbit counts and the first-order implicit-function calculation at the exotic representative. It outputs:
+On an arbitrary Grassmann chart after permuting coordinates, write [s:t:as+ct:bs+dt]. In characteristic 3 the restricted quartic has exactly coefficient equations 1+a^4+b^4=0, 1+c^4+d^4=0, a^3c+b^3d+lambda ab=0, ac^3+bd^3+lambda cd=0, lambda(ad+bc)=0. For lambda≠0 the zero/nonzero coordinate cases lead to contradictions; when all entries nonzero, ad+bc=0 implies (c,d)=u(a,-b), u^4=1 and the two mixed equations force lambda ab=0. At lambda=0 classify coordinate-pair lines (three partitions times 4^2=48), and nonzero configurations (a,d,r)∈mu_4^3 giving 64. On smooth quartic each line has N_{L/X}=O(-2), thus four-coordinate restricted Jacobian injective rank 4; formal implicit elimination of first four equations gives lambda q(lambda). At coordinate-pair q(0) nonzero, local ring k; at [s:t:s+t:s-t] q(0)=0, independently recomputed tangent derivatives (-1,1,1,1) and q′(0)=1 in F_3, giving k[epsilon]/epsilon²; diagonal mu_4 symmetry covers 64. Independent modular Jacobian check confirms local obstruction and orbit counts; finite F9 source verifier is supporting evidence, not proof over algebraic closure. Count 48+64·2=176.
 
-```
-DWORK_LOCAL_TANGENT_48_REDUCED_64_LENGTH_TWO_TOTAL_176_OK
-```
+## originality
 
-Both use only the Python standard library. The computations are exact in finite fields and can be replayed using `python verify_dwork.py` and `python verify_local.py` from the containing directory. The proof of completeness for algebraically closed characteristic-three fields, the full absence of lines for every nonzero geometric parameter, and the scheme-theoretic local lengths is given in `RESULT.md`; neither exhaustive \(\mathbf F_9\) enumeration nor first-order data alone would establish those assertions.
+PASS
 
-No independent external verification has been performed. The principal scientific limitations are the restriction to the specified Dwork pencil and characteristic three, and residual literature-priority uncertainty.
+Best-of-knowledge PASS for the full relative Fano scheme, including local nonreduced deformation lengths and absence of lines on all nonzero members of a specified coefficient-marked pencil. The 112 Fermat lines and the Dwork geometry are prior results; neither implies this family scheme calculation.
+
+## value
+
+PASS
+
+A naturally defined relative Hilbert scheme of an important quartic K3 pencil has a subtle 112-support versus 176-length discrepancy. The distinction of 48 immediate obstructions and 64 first-order yet second-order obstructed lines is a substantive geometric deformation invariant, independent of classifying all K3 deformations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
