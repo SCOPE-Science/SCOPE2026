@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Thin SVD yields signed coefficients mean*(1-alpha±r). Their absolute values give the exact contrast map T_c(r): r/c below c, c/r above c, with rank loss exactly at c. Transform x=log(r)/log(c); integer exponents hit rank one in exactly k steps, nonintegers enter (c,1) after floor(x) steps and undergo contrast involution. Tracking the polar signs for both alpha<1 and alpha>1 proves E_{t+2}=(1-alpha)E_t, not merely a singular-value relation. Equal singular, rank-one and zero starts are separately handled. Exact rational and 300 numerical random-frame checks passed; the proof establishes all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.30280v1 Corollary 5 gives alpha=1 two-cluster line-search behavior; Corollary 6 gives alpha=1 post-collapse rate.",
+        "arXiv:2610.27747v1 establishes 0<alpha<2 convergence for every initialization but not exact generic two-step scaling or exceptional rank-loss timing."
+      ],
+      "reasoning": "Alpha=1 results are intentionally excluded; alpha not equal to one cannot be obtained merely by changing the rate in alpha=1 collapse because the post-first-step dynamics are different and have a countable resonance set. General convergence guarantees do not determine these phenomena.",
+      "searches": [
+        "arXiv:2610.30280v1 Appendix I Corollaries 4-6, exact two-row dynamics",
+        "arXiv:2610.27747v1 Appendix C proof for nuclear scaling",
+        "\"polar\" \"isotropic\" \"rank\" \"finite\" \"two cluster\" singular values step"
+      ]
+    },
+    "checked_sources": [
+      "Shulgin et al., arXiv:2610.30280v1 (full relevant Appendix I).",
+      "Jawanpuria et al., arXiv:2610.27747v1 (Theorem 3 and Appendix C).",
+      "Lau et al., arXiv:2505.21799 (optimizer introduction).",
+      "Indexed comparisons with published scalar Polar-Express, SOAP singular-value collapse, and spectral quadratic optimization results; these concern different updates."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.30280v1, Appendix I: the general root recursion and the alpha=1 spectral-collapse theorem.",
+        "arXiv:2610.27747v1: rate bounds and special invariant initial directions, not a full all-rank phase classification."
+      ],
+      "reasoning": "An explicit new step is needed: normalize both singular values by their mean, derive T_c(r)=r/c for r<c and c/r for r>c, then solve the finite-fold dynamics, prove exactly when rank is lost, and derive E_{t+2}=(1-alpha)E_t from signed singular coefficients. The prior alpha=1 result cannot dominate this theorem because the contrast map degenerates to c=0 in that case.",
+      "searches": [
+        "arXiv:2610.30280v1 Proposition 17, Corollaries 4, 5, 6 and fixed-step paragraph",
+        "arXiv:2610.27747v1 Theorem 3 and Proposition 8",
+        "\"PolarGrad\" \"period two\" \"singular values\" isotropic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.30280v1 Appendix I, Eq. (51), the general commuting fixed-step singular value map; its Corollary 6 is only for alpha=1.",
+        "arXiv:2610.27747v1, Theorem 3 and Proposition 8: uniform bounds and invariant starting rays."
+      ],
+      "reasoning": "Equivalent forms are the two-singular-value contrast map, normalized fixed-step polar gradient, and finite-time two-cycle in singular-ratio space. The closest source's general scalar recursion contains the ingredients, but the explicitly classified off-line-search return map and exact exceptional rank-loss set are not stated as an implication there.",
+      "searches": [
+        "\"PolarGrad\" \"period two\" \"singular values\" isotropic",
+        "\"nuclear norm scaled\" polar \"two-cycle\" quadratic",
+        "PolarGrad two singular values isotropic quadratic exact step size alpha not one finite transient two-step periodic 1-alpha rank collapse exceptional singular ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected original sources contain general formulas and a particular line-search classification, not a table or full exact exceptional set at the off-line-search steps.",
+        "No equivalent indexed exact-ratio table was identified by the queries."
+      ],
+      "reasoning": "The theorem holds for a continuum of steps and initial ratios. It is not a recomputation of a known numerical table; its exceptional initial ratios are exact algebraic powers tied to the selected step.",
+      "searches": [
+        "polar gradient nuclear scaling 2x2 isotropic quadratic two step scalar recurrence ratio c/r resonant finite rank loss",
+        "\"polar\" \"isotropic\" \"rank\" \"finite\" \"two cluster\" singular values step",
+        "arXiv:2610.30280v1 Appendix I.2"
+      ]
+    },
+    "rationale": "The closest full paper derives exact fixed-step covariance recursion and separately classifies the alpha=1 line-search collapse, but not the off-line-search finite-transient two-cycle or exceptional powers producing finite-time rank loss. The general convergence theorem and invariant rays of the second paper do not imply the entire step-size family without a new piecewise ratio-dynamics argument. Searches of related published findings identified distinct algorithms or weaker coverage; unindexed equivalents remain a risk.",
+    "residual_risks": [
+      "A previously unindexed singular-value recurrence or two-dimensional polar-descent classification might be mathematically equivalent.",
+      "The piecewise contrast map is an elementary consequence of known exact singular-value formulas; priority is claimed only for its explicit all-initializations off-line-search phase classification.",
+      "Exact rank-loss resonances are not robust in floating-point arithmetic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest and strongest prior result. Alpha=1 two-row equalization is explicitly proved; the new alpha-not-one phase classification, exact resonance set and two-step scalar orbit are not stated.",
+        "evidence": [
+          "Appendix I, Proposition 17 and Corollaries 4-6; discussion of fixed alpha scaling and the alpha=1 special case."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30280v1",
+        "material_read": "Definitions of dual-adapted scaling, Section 4 trajectory statements, Appendix I Proposition 17, its fixed-step extension, Corollaries 4-6 and the two-row special case.",
+        "method": "Read openly accessible full HTML sections and the associated equations.",
+        "title": "A Quadratic Lens on Muon's Polar Update: Benefits, Pitfalls, and the Role of Newton–Schulz",
+        "trigger": "Same optimizer with dual-adapted fixed steps; Appendix I has exact two-row behavior and might cover claim."
+      },
+      {
+        "assessment": "Proves the stable parameter range and special invariant ranks, but not the full off-line-search isotropic two-row return map.",
+        "evidence": [
+          "Theorem 3, Appendix C Proposition 8, and general-initialization discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+        "material_read": "Sections 2 and 4, Appendix C, Theorem 3 and Proposition 8.",
+        "method": "Read open HTML sections and proofs.",
+        "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+        "trigger": "General convergence and initialization-dependent rates for the same exact nuclear-scaled update."
+      },
+      {
+        "assessment": "Algorithm and general convergence covered; no finite-transient two-cycle or exact resonance spectrum identified.",
+        "evidence": [
+          "Nuclear-norm scaling definition and convergence sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.21799v4",
+        "material_read": "Sections 3.3 and 3.5 and Appendix B on nuclear scaling and polar calculations.",
+        "method": "Read the accessible full article sections.",
+        "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+        "trigger": "Original optimizer definition and convergence results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc3e895d-0275-46ec-8b04-bfd0d00ac253",
+  "value": {
+    "rationale": "For the natural complete two-row isotropic slice at every stable off-line-search fixed step, this gives a nontrivial full phase portrait: generic finite-time entry into a scalar two-step orbit versus discrete exact finite-time rank-loss resonances, plus explicit subsequent rates. The source leaves non-line-search trajectory shape undetermined despite its general fixed-step formula. The result explains how step choice and exact initial spectrum jointly control algorithmic rank and contraction, rather than supplying a small parameter gain.",
+    "status": "PASS"
+  }
+}
