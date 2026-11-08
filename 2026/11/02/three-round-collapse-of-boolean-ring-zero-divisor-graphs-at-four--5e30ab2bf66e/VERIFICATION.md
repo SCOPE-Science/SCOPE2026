@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `sh run_verification.sh` with Python 3 from this directory. The script replays the two independent programs, whose saved console output is in `verification_output.txt`.
+## correctness
 
-`verify_direct.py` constructs all vertices and complete atomic diagrams for ordered triples of vertices in graphs with factor counts 2 through 7, deriving the exact three-round EF root type by two successive extension-set recursions. It observes three distinct root types for counts two, three and four, followed by equality of the root type for four through seven.
+PASS
 
-`verify_structural.py` derives the ordered-pair extension patterns from the four Venn-region cardinalities for counts four through twelve. It exhausts all finite pairs of cardinality types, verifies every row's set of allowed third-vertex adjacency patterns, and verifies the possible pair classes by initial-vertex cardinality category. All printed tests pass.
+Every graph vertex is a nonempty proper support A⊊[n]; adjacency is disjointness. For n≥4 the nine mutually exclusive ordered-pair types have stable third-vertex incidence masks; the singleton/middle/co-singleton one-point types have stable pair-extension lists, giving a 3-round EF win. Triangle separates n2 from n≥3; a rank3 four-nonempty-Venn-region witness distinguishes n3 from n≥4. Independently enumerated small n exact 3round types; infinite case follows set constructions.
 
-These finite computations are corroboration. The infinite classification is proved independently by the explicit uniform pair-response table and the three-round strategy in RESULT.md. No independent mathematical audit or certification has taken place.
+## originality
+
+PASS
+
+Qualified PASS: Mohammadian identifies full graph isomorphism rigidity for Boolean rings; this is strictly stronger distinguishing power and does not imply a rank-three collapse. The separately read published 2^q Boolean-algebra language theorem has richer operations/constants; removing them can collapse classes and yields no automatic exact 4 cutoff. Adjacent geometric/metric resolving results are not FO3 equivalence. Unknown older model-theoretic reduction remains residual.
+
+## value
+
+PASS
+
+The simple annihilator graph of a finite Boolean ring is a natural reduct, and its exact low-quantifier collapse contrasts with full graph rigidity and richer ring syntax. The stable cutoff 4 is a structural, rather than arbitrary, logical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
