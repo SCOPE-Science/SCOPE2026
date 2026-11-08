@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The Fourier transform of the biharmonic equation yields exactly two square-integrable modes for each nonzero horizontal frequency. The normalized Laguerre basis is explicitly orthonormal, its slab Gram matrix is evaluated by independent elementary integrals, and its determinant follows by a checked quadratic cross-trace identity. Strict unimodality is established for every admissible slab: the logarithmic derivative decreases from infinity to one, and its derivative has an exact positive-coefficient hyperbolic series. The thin-slab and boundary asymptotics follow from the uniquely determined critical point. The checker passes 387 supplementary finite tests, none used as a substitute for proof.
+PASS
 
-## Originality (PASS, provisional historical priority)
+The Fourier ODE (d_y^2-rho^2)^2 f=0 has exactly the decaying 2-mode fiber (A+By)e^{-rho y}; direct Laguerre orthonormality and the integrated tail Gram matrix yield M=e^{-at}Q(at)-e^{-bt}Q(bt). Its determinant is e^{-cz}[2(cosh z-1)-z^2]. The analytic identity g'^2-gg''=2[z^2(cosh z+1)-4z sinh z+4(cosh z-1)] has a positive coefficient power series starting z^6/36 (independently symbolically verified), so g'/g decreases strictly from infinity to 1 and the c>1 optimum is unique. Small-z g~z^4/12 yields quartic thin-slab constant 64/(3e^4). The equation epsilon~z^2 e^{-z} yields z=L+2log L+o(1) and 1-D*~epsilon L. At a=0 the interval Gram increases toward I and the determinant supremum 1 is not attained. All claims concern fiber determinants, not a global Fredholm determinant.
 
-Pessoa--Santos (2017) provides the polyharmonic half-plane model and Laguerre components; those are background. Bradík (arXiv:2310.17562, first posted 2023-10-26) develops harmonic kernels and vertical Berezin asymptotics, with order-one rather than biharmonic two-mode fibers. Searches of published mathematical findings and public mathematical literature did not identify an implication covering the exact slab determinant, globally unique D-optimal frequency, and two distinguished endpoint laws. The publisher's complete Pessoa--Santos text could not be obtained in this access environment. The full-text accessibility limitation is explicitly retained, and no absence-of-prior-work claim rests solely on failed searching.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-For simultaneous recovery of the two independent biharmonic components at a given horizontal frequency, the determinant is the natural squared-area, or D-optimal, concentration criterion. The result selects a unique optimal frequency for every non-boundary slab and quantifies two different failure mechanisms: fourth-power collapse as the sampling region thins and a logarithmic approach to perfect joint concentration when the inner boundary disappears. These are intrinsic two-mode effects and provide exact benchmarks for polyharmonic measurement design.
+Qualified PASS: Pessoa--Santos supplies the polyharmonic Bergman/Fourier-Laguerre framework, while Bradik studies harmonic Bergman kernel/Berezin transforms. No inspected statement gives the explicit biharmonic slab 2x2 determinant, unique D-optimal frequency or its two asymptotic regimes. Full Pessoa--Santos source remained inaccessible, so an equivalent specialization of existing localization theory is a genuine priority risk; unsuccessful searches are not novelty proof.
 
-## Closest literature and limits
+## value
 
-The exact Fourier--Laguerre decomposition itself is established in Pessoa--Santos and is not new. Other earlier work on harmonic half-space Bergman projection and Berezin kernels treats different operators and/or order-one fibers. The previous biharmonic-ball concentration result studies a compact ball, radial spherical modes and eigenvalue counts, not the half-plane Fourier-slab D-optimal frequency. Possible specialized unindexed work remains a priority risk. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A determinant is the product of the two positive concentration eigenvalues, a natural joint-mode localization measure for the two-dimensional biharmonic fiber. The exact global optimum and incompatible quartic/logarithmic regimes quantify a nontrivial boundary transition; this is not a mere normalization or checker output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
