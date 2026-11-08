@@ -1,21 +1,21 @@
-# Scientific review: Temporal interaction budgets and a reversible cooperative fold in a higher-order Prisoner's Dilemma
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The inherited payoff expression in [1] reduces algebraically to equation (1). The proof verifies the exact logit transform, integrates it over a period, and handles the exceptional constant mean-critical schedule correctly. Time reflection and the odd variational derivative establish exact reciprocal multipliers and half-period fold shooting. The nondegenerate scalar return-map fold is proved using \(D_\mu=3P/2\), \(D_{ss}=-P/4\) and the implicit-function theorem; a direct second-order variation gives \(3\eta^2/(32\omega^2)\). Symmetry makes the next term order four. Signs away from zero and local concavity establish the exhaustive nearby orbit count. The independent-from-proof numerical checker `verify.py` passed all nine shooting settings and periodic budget/Floquet tests; it does not replace the analytic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For a positive continuous P-periodic exogenous three-person share δ(t), averaging derivative of logit y proves ⟨δ⟩−1/3=⟨δ(2x−1)^2⟩ on every interior periodic orbit. Strict positivity gives mean>1/3 for nonconstant δ, and integrated inequality/per-period negative drift yields extinction for mean<1/3 and also equality with nonconstant δ. For δ≡1/3 the logit derivative −(1/2)tanh²(y/2) yields the claimed one-sided semistability. For δ=1/3+μ+η cosωt, reflection and ODE uniqueness give the phase-zero self-reflecting fold and reciprocal multipliers. Analytic IFT and quadratic expansion yield μ*(η)=3η²/(32ω²)+Oω(η⁴). Outside the fold neighborhood the return displacement stays negative; inside, D_ss<0, hence exactly 0/1/2 periodic interior trajectories and the prescribed basins. Applies only for fixed ω>0, sufficiently small |η|,|μ| and positive share, not large or slowly varying regimes.
 
-Civilini et al. [1] derive the fixed-share bifurcation, not a nonautonomous forcing theorem. Babajanyan et al. [2] analyze a two-population pairwise game with rapidly varying payoffs, and He et al. [3] model temporal activity in spatial public-goods games. The closest accessible prior claim (periodic synergy in a two-state collective-risk model) has a different source equation and cannot imply this forced scalar fold. Relevant published-finding corpus and literature searches did not produce matching scalar interaction-budget, phase-zero shooting or reciprocal multiplier claims. This best-knowledge check is not a guarantee of exhaustive world priority; possible unindexed specialist papers remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact interaction-budget equality shows why the constant-share threshold is not enough to sustain a time-dependent cooperative cycle. The sharp frequency-sensitive positive shift quantifies the extra three-person interaction share needed under seasonal forcing. The symmetry identity pairs stable and unstable seasonal solutions and gives an exact inverse multiplier relationship. The parameter slice is motivated by the source's own displayed payoff values and does not inflate a finite calculation into a general theory for arbitrary game payoffs.
+Qualified PASS: Civilini and collaborators derive only the autonomous constant-three-person-share fold; the exact temporal-budget constraint, reversible harmonic fold shift and multiplier relation are not consequences of static equilibrium formulas. Other periodically varying games use different dynamical objects. Time-periodic scalar saddle-node normal forms are general prior theory; the exact coefficient and special reflection constraints in the identified game are the assessed contribution.
 
-## Limitations and provenance
+## value
 
-This is a mathematical theorem for a deterministic one-dimensional well-mixed replicator with externally supplied positive periodic triadic share. It is not an assertion about finite random hypergraph realization, mutation, environmental feedback, stochastic fixation, or forcing of arbitrary amplitude. The local expansion is not uniform as forcing frequency vanishes. Priority remains contingent on unexamined specialist literature, and numerical verification is supplementary rather than a rigorous global certificate.
+PASS
 
-Closest literature: [1] arXiv:2303.11475v1 (2023-03-20), https://arxiv.org/html/2303.11475v1 ; [2] https://doi.org/10.1002/advs.202001995 ; [3] https://arxiv.org/abs/2401.11782 .
+Time-mixed higher-order interactions are a meaningful cooperative-game variant; the exact budget gives a global necessary condition for periodic cooperation independently of waveform, and the sharp second-order shift plus attracting/repelling pair quantifies how temporal variance changes the cooperation threshold. The reflection relation determines both Floquet multipliers without separate stability computations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
