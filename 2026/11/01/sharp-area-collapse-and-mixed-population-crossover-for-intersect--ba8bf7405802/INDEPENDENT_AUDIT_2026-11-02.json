@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T08:04:01.533208Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob bb3213219d37d2a48da3e433283fe316a7bfa52f",
+        "Assigned program Git blob 0a3dd91bc12076bf2a8e7f4c6f3ec566e66f7886",
+        "Independent local finite/mathematical checks performed 2026-11-02 UTC"
+      ],
+      "rationale": "For m+n>=1 independent standard unit-time planar Brownian motions/bridges, convex intersections containing 0 have min radial function. Polar area and Tonelli imply exact A_{m,n}=2pi integral_0^infty r S_K(r)^m S_B(r)^n dr without independence over angles. Checked radial Gaussian/arcsine and Rayleigh/uniform mixture derivatives against c/2 exp(-r^2/4) K0(r^2/4) and 2r exp(-r^2) K0(r^2). Small-r expansion K0(z)=-log(z/2)-gamma gives FK=cr(log(1/r)+dK)+O(r^3 log) and FB=r^2(2log(1/r)+dB)+O(r^4 log), constants as RESULT.md. At r=(cm log m)^-1 x, powers converge to exp(-x - pi^3 lambda x^2/4) if n/(m^2 log m)->lambda finite. Expanding logarithms to first relative order and integrating x e^-x or x e^-x² yields precisely the two loglog corrections shown. For tails, cutoff x<=12loglog m or sqrt(12loglog n), a fixed small-radius survival lower bound and exponentially decaying two-copy tail imply uniform integrability; origin contributes negligibly. Independently compared the two Bessel derivative formulas at multiple nonzero radii. Finite numerics are not an infinite proof, and random-area concentration is not claimed.",
+      "residual_risks": [
+        "Exact computational checks establish only the asserted finite instances or identities; infinite regimes rely on identified analytic arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Union-hull results in Randon-Furling et al. concern conv(union paths), rather than intersection conv(path_i).",
+          "Kabluchko treats fixed single-hull coverage; no population-crossover theorem in read primary text."
+        ],
+        "reasoning": "Existing one-object and union results do not by statement provide the second-order expected common-area asymptotics for all independent populations.",
+        "searches": [
+          "intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area",
+          "arxiv:0907.0921",
+          "arxiv:2406.07079",
+          "arxiv:2609.21687"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.21687",
+        "https://arxiv.org/abs/0907.0921",
+        "https://arxiv.org/abs/2406.07079",
+        "https://dlmf.nist.gov/10.31",
+        "Resultary query: intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-hull Bessel K0 radial asymptotics imply leading orders after a nontrivial extreme-value scaling; the exact product survival is prior-derived and openly credited.",
+          "To obtain the stated finite-lambda transition, compare m r log(1/r) with n r^2 log(1/r) at r~1/(m log m), giving n~m^2 log m; second-order log-log coefficients require explicit integration."
+        ],
+        "reasoning": "The final mixed-population and second-order claims are not reproduced in the primary Kabluchko theorem; mathematical derivation adds nontrivial quantitative content, rather than merely relabelling a fixed-radius coverage probability.",
+        "searches": [
+          "arxiv:2609.21687",
+          "arxiv:0907.0921",
+          "intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common intersection radial value is a minimum of iid single-hull radial values; its survival is S_K(r)^m S_B(r)^n.",
+          "Kabluchko supplies the underlying one-copy CDFs as a known ingredient."
+        ],
+        "reasoning": "The exact area integral is an elementary implication of that source plus independence, not itself the claimed novelty; the distinct asymptotic coefficients, phase scale and moment limit require new derived analysis.",
+        "searches": [
+          "intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area",
+          "Brownian hull radial minimum independent intersection coverage extreme value",
+          "arxiv:2609.21687"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby findings are intersections of congruent disks and rotated polygons, unrelated radial deficit exponents.",
+          "The pure second-order coefficients and crossover Φ(lambda) were not found in the retrieved scientific record list."
+        ],
+        "reasoning": "This is a full asymptotic law, not a finite table, but a known exact stochastic-geometry formula could subsume it; none surfaced in the actual indexed comparisons.",
+        "searches": [
+          "intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area",
+          "Resultary published Brownian hull intersection asymptotics expected area"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical implication comparison of actual primary material and published records. Novelty is provisional, with explicit unresolved historical-source risks. ",
+      "residual_risks": [
+        "The sharp asymptotic formulas may be implicit in unindexed stochastic-geometry texts; union-paper full texts not independently re-read.",
+        "The mixed theorem assumes lambda finite, and large-lambda Phi asymptotic is not uniform for sequences lambda_m to infinity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A single hull coverage probability is a premise and implies the exact product-survival integral with independence, but does not state the two explicit second-order population expansions or the critical mixed-population crossover.",
+          "evidence": [
+            "Kabluchko 2026 single-hull planar Brownian and bridge coverage laws and radial mixtures; the intersection of independent multiple hulls is not its stated theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21687",
+          "material_read": "Full primary theorem and proof giving single-hull radial laws for planar Brownian motion and bridge; checked radial distribution representations and small-radius asymptotic context",
+          "method": "Read accessible arXiv mathematical full text, including radial construction and comparison to the present independent-hull intersection statistic",
+          "title": "Coverage probability of the planar Brownian convex hull",
+          "trigger": "Precisely same one-hull Brownian and bridge radial coverage inputs"
+        },
+        {
+          "assessment": "The published union-hull statistic increases with population and is not equivalent to the shrinking common hull intersection; full text not claimed as read.",
+          "evidence": [
+            "Randon-Furling–Majumdar–Comtet 2009 union hull geometry, arXiv:0907.0921."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.0921",
+          "material_read": "Title, abstract and exact problem statement (convex hull of the union of paths), not a full-text independent inspection in this run",
+          "method": "Compared union-before-convexification with intersection-of-individual-hulls operation",
+          "title": "Convex Hull of N Planar Brownian Motions: Exact Results and an Application to Ecology",
+          "trigger": "Multiple Brownian motions and convex hull geometric statistics"
+        },
+        {
+          "assessment": "No comparable product-survival crossover exhibited in inspected material; no whole-document noncoverage inferred.",
+          "evidence": [
+            "Šebek arXiv:2406.07079, convex hulls and bridges; abstract does not establish intersection asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.07079",
+          "material_read": "Abstract and bibliographic description, full proof not read",
+          "method": "Compared object definitions and operation to the mixed-population intersection claim",
+          "title": "Convex Hull of Brownian Motion and Brownian Bridge",
+          "trigger": "Same Brownian motion/bridge objects and multi-hull keyword"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.21687",
+        "https://arxiv.org/abs/0907.0921",
+        "https://arxiv.org/abs/2406.07079",
+        "https://dlmf.nist.gov/10.31",
+        "Resultary query: intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area"
+      ],
+      "rationale": "The natural expected common territory of independent random convex hulls has fundamentally different m^-2(log m)^-2 and n^-1(log n)^-1 collapse rates depending on pinning. The nontrivial critical mixed population n~m²log m, limiting interpolation Φ and explicit second-order pure corrections quantify an unaddressed phase transition, beyond individual-hull coverage statistics.",
+      "residual_risks": [
+        "The sharp asymptotic formulas may be implicit in unindexed stochastic-geometry texts; union-paper full texts not independently re-read.",
+        "The mixed theorem assumes lambda finite, and large-lambda Phi asymptotic is not uniform for sequences lambda_m to infinity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.21687",
+    "https://arxiv.org/abs/0907.0921",
+    "https://arxiv.org/abs/2406.07079",
+    "https://dlmf.nist.gov/10.31",
+    "Resultary query: intersection convex hulls independent planar Brownian motions and Brownian bridges asymptotic expected area"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The sharp asymptotic formulas may be implicit in unindexed stochastic-geometry texts; union-paper full texts not independently re-read.",
+    "The mixed theorem assumes lambda finite, and large-lambda Phi asymptotic is not uniform for sequences lambda_m to infinity."
+  ],
+  "residual_risks": [
+    "The sharp asymptotic formulas may be implicit in unindexed stochastic-geometry texts; union-paper full texts not independently re-read.",
+    "The mixed theorem assumes lambda finite, and large-lambda Phi asymptotic is not uniform for sequences lambda_m to infinity."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review of the common Brownian-hull intersection theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The stated domain is two-dimensional standard independent Brownian motions and bridges on a fixed unit interval. The exact geometric identity \(A_{m,n}=2\pi\int_0^\infty rS_K(r)^mS_B(r)^n\,dr\) follows from radial intersection, hull independence, polar area integration, and Tonelli; it requires no directional independence. The two radial mixture laws are established in Kabluchko (2026). Differentiating their mixture integrals gives the explicitly normalized Bessel derivatives, and integrating the \(K_0\) expansions gives both small-radius constants. The proof separately derives the second-order asymptotic integrals for pure motions and bridges, and the mixed extreme-value limit with moment convergence. Truncation bounds control the tails. The submitted standalone code passed 25 independent numerical/algebraic checks. That finite evidence corroborates but does not prove the limiting estimates.
+PASS
 
-## Originality
+For m+n>=1 independent standard unit-time planar Brownian motions/bridges, convex intersections containing 0 have min radial function. Polar area and Tonelli imply exact A_{m,n}=2pi integral_0^infty r S_K(r)^m S_B(r)^n dr without independence over angles. Checked radial Gaussian/arcsine and Rayleigh/uniform mixture derivatives against c/2 exp(-r^2/4) K0(r^2/4) and 2r exp(-r^2) K0(r^2). Small-r expansion K0(z)=-log(z/2)-gamma gives FK=cr(log(1/r)+dK)+O(r^3 log) and FB=r^2(2log(1/r)+dB)+O(r^4 log), constants as RESULT.md. At r=(cm log m)^-1 x, powers converge to exp(-x - pi^3 lambda x^2/4) if n/(m^2 log m)->lambda finite. Expanding logarithms to first relative order and integrating x e^-x or x e^-x² yields precisely the two loglog corrections shown. For tails, cutoff x<=12loglog m or sqrt(12loglog n), a fixed small-radius survival lower bound and exponentially decaying two-copy tail imply uniform integrability; origin contributes negligibly. Independently compared the two Bessel derivative formulas at multiple nonzero radii. Finite numerics are not an infinite proof, and random-area concentration is not claimed.
 
-**PASS, provisional historical priority.** Kabluchko (2026) obtains the one-hull radial laws and coverage asymptotics; these are explicitly credited, not repackaged. The reported new theorem addresses intersections of independently generated hulls, with two explicit logarithmic correction coefficients and a two-population critical crossover. The closely relevant earlier papers by Randon-Furling, Majumdar, and Comtet (2009) and Šebek (2024) instead study the hull of a union of trajectories. Their formulas cannot be changed from union to intersection by substituting parameters. Search comparisons to published records of other random-set intersections (disks, rotated polygons) also found materially different objects; their displayed summaries do not establish comprehensive noncoverage. Historical equivalence under alternate terminology remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is an exact asymptotic description of the common territory of independently generated random convex sets. The motion-only and bridge-only intersection areas have distinct orders, and the theorem finds the non-obvious critical population scale \(n\asymp m^2\log m\), a continuous limiting interpolation, and first nontrivial finite-size corrections. The result concerns a natural full-family statistic rather than an arbitrary small finite calculation. The law also separates the geometric effect of path pinning from the one-hull coverage inputs.
+Best-of-knowledge mathematical implication comparison of actual primary material and published records. Novelty is provisional, with explicit unresolved historical-source risks. 
 
-## Limitations
+## value
 
-Only expectations, standard isotropic planar paths, and finite crossover ratios are proved; neither area fluctuations nor an arbitrary divergent crossover parameter is addressed. The theorem uses the 2026 radial-law theorem as a premise. Independent proof validation and exhaustive historical-priority verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural expected common territory of independent random convex hulls has fundamentally different m^-2(log m)^-2 and n^-1(log n)^-1 collapse rates depending on pinning. The nontrivial critical mixed population n~m²log m, limiting interpolation Φ and explicit second-order pure corrections quantify an unaddressed phase transition, beyond individual-hull coverage statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
