@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All directed relations, including dead ends, loops and cycles, are allowed. The bad-set recurrence is exact, monotonicity justifies finite ranks, and induction proves a rank-t first-failure vertex has an infinite-rank successor with maximum outgoing finite rank t-1. These witnesses give 2t mutually distinct vertices forming a directed simple path to a dead end, so first failure at t requires at least 2t worlds. Path frames achieve equality, and absence of rank beyond floor(n/2) gives stabilization. Standalone checker verified 66,066 exhaustive frames on n<=4, 10,000 sampled frames n=5..8, and t<=30 path families.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alpay–Basaran 2026 Section 7, Table 3 checks only m=1,2,3 and specifically says path lemma alone does not prove minimality.",
+        "Internet Encyclopedia of Philosophy, modal mu-calculus approximants section, monotonicity and fixed-point iteration."
+      ],
+      "reasoning": "A general n-world monotone approximant bound is weaker than a sharp floor(n/2) bound. Known path-separation upper bounds do not imply lower bounds for all alternative branching or cyclic frames. Closest indexed published findings involved other operators, automata, or unrelated graph problems, with no stronger directly covering statement.",
+      "searches": [
+        "alternating reachability attractor layers finite graph length iteration floor(n/2)",
+        "\"alternating reachability\" \"attractor\" \"simple path\" rank finite graph",
+        "modal mu calculus finite model Kleene approximants number of iterations n states"
+      ]
+    },
+    "checked_sources": [
+      "Alpay and Basaran, arXiv:2606.15437v1, full-text HTML reproduction, Section 7 and Table 3",
+      "Internet Encyclopedia of Philosophy, Modal Logic: A Contemporary View, modal mu-calculus section",
+      "Search of indexed published findings, three queries listed in named checks",
+      "Web searches for minimal frames, fixpoint approximants, alternating game attractors and exact semantic-mirage family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alpay–Basaran 2026 expressly: “The lemma gives a linear-size separating frame for every family member ... and it does not by itself prove minimality.”",
+        "The newly proved rank-infinity successor lemma extracts 2t distinct vertices from any rank-t failure."
+      ],
+      "reasoning": "Earlier all-m path construction implies existence at size 2m+2 but not nonexistence below it. Earlier SAT nonexistence at sizes below 4,6,8 covers only three m values. The general induction here yields a lower bound in arbitrary directed frames and, independently, stabilization by floor(n/2); hence it is not a literal restatement or special case of the prior claims.",
+      "searches": [
+        "modal semantic mirage alternating box diamond iterates alpha m alpha m+1 minimal countermodel general lower bound",
+        "\"Uniform path-separation family\" \"sharp\" \"minimality\"",
+        "\"GPU-Accelerated Search\" \"2m+2\" \"minimal\" \"conjecture\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.15437v1, Lemma 2 and paragraph immediately following it: path construction is an upper bound and not an all-depth minimality result.",
+        "Internet Encyclopedia of Philosophy, Modal Logic: A Contemporary View, modal mu-calculus section, describes generic monotone approximants."
+      ],
+      "reasoning": "The claim can be restated as a sharp iteration index of a greatest-fixed-point approximant, a 2t-world rank obstruction, or minimal finite-frame separation of successive Box-Diamond iterates. The motivating source has the all-depth upper path and only small-parameter lower certificates. Generic fixed-point theory does not identify the half-size limit.",
+      "searches": [
+        "iteration box diamond top finite Kripke frames stabilization at half number of worlds smallest separating frames 2m+2",
+        "modal semantic mirage alternating box diamond iterates alpha m alpha m+1 minimal countermodel general lower bound",
+        "\"Box Diamond\" iterated top \"minimal\" \"countermodel\" \"2m\"",
+        "\"box diamond\" \"iteration\" \"finite\" \"stabilizes\" modal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alpay–Basaran, Table 3: minimal sizes 4, 6, 8 for m=1,2,3, with solver-based UNSAT checks; Lemma 2 produces paths of length 2m+1 for all m.",
+        "The closest indexed finding titled “Finite criterion for commuting box and diamond condensations” concerns intuitionistic-frame condensation operations, not iteration of modal truth sets."
+      ],
+      "reasoning": "The published table gives three finite instances rather than the general symbolic bound. No exact general rank-minimum table or direct published-finding corpus record was found in the queries performed; finite absence is not a uniqueness proof.",
+      "searches": [
+        "iteration box diamond top finite Kripke frames stabilization at half number of worlds smallest separating frames 2m+2",
+        "modal semantic mirage alternating box diamond iterates alpha m alpha m+1 minimal countermodel general lower bound",
+        "\"GPU-Accelerated Search\" \"Lemma 2\" \"path-separation\" \"minimal\""
+      ]
+    },
+    "rationale": "The closest inspected primary paper gives an upper path at all depths, but verifies lower bounds only at m=1,2,3. Its express disclaimer that the path alone does not prove all-depth minimality isolates the new gap. The induced rank-infinity witness lemma supplies the missing general lower bound and a sharp iteration cutoff; no equivalent stronger covering claim surfaced from the actual published-finding corpus or primary searches.",
+    "residual_risks": [
+      "Older game-theoretic attractor-rank or modal mu-calculus literature might imply the exact half-size bound under another name; priority not independently certified.",
+      "ArXiv direct full text was unavailable at inspection, but substantial primary manuscript text including decisive sections was accessible via a public HTML reproduction.",
+      "Semantic retrieval of published records is not an exhaustive equivalence oracle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior path construction at every depth and finite SAT minimality for m=1,2,3; no general m lower bound established in inspected text.",
+        "evidence": [
+          "Proposition 5 exact six-world instance",
+          "Lemma 2 explicitly disclaims minimality",
+          "Table 3 SAT only m=1,2,3",
+          "Section 7 remarks beyond these sizes are bounded evidence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15437",
+        "material_read": "Inspected full-text HTML reproduction, especially Sections 6–7, Proposition 5, Lemma 2, Table 3, the adjacent synthesis discussion, and the statement about restricted minimality evidence.",
+        "method": "Read text/html reproduction at https://www.researchgate.net/publication/407115453_GPU-Accelerated_Search_and_Certification_of_Bounded_Indistinguishability_in_Finite_Kripke_Semantics; examined stated propositions and Table 3, not just abstract.",
+        "title": "GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics",
+        "trigger": "Same alternating Box-Diamond family and reported minimal frame for m=2"
+      },
+      {
+        "assessment": "Standard monotonicity and approximant convergence background; no quantitative half-size bound or explicit alternating Box-Diamond min-frame separation.",
+        "evidence": [
+          "Positive modal operator induces monotone map",
+          "Power-set fixed-point iteration",
+          "No stated structural 2t-vertex witness"
+        ],
+        "identifier_or_url": "https://iep.utm.edu/modal-lo/",
+        "material_read": "Section on modal mu-calculus, monotone operators, least and greatest fixed-point approximants (page paragraphs near lines 292-316).",
+        "method": "Read public HTML article, section on recursion and induction.",
+        "title": "Modal Logic: A Contemporary View",
+        "trigger": "Potential general fixed-point theorem that might dominate the stabilization result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26bb2000-3070-45b7-9a8f-581f45b18460",
+  "value": {
+    "rationale": "A single natural sequence of modal approximants now has an exact all-size stabilization index and exact minimum distinguishing frame size at every depth, with a forced simple-path certificate. It extends isolated solver-certified cases to an analytic universal theorem and improves the generic finite monotone-iteration bound by a factor near two. It does not rely on unmotivated parameter slicing or only computational novelty.",
+    "status": "PASS"
+  }
+}
