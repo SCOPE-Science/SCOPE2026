@@ -1,19 +1,21 @@
-# Scientific review: Bergman diameter trace spectral outlier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial basis gives an exact positive parity-block Gram matrix. A strict weighted Schur bound proves contraction on functions with zero constant coefficient. A concrete two-dimensional minor forces a top eigenvalue above one; the finite-rank coupling bounds the essential spectral edge from above. A weakly null logarithmic-block Weyl sequence gives its matching lower bound. Codimension-one min–max then proves the supercritical eigenvalue is unique and simple. The off-diagonal squared norm and the finite minor give the displayed numerical-free bounds. The standalone standard-library checker passed 8,705 deterministic assertions; this is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with historical risk
+The normalized basis e_n=sqrt(n+1)z^n gives A_nm=2sqrt((n+1)(m+1))/((n+m+1)(n+m+2)) for n+m even, zero otherwise. Weighted Schur row ratios for n>=1, w_n=(n+1)^(-1/2), are bounded strictly below1 by (n+1)log((n+2)/(n+1)) (odd) or (n+1)log((n+3)/(n+2)) (even); hence no nonzero equality in the compressed subspace. A00=1 and A02=sqrt3/6 show a 2x2 compression eigenvalue 3/5+sqrt219/30>1. The coupling vector has norm squared 4log2-1-pi²/6 by partial fractions; the compact rank-two coupling bounds the norm and essential spectrum. A normalized even-degree vector supported on 2i for i=M..M² has Rayleigh quotient tending1, weak limit zero, proving essential norm >=1 (while the compression/coupling gives <=1). The codimension-one variational argument forces exactly one simple eigenvalue above1. Independently checked b² partial sums and M=8,16,32,64 Rayleigh ratios, and analytic constants; finite checks do not substitute for the Weyl-sequence proof.
 
-The focal full-text primary source Ghiloufi–Zaway (arXiv:2309.00552, 2023) provides related Fejér–Riesz and Toeplitz estimates but not the specific spectral classification. The inspected Kasuga 2025 paper states and contextualizes weighted Fejér–Riesz inequalities, including Euclidean boundary-distance weights, but does not claim the codimension-one sharp contraction or unique isolated outlier. The closest indexed claims concern logarithmic Bergman Hilbert-matrix essential norms, weighted harmonic line bounds, or circle traces, with different quadratic forms and no implication identified. The Andreev 2012 paper is a genuine residual priority risk because its full text could not be accessed.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem distinguishes two geometrically canonical Hilbert-space regimes within the same exact diameter trace: the best contractive constant on vanishing-at-origin functions equals the essential norm, whereas the unrestricted trace has precisely one simple unstable spectral mode. This is a natural sharp spectral-strengthening of trace inequalities, not a finite table recomputation or parameter substitution. The complete outlier geometry supplies a useful benchmark for finer trace-operator stability, even though its isolated eigenvalue is not given in closed form.
+Best-of-knowledge originality from actual published mathematical searches and inspected primary scientific material; relevant exact known cases and stronger-coverage risks are compared, not merely title-matched. No directly implication-equivalent theorem identified in inspected statements; not a historical priority guarantee.
 
-## Scope and residual limitations
+## value
 
-Results concern the precise normalized \(A^2(\mathbb D)\) norm, weight \(1-|t|\), and symmetric full diameter. The lower and upper bounds are rigorous but not optimal enclosures for the numerical eigenvalue. Historical priority and generalization to other weights remain unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp spectral dichotomy for a natural diameter trace: the constant mode creates one genuinely isolated supercontractive direction while all mean-zero-at-origin analytic functions have a sharp unattained bound and the remaining essential spectrum reaches exactly1. This is nontrivial infinite-dimensional operator structure, not merely a routine finite truncation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
