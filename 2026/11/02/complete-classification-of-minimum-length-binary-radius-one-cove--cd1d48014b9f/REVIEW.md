@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact result concerns binary cyclic words with length-seven windows and Hamming radius one. Every word of length at most 22 is represented once by an integer bitmask in the exhaustive census, with cyclic windows defined by modular indexing. The 128-bit OR of eight-member Hamming-ball masks is equivalent to full target coverage. The C and Python implementations independently test every candidate and agree on zero solutions at lengths 1–21 and exactly 132 at length 22. The Python implementation reconstructs both full group orbits, weights, distinct-window counts, and target-coverage multiplicities for every accepted cycle; the C implementation computes the same count, weight histogram and canonical representatives. No infinite or probabilistic inference is made. The claim is supported by the actual enclosed source files, not by a log alone.
+PASS
 
-## Originality — PASS, with residual historical risk
+For L=1,...,22 each indexed cyclic binary word is one of 2^L integer masks, with seven-bit cyclic windows even for L<7. OR of 128-bit radius-one masks equals universal coverage iff every 7-bit target occurs within Hamming distance one. Independent C++ enumeration checked all 8,388,606 candidates: no solution through L=21, precisely 132 at L=22. For all 132, checked 11 ones, 22 distinct windows, two extended dihedral/complement orbits of sizes 44 and 88 and target hit multiplicities 80 once and 48 twice; integer orbit representatives 141243 and 158331. This exhaustive finite check proves the precisely bounded census, not any all-order statement.
 
-Chung and Cooper (arXiv:math/0310385, 2003) tabulated length 22 for the same covering parameter; the full preprint's definitions, construction arguments, numerical table, and remarks were inspected. The prior numerical optimum **covers the shortest-length statement**, so shortest length alone is not claimed novel. However, that article does not enumerate all 132 indexed minimum cycles, derive the 44/88 symmetry split or prove forced balance and target multiplicity profile. Chee, Etzion, Ta, and Vu (2025, doi:10.1007/s10623-025-01726-5) exhibit an order-seven radius-one length-22 sequence in Example 26 to construct two-dimensional covering arrays; their open full text was inspected around constructions, examples and appendix, without finding the full optimal-cycle enumeration. The 2026 near-optimal asymptotic study and ordinary Hamming covering-code classification results concern different questions and do not logically imply the new count. Relevant title, alias, numerical, and statement-level research-record searches produced no stronger known result. An unindexed exact census or inaccessible source may still have appeared elsewhere: historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This is the complete solution set for a natural smallest optimal cyclic Hamming covering design of window order seven, rather than a marginal improvement in length. The result distinguishes six rotation classes and two complement/reversal/rotation classes, shows every optimum is balanced, and determines the exact overlap of all radius-one neighborhoods. The parameter is independently motivated: a length-22 order-seven radius-one sequence is used explicitly to build a two-dimensional covering design in Chee et al. (2025, Example 26). The classification identifies every replacement optimal seed and the redundancy distribution available to such constructions. The scope is finite and does not claim that this classification yields a new asymptotic bound.
+The shortest length 22 is prior art (Chung–Cooper 2003/04); neither that scalar optimum nor the seed construction of Chee et al. 2025 subsumes the full enumerated optimal words, complement/reversal orbits, balanced weight, and multiplicity histogram. Independent Resultary and targeted exact-number searches did not identify a prior all-optima census. Best-of-knowledge priority is restricted by incomplete access to the 2003 full text and other unindexed code tables.
 
-## Limitations and closest literature
+## value
 
-The shortest length 22 is known in the 2003 baseline; the new count and all-optimizer structure are the asserted contribution. The direct exhaustive proof needs at most \(8{,}388{,}606\) candidate-word checks. The 2025 construction does not claim that every alternative seed improves that construction. Literature searches are not a uniqueness or priority certificate, and independent scientific audit is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Order-seven binary one-error cyclic covering sequences are an independently motivated optimal seed design: Chee et al. 2025 Example 26 uses a length-22 seed in 2D covering constructions. Knowing every optimal seed, the six rotation classes, and exact neighbor overlaps gives a natural complete finite classification, not a trivial rediscovery of the known minimum length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
