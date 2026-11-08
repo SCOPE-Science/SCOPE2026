@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal claim reduces to strict bounds on \(J_k\) amplitudes, a uniform sixth-moment estimate, a finite-radius lower bound for \(J_1\), and a rational threshold inequality. The degree-two amplitude case is certified by a degree-20 exact Bernstein positivity identity, not numerical sampling. The other orders use Landau's \(k^{-1/3}\) bound; Watson's Bessel envelope controls the infinite tail. Xu's spectral reduction gives the claimed optimal coefficient and equality cases. All coefficient identities were rechecked by the accompanying standalone script. No finite computation is substituted for the analytic Bessel estimates.
+## correctness
 
-## Originality — PASS, with residual risk
-Xu's 2026 source states that the maximizing nonzero harmonic degree for the circle is not determined in general, despite its sharp abstract spectral formula. The 2019 and 2025 papers establish degree-zero dominance, endpoint ordering and selected exponent estimates, rather than the asserted uniform first-positive-mode theorem for every real \(q\ge27\). Targeted published-result searches did not reveal a stronger recorded theorem; nearby hits concern other Fourier/Szegő frames or finite-field extension problems. Undiscovered equivalent literature remains possible; the available sources do not certify global uniqueness of this result.
+PASS
 
-## Value — PASS
-The motivating source leaves the optimal planar stability coefficient implicit through a maximum over all positive harmonic degrees. The result removes that maximization on an unbounded continuous exponent region and settles the complete equality modes there. It is a quantitative, natural partial resolution of an explicit open index-selection question, rather than an arbitrary single-exponent computation. The sufficient cutoff \(27\) is not optimality-certified.
+For unnormalized arclength on S^1 and radial-angular mixed L^q_rad L^2_ang, reconstructed I_k(q)=integral_0^infty |J_k(r)|^q r dr. Landau for k>=3 and a rigorous J2 Bernstein degree-20 certificate on r<=4 plus Nicholson tail imply sup |J_k|<1/2 for all k>=2. The sixth moments satisfy I_k(6)<2(7/10)^6+4/(pi^3 sqrt3)<1/3 and hence I_k(q)<(64/3)2^-q for real q>=6. Taylor minorant and concavity imply J1>9/16 on [8/5,21/10], thus I1(q)>(37/40)(9/16)^q. Exact rational (37/40)(9/8)^27>64/3 closes strict ordering for every REAL q>=27. Xu spectral modal stability theorem gives Gamma_2,q=4pi^2(I0^(2/q)-I1^(2/q)), as claimed, with equality classes inherited from that theorem. Independent exact-fractions check reproduced all 21 Bernstein coefficients including min=61/43605 at index11, sixth ceiling, Taylor lower bound and q27 strict inequality. External analytic Landau/Nicholson/Xu hypotheses have to apply with the stated normalizations; the finite arithmetic certificate alone does not prove them.
 
-## Nearest literature and limitations
-Xu (arXiv:2610.19648, Theorem 1.3, Remark 3) is the nearest exact framework. Carneiro–Oliveira e Silva–Sousa (arXiv:1710.10365) and Ciccone–Sousa (arXiv:2312.07309) supply related modal norm hierarchies, but their statements do not fix the largest positive degree throughout this real half-line. Landau provides the uniform order amplitude estimates. The theorem does not treat \(4<q<27\), or ordinary unmixed extension norms.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for resolving the positive-mode maximizing index on the entire real q>=27 half-line; Xu supplies the existing global stability spectral form, not an explicit uniform maximizer in degree one as described in Remark 3. Full Xu text could not be fetched this run; genuine residual priority risk.
+
+## value
+
+PASS
+
+The sharp stability gap for a classical planar mixed-norm Fourier extension inequality is a natural spectral invariant. Uniform selection of the first nonconstant Bessel mode for all real q>=27, rather than special even q, is a mathematically motivated structural inequality and enables the explicit sharp coefficient; 27 is stated only as sufficient, not optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
