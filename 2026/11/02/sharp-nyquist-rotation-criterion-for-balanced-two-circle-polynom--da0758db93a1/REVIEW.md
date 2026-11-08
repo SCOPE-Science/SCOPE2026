@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The sampled intensity of a degree-at-most-\(d\) polynomial is an angular trigonometric polynomial of degree at most \(d\). Its \(2d\)-point DFT has one and only one alias, at harmonic \(d\). The highest Fourier coefficient has the common radial factor \(t^d\); the two rings supply two real projections with determinant \(-\sin(d\delta)\). Inverting these recovers both continuous-circle intensity functions, and a rational quotient invariant under nontrivial dilation proves global phase agreement. At resonance, the pair \(1\pm iz^d\) is a counterexample. Exact Gram eigenvalues prove the optimal offset. The standalone checker passed 9,639 deterministic assertions. Finite checks are not used as an infinite proof.
+PASS
 
-## Originality
+For degree<=d, each radius-t intensity U_t has Laurent Fourier modes -d..d. A 2d-point angular DFT recovers every c_m(t), |m|<d, without alias; the sole mode d combines A=a_d conj(a_0) and conj(A). The aligned and delta-rotated rings yield Re A and Re(exp(id delta)A), a 2x2 matrix with determinant -sin(d delta). If nonzero, both entire circle intensity trigonometric polynomials are known. The rational quotient of two polynomials with equal moduli on circles of distinct radii is invariant under a nonunit dilation and hence unimodular constant, including vanishing-coefficient cases. If sin(d delta)=0, 1+i z^d and 1-i z^d collide. Eigenvalues 1+/-|cos(d delta)| of B^T B give the exact best half-step Nyquist coefficient conditioning; this is not global polynomial inverse stability. All quantifiers and the d=1 boundary are valid.
 
-PASS, subject to historical-priority risk. Pohl--Li--Boche's Theorem 7 uses an unbalanced \(2d+1\)/\(2d-1\) two-circle allocation. Chalendar--Partington's Theorem 2.16 uses complete-circle intensity information. Bodmann--Hammen's Theorem 2.3 uses intersecting rather than nested concentric circles. The balanced two-concentric-circle Nyquist alias creates an angular-rank obstruction absent from those exact hypotheses, and the displayed inversion resolves it with a complete iff criterion. Research-record searches for balanced \(2d\)-point rings, rotated Nyquist retrieval, and aliases revealed related but no implication-equivalent result. This does not certify literature completeness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result supplies a sharp deterministic geometric design criterion at a \(4d\)-sample budget known to be meaningful in complex polynomial phase retrieval. Both the failure set and the best angular displacement are exact; the latter minimizes the condition number of the only Fourier alias removal step. It is a natural completion of the comparison between full-circle rigidity and low-redundancy finite constructions, rather than a numerical or unmotivated special case.
+Full nested-circle uniqueness (Chalendar--Partington), unbalanced 2d+1/2d-1 finite sampling (Pohl--Li--Boche), and intersecting-circle 4d constructions (Bodmann--Hammen) do not logically imply the balanced 2d+2d iff rotation diagram. Literature-based originality is qualified by possible more general finite-frame constructions with the same geometry.
 
-## Scope and residual risks
+## value
 
-Equal radii, irregular grids, analytic nonpolynomials and whole-reconstruction stability are not included. Priority is provisional. The reference comparison is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At critical equal measurement budgets each individual cyclic ring aliases exactly one harmonic. The exact angular resonance obstruction and unique best half-step supply natural sampling geometry and a useful spectral conditioning invariant independent of full nonlinear stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
