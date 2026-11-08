@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible exact checks and scope
+# Independent mathematical audit
 
-Run the companion Python 3 standard-library script from the same folder: `python3 check_path_choices.py`.
+## correctness
 
-A successful replay completed 45,150 exact rational checks without assertion failures.
+PASS
 
-The first verification exhausts all connected visited intervals and current vertices for path orders two to twenty-one and substitutes the closed formulas into each minimizing Bellman equation. For every path of order at most five it checks every unvisited-versus-visited offered-neighbor conflict. The second method independently enumerates every stationary deterministic left-versus-right offered-neighbor preference for right-endpoint and either-endpoint hitting on each path with at most nine vertices, solves each exact finite Markov-chain linear system and compares the true rational minimum to the claimed formula. The exact six-vertex continuations \(833/81\), \(941/81\) and penalty \(4/3\) are checked explicitly.
+On a path covering all vertices is equivalent to having visited both endpoints. After the first endpoint, expected optimal remaining cost equals L_N=H_N(0), independent of which endpoint. The one-target H_N(i)=sum_{j=i}^{N-1}(2-3^{-j}) and two-endpoint E_N(i) satisfy exact minimizing Bellman equations: H(i)=1+(3H(i+1)+H(i-1))/4 and E(i)=1+(3 min(E neighbors)+max(E neighbors))/4. Their strict monotonicities certify the offered-direction rules for arbitrary history-dependent control; finite expected absorption justifies stopping verification. For paths ≤5 vertices, each possible frontier freshness conflict is weakly compatible; at six vertices visit interval [1,2] with offers {1,3} gives a strict cost gap 4/3. Independent rational Bellman checks for all N≤40, including parity gap identity.
 
-Finite computation is not the infinite proof: correctness for arbitrary path orders follows from the Bellman identities, positive increments and endpoint decomposition documented in `RESULT.md`. No distributional cover-time optimality, independent external validation or historical-priority certification is claimed.
+## originality
+
+PASS
+
+Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.
+
+## value
+
+PASS
+
+This is the complete finite-order optimal-control solution of a natural path model, with an explicit sharp threshold exposing the failure of the intuitive unvisited-first heuristic. Both closed cover means and policy boundary are useful independent of general tree asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

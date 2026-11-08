@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cover event on a path is exactly the event that both endpoints have been seen. The first endpoint hit always leaves one full end-to-end traversal, and the latter has identical mean from either endpoint. The displayed endpoint-target and two-endpoint-exit candidates satisfy their minimizing Bellman equations, with explicit positive increments identifying the optimal offer preference. The finite-state properness condition and stopping verification address all adapted randomized policies, not only stationary ones. The parity expressions and six-vertex costs follow by direct substitution. The independent exact rational checker verifies 45,150 identities across state-space Bellman equations and exhaustive stationary preference matrices at small sizes. Verification is self-review; a third-party mathematical audit remains outstanding.
+## correctness
 
-## Originality
-PASS subject to historical-priority uncertainty. The primary full-text 2019 source defines precisely the same two-independent-offer mechanism, proves general linear-order bounded-degree-tree cover times, and develops optimal-hitting algorithmic machinery, but its relevant results do not state a finite closed path cover formula or the sharp unvisited-first cutoff. The related 2020 conference proceeding treats general hitting and cover complexity. The earlier greedy random walk is an edge-preference process without the two-offer restriction. Other related coverage laws on cycles, bipartite and tripartite graphs do not imply the path formula or six-vertex boundary. No equivalent statement was located in the completed full-text and index comparisons. Because search is not exhaustive, an overlooked earlier equivalent statement remains a risk.
+PASS
 
-## Value
-PASS. The path is a canonical benchmark for controlled cover times, where the general linear bound leaves the sharp constant, start dependence and optimal structural rule unresolved. This theorem determines each finite mean exactly and shows that a natural local exploration heuristic can be provably wrong already at order six, with a strict quantifiable loss approaching four steps. The two-phase endpoint policy makes the structural reason transparent. This is a self-contained exact classification and a meaningful algorithmic boundary, not a mere finite fit or an arbitrary parameter slice.
+On a path covering all vertices is equivalent to having visited both endpoints. After the first endpoint, expected optimal remaining cost equals L_N=H_N(0), independent of which endpoint. The one-target H_N(i)=sum_{j=i}^{N-1}(2-3^{-j}) and two-endpoint E_N(i) satisfy exact minimizing Bellman equations: H(i)=1+(3H(i+1)+H(i-1))/4 and E(i)=1+(3 min(E neighbors)+max(E neighbors))/4. Their strict monotonicities certify the offered-direction rules for arbitrary history-dependent control; finite expected absorption justifies stopping verification. For paths ≤5 vertices, each possible frontier freshness conflict is weakly compatible; at six vertices visit interval [1,2] with offers {1,3} gives a strict cost gap 4/3. Independent rational Bellman checks for all N≤40, including parity gap identity.
 
-## Limits of the assessment
-The claimed minimality concerns paths only. The theorem proves mean-time optimality, not distributional dominance, and historical priority is not independently certified. The reproducibility script's finite checks support rather than prove the unbounded-order claim. The closest primary result is *The Power of Two Choices for Random Walks* (arXiv:1911.05170, 2019), especially Sections 1–4 and 7; the alternate conference treatment is DOI:10.4230/LIPIcs.ITCS.2020.76.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.
+
+## value
+
+PASS
+
+This is the complete finite-order optimal-control solution of a natural path model, with an explicit sharp threshold exposing the failure of the intuitive unvisited-first heuristic. Both closed cover means and policy boundary are useful independent of general tree asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

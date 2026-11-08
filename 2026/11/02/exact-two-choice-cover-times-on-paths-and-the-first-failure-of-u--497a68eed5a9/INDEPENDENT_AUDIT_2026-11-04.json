@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:54:38.581959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a path covering all vertices is equivalent to having visited both endpoints. After the first endpoint, expected optimal remaining cost equals L_N=H_N(0), independent of which endpoint. The one-target H_N(i)=sum_{j=i}^{N-1}(2-3^{-j}) and two-endpoint E_N(i) satisfy exact minimizing Bellman equations: H(i)=1+(3H(i+1)+H(i-1))/4 and E(i)=1+(3 min(E neighbors)+max(E neighbors))/4. Their strict monotonicities certify the offered-direction rules for arbitrary history-dependent control; finite expected absorption justifies stopping verification. For paths ≤5 vertices, each possible frontier freshness conflict is weakly compatible; at six vertices visit interval [1,2] with offers {1,3} gives a strict cost gap 4/3. Independent rational Bellman checks for all N≤40, including parity gap identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The power-of-two-choices paper proves asymptotic linear-order cover time on bounded-degree trees and algorithms for hitting, not numerical C_N(x).",
+          "General finite-MDP optimality implies each finite instance is computable, not the all-N closed expression or first-greedy-failure theorem."
+        ],
+        "reasoning": "Class inclusion (path is a tree) gives only bounds; general Bellman optimality is methodology, not a prior theorem determining the exact parameters or sharp local obstruction.",
+        "searches": [
+          "arXiv:1911.05170 bounded degree trees cover Theorem",
+          "ITCS 2020 Choice and Bias in Random Walks",
+          "two choice adaptive random walk cover time paths exact"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.05170 original full PDF",
+        "ITCS 2020 Choice and Bias in Random Walks",
+        "arXiv:1101.5711",
+        "Resultary semantic results (no matching exact path theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior linear-order bound follows from new exact C_N(x)=3N+O(1) for center start, but not conversely.",
+          "Prior per-instance Bellman framework permits verifying constructed policies yet cannot alone state the all-order exact formula or six-vertex threshold."
+        ],
+        "reasoning": "The asserted result is stronger as a path-specific exact formula and local counterexample; neither general O(n) bounds nor algorithmic computability logically provides its constants.",
+        "searches": [
+          "arXiv:1911.05170 Theorem tree cover times",
+          "arXiv:1911.05170 algorithms for optimal hitting controls"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgakopoulos–Haslegrave–Sauerwald–Sylvester note approximately 2N optimal path hitting, not the exact cover time L_N+E_N or unvisited-first threshold.",
+          "Greedy Random Walk prioritizes previously untraversed edges and has no two-offer with-replacement control."
+        ],
+        "reasoning": "Different sampling and visitation notions are not equivalences; closest paper motivates Bellman framework but no exact family formula or cutoff seen in inspected primary text.",
+        "searches": [
+          "arXiv:1911.05170 Section 3 path hitting",
+          "Resultary two-choice random walk path semantic",
+          "Orenshtein Shinkar Greedy Random Walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected published source does not supply a table of exact path cover times indexed by order/start nor the n=6 pair 833/81,941/81.",
+          "Source provides path hitting time about twice edges but not this two-target rational formula."
+        ],
+        "reasoning": "No equivalent exact table found in searched sources; this does not establish universal novelty.",
+        "searches": [
+          "with replacement choice random walk path P_n exact cover time rational sequence table",
+          "arXiv:1911.05170 path Section 3",
+          "Resultary path cover time semantic"
+        ]
+      },
+      "rationale": "Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.",
+      "residual_risks": [
+        "An alternative prior exact Bellman solution for the same with-replacement path model may be unindexed.",
+        "The unvisited-first boundary concerns paths, not smallest obstruction among all graphs.",
+        "Results optimize expected steps only, not stochastic order or every policy tie."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same underlying model, no observed exact all-path cover and greedy threshold formula",
+          "evidence": "Section 3 describes approximate path hitting and general tree order bound.",
+          "identifier_or_url": "arXiv:1911.05170",
+          "material_read": "full primary PDF mathematical sections on path hitting, bounded-degree tree cover, control algorithms and stated theorems",
+          "method": "read original PDF text and inspected screenshot page",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "identical offers-with-replacement random-walk model on trees and paths"
+        },
+        {
+          "assessment": "bounds and computational theory, not matching exact formula",
+          "evidence": "Theorems concern broad classes and complexity.",
+          "identifier_or_url": "doi:10.4230/LIPIcs.ITCS.2020.76",
+          "material_read": "available full proceedings/abstract, cover theorem and computational controls",
+          "method": "compare ITCS proceedings theorem scope",
+          "title": "Choice and Bias in Random Walks",
+          "trigger": "publication of same two-choice study"
+        },
+        {
+          "assessment": "non-equivalent edge-first model",
+          "evidence": "No random with-replacement two-neighbor offers in greedy edge-walk model.",
+          "identifier_or_url": "arXiv:1101.5711",
+          "material_read": "accessible introduction and model definition",
+          "method": "read accessible arXiv description and distinguish edge versus vertex process",
+          "title": "Greedy Random Walk",
+          "trigger": "greedy policy terminology could conceal equivalent result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete finite-order optimal-control solution of a natural path model, with an explicit sharp threshold exposing the failure of the intuitive unvisited-first heuristic. Both closed cover means and policy boundary are useful independent of general tree asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1911.05170 original full PDF",
+    "ITCS 2020 Choice and Bias in Random Walks",
+    "arXiv:1101.5711",
+    "Resultary semantic results (no matching exact path theorem)"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact optimal mean vertex cover time of the with-replacement two-offer controlled walk on every path, including optimal two-phase endpoint strategy and the sharp six-vertex failure of an unvisited-first choice.",
+  "limitations": [
+    "An alternative prior exact Bellman solution for the same with-replacement path model may be unindexed.",
+    "The unvisited-first boundary concerns paths, not smallest obstruction among all graphs.",
+    "Results optimize expected steps only, not stochastic order or every policy tie."
+  ],
+  "residual_risks": [
+    "An alternative prior exact Bellman solution for the same with-replacement path model may be unindexed.",
+    "The unvisited-first boundary concerns paths, not smallest obstruction among all graphs.",
+    "Results optimize expected steps only, not stochastic order or every policy tie."
+  ],
+  "schema_version": 1
+}
