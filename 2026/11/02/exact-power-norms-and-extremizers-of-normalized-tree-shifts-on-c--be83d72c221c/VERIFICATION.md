@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python check_power_norms.py` in Python 3, standard library only. The implementation evaluates \(\operatorname{Ces}_2\) norms for finitely supported complex sequences using the exact \(\zeta(2)=\pi^2/6\) tail formula. It compares six scalar shift powers, three different spherical branching profiles, and random complex vectors to the proposed \(p=2\) zeta ratio; it also tests same-phase exact attainment. The verification run reported 2,118 assertions passed. Numerical tolerances account for floating-point arithmetic.
+## correctness
 
-# Mathematical verification
+PASS
 
-The nonnumerical proof in `RESULT.md` independently establishes: (i) the reverse weighted-covariance inequality for all \(1<p<\infty\), (ii) strict equality characterization for every integer power, (iii) the exact tree descendant-mean inequality, (iv) equality at the root by the triangle inequality, and (v) the integral-test power asymptotic and Gelfand spectral-radius formula. No numerical finite test is asserted to imply an infinite-dimensional result.
+For 1<p<∞ and any finite branching numbers b_j≥1, the level means A_j(M^k f)≤A_(j+k)(f) follow from each depth-k descendant occurring exactly once with equal weight. The scalar backward shift on Ces_p has sharp norm^p ζ(p)/ζ(p,k+1), derived by comparing increasing prefix sums u_n^p with strictly decreasing factors ((n+k+1)/(n+1))^p via the negative covariance identity; equality forces a single nonzero input at index k. Level-k functions with common nonzero complex phase attain the tree equality at the root; phase variation makes the triangle inequality strict. The Hurwitz-zeta tail integral test proves the stated k^(1−1/p) growth and r(M)=1. Independent p=2 tests exercised 2,500 finite sequences and all ten power spikes; not an infinite proof.
 
-# Remaining limits
+## originality
 
-The method relies on spherical homogeneity and does not handle general edge weights or nonuniform children counts by vertex. Publication priority of any implicit older exact classical Cesàro shift identity has not been independently certified.
+PASS
+
+The recent paper on weighted shifts on rooted-tree Cesàro spaces supplies general boundedness/dynamical criteria, and a separate classic Cesàro shift treatment supplies a coarse bound (at p=2), not the exact all-k Hurwitz-zeta tail nor equality classification in inspected text. Related published mathematical records analyze different dyadic c0 shifts and absolute Cesàro boundedness. The exact normalized-child average tree theorem is not implied by those statements, although an older scalar Cesàro operator-norm identity could cover its key scalar lemma.
+
+## value
+
+PASS
+
+Determining each iterate norm, all extremizing vectors and precise unbounded polynomial power growth for a natural averaging operator provides a structural complete classification, explains cancellation of tree branching, and supplies exact stability information beyond generic boundedness estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
