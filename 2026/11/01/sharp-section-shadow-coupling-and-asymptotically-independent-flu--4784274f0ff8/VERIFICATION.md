@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scientific limits
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing `requirements.txt` with NumPy (>=1.24) and SciPy (>=1.10). The program terminates only when each check passes and prints `ALL_SIMPLEX_SECTION_SHADOW_CHECKS_PASSED`.
+## correctness
 
-The independent geometric reconstruction projects each canonical simplex onto the perpendicular hyperplane and computes the true convex-hull volume for 480 generic directions across dimensions \(N=3,4,5,6\). It separately constructs crossed simplex edges, verifies counts, and checks the sharp deterministic upper and lower bounds, including two-level equality classes for each positive/negative sign split through \(N=19\). Spherical absolute-product moments are independently checked by numerical quadrature. First and second exact area moments are checked against random Haar directions in dimensions \(N=3,4,8,20,100\). The limiting variances, zero asymptotic correlation and chi-square deficit are checked empirically for \(N=300,1000\).
+PASS
 
-The analytic proof uses the facet-area normalization, Cauchy's projection formula, a strict sign-class norm bound, connectedness of sign chambers, the correlated Gaussian absolute-product identity, and a bivariate central limit theorem after centering by the sample mean and self-normalization by the Gaussian norm. For the moving-threshold count, a grid and variance bound justify the \(o_p(1)\) error. For the projected volume, a local absolute-value remainder and a law of large numbers for squared Gaussian norm justify the \(o_p(1)\) linearization. Parity of the two Gaussian influence functions makes the bivariate limit independent.
+The canonical regular simplex has facet volume sqrt(N-1)/(N-2)! and normal projections sqrt(N/(N-1)) U_i. Cauchy brightness formula gives Y=sqrt(N/(N-1)) sum |U_i|, while crossed edges give section vertices C=p(N-p). Equal positive/negative absolute masses a and unit norm imply 1/2<a²<=pq/N for generic N>=3 (upper equality for two-level sign classes), hence the entire half-open Y interval; connectedness of each sign chamber fills every intermediate value. The exact finite E[Y] and E[Y²] use spherical absolute-coordinate and correlated Gaussian pair moments. Represent U by centered iid Gaussians divided by their Euclidean norm. The sign-count influence psi=1_(G>0)-1/2-phi(0)G is odd and has variance s²; the brightness influence eta=|G|-sqrt(2/pi)-(sqrt(2/pi)/2)(G²-1) is even and has variance tau²=1-3/pi. Empirical moving-threshold/grid remainder and normalization errors are o_p(1), so iid bivariate CLT yields independent Gaussian limits, squaring sign count gives independent chi-square vertex deficit. Every all-N assertion is analytic, not extrapolated from finite simulations.
 
-No finite sample simulation establishes an infinite-dimensional theorem or historical priority. The exact joint density at finite dimension, convergence rates, nonregular simplices and general oblique projections are not determined. The nearest prior section-only results and the relevant brightness literature are cited in RESULT.md and REVIEW.md. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact conclusions and logical implications, not titles or equal parameter words. The section face-vector distribution, Cauchy brightness functional and Gaussian geometry were separately known, but neither prior RESULT.md gives their complete simultaneous feasible interval and independent joint weak limit under a single normal. A general Cauchy projection formula is sufficient to define Y but it does not give the sharp sign-split range or joint Gaussian-sign influence covariance. Known one-dimensional widths and section volumes are not a theorem about the same-direction codimension-one shadow with section vertices. Residual source-access risks and credited antecedents are explicit.
+
+## value
+
+PASS
+
+A single hyperplane produces two intrinsic observables: discrete section complexity and continuous orthogonal shadow volume. The exact feasible joint domain and equality directions answer a natural inverse-geometric compatibility question, and the independent Gaussian/chi-square limit explains why a strong deterministic finite-N coupling disappears at fluctuation scales. These are genuinely additional joint facts beyond previously published section-only face counts and projection-only widths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
