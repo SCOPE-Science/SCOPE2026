@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:56:34.142937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a complete multipartite induced subgraph on k vertices with maximum part occupancy M, the longest simple path has min(k,2(k-M)+1) vertices: an alternating arrangement achieves the upper bound using multiset rearrangement. Thus faces of size k>=t are exactly those with k-M<=s=floor((t-2)/2). For t>=5 and k>=t-1 the dominant part is unique. Pair each high face with the legal pivot-insertion/deletion of that part, leaving only dimension<=t-2 faces; no nontrivial gradient path can follow a matched edge because other downward faces still contain the relevant pivot and cannot be lower matched faces. The complex includes the full (t-2)-simplex skeleton, hence is (t-3)-connected; Forman Morse bound dim<=t-2 plus Hurewicz/Whitehead yields wedge B spheres S^(t-2), where B=comb(N-1,t-1)-sum_i sum_{b=0}^s comb(N-ni,b)comb(ni-1,t-b-1) by exact signed Euler. For t>N the whole simplex is contractible and formula B=0. Independently checked forbidden-path DP, face count, and Euler for small examples incl K_(2,3,3) t5 B35/t6 B21, K_(3,3,3) t5 B70, and K_(4,4,4) source formula t5 B306/t6 B378. Finite checks corroborate only; the pairing proof covers all positive n_i,r>=3,t>=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 abstract advertises full homotopy classification specifically for complete bipartite subfamily, general results are decomposition/vertex decomposability",
+          "Known four-path-free computations have t=4 rather than arbitrary t>=5"
+        ],
+        "reasoning": "General structural/shellability statements do not automatically force a uniform wedge and its binomial multiplicity in nonshellable regimes. Their inaccessible full text might supply an applicable stronger theorem; this remains explicitly unresolved as a bibliographic risk, not a scientific FAIL by itself.",
+        "searches": [
+          "Deshpande Goyal Sawant complete characterization path-free multipartite graphs homotopy",
+          "Resultary: Path-free complexes complete multipartite graphs K_{n1,...,nr} homotopy sphere wedge general t threshold t≥5 Betti exact formula",
+          "four-path-free complete multipartite graph prior work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.05358v1 accessible abstract, closest same-domain source",
+        "Resultary semantic queries for multipartite PF_t, t>=5, r>=3",
+        "Pinned RESULT.md, verify.py and VERIFICATION.md",
+        "Standard Forman/Hurewicz/Whitehead theorems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted r>=3 cases include nonshellable regimes with top Betti B=306,378 for K_(4,4,4)",
+          "Only the bipartite subclass is explicitly claimed to have completely computed homotopy in nearest accessible abstract"
+        ],
+        "reasoning": "The submitted formula has the nearest article’s bipartite domain as a strict restriction not covered by the claim (r>=3). Neither bipartite numbers nor a vertex-decomposability criterion logically implies the all-r/t sphere-wedge result without additional arguments.",
+        "searches": [
+          "arXiv:2607.05358v1 abstract multipartite/bipartite theorem",
+          "PF_5 K_4,4,4 306 spheres and PF_6 378 spheres",
+          "Resultary multipartite path-free classification general thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary arXiv:2607.05358 defines same forbidden simple paths, and gives structural decomposition and bipartite homotopy results in abstract",
+          "Submitted theorem explicitly permits r>=3 and all t>=5, with sharp B sum"
+        ],
+        "reasoning": "The equivalent descriptions are P_t-free induced vertex sets, path-free complexes and hitting-set complements for t-vertex simple paths. Shared object raises high priority risk; available abstract does not state the stronger all-r rank formula, but full-text implications are unverified.",
+        "searches": [
+          "Path-free complexes complete multipartite graphs K_{n1,...,nr} homotopy sphere wedge general t threshold t≥5 Betti exact formula",
+          "arXiv:2607.05358v1",
+          "path-free complexes non-induced simple P_t complete multipartite hypergraph independence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned other graph cut/Čech/independence objects but no indexed PF_t multipartite t>=5 formula",
+          "Nearest accessible primary abstract does not list exact all-r Betti table"
+        ],
+        "reasoning": "Known fixed-threshold tables and r=2 calculations do not provide a formula for r>=3 and every t>=5. Search absence is not proof that the full preprint contains no table; priority risk retained.",
+        "searches": [
+          "Resultary search path-free complex complete multipartite homotopy path free induced graph threshold t",
+          "PF_t complete multipartite graph exact homology ranks binomial sum t>=5",
+          "arXiv:2607.05358 figure/table abstracts"
+        ]
+      },
+      "rationale": "PASS by bounded best-of-knowledge: Deshpande–Goyal–Sawant arXiv:2607.05358 (2026) is very close (same complete multipartite path-free objects). Its accessible abstract reports general structural decompositions and shellability thresholds but advertises complete sphere-wedge homotopy calculation for the bipartite family; the claimed uniform r>=3,t>=5 multiplicity was not found in accessible material. The source full 19 pages could not be inspected: its undisclosed corollary could overturn priority. Restricted t=4 and bipartite r=2 results do not by themselves imply the present all-r/all-t classification.",
+      "residual_risks": [
+        "HIGH: closest 19-page Deshpande–Goyal–Sawant full text not accessed; an implicit corollary or appendix may cover the submitted formula. Oxford institutional attempt returned vpn_disconnected; no bypass.",
+        "An unindexed or different-named P_t-hypergraph complex classification may dominate the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract distinguishes general decomposition/shellability from full homotopy in bipartite case; cannot assert full-text NOT_COVERING",
+          "evidence": [
+            "arXiv:2607.05358v1 abstract (2026-07-06), 19 pages; full-text VPN unavailable"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.05358",
+          "material_read": "Complete accessible abstract, author/title/date, structural and homotopy summary; full 19-page article inaccessible",
+          "method": "Read primary arXiv abstract and accessible mirrors; OA attempts followed by authorized institutional retrieval, which returned vpn_disconnected without further retries",
+          "title": "On a complete characterization of path-free complexes associated with complete multipartite graphs",
+          "trigger": "Nearest same mathematical object and general part sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural all-parameter homotopy classification of complete multipartite path-free complexes extends beyond the published bipartite case and shellable ranges. It determines every integral Betti rank and proves a structural uniform Morse matching for all t>=5, giving e.g. hundreds of top spheres for K_(4,4,4). This is more than finite enumerations, parameter substitution, or a routine combinatorial Euler count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.05358v1 accessible abstract, closest same-domain source",
+    "Resultary semantic queries for multipartite PF_t, t>=5, r>=3",
+    "Pinned RESULT.md, verify.py and VERIFICATION.md",
+    "Standard Forman/Hurewicz/Whitehead theorems"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "r>=3, each part nonempty, t>=5, simple paths need not be induced; no general graphs or t<=4.",
+    "Closest 19-page same-object primary full text inaccessible; best-knowledge originality only."
+  ],
+  "residual_risks": [
+    "HIGH: closest 19-page Deshpande–Goyal–Sawant full text not accessed; an implicit corollary or appendix may cover the submitted formula. Oxford institutional attempt returned vpn_disconnected; no bypass.",
+    "An unindexed or different-named P_t-hypergraph complex classification may dominate the claim."
+  ],
+  "schema_version": 1
+}
