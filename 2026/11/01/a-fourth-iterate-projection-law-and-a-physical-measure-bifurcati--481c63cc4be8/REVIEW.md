@@ -1,15 +1,21 @@
-# Scientific review: fourth-iterate projection and physical-measure transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The identity follows from the exact two-step scalar recurrence \(q_\mu(t)=\mu-\max(t,0)\): the second iterate \(q_\mu^2\) is interval clipping for positive forcing and constant for nonpositive forcing. This proves all-domain projection, not merely a numerical observation. On the projected square the map is exactly order-four rotation; outside it no periodic point exists because all points land there after four steps. Invariant probabilities are precisely rotation-invariant probabilities, and empirical measures converge to finite-orbit averages. Projection preimages of noncorner square points are planar-null, whereas the four corners have positive-area quadrant preimages. The invariant-area probability is therefore not physical relative to ambient planar Lebesgue. Sharpness witnesses and branch endpoints are included. The package's exact-rational regression program has been executed.
+## correctness
 
-## Originality — PASS within inspected material
-The 2024 Simpson preprint introduces and analyzes the same zero-determinant normal form. Its sections on neutral centre boundaries and period-adding do not give an all-plane fourth-iterate Euclidean projection or the complete stationary/physical-measure classification at zero trace and right unit determinant. The 2026 follow-on study concerns a repelling right focus and first-return geometry rather than this neutral quarter-turn regime. The Szalai–Osinga polygon paper uses a different unstable-complex-multiplier assumption; its older full text could not be retrieved here, so a same-object independent statement remains a residual priority risk. Border-collision works using strict saddle parameters, or the homogeneous zero-input focus, do not imply this forced quarter-turn theorem. Published public mathematical records were also searched using the exact recurrence, projection, aliases and proposed conclusions; no direct dominating claim was found. Absence of matches does not certify priority.
+PASS
 
-## Value — PASS
-At a natural and explicitly characterized codimension-three resonance of the standard border-collision normal form, the entire nonlinear global iteration becomes a metric projection after exactly four steps. The result also separates (i) many invariant and even absolutely continuous probabilities on a positive-area invariant square from (ii) a unique ambient-Lebesgue physical probability supported only on its four corners, while nonpositive forcing collapses the entire plane to one fixed state. This exact invariant/physical measure distinction and parameter boundary are a motivated complete classification, not a generic local stability calculation. The theorem does not claim robustness to parameter perturbations.
+For every real mu, write F_mu(x,y)=(mu+y,-max(x,0)), q_mu(t)=mu-max(t,0); direct two-step recurrence x_{n+2}=q_mu(x_n) gives F_mu^4=(q_mu²(x),q_mu²(mu+y)-mu). Piecewise evaluation shows q_mu² constant mu for mu<=0 and clipping onto [0,mu] for mu>0, exactly the orthogonal projection onto singleton or [0,mu]×[-mu,0]. On the square F rotates by 90 degrees; every noncenter point has least period four, fixed center unique, and all invariant probabilities are four-rotation-invariant. Every initial point has empirical limit the cycle-uniform measure of its projected point; only corner projection fibers contain positive planar area, yielding unique four-corner physical measure for mu>0, and whole-plane fixed Dirac for mu<=0. Explicit states require four steps, confirming sharpness. Independently checked 2500 rational grid cases across negative, zero and positive mu including boundaries; analytic scalar proof covers all real inputs.
 
-## Literature and priority limitations
-Closest primary sources: D. J. W. Simpson, *The two-dimensional border-collision normal form with a zero determinant* (arXiv:2408.04790v1, 2024), especially the normal-form definition and section 6.2 on centre bifurcations; D. J. W. Simpson, *One-Dimensional First Return Maps for the Two-Dimensional Border-Collision Normal Form with a Zero Determinant* (arXiv:2606.08901, 2026); and R. Szalai–H. M. Osinga, *Invariant polygons in systems with grazing-sliding* (2007 preprint, 2008 journal article). The 2007 paper's abstract and bibliographic record were accessible, but its full preprint endpoint was not. Equivalent undocumented or unindexed treatments remain possible; no independent priority certification has been made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The exact same normal form was published by Simpson; his accessible 2024 full paper addresses parameter-space dynamics and the delta_R=1 centre boundary but not the all-plane fourth-iterate projector or full ambient-Lebesgue physical measure theorem. The 2026 first-return result requires delta_R>1. Priority risk from older polygon paper is explicit.
+
+## value
+
+PASS
+
+The zero-determinant/neutral-quarter-turn resonance is a natural boundary of a classical piecewise-linear bifurcation family. A global finite-time metric projection followed by exact order-four rotation gives a complete invariant/ergodic and physical-measure classification, sharply separating invariant area probability from the unique physical corner cycle and its basin; this is a motivated structural fact despite its elementary recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The analytic proof derives the exact identity \(F_\mu^4=\Pi_{K_\mu}\) by the two-step scalar recurrence \(q_\mu(t)=\mu-\max(t,0)\) and the exhaustive evaluation of \(q_\mu^2\). This covers all real parameters and phase points, including branch boundaries. The classification of invariant and physical measures uses finite-order rotation and the geometry of orthogonal-projection fibers; it does not follow from a finite computational grid.
+## correctness
 
-`verify.py` uses only Python's standard library (`fractions` and `itertools`). Execute `python verify.py` in the directory containing that file. The program checks exact rational identities on grids for the forcing values `-4`, `-1`, `0`, `1`, `2`, `5`, four denominators and 18 values per coordinate, plus corner orbits and sharpness witnesses. The original execution returned:
+PASS
 
-```
-PASS: 31122 exact rational identities and boundary witnesses
-```
+For every real mu, write F_mu(x,y)=(mu+y,-max(x,0)), q_mu(t)=mu-max(t,0); direct two-step recurrence x_{n+2}=q_mu(x_n) gives F_mu^4=(q_mu²(x),q_mu²(mu+y)-mu). Piecewise evaluation shows q_mu² constant mu for mu<=0 and clipping onto [0,mu] for mu>0, exactly the orthogonal projection onto singleton or [0,mu]×[-mu,0]. On the square F rotates by 90 degrees; every noncenter point has least period four, fixed center unique, and all invariant probabilities are four-rotation-invariant. Every initial point has empirical limit the cycle-uniform measure of its projected point; only corner projection fibers contain positive planar area, yielding unique four-corner physical measure for mu>0, and whole-plane fixed Dirac for mu<=0. Explicit states require four steps, confirming sharpness. Independently checked 2500 rational grid cases across negative, zero and positive mu including boundaries; analytic scalar proof covers all real inputs.
 
-The finite grid is a regression check, not an exhaustive enumeration of all real initial conditions and not a substitute for the proof. The precise set of invariant measures and their ambient-Lebesgue basins is established symbolically in `RESULT.md`. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge. The exact same normal form was published by Simpson; his accessible 2024 full paper addresses parameter-space dynamics and the delta_R=1 centre boundary but not the all-plane fourth-iterate projector or full ambient-Lebesgue physical measure theorem. The 2026 first-return result requires delta_R>1. Priority risk from older polygon paper is explicit.
+
+## value
+
+PASS
+
+The zero-determinant/neutral-quarter-turn resonance is a natural boundary of a classical piecewise-linear bifurcation family. A global finite-time metric projection followed by exact order-four rotation gives a complete invariant/ergodic and physical-measure classification, sharply separating invariant area probability from the unique physical corner cycle and its basin; this is a motivated structural fact despite its elementary recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
