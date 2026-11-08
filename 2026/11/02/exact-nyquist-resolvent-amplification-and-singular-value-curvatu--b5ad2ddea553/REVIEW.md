@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Substituting the proposed Green kernel into the BPF three-point recurrence gives the point-source defect \(-2\mathrm{i}\sin s\) at the source and zero elsewhere, while the outgoing boundary equations hold at both endpoints. The two homogeneous waves are independent for \(0<s<\pi\), so this is the unique inverse. All matrix entries have unit phase, yielding the exact Frobenius norm. After unitary phase conjugation, ordinary analytic perturbation of the simple leading eigenvalue of the Hermitian square yields the second-order singular-value coefficient. The three finite-sum identities are proved by polynomial summation and independently checked by the accompanying executable. The source-to-solution norm has the same scaling in ordinary and discrete \(L^2\) coordinates.
+## correctness
 
-## Originality
-**PASS, subject to documented historical-priority uncertainty.** The motivating BPF theorem supplies a sufficient source stability bound but not the sharp source-only Nyquist pole or its second-order singular-value correction. The complex-symmetric Kac–Murdock–Szegő literature supplies the underlying matrix family and ordinary eigenvalue analyses, but the inspected results do not state the same largest-singular-value curvature or its interpretation as an optimal BPF source-resolvent constant. These are comparisons of implications, not merely titles: ordinary eigenvalues do not determine singular values for a generally nonnormal complex symmetric matrix. Older specialized singular-norm literature could still contain an equivalent expansion, and full-text access to the 2018 predecessor was limited.
+PASS
 
-## Value
-**PASS.** Near \(kh=\pi\), the published sufficient source bound contains a second-order secant divergence at each fixed mesh. The exact resolvent proves the true optimal source-only divergence is first-order, gives its sharp physical constant for every mesh, and quantifies the finite-mesh norm deficit relative to its Hilbert–Schmidt envelope. This is a directly reusable numerical-stability benchmark for a named phase-fitted discretization, not a free-standing elementary property of an arbitrarily selected Toeplitz matrix. The finding does not infer floating-point stability or multidimensional behavior.
+Dividing BPF recurrence gives u_{i+1}-2cos(s)u_i+u_{i-1}=h² f_i/Theta; kernel exp(-is|i-j|) has defect -2i sin s and satisfies impedance edges. Thus Green matrix exact and each entry modulus h²/(2Theta sin s), so Frobenius norm m h²/(2Theta sin s). Near s=pi, diagonal conjugation reduces K_m to exp(i delta |i-j|) near all-ones J; isolated singular value m. Second-order perturbation of KK* gives lambda2=-(m²-1)(2m²+7)/45 and norm curvature (m²-1)(2m²+7)/(90 m²). Scalar limit delta*k*norm ->2L(1-1/n)/pi. Independent rational sums checked m1..24 and 50 direct boundary system inversions; no n-uniform error estimate claimed.
 
-## Closest literature and limits
-Sources: Jüngel–Li–Sun–Zhang, arXiv:2605.21144, equations (2.3)–(2.5), Theorem 3.1; Fikioris, arXiv:1804.08140; Fikioris–Mavrogordatos, arXiv:1812.06437; Higham, *What Is the Kac–Murdock–Szegő Matrix?* (2021). The latter KMS introductions and papers give important spectral context and identify the rank-one endpoint; the exact source resolvent singular-curvature computation is not thereby established. The fixed-dimension remainder is not uniform in mesh refinement. Independently checking an older full text and broader complex-Toeplitz singular-norm literature remains worthwhile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jüngel et al. introduced the BPF method and a wavenumber-explicit stability upper bound whose near-Nyquist scaling is weaker, while Fikioris studies ordinary eigenvalues of complex Kac–Murdock–Szegő matrices. The precise largest singular-value quadratic curvature and optimal source norm at fixed mesh are distinct; earlier KMS methods could still imply this with specialization.
+
+## value
+
+PASS
+
+Sharp source stability constant and exact first curvature correct a potentially pessimistic order-two Nyquist upper bound to true first-order pole. This directly measures a natural scheme threshold and is meaningful without broader PDE claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

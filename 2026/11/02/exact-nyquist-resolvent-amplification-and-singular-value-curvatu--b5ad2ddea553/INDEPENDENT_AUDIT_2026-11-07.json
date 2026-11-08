@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:59:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-nyquist-resolvent-amplification-and-singular-value-curvatu--b5ad2ddea553/RESULT.md",
+        "2026/11/02/exact-nyquist-resolvent-amplification-and-singular-value-curvatu--b5ad2ddea553/verify.py"
+      ],
+      "rationale": "Dividing BPF recurrence gives u_{i+1}-2cos(s)u_i+u_{i-1}=h² f_i/Theta; kernel exp(-is|i-j|) has defect -2i sin s and satisfies impedance edges. Thus Green matrix exact and each entry modulus h²/(2Theta sin s), so Frobenius norm m h²/(2Theta sin s). Near s=pi, diagonal conjugation reduces K_m to exp(i delta |i-j|) near all-ones J; isolated singular value m. Second-order perturbation of KK* gives lambda2=-(m²-1)(2m²+7)/45 and norm curvature (m²-1)(2m²+7)/(90 m²). Scalar limit delta*k*norm ->2L(1-1/n)/pi. Independent rational sums checked m1..24 and 50 direct boundary system inversions; no n-uniform error estimate claimed.",
+      "residual_risks": [
+        "Direct primary BPF and KMS full text were not obtained; specialist Green-kernel expansions could imply the exact coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published BPF L2 stability bound has a sec²(s/2)-type factor and does not give sharp fixed-grid singular norm at s→pi."
+        ],
+        "reasoning": "A nonoptimal bound does not dominate the exact leading constant and quadratic curvature.",
+        "searches": [
+          "Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+          "arXiv:2605.21144, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob c49c01bce2ca85f5dfb92fa00be9663390acb1f8",
+        "Git verify.py blob fd6a96c0355c5341a769a76d60606a065eb19735",
+        "Resultary semantic query Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+        "arXiv:2605.21144",
+        "arXiv:1804.08140",
+        "arXiv:1812.06437"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KMS results on complex-parameter eigenvalues and rank-one endpoint are credited."
+        ],
+        "reasoning": "They provide the matrix family and endpoint rank but do not automatically imply second-order top singular-value curvature nor BPF scaling; unknown alternate inference remains possible.",
+        "searches": [
+          "Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+          "arXiv:1812.06437; N.J.Higham KMS 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase Toeplitz matrix is Kac–Murdock–Szegő at rho=e^{-is}, and BPF recurrence maps to exact discrete Green kernel."
+        ],
+        "reasoning": "Ordinary KMS eigenvalues do not equal singular values for generally nonnormal complex-phase matrices; this reduction clarifies but does not exhaust the target.",
+        "searches": [
+          "Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+          "arXiv:1804.08140; arXiv:2605.21144"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Nyquist Hilbert and unrelated singular-operator records; no matching KMS BPF curvature table."
+        ],
+        "reasoning": "No direct exact known coefficient located in checked sources; no assertion of absolute novelty from search failure.",
+        "searches": [
+          "Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+          "Resultary semantic query 2026-11-07"
+        ]
+      },
+      "rationale": "Jüngel et al. introduced the BPF method and a wavenumber-explicit stability upper bound whose near-Nyquist scaling is weaker, while Fikioris studies ordinary eigenvalues of complex Kac–Murdock–Szegő matrices. The precise largest singular-value quadratic curvature and optimal source norm at fixed mesh are distinct; earlier KMS methods could still imply this with specialization.",
+      "residual_risks": [
+        "Direct primary BPF and KMS full text were not obtained; specialist Green-kernel expansions could imply the exact coefficient.",
+        "Fixed n asymptotics cannot be made uniform in n from stated result.",
+        "Zero impedance data and discrete source-to-interior norm only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": "Published scheme and stability bound are prior, precise optimal source norm not verified in full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.21144",
+          "material_read": "Abstract/bibliographic data and formulas quoted from original RESULT; full paper not available",
+          "method": "arXiv search/index",
+          "title": "A Bernoulli Phase-Fitted finite difference method with wavenumber-explicit analysis for the Helmholtz problem",
+          "trigger": "Exactly same discretization and stability bound"
+        },
+        {
+          "assessment": "PARTIAL_DIFFERENT_SPECTRUM",
+          "evidence": "Complex ordinary eigenvalues rather than top singular-value curvature.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.08140",
+          "material_read": "Abstract and metadata on ordinary eigenvalues",
+          "method": "arXiv index",
+          "title": "Spectral properties of Kac–Murdock–Szegő matrices with a complex parameter",
+          "trigger": "Same phase matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md blob c49c01bce2ca85f5dfb92fa00be9663390acb1f8",
+        "Git verify.py blob fd6a96c0355c5341a769a76d60606a065eb19735",
+        "Resultary semantic query Bernoulli phase fitted Helmholtz Nyquist resolvent singular value Kac Murdock Szego Toeplitz",
+        "arXiv:2605.21144",
+        "arXiv:1804.08140",
+        "arXiv:1812.06437"
+      ],
+      "rationale": "Sharp source stability constant and exact first curvature correct a potentially pessimistic order-two Nyquist upper bound to true first-order pole. This directly measures a natural scheme threshold and is meaningful without broader PDE claims.",
+      "residual_risks": [
+        "Zero impedance data and discrete source-to-interior norm only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Direct primary BPF and KMS full text were not obtained; specialist Green-kernel expansions could imply the exact coefficient.",
+    "Fixed n asymptotics cannot be made uniform in n from stated result.",
+    "Zero impedance data and discrete source-to-interior norm only."
+  ],
+  "schema_version": 1
+}
