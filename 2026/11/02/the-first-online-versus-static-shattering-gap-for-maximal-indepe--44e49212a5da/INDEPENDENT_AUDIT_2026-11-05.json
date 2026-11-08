@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:53:13.701470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof 1-3 frozen blob 6192f7f7caeb5e43fe2bd2abe6c89be4968d3063",
+        "check_mis_gap.py and check_mis_gap_networkx.py, inspected source blobs 0d61d55c603614c92a8c1a736d218ad4ade59150 and 1210ab36144401bb2a9148bafefdcd96704c8649",
+        "Independent NetworkX tree enumeration R2 in independent_checks.py",
+        "Explicit eight-leaf witness and eight masks checked against full membership family"
+      ],
+      "rationale": "For inclusion-maximal rather than maximum independent sets, a fixed eight-vertex spider S(1,2,4) has exactly eight maximal independent-set membership masks; checking all 56 triple restrictions gives VC=2, while the 8-leaf depth-three decision certificate gives Littlestone=3. The all-forest first-boundary theorem reduces to an exhaustive tree enumeration: leaf deletion gives a complete generator, and canonical center-rooted code removes isomorphisms. An independently implemented NetworkX census regenerated 1,1,1,2,3,6,11,23 nonisomorphic trees and found exactly one eight-vertex gap with degrees (3,2,2,2,2,1,1,1). The Cartesian-product lemma adds VC and Littlestone dimensions across disconnected components; induction on hypothesis partitions proves Ldim additivity for products. Thus (2s,3s) for disjoint s copies holds at every s, not only enumerated cases.",
+      "residual_risks": [
+        "Uniqueness is an exhaustive finite machine-assisted classification through eight vertices, not an independent proof-assistant certificate.",
+        "Amplification is by disjoint copies; it is not a classification of larger connected forests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drmota et al. Theorems 1,3 count maximal independent sets asymptotically and their sizes.",
+          "Guingona et al. Theorem 3.10 applies to zero sets of vector-space combinations.",
+          "Michel–Scott lower-bound statements concern n-vertex graph reconstruction complexity."
+        ],
+        "reasoning": "Number of concepts bounds log2 Ldim but does not give the complete adaptive tree or uniqueness classification. No checked broader theorem identifies the same forest membership concept class.",
+        "searches": [
+          "Drmota Ramos Requilé Rué maximal independent sets trees 2018 Theorems 1 3",
+          "Guingona 2109.04805 Theorem 3.10",
+          "Michel Scott maximal independent set queries Theorems 1.2-1.5"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.AofA.2018.18",
+        "https://arxiv.org/abs/2109.04805",
+        "https://people.maths.ox.ac.uk/michel/Papers/graph-reconstruction-maximal-independent-set-queries.pdf",
+        "Resultary 2026/10/4/SCOPE-all-minimal-zero-forcing-sets-and-the-upper-zero-forcing-number--243a67e5cc7b (different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Enumerative asymptotics cannot distinguish whether the eight concepts admit a balanced complete adaptive depth-three tree.",
+          "Michel–Scott graph reconstruction does not query membership of a hidden maximal independent set."
+        ],
+        "reasoning": "Prior theorem hypotheses or observables do not imply the precise (2,3) spider dimensions, uniqueness among 8-vertex forests, or product amplification.",
+        "searches": [
+          "Drmota et al. 2018 Theorem 3 maximal independent set size distribution",
+          "Michel Scott 2024 Theorem 1.2 graph reconstruction",
+          "Guingona et al. 2021 03C45 zero-set classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unknown concept is one inclusion-maximal independent set in a *known fixed graph*.",
+          "Michel–Scott query obtains a maximal independent set of an induced subgraph of an *unknown graph*."
+        ],
+        "reasoning": "The graph-reconstruction oracle model is mathematically different from membership labels of a fixed independent-set concept class; its adaptive/nonadaptive terminology is not equivalent.",
+        "searches": [
+          "maximal independent sets VC Littlestone shattering dimension forest spider",
+          "Littlestone membership incidence maximal independent sets tree 8 vertices",
+          "Resultary semantic Littlestone VC maximal independent sets forests spider S(1,2,4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical counts of unlabeled trees through eight are reproduced, but not a table of VC/Ldim for maximal-independent-set concepts.",
+          "Full 48-tree enumeration was independently reconstructed for this audit."
+        ],
+        "reasoning": "The published shape-count sequence is not an exact dimension table and cannot alone establish this first gap.",
+        "searches": [
+          "unlabeled trees count n≤8 OEIS 1 1 1 2 3 6 11 23",
+          "spider 1 2 4 VC Littlestone maximal independent sets dimension table"
+        ]
+      },
+      "rationale": "Graph classes formed by maximal independent sets are studied in enumerative combinatorics, while Littlestone questions appear in model theory and learning. Drmota et al. derive asymptotic numbers and size distributions, not membership-query adaptive depth. Michel–Scott study reconstruction of an unknown graph via a maximal-independent-set-valued oracle, not learning a fixed unknown maximal independent set from vertex bits. Guingona et al. prove equality for special linear zero-set classes, not forests. No published Resultary match provided the asserted small-order unique spider.",
+      "residual_risks": [
+        "An unpublished finite tree census or a learning-theoretic theorem may previously have identified the same spider.",
+        "The classification is finite through eight vertices, not all connected forests."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact VC/Ldim; only enumeration and size limits",
+          "evidence": "Theorem 1 counts types; Theorem 3 establishes limiting size laws; neither describes adaptive vertex-membership trees.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2018.18",
+          "material_read": "Original open-access 15-page paper, Theorems 1 and 3 and relevant §3-4",
+          "method": "Publisher OA PDF text and page-3 screenshot",
+          "title": "Asymptotic Enumeration and Limit Laws of Trees and Graphs with a Given Number of Maximal Independent Sets",
+          "trigger": "Same combinatorial objects: maximal independent sets of trees"
+        },
+        {
+          "assessment": "NOT_COVERING because oracle/model reversed",
+          "evidence": "Query supplies a whole maximal independent set of G[Q] to recover hidden graph edges, not a vertex label of hidden concept.",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/michel/Papers/graph-reconstruction-maximal-independent-set-queries.pdf",
+          "material_read": "Original 12-page author PDF, Introduction, Theorems 1.2-1.5 and model definition",
+          "method": "PDF extracted material and page-one screenshot",
+          "title": "Lower bounds for graph reconstruction with maximal independent set queries",
+          "trigger": "Title overlaps maximal-independent-set adaptive query topic"
+        },
+        {
+          "assessment": "NOT_COVERING these forest membership classes",
+          "evidence": "Theorem 3.10 assumes a linear zero-set family absent from the forest instance.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Primary arXiv text §1-3 and Theorem 3.10",
+          "method": "Original source PDF and relevant theorem screenshot",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Generic equality theorem potentially dominant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Guingona et al. 2021 VC/Littlestone structural comparison",
+        "Independent 48-unlabeled-tree finite census and product lemma"
+      ],
+      "rationale": "There is a direct mathematical question whether adaptive membership trees can exploit more information than static shattering on a canonical independent-set concept class. The exact smallest connected witness and complete eight-vertex census give a meaningful threshold; disjoint-union additivity yields an unbounded quantitative family. This is stronger than a named example or arbitrary finite computer table because it proves minimality and an infinite amplification.",
+      "residual_risks": [
+        "No claim of extremality among connected forests larger than eight."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All finite undirected forests with n≤8 for first-gap; unlimited disjoint unions of the specified eight-vertex tree.",
+    "Membership questions for one inclusion-maximal independent set, not maximum sets or graph-reconstruction queries."
+  ]
+}
