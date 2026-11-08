@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:38:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An intra-part jump on K_(a,b) leaves opposite-neighbor proportions and type occupancy counts unchanged. For a move of type t from B into vacant A, with A_t=x and B_t=y beforehand, the utility gain is x/(a-1)-(y-1)/(b-1), which exactly matches the two changes in normalized binomial within-type counts. The mirror orientation is symmetric; any fixed agents just remove permissible transitions. Phi lies in [0,(a+b-2)/2] on a grid of spacing 1/lcm(a-1,b-1), so every strict increase moves at least one grid unit and terminates within claimed steps. Independently checked 10394 legal moves across four small parameter triples including nonregular graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Narayanan et al. Theorem 5.1 is regular one-vacancy, Theorem 4.8 spider; Section 7 asks about bipartite cases."
+        ],
+        "reasoning": "When a!=b with a,b>=2, K_(a,b) is neither regular nor spider; prior results cover only balanced/stellar boundaries.",
+        "searches": [
+          "Narayanan Sabbagh Voudouris Diversity-Seeking Jump Games in Networks complete bipartite potential 2025",
+          "diversity seeking jump games regular graphs spider potential 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s10458-025-09714-8",
+        "https://www.ijcai.org/proceedings/2025/446",
+        "https://arxiv.org/abs/2305.17757"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "IJCAI 2025 one-vacancy potential uses unlike-type *counts*, not fraction of unlike occupied neighbors; 2025 regular/spider results have nonmatching graph hypotheses."
+        ],
+        "reasoning": "Neither covers present payoff+topology simultaneously, and the displayed quadratic potential yields a new equality stronger than mere existence of equilibrium.",
+        "searches": [
+          "Narayanan Sabbagh Voudouris Diversity-Seeking Jump Games in Networks complete bipartite potential 2025",
+          "one vacancy complete bipartite diversity seeking segregation jump game potential 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same potential sought for fraction unlike occupied neighbors, with K_(a,b) one vacancy and fixed agents."
+        ],
+        "reasoning": "A within-type pair count potential is equivalent to quadratic type-composition counts; checked the exact utility definition to avoid confusing with distinct-type variety-seeking payoffs.",
+        "searches": [
+          "diversity seeking jump games complete bipartite one vacancy exact potential convergence",
+          "segregation game fraction unlike neighbors one vacancy potential function complete bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Springer 2025 article gives potentiality on other topologies, not a table of potential differences or uniform cubic trajectories for K_(a,b)."
+        ],
+        "reasoning": "No exact complete-bipartite potential table was identified; the full algebraic expression and convergence bound are not known-table recomputation.",
+        "searches": [
+          "diversity seeking jump games complete bipartite one vacancy exact potential convergence",
+          "complete bipartite diversity jump equilibrium exact convergence bound"
+        ]
+      },
+      "rationale": "Narayanan–Sabbagh–Voudouris 2025 full accessible article gives potentiality on regular graphs with one vacancy (Theorem 5.1) and spider graphs (Theorem 4.8), expressly proposing bipartite topologies in Section 7. The nonregular K_(a,b) with a != b and both sides >=2 is neither a regular graph nor a spider, so the paper does not imply this new exact pair-count potential and cubic bound; balanced complete bipartite and star boundary are correctly excluded as prior-covered special cases. Distinct variety-seeking and swap games use different utilities/moves.",
+      "residual_risks": [
+        "Older potential-game literature might encode the same exact function under network-composition terminology.",
+        "The O(n^3) improvement bound is an upper bound, not an asserted tight maximum.",
+        "Source tree not independently enumerated; metadata/AUDIT contain operational run identifiers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential for spider and regular with one vacancy, bipartite topology open; no nonregular complete-bipartite potential identity or cubic bound in inspected primary.",
+          "evidence": [
+            "Theorem 4.8; Theorem 5.1; Section 7 explicit bipartite question",
+            "https://link.springer.com/article/10.1007/s10458-025-09714-8"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-025-09714-8",
+          "material_read": "Full accessible HTML article, especially game definition, Theorems 4.8 and 5.1 and Section 7 open problems.",
+          "method": "Read full Springer HTML main text and relevant proofs",
+          "title": "Diversity-seeking jump games in networks",
+          "trigger": "Same exact game, payoffs, immobile agents and topology question"
+        },
+        {
+          "assessment": "Distinct utility counts unlike *types*, not fraction of unlike occupied neighbors; no implication for present exact potential.",
+          "evidence": [
+            "IJCAI 2025, 4005–4013, abstract statement of one-vacancy potentiality"
+          ],
+          "identifier_or_url": "https://www.ijcai.org/proceedings/2025/446",
+          "material_read": "IJCAI conference abstract and full statement of scope, not full PDF.",
+          "method": "Read conference abstract and results summary",
+          "title": "Variety-Seeking Jump Games on Graphs",
+          "trigger": "Could dominate a one-vacancy game classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact potential for a natural nonregular cyclic bipartite network extends known potentiality classes and gives a uniform polynomial bound independent of types and immobile agents, resolving a motivated game-dynamics gap in a setting explicitly proposed by the prior article.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://link.springer.com/article/10.1007/s10458-025-09714-8",
+    "https://www.ijcai.org/proceedings/2025/446",
+    "https://arxiv.org/abs/2305.17757"
+  ],
+  "disposition": "passed",
+  "final_claim": "For diversity-seeking jumps on K_(a,b) with a,b>=2 and exactly one vacancy, the within-type pair-count potential Phi=sum_t binom(A_t,2)/(a-1)+binom(B_t,2)/(b-1) changes by exactly the moving agent utility gain for every feasible jump; every strict improvement sequence has length at most floor((a+b-2)*lcm(a-1,b-1)/2), thus at most (a+b-2)^3/8.",
+  "limitations": [
+    "Finite bounded computational checks do not establish a universal theorem; correctness is based on the reconstructed analytical proof.",
+    "Mathematical priority assessed on a best-of-knowledge basis with specific inaccessible-literature qualifications.",
+    "No external expert/Lean validation was performed or inferred.",
+    "Older potential-game literature might encode the same exact function under network-composition terminology.",
+    "The O(n^3) improvement bound is an upper bound, not an asserted tight maximum.",
+    "Source tree not independently enumerated; metadata/AUDIT contain operational run identifiers."
+  ],
+  "residual_risks": [
+    "Older potential-game literature might encode the same exact function under network-composition terminology.",
+    "The O(n^3) improvement bound is an upper bound, not an asserted tight maximum.",
+    "Source tree not independently enumerated; metadata/AUDIT contain operational run identifiers."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Potential for spider and regular with one vacancy, bipartite topology open; no nonregular complete-bipartite potential identity or cubic bound in inspected primary.",
+      "evidence": [
+        "Theorem 4.8; Theorem 5.1; Section 7 explicit bipartite question",
+        "https://link.springer.com/article/10.1007/s10458-025-09714-8"
+      ],
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-025-09714-8",
+      "material_read": "Full accessible HTML article, especially game definition, Theorems 4.8 and 5.1 and Section 7 open problems.",
+      "method": "Read full Springer HTML main text and relevant proofs",
+      "title": "Diversity-seeking jump games in networks",
+      "trigger": "Same exact game, payoffs, immobile agents and topology question"
+    },
+    {
+      "assessment": "Distinct utility counts unlike *types*, not fraction of unlike occupied neighbors; no implication for present exact potential.",
+      "evidence": [
+        "IJCAI 2025, 4005–4013, abstract statement of one-vacancy potentiality"
+      ],
+      "identifier_or_url": "https://www.ijcai.org/proceedings/2025/446",
+      "material_read": "IJCAI conference abstract and full statement of scope, not full PDF.",
+      "method": "Read conference abstract and results summary",
+      "title": "Variety-Seeking Jump Games on Graphs",
+      "trigger": "Could dominate a one-vacancy game classification"
+    }
+  ]
+}
