@@ -1,21 +1,21 @@
-# Scientific review: Radial-distance laws classify tangential polygons up to cyclic ordering
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete classification for nondegenerate convex polygons circumscribed about one Euclidean circle. Step 1 of the proof establishes its exact tangent-length and area normalization. Step 2 derives the boundary hinge formula from actual side arclength. Step 3 reconstructs the uniform area measure as independently scaled cone measure. Step 4 proves the interior radial CDF derivative by polar integration over the finite normal fans. Steps 5 and 6 independently invert each law, including repeated gaps, with no prescribed side count. Step 7 proves both realizability of every ordering and dihedral-only congruence. The strict constraints on all gaps ensure boundedness and nondegenerate sides.
+## correctness
 
-The bundled standalone checker passed 12,578 exact rational geometry comparisons and 15 numerical independent-ray checks; the verified output is reproduced in `VERIFICATION.md`. Finite checks are corroborative, while the inverse theorem is established by explicit analytic identities. No unresolved step is deferred to computation.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
-Full accessible primary texts were compared by mathematical implication, not just vocabulary. Gui–Hu–Li (arXiv:2607.28768) use tangent-half-angle parameters for torsional rigidity but do not classify radial measurements. Rabinowitz (arXiv:2608.27491) proves uniform-area-to-arclength directional transfer for tangential polygons, but neither the radial hinge law nor reconstruction of multiplicities and cyclic ambiguity. Kim–Yaskin–Zvavitch (arXiv:1512.07289v1) analyze unlabeled section/projection distributions, not this radial-point experiment. A complete published result on random projection widths for centrally symmetric tangential polygons recovers normal-gap data, but its measurement and symmetric scope differ: it does not supply the present all-tangential radial-distance inverse theorem or the four-sided nonuniqueness threshold.
+Reconstructed all seven steps of the pinned RESULT.md. For outward-normal angular gaps 2g_i (0<g_i<π/2, Σg_i=π), a side has tangent-coordinate interval [-r tan(g_{i-1}),r tan(g_i)] and perimeter 2rΣtan(g_i). This yields exact boundary hinge survival S(z)=Σ(tan g_i−z)_+/T, including repeated knots; slope jumps m_j/T and Σm_j g_j=π recover T, each integer multiplicity, and n. The uniform-area Jacobian on each O-to-side triangle is r s ds dℓ, giving radial factor √U and F(t)=area(P∩B_t)/area(P), F′(t)=2t/(r²T)Σ(g_i−acos(r/t))_+ for t>r. Recovering area from F(t)≈πt²/A, and r as the last exact-disk radius, makes interior-law inversion independent. All admissible cyclic gap lists are geometrically realized and Euclidean congruences act by dihedral permutations, giving (n−1)!/2 distinct generic realizations. Checked rational four-gap angles tan g=(1/2,1/3,2,3), Σg=π and T=35/6; there are three four-gap dihedral orbits. Source rational geometry verifier read and normalization/critical endpoints checked analytically; its finite logged tests are not used as proof of the universal statement.
 
-The nearest explicit public mathematical-record search identified that last result, and the entire result text was inspected. Search also covered radial distance, incenter, arclength, circular tangency, angle multisets, and dihedral permutations, without identifying an equivalent or stronger source. Published-record search absence is not proof of priority; older angle-rearrangement or radial-tomography literature could contain a formulation not found here. The elementary cone-measure transfer and tangent-segment geometry are acknowledged as prior ingredients, not claimed as discoveries.
+## originality
 
-## Mathematical value — PASS
-The primary question is inverse geometric tomography: how much shape information is contained in the distribution of *unlabeled distances from a canonical center*, without directional labels? The answer is exact for every tangential polygon, not a computed value for an arbitrary isolated example. Either of two natural sampling schemes recovers a complete angle multiset and inradius; all residual congruence ambiguity is classified by dihedral permutations, with a sharp factorial generic fiber count and explicit rational quadrilateral witnesses. This explains a real identifiability boundary, including repeated angles and unknown side count, and contrasts with the different eight-sided ambiguity threshold for the published centrally symmetric width experiment. No global uniqueness for arbitrary polygons or finite-sample inverse stability is asserted.
+PASS
 
-## Closest literature and limitations
-Sources: C. Gui, Y. Hu, Q. Li, *A Pólya–Szegő Theorem for Tangential Polygons*, arXiv:2607.28768v1 (2026-07-30); S. Rabinowitz, *The Probability That the Incenter of a Triangle Lies in a Random Diameter Disk*, arXiv:2608.27491v1 (2026-08-26); J. Kim, V. Yaskin, A. Zvavitch, *Distribution functions of sections and projections of convex bodies*, arXiv:1512.07289v1 (2015-12-22); *Inverse classification of projection-width distributions for tangential symmetric polygons* (2026-10-11), public full RESULT at https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939/RESULT.md.
+Best-of-knowledge PASS for exact inverse distance-to-incenter distributions of all tangential convex polygons. The published Resultary width-classification theorem uses uniform-direction projection width only for centrally symmetric polygons; although it also recovers an unordered tangent-angle multiset and has dihedral fibers, it does not imply either distance distribution nor the general nonsymmetric four-side ambiguity. The Rabinowitz paper gives a cone-measure transfer used as background, not the hinge inversion; PDE and general tomography sources do not give the claimed two exact inverse laws.
 
-The claims apply to exact full distributions of boundary- or area-sampled distances to the incircle center. Non-tangential polygons, distributions sampled from other points, arbitrary noise, and finite-data stability are outside the result. No independent expert assessment or guaranteed global bibliographic priority is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact two-way geometric-probability inverse classification for a natural nontrivial family; the distance observable loses cyclic adjacency while preserving every half-exterior angle and scale. The explicit hinge spline, inversion with unknown n and repeated parameters, and first generic nonuniqueness in n=4 are useful as a sharp tomography identifiability boundary, not just a routine area/perimeter identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
