@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For each rate, the positive exponential mass is strictly monotone in the end time. A scalar intermediate-value construction equalizes all n Gramian coordinates. Positive dual weights force adjacent weighted exponentials to cross at the strictly ordered switch times; pairwise crossings are convex combinations of the intermediate switches, yielding a unique upper envelope almost everywhere. The universal inequality min_i w_i <= sum p_i w_i <= integral max_i p_i exp(-2lambda_i s) = m proves global optimality; its strict second inequality gives uniqueness. The standard Gramian inverse minimum-energy law gives energy 1/m. Standalone numeric checks replay equalization and dual envelope; infinite assertion is analytical. A potential failure at coincident rates is excluded by strict separation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2506.18514 optimizes discrete-time trace-inverse through a greedy method and supermodularity, with a different cost and no continuous-time switching theorem.",
+        "arXiv:2609.37081 describes rank-constrained stationary actuator covariance design X=BB^T; it is not the time-varying single-coordinate support problem. Full text was unavailable."
+      ],
+      "reasoning": "Generic sparse-control approximation guarantees, rank-constrained fixed-gain designs and the standard Gramian minimum-energy formula do not imply the unique optimal time-ordered switching schedule for the continuous-time diagonal model. A full-text inaccessible adjacent fixed-gain paper remains a priority risk rather than an asserted not-covered source.",
+      "searches": [
+        "Web: 2026 optimal actuator scheduling continuous time single coordinate controllability gramian diagonal time order",
+        "Web: site:arxiv.org \"Optimal Actuator Design across Ranks and Control Horizons\" diagonal exact control schedule time varying",
+        "arXiv:2506.18514, Sections 2-4; arXiv:2609.37081 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.18514v1",
+      "arXiv:2407.12125v3",
+      "arXiv:2610.09787v1 abstract",
+      "arXiv:2609.37081 abstract",
+      "published-finding corpus published search results for four recorded semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2407.12125 defines pointwise sparsity and worst-case energy but offers feasibility and greedy/MCMC schedules, without an exact diagonal continuous-time E-optimal design.",
+        "arXiv:2506.18514 provides discrete-time greedy trace-inverse objective, not exact continuous-time max-min optimality.",
+        "2026 survey abstract describes broad sparse-control questions rather than any exact formula; full text was not available.",
+        "published-finding corpus nearest high-score matched a diagonal semigroup positivity theorem (fb3579f163d8), not control scheduling."
+      ],
+      "reasoning": "The present theorem implies the unique measurable optimizer and a global dual upper bound in an explicit continuous-time model. Existing cited discrete feasibility/approximation theorems do not imply that classification, even under diagonalization, because both objective and time domain differ. Inaccessible full texts and unindexed older E-optimal design prevent conclusive universal novelty.",
+      "searches": [
+        "arXiv:2407.12125, Problem 1, Table I, Sections III-IV",
+        "arXiv:2506.18514, Sections 2-4, Propositions 3 and Theorem 4.4",
+        "arXiv:2610.09787v1 metadata and abstract; arXiv:2609.37081 abstract",
+        "published-finding corpus: one input at a time stable diagonal system schedule largest minimum eigenvalue controllability Gramian exact unique fastest decays closest terminal endpoint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.12125 describes worst-case energy as inverse smallest Gramian eigenvalue and pointwise sparse input activation, but its discrete-time setting and greedy algorithms do not give a continuous unique order theorem.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 (unrelated semigroup positivity)."
+      ],
+      "reasoning": "The dual characterization max_sigma min_i w_i = min_{p in simplex} int max_i p_i exp(-2 lambda_i s) ds suggests classical E-optimal design, so merely observing this minimax inequality is not novel. No inspected source produced the exact all-dimension sorted contiguous schedule with equal Gramian entries and a scalar recursive construction under the one-active-channel model.",
+      "searches": [
+        "published-finding corpus: Optimal pointwise single-active actuator schedule for diagonal stable linear system max-min finite-horizon controllability Gramian, ordered contiguous switching by decay rates equal diagonal entries",
+        "Web: actuator scheduling diagonal exponential sorted decay rates each actuator contiguous interval optimum controllability",
+        "arXiv:2407.12125, pp. 1-3, Problem 1 and energy-performance metrics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/4/SCOPE-exact-relaxation-resonance-in-a-classical-forward-backward-sweep--c5af20416eac (different control problem).",
+        "No exact switching-time table or all-dimensional envelope certificate was identified in the relevant inspected records."
+      ],
+      "reasoning": "Comparing actual published claims, the related heat control results concern time-discretization equivalence with all nodes fully actuated, not optimization of single-channel measurable schedules. No observed indexed record exactly supplies the switching times.",
+      "searches": [
+        "published-finding corpus: worst case minimum control energy diagonal heat modes one actuator active time optimal equal Gramian diagonal weights envelope control",
+        "published-finding corpus: optimal actuator scheduling continuous-time diagonal system bang bang weighted exponential functions switches inverse Gramian E-optimal design"
+      ]
+    },
+    "rationale": "Claims of novelty are restricted to the exact, unique, all-dimension continuous-time ordered switching classification under a single active coordinate and worst-case terminal energy, not generic Gramian metrics or primal-dual design inequalities. Relevant published mathematical-record searches and prior accessible scientific claims found no implying theorem; materially inspected primary literature concerns discrete combinatorial schedules, greedy approximations or different actuator variables. Historical priority cannot be certified against unindexed results.",
+    "residual_risks": [
+      "Older literature on E-optimal time-sharing designs for Chebyshev systems could contain a formally equivalent continuous-time exponential allocation result under different nomenclature.",
+      "The 2026 broad survey and recent stationary actuator-design paper were available by abstract only, not full text; no whole-document NOT_COVERING claim is made.",
+      "Available indexed records and published-finding corpus recall do not establish worldwide uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but different: discrete time and trace-inverse energy with greedy performance guarantees; no continuous one-interval-per-mode minimax formula seen in inspected sections.",
+        "evidence": [
+          "Original 2025 arXiv content states inverse-Gramian trace objective and alpha-supermodular greedy guarantee."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.18514",
+        "material_read": "ArXiv HTML Introduction, Sections 2-4, algorithm and Proposition 3/Theorem 4.4 discussion, later simulation notes",
+        "method": "Read actual open arXiv HTML and compared objectives, quantifiers and discrete-versus-continuous scheduling",
+        "title": "Discrete-Time Linear Dynamical System Control Using Sparse Inputs With Time-Varying Support",
+        "trigger": "Closest recent paper on time-varying single-channel sparse input energy and controllability"
+      },
+      {
+        "assessment": "This earlier work names the same worst-case performance metric but formulates discrete-time combinatorial schedules and heuristic feasible algorithms; inspected pages do not contain the claimed continuous diagonal classification.",
+        "evidence": [
+          "Table I explicitly lists inverse smallest eigenvalue of Gramian as worst-case energy; Problem 1 is discrete scheduling."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.12125",
+        "material_read": "PDF pages 1-3: introduction, Problem 1, performance criteria table, feasibility discussion, greedy algorithm framing; additional source summary",
+        "method": "Read PDF text and visually inspected page 2 and page 3 screenshots",
+        "title": "Pointwise-Sparse Actuator Scheduling for Linear Systems With Controllability Guarantee",
+        "trigger": "Original formalization of pointwise-sparse schedules including worst-case energy metric"
+      },
+      {
+        "assessment": "Topical motivation only; no claim of full-text noncoverage; possible uninspected overlap retained as risk.",
+        "evidence": [
+          "Initial preprint on October 7, 2026; survey explicitly discusses actuator scheduling and minimal-energy controllability."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.09787",
+        "material_read": "Accessible bibliographic metadata and abstract only",
+        "method": "Consulted external abstract listing; attempted original arXiv HTML and PDF access unsuccessfully",
+        "title": "Sparsity in control problems: Recent trends and open challenges",
+        "trigger": "Recent survey of sparse control and actuator scheduling"
+      },
+      {
+        "assessment": "Nonidentical design variable and scope; definitive comparison of appendices unavailable, retained as risk.",
+        "evidence": [
+          "Abstract describes fixed total gain and rank constraints on X, not timed coordinate actuator selection."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.37081",
+        "material_read": "Bibliographic abstract only, full text inaccessible in this session",
+        "method": "Compared specified design object in abstract: stationary covariance X=BB^T versus time-varying sparse B(t)",
+        "title": "Optimal Actuator Design across Ranks and Control Horizons",
+        "trigger": "Plausible broader worst-case-control actuator design theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12cb2616-6ffd-44cb-851d-9ad52d16ce29",
+  "value": {
+    "rationale": "The single-at-a-time actuator constraint is a natural scarce-control resource question and inverse-smallest-Gramian energy is the exact worst-case unit-target cost. The result completely classifies the global optimum for any dimension and distinct stable diagonal rates, avoiding exponential schedule search. It proves every optimal coordinate is used in one contiguous block, identifies its order (slow-first in forward time), finds all switches by one scalar root, and proves uniqueness. This is a meaningful model-specific structural classification beyond a cheap sign check, and supplies a precise benchmark for sparse-control scheduling heuristics. Limitations to ideal continuous diagonal dynamics are explicit.",
+    "status": "PASS"
+  }
+}
