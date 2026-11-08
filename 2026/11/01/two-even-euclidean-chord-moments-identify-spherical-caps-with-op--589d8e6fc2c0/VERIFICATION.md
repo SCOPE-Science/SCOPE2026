@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify_cap.py` with Python 3.10 or later; no third-party modules or external data are needed. The checked file was executed from the same directory as the proof text, and returned:
+## correctness
 
-`VERIFY_OK 2220 checks: 2206 rational, 10 quadrature, 4 asymptotic`
+PASS
 
-The program checks the exact rational forward and inverse formulas at seven cut heights and three sphere radii, all ordered pairs on a 65-point rational grid for the global stability inequality, and the original independent-surface-pair integral via deterministic four-dimensional quadrature for five cases (ten relative-error comparisons). It also tests the small angular-deficit expansion at four positive deficits. The proof's analytic identities, especially the arbitrary-parameter stability bound and equality limits, are reproduced in RESULT.md and do not rest on those finite checks.
+For surface-area-uniform independent points on sphere radius R>0, cutoff z in [-1,1), axial u uniform [z,1], azimuth uniform, gives E(U dot V)=((1+z)/2)^2 and E(U dot V)^2=tr(EUU^T)^2. Independent algebra verifies μ=R²(1-z)(z+3)/2 and ν=2R⁴(1-z)^2(z²+4z+5)/3. Thus κ=ν/μ²=(4/3)(1+t²), t=(1+z)/(3+z)∈[0,1/2), exactly feasible μ>0, 4/3<=κ<5/3. Inverse z=(3t-1)/(1-t) and R²=μ(1-t)²/(2(1-2t)). Cut-height estimate |Δz|<=2sqrt(3)|Δκ|^(1/2) is sharp by s=0,t↑1/2; angle exponent1/4 is sharp by full-sphere α→π, κ-4/3≈(π-α)^4/12. Analytic inequalities, not finite parameter samples, prove sharpness and universality.
 
-The literature comparison includes actual inspection of arXiv:1411.5639v1 (whole-sphere chord law and moment propositions) and arXiv:2007.07297v1 (spherical geodesic distance and cap specialization). The cap-density corollary is forward information and is not treated as an inverse proof. Independent scholarly review has not been performed.
+## originality
+
+PASS
+
+Earlier complete-sphere chord distribution is forward and contains z=-1. More general forward geodesic-distance distributions for prescribed convex spherical caps support moment computation but do not state the full family of arbitrary cutoff (including caps >hemisphere), two-moment unknown-radius inverse, or sharp conditioning exponents. Priority is bounded.
+
+## value
+
+PASS
+
+Determines both scale and opening from only two natural chord moments with exact feasible moment wedge, explicit globally sharp cut-height constant and optimal 1/4 angular inverse exponent; this is a complete motivated inverse and conditioning classification of a natural cap family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
