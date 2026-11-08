@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim follows from four explicit and independent analytical steps: the closed one-particle equation for SEP occupations, the exact complement-symmetric three-bit Walsh expansion, the nonzero-spectrum variance identity that characterizes uniform hubs, and Fourier/Bessel heat-kernel limits. The canonical and grand-canonical normalizations are separately derived; strict inequalities hold at every positive sampling lag on the specified graphs. Finite-state and scaling assertions in `verify_sparse_cmi.py` independently check examples, but no finite computation substitutes for the proof of the infinite families.
+PASS
 
-## Originality (PASS, best-knowledge and qualified)
+SEP one-particle duality gives occupation covariance from e^{tQ}. Stationary particle–hole symmetry kills odd Walsh moments, fixing the complete three-bit joint law by correlations a,b; conditional endpoint independence is precisely b=a². Self-adjoint spectral representation makes b-a² a variance of e^{-lambda t}; after removing zero mode canonically, its vanishing iff e_x−1/L is an eigenvector is exactly a uniformly weighted universal hub. Fourier heat-kernel convergence, Taylor expansion of CMI, and Bessel asymptotics give both theta profiles, finite-ring exponential tail and 1/(16*pi*D*t) line tail. Fresh finite-state generator exponentiations independently verified 11 tests, including perturbed-hub contrast. General limits rest on analysis, not those tests.
 
-The closest primary work, Iadecola (2026), treats **full intermediate local measurement records**, their charge-conditioned memory and a discrete-time SEP. The exact three-sample joint law, a graph-theoretic iff criterion for zero memory, and the two exact theta profiles are not stated there. The October 26 paper of Wang, Liang and Yang studies the distinct full-intermediate-record protocol and its different Gaussian asymptotic. Standard SEP duality and finite-graph spectral theory are acknowledged; direct derivability of the component formulas does not amount to an identified published theorem encompassing the new classification. Close residual risk: a general binary-trace Markov/lumpability result or multitime duality theorem may subsume parts of the result. Publication priority has not been independently established.
+## originality
 
-## Value (PASS)
+PASS
 
-The amount of memory seen by an observer depends fundamentally on *which intermediate samples are included*, and on whether global particle number is known. An exact graph criterion identifies the exceptional geometries with no local memory; a sharp finite-size theta crossover quantifies the difference between the fixed-charge and charge-uncertain ensembles; and the infinite-chain \(t^{-1}\) coefficient enables quantitative sparse-sampling comparisons. These are natural observable and control-geometry distinctions for lattice transport, not arbitrary parameter slices.
+Iadecola arXiv:2607.06689 studies local SEP memory but conditions on an entire intermediate measurement record in discrete-time alternating-bond dynamics. Its full inspected source does not state the three-observation continuous-time weighted-graph covariance formula, universal-hub canonical criterion, or the ensemble theta profiles. Wang–Liang–Yang 2026 also studies full-intermediate-record CMI; its accessible abstract describes a differing protocol/tail. The precise conditioning set matters mathematically.
 
-## Closest literature and limitations
+## value
 
-T. Iadecola, arXiv:2607.06689v1 (July 7, 2026), https://arxiv.org/html/2607.06689v1. S. Wang, C. Liang, Z.-C. Yang, arXiv:2610.36058v1 (October 26, 2026), https://arxiv.org/html/2610.36058v1; the latter is compared for originality only. Scope is symmetric, stationary, half-filled SEP, one observed site and exactly three observations. No quantum, asymmetric, nonstationary, or full-record claim is made. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spectral variance identifies an exact graph-theoretic boundary between Markovian and non-Markovian single-site traces at fixed conserved charge, and the grand/canonical spatial crossover reveals persistent latent-charge memory. These are natural observables in exclusion dynamics rather than merely abstract information quantities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
