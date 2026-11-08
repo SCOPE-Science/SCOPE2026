@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility
-Compile the standalone `verify.cpp` with a C++17 compiler, for example `c++ -std=c++17 -O2 verify.cpp -o verify`, and run `./verify`.
+# Independent mathematical audit
 
-The checker builds each \(C_3\square C_n\) adjacency list, marks \(N[S]\) for every initial set \(S\), and repeatedly applies the unique-unmonitored-neighbor rule. It exhaustively computes the maximum size of unsuccessful initial sets at \(n=3,4,5,6,7\), giving respectively \(1,2,2,3,3\), and counts the extremal failed sets as \(9,18,30,24,63\). It checks the alternating stalled witness through \(n=20\) and local two-column forcing assertions for cyclic gaps of one, two, or three through \(n=13\). The expected terminal line is `VERIFY_OK`.
+## correctness
 
-These computational checks independently corroborate the case analysis at small finite sizes. The general cyclic-gap argument and stalled construction are the proof for all \(n\ge3\). No third-party or independent mathematical audit has been performed.
+PASS
+
+Reconstructed the closed-neighborhood marking and single-unmonitored-neighbor forcing. Sensor columns are initially complete; adjacent complete columns force global propagation; a pair of occupied columns of weights a,b at cyclic gap d<a+b forces completion via explicit d=1,2,3 cases. Summing required gaps d>=a+b gives n>=2|S|; single occupied column n=3 edge case handled. Alternating nonadjacent one-sensor columns in one row stall at floor(n/2). Independent direct enumeration for n=3,4,5,6 gives extrema 1,2,2,3 and 9,18,30,24 attaining subsets; tests are finite corroboration, not the n-uniform proof.
+
+## originality
+
+PASS
+
+The exact constant-width width-three torus extremum differs from the known width-three cylinder/path and cannot be obtained by substituting n=3 into the 4-and-up square-torus theorem. Best-of-knowledge new sharp cyclic gap classification.
+
+## value
+
+PASS
+
+Failed-power-domination asks worst possible sensor failure on a natural constant-width toroidal graph family; an exact sharp all-n formula is an independently useful extremal network-monitoring invariant rather than a routine new notation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

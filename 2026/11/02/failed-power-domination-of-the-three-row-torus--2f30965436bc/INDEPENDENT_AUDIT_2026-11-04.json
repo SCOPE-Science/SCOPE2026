@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:52:57.315824Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the closed-neighborhood marking and single-unmonitored-neighbor forcing. Sensor columns are initially complete; adjacent complete columns force global propagation; a pair of occupied columns of weights a,b at cyclic gap d<a+b forces completion via explicit d=1,2,3 cases. Summing required gaps d>=a+b gives n>=2|S|; single occupied column n=3 edge case handled. Alternating nonadjacent one-sensor columns in one row stall at floor(n/2). Independent direct enumeration for n=3,4,5,6 gives extrema 1,2,2,3 and 9,18,30,24 attaining subsets; tests are finite corroboration, not the n-uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 proves n(n-3) only for square toroidal grids n>=4; Lemma 2 provides a propagation tool for fully monitored adjacent fibers."
+        ],
+        "reasoning": "The propagation lemma is known machinery but no upper bound floor(n/2) for C_3 square C_n follows without the sensor-gap forcing argument.",
+        "searches": [
+          "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph",
+          "Byrne et al Theorem 5 and Lemma 2"
+        ]
+      },
+      "checked_sources": [
+        "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf (complete PDF with Theorem 5 pp9-10 and Lemma 2 plus cylinder comparison)",
+        "https://arxiv.org/abs/1909.02057 (accessible abstract and quoted source-theorem statement from assigned package; full original theorem)",
+        "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New result specializes to n=3 case with gamma_fp=1, not covered by square torus range n>=4.",
+          "The cyclic graph has a different family of closed-neighborhood relations than the path."
+        ],
+        "reasoning": "Neither earlier theorem logically entails the cyclic width-three formula; its proof supplies the missing cyclic weighted gap condition.",
+        "searches": [
+          "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph",
+          "Glasser et al K_3 square P_l Theorem 5.3",
+          "Byrne et al square-torus Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path K_3 square P_l has floor((l-1)/2), different from floor(n/2) for even n.",
+          "Byrne et al Theorem 5 restricts to C_n square C_n with n>=4."
+        ],
+        "reasoning": "Closing the path creates a cycle and affects failed placement; square torus result excludes a three-row nonsquare width, and neither theorem implies the asserted all-n formula.",
+        "searches": [
+          "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph",
+          "Glasser et al arXiv:1909.02057",
+          "Byrne et al DOI:10.2140/involve.2023.16.705"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected published torus formula is for n-by-n with n>=4; no exact C3-by-Cn table identified."
+        ],
+        "reasoning": "A negative lookup is not evidence of absolute priority; an older unindexed small-width table remains possible.",
+        "searches": [
+          "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph",
+          "failed power domination rectangular torus C3 by Cn formulas",
+          "Byrne et al Theorem 5 table"
+        ]
+      },
+      "rationale": "The exact constant-width width-three torus extremum differs from the known width-three cylinder/path and cannot be obtained by substituting n=3 into the 4-and-up square-torus theorem. Best-of-knowledge new sharp cyclic gap classification.",
+      "residual_risks": [
+        "A specialized older constant-width torus result could contain the same exact formula.",
+        "Independent enumeration reached n=6, whereas the n-uniform assertion relies on the complete column-gap proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "related square case, no coverage of width-three rectangular torus",
+          "evidence": "Theorem 5 gamma_fp(T_{n x n})=n(n-3) for n>=4; page 10 proof depends on square dimensions",
+          "identifier_or_url": "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf",
+          "material_read": "complete PDF with Theorem 5 pp9-10 and Lemma 2 plus cylinder comparison",
+          "method": "read full-text PDF and inspected page image",
+          "title": "Failed power domination in grids, cylinders, and tori",
+          "trigger": "same invariant and toroidal graphs"
+        },
+        {
+          "assessment": "K3 times path formula cited as prior, partial full-text access",
+          "evidence": "Theorem 5.3 is for K_k square P_l and cannot be applied to the cycle without proof",
+          "identifier_or_url": "https://arxiv.org/abs/1909.02057",
+          "material_read": "accessible abstract and quoted source-theorem statement from assigned package; full original theorem not independently re-read",
+          "method": "indexed source/abstract comparison",
+          "title": "Failed power domination on graphs",
+          "trigger": "same invariant and K3 product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Failed-power-domination asks worst possible sensor failure on a natural constant-width toroidal graph family; an exact sharp all-n formula is an independently useful extremal network-monitoring invariant rather than a routine new notation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://personal.math.vt.edu/gmatthews/failed_power_dom.pdf (complete PDF with Theorem 5 pp9-10 and Lemma 2 plus cylinder comparison)",
+    "https://arxiv.org/abs/1909.02057 (accessible abstract and quoted source-theorem statement from assigned package; full original theorem)",
+    "Resultary semantic search: failed power domination number C3 Cartesian product cycle Cn rectangular torus width three graph"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=3, gamma_fp(C_3 square C_n)=floor(n/2), with a universal maximal failure bound and matching stalled sensor placement.",
+  "limitations": [
+    "A specialized older constant-width torus result could contain the same exact formula.",
+    "Independent enumeration reached n=6, whereas the n-uniform assertion relies on the complete column-gap proof."
+  ],
+  "residual_risks": [
+    "A specialized older constant-width torus result could contain the same exact formula.",
+    "Independent enumeration reached n=6, whereas the n-uniform assertion relies on the complete column-gap proof."
+  ],
+  "schema_version": 1
+}
