@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Burnside counting or complete rotation-class enumeration gives exactly 108 necklaces, partitioned into 56 even and 52 odd. Edges flip Hamming-weight parity, so a simple path can have at most 105 vertices. A direct standalone check of the 105 canonical rows finds no duplicates and verifies all 104 cyclic-Hamming-distance-one adjacencies, giving the matching lower bound. The proof is finite and exact; no solver trace or finite-sample extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karhumäki et al. (2016), Proposition 7.4 is a bound valid for all even n, but Conjecture 7.5 asserts attainable sharpness.",
+        "Mütze (2023), necklace discussion p. 22 discusses parity obstruction for even n and open full Gray-code problem for odd n, not a 105-vertex even-n witness."
+      ],
+      "reasoning": "A general upper bound for all even orders does not imply attainment at any one order. A construction giving all even lengths would subsume this finding, but none was identified in primary/survey material or search results; the stronger cycle-decomposition conjecture is a different assertion.",
+      "searches": [
+        "binary necklace Gray codes order 10 near hamiltonian path all odd parity 52",
+        "binary necklace graph Gray code longest path even n=10 105 Karhumaki 2016 conjecture",
+        "\"Conjecture 7.7\" \"maximal cycle decomposition\" de Bruijn solved 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v14i1r7/pdf/",
+      "https://arxiv.org/html/1605.03319v1",
+      "https://www.utupub.fi/server/api/core/bitstreams/b3b51aff-6c73-43aa-854c-ca2a6e5ba99a/content",
+      "https://wrap.warwick.ac.uk/id/eprint/177071/7/11023-PDF%20file-45589-3-10-20230710.pdf",
+      "https://arxiv.org/abs/1605.03319v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karhumäki et al. (2016), §7.1 explicitly state verification of Conjecture 7.5 only for n<=8.",
+        "Whiteland (2019), Chapter 6 §6.4, Example 6.39 and Conjecture 6.40, likewise discuss parity paths and verify smaller even orders.",
+        "Degni–Drisko (2007) study a reflected Gray order and exceptional transition structure, rather than the present certified parity-saturating order-ten path."
+      ],
+      "reasoning": "The prior parity lemma implies the ≤105 half of the claim but not the ≥105 half. The new certificate establishes the missing lower bound. The 2007 construction and the 2023 survey are close sources yet contain no checked theorem that forces this length-ten optimality; uninspected incidental tables elsewhere remain a residual risk.",
+      "searches": [
+        "\"Karhumäki\" \"Puzynina\" \"Rao\" \"Whiteland\" \"Conjecture 7.5\"",
+        "\"necklace graph\" \"longest path\" 10",
+        "\"binary necklace graph\" longest path \"10\" conjecture 105"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karhumäki et al., arXiv:1605.03319v1, §7.1 defines a necklace Gray-code path as a path in the necklace graph, and Conjecture 7.5 predicts the parity bound.",
+        "A 105-term listing with successive one-bit changes after allowable rotation is precisely the claimed 105-vertex simple path."
+      ],
+      "reasoning": "The necklace-graph formulation, almost-Gray-code listing, and parity-saturating simple path are mathematically equivalent after canonicalizing rotations. The inspected literature did not present this order-ten full-length listing; near-Gray orders with exceptional steps do not by themselves imply a 105-vertex path.",
+      "searches": [
+        "\"binary necklace graph\" \"10\" \"105\" longest",
+        "\"binary necklaces\" \"105\" \"gray code\"",
+        "longest path of the binary necklace graph NG(10), 105 of 108 necklaces, parity obstruction and Gray code path"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Karhumäki et al., arXiv:1605.03319v1, Proposition 7.4 explicitly lists 105 as the fifth parity upper-bound value, and Table 2 lists path witnesses only for n=6 and n=8.",
+        "The present 105-line certificate covers 105 of the 108 exact order-ten necklaces; the value 105 alone was known, but its realization was not in the published table."
+      ],
+      "reasoning": "The number 105 appearing in an upper-bound sequence is not an exact longest-path table entry. The searched exact-value phrases did not locate a published order-ten witness; search nonappearance alone would not establish originality.",
+      "searches": [
+        "\"BPL(10)\" necklace",
+        "\"BPL(10)\" \"necklace\"",
+        "\"105\" \"108\" \"necklaces\" \"gray\""
+      ]
+    },
+    "rationale": "The exact n=10 witness meets the preexisting bipartition upper bound and settles the first even order beyond the n<=8 cases recorded in the main 2016 paper and the 2019 thesis. Detailed inspection of the relevant full primary literature and recent survey, combined with searches for partial necklace Gray codes, parity saturation, and order-ten paths, found no statement or general construction implying this witness. The result is provisionally original, with explicit residual priority risk.",
+    "residual_risks": [
+      "A separate published computation or an inaccessible thesis/table may have previously constructed a 105-vertex path for order ten.",
+      "A more general necklace Gray-order construction might imply order-ten parity saturation without using the same phrasing.",
+      "The 2023 survey passage was readable as PDF text, but its page screenshot could not be retrieved.",
+      "No independent external mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_EXPLICIT_CLAIM",
+        "evidence": "Published 2007-01-03; §1 defines necklace Gray codes and identifies even-order obstruction. The paper explores a specific near-Gray order and exceptions; the inspected results do not state an order-ten path of 105 vertices.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v14i1r7/pdf/",
+        "material_read": "Full PDF introduction and setup, Gray-order construction and selected theorems, concluding open-problem section, with first-page image inspection",
+        "method": "Open-access publisher PDF text and page-image inspection",
+        "title": "Gray-ordered Binary Necklaces",
+        "trigger": "Earlier work directly on binary necklace Gray orders and even-order parity obstacles"
+      },
+      {
+        "assessment": "KNOWN_UPPER_BOUND_ONLY",
+        "evidence": "arXiv version 1 May 11, 2016: Proposition 7.4 lists BPL(10)=105; Conjecture 7.5 asks if bound attained; text says verified n≤8; Table 2 contains n=6,8 only.",
+        "identifier_or_url": "https://arxiv.org/html/1605.03319v1",
+        "material_read": "Primary §7.1 in full, Proposition 7.4 including proof and Table 2, Conjecture 7.5, and §7.2 distinction",
+        "method": "Full lawful arXiv HTML direct reading",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "Names the precise sharpness conjecture and prior order-ten upper bound"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_EXPLICIT_CLAIM",
+        "evidence": "The thesis repeats the even-order graph question and the small established cases; its inspected passage does not certify n=10.",
+        "identifier_or_url": "https://www.utupub.fi/server/api/core/bitstreams/b3b51aff-6c73-43aa-854c-ca2a6e5ba99a/content",
+        "material_read": "Chapter 6 §6.4, Example 6.39 and Conjecture 6.40, pages 82–87",
+        "method": "University-hosted thesis PDF text and page reading",
+        "title": "Doctoral thesis on k-abelian equivalence and necklace Gray codes",
+        "trigger": "Later closely related thesis may have extended the table"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_EXPLICIT_CLAIM",
+        "evidence": "It notes that even-length full one-bit Gray codes do not exist due to imbalance, and discusses the still-open odd-length full Gray-code problem. The passage does not determine the even n=10 longest partial path.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/177071/7/11023-PDF%20file-45589-3-10-20230710.pdf",
+        "material_read": "Section on necklaces, especially page 22 parity obstruction and odd-length open problem",
+        "method": "Open-access PDF parsed text; image fetch of survey page timed out",
+        "title": "Combinatorial Gray codes—an updated survey",
+        "trigger": "2023 comprehensive survey might report a later broad construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34262ddf-fd42-4874-8338-0680646cdef9",
+  "value": {
+    "rationale": "The 2016 paper states explicit attainability as Conjecture 7.5 and verifies only even n≤8, so n=10 is the first subsequently motivated test case. Establishing the first unverified case with a compact explicit certificate is a meaningful finite cutoff of a natural Gray-code problem, even without a general theorem or downstream application. The 105 upper bound was known and is not itself represented as novel.",
+    "status": "PASS"
+  }
+}
