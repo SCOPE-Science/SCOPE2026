@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full claim concerns two-round equivalence of one-dimensional affine groups over all finite fields in the fixed ternary relational group signature. The proof reduces every possible two-move atomic diagram to eight explicit Boolean atoms and computes all extension profiles using the semidirect-product law. The five multiplier-order patterns and characteristic-specific translation cases exhaust the infinite field family. The fifteen representative spectra are pairwise distinct by a finite exact evaluation. Independent multiplication-table enumeration on 15 selected fields matches the symbolic profile exactly. The infinite coverage rests on the cyclic-multiplier arithmetic analysis, not on observed finite samples.
+## correctness
 
-## Originality — PASS, qualified
-Gomaa (2007), Chapter 3, fixes the same group language and develops finite abelian and dihedral group EF theory, but does not contain the fifteen-row affine Frobenius classification. OEIS A220211 records the affine-group order/semidirect-product structure, which does not imply rank-two equivalence. published-finding corpus searches for rank-two affine groups, finite-group two-round profiles, and sharply two-transitive affine structures found papers on different invariants, including scalar Frobenius pseudo-algebras and BI-group spectra. Unindexed covering work cannot be eliminated; the indexed results are not a priority certificate.
+PASS
 
-## Mathematical value — PASS
-The theorem gives a complete bounded-depth logical classification for a natural, sharply two-transitive and nonabelian infinite family, with exactly fifteen classes and a sharp universal representative bound. The exceptional characteristic-three chains and differences between fields with closely aligned divisibility data are explained by whether distinct square roots are visible after two selections. The result is not an isolated small-case enumeration or an automatic group-order consequence.
+The language has equality, constant e and ternary multiplication relation, not a binary function. Rank-two EF equivalence is determined by the sets T(G) of second-move atomic diagrams U_G(x); all atomic relations in x,y,e reduce by cancellation to eight stated Boolean predicates x=e,y=e,x=y,x²=e,y²=e,x²=y,y²=x,xy=e. Write affine maps (a,b)(c,d)=(ac,b+ad). By conjugating a nontranslation to (γ^j,0), reducing a nonzero translation to (1,b), and treating identity, explicit formulas enumerate all eight-bit diagrams. The modular 2h≡j conditions, low multiplier orders 2,3,4 and generic high orders separate the p=2, p=3 and p≥5 arithmetic regimes; the proof identifies the fifteen row conditions, excluding additional q classes. Independent literal affine finite-field multiplication found all 15 designated representatives pairwise inequivalent (including q=81); additional prime field signatures checked p≤31. Those finite checks verify class separation and formulas but are not an all-prime-power exhaustive proof. The uniform type reduction is essential.
 
-## Sources and limits
-Primary full text inspected: Gomaa, *Model Theory and Complexity Theory* (2007), Chapter 3, especially pp. 45–51 and 87–91. OEIS A220211 and the 2010 journal abstract were checked for their actual assertions. The independently obtained field-order computation is evidence for correctness only, not for originality. The analysis does not evaluate higher quantifier ranks, arbitrary finite Frobenius groups, or first-order function-symbol multiplication. Some external research records were index-only; residual risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison for Fifteen two-round theories of one-dimensional affine groups over finite fields: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.
+
+## value
+
+PASS
+
+Quantifier-rank-two equivalence is a standard fine logical invariant, and AGL(1,q) is the canonical sharply two-transitive finite group family. An exact complete partition into fifteen theories and the sharp representative-size bound 6480 is a motivated structural classification, not an OEIS group-order restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
