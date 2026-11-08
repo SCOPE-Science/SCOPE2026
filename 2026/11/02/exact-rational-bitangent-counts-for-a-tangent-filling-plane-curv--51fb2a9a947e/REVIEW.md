@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement counts contact points on the source curve at smooth rational points, not arbitrary dual points. The rational smooth locus, derivative normalization, elimination identity and exceptional-locus decomposition have been reconstructed. The three possible residual-root failures (zero, one, infinity) and simultaneous-pole cases are handled. The disjoint finite-field counts prove the closed formulas for all prime powers of characteristic greater than three. Standalone exact symbolic and independent finite-field verifiers passed.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Asgarli–Ghioca (arXiv:2302.13420, original public version 2023-02-26) establishes this family and tangent-filling property; it also provides a general bitangent upper bound. Its inspected statements and proofs do not count distinct rational tangents, give the two-contact involution, or state the piecewise closed formulas. The earlier blocking-curve work of Asgarli–Ghioca–Yip (arXiv:2208.13299) concerns another incidence condition; only its abstract was available for inspection. Mathematical-record and web searches for equivalent formulae yielded no decisive stronger coverage. An unindexed or inaccessible equivalent computation is still possible.
+PASS
 
-**Mathematical value — PASS.** Exact tangency redundancy, rather than existence of covering, is the natural missing invariant. The source curve has quadratically many rational contact points yet many of their tangent lines coincide in pairs; the two residue classes arise from a precise split-quadratic phenomenon. The uniform involution and exact counting provide structural insight for rational dual configurations, not merely an isolated table.
+For q=p^r with p>3, rational smooth points normalize uniquely by x+y+z=1, with xyz nonzero and excluding (1/3,1/3,1/3), giving (q-1)(q-2). The Gauss/tangent map is Gamma=[1/x-3:1/y-3:1/z-3]. Tangent coincidences parametrized by d_v(t)=t+3(1-t)v factor exact contact equation -t(t-1)(At+B). Simultaneous poles when coordinates repeat are removed. Other rational contact exists exactly when distinct x,y,z and AB(A+B)≠0. Centered coordinates u=3x-1 etc decompose singleton set into six disjoint lines (6(q-3)), split conic e(q-4) with e=0/2 according q mod 3, and rational cubic q-5-e, leading S=7q-23+e(q-5), N2=((q-1)(q-2)-S)/2. Exact algebraic symbolic factor and finite-field tangent fibers over eleven primes q=5..41 independently verified. Universal field result follows from algebra, not enumeration.
 
-**Scope and limitations.** Only lines tangent at smooth rational points are counted; geometric bitangents without rational contact points, flex multiplicities, and singular-point tangents are outside the claim. Finite verification is corroboration, not the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Asgarli–Ghioca introduced this exact curve, its unique singular point and tangent-filling theorem; inspected full source does not state exact dual rational tangent-line numbers, smooth two-contact fiber involution, or mod-3 splitting counts. General bitangent upper bounds do not imply equality or exact contact spectrum. Historical unindexed rational-dual count might exist and should be checked.
+
+## value
+
+PASS
+
+The rational tangent filling property concerns coverage, whereas the size and redundancy of the actual rational line set is an independently natural geometric incidence invariant. Exact singleton-pair involution and arithmetic split by cube roots of unity give an all-prime-power, structural count useful for finite-geometry dual arrangements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
