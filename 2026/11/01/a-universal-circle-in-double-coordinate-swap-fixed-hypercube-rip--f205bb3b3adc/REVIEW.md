@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric orbit-barycenter description is exact for the fixed realization. The Hamming-distance orbit classification, simple connectivity of the four fixed blocks, cone-link van Kampen relations, retraction to the four-coordinate case, and explicit simplicial collapses prove the stated infinite-family fundamental group. The standalone finite checker independently reconstructs admissible orbits and verifies the four-coordinate collapse; the infinite proof does not rely on sampling.
+## correctness
 
-**Originality — PASS, subject to literature uncertainty.** The closest sources study the ambient scale-two cube Rips homology representations, ambient 3-sphere wedge, a single coordinate transposition, or distinct intrinsic Čech constructions. Those results do not determine geometric simultaneous double-swap fixed spaces, their equality with the diagonal-involution fixed space, or their fundamental group. The primary 2026 paper's relevant full-text material was inspected, including the scale-two section and open problems. Equivalent unindexed work may exist.
+PASS
 
-**Value — PASS.** The result is a structural infinite-family fixed-point theorem: an explicit retraction witnesses an essential circle for every ambient cube dimension, although the ambient complex is simply connected. Exact equality of two different subgroup fixed sets at this scale is a natural additional phenomenon. The invariant is motivated independently of brute-force calculations.
+Reconstructed admissible orbit-barycenter fixed geometry under st and the Klein four group: only four A singleton blocks, C first-pair and D second-pair two-orbits occur. All orbit compatibility inequalities follow from max Hamming distance ≤2. Four A blocks are simply connected since cube squares and two-step shortcuts fill. Coning the connected links of C and D identifies suffix rungs, so pi1 is a quotient of the square fundamental group Z. Suffix deletion is simplicial and splits F4 inclusion; explicit F4 collapse gives pi1(F4)=Z and forces exact pi1(Fn)=Z and H1=Z. Independently reconstructed F4 fixed-orbit graph and triangles: 8 vertices/16 edges/8 triangles; package script lists the 8 triangle-edge and 3 leaf pairs. The infinite proof is van Kampen plus retraction, not small-n extrapolation.
 
-**Scientific limits.** No higher fixed-locus homotopy or full integral Betti table is claimed. Published searchable indexes cannot rule out all unpublished or unindexed equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new fixed-locus fundamental group for a product of two disjoint coordinate swaps on the scale-two binary-cube Rips space. Ambient homology and single-swap fixed-set statements do not determine this simultaneous geometric fixed locus; semantic Resultary searches found no direct double-swap match, not a proof of historical priority.
+
+## value
+
+PASS
+
+The equality of fixed loci for two distinct group actions and uniform fundamental circle give an independently motivated geometric fixed-space invariant, absent from ambient pi1 and strictly stronger than small finite homology tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

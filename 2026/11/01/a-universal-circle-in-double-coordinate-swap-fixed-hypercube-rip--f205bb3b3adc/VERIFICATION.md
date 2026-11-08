@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_fixed_double_swap.py` with Python 3.9 or newer. Its orbit enumeration reconstructs the cyclic-involution and whole Klein-four orbit families independently; for dimensions 4 through 8 it checks exact coincidence of admissible orbit sets, derives the full clique complexes, computes the first mod-two Betti number by boundary elimination, and checks all 11 elementary collapses in the four-coordinate case. The finite sequence of nonempty face counts is 32, 124, 492, 1984, 8032. Each first mod-two Betti number is 1. The four-coordinate complex collapses to a 5-cycle.
+## correctness
 
-These finite observations **do not prove** the claims for arbitrary dimension or integral coefficients. The general proof in RESULT.md uses orbit supports, fundamental groups of graphs of simply connected spaces, explicitly connected cone links, and a split simplicial retraction. No external computational certificate, proprietary library, or program output is assumed in that proof. Independent mathematical review has not been performed.
+PASS
+
+Reconstructed admissible orbit-barycenter fixed geometry under st and the Klein four group: only four A singleton blocks, C first-pair and D second-pair two-orbits occur. All orbit compatibility inequalities follow from max Hamming distance ≤2. Four A blocks are simply connected since cube squares and two-step shortcuts fill. Coning the connected links of C and D identifies suffix rungs, so pi1 is a quotient of the square fundamental group Z. Suffix deletion is simplicial and splits F4 inclusion; explicit F4 collapse gives pi1(F4)=Z and forces exact pi1(Fn)=Z and H1=Z. Independently reconstructed F4 fixed-orbit graph and triangles: 8 vertices/16 edges/8 triangles; package script lists the 8 triangle-edge and 3 leaf pairs. The infinite proof is van Kampen plus retraction, not small-n extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge new fixed-locus fundamental group for a product of two disjoint coordinate swaps on the scale-two binary-cube Rips space. Ambient homology and single-swap fixed-set statements do not determine this simultaneous geometric fixed locus; semantic Resultary searches found no direct double-swap match, not a proof of historical priority.
+
+## value
+
+PASS
+
+The equality of fixed loci for two distinct group actions and uniform fundamental circle give an independently motivated geometric fixed-space invariant, absent from ambient pi1 and strictly stronger than small finite homology tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
