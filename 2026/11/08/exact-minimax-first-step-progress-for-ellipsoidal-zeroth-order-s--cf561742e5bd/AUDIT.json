@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Direct exact reduction of Algorithm 1 at its first step; integral computed by two elementary primitives; extrema exist on a compact circle; uniform two-sided bounds confine all minimizers to q=Theta(log(1/delta)^(-1/2)); the unique minimizer of t/2+1/t gives the sharp limit and moving direction. The standalone 460-check reproducibility script agrees. Only the analytic argument proves the infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ren--Luo provides a general isotropic POEM oracle complexity bound.",
+        "Sholokhov--Rogozin provides a general ellipsoidal convergence complexity depending on active condition number.",
+        "Public prior gradient-method findings describe differing deterministic algorithms and objectives."
+      ],
+      "reasoning": "The prior general convergence bounds do not bound this precise first-step worst-slope expectation with a matching constant or determine its optimizing direction. They do cover broad qualitative dependence on covariance conditioning, which is not claimed here.",
+      "searches": [
+        "ellipsoidal zeroth order Gaussian smoothing preconditioner effective dimension normalization covariance gradient variance small eigenvalues",
+        "two-point anisotropic gradient estimator normalized by its own norm random direction expected alignment vanishing sqrt condition logarithm",
+        "sharp first-step worst-case expected normalized descent POEM-ES ellipsoidal zeroth-order sqrt delta log inverse delta",
+        "arXiv:2502.05600 Sections 3-4",
+        "arXiv:2609.38561v2 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "Sholokhov and Rogozin arXiv:2609.38561v2, Algorithm 1, Sections 2-5, pertinent appendices",
+      "Sholokhov and Rogozin arXiv:2609.38561v1, September 29 2026 bibliographic version metadata",
+      "Ren and Luo arXiv:2502.05600, Section 3 and main theorem",
+      "Vareilles arXiv:2605.31536, Theorem 1 and introduction",
+      "Li doi:10.1609/aaai.v33i01.33014205, limited public summary",
+      "Public published-finding corpus findings including 2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6, 2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc, 2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c, 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem has an explicit condition-number dependency already, so this analysis must not present conditioning sensitivity as a new phenomenon.",
+        "Vareilles computes the mean and second moment of an angle, not the mixed signed normalized dot product followed by minimization over slope.",
+        "Sign-full Gaussian random projection identities control sign events but do not directly yield the claimed minimax asymptotic."
+      ],
+      "reasoning": "The evaluated exact POEM-ES signed-angular moment is a specialization of its known sampling rule, but neither known condition-number oracle bounds nor Gaussian angular moment formulas entail the sharp moving minimizer and coefficient without substantial additional optimization. The known sign law is supporting background, not the assessed contribution.",
+      "searches": [
+        "sharp first-step worst-case expected normalized descent POEM-ES ellipsoidal zeroth-order sqrt delta log inverse delta",
+        "signed angular Gaussian projection minimax normalized anisotropic two-point stochastic optimization",
+        "arXiv:2609.38561v2 Algorithm 1, Lemma 4 and Theorem 4.1",
+        "arXiv:2605.31536 Theorem 1",
+        "doi:10.1609/aaai.v33i01.33014205"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For deterministic linear objectives the estimator reduces to the signed normalized angular functional; Algorithm 1 only defines the estimator, not the minimax over slopes.",
+        "The 2026 angular-central-Gaussian moment paper discusses ordinary angle moments rather than this signed objective decrease."
+      ],
+      "reasoning": "The theorem can be recast as a worst-angle signed moment for a coupled covariance/inverse-covariance direction. This reduction was checked, but none of the inspected sources provides the same optimized quantity, moving minimizer, or asymptotic coefficient. Equality of angular parametrizations is not itself new.",
+      "searches": [
+        "ellipsoidal zeroth order POEM-ES first normalized step expected descent anisotropic inverse square root directional estimator angular integral logarithmic asymptotic",
+        "signed angular Gaussian projection minimax normalized anisotropic two-point stochastic optimization",
+        "arXiv:2609.38561v2 Section 3 and Appendix 0.A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public published-finding corpus records checked include 2026/10/4/SCOPE-sharp-conditioning-threshold-for-an-obtuse-first-lamb-direction--00498ba452dc and 2026/10/4/SCOPE-sharp-condition-number-frontier-for-objective-descent-in-core-la--70b4a7c981f6; both optimize different gradient algorithms and use no uniform-sphere ellipsoidal finite difference.",
+        "The inspected POEM-ES article provides experiments and general bounds but no matching first-step 2D minimax table."
+      ],
+      "reasoning": "A search of existing results and primary source material did not reveal an exact value of this natural minimax integral; nearest public results are not stronger statements of this claim. A negative search is not proof of uniqueness.",
+      "searches": [
+        "ellipsoidal zeroth order POEM-ES first normalized step expected descent anisotropic inverse square root directional estimator angular integral logarithmic asymptotic",
+        "sharp first-step worst-case expected normalized descent POEM-ES ellipsoidal zeroth-order sqrt delta log inverse delta",
+        "signed angular Gaussian projection minimax normalized anisotropic two-point stochastic optimization"
+      ]
+    },
+    "rationale": "The exact signed, normalized POEM-ES first-step integral and the minimax asymptotic constant plus least-favorable slope are not implied by the inspected source algorithm and its general oracle complexity. Checked related isotropic POEM, planar angular Gaussian moments and public prior finding summaries by claim/implication. The known Gaussian sign-correlation identity and qualitative conditioning effects are expressly excluded from the new claim; historical-priority risk remains.",
+    "residual_risks": [
+      "A broader older signed-Gaussian angular minimax theorem may already imply this exact two-dimensional specialization even if not found in searched records.",
+      "The 2019 Sign-Full Random Projections work was not inspected in full; no novelty is asserted for sign disagreement or sign-correlation probabilities.",
+      "The v1 title and algorithm changed by v2; the exact analyzed update is explicitly v2, with the v1 public date used only for earliest-source chronology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact estimator and general condition-number complexity; does not state the derived signed first-step minimum or moving extremal slope",
+        "evidence": [
+          "Algorithm 1 lines 200-233 gives rank-scaled ellipsoidal estimator and normalized adaptive step",
+          "Sections 4-5 give general high-probability convergence and conditioning parameters"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.38561v2",
+        "material_read": "Full HTML article: Sections 2-5, Algorithm 1, the main theorem and pertinent appendix proof portions",
+        "method": "Direct examination of estimator, initialization, proof hypotheses, main theorem, and search for linear-objective/angle first-step cases",
+        "title": "Parameter-Free Zeroth-Order Optimization with Ellipsoidal Sampling",
+        "trigger": "Exact source update and potential dominant first-step and conditioning theorem"
+      },
+      {
+        "assessment": "Isotropic predecessor does not contain the anisotropic minimax orientation law",
+        "evidence": [
+          "Section 3 POEM defines isotropic random directions and distance-over-gradient-normalization",
+          "Section 4 establishes near-optimal oracle complexity rather than first-step anisotropic minimax"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.05600",
+        "material_read": "Full available HTML, including Section 3 Algorithm 1, complexity theorem and principal assumptions",
+        "method": "Comparison of isotropic sampling mechanism with fixed matrix-valued directions",
+        "title": "A Parameter-Free and Near-Optimal Zeroth-Order Algorithm for Stochastic Convex Optimization",
+        "trigger": "Predecessor method with normalized step"
+      },
+      {
+        "assessment": "Known angular moment calculations are related background but not a statement covering the specified signed minimax",
+        "evidence": [
+          "Theorem 1 gives the ordinary first and second angle moments",
+          "Introduction distinguishes angular moments from circular trigonometric moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.31536",
+        "material_read": "Available full HTML introduction, angular density, Theorem 1 and stated scope",
+        "method": "Compared angle first/second moments against the signed normalized objective decrease and its minimization",
+        "title": "Closed-form linear moments of the two-dimensional angular central Gaussian distribution",
+        "trigger": "Possible equivalent formula for a planar Gaussian direction"
+      },
+      {
+        "assessment": "Plausible related background, but it does not independently settle the asserted sharp signed-normalized POEM-ES minimax asymptotic on material inspected",
+        "evidence": [
+          "Public title and abstract identify full-sign Gaussian random projection correlations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v33i01.33014205",
+        "material_read": "Title and accessible source-level summary; not the full primary article",
+        "method": "Identified Gaussian sign events as established background and removed any novelty claim for sign-event probabilities",
+        "title": "Sign-Full Random Projections",
+        "trigger": "Known Gaussian sign-correlation formulas might dominate an auxiliary sign calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf561742-e5bd-43b6-9f48-8162023266a8",
+  "value": {
+    "rationale": "The first move of a parameter-free normalized zeroth-order solver defines a natural fixed-length expected-progress functional. Its exact least-favorable direction drifts with anisotropy and yields a sharp sqrt(delta log(1/delta)) degradation relative to isotropic progress 2/pi; neither the raw variance nor the preexisting conditioning-dependent global bound supplies this constant and orientation. The fact provides a rigorous benchmark for startup preconditioner robustness without claiming a global convergence theorem.",
+    "status": "PASS"
+  }
+}
