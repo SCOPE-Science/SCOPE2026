@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is two agents with additive values, with one independent fair-binary \(\{0,2r\}\)-valued good and \(r\) independent fair-binary \(\{0,2\}\)-valued goods for each agent, all allocated before values are observed. Ex-ante EF is equivalent to allocating no ordinary goods alongside the large one. The distributional identity \(Q_t=t+(r\varepsilon_0+\sum_j\varepsilon_j)/2\) determines each agent's probability of not envying; their independence yields the binomial-tail product. Its consecutive difference has one crossing; a strictly positive first difference for every \(r\ge3\) and explicit small cases establish the exact boundary. Chernoff concentration gives the asymptotic maximizing count. The independent exact-arithmetic script checks 65 direct valuation enumerations and 200 optimizers, and is not substituted for the proof. Quantifier and tie conventions are stated in RESULT.md.
+PASS
 
-## Originality — PASS, subject to literature risk
+For each r, equal expected utility of the two fixed bundles forces t=0. Both independent agents compare the signed sum r ε0+Σ εj with shifted threshold 2t; conditional on ε0 the ordinary sum is binomial. The atom at zero matters: P(0)=(2^r+1)^2/2^(2r+2) while for t>=1 P(t)=S_t(2^(r+1)-S_(t+1))/2^(2r+2). Subtraction gives the single-crossing sign S_(t+1)/2^(r+1)-(t+1)/(r+1). Comparing t=1 and t=0 gives exact numerator 2^r(r-2)-r-2, positive for r>=3; boundary r=1,2 favors ex-ante fairness. Binomial tails imply t_r/r->1/2. Independent enumeration of every ordinary allocation for 1<=r<=8 matches these formulas exactly. Proof covers all r>=1, finite verification only r<=8.
 
-Aloisio and colleagues (AAMAS 2024) study preallocated goods whose valuations resolve later, but their objective is expected *magnitude* of maximum envy, not the probability of no envy. Halpern–Psomas–Zhang (arXiv:2602.12359, February 12, 2026) study stochastic valuations with valuation-responsive strategic mechanisms and high-probability asymptotic outcomes, not the exact probability spectrum of precommitted heterogeneous Bernoulli goods. Babaioff–Grofman (arXiv:2601.16579) and Chen–Long (arXiv:2609.23577) place randomness in the allocation mechanism rather than unobserved good utilities. The closely relevant Igarashi–Oh lottery-good manuscript (arXiv:2610.34906, October 26, 2026), including its convolution-power and non-atomic symmetry results and its general symmetric bounds, was inspected. Its stated hypotheses do not entail this atomic, heteroscedastic example, and the exact all-multiplicity classification was not found. Search and research-record comparisons did not identify an equivalent statement or dominating theorem. This is best-knowledge priority assessment, not proof of global uniqueness; unindexed precise results are a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The mathematical question is whether balancing expected utility *before* uncertain utilities resolve also maximizes the chance that both agents will be envy-free *after* resolution. With a distinguished lottery good and a variable number of independent light lottery goods, the result determines a sharp transition at three light goods, the exact optimal allocation at every size, and its asymptotic half-split. It pinpoints the role of discrete atoms and item-scale heterogeneity in a natural two-agent benchmark. The contribution is a structural infinite family, not an arbitrary isolated example.
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. Igarashi–Oh treats the same precommitment timing and optimality of ex-ante envy-free allocations for convolution-power distributions, and the accessible abstract does not supply an exact heteroscedastic Bernoulli r>=3 threshold. Conditions of their positive theorem are not inherited merely from equal agent marginals. Full text could not be read here, so an implicit example or theorem remains a material priority risk.
 
-## Limits and closest literature
+## value
 
-The claim requires fixed, valuation-blind deterministic allocation, fair independent binary indicators, and the exact \(2r\)-versus-\(2\) scale relationship. It makes no claim about arbitrary distributions, strategic truthfulness, or randomization over allocation rules. The direct exact counts end at \(r=10\), and the enumerated optimizer checks end at \(r=200\); the analytic proof covers all \(r\ge1\). Relevant references and the scientific comparison appear in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The naturally motivated question is whether a precommitment ex-ante EF allocation maximizes the probability of realized exact joint envy-freeness. A sharp r=3 failure and exact binomial optimizer across every finite r distinguish expected fairness from a zero-envy tail objective; the family is sharply parameterized, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

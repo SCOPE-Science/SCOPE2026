@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-In a directory containing `verify.py`, run `python3 verify.py` with Python 3 and no third-party packages.
+## correctness
 
-The verifier separately enumerates the two agents' independent fair-binary valuations to compute the exact fraction of outcomes that are ex-post envy-free. This direct calculation is compared to the stated closed form for all \(1\le r\le10\) and all permissible ordinary-good counts \(0\le t\le r\): **65 exact combinations**. Next it independently evaluates all allocation probabilities for \(1\le r\le200\), compares the maximizing counts with the single-crossing binomial-tail rule, and tests the sharp \(r\ge3\) phase distinction: **200 complete finite parameter checks**. All comparisons use exact integer or rational arithmetic.
+PASS
 
-Observed output:
+For each r, equal expected utility of the two fixed bundles forces t=0. Both independent agents compare the signed sum r ε0+Σ εj with shifted threshold 2t; conditional on ε0 the ordinary sum is binomial. The atom at zero matters: P(0)=(2^r+1)^2/2^(2r+2) while for t>=1 P(t)=S_t(2^(r+1)-S_(t+1))/2^(2r+2). Subtraction gives the single-crossing sign S_(t+1)/2^(r+1)-(t+1)/(r+1). Comparing t=1 and t=0 gives exact numerator 2^r(r-2)-r-2, positive for r>=3; boundary r=1,2 favors ex-ante fairness. Binomial tails imply t_r/r->1/2. Independent enumeration of every ordinary allocation for 1<=r<=8 matches these formulas exactly. Proof covers all r>=1, finite verification only r<=8.
 
-```
-VERIFY_OK direct_exact_cases=65 crossing_threshold_cases=200 r3_p0=81/256 r3_p1=21/64
-```
+## originality
 
-The all-parameter theorem is proved symbolically in RESULT.md; the finite checks do not certify an infinite domain or novelty. The verification does not assess external independent validation.
+PASS
+
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. Igarashi–Oh treats the same precommitment timing and optimality of ex-ante envy-free allocations for convolution-power distributions, and the accessible abstract does not supply an exact heteroscedastic Bernoulli r>=3 threshold. Conditions of their positive theorem are not inherited merely from equal agent marginals. Full text could not be read here, so an implicit example or theorem remains a material priority risk.
+
+## value
+
+PASS
+
+The naturally motivated question is whether a precommitment ex-ante EF allocation maximizes the probability of realized exact joint envy-freeness. A sharp r=3 failure and exact binomial optimizer across every finite r distinguish expected fairness from a zero-envy tail objective; the family is sharply parameterized, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
