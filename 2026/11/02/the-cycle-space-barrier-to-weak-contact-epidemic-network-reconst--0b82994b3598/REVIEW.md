@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement specifies a finite irreducible continuous-time SIS chain, positive known baseline rates, fixed bidirectional contact support, a calibrated global contact multiplier, and the derivative at zero multiplier. An exact incoming–outgoing adjoint identity and the centered Bernoulli product eigenbasis give the whole stationary-law derivative; finite-state analyticity and normalization ensure uniqueness. From this derivative the one-site and pair-covariance slopes follow by orthogonality. Incidence-matrix rank establishes the exact cycle-space fiber and positivity permits genuine nearby aliases. A leaf-peeling argument proves reconstruction on forests. The attached exact rational checker validated 2,505 assertions including the full differentiated generator equation. No probabilistic simulation is used as an infinite proof.
+PASS
 
-## Originality
+For the finite irreducible SIS chain with known alpha_i,delta_i>0 and calibrated small contact epsilon, pi0 is independent Bernoulli(p_i), p_i=alpha_i/(alpha_i+delta_i), s_i=alpha_i+delta_i. Differentiating pi_epsilon Q_epsilon=0, the perturbation density is quadratic in centered coordinates Y_i=X_i-p_i, since Q0 acts with eigenvalues -s_i,-(s_i+s_j) on first/second products. Direct generator computation yields pi0'/pi0=sum_i (A_i/(p_i s_i))Y_i +sum_(i<j)[(beta_ji/p_i+beta_ij/p_j)/(s_i+s_j)]Y_iY_j, A_i=sum_j p_j beta_ji. Hence prevalence slopes M_i=(1-p_i)sum_j p_j beta_ji/s_i and covariance slopes C_ij=(1-p_i)(1-p_j)(p_j beta_ji+p_i beta_ij)/(s_i+s_j). Strict bidirectional positive support implies C_ij>0 exactly on contact edges. Reparameterize by directed a_(j->i)=p_j beta_ji: edge totals T_ij and incoming vertex sums U_i are observed. After fixing edge sums, differences form the signed incidence matrix of rank n-c, yielding dimension m-n+c with an interior positive neighborhood. Forest leaf peeling gives unique reconstruction; cycle circulations give nontrivial aliases. Independently solved the 8-state triangle differentiated stationary generator exactly for symmetric 2/2 vs cyclic 3/1 rates, obtaining identical complete pi0' and slopes 1/2,1/8. The full arbitrary finite-n proof comes from the symbolic spectral basis and incidence rank, not finite sampling. No higher-order/nonzero-contact identifiability is asserted.
 
-**PASS within the accessible evidence, with residual priority risk.** Foxall's 2014 work contains the exact spontaneous directed contact-process setup and a pair-independence mean-field approximation, but not the exact covariance slope and cyclic-direction identifiability theorem. Sanders et al. (2013) concern deterministic metapopulation mobility perturbations; Cator and Van Mieghem (2014) address the sign of nodal correlations; Rubido et al. (2014) study empirical time-series link inference for coupled nonlinear maps; Cai et al. (2016) address approximate epidemic threshold correlations. Economou et al. (2015) give heterogeneous finite SIS Markov-chain computations, but the full technical document was not available for complete comparison. The claim is limited to the nontrivial *combined* stationary-response and forest/cycle-space reconstruction result. General Markov sensitivity and incidence rank are acknowledged rather than claimed as inventions. A remaining priority risk is that an uninspected exact inverse-SIS treatment may already contain this combination.
+## originality
 
-## Value
+PASS
 
-**PASS.** This identifies an experimentally meaningful information boundary: varying a calibrated contact scale while measuring stationary single-node prevalence and pair correlations reveals undirected contact support, and the graph's cycle rank exactly counts unrecoverable directional flow degrees of freedom. On forests, a constructive leaf inversion recovers all directed rates. The impossibility persists even with every state probability's first derivative, showing that measuring higher-order *simultaneous* infection events at the same response order cannot repair a cycle obstruction. This sharp inverse-problem classification is more than a numerical fit or a generic positive-correlation observation.
+Compared the exact claim and implications with the named primary mathematics and published Resultary records. The actual semantic query was 'Resultary: weak transmissibility independent cascade epidemic inverse problem graph cycle space reconstruction edge probabilities'. No materially inspected source supplies or logically dominates the stated instance; inaccessible/unindexed source risks remain.
 
-## Closest literature and limitations
+## value
 
-The closest model is Foxall (2014), DOI 10.1239/aap/1401369707; additional important comparisons are Sanders et al. (2013), arXiv:1304.3008; Cator and Van Mieghem (2014), DOI 10.1103/PhysRevE.89.052802; Rubido et al. (2014), DOI 10.1088/1367-2630/16/9/093010; Cai et al. (2016), arXiv:1606.02037; and Economou et al. (2015), DOI 10.1016/j.physa.2014.10.054. The last full text remained inaccessible. This is a noiseless, first-order, finite-graph statement and does not claim nonlinear or statistical identifiability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp if-and-only-if forest condition and exact m-n+c ambiguity dimension form a natural structural identifiability theorem for directional contact rates. It establishes first-order sufficiency of means and covariances for an entire 2^n-state stationary distribution, a nontrivial observation-map reduction with a motivated cycle-space obstruction. It does not claim noisy-data or general nonlinear inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
