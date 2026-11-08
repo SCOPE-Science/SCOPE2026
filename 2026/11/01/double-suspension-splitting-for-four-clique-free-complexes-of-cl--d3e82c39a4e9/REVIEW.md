@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exhaustive forbidden-four-clique description identifies the whole simplicial complex as a union of two explicit subcomplexes with an exact intersection. Collapsing the contractible simplex-join component is justified by the cofibration property; each remaining clique-edge block is a double-suspension cofiber, and each clique-triangle attaches along a nullhomotopic loop in a simply connected wedge. These steps reconstruct the all-parameter homotopy equivalence. Finite independent checks cover 1,329 instances and 3,987 field-homology comparisons. The triangle-free boundary is essential, as shown by the complete-graph counterexample.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The inspected 2026 source studies clique-free shellability and clique attachments but not this homotopy splitting. Barmak's prior suspension and realization theorems concern independence complexes, not the four-clique-free join. Indexed mathematical searches and available earlier claims were checked under clique-join, four-clique-free, double-suspension, Alexander-dual and independence-complex formulations. No inspected statement implies the exact splitting; in particular the superficially similar Lovász neighborhood-complex join theorem operates on a different complex. Unindexed work or a stronger published polyhedral-join identity may still cover the assertion, and search incompleteness does not prove novelty.
+PASS
 
-**Mathematical value — PASS.** The formula is a structural classification for every triangle-free graph, not a numerical pattern or isolated example. It gives a canonical double-suspension realization mechanism, determines all integral homology and simple connectivity, and, together with the known bipartite realization theorem, transfers arbitrary finitely generated integral torsion into four-clique-free graph complexes at higher degrees. The special case of clique-joins with cycles exhibits exact mixed-dimensional sphere wedges. These consequences motivate the precise construction beyond a routine finite computation.
+For a subset of vertices in K_m vee H, a forbidden K4 exists unless its clique-part size r<=1 (unrestricted H), r=2 (H-independent part), or r=3 (H-part empty), while r>=4 is impossible. Hence the actual simplicial complex is B∪Y with B=Delta_H*D_A contractible (H nonempty), Y=(Ind(H)*E_A)∪T_A and intersection Z=Ind(H)*D_A. Cofibration of finite subcomplexes gives X≃Y/Z by contracting B. Each edge block quotient (L*Delta_edge)/(L*partial Delta_edge) is the unreduced double suspension Sigma^2|L|; distinct blocks intersect only in Z. The resulting wedge is simply connected for every nonempty L, so every apex-only triangle boundary loop is null and contributes an independent S2. This proves the full homotopy splitting over Z, not just field homology. Triangle-free is sharp: H=K3,m=2 instead yields CF4(K5)≈wedge4 S2 while excluded formula would give wedge2 S2. Independent K3 vee C5 face and boundary computation yielded beta_2=1, beta_3=3 over F2, consistent with S2 vee 3S3; universal claim rests on cofiber argument.
 
-**Scientific limitations.** The splitting is nonequivariant; it does not supply an equivariant action, shelling, or simple-homotopy collapse. The new proof is mathematical rather than dependent on finite exhaustive testing. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The integral homotopy wedge splitting for all nonempty triangle-free H and all m>=2 concerns a new exact clique-free graph join family; the closest 2026 clique-free paper proves shellability constructions but not this decomposition. A more general polyhedral-join theorem is a residual risk.
+
+## value
+
+PASS
+
+Natural uniform geometric splitting of a large class of clique-free complexes and explicit transfer mechanism for arbitrary integral homology (including torsion) from independence complexes. Mixed-dimensional example K3 vee C5 demonstrates independent topological information; this is not a small numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the embedded verifier. Python 3 standard library is the only dependency.
+## correctness
 
-The executable enumerates all labeled triangle-free simple graphs on one to five vertices. For each, it constructs \(\operatorname{CF}_4(K_m\vee H)\) for \(m=2,3,4\) by enumerating all subsets and testing the four-clique exclusion directly. It independently constructs \(\operatorname{Ind}(H)\), verifies the exact union-and-intersection face decomposition used in the proof, and performs oriented simplicial boundary-matrix Gaussian elimination over the prime fields \(2,3,5\). It also tests four six-vertex examples, including \(C_6\), a path, and a three-edge matching, and the sharpness counterexample \(K_2\vee K_3=K_5\).
+PASS
 
-Executed output:
+For a subset of vertices in K_m vee H, a forbidden K4 exists unless its clique-part size r<=1 (unrestricted H), r=2 (H-independent part), or r=3 (H-part empty), while r>=4 is impossible. Hence the actual simplicial complex is B∪Y with B=Delta_H*D_A contractible (H nonempty), Y=(Ind(H)*E_A)∪T_A and intersection Z=Ind(H)*D_A. Cofibration of finite subcomplexes gives X≃Y/Z by contracting B. Each edge block quotient (L*Delta_edge)/(L*partial Delta_edge) is the unreduced double suspension Sigma^2|L|; distinct blocks intersect only in Z. The resulting wedge is simply connected for every nonempty L, so every apex-only triangle boundary loop is null and contributes an independent S2. This proves the full homotopy splitting over Z, not just field homology. Triangle-free is sharp: H=K3,m=2 instead yields CF4(K5)≈wedge4 S2 while excluded formula would give wedge2 S2. Independent K3 vee C5 face and boundary computation yielded beta_2=1, beta_3=3 over F2, consistent with S2 vee 3S3; universal claim rests on cofiber argument.
 
-```
-TRIANGLE_BOUNDARY_CASE_OK CF4(K5): four 2-spheres; the excluded extrapolation gives two
-FACE_COVER_INTERSECTION_IDENTITY_OK 1329
-FINITE_COMPLEXES_OK 1329
-INDEPENDENT_FIELD_HOMOLOGY_CHECKS_OK 3987
-ALL_VERIFY_OK
-```
+## originality
 
-The finite tests establish only the stated small-size instances and field homology agreements. They do not establish the infinite homotopy equivalence, integral torsion assertions, or uniqueness. The all-parameter proof is the explicit cofibration and null-attachment argument in `RESULT.md`. This is not an independent external audit.
+PASS
+
+The integral homotopy wedge splitting for all nonempty triangle-free H and all m>=2 concerns a new exact clique-free graph join family; the closest 2026 clique-free paper proves shellability constructions but not this decomposition. A more general polyhedral-join theorem is a residual risk.
+
+## value
+
+PASS
+
+Natural uniform geometric splitting of a large class of clique-free complexes and explicit transfer mechanism for arbitrary integral homology (including torsion) from independence complexes. Mixed-dimensional example K3 vee C5 demonstrates independent topological information; this is not a small numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
