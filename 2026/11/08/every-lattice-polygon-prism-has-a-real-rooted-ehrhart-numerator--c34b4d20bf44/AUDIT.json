@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact Ehrhart-series derivative identity and Pick numerator reduce the problem to a known Wagner product theorem plus three exceptional cubic discriminants; all three were expanded symbolically to positive polynomials in height minus one, including separate height-one quadratic checks. The integer checker reconstructed those identities and passed 117600 exact count comparisons. No claim relies on finite enumeration for infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "B. Nill, arXiv:2608.03635, Theorem 1: sufficiently large lattice width in fixed dimension.",
+        "F. Liu, arXiv:2610.06338, complete §2 and Theorem 2.2(i): real-rooted product preservation under real-rooted inputs.",
+        "Wagner 1992, Theorem 0.2 as quoted in Liu §2 and in a public real-rootedness exposition."
+      ],
+      "reasoning": "A prism retains lattice width at most its planar base width, regardless of segment height. The three exceptional polygon numerators have nonreal zeros, so an input-real-rootedness premise does not cover the new claim. No stronger general result found.",
+      "searches": [
+        "Lattice polytopes large width real rooted Ehrhart h* Nill August 2026",
+        "Ehrhart Properties under Operations on Lattice Polytopes prism polygon real-rooted",
+        "Wagner theorem real rooted Ehrhart h star polynomial cartesian product lattice polytopes if both real rooted"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.03635",
+      "arxiv:2610.06338 §2 Theorem 2.2",
+      "arxiv:2307.10852",
+      "Wagner 1992, Theorem 0.2 (published restatement in Liu)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+      "arxiv:2202.11808"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu §2, Theorem 2.2(i) asserts RR(P) and RR(Q) imply RR(P×Q); no conclusion for non-RR(P).",
+        "Prior segment-factor claim establishes LC(P) implies LC(P×[0,m]), not RR(P×[0,m]).",
+        "Ferroni–McGinnis 2024 §5.3 treats hyperplane slices of rectangular prisms, not arbitrary polygon products."
+      ],
+      "reasoning": "The novelty resides in closing the precise gap left by Wagner/Liu on the three nonreal base numerator shapes. Generic log-concavity does not imply real-rootedness, and slice conjectures are inapplicable.",
+      "searches": [
+        "Ehrhart Properties under Operations on Lattice Polytopes Cartesian product Theorem 2.2 Feihu Liu",
+        "lattice segment factors preserve Ehrhart h-star log concavity published-finding corpus",
+        "Ferroni McGinnis lattice points slices of prisms real rootedness conjecture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "F. Liu, arXiv:2610.06338, §2, Theorem 2.2(i): the two factors must already be real-rooted.",
+        "Public result 2026/10/4/lattice-segment-factors-preserve-ehrhart-h-log-concavity: complete RESULT.md was read; proves log-concavity, disclaims real-rootedness."
+      ],
+      "reasoning": "An equivalent formulation would assert universal real-rootedness of 3D integral prisms, or that the segment transform makes all 2D polygon numerators real-rooted. Neither comparison proves the three cases with complex base roots.",
+      "searches": [
+        "every prism over planar lattice polygon has real-rooted Ehrhart h-star polynomial for any integral height",
+        "every three-dimensional lattice prism over an arbitrary integral lattice polygon has real-rooted h-star numerator even when the base has complex roots",
+        "Lattice polygon h-star nonreal 1+kz+kz squared k one two three and lattice segment repairs all roots"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pick's two-dimensional coefficient formula fixes all possible failures of planar real-rootedness by the pair (I,B).",
+        "Public comparison record 2026/10/4/lattice-segment-factors-preserve-ehrhart-h-log-concavity is explicitly limited to log-concavity and includes the same general numerator transform."
+      ],
+      "reasoning": "No exact table or theorem found asserting the infinite all-prisms real-rootedness conclusion; the known segment formula is an ingredient, not a covering result.",
+      "searches": [
+        "Planar lattice polygons non-real-rooted h-star discriminant exactly primitive-edge triangles with one two three interior points",
+        "prism over lattice polygon real-rooted h star polynomial",
+        "three dimensional lattice prisms over lattice polygons real root H star 2026"
+      ]
+    },
+    "rationale": "Nill large-width hypothesis is inapplicable to bounded-width prism bases; the Liu/Wagner product theorem assumes real-rooted inputs and does not imply the cases with 1+kt+kt^2 for k=1,2,3; the published segment-factor result only proves log-concavity. Precisely these uncovered cases are resolved here. Best-knowledge result, with documented historical-priority uncertainty.",
+    "residual_risks": [
+      "Equivalent historical polynomial transformation result might state the all-prism conclusion under different terminology.",
+      "Original 1992 Wagner article was not inspected in full; its precise product theorem was cross-checked in a recent full-length source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not yield bounded-width prism result",
+        "evidence": [
+          "First public arXiv version 2026-08-04; theorem needs sufficiently large lattice width for fixed dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.03635",
+        "material_read": "Theorem and proof discussion of width hypothesis, with dated arXiv v1 bibliographic record",
+        "method": "arXiv open full-text and publication metadata",
+        "title": "Lattice polytopes of large width have real-rooted Ehrhart h*-polynomials",
+        "trigger": "recent motivating large-width root theorem"
+      },
+      {
+        "assessment": "Only preserves RR when both input factors have RR; not directly covering three non-RR inputs",
+        "evidence": [
+          "§2 Theorem 2.2(i) says if both h* numerators are real-rooted, then the Cartesian product is real-rooted.",
+          "§2 also states L_{P×Q}(n)=L_P(n)L_Q(n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.06338",
+        "material_read": "Complete introduction, main results Table 1, Section 2 Theorem 2.2(i), proof discussion and examples",
+        "method": "Open full arXiv HTML text via public abstract URL",
+        "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+        "trigger": "same operation Cartesian product and same property real-rootedness"
+      },
+      {
+        "assessment": "Documents classical context and Wagner criterion, does not address the nonreal planar inputs after segment products",
+        "evidence": [
+          "Ferroni–Higashitani survey 2024, root-preservation from RR inputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.10852",
+        "material_read": "Full HTML survey relevant sections on h* real-rootedness, products, and inequalities",
+        "method": "arXiv open HTML reading",
+        "title": "Examples and counterexamples in Ehrhart theory",
+        "trigger": "survey of planar h* data and real-rootedness/product closure"
+      },
+      {
+        "assessment": "Already provides numerator transform and LC preservation; explicitly does not upgrade LC to RR",
+        "evidence": [
+          "Public result gives g_i=(1+mi)h_i + (m(d+2-i)-1)h_{i-1}; Limitations say it does not upgrade log-concavity to real-rootedness."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+        "material_read": "Full RESULT.md, including theorem, coefficient identity, proof, limits and bibliography",
+        "method": "Read published repository text via GitHub API",
+        "title": "Lattice-segment factors preserve Ehrhart h*-log-concavity",
+        "trigger": "exact same lattice segment product and numerator transform"
+      },
+      {
+        "assessment": "Different objects: hyperplane sections of rectangular boxes, not product prism over arbitrary planar lattice polygon",
+        "evidence": [
+          "Conjecture 5.12 concerns h*(R_{k,c}) for rectangular-prism slices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.11808",
+        "material_read": "Public article introduction and §5.3 conjecture on slice polytopes",
+        "method": "Read Cambridge Core HTML excerpt",
+        "title": "Lattice points in slices of prisms",
+        "trigger": "potential same prism words and real-rootedness conjecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c34b4d20-bf44-40ef-9d08-3a227a7c12d0",
+  "value": {
+    "rationale": "A natural infinite geometric class of all three-dimensional polygonal lattice prisms has real-rooted numerators without any width assumption. The theorem repairs all three possible complex-rooted planar numerators using only a unit segment, an implication beyond standard product real-rootedness preservation and mere log-concavity.",
+    "status": "PASS"
+  }
+}
