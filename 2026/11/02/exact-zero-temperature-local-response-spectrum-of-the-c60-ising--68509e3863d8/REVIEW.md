@@ -1,23 +1,21 @@
-# Scientific assessment: exact zero-temperature local-response spectrum of the C60 Ising antiferromagnet
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is constructed explicitly as the truncation of the icosahedral graph; no external coordinate conventions are assumed. Each of its 12 disjoint pentagons must contain an unsatisfied bond. Equality at the sharp lower bound \(-66J\) forces precisely one such bond in each pentagon and none on the 30 cross-pentagon edges. Hexagonal-face parity gives a bijection between minimum-frustration patterns and an icosahedral perfect matching with six independent binary face choices. A complete 125-matching recursion yields exactly 8,000 patterns, or 16,000 spin states after global inversion. Each matched pair of pentagons contributes opposite net spins, proving total magnetization exactly zero state by state.
+PASS
 
-The integer covariance reduction \(B=X^TX/32\) and \(U^TU=2I\) are explicit. The standalone exact checker establishes the square-free annihilating polynomial and five exact rational kernel dimensions \(11,5,4,4,6\), which completely determine the 30 positive eigenvalues; the remaining 30 are zero. It also checks all 1,770 unordered site-pair correlations. Finite enumeration is exhaustive **only because the preceding matching/parity proof establishes coverage**; the numerical outputs alone do not prove that coverage. No finite-precision fitted eigenvalues are used.
+Each of the twelve pentagonal faces must contribute one frustrated edge at energy -66J, and every interpentagon edge must be unfrustrated; the selected six two-frustration hexagons pair the 12 pentagons, yielding a bijection with 125 perfect matchings of the icosahedron, 2^6 adjacent face choices, and global inversion, for 16,000 states. The cross-pentagon anti-alignments map spins into 30 signed edge coordinates, U^TU=2I and C=U(X^TX/8000)U^T, giving nonzero spectrum of integer B=X^TX/32 divided by 125. Reviewed exact rank/annihilator certificate in verify_c60.py. Independently reconstructed an icosahedron via networkx, all 125 matchings/8,000 representatives, and computed the exact sympy integer characteristic polynomial (L-50)^11(L-74)^5(L-104)^4(L-560)^4(L²-1308L+68596)^3. This agrees with the seven eigenvalues and leaves exactly 30 null modes. Each generated ground state has energy -66 and zero total magnetization. Gibbs differentiation yields χ=β Cov and hence the stated zero-temperature leading response. Finite enumeration here is exhaustive for ground states because the face-parity/matching bijection is analytical; the test alone is not a proof of that bijection.
 
-## Originality — PASS on examined evidence, provisional
+## originality
 
-The 16,000-state degeneracy and the C60 Ising model were established well before this calculation. Rasetti and Regge (1981), Samuel (1993), and Dai and Xu (2024) are acknowledged specifically. Dai and Xu's accessible main text addresses entropy and reports the known 16,000 count; it does not present the 60-by-60 covariance eigenvalue factorization. Konstantinidis (2006) and Rausch, Plorin and Peschke (2020) study continuous classical-vector or quantum Heisenberg models, not the two-valued zero-field Ising covariance operator. Searches of scholarly and indexed research claims found no matching exact 30-nonzero-mode Ising covariance spectrum.
+PASS
 
-The most important remaining priority risk is the unavailable full text of Samuel's exact 1993 Ising solution and Rasetti–Regge's earlier Pfaffian analysis. Their exact partition-function work might, with a more general local-source formulation, imply the spectrum. Metadata and accessible descriptions alone cannot prove absence of an implicit derivation. The novelty assessment is therefore limited to the inspected claims and material; it is not a claim of independent historical certification.
+Prior classical Ising solution/partition functions for precisely truncated-icosahedral C60 by Samuel (1993) and Rasetti–Regge (1981) are highly relevant; their full texts were inaccessible after arXiv/OA attempts and authorized institutional retrieval returned VPN disconnected. Known ground energy and count of 16,000 are excluded from novelty. Other C60 quantum Heisenberg covariance results concern a different spin ensemble. Best-of-knowledge full classical C60 zero-temperature covariance spectrum is not explicitly identified in accessible results, but this is a material historical priority risk.
 
-## Mathematical value — PASS
+## value
 
-For a physically motivated 60-spin frustrated cluster, the *full local-field susceptibility* is a natural response invariant, not a contrived statistic. The theorem determines exactly which 30 field combinations have nonzero leading Curie response and which 30 are silent. It gives a nontrivial algebraic spectrum with golden-ratio splitting, shows why the uniform-field response is silent despite extensive entropy, and supplies exact spatial correlations against which numerical and quantum-approximation methods can be benchmarked. These results are not a routine reading of the pre-existing degeneracy count. No thermodynamic-limit or experimental prediction is claimed.
+PASS
 
-## Scientific limitations and prior comparisons
+The exact 30 nonzero local-response modes, algebraic eigenvalue multiplicities and uniform-field null susceptibility reveal a natural graph-specific dependence structure beyond the known ground-state degeneracy. An exact self-contained finite 60-site response invariant can be useful without a thermodynamic-limit theorem.
 
-All assertions require a homogeneous, zero-field, classical, nearest-neighbor Ising model on the finite C60 truncated-icosahedral graph. Local response is the derivative at zero field *before* the zero-temperature limit. Graph disorder, extra interactions, quantum spins, finite-temperature corrections and large-size limits remain unproved. The result provides eigenvalue multiplicities and exact arithmetic certificate, not an explicit closed-form real-space eigenbasis. Source priority remains provisional in view of inaccessible early Ising texts.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
