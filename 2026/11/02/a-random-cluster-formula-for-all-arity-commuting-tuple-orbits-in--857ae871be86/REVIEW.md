@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof computes commutativity arrow-by-arrow because all arrow products vanish, normalizes different-color arrows with independent radical conjugations, and classifies same-color arrows by their projective directions and torus cycle holonomies. The orbit-stabilizer factor is computed from spanning forests, including loops and repeated edges. Summation over vertex colors gives the precise random-cluster polynomial. The asymptotic follows from maximal cycle rank and optional bridges. Ten direct finite-field orbit enumerations passed, including boundary cases; they supplement rather than replace the proof.
+## correctness
 
-**Originality — PASS, subject to historical risk.** Sokal's polynomial is prior work and no new graph polynomial is claimed. Helleloid–Rodriguez-Villegas count absolutely indecomposable quiver representations; this does not itself count all-arity commuting tuples in radical-square-zero algebras. Sharma's general rationality and full-matrix small-dimensional calculations do not supply the graph-uniform specialization. Kaur–Sharma–Singh treat tuples of invertible triangular-group elements in small dimensions, not arbitrary algebra elements on every finite quiver. The standard torus classification of thin quiver representations is fully acknowledged as a proof ingredient. No located inspected source gives the coupling with arbitrary joint-diagonal labels, the stated orbit formula, or its cycle-rank asymptotics. A more general, unindexed quiver-counting identity could subsume the result; independent historical verification remains necessary.
+PASS
 
-**Value — PASS.** The claim solves the natural all-arity orbit-enumeration problem for every radical-square-zero path algebra with one-dimensional vertex blocks. The result is uniformly exact across all finite directed multigraphs, admits loops and parallel arrows, detects bridge and cycle structure through asymptotics, and recovers the full two-variable graph polynomial from an algebraic counting invariant. It is not an arbitrary finite slice or merely a renaming of the thin-quiver count, because commuting diagonal colorings produce a nontrivial two-parameter Potts specialization.
+In kQ/J^2, the commutator at each arrow a:u->v is exactly (c_u-c_v) wedge x_a=0 for the m tuple coordinates. An arbitrary unit (vertex torus plus J radical) conjugates x_a by a scalar t_u/t_v and an additive multiple of c_v-c_u. Therefore when colors differ the arrow value is gauge-removable; when equal it is a free k^m-vector. For any nonzero arrow support F on equal-color endpoints, projective directions contribute P_m=(q^m-1)/(q-1) each and scalar amplitudes modulo incidence torus contribute (q-1)^(|F|-n+k(F)); loops and parallel edges are correctly counted. Summing over q^(mk(F)) constant-on-F colorings yields the exact Tutte/random-cluster evaluation. Top polynomial degree n+beta(G) comes from all nonbridge edges; freely selecting b bridges gives the leading coefficient q^b/(q-1)^(n-k(E)). Infinite distinct q lines reconstruct the bivariate polynomial. Independent five small-case direct full unit-orbit enumerations checked paths, a loop and parallel edges; the proof is valid for all prime powers, though small code used prime q.
 
-Scientific limits: no result on radical-cube-zero algebras or arbitrary quiver representation dimension vectors. Published quiver orbit-counting theory might imply the formula after an unrecorded specialization. Computations cover only ten small cases. The proof is complete as a mathematical argument but is not an independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The random-cluster polynomial, torus incidence quotient, and quiver-representation counting are older. The stated entire commuting m-tuple unit-conjugacy orbit count for all radical-square-zero quivers, including loops and holonomy, is a different functor from absolutely indecomposable representation counts and full-matrix simultaneous similarity.
+
+## value
+
+PASS
+
+A uniform closed form for every commuting tuple length in every finite radical-square-zero quiver algebra is a natural representation-theoretic enumeration and links exact moduli to a standard graph invariant. Nontrivial loop and cycle holonomy effects are captured explicitly; the top-degree term reveals cycle rank, and all parameters determine Z_G, making the theorem structurally informative rather than a routine isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
