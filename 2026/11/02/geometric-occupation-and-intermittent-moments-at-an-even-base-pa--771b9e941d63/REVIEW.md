@@ -1,19 +1,21 @@
-# Scientific assessment: flip-resonant pantograph occupation law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim's domain is exactly the scalar recurrence \(x_{n+1}=-x_n+G(x_{\lfloor n/m\rfloor})\) at even integer \(m\ge2\), with arbitrary real initial datum and continuous real-valued feedback. In a length-\(m\) block, the delayed input is constant, and successive instantaneous flips cancel in pairs. The resulting exact relation \(x_{mk}=c\), together with digit recursion, proves the all-index identity. Counting residues modulo \(m^{r+1}\) gives the exact histogram, and truncating geometric tails proves total-variation convergence. The linear formula follows from a first-order affine iterate. Absolute moment asymptotics follow from an exact finite-block sum and elementary geometric estimates; positivity of all moment summands transfers divergent subsequence moments to every large physical horizon. These analytical arguments cover infinite time without extrapolating finite tests. Standalone exact-rational tests checked the finite algebra and nonlinear digit rule; all tests passed.
+PASS
 
-## Originality — PASS under inspected evidence
+For the exact recurrence x[n+1]=-x[n]+G(x[floor(n/m)]) with even m>=2, each m-block alternates c and G(x[k])-c and returns to c; recursive stripping of least-significant odd base-m digits proves x[n]=Q_c^{t_m(n)}(c) for every n. The residue histogram has probability 2^(-r-1), giving TV convergence by uniform tail truncation even for unbounded Q-orbits. For linear G=delta*u, the explicit affine iterates give boundedness delta in [-1,1) union {2}, full-time p-moment threshold |delta|^p<2 or delta=2, critical BK/2 and supercritical geometric growth on m^K horizons. Positivity and m^K<=N<m^(K+1) yield full-time divergence; convergence below threshold requires bounded tails. These are all-index arguments, not numerical extrapolation.
 
-The October 15, 2026 Gade–Bhalekar manuscript studies the same linear proportional-delay recurrence and identifies incomplete coefficient-dependent stability regions, but its analytic conclusions are broad stability and instability estimates, not the exact flip-resonant digit coding, full-time total-variation occupation law, or its sharp moment threshold. Their exact nonlinear composition law occurs only when the instantaneous-state term is absent. Kundrát's 2006 polynomial upper-bound theorem assumes instantaneous-multiplier modulus strictly less than one, excluding the flip boundary. The closely related prior homogeneous occupation-measure theorem likewise has no instantaneous term; it does not imply the cancellation used here. A 2000 Péics paper was accessible through its abstract and bibliographic material only and remains a historical-priority risk. No exact or stronger-covering result was found in the searches performed; a negative search alone is not proof of global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies a complete and exact exceptional-critical-line classification within a recent paper's partially unclassified stability diagram, and proves a nonlinear extension independent of the feedback's long-term behavior. Its most useful distinction is between pointwise unboundedness, a total-variation limit for the physical-time sampling law, and the divergent empirical moments beyond a sharp geometric threshold. The moment critical exponent depends on the size of the proportional-delay digit base only through observation time, while the mixing weights are universal. This is a structural intermittency fact, not a finite-horizon curve fit or a routine change of notation.
+The exact flip resonance supplies an even-block cancellation mechanism, nonlinear digit representation, full physical-time occupation TV convergence and sharp moment phase diagram. The closest 2026 pantograph manuscript studies the same broad family but its general sufficient stability statements and purely delayed nonlinear plateau analysis do not imply this critical nonhomogeneous law. No stronger covering digital-sequence formulation was established in inspected sources. Originality is best-of-knowledge, not historical certification.
 
-## Sources and limits
+## value
 
-The main manuscript was read in its HTML version through its stability, nonlinear, occupation-plateau, conclusion, and appendix discussions. The relevant theorem and assumptions of Kundrát were checked in the published text. Péics's abstract does not permit whole-document coverage claims. Searches for flip-resonant pantograph recurrences, base-digit coding, occupation laws, and moment thresholds returned no matching stronger theorem. Broader digital-sequence and proportional-delay priority remains to be independently assessed. No assertion is made about nearby instantaneous coefficients, odd delay bases, or nonlinear-moment thresholds beyond the present affine specialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The bifurcation between pointwise unbounded trajectories, a geometric occupation law in total variation, and divergent time moments is a substantive intermittency classification for a naturally selected critical parameter line; it applies uniformly to arbitrary nonlinear feedback and all even reciprocal bases, not an arbitrary isolated numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
