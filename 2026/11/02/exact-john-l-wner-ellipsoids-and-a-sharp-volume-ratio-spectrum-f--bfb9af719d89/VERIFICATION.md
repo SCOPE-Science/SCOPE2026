@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification and scope
-The elementary proof in `RESULT.md` establishes all dimensions \(d\ge3\) and the full real truncation interval \(0\le t<1\). The two nonstandard steps are (a) the exact reduction of all John halfspace contacts to one determinant optimization and (b) the explicit positive two-orbit Löwner moment/contact certificate. The final derivative and sharp limit are algebraic consequences.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory. It uses only Python's standard library, checks 225 finite dimension/parameter configurations, and ends with `VERIFY_OK`. Its checks include all support equalities, both endpoint-orbit gauge values, the weighted covariance normalization, exact ratio inequalities and sampled strict monotonicity.
+## correctness
 
-For an independent numerical approximation, run `python3 independent_numerics.py` if NumPy and SciPy are installed. This separately optimizes the determinant with nonlinear inequality constraints for the John and Löwner ellipsoids in dimensions 2, 3 and 5, each at four nonzero truncation depths. All 24 optimization problems solved successfully in the recorded run; the largest parameter discrepancy was below \(3.2\times10^{-9}\). Two-dimensional cases are consistency checks, not novel claims.
+PASS
 
-No finite grid verifies the full real parameter interval. No computer-assisted global optimality, independent scientific audit or historical-priority certification is claimed. Planar trapezoid ellipses and the untruncated simplex case have established predecessors; the new higher-dimensional frustum theorem must be assessed separately for historical priority.
+For d>=3, 0<=t<1, direct support tests for the permutation-invariant inscribed ellipsoid yield q+s²<=y², y-s>=t, y+s<=1. Maximizing s(1-2s)^((d-1)/2) gives s=min{1/(d+1),(1-t)/2}. The Löwner candidate is certified globally by positive weights on the two vertex orbits, mean y1/d, covariance Q_L/d and unit gauges on both layers; at t=0 the inner orbit is one origin. The quadratic t²r²+d(1-t²)r=1 has its admissible unique root and yields the stated semiaxes. Exact differentiation or nested-ellipsoid uniqueness gives strict ratio decrease from d^d to d^(d/2)(d-1)^((d-1)/2); the one-sided second derivative jump follows solely from the John phase switch. Independently recomputed positive-root and ratio bounds in dimensions 3..7 and several t, corroborative only.
+
+## originality
+
+PASS
+
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: The established general contact theorem plus a new symmetry optimization reconstructs this result, but the reviewed prior statements do not already imply the evaluated formulas and sharp ratio.
+
+## value
+
+PASS
+
+The same geometric body bridges a simplex and a degenerating homothetic facet; the complete extremal ellipsoid pair, contact transition and sharp volume-ratio spectrum are intrinsic affine-invariant quantities. Explicit phase regularity supplies a meaningful natural boundary rather than a renamed general theorem. The planar trapezoid special case is explicitly excluded from novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

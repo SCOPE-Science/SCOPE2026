@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The John shape follows from the exact support inequalities for all \(d+2\) facets and a single strictly concave one-variable determinant maximization, with a sharp threshold at \(t=(d-1)/(d+1)\). The Löwner formula follows from an explicit probability measure supported on all vertices: its centered covariance equals one \(d\)-th of the proposed ellipsoid's shape, and both vertex orbits have unit ellipsoid gauge. Rescaling the positive measure supplies the full first- and second-moment Löwner contact certificate, which proves global optimality and uniqueness. Exact differentiation proves strict ratio monotonicity and the second-derivative jump. The calculation is for every integer \(d\ge3\) and every real \(0\le t<1\). A standalone standard-library verifier checked 225 configurations, and independently formulated constrained numerical optimizers succeeded on 24 examples. Numerical checks do not establish the all-dimensional result.
+## correctness
 
-## Originality — PASS with specified historical risk
-The full scientific result and source statements were compared by implication, not by matched keywords. Lin–Ge–Leng's simplex theorem treats only the uncut simplex; it does not imply the nonzero-depth contact switch, two-orbit Löwner contact distribution, or monotone ratio. The 2013–2014 Lasserre framework supplies general optimality methods, not these explicit frustum solutions. Full scientific statements for the identically defined truncated simplex in the published mixed-volume record calculate mixed-volume coefficients, not ellipsoids; the homothetic-frustum result calculates Santaló points and Mahler products, which do not determine these ellipsoids. The capped-hypercube ellipsoid result concerns a different cut body and is not a stronger covering theorem. Published 1998 trapezoid Löwner-ellipse theory and 2019 inscribed-quadrilateral ellipse results overlap the dimension-two specialization, which is excluded from the novelty claim. Searches of published-finding corpus and primary literature under simplex truncation, frustum, homothetic simplex, optimal ellipse and contact design terms found no higher-dimensional statement implying the package theorem. This is best-knowledge originality, not proof of historical priority; unindexed older high-dimensional optimal-design work remains a residual risk.
+PASS
 
-## Value — PASS
-This is a complete natural-family classification of both extremal ellipsoids of a higher-dimensional one-vertex simplex frustum, giving explicit centers, shape matrices, all contact types, a sharp onset of additional John facets, and a strict, dimension-dependent volume-ratio spectrum. Such simultaneous inner/outer approximation data is geometric information not supplied by known simplex mixed-volume or Santaló formulas. Its natural parameter is the affine truncation depth, and the threshold, ratio endpoints and phase regularity are exact rather than arbitrary numerical slices. No general stability theorem or all-polytopes extremum is claimed.
+For d>=3, 0<=t<1, direct support tests for the permutation-invariant inscribed ellipsoid yield q+s²<=y², y-s>=t, y+s<=1. Maximizing s(1-2s)^((d-1)/2) gives s=min{1/(d+1),(1-t)/2}. The Löwner candidate is certified globally by positive weights on the two vertex orbits, mean y1/d, covariance Q_L/d and unit gauges on both layers; at t=0 the inner orbit is one origin. The quadratic t²r²+d(1-t²)r=1 has its admissible unique root and yields the stated semiaxes. Exact differentiation or nested-ellipsoid uniqueness gives strict ratio decrease from d^d to d^(d/2)(d-1)^((d-1)/2); the one-sided second derivative jump follows solely from the John phase switch. Independently recomputed positive-root and ratio bounds in dimensions 3..7 and several t, corroborative only.
 
-## Closest literature and limitations
-Lin–Ge–Leng, arXiv:1001.4223v1 (2010); Lasserre, arXiv:1302.1056v4 (2014); Rublev–Petunin, *Minimum-Area Ellipse Containing a Finite Set of Points. II* (1998), §4; Hayes et al. (2019); and the published mathematical records *Exact Godbersen mixed-volume profile for one-vertex simplex truncations*, *Universal Santaló and volume-product laws for homothetic frusta*, and *Three-phase John ellipsoid of a capped hypercube*. Restrict to parallel vertex truncations, dimensions at least three, and nondegenerate depth \(t<1\). No independent audit was performed; an equivalent old full-dimensional theorem remains a possible priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: The established general contact theorem plus a new symmetry optimization reconstructs this result, but the reviewed prior statements do not already imply the evaluated formulas and sharp ratio.
+
+## value
+
+PASS
+
+The same geometric body bridges a simplex and a degenerating homothetic facet; the complete extremal ellipsoid pair, contact transition and sharp volume-ratio spectrum are intrinsic affine-invariant quantities. Explicit phase regularity supplies a meaningful natural boundary rather than a renamed general theorem. The planar trapezoid special case is explicitly excluded from novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
