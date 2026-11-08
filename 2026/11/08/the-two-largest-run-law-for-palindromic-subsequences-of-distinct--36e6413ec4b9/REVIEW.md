@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The block-expansion lemma is justified by bipartite matching-polytope integrality and the noncrossing property of subsequence alignments. The reversed-permutation weak-descent bound is exact, and a construction attains it for all positive weights and repetitions. Equality analysis forces all copies of the unique maximum-weight run to be selected and one full second-rank run in every gap. The reversal order of the gaps gives the claimed optimizer count. Explicit witnesses and 5,440 exact dynamic-programming tests corroborate the argument, without being treated as an infinite proof.
+
+**Originality — PASS with residual bibliographic uncertainty.** Primary sources examined: Bringmann–Chaudhury (arXiv:1810.01238, 2018; weighted LCS and its algorithms) and Brodal–Fagerberg–Rysgaard (ESA 2024, DOI 10.4230/LIPIcs.ESA.2024.35; LPS from reversed LCS). Neither identified theorem statement supplies the exact arbitrary-run top-two formula or the unique-maximum optimizer census. The previously established equal-unit-run permutation cases cover the all-unit specialization, and the new statement explicitly does not claim it separately. Relevant semantic database queries and accessible claim records did not identify a covering formula. Absence from search results is not a novelty proof; unindexed special-family literature remains a risk.
+
+**Value — PASS.** For a natural family of periodic run words with arbitrary alphabet size and run lengths, the result reduces a quadratic dynamic-programming invariant to the two largest run lengths, proves complete insensitivity to every other run length and cyclic order, gives the exact minimum-palindromization deletion cost, and counts all optimizers when the longest run is unique. The tie-sensitive optimizer count is not obtained from generic LCS algorithms or the unit-run palindrome spectrum by direct substitution.
+
+Scientific limitations: the letters of the base period must be pairwise distinct; tied largest lengths are excluded from the optimizer-count assertion; there is no claim about contiguous palindromes, publication priority, or independent certification.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "A weighted block-expansion LCS identity follows by bipartite matching polytope integrality. Weak descents in opposed permutation orders bound the skeleton length by 2k-1 and the maximum-symbol count by k; two heaviest alternating blocks attain kA+(k-1)B. Equality and gap-order reversal force the unique-top optimizer census t^floor(k/2). Explicit finite DP and brute optimal-string checks support, without replacing, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bringmann--Chaudhury present generic weighted-LCS algorithms and hardness, with no closed top-two law for reversed powers of permutations.",
+        "Brodal--Fagerberg--Rysgaard prove how a reversed-LCS algorithm can return an LPS, not a closed formula for weighted monochromatic-run powers."
+      ],
+      "reasoning": "The algorithms apply to the input family and can calculate each instance, but do not directly state the exact infinite-parameter classification or optimizer count; generic calculability is not a covering mathematical implication of an explicit formula.",
+      "searches": [
+        "published-finding corpus: Weighted LCS of permutation cycles against reversed permutation cycles k repetitions, exact k*w_max+(k-1)*w_second",
+        "web: LCS letter blow-up weighted common subsequence homomorphism",
+        "full primary text DOI 10.4230/LIPIcs.FSTTCS.2018.40, Theorems 1 and 2, Section 4",
+        "full primary text DOI 10.4230/LIPIcs.ESA.2024.35, Sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "General WLCS algorithm; exact top-two law not provided.",
+        "identifier": "arXiv:1810.01238"
+      },
+      {
+        "comparison": "General LPS/LCS reversal relationship; no explicit repeated weighted permutation formula.",
+        "identifier": "doi:10.4230/LIPIcs.ESA.2024.35"
+      },
+      {
+        "comparison": "The listed targeted search strings gave only unrelated or weaker neighbors, not exact claimed statement.",
+        "identifier": "published-finding corpus semantic search"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The explicit LPS formula for arbitrary positive integer run lengths does not follow by substituting the unit-weight variables into a unit-run palindrome enumerator.",
+        "Generic WLCS/LPS algorithms yield an algorithmic computation, not the exact parameter collapse or the uniqueness/multiplicity statement."
+      ],
+      "reasoning": "The new conclusion applies to all distinct-letter run lengths and an unbounded number of repetitions. The documented unit-run consequence LPS=2k-1 is expressly not separately claimed. General LCS formulations are compatible supporting tools, not stronger exact classifications of this family.",
+      "searches": [
+        "Full primary PDF: arXiv:1810.01238 / DOI 10.4230/LIPIcs.FSTTCS.2018.40",
+        "Full primary PDF: DOI 10.4230/LIPIcs.ESA.2024.35"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The minimum-deletion-to-palindrome length is exactly host length minus LPS; this is mathematically equivalent but neither equivalent formulation was found in the inspected literature.",
+        "Brodal et al. establish LPS/LCS-of-reversal length correspondence but not the special-family formula."
+      ],
+      "reasoning": "Equivalent deletion-distance and reversed-LCS formulations were checked rather than treating different terminology as novelty.",
+      "searches": [
+        "published-finding corpus: longest palindromic subsequence repeated block words c1^a1 c2^a2 ... with distinct letters and arbitrary run lengths",
+        "published-finding corpus: palindrome deletion distance for powers of a distinct-run word, only top two run lengths determine length",
+        "web: longest palindromic subsequence repeated blocks permutation powers run lengths theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first published-finding corpus hits concerned palindromic duplication/deletion codes rather than longest palindromic subsequence of run powers; no exact claim appeared in the returned closest results.",
+        "The all-unit case has independent prior palindrome spectra; the present claim requires arbitrary positive run lengths and a unique-top count."
+      ],
+      "reasoning": "All-unit lengths constitute a covered specialization, not a novelty claim. The weighted arbitrary distinct-run family and tied-second optimizer classification are not determined by those records; database nonmatches do not prove uniqueness.",
+      "searches": [
+        "published-finding corpus: For P=c_1^{a_1}...c_q^{a_q} a permutation of distinct letters with positive block lengths, the longest palindromic subsequence of P^k has length k a_max+(k-1) a_second, depending only on the two largest run lengths.",
+        "published-finding corpus: LPS length of powered words with repeated distinct-letter blocks, two maximum run weights, sharp exact formula longest subsequence palindrome",
+        "published-finding corpus: longest palindromic subsequence repeated block words c1^a1 c2^a2 ... with distinct letters and arbitrary run lengths",
+        "web: longest palindromic subsequence two largest runs cyclic word"
+      ]
+    },
+    "rationale": "Exact arbitrary-run formula and optimizer census are not stated in the examined primary weighted-LCS and LPS literature. Their general algorithms do not imply the new explicit top-two invariance or multiplicity without substantive special-family analysis. Equal-unit permutation powers are already covered and excluded from independent priority. Searches cannot certify world-wide novelty; unindexed equivalent remains a risk.",
+    "residual_risks": [
+      "Unindexed or differently phrased exact formulas for periodic run-length strings may exist.",
+      "The matchings/weighted-LCS reduction is standard background; originality attaches to the resulting complete exact family law and optimizer classification, not that generic lemma.",
+      "No independent literature audit or expert validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic WLCS algorithms and lower bounds are not the new exact top-two family formula.",
+        "evidence": [
+          "Definition 11 defines alphabet-letter-weighted LCS; Theorem 2 gives an algorithmic complexity bound, not an extremal closed form for reversed distinct-run powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.01238",
+        "material_read": "Full PDF extracted text searched for period, weighted LCS, relevant theorems, and Sections 1.2 and 4 (especially pages 2-4, 9-10), with a visual check of page 3.",
+        "method": "Lawful open-access full-text review with theorem/section inspection and textual search.",
+        "title": "Sketching, Streaming, and Fine-Grained Complexity of (Weighted) LCS",
+        "trigger": "The proposed proof uses letter-weighted LCS and run expansions."
+      },
+      {
+        "assessment": "Establishes LPS/reversed-LCS relationship and backtracking behavior; no arbitrary positive run-length family law or maximum-word count was identified.",
+        "evidence": [
+          "Introduction explicitly contrasts LPS solutions with potentially nonpalindromic reversed-LCS solutions; the stated contribution is correctness of selected backtracking procedures."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.35",
+        "material_read": "Full PDF text searched for permutations, periodicity and runs; introduction and related-work discussion, theorem context in sections 1-3, and visually inspected page 2.",
+        "method": "Lawful open-access full-text review, extracted-text search, and PDF page-image inspection.",
+        "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+        "trigger": "The palindrome optimum is bounded through longest common subsequences with the reverse."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36e6413e-c4b9-4ea7-a6aa-c65473284e15",
+  "value": {
+    "rationale": "An all-parameter exact invariant of an unbounded periodic string family collapses to its two largest run lengths, rather than needing quadratic dynamic programming. It yields exact deletion distance to palindromicity and complete count and structure of optimal words with unique top length. This structural stability and optimizer rigidity is a natural, nontrivial characterization, not just a renamed known unit-run case.",
+    "status": "PASS"
+  }
+}
