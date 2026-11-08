@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The disjoint splitting↔outdegree≤1 edge-orientation correspondence is bijective. In connected trees, summing outdegrees leaves exactly one root and yields exactly v root-directed orientations. In unicyclic components all outdegrees equal one; two directed cycle choices uniquely force branches; excess-edge components have none. Hence the product count. Integer-break bounds every component weight by vertex order; balanced pairs of three-vertex paths plus a two/four-vertex path attain it for all d. Partial-function intersection events force matchings, giving exact inclusion-exclusion for total witness count. Bipartite rooted-tree/cycle species yield the stated bivariate EGF. The actual standalone checker independently enumerated 682 teams through 3×3 by raw partitions and each of 65536 teams at 4×4 by components, with random brute checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fröhlich--Kolaitis--Meier Theorem 16 gives logspace existence; its appendix Lemma 15 describes arbitrary rooting and two cycle directions without maximizing or summing the number of choices.",
+        "General rooted forest counting such as Guo--Guo (arXiv:1702.01744) and the standard integer-break optimization are background methods, not known direct conclusions for splitting witnesses."
+      ],
+      "reasoning": "A decision theorem is not a closed witness-count, exact extremum or global enumeration. The proof draws essential quantitative distinctions: trees contribute their order, unicyclic components contribute only two, and equal left/right labels require a balance-achieving construction. These additional quantified conclusions are not asserted in the inspected motivating primary source.",
+      "searches": [
+        "sharp maximum number of witnesses for disjunction of dependence atoms partial functions pseudoforests",
+        "maximum number of outdegree one orientations of bipartite pseudoforests with equal bipartition parts n maximum product 3s",
+        "Web query: count orientations pseudoforest maximum outdegree one trees root number orientations unicyclic"
+      ]
+    },
+    "checked_sources": [
+      "Fröhlich--Kolaitis--Meier (2025 preprint / CSL 2026), Lemma 15 and appendix, open HTML",
+      "Barlag et al. (2026), Aspects of Coherence in Dependence Logic, open PDF",
+      "Haak--Kontinen--Müller--Vollmer--Yang (2019 preprint; journal 2025), Counting of Teams in First-Order Team Logics, open PDF",
+      "MathWorld, Pseudoforest",
+      "Relevant indexed published mathematical records and same-domain accessible existing results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 qualitative theorem implies the existence/nonexistence half of the per-team result, and establishes the graph representation; the quantitative factors, extremal construction and summation are additional counting steps.",
+        "The 2026 coherence paper treats coherence and rewritability, not witness counts for this particular disjunction.",
+        "Haak et al. study counting satisfying teams/complexity classes, not the number of disjoint partition witnesses for one fixed two-atom formula."
+      ],
+      "reasoning": "Explicit implication test: existence of some legal orientation (covered) does not specify the number of legal orientations; the full accessible proof explicitly picks a root or cycle orientation but does not count all choices nor maximize with bipartition balance. General #team complexity results do not yield the exact component product or formula. Standard combinatorial ingredients are fully credited.",
+      "searches": [
+        "arXiv:2508.16146v1; Lemma 15, Theorems 16 and 25; complete appendix proof",
+        "arXiv:2605.31269v1; introductory main-results discussion and sections on coherence and algorithmic complexity",
+        "arXiv:1902.00246v1; Counting of Teams in First-Order Team Logics, sections 2--6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fröhlich--Kolaitis--Meier, Lemma 15 in https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html proves existence via pseudoforest orientations but not their exact multiplicity.",
+        "The inspected indexed results did not state the product of tree orders, its square-alphabet optimum or the global partial-function inclusion-exclusion enumerator."
+      ],
+      "reasoning": "The exact graph-orientation existence criterion is deliberately treated as prior, and the new counting question is reduced to the stronger per-team count of every disjoint witness. Equivalence to standard orientation counts is acknowledged, not presented as a newly invented graph theory concept.",
+      "searches": [
+        "count of witness splits or decompositions of teams satisfying dependence atom disjunction =(x,y) or =(y,x), count trees unicycles graph",
+        "Fröhlich Kolaitis Meier disjunctions two dependence atoms exact count of disjoint splitting witnesses tree vertex factors two unicycles",
+        "Web query: \"disjunctions of two dependence atoms\" counting number of splittings satisfying teams pseudoforests"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or source for the sequence of total witness counts 3,47,2074,183249 or square-alphabet maxima 2,4,9,18 was identified in the consulted research index and published sources.",
+        "The matching-parameter inclusion-exclusion expression is proved directly from partial functions and is checked through a 4-by-4 alphabet."
+      ],
+      "reasoning": "Failure of a search is not novelty proof. Related literature on counting teams counts different objects; the reported numbers count ordered disjoint explanations rather than just satisfying input teams. No known database table or stronger theorem in inspected results supplied these exact invariants.",
+      "searches": [
+        "number of satisfying partitions for disjunction of two dependence atoms bipartite graphs exact enumeration",
+        "pairs of disjoint partial functions exact intersection inclusion exclusion matched edges bipartite witness count",
+        "Web query: \"dependence logic\" \"number of splits\" \"dep(x,y)\""
+      ]
+    },
+    "rationale": "The precise prior 2025 qualitative graph reduction and 2026 coherence analysis were compared by implication, not merely by title. Neither the source discussions inspected nor the 2019/2025 counting-teams paper supplies the per-team orientation multiplicity, sharp square-alphabet maximum with balance construction, or global labelled witness sum. All standard combinatorial methods and previous qualitative results are credited. Search failures are not treated as proofs of historical uniqueness.",
+    "residual_risks": [
+      "An equivalent maximum or inclusion-exclusion enumeration may have appeared in older combinatorics or database theory under different terminology.",
+      "A fully exhaustive global bibliographic priority search and independent audit have not been performed.",
+      "Counting all lax overlapping split pairs is a different invariant, expressly outside this claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS qualitative orientation existence and pseudoforest equivalence, does not assert the quantitative theorem in inspected portions. Very close foundational source expressly cited.",
+        "evidence": [
+          "Lemma 15: connected components have edge count at most vertex count iff the disjunction holds.",
+          "Appendix Lemma 15 proof describes selecting arbitrary tree roots and clockwise/counterclockwise unicyclic directions.",
+          "Theorem 16 classifies logspace model checking; Theorem 25 establishes incoherence."
+        ],
+        "identifier_or_url": "arXiv:2508.16146v1; https://drops.dagstuhl.de/storage/00lipics/lipics-vol363-csl2026/html/LIPIcs.CSL.2026.10/LIPIcs.CSL.2026.10.html",
+        "material_read": "Main text Definition 14, Lemma 15, Theorem 16, Theorem 25, and the Appendix A proof of Lemma 15 and Theorem 25; searched the full accessible text for counting and multiple splits.",
+        "method": "Accessed lawful open full-text HTML; located precise original claims and proof of root/cycle existence; compared statements to proposed multiplicity, maximum, global sum and generating function.",
+        "title": "Disjunctions of Two Dependence Atoms",
+        "trigger": "Same dependence formula, two-atom disjunction, bipartite pseudoforest reduction"
+      },
+      {
+        "assessment": "Formulates coherence/rewriteability/complexity, not per-team witness multiplicity or sharp alphabet extremum.",
+        "evidence": [
+          "Intro discussion: coherence iff FO rewritability for quantifier-free dependence formulas.",
+          "Section 5 treats decision complexity of coherence, not enumeration of ordered splitting explanations."
+        ],
+        "identifier_or_url": "arXiv:2605.31269v1; https://pdfs.assets.alphaxiv.org/2605.31269v1.pdf",
+        "material_read": "Full open PDF accessed; abstract, introduction, semantic preliminaries, central coherence theorems, Section 5 on deciding coherence, and reference entries inspected.",
+        "method": "Open PDF text and selected sections, including full-text searches for disjunction and counting.",
+        "title": "Aspects of Coherence in Dependence Logic",
+        "trigger": "Recent work on coherence of quantifier-free dependence disjunctions"
+      },
+      {
+        "assessment": "Studies numbers of satisfying teams/assignments and counting complexity classes rather than the number of disjoint two-atom splitting witnesses on a fixed team. No exact covering formula identified.",
+        "evidence": [
+          "Introduction and Definition 2.6 define counting functions of satisfying team assignments.",
+          "Conclusion characterizes counting classes for dependence and inclusion logics, not the exact witness ambiguity spectrum."
+        ],
+        "identifier_or_url": "arXiv:1902.00246v1; https://research-portal.uu.nl/ws/files/280122104/3771721.pdf",
+        "material_read": "Open full PDF accessible; introductory statement of the counted class, definitions, counting-class characterizations, construction near Section 5, and conclusion examined. Abstract and explicit counting target compared.",
+        "method": "Open-access institutional copy inspected by text and PDF page image, with targeted matching of witness-splitting terminology.",
+        "title": "Counting of Teams in First-Order Team Logics",
+        "trigger": "Highly relevant counting-team literature referenced in the 2026 coherence work"
+      },
+      {
+        "assessment": "Covers standard pseudoforest structure only; the graph-theoretic ingredients are expressly not claimed new.",
+        "evidence": [
+          "Defines tree and unicyclic components by e≤v."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/Pseudoforest.html",
+        "material_read": "Definition and equivalence of pseudoforest to components containing at most one cycle.",
+        "method": "Read public reference entry and compared classical definitions.",
+        "title": "Pseudoforest",
+        "trigger": "Standard graph terminology and component criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6bf80f7f-8110-43be-a416-9f1ee60ae994",
+  "value": {
+    "rationale": "Irredundant splitting witnesses are the distinct nonredundant explanations of a disjunctive functional-dependence claim. Even though model-checking is decidable in logspace, a team may admit exponentially many explanations. The theorem gives an exact per-instance counting algorithm, a sharp maximum over all fixed-size value domains, a complete two-parameter aggregate count and a structural generating function, all grounded in the same natural invariant. It distinguishes multiplicity of explanations from mere satisfiability and identifies the precise forest extremizers. This is an exact motivated classification, not just a tiny numerical improvement or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
