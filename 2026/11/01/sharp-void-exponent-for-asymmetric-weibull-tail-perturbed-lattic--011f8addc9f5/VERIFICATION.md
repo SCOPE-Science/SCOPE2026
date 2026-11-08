@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-**Analytic:** The self-contained proof in `RESULT.md` supplies independent-product factorization, a finite bound \(O(L)\) for outside-site logarithmic loss, the \(\log 2\) log-sum comparison inside the interval, a uniform shifted-grid Riemann limit, exact integration, and the Gaussian specialization. These steps establish the all-length statement without relying on computation.
+## correctness
 
-**Numerical:** `verify.py` evaluates truncated products with stable logarithmic tail functions for Gaussian and two-sided stretched-exponential displacement distributions. It checks the crossover integral and finite-length convergence trends. Running `python3 verify.py` produced 107 passing assertions; the exact run output appears in `verify_output.txt`. Finite numerics are neither exhaustive nor proof of an infinite asymptotic law.
+PASS
 
-**Assumptions/limitations:** The law is iid and atomless on the line with two positive tail probabilities and common positive logarithmic-tail exponent; the coefficient concerns only large-interval void probabilities. Independent review and historical priority validation are not included.
+Conditioning on shift gives exact independent escape product over all integer lattice sites. Exterior sites contribute at most (L+1)/(1-eta) to minus log probability by Tonelli counting of integer sites in a length-L window, with eta<1 from positive masses on both signs. For inside sites, log sum of two one-sided escape terms differs from min of their tail costs by ≤log2, and uniform logarithmic tail equivalents control the interior bulk plus O(1) boundary sites. Shifted-grid Riemann sum then yields integral min(c_- x^alpha,c_+(1-x)^alpha) and sharp crossover theta=c_+^{1/alpha}/(c_-^{1/alpha}+c_+^{1/alpha}); uniform shift and stationarization follow by exponential sandwich. Gaussian Mills asymptotic gives I=1/(24 sigma²). Four parameter coefficient checks corroborate; no finite computation proves L→∞.
+
+## originality
+
+PASS
+
+Flimmel 2026 gives independent-site void probability product and qualitative results, and Elboim–Spinka–Yakir 2025 bounds large holes by two different tail powers. Neither inspected primary statement gives the asymmetric two-rate exact leading constant, which follows from the particular variational Riemann integral. Possibility of a more general LDP implying this calculation remains explicit.
+
+## value
+
+PASS
+
+A sharp large-void exponent with exact asymmetric left/right tail coefficient for a canonical perturbed lattice is a natural stochastic geometry invariant, improving known exponent-order hole bounds. The Gaussian 1/(24σ²) specialization is concrete and the left-right escape transition gives interpretable structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
