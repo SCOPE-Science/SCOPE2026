@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Stratonovich conversion has a zero correction because the sine and cosine terms are equally weighted. The phase difference is a bounded scalar martingale with exactly the stated diffusion coefficient after the deterministic quadratic-noise clock. The stopped Poisson identity gives the mean and a square-integrable martingale. Combining its Itô-isometry identity with the stopped gap's own second moment yields the exact variance. A logarithmic tangent coordinate establishes the almost-sure first-exit scale, and quadratic variation convergence yields the martingale central limit theorem. Numerical identities are supportive, not substitutes for these infinite-time arguments.
+## correctness
 
-**Originality — PASS, subject to the identified historical risk.** The recent Alexandrov article supplies the noisy Möbius basis and a phase Lyapunov formula but no two-point first-tolerance mean/variance or central limit theorem. Newman's circle random-dynamics analysis addresses qualitative synchronization. Le Jan's older isotropic stochastic-flow account does include the general two-particle diffusion-generator principle and therefore overlaps the essential gap reduction; the present claim does **not** assert that this generator or common-noise synchronization was unknown. Its distinct quantitative content is the fully explicit finite-barrier variance, endpoint probability, time-dependent intensity-clock universality and logarithmic fluctuation law. The entire Le Jan proceeding was not accessed, so stronger historical coverage remains a real risk.
+PASS
 
-**Mathematical value — PASS.** A trajectory Lyapunov exponent measures only eventual local contraction and does not determine the distribution of the observation time needed for two distinct phases to enter a given tolerance. The exact two-point variance and central limit theorem quantify the noise-induced variability of that observation time. Invariance in the accumulated-intensity clock separates shared angular and additive noise from synchronizing multiplicative noise, yielding measurable sharp leading and finite-tolerance constants relevant to noisy phase-flow models.
+For all initial separation x in (0,2π), with 0<ε<min(x,2π−x), deterministic common drift and nonvanishing first-harmonic intensity clock, the gap has quadratic variation 8d(t)sin²(Δ/2)dt and time-changed generator 4sin²(z/2)∂². The stopped log-sine martingale has drift −1 and bracket 2cos², proving exact exit mean; a bounded-gap martingale square identity supplies the variance correction and linear harmonic hitting probability. The transform U=log tan(X/4) obeys dU=tanh(U)ds+sqrt(2)dW, and its escape to ±∞ proves a.s. logarithmic speed. DDS plus finite ∫sin²(X/2)ds proves Gaussian fluctuations. Independent symbolic/numeric coefficient checks passed; neither finite experiments nor abstract literature prove the infinite limit.
 
-**Limitations.** Isotropic first-harmonic channels, common noise, and phase-independent drift are essential; the stopping-time law is not claimed for arbitrary Möbius noise or physical time with nonconstant intensity. Independent historical or mathematical audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier isotropic two-point flow principle supplies the gap generator, but the finite-tolerance mean, variance, orientation, accumulated-noise clock and limit law require stopped-martingale calculations. No actual covering theorem was located in searched results. Crucial Alexandrov primary full text could not be inspected, so no whole-paper exclusion is asserted.
+
+## value
+
+PASS
+
+Synchronization stopping times are natural dynamical observables; exact variance/orientation and the Gaussian tolerance law measure first approach and distinguish it from finite-time coalescence, beyond qualitative negative Lyapunov-exponent criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

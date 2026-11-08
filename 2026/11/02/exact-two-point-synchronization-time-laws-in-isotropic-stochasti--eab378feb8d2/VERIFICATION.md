@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Analytical checks
+# Independent mathematical audit
 
-The two-point Stratonovich conversion cancels the common drift and shared additive noise and yields exact gap quadratic variation. The stopped log-sine function has generator image \(-1\), giving a finite expected stopping time. A second stopped square-martingale computation supplies the exact variance. The logarithmic tangent coordinate has drift \(\tanh U\) and diffusion \(\sqrt2\), giving the almost-sure threshold scale. Martingale quadratic-variation convergence gives the central limit theorem.
+## correctness
 
-## Reproducibility
+PASS
 
-`check.py` is a dependency-free Python 3 program verifying circular difference, generator and coordinate identities, and exact terminal second-moment algebra across a finite grid. Actual run output is embedded in `check_output.txt`. Finite checks cannot establish a universal probability law, an infinite-time limit, or a claim of novelty. Independence and external certification have not been assessed.
+For all initial separation x in (0,2π), with 0<ε<min(x,2π−x), deterministic common drift and nonvanishing first-harmonic intensity clock, the gap has quadratic variation 8d(t)sin²(Δ/2)dt and time-changed generator 4sin²(z/2)∂². The stopped log-sine martingale has drift −1 and bracket 2cos², proving exact exit mean; a bounded-gap martingale square identity supplies the variance correction and linear harmonic hitting probability. The transform U=log tan(X/4) obeys dU=tanh(U)ds+sqrt(2)dW, and its escape to ±∞ proves a.s. logarithmic speed. DDS plus finite ∫sin²(X/2)ds proves Gaussian fluctuations. Independent symbolic/numeric coefficient checks passed; neither finite experiments nor abstract literature prove the infinite limit.
+
+## originality
+
+PASS
+
+The earlier isotropic two-point flow principle supplies the gap generator, but the finite-tolerance mean, variance, orientation, accumulated-noise clock and limit law require stopped-martingale calculations. No actual covering theorem was located in searched results. Crucial Alexandrov primary full text could not be inspected, so no whole-paper exclusion is asserted.
+
+## value
+
+PASS
+
+Synchronization stopping times are natural dynamical observables; exact variance/orientation and the Gaussian tolerance law measure first approach and distinguish it from finite-time coalescence, beyond qualitative negative Lyapunov-exponent criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
