@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T12:05:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen record tree 8db368af814ad457bc88ded3dda7b43c2c83c161 at commit b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595; RESULT.md f6033a6b6edd5526beb6fe664e9d3d81077943fe and verify.py cc8944c510777fe8e7ee0aba82e745129565b9d5",
+        "Complete RESULT.md hypotheses, Step 1 square dichotomy, Step 2 support bijection, Step 3 formal generating function and domain-shift proof.",
+        "Independent local check independent_antitone_check.py n=1..9 all maps; exact binomial split sums for every n<=39."
+      ],
+      "rationale": "For any nonempty antitone decreasing partial map f:D->[n], let d=min D. The maximal image value is f(d)<=d, while all domain values are >=d. If f(d)<d, im(f) and D are disjoint, so f^2=0. If f(d)=d, then f^2 has domain f^{-1}(d), sends that nonempty domain constantly to d, and fixes d; thus f^2 is a nonzero rank-one idempotent and f^3=f^2. For fixed domain D of size w and image H of size h, an antitone onto assignment has C(w-1,h-1) positive constant runs. In the strict boundary case im(f) lies below min D; the union is a (w+h)-set, counted by C(n,w+h). In the touching case H intersects D in d and the union is a (w+h-1)-set, counted by C(n,w+h-1). These give Z and P exactly including zero binomial boundary cases. Summing P via t=z/(1-z) gives z/(1-3z+z^2)=sum_{n>=1}F_{2n} z^n. Domain shifting bijects square-zero maps on [n] with all nonempty such maps on [n-1], yielding Z_n=F_{2n-1}-1, total F_{2n+1}-1. The proof explicitly uses composition in the full partial-transformation monoid; no assertion of closure of the antitone sector. An independently written brute enumerator, using all raw tuples followed by antitone filtering rather than source verify.py, validated all maps and all width-height strata for n=1..9 (1,4,12,33,88,232,609,1596,4180 objects) and squares/cubes; a separate exact binomial split test checked every admissible n,w,h for n<=39. These finite checks corroborate, not replace, the all-n bijection and generating-function proof.",
+      "residual_risks": [
+        "Finite exhaustive tests cover n<=9; all-n conclusion rests on mathematical proof.",
+        "The antitone sector is not a subsemigroup and the theorem makes no claim about arbitrary monotone order-decreasing maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ayik et al. preprint covers the same noninjective antitone sector within all monotone decreasing maps, proves square dichotomy and odd-index Fibonacci total F_{2n+1}, including zero.",
+          "Zubairu et al. Thm1.4 covers width-height for same noninjective antitone maps using the exact endpoint combinatorial model.",
+          "Cornelius et al. 2026 concerns injective subclass only; it is not the decisive source, whereas Ayik covers noninjective maps.",
+          "Umar 1992 thesis gives a broader nilpotence-versus-fixed-point criterion for order-decreasing transformations, supporting that the nilpotence characterization is established semigroup background."
+        ],
+        "reasoning": "The combination of the two 2025 sources dominates the submitted theorem: square behavior and total Fibonacci count are known, and the exact refined binomial factors arise by splitting the image choice in the previously published proof according to the previously published endpoint test. The result is mathematically implied even though the precise two formulas are not typeset together.",
+        "searches": [
+          "arXiv:2507.06047v1 full HTML sections 1-5, especially Section 2 Proposition 1, Proposition 4 and paragraph following",
+          "arXiv:2512.21134v2 full text Theorem 1.4 and adjacent lemmas",
+          "Cornelius et al. 2026 DOI:10.62054/ijdm/0302.06 public full-text transcription",
+          "Umar 1992 thesis repository, chapters 2-4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.06047v1 Sections2-3 (original July8 2025 version, later withdrawn v2)",
+        "arXiv:2512.21134v2 complete Theorem1.4 proof (December 2025)",
+        "Cornelius et al. IJDM 2026 DOI 10.62054/ijdm/0302.06",
+        "Umar 1992 University of St Andrews thesis 10023/2834",
+        "Published Resultary semantic searches for the four explicit queries listed in originality keys"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ayik et al. gives f^3=f^2 explicitly for all nonconstant antitone decreasing partial maps and its square-zero decision by s in dom; the remaining height-one case is immediate.",
+          "Zubairu theorem 1.4 proof computes C(w-1,h-1) sum_{d} C(n-d,w-1) C(d,h). Replacing C(d,h) by the endpoint-disjoint partition C(d-1,h)+C(d-1,h-1) yields the claimed two formulas by Vandermonde.",
+          "Ayik Lemma 2 gives the antitone sector count F_{2n+1} with empty map; the proposed total F_{2n+1}-1 is its direct exclusion. The shift of domain in the strict case yields F_{2n-1}-1, with complement F_{2n}."
+        ],
+        "reasoning": "This is a decisive actual implication, not a title-match or inability to find prior results. The claimed final result combines a previously explicit dynamical classification with a routine decomposition of a previously published enumeration; the advertised Fibonacci totals and support thresholds then follow mechanically. No separate uncaptured claim remains.",
+        "searches": [
+          "arXiv:2507.06047v1 Sections 2-3, lines 85-91,119-131,189-190",
+          "arXiv:2512.21134v2 Theorem 1.4 proof, pdf p.4 (0-index3), and its displayed min-domain sum",
+          "Web exact phrase: square-zero antitone decreasing partial maps and Fibonacci",
+          "Umar 1992 thesis Lemma 3.1.9 and Chapter4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ayik et al. 2025 v1 says explicitly alpha^2 is zero or rank-one constant idempotent and alpha^3=alpha^2 for nonconstant antitone sector, HTML lines 189-190. Constant image height one has the same elementary dichotomy.",
+          "Ayik et al. Section 2 defines Q-prime(n,m) with m not in domain and Q-double-prime(n,m) with m in domain (lines 85-91), exactly equivalent to the two square strata because max(image)=m<=min(domain).",
+          "Zubairu et al. Thm 1.4 gives complete same-object width-height census and proof based on domain minimum and image choices."
+        ],
+        "reasoning": "The advertised square-zero/stabilized-square classification is already explicit for the nonconstant sector, not a different named invariant. Extension to height one and use of its endpoint predicate to split an existing binomial count are routine direct corollaries. Rewording the same partition dynamically does not restore originality.",
+        "searches": [
+          "arXiv:2507.06047v1 Section 2 Proposition 1 and after Proposition 4",
+          "arXiv:2512.21134v2 Theorem 1.4 proof and definitions",
+          "Web: order reversing order decreasing partial transformation square zero idempotent Fibonacci count fixed point",
+          "Resultary query: order reversing order decreasing partial transformation finite chain square zero idempotent f^3=f^2 Fibonacci rank width height"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned finite-weak-order, automata-rank, nilpotent Jordan-lift and other different structures, not a distinct exact square-zero table for these partial maps.",
+          "Ayik et al. Table 1 already enumerates the same antitone class by max image m for n<=7 and Lemma2 determines its total F_{2n+1}, including empty map.",
+          "Zubairu et al. 2025 Thm1.4 gives complete width-height counts, which combine with Ayik square predicate; there is no need for a separately indexed exact square table."
+        ],
+        "reasoning": "The absence of a separately indexed zero-square table is not proof of originality; the exact numbers follow by an elementary split from the existing width-height enumeration and earlier square classification.",
+        "searches": [
+          "Resultary query: antitone decreasing partial transformations chain nilpotent fixed point enumeration binomial coefficient 2025 2026",
+          "Resultary query: partial maps order-reversing order-decreasing square-zero stabilized square Fibonacci census",
+          "Resultary query: Zubairu Umar Al-Kharousi monotone decreasing transformations width height splitting fixed points squares",
+          "arXiv:2507.06047v1 Table 1 and Lemma 2"
+        ]
+      },
+      "rationale": "Scientific originality rejection based on stronger direct PRIOR IMPLICATION, not failed access. The earlier arXiv:2507.06047v1 (Ayik, Ayik, Dimitrova, Koppitz, July 8 2025), Section 2 immediately after Proposition 4, explicitly states that for every nonconstant antitone order-decreasing partial map alpha the square is the constant idempotent on alpha^{-1}(s) when s alpha=s and zero otherwise, and therefore alpha^3=alpha^2. Its Proposition 1 already partitions maps into Q-prime (s absent from domain) and Q-double-prime (s in domain), exactly the square-zero/nonzero-square condition. Its Lemma 2 gives the full count F_{2n+1} including the empty map. The independently earlier arXiv:2512.21134v2 (Zubairu-Umar-Al-Kharousi, December 2025), Theorem 1.4 proof counts maps of width w, height h by choosing the minimum domain d, other w-1 domain positions, h image positions in [d], and C(w-1,h-1) constant runs. With the PRE-ESTABLISHED square boundary condition, simply split the paper's C(d,h) factor into C(d-1,h) [no d in image] and C(d-1,h-1) [d in image]. Standard Vandermonde then gives precisely C(w-1,h-1) C(n,w+h) and C(w-1,h-1) C(n,w+h-1), respectively. The total Fibonacci sequences are direct consequences of already-known F_{2n+1} and the one-step shift of the strict-boundary class. Since the dynamic dichotomy is explicitly published and the exact count is a routine immediate refinement of a published counting proof, the asserted single final contribution is covered as a combined corollary, despite absence of these exact two final formulas verbatim. The 2025 v1 was subsequently withdrawn in 2026, but the original freely accessible prior text contains the decisive mathematical statement and was materially inspected; its withdrawal imposes provenance/priority caution but does not undo the earlier mathematical implication.",
+      "residual_risks": [
+        "The 2025 preprint v2 was withdrawn citing similar earlier results not yet published; original v1 is publicly archived, materially read and directly states the square dichotomy. Withdrawal is a provenance caveat, not absence of prior mathematics.",
+        "The older 1992 thesis was only selectively inspected because it is 116 pages and the PDF screenshot endpoint failed; decisive prior coverage rests independently on the complete accessible 2025 preprint and published width-height theorem.",
+        "No assertion of exhaustive historical priority is made. Further sources could yield still earlier coverage but are not required for this negative originality judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_COVERAGE of the square-zero/constant-idempotent dichotomy and f^3=f^2; exact Fibonacci total and same endpoint partition already present. v1 is prior public preprint; v2 withdrawn 2026-01-23 for overlapping earlier unpublished results.",
+          "evidence": [
+            "Section2, lines 85-91: sets Q-prime/Q-double-prime by max-image point absent/present in domain.",
+            "Section2, Lemma2 lines119-131: |PRD_n|=F_{2n+1} including zero.",
+            "Section2, immediately after Proposition4, lines189-190: alpha^2=constant on s-preimage if s alpha=s, zero otherwise; alpha^3=alpha^2 for alpha in PRD_n^*."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.06047v1",
+          "material_read": "Complete lawful v1 HTML sections 1-5 examined with focused reading of Section2 definitions Q, Q-prime and Q-double-prime, Proposition1, Lemma2 Fibonacci recurrence, Proposition4 and the explicit statement after it for alpha^2 and alpha^3, plus later quasi-idempotent generator discussion.",
+          "method": "Read original full arXiv v1 HTML via version selector; contrasted primary mathematical statements with submitted claim.",
+          "title": "On certain semigroups of finite monotone and order-decreasing partial transformations",
+          "trigger": "Earlier article on exact same noninjective antitone decreasing sector; v2 withdrawn but original v1 accessible"
+        },
+        {
+          "assessment": "THEOREM1.4 plus its proof supplies C(w-1,h-1) sum_d C(n-d,w-1) C(d,h); splitting C(d,h) by endpoint as in earlier Ayik paper produces exactly the two claimed refined counts.",
+          "evidence": [
+            "Theorem1.4, PDF p4: C(w-1,h-1) C(n+1,w+h), counting h image positions from [d] and remaining w-1 domain positions from [d+1,n].",
+            "Definition of antitone decreasing DRP_n on PDF p2; remark on height-one intersection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.21134",
+          "material_read": "Lawful full 20-page PDF available; definitions/antitone setup pp.1-3, Lemma1.2 and Theorem1.4 statement and complete domain-minimum/image-choice counting proof p.4 (PDF page index3), nearby corollary and later treatment of fixed points and vital elements pp.11-12; proof/formula screenshot checked.",
+          "method": "Primary PDF extracted text, focused full theorem and proof reading, and page screenshot.",
+          "title": "The monoid of monotone and decreasing partial transformations on a finite chain",
+          "trigger": "Identical object and width-height parameters; published unsplit count and proof used in exact prior implication"
+        },
+        {
+          "assessment": "Injective subfamily h=w, not the decisive coverage of the whole noninjective claim; other earlier primary sources already dominate.",
+          "evidence": [
+            "Journal abstract explicitly restricts to partial one-to-one transformations; selected results are fixed-point/image-change distributions under injectivity."
+          ],
+          "identifier_or_url": "https://doi.org/10.62054/ijdm/0302.06",
+          "material_read": "Journal page with abstract/definitions, public full-text HTML transcription of the 9-page paper available on ResearchGate; inspected the restriction to partial one-to-one mappings and selected fixed-point and generating-function statements; mathematical OCR in some displayed formulas is imperfect.",
+          "method": "Read primary journal abstract and accessible full-text transcription of relevant sections; publisher PDF URL unavailable through current browser.",
+          "title": "Combinatorial Properties of Order Decreasing and Order Reversing Partial One-to-One Transformation Semigroup",
+          "trigger": "Potential fixed-point and image-change formulas for same map predicates, but injective hypothesis"
+        },
+        {
+          "assessment": "Provides older background that nilpotence of order-decreasing maps is governed by fixed points, but not the exact noninjective antitone width-height formulas. Reinforces routineness of the second-power viewpoint; is not sole basis for rejection.",
+          "evidence": [
+            "Chapter3 Lemma3.1.9: nilpotent iff fixed-point set empty for order-decreasing partial one-to-one maps.",
+            "Abstract and Chapter4 treat nilpotents and enumerative problems for full and injective transformations."
+          ],
+          "identifier_or_url": "https://research-repository.st-andrews.ac.uk/handle/10023/2834",
+          "material_read": "Repository open-access thesis PDF available at 116 pages; abstract, chapter contents, Chapter2 nilpotence definition, Chapter3 Lemma3.1.9 for fixed-point-free partial one-to-one maps, and Chapter4 enumerative aims/selected formula passages inspected from extracted text. Direct page screenshots failed; no claim of complete thesis reading.",
+          "method": "Read thesis PDF text via lawful institutional repository; screenshot requests encountered rendering errors.",
+          "title": "Semigroups of order-decreasing transformations",
+          "trigger": "Original 1992 thesis with nilpotent order-decreasing partial transformations and fixed-point criteria"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Ayik et al. arXiv:2507.06047v1 Proposition1, Lemma2, Proposition4 and statement immediately after it",
+        "Zubairu et al. arXiv:2512.21134 Theorem1.4 and proof",
+        "Direct Vandermonde derivation independently checked for all n<=39"
+      ],
+      "rationale": "The underlying object is natural and the square-zero/nonzero-square stratification is relevant to finite transformation semigroups. However, the claimed f^3=f^2 dichotomy and its structural criterion are already explicitly demonstrated in a 2025 primary paper, the same width-height enumeration and its endpoint-based proof are already published, and the two new-looking binomial counts are a direct Pascal/Vandermonde partition by that known criterion. The support thresholds and Fibonacci totals then follow by immediate binomial support and previously published F_{2n+1} with a domain shift. No distinct structural obstruction, genuinely unknown invariant, or nonmechanical mathematical gap survives. As presented this is an elementary recomputation/refactoring of established facts, not an independently valuable new result under the same V standard; natural motivation and correct finite verification do not by themselves establish value.",
+      "residual_risks": [
+        "An author might formulate a different, nontrivial refinement or statistic with new value, but none is contained in the single assigned final claim.",
+        "The result remains useful as an exposition of prior facts, not as an original mathematically valuable independent finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The all-n correctness proof is analytic/combinatorial; finite test cases are only corroboration.",
+    "Original v1 of withdrawn 2025 preprint is accessible and explicit; withdrawal does not erase mathematical prior implication.",
+    "Thesis screenshot rendering failed; thesis only selectively inspected and is not essential to decisive coverage.",
+    "Scientific rejection derives from actual prior implication and V assessment, not tool access/transport."
+  ],
+  "schema_version": 1
+}

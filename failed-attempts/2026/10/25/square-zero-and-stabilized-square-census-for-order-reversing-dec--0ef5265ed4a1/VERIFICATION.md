@@ -1,0 +1,42 @@
+---
+{
+  "expert_attestation": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "independent_audit": {
+    "status": "failed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
+  },
+  "lean_verification": {
+    "evidence": null,
+    "status": "not_performed"
+  },
+  "schema_version": 1
+}
+---
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For any nonempty antitone decreasing partial map f:D->[n], let d=min D. The maximal image value is f(d)<=d, while all domain values are >=d. If f(d)<d, im(f) and D are disjoint, so f^2=0. If f(d)=d, then f^2 has domain f^{-1}(d), sends that nonempty domain constantly to d, and fixes d; thus f^2 is a nonzero rank-one idempotent and f^3=f^2. For fixed domain D of size w and image H of size h, an antitone onto assignment has C(w-1,h-1) positive constant runs. In the strict boundary case im(f) lies below min D; the union is a (w+h)-set, counted by C(n,w+h). In the touching case H intersects D in d and the union is a (w+h-1)-set, counted by C(n,w+h-1). These give Z and P exactly including zero binomial boundary cases. Summing P via t=z/(1-z) gives z/(1-3z+z^2)=sum_{n>=1}F_{2n} z^n. Domain shifting bijects square-zero maps on [n] with all nonempty such maps on [n-1], yielding Z_n=F_{2n-1}-1, total F_{2n+1}-1. The proof explicitly uses composition in the full partial-transformation monoid; no assertion of closure of the antitone sector. An independently written brute enumerator, using all raw tuples followed by antitone filtering rather than source verify.py, validated all maps and all width-height strata for n=1..9 (1,4,12,33,88,232,609,1596,4180 objects) and squares/cubes; a separate exact binomial split test checked every admissible n,w,h for n<=39. These finite checks corroborate, not replace, the all-n bijection and generating-function proof.
+
+## originality
+
+FAIL
+
+Scientific originality rejection based on stronger direct PRIOR IMPLICATION, not failed access. The earlier arXiv:2507.06047v1 (Ayik, Ayik, Dimitrova, Koppitz, July 8 2025), Section 2 immediately after Proposition 4, explicitly states that for every nonconstant antitone order-decreasing partial map alpha the square is the constant idempotent on alpha^{-1}(s) when s alpha=s and zero otherwise, and therefore alpha^3=alpha^2. Its Proposition 1 already partitions maps into Q-prime (s absent from domain) and Q-double-prime (s in domain), exactly the square-zero/nonzero-square condition. Its Lemma 2 gives the full count F_{2n+1} including the empty map. The independently earlier arXiv:2512.21134v2 (Zubairu-Umar-Al-Kharousi, December 2025), Theorem 1.4 proof counts maps of width w, height h by choosing the minimum domain d, other w-1 domain positions, h image positions in [d], and C(w-1,h-1) constant runs. With the PRE-ESTABLISHED square boundary condition, simply split the paper's C(d,h) factor into C(d-1,h) [no d in image] and C(d-1,h-1) [d in image]. Standard Vandermonde then gives precisely C(w-1,h-1) C(n,w+h) and C(w-1,h-1) C(n,w+h-1), respectively. The total Fibonacci sequences are direct consequences of already-known F_{2n+1} and the one-step shift of the strict-boundary class. Since the dynamic dichotomy is explicitly published and the exact count is a routine immediate refinement of a published counting proof, the asserted single final contribution is covered as a combined corollary, despite absence of these exact two final formulas verbatim. The 2025 v1 was subsequently withdrawn in 2026, but the original freely accessible prior text contains the decisive mathematical statement and was materially inspected; its withdrawal imposes provenance/priority caution but does not undo the earlier mathematical implication.
+
+## value
+
+FAIL
+
+The underlying object is natural and the square-zero/nonzero-square stratification is relevant to finite transformation semigroups. However, the claimed f^3=f^2 dichotomy and its structural criterion are already explicitly demonstrated in a 2025 primary paper, the same width-height enumeration and its endpoint-based proof are already published, and the two new-looking binomial counts are a direct Pascal/Vandermonde partition by that known criterion. The support thresholds and Fibonacci totals then follow by immediate binomial support and previously published F_{2n+1} with a domain shift. No distinct structural obstruction, genuinely unknown invariant, or nonmechanical mathematical gap survives. As presented this is an elementary recomputation/refactoring of established facts, not an independently valuable new result under the same V standard; natural motivation and correct finite verification do not by themselves establish value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
