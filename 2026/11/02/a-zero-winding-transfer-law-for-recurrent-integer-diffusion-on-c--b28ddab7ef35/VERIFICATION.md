@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact theorem follows from the mathematical proof in RESULT.md. A local Python 3 program, `verify_cycle_diff.py`, implements the nine-state cyclic Laurent transfer and a separate direct update operator on integer configurations. It needs only the standard library.
+## correctness
 
-The program evaluates transfer coefficients for every integer cycle length \(3\le n\le12\). Independently, for \(3\le n\le8\), it constructs all cyclic integer edge-difference lists satisfying \(\sum_i e_i=0\) and \(|e_i|\le3\) and tests the two-step update directly. The finite alphabet is justified by a theorem, not by the search itself. Direct and transfer counts coincide for all checked lengths. Explicit witnesses of the sharp gap bound are verified directly for \(3\le n\le20\).
+PASS
 
-To replay, place the two standalone files beside this document and run `python3 verify_cycle_diff.py`. The record `verification_output.txt` contains the actual successful replay, ending in `CYCLE_DIFFUSION_ALL_CHECKS_PASSED` and `SHARP_GAP_WITNESSES_PASSED n=3..20`.
+For n>=3 labelled simple cycles and synchronous integer sign-gradient update, express edges as e_i=x_{i+1}-x_i, signs s_i and next-step signs t_i. Period at most two forces s_i+t_i a constant; zero sum of differences forces zero, hence reverses every nonzero sign. The local equation e_i^new=e_i+s_{i-1}-2s_i+s_{i+1} makes q=|e_i| range from 1 to 1-s_i(s_{i-1}+s_{i+1}) for nonzero edges; for zero edges forces adjacent signs sum zero. The 9-pair-state Laurent matrix exactly enumerates choices; coefficient z^0 imposes global zero winding and produces one translation class per closed edge word. Only constant fixed class exists, and the rest pair into distinct two-cycles by conserved total chip sum. Explicit cycles give sharp edge gap three n>=4 and two n=3. Independent direct sign-update enumerations n=3..6 matched coefficients 19,47,171,517; all-n proof is analytic transfer bijection, while eventual period<=2 relies on Long–Narayanan.
 
-These finite checks do not prove completeness at untested lengths; the edge-flux, closure, and transfer bijection in RESULT.md supplies that proof. No independent external audit was performed.
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality: exact specialized formula and classification not shown to follow from inspected prior theorems; known general mechanisms and finite examples are credited, with residual priority risk.
+
+## value
+
+PASS
+
+The global zero-sum constraint is essential on cycles; deriving an exact all-n recurrent orbit census modulo translation from a local transfer captures a natural dynamical invariant distinct from path counting. Sharp bound and explicitly computable generating transfer are mathematically reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

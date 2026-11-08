@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:51:09.922306Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 labelled simple cycles and synchronous integer sign-gradient update, express edges as e_i=x_{i+1}-x_i, signs s_i and next-step signs t_i. Period at most two forces s_i+t_i a constant; zero sum of differences forces zero, hence reverses every nonzero sign. The local equation e_i^new=e_i+s_{i-1}-2s_i+s_{i+1} makes q=|e_i| range from 1 to 1-s_i(s_{i-1}+s_{i+1}) for nonzero edges; for zero edges forces adjacent signs sum zero. The 9-pair-state Laurent matrix exactly enumerates choices; coefficient z^0 imposes global zero winding and produces one translation class per closed edge word. Only constant fixed class exists, and the rest pair into distinct two-cycles by conserved total chip sum. Explicit cycles give sharp edge gap three n>=4 and two n=3. Independent direct sign-update enumerations n=3..6 matched coefficients 19,47,171,517; all-n proof is analytic transfer bijection, while eventual period<=2 relies on Long–Narayanan.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duffy–Lidbetter–Messinger–Nowakowski established dynamic edge-gap bound 3 for degree-two graphs.",
+          "Long–Narayanan Theorem 1.1 establishes eventual period at most 2."
+        ],
+        "reasoning": "These broader qualitative bounds do not count primitive cycles; assessed formula adds exact transfer matrix with global winding closure.",
+        "searches": [
+          "integer diffusion graph cycles recurrent configurations two cycles enumeration transfer matrix chip firing zero winding",
+          "arxiv 1609.05792 diffusion cycles edge gap 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1704.04295",
+        "https://arxiv.org/abs/2010.04750",
+        "https://arxiv.org/abs/1609.05792",
+        "Resultary semantic search: integer diffusion graph cycles recurrent configurations two cycles enumeration transfer matrix chip firing zero winding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General eventual period and edge gap facts are previously published; new expression N_n=([z^0] tr(T(z)^n)-1)/2 also demands cyclic closure."
+        ],
+        "reasoning": "Path counts or eventual periodicity do not imply enumerated zero-winding cycle values without an additional cyclic transfer/constant-term analysis.",
+        "searches": [
+          "integer diffusion graph cycles recurrent configurations two cycles enumeration transfer matrix chip firing zero winding",
+          "Mullen Cox Nowakowski 2020 Counting Path Configurations in Parallel Diffusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mullen–Cox–Nowakowski counts path configurations rather than cyclic zero-sum edge words; Long–Narayanan proves eventual periods 1/2 on all finite graphs."
+        ],
+        "reasoning": "Path recurrence without cyclic winding does not automatically evaluate zero-coefficient trace on labelled cycles. The general period theorem is used only for exhaustiveness of recurrent possibilities.",
+        "searches": [
+          "integer diffusion graph cycles recurrent configurations two cycles enumeration transfer matrix chip firing zero winding",
+          "arxiv 2010.04750 path diffusion periodic configurations count",
+          "arxiv 1704.04295 diffusion period two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source counts 19,47,171,517,... appear in assigned RESULT.md; prior path work has a distinct model and has no identified identical cycle table."
+        ],
+        "reasoning": "Numerical table merely corroborates exact transfer theorem and is not sufficient by itself to show originality; no exact table already publishing same labelled translation classes was found.",
+        "searches": [
+          "integer diffusion graph cycles recurrent configurations two cycles enumeration transfer matrix chip firing zero winding",
+          "Counting Path Configurations in Parallel Diffusion periodic configurations cycles table"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge originality: exact specialized formula and classification not shown to follow from inspected prior theorems; known general mechanisms and finite examples are credited, with residual priority risk.",
+      "residual_risks": [
+        "A later or alternative edge-word transfer/zero-winding formula could be indexed under parallel diffusion or cellular automata literature not reached in limited searches.",
+        "Depends on the published eventual-period theorem for all recurrent trajectories, not proven anew."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies period<=2; not an enumerator",
+          "evidence": [
+            "Theorem 1.1 proves universal eventual period<=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.04295",
+          "material_read": "Full seven-page original preprint including principal eventual period-1-or-2 theorem",
+          "method": "Read original PDF text and inspected page image of theorem",
+          "title": "Diffusion on graphs is eventually periodic",
+          "trigger": "Direct dependency for exhausting recurrent periods"
+        },
+        {
+          "assessment": "Path count is not same graph family/closure",
+          "evidence": [
+            "Model explicitly counts periodic configurations on paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.04750",
+          "material_read": "Original paper abstract, theorem/setting comparison and available snippets; entire paper noncoverage not claimed",
+          "method": "Read available bibliographic/primary research statements",
+          "title": "Counting Path Configurations in Parallel Diffusion",
+          "trigger": "Closest exact periodic-state count under same diffusion dynamics"
+        },
+        {
+          "assessment": "Edge bound precedes this record",
+          "evidence": [
+            "Pre-existing degree-two edge gap bound three is credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.05792",
+          "material_read": "Original abstract and source-quoted degree-two edge-gap statement; no assertion of full-text exclusion",
+          "method": "Primary statement comparison",
+          "title": "A Variation on Chip-Firing: the diffusion game",
+          "trigger": "Earlier edge-gap and cycle dynamical results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global zero-sum constraint is essential on cycles; deriving an exact all-n recurrent orbit census modulo translation from a local transfer captures a natural dynamical invariant distinct from path counting. Sharp bound and explicitly computable generating transfer are mathematically reusable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Labelled cycles modulo simultaneous integer translation only, not cyclic graph automorphism or fixed total-chip count; no transient basin enumeration."
+  ],
+  "schema_version": 1
+}
