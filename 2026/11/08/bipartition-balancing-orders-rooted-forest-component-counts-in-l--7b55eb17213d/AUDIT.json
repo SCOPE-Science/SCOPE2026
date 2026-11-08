@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The \\(q\\)-rooted forest partition determinant on \\(K_{a,b}\\) has spectral factors \\(q(q+N)(q+a)^{b-1}(q+b)^{a-1}\\), giving independent Bernoulli root indicators. For one balancing step, match \\(a-1\\) complementary Bernoulli pairs and \\(b-a\\) singles. Each complementary pair has coefficients \\((ab,qN,q^2)\\) versus \\(((a+1)(b-1),qN,q^2)\\) and is ordered in likelihood ratio, while the singleton parameters strictly decrease. Likelihood-ratio order is preserved by convolution with the other Poisson-binomial summands because those summands are log-concave. Strict all-threshold domination follows from one strict Bernoulli difference and full interval support. The mean gap is an exact algebraic identity. Direct forest enumeration and exact-rational inequalities passed 46928 checker assertions for small/medium examples; the written proof covers arbitrary \\(N\\) and real \\(q>0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Avena–Driessen–Koperberg (2021), Section 2.1: derivative/Russo formula and two-point monotonicities vary the fugacity q with graph held fixed.",
+        "Wang–Zhang–Zhu (2017), Theorem 2.3 and Example 2.14: asymptotic distribution of Laplacian coefficients, including Poisson limit on balanced bicliques; no all-size balancing order.",
+        "D’Achille–Enriquez–Melotti (2026), Theorems 1.1, 1.2 and 2.1: local massive-forest structure on complete graphs, not comparisons of K(a,b)."
+      ],
+      "reasoning": "The cited general forest determinant is sufficient to reproduce the distributions but has no graph-order implication by itself: some individual Bernoulli probabilities decrease and others increase when balancing. The new factor matching and likelihood-ratio-convolution argument supply the inequality.",
+      "searches": [
+        "\"complete bipartite Laplacian polynomial coefficients ordering balancing parts\"",
+        "complete bipartite characteristic polynomial Laplacian coefficients comparison K a b K a+1 b-1",
+        "matrix forest theorem random spanning forests q roots Bernoulli eigenvalues component count 2018",
+        "complete bipartite spanning forest number of roots increasing imbalance stochastic order q forest"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2103.14436v1 (2021-03-26); full HTML v2 checked",
+      "Székely, Ars Combinatoria 73 (2004), pages 97–100, all pages examined",
+      "arxiv:1709.03407 (2017-09-11), accessible text",
+      "D’Achille, Enriquez, Melotti, DOI:10.1002/rsa.70048 (2026), publisher full HTML",
+      "Stones (2014), Computing the number of h-edge spanning forests in complete bipartite graphs, abstract (uniform unrooted model)",
+      "Published mathematical research-record search matches as identified under exact_database_or_table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Székely (2004) Theorem 1 counts prescribed roots in each part, and the original Jin–Liu formula is quoted on p. 97; the paper makes no comparison between different bipartitions.",
+        "Avena et al. (2021), eq. (1.5) implies Z_G(q)=det(qI+L), and text following eq. (1.7) gives a Bernoulli spectral factorization; neither supplies cross-graph likelihood-ratio inequalities.",
+        "The 2017 and 2026 papers study limiting coefficients and complete-graph local forest laws respectively, not the stated fixed-N K(a,b) inequality."
+      ],
+      "reasoning": "A known closed formula for the same family implies that probabilities are computable, but not automatically that ratios of all adjacent component-count probabilities are ordered under simultaneous changes of their Bernoulli parameters. The novel step is an explicit decomposition into complementary Bernoulli pairs together with likelihood-ratio preservation under log-concave convolution. No inspected stronger result logically implies that step, although an older unnoticed consequence is a residual risk.",
+      "searches": [
+        "Counting Rooted Spanning Forests in Complete Multipartite Graphs Székely 2004 full four-page paper",
+        "Loop-erased partitioning of a network monotonicities cycle-free graphs arXiv:2103.14436 full HTML",
+        "Asymptotic normality of Laplacian coefficients of graphs arXiv:1709.03407",
+        "Massive Spanning Forests on the Complete Graph Exact Distribution and Local Limit 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Avena–Driessen–Koperberg, arXiv:2103.14436v2, Equations (1.2),(1.5) and text following (1.7): same random rooted-forest measure, known Bernoulli spectral decomposition, but no bipartition comparison.",
+        "Székely, Ars Combinatoria 73 (2004), pp. 97–100: class-prescribed root counts for complete multipartite graphs; the inspected four-page paper does not state the likelihood-ratio inequality.",
+        "A published research-record result on Bernoulli pair balancing at fixed sum (public research-record id 952d735cb8e8) concerns different parameter-preserving pair operations."
+      ],
+      "reasoning": "The equivalent unrooted formulation weights each forest by the product of component sizes and q per component, not uniformly across unrooted forests. A graph-balance comparison is not equivalent to monotonicity in q for a fixed graph. Our paired Bernoulli probabilities change both the sum and product; the cited fixed-sum balancing analysis does not give this order.",
+      "searches": [
+        "\"rooted spanning forests\" \"complete bipartite\" \"stochastic\" \"balance\"",
+        "\"random rooted forests\" \"complete bipartite\" \"monotonicity\"",
+        "\"likelihood ratio\" \"rooted forest\" \"bipartite\"",
+        "Poisson-binomial likelihood ratio ordering of component counts in random q-rooted forest on complete bipartite graphs with fixed total vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published research-record ID public research-record id 4da8e7971b39 treats measures on forest-shaped posets, not random graph-forest root counts.",
+        "Closest public research-record id d8f52c73c4c4 concerns a spanning-tree polytope invariant, not component count.",
+        "Closest public research-record id 952d735cb8e8 treats fixed-sum Bernoulli pair balancing, whereas the paired root-law probabilities have differing sums and products.",
+        "Székely (2004) gives exact root-class counts, but no tabulated likelihood-ratio order across a fixed-order family."
+      ],
+      "reasoning": "No exact matching order or precomputed table was found in the inspected published mathematical records or primary material. Since q ranges over a continuum and graph order is unbounded, finite tables alone cannot supply the theorem. Failed searches are not novelty proofs.",
+      "searches": [
+        "rooted spanning forest component count stochastic dominance complete bipartite graph part imbalance rooted matrix forest theorem",
+        "likelihood ratio order random rooted forest components under balancing bipartition K(a,b)",
+        "balanced complete bipartite graphs rooted spanning forest partition determinant q^k coefficient ratios monotone",
+        "changing bipartition K_{a,b} to K_{a+1,b-1} root count monotone for massive spanning forest"
+      ]
+    },
+    "rationale": "The claim is the all-positive-fugacity, fixed-total-order likelihood-ratio ordering of rooted-forest component counts under a bipartition-balancing move. Prior sources give the rooted matrix-forest determinant, prescribed-root enumeration, qualitative monotonicity in fugacity, and asymptotic Laplacian coefficient laws, but the inspected material does not establish comparison of different complete-bipartite graphs in likelihood-ratio order. Published mathematical-record searches returned different invariants or balancing results. The substantive residual risk is undiscovered older derivations combining the known enumeration with total positivity; priority is not independently certified.",
+    "residual_risks": [
+      "Jin–Liu earlier rooted-forest enumeration, cited by Székely, was not separately examined in full.",
+      "Existing general likelihood-ratio results plus earlier enumerators could contain an equivalent unstated or separately published consequence.",
+      "Independent mathematical/historical audit not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides model, partition determinant and root-count Bernoulli factorization; statements concern fugacity and node correlations at fixed graph, not fixed-N bipartition balance",
+        "evidence": [
+          "Equations (1.2), (1.5) and following (1.7); Theorem 1/eq. (2.1), introduction and results overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.14436v2",
+        "material_read": "Full-text HTML introduction, definitions (1),(2), equations (1.2),(1.5),(1.7), results summary, Theorem 1 and Section 2.1, main graphs covered",
+        "method": "Direct inspection of open full-text HTML",
+        "title": "Loop-erased partitioning of a network: monotonicities & analysis of cycle-free graphs",
+        "trigger": "Primary 2021 probability paper defining the same q-rooted forest measure and proving monotonicities"
+      },
+      {
+        "assessment": "Gives exact prescribed-root-class enumeration; no claim about likelihood-ratio or stochastic order under change of class sizes",
+        "evidence": [
+          "Page 97 formula (1); page 99 Theorem 1 formulas (12),(13); page 100 final discussion."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+        "material_read": "All four printed pages 97–100, including initial Jin–Liu formula, multivariate enumeration Theorem 1 and final discussion",
+        "method": "Direct page-image reading, PDF pages 0–3",
+        "title": "Counting rooted spanning forests in complete multipartite graphs",
+        "trigger": "Most plausible older exact enumeration of forests on the same complete bipartite graphs"
+      },
+      {
+        "assessment": "Gives asymptotic normality/Poisson examples and spectral facts, not exact inter-graph likelihood-ratio ordering",
+        "evidence": [
+          "Theorem 2.3, Examples 2.2 and 2.14, and concluding discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.03407",
+        "material_read": "Full accessible HTML/text sections 1–3, especially the spectral Bernoulli method, Theorem 2.3 and Example 2.14",
+        "method": "Direct open access HTML/text reading",
+        "title": "Asymptotic normality of Laplacian coefficients of graphs",
+        "trigger": "Potential stronger analytic statement about normalized forest counting coefficients"
+      },
+      {
+        "assessment": "The local-distribution theorem is on complete graphs, and general deterministic input is the matrix-forest theorem; the claimed biclique balancing order is not covered",
+        "evidence": [
+          "Introduction, Theorems 1.1, 1.2, and 2.1 (Kirchhoff matrix-forest theorem)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70048",
+        "material_read": "Full HTML introduction, model definition, Theorems 1.1, 1.2, and 2.1; checked graph class and hypotheses",
+        "method": "Direct open-access publisher HTML reading",
+        "title": "Massive Spanning Forests on the Complete Graph: Exact Distribution and Local Limit",
+        "trigger": "Potential later, broader massive-forest distribution theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b55eb17-213d-4fa8-aab2-007c05b28688",
+  "value": {
+    "rationale": "Random rooted forest intensity \\(q\\) governs multiscale network cluster counts. Changing complete bipartite part sizes at fixed total order moves individual root-count Bernoulli parameters in opposite directions, making stochastic comparison nontrivial. The explicit factor matching establishes the stronger likelihood-ratio order simultaneously at every root fugacity and hence ranks every upper tail and increasing statistic, with unique extremal bipartitions and a strict exact mean difference. This is a motivated structural result rather than a re-enumeration or a single moment.",
+    "status": "PASS"
+  }
+}
