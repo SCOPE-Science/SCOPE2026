@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Support under reciprocal-integer scaling remains on two adjacent integers, whose probabilities are uniquely fixed by conditional unbiasedness. Every other factor admits an explicit integer input producing positive masses 0,1,2 in two steps. Absorption and log-periodic mean follow exactly from a zero-absorbing two-point output law and geometric tail sum. An exact rational checker passed 13,234 assertions, but the mathematical proof carries the infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The former discusses accumulated rounding errors across numerical algorithms, not exact finite-state kernel collapse.",
+        "The latter develops stochastic rounding variance and probabilistic error bounds, but the direct one-shot distribution and stopping-time classification require distinct support closure and absorbing-law arguments."
+      ],
+      "reasoning": "General unbiasedness and variance bounds do not imply the claimed distributional equality: for q=1/sqrt(2), n=2, a nontrivial three-point second-step law conflicts with one-shot deterministic rounding. The inspected general results therefore do not directly dominate the claim.",
+      "searches": [
+        "https://arxiv.org/abs/2207.03837",
+        "https://arxiv.org/abs/2207.10321",
+        "stochastic rounding nested integer grids refinement exact distribution coarsening"
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.maths.manchester.ac.uk/2836/",
+      "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+      "https://arxiv.org/abs/2207.03837",
+      "https://arxiv.org/abs/2207.10321"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conditional mean preservation holds for any contraction, while the theorem classifies exact equality of laws and excludes every nonreciprocal factor by positive mass at three integers.",
+        "Croci et al. and El Arar et al. provide general stochastic rounding properties that set the context but do not imply semigroup rigidity from unbiasedness alone."
+      ],
+      "reasoning": "The new claim is strictly stronger in a different direction: a preserved mean does not force two-point support, exact zero hitting-time law, or lattice-phase oscillation. The proof supplies the extra support-closure mechanism and a counterexample to extension.",
+      "searches": [
+        "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+        "https://arxiv.org/abs/2207.10321",
+        "exact composition law stochastic rounding nearest integers contraction reciprocal integer no accumulation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Croci et al. survey §2 defines unbiased stochastic nearest-neighbor rounding; §5 treats deterministic double-rounding errors, rather than an iterated stochastic kernel identity.",
+        "Reciprocal-integer closure implies a kernel semigroup on integer lattice; direct nonreciprocal witnesses demonstrate why conditional first-moment unbiasedness is strictly weaker."
+      ],
+      "reasoning": "Compared stochastic-rounding, quantization, Markov-kernel, and double-rounding aliases. The exact all-starting-values distributional collapse, as opposed to merely preserved expectation, was not stated in the inspected sections; a general linear-interpolation identity elsewhere remains possible.",
+      "searches": [
+        "\"stochastic rounding\" \"semigroup\" \"integer\"",
+        "\"stochastic rounding\" \"composition\" \"nearest\" grid",
+        "randomized rounding double rounding commutation discrete interpolation kernel exact semigroup"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact integer initial-value hitting-time tail min(1,n/b^t) is derived from the kernel identity, not extracted from a numerical table.",
+        "The compared published finding on negative-slope deterministic floor contractions describes two-cycle basins and O(log n) settling, not a stochastic absorption-time distribution."
+      ],
+      "reasoning": "No exact table or equivalent formula was found in the records consulted. There is no finite census or comprehensive table which by itself could establish noncoverage.",
+      "searches": [
+        "integer lattice stochastic rounding contraction absorption log periodic expected hitting time",
+        "\"stochastic rounding\" \"absorption time\" linear",
+        "stochastic rounding geometric decay integer lattice exact absorption time digit oscillation"
+      ]
+    },
+    "rationale": "The inspected primary texts establish the unbiased rounding/error baseline but do not assert the all-time distributional composition rigidity, constructive universal two-step converse, and exact phase-dependent absorption law. Published-record and semantic searches found nearby but non-dominating claims; equivalent linear interpolation Markov kernels are a residual risk.",
+    "residual_risks": [
+      "A theorem equivalent to reciprocal-grid interpolation-kernel composition may exist under a different numerical-analysis or Markov-operator terminology.",
+      "The same-source literature review is not independent publication-precedence validation; the inspected source sections do not constitute an exhaustive literature census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines unbiased stochastic rounding and surveys applications; no asserted repeated reciprocal contraction distributional composition or absorption law in inspected material",
+        "evidence": [
+          "2021-10-14 first public deposit https://eprints.maths.manchester.ac.uk/2836/",
+          "Section 2 basic probabilistic rounding definition; Section 5 discusses double rounding under usual deterministic rounding"
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2843/1/cfhm22.pdf",
+        "material_read": "Full accessible PDF; definition and rounding-error sections, plus discussion of double rounding",
+        "method": "Read full-text sections using PDF text and page screenshots",
+        "title": "Stochastic Rounding: Implementation, Error Analysis, and Applications",
+        "trigger": "Primary survey setting definition and prior rounding theory"
+      },
+      {
+        "assessment": "Develops randomized numerical error analyses; no exact law equality to a one-shot integer-grid contraction and no universal two-step converse in material inspected",
+        "evidence": [
+          "First submitted 2022-07-08",
+          "Analyzes unbiased stochastic rounding and effects in numerical algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.03837",
+        "material_read": "Full eight-page PDF, introduction and theoretical sections and conclusions",
+        "method": "Open access PDF text inspection with page previews",
+        "title": "The Positive Effects of Stochastic Rounding in Numerical Algorithms",
+        "trigger": "Potential stronger stochastic rounding error propagation bound"
+      },
+      {
+        "assessment": "Provides generic stochastic-rounding variance/probabilistic bounds; direct two-point law preservation under repeated division and absorption phase are not stated in inspected material",
+        "evidence": [
+          "First submitted 2022-07-21",
+          "MSC classification includes numerical probabilistic rounding methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.10321",
+        "material_read": "Full accessible 21-page PDF, abstract, rounding definition and variance results",
+        "method": "PDF textual inspection with page screenshots",
+        "title": "Stochastic Rounding Variance and Probabilistic Bounds: A New Approach",
+        "trigger": "General variance results could imply claimed no-accumulation property"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "374d6aac-7770-4c36-b2ce-5cb48c984d70",
+  "value": {
+    "rationale": "A complete classification determines which discrete scalar contraction factors can be repeatedly stochastically rounded without any extra distributional error beyond one final rounding, in sharp contrast to generic unbiasedness. The stopping-time law quantifies a nonconstant lattice-phase overhead for reaching the exactly represented zero; the three-point converse specifies the sharp design boundary. These are structural and stopping-time results for a motivated numerical quantization model, not arbitrary sliced computations.",
+    "status": "PASS"
+  }
+}
