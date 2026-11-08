@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Fourier alias blocks diagonalize the full Gram solve exactly. For every nonzero frequency residue the neglected alias kernel mass is \\(O((r/N)^{2\\alpha})\\), the nonsmooth density has Fourier coefficients \\(O((1+|h|)^{-2})\\), and summing the distortion over residues is \\(O(N^{-1})\\). The resulting weight error is \\(O(N^{-2})\\); only \\(O(1)\\) sample nodes can have negative weights because the nonnegative periodization density vanishes linearly at two points. The zero-alias block yields exactly \\(2\\gamma\\zeta(2\\alpha)\\) as the scaled total-mass deficit; fixed even N and gamma tending to infinity gives a negative endpoint weight. The independent Gram-solve and Fourier diagnostics passed 283 checks. Finite checks are supplementary and not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bartel et al. 2026 Section 7.2 identifies an unproved multivariate asymptotic-positivity property, and its error theorems concern worst-case quadrature error rather than coefficient total variation.",
+        "Goda and Krieg (2025) use randomized equal-weight prime lattices and medians; these are different rules.",
+        "The earlier first-order periodized Korobov finite-grid threshold concerns \\(\\alpha=1\\) only, not higher-order kernel orders."
+      ],
+      "reasoning": "Convergence in a Korobov-function worst-case error norm is not a bound on signed absolute sums of quadrature weights for a nonsmooth density: the two claims quantify different function classes and coefficients. General Fourier interpolation identities do not state the higher-order rate. The first-order claim is too narrow in kernel order to dominate the present theorem.",
+      "searches": [
+        "weighted kernel quadrature equispaced periodic Sobolev splines weights asymptotically positive negative weights order inverse squared",
+        "minimum worst case error quadrature equispaced lattice representer Fourier aliasing positivity of weights weighted integration",
+        "https://arxiv.org/html/2610.01113v1",
+        "https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev",
+        "https://doi.org/10.1007/s00211-025-01517-z"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.01113v1",
+      "https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev",
+      "https://doi.org/10.1007/s00211-025-01517-z",
+      "https://www.mdpi.com/1999-4893/18/7/374",
+      "positive-weight generalized Romberg published-record result (distinct quadrature method)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bartel et al. 2026 Section 7.2: multivariate asymptotic positivity is not known.",
+        "Shadimetov et al. 2010 Section 8: for Lebesgue integration the coefficient of each equispaced node is \\(1/N\\).",
+        "The earlier \\(\\alpha=1\\) result classifies finite-grid pointwise positivity with a threshold growing linearly in N, but does not cover \\(\\alpha\\ge2\\).",
+        "The present proof requires explicit m_{2k}=-1/(4k^2-1), frequency alias mass estimates and a two-zero localization argument."
+      ],
+      "reasoning": "The exact source rule, density, kernel order and coefficient norm were compared. Neither source error estimates nor the equal-weight 2010 theorem implies signed total-variation control for the present unmodified \\(\\alpha\\ge2\\) weights. The later kernel order is a material hypothesis change: its alias filters differ, and the previous \\(\\alpha=1\\) finite-grid formula cannot be reused as a general-order theorem.",
+      "searches": [
+        "https://arxiv.org/html/2610.01113v1",
+        "https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev",
+        "Korobov kernel interpolation quadrature univariate lattice weights asymptotic positivity nonnegative density sin periodization 2026",
+        "minimum worst case error quadrature equispaced lattice representer Fourier aliasing positivity of weights weighted integration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bartel et al. 2026 Section 3.3 defines G^{-1}kappa using the same transformed density and circulant Gram matrix.",
+        "Shadimetov et al. 2010 Sections 4, 6, 8 derive periodic equispaced cardinal formulas and equal-weight quadrature for constant integration density.",
+        "The current theorem evaluates total signed variation for the nonconstant density by full Fourier alias comparison, with explicit rate."
+      ],
+      "reasoning": "The old cardinal-interpolation formulas supply related building blocks, but their constant-density integration weights do not imply the nonconstant-density \\(O(N^{-2})\\) signed-weight approximation or the \\(\\alpha\\ge2\\) gamma-dependent mass defect without an additional analysis. The transformed-density case in the 2026 paper is explicitly not settled by its stated theorems.",
+      "searches": [
+        "Korobov kernel interpolation quadrature univariate lattice weights asymptotic positivity nonnegative density sin periodization 2026",
+        "weighted kernel quadrature equispaced periodic Sobolev splines weights asymptotically positive negative weights order inverse squared",
+        "https://arxiv.org/html/2610.01113v1",
+        "https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search returned a Romberg positive-weight theorem involving nested Richardson rules, not Korobov interpolant weights.",
+        "Other nearest results involved unrelated Fourier or periodic Sobolev questions.",
+        "Bartel et al. 2026 provide no table of high-order signed-weight negativity rates."
+      ],
+      "reasoning": "The retrieved databases and inspected papers contain no exact table of the stated high-order periodization-weight negative-mass theorem. This search is evidence of noncoverage within inspected sources only; it cannot certify global uniqueness.",
+      "searches": [
+        "Korobov kernel interpolation quadrature univariate lattice weights asymptotic positivity nonnegative density sin periodization 2026",
+        "weighted kernel quadrature equispaced periodic Sobolev splines weights asymptotically positive negative weights order inverse squared",
+        "minimum worst case error quadrature equispaced lattice representer Fourier aliasing positivity of weights weighted integration",
+        "positive-weight generalized Romberg published-record result (distinct quadrature method)"
+      ]
+    },
+    "rationale": "The full 2026 construction and its explicit multivariate positivity gap were compared at the level of exact weights and definitions. The relevant 2010 periodic Sobolev interpolation paper was inspected through its full public text; its Section 8 gives equal-weight quadrature for integration against Lebesgue measure, not signed-weight asymptotics for the sine-squared periodization density. Published related weighted and universal lattice quadrature rules use other spaces or estimators, not this high-order full-lattice signed weight law. Existing earlier one-dimensional first-order finite-grid classification only treats \\(\\alpha=1\\) and cannot imply the \\(\\alpha\\ge2\\) theorem. Published mathematical-record searches did not return a directly covering high-order finding. Priority risks remain for unindexed equivalences; absence of search hits is not a proof of novelty.",
+    "residual_risks": [
+      "The result is a one-dimensional full-grid theorem; the source paper's multivariate rank-one-lattice question is not resolved.",
+      "Unindexed classical periodic spline cardinal-interpolation estimates might already imply the same coefficient-level rate by a less direct argument.",
+      "The 2025 weighted nonperiodic quadrature full text was not accessed after publisher rate limiting; visible formulas are not directly on the same method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact problem and expresses an open multivariate property; does not establish the one-dimensional high-order uniform alias error, negative mass or mass defect.",
+        "evidence": [
+          "https://arxiv.org/html/2610.01113v1#S3.S3",
+          "https://arxiv.org/html/2610.01113v1#S7.S2"
+        ],
+        "identifier_or_url": "arxiv:2610.01113v1, https://arxiv.org/html/2610.01113v1",
+        "material_read": "Public full-text HTML Sections 1.2, 2.1, 3.2-3.3 and 7.2, including the kernel-mean and circulant-system formulas and discussion of asymptotic positivity.",
+        "method": "Direct reading of original public full-text HTML and comparing the Gram-weight definition and stability quantifiers.",
+        "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+        "trigger": "Same periodization density, kernel, and full-lattice algorithm; Section 7.2 raises stability of quadrature weights."
+      },
+      {
+        "assessment": "Original interpolant weights and equal-density optimal quadrature are close background, but not direct signed-variation or density-sample asymptotics for the nonconstant sine-squared integration density.",
+        "evidence": [
+          "2010 paper Section 8 derives \\(1/N\\) per node for integral against dx",
+          "https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev"
+        ],
+        "identifier_or_url": "arxiv:1012.1953, https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev",
+        "material_read": "Public original full text, introduction, Sections 3-4, 8 (connection to optimal quadrature) and 9 (examples and formulas).",
+        "method": "Read publisher-hosted public full-text transcription, including original equations and the equal-weight Section 8 quadrature deduction.",
+        "title": "Optimal interpolation formulas in the periodic function space of S. L. Sobolev",
+        "trigger": "Equispaced periodic Sobolev cardinal formula might dominate alias analysis."
+      },
+      {
+        "assessment": "Prime-randomized equal-weight lattices and medians are different from optimal unequal full-grid kernel weights.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s00211-025-01517-z"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-025-01517-z",
+        "material_read": "Open-access article introduction, Algorithm 1, Theorem 1 and nonperiodic-integration discussion.",
+        "method": "Read accessible publisher HTML of mathematical formulas and algorithm definition.",
+        "title": "A simple universal algorithm for high-dimensional integration",
+        "trigger": "Closely related Korobov lattice integration may give broader guarantees."
+      },
+      {
+        "assessment": "Displayed formulas concern derivative-inclusive nonperiodic Sobolev quadrature, unlike this periodic fixed-node kernel rule; limited access retains a priority risk.",
+        "evidence": [
+          "https://www.mdpi.com/1999-4893/18/7/374"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/a18070374",
+        "material_read": "Indexed theorem and formula extracts; publisher full text returned a rate-limit response, not read in full.",
+        "method": "Reviewed available indexed formula evidence, attempted publisher full text.",
+        "title": "Weighted Optimal Quadrature Formulas in Sobolev Space and Their Applications",
+        "trigger": "Weighted quadrature formulas and possible positivity theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "feb80935-de99-45ee-a06b-33b0cd882293",
+  "value": {
+    "rationale": "The motivating 2026 work identifies asymptotic positivity as a stability gap. The analysis supplies a quantified negative-mass bound and asymptotic norm control for the higher-order univariate construction, an exact normalizing-constant law, and a finite-grid parameter-boundary counterexample. These results address signed coefficient stability rather than re-running a quadrature accuracy estimate. They do not claim to solve the multivariate algorithm or assert eventual pointwise positivity.",
+    "status": "PASS"
+  }
+}
