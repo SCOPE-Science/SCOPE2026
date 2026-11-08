@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:16:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Eulerian balance equations t_i+v_i=t_{i-1}+d_{i-1}, b_i+d_i=b_{i-1}+v_i imply a constant flux j=t_i+b_i+d_i in {0,1,2,3}. The extreme fluxes force all-zero/all-one orientations, both isolated. In j=1, each triple is X=001,Y=010,Z=100 and the 0/1 vertical reconstruction excludes precisely adjacent YZ. Coding X->00,Y->01,Z->10 turns cyclic words into independent sets of C_{2n}; upper/lower belt triangular flips correspond to allowed first/second site toggles; bit complement gives j=2. Removing I\\J then adding J\\I yields exact Hamming distance; coordinatewise majority of three independent sets remains independent, proving median; the only diameter 2n pair is the two alternating maximum independent sets. Classical Lucas/Fibonacci independent-set counts then give edges. Independently enumerated all raw balanced edge orientations for n=3 and 4, obtaining respectively 38 and 96 states, component sizes [1,1,18,18] and [1,1,47,47], and 60 and 208 edges, in agreement with the formulas. The local encoding argument proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Felsner: orientations of planar graphs with prescribed outdegrees carry a distributive lattice under eligible face reversals.",
+          "Lucas-cube properties independently known."
+        ],
+        "reasoning": "General lattice theory does not automatically give the disconnected restricted subgraph obtained after forbidding cap reversals; however a more specific specialization might.",
+        "searches": [
+          "Felsner 2004 Lattice Structures from Planar Graphs",
+          "Creed 2007 Eulerian orientation face reversals",
+          "Munarini On the Lucas cubes 2001"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md and verify_antiprism_transfer.py at Git blob SHAs",
+        "https://doi.org/10.37236/1768",
+        "https://arxiv.org/abs/cs/0703031",
+        "https://www.fq.math.ca/Scanned/39-1/munarini.pdf",
+        "Resultary query: antiprism Eulerian orientations restricted triangular face flips Lucas cube flux sectors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General all-face dynamics concerns a larger move set; deleting cap moves changes connectivity.",
+          "Existing Lucas cube metric identities become consequences only after new antiprism identification."
+        ],
+        "reasoning": "The isomorphism itself is the new mathematical bridge; its derived classic Lucas statistics are not independently novel.",
+        "searches": [
+          "doi:10.37236/1768 Felsner 2004",
+          "arxiv:cs/0703031 Creed",
+          "Munarini Perelli Cippo Zagaglia Salvi 2001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common conserved j resembles height/circulation flux; the claimed isomorphism is of graph edges, not merely a count."
+        ],
+        "reasoning": "Compared height-function/ice-model/flip-graph formulations; no exact antiprism Lucas-sector isomorphism located.",
+        "searches": [
+          "antiprism Eulerian orientations restricted triangular face flips Lucas cube flux sectors",
+          "Eulerian orientations six vertex ice flux antidirected triangular-face flips",
+          "alpha orientations face reversal Lucas cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest hit concerns a distinct antiprism illumination problem; no exact face-reversal table."
+        ],
+        "reasoning": "Finite Eulerian-orientation tables may contain totals, but not necessarily restricted adjacencies, component metrics or flux bijection.",
+        "searches": [
+          "antiprism Eulerian orientations restricted triangular face flips Lucas cube flux sectors",
+          "antiprism Eulerian orientations 2+2 Lucas number reconfiguration graph",
+          "triangular belt oriented antiprism flux enumeration"
+        ]
+      },
+      "rationale": "Felsner establishes lattice structure for planar prescribed-outdegree orientations under general face flips; Creed treats Eulerian face-flip chains on triangular lattice graphs. Neither cited source directly states a four-component graph for antiprisms with the cap moves forbidden. Lucas cubes and their metric/vertex/edge formulas are prior work; originality is exclusively the exact flux-sector realization and restricted reconfiguration identification. Best-of-knowledge PASS with possible earlier ice/height-function alias risk.",
+      "residual_risks": [
+        "An unindexed antiprism orientation/ice/height-function treatment might state this identical sector decomposition.",
+        "The closest broad face-lattice and Lucas-cube primary full papers were not inspected; no full-text noncoverage claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential general machinery; insufficient to rule out implicit restricted-face corollary.",
+          "evidence": [
+            "General planar prescribed-outdegree orientations form distributive lattices."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1768",
+          "material_read": "Journal abstract with scope and bibliographic metadata; full PDF not inspected",
+          "method": "Publisher journal landing page and bibliographic search",
+          "title": "Lattice Structures from Planar Graphs",
+          "trigger": "General prescribed-outdegree orientation and face reversal theory"
+        },
+        {
+          "assessment": "Studies mixing chains under face flips in a different graph class, no exact sector statement in inspected material.",
+          "evidence": [
+            "Polynomial mixing on solid triangular-lattice subgraphs, not specified antiprism belt."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cs/0703031",
+          "material_read": "Primary abstract only; full paper not read",
+          "method": "arXiv metadata and abstract",
+          "title": "Sampling Eulerian orientations of triangular lattice graphs",
+          "trigger": "Related face reversal dynamics"
+        },
+        {
+          "assessment": "Treat Lucas enumeration and standard graph metrics as prior, not novel.",
+          "evidence": [
+            "Munarini–Perelli Cippo–Zagaglia Salvi, Fibonacci Quarterly 39 (2001), 12–21."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/39-1/munarini.pdf",
+          "material_read": "Bibliographic citation and author publication list, not full paper",
+          "method": "Author bibliography and source references",
+          "title": "On the Lucas Cubes",
+          "trigger": "Exact Lucas cube parameters already known"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full reconfiguration-graph decomposition of a canonical planar 4-regular polyhedron distinguishes conserved flux sectors, frozen orientations and isometric median components. It is a natural structural theorem with exact shortest-move distances, not simply an isolated Lucas-number recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Face moves exclude both cap faces even for n=3; allowing cap reversals changes components.",
+    "Only the listed antiprism family with degree-2 in/out orientations; finite independent enumeration n=3,4 is corroboration."
+  ],
+  "schema_version": 1
+}
