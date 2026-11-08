@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:16:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md equation system, fold, eigenvalues and asymptotic Steps 1-4, blob 81f7a0af199ab758d64050475d2398e871aaef70",
+        "Assigned verify.py symbolic Laplacian and bounded stable-phase tests, blob 54feaddf8a72e769e969cbe6578b537ff665f22b",
+        "Independent scalar fold calculation and asymptotic coefficient inspection"
+      ],
+      "rationale": "Direct subtraction of phase equations enforces sin(u)=sin(v); the complementary v=pi-u branch has weighted Laplacian trace -2b<0, forbidding attraction (including branch crossings). Symmetric branch phases (-phi,0,phi) obey omega=a[sin phi+q sin(2phi)], q=2^p, a=3K/[2(q+2)]. Positive nonneutral decay rates are 3a cos phi and a(cos phi+2q cos 2phi). Strict h_q concavity on (0,pi/2), explicit fold cos phi*=(sqrt(1+32q^2)-1)/(8q), and positive-derivative side prove exactly one stable lock iff K> Klock=2omega(q+2)/[3 sin phi*(1+2q cos phi*)]. Its envelope derivative sin(phi*)(4cos(phi*)-1)/(q+2)^2 is positive q>=1, hence strictly decreasing Klock. Expansion gives Klock=(2omega/3)[1+(2-1/sqrt(2))/q+O(q^-2)]. For fixed K>2omega/3 the vanishing slow eigenvalue is 9K cos(phi_infty)/(2q)+O(q^-2), other rate tends positive; gap vanishes also at the lower onset fold for budgets within the crossover window, yielding an interior positive maximum. Independently checked numeric q=1 Klock/omega=1.1362522107, q=2 0.9747247402 and high-q approach. The inspected verify.py explicitly tests eigenvectors and 400 stationary spectra; finite sampling not used for uniqueness proof.",
+      "residual_risks": [
+        "No proof of unique exponent maximizing the relaxation gap; theorem claims existence only. The limit p=infinity is disconnected, not exponentially stable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pando large-N/strong-lock approximations are not an exact N=3 theorem",
+          "Zhao–Zhou isosceles zero-detuning case",
+          "Xin et al. standard uniform-coupling three/four oscillators"
+        ],
+        "reasoning": "Neither approximation nor distinct parameter assumptions dominate a finite detuned power-weighted budget theorem; no general arbitrary-weight triangle result proved to imply the formula was located.",
+        "searches": [
+          "arXiv:2603.29648v2 analytical and supplemental parts",
+          "arXiv:2407.11314v2",
+          "doi:10.1109/ACC.2016.7525284"
+        ]
+      },
+      "checked_sources": [
+        "Pando et al. arXiv:2603.29648v2 full HTML and supplementary material",
+        "Zhao–Zhou arXiv:2407.11314",
+        "Xin–Kikkawa–Liu ACC 2016 DOI:10.1109/ACC.2016.7525284",
+        "Resultary semantic query three Kuramoto oscillators detuned symmetric frequency power weighted couplings fixed budget sharp synchronization threshold gap relaxation 2^-p"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local stable-mode eigenvalues require using both Laplacian sectors on the symmetric detuned branch",
+          "General budget design heuristics do not show a strictly decreasing N=3 locking threshold simultaneous with asymptotic rate collapse"
+        ],
+        "reasoning": "The exhaustive sine-equality branch splitting, concave fold and 2^-p eigenvalue asymptotic add mathematical content not supplied by published strong-lock approximations.",
+        "searches": [
+          "arXiv:2603.29648v2 model and strong-coupling discussion",
+          "arXiv:2407.11314 equilibrium classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pando et al. 2026 defines same coupling normalization and discusses intermediate exponents in large ensembles",
+          "Current theorem establishes exact three-node threshold monotonicity with spectral gap vanishing as 2^-p"
+        ],
+        "reasoning": "Similar allocation mechanism and design intuition do not establish this exact finite-motif local stability classification or relaxation asymptotic.",
+        "searches": [
+          "three Kuramoto oscillators detuned symmetric frequency power weighted couplings fixed budget sharp synchronization threshold gap relaxation 2^-p",
+          "arXiv:2603.29648v2 fixed-budget proportional coupling",
+          "arXiv:2407.11314"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary oscillator records address Stuart–Landau, repulsive discrete triangles or four-node Braess effects",
+          "No same q=2^p sharp threshold table or exact all-p decay asymptotic in checked results"
+        ],
+        "reasoning": "An exact function and optimizing parameter regime, not a known table lookup; search absence is only bounded evidence.",
+        "searches": [
+          "three Kuramoto oscillators detuned symmetric frequency power weighted couplings fixed budget sharp synchronization threshold gap relaxation 2^-p",
+          "Resultary Kuramoto spectral gap optimal fixed budget three nodes power allocation"
+        ]
+      },
+      "rationale": "Pando et al. arXiv:2603.29648v2 use the exact same proportional detuning power allocation under a budget but study large random-frequency ensembles and approximate strong-lock behavior; inspected primary full HTML does not establish the exact three-frequency fold or two-mode spectral relaxation tradeoff. Zhao–Zhou concern isosceles triangles without detuning; Xin–Kikkawa–Liu use uniform coupling. Best-of-knowledge the exact N=3 power-law design result is not implied.",
+      "residual_risks": [
+        "Potential overlooked specialized small-network coupling optimization or stronger weighted Kuramoto-triangle theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological predecessor; no exact detuned three-node sharp fold or p-dependent spectral gap",
+          "evidence": "arXiv:2603.29648v2 model and strong-coupling sections",
+          "identifier_or_url": "https://arxiv.org/html/2603.29648v2",
+          "material_read": "Full accessible primary HTML: model/normalization, analytical sections, numerical studies and supplementary strong-coupling portions",
+          "method": "Read primary full HTML and relevant supplement",
+          "title": "Enhanced synchronization with proportional coupling in Kuramoto oscillator networks under a fixed coupling budget",
+          "trigger": "Same exact proportional coupling rule and budget"
+        },
+        {
+          "assessment": "Zero intrinsic-frequency mismatch excludes the detuned forced fold here",
+          "evidence": "arXiv:2407.11314, model assumptions",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.11314",
+          "material_read": "Model, assumptions and stability scope from accessible source description; not represented as full-paper reading",
+          "method": "Primary bibliographic abstract/model scope and comparison",
+          "title": "Critical Points, Stability, and Basins of Attraction of Three Kuramoto Oscillators with Isosceles Triangle Network",
+          "trigger": "Same graph size and equilibrium classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md exact Klock and 2^-p eigenvalue formula",
+        "Pando et al. 2026 introduction motivates frequency-based fixed-budget synchronization"
+      ],
+      "rationale": "The same fixed coupling budget creates opposing objectives even at the smallest heterogeneous oscillator motif: exact sharp onset improves monotonically while spectral convergence becomes exponentially slow, forcing a finite rate-optimal allocation exponent for every budget in a natural crossover interval. Precise rates and normalization could guide motif-scale design.",
+      "residual_risks": [
+        "Only symmetric detuning, local linear rate, and finite exponent; no global synchronization performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to finite p and three symmetrically detuned oscillators; self-links are excluded from budget.",
+    "The exponent maximizing rate is not claimed unique and basin sizes are not evaluated."
+  ],
+  "schema_version": 1
+}
