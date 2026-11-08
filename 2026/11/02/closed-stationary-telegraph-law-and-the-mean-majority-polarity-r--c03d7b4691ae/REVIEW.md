@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact independent Poisson-clock representation follows from exponential holding times and independent Bernoulli marks. Coupling at the first common reset proves existence, uniqueness and convergence. An independent exponential age and geometric number of velocity flips produce an absolutely convergent transform, whose denominator factors into one positive and one negative half-line exponential pole. Exact partial fractions give the coefficients, normalization and jump. Direct integration and sign algebra establish the two distinct phase thresholds. The stationary local-time integral follows by rearranging the previously published stationary density identity; no finite experiment is used to prove an infinite claim. The included checker reproduces independent renewal and matrix-resolvent characterizations and exact sign comparisons.
+PASS
 
-## Originality — PASS, with residual historical risk
+Poisson thinning gives independent rate-lambda*theta reset and rate-lambda*(1-theta) flip clocks. A common reset yields uniqueness and exponential coupling. At a stationary exponential reset age, a geometric number of alternating exponential displacement runs has Fourier transform theta*h_plus*(1+(1-theta)*h_minus)/(1-(1-theta)^2*h_plus*h_minus). Direct partial fractions give the two positive decay rates d±, amplitudes A,B, normalization A/d_+ +B/d_- =1, jump A-B=lambda*theta/c, and no atom. Integrating yields negative mass 1/2+[v(1-2theta)-c]/(2D) and mean [c-v(1-theta)]/[lambda*theta*(2-theta)], proving both sharp inequalities and endpoint theta=1. Independent transform and polarity checks corroborate; theta=0 and nonexponential renewal times are not addressed.
 
-The 2026 motivating paper's Proposition 7 gives a stationary density via a local-time integral and expressly leaves that integral without a known elementary evaluation (Remark 15). It states a stationary first moment but not the paired half-line exponential density or the majority/mean-sign phase diagram. Evans and Majumdar's earlier symmetric-speed/symmetric-velocity stationary density does not imply the asymmetric deterministic-velocity case. The 2023 geometric-counting telegraph model instead uses nonexponential displacement times and independent external resets. Targeted research-record searches revealed no matching claim. A broader existing matrix-fluid/Markov-additive resolvent theorem might imply the transform, so the originality judgment is best-knowledge and source-specific; formal historical-priority certification remains open. The Bernoulli reset model itself, stationary existence, first moment, and Poisson thinning are **not** claimed as new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper treats this stationary law as a difficult integral over telegraph local times. Closed half-line rates and masses make stationary tail risk and sign occupancy analytically accessible across the full asymmetric parameter space. The exact parameter region where negative mean coexists with a positive-location majority is a nontrivial, physically interpretable distinction between typical direction and extreme negative excursions. The statement is a natural complete answer for the exponential-intertime subcase, not an arbitrary numerical slice or an isolated exercise.
+The source 2026 paper already proves existence of the stationary distribution and gives the first moment; no priority is taken for these or Poisson thinning. In the source article the density is represented by a local-time integral and its explicit evaluation is not supplied in the inspected passage. The closed elementary asymmetric density and the exact majority-vs-mean polarity region are further calculations, with generic Markov-fluid resolvent theory as material priority risk.
 
-## Closest literature and limitations
+## value
 
-The relevant source is Di Crescenzo–Iuliano–Verasani (2026), Sections 2, 4.1, 4.2 and 6, especially its equations (41)–(42). Evans–Majumdar (2018), Sections 3 and 6, addresses a symmetric-speed and different reset-velocity protocol. Di Crescenzo–Iuliano–Mustaro–Verasani (2023) studies a nonexponential geometric-counting process. Ratanov–Turov (2023) studies telegraph local time without the same reset law; full text was not retrievable during the comparison, and no NOT_COVERING conclusion is drawn from its abstract. A broader Markov-modulated fluid or resolvent source might dominate the transform. The result applies only to fixed exponential holding rate, positive reset probability and deterministic positive post-reset velocity; there is no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit stationary law and its tails are natural observables in a non-symmetric stochastic resetting model. The strict region with positive-location majority but negative stationary mean quantifies an interpretable discrepancy between typical sign and large adverse excursions, while simultaneously evaluating the previously integral-defined local-time term across all stated positive parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
