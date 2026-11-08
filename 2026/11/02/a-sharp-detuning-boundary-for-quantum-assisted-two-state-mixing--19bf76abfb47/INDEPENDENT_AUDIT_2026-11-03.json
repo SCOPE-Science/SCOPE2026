@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:48:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pauli commutators give the 3x3 Bloch generator M with initial z=1. At b=0 the y,z-plane is damped rotation and at a=0 z obeys the classical scalar equation. For ab≠0 the symmetric part of N=M+2γI is diag(4γ,0,0), and its eigenvector equations force first component nonzero; all eigenvalues of N have positive real part. Analogously M has strictly negative real spectrum. Hence e^(2γt)z(t), a nonzero exponential polynomial with all exponents of positive real parts, is unbounded in absolute value; its leading finite trigonometric polynomial has positive mean square. Taylor gives z(t)-e^(-2γt)=-2a²t²+O(t³). The exact Laplace resolvent P_b(s),Q_b(s) and simple pole at zero at b=0 give λ_s=-2γb²/(γ²+a²)+O(b⁴) and A_s=a²b²/(γ²+a²)²+O(b⁴). Independently checked numerical matrix exponentials for several real a,b,γ and eigenspectrum in the off-axis case; finite tests corroborate rather than prove universal spectral argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "He et al. central class Hamiltonian theorem applies only to commuting group-algebra terms; b σ_z excluded",
+          "Bressanini et al. use dephasing/fidelity-based classicalization rather than bit-flip output-to-uniform TV"
+        ],
+        "reasoning": "General open-system spectral methods cover the modeling framework, but no verified stronger statement implies the exact all-a,b boundary. Control-optimized quantum property preservation is a separate setup.",
+        "searches": [
+          "two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap",
+          "arXiv:2408.11262",
+          "DOI:10.1007/s11128-022-03647-x"
+        ]
+      },
+      "checked_sources": [
+        "He et al., arXiv:2609.13387 (2026-09-11)",
+        "Whitfield et al., arXiv:0905.2942",
+        "Bressanini et al., DOI:10.1007/s11128-022-03647-x",
+        "Resultary semantic search: two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S2, permutation-algebra Hamiltonian is span{I,σx}; detuning bσz is not in span",
+          "General Lindblad formalism gives evolution equation, not automatically a global-time relative-output inequality"
+        ],
+        "reasoning": "Prior central-commuting acceleration theorem implies the b=0 axis; it does not imply the ab≠0 slow residue and unbounded ratio. Our theorem does not contradict prior result.",
+        "searches": [
+          "two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap",
+          "arXiv:2609.13387",
+          "arXiv:0905.2942"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He et al. September 2026 two-state b=0 formula D=e^(-2γt)|cos(2at)|/2; Whitfield et al. general quantum stochastic walk"
+        ],
+        "reasoning": "Equivalent output-distance comparison for commuting permutation Hamiltonian is covered, but its b=0 formula does not yield behavior at b≠0. Comparisons distinguish population TV from trace and quantum-classical trajectory distance.",
+        "searches": [
+          "two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap",
+          "arXiv:2609.13387",
+          "arXiv:0905.2942"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior two-state explicit formula uses b=0 and no detuned spectral residue table"
+        ],
+        "reasoning": "Exact detuned characteristic polynomial, residue coefficient, and iff region are not identified in accessed published formulae; failed lookup is not proof of absence.",
+        "searches": [
+          "two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap",
+          "arXiv:2609.13387"
+        ]
+      },
+      "rationale": "The central/permutation-group algebra quantum-stochastic-walk two-state acceleration formula is prior work. The b σ_z detuning is outside that commuting Hamiltonian family; the all-time iff classification and quadratic, nonzero late-time pole residue are not implied by that theorem or the general Lindblad formalism. Best-of-knowledge PASS with primary-paper full-text access limitation.",
+      "residual_risks": [
+        "Primary 2026 He et al. full text inaccessible in current run; arXiv/OA and authorized institutional access attempted, VPN disconnected, cannot exclude all same-paper derivations.",
+        "The classification concerns population-distance relative asymptotics only, not trace distance or first-hitting mixing time.",
+        "General decoherence-free/slow-mode principles are prior art; only the exact two-parameter comparison is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_INSPECTED; establishes commuting reference axis only; could contain additional unpublished-in-abstract discussion",
+          "evidence": "ArXiv abstract and cited section 5; no whole-document NOT_COVERING inference",
+          "identifier_or_url": "arXiv:2609.13387",
+          "material_read": "Abstract, bibliographic information, and two-state result as quoted in assigned research package; primary full text not obtained",
+          "method": "arXiv metadata/open routes; authorized institutional follow-up reported vpn_disconnected",
+          "title": "Quantum Stochastic Walks on the Permutation Group",
+          "trigger": "Same two-state noise mechanism and reference classical comparison"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK, not an exact two-state detuning comparison",
+          "evidence": "Lindblad/QSW model",
+          "identifier_or_url": "arXiv:0905.2942",
+          "material_read": "Abstract and cited formulation of quantum stochastic walks",
+          "method": "OA search and matched publication description",
+          "title": "Quantum stochastic walks: A generalization of classical random walks and quantum walks",
+          "trigger": "General dynamical formulation"
+        },
+        {
+          "assessment": "Different noise channels and metric; no blanket claim that article lacks all related equations",
+          "evidence": "Fidelity-based dynamical comparison and graph-jump/dephasing setup",
+          "identifier_or_url": "DOI:10.1007/s11128-022-03647-x",
+          "material_read": "Open abstract and study description; not all pages",
+          "method": "Open-access publication search",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Alternative decoherence-comparison formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharply locates the loss of all-time output-mixing improvement under an arbitrarily small physically natural diagonal energy detuning, including the singularly slow late-time relaxation with small spectral weight. The small amplitude prevents conflation with first-hitting mixing-time deterioration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "He et al., arXiv:2609.13387 (2026-09-11)",
+    "Whitfield et al., arXiv:0905.2942",
+    "Bressanini et al., DOI:10.1007/s11128-022-03647-x",
+    "Resultary semantic search: two state quantum stochastic walk bit flip detuning noncommuting Hamiltonian computational basis mixing slow eigenvalue spectral gap"
+  ],
+  "disposition": "passed",
+  "final_claim": "The computational-basis distance of a single-qubit two-state bit-flip stochastic walk never exceeds its classical reference at all times iff coherent hopping a or constant detuning b vanishes; for nonzero a,b there is initial improvement but unbounded late-time relative ratio, with slow eigenvalue and residue both quadratic in small b.",
+  "limitations": [
+    "Primary 2026 He et al. full text inaccessible in current run; arXiv/OA and authorized institutional access attempted, VPN disconnected, cannot exclude all same-paper derivations.",
+    "The classification concerns population-distance relative asymptotics only, not trace distance or first-hitting mixing time.",
+    "General decoherence-free/slow-mode principles are prior art; only the exact two-parameter comparison is assessed.",
+    "Some original primary documents were accessible only through abstracts; no claim of exhaustive historical novelty or external certification.",
+    "Saved verification logs alone were not treated as proofs."
+  ],
+  "residual_risks": [
+    "Primary 2026 He et al. full text inaccessible in current run; arXiv/OA and authorized institutional access attempted, VPN disconnected, cannot exclude all same-paper derivations.",
+    "The classification concerns population-distance relative asymptotics only, not trace distance or first-hitting mixing time.",
+    "General decoherence-free/slow-mode principles are prior art; only the exact two-parameter comparison is assessed."
+  ],
+  "schema_version": 1
+}

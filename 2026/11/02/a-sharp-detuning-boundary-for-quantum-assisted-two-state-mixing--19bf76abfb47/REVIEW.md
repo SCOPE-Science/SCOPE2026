@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Bloch generator is obtained from the stated Lindblad equation with the Pauli normalization fixed. Its two axis reductions recover a known cosine identity and a scalar classical decay, respectively. The second-order short-time expansion gives a negative strict defect for nonzero coherent hopping. For nonzero hopping and detuning, the Hermitian parts of the shifted and unshifted Bloch generators put every eigenvalue strictly between the classical decay abscissa and zero, while the nonzero exponential-polynomial output forces an unbounded ratio to the classical output distance along a sequence of late times. The rational Laplace transform, implicit root and simple-pole residue give the stated coefficients. These arguments cover every real pair of coefficients and every positive noise rate, with the perturbative expansion taken at fixed positive rate and nonzero hopping. The supplied exact-arithmetic checker tests algebraic identities and a rigorously bounded witness; finite tests are not substituted for the analytical argument.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+Pauli commutators give the 3x3 Bloch generator M with initial z=1. At b=0 the y,z-plane is damped rotation and at a=0 z obeys the classical scalar equation. For ab≠0 the symmetric part of N=M+2γI is diag(4γ,0,0), and its eigenvector equations force first component nonzero; all eigenvalues of N have positive real part. Analogously M has strictly negative real spectrum. Hence e^(2γt)z(t), a nonzero exponential polynomial with all exponents of positive real parts, is unbounded in absolute value; its leading finite trigonometric polynomial has positive mean square. Taylor gives z(t)-e^(-2γt)=-2a²t²+O(t³). The exact Laplace resolvent P_b(s),Q_b(s) and simple pole at zero at b=0 give λ_s=-2γb²/(γ²+a²)+O(b⁴) and A_s=a²b²/(γ²+a²)²+O(b⁴). Independently checked numerical matrix exponentials for several real a,b,γ and eigenspectrum in the off-axis case; finite tests corroborate rather than prove universal spectral argument.
 
-The exact two-state commuting cosine formula and the global mixing inequality for central Hamiltonians are in He, Hutsalyuk, Mussardo and Stampiggi, *Quantum Stochastic Walks on the Permutation Group* (2026), arXiv:2609.13387, Section 5. They explicitly identify commutation as essential for their argument and do not give the present off-axis iff condition, ratio reversal, and small-detuning amplitude–rate law in the examined full text. The detuning Hamiltonian lies outside the two-state permutation-group-algebra family, so the new theorem is a boundary under an extra on-site energy rather than a correction of their theorem. Bressanini, Benedetti and Paris (2022), DOI:10.1007/s11128-022-03647-x, examine graph decoherence through a different fidelity-based quantum/classical dynamical distance and different site-jump/dephasing operators. General stochastic-walk formulations and controlled bit-flip qubit results provide ingredients, not the specific all-time observable comparison in the examined material. General optical Bloch perturbation literature could contain implicit coverage, and the comparative search cannot certify exhaustive novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp condition distinguishes Hamiltonian perturbations that preserve the all-times quantum-assisted two-state mixing guarantee from those that defeat it at sufficiently late times. The small-detuning eigenvalue and residue quantify how a weak off-axis term activates a long-lived but initially low-weight mode. This is a motivated robustness boundary for a specifically recent open-system mixing theorem, not merely an arbitrary finite numerical instance. It does not establish improvements in fixed-tolerance hitting times or general multi-state walks.
+The central/permutation-group algebra quantum-stochastic-walk two-state acceleration formula is prior work. The b σ_z detuning is outside that commuting Hamiltonian family; the all-time iff classification and quadratic, nonzero late-time pole residue are not implied by that theorem or the general Lindblad formalism. Best-of-knowledge PASS with primary-paper full-text access limitation.
 
-## Limitations and priority risks
+## value
 
-The claim concerns a single qubit, a single unitary bit-flip Poisson jump, one constant detuned Hamiltonian, one computational measurement basis, and a fixed classical comparator. General Bloch spectral perturbation results might subsume elements of the proof, and independent publication-priority and mathematical audits have not been performed. The related 2025 qubit-control literature was inspected in relevant excerpts rather than exhaustively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This sharply locates the loss of all-time output-mixing improvement under an arbitrarily small physically natural diagonal energy detuning, including the singularly slow late-time relaxation with small spectral weight. The small amplitude prevents conflation with first-hitting mixing-time deterioration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
