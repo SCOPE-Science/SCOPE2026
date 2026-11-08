@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph is explicitly specified by its LCF Hamiltonian presentation. Independent breadth-first and Floyd–Warshall distances agree. The verifier checks all 96 elementary free-face collapses of the radius-two complex against every extant coface. At radius three, the excluded pairs form precisely six disjoint four-cycles; the exact join decomposition gives an integral homotopy equivalence with a five-sphere. Face enumeration independently agrees with the join polynomial. The persistence maps follow from the radius-two collapse and degree separation. Computational exhaustion is finite, justified by the precisely specified 24-vertex domain, and is not an unbounded theorem.
+
+**Originality — PASS relative to inspected evidence.** The full primary text of Adamaszek's *Clique complexes and graph powers* proves girth stability through radius two, not at radius three for girth seven. The indexed same-graph ordinary independence-complex result also gives a five-sphere but excludes original graph edges; this result excludes edges at distance four. A similar Nauru Rips result concerns a different graph. Exact alias, graph-power, complementary independence-complex, parameter and barcode searches found no inspected prior claim implying the radius-three McGee result. The accessible same-graph indexed record was not available as full text, and publication priority remains subject to other unindexed work.
+
+**Value — PASS.** This is the full integral homotopy and persistence classification of the shortest-path Rips filtration of the canonical (3,7)-cage. Its nontrivial radius-three five-sphere is reached beyond the standard high-girth stability range, with an explanatory six-cycle-component join rather than an isolated numerical Betti computation. The natural graph and complete barcode make the exact finite classification mathematically useful.
+
+**Limitations.** No generalization to all cages, continuous edge metrics, or equivariant classifications is claimed. The verification uses deterministic exhaustive finite computation plus standard simplicial-collapse and join facts. The self-review is not an independent mathematical audit; possible unindexed priority and inaccessible full-text risks remain.
+
+Self-review: passed. Independent audit: not yet performed.
