@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The normalization \(\mathcal A h_k=e^{-t/2}L_k(t)\) reduces the disk's squared singular-value optimization to a scalar polynomial-weighted minimum. Beyond all roots, both component functions decrease, so the active constraints are the compact Laguerre zero neighborhoods and the outer disk boundary. The compact envelope rises linearly at slope \(c_{m,n}>0\); the outer value decreases affinely in the lower-order weight. Their unique crossing gives the asserted optimizer and sharp second-order deficit. The ordinary Laguerre recurrence proves all consecutive-order instances; the explicit root comparison proves the smaller second-order zero circle is the bottleneck for orders one and two. Finite checker output supports, but cannot prove, the all-radius asymptotic.
+
+**Originality — PASS (provisional bibliographic priority).** Alaifari--Yang (arXiv:2410.05486v1, §2.2/§3.2) use Hermite ambiguity rings and disjoint thresholded reconstruction sets but not optimized common two-channel power splitting. Alaifari--Wellershoff (arXiv:2006.10579v1, §4) establish uniqueness-related statements about Laguerre root circles, not the present maximin. A previously obtained Gaussian-*relative* Hermite polynomial bound removes \(e^{-t}\), giving a different fixed optimum; it does not dominate the new expanding-radius result. The recovered searchable literature did not expose an equivalent theorem, but an earlier specialist result remains possible.
+
+**Value — PASS.** The exact minimum squared multiplier is a natural linear noise-amplification benchmark on the restricted disk. The theorem shows an unexpected design behavior: as the disk grows, the optimal lower Hermite order receives exponentially *less* exposure while still preventing zero-circle instability. It determines the sharp rate, coefficient, and second-order stability loss for every fixed admissible pair, rather than only for one numerical radius.
+
+**Limitations.** There is no effective onset threshold or uniformity for growing orders, no common-root case, no implication of full nonlinear phase-retrieval stability, and no lattice-sampling statement. Bibliographic priority is provisional.
+
+Self-review: passed. Independent audit: not yet performed.
