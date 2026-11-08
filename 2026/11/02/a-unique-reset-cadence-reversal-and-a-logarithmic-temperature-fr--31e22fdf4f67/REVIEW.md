@@ -1,19 +1,21 @@
-# Scientific review: Gaussian reset-clock crossing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely stated Gaussian redraw model, the endpoint symmetrized KL per cycle reduces to \(F_b(t)=\tfrac12(q_b+q_b^{-1}-2)\). The strictly single-inflection curvature and the explicit exponential-versus-deterministic convex-order kernel produce a rigorous unique-crossing proof: its kernel scale family has a strict monotone-likelihood-ratio property, derived using \(2\sinh(v/2)>v\). Independent endpoint asymptotics give the required sign on both sides. The large-reset-contrast scaling uses a uniform rational-kernel approximation and the classical exponential integral. All quantifiers require \(b>0\), with reset times strictly positive; the claim does not include the degenerate width-zero process. The standalone checker passed 197 bounded computations, including independent integration. Finite checks are corroboration, not the proof.
+PASS
 
-## Originality — PASS, with stated comparison limits
+For OU relaxation to variance D/lambda with independent N(0,cD/lambda) redraws, 0<c<1, b=(1-c)/c>0 and x=2lambda/r>0, the symmetrized centered Gaussian endpoint KL per cycle is F_b(t)=(q_b(t)+1/q_b(t)-2)/2 with q_b=1+b(1-e^{-t}). Renewal reward gives periodic rF_b(x), Poisson rE[F_b(xU)] for U~Exp(1). Direct differentiation factors F_b_second=(b e^{-t}/(2q_b³))(2(1+b)-q_b-q_b³), so it changes sign exactly once from positive to negative. The difference Δ=∫F_b_second(s)K_x(s) ds with K_x(s)=x e^{-s/x}-(x-s)_+, positive for s>0, has strictly monotone-likelihood ratio in x due decreasing Q(v)=v h_prime/h with h(v)=e^{-v}-(1-v)_+ (downward jump at v=1). This prevents two zeros and fixes positive-to-negative crossing, while Taylor small-x and integrated saturation large-x establish existence. For b→infinity, at x=xi(log b/b²)^{1/3}, the 1/(1+bu) exponential integral gives normalized Δ→-xi²/4+1/(6xi) uniformly on compact xi>0; the unique zero then gives xi*=(2/3)^{1/3}. At every fixed x>0, Δ/b→.5[x/(1+x)-(1-e^{-x})]<0. Independently integrated Δ numerically for b=1,10,1000 at x=.001,.01,.1,1,10, corroborating one sign reversal without pretending to prove it.
 
-Farago (2026, arXiv:2605.28445) gives the same endpoint Gaussian KL observable and periodic/Poisson formulas **in a singular-width approximation**; the exact finite-width ordering reversal and its unique root are not stated in its inspected full text. The 2024 Olsen–Gupta–Mori–Krishnamurthy finite-time-trap study and 2025 Gupta–Olsen–Krishnamurthy erasure study address physical work rather than this specific endpoint divergence. Mori–Olsen–Krishnamurthy (2023) treats physical entropy production under random resets. Neri (2025) treats random-time protocol information costs. These observations do not eliminate the possibility that an abstract variation-diminishing theorem would imply the single-crossing structure, nor do search results establish mathematical uniqueness of the work in the literature. Specific general-source priority risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a natural and potentially experimentally relevant question left open by a model in which both named reset clocks were already analyzed: which equally frequent clock has the larger *coarse-grained endpoint divergence* when the reset width is finite? The exact answer changes once, and the critical frequency diverges with a nontrivial power combined with a logarithmic correction as the reset width shrinks. This singular-layer classification explains why the standard width-zero calculation predicts the wrong ordering at sufficiently high but finite rates. Neither the distinction nor the threshold is a mere parameter renaming or numerical table entry.
+Qualified PASS. Farago arXiv:2605.28445 explicitly studies this harmonic Gaussian KL benchmark and periodic/Poisson reset rates in a singular-reset-width approximation. This exact finite b single-crossing and logarithmic near-zero-width frontier are not stated in the inspected primary sections, but earlier abstract variation-diminishing/convex ordering results could provide part of the proof. Other physical-work resetting papers use different observables and cannot be treated as this result.
 
-## Limitations and evidence
+## value
 
-The endpoint divergence is a lower-bound-style coarse-grained information benchmark, not measured physical dissipation or implementation work. Harmonic Gaussian dynamics and independent complete reset redraws are required. The most relevant cited full text was read; some adjacent works were inspected only in available abstract or selected full-text portions, so external priority remains provisional. Exact analytical steps and reproducible bounded calculations are provided separately. No independent audit or experimental validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The comparison of fixed and exponential renewal clocks at equal mean duration is a natural resetting benchmark; the sign of their endpoint KL reward-rate difference is not obvious due one-inflection response. A unique threshold at each finite reset variance and an explicit (log b/b²)^{1/3} boundary quantify a noncommuting zero-width/high-rate limit, useful for rigorous modeling of reset-clock design. Does not claim full thermodynamic work or entropy production.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:12:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For OU relaxation to variance D/lambda with independent N(0,cD/lambda) redraws, 0<c<1, b=(1-c)/c>0 and x=2lambda/r>0, the symmetrized centered Gaussian endpoint KL per cycle is F_b(t)=(q_b(t)+1/q_b(t)-2)/2 with q_b=1+b(1-e^{-t}). Renewal reward gives periodic rF_b(x), Poisson rE[F_b(xU)] for U~Exp(1). Direct differentiation factors F_b_second=(b e^{-t}/(2q_b³))(2(1+b)-q_b-q_b³), so it changes sign exactly once from positive to negative. The difference Δ=∫F_b_second(s)K_x(s) ds with K_x(s)=x e^{-s/x}-(x-s)_+, positive for s>0, has strictly monotone-likelihood ratio in x due decreasing Q(v)=v h_prime/h with h(v)=e^{-v}-(1-v)_+ (downward jump at v=1). This prevents two zeros and fixes positive-to-negative crossing, while Taylor small-x and integrated saturation large-x establish existence. For b→infinity, at x=xi(log b/b²)^{1/3}, the 1/(1+bu) exponential integral gives normalized Δ→-xi²/4+1/(6xi) uniformly on compact xi>0; the unique zero then gives xi*=(2/3)^{1/3}. At every fixed x>0, Δ/b→.5[x/(1+x)-(1-e^{-x})]<0. Independently integrated Δ numerically for b=1,10,1000 at x=.001,.01,.1,1,10, corroborating one sign reversal without pretending to prove it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen et al. arXiv:2310.11267 discuss finite-time stochastic reset thermodynamic work.",
+          "Farago arXiv:2605.28445 focuses on heat-engine entropy approximation."
+        ],
+        "reasoning": "General stochastic/convex-order principles can compare globally convex or concave F, but F_b changes curvature sign exactly once. An abstract variation-diminishing theorem could imply at-most-one zero, but inspected sources did not give the exact kernel ratio or b-log scaling, and separate physical work is not identical to endpoint KL.",
+        "searches": [
+          "Resultary semantic search: Ornstein Uhlenbeck Gaussian resetting endpoint symmetrized KL Poisson periodic mean rate unique crossing logarithmic",
+          "general convex order exponential deterministic interval one inflection S-shaped function variation diminishing",
+          "Olsen Gupta Mori Krishnamurthy physical resetting work random waiting time"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md, SLOGAN.txt, verify.py, METADATA.json, AUDIT.json schema, REVIEW.md, VERIFICATION.md inspected at frozen source",
+        "Resultary semantic query; nearest result Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode (2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4) concerns sensors and spectral OU modes rather than reset-cycle KL",
+        "arXiv:2605.28445; arXiv:2310.11267; arXiv:2211.15372; DOI:10.1038/s42005-025-02277-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2605.28445 directly supplies KL endpoint definition and singular-width approximate clock formulas, not the finite-b unique root or boundary.",
+          "Mori–Olsen–Krishnamurthy arXiv:2211.15372 treats stochastic entropy production under position resetting."
+        ],
+        "reasoning": "Old singular formulas do not imply the reversed finite-width high-frequency ordering, since the limits b→∞ and x→0 do not commute. The change-of-limit proof needs the uniform reciprocal-integral estimate and exponential-integral logarithm. No prior implication found among inspected physical-work results; an abstract kernel theorem remains a risk.",
+        "searches": [
+          "Resultary semantic search: Ornstein Uhlenbeck Gaussian resetting endpoint symmetrized KL Poisson periodic mean rate unique crossing logarithmic",
+          "Farago 2605.28445 equations 11 17 18 19 singular resetting rates",
+          "Neri thermodynamic cost random time protocols 2025 general theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farago arXiv:2605.28445 Eqs. 11 and 17–19 use harmonic Gaussian KL and compare periodic vs Poisson in singular-width approximations."
+        ],
+        "reasoning": "The observable and clock family are intentionally the same, but the source’s singular c→0 approximation omits the finite-c zero of Δ_b. Noncommutation of b→∞ and x→0 prevents simply substituting into an old formula to obtain the logarithmic frontier.",
+        "searches": [
+          "Resultary semantic search: Ornstein Uhlenbeck Gaussian resetting endpoint symmetrized KL Poisson periodic mean rate unique crossing logarithmic",
+          "Farago resetting heat engine 2026 harmonic Gaussian symmetrized KL periodic Poisson resetting equations",
+          "renewal reward variance relaxation resetting interval convex stochastic order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Farago’s published periodic/Poisson expressions include a singular-width approximation, not an all-b exact x_b table or asymptotic logarithmic coefficient."
+        ],
+        "reasoning": "The claim is a continuous b-family uniqueness plus asymptotic boundary layer. Sample root values in verify.py are diagnostics, not prior known tables; the exact finite-c curve is not a recomputed constant.",
+        "searches": [
+          "Resultary semantic search: Ornstein Uhlenbeck Gaussian resetting endpoint symmetrized KL Poisson periodic mean rate unique crossing logarithmic",
+          "periodic poisson Ornstein Uhlenbeck symmetrized KL finite variance reset rate threshold x_b numerical table"
+        ]
+      },
+      "rationale": "Qualified PASS. Farago arXiv:2605.28445 explicitly studies this harmonic Gaussian KL benchmark and periodic/Poisson reset rates in a singular-reset-width approximation. This exact finite b single-crossing and logarithmic near-zero-width frontier are not stated in the inspected primary sections, but earlier abstract variation-diminishing/convex ordering results could provide part of the proof. Other physical-work resetting papers use different observables and cannot be treated as this result.",
+      "residual_risks": [
+        "General variation-diminishing or total positivity results could reproduce uniqueness abstractly; inspection did not establish exhaustive novelty against that literature.",
+        "Endpoint KL reward rate is a narrow information-theoretic proxy and cannot be reported as full physical reset work, heat, or entropy production."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same observable and important singular-width prior art; finite b one-crossing and log critical frontier absent from the inspected equations and conclusions.",
+          "evidence": "Equation 11 and equations 17–19, scope of singular-width approximations",
+          "identifier_or_url": "https://arxiv.org/abs/2605.28445",
+          "material_read": "Full available arXiv primary text sections defining symmetric endpoint Gaussian KL and periodic/Poisson formulas, especially section II.C and equations 11,17–19",
+          "method": "Primary full-text inspection",
+          "title": "The Resetting Heat Engine: A Thermodynamic Cycle of Thermal Expansion and Compression",
+          "trigger": "same harmonic Gaussian endpoint KL and Poisson-versus-periodic clock comparison"
+        },
+        {
+          "assessment": "Physical trap-switch work for finite-time resets is not endpoint Gaussian symmetrized KL; results do not directly imply claimed order.",
+          "evidence": "Model and physical-work definition",
+          "identifier_or_url": "https://arxiv.org/abs/2310.11267",
+          "material_read": "Accessible full primary introduction, model definition and work-observable description",
+          "method": "Primary scientific text inspection",
+          "title": "Thermodynamic cost of finite-time stochastic resetting",
+          "trigger": "generalized reset clock and physical energy cost"
+        },
+        {
+          "assessment": "Pathwise entropy production in a distinct reset model, not exact endpoint KL cadence phase diagram.",
+          "evidence": "Definitions of entropy production and resetting",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "Accessible primary introduction and stochastic entropy functional definitions",
+          "method": "Primary scientific text inspection",
+          "title": "Entropy production of resetting processes",
+          "trigger": "potential stronger resetting entropy law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison of fixed and exponential renewal clocks at equal mean duration is a natural resetting benchmark; the sign of their endpoint KL reward-rate difference is not obvious due one-inflection response. A unique threshold at each finite reset variance and an explicit (log b/b²)^{1/3} boundary quantify a noncommuting zero-width/high-rate limit, useful for rigorous modeling of reset-clock design. Does not claim full thermodynamic work or entropy production.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md, SLOGAN.txt, verify.py, METADATA.json, AUDIT.json schema, REVIEW.md, VERIFICATION.md inspected at frozen source",
+    "Resultary semantic query; nearest result Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode (2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4) concerns sensors and spectral OU modes rather than reset-cycle KL",
+    "arXiv:2605.28445; arXiv:2310.11267; arXiv:2211.15372; DOI:10.1038/s42005-025-02277-w"
+  ],
+  "disposition": "passed",
+  "limitations": "Independent nondegenerate Gaussian OU redraw 0<c<1, b>0; fixed vs exponential reset-clock mean only; endpoint symmetric Gaussian KL reward, not implementation-dependent physical work, total entropy production or correlated renewal intervals.",
+  "residual_risks": [
+    "General variation-diminishing or total positivity results could reproduce uniqueness abstractly; inspection did not establish exhaustive novelty against that literature.",
+    "Endpoint KL reward rate is a narrow information-theoretic proxy and cannot be reported as full physical reset work, heat, or entropy production."
+  ],
+  "schema_version": 1
+}
