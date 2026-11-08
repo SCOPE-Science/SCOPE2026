@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The complete theorem and its all-size proof are in `RESULT.md`. The included `checker.py` is a standalone standard-Python finite consistency check, not an infinite proof or an independent audit. Execute `python checker.py` to reproduce tests of exact free-face conditions and mod-two simplicial boundary ranks. The executed run reported 3,430 qualifying graphs, 95,179 total initial nonempty faces, 23,172 elementary collapse pairs and 1,430 instances of four-cycles, with all comparisons passing.
+## correctness
 
-The script enumerates all finite connected labeled triangle-free, square-edge-disjoint simple graphs through six vertices, plus cycles, tree paths, square bouquets and randomized qualifying graphs with seven through nine vertices. It separately constructs all simplices of the closed-neighborhood complex, constructs the proposed tetrahedral core, verifies each proposed collapse by testing unique codimension-one cofaces and maximality, then computes reduced mod-two Betti numbers from boundary matrices. It does not establish integral torsion-freeness, infinite quantification or originality; the proof supplies those mathematical steps and literature inspection addresses novelty risk.
+PASS
 
-Independent audit has not been performed.
+At a center z the pairs of neighbors with another common neighbor encode the squares through z; edge-disjointness makes them a matching. Any other neighbor subset of size >=2 contains a pair with unique common center z, so the descending-cardinality F < F∪{z} removals are genuine free-face collapses. The residual is G with a tetrahedral boundary on each square. One disk per square kills an edge-disjoint primitive cycle; the complementary disks attach trivially, giving (e-v+1-s) circles and s 2-spheres with torsion-free integral homology. Independently recreated the prescribed collapses for C4, C6 and a wedge of two squares, including all current free-face checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A structural, all-size simplicial collapse theorem explains how each edge-disjoint four-cycle contributes a genuine 2-sphere and removes a fundamental cycle, beyond general fundamental-group calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

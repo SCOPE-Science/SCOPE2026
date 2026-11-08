@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A uniform free-face pairing removes all neighbor subsets except edges belonging to four-cycles: each removed subset has a pair of vertices with unique common neighbor, so no additional closed-neighborhood simplex can obstruct the collapse. Descending-cardinality deletion gives legal codimension-one elementary pairs. The remaining four triangular facets per square form a tetrahedron boundary. Splitting those boundaries into two disks identifies the exact circle and sphere counts and primitive inclusion kernel. The independent finite verifier checked 3,430 qualifying graphs, 23,172 elementary collapse pairs and 1,430 square occurrences with mod-two boundary-rank checks; the general theorem relies on the proof, not on finite enumeration.
+## correctness
 
-**Originality: PASS, with residual risk.** The motivating 2025 paper by Matsushita establishes the construction, general fundamental-group correspondence and selected examples, not this square-packing collapse. The closest square-packing neighborhood theorem is for **open** neighborhoods; it therefore does not imply the closed-neighborhood 2-sphere classes. The high-girth prism Čech results and hypercube Čech results concern distinct graph families, primarily with squares sharing edges. Searches for the equivalent intrinsic vertex-centered ball nerve and for broader sparse-square results found no theorem implying the exact statement. Implicit or unindexed coverage remains possible.
+PASS
 
-**Value: PASS.** This is a natural uniform all-size classification with an explicit simple-homotopy reduction and precise information about which initial graph cycles die while independent two-sphere classes appear. It gives mixed one- and two-dimensional examples, free integral homology, and a sharp structural contrast between open and closed neighborhoods; these are not routine normalization checks or single-case computations.
+At a center z the pairs of neighbors with another common neighbor encode the squares through z; edge-disjointness makes them a matching. Any other neighbor subset of size >=2 contains a pair with unique common center z, so the descending-cardinality F < F∪{z} removals are genuine free-face collapses. The residual is G with a tetrahedral boundary on each square. One disk per square kills an edge-disjoint primitive cycle; the complementary disks attach trivially, giving (e-v+1-s) circles and s 2-spheres with torsion-free integral homology. Independently recreated the prescribed collapses for C4, C6 and a wedge of two squares, including all current free-face checks.
 
-**Limitations.** The graph class excludes triangles and intersecting squares, and the homotopy type does not determine higher-radius persistence or equivariant actions. Finite checks do not replace the general proof. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+A structural, all-size simplicial collapse theorem explains how each edge-disjoint four-cycle contributes a genuine 2-sphere and removes a fundamental cycle, beyond general fundamental-group calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
