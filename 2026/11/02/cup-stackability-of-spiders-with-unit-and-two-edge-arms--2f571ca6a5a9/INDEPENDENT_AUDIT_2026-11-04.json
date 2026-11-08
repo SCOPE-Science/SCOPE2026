@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:55:09.385096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S(1^a,2^b) with integers a>=1,b>=2, the target inner long-arm vertex x_1 has eccentricity three. A stack of >=4 anywhere cannot end at x_1; a short leaf receiving >=3 cups is fatal because its only distance-three exit reaches a long-arm end and would create >=4 cups. Each short leaf must therefore either send its untouched one cup to center c or receive the lone original cup of c; after c empties it never refills, and after two unit-leaf incoming moves it has >=3 cups with eccentricity two, so two short leaves cannot both be cleared. For a=1 the four target orbits (c, short leaf, x_1, y_1) have explicit all-occupied legal sequences including parity-dependent b and all finish in 2b+1 moves. Independent BFS graph distances and complete replay checked 236 positive orbit representatives for every b from 2 through 60 and all four target types; independent full state graph obstruction exploration at six small (a,b) combinations found no path to x_1. The symbolic bottleneck/construction proves all unbounded a,b, not finite interpolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fay et al show a=0 long-leg spider is stackable and state at least one unit arm plus several long arms as unresolved.",
+          "Gregor et al show Hamilton-path graphs are stackable; these stars with >=3 arms cannot have Hamilton paths.",
+          "A diameter-three two-pendant-leaf obstruction resembles the new local bottleneck but does not directly cover diameter-four mixed spider construction."
+        ],
+        "reasoning": "Neither inspected broader family theorem implies this all-target classification. Existing a=0 cases are properly excluded from novelty.",
+        "searches": [
+          "arXiv:2310.06192 version 2 spider subsection",
+          "arXiv:2401.06189 Theorem 1 and diameter-three obstruction Lemma 17"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md, verify_cup_spiders.py, tree 36ca4f6c7e9b5a9d543075d7562042b8c5a39476",
+        "arXiv:2310.06192 full PDF spider section",
+        "arXiv:2401.06189 full PDF",
+        "Veselovac thesis secondary citation only",
+        "Resultary semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For b>=2 the mixed spiders have a+b>=3 leaves, excluding Hamilton paths and that sufficient theorem.",
+          "a=0 case is prior; a=1 constructive and a>=2 obstruction are not immediate consequences of earlier a=0 theorem."
+        ],
+        "reasoning": "The known structural results leave a genuine new mixed-arm boundary: both a=1 success and a>=2 failure need new move-level arguments.",
+        "searches": [
+          "Fay/Hurlbert/Tennant arXiv:2310.06192 spider Theorem 5/open-question text",
+          "Gregor et al arXiv:2401.06189 Hamilton path and leaf-obstruction statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The game transfers all k cups from occupied u to occupied v at graph distance k; not the sport of cup stacking, token swapping or graph pebbling.",
+          "Starfish/long-leg spider existing results include a=0, while this theorem concerns a>=1, b>=2."
+        ],
+        "reasoning": "Checked frog-jumping terminology, target stackability, spiders/starfish, mixed leaves, and Hamilton-path sufficient conditions. Distinct graph games or the a=0 subfamily are not equivalences to this result.",
+        "searches": [
+          "Resultary semantic: cup stacking spider tree mixed unit length two arms all target stackable obstruction",
+          "Fay/Hurlbert/Tennant arXiv:2310.06192 cup stacking spiders",
+          "Gregor/Merino/Mütze/Verciani arXiv:2401.06189 cup stackability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No complete published (a,b) boundary table for a>=1,b>=2 located in inspected primary sources.",
+          "Fay et al explicitly identify gap in mixed-length spider cases."
+        ],
+        "reasoning": "The result supplies an all-integer classification rather than enumerating tiny spiders. Exhaustive a,b samples support only checks, not originality or infinite proof.",
+        "searches": [
+          "Resultary semantic: cup stacking spider tree mixed unit length two arms all target stackable obstruction",
+          "web: cup stacking spider S(1^a,2^b) classification leaves length two"
+        ]
+      },
+      "rationale": "The primary 2023 cup-stacking paper introduces game and expressly leaves mixed short/long spider cases open aside from the one-long-arm subfamily, while proving all arms length >=2. A 2024 Hamilton-path sufficient condition is inapplicable because these spiders have >=3 leaves, and it addresses different graph families. The specific a=1 iff classification with b>=2 uses new obstruction and constructive parity sequences. An original Veselovac thesis and possible later unindexed solution remain priority risks.",
+      "residual_risks": [
+        "Original Veselovac thesis not available; a later unindexed spider subcase could affect priority.",
+        "The theorem classifies global stackability, not all possible feasible targets for a>=2 or longer unequal arms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR known a=0 and one-long-arm results; mixed b>=2 family left for later work",
+          "evidence": "The spider discussion distinguishes all-long-arm stackability from the mixed unit/long arm open case, consistent with new a=1 threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.06192",
+          "material_read": "Primary full PDF: definitions, general lemmas, spider theorem and mixed-arm open cases around spider section; visual screenshot inspected",
+          "method": "arXiv PDF text + screenshot",
+          "title": "Cup Stacking in Graphs",
+          "trigger": "Direct original paper formulates game and spider subproblem"
+        },
+        {
+          "assessment": "COVERS other tree/graph sufficient cases, cannot imply positive for >=3-leaf spiders from Hamilton path",
+          "evidence": "A spider with a+b>=3 leaves lacks a Hamilton path, so a=1 success requires a separate construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.06189",
+          "material_read": "Primary full PDF: Theorem 1 Hamilton-path proof and relevant tree obstruction clauses, screenshot inspected",
+          "method": "arXiv PDF text + screenshot",
+          "title": "Graphs that admit a Hamilton path are cup-stackable",
+          "trigger": "Potential broad sufficient condition might make positive half routine"
+        },
+        {
+          "assessment": "UNREAD primary historical risk; no negative claim about its entire content",
+          "evidence": "The earlier works credit Veselovac for starfish/long-arm spider types; direct thesis was not inspected.",
+          "identifier_or_url": "as referenced in arXiv:2310.06192 and arXiv:2401.06189",
+          "material_read": "Secondary citations in both full papers only; original thesis not obtained",
+          "method": "Referenced primary unavailable",
+          "title": "Veselovac earlier frog-jumping thesis",
+          "trigger": "Older spider/starfish claims might overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a precisely motivated subfamily within a previously identified open problem on which spiders permit every target. The threshold of one unit arm is structurally surprising, and the complete positive construction plus negative target obstruction is independently reusable for other cup games; not an arbitrary isolated small-instance count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md, verify_cup_spiders.py, tree 36ca4f6c7e9b5a9d543075d7562042b8c5a39476",
+    "arXiv:2310.06192 full PDF spider section",
+    "arXiv:2401.06189 full PDF",
+    "Veselovac thesis secondary citation only",
+    "Resultary semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original Veselovac thesis not available; a later unindexed spider subcase could affect priority.",
+    "The theorem classifies global stackability, not all possible feasible targets for a>=2 or longer unequal arms."
+  ],
+  "residual_risks": [
+    "Original Veselovac thesis not available; a later unindexed spider subcase could affect priority.",
+    "The theorem classifies global stackability, not all possible feasible targets for a>=2 or longer unequal arms."
+  ],
+  "schema_version": 1
+}

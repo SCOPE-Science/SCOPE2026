@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify_cup_spiders.py` with Python 3. The verifier computes all pairwise graph distances by BFS from the actual spider edge list. It generates four orbit-representative target sequences on \(S(1,2^b)\) for all \(b=2,\ldots,120\), then checks every source has exactly the distance-many cups, each destination is occupied, no target is emptied, and exactly \(|V|-1\) moves produce one final stack.
+# Independent mathematical audit
 
-The finite checker also uses an independent memoized exhaustive reachability search with no target-origin moves to reject the inner long-arm targets in the nine cases \((a,b)=(2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2),(4,3),(5,2)\). Exhaustive search includes all legal moves involving other vertices (excluding moving cups away from the target, which cannot occur in any successful stacking sequence). The observed result was `VERIFY_OK 476 constructive cases, 9 exhaustive obstruction cases`.
+## correctness
 
-These computations are finite. The theorem for unbounded \(a,b\) requires the obstruction argument and the explicit parity-dependent construction proved in RESULT.md. They have not been independently validated.
+PASS
+
+For S(1^a,2^b) with integers a>=1,b>=2, the target inner long-arm vertex x_1 has eccentricity three. A stack of >=4 anywhere cannot end at x_1; a short leaf receiving >=3 cups is fatal because its only distance-three exit reaches a long-arm end and would create >=4 cups. Each short leaf must therefore either send its untouched one cup to center c or receive the lone original cup of c; after c empties it never refills, and after two unit-leaf incoming moves it has >=3 cups with eccentricity two, so two short leaves cannot both be cleared. For a=1 the four target orbits (c, short leaf, x_1, y_1) have explicit all-occupied legal sequences including parity-dependent b and all finish in 2b+1 moves. Independent BFS graph distances and complete replay checked 236 positive orbit representatives for every b from 2 through 60 and all four target types; independent full state graph obstruction exploration at six small (a,b) combinations found no path to x_1. The symbolic bottleneck/construction proves all unbounded a,b, not finite interpolation.
+
+## originality
+
+PASS
+
+The primary 2023 cup-stacking paper introduces game and expressly leaves mixed short/long spider cases open aside from the one-long-arm subfamily, while proving all arms length >=2. A 2024 Hamilton-path sufficient condition is inapplicable because these spiders have >=3 leaves, and it addresses different graph families. The specific a=1 iff classification with b>=2 uses new obstruction and constructive parity sequences. An original Veselovac thesis and possible later unindexed solution remain priority risks.
+
+## value
+
+PASS
+
+This resolves a precisely motivated subfamily within a previously identified open problem on which spiders permit every target. The threshold of one unit arm is structurally surprising, and the complete positive construction plus negative target obstruction is independently reusable for other cup games; not an arbitrary isolated small-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
