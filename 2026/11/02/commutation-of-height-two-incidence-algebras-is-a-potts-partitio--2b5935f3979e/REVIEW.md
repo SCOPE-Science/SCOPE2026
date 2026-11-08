@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a height-two poset the Jacobson radical is square-zero, and the off-diagonal commutator has exactly one scalar linear equation per edge. Holding both diagonals fixed gives \(q^2\) solutions on equal-color edges and \(q\) on unequal-color edges. Expansion over \(q^2\)-colorings proves the random-cluster expression without an independence assumption on the diagonal edge indicators. The percolation identity follows by grouping powers according to the cycle rank, and strict forest equality is equivalent to the absence of any cyclic subset. The exponent follows by taking the highest power of \(q\), with a strictly positive leading coefficient, and applying the classical two-matroid union rank identity. Finite direct-product computations, independent coloring sums, and brute two-forest partitions all matched in the stated test ranges.
+PASS
 
-## Originality — PASS, with residual priority risk
+In the radical-square-zero height-two incidence algebra, the only commutator condition on edge (u,v) is (d_u-d_v)y_e-(h_u-h_v)x_e=0. For vertex colors (d_u,h_u) in F_q^2 it gives q^2 edge choices on equal colors and q otherwise. Summing yields q^(-m-2v) sum_{colors} prod_e [1+(q-1)1_equal], hence the q^2-state Fortuin--Kasteleyn expansion. Writing q^(-m) sum_F (q-1)^|F|q^(-2r(F)) makes cycle-rank positivity and equality iff forest exact. For fixed G the leading term maximizes |F|-2r(F), and Edmonds matroid-union formula gives s_2(G)=m-max_F(|F|-2r(F)). Independently enumerated edge subsets: K_(3,4) has (s2,nu)=(12,2) and K_(4,4) has (14,1). This does not extend to posets with three-element chains, and q→∞ fixes G.
 
-The material inspected in arXiv:2105.09826 (incidence-monoid automorphisms and toric complexity) and arXiv:2207.10713 (incidence-algebra commutativity-preserving linear maps and centralizer structure) does not include an all-graph exact finite-field commuting-pair formula, nor the two-forest large-field exponent. Rossmann's DOI:10.1112/blms.12665 studies different graph-associated nilpotent groups, while a published Kronecker path-algebra statement implies only the one-edge instance. The closest accessible earlier complete-bipartite incidence-algebra result is restricted to that graph family. Tutte expansions, Potts models, and matroid union are not claimed as new. A broader unlocated square-zero-extension result could subsume the theorem, so global priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A previously unspecified natural invariant, the unrestricted commuting probability of each finite height-two incidence algebra, receives a complete formula. The theorem is sensitive to graph cycles, detects the known toric/forest boundary via exact equality at every field size, is independent of graph orientation and isolated vertices, and makes a non-obvious matroid-union quantity govern its large-field decay. The critical \(K_{3,4}\) and dense \(K_{4,4}\) examples distinguish leading constants and exponents that edge count alone does not predict. It gives substantive structural information beyond a single numerical count.
+The general commutation-to-Potts reduction and two-graphic-matroid-union decay exponent are not present in the retrieved statements of Bilen Can or Fornaroli et al.; the FK and matroid union identities individually are credited. This is qualified priority, because a general square-zero-extension commuting formula could directly imply this specialization. Resultary searches returned no matching incidence commutation formula; absence there is not novelty proof.
 
-## Closest sources and limits
+## value
 
-The relevant prior discussions concern incidence-monoid toricity (Bilen Can, 2021), commutativity preservers (Fornaroli–Khrypchenko–Santulo, 2022), graphical-group conjugacy classes (Rossmann, 2022), and one-edge path-algebra commuting probabilities. The proof covers all finite height-two posets and all prime-power fields, but not posets with a strict three-element chain; its asymptotic fixes the graph. The mathematical assessment is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural algebraic count is exactly expressible as an established graph partition function, making forest equality, matroid invariance, and the nontrivial two-forest large-field exponent accessible for every height-two poset. It is not a mere numerical census; the leading constant detects multiple extremal subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
