@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Finite Birkhoff representation yields an exact ideal formula for pseudocomplement. The proof counts excluded-middle solutions by comparability components and double-negation fixed points by minimal points, then characterizes all connected numerator-denominator pairs by explicit star-plus-chain realizations. Componentwise multiplicativity completes the full spectrum. The elementary inequality \(g(a)g(b)\ge 2g(a+b-1)\), with its strictness conditions, gives sharp defect-specific bounds and unique equality structure. The non-Boolean zero-defect endpoint is handled separately. An exhaustive independent implementation checks all 5,231 naturally labeled posets on up to six points. The finite test is corroboration, not a substitute for the all-size proof.
+## correctness
 
-**Originality — PASS relative to inspected literature, with priority risk.** Bumpus–Kocsis (arXiv:2110.11515, 2021) already prove the excluded-middle \(2/3\) gap, center/regular-set facts, and a \(2/5\) threshold when the sets differ. These are explicitly credited, not treated as new. Their article does not furnish the simultaneous attainable-pair spectrum, the exact denominator threshold for each ratio class, the all-defect sharp envelopes, or the equality cases, and its §6.6 asks for work on relative satisfiability degrees. Evans (arXiv:2209.13704) concerns BCK-algebras, not this Heyting classification. Equivalent Kripke-frame or distributive-lattice literature remains a possible unlocated source.
+PASS
 
-**Value — PASS.** Simultaneous laws are not determined by separate satisfiability-gap classifications. The result gives the complete two-bit distribution of a foundational pair of classical principles in finite intuitionistic semantics, solves a precise relative-degree instance, describes every possible joint value constructively, and identifies exactly which semantic frames maximize agreement at each fixed discrepancy. The endpoints \((2/9,8/9)\) and further hierarchy have a structural, rather than arbitrary, motivation.
+Via the finite Birkhoff ideal representation J(P), the pseudocomplement is the downset whose principal ideals avoid I. The Boolean center is exactly unions of comparability components, giving 2^c excluded-middle solutions; every negation depends only on membership among m minima and its image equals the double-negation fixed set, giving 2^m regular elements and q/p=2^(m-c). Connected components with t minima admit precisely N>=2^t+1 ideals if t>=2 (star with upper chain realizes each), and N>=2 when t=1. Products yield the entire pair spectrum. The inequality g(a)g(b)>=2g(a+b-1), g(1)=2, g(t)=2^t+1, proves sharp positive-defect envelopes, with equality one top above k+1 minima plus isolated points; zero defect nonboolean gives at most 2/3. Independently enumerated all naturally ordered posets of sizes 1..5, counts 1,2,7,40,357, verifying formulas and relevant envelopes. Reviewed verify_joint.py which extends checks to 5231 posets through size 6; finite checks are not universal proof.
 
-**Scientific limitations and access:** Only finite nontrivial algebras and uniform single-element sampling are addressed. The standalone checker exhausts posets through six points, not infinitely many; the general theorem is supported by proof. Searches cannot establish absolute novelty, and a complete survey of equivalent frame descriptions is not asserted. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for COMPLETE simultaneously attainable (p,q) pairs, all positive-defect envelopes and equality cases. Bumpus–Kocsis already supply Boolean center/regular structure, 2/3 nonboolean bound and first 2/5 split, explicitly discussing relative satisfiability-degree classification; these are acknowledged. The exact joint spectrum is not stated or directly implied by the primary theorem passages inspected without an additional realizability/ideal-count argument.
+
+## value
+
+PASS
+
+A natural pair of one-variable logical identities in a finite algebra has a full same-element joint law, complete realization spectrum and sharp defect-specific inequalities. The gap addressed is a motivated algebraic classification arising from a published general degree-of-satisfiability program, not a trivially renamed inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
