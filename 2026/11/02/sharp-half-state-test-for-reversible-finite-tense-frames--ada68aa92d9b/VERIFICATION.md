@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The symbolic argument in RESULT.md is the verification of the general finite result. The included `checker.py` is executable with Python 3 and no third-party packages:
+## correctness
 
-```
-python3 checker.py
-```
+PASS
 
-On execution it enumerates all 50,069 self-maps through size six, checking the sharp cutoff for each and independently counting the rank-refined one-step identities. For sizes through four it tests the modal identity directly for every valuation and every relevant power. It also verifies the sharp chain witnesses through size 30. The output ends in `ALL_CHECKS_OK`.
+For g=f^k, C(X)=g^{-1}(g(X)) is fiber saturation and I(X)=X∩im(g). A mixed fiber gives a singleton separating the composites; saturated image suffices for all X. For a nonpermutation with maximum tail height h, whenever 2k>h a transient vertex u at depth d≤k with d+k>h is outside im(g) but its g-image is a cycle point also reached from im(g); hence failure. The one-ended chain f(i)=min(i+1,n-1) has disjoint g-images of its image and complement when 2k≤n-1, proving sharp K_n=ceil(n/2). Rank-k enumeration bijects to two surjections on complementary image subsets. Independent exhaustive enumeration of all maps through six states matched totals 1,2,12,108,1100,13350. Finite enumeration supports, but does not replace, the argument.
 
-The finite checks do not cover all carrier sizes and are not used as a proof of the quantified theorem; the proof in RESULT.md covers arbitrary nonempty finite carriers. The established statement does not concern arbitrary converse relations, partial functions, infinite carriers, or universal minimal modal depth. No independent mathematical audit has occurred.
+## originality
+
+PASS
+
+Adjacent algebraic background includes finite transformation semigroups, closure/interior adjunctions, and tense semantics; no inspected published statement yields the sharp power n/2 cutoff coupled to the Stirling rank census. The original use of inverse/direct image and Stirling numbers is standard and not claimed.
+
+## value
+
+PASS
+
+One precise finite-state modal identity is characterized by a sharp universal iterate and an exact rank-refined model census. The cutoff distinguishes transient dynamics from permutations and the enumeration measures the exceptional frames; both are natural finite transformation invariants rather than arbitrary parameter arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
