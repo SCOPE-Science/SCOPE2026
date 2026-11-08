@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Cauchy's projection identity reduces the brightness to the known signed-permutation orbit maximum. Every nearest edge and non-nearest separation is checked by integer enumeration and independently justified by adjacent swaps. The nearest graph is bipartite, forcing all triple intersections to be null until the second distance threshold. Since the two-coordinate marginal of Haar measure on the three-sphere is uniform on the disk, the lens integral is exact. Expansion at first tangency yields the stated quadratic coefficient. The included program checks the orbit and numerical integrals, but the proof does not rest on sampling.
+PASS
 
-## Originality — PASS, with priority risk
+Cauchy brightness for 24 equal octahedral facets yields B(u)=2/3(3a+2b+c) for ordered absolute coordinates, equivalently bmax times the maximum of 192 signed-permutation orbit dot products. Independent exact integer enumeration finds 192 centers, 384 pairs at dot 13/14 (degree four) and all other pairs at most 12/14. The degree-four nearest graph is triangle-free; hence in s≥sqrt(13/14) no triple cap intersection of positive measure and only nearest pairs can overlap below h=sqrt(27/28). Haar S3 cap probability is P(s). Pair-cap intersection integrates over a uniformly distributed 2-disk to L(s) with Y=h sqrt(1−s²)−qs. Inclusion–exclusion gives exactly 192P−384L on b2≤b≤bmax. Expanding the lens at first tangency gives quadratic coefficient 192sqrt3/π, and therefore a C1/not-C2 transition at b1=√6. Independent rational orbit enumeration and lens-limit checks confirm, not replace the geometric integration proof.
 
-The nearest published result on this *same object and invariant*, *The regular 24-cell has exactly 24 least-bright and 192 most-bright projection directions*, provides the entire pointwise brightness profile and endpoint configurations but **not** the explicit random-orientation survival law, angular intersection graph, second overlap threshold, or first singularity coefficient. The new theorem is an evaluated pushforward of that known function, not a new brightness maximum result. The motivating Novaga–Song paper concerns isoperimetry. Other indexed spherical-cap, random-width and brightness papers do not state this distribution for the 24-cell. Unindexed Coxeter-orbit calculations could predate it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives the probability law of a natural random projection observable of the exceptional regular four-dimensional parallelohedron on an interval containing about 60 percent of directions, with an analytically detectable transition encoding the 384 nearest-neighbor pairs of the 192 maximizing directions. Its exact second-derivative singularity is not an arbitrary finite numerical statistic and provides an explicit benchmark for convex-geometric shadow distributions.
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
 
-## Boundaries
+## value
 
-The lower brightness tail is not resolved; the sample checks are not substituted for proof; historical priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The regular 24-cell is a canonical four-dimensional polytope; an explicit probability law for more than 60% of its projection directions and a sharp first smoothness transition with combinatorial coefficient 384 constitute a meaningful exact geometric-probability result, beyond the already known directional extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

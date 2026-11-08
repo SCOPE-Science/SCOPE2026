@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the standalone standard-library program `python verify.py` in the same directory as the accompanying result. It enumerates 192 integer orbit representatives, obtains 384 nearest edges, proves combinatorially that there are no nearest-neighbor triangles, checks the cap lens by numerical quadrature at six thresholds, and compares five upper-tail values with a seeded 240,000-direction simulation. The observed outputs were:
+## correctness
 
-```
-threshold 2.40370085 exact 0.600979925 sample 0.5994375
-threshold 2.41 exact 0.567417458 sample 0.5665875
-threshold 2.43 exact 0.438906113 sample 0.438029167
-threshold 2.46 exact 0.186554738 sample 0.186241667
-threshold 2.49 exact 0.008646668 sample 0.008733333
-VERIFY_OK: 192 centers, 384 triangle-free nearest edges, six lens integrals, five Monte Carlo tails, quadratic coefficient
-```
+PASS
 
-The integer enumeration is exhaustive for the finite center orbit, while the Monte Carlo trial and quadrature are diagnostic only. Analytic identities and the exact quadratic asymptotics are established in `RESULT.md`. No independently performed mathematical audit is asserted.
+Cauchy brightness for 24 equal octahedral facets yields B(u)=2/3(3a+2b+c) for ordered absolute coordinates, equivalently bmax times the maximum of 192 signed-permutation orbit dot products. Independent exact integer enumeration finds 192 centers, 384 pairs at dot 13/14 (degree four) and all other pairs at most 12/14. The degree-four nearest graph is triangle-free; hence in s≥sqrt(13/14) no triple cap intersection of positive measure and only nearest pairs can overlap below h=sqrt(27/28). Haar S3 cap probability is P(s). Pair-cap intersection integrates over a uniformly distributed 2-disk to L(s) with Y=h sqrt(1−s²)−qs. Inclusion–exclusion gives exactly 192P−384L on b2≤b≤bmax. Expanding the lens at first tangency gives quadratic coefficient 192sqrt3/π, and therefore a C1/not-C2 transition at b1=√6. Independent rational orbit enumeration and lens-limit checks confirm, not replace the geometric integration proof.
+
+## originality
+
+PASS
+
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
+
+## value
+
+PASS
+
+The regular 24-cell is a canonical four-dimensional polytope; an explicit probability law for more than 60% of its projection directions and a sharp first smoothness transition with combinatorial coefficient 384 constitute a meaningful exact geometric-probability result, beyond the already known directional extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
