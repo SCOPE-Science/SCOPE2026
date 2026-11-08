@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:46:50.067266Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/RESULT.md (Git blob b4af5ed3efa54756529e467d9eb569f9157c3ab8)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/VERIFICATION.md",
+        "Fresh independent exact/numerical calculations documented in review and run; not just checker exit logs."
+      ],
+      "rationale": "For q>=3, b>=2, h>=1, uniform proper q-colourings are exactly a tree broadcast process with one-edge nonconstant character eigenvalue -a=-1/(q-1). Character blocks for different Fourier frequencies are orthogonal and sign-conjugate to K(v,w)=a^dist(v,w). For Q=I+a²(deg-I)-a A_T, multiplication along unique paths verifies KQ=(1-a²)I. Orthogonal level-radial and b-1 child-contrast bases split Q into B_h plus D_{h-ell} with multiplicity (b-1)b^ell; exact dimension sum 1+Σ(h-ell)(b-1)b^ell=N and strict trailing principal-submatrix interlacing put both extrema in B_h. Positive quadratic form x*B x=(1-a²)|x0|²+Σ|x_j-t x_{j-1}|² gives invertibility, determinant 1-a² and exact Riesz frame. Largest Jacobi eigenvalue tends (1+t)²; for t<1 the smallest tends (1-t)², using diagonal comparison and long interior trial vectors. At t=1 the leaf-Neumann/root-Robin cosine solution gives h² λ_min→π²/4, hence 16/π² coefficient. At t>1, independent inversion of the bidiagonal form and interlacing isolate the unique exponentially small eigenvalue; tr B^-1=[Σ_{k=0}^h t^(2k)]/(1-a²)+Σ_{m=0}^{h-1}(h-m)t^(2m), so t^(2h)λ_min→[(1-a²)(t²-1)²]/[t²(t²-a²)]. Combining yields exactly the three stated limits for the nonconstant-coordinate squared condition number. Independently assembled radial Jacobi matrices and eigenvalue ratios in 6 parameter regimes at depths 6,12,30 and verified approach to the claimed sharp constants (slow subcritical convergence near t=1). Neither finite depth tests nor broadcast threshold alone prove the asymptotic constants. No whole system condition number or leaf-only reconstruction claimed.",
+      "residual_risks": [
+        "Independent small/finite computations corroborate only their explicitly enumerated range; quantified all-parameter proof rests on the inspected derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical reconstruction threshold is b/(q-1)^2=1; this yields only threshold location.",
+          "General exponential distance matrix inversion applies to all trees but does not by itself provide exact all-height tridiagonal extreme-eigenvalue constants."
+        ],
+        "reasoning": "Broader inverse and broadcasting theorems are acknowledged. Tested whether their stated conclusions subsume full finite h spectrum or sharp depth conditioning; their results do not state those computed limits in the inspected passages.",
+        "searches": [
+          "Mossel–Peres, Information flow on trees, arXiv:math/0107033",
+          "Bapat–Lal–Pati, q-analogue distance matrix of a tree, doi:10.1016/j.laa.2005.12.023",
+          "Nagar arXiv:1711.09787"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/SLOGAN.txt",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/verify.py",
+        "https://arxiv.org/abs/1711.09787",
+        "https://arxiv.org/abs/1903.07134",
+        "https://arxiv.org/abs/math/0107033",
+        "Resultary read-only semantic searches with recorded query strings in four checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root/leaf boundary terms in B_h depend on a and are not the homogeneous adjacency operator.",
+          "Critical 16/pi² and supercritical prefactor require quantitative Jacobi boundary and inverse-trace calculations not supplied by threshold location."
+        ],
+        "reasoning": "Previous standard ingredients underpin, but inspected published theorems do not logically imply the new conjunction without a nontrivial spectral calculation.",
+        "searches": [
+          "arXiv:1903.07134 homogeneous-tree adjacency spectral blocks",
+          "arXiv:1711.09787 q-Laplacians of trees",
+          "arXiv:math/0107033 information flow on trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nagar q-Laplacian is precisely Q=I+a²(D-I)-aA up to q parameter, hence inverse K=(1-a²)Q^-1 is pre-existing.",
+          "DeFord–Rockmore give regular rooted tree adjacency spectrum; not the same q-colouring Fourier Gram with root and leaf terms."
+        ],
+        "reasoning": "Known tree-q-Laplacian and adjacency similarity account for tools but do not in inspected formulations state the normalized q-colouring character sampling spectrum and its three constants.",
+        "searches": [
+          "Resultary: proper colorings regular rooted b-ary trees Fourier Gram covariance distance kernel eigenvalues Kesten Stigum sharp conditioning",
+          "arXiv:1711.09787",
+          "arXiv:1903.07134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned Resultary Fourier-Hamming-sphere record treats a different sampling domain and harmonic Krawtchouk blocks.",
+          "No returned exact q-colouring-on-regular-tree Gram condition number table or identity."
+        ],
+        "reasoning": "Positive coverage not found in this bounded mathematical finding search; lack of match is not novelty proof.",
+        "searches": [
+          "Resultary: proper colorings regular rooted b-ary trees Fourier Gram covariance distance kernel eigenvalues Kesten Stigum sharp conditioning",
+          "Resultary: all-degree spectral law Fourier sampling q-ary Hamming spheres"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact first-coordinate all-vertex Fourier Gram spectrum and sharp subcritical/critical/supercritical depth-conditioning constants, NOT for the known Kesten–Stigum threshold, general-tree exponential distance inverse or homogeneous-tree adjacency harmonic decomposition. Primary works and published mathematical records were compared by actual operators and implications. Most relevant risk: an equivalent earlier Bethe-tree Jacobi spectral result may state or imply the same covariance extreme eigenvalues; did not establish a decisive equivalence after bounded review.",
+      "residual_risks": [
+        "Equivalent inverse-covariance eigenvalue results may exist in Bethe-tree Jacobi, autoregressive tree covariance or broadcast models; this is a best-of-knowledge judgment, not an independence certificate.",
+        "Fixed b,q as h grows; full Gram spectrum includes constant eigenvalue 1 but condition number excludes it; no nonlinear reconstruction claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INGREDIENT, no identified direct sharp Fourier Gram conditioning law",
+          "evidence": [
+            "q-Laplacian spectral monotonicity for trees and connection to exponential distance matrices; source RESULT cites section 2.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.09787",
+          "material_read": "Abstract and specific general-tree q-Laplacian/exponential-distance identity reviewed from inspected literature, not a complete exhaustive reading of all applications.",
+          "method": "Compared matrix formula and advertised theorem to B_h precision and depth conditioning.",
+          "title": "Eigenvalue monotonicity of q-Laplacians of trees along a poset",
+          "trigger": "Same q-Laplacian inverse and eigenvalue monotonicity"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE, literature residual risk",
+          "evidence": [
+            "Regular homogeneous tree adjacency spectrum, not uniform proper-colouring all-vertex Fourier Gram on its face."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.07134",
+          "material_read": "Public abstract and theorem scope: adjacency eigenvalues via generalized Fibonacci polynomials and limiting distribution; complete paper not separately inspected.",
+          "method": "Compared underlying adjacency and covariance precision matrices and boundary modifications.",
+          "title": "On the Spectrum of Finite, Rooted Homogeneous Trees",
+          "trigger": "Potential prior full spectral decomposition on same regular trees"
+        },
+        {
+          "assessment": "KNOWN_THRESHOLD_NOT_COMPLETE_SPECTRUM",
+          "evidence": [
+            "Threshold location b a²=1 known; exact first-character sampling norm constants absent from inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0107033",
+          "material_read": "Abstract and described threshold/sampling model; full theorem details not exhaustively read in this run.",
+          "method": "Compared broadcasting eigenvalue b a² against Gram condition number growth.",
+          "title": "Information flow on trees",
+          "trigger": "Kesten–Stigum broadcast phase transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/a-sharp-three-regime-fourier-conditioning-law-for-uniformly-prop--2b8b3cd52964/RESULT.md",
+        "Specific primary mathematical literature compared under originality and available current published finding records."
+      ],
+      "rationale": "The sampling/frame condition number is a natural numerical-stability invariant for nonconstant Fourier features of finite uniform proper tree colourings. Its finite-depth full spectrum and exact singular-value extrema have independent quantitative use, especially the h² critical and exponential sharp constants. The work isolates an all-vertex sampling phenomenon at a known threshold rather than repackaging threshold existence; known precision inverses and radial blocks are correctly credited.",
+      "residual_risks": [
+        "Equivalent inverse-covariance eigenvalue results may exist in Bethe-tree Jacobi, autoregressive tree covariance or broadcast models; this is a best-of-knowledge judgment, not an independence certificate.",
+        "Fixed b,q as h grows; full Gram spectrum includes constant eigenvalue 1 but condition number excludes it; no nonlinear reconstruction claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent inverse-covariance eigenvalue results may exist in Bethe-tree Jacobi, autoregressive tree covariance or broadcast models; this is a best-of-knowledge judgment, not an independence certificate.",
+    "Fixed b,q as h grows; full Gram spectrum includes constant eigenvalue 1 but condition number excludes it; no nonlinear reconstruction claim."
+  ],
+  "schema_version": 1
+}
