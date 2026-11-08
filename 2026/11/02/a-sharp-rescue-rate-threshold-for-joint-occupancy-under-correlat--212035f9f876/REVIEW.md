@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete four-state process is irreducible for positive colonization, recolonization, extinction, and catastrophe rates. Lumping by occupancy count is valid by patch-exchange symmetry. The count-chain balance equations give explicit positive normalized stationary probabilities and the stated formulas for both objectives. The common catastrophe in the doubly occupied state is a direct transition to the empty state and is not incorrectly treated as two independent losses. The denominator is positive at both interpolation endpoints and hence throughout. The two exact derivative signs and equality condition follow algebraically, with no finite-sampling inference. The accompanying verification code solves 144 independent four-state rational stationary systems and checks identities and examples. Boundary fractions and the threshold are included.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Exchangeability makes the exact four-state two-patch CTMC lumpable by occupancy count with transitions 0->1 at 2c, 1->0 at e+k, 1->2 at c+d, 2->1 at 2[e+(1-rho)k], 2->0 at rho k. Solving the two balance relations and normalization gives J=2c(c+d)/D_rho and M=2c[2(c+d+e+k)-rho k]/D_rho, where D_rho=2[(c+e+k)^2+cd]-rho k(c-d+e+k) is positive at both endpoints. Exact differentiation gives M negative derivative -4cdk(c+d)/D² and J derivative 2ck(c+d)(c-d+e+k)/D². Threshold and invariance at d=c+e+k follow uniformly rho∈[0,1]. Reconstructed all symbolic stationary and derivative identities with independently written SymPy, not by executing packaged script. No claim for c=0, non-Poisson or heterogeneous networks.
 
-Relevant prior results concern spatially correlated disturbance and persistence (Johst–Drechsler, 2003), coupled-population moment closures (Keeling, 2000), correlated block disturbance and mean density (Hiebeler, 2005), and empirical extinction/rescue correlation (Sutherland–Elston–Lambin, 2012). The new statement compares **two exact stationary functionals** under a **fixed marginal hazard**, proves **uniform monotonicity for every shared-shock fraction**, and derives the exact rescue-rate pivot. The earlier mean-persistence or density conclusions do not logically determine joint occupancy, and their listed models lack the same explicit stationary generator. Previously described directional colonization-budget optimization with independent extinctions does not imply this shared-shock comparison. Targeted mathematical-record and literature searches found no matching theorem. Full texts of two closest papers remained inaccessible; broader common-shock models may contain an equivalent identity, so priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Correlated catastrophic clearing and the rescue effect are biologically motivated mechanisms. Expected occupied-patch count and probability of simultaneous occupation answer different management questions. A single sharp, scale-consistent threshold separates opposite conclusions about joint occupancy **despite the unambiguous fall in mean occupancy**; exact invariance at the threshold is more informative than an example-only reversal. The theorem shows exactly when qualitative advice based on average density cannot stand in for advice based on joint-presence requirements. Its two-patch binary setting and Poisson assumptions limit external inference.
+Qualified best-of-knowledge PASS for the exact fixed-marginal common-shock stationary pair-probability sign switch, rather than broad ecological claims about correlated catastrophes.
 
-## Closest literature and residual uncertainty
+## value
 
-Johst–Drechsler (2003) analyzes mean extinction times in dynamic habitat landscapes, Hiebeler (2005) uses block disturbances and pair approximations for contact-process density, Keeling (2000) uses moment closure for abundance and persistence, and Sutherland–Elston–Lambin (2012) analyzes empirical correlation. Originality risk remains from inaccessible full text of Johst–Drechsler and Hiebeler, and from possible general common-shock Markov-chain specializations. No independent expert priority check was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rescue mechanism and correlated shock fraction are biologically motivated independently of the formulas. The exact threshold where expected occupied count strictly decreases but joint-presence probability reverses sign is meaningful for differing persistence objectives; nontrivial at equality with full rho-invariance. No empirical or large-network conclusion claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

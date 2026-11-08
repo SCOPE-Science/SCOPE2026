@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:53:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exchangeability makes the exact four-state two-patch CTMC lumpable by occupancy count with transitions 0->1 at 2c, 1->0 at e+k, 1->2 at c+d, 2->1 at 2[e+(1-rho)k], 2->0 at rho k. Solving the two balance relations and normalization gives J=2c(c+d)/D_rho and M=2c[2(c+d+e+k)-rho k]/D_rho, where D_rho=2[(c+e+k)^2+cd]-rho k(c-d+e+k) is positive at both endpoints. Exact differentiation gives M negative derivative -4cdk(c+d)/D² and J derivative 2ck(c+d)(c-d+e+k)/D². Threshold and invariance at d=c+e+k follow uniformly rho∈[0,1]. Reconstructed all symbolic stationary and derivative identities with independently written SymPy, not by executing packaged script. No claim for c=0, non-Poisson or heterogeneous networks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keeling 2000 analyzes approximate metapopulation moments; related disturbance models have different state spaces and observables."
+        ],
+        "reasoning": "A generic four-state Markov chain formula could be specialized, but none of the retrieved published sources supplied a stronger uniform conditional theorem for this exact generator. Known mean-extinction statements do not imply sign of P(both occupied).",
+        "searches": [
+          "metapopulation moment closure correlated extinction rescue mean density full stationary joint event",
+          "correlated common shock catastrophes two patch metapopulation rescue stationary joint occupancy threshold"
+        ]
+      },
+      "checked_sources": [
+        "Johst–Drechsler (2003), publisher abstract, DOI 10.1034/j.1600-0706.2003.12770.x",
+        "Hiebeler (2005), abstract, DOI 10.1016/j.jtbi.2004.08.007",
+        "Keeling (2000), metapopulation moment-closure context",
+        "Resultary ecological correlation/occupancy queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Time to extinction for spatial habitat models and empirical correlation estimates cannot determine the stationary law in an irreducible two-patch immigration model."
+        ],
+        "reasoning": "The conclusion requires joint occupancy with common shocks and maintained marginal hazard, neither implied by the cited broad qualitative persistence results.",
+        "searches": [
+          "Johst Drechsler 2003 correlated disturbance survival expected extinction time",
+          "Hiebeler 2005 correlated disturbances contact process",
+          "correlated common shock catastrophes two patch metapopulation rescue stationary joint occupancy threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johst–Drechsler 2003 addresses spatial disturbance and extinction times; Hiebeler 2005 treats correlated block disturbance/contact-process density."
+        ],
+        "reasoning": "The exact finite stationary generator, preserving per-occupied-patch instantaneous catastrophic hazard, and the two distinct functionals are not identical to extinction-time simulations or density approximations. Full texts of closest papers inaccessible; no whole-document noncoverage finding.",
+        "searches": [
+          "correlated common shock catastrophes two patch metapopulation rescue stationary joint occupancy threshold",
+          "shared catastrophe occupancy correlation two patch rescue dispersal fixed marginals exact threshold",
+          "two site contact process synchronized extinction common shocks bivariate stationary law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits were unrelated ecological thresholds and general occupancy probabilities, no table for d=c+e+k common-shock pivot."
+        ],
+        "reasoning": "A closed rational formula rather than a lookup table is the claim; lack of a hit is limited evidence only.",
+        "searches": [
+          "two patch correlated catastrophe stationary joint occupancy exact formula threshold rescue",
+          "correlated common shock catastrophes two patch metapopulation rescue stationary joint occupancy threshold"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the exact fixed-marginal common-shock stationary pair-probability sign switch, rather than broad ecological claims about correlated catastrophes.",
+      "residual_risks": [
+        "Full primary texts of Johst–Drechsler and Hiebeler inaccessible; Oxford authorized access returned VPN disconnected.",
+        "A general common-shock bivariate CTMC stationary-comparison identity may already imply the threshold.",
+        "A two-patch binary mathematical result cannot establish field ecological interventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential conceptual overlap, but not enough accessed material for whole-document NOT_COVERING.",
+          "evidence": "Johst–Drechsler (2003), Oikos 103, 449–456.",
+          "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2003.12770.x",
+          "material_read": "Publisher abstract and bibliographic description, no full article obtained; arXiv/OA search unsuccessful.",
+          "method": "Compared stated extinction-time model with exact two-site stationary generator",
+          "title": "Are spatially correlated or uncorrelated disturbance regimes better for the survival of species?",
+          "trigger": "Same correlated environmental disturbances and population persistence"
+        },
+        {
+          "assessment": "A correlated disturbance/contact process source remains plausible; no definitive noncoverage judgment.",
+          "evidence": "Hiebeler (2005), J. Theor. Biol. 232:143–149.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2004.08.007",
+          "material_read": "Abstract and bibliographic record; full text inaccessible, institutional tool returned VPN disconnected.",
+          "method": "Cross-model comparison by accessible statement only",
+          "title": "Spatially correlated disturbances in a locally dispersing population model",
+          "trigger": "Same correlated extinction mechanism and local dispersal"
+        },
+        {
+          "assessment": "Moment approximation for a different model does not explicitly imply the displayed exact shared-shock threshold.",
+          "evidence": "Keeling (2000), J. Animal Ecology 69, 725–736.",
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2656.2000.00430.x",
+          "material_read": "Abstract and research-claim comparison; complete primary body not directly read in this run.",
+          "method": "Compared stated moment closure object and stationary exactness",
+          "title": "Metapopulation moments: coupling, stochasticity and persistence",
+          "trigger": "Possible broader joint-moment dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rescue mechanism and correlated shock fraction are biologically motivated independently of the formulas. The exact threshold where expected occupied count strictly decreases but joint-presence probability reverses sign is meaningful for differing persistence objectives; nontrivial at equality with full rho-invariance. No empirical or large-network conclusion claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full primary texts of Johst–Drechsler and Hiebeler inaccessible; Oxford authorized access returned VPN disconnected.",
+    "A general common-shock bivariate CTMC stationary-comparison identity may already imply the threshold.",
+    "A two-patch binary mathematical result cannot establish field ecological interventions."
+  ],
+  "schema_version": 1
+}
