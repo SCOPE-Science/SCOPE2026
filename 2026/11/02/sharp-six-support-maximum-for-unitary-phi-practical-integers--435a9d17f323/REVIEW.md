@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The indexed unitary-totient weights are products of \(Q_i-1\); their total is exactly \(n\). The exact necessary-and-sufficient prefix criterion \(Q_i\le M_{i-1}+2\) is proved by a missing-sum obstruction and constructive interval induction. Its monotone recurrence gives the universal envelope \(2^{2^r}-1\). At six supports, every nonmaximal five-component prefix falls strictly below the candidate; the maximal five-prefix forces Fermat components \(3,5,17,257,65537\). The next Fermat number is the product of two distinct primes, making the greatest permitted sixth prime power exactly \(2^{32}\). Attainment and uniqueness follow. Trial division, exact arithmetic and small independent subset-sum checks in \(\texttt{verify.py}\) corroborate arithmetic premises, without being substituted for the infinite proof.
+## correctness
 
-## Originality — PASS within examined evidence
-OEIS A286906 defines and tabulates the unitary-divisor notion but does not give the six-support extremum. Schwab–Thompson (2017) applies arithmetic functions to all ordinary divisors; its \(\varphi^*\)-practical results use that different indexing and establish distribution bounds, not the present six-support maximum. The inspected result on uniqueness of degrees of \(X^n-1\) uses ordinary Euler-totient weights and at most two prime supports. Exact-parameter searches, aliases involving unitary totients and prime-power coin sums, and available preceding claims did not locate a stronger result implying the theorem. Remaining bibliographic risk: an unindexed formulation of the extremum is possible.
+PASS
 
-## Mathematical value — PASS
-The maximum by distinct-prime support is a canonical finite extremal invariant. The exact-six case is distinguished, not selected arbitrarily: sizes one through five attain the universal greedy envelope, whereas size six is the **first** forced shortfall, caused by the compositeness of \(2^{32}+1\). The sharp value, its uniqueness and the exact deficit explain this transition. This has structural content beyond recomputing small sequence terms and beyond merely restating the standard coin-sum criterion.
+For sorted pairwise-prime-base prime-power components Q_i, the indexed 2^r weights ∏(Q_i−1) over unitary subsets total M_r. Necessity: a violated Q_i>M_(i−1)+2 leaves M_(i−1)+1 unrepresentable; sufficiency: old complete subset sums 0..M duplicate under factor Q_i−1, covering successive intervals exactly iff Q_i−1≤M+1. Greedy recursion G_i=G_(i−1)(G_(i−1)+2)=2^(2^i)−1 and strict monotonicity force first five Fermat primes (3,5,17,257,65537) at equality. If M5<G5 then M6≤G5²−1<N. Otherwise the sixth prime power Q6≤2^32+1; this number factors as 641·6700417 (distinct primes), so Q6≤2^32. That bound is attained by the distinct-base power 2^32; uniqueness follows. Independent exact subset-sum comparison on 472 small prime-power configurations and integer products supports, but infinite quantifiers rest on the induction.
 
-## Scope and remaining risks
-The proof is confined to exactly six distinct prime factors; it neither describes all such integers nor proves a general Fermat-prime pattern at higher support. The literature search cannot certify absolute priority. Code validates arithmetic and small cases; the infinite step is proved symbolically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: the sharp first greedy-envelope shortfall at exactly six unitary prime-power supports was not implied by the definitions or general ordinary-divisor f-practical estimates inspected. A historical equivalent fixed-support extremal statement may remain unindexed.
+
+## value
+
+PASS
+
+The maximum and its uniqueness under the canonical distinct-prime support invariant is a motivated first failure after five support sizes attaining the universal envelope. The exact deficit 2^32−1 is a structural Fermat-compositeness obstruction, not arbitrary sequence recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

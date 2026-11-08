@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-Run \(\texttt{python3 verify.py}\) in a Python 3 standard-library environment. The checker performs exact integer arithmetic and trial division; it computes all necessary prime-power components, the factorization \(2^{32}+1=641\cdot6700417\), the sharp greedy deficit and the extremal product. As an independent small-input check, it tests the prefix criterion against a direct bitset subset-sum computation on \(1252\) configurations, and reconstructs \(15\) initial terms from the defining sequence.
+# Independent mathematical audit
 
-These are finite reproducibility checks, not an exhaustive search of all six-prime-support integers. The infinite maximality and uniqueness are established in RESULT.md using the fully quantified prefix criterion and the monotonic bound. No claim about seven or more prime factors follows, and no independent audit has been performed.
+## correctness
+
+PASS
+
+For sorted pairwise-prime-base prime-power components Q_i, the indexed 2^r weights ∏(Q_i−1) over unitary subsets total M_r. Necessity: a violated Q_i>M_(i−1)+2 leaves M_(i−1)+1 unrepresentable; sufficiency: old complete subset sums 0..M duplicate under factor Q_i−1, covering successive intervals exactly iff Q_i−1≤M+1. Greedy recursion G_i=G_(i−1)(G_(i−1)+2)=2^(2^i)−1 and strict monotonicity force first five Fermat primes (3,5,17,257,65537) at equality. If M5<G5 then M6≤G5²−1<N. Otherwise the sixth prime power Q6≤2^32+1; this number factors as 641·6700417 (distinct primes), so Q6≤2^32. That bound is attained by the distinct-base power 2^32; uniqueness follows. Independent exact subset-sum comparison on 472 small prime-power configurations and integer products supports, but infinite quantifiers rest on the induction.
+
+## originality
+
+PASS
+
+Best-knowledge PASS: the sharp first greedy-envelope shortfall at exactly six unitary prime-power supports was not implied by the definitions or general ordinary-divisor f-practical estimates inspected. A historical equivalent fixed-support extremal statement may remain unindexed.
+
+## value
+
+PASS
+
+The maximum and its uniqueness under the canonical distinct-prime support invariant is a motivated first failure after five support sizes attaining the universal envelope. The exact deficit 2^32−1 is a structural Fermat-compositeness obstruction, not arbitrary sequence recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
