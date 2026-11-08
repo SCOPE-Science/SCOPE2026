@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, the 2,597 independent simplices, the 1,293 matched Hasse pairs, the 11,430 Hasse incidences, and all 216 group automorphisms were reconstructed and checked by an executable standard-library verifier. Two independent trace algorithms agree for each automorphism. The 13 conjugacy classes, centralizers, doubled character norm, and both subgroup averages were checked exactly. The homology-concentration proof is a complete Forman acyclicity check and does not infer an infinite theorem from finite sampling.
+## correctness
 
-## Originality — PASS
-The closest exact same-complex published statement determines only the order-three subgroup action. Its results are strict restrictions of this full character and do not imply the values outside the subgroup. Barmak's, Przytycki–Silvero's and Tsukuda's structural theorems do not state the resulting full representation; the first two were read in full relevant HTML sections, whereas only the journal abstract was accessible for Tsukuda. A full-group equivalent could still exist in unindexed literature. The natural graph matching complexes are different objects and do not cover this claim.
+PASS
 
-## Value — PASS
-The full group character of a canonical symmetric 18-vertex Levi graph distinguishes two group elements with identical vertex and edge cycle profiles and determines rational homology of two natural quotient spaces. This cannot be deduced from a Betti number or subgroup character. It is a meaningful exact finite equivariant invariant, without asserting an infinite-family theorem.
+PASS. Directly and independently reconstructed the LCF Pappus graph (18 vertices,27 edges, degree3) using networkx graph isomorphisms, enumerated all 2597 nonempty independent faces, found all 216 automorphisms, and checked explicit 1293 face/facet Morse matches leave one 0-cell and ten 4-cells; all 11430 reversed Hasse incidences form an acyclic graph. Thus reduced rational homology is degree4 rank10. Independently summed signed fixed-independent-face Lefschetz traces across all automorphisms, matching packaged verify_pappus_full.py values on all 12 displayed cycle/centralizer types and 13 actual conjugacy classes, including 3^6 centralizers 18 vs108 with traces -2 vs1. Squared norm sum_g chi(g)^2 /216 =2, full group and bipartition-preserving subgroup invariant averages zero. The finite computation is exhaustive for exactly the fixed graph, not a mere random test.
 
-## Limitations
-The result concerns this graph and rational equivariant homology; the integral module and quotient homotopy types are not determined. Publication priority is not independently certified. The 2017 incidence-graph paper's full text could not be inspected through the attempted access route.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge on full Aut(Pappus) H4 rational character. The published order-three C3 restriction already gives (10,-2,-2); general independence-complex homotopy tools supply neither 13 Aut(P) conjugacy traces nor separation of two order-three types with identical vertex/edge cycles. The exact 216-action classification and quotient rational acyclicity are strictly more informative than the known C3 result. Tsukuda 2017 was only accessible by abstract, so unpublished or differently indexed equivalent representation remains a stated risk.
+
+## value
+
+PASS
+
+PASS. The Pappus graph is a standard cubic symmetric incidence graph and its independence complex a canonical natural finite topology object. Its complete rational automorphism character and the counterexample to dependence solely on vertex/edge cycle types are independent, structurally meaningful exact invariants; they are not arbitrary enumeration or a reprint of the order-three computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
