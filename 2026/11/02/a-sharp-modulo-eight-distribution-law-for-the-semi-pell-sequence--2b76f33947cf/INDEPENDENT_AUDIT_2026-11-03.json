@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:02:08.306840Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the exact odd-index telescoping sum u(2m+1)=1+2 sum_{k=1}^m u(k), parity of oddpart mod4 yields a finite A(m) recurrence. Binary induction establishes u(2^v(2m+1))=1+2 eps0+4Q(m) mod8 for all m,v. Two-state transfer T=[[1,1],[-1,1]] satisfies T^T T=2I and T^4=-4I, deriving both rational generating functions and exact dyadic counts. Aligned dyadic blocks yield O(sqrt N), and N=2^(4a+1) yields matching lower-size fluctuations separately for each residue. Independent exact recurrence/mod8 test checked 65,535 terms and all 16 dyadic prefix censuses to 2^16; infinite claim is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keith–Munagi 2023 full primary PDF Theorem 6 modulo-four result",
+          "Classical Rudin–Shapiro transfer matrices give O(sqrt N) for known sign sequences, not the semi-Pell identification"
+        ],
+        "reasoning": "The previous congruence and square-root mechanism can be combined once the new digit identity is proved, but neither checked prior result implies the entire modulo-eight distribution by itself.",
+        "searches": [
+          "Keith Munagi Power compositions and semi Pell compositions theorem 6 modulo 4",
+          "Ballantine Beck 2303.11493 self similar partitions section 6",
+          "generalized Rudin Shapiro automatic sequence square root discrepancy"
+        ]
+      },
+      "checked_sources": [
+        "Keith–Munagi, Power compositions and semi-Pell compositions (2023) 12-page primary PDF, Theorem 6",
+        "Keith–Munagi, arXiv:1912.11148 (abstract/theorem cited)",
+        "Ballantine–Beck, arXiv:2303.11493 (abstract and scope)",
+        "OEIS A129095/A129096 sequence entries",
+        "Resultary semantic search on semi-Pell mod 8/Rudin–Shapiro residue distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mod 4 removes the top 4Q bit; both Q=0/1 can share same mod-four value",
+          "The proved exact mod-eight congruence u(n)=1+2 eps0+4Q exposes a genuinely new bit"
+        ],
+        "reasoning": "A mod-four theorem loses the digit Q and cannot determine distribution among residues sharing the same mod-four value. General automatic-sequence bounds yield discrepancy after identification, but not that identification or dyadic exact formulas.",
+        "searches": [
+          "Keith Munagi semi Pell congruence mod four direct implication modulo eight",
+          "Rudin Shapiro Q binary adjacent ones universal square root bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keith–Munagi 2023 Theorem 6 is a mod-four semi-Pell congruence",
+          "The sign (-1)^Q(m) is a generalized Rudin–Shapiro sequence, but its identification with semi-Pell residues is an additional lemma"
+        ],
+        "reasoning": "Aliases include semi-Pell/semi-m-Pell, compositions/partitions, paperfolding and digital autocorrelation. General automatic sign bounds are not yet equivalent to the four exact residue formulas.",
+        "searches": [
+          "semi Pell modulo 8 binary odd part quadratic digit sum generalized Rudin Shapiro",
+          "Resultary semi Pell sequence modulo eight residue distribution Rudin Shapiro binary automatic sequence density discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A129095 and A129096 contain the underlying sequence/odd subsequence",
+          "Dyadic four-residue counts require e_r,o_r from rational transfer generating functions"
+        ],
+        "reasoning": "Finite OEIS values do not equal a theorem providing all dyadic counts and uniform N discrepancy; no indexed matching next-layer table was retrieved.",
+        "searches": [
+          "OEIS A129095 semi Pell numbers mod 8 residue counts",
+          "OEIS A129096 odd semi Pell subgroup sequence",
+          "Resultary semi Pell modulo eight exact dyadic count"
+        ]
+      },
+      "rationale": "Modulo-four semi-Pell behavior and Rudin–Shapiro square-root mechanisms are acknowledged old; what survives is an explicit next 2-adic digit law, exact four-class dyadic census, all-N distribution with individually sharp error. A highly relevant primary 2023 theorem was checked and covers only the previous mod-four layer. Best-of-knowledge priority remains qualified by older automatic-sequence literature.",
+      "residual_risks": [
+        "An indexed digital-sequence theorem with the same underlying quadratic form might imply the all-N square-root estimate, though the semi-Pell identification still needs assessment.",
+        "Earlier semi-Pell literature may use alternative composition notation hiding mod-eight enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6 classifies modulo-four values and odd part; does not give the modulo-eight digit quadratic, four residue census or sharp density error",
+          "evidence": "Theorem 6: semi-m-Pell mod 4, not explicit mod 8",
+          "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+          "material_read": "Primary 2023 12-page PDF, especially page image of Theorem 6 on page 11 and preceding semi-Pell definitions",
+          "method": "Full-text primary PDF topical theorem/page inspection",
+          "title": "Power compositions and semi-Pell compositions",
+          "trigger": "Known semi-Pell modulo-four theorem may dominate claimed modulo-eight classification"
+        },
+        {
+          "assessment": "Establishes earlier mod-four layer; whether it includes stronger hidden corollaries was not certified from full text",
+          "evidence": "Theorem 2 cited in source and 2023 followup",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11148",
+          "material_read": "Accessible abstract plus theorem as referenced in source package; full preprint not independently read",
+          "method": "Primary abstract and referenced theorem comparison",
+          "title": "Binary Compositions and Semi-Pell Compositions",
+          "trigger": "Original semi-Pell recurrence and modulo-four congruence"
+        },
+        {
+          "assessment": "Self-similar partition interpretations share paperfolding phenomena but no inspected direct sharp mod-eight all-cutoff count",
+          "evidence": "Published partition interpretation/paperfolding relation",
+          "identifier_or_url": "https://arxiv.org/abs/2303.11493",
+          "material_read": "Public arXiv abstract and reference to Section 6 supplied in source; relevant full text not independently read",
+          "method": "Primary abstract and scope inspection",
+          "title": "Partitions enumerated by self-similar sequences",
+          "trigger": "Different partition encodings may imply residue law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The next congruence layer of a natural self-similar counting sequence and the exact frequency/optimal discrepancy of each odd residue are motivated intrinsic arithmetic properties. The classification joins a novel digital form to sharp global distribution, not merely a short mod-eight table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Keith–Munagi, Power compositions and semi-Pell compositions (2023) 12-page primary PDF, Theorem 6",
+    "Keith–Munagi, arXiv:1912.11148 (abstract/theorem cited)",
+    "Ballantine–Beck, arXiv:2303.11493 (abstract and scope)",
+    "OEIS A129095/A129096 sequence entries",
+    "Resultary semantic search on semi-Pell mod 8/Rudin–Shapiro residue distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the four odd classes modulo eight; no higher 2-powers or exact best uniform discrepancy constants.",
+    "An indexed digital-sequence theorem with the same underlying quadratic form might imply the all-N square-root estimate, though the semi-Pell identification still needs assessment.",
+    "Earlier semi-Pell literature may use alternative composition notation hiding mod-eight enumeration."
+  ],
+  "schema_version": 1
+}
