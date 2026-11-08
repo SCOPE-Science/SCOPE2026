@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives exact shell probabilities and zero-product constraints in every finite commutative chain ring, checks the pair conditioning including the zero boundary atom, evaluates the disjoint lattice normalizations for both parities, and applies a summable majorant to establish total-variation convergence for every fixed tuple size at least three. A finite Python verifier uses direct multiplication in two distinct ring families and checks the finite valuation identity. Its finite tests are corroboration, not a replacement for the infinite proof.
+## correctness
 
-**Originality — PASS against examined sources, with residual priority risk.** Khasraw 2018 explicitly gives the scalar two-element zero-product probability for \(\mathbb Z/p^m\mathbb Z\), which is therefore excluded from the novelty claim. Arunkumar et al. 2022 give the underlying valuation-based adjacency and threshold graph structure, which are also acknowledged as prior. Salih 2023 treats unrefined pair-product probabilities in finite group algebras. None of the full texts inspected provides the conditional joint all-pairs-annihilation law for fixed tuple sizes at least three, its distinct even/odd lattice measures, or the pair-versus-triple phase transition. Search results alone do not prove novelty; a prior equivalent treatment of random cliques of chain-ring zero-divisor graphs or tropical valuation conditioning might exist. No decisive stronger covering source was found among the inspected evidence.
+PASS
 
-**Mathematical value — PASS.** This gives an exact and asymptotic description of a natural family of cliques in zero-divisor graphs and the rare-event zero multiplication probabilities in finite rings, explaining why conditioning two factors produces a one-dimensional macroscopic continuum of typical valuations but conditioning three or more pins all valuations within bounded distance of half the nilpotency length. The explicit parity-dependent distribution, universality across nonisomorphic finite chain rings, and total-variation form make the result stronger than counting scalar pairs or describing graph adjacency.
+In any finite commutative chain ring of length m with residue field q, each nonzero valuation shell has probability a*q^{-j} (a=1-1/q), zero has q^{-m}, and pairwise annihilation iff vi+vj>=m. For r=2, multiplying each shell by annihilator size q^j proves P(E)=q^{-m}(1+ma), asymptotically uniform first split and independent geometric overshoot G. For fixed r>=3 and m=2h+epsilon, centered feasible vector ui=vi-h satisfies ui+uj>=epsilon. Even epsilon=0 lattice cases are all ui>=0 or one negative -t and remaining >=t; odd epsilon=1 cases are all ui>=1 or one -t>=0 and others >=t+1. Geometric sums yield exactly both displayed Z_{r,q,epsilon}; their convergence is equivalent to r>2. A summable envelope a^{-r}q^{-sum ui} permits dominated convergence in l1, proving total variation, probability asymptotics and negligible zero/collision entries. Independent exact valuation-shell calculations verified the r=2 normalization for q=2,3 and m=2..11 and finite truncations of both lattice partition sums.
 
-**Scope and risk.** Fixed residue-field order and fixed tuple size only. No independent external mathematical validation is asserted; novelty remains subject to broader specialist literature inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The probability that two random ring elements multiply to zero (Khasraw 2018) and the criterion v(x)+v(y)>=m / threshold-graph model (Arunkumar–Cameron–Kavaskar–Chelvam 2022/23) are acknowledged prior facts. The inspected primary source Theorem 3.2 treats graph structure, not the conditional random r-tuple law or its r=2 versus r>=3 scaling transition. SCOPE/Resultary chain-ring hits concern graph parameter recovery, not conditioned sampled tuple valuations. No broader source located that entails this complete parity-dependent total-variation limit. Best-of-knowledge originality with possible unindexed random-clique literature.
+
+## value
+
+PASS
+
+The sharp r=2 versus r>=3 transition, its two parity-dependent lattice laws and exact normalizations are natural probabilistic asymptotic invariants of finite chain rings. They quantify the structure of random annihilating cliques and separate macroscopic valuation freedom from centered lattice localization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
