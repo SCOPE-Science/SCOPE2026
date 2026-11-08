@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For all q>=3 and n>=3, the overlap digraph is balanced/strongly connected. All Hamming-weight-two vertices have forced zero exits; contracting these gives the stated qr color-position Laplacian. The decomposition of J_{q-1} into constant/sum-zero colors gives a q^{m(q-2)} factor. A determinant-one column transform and outer-to-inner triangular ordering prove the remaining determinant q^{floor(m/2)} for all m. Directed BEST then multiplies by ((q-1)!)^{1+m(q-1)}. Independent exact determinant and fully enumerated Euler-tour checks passed in check_sparse_cycles.py; finite tests do not replace the algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2603.11934 defines q-ary bounded weight by sum of symbols and addresses efficient decoding, not the total number of cycles.",
+        "doi:10.1109/TIT.2019.2928292 Section III constructs k-ary cycles by bounded symbol sums, without an exact count for the Hamming-sparse family.",
+        "doi:10.1007/s10623-022-01100-9 abstract explicitly concerns binary vectors, so the q>=3 theorem is outside its stated domain."
+      ],
+      "reasoning": "Numerical weight constraints and Hamming-support constraints coincide in the binary case but differ for alphabets with at least three symbols. Existence, decoding, and sampling of cycles do not entail the exact count. Earlier binary-only counting is acknowledged rather than recast as a new special case.",
+      "searches": [
+        "arxiv:2603.11934 full text",
+        "doi:10.1109/TIT.2019.2928292 author PDF",
+        "arxiv:2510.16545 full text",
+        "arxiv:2607.22350 full text",
+        "doi:10.1007/s10623-022-01100-9 publisher preview"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.11934",
+      "doi:10.1109/TIT.2019.2928292",
+      "arxiv:2510.16545",
+      "doi:10.1007/s10623-022-01100-9",
+      "arxiv:2607.22350",
+      "https://debruijnsequence.org/db/random",
+      "https://dblp.org/rec/journals/tit/Fredricksen93"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new statement counts all cyclic sparse multicolor universal cycles. The 2019/2020 and March 2026 works give constructions/decoders for symbol-sum constrained cycles.",
+        "Li–Jiang–Lin (2022/2023) and Fredricksen (1993) concern binary limited-weight vectors, not nonbinary labeled symbols.",
+        "The generic BEST identity does not evaluate the reduced determinant, which is derived here as an exact closed expression."
+      ],
+      "reasoning": "A prior general BEST/Matrix–Tree theorem entails the answer only after a nontrivial graph-specific determinant evaluation; it is background machinery, not a known count. The explicit q>=3 statement is not a corollary of the inspected binary counts. Main residual risk is an unindexed or inaccessible independent multicolor Hamming-weight enumeration.",
+      "searches": [
+        "arxiv:2603.11934",
+        "doi:10.1109/TIT.2019.2928292",
+        "arxiv:2510.16545",
+        "doi:10.1007/s10623-022-01100-9",
+        "Fredricksen 1993 The number of nonlinear shift registers that produce all vectors of weight at most t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Euler tours are equivalent to circular universal cycles after fixing the unique 0^n edge; BEST and directed Matrix-Tree count these exactly.",
+        "arxiv:2510.16545 describes random arborescence generation but not a closed formula for the specialized multicolor Hamming-weight-two graph."
+      ],
+      "reasoning": "The natural aliases sparse q-ary universal cycles, Hamming-weight-two de Bruijn sequences, Euler tours in sparse overlap graphs, and rooted in-trees were compared at the level of the object and the claimed cardinality. General graph enumeration algorithms alone do not imply the factor q^{m(q-2)+floor(m/2)} without evaluating the determinant.",
+      "searches": [
+        "q-ary bounded-weight de Bruijn sequences all Euler tours BEST theorem enumeration",
+        "q-ary bounded weight de bruijn sequences number maximum weight two nonzero universal cycles enumeration",
+        "q-ary Hamming weight restricted de Bruijn sequences number universal cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table or enumeration matching 24, 864, 10368 as the q=3, n=2,3,4 sparse universal-cycle sequence was identified.",
+        "Direct exact enumeration independently gives q=3 n=3 count 864 and q=3 n=4 count 10368."
+      ],
+      "reasoning": "The full theorem concerns all q>=3 and n>=3. Short tables for binary vectors, generic de Bruijn counts, or ordinary bounded symbol-sum cycles do not imply this two-parameter factorization. Absence of a result in a search is not proof of novelty.",
+      "searches": [
+        "24 864 10368 universal cycles weight",
+        "q-ary weight at most two nonzero universal cycle count factorial q power arborescence",
+        "restricted de Bruijn q-ary Hamming weight at most two exact enumeration"
+      ]
+    },
+    "rationale": "The inspected q-ary 2019/2020 construction and March 2026 decoding theorems concern numerical symbol-sum weight, which does not coincide with sparse nonzero-position Hamming weight for q>=3. The 2025 random-arborescence work gives sampling, not the evaluated multicolor count. Earlier 1993 and 2022/2023 limited-weight cycle counting papers are binary-only, expressly excluded from the new scope. Relevant mathematical-index similarity searches found other invariants, not the two-parameter count. Residual priority risks are recorded, not presented as proof of uniqueness.",
+    "residual_risks": [
+      "Potential unindexed q-ary Hamming-support-two count or stronger multicolor formula; searches are not a novelty certificate.",
+      "Full Li–Jiang–Lin 2022/2023 body inaccessible (institutional access disconnected), although its abstract is binary; the q=2 special case is excluded.",
+      "No independent mathematical review; BEST and Matrix–Tree are classical tools and the explicit sparse determinant identity is the substantive new evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: decoding specified cycles under sum-of-symbols constraints rather than enumerating all cyclic Hamming-weight-two multicolor cycles.",
+        "evidence": [
+          "Section 1 enumerates existence/number/construction/decoding questions; Theorem 4.8 gives decoding complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.11934",
+        "material_read": "Abstract, introduction (definition of weight as sum), sections on bounded-weight ranking/unranking and references.",
+        "method": "Full HTML primary text, with PDF visual inspection.",
+        "title": "Decoding universal cycles for t-subsets and t-multisets by decoding bounded-weight de Bruijn sequences",
+        "trigger": "Recent paper explicitly lists the question how many universal cycles and handles k-ary constraints."
+      },
+      {
+        "assessment": "NOT_COVERING: explicit successors for bounded sum of symbols, not counting all Hamming-weight-two cycles.",
+        "evidence": [
+          "Section III defines weight as sum of symbols and Theorems 3.1-3.4 concern construction."
+        ],
+        "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/kary-successor.pdf",
+        "material_read": "Full article retrieved; introduction, Section II, Section III bounded-sum definitions/theorems and discussion of successors.",
+        "method": "Author-hosted full PDF text and page-image examination.",
+        "title": "A successor rule framework for constructing k-ary de Bruijn sequences and universal cycles",
+        "trigger": "Earlier k-ary bounded weight successor construction could dominate the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: general random generation via arborescences but no evaluated count for the sparse nonbinary graph.",
+        "evidence": [
+          "Algorithm R and weight-range example use sampling and cover times, not a determinant identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+        "material_read": "Full article HTML, introductory random algorithm and bounded weight example and its table discussion.",
+        "method": "Lawful arXiv full text.",
+        "title": "Random generation of universal cycles and de Bruijn sequences",
+        "trigger": "Generic uniform in-tree sampling might implicitly provide enumeration."
+      },
+      {
+        "assessment": "BINARY_DOMAIN_ONLY; cannot establish nonbinary q>=3 result from accessible content; full text priority uncertainty recorded.",
+        "evidence": [
+          "Abstract explicitly studies n-binary vectors; reports k=2 structural generation and finite counts for small n and k."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-022-01100-9",
+        "material_read": "Publisher abstract and publisher first-page preview, reference list; full body inaccessible.",
+        "method": "Publisher abstract and public first-page preview; the full body was not available.",
+        "title": "Properties of the cycles that contain all vectors of weight at most k",
+        "trigger": "Highest-priority binary weight-restricted cycle classification and numerical census."
+      },
+      {
+        "assessment": "NOT_COVERING: existence for weight-like constraints, no closed all-order enumeration for the Hamming-support-two model.",
+        "evidence": [
+          "Introduction discusses existence/cut-down constructions and earlier binary weight-range work."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22350",
+        "material_read": "Full arXiv HTML introduction, definitions, extension discussion, references.",
+        "method": "Lawful arXiv full text.",
+        "title": "Weight-constrained cut-down de Bruijn sequences",
+        "trigger": "Recent extensions of binary weight-range existence to larger alphabets."
+      },
+      {
+        "assessment": "BINARY_DOMAIN_ONLY; treated as possible coverage of binary consistency endpoint, excluded from novelty claim.",
+        "evidence": [
+          "Title explicitly restricts to binary vectors of bounded weight in shift-register context."
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/tit/Fredricksen93",
+        "material_read": "Bibliographic record/title and citations; full text inaccessible.",
+        "method": "Publisher bibliographic/index search and scholarly cross-reference.",
+        "title": "The number of nonlinear shift registers that produce all vectors of weight at most t",
+        "trigger": "1993 exact counting title potentially stronger for binary special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba7bc15d-9bf2-45cf-a9f0-40e5dfb24050",
+  "value": {
+    "rationale": "The result gives the exact size of the entire design space for the first multicolor sparse two-defect window language, rather than existence or a single construction. The nontrivial q^{m(q-2)+floor(m/2)} factor isolates color-difference and reflection sectors of in-arborescence choices, enabling an exact benchmark for uniform random generation and finite-alphabet sequence design. This is a motivated structural enumeration answering the number-of-cycles question raised by recent literature, not a routine small-n table.",
+    "status": "PASS"
+  }
+}
