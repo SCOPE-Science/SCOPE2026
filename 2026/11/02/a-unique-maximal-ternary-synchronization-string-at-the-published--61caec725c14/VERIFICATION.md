@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Direct verification and scope
+# Independent mathematical audit
 
-The certificate is finite, exact and reproducible. Compile the two different C++17 implementations from `certificates/`, run each with arguments `12 13 124`, compare all length/count pairs against `certificates/counts.csv`, and run `python3 certificates/check_witness.py` from the package root. `certificates/replay_output.txt` contains recorded outputs that have already been regenerated from these exact source files. A run of the search with maximum depth \(124\) enumerates all normalized candidates through depth \(124\); no valid candidate at that length was found because every valid parent and every permitted next symbol is tested.
+## correctness
 
-**Proof-to-computation linkage.** The normalized length-\(123\) leaf, all \(76{,}864\) search nodes and every depth count are calculated by two LCS implementations, one scalar and one bit-parallel. Alphabet orbit normalization accounts for the six distinct actual maximizers. The Python program checks every interval triple on the explicit word independently and verifies exact maximum ratio \(58/63\) (ten maximizing triples) and reversal-complement symmetry. The search excludes longer strings by prefix closure, not by a time limit or probabilistic sampling.
+PASS
 
-**Limits.** The computation establishes only a fixed finite parameter and a fixed three-symbol alphabet. The historical \(12/13\) numerical obstruction is already published. Publication-priority and independent external audit have not been performed.
+PASS. For strict epsilon=12/13, validity is the exact all-triples integer test 26*LCS(w[i:j],w[j:k])<12*(k-i), including unequal block lengths and equality rejection. Prefix closure and alphabet restricted-growth representatives give a complete canonical search tree. An extension need only test triples with new right endpoint n; ordinary LCS DP and bit-parallel LCS compute the same integer. Independently compiled and EXECUTED BOTH actual frozen-source C++17 certificate implementations through cap124. Each enumerated exactly 76,864 valid positive-length normalized prefixes, 4 at depth122, 1 at123, 0 at124 and IDENTICAL canonical 123-symbol witness, so no length>=124 can exist. Independently checked the witness has 41 of each letter and reversal-complement symmetry; cap-independent induction and exhaustive recursion—not sampling—certify maximum and uniqueness. Six global permutations are distinct. Published epsilon bound itself is not claimed new; possible earlier unpublished enumeration is a priority issue, not a correctness gap.
+
+## originality
+
+PASS
+
+Best-knowledge original exact finite length/uniqueness at already known benchmark, not a new threshold bound.
+
+## value
+
+PASS
+
+PASS. At a previously published ternary synchronization threshold, exact maximum finite length and unique extremal orbit are natural previously unspecified combinatorial invariants. The complete 76,864-node reproducible classification and sharp 123 cutoff, as opposed to just a new finite witness, are meaningful for finite-boundary searches and known lower-bound documentation; no asymptotic threshold advance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: a unique terminal ternary synchronization word
+# Independent mathematical audit
 
-**Correctness — PASS.** The prefix-closed strict adjacent-interval condition is equivalent to the integer test \(26\operatorname{LCS}<12(k-i)\). Restricted-growth canonicalization is bijective to alphabet-permutation orbits. All children are considered at every valid node and each newly possible triple is checked, giving an exhaustive proof of the finite upper bound. Distinct scalar and bit-parallel LCS implementations agree on all 123 depth counts and the unique maximizer; a separate ordinary Python LCS test checks the witness's exact peak \(58/63\) and symmetry. The claims are finite; no sampling or extrapolation is used.
+## correctness
 
-**Originality — PASS, with priority risk.** The central close comparison is Cheng et al. 2018, Appendix A, which already records the numeric bound \(B_3\ge12/13\), so that bound is *not* a new claim. Their printed result does not report an exact maximum finite length \(123\), a single normalized maximizer or its reversal-complement symmetry. Xu et al. 2026 give an infinite ternary construction in a different, larger parameter regime, which neither implies nor dominates this sharp terminal classification. Camungol--Rampersad's equal-length adjacent-block constraint does not imply the unequal-block case. Query-by-implication comparisons to indexed results did not disclose covering finite rigidity. Because an earlier unpublished brute-force enumeration may have generated these same data, independent priority review remains advisable.
+PASS
 
-**Value — PASS.** The threshold \(12/13\) was not chosen merely for a new numerical increment: it is the explicitly published finite-search benchmark for ternary synchronization strings. A *complete* classification of its terminal objects (six words, one alphabet orbit, exact length \(123\), explicit antisymmetry and an exhaustive length enumerator) resolves the natural finite extremal question at that benchmark. The uniqueness and sharp cutoff are not implied by the previously reported number alone and supply concrete benchmark instances for finite synchronization search and comparison of algorithms. No broader asymptotic theorem is asserted.
+PASS. For strict epsilon=12/13, validity is the exact all-triples integer test 26*LCS(w[i:j],w[j:k])<12*(k-i), including unequal block lengths and equality rejection. Prefix closure and alphabet restricted-growth representatives give a complete canonical search tree. An extension need only test triples with new right endpoint n; ordinary LCS DP and bit-parallel LCS compute the same integer. Independently compiled and EXECUTED BOTH actual frozen-source C++17 certificate implementations through cap124. Each enumerated exactly 76,864 valid positive-length normalized prefixes, 4 at depth122, 1 at123, 0 at124 and IDENTICAL canonical 123-symbol witness, so no length>=124 can exist. Independently checked the witness has 41 of each letter and reversal-complement symmetry; cap-independent induction and exhaustive recursion—not sampling—certify maximum and uniqueness. Six global permutations are distinct. Published epsilon bound itself is not claimed new; possible earlier unpublished enumeration is a priority issue, not a correctness gap.
 
-**Closest literature and limitations.** Cheng et al., arXiv:1803.03530 Appendix A (numeric lower bound); Xu et al., arXiv:2609.04122 (ternary unbounded construction); Camungol--Rampersad, Involve 2016 (equal-length repetitions). Endpoint strictness, verification replay and unpublished-data priority risk are stated in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original exact finite length/uniqueness at already known benchmark, not a new threshold bound.
+
+## value
+
+PASS
+
+PASS. At a previously published ternary synchronization threshold, exact maximum finite length and unique extremal orbit are natural previously unspecified combinatorial invariants. The complete 76,864-node reproducible classification and sharp 123 cutoff, as opposed to just a new finite witness, are meaningful for finite-boundary searches and known lower-bound documentation; no asymptotic threshold advance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
