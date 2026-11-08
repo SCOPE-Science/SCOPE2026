@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:12:50.911983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each interval between consecutive J_mu zeros, the normalized Turan quotient Phi has divergent endpoints and satisfies x Phi_x/2=1-(1+y)Phi and at stationary Phi_xx=2 Phi^2>0, giving a unique analytic minimizer for each fixed n. At mu=0 the minimizer is j_(1,n); Bessel order derivative and Wronskian yield cubic beta expansion and negative beta_mu_mu. Independent scipy minimizations at mu=.01,.03,.06 agree with cubic to O(mu^4). Uniform differentiable large-order Olver/Airy turning-point expansions give beta=c_n mu^(-2/3)+O(mu^(-4/3)) and beta_mu_mu=(10c_n/9)mu^(-8/3)+O(mu^(-10/3)); the Airy minimum is unique from F prime and F double-prime. The derivative error depends on the stated complex-order uniform expansions, not on differentiating a raw pointwise limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF provides uniform large-order Bessel/Airy turning-point machinery; it does not state the optimized nodal beta curvature coefficients."
+        ],
+        "reasoning": "Classical asymptotic tools imply the result after nontrivial moving-minimum and order-derivative analysis, but do not themselves subsume it.",
+        "searches": [
+          "Resultary:Bessel Turan quotient nodal minima curvature derivative order small large asymptotics",
+          "web:Aktas Baricz Turan type inequalities oscillatory special functions 2609.39008 order second derivative",
+          "DLMF §10.20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39008",
+        "DLMF §10.20",
+        "arXiv:1101.4624",
+        "Resultary Bessel Turán semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aktaş--Baricz ask about second order in order (per target citation; paper full text inaccessible), while the new calculation gives endpoint negative/positive curvature and at least one sign change."
+        ],
+        "reasoning": "First derivative order monotonicity does not imply a sign change of the second derivative. No earlier same-parameter formula was located in inspected accessible material.",
+        "searches": [
+          "Resultary:Bessel Turan quotient nodal minima curvature derivative order small large asymptotics",
+          "web:Aktas Baricz Turan type inequalities oscillatory special functions 2609.39008 order second derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aktaş--Baricz 2026 abstract establishes strict order monotonicity of nodal minima, not their second-order curvature laws."
+        ],
+        "reasoning": "Monotonicity beta_mu<0 does not logically imply any beta_mu_mu sign or two endpoint asymptotics.",
+        "searches": [
+          "Resultary:Bessel Turan quotient nodal minima curvature derivative order small large asymptotics",
+          "web:Aktas Baricz Turan type inequalities oscillatory special functions 2609.39008 order second derivative",
+          "arXiv:2609.39008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary inverse-square nodal-index theorem takes n to infinity at fixed order; current limit varies order at each fixed n."
+        ],
+        "reasoning": "No exact table of beta_n second-order order derivatives was located in searched sources; index-vs-order asymptotics are different.",
+        "searches": [
+          "Resultary:Bessel Turan quotient nodal minima curvature derivative order small large asymptotics",
+          "web:Aktas Baricz Turan type inequalities oscillatory special functions 2609.39008 order second derivative",
+          "Resultary:inverse-square convergence of sharp cylinder-function Turán minima"
+        ]
+      },
+      "rationale": "The fixed-n order-curvature endpoints address a natural question left beyond the earlier uniqueness and monotonicity claims, by best available evidence.",
+      "residual_risks": [
+        "Full Aktaş--Baricz article unavailable; a hidden explicit second-derivative result or order-differentiation detail could affect priority.",
+        "Large-order differentiability relies on strong complex-uniform Olver remainders and a moving-minimum argument, which are the most technical proof inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct priority risk; no claim of full document NOT_COVERING",
+          "evidence": "abstract on uniqueness and first-order order monotonicity",
+          "identifier_or_url": "https://arxiv.org/abs/2609.39008",
+          "material_read": "arXiv abstract with uniqueness/order-monotonicity; HTML and PDF OA attempts inaccessible; authorized Oxford attempt returned vpn_disconnected",
+          "method": "arXiv abstract + lawful OA attempts + Oxford",
+          "title": "Turán type inequalities for oscillatory special functions",
+          "trigger": "same sharp Bessel nodal Turán minima"
+        },
+        {
+          "assessment": "Classical turning-point technology, not itself claimed novel; supports proof prerequisite with stated differentiability caveat",
+          "evidence": "§10.20 uniform real and complex order/argument asymptotics",
+          "identifier_or_url": "https://dlmf.nist.gov/10.20",
+          "material_read": "NIST online exposition §§10.20(i),(ii), equations for Bessel J and J prime and complex-variable extension",
+          "method": "read web HTML technical formula pages",
+          "title": "DLMF §10.20 Uniform Asymptotic Expansions for Large Order",
+          "trigger": "nonstandard differentiable Airy expansion input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It settles a motivated curvature-sign question for sharp Bessel Turán minima at both parameter ends for each fixed n; the sign change is structural even without a uniqueness-of-inflection theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only pointwise fixed n, not n-uniform; number of inflections not classified.",
+    "Complex-order Airy asymptotics invoked, not reproved from first principles."
+  ],
+  "schema_version": 1
+}
