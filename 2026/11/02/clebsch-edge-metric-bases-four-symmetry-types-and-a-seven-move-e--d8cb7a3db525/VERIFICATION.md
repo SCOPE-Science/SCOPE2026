@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-The graph is represented on the integers zero through fifteen, using bitwise XOR with the directions `1,2,4,8,15`. A pair of edges is resolved when the minimum distance to its endpoints differs at some selected vertex. The programs contain every algorithm needed to check the claims; no external data files, graph library, or network access are required.
+## correctness
 
-Execute `python3 verify.py` (Python 3.10+). This implementation enumerates all \(2^{16}=65536\) vertex subsets through a recurrence on 780-bit distinguishing-pair masks, builds every legal one-landmark exchange among all 1,600 minimum bases, runs all-source breadth-first search, then classifies the 1,600 bases under 1,920 explicitly constructed affine automorphisms. The reported orbit representatives, omitted-subgraph degree signatures, vertex degrees and eccentricities check the full stated classification.
+PASS
 
-Execute `g++ -O2 -std=c++17 verify_alt.cpp -o verify_alt && ./verify_alt`. This implementation independently computes vertex shortest paths by graph BFS, examines every subset of size at most nine (50,643 masks), represents the forty edge-distances as ternary signatures, tests all possible one-for-one replacements and computes all source eccentricities. It does not import or use the Python implementation's precomputed basis list.
+The explicit XOR graph has 16 vertices, 40 edges, and graph diameter two. Define for each of the 16 candidate landmarks its 780-bit mask of edge pairs separated by min endpoint distance; union recurrence over all 65536 subsets proves no resolved set <=8 and exactly 1600 of size 9. Generate every 9*7 swap of each basis and retain valid basis masks; this yields degree histogram {15:1440,27:160} and 12960 undirected edges. All-source BFS across all 1600 states proves connectivity, 160 eccentricity-six centers and 1440 eccentricity-seven others. Enumerate all 16 translations and 5! direction permutations to get the entire affine action; its orbits have the four stated sizes and distinct omitted-set degree signatures. I performed an independent full Python enumeration from the graph, including all 65536 masks, graph BFS, 1920 affine maps and all-source exchange BFS, agreeing with both repository checker algorithms. Finite exhaustive proof is legitimate because every universe is fully enumerated, unlike partial sample claims.
 
-Observed final messages were `ALL_VERIFY_OK` and `INDEPENDENT_VERIFY_OK`. Both checkers yielded minimum size nine, exactly 1,600 bases, 12,960 exchange edges, one connected component, radius six and diameter seven. The first also verified exactly four affine orbits with sizes 160, 240, 240 and 960. These are finite exhaustive computations; they do not establish generalizations to other graphs or any independent scholarly audit status.
+## originality
+
+PASS
+
+Kelenc–Tratnik–Yero introduced edge metric dimension; Milivojević Danas et al. Table 8 explicitly establishes edim(Clebsch)=9. That scalar is not new. The exact labelled count, four symmetry-orbit types, and complete exchange graph radius/diameter are not logical consequences of the quoted scalar and are absent from inspected full 2016 and 2020 papers. Additional unindexed Clebsch reconfiguration or resolving-set census may predate this analysis, so novelty is best-of-knowledge.
+
+## value
+
+PASS
+
+This is a natural complete minimum-design classification for a standard named strongly regular graph, plus an exact reconfiguration diameter: any optimal edge-identification sensor set can be transformed into any other by at most 7 valid optimum-preserving swaps, and 7 is sharp. The orbit signatures and centers give structural information that the previously known scalar 9 cannot provide. Finite self-contained enumeration is appropriate and exhaustive rather than arbitrary sampled work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

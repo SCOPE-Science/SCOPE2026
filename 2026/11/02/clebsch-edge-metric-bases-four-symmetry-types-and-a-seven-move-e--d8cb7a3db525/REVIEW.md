@@ -1,15 +1,21 @@
-# Review of the Clebsch edge-metric basis exchange classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph has an explicit sixteen-vertex, forty-edge XOR presentation. Edge resolution reduces to hitting all 780 unordered edge pairs. Exhaustive evaluation of every one of 65,536 landmark subsets finds no basis smaller than nine and exactly 1,600 of minimum size. Enumerating every legal exchange yields 12,960 edges, and every-source shortest paths yield connectivity, radius six and diameter seven, with eccentricity classes of sizes 160 and 1,440. An independently implemented C++ checker reconstructs graph distances by breadth-first search and repeats the complete minimum-basis and exchange-graph census. A 1,920-map affine action exhausts the bases in four disjoint symmetry classes; omitted induced-degree signatures distinguish these classes. Both supplied source files were executed successfully, and their checks address the actual finite universes rather than samples.
+## correctness
 
-## Originality — PASS, with residual risk
-Kelenc–Tratnik–Yero (arXiv:1602.00291v1) defines edge metric generators and develops general results, but contains no Clebsch basis-exchange classification. Milivojević Danas et al. (arXiv:2007.05808v1, Table 8) report exactly the known scalar Clebsch edge metric dimension of nine; this value is explicitly removed from the novelty claim. Their text does not enumerate all bases, partition them under automorphisms, or give the swap-graph component/metric structure. Available published research-record searches found no mathematically covering claim. Related existing Clebsch graph results involving determining sets and perfect-matchings concern different admissibility predicates. The residual risk is a specialized or unindexed prior enumeration of the same optimum edge-resolving configurations or an equivalent reconfiguration graph.
+PASS
 
-## Value — PASS
-The natural edge-identification problem asks not only for the fewest landmarks, but which optimum deployments exist and whether they can be maintained by substituting one landmark while remaining optimal. The theorem completely answers these non-implied questions for the canonical highly symmetric folded five-cube: 1,600 configurations in four genuinely different geometric types, with a sharp seven-swap worst-case reconfiguration distance and a distinguished class of 160 optimal centers. It supplies a reproducible exact benchmark for optimum-solution mobility rather than an arbitrary numerical slice or a restatement of the known dimension.
+The explicit XOR graph has 16 vertices, 40 edges, and graph diameter two. Define for each of the 16 candidate landmarks its 780-bit mask of edge pairs separated by min endpoint distance; union recurrence over all 65536 subsets proves no resolved set <=8 and exactly 1600 of size 9. Generate every 9*7 swap of each basis and retain valid basis masks; this yields degree histogram {15:1440,27:160} and 12960 undirected edges. All-source BFS across all 1600 states proves connectivity, 160 eccentricity-six centers and 1440 eccentricity-seven others. Enumerate all 16 translations and 5! direction permutations to get the entire affine action; its orbits have the four stated sizes and distinct omitted-set degree signatures. I performed an independent full Python enumeration from the graph, including all 65536 masks, graph BFS, 1920 affine maps and all-source exchange BFS, agreeing with both repository checker algorithms. Finite exhaustive proof is legitimate because every universe is fully enumerated, unlike partial sample claims.
 
-## Boundaries
-This is a finite, computer-assisted theorem for one graph. No general folded-cube extension or independent scholarly certification is asserted. Equivalence to undiscovered literature cannot be excluded solely by negative searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kelenc–Tratnik–Yero introduced edge metric dimension; Milivojević Danas et al. Table 8 explicitly establishes edim(Clebsch)=9. That scalar is not new. The exact labelled count, four symmetry-orbit types, and complete exchange graph radius/diameter are not logical consequences of the quoted scalar and are absent from inspected full 2016 and 2020 papers. Additional unindexed Clebsch reconfiguration or resolving-set census may predate this analysis, so novelty is best-of-knowledge.
+
+## value
+
+PASS
+
+This is a natural complete minimum-design classification for a standard named strongly regular graph, plus an exact reconfiguration diameter: any optimal edge-identification sensor set can be transformed into any other by at most 7 valid optimum-preserving swaps, and 7 is sharp. The orbit signatures and centers give structural information that the previously known scalar 9 cannot provide. Finite self-contained enumeration is appropriate and exhaustive rather than arbitrary sampled work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

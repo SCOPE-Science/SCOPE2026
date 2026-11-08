@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit XOR graph has 16 vertices, 40 edges, and graph diameter two. Define for each of the 16 candidate landmarks its 780-bit mask of edge pairs separated by min endpoint distance; union recurrence over all 65536 subsets proves no resolved set <=8 and exactly 1600 of size 9. Generate every 9*7 swap of each basis and retain valid basis masks; this yields degree histogram {15:1440,27:160} and 12960 undirected edges. All-source BFS across all 1600 states proves connectivity, 160 eccentricity-six centers and 1440 eccentricity-seven others. Enumerate all 16 translations and 5! direction permutations to get the entire affine action; its orbits have the four stated sizes and distinct omitted-set degree signatures. I performed an independent full Python enumeration from the graph, including all 65536 masks, graph BFS, 1920 affine maps and all-source exchange BFS, agreeing with both repository checker algorithms. Finite exhaustive proof is legitimate because every universe is fully enumerated, unlike partial sample claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc et al. develop general graph-edge resolving bounds and selected families; Milivojević Danas et al. give small named-graph minima, not full basis-exchange geometries."
+        ],
+        "reasoning": "Generic graph algorithms can in principle compute the exact finite table but are not prior publication of this specific four-orbit enumeration. Other reconfiguration-graph results may still apply under alternative terminology.",
+        "searches": [
+          "arxiv:1602.00291 edge metric dimension complete article",
+          "arxiv:2007.05808 mixed metric dimension Clebsch table",
+          "Resultary Clebsch edge metric basis exchange graph"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1602.00291",
+        "https://arxiv.org/abs/2007.05808",
+        "https://aeb.win.tue.nl/graphs/Clebsch.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known edim=9 supplies the cardinality of a minimum set but does not determine count of minimizers, four affine orbits or adjacency connectivity; the automorphism order 1920 alone does not determine orbit representatives."
+        ],
+        "reasoning": "The existing methods are used to construct an exhaustive check; none of the located statements subsumes the exact minimum-base classification and swap radius/diameter.",
+        "searches": [
+          "Kelenc Tratnik Yero 2016 full edge metric paper",
+          "Milivojevic Danas Kratica Savic Maksimovic 2020 Table 8",
+          "Brouwer Clebsch graph full automorphism group"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Clebsch edim=9 appears in Table 8 of Milivojević Danas et al. 2020; base count/orbits/exchange graph are distinct stronger configurations not in that table."
+        ],
+        "reasoning": "The known scalar minimum is not described as novel. A complete basis census and swap-graph metric classification cannot be recovered from edge metric dimension alone.",
+        "searches": [
+          "Resultary: Clebsch graph edge metric bases enumeration exchange reconfiguration graph orbit classification",
+          "Kelenc Tratnik Yero arxiv:1602.00291 edge metric dimension",
+          "Milivojevic Danas arxiv:2007.05808 Clebsch Table 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2020 Table 8 lists edge metric dimension nine; Resultary closest Franklin/Wagner matching complexes classify different graph combinatorics rather than edge-metric bases."
+        ],
+        "reasoning": "The known table covers only the dimension 9; no inspected exact table contains 1600, 12960 or diameter 7. The exhaustive certificate verifies new numbers, not historical priority.",
+        "searches": [
+          "Clebsch graph edge metric basis enumeration 1600 four orbits 12960 exchange edges",
+          "Milivojevic Danas arxiv:2007.05808 Table 8 Clebsch",
+          "Resultary edge metric basis graph census"
+        ]
+      },
+      "rationale": "Kelenc–Tratnik–Yero introduced edge metric dimension; Milivojević Danas et al. Table 8 explicitly establishes edim(Clebsch)=9. That scalar is not new. The exact labelled count, four symmetry-orbit types, and complete exchange graph radius/diameter are not logical consequences of the quoted scalar and are absent from inspected full 2016 and 2020 papers. Additional unindexed Clebsch reconfiguration or resolving-set census may predate this analysis, so novelty is best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed classification of metric/edge resolving sets or reconfiguration on Clebsch/folded hypercube might reproduce these finite counts.",
+        "Results are graph-specific and finite; no extension to arbitrary folded cubes, strongly regular graphs or general exchange graphs is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_GENERAL_BOUNDS",
+          "evidence": "Defines the min-endpoint edge distance and general graph bounds; no Clebsch full basis exchange spectrum found in inspected main results.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00291",
+          "material_read": "Full accessible 2016 PDF including definitions, theorems, example families",
+          "method": "Read PDF and inspected rendered page; compared exact edge-distance convention",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational edge-distance definition and graph-family theorems"
+        },
+        {
+          "assessment": "PRIOR_SCALAR_COVERAGE_ONLY",
+          "evidence": "Table 8 explicitly gives edge metric dimension 9 for Clebsch, not number/orbits/exchange graph of all minimum bases.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.05808",
+          "material_read": "Full accessible 2020 PDF including Table 8 of small named graphs; visually inspected the table page",
+          "method": "Compared table column for Clebsch edim to claimed dimension and new configurations",
+          "title": "Some new general lower bounds for mixed metric dimension of graphs",
+          "trigger": "Exactly matching named graph and known scalar edim"
+        },
+        {
+          "assessment": "FOUNDATIONAL_GRAPH_STRUCTURE",
+          "evidence": "Standard Clebsch graph has 16 vertices and full automorphism group size 1920; no matching edge-metric basis exchange theorem located.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Clebsch.html",
+          "material_read": "Web reference graph description and automorphism order",
+          "method": "Compare graph presentation and listed group order",
+          "title": "Clebsch graph",
+          "trigger": "Graph automorphism and Cayley representation reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete minimum-design classification for a standard named strongly regular graph, plus an exact reconfiguration diameter: any optimal edge-identification sensor set can be transformed into any other by at most 7 valid optimum-preserving swaps, and 7 is sharp. The orbit signatures and centers give structural information that the previously known scalar 9 cannot provide. Finite self-contained enumeration is appropriate and exhaustive rather than arbitrary sampled work.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1602.00291",
+    "https://arxiv.org/abs/2007.05808",
+    "https://aeb.win.tue.nl/graphs/Clebsch.html"
+  ],
+  "disposition": "passed",
+  "final_claim": "The Clebsch graph on F2^4 with difference directions {1,2,4,8,15} has exactly 1600 minimum 9-vertex edge-metric bases (the scalar minimum 9 is previously known), partitioned into affine orbits 160,240,240,960 with four distinct degree signatures on omitted 7-vertex induced subgraphs. Their one-vertex replacement graph has 1600 vertices, 12960 edges, one component, radius 6, diameter 7; the 160 degree-27 bases are its exact centers.",
+  "limitations": [
+    "Exact finite instance only; scalar edim(C)=9 is known and excluded from originality claims.",
+    "Classification is for min-endpoint edge distance, labelled bases and one-for-one swaps; no other graph families."
+  ],
+  "residual_risks": [
+    "An unindexed classification of metric/edge resolving sets or reconfiguration on Clebsch/folded hypercube might reproduce these finite counts.",
+    "Results are graph-specific and finite; no extension to arbitrary folded cubes, strongly regular graphs or general exchange graphs is proved."
+  ],
+  "schema_version": 1
+}
