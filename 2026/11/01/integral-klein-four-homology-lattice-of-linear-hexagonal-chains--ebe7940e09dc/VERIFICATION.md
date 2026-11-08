@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_hex_lattice.py` with Python 3 and no third-party packages. The program exactly enumerates faces of the linear hexagonal chains for \(1\le n\le5\), forms the simplicial boundary maps over \(\mathbb F_2\), constructs quotient homology bases, and checks the ranks of \(h-I\) and \(v-I\). Its separate recursion and brute-force quotient-graph tests verify the end-reversal fixed-point counts. It checks that the alternating-rung simplex is maximal through \(n=14\).
+## correctness
 
-Observed output ends with:
+PASS
 
-`VERIFY_OK: 40 transfer checks; 7 independent orbit enumerations; 14 primitive facets; 5 exact mod-2 homology action checks`
+Reconstructed G_n as two paths of 2n+1 vertices with odd-column rungs; the cited homotopy theorem gives Htilde_n=Z^2 and no other reduced homology. h-fixed barycentric locus is an (n-1)-simplex, so the relative chain complex off fixed points is a finite free F2[C2]-complex. Hyper-Tor and vanishing at high quotient degree force rank(1+h)=1 mod 2; Lefschetz trace 0 yields an integral swap basis, with primitive +/- eigenvectors determinant 2. The integral centralizer of swap among involutions is +/-I, +/-J. Folded-graph independence-polynomial recurrence gives trace(v)=2(-1)^(n/2) for even n and zero for odd. A primitive rung-join n-cycle has v sign (-1)^((n+1)/2) in odd case, fixing the remaining sign. Checked proof boundaries n=1 and n=2; finite verifier independently builds chain actions n=1..5 and transfer n<=40, not a substitute for the all-n argument. Potential critical gap was the relative free-cell spectral-sequence collapse; since only H_n(K,F;F2) survives, it collapses and dimension-bounded quotient forces the requisite Tor vanish. Result survives.
 
-The argument for every \(n\) is the five-part proof in `RESULT.md`, notably its finite-dimensional free-relative-cell hyper-Tor calculation and integral rank-two involution classification. Experiments alone do not imply the infinite claim. The published nonequivariant homotopy type is a separately attributed prerequisite; this package does not independently reprove that external theorem. Independent mathematical audit is not performed.
+## originality
+
+PASS
+
+The exact final theorem is not implied by the materially inspected same-object and broader theorems; individual prior components are credited. Priority is best-of-knowledge with named risks, not absolute novelty proof.
+
+## value
+
+PASS
+
+Motivation is integral equivariant topology of the natural two-reflection action on a canonical linear benzenoid graph family. Rational characters were already tabulated but do not distinguish a split Z+⊕Z- lattice from the non-split permutation lattice; the index-two extension is a natural, genuinely uncomputed integral invariant across all n. The construction supplies a structural non-splitting lemma and full Klein-four action, not a routine renaming of the rational result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
