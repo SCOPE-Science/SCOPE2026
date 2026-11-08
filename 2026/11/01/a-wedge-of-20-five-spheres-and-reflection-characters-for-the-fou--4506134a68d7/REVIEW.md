@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact vertex numbering and forbidden-independent-set definition reconstruct a finite complex with 61 four-vertex obstructions and 1415 nonempty faces. The specified matching has 697 disjoint pairs and precisely 21 critical faces: one of dimension zero and twenty of dimension five. The checker builds each of the 6160 Hasse incidences, reverses exactly the paired ones, and independently verifies that a topological sort removes all nodes. Consequently the finite discrete-Morse theorem proves the integral sphere wedge, not merely a mod-two Betti pattern. The four signed chain-Lefschetz traces then rigorously determine the rational reflection representation. The executable verification passed.
+## correctness
 
-## Originality — PASS, with residual risk
-Filakovský's arXiv:2602.11365v4 proves the robust grid classification only at parameters two and three, with arbitrary parameters restricted to edge-only square attachments. Its Conjecture 5 explicitly asks for the missing higher-parameter corner-gluing cases. Chandrakar et al., arXiv:2408.07646v3, prove total-cut versions for two-row grids of arbitrary parameter and three-row grids only at parameter three. The three-by-four rectangle at parameter four is not implied by these statements. A prior indexed theorem proves the exact reduced Euler characteristic of the whole three-row parameter-four family, and this is explicitly acknowledged: at width four the value is -20, which does not imply the new homotopy or rational character. Indexed searches for both robust and total-four-cut aliases, relevant parameter ranges, and equivalences did not reveal a covering result. Risk remains from unindexed literature and the uninspected full text of that prior Euler record.
+PASS
 
-## Mathematical value — PASS
-The three-by-four rectangle has 31 mixed-color independent four-sets, so its four-robust complex is not the elementary join of two bipartition simplex skeleta that handles the smaller square. Its explicit five-dimensional sphere-wedge homotopy advances a natural first genuinely mixed, corner-glued instance of the contemporary conjecture rather than a routine restatement of Euler characteristic. The reflection representation further distinguishes four rational symmetry types and gives useful structural information beyond a single rank.
+PASS: Reconstructed the Cartesian P3×P4 edge set, independently tested all 2^12 masks, 61 independent 4-sets (31 mixed), 1415 nonempty simplices and f-vector (12,66,220,434,466,217). Rebuilt the source ordered-toggle 697 pairs, confirmed exactly 1 critical vertex and 20 critical 5-faces, and independently topologically sorted all 6160 oriented Hasse incidences without cycle. The resulting Morse CW complex has only a point and 20 five-cells, so is wedge20 S5 (integral), not just equal Betti numbers. Independently computed signed chain traces under row/column reversal and Lefschetz H5 trace (20,0,-4,0); C2×C2 orthogonality yields rational multiplicities (4,4,6,6). Integral equivariant splitting is not claimed.
 
-## Scope and verification risks
-The certificate proves only this named twelve-vertex grid. The claimed decomposition is rational for the reflection representation, not an integral direct sum. General three-row and other square-sequence cases remain unproved, and external independent mathematical validation was not carried out. Source comparisons and exact checker outputs are recorded in the accompanying structured audit and verification notes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
+
+## value
+
+PASS
+
+PASS: The first rectangle with the genuinely mixed independent-four obstruction provides a natural nontrivial k=4 corner-gluing test of the published robust-clique sphere-wedge conjecture; an exact wedge20 S5 classification and reflection-module multiplicities are mathematically motivated beyond a small arbitrary enumeration or Euler-number recomputation. No general-grid assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

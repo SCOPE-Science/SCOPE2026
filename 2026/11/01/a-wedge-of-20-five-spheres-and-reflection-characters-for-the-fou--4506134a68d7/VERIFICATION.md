@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Execute `python3 verify.py` using Python 3.9 or later; no external dependencies are required. The checker builds the exact \(3\times4\) grid, enumerates every one of its \(4095\) nonempty vertex subsets, computes all independent four-subsets, verifies each prospective face from a second direct four-subset test, and enumerates the full codimension-one Hasse incidence set.
+# Independent mathematical audit
 
-The specified vertex-toggle matching yields \(697\) disjoint pairs and exactly one critical zero-cell plus twenty critical five-cells. The complete directed incidence graph has \(1415\) vertices and \(6160\) edges; a topological sort removes all \(1415\) vertices. The check is exhaustive for the finite complex, not a sampling or a timeout-based inference.
+## correctness
 
-For the four rectangular symmetries, signed chain traces and the alternating Lefschetz identity give degree-five homology traces \((20,0,-4,0)\). The character projections give multiplicities \((4,4,6,6)\). The checker prints `VERIFY_OK` only after all checks pass and prints a digest of the complete matching-pair list.
+PASS
 
-The discrete-Morse homotopy conclusion rests on the standard theorem for acyclic face-poset matchings: a matching with one critical zero-cell and only critical five-cells gives a point with twenty five-cells attached, hence a wedge of spheres. The character calculation is rational and does not certify integral representation splitting. The result is not independently audited.
+PASS: Reconstructed the Cartesian P3×P4 edge set, independently tested all 2^12 masks, 61 independent 4-sets (31 mixed), 1415 nonempty simplices and f-vector (12,66,220,434,466,217). Rebuilt the source ordered-toggle 697 pairs, confirmed exactly 1 critical vertex and 20 critical 5-faces, and independently topologically sorted all 6160 oriented Hasse incidences without cycle. The resulting Morse CW complex has only a point and 20 five-cells, so is wedge20 S5 (integral), not just equal Betti numbers. Independently computed signed chain traces under row/column reversal and Lefschetz H5 trace (20,0,-4,0); C2×C2 orthogonality yields rational multiplicities (4,4,6,6). Integral equivariant splitting is not claimed.
+
+## originality
+
+PASS
+
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
+
+## value
+
+PASS
+
+PASS: The first rectangle with the genuinely mixed independent-four obstruction provides a natural nontrivial k=4 corner-gluing test of the published robust-clique sphere-wedge conjecture; an exact wedge20 S5 classification and reflection-module multiplicities are mathematically motivated beyond a small arbitrary enumeration or Euler-number recomputation. No general-grid assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
