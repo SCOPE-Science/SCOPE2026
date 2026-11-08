@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:05:33.841242Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<p<=1, k>=2, 1/2<=r<=1, Cuth–Raunig Theorem 2.2 gives the p-th free norm as a minimum over rooted spanning trees of edge-length^p times signed descendant mass^p. Nonnegative charges make reattaching the zero-charge center c to root o cost-nonincreasing, and reattaching all leaves beneath other leaves to their parents is cost-nonincreasing since the new edge length is <=1 and intermediate carried mass decreases. Every tree thus reduces to a two-level root-center star, giving min_S[Σ_{i not in S}a_i^p+r^p(Σ_{i in S}a_i^p+(Σ_{i in S}a_i)^p)]. For S size m, subadditive power-mean gives (Σ_S a_i)^p>=m^(p-1) Σ_S a_i^p>=k^(p-1) Σ_S a_i^p. The lower bound min(1,r^p(1+k^(p-1)))Σa_i^p is attained by a singleton or all equal coefficients, so cone inverse distortion is max(1,1/(r(1+k^(p-1))^(1/p))). Checked metric range and p=1 boundary. Independently enumerated all 5^3=125 rooted tree candidates for k=3 and compared 27 (p,r,charge-vector) cases, all agree. Signed vectors are explicitly outside claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General tree formula computes individual norms but requires a separate monotone rooted-tree compression; broader embedding theorems guarantee bounded isomorphism, not exact restricted cone norm."
+        ],
+        "reasoning": "An algorithm for finite norms is a computational framework, not a stated closed form or direct formula without the finite-tree optimization.",
+        "searches": [
+          "arXiv:2311.02920 Theorems 2.2, 2.8, 3.21",
+          "arXiv:2603.28193 Lipschitz extensions p-Banach canonical embeddings"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Provides spanning-tree minimization and general positive-charge statements; no k-leaf central-subset formula in inspected text",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.02920",
+          "title": "Canonical embedding of Lipschitz-free p-spaces"
+        },
+        {
+          "assessment": "Different extension-vs-inclusion variational problem; no direct implication claimed",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1",
+          "title": "Sharp leaf-count transitions in one-point p-Banach Lipschitz extensions"
+        },
+        {
+          "assessment": "General inclusion claims do not present k/r sharp cone constant in available material",
+          "identifier_or_url": "https://arxiv.org/abs/2603.28193",
+          "title": "Lipschitz extensions into p-Banach spaces, and canonical embeddings"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree formula explicitly permits constructing the present proof but does not present its cut-compression lemma.",
+          "Lipschitz extension trace is not a canonical free-p positive-cone inverse norm."
+        ],
+        "reasoning": "The claim is a nontrivial exact evaluation derived from earlier general theory; no stronger prior theorem was found that logically determines it as a reported corollary.",
+        "searches": [
+          "arXiv:2311.02920 Theorem 2.2 and 2.8 via full available PDF",
+          "Resultary 2026/10/11/one-point-p-banach extension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2311.02920 Thm2.2 has spanning-tree formula; Thm2.8 positive coefficients characterize a different property.",
+          "Resultary 2026/10/11 one-point Lipschitz extension paper has a different optimizer and observable."
+        ],
+        "reasoning": "The natural aliases are positive Dirac mass p-free norm, p-amenability constant, rooted tree flow; none inspected gives the exact k-variable subset minimum.",
+        "searches": [
+          "Resultary: Lipschitz free p space nonnegative cone exact star center equilateral embedding distortion",
+          "Cúth Raunig p-amenability and one-point metric extension searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Extension star record: factor min{2,2(n-1)^(1/p)/n}, optimizing extension targets; 3-point record: universal inclusion bound depending on p."
+        ],
+        "reasoning": "Neither matches the quantity max{1,[r(1+k^(p-1))^(1/p)]^-1} for all k,r,p; parameter and variational objective differ.",
+        "searches": [
+          "Resultary: sharp leaf count one-point p-Banach Lipschitz extensions",
+          "Resultary: exact three point Lipschitz-free p inclusion constant"
+        ]
+      },
+      "rationale": "Cúth–Raunig (arXiv:2311.02920) Theorem 2.2 supplies the general tree variational formula and Theorem 2.8 discusses the positive cone; neither inspected theorem states the exact two-level central extension or the k,r,p threshold. Resultary's 2026-10-11 one-point p-Banach extension constant addresses optimizing a Lipschitz extension, not this canonical free-p embedding inverse restricted to the nonnegative Dirac cone; a shared star geometry is not mathematical implication. The three-point inclusion constant cannot dominate arbitrary k. Best-of-knowledge separate exact specialization with a required structural tree reduction; general algorithm alone does not give the sharp closed form.",
+      "residual_risks": [
+        "There may be an unstated star-cone corollary elsewhere in the full Cúth–Raunig paper or a related thesis; targeted find equilateral/star in PDF returned no occurrences.",
+        "The exact statement is cone restricted; any claim about the full inverse norm would require separate work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides spanning-tree minimization and general positive-charge statements; no k-leaf central-subset formula in inspected text",
+          "evidence": "Theorem 2.2: norm^p=min over rooted trees of Σ edge^p |descendant charge|^p; Theorem 2.8 focuses root-nearest-neighbor condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.02920",
+          "material_read": "Full PDF fetched; introduction, pages 4 and 6–8 examined, Theorem 2.2 and Corollary 2.7/Theorem 2.8 read; remaining sections inspected via targeted text searches",
+          "method": "public arXiv PDF text plus page-4 screenshot",
+          "title": "Canonical embedding of Lipschitz-free p-spaces",
+          "trigger": "exact base theorem used by proof"
+        },
+        {
+          "assessment": "Different extension-vs-inclusion variational problem; no direct implication claimed",
+          "evidence": "Published summary gives min{2,2(n-1)^(1/p)/n} for one-point extension, no r-dependent positive-free norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1",
+          "material_read": "Published Resultary record title and theorem summary, not complete proof",
+          "method": "Resultary semantic search",
+          "title": "Sharp leaf-count transitions in one-point p-Banach Lipschitz extensions",
+          "trigger": "potential same star parameter family"
+        },
+        {
+          "assessment": "General inclusion claims do not present k/r sharp cone constant in available material",
+          "evidence": "General qualitative isomorphic inclusion setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.28193",
+          "material_read": "Abstract and reference context, not full text",
+          "method": "public metadata",
+          "title": "Lipschitz extensions into p-Banach spaces, and canonical embeddings",
+          "trigger": "possible encompassing isomorphism theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For p<1 inclusions of Lipschitz-free p-spaces need not be isometric. The positive cone is a geometrically natural subcone, and computing its exact distortion as a function of leaf count, exponent, and new-point distance identifies a sharp onset of nonisometry and the large-k limit 1/r. The restriction to positive coefficients is essential and stated; no full inverse-norm claim is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Provides spanning-tree minimization and general positive-charge statements; no k-leaf central-subset formula in inspected text",
+      "identifier_or_url": "https://arxiv.org/pdf/2311.02920",
+      "title": "Canonical embedding of Lipschitz-free p-spaces"
+    },
+    {
+      "assessment": "Different extension-vs-inclusion variational problem; no direct implication claimed",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1",
+      "title": "Sharp leaf-count transitions in one-point p-Banach Lipschitz extensions"
+    },
+    {
+      "assessment": "General inclusion claims do not present k/r sharp cone constant in available material",
+      "identifier_or_url": "https://arxiv.org/abs/2603.28193",
+      "title": "Lipschitz extensions into p-Banach spaces, and canonical embeddings"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No signed-coefficient inverse operator norm established. The rooted-tree simplification requires a_i>=0 and r<=1; 1/2<=r ensures metric."
+  ],
+  "residual_risks": [
+    "There may be an unstated star-cone corollary elsewhere in the full Cúth–Raunig paper or a related thesis; targeted find equilateral/star in PDF returned no occurrences.",
+    "The exact statement is cone restricted; any claim about the full inverse norm would require separate work."
+  ],
+  "schema_version": 1
+}
