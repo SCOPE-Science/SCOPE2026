@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:53:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Setting R=(I+sL)^-1 yields C=2R-I, with R entries strictly positive on connected graphs for s>0. Augment A by Delta-deg(v) separate stationary ports so its row sums Delta; absolute Neumann series for R has coefficients counting rooted closed port walks. Universal Delta-regular covering-tree reduced-port words inject their closed walks into the original port graph, giving R_vv >= regular-tree g_Delta(s), strictly > for each finite graph because its port system has a non-tree reduced loop (cycle or stationary port). I checked the cavity q=1/[1+sDelta-(Delta-1)s²q] and root g=1/[1+sDelta-Delta s²q], with g(sigma)=1/2 exactly for Delta=3..13 by independent rational arithmetic. g strictly decreases; regular-tree-radius balls converge coefficientwise and via dominated Neumann series to g, so any supercritical s gives a negative center diagonal in a sufficiently large finite ball. I independently enumerated all labelled connected simple graphs on 2..5 vertices, checked rational positivity at the applicable degree cap; finite checks supplement infinite comparison/limit proof. Physical h=2s, strict endpoint positivity of every finite graph holds; Delta>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faragó–Horváth general parabolic DMP framework addresses matrix positivity and mesh-dependent conditions; abstract available, full text not obtained.",
+          "Angel–Friedman–Hoory primary sections 1 and 5 study Green functions/ratio systems on universal covers, but do not supply the Crank–Nicolson Delta class threshold."
+        ],
+        "reasoning": "These offer background principles and methods but inspected results do not dominate the sharp finite-graph maximum-degree universal bound.",
+        "searches": [
+          "doi:10.1137/050627241 Farago Horvath discrete maximum principle",
+          "arxiv:0712.0192 non-backtracking spectrum universal cover",
+          "Resultary reversible Markov chain positivity result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/4 resolvent return full RESULT",
+        "arxiv:0712.0192 PDF Sections1,5",
+        "doi:10.1137/050627241 abstract",
+        "Crank Nicolson entrywise positivity maximum graph degree resolvent return regular tree sharp step"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-generator Rii criterion does not determine inf_{G,Delta(G)<=Delta} min_v R_G(s)vv: this requires proving regular-tree closed-walk extremality.",
+          "Generic Runge–Kutta positivity radius is a method-class measure and not the sharp topology-uniform Laplacian degree cap."
+        ],
+        "reasoning": "Neither prior theorem alone implies Delta tree extremizer and threshold; port-lifting and cavity solution are necessary nontrivial additions.",
+        "searches": [
+          "Resultary 2026/10/4 resolvent return law fixed reversible chain",
+          "Farago Horvath 2006 discrete maximum principle Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full published Resultary resolvent-return law gives exact fixed-generator criterion Rii>=1/2; its complete-graph threshold h=2/[c(n-2)] is not this maximum-degree tree extremal bound."
+        ],
+        "reasoning": "Equivalent terms are Padé/Cayley update positivity, positive resolvent diagonals and M-matrix numerical maximum principle. Existing general criterion alone leaves an optimization over all bounded-degree graphs, which the reviewed tree comparison resolves.",
+        "searches": [
+          "Crank Nicolson entrywise positivity maximum graph degree resolvent return regular tree sharp step",
+          "Crank Nicolson positivity generator Cayley transform resolvent return reversible Markov chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related published result tabulates complete-graph threshold and two-state chain, not 5/12 or 7/24 for degree-bounded classes.",
+          "Source verifier checks many finite graph and regular-tree examples but those are evidence rather than published prior tables."
+        ],
+        "reasoning": "No exact degree-class table or stronger extremal constant found. An unindexed numerical-analysis threshold remains possible, so absence is not proof.",
+        "searches": [
+          "Crank Nicolson entrywise positivity maximum graph degree resolvent return regular tree sharp step",
+          "Delta graph Crank Nicolson positivity sigma_3 5/12 sigma_4 7/24 regular tree"
+        ]
+      },
+      "rationale": "Published Resultary reversible-Markov-chain return-resolvent law gives C=2R-I, diagonal half-return criterion and complete-graph thresholds; these are credited. The reviewed new implication is uniform over all max-degree-Delta graphs with exact regular-tree extremal crossing; full prior text does not derive this. Faragó–Horváth gives general discrete maximum principles, while Angel–Friedman–Hoory provides universal-cover Green-function machinery. A possible older specialized method-of-lines bound is the residual risk.",
+      "residual_risks": [
+        "Some older specialist graph-diffusion or numerical positivity paper may contain the exact all-Delta regular-tree extremal law.",
+        "Farago–Horvath complete paper not retrievable due institutional VPN disconnected.",
+        "Only unit conductances/combinatorial Laplacian/one-step positivity, not normalized/weighted graphs or nonlinear time stepping."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING classical C=2R-I criterion; NOT the degree-class extremal theorem",
+          "evidence": "Fixed reversible chain spectrum criterion, no port-graph Delta-regular tree walk inequality nor sigma_Delta formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "complete published primary RESULT.md, including fixed-chain theorem, proof, spectral enclosure and complete-graph case",
+          "method": "GitHub content blob retrieval",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "same update matrix and positivity half-return criterion"
+        },
+        {
+          "assessment": "background on covering-tree operators, not direct CN step theorem",
+          "evidence": "Ratios of Green functions and spectra of non-backtracking operators; no identified positivity time-step bound.",
+          "identifier_or_url": "arxiv:0712.0192",
+          "material_read": "full primary PDF abstract, introduction and Section 5 (Green functions and relative kernels)",
+          "method": "arxiv PDF text plus first-page screenshot",
+          "title": "The non-backtracking spectrum of the universal cover of a graph",
+          "trigger": "covering-tree spectral/Green machinery potential prior"
+        },
+        {
+          "assessment": "incomplete comparison; meaningful residual novelty risk",
+          "evidence": "General parabolic numerical positivity framework; exact Delta-only threshold cannot be ruled out from inaccessible full text.",
+          "identifier_or_url": "doi:10.1137/050627241",
+          "material_read": "publisher abstract and theorem references in package; full primary text unavailable",
+          "method": "publisher-indexed abstract; authorized institutional VPN disconnected",
+          "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+          "trigger": "highly relevant numerical DMP positivity prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximum degree is a natural graph datum; an explicit exact worst-case positive Crank–Nicolson step for all graph sizes and topologies with matching finite-tree obstructions gives a structural uniform sharp threshold. This improves the elementary diagonal sufficient step but is not an individual-graph optimum or a norm error estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary 2026/10/4 resolvent return full RESULT",
+    "arxiv:0712.0192 PDF Sections1,5",
+    "doi:10.1137/050627241 abstract",
+    "Crank Nicolson entrywise positivity maximum graph degree resolvent return regular tree sharp step"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all finite connected simple unit-weight graphs maximum degree <=Delta (Delta>=3), the Crank–Nicolson matrix 2(I+sL)^-1-I has strictly positive entries for 0<s<=sigma_Delta=(2Delta-1)/(2Delta(Delta-1)); every s>sigma_Delta is invalid for some finite Delta-regular tree ball.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Delta>=3; finite connected simple unweighted graph and physical step h=2s.",
+    "Individual finite graphs may tolerate larger steps; finite tree balls approximate but do not attain the infinite crossing."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed one-step normalization is \(C_G(s)=2(I+sL_G)^{-1}-I\), with physical time step \(h=2s\). Reconstructing the proof, the auxiliary matrix \(H_G=A_G+\operatorname{diag}(\Delta-\deg_G)\) has nonnegative entries and row sums \(\Delta\); the corresponding Neumann series converges absolutely. Distinct labelled rooted closed walks in the infinite \(\Delta\)-regular tree inject into those in the auxiliary port graph. The resulting resolvent comparison is a coefficientwise inequality, not a heuristic stochastic domination. Exact Schur-complement equations for the regular tree yield the unique half-return threshold \(\sigma_\Delta=(2\Delta-1)/(2\Delta(\Delta-1))\). Boundary balls yield asymptotic equality by bounded dominated convergence, and the strict finite inequality follows from a cycle or deficiency port. The standard-library verification script passed its exact checks. Scientific limit: finite checking is not the all-graph proof; the explicit port-lifting and convergence arguments supply the infinite assertions.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+Setting R=(I+sL)^-1 yields C=2R-I, with R entries strictly positive on connected graphs for s>0. Augment A by Delta-deg(v) separate stationary ports so its row sums Delta; absolute Neumann series for R has coefficients counting rooted closed port walks. Universal Delta-regular covering-tree reduced-port words inject their closed walks into the original port graph, giving R_vv >= regular-tree g_Delta(s), strictly > for each finite graph because its port system has a non-tree reduced loop (cycle or stationary port). I checked the cavity q=1/[1+sDelta-(Delta-1)s²q] and root g=1/[1+sDelta-Delta s²q], with g(sigma)=1/2 exactly for Delta=3..13 by independent rational arithmetic. g strictly decreases; regular-tree-radius balls converge coefficientwise and via dominated Neumann series to g, so any supercritical s gives a negative center diagonal in a sufficiently large finite ball. I independently enumerated all labelled connected simple graphs on 2..5 vertices, checked rational positivity at the applicable degree cap; finite checks supplement infinite comparison/limit proof. Physical h=2s, strict endpoint positivity of every finite graph holds; Delta>=3.
 
-Closest literature: Faragó–Horváth (DOI `10.1137/050627241`, inspected full-text Sections 4–6) provides a general matrix criterion and sufficient mesh-dependent bounds; it does not give a sharp uniform degree-only result. Bressloff–Dwyer–Kearney (DOI `10.1088/0305-4470/29/9/005`, inspected author-uploaded article Sections 1–2 and its stated section structure) develops diffusion Green functions on trees, but no inspected Crank–Nicolson positivity classification. Angel–Friedman–Hoory (`arXiv:0712.0192`, abstract inspected) studies covering-tree resolvents, not the asserted positivity threshold. Earlier finite-path results and a general resolvent-return positivity criterion cover components of the reasoning but do not imply the sharp all-graph \(\Delta\)-only bound without a new extremal comparison. Full-text access to Z. Horváth (2005) was unsuccessful; specialized prior literature could still contain an equivalent result. The original contribution is the complete sharp degree-class theorem, not its classical sublemmas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A maximum-degree cap is a natural, readily known structural constraint for diffusion on arbitrary sparse networks. The result gives the **exact** uniform positivity frontier for all finite topologies and sizes under that cap, improves the simple diagonal sufficient condition \(s\le1/\Delta\) to \(s\le(1+1/[2(\Delta-1)])/\Delta\), and proves that finite regular-tree balls force sharpness. This is an all-graph extremal statement, not a graph-specific computation or a reformulation of the matrix criterion. It does not claim weighted, normalized, or nonlinear extensions.
+Published Resultary reversible-Markov-chain return-resolvent law gives C=2R-I, diagonal half-return criterion and complete-graph thresholds; these are credited. The reviewed new implication is uniform over all max-degree-Delta graphs with exact regular-tree extremal crossing; full prior text does not derive this. Faragó–Horváth gives general discrete maximum principles, while Angel–Friedman–Hoory provides universal-cover Green-function machinery. A possible older specialized method-of-lines bound is the residual risk.
 
-## Qualification
+## value
 
-The literature comparisons support originality to the extent inspected; absence of a search hit is not proof of publication novelty. A human independent mathematical and priority assessment is still necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximum degree is a natural graph datum; an explicit exact worst-case positive Crank–Nicolson step for all graph sizes and topologies with matching finite-tree obstructions gives a structural uniform sharp threshold. This improves the elementary diagonal sufficient step but is not an individual-graph optimum or a norm error estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
