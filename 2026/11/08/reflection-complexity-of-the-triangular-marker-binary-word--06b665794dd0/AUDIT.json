@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The four disjoint factor classes have exact constructive parametrizations. The two-one factor constraints a<=j-1 and b<=j+1 and the three-one rising-gap obstruction are proven from adjacent complete zero runs. Counting mutually present nonpalindromic reversals gives H(z)=z^2/((1-z)(1-z^2))+z^5/((1-z)(1-z^2)(1-z^3)); factor enumeration gives P(z)=1+z(2-z-z^2+z^3)/((1-z)^3(1+z)). Exact subtraction produces the stated R(z) and period-six coefficients for all n>=0. An actual standalone verifier additionally passed 124 independent finite language checks, without treating finite checks as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.09302 Theorem 9 gives general inequalities and identities involving the numbers of reflected, unreflected and palindromic factors.",
+        "arXiv:2511.12358 addresses reflection complexity versus eventual periodicity and small growth; arXiv:2610.14637 treats antimorphism-group complexity and selected recurrent sequences."
+      ],
+      "reasoning": "General reversal-count identities do not evaluate the pairs whose two orientations both occur for the nonrecurrent increasing-gap language. Minimum-complexity and group-complexity classifications cannot yield the derived quadratic coefficients without a separate gap-language computation.",
+      "searches": [
+        "reversal pairs in sparse binary word with consecutive increasing zero gaps",
+        "\"reflection complexity\" \"gap sequences\"",
+        "\"reflection complexity\" \"increasing gaps\" \"binary\"",
+        "arxiv:2406.09302 Theorem 9",
+        "arxiv:2511.12358",
+        "arxiv:2610.14637"
+      ]
+    },
+    "checked_sources": [
+      "Allouche, Campbell, Li, Shallit, Stipulanti, arXiv:2406.09302 (2024-06-13), Definition 3, Section 2, Theorem 9 and the automatic-sequence overview",
+      "Dvořáková, Pelantová, arXiv:2511.12358 (2025-11-15), abstract, introduction, Sections 3-5 statements, and text searches",
+      "Blažek, Dvořáková, Pelantová, arXiv:2610.14637 (2026-10-10), abstract, introduction and described theorems, and text searches",
+      "OEIS:A076127 (triangular-marker prefix definition and finite samples)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2406.09302, Definition 3 and Theorem 9, permits R(n)=P(n)-H(n) but does not compute H(n) for this word.",
+        "arXiv:2511.12358 establishes periodicity tests rather than the specific coefficient sequence.",
+        "arXiv:2610.14637 extends quotient actions and treats Sturmian, Rote, and generalized Thue-Morse families, not the present triangular-marker language."
+      ],
+      "reasoning": "The present proof computes H(n) using the exact conditions a,b<=j-1 for two-one factors, plus exclusion of all three-or-more-one pairs. None of the stronger general structural theorems fixes these pair counts. The earlier known factor-complexity formula alone does not determine the reversal quotient.",
+      "searches": [
+        "arxiv:2406.09302 reversal quotient factor relation reflected pairs",
+        "arxiv:2511.12358 reflection complexity periodicity characterization",
+        "arxiv:2610.14637 generalized reflection complexity group antimorphisms",
+        "\"reflection complexity\" \"triangular\" word sequence",
+        "binary word 1 01 001 0001 count factors up to reversal reflected pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The word occurs as the triangular-number marker sequence in OEIS:A076127, but that list does not supply factor counts modulo reversal.",
+        "The inspected source arXiv:2406.09302 defines the same reversal quotient; no triangular-gap formula was located."
+      ],
+      "reasoning": "The aliases triangular-number indicator, concatenation of successively longer zero runs, reversal classes and reflected-factor pairs were compared at the statement level. They identify the object or measure, not the exact expression R(6m+s)=6m^2+2(s+1)m+c_s. No equivalent claim was identified in the searches.",
+      "searches": [
+        "reflection complexity of triangular binary word 1 01 001 0001 increasing zero gaps exact rational generating function",
+        "reflection complexity of concatenation 10 100 1000 exact quasi-polynomial period six",
+        "\"reflection complexity\" \"triangular numbers\" binary",
+        "\"101001000100001\" \"reversal\" \"factors\"",
+        "reflection complexity triangular number marker binary word r(6m+s)=6m^2+2(s+1)m+(1,2,2,4,5,7)",
+        "triangular-marker increasing zero gaps 1010010001 reflection complexity rational generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A076127 supplies the binary strings with triangular-number marker positions, not a reflection-complexity table.",
+        "Direct text and formula searches did not identify an exact table for the sequence of reversal-class counts."
+      ],
+      "reasoning": "The triangular-marker sequence itself is known; the claim concerns a second-level factor statistic. Identification of the underlying word or its ordinary factor count does not imply an exact reflection-quotient enumeration. A missing database hit is only limited evidence.",
+      "searches": [
+        "\"1, 2, 2, 4, 5, 7, 9, 12, 14, 18\" reflection complexity",
+        "\"triangular numbers\" \"reflection complexity\" binary",
+        "OEIS:A076127"
+      ]
+    },
+    "rationale": "A specific infinite-language reversal-pair classification yields a new period-six quadratic formula; inspected primary work gives the invariant, general relations, period tests, or other word families without the triangular-marker case. Accessible same-topic claims concern different invariants or exponential-gap markers and do not imply this quadratic result. Lack of a search hit is not treated as proof of uniqueness.",
+    "residual_risks": [
+      "An unindexed equivalent formula for the triangular-marker word might exist.",
+      "The literature and database search is bounded; absence of a matching record is not proof that no equivalent theorem exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the invariant and proves general comparison statements; no exact triangular-marker formula found in relevant sections.",
+        "evidence": [
+          "Definition 3 counts length-n factors modulo reversal.",
+          "Theorem 9 relates reflection to ordinary and palindromic/reflected factor counts, leaving the word-specific reversed-pair enumeration to be done."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Full rendered HTML was available; examined abstract, introduction, definitions, Section 2 including Theorem 9, and structural/automatic-sequence results referenced in the text.",
+        "method": "Lawful open HTML rendering; text search for triangular, increasing, gap and source-specific formulas.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Originating definition and strongest directly related general factor-vs-reversal identities"
+      },
+      {
+        "assessment": "Concerns eventual periodicity and minimum reflection-growth classes; it does not state the triangular-marker period-six expression in inspected material.",
+        "evidence": [
+          "The introduction states the central result r(n+2)>r(n) and its minimum case.",
+          "No triangular or gap-language matches occurred in the full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.12358",
+        "material_read": "Rendered source text introduction and scope, abstract and descriptions of Sections 3–5; searched accessible text for the triangular word and gap terminology.",
+        "method": "Lawful open HTML rendering and targeted full-document term searches.",
+        "title": "Reflection on the reflection complexity",
+        "trigger": "Later specialized work on the same complexity measure, potentially dominating the new calculation"
+      },
+      {
+        "assessment": "Defines quotient under multiple antimorphisms and proves periodicity and families results, not a computed factor-reversal count for this nonrecurrent word.",
+        "evidence": [
+          "Introduction emphasizes H-complexity and Rote/Thue-Morse examples.",
+          "No triangular or gap-language matches occurred in the full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.14637",
+        "material_read": "Rendered source text abstract and introduction, theorem roadmap, and targeted searches across document for triangular and gap.",
+        "method": "Lawful open HTML rendering and targeted full-document term searches.",
+        "title": "Generalized reflection complexity",
+        "trigger": "Most recent closely related generalization of the same equivalence notion"
+      },
+      {
+        "assessment": "Lists the word but not the claimed quotient-factor enumeration.",
+        "evidence": [
+          "Finite prefixes 1, 101, 101001, 1010010001 match the specified one positions."
+        ],
+        "identifier_or_url": "https://oeis.org/A076127",
+        "material_read": "Sequence description, examples and defining recurrence of finite prefixes.",
+        "method": "Public database webpage.",
+        "title": "OEIS A076127",
+        "trigger": "Direct identification of the underlying binary triangular-number marker sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "06b66579-4dd0-4494-82c5-9b4840d1ba05",
+  "value": {
+    "rationale": "The 2024 introduction of reflection complexity motivates evaluating it for nonrecurrent, non-reversal-closed words. The triangular-number indicator is a natural sparse word with full quadratic factor complexity. The new exact reversal-pair classification produces a genuinely sharp period-six law and asymptotic ratio 2/3, separating it from both reversal-closed and no-pair regimes; it is a complete nontrivial natural invariant, not a table of arbitrary small parameters.",
+    "status": "PASS"
+  }
+}
