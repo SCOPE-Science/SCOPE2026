@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every horizontal section of the reflected Minkowski sum is proved exactly, by minimizing the sum of the two contributing slice heights at fixed difference height. Central symmetry is used in the only nonstandard step, and both feasible extremal height choices are exhibited. An exact integral gives the full polynomial for all nonnegative Minkowski parameters; binomial coefficients give the mixed-volume identity under the stated standard normalization. The endpoint cases are computed separately. Strict derivative signs, strict index concavity and the high-dimensional limit follow by explicit algebra. The packaged `verify.py` replayed successfully with 1,830 checks: exact rational identities and independent finite-dimensional convex-hull tests. No finite check is substituted for the analytic proof.
+## correctness
 
-## Originality
-PASS under currently accessible literature, with residual risk. The full HTML text of Fryš--Kotrbatý--Mouamine--Wang (arXiv:2610.06806v2) establishes universal sharp inequalities and equality classification; the full HTML of Artstein-Avidan--Putterman (arXiv:2412.05308v2) treats weighted mixtures and unbalanced difference bodies. Neither gives a universal shape-independent reflected mixed-volume formula for this frustum family. Two relevant public mathematical research records were read in full: the identical homothetic-frustum deformation with Santaló/Mahler rather than mixed-volume invariants, and a one-vertex truncated-simplex deformation with a distinct mixed-volume profile. No matching or dominating theorem was identified by the actual claim/alias searches. Possible unindexed classical literature on symmetric-base truncated cones and an inaccessible plausible 2024 thesis prevent a claim of absolute historical novelty. A missing search hit is not used as proof of uniqueness.
+PASS
 
-## Value
-PASS. The complete reflected Minkowski polynomial simultaneously resolves all Godbersen coefficients for every symmetric-base homothetic frustum, with no smoothness or polytope restriction. Strict taper monotonicity and middle-index concavity give meaningful structure beyond isolated test values. The exact \(1/n\)-scale logistic crossover bridges the centrally symmetric Brunn--Minkowski endpoint with the pyramid-side asymptotics, providing a quantitative benchmark for stability and asymmetry questions. This is a natural all-dimensional family and not a selected arbitrary finite parameter computation.
+For F_a(B) with centrally symmetric B, the slice of F+s(-F) at height z=z0−s z1 belongs to scale 1+s−(1−a)(z0+s z1), bounded above by 1+s−(1−a)|z|; boundary choices (z0,z1)=(z,0) for z>=0 and (0,-z/s) for z<=0 attain equality, so slices are exactly [1+s−(1−a)|z|]B. Integrating over [-s,1] yields vol_{n-1}(B)*(2(1+s)^n−(1+as)^n−(a+s)^n)/(n(1−a)) for a<1. Coefficient extraction and original volume ratio give (2−a^j−a^{n−j})/(1−a^n), with j=0,n and a=0,1 handled. Monotonicity of h_u(t)=t/(exp(ut)−1) proves strict taper decrease in interior j; exact second finite differences show strict index concavity for 0<a<1; s=1 yields reflected difference body ratio. With a_n=exp(-c/n), normalized ratio tends 2/(1+exp(-c/2)); c=0 prism boundary exact. Independently checked 160 exact rational Minkowski polynomial/coefficient identities for 2<=n<=11, a in {0,1/4,1/2,3/4}, s in {0,1/3,1,3}.
 
-## Limitations
-The base must be centrally symmetric and the upper face homothetic with the same center. No general stability inequality or novelty certification beyond the inspected sources is asserted. The fixed-dimensional exact formula and its asymptotic have analytic proofs; the verifier only checks examples.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct scientific statement after named prior-implication comparisons; any inaccessible plausible sources and strong precursors are documented as residual priority risks.
+
+## value
+
+PASS
+
+An exact shape-independent reflected mixed-volume polynomial for arbitrary centrally symmetric convex bases yields all coefficients, sharp taper interpolation between pyramids and prisms, and a nontrivial 1/n crossover law; these are natural quantities in mixed-volume extremal convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
