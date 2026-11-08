@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The complete minimum forcing-horizon formula is infinity for m<=3, five for m=4, and three for m>=5. For m<=3 an exact 1/6-lattice invariant bounds all minimum-discrepancy greedy discrepancies by 5/6 for arbitrarily long unit-chore streams. For m=4 the explicit five-step adaptive strategy forces discrepancies above one on every path; four-step minimality is proved by all 15^0+...+15^4 eligibility streams in a separate direct C++ implementation load/share code, cross-checked by exact Python enumeration. For m>=5, two universal-eligibility chores followed by a chore eligible for the two recipients force discrepancy 3/2-2/m>1, unless the first two chores already violated PROP1; a separate direct two-arrival greedy argument proves the lower horizon bound. No finite experiment is extended to an infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source gives a Θ(sqrt(m)) asymptotic approximation theory with a unit-chore lower bound, rather than an exact guarantee for m=3 or the strict first failure for m=4.",
+        "Its √(m)-machine construction at m=4 gives a last-recipient proportional share equal to one unit after the last job, so it reaches equality of PROP1 instead of disproving exact PROP1."
+      ],
+      "reasoning": "The large-population asymptotic lower-bound adversary is related to the simple m>=5 branch and is not presented as itself new. It does not imply strict failure at m=4 (where its equal-share example is feasible), the four-step optimality assertion, or the unconditional m<=3 policy. The new sharp classification depends on those previously unestablished parts.",
+      "searches": [
+        "arxiv:2610.08064 §3.1 Online Proportionality for Chores, theorem and lower-bound proof",
+        "restricted assignment online Prop1 three machines greedy exact online four machines impossibility minimal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.08064",
+      "arxiv:2602.18098",
+      "arxiv:2410.14593",
+      "https://mathscinet.ams.org/msc/msc2020.html?t=91B28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.08064 proves eventual asymptotic loss, not an exact online four-agent five-arrival forcing horizon.",
+        "arXiv:2602.18098 establishes offline PROP1 existence, compatible with an online impossibility because reassignment can depend on the entire instance.",
+        "arXiv:2410.14593 treats temporal envy fairness with future information and no eligibility-aware proportionality benchmark."
+      ],
+      "reasoning": "The closest online theorem does not settle exact success for m<=3 or failure with five and not four arrivals at m=4; its asymptotic lower-bound argument is compatible with the elementary three-chore m>=5 branch. The offline theorem does not imply online irrevocable allocation, and the temporal-EF1 theorem targets another fairness measure. The full h(m) formula therefore is not a restatement of the inspected sources.",
+      "searches": [
+        "Online Fair Division under Eligibility Constraints arxiv 2610.08064 lower bound unit-size chores",
+        "Fair Orientations: Proportionality and Equitability arxiv 2602.18098 offline PROP1",
+        "Temporal Fair Division of Indivisible Items arxiv 2410.14593 abstract and model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun, Wang and Li (arXiv:2602.18098) define relevance-aware fractional shares and offline PROP1 orientations, mathematically identical to the per-eligible-agent share used here for unit chores.",
+        "Biburger, Megow and Shahkarami (arXiv:2610.08064) use the same eligibility-aware definition for online restricted assignment."
+      ],
+      "reasoning": "The alternate orientation and proportionality terminology uses the same functional ∑_{j:i∈E_j}1/|E_j|. Offline existence is not equivalent to an irrevocable online guarantee; the new comparison fixes the same fairness functional and locates the exact first online obstruction.",
+      "searches": [
+        "online proportionality up to one job 4 machines five jobs eligibility restricted assignment impossibility",
+        "arxiv:2602.18098 Fair Orientations: Proportionality and Equitability §2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact four-machine/five-chore or three-machine infinite-horizon table was identified in the inspected primary paper, cited offline paper, or available search results.",
+        "The 2026 paper enumerates no four-agent short-horizon game; its quantified lower-bound construction concerns large m."
+      ],
+      "reasoning": "No known full exact database or small-parameter table covers the same universal-online quantified problem in the accessed literature. This is not a proof that none exists, so the risk of unindexed work is retained.",
+      "searches": [
+        "online proportionality restricted assignment discrepancy 3 agents min slack 4 agents five arrivals",
+        "2026 four machines Prop1 online eligibility 5 jobs minimal counterexample",
+        "arxiv:2610.08064 relevant theorem statements, appendices and references"
+      ]
+    },
+    "rationale": "The closest 2026 online restricted-assignment paper establishes asymptotic approximation bounds and a related large-m adversarial template, but does not settle the exact first failing population or four-machine first failing horizon. The latter is where the old lower-bound specialization only reaches equality at PROP1. The offline relevance-orientation theorem cannot imply the online cutoff. The new contribution is the complete forcing-horizon classification with an analytic three-machine invariant and the exceptional four-machine five-chore minimal obstruction. The m>=5 three-chore branch is an elementary completion consistent with prior asymptotic constructions, not a claim to the novelty of their general lower-bound method.",
+    "residual_risks": [
+      "Search discovery is incomplete; a separate unindexed online load-balancing proof may have established the same finite cutoff.",
+      "The 2024 temporal-EF1 paper was screened by abstract/model description rather than full text, but its target notion and future-knowledge condition differ from the present claim.",
+      "Finite four-arrival minimality is program-verified, with two source-language implementations, rather than converted into a manual case table."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source; does not state or imply exact 3-machine universal guarantee, 4-machine 4-arrival guarantee, or 4-machine strict 5-chore obstruction.",
+        "evidence": [
+          "First public version dated 2026-10-06; section 3.1 lower bound uses square-root-sized eligible groups.",
+          "For four machines the displayed lower-bound allocation attains the exact PROP1 boundary with share one, not a strict violation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+        "material_read": "Abstract, introduction and result overview, section 2 definitions, section 3.1 unit-chore online upper and lower bound proofs, and relevant cited-literature/appendix passages.",
+        "method": "Opened public arXiv full-text rendered article and inspected relevant sections, exact theorem statements and proof text.",
+        "title": "Online Fair Division under Eligibility Constraints",
+        "trigger": "Same eligibility-aware online chore PROP1 model and matching large-population lower bounds."
+      },
+      {
+        "assessment": "Equivalent fairness benchmark, but its general PROP1 theorem is offline; cannot cover online adaptive short-horizon classification.",
+        "evidence": [
+          "First public version dated 2026-02-20.",
+          "The contribution states offline PROP1 and fractional Pareto-optimal orientations exist under general relevance constraints."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.18098",
+        "material_read": "Abstract, introduction, contribution statements, section 2 orientation model and PROP1 definitions.",
+        "method": "Opened and inspected public arXiv rendered article content.",
+        "title": "Fair Orientations: Proportionality and Equitability",
+        "trigger": "Identical relevance-based proportional shares and possible offline domination."
+      },
+      {
+        "assessment": "Uses future-known temporal envy-freeness (TEF1) rather than the current eligibility-aware proportionality guarantee; no covering result in the material read.",
+        "evidence": [
+          "First public arXiv version 2024-10-18.",
+          "The model requires temporal EF1 and may know future items."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+        "material_read": "Abstract and bibliographic/model description.",
+        "method": "Read the original arXiv abstract and supporting publication summary, not its full proof text.",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Potentially related online prefix-fairness benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "130275cf-e9ce-4cbd-9ff9-0c1ec19da655",
+  "value": {
+    "rationale": "For a recently introduced eligibility-aware proportionality benchmark, the complete function h(m) classifies the first adversarial failure horizon for every population: no failure through three machines, an exceptional five-chore threshold at four, and a three-chore threshold for all larger populations. This resolves the first exact gap between unconditional offline existence and online irrevocability, with both analytic mechanism insight and a fully verified minimal four-machine cutoff.",
+    "status": "PASS"
+  }
+}
