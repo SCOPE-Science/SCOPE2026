@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is proved for every nonempty finite simple graph satisfying \(\chi=\omega\). The critical construction maps any bounded-run oriented path into the transitive tournament using longest directed-path ranks; the complementary tournament case contains a directed triangle, which reads every signed word. Clique containment then gives the lower language inclusion, while orienting all graph edges upward in a proper coloring gives the upper inclusion. A \(2k\)-state DFA and explicit Myhill–Nerode distinguishing suffixes prove exact minimality. A run factorization yields the generating function. The included finite-state checker passed 1,099 tournament, 760 small-graph orientation and 400 multipartite orientation checks; the universal proof does not depend on those finite checks.
+
+## Originality — PASS on inspected evidence, with priority risk
+Cyril Pujol, *Graph-based automata*, arXiv:2609.08843v1 (2026-09-08), introduces remanent graph languages and connects them to graph coloring. Its accessible abstract and introduction do not state the complete \(\chi=\omega\) mixed-direction language, exact DFA complexity, or full generating function. The classical colorability-versus-directed-path relation controls uniform signed runs but not the mixed-direction classification. Hell–Zhou–Zhu (1995) studies homomorphic preimages of acyclic local tournaments, a different statement. Relevant research-index searches for remanent, clique/chromatic, tournament orientation, full signed language and DFA complexity identified no equivalent theorem. The most relevant original article's entire remanent section was not accessible for checking; an implicit or unindexed antecedent is a genuine residual risk and the search is not a proof of priority.
+
+## Mathematical value — PASS
+This is an exact full-language classification for the natural large class of weakly perfect graphs, including all perfect graphs. It turns an intersection over every orientation into a canonical recognizer with only \(2\chi\) deterministic states and a uniform exact length enumerator. Unlike the known pure-direction chromatic threshold, it determines all arbitrarily alternating signs and exposes a substantive boundary: for example, \(C_5\) has the same chromatic number as a triangle but excludes the mixed-sign word \(++-++\) under one orientation. The contribution is a structural family classification, not a recomputed table entry or a single finite special case.
+
+## Closest literature and limitations
+The main comparison is Pujol (arXiv:2609.08843v1), which introduced the object. The article's remanent-language portion was not fully accessible, so priority against an implicit corollary cannot be confirmed. The claim is sufficient rather than necessary for language collapse, and does not settle unequal clique/chromatic cases. Finite testing is supplementary, and no independent audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
