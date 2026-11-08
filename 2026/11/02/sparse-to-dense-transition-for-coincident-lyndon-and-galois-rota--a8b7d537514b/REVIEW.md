@@ -1,19 +1,21 @@
-# Self-review: simultaneous cyclic minima
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses primitive binary necklaces and the alternating convention in which comparison at the first mismatching **one-based odd** position is ordinary and at an even position is reversed, matching the formal definition in Hendrian et al. The case with a circular \(00\) has incompatible prefixes \(00\) and \(01\). The first unequal gaps \(a<b\) are distinguished at position \(a+2\), which proves the odd-gap condition. The only tie possible for three zeroes is handled at position \(2a+3\). Counting anchored gap tuples yields the two rational generating functions and the exact unique-odd-minimum subfamily. Fixed-\(k\) asymptotics follow from a single order-\(k\) pole; the positive-density bound follows from a circular no-adjacent-zero count and the exponential rarity of periodic words. The verifier checks direct rotations rather than the same proof algorithm. Limit: finite enumeration does not prove the all-length assertions; the displayed argument supplies those.
+PASS
 
-## Originality — PASS, with residual priority risk
+An indexed circular word containing 00 has lexicographically minimal rotation starting 00, while at alternating position 2 a 01 zero-start rotation is smaller, so coincidence requires strictly positive zero gaps. For positive gaps a<b, the first mismatch is at one-based position a+2; the shorter gap wins both lex/alternating orders precisely when a is odd. With a unique minimum odd gap the common chosen rotation is forced. For k=2 count unequal gap pairs with odd smaller gap to obtain z^5/((1−z)(1−z^4)); for k=3 tied odd minima occur as (a,a,b) and still coincide, yielding z^7/((1−z)^2(1−z^6)). For fixed k≥2, anchoring a unique positive odd minimum gap gives generating function z^(3k−1)/((1−z)^(k−1)(1−z^(2k))); tied minima are O_k(n^(k−2)), yielding C_{n,k}=n^(k−1)/(2k!)+O(n^(k−2)), half the standard primitive necklace count. At k/n→α>0, cyclic 00 avoidance is ≤(n/(n−k)) exp(−k²/n) fraction of indexed words and nonprimitive words are exponentially negligible, giving exponential coincidence decay (zero when k>n/2). Independently enumerated ordinary and alternating minimum full rotation classes for 2≤n≤15,k≤3. Exact counts only k≤3; for k≥4 only leading profile.
 
-Hendrian et al. (arXiv:2403.02636, first public 2024-03-05) treat alternating-order word recognition, factorization and rotation algorithms and report factorization experiments; their results compute canonical representatives but do not count when they agree with the ordinary representative. Dolce–Restivo–Reutenauer (arXiv:1812.04515, first public 2018-12-11), including its alternating-order sections and remarks, treat generalized Lyndon factorization, not fixed-content comparison of two minima. Reutenauer's earlier general order and homographic Galois-number theory supplies definitions and algorithms, not the present coincidence statistics. The classical primitive necklace count only counts one representative per orbit and does not imply the intersection formula. Specific published-record and sequence-index searches found no matching claim. This does not eliminate a possible unindexed equivalent, alternate formulation or overlooked source; a separate priority check remains desirable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Ordinary and alternating cyclic minima are the canonical orderings underlying ordinary and alternating Burrows–Wheeler variants. Their exact agreement is a natural stability question not settled by an algorithm for either minimum separately. The theorem gives an exact classification and rational generating functions in two first nontrivial fixed-content layers, an exact enumerated subfamily for arbitrary fixed content, and the asymptotically opposite behaviors of half-agreement at fixed zero count and exponentially negligible agreement at positive density. This is a structural relationship between two normalizations, rather than an arbitrary finite slice or renamed classical necklace formula.
+Best-of-knowledge originality PASS for the precise stated claim, not a priority certificate. Coincidence of canonical minimum rotations can be recast as a condition on circular compositions of the runs of ones: the shortest positive gap is odd and unique (sufficient), while even/zero minimum is forbidden; for k=3 odd minimum is also sufficient even in ties. The source is not merely counting ordinary Lyndon words or all generalized Lyndon words. Hendrian–Köppl–Yoshinaka–Shinohara 2024 develop Galois-word detection, factorization, and minimum-rotation algorithms; Dolce–Restivo–Reutenauer 2019 provide generalized Lyndon factorization. Algorithms computing the two minima do not supply the fixed-content coincidence distribution, even though an implementation could enumerate small n. Principal residual risk: Specialized unpublished enumeration of coincidence of generalized Lyndon minima might exist.
 
-## Limitations and priority
+## value
 
-The general exact all-length count for four or more zeroes is not claimed. The intermediate density regime is untreated. Closest prior works and precise scope distinctions appear in `RESULT.md`, and actual literature comparisons with residual uncertainty are documented in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intersection of ordinary Lyndon and alternating Galois canonical representatives is a natural combinatorial/string-normalization statistic. Its exact small-content enumerations and sharp fixed-sparse versus positive-density phase transition make a useful complete asymptotic classification in two regimes, not a restatement of algorithms for computing either representative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:49:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An indexed circular word containing 00 has lexicographically minimal rotation starting 00, while at alternating position 2 a 01 zero-start rotation is smaller, so coincidence requires strictly positive zero gaps. For positive gaps a<b, the first mismatch is at one-based position a+2; the shorter gap wins both lex/alternating orders precisely when a is odd. With a unique minimum odd gap the common chosen rotation is forced. For k=2 count unequal gap pairs with odd smaller gap to obtain z^5/((1−z)(1−z^4)); for k=3 tied odd minima occur as (a,a,b) and still coincide, yielding z^7/((1−z)^2(1−z^6)). For fixed k≥2, anchoring a unique positive odd minimum gap gives generating function z^(3k−1)/((1−z)^(k−1)(1−z^(2k))); tied minima are O_k(n^(k−2)), yielding C_{n,k}=n^(k−1)/(2k!)+O(n^(k−2)), half the standard primitive necklace count. At k/n→α>0, cyclic 00 avoidance is ≤(n/(n−k)) exp(−k²/n) fraction of indexed words and nonprimitive words are exponentially negligible, giving exponential coincidence decay (zero when k>n/2). Independently enumerated ordinary and alternating minimum full rotation classes for 2≤n≤15,k≤3. Exact counts only k≤3; for k≥4 only leading profile.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithms for Galois Words: Detection, Factorization, and Rotation (arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18): Sections 2/7 concern alternating order and efficient rotations; §8 experiments benchmark algorithmic factorization, not counts C_{n,k}.",
+          "On generalized Lyndon words (arXiv:1812.04515): Generalized Lyndon factorization establishes canonical factorization, not the sparse-to-dense joint-minimum phase diagram."
+        ],
+        "reasoning": "Hendrian–Köppl–Yoshinaka–Shinohara 2024 develop Galois-word detection, factorization, and minimum-rotation algorithms; Dolce–Restivo–Reutenauer 2019 provide generalized Lyndon factorization. Algorithms computing the two minima do not supply the fixed-content coincidence distribution, even though an implementation could enumerate small n.",
+        "searches": [
+          "Resultary semantic search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "primary search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18",
+          "arXiv:1812.04515"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md tree 6a7d9bda0332de54ef694416b8439b6cf419a866 and verify.py 0454bc6e90192d00583440aabf9baee541ced7d4",
+        "arXiv:2403.02636 full text",
+        "arXiv:1812.04515 theorem descriptions",
+        "Resultary semantic search: binary primitive necklaces Lyndon Galois alternating order coincident minimal rotations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithms for Galois Words: Detection, Factorization, and Rotation (arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18): Sections 2/7 concern alternating order and efficient rotations; §8 experiments benchmark algorithmic factorization, not counts C_{n,k}.",
+          "On generalized Lyndon words (arXiv:1812.04515): Generalized Lyndon factorization establishes canonical factorization, not the sparse-to-dense joint-minimum phase diagram."
+        ],
+        "reasoning": "The primitive necklace orbit count does not imply coincidence probabilities. The 2024 Galois-rotation algorithm identifies the alternate minimum word for each necklace, but the half-limit and exponential dense exclusion require new structural gap parity and avoidance counting. Neither title nor matching word length entails prior coverage.",
+        "searches": [
+          "Resultary semantic search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "primary search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18",
+          "arXiv:1812.04515"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithms for Galois Words: Detection, Factorization, and Rotation (arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18): Sections 2/7 concern alternating order and efficient rotations; §8 experiments benchmark algorithmic factorization, not counts C_{n,k}.",
+          "On generalized Lyndon words (arXiv:1812.04515): Generalized Lyndon factorization establishes canonical factorization, not the sparse-to-dense joint-minimum phase diagram."
+        ],
+        "reasoning": "Coincidence of canonical minimum rotations can be recast as a condition on circular compositions of the runs of ones: the shortest positive gap is odd and unique (sufficient), while even/zero minimum is forbidden; for k=3 odd minimum is also sufficient even in ties. The source is not merely counting ordinary Lyndon words or all generalized Lyndon words.",
+        "searches": [
+          "Resultary semantic search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "primary search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18",
+          "arXiv:1812.04515"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Algorithms for Galois Words: Detection, Factorization, and Rotation (arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18): Sections 2/7 concern alternating order and efficient rotations; §8 experiments benchmark algorithmic factorization, not counts C_{n,k}.",
+          "On generalized Lyndon words (arXiv:1812.04515): Generalized Lyndon factorization establishes canonical factorization, not the sparse-to-dense joint-minimum phase diagram."
+        ],
+        "reasoning": "Direct finite necklace enumeration through n=15 is not an exhaustive infinite table. A classical Möbius count supplies P_{n,k}, but no inspected table of joint ordinary/alternating minima yields the two rational generating functions or density transition. Infinite asymptotics rest on anchored positive-gap composition and cyclic 00 avoidance.",
+        "searches": [
+          "Resultary semantic search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "primary search: Lyndon Galois rotations alternating order primitive binary necklace coincidence sparse zero density generating function",
+          "arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18",
+          "arXiv:1812.04515"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the precise stated claim, not a priority certificate. Coincidence of canonical minimum rotations can be recast as a condition on circular compositions of the runs of ones: the shortest positive gap is odd and unique (sufficient), while even/zero minimum is forbidden; for k=3 odd minimum is also sufficient even in ties. The source is not merely counting ordinary Lyndon words or all generalized Lyndon words. Hendrian–Köppl–Yoshinaka–Shinohara 2024 develop Galois-word detection, factorization, and minimum-rotation algorithms; Dolce–Restivo–Reutenauer 2019 provide generalized Lyndon factorization. Algorithms computing the two minima do not supply the fixed-content coincidence distribution, even though an implementation could enumerate small n. Principal residual risk: Specialized unpublished enumeration of coincidence of generalized Lyndon minima might exist.",
+      "residual_risks": [
+        "Specialized unpublished enumeration of coincidence of generalized Lyndon minima might exist.",
+        "No exact C_{n,k} for all k≥4, only a sharp asymptotic.",
+        "No theorem claimed for intermediate k→∞, k=o(n)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING; algorithmic comparison and word-factorization experiments, not the joint fixed-content coincidence distribution",
+          "evidence": "Sections 2/7 concern alternating order and efficient rotations; §8 experiments benchmark algorithmic factorization, not counts C_{n,k}.",
+          "identifier_or_url": "arXiv:2403.02636; doi:10.4230/LIPIcs.CPM.2024.18",
+          "material_read": "Accessible complete 16-page conference paper; definition, sections on rotation and §8 experiments",
+          "method": "Opened primary PDF and inspected text plus rendered page",
+          "title": "Algorithms for Galois Words: Detection, Factorization, and Rotation",
+          "trigger": "Same Galois rotation canonicalization and possible precomputed coincidence counts"
+        },
+        {
+          "assessment": "BACKGROUND; no inspected coincidence asymptotic for fixed-content primitive binary necklaces",
+          "evidence": "Generalized Lyndon factorization establishes canonical factorization, not the sparse-to-dense joint-minimum phase diagram.",
+          "identifier_or_url": "arXiv:1812.04515",
+          "material_read": "Main generalized Lyndon and factorization results",
+          "method": "Compared generalized-order definitions/theorems with joint canonical representative counting",
+          "title": "On generalized Lyndon words",
+          "trigger": "Generalized Lyndon factorization might imply same rotation coincidences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The intersection of ordinary Lyndon and alternating Galois canonical representatives is a natural combinatorial/string-normalization statistic. Its exact small-content enumerations and sharp fixed-sparse versus positive-density phase transition make a useful complete asymptotic classification in two regimes, not a restatement of algorithms for computing either representative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized unpublished enumeration of coincidence of generalized Lyndon minima might exist.",
+    "No exact C_{n,k} for all k≥4, only a sharp asymptotic.",
+    "No theorem claimed for intermediate k→∞, k=o(n).",
+    "No publication edits staged and no GitHub or dispatcher closeout writes.",
+    "Fresh signed continuation object was not durably captured; recovery uses real task ID and full same-batch paths, not inferred signature."
+  ],
+  "schema_version": 1
+}
