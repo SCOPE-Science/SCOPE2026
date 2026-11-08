@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The greedy embedding equivalence D<=k-1 is exact. Minimality forces D=k with descending endpoint edges and the interior triple identity. Ascents induce strictly increasing edges in both step-two parity tracks; each track needs at least ceil(a/(q-1))-1 nonincreases. With k-a-1 nonincreases total this yields the sharp upper bound, attained for each allowed a by concatenated doubled staircases and extra initial zeros. The bounded literal verifier passed 14 host cases/65958 candidate strings and separate finite-state maxima passed 136 cases; finite cases corroborate rather than prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manea et al. 2025 explicitly provide an algorithm to find a longest minimal absent subsequence for any input word.",
+        "That algorithm provides a computed value for each fixed input rather than a symbolic q,k closed form or proof of a gap-free length spectrum."
+      ],
+      "reasoning": "The general algorithm subsumes computation of an individual maximum but not the claimed closed all-parameter formula or exact set of attainable lengths. No published general theorem identified that implies the asserted two-track bound and sharp support classification.",
+      "searches": [
+        "Exact generating function counting minimal absent scattered subsequences of periodic run words or cyclic permutations, full spectrum, universality arch factorization",
+        "Long minimal absent subsequences of permutation powers two parity chain bounds",
+        "https://arxiv.org/abs/2504.21471, longest MAS algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968, detailed Section 3 and proof of Proposition 3.8",
+      "arXiv:2504.21471, introduction and longest-MAS method",
+      "Published records returned for the six published-finding corpus searches",
+      "Known exact two- and three-letter special-case MAS results (excluded from the theorem domain)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.8 supplies selected long MAS and exponential multiplicity but lacks an upper-bound theorem for all q,k.",
+        "The new theorem exhibits a sharp upper bound, explicit witnesses at every intermediate length, and the exact floor/remainder formula."
+      ],
+      "reasoning": "The known host-family construction is a lower bound for a restricted family and cannot bound all MAS lengths; the new proof is required. Earlier general MAS local characterizations are used, not misrepresented as new. Later input algorithms decide a fixed optimum but do not imply the universal symbolic statement or support interval without additional mathematical analysis.",
+      "searches": [
+        "https://arxiv.org/html/2108.13968v6, Section 3 Proposition 3.8",
+        "https://arxiv.org/abs/2504.21471, longest MAS algorithm",
+        "For q>=4 and k>=1, the largest length of a minimal absent scattered subsequence of the permutation-power word (1 2 ... q)^k is k+1+(q-1)*floor((k-1)/(q+1))+min((k-1) mod (q+1),q-1), and all intermediate lengths occur. The exact length support for the B_k family of Kosche Koss Manea Siemer."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In Kosche et al. 2021, the family B_k is explicitly powers of the increasing alphabet permutation, but Proposition 3.8 supplies an exponential-cardinality lower-bound family, not the exact longest-MAS length or all supported lengths.",
+        "Existing two-/three-symbol formulas concern fixed small alphabets, not the uniform q>=4 exact cutoff."
+      ],
+      "reasoning": "Relabeling permutations does not change embedding or the formula. Weak descents provide an equivalent characterization, but the explicit extremal inequality needs the new two-interleaved monotonicity tracks. The closest special-alphabet results do not imply an arbitrary-alphabet theorem.",
+      "searches": [
+        "Sharp maximum length of a minimal absent scattered subsequence for powers of a permutation word (0 1 ... q-1)^k: k+1+(q-1) floor((k-1)/(q+1)) plus remainder",
+        "Minimal absent subsequence maximum length for repeated permutation word with arbitrary alphabet q, alternating ascents and weak descents parity tracks",
+        "For q>=4 and k>=1, the largest length of a minimal absent scattered subsequence of the permutation-power word (1 2 ... q)^k is k+1+(q-1)*floor((k-1)/(q+1))+min((k-1) mod (q+1),q-1), and all intermediate lengths occur. The exact length support for the B_k family of Kosche Koss Manea Siemer.",
+        "https://arxiv.org/abs/2108.13968, Section 3 and Proposition 3.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known fixed-alphabet formulas include exact MAS length enumerations for the two- and three-letter permutation powers, which are excluded from the novelty domain q>=4.",
+        "The nearest published search records about binary shortest absent subsequences optimize a different statistic, not the maximum MAS length on permutation powers."
+      ],
+      "reasoning": "No matching q>=4 length-support table or exact formula surfaced. Failure of an index search is not uniqueness proof; the same-host primary article was inspected directly to resolve the most serious coverage risk.",
+      "searches": [
+        "Subsequence universality index distribution and minimal absent words in periodic binary strings",
+        "For q>=4 and k>=1, the largest length of a minimal absent scattered subsequence of the permutation-power word (1 2 ... q)^k is k+1+(q-1)*floor((k-1)/(q+1))+min((k-1) mod (q+1),q-1), and all intermediate lengths occur. The exact length support for the B_k family of Kosche Koss Manea Siemer.",
+        "known fixed-alphabet formulas for minimal absent subsequences in binary and ternary permutation powers"
+      ]
+    },
+    "rationale": "The closest published primary article analyzes exactly B_k and obtains exponential MAS families, not the all-q exact longest length or length-support interval. A later general longest-MAS algorithm does not state the symbolic formula; earlier q=2,3 cases are excluded. published-finding corpus searches found no dominating published claim. The remaining risk is an unindexed equivalent result.",
+    "residual_risks": [
+      "An equivalent all-q explicit cutoff in an unindexed source or differently titled paper cannot be excluded.",
+      "The general input algorithm could be specialized mechanically, although its literature statement does not supply or prove this formula or the complete attainable-length interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives exact same host family and exponential families of MAS, but not a sharp longest-length formula nor gap-free set of possible MAS lengths",
+        "evidence": [
+          "https://arxiv.org/html/2108.13968v6, Section 3 lines corresponding to the B_k definition and Proposition 3.8",
+          "https://arxiv.org/abs/2108.13968, initial posting 2021-08-31"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+        "material_read": "Full-text HTML: definitions and Section 3, including Theorem 3.1, Proposition 3.8 and its proof/constructed MAS family, through the subsequent propositions; selected algorithm sections",
+        "method": "Direct examination of definitions, theorem statements, proof construction and implications for extremal length",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Exact host family B_k equals powers of an alphabet permutation"
+      },
+      {
+        "assessment": "Computes longest MAS for arbitrary given strings but does not state the permutation-power closed maximum nor attainable-length interval",
+        "evidence": [
+          "https://arxiv.org/abs/2504.21471, introduction and arXiv abstract, first posting 2025-04-30",
+          "https://arxiv.org/html/2504.21471, section on longest MAS algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.21471",
+        "material_read": "Full-text HTML introduction, definitions and longest-MAS algorithm/theorem section; arXiv abstract and version information",
+        "method": "Compared input/output, quantified scope, theorem statement and whether a q,k symbolic specialization or full support is supplied",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "General longest-minimal-absent-subsequence algorithms could dominate the claimed maximum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "694f06b3-553b-41a0-bb43-043351b5ea4c",
+  "value": {
+    "rationale": "For a natural host family B_k already central in the literature on exponentially many MAS, gives the exact upper cutoff and every attainable MAS length uniformly for arbitrary q>=4 and k>=1, including nontrivial slope 2q/(q+1). The two parity tracks show the structural obstruction, and explicit doubled staircases provide sharp constructions. This is not a mere recoding of a binary/ternary special case or a single arbitrary finite instance.",
+    "status": "PASS"
+  }
+}
