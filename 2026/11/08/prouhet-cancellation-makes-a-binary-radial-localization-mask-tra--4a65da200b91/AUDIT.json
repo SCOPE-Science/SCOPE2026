@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The Fock radial basis calculation gives exactly the Gamma-shell eigenvalues. For each k the Thue–Morse block product turns the signed sum into sampled k-fold differences. Sampling and translation integrals bound these by k-th and (k+1)-st Gamma derivatives, whose exact Laguerre Rodrigues L1 bounds give the claimed certificate for every n≥k+1. Optimizing k proves squared-log decay, hence summable eigenvalue powers. The exact Laplace product and absolute summability show trace zero, while q0>0 proves nonzero and opposite signs. checker.py replayed successfully with 120 finite assertions; its tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rozenblum, arXiv:1012.3528, Sections 4–5: lower eigenvalue estimates for rapidly decaying/oscillatory signed radial symbols.",
+        "Esmeral García and Maximenko, arXiv:2503.23276, Theorems in Section 4: uniform approximation of arbitrary convergent sequences by radial Toeplitz spectra."
+      ],
+      "reasoning": "The symbol here has nonzero magnitude at arbitrarily large radii and is an exact two-valued indicator; hypotheses on decaying symbols do not apply. General uniform realization/closure results do not give the exact symbolic mask, all-index quantitative bound, or exact operator trace. The possibility of an unlocated general cancellation theorem is retained as a residual risk.",
+      "searches": [
+        "automatic sequence radial Toeplitz symbols Fock Thue Morse spectral convergence trace zero",
+        "Prouhet Thue Morse Poisson gamma kernel smoothing super polynomial lognormal decay eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.00848v1, Sections 2.3 and 3.2–3.3",
+      "arXiv:1505.07906v1, Sections 4 and 6–7",
+      "arXiv:2503.23276v1, Sections 3–4",
+      "arXiv:1012.3528v1, Sections 4–5",
+      "Allouche–Shallit, Automatic Sequences (2003), classical identity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knutsen, arXiv:1907.00848, Section 3.2 treats fixed-width periodic radial intervals and bounds localization norms; periodic masks do not enforce arbitrary-order block moments.",
+        "Esmeral and Maximenko, arXiv:1505.07906, Proposition 6.5 proves asymptotic heat smoothing with no all-order quantitative error.",
+        "Rozenblum, arXiv:1012.3528, Sections 4–5 compares different symbol decay classes and does not address half-identity compact perturbations of binary masks."
+      ],
+      "reasoning": "A periodic-shell bound cannot imply this aperiodic symbol’s rapid convergence; the qualitative general radial smoothing theorem does not imply summability at a specified rate; spectral results for decaying signed symbols do not apply to the nondiminishing Thue–Morse sign. Classical finite-block cancellation plus new sampled Gamma derivative estimates is needed for the explicit conclusion.",
+      "searches": [
+        "Thue Morse radial Toeplitz Fock operator annuli half-density trace class all Schatten gamma smoothing",
+        "automatic sequence radial Toeplitz symbols Fock Thue Morse spectral convergence trace zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knutsen, arXiv:1907.00848, Theorem 2.1 and Section 3.2: Gaussian STFT radial Gamma eigenvalues for periodic observation masks, no Thue–Morse coloring.",
+        "Esmeral and Maximenko, arXiv:1505.07906, Theorem 4.4 and Proposition 6.5: radial eigenvalue sequences and Gaussian heat convolution; no exact Prouhet finite-difference estimate."
+      ],
+      "reasoning": "Equivalent guises include Gaussian STFT/Hermite localization and Segal–Bargmann Toeplitz/Fock compression. Both are covered by the same scalar Gamma-shell eigenvalues; the found literature gives the diagonalization and qualitative smoothing, but not the stated factorial bounds or trace identity for the binary automatic symbol.",
+      "searches": [
+        "Thue Morse radial Toeplitz Fock operator annuli half-density trace class all Schatten gamma smoothing",
+        "Binary Thue Morse sign-coded consecutive unit radial annuli in Bargmann Fock Gaussian STFT: Toeplitz eigenvalues 1/2 plus superalgebraically small difference, trace-class zero trace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Allouche and Shallit, Automatic Sequences (2003): the finite Prouhet polynomial product is classical, not a newly discovered spectral identity.",
+        "Primary literature arXiv:1907.00848, arXiv:1505.07906, arXiv:2503.23276: relevant spectral frameworks checked; no precomputed eigenvalue table for this explicit automatic radial mask identified."
+      ],
+      "reasoning": "The new claim is an all-index analytical inequality and operator ideal classification, not a finite table result. Classical Prouhet block sums alone do not supply the Gaussian derivative bounds or summable spectral trace. Searches for the exact symbolic mask and Toeplitz formulation found no direct table or computation that dominates the theorem.",
+      "searches": [
+        "Exact Thue Morse Fock Toeplitz symbolic radial mask all Schatten perturbation half identity",
+        "Prouhet cancellations in gamma moment sequences produce log squared upper bound e^{-(log n)^2/(8 log 2)} for Toeplitz eigenvalues"
+      ]
+    },
+    "rationale": "Prouhet identities are classical and the Gamma eigenvalue formula is established. The candidate new content is their application to a nondecaying, binary infinite radial shell mask yielding a nonasymptotic factorial eigenvalue bound, superpolynomial compactness of the half-identity perturbation, and exact zero trace. The closest inspected papers state different, strictly weaker, or non-implying results; historical priority is provisional.",
+    "residual_risks": [
+      "A previously published general automatic-sequence spectral smoothing theorem, under another vocabulary, could imply a part or all of the present specialized result.",
+      "The squared-logarithmic upper rate is not asserted optimal.",
+      "The selected first-public date is that of the focal Gaussian localization literature (2019), not a claim that the classical Thue–Morse sequence was first known then."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact Hermite/Gamma diagonalization and periodic shell examples, but no Prouhet automatic coloring, all-Schatten limit, or zero trace.",
+        "evidence": "Theorem 2.1/Equation 2.6 give Gamma eigenvalues; Section 3.2 Theorem 3.1 studies period-one intervals E(s).",
+        "identifier_or_url": "https://arxiv.org/html/1907.00848v1",
+        "material_read": "Sections 2.3, 3.1, 3.2, 3.3, main theorems and nearby argument",
+        "method": "Inspected accessible first-version full-text HTML and compared mask, objects and conclusions.",
+        "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets",
+        "trigger": "same Gaussian radial concentration framework; infinite measure radial shells and Cantor constructions"
+      },
+      {
+        "assessment": "General qualitative heat smoothing and C*-algebra structure; no explicit arbitrary-order Prouhet cancellation certificate or trace-zero binary mask.",
+        "evidence": "Proposition 6.5 provides an o(1) Gaussian convolution approximation; Theorem 4.4 provides square-root slow oscillation.",
+        "identifier_or_url": "https://arxiv.org/html/1505.07906v1",
+        "material_read": "Introduction, Sections 4, 6 and 7 including Theorem 4.4 and Proposition 6.5",
+        "method": "Inspected full-text arXiv HTML focusing on operator equivalences, asymptotic smoothing and rates.",
+        "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+        "trigger": "possible broader radial Fock spectral smoothing theorem"
+      },
+      {
+        "assessment": "Approximation of arbitrary c0 sequences by different radial symbols does not determine the exact binary Thue–Morse symbol or quantitative eigenvalues.",
+        "evidence": "Section 4 produces uniform approximants with symbols from C0, in contrast to the present nondecaying indicator.",
+        "identifier_or_url": "https://arxiv.org/html/2503.23276v1",
+        "material_read": "Abstract, Introduction, Sections 3 and 4 with main approximation statements and proofs",
+        "method": "Inspected first-version full-text HTML and checked the stated approximation quantifiers.",
+        "title": "Constructive approximation of convergent sequences by eigenvalue sequences of radial Toeplitz--Fock operators",
+        "trigger": "possible exact sequence realization subsuming all-Schatten eigenvalue conclusions"
+      },
+      {
+        "assessment": "Related decay-cancellation phenomena, but the presented classes and estimates do not yield this specific nondecaying two-valued mask’s all-Schatten half-identity and exact zero trace.",
+        "evidence": "Theorem 4.2 and Section 5 address other radial sign-changing classes; the binary sequence and Prouhet product are not part of their claims.",
+        "identifier_or_url": "https://arxiv.org/html/1012.3528v1",
+        "material_read": "Theorems and hypotheses in Sections 2, 4, 5, especially the Bargmann and oscillatory-symbol cases",
+        "method": "Inspected first-version HTML and compared symbol regularity, decay, and claimed spectral estimates.",
+        "title": "On lower eigenvalue estimates for Toeplitz operators with radial symbols in Bergman spaces",
+        "trigger": "possible stronger cancellation/superfast-decay theorem in signed radial Fock Toeplitz spectra"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4a65da20-0b91-437d-b61f-1392f73048e9",
+  "value": {
+    "rationale": "A natural automatic binary shell mask of infinite area has no pointwise decay, yet its Fock concentration operator is a trace-neutral perturbation of one-half identity in all Schatten ideals, with an explicit all-index factorial bound. This is a structural spectral homogenization of an infinite, nonperiodic observation domain; its sharp mechanism depends on Prouhet moment cancellation. The precise fact informs how nondecaying symbolic geometry can be spectrally invisible at high Hermite energy and is not a finite enumeration.",
+    "status": "PASS"
+  }
+}
