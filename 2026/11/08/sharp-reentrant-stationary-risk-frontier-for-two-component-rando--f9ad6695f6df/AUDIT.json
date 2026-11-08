@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact affine gradient steps give closed stationary moments under the stated strict common mean-square stability condition. The algebraic ratio identity reduces the comparison to a quartic P, and its transformed coefficient sign structure gives an at-most-two-root bound. A rational Sturm certificate for the degree-seven discriminant isolates the unique active transition. Rational roots in two parameter regimes show the count changes from two to zero at a double root; direct endpoint signs fix the ordering. Exact rational sample and reproducible symbolic checks corroborate the algebra. No finite experiment is used as a replacement for infinite root classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Sa gives a broad qualitative counterexample to universal reshuffling superiority, so the existence of a counterexample alone is already known.",
+        "Liu 2026 gives convergence upper bounds for an averaged iterate with step restrictions, not pairwise exact stationary objective comparisons of last iterates.",
+        "Safran and Shamir quantify finite-epoch rates and ill-conditioned regimes, rather than roots of the stationary risk difference for two unequal-curvature quadratics."
+      ],
+      "reasoning": "Qualitative counterexamples do not imply a precise all-parameter two-root/no-root classification. Upper bounds for averaged iterates under controlled steps cannot decide the ordering of exact stationary last-iterate losses near the stable high-step boundary.",
+      "searches": [
+        "web: random reshuffling versus SGD large step size can perform worse stationary variance strongly convex quadratic",
+        "arXiv:2606.32005, Sections 3-4",
+        "De Sa, Random Reshuffling is Not Always Better (NeurIPS 2020), principal results",
+        "arXiv:2106.06880, results on reshuffling versus SGD"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.07964",
+      "arXiv:2206.00632",
+      "DeSa-NeurIPS-2020-RR-not-always-better",
+      "arXiv:2106.06880",
+      "arXiv:2606.32005",
+      "Relevant published-finding corpus exact/semantic searches and available same-topic mathematical records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Domingo-Enrich invokes a shared-Hessian noise approximation and emphasizes leading variance ordering, which cannot settle exact unequal-curvature last-iterate risks at aggressive steps.",
+        "Ying exact example uses a shared matrix A in every summand; its stationary formula cannot directly imply the two-component curvature ratio threshold.",
+        "De Sa establishes negative comparisons generally, so the new claim is restricted to the exact reentrant partition and critical degree-seven polynomial."
+      ],
+      "reasoning": "Neither a bound with slack nor an approximation model logically implies the sign of the exact rational risk difference at every step, including the two changes of sign and the double-root degeneracy. The exact all-domain classification survives the close implication checks.",
+      "searches": [
+        "arXiv:2206.00632 full text stationary variance and approximation assumptions",
+        "arXiv:1803.07964 Section IV long-term model and Section V quadratic specialization",
+        "De Sa 2020 full text counterexamples",
+        "published-finding corpus: random reshuffling SGD equal curvature finite sum quadratics with replacement risk reversal step size overshoot"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ying et al. compute exact quadratic long-term risks when all samples share the same design matrix A; equations (47)-(53) make gradient noise state-independent. In this claim the two component curvatures differ and the exact epoch error has a deterministic offset proportional to their difference.",
+        "The exhaustive parameter-space result here is a pair of zeros in stepsize for low nonzero curvature spread, coalescing at an algebraic threshold."
+      ],
+      "reasoning": "A shared-Hessian stationary-variance identity cannot specialize to unequal Hessians, and the state-dependent gradient-noise term does not vanish. The equality at zero spread is included as a boundary, not the main new classification.",
+      "searches": [
+        "published-finding corpus: two component scalar quadratic random reshuffling with replacement stationary mean square comparison two crossings reentrant curvature heterogeneity",
+        "web: random reshuffling with replacement stationary variance two scalar heterogeneous quadratics exact formula threshold step size risk",
+        "arXiv:1803.07964, Section V.A, equations (47)-(54)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public mathematical records discuss the mean-square frontier of two-client Loopless SVRG, the residual floor of SARAH, and the covariance of STORM; these are different update methods and do not imply the exact random-reshuffling stationary comparison.",
+        "The table in Ying et al. concerns a common-Hessian model and asymptotic scaling, not the exact heterogeneous curvature critical root."
+      ],
+      "reasoning": "Relevant actual mathematical records and published tabulations do not present this precise stationary risk phase diagram. Search nonappearance is supporting context, not proof of novelty.",
+      "searches": [
+        "published-finding corpus: reshuffling exact two-example quadratic steady state counterexample SGD variance",
+        "published-finding corpus: shuffling SGD last iterate stationary risk two losses random replacement overshoot reshuffling",
+        "arXiv:1803.07964, Section V.A, Table I",
+        "arXiv:2206.00632, stationary variance examples"
+      ]
+    },
+    "rationale": "Directly compared exact stationary last-iterate implications with the published common-Hessian exact model (Ying et al. 2018), a shared-Hessian noise approximation (Domingo-Enrich 2022), generic reshuffling counterexamples (De Sa 2020), epoch-rate comparisons (Safran and Shamir 2021), and averaged-iterate convergence bounds (Liu 2026). None of the materially inspected claims states or implies the exact heterogeneous two-scalar two-transition frontier or its degree-seven critical curvature threshold. Related older specialist material could still contain an equivalent result.",
+    "residual_risks": [
+      "An older specialized exact unequal-curvature two-sample steady-state calculation could establish the same critical polynomial under another normalization.",
+      "Some articles with promising titles were checked through accessible relevant sections rather than an exhaustive bibliography audit.",
+      "No independent publication-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact examples enforce shared design matrix and equal component Hessians; heterogeneous-curvature exact stationary phase not stated",
+        "evidence": [
+          "Eq. (47): sum of squared residuals with same A for every datum",
+          "Eq. (49)-(53): state-independent gradient noise; long-term model becomes exact only for this special model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.07964",
+        "material_read": "Full-text Sections I, IV.A-D, V.A and equation/table descriptions, with particular attention to equations (47)-(54) and the long-term approximation",
+        "method": "Accessible arXiv full-text HTML, inspected statements and mathematical assumptions",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "Early constant-step analysis claims exact quadratic stationary mean-square performance"
+      },
+      {
+        "assessment": "Uses shared-Hessian/noise approximation; no exact two-unequal-curvature large-step crossing threshold found in examined material",
+        "evidence": [
+          "arXiv submission June 1, 2022; paper introduces noise-approximation regime to derive stationary-variance trends"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00632",
+        "material_read": "PDF introductory hypotheses, variance derivations and comparisons across pages 1-9, including stationary linearized noise model",
+        "method": "Inspected arXiv full-text PDF, not merely abstract or downloaded bytes",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Closest stationary variance comparison of with- and without-replacement gradient algorithms"
+      },
+      {
+        "assessment": "Qualitative counterexamples are prior art; their result does not state the exact two-component stationary loss phase curve",
+        "evidence": [
+          "A general counterexample to the proposition that random reshuffling always outperforms sampling with replacement is established"
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "PDF statement and constructions across pages 1-7",
+        "method": "Inspected accessible full text and its counterexample structure",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Potential stronger prior that could subsume reshuffling disadvantage"
+      },
+      {
+        "assessment": "Rate and lower-bound statements do not calculate the normalized stationary risk sign quartic for two unequal curvatures",
+        "evidence": [
+          "Finite-horizon worst-case comparison and optimally tuned steps, rather than two-parameter exact stationary sign classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.06880",
+        "material_read": "Accessible results and theorem statements concerning ill-conditioned quadratic rates",
+        "method": "Read arXiv-accessible text of main estimates",
+        "title": "Random Shuffling Beats SGD Only After Many Epochs on Ill-Conditioned Problems",
+        "trigger": "Direct comparison of shuffling and independently sampled SGD on quadratics"
+      },
+      {
+        "assessment": "Guarantees for an averaged iterate do not imply ordering of stationary last-iterate errors, especially under the aggressive stable steps used here",
+        "evidence": [
+          "Theorem 6 concerns averaged-iterate upper bounds; Theorem 10 assumes a step at most 1/(2 Lhat)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.32005",
+        "material_read": "Accessible full-text Section 4.2-4.3 discussion and proofs of averaged-iterate convergence bounds",
+        "method": "Read arXiv-hosted HTML/text, examined hypotheses, step restrictions and output statistic",
+        "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+        "trigger": "Strong apparent dominance title requires implication comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9ad6695-f6df-4c5f-9b5b-d7b4deb30c5d",
+  "value": {
+    "rationale": "The phenomenon addresses a genuine sampling-order decision: two strictly convex components whose exact-gradient noise differs by state can make reshuffling inferior at some constant steps, yet superior again near the stability boundary. The entire 2D parameter-region partition, unique algebraic curvature-ratio cutoff, and explicit rational witness are structural statements, beyond a qualitative counterexample or a small numerical improvement. The precise threshold can benchmark approximations and guide safe large-step comparisons.",
+    "status": "PASS"
+  }
+}
