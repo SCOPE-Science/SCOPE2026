@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For unit intervals of ply <=2 nonadjacent overlaps are impossible. The realizable strict orders on a connected component are exactly matching-indexed adjacent-swap permutations; each matching is geometrically realized. An explicit recursive common supersequence has length 2m-1; induction on the occurrences of label m proves a matching lower bound, and label projection adds optimal costs across components. Direct checker exhaustively tested all 255 interval overlap masks through n=8 and exact BFS minima through n=6; finite checks are secondary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 precursor Lemma 34 cites generic 4 Delta n construction, no exact optimum.",
+        "2026 Lemma 12 cites a generic all-permutations universal word of size at most m^2, Lemma 13 proves at most 4 Delta n, with smoothness; neither derives exact lower bound.",
+        "Radomirović 2012 treats universal words for all permutations, a larger target set."
+      ],
+      "reasoning": "A general upper bound does not imply sharpness nor a component-sensitive exact optimum. Universal words for all permutations may cover matching permutations but do not yield the 2m-1 minimum; no general lower bound seen with the required parameters.",
+      "searches": [
+        "arxiv:2502.03633 Sec. 4.3 Lemma 34",
+        "arxiv:2601.19453 Lemmas 12–13",
+        "minimum common supersequence all linear extensions poset incomparability graph path intervals"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.19453 primary PDF fully inspected",
+      "arxiv:2502.03633 relevant full-text sections and Lemma 34 inspected",
+      "Radomirović 2012 bibliographic/cited theorem, not independent full text",
+      "published-finding corpus 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+      "published-finding corpus 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "published-finding corpus 2026/10/4/SCOPE-quadratic-reversal-distance-in-the-bipermutahedron--5e07903e1288"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For ply Delta=2, the proved bound in 2026 is at most 8n, compared with equality OPT=2n-c.",
+        "The 2025 precursor imports the same generic bound rather than the proposed lower-bound/equality."
+      ],
+      "reasoning": "An at-most-8n upper bound does not imply either the exact optimum 2n-c or the complete path-matching order classification; the new theorem covers this specific subcase with a stronger optimality statement, but makes no assertion about the former work’s smoothness guarantee.",
+      "searches": [
+        "arxiv:2601.19453 Theorem 5 and Lemma 13",
+        "arxiv:2502.03633 Lemma 34",
+        "exact shortest sorting supersequence for unit intervals of ply two overlap paths, minimum 2n minus components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Löffler–Raichel 2026 Lemma 13: generic upper bound 4 Delta n for unit intervals; no exact ply-two component formula.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949: insertion distance to subsequence universality of words, not permutations indexed by matching edges.",
+        "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28: missing subsequences of binary words, unrelated to permutation-supersequence minima."
+      ],
+      "reasoning": "Matching-swap permutations are particular linear extensions of a path interval order; equivalent phrasing would be universal subsequence word for all matchings of a path. The primary paper and closest index results do not state such an equality or its minimum-length lower bound.",
+      "searches": [
+        "exact shortest sorting supersequence for unit intervals of ply two overlap paths, minimum 2n minus components",
+        "common subsequence-universal word for all permutations made of disjoint adjacent swaps 2m minus one",
+        "Fibonacci adjacent transposition matching permutations shortest common supersequence",
+        "arxiv:2601.19453 Sec. 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus claim 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23 concerns ternary DNA profile rankings, not interval-order supersequence length.",
+        "Closest returned published-finding corpus claim 2026/10/4/SCOPE-quadratic-reversal-distance-in-the-bipermutahedron--5e07903e1288 concerns bipermutation reversal distance, not subsequence universality."
+      ],
+      "reasoning": "The theorem is an all-n structural identity, not a table entry. No returned database item was about minimum universal words for path-matching permutation classes. Semantic retrieval incompleteness remains an explicit risk.",
+      "searches": [
+        "Fibonacci adjacent transposition matching permutations shortest common supersequence",
+        "Loffler Raichel 2026 preprocessing uncertain data sorting supersequence two ply path 2n-c",
+        "shortest sorting supersequence constant ply 2 interval graph induced path optimal"
+      ]
+    },
+    "rationale": "The full-text 2026 primary establishes at most 4 Delta n, and the 2025 precursor cites the same upper bound. Neither inspected source gives the matching-permutation characterization or the sharp per-instance 2n-c lower/equality. published-finding corpus searches for formula, aliases, graph and permutation reductions returned irrelevant nearest items. Classical all-permutations upper bounds do not imply exact restricted minima. Priority beyond accessible sources remains uncertain.",
+    "residual_risks": [
+      "A folklore all-n matching-permutation universal-word lemma might have been recorded outside searched sources.",
+      "Full original 2012 general universal-word text not independently examined; no claim of full-document exclusion.",
+      "Semantic index search is incomplete and does not certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic upper bound and smoothness, not the sharp component-wise ply-two minimum",
+        "evidence": [
+          "Definition 2 sorting-supersequence; Theorem 5 at PDF page 6",
+          "Lemma 13 at PDF pages 7–8: at most 4 Delta n"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.19453",
+        "material_read": "Full preprint including definitions, Section 3 construction, Lemmas 12–13, Theorem 5, and references",
+        "method": "Read primary full text and page images of definitions and theorem",
+        "title": "Preprocessing Uncertain Data into Supersequences for Sorting and Gaps",
+        "trigger": "Defines sorting-supersequences for unit intervals of bounded ply, exact same basic objects"
+      },
+      {
+        "assessment": "Uses older general unit-interval upper bound, not an equality or minimum for ply two",
+        "evidence": [
+          "Lemma 34 at PDF page 19 reproduces length at most 4 Delta n from 2026 Lemma 13"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.03633",
+        "material_read": "Abstract, contribution, Section 3.2 definitions, Section 4.3 around Lemmas 33–34, references",
+        "method": "Read PDF text and image of Section 3",
+        "title": "Preprocessing Disks for Convex Hulls, Revisited",
+        "trigger": "Same authors and interval-sorting lemma reused in predecessor geometric application"
+      },
+      {
+        "assessment": "Broader input permutation class with upper bound does not establish restricted exact minimum; remaining implicit-priority uncertainty",
+        "evidence": [
+          "Löffler–Raichel 2026 Section 1.2 and Lemma 12 describe bound for all permutations"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/2859",
+        "material_read": "Bibliographic title/summary and its description as generic bound in Löffler–Raichel 2026 Section 1 and Lemma 12; independent full original not obtained",
+        "method": "Bibliography and citation examination, not full original PDF reading",
+        "title": "A Construction of Short Sequences Containing All Permutations of a Set as Subsequences",
+        "trigger": "Classical universal permutation supersequence could dominate restricted class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ed09cd1-505d-40f7-a09b-dd2fee6ca9f4",
+  "value": {
+    "rationale": "Exact sharp optimum for all unit-ply-two configurations resolves a natural first nontrivial ply regime of interval-sorting preprocessing, with essential component dependence, matching-based realizable-order classification, Fibonacci count and optimal O(n log n) construction. This is more than a routine numerical improvement to the existing generic 8n upper bound; it supplies a minimum and structural combinatorial explanation, independent of smoothness claims.",
+    "status": "PASS"
+  }
+}
