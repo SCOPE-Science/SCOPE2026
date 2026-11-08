@@ -1,15 +1,21 @@
-# Research review: exact oscillatory basins for balanced majority–minority dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
-For each integer \(k\ge1\), the exact three-case global update identity follows by counting neighbors of a vertex in each bit state. This yields the unique four-cycle, the even-\(k\) isolated period-two states, all first-entry counts, and the Gaussian critical-window limit. The labelled-state verifier checks independent vertexwise updates for all 87,380 initial configurations with \(1\le k\le8\). Those finite checks support but do not establish the all-size proof, which is complete in `RESULT.md`.
+## correctness
 
-## Originality — PASS, with material historical risk
-Cannings (2009) already studied the exact majority/minority complete-graph rule and its special balanced four-cycles. This prior work is credited, not claimed as new. The full accessible Haslegrave–Cannings 2016 manuscript attributes period restrictions and the balanced four-cycle criterion to Cannings; the accessible Cao–Qin–Yang–Zhang 2013 article treats conformist/rebel updates and structural cycle conditions. None of their inspected statements gives the exact labelled central-binomial period-two census, their basins, the complete first-entry shell formula or the Bernoulli scaling window. A full-text comparison with Cannings (2009) could not be completed, leaving a significant historical-equivalence risk. Negative searching alone is not interpreted as proof of novelty. Details of equivalence and stronger-coverage checks are in `AUDIT.json`.
+PASS
 
-## Mathematical value — PASS
-A natural exactly solvable social-network dynamical model has a surprising parity-selective collection of isolated two-cycles coexisting with a universal four-cycle; the microscopic population count, complete two-step relaxation census, and probability law quantify their physical prevalence. The questions are model-intrinsic and non-arbitrary.
+Counting ones among the 2k-1 other vertices yields exact three-case global map: if r=a+b<k then F(X,Y)=(0,1), if r=k then F(X,Y)=(complement X,Y), if r>k then F(X,Y)=(1,0). The four special states form one 4-cycle; only configurations a=b=k/2 (even k) form primitive 2-cycles; no other period or fixed point. Counts T0=4+B_k, T1=4^k-C(2k,k)-2, T2=C(2k,k)-2-B_k follow by separating r=k and four-cycle states; bound T<=2 sharp k>=3. Independent direct per-vertex graph updates verified all 5460 states for k<=6. Product Bernoulli measure gives B_k[p(1-p)]^k; Stirling yields fixed-s critical window (2/pi k)e^(-4s^2). Quantifiers and k=1,2 handled analytically.
 
-## Limitations
-The theorem applies only to synchronous strict-neighbor binary votes with equal-sized conformist and contrarian classes on complete graphs. There is no independent audit and no claim of historical uniqueness. The most directly relevant 2009 conference full text was inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge scoped originality after explicit implication comparisons, with real residual priority risk: Cannings (2009) is same-model, full text unavailable and may contain closed labelled count formulas or equivalent central-layer calculation. Model requires equal k/k split, no self-neighbors, synchronous updates.
+
+## value
+
+PASS
+
+Complete microscopic attractor basins, two-step entrance census and parity-selective Gaussian critical window for a canonical balanced majority/minority network. Distinct from earlier mere qualitative period restrictions; yields precise prevalence of coexistence rhythms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
