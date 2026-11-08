@@ -1,19 +1,21 @@
-# Research review: finite-population Kruskal passage
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Adaptive exposure yields exchangeable residual uninspected labels and hence the without-replacement coupling. The coefficient law is a literal finite-subset count. The fixed-\(t\) bias follows from a leading-order count of pairwise value collisions with all pair-intersections lower-order. A factorially summable majorant justifies the asymptotic expectation. The standalone finite verifier corroborates the exact formulas on 493231 complete deck arrangements across 16 parameter cases. The proof, not these finite checks, supports the universal quantifiers.
+PASS
 
-## Originality
+The adaptive next-unvisited-card index is deterministic conditional on already inspected values and strictly increases; by permutation exchangeability its revealed values are sampling without replacement. The unordered first t physical cards have uniform t-subset law, proving the exact coefficient generating formula. Verified independently by enumerating full distinct decks for (m,n)=(1,5),(1,7),(2,4),(3,3), with every survival probability matching the coefficient DP. For fixed m, dominated convergence uses a summable binomial upper bound from counting low cards. For m=1, subtract pair-collision tuples from all positive compositions with total <=n-1, giving coefficient t(t²-t+4)/(4t!n) and O_t(n^-2). A summable uniform n-times-tail-error bound justifies summing in t, yielding 7e/4. Additional n=60,120,240 exact DP means converge toward this coefficient. The continuous renewal law and its e mean are expressly prior results.
 
-**PASS, subject to historical-priority risk.** Corregidor's 2026 primary paper treats adversarial maximum steps of the same process, not a uniform-arrangement distribution. Lagarias, Rains and Vanderbei investigate coupled paths and iid deck approximations. Russell's 1983 uniform-renewal distribution and Cohen's 2024 restatement already imply the classical continuous limit and \(\mathbb EN_1=e\), so neither is claimed as a discovery. The finite sampling coefficient formula and \(7e/(4n)\) first correction were not found in inspected claims; prior work using different indexing or terminology could still cover them. The full Russell article was gated; publisher abstract and accessible later treatment were inspected.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A previously analyzed extremal combinatorial process now has a complete probabilistic counting law under uniform shuffling. The leading correction quantifies finite-population dependence for the canonical one-copy deck, separating two concrete combinatorial mechanisms, and supplies a reproducible benchmark for random-deck analysis.
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
 
-## Closest literature and scope
+## value
 
-Closest sources: Corregidor (arXiv:2610.29015v1), Lagarias--Rains--Vanderbei (arXiv:math/0110143v1), Russell (1983), and Cohen (2024). The exact law is for uniform arrangements with equal card multiplicities; the first-order asymptotic concerns one copy per label. It does not address adversarial maxima, nonuniform shuffles, or multi-path coupling. Independent mathematical audit and exhaustive historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact finite-population law for a natural random fixed-deck elimination model, with explicit no-replacement bias separating discreteness and collision effects. The 7e/4 coefficient is a meaningful finite-size calibration and is not the known continuous-uniform e limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

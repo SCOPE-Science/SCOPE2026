@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:42:06.210331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The adaptive next-unvisited-card index is deterministic conditional on already inspected values and strictly increases; by permutation exchangeability its revealed values are sampling without replacement. The unordered first t physical cards have uniform t-subset law, proving the exact coefficient generating formula. Verified independently by enumerating full distinct decks for (m,n)=(1,5),(1,7),(2,4),(3,3), with every survival probability matching the coefficient DP. For fixed m, dominated convergence uses a summable binomial upper bound from counting low cards. For m=1, subtract pair-collision tuples from all positive compositions with total <=n-1, giving coefficient t(t²-t+4)/(4t!n) and O_t(n^-2). A summable uniform n-times-tail-error bound justifies summing in t, yielding 7e/4. Additional n=60,120,240 exact DP means converge toward this coefficient. The continuous renewal law and its e mean are expressly prior results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corregidor establishes a worst-case iteration bound, not a distribution in accessible abstract.",
+          "Russell/Cohen treat i.i.d. uniform continuous increments; such theory gives the limiting law and e but not dependence corrections."
+        ],
+        "reasoning": "No accessible broader prior theorem directly dominates the exact random finite multiset deck law and its 1/n correction; the Corregidor full article is unavailable, retained as risk.",
+        "searches": [
+          "Corregidor 2026 abstract (same exact deck)",
+          "Lagarias–Rains–Vanderbei 2001/2009 Kruskal count abstract",
+          "Russell 1983 continuous uniform first passage",
+          "Cohen 2024 first passage review"
+        ]
+      },
+      "checked_sources": [
+        "Corregidor arXiv:2610.29015 abstract; full text inaccessible due authorization",
+        "Lagarias–Rains–Vanderbei 2001 arxiv and Caltech records",
+        "Russell 1983 DOI:10.2307/3213732 abstract",
+        "Resultary random-permutation stopping search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Worst-case extremal length imposes support bounds but does not fix probability mass under uniform shuffling.",
+          "I.i.d. renewal limit gives e but cannot specify the finite no-replacement 7e/4 coefficient without a separate expansion."
+        ],
+        "reasoning": "The new exact law requires a uniform physical-card subset count. It is compatible with both the classical worst-case and i.i.d. limiting statements without being their direct corollary.",
+        "searches": [
+          "Corregidor same deck worst-case bounds",
+          "Russell 1983 DOI:10.2307/3213732",
+          "Resultary: Kruskal card stopping finite random deck"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sampling without replacement in a finite labelled deck is the equivalent probabilistic formulation of the visited-card process.",
+          "Corregidor considers the same values/multiplicities but maximizes iterations over arrangements."
+        ],
+        "reasoning": "A worst-case maximum and a two-chain coupling model are not the uniform one-chain fixed-deck stopping distribution. The finite-population coefficient law is the new object under the equivalent formulation.",
+        "searches": [
+          "Resultary: Random uniform permutation Kruskal counting card removal stopping time without replacement exact distribution expected e-7e/4n",
+          "Corregidor arXiv:2610.29015",
+          "Lagarias–Rains–Vanderbei The Kruskal Count arXiv:math/0110143"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite-deck coefficient or 7e/4 table found; direct DP and exhaustive deck checking reproduce the assigned formulas."
+        ],
+        "reasoning": "Negative search alone cannot certify historical priority; a generalized hypergeometric or composition table might encode the same quantity.",
+        "searches": [
+          "Web: Kruskal 7e/4n deck stopping",
+          "Resultary: finite-population Kruskal passage",
+          "Web: random permutation sum exceeds n expected e"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.",
+      "residual_risks": [
+        "Corregidor full 14-page exact-deck paper could contain a uniform-random corollary not described in its abstract; authorized retrieval returned vpn_disconnected, no automatic scientific failure claimed.",
+        "Older generalized hypergeometric and permutation-renewal literature may include the exact formula or 7e/4 coefficient.",
+        "The 1/n bias is proved only for m=1, fixed-t expansion not uniform in growing t."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Likely addresses extremal arrangements; cannot assert full-document noncoverage; residual priority risk material.",
+          "evidence": "Abstract calls σ(m,n) a sharp bound valid for every arrangement.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29015",
+          "material_read": "ArXiv abstract, dated 2026-10-21, bibliographic record, title and stated aim to bound worst-case iterations; full 14-page article could not be retrieved; authorized full-text service returned vpn_disconnected.",
+          "method": "ArXiv indexed abstract plus lawful access attempt",
+          "title": "On the Number of Iterations in a Kruskal-Type Process",
+          "trigger": "Same deck process and parameters m,n"
+        },
+        {
+          "assessment": "Canonical card coupling/guessing prior art, not enough material to certify absence of finite one-chain stopping law in full chapter.",
+          "evidence": "2001 arXiv abstract focuses coupling success probability.",
+          "identifier_or_url": "https://authors.library.caltech.edu/records/tatkw-q7h44",
+          "material_read": "Open Caltech submitted-chapter record, abstract describing two-chain coupling, and 2001 arXiv abstract; full chapter not independently read.",
+          "method": "Repository and arXiv abstract reading",
+          "title": "The Kruskal Count",
+          "trigger": "Canonical prior probabilistic card-count model"
+        },
+        {
+          "assessment": "Covers independent continuous uniform crossing; no finite-deck conclusion in inspected abstract.",
+          "evidence": "1983 iid uniform-summand threshold setting.",
+          "identifier_or_url": "https://doi.org/10.2307/3213732",
+          "material_read": "Publisher-indexed abstract and mathematical problem description, not full article.",
+          "method": "Journal abstract",
+          "title": "On the Number of Uniform Random Variables Which Must Be Added to Exceed a Given Level",
+          "trigger": "Classical limit distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact finite-population law for a natural random fixed-deck elimination model, with explicit no-replacement bias separating discreteness and collision effects. The 7e/4 coefficient is a meaningful finite-size calibration and is not the known continuous-uniform e limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Corregidor arXiv:2610.29015 abstract; full text inaccessible due authorization",
+    "Lagarias–Rains–Vanderbei 2001 arxiv and Caltech records",
+    "Russell 1983 DOI:10.2307/3213732 abstract",
+    "Resultary random-permutation stopping search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a uniformly shuffled deck with m copies each of 1..n, stopping-time tails equal the coefficient sums of product_j(1+xq^j)^m divided by binom(mn,t). For fixed m the law and mean converge to the classical uniform-renewal crossing time, and for m=1 E T=e-7e/(4n)+o(n^-1) with fixed-t correction.",
+  "limitations": [
+    "Corregidor full 14-page exact-deck paper could contain a uniform-random corollary not described in its abstract; authorized retrieval returned vpn_disconnected, no automatic scientific failure claimed.",
+    "Older generalized hypergeometric and permutation-renewal literature may include the exact formula or 7e/4 coefficient.",
+    "The 1/n bias is proved only for m=1, fixed-t expansion not uniform in growing t."
+  ],
+  "residual_risks": [
+    "Corregidor full 14-page exact-deck paper could contain a uniform-random corollary not described in its abstract; authorized retrieval returned vpn_disconnected, no automatic scientific failure claimed.",
+    "Older generalized hypergeometric and permutation-renewal literature may include the exact formula or 7e/4 coefficient.",
+    "The 1/n bias is proved only for m=1, fixed-t expansion not uniform in growing t."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Likely addresses extremal arrangements; cannot assert full-document noncoverage; residual priority risk material.",
+      "evidence": "Abstract calls σ(m,n) a sharp bound valid for every arrangement.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.29015",
+      "material_read": "ArXiv abstract, dated 2026-10-21, bibliographic record, title and stated aim to bound worst-case iterations; full 14-page article could not be retrieved; authorized full-text service returned vpn_disconnected.",
+      "method": "ArXiv indexed abstract plus lawful access attempt",
+      "title": "On the Number of Iterations in a Kruskal-Type Process",
+      "trigger": "Same deck process and parameters m,n"
+    },
+    {
+      "assessment": "Canonical card coupling/guessing prior art, not enough material to certify absence of finite one-chain stopping law in full chapter.",
+      "evidence": "2001 arXiv abstract focuses coupling success probability.",
+      "identifier_or_url": "https://authors.library.caltech.edu/records/tatkw-q7h44",
+      "material_read": "Open Caltech submitted-chapter record, abstract describing two-chain coupling, and 2001 arXiv abstract; full chapter not independently read.",
+      "method": "Repository and arXiv abstract reading",
+      "title": "The Kruskal Count",
+      "trigger": "Canonical prior probabilistic card-count model"
+    },
+    {
+      "assessment": "Covers independent continuous uniform crossing; no finite-deck conclusion in inspected abstract.",
+      "evidence": "1983 iid uniform-summand threshold setting.",
+      "identifier_or_url": "https://doi.org/10.2307/3213732",
+      "material_read": "Publisher-indexed abstract and mathematical problem description, not full article.",
+      "method": "Journal abstract",
+      "title": "On the Number of Uniform Random Variables Which Must Be Added to Exceed a Given Level",
+      "trigger": "Classical limit distribution"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `verify.py` independently enumerates all distinct deck arrangements, computes actual removal counts for every arrangement, and separately constructs the coefficient polynomial via bounded subset selection with binomial multiplicities. For 16 small parameter pairs (multiplicity up to three and up to seven labels), 493231 distinct arrangements are checked; all empirical tail frequencies equal the exact count ratios. It also confirms monotonicity and boundary conditions and compares finite-n expectations with the analytical correction for 40, 80 and 160 labels.
+## correctness
 
-Execution from the standalone package returned:
+PASS
 
-`VERIFY_OK multiset_parameter_cases=16 direct_decks=493231 finite_n_bias_checked=40,80,160`
+The adaptive next-unvisited-card index is deterministic conditional on already inspected values and strictly increases; by permutation exchangeability its revealed values are sampling without replacement. The unordered first t physical cards have uniform t-subset law, proving the exact coefficient generating formula. Verified independently by enumerating full distinct decks for (m,n)=(1,5),(1,7),(2,4),(3,3), with every survival probability matching the coefficient DP. For fixed m, dominated convergence uses a summable binomial upper bound from counting low cards. For m=1, subtract pair-collision tuples from all positive compositions with total <=n-1, giving coefficient t(t²-t+4)/(4t!n) and O_t(n^-2). A summable uniform n-times-tail-error bound justifies summing in t, yielding 7e/4. Additional n=60,120,240 exact DP means converge toward this coefficient. The continuous renewal law and its e mean are expressly prior results.
 
-Computational enumeration cannot certify all possible multiplicities, infinitely many label counts, the asymptotic coefficient, originality, or historical priority. The proof is supplied in `RESULT.md`; independent mathematical audit was not performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge comparison of actual statements with primary literature and published mathematical results; not a claim of exhaustive historical-priority verification.
+
+## value
+
+PASS
+
+Exact finite-population law for a natural random fixed-deck elimination model, with explicit no-replacement bias separating discreteness and collision effects. The 7e/4 coefficient is a meaningful finite-size calibration and is not the known continuous-uniform e limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
