@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The n=0 obstruction forces max shift at least 2^m-1. For any n, either a low m-bit zero block or adjacent 10 gives an immediate suitable shift, or a run 0^a1^(m-a) with high trailing ones yields a complement shift chosen from the residue of the high carry, with binary-weight difference divisible by m. At the resulting horizon, E(0), E(2^j(2^(m+1)-1)) for 0<=j<m, and the m-2 E((2^(ell+1)-1)2^(m-1)) are pairwise disjoint and nonempty, forcing 2m-1 distinct shifts. All bit identities, ranges and m=2 boundary are explicitly checked in the paper. Standalone finite verifier agrees on m=2..10, but no finite check replaces proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhao and Zhang, Sums of Digits and the Distribution of Generalized Thue-Morse Sequences, Journal of Integer Sequences 20 (2017), Article 17.3.3 determines the minimal length of a consecutive interval covering all m symbols in the binary digit-sum sequence. https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.html",
+        "Meleshko, Ochem, Shallit and Shan, Pseudoperiodic Words and a Question of Shevelev, arXiv:2207.10171 (first posted 2022-07-20) discusses the classical two-letter Thue–Morse pseudoperiod and decision questions. https://arxiv.org/html/2207.10171v3"
+      ],
+      "reasoning": "A universal consecutive-window symbol-coverage length provides at most a dense set of offsets, and does not establish existence of 2m-1 uniformly valid offsets, let alone optimality among such offsets. The general pseudoperiod formalism specializes but does not dominate the all-m theorem.",
+      "searches": [
+        "Zhao Zhang 2017 sums of digits distribution generalized Thue Morse minimal window coverage",
+        "generalized Thue Morse sequence digit sum modulo m pseudoperiod 2m-1 shifts offsets powers of two"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.html",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf",
+      "https://arxiv.org/html/2207.10171v3",
+      "https://arxiv.org/abs/2207.10171",
+      "https://dmtcs.episciences.org/en/articles/9919"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meleshko, Ochem, Shallit and Shan, Pseudoperiodic Words and a Question of Shevelev, arXiv:2207.10171 (first posted 2022-07-20) (classical case m=2, pseudoperiod definitions); https://arxiv.org/html/2207.10171v3",
+        "Zhao and Zhang, Sums of Digits and the Distribution of Generalized Thue-Morse Sequences, Journal of Integer Sequences 20 (2017), Article 17.3.3 (least window containing all residues; https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf)"
+      ],
+      "reasoning": "The 2017 theorem explains the threshold 2^m-1 for dense consecutive intervals, but such coverage does not imply that a particular 2m-1-point shift set works simultaneously at every starting position or that 2m-2 shifts are impossible. The 2022 paper supplies the m=2 comparison case, not the quantified m>=2 result. Both are explicitly treated as prior components, not new contributions.",
+      "searches": [
+        "Pseudoperiodic Words and a Question of Shevelev Meleshko Ochem Shallit Shan 2022",
+        "Zhao Zhang 2017 sums of digits distribution generalized Thue Morse minimal window coverage",
+        "linear-size pseudoperiod of cyclic Thue Morse fixed point substitution a maps to a a+1 modulo m"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meleshko, Ochem, Shallit and Shan, Pseudoperiodic Words and a Question of Shevelev, arXiv:2207.10171 (first posted 2022-07-20) (Definition 1 and Proposition 2; https://arxiv.org/html/2207.10171v3)",
+        "Zhao and Zhang, Sums of Digits and the Distribution of Generalized Thue-Morse Sequences, Journal of Integer Sequences 20 (2017), Article 17.3.3 (Theorems 4-5, Corollary 12; https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf)"
+      ],
+      "reasoning": "Checked the equivalence between modular Hamming weight returns, fixed forward shift covers and pseudoperiods. Generalized letter-coverage in a consecutive window is not a position-independent sparse return set; the binary case m=2 does not entail the all-modulus support optimum.",
+      "searches": [
+        "\"pseudoperiod\" \"generalized Thue-Morse\" modulo",
+        "\"pseudoperiod\" \"sum of digits\" modulo sequence",
+        "pseudoperiodicity of binary sum-of-digits sequence modulo arbitrary integer",
+        "minimum cardinality pseudoperiod digit sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhao and Zhang, Sums of Digits and the Distribution of Generalized Thue-Morse Sequences, Journal of Integer Sequences 20 (2017), Article 17.3.3 presents symbolic formulas for consecutive letter coverage rather than tabulated sparse shift optima.",
+        "The primary arXiv pseudoperiod paper treats different finite examples and the two-letter benchmark."
+      ],
+      "reasoning": "The result is an infinite-family theorem with parameter m>=2, not a finite lookup-table value; no exact sparse support formula or equivalent all-m table was identified in checked primary sources.",
+      "searches": [
+        "sharp sparse forward self-match cover popcount modulo m minimum horizon pseudoperiod",
+        "pseudoperiod shift sets popcount congruence minimum maximum shift"
+      ]
+    },
+    "rationale": "The closest published pseudoperiod paper proves the classical binary case but does not give an arbitrary-modulus minimum-delay sparsity theorem. The digit-sum distribution paper proves a sharp consecutive-window benchmark, which is weaker than a fixed sparse set and does not imply the 2m-1 optimum. Direct statement-and-implication searches and comparison against recoverable prior claims did not identify a covering theorem. Residual risk: unpublished or unindexed equivalent formulation.",
+    "residual_risks": [
+      "An unindexed or differently phrased equivalent theorem may exist.",
+      "The 2017 window-coverage result may permit an indirect deduction by an unexamined nontrivial new argument, but does not state or immediately imply the sparse optimum.",
+      "This is a same-model literature assessment, not an independent comprehensive bibliographic audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimal consecutive-window alphabet distribution and horizon-related benchmark but does not state or imply fixed sparse pseudoperiod support or matching disjoint-witness lower bound.",
+        "evidence": [
+          "Publication statement dated January 7, 2017",
+          "Theorems 4 and 5 and Corollary 12 in the full-text PDF"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Zhao/zhao23.pdf",
+        "material_read": "Abstract, introductory definitions, Theorems 4 and 5, Corollary 12, accompanying argument and endpoint discussion; PDF page images examined in addition to parsed text.",
+        "method": "Primary publisher full-text PDF and visual page inspection",
+        "title": "Zhao and Zhang, Sums of Digits and the Distribution of Generalized Thue-Morse Sequences, Journal of Integer Sequences 20 (2017), Article 17.3.3",
+        "trigger": "Same generalized word and sharp digit-sum residue coverage threshold"
+      },
+      {
+        "assessment": "Establishes and studies pseudoperiod formalism and classical two-symbol case; no all-m sharp minimum-delay support theorem in inspected material.",
+        "evidence": [
+          "First arXiv version posted July 20, 2022",
+          "Definition 1 and Proposition 2 in arXiv text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.10171v3",
+        "material_read": "Definition 1, Proposition 2, surrounding classical Thue-Morse analysis, Sections 3 and 4 and cited variations.",
+        "method": "Open-access arXiv HTML full text, searched within relevant sections",
+        "title": "Meleshko, Ochem, Shallit and Shan, Pseudoperiodic Words and a Question of Shevelev, arXiv:2207.10171 (first posted 2022-07-20)",
+        "trigger": "Primary origin of the pseudoperiod shift-set definition and closest Thue-Morse case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4616ac72-4c94-42ee-a61e-5f1bc062817b",
+  "value": {
+    "rationale": "The problem is a natural sharp sparsification of a published consecutive digit-residue window result, in the established pseudoperiod formalism. It identifies an exponential minimum return horizon with exactly linear support for every alphabet size, and proves sharpness using intrinsic Hamming-weight witness classes, not a routine restatement or isolated numerical slice. The precise optimality tradeoff distinguishes the invariant from the unrestricted minimum shift count, which remains open here.",
+    "status": "PASS"
+  }
+}
