@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The dynamical model, phase-noise normalization, excitation current sign, and symmetric contact conditions are explicit. The unique stationary covariance solves all nine real moment equations, proved symbolically. The one-variable derivative establishes the global optimum and both sides of its strict enhancement threshold; equality and zero detuning are covered. Independent linear-system comparisons provide 256 numerical cases and 1,750 optimization inequalities, but are not substituted for the proof.
+## correctness
 
-**Originality — PASS on examined evidence.** Asadian et al. (arXiv:1204.0904) give the uniform-frequency harmonic chain and homogeneous dephasing methods. Contreras-Pulido et al. (arXiv:1407.0924) give electronic triple-dot current with Coulomb blockade, all-site phase noise and injection/extraction rather than thermal bosonic end contacts. Žnidarič and Horvat (arXiv:1207.5952) give XX/disordered-chain conductivity. Targeted database and source comparisons found no exact equivalent current-and-optimizer formula. Priority uncertainty beyond accessible sources is acknowledged, not represented as an independence guarantee.
+PASS
 
-**Mathematical value — PASS.** The complete all-rate classification resolves the exact conditions under which dephasing on one central oscillator benefits a thermally sustained number flux, identifies a unique implementable optimum, and fixes a central occupation invariant. The sharp threshold rules out improvements by stronger dephasing on the non-enhancement side.
+For the exact number-conserving bosonic trimer with equal hopping J, thermal end baths of strength kappa and central Lindblad gamma D[n2], the closed 3x3 Hermitian second-moment equation has central coherence damping gamma/2. The displayed covariance solves all nine real stationary equations, with t=4J²+kappa(kappa+gamma) and B=t²+4delta²kappa²; the endpoint currents agree and the middle occupation is (nL+nR)/2. The Hilbert–Schmidt contraction identity for the homogeneous system leaves only a central diagonal entry, which the nonzero commutator with hopping excludes; thus stationary covariance is unique, not necessarily the full infinite-dimensional density. Number current is 2J²kappa(nL-nR)t/(t²+4delta²kappa²). Since t runs over [4J²+kappa²,infinity), its scalar derivative has exactly one maximum at max(4J²+kappa²,2|delta|kappa), giving gamma*=max(0,2|delta|-kappa-4J²/kappa), strict enhancement iff |delta|>kappa/2+2J²/kappa, and uniqueness at boundary or delta=0. Independent 25 full 9-variable numerical solves/residual checks confirmed the formula; proof is analytical.
 
-**Limitations and risks.** This is a three-site, symmetric-contact, number-conserving Markovian bosonic model; it is not a general heat-flux theorem. The existence of a complete equivalent derivation in unexamined historical literature remains possible. Only stationary second-moment uniqueness is proved, not full infinite-dimensional state primitivity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Asadian–Manzano–Tiersch–Briegel (2012) establish thermal bosonic covariance transport methods for homogeneous/resonant chains with all-site dephasing. Contreras-Pulido et al (2014) establish noise-enhanced transport for Coulomb-blockaded electronic triple dots with distinct reservoirs and dephasing profile. Neither model has the exact centrally detuned, central-only-dephased thermally driven bosonic trimer number current or its all-rate unique optimum and threshold. The noise-assistance phenomenon itself is prior art.
+
+## value
+
+PASS
+
+Selectively dephased bosonic transport provides a natural exactly solvable benchmark for noise-enhanced flow. The formula gives an all-rate yes/no criterion and unique optimal dephasing setting, ruling out benefit below the critical detuning and controlling the limit at high dephasing. The invariant central occupation clarifies mechanism. No experimental generality asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

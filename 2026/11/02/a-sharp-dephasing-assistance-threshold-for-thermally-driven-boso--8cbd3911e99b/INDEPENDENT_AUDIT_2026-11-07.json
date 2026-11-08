@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:12:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, check_symbolic.py, check_numeric.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Independent numerical solution of a full nine-real-coordinate Hermitian stationary linear system and analytic covariance residual at 25 distinct positive parameter sets.",
+        "Rechecked scalar derivative and threshold equality, zero detuning, strict improvement and asymptotic vanishing at high dephasing."
+      ],
+      "rationale": "For the exact number-conserving bosonic trimer with equal hopping J, thermal end baths of strength kappa and central Lindblad gamma D[n2], the closed 3x3 Hermitian second-moment equation has central coherence damping gamma/2. The displayed covariance solves all nine real stationary equations, with t=4J²+kappa(kappa+gamma) and B=t²+4delta²kappa²; the endpoint currents agree and the middle occupation is (nL+nR)/2. The Hilbert–Schmidt contraction identity for the homogeneous system leaves only a central diagonal entry, which the nonzero commutator with hopping excludes; thus stationary covariance is unique, not necessarily the full infinite-dimensional density. Number current is 2J²kappa(nL-nR)t/(t²+4delta²kappa²). Since t runs over [4J²+kappa²,infinity), its scalar derivative has exactly one maximum at max(4J²+kappa²,2|delta|kappa), giving gamma*=max(0,2|delta|-kappa-4J²/kappa), strict enhancement iff |delta|>kappa/2+2J²/kappa, and uniqueness at boundary or delta=0. Independent 25 full 9-variable numerical solves/residual checks confirmed the formula; proof is analytical.",
+      "residual_risks": [
+        "Observable is excitation-number flux, NOT heat/energy flux; model assumes three bosonic modes, rotating-wave Hamiltonian, symmetric bath and hopping, and middle-site-only pure dephasing. No full-state stationary density-operator uniqueness claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asadian et al derive covariance heat transport for homogeneous lattice chains with uniform dephasing; disordered XX chain studies concern different many-site conductivity."
+        ],
+        "reasoning": "No published general transport formula inspected specializes to middle-site-only dephasing, finite asymmetric detuning and symmetric thermal contacts with the same exact rate optimizer.",
+        "searches": [
+          "bosonic three-site thermal chain central dephasing detuning optimal current threshold",
+          "Asadian et al arXiv:1204.0904 sections on dephasing and harmonic chains",
+          "Žnidarič/Horvat arXiv:1207.5952"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, check_symbolic.py, check_numeric.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Asadian et al arXiv:1204.0904 full PDF",
+        "Contreras-Pulido et al arXiv:1407.0924 full PDF",
+        "Žnidarič/Horvat arXiv:1207.5952 abstract/context",
+        "Resultary query: bosonic three-site thermal chain central dephasing detuning optimal current threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Asadian provides technique and a different symmetry setting; Contreras-Pulido supplies a different fermionic ENAQT threshold. Neither formula includes the target denominator t²+4delta²kappa² under the specified Lindblad generator."
+        ],
+        "reasoning": "The new stationary covariance and scalar optimization are essential; the target precise inequality does not follow just from ENAQT existence or a uniform-chain result.",
+        "searches": [
+          "bosonic three-site thermal chain central dephasing detuning optimal current threshold",
+          "Asadian et al arXiv:1204.0904 full-text current equations",
+          "Contreras-Pulido et al arXiv:1407.0924 full PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triple quantum-dot system has detuning and dephasing assistance, but hard-core electronic Coulomb blockade, injection/extraction and all-site noise differ from thermal bosons and selective central dephasing."
+        ],
+        "reasoning": "Changing labels does not map their interacting electronic normalization or dissipators onto the present covariance-closed bosonic current formula; same qualitative ENAQT does not imply the threshold equation.",
+        "searches": [
+          "bosonic three-site thermal chain central dephasing detuning optimal current threshold",
+          "Contreras-Pulido et al arXiv:1407.0924"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits describe related quantum/thermal systems but not this exact thermal trimer dephasing threshold."
+        ],
+        "reasoning": "Continuous parameter phase boundary is not a finite numerical table; no exact model/parameter match was found in indexed results, but possible specialist literature remains a priority risk.",
+        "searches": [
+          "bosonic three-site thermal chain central dephasing detuning optimal current threshold",
+          "Resultary bosonic trimer dephasing semantic search",
+          "SCOPE GitHub bosonic dephasing source search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Asadian–Manzano–Tiersch–Briegel (2012) establish thermal bosonic covariance transport methods for homogeneous/resonant chains with all-site dephasing. Contreras-Pulido et al (2014) establish noise-enhanced transport for Coulomb-blockaded electronic triple dots with distinct reservoirs and dephasing profile. Neither model has the exact centrally detuned, central-only-dephased thermally driven bosonic trimer number current or its all-rate unique optimum and threshold. The noise-assistance phenomenon itself is prior art.",
+      "residual_risks": [
+        "A previously derived symmetric bosonic trimer formula may appear in transport-physics supplemental appendices outside searched sources.",
+        "Current only treats stationary second moments; full infinite-dimensional density-operator primitivity is unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, NOT COVERING",
+          "evidence": "Homogeneous resonant systems and all-site dephasing; not selective middle-only phase noise plus detuning and an all-rate current optimizer.",
+          "identifier_or_url": "arXiv:1204.0904",
+          "material_read": "Full primary PDF, including covariance transport equations and homogeneous dephasing discussion; PDF figures/pages inspected visually",
+          "method": "full PDF and screenshot inspection",
+          "title": "Heat transport through lattices of quantum harmonic oscillators in arbitrary dimensions",
+          "trigger": "Exact harmonic-oscillator thermal Lindblad formalism and dephasing comparison"
+        },
+        {
+          "assessment": "DIFFERENT PHYSICAL MODEL",
+          "evidence": "Coulomb-blockaded electrons with injection and extraction, phase noise at all sites; its rate formula is not the bosonic thermal second-moment formula.",
+          "identifier_or_url": "arXiv:1407.0924",
+          "material_read": "Full primary PDF and relevant model/current equations, with visual screenshot inspection",
+          "method": "full PDF and screenshot inspection",
+          "title": "Dephasing-assisted transport in linear triple quantum dots",
+          "trigger": "Most plausible closely related detuned-trimer noise-enhanced current"
+        },
+        {
+          "assessment": "NO FULL DOCUMENT NEGATIVE CLAIM",
+          "evidence": "Different chain type, geometry and limit; an inaccessible or uninspected special calculation remains possible.",
+          "identifier_or_url": "arXiv:1207.5952",
+          "material_read": "Abstract and stated thermodynamic-limit/disordered-chain scope; not a full inspection",
+          "method": "bibliographic/source-context comparison",
+          "title": "Transport in a disordered tight-binding chain with dephasing",
+          "trigger": "Alternative dephasing-assisted transport system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, check_symbolic.py, check_numeric.py, SLOGAN.txt, AUDIT.json/METADATA.json, VERIFICATION.md at commit 2bb782affdbe2b67a814464c5845d5160c81cfac",
+        "Asadian et al arXiv:1204.0904 full PDF",
+        "Contreras-Pulido et al arXiv:1407.0924 full PDF",
+        "Žnidarič/Horvat arXiv:1207.5952 abstract/context",
+        "Resultary query: bosonic three-site thermal chain central dephasing detuning optimal current threshold"
+      ],
+      "rationale": "Selectively dephased bosonic transport provides a natural exactly solvable benchmark for noise-enhanced flow. The formula gives an all-rate yes/no criterion and unique optimal dephasing setting, ruling out benefit below the critical detuning and controlling the limit at high dephasing. The invariant central occupation clarifies mechanism. No experimental generality asserted.",
+      "residual_risks": [
+        "Motivated natural scoped theorem only; not a general result outside the exact stated hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Observable is excitation-number flux, NOT heat/energy flux; model assumes three bosonic modes, rotating-wave Hamiltonian, symmetric bath and hopping, and middle-site-only pure dephasing. No full-state stationary density-operator uniqueness claimed.",
+    "A previously derived symmetric bosonic trimer formula may appear in transport-physics supplemental appendices outside searched sources.",
+    "Current only treats stationary second moments; full infinite-dimensional density-operator primitivity is unproved."
+  ]
+}
