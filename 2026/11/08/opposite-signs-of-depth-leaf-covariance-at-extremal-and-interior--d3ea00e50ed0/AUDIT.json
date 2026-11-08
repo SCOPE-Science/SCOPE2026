@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Independent Cartesian-ancestor and local-maximum representations give exact indicator probabilities. The complete conditional boundary-correction table is derived by integrating truncated uniform priorities, and rational telescoping proves the finite covariance formulas. A positive cubic derivative and strictly negative rational G establish signs in all ranks; direct enumeration through n=8 and formula scans to n=120 passed 423989 exact assertions. Proof is for arbitrary integer n, not inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Desmarais–Holmgren–Wagner, arXiv:2110.15050, leaf-coloring covariance discussion: the observables are aggregate colored-leaf counts, not a fixed-key search depth.",
+        "Published result for squared root imbalance and total internal path length is a distinct covariance involving different variables."
+      ],
+      "reasoning": "Available broader studies concern weighted path lengths, marginal leaf counts, and correlated leaf colors. None supplies the conditional expectation of total leaves given that a specified key is an ancestor, which is necessary for this theorem. General covariance identities without the joint law do not dominate it.",
+      "searches": [
+        "Random BST degree zero node count leaf count correlation with search path length search depth",
+        "arXiv:2110.15050 Desmarais Holmgren Wagner leaf covariance",
+        "Devroye 1991 limit laws for local counters random binary search trees leaf-depth joint moments"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1707.00165",
+      "https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+      "https://arxiv.org/abs/2110.15050",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aguech–Amri–Sulzbach (2017) obtain rank depth distributions, including the ancestor setup; their inspected results do not couple those depths to global internal leaf count.",
+        "Devroye (1991) obtains local leaf statistics, not fixed-key mixed depths.",
+        "Desmarais–Holmgren–Wagner (2021) obtain another covariance matrix involving leaf color counts."
+      ],
+      "reasoning": "The present theorem is not a corollary of two marginals, the general BST interval-minimum ancestry rule, or a covariance among leaf colors alone: a new conditional local-maxima computation is required. The existing root imbalance/path-length covariance and recursive-tree counterparts cannot imply the sign change across BST key ranks.",
+      "searches": [
+        "Exact covariance of the depth of a fixed key rank in a random binary search tree and the total number of internal leaves; extremal keys positive interior negative",
+        "Random binary search tree covariance of number of leaves with node depth signs boundary rank interior",
+        "Random BST degree zero node count leaf count correlation with search path length search depth",
+        "arXiv:2110.15050 Desmarais Holmgren Wagner leaf covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aguech et al., arXiv:1707.00165, Section 4.1: ancestor/record representation for ranks, but no conditional leaf count in the inspected argument.",
+        "Devroye (1991), local-maximum representation of leaves and their marginal fluctuations."
+      ],
+      "reasoning": "BST recursion, Cartesian priority trees and permutation minima are isomorphic models; explicit mixed covariance was searched in these variants. Neither separate rank-depth moments nor the local-maxima law implies the mixed covariance without the conditional integrations performed here.",
+      "searches": [
+        "Exact covariance of the depth of a fixed key rank in a random binary search tree and the total number of internal leaves; extremal keys positive interior negative",
+        "Random binary search tree covariance of number of leaves with node depth signs boundary rank interior",
+        "For the random permutation model of binary search trees, fixed key 1 and key n depth have strictly positive covariance with leaf count, all interior keys strictly negative; explicit rational formula and asymptotic -1/9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-results entries on root imbalance/path length, recursive-tree root-degree/leaf covariance, and Cayley endpoint degree/distance were compared as propositions, not merely by title.",
+        "Devroye (1991) reports marginals and limit laws for leaf/local counters; it does not supply a table of fixed-rank depth/leaf covariance."
+      ],
+      "reasoning": "No known exact table of the displayed rational functions was retrieved; finite enumeration here tests the formulas independently but is not novelty evidence. Possible unindexed historical tables remain a residual risk.",
+      "searches": [
+        "Exact covariance of the depth of a fixed key rank in a random binary search tree and the total number of internal leaves; extremal keys positive interior negative",
+        "For the random permutation model of binary search trees, fixed key 1 and key n depth have strictly positive covariance with leaf count, all interior keys strictly negative; explicit rational formula and asymptotic -1/9",
+        "arXiv:1707.00165 Aguech Amri Sulzbach On weighted depths in random binary search trees",
+        "Devroye 1991 limit laws for local counters random binary search trees leaf-depth joint moments"
+      ]
+    },
+    "rationale": "The relevant same-BST rank-depth ancestor paper, local-counter leaf paper, and colored-leaf covariance paper were read materially; their inspected statements do not imply this fixed-rank mixed covariance or sign classification. Published mathematical records for aliases and nearby covariance theorems cover different observables, tree models or aggregate statistics. An older implicit bivariate generating-function identity remains a documented residual risk.",
+    "residual_risks": [
+      "An unlocated older recursive mixed generating function or dissertation may imply the exact rank-indexed joint moment.",
+      "Available published-record coverage and searchable literature are not an exhaustive guarantee of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports rank-depth/ancestry representation; inspected results do not include fixed-rank depth with internal leaf-count covariance.",
+        "evidence": [
+          "Section 4.1 develops interval-minimum ancestors and weighted depth, without the mixed conditional leaf calculation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.00165",
+        "material_read": "Full-text portions including introduction, theorems and rank-ancestor Section 4.1 (and associated PDF page images); first public 2017-07-01.",
+        "method": "Read arXiv preprint PDF and inspected the ancestor-record representation and stated target observables.",
+        "title": "On weighted depths in random binary search trees",
+        "trigger": "Same random BST model and fixed-key rank depths; strongest plausible direct predecessor."
+      },
+      {
+        "assessment": "Classical leaf representation and marginals are prior work; no inspected theorem gives mixed rank-depth/leaf covariance.",
+        "evidence": [
+          "Leaf indicators are local maxima in priority order; displayed leaf count results do not contain rank-depth joint moments."
+        ],
+        "identifier_or_url": "https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+        "material_read": "Primary paper text and page images covering definitions, the local-maximum leaf representation, and main leaf-limit results.",
+        "method": "Read lawful hosted full-text PDF and compared its leaf/local counter observables with per-key depths.",
+        "title": "Limit laws for local counters in random binary search trees",
+        "trigger": "Could subsume leaf count and local indicator calculations, or encode the covariance via a broader theorem."
+      },
+      {
+        "assessment": "Covariance of colored leaf counts is a different joint observable from fixed-key depth versus total internal leaves.",
+        "evidence": [
+          "Leaf-color covariance discussion concerns aggregate colored leaf counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.15050",
+        "material_read": "ArXiv preprint main text sections on leaf counts, covariance matrices and random binary search trees.",
+        "method": "Read lawful arXiv full text and compare the random variables, labels and asymptotic scope.",
+        "title": "Broadcasting induced colourings of random recursive trees and preferential attachment trees",
+        "trigger": "Contains covariance matrices of counts of leaves in random tree models, including BST context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3ea00e5-0ed0-4a8e-bf4e-3bbe43779a28",
+  "value": {
+    "rationale": "This is a complete, infinite-order, sign-reversing dependence classification for individual BST key-search cost versus total internal leaves, two natural but distinct complexity/shape variables. Explicit covariances show different limiting endpoint, near-endpoint and bulk effects; it is neither a marginal textbook identity nor an unmotivated finite slice.",
+    "status": "PASS"
+  }
+}
