@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:02:32.636425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed k>=2 roots and m>=2 nonroots (n=k+m), Pitman forest-volume polynomial equals occupancy from m-1 uniform [n] labels plus one extra uniform root label. Conditioning B=r root edges gives independent root singleton occupancy U_{k,r} and nonroot empty-box occupancy V_{m,m-r}; undirected leaves include root singleton children but not isolated roots. Derive E(L|B=r)=m(1-1/m)^(m-r)+r(1-1/k)^(r-1), strictly increases by a quantified bound. For B=1 vs B=2, couple nonroot Z=V_{m,m-2}, extra nonroot throw J with P(J=1|Z=z)=z/m, root contribution W=0 with probability 1/k else 2. L1=Z+1-J <= Z+W=L2 when m<=2k (z>=2). When m>2k, exact P(L1=2)=m!/m^(m-1) < P(L2=2)=m!/(2k m^(m-2)), while mean increases, forcing incomparability. Also for 2<=k<=m-2, B=k permits L=n-1 with positive mass, whereas B=k+1 forbids it. Independent rational occupancy computations checked all first-step cutoffs, mean monotonicity, and stated saturation for k<=8,m<=12; actual original source verify.py performs independent parent-function enumerations n<=8. These finite checks do not replace Pitman polynomial identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman provides fixed-root distribution formula, Resultary published record uses a random recursive tree (different sampling law) and covariance, not stochastic dominance in uniform labelled fixed-root forests."
+        ],
+        "reasoning": "The source identities are indispensable prior ingredients but do not mathematically imply the claimed order without the root-singleton / nonroot-empty coupling.",
+        "searches": [
+          "Pitman 2001 Random mappings forests and subsets Abel Cayley Hurwitz",
+          "Resultary published Equal-share covariance of root degree and leaves in a random recursive tree"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf",
+        "https://statistics.berkeley.edu/tech-reports/593",
+        "https://statistics.berkeley.edu/tech-reports/457",
+        "Git blob ae800bd5516776bd333efa3f69ddea9ef41485db",
+        "Git blob 08ca7e0b202d434eb6e534b4ab0645bef436aadc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A weak order is stronger than mean increase: when m>2k, L2 has more mass at the minimum and still higher mean, so neither law dominates."
+        ],
+        "reasoning": "The threshold is not automatic from mean comparisons or Pitman distribution alone. It is a quantitative new order relation under the prior probability model.",
+        "searches": [
+          "Pitman 2001 formula (5), coefficient identity (6)",
+          "source occupancy counterexample at L=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-root forest outdegree law is equivalent to two-group occupancy, but that classical encoding does not compare first-order stochastic order as r changes."
+        ],
+        "reasoning": "Occupancy coupling is not mere restatement: it identifies m<=2k as the precise if-and-only-if first-step dominance threshold.",
+        "searches": [
+          "Resultary: random rooted forests fixed root conditional leaf count stochastic domination occupancy roots",
+          "Pitman 2001 forest-volume identity (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table of all k,m first-step stochastic-order thresholds was found; direct finite tests in source are supplemental."
+        ],
+        "reasoning": "This is an all-size analytic classification for the first step, not a known finite table computation.",
+        "searches": [
+          "Resultary: random rooted forests fixed root conditional leaf count stochastic domination occupancy roots",
+          "random forest conditional root degree leaves k m exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: conditional occupancy representation is prior (Pitman), but sharp comparison in first-order stochastic order across r=1/2 with explicit m=2k boundary and a second high-leaf obstruction are not in inspected original forest identities.",
+      "residual_risks": [
+        "An older occupancy-order theorem might already imply the m=2k threshold.",
+        "No full classification of all adjacent B=r pairs claimed; in particular statements for k<=m-2 are an additional obstruction only.",
+        "Conditional distribution pertains to fixed root set and undirected degree-one leaves excluding isolated roots."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides generating polynomial and structural conditioning, but not the specific first-step stochastic comparison theorem in these inspected sections",
+          "evidence": "Forest polynomial (sum_{R} x)(sum_{S} x)^{m-1}; comparison m<=2k requires additional coupling.",
+          "identifier_or_url": "SLC 46 (2001) B46h, J. Pitman, https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf",
+          "material_read": "Read the relevant full mathematical Section 2 forest-volume formula (5), coefficient formula (6), and Section 3.2 conditional forest representation; inspected rendered PDF page",
+          "method": "Author primary PDF mathematics and visual page screenshot examined",
+          "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "Same labelled fixed-root forest probability law and polynomial identity"
+        },
+        {
+          "assessment": "Related forest process, but a stochastic-order claim for this fixed-root conditional leaf law not identified; full source gap preserved",
+          "evidence": "Cannot assert absence of theorem from unread report.",
+          "identifier_or_url": "UC Berkeley TR 457 (1996)/AIHP 34 (1998), Pitman",
+          "material_read": "Report bibliographic description and available abstract; not the full text",
+          "method": "Abstract-level prior scope comparison",
+          "title": "Coalescent random forests",
+          "trigger": "Potential general comparison theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural probabilistic comparison of leaf abundance conditional on root adjacency in a fixed-root Cayley forest. The surprising incomparability despite strict increase in expected leaves has a sharp first failure boundary and exposes distributional order beyond means.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf",
+    "https://statistics.berkeley.edu/tech-reports/593",
+    "https://statistics.berkeley.edu/tech-reports/457",
+    "Git blob ae800bd5516776bd333efa3f69ddea9ef41485db",
+    "Git blob 08ca7e0b202d434eb6e534b4ab0645bef436aadc"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older occupancy-order theorem might already imply the m=2k threshold.",
+    "No full classification of all adjacent B=r pairs claimed; in particular statements for k<=m-2 are an additional obstruction only.",
+    "Conditional distribution pertains to fixed root set and undirected degree-one leaves excluding isolated roots.",
+    "All original Git tree object SHA and relevant file blob identities were read and matched the returned assignment; no GitHub write was performed.",
+    "Scientific PASS is distinct from publication readiness and does not certify external formal verification or historical priority."
+  ],
+  "residual_risks": [
+    "An older occupancy-order theorem might already imply the m=2k threshold.",
+    "No full classification of all adjacent B=r pairs claimed; in particular statements for k<=m-2 are an additional obstruction only.",
+    "Conditional distribution pertains to fixed root set and undirected degree-one leaves excluding isolated roots."
+  ],
+  "schema_version": 1
+}
