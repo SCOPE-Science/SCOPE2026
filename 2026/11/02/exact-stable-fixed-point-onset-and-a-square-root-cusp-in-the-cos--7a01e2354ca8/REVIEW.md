@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's Equation (4) reduces exactly to the displayed continuous \(c=0\) cosine-skewed family. Its normalized nonlinear part satisfies \(H'>0\) and \(H''>0\). For fixed \(\alpha\), the left fixed-point equation is strictly convex with positive endpoint values. The unique double-root curve follows from \(Q=Q'=0\), and the exact comparison with that curve proves the global census for every interior parameter pair. The opposite signs of \(Q'\) distinguish the two left multipliers; a verified endpoint derivative inequality supplies the nontrivial lower bound \(-1<G'(x_-)\). The always-decreasing right branch has a single repelling fixed point. The parameter derivatives and saddle-node expansions follow by Taylor's theorem. The proof covers all claimed ranges, not merely sampled parameters.
+PASS
 
-The packaged high-precision checker ran successfully, testing 1316 conditions, including root brackets, global-parameter sample regions, multiplier signs, and local square-root scaling. A second checker uses exact rational alternating-Taylor intervals to certify the five numerical enclosures used as inequalities in the analytical proof. Such finite checks are auxiliary evidence, not substitutes for the convexity proof. No claim concerns higher periods or basins.
+For H(s)=[cos(e^-1)-cos(e^{s-1})]/D, with D>0, H'(s)=e^{s-1}sin(e^{s-1})/D>0 and H''(s)>0 on [0,1]. Left roots solve the strictly convex Q=H(s)+alpha-(alpha+b)s, whose endpoints alpha and 1-b are positive. The unique s_alpha solving A(s)=sH'-H=alpha has A'=sH''>0, A(0)=0 and A(1)=H'(1)-1>1. The tangency b*=H(s)+(1-s)H'(s) gives exactly zero/one double/two left roots depending on b<b*,=,>; right roots solve H(s)+(1-b)s=1, strictly monotone and repelling because q>3/5 and H'(q)>1. Left multiplier identity G'(bs)-1=Q'(s)/b separates stable lower and repelling upper roots; endpoint Taylor bounds H'(1)<2+H'(0) establish the nontrivial lower -1 stability bound. Implicit differentiation gives b*'=(1-s)/s, b*''=-1/(s^3H'')<0; Taylor at alpha=0 gives the sqrt cusp, and ordinary nondegenerate fold gives the sqrt root/multiplier splitting. Independent high-precision alpha=.5 yields b*=0.9178276907017725; numerical tests are supplemental to convexity/interval inequalities.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The full indexed primary research article (Symmetry 2023, 15, 2138, Eq. (4), Secs. 3.2 and 3.6) describes numerical period-one windows and chaos but does not give the exact two-parameter fixed-point threshold, a complete fixed-point census, attractor-type counts, or concavity/cusp asymptotics. The 2023 MOCAST precursor concerns the wider family; only its abstract was accessible, and this is a priority risk. The already-described two-band dynamics of the *linear* skew-tent specialization does not imply the nonlinear cosine-family boundary. The Lawnik–Moysis–Volos map without equilibria is a different, partly discontinuous construction. Standard one-dimensional fold theory implies generic local square-root behavior after an appropriate fold is identified, not the global parameter classification or its exact cusp.
+PASS
 
-The literature comparison establishes noncoverage by the inspected statements, not a proof that every unindexed source lacks the result.
+Qualified PASS: The 2023 primary paper introduces exactly the cosine-skewed map and numerically explores the period-one/chaotic parameter regions, but its inspected Eq (4) and Sections 3.2 and 3.6 do not supply the global exact one/two/three fixed point count and sharp attracting region, concavity or alpha->0 sqrt cusp. Ordinary saddle-node theory supplies the local exponent, not this concrete global curve. A 2023 MOCAST conference precursor was inaccessible in full, retained as a priority risk.
 
-## Mathematical value — PASS
+## value
 
-The article studies numerical phase diagrams and visible period-one windows. Their structural onset is an intrinsic dynamical question: existence and number of equilibria, birth of a locally attracting state, coexistence with two repellers, and the critical curve separating all these regimes. An exact full-parameter classification is more informative than a single root calculation; the strictly concave boundary and its nonanalytic square-root endpoint asymptotic quantify how changing the tunable endpoint biases the critical shape parameter. This is a natural complete fixed-point classification, with an analytically justified local stability transition, not an arbitrary parameter slice. It does not purport to classify chaotic attractors.
+PASS
 
-## Literature limitations
+An explicit full two-parameter equilibrium/stability phase diagram and square-root endpoint singularity for a published nonpolynomial interval family supplies mathematical content beyond numerical bifurcation plots and generic local fold theory, including a sharp distinction between repelling-only and exactly-one-attractor regions. The endpoint cusp and concavity give usable boundaries for analyzing this exact nonlinear system.
 
-The complete original 2023 conference precursor could not be read; its accessible metadata and abstract do not settle possible overlap. Publications of generic smooth saddle-node theory cover the local normal form, not the concrete global boundary. An unindexed equivalent calculation remains a residual priority risk. Independent audit remains outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

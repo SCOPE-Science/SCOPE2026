@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:42:24.267970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 91f8d8cd0c355691c0e36d1341939d72cf284702 and certify_bounds.py 1b6948222953d32eb9b372d971e11f783f04f772",
+        "Independent mpmath evaluation of H, H', H'', s_alpha and b* at alpha=1/2",
+        "Moysis et al 2023 Symmetry Eq (4), Section 3.2, original family definition"
+      ],
+      "rationale": "For H(s)=[cos(e^-1)-cos(e^{s-1})]/D, with D>0, H'(s)=e^{s-1}sin(e^{s-1})/D>0 and H''(s)>0 on [0,1]. Left roots solve the strictly convex Q=H(s)+alpha-(alpha+b)s, whose endpoints alpha and 1-b are positive. The unique s_alpha solving A(s)=sH'-H=alpha has A'=sH''>0, A(0)=0 and A(1)=H'(1)-1>1. The tangency b*=H(s)+(1-s)H'(s) gives exactly zero/one double/two left roots depending on b<b*,=,>; right roots solve H(s)+(1-b)s=1, strictly monotone and repelling because q>3/5 and H'(q)>1. Left multiplier identity G'(bs)-1=Q'(s)/b separates stable lower and repelling upper roots; endpoint Taylor bounds H'(1)<2+H'(0) establish the nontrivial lower -1 stability bound. Implicit differentiation gives b*'=(1-s)/s, b*''=-1/(s^3H'')<0; Taylor at alpha=0 gives the sqrt cusp, and ordinary nondegenerate fold gives the sqrt root/multiplier splitting. Independent high-precision alpha=.5 yields b*=0.9178276907017725; numerical tests are supplemental to convexity/interval inequalities.",
+      "residual_risks": [
+        "Only c=0, 0<alpha,b<1 is analyzed; no higher-period orbit or global attracting-basin claims.",
+        "Five rational Taylor enclosures derive rigorous signs; random finite simulation alone would not prove parameter-uniform counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General saddle-node calculus predicts +/- sqrt(delta) near a nondegenerate fold; the frozen exact global proof additionally establishes unique fold over every alpha and no other equilibria."
+        ],
+        "reasoning": "The general normal form covers the LOCAL exponent only after verifying tangency and nondegeneracy; it does not provide b*(alpha), right-branch repulsion or uniqueness globally.",
+        "searches": [
+          "cosine skewed piecewise chaotic map Moysis Lawnik Goudos fixed point threshold saddle node curve",
+          "Moysis Lawnik Volos Baptista Goudos chaotic maps tunable mean value cosine skewed 2023 fixed point stable",
+          "doi:10.1109/MOCAST57943.2023.10176612"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/sym15122138 full primary journal text",
+        "doi:10.1109/MOCAST57943.2023.10176612 abstract only, full text inaccessible",
+        "Resultary 2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 journal paper defines G, but numerical period-one regions do not imply complete real fixed-point census or multiplier bounds; elementary calculus from its formula can produce the new theorem."
+        ],
+        "reasoning": "Prior map definition plus routine local fold theory is not the same already-stated complete theorem; however, the 2023 conference precursor could include a hidden derivation, not ruled out by its abstract.",
+        "searches": [
+          "cosine skewed piecewise chaotic map Moysis Lawnik Goudos fixed point threshold saddle node curve",
+          "Moysis Lawnik Volos Baptista Goudos chaotic maps tunable mean value cosine skewed 2023 fixed point stable",
+          "doi:10.3390/sym15122138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moysis et al Symmetry 2023 Eq (4) defines same cosine map, Sections 3.2 and 3.6 report numerical behavior; Resultary 2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e treats a distinct discontinuous fractional-power map."
+        ],
+        "reasoning": "The exact underlying map is previously known, but the inspected original develops simulations rather than the complete analytic concave threshold and all-parameter stability census. A result on the different discontinuous family does not imply the cosine result.",
+        "searches": [
+          "cosine skewed piecewise chaotic map Moysis Lawnik Goudos fixed point threshold saddle node curve",
+          "Moysis Lawnik Volos Baptista Goudos chaotic maps tunable mean value cosine skewed 2023 fixed point stable",
+          "doi:10.3390/sym15122138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary 2023 numerical parameter plots include period-one regions but no inspected symbolic b*(alpha) or exact all-parameter table."
+        ],
+        "reasoning": "A plotted numerical phase diagram is not an exact symbolic fixed-point count or quantified analytic boundary. A full survey of historical dynamical-map tables was not possible.",
+        "searches": [
+          "cosine skewed piecewise chaotic map Moysis Lawnik Goudos fixed point threshold saddle node curve",
+          "Moysis Lawnik Volos Baptista Goudos chaotic maps tunable mean value cosine skewed 2023 fixed point stable",
+          "Resultary:2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e"
+        ]
+      },
+      "rationale": "Qualified PASS: The 2023 primary paper introduces exactly the cosine-skewed map and numerically explores the period-one/chaotic parameter regions, but its inspected Eq (4) and Sections 3.2 and 3.6 do not supply the global exact one/two/three fixed point count and sharp attracting region, concavity or alpha->0 sqrt cusp. Ordinary saddle-node theory supplies the local exponent, not this concrete global curve. A 2023 MOCAST conference precursor was inaccessible in full, retained as a priority risk.",
+      "residual_risks": [
+        "The 2023 MOCAST precursor could contain an equivalent calculation; authorized institutional access failed (VPN disconnected).",
+        "General dynamical-systems formulations could encode the same bifurcation even if terminology differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original map and simulation background; inspected sections do not prove the exact b*(alpha) curve, cusp and all-parameter root stability.",
+          "evidence": [
+            "Equation (4) family; Section 3.2 cosine-skew map; Section 3.6 numerical bifurcation analysis."
+          ],
+          "identifier_or_url": "doi:10.3390/sym15122138",
+          "material_read": "Full open journal page with the map formula, Section 3.2 cosine branch and Section 3.6 numerical period-one and chaotic regions",
+          "method": "Read primary journal full-text HTML and corresponding paper section",
+          "title": "Chaotic Maps with Tunable Mean Value—Application to a UAV Surveillance Mission",
+          "trigger": "Same exact cosine-skewed map Eq (4)"
+        },
+        {
+          "assessment": "Inaccessible full paper: no noncoverage conclusion drawn; possible earlier analytic fixed-point result remains priority risk.",
+          "evidence": [
+            "Original 2023 MOCAST conference bibliographic abstract; authorized retrieval returned vpn_disconnected, job e8db2cdd83a2a2c2c219009670342227."
+          ],
+          "identifier_or_url": "doi:10.1109/MOCAST57943.2023.10176612",
+          "material_read": "Bibliographic record and abstract only, full article unavailable",
+          "method": "OA/arXiv search, then authorized institutional full-text attempt",
+          "title": "Construction of Piecewise Chaotic Maps With Tunable Statistical Mean",
+          "trigger": "Earlier conference presentation of same authors and related construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md and code",
+        "Primary scientific comparisons in originality assessment"
+      ],
+      "rationale": "An explicit full two-parameter equilibrium/stability phase diagram and square-root endpoint singularity for a published nonpolynomial interval family supplies mathematical content beyond numerical bifurcation plots and generic local fold theory, including a sharp distinction between repelling-only and exactly-one-attractor regions. The endpoint cusp and concavity give usable boundaries for analyzing this exact nonlinear system.",
+      "residual_risks": [
+        "No claims about global chaos, higher periods or all basins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only c=0, 0<alpha,b<1 is analyzed; no higher-period orbit or global attracting-basin claims.",
+    "Five rational Taylor enclosures derive rigorous signs; random finite simulation alone would not prove parameter-uniform counts.",
+    "The 2023 MOCAST precursor could contain an equivalent calculation; authorized institutional access failed (VPN disconnected).",
+    "General dynamical-systems formulations could encode the same bifurcation even if terminology differs.",
+    "No claims about global chaos, higher periods or all basins.",
+    "No public/source-file edits, no independent formal or expert certificate; historical literature access/research risks remain explicit."
+  ],
+  "schema_version": 1
+}
