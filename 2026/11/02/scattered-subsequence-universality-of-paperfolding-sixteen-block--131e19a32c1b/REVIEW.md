@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim is proved for every number of blocks and every permitted free-bit assignment. The only nonstandard step is a finite six-letter transition lemma, reduced to four initial configurations and eight transition configurations, with all sixty-four inputs in each configuration enumerated by the supplied standalone checker. Monotonicity, a strict low-state barrier and doubling of extreme greedy endpoint paths supply the infinite induction. The final two letters \(01\) establish exactly two absent extensions for each of \(2^q\) maximal greedy words. Independent finite-rank checks agree. Residual risk: an implementation or transcription defect in the finite lemma would invalidate the induction, so all twelve cases must be replayed independently for external validation.
+## correctness
 
-**Originality (O): PASS with residual historical risk.** Actual record-index searches for paperfolding universality, shortest absent scattered subsequences, the exact dyadic formula, and the exact \(16\)-block skeleton retrieved generalized binary universality and shortest-absent-subsequence results but no equivalently scoped conclusion. prior research records claims were compared for direct implication; none includes this skeleton classification. The paperfolding full text by Madill–Rampersad addresses contiguous Abelian factor complexity; Kosche–Koß–Manea–Siemer addresses general absent-subsequence algorithms and extremal constructions, without the present explicit paperfolding calculation. Novelty is a best-knowledge literature comparison, not a priority guarantee.
+PASS
 
-**Value (V): PASS.** The invariant is natural in Simon-style subsequence universality and shortest absent words. The result does not merely tabulate one prefix: it proves a rigidity law for an exponentially large family with \(2q-1\) free bits at length \(16q\), and a closed all-rank expression for classical dyadic paperfolding prefixes. The exponential number of shortest absent subsequences coexists with a fixed \(3/8\) subsequence-universality rate; the local six-step renewal mechanism explains the effect.
+Checked the precise 16-letter block B(x,y)=1101100x1100100y, arbitrary x_j and y_1..y_{q-1}, fixed terminal y_q=1, q>=1. The greedy-subsequence endpoint transition is monotone in its start position. The bounded six-input local lemma exhausts 64 binary inputs in four initial and eight subsequent bit contexts, yielding exactly two paths to the extremal next-block endpoint and a strict >=2-position gap otherwise; a prior subextremal path cannot catch up. Induction doubles the extremal count to 2^q at length 6q. Since the prefix ends in 01, both binary extensions from any nonterminal endpoint can be embedded, whereas both extensions from each extremal endpoint fail: universality 6q, shortest-absent count 2^(q+1). Arithmetic odd-part paperfolding fixes 14 symbols of each 16-block and f(2^k)=1, so q=2^(k-4) and the dyadic formulas follow. Independently implemented greedy automaton and enumerated all 170 free-bit assignments over q=1..4, agreeing in all cases; the local finite lemma plus induction proves the universal result, not the finite q checks. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 952b6b1174833e9d1fc7560839a9bd13b7a17035
 
-**Limits.** No claim for arbitrary prefix lengths, alphabets larger than two, or arbitrary block substitutions. No independent mathematical audit or external certification was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.
+
+## value
+
+PASS
+
+The dyadic paperfolding word is a canonical automatic sequence, and scattered-subsequence universality and shortest-absent-word multiplicity are natural algorithmic and combinatorial invariants. A single local transfer mechanism yields exact exponential counts uniformly for an infinite, nontrivial 16-block class and all dyadic prefixes. This is finer than generic absent-subsequence algorithms or contiguous-factor complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

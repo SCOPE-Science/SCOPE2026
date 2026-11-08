@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the precise 16-letter block B(x,y)=1101100x1100100y, arbitrary x_j and y_1..y_{q-1}, fixed terminal y_q=1, q>=1. The greedy-subsequence endpoint transition is monotone in its start position. The bounded six-input local lemma exhausts 64 binary inputs in four initial and eight subsequent bit contexts, yielding exactly two paths to the extremal next-block endpoint and a strict >=2-position gap otherwise; a prior subextremal path cannot catch up. Induction doubles the extremal count to 2^q at length 6q. Since the prefix ends in 01, both binary extensions from any nonterminal endpoint can be embedded, whereas both extensions from each extremal endpoint fail: universality 6q, shortest-absent count 2^(q+1). Arithmetic odd-part paperfolding fixes 14 symbols of each 16-block and f(2^k)=1, so q=2^(k-4) and the dyadic formulas follow. Independently implemented greedy automaton and enumerated all 170 free-bit assignments over q=1..4, agreeing in all cases; the local finite lemma plus induction proves the universal result, not the finite q checks. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 952b6b1174833e9d1fc7560839a9bd13b7a17035",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General extremal SAS counts and generating-function distributions apply across all words but do not determine the exact SAS number of these concrete 16-block words.",
+          "Other paperfolding work studies contiguous/abelian factors or string attractors."
+        ],
+        "reasoning": "The general distribution and extremal theorems are broader in *input class* but not stronger in the exact fixed-word implication needed here. An algorithm mechanically recovers any finite q, but that is not the universal uniform formula.",
+        "searches": [
+          "arxiv:2407.18599 extremal shortest absent subsequences binary words",
+          "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2108.13968",
+        "arxiv:1208.2856",
+        "arxiv:2407.18599",
+        "Resultary published IDs: 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28; 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37; 2026/9/8/SCOPE079"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Madill–Rampersad counts abelian *contiguous* factors, not scattered subsequences.",
+          "Kosche–Koß–Manea–Siemer give a general representation and algorithms, with no fixed 16-bit paperfolding block induction."
+        ],
+        "reasoning": "The explicit 2^q terminal-path count is additional exact data not implied by a general algorithm or a word-agnostic bound; no title-matching or snippet-only conclusion is made.",
+        "searches": [
+          "arxiv:1208.2856 paperfolding abelian complexity",
+          "arxiv:2108.13968 general SAS characterization",
+          "arxiv:2407.18599 extremal SAS counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al. develop the general greedy/arch characterization of shortest absent scattered subsequences; their full text did not mention paperfolding.",
+          "The specific paperfolding theorem is equivalent to having exactly two extremal greedy six-step extensions per prescribed block."
+        ],
+        "reasoning": "Generic arch-index or automata algorithms determine finite inputs but do not state this all-q terminal-path multiplicity. An unindexed automatic-word specialization remains possible.",
+        "searches": [
+          "arxiv:2108.13968 shortest absent subsequences arch factorization",
+          "regular paperfolding subsequence universality shortest absent scattered subsequences sixteen blocks",
+          "regular paperfolding word subsequence index shortest absent subsequences dyadic prefix exact exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits on paperfolding string attractors, prefix-normality and Fibonacci SAS extremals are different word statistics; no exact paperfolding SAS table providing all dyadic powers was located.",
+          "Checker enumerated all assignments through q=4, not a substitute for exhaustive infinite classification."
+        ],
+        "reasoning": "No relevant exact sequence table or prior complete dyadic SAS formula was found; search alone is not novelty proof.",
+        "searches": [
+          "regular paperfolding subsequence universality shortest absent scattered subsequences sixteen blocks",
+          "regular paperfolding word subsequence index shortest absent subsequences dyadic prefix exact exponential"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.",
+      "residual_risks": [
+        "Possible prior treatment of scattered subsequences in automatic/Toeplitz words under different vocabulary or unpublished sequence tables.",
+        "Terminal y_q=1 and precise fixed 14-position template essential; arbitrary paperfolding prefixes are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general tools, no identified paperfolding 16-block closed formula",
+          "evidence": "Definitions and arch factorization; paperfolding text search negative",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Full accessible PDF material on subsequence universality, shortest absent definitions and first technical sections, checked for paperfolding references",
+          "method": "arXiv PDF text read and rendered screenshot",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Same SAS definitions, algorithms and greedy/arch representation"
+        },
+        {
+          "assessment": "Treats contiguous-factor abelian complexity, so a distinct invariant",
+          "evidence": "Definition of abelian factors and recurrence setting",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.2856",
+          "material_read": "Full accessible PDF introductory sections and combinatorial definitions",
+          "method": "arXiv PDF text and screenshot",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Exactly same infinite word"
+        },
+        {
+          "assessment": "Extremal bounds over broad input class do not identify exact SAS for this skeleton",
+          "evidence": "General worst-case cardinality discussion",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Accessible PDF title, introductory results and extremal bounds",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Extremal Bounds for Shortest Absent Subsequences",
+          "trigger": "Potentially dominant general shortest-absent theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dyadic paperfolding word is a canonical automatic sequence, and scattered-subsequence universality and shortest-absent-word multiplicity are natural algorithmic and combinatorial invariants. A single local transfer mechanism yields exact exponential counts uniformly for an infinite, nontrivial 16-block class and all dyadic prefixes. This is finer than generic absent-subsequence algorithms or contiguous-factor complexity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2108.13968",
+    "arxiv:1208.2856",
+    "arxiv:2407.18599",
+    "Resultary published IDs: 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28; 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37; 2026/9/8/SCOPE079"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Possible prior treatment of scattered subsequences in automatic/Toeplitz words under different vocabulary or unpublished sequence tables.",
+    "Terminal y_q=1 and precise fixed 14-position template essential; arbitrary paperfolding prefixes are not claimed."
+  ],
+  "residual_risks": [
+    "Possible prior treatment of scattered subsequences in automatic/Toeplitz words under different vocabulary or unpublished sequence tables.",
+    "Terminal y_q=1 and precise fixed 14-position template essential; arbitrary paperfolding prefixes are not claimed."
+  ],
+  "schema_version": 1
+}
