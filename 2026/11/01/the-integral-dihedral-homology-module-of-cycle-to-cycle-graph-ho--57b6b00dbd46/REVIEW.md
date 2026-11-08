@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is quantified for all \(m\ge3\) and \(n\ge5\), including empty and isolated-component boundaries. The published cover of every non-point component has contractible patches and pairwise overlaps whose nerve is the target-color step-two cycle. An explicit continuous coordinate-evaluation map winds twice around an odd target cycle and once around an even one, fixing a primitive integral generator. A cellwise homotopy between adjacent source-coordinate evaluations then proves that source reflections have positive first-homology sign even though they reverse winding labels. Target reflections have negative sign. The full component-label formula and quotient calculation follow from these two independent effects. Three runnable finite checks reproduce the predicted component indices, exact signed Lefschetz numbers, and all group-element traces in three representative cases; the infinite theorem relies on the written proof, not those enumerations.
+PASS
 
-## Originality: PASS, with limitations
+For all m>=3,n>=5, the proof carefully takes ordinary polyhedral Hom(C_m,C_n) with cells of coordinate size one or two and isolated monotone maps excluded from H1. The established Čukić–Kozlov circle-or-point component theorem provides rank-one H1 on components indexed by winding w and, for even n, first-color parity p. Their contractible-patch cover has nerve the target-color +2 cycle. Evaluation e0 maps a nerve generator along each two-edge target arc: degree two for odd n and degree one for even n. The proof compares all e_j by cellwise homotopies; target reflection multiplies evaluation degree by -1 while source reflections preserve it. Injectivity of evaluation on each circle component then fixes the SIGN of the integral generator, yielding exactly t times the permutation w->st w and parity shift p->p+k+ell. The two separate reflections act with opposing signs on the same component permutation, forcing all positive-degree rational quotient homology to vanish by semisimple finite-group coinvariants. I independently built 1-skeleta of actual Hom graph maps for (m,n)=(6,5),(7,5),(8,5),(8,6),(10,6), computed evaluation windings around every fundamental graph cycle by integer spanning-tree cocycles, and obtained image index 2 for all nontrivial odd-n components and 1 for even-n components. The family proof is analytical, not deduced from these samples. Code of full group-element finite signed-cubical verifier was inspected.
 
-Čukić–Kozlov's Lemma 5.5 and Theorem 6.1 already establish component indexing and the circle-or-point homotopy types. These are inputs, not new claims. Their inspected proof supplies the good cover but not the full source-and-target signed integral homology module, the evaluation-index theorem as a specified homology homomorphism, or the simultaneous rational quotient conclusion. Fujii and coauthors' later cycle-codomain theorem and Matsushita's square-free-codomain theorem are broader for component homotopy types, but neither states the full cycle-dihedral homology action. Searches included complete-graph Hom equivariance, which is not a statement about cycle-to-cycle targets. No identified indexed statement implies the full claim; unindexed equivalent work and other unpublished equivariant computations remain possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The source and target dihedral symmetries are canonical, and the integral module is a strictly finer invariant than the known number and homotopy type of components. Its two competing reflection actions, parity-sensitive integral evaluation index, and vanishing of quotient rational homology give a motivated exact structural classification for an unbounded two-parameter family; this is not another isolated Betti number. The result gives no integral quotient or equivariant homotopy classification.
+The circle-or-point homotopy classification is explicitly credited to Čukić–Kozlov. Fujii et al and Matsushita supply broader codomain homotopy families, not the full integral joint dihedral character or evaluation-index map. No identified indexed primary theorem implies this finer module/quotient statement, best of knowledge with historical equivariance-search risk.
 
-The closest works are Čukić–Kozlov (arXiv:math/0408015), Fujii and coauthors (arXiv:2408.04802), and Matsushita (arXiv:2412.19144). Their proofs are not re-certified here. Independent priority and mathematical assessment are outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural commuting source/target D_m x D_n action has an integral signed permutation module more informative than circle component counts. Distinguishing source and target reflection signs, parity-sensitive evaluation subgroup, and rational acyclicity of the full group quotient resolves an intrinsic equivariant extension of classical Hom(C_m,C_n) classification for two unbounded parameters. It neither relabels an old Betti number nor requires a new equivariant homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

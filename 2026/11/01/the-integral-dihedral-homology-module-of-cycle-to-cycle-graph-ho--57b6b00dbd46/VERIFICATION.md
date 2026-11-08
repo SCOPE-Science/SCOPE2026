@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The three Python 3 programs are standalone except that `cycle_full_group_verifier.py` imports `cycle_action_verifier.py` from the same directory; they use only the standard library. They reconstruct polyhedral cells as tuples of singleton or two-element color sets. The exhaustive checks are finite and must not be interpreted as a computational proof of a statement for all cycle lengths.
+## correctness
 
-`cycle_check.py` enumerates ten source/target pairs and measures the integral winding of the first-coordinate evaluation along graph loops, including the exceptional isolated-point components. `cycle_action_verifier.py` independently constructs oriented cubical cell actions, computes signed cellular Lefschetz numbers, and compares the resulting integral first-homology traces to the claimed signed permutation action. `cycle_full_group_verifier.py` repeats the comparison for all \(120\), \(140\), and \(192\) source-target dihedral symmetry pairs in three cases.
+PASS
 
-Expected outputs are included in `cycle_check_output.txt`, `cycle_action_output.txt`, and `cycle_full_group_output.txt`, each ending in the literal `ALL_CHECKS_PASS`. Calculations were performed against the exact contents of these scripts. All program paths are relative; no external data, services, network access, or software packages are needed.
+For all m>=3,n>=5, the proof carefully takes ordinary polyhedral Hom(C_m,C_n) with cells of coordinate size one or two and isolated monotone maps excluded from H1. The established Čukić–Kozlov circle-or-point component theorem provides rank-one H1 on components indexed by winding w and, for even n, first-color parity p. Their contractible-patch cover has nerve the target-color +2 cycle. Evaluation e0 maps a nerve generator along each two-edge target arc: degree two for odd n and degree one for even n. The proof compares all e_j by cellwise homotopies; target reflection multiplies evaluation degree by -1 while source reflections preserve it. Injectivity of evaluation on each circle component then fixes the SIGN of the integral generator, yielding exactly t times the permutation w->st w and parity shift p->p+k+ell. The two separate reflections act with opposing signs on the same component permutation, forcing all positive-degree rational quotient homology to vanish by semisimple finite-group coinvariants. I independently built 1-skeleta of actual Hom graph maps for (m,n)=(6,5),(7,5),(8,5),(8,6),(10,6), computed evaluation windings around every fundamental graph cycle by integer spanning-tree cocycles, and obtained image index 2 for all nontrivial odd-n components and 1 for even-n components. The family proof is analytical, not deduced from these samples. Code of full group-element finite signed-cubical verifier was inspected.
 
-The mathematical proof invokes Čukić–Kozlov's independently published circle-or-point and good-cover theorem. The new degree and symmetry statements are derived explicitly in RESULT.md. No independent audit has been performed. No integral quotient homology, torsion classification, equivariant homotopy equivalence, or definitive novelty certificate is claimed.
+## originality
+
+PASS
+
+The circle-or-point homotopy classification is explicitly credited to Čukić–Kozlov. Fujii et al and Matsushita supply broader codomain homotopy families, not the full integral joint dihedral character or evaluation-index map. No identified indexed primary theorem implies this finer module/quotient statement, best of knowledge with historical equivariance-search risk.
+
+## value
+
+PASS
+
+The natural commuting source/target D_m x D_n action has an integral signed permutation module more informative than circle component counts. Distinguishing source and target reflection signs, parity-sensitive evaluation subgroup, and rational acyclicity of the full group quotient resolves an intrinsic equivariant extension of classical Hom(C_m,C_n) classification for two unbounded parameters. It neither relabels an old Betti number nor requires a new equivariant homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
