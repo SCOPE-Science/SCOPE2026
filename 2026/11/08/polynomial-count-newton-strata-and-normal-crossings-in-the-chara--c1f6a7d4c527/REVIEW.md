@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof derives the smooth discriminant from the Jacobian, the Hasse–Witt diagonal by Čech Frobenius coefficient extraction, and the Newton polygons from the three known prime-to-three elliptic quotient factors. The component intersections are computed scheme-theoretically. The all-extension point counts follow from a quadratic-character identity and inclusion–exclusion. A dependency-free checker independently verifies symbolic identities and performs exhaustive enumerations at three finite-field sizes; these finite checks are not presented as proofs of the universal quantifiers.
+
+**Originality — PASS, with priority qualification.** The Ciani quartics and their elliptic decomposition are classical, and Ohashi's arXiv:2201.12996v1 directly controls abstract Newton slopes. The assessed addition is the reduced strict-simple-normal-crossing geometry of the entire marked nonordinary coefficient divisor, together with all-extension polynomial counts for each of its four Newton strata. Basson–Lercier–Ritzenthaler–Sijsling arXiv:1211.1327v1 treats characteristic-zero Lüroth invariants on this family, rather than positive-characteristic ranks. Ohashi–Kudo–Harashita arXiv:2111.09777 studies other automorphism types. The accessible comparison and mathematical-record search found no exact count or stronger published coefficient-space result; unindexed older literature remains a residual historical-priority risk.
+
+**Mathematical value — PASS.** The classification quantifies every Newton-polygon stratum of a classical three-dimensional family and proves transverse incidence of the three nonordinary divisors. Unlike a finite numerical census, the count works for every finite extension. The invariant is motivated by the arithmetic moduli of smooth genus-three curves, with a deliberate distinction between marked coefficients and isomorphism classes.
+
+Limitations: The known elliptic quotient isogeny is cited as a premise rather than newly established; arithmetic counts concern standard equations. No independent mathematical audit was performed. Source comparisons do not establish absolute historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
