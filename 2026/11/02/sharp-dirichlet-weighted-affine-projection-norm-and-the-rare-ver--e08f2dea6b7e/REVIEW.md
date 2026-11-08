@@ -1,15 +1,21 @@
-# Scientific review: sharp Dirichlet-weighted affine projection norm
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated domain is the full barycentric simplex with strictly positive real Dirichlet parameters. The moment-matrix inverse is explicitly reconstructed, and the real affine kernel is verified to reproduce constants. Absolute-value convexity and a positive-measure sign change show that only vertices can maximize; gamma-process conditional Jensen proves strict ordering by the smallest Dirichlet parameter. Incomplete beta integration gives the exact constant. Fixed-total extrema and both asymptotic regimes follow from bounded-negative-part, beta-moment and gamma-moment arguments. The bundled standard-library checker passed 360 integer parameter profiles and the additional exact rational tests documented in `VERIFICATION.md`. The real-parameter and infinite-dimensional steps depend on the proof, not finite enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The complete published uniform-simplex result is a covered specialization and is expressly excluded from the novelty claim. Aktaş and Xu (arXiv:1111.2994v1) establish weighted Jacobi simplex polynomial structures; Palombi and Toti (arXiv:1407.7404v2) develop Dirichlet-weighted Galerkin expansions and discuss positivity. Direct inspection of the relevant primary sections and targeted database comparisons did not reveal the all-positive-parameter exact operator norm, strict smallest-shape-parameter vertex rule, sharp fixed-total weight design or differing concentration limits. Equivalence in older Jacobi-kernel or finite-element literature remains a priority risk; lack of search hits is not itself a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The sharp stability and positivity-loss constant is a natural invariant of weighted affine least-squares projection. The result completely solves its parameter dependence, including which simplex vertices control the worst case, the unique least-amplifying distribution for fixed total concentration, an unattained but sharp opposite envelope, and a finite-versus-linear high-dimensional stability transition. These features motivate the precise invariant and do not merely restate the known uniform specialization.
+The Dirichlet Gram matrix is G_ij=[p_i delta_ij+A p_i p_j]/(A+1), giving kernel K(x,y)=(A+1)sum x_i y_i/p_i-A. Every interior row is a convex barycentric combination of vertex rows, with strict inequality for mixtures owing to opposing signs on positive-mass neighborhoods. Beta(a,A-a) truncated at a/(A+1) yields the exact vertex norm; gamma-process conditional Jensen strictly orders vertices by a for fixed A. The beta q-moment makes the 1+2A envelope sharp/unattained. Uniform integrability of nY_1 and bounded negative parts yield the two dimension limits. Independent beta vertex-order checks passed; finite tests do not establish all real parameters.
 
-## Limitations and comparison
-The theorem covers one Dirichlet-weighted simplex, degree-one real orthogonal projection, and the induced maximum norm only. No classification of higher-degree projectors, arbitrary measures, or globally coupled finite-element operators is claimed. The closest known exact result is the unweighted uniform-simplex case; the two inspected primary papers address broader weighted polynomial methodology but different theorems. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The uniform formula does not determine nonuniform beta shape ordering, because total A and minimum a independently vary; the Jacobi weight orthogonality basis does not imply exact extremizing kernel rows. The gamma-bridge convex-order and incomplete-beta argument supplies needed new inequalities.
+
+## value
+
+PASS
+
+The stability amplification and positivity loss of degree-one least-squares projection are natural quantitative design invariants. Parameter-extremal geometry, unique fixed-total minimax design, sharp rare-vertex envelope and bounded versus linear dimension behavior refine a known unweighted special case nontrivially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
