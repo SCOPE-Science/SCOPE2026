@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-Run `python verify.py` in a Python 3 environment with `sympy` and `mpmath`. The verifier, distributed as a complete standalone file alongside this document, performs two independent forms of checking: exact symbolic series inversion in the critical regime and high-precision evaluation of the original two-point distance integral. It checks the known exact probabilities for two, three, and four sample points at radius one, and compares normalized integral values against each fixed-radius and crossover asymptotic across a range of parameters.
+## correctness
 
-Observed output for the packaged verifier:
+PASS
 
-`VERIFY_OK: 32 symbolic identities / integral checks; fixed-radial and critical-window comparisons`
+PASS: Reconstructed exact normalizations, pair uniqueness a.s., integral and endpoint powers, beta coefficient identities, joint n^-2 scaling, domination, endpoint continuity and kappa limits. Standard Laplace/dominated-convergence steps are valid for fixed R or fixed nonnegative kappa. No inference of uniformity for arbitrary moving R is made.
 
-The symbolic inversion confirms \(h(u)=\pi^4u^4/96+11\pi^6u^6/11520+O(u^8)\). The large-sample tests check convergence in selected cases \(R=1,1.1,1.5,2,4\) and \(R_n=1+\kappa/n^2\) for \(\kappa=0,1,10\). The finite tests do not establish the claimed asymptotic error bounds uniformly over infinite parameter domains. Full mathematical justification is in RESULT.md, which includes exact definitions, endpoint expansions, a beta-integral remainder estimate, and the domination argument for the critical window.
+## originality
 
-The exact all-sample-size Efron–Buchta moment identity, two-point distance density, and spindle area formula are **known inputs** and are attributed to the original literature. No separate formal proof assistant, independent reviewer, or outside certification was used.
+PASS
+
+Best-of-knowledge PASS for the sharp three-regime asymptotic theorem and explicit n^-2 crossover only. The all-sample-size exact moment representation is prior work, and the new asymptotics follow from additional singular endpoint analysis. Lack of complete primary full text is a concrete priority and premise-verification risk, not evidence that the result is historically new.
+
+## value
+
+PASS
+
+PASS: Exactly two ball-extreme points is a canonical rare event. Polynomial n^-3 rarity at matched radius and n^-1/2 q_R^n rarity above radius one define a substantive geometric phase boundary; the explicit n^-2 crossover connects them, while the second beta coefficient refines the critical law. This is a motivated asymptotic theorem rather than numeric table fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
