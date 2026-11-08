@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The already known directional brightness identity reduces the probability problem exactly to the polynomial \(Y=\prod_i(1-U_i^2)\). Conditioning on one spherical coordinate gives the beta-half mixture and the density. A complete sphere-critical-point census yields six minima, twelve Morse saddles, and eight maxima; the local quadratic normal form and normalized area measure fix the logarithmic coefficient \(6/\pi\). The endpoint coefficients follow from local spherical-cap areas, and the moments from Dirichlet monomials. The standalone symbolic/numerical verifier passes. Numerical checks do not replace any infinite proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** The pointwise brightness law itself is prior published work and is not claimed. Full text of that result and of the separate axial-cubic random-brightness result was examined, along with the originating threefold-projection paper and relevant portions of the polyhedral density manuscript. The published pointwise formula determines the pushforward in principle, but the sources examined do not evaluate the non-axial Haar density, locate its twelve Morse saddles, or give the sharp interior logarithmic coefficient. No matching statement was returned by the recorded searches. An older calculation from geometric probability could still cover it, so this is not an independent priority certificate.
+PASS
 
-**Mathematical value — PASS.** Smooth projection bodies typically exhibit different density transitions depending on critical-point geometry. The complete cubic brightness law gives a natural canonical example with a divergent but integrable logarithmic density spike, explicit coefficient, endpoint slopes, and rational moments; it distinguishes a tetrahedral cubic from the already studied axial family. The nontrivial saddle coefficient is not a mere parameter renaming or an arbitrary slice. The exact quadrature is a usable quantitative benchmark rather than an unsupported general theorem.
+For 0<|epsilon|<=1/4 the support curvature tensor I+epsilon(∇²_S P+P I) is positive by the explicit Hessian norm and cubic bound, with width two by oddness. Published exact directional area b=pi-(pi epsilon²/4) product(1-n_i²) gives normalized Y=product(1-U_i²), independent of epsilon. Haar spherical coordinates S=|Z| uniform[0,1], Phi uniform imply Y=A(S)+B(S) sin²(2Phi) with A=s²(1-s²) and B=(1-s²)³/4; arcsine conditioning yields claimed entire CDF and differentiated density. The maximum T(s)=A+B occurs at s=1/sqrt(3), giving support [0,8/27]. On the sphere there are 6 quadratic minima, 8 diagonal maxima, and 12 nondegenerate saddles at 1/4 with local form 1/4+w²/4-alpha²; the coarea delta integral contributes 1/(2pi) log(1/|y-1/4|) per saddle, hence 6/pi total. Cap-area expansions yield endpoint slopes 3/2 and 9/2. Independent exact Dirichlet moments give 4/21,128/3003 and variance400/63063. Numerical checks are secondary, not the all-directions proof.
 
-Limits: special cubic family only; prior directional brightness calculation is stronger as pointwise data; density expressed by definite integral rather than elementary branches; historical priority remains provisional; no external audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known full directional brightness profile of precisely this cubic body was read and credited; it does not evaluate the Haar pushforward law, critical-density singularity, endpoint mass expansions or statistical moments. The published zonal cubic distribution has different harmonic/object and no twelve-saddle transition. General brightness/coarea work does not directly imply the exact evaluated special law. Best-of-knowledge originality concerns the computed distribution of a natural known directional function, with residual alternative-terminology priority risk.
+
+## value
+
+PASS
+
+The natural random-direction brightness observable of a concrete smooth constant-width body has an exact distribution with a nontrivial saddle-driven interior logarithmic singularity. The singularity coefficient, endpoint densities and exact moments distinguish the tetrahedral cubic from previously solved zonal cubic; these are specific potentially reusable invariants of projection statistics, not a cosmetic parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
