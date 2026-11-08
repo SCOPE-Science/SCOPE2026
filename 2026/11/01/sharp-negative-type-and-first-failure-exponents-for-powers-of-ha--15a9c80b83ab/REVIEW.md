@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For every \(q\ge2\), \(d\ge1\), and \(k\ge1\), the graph metric equals the ceiling of Hamming distance divided by the edge radius. The proof diagonalizes each radial kernel by finite-group characters, constructs positive centered eigenvalues on isometric small subcubes in all excluded cases, and proves all admitted cases by Euclidean decompositions or complete matching spectra. For the first forbidden dimension, two-distance Fourier eigenvalues supply the exact critical exponent, all competing signs, critical nullity, and embedding rank. The embedded checker independently reproduces finite exact transforms and BFS distances (5278 checks). Finite checks are explicitly supplementary.
+## correctness
 
-## Originality
-PASS under bounded review. Closest primary sources: Klotz–Sharifiyazdi (Hamming power *chromatic number*, not kernel positivity), Lee–Obata (exact-distance graphs and asymptotic q-Hermite models), Aalipour et al. (halved-cube distance spectra), and Kokkala–Östergård (binary square-power coloring). General Hamming character formulas are prior methods but do not themselves resolve these signs, thresholds, and ranks. Existing published research records on Hamming-shell Fourier restriction and positive-definite Turán mass concern different optimizations, not these graph metrics. Results on cyclic graph powers concern different metric spaces, while Gaussian kernels constructed from squared original Hamming distance involve a different radial profile. An equivalent older spectral embedding classification cannot be completely excluded.
+PASS
 
-## Mathematical value
-PASS. The theorem classifies an infinite three-parameter family across all integer alphabets, sharply isolates the binary exceptional families, and determines explicit powers and spectral nullities at the very first negative-type failure. The discontinuity from \(q=2\) to \(q\ge3\), and the odd/even binary endpoint multiplicities, motivate the exact invariant and provide reusable positive-definite-kernel thresholds rather than a parameter renaming or isolated numerical certificate.
+An edge changes ≤k coordinates and corrections can be done in k-blocks, so graph distance is rho=ceil(h/k), including all integer q≥2, d,k≥1. Fourier characters on (Z/q)^d yield Krawtchouk eigenvalues P_r(j) with multiplicity binom(d,j)(q−1)^j. If k=1 ordinary Hamming is a sum of squared Euclidean coordinate distances; if d≤k, complete graph is CND. Binary k=2 uses ceil(h/2)=h/2+(1−(−1)^h)/4, a sum of CND pieces. For binary d=k+1, distance J−I+antipodal matrix has nonconstant eigenvalues −1+(−1)^j≤0. Every other q≥3,k≥2 has isometric m=k+1 subcube with positive sector j=2 eigenvalue −1+(q−1)^(m−2)>0; remaining binary k≥3,d≥k+2 is excluded via m=k+2 subcube j=2 eigenvalue k−2>0. In first excluded dimensions D^p=J−I+(2^p−1)A, so maximizing positive nonconstant sectors gives α_q=log₂(1+(q−1)^−(m−2)), nullity binom(m,2)(q−1)²; binary M=m−1 odd or m−3 even, α=log₂(1+1/M), nullity 1 odd or binom(m,2)+m even. Embedding rank N−1−ν follows centered kernel, and Schoenberg/Gaussian finite Euclidean embedding gives strict PD exp(−tD^p) for t>0 inside interval (distinct points). p=0 convention explicitly checked. Independent integer exact character eigen tests of selected q,d,k corroborate, not prove general bounds.
 
-## Limitations
-No assertion about fractional exponent thresholds beyond the first failing dimension; independent audit remains unperformed. Literature risk includes differently indexed Hamming association-scheme classifications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Hamming scheme eigenfunctions and Schoenberg negative-type theorem are standard; published papers on Hamming graph powers study coloring/chromatic numbers, halved-cube distance spectra, exact-distance q-Hermite models or positive definite Turán masses. None of the scientifically matched Resultary summaries provides all q,d,k conditional negative type of the shortest-path metric ceil(h/k) and exact first-excluded powered thresholds and rank. The key distinction is power-graph SHORTEST-PATH distance, not original Hamming distance, graph adjacency spectrum, or Hamming-ball convolution mass. Best-of-knowledge with risk of an unindexed generalized roundness theorem.
+
+## value
+
+PASS
+
+Provides a natural infinite three-parameter classification of when graph-power shortest-path geometry embeds as a squared Euclidean metric at all exponential scales, plus exact sharp first failure exponents and ranks. These clarify spectral/embedding phase boundaries of Hamming powers, not isolated tiny cases or mere recomputation of an existing spectral table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
