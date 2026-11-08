@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower bound and all possible optimum label patterns are established by the exact four-regular neighbour-sum deficit identity \(2(3W-n)=2t+A+B\) with nonnegative terms. Its small deficit restricts double labels; a clockwise-neighbour analysis leaves precisely the two exceptional graph orders \(5\) and \(10\). The binary case reduces to a necessary-and-sufficient cyclic-gap condition, then the equation \(3w-n=2a+b-c\) and the injection of length-four gaps into adjacent length-one gaps bound possible patterns. Counting cyclic gap words with labelled vertices supplies the stated three formulas. The boundary cases \(n=5\), \(n=7\), and \(n=10\) are covered explicitly. Two independent finite checking methods support the calculation but are not the proof.
+PASS
 
-## Originality — PASS, with priority limits
+For n>=5 on G=C_n^2 (each vertex four neighbours), double counting neighbour-label weight gives 2(3W-n)=2t+A+B, where t=#2 labels and A,B are nonnegative adjacency/slack terms. At the known optimum W=ceil(n/3), the deficit d=3W-n in {0,1,2} sharply limits 2 labels; examination of neighbouring defended zeros excludes all except five singleton-2 minima at n=5 and five antipodal pair-2 minima at n=10. For binary minimizers the cyclic positive-vertex gaps can be 1,2,3 or 4, with every 4-gap flanked by 1-gaps. The gap deficiency d=2a+b-c and injection c<=a reduce possible cyclic words to the listed patterns and two exceptional words. Labelled cyclic-gap counting yields a_n=3 if n=0 mod3; n+10*[n=5] if n=2 mod3; n(n+5)/6+10*[n=10] if n=1 mod3. Independent exhaustive minimum-weight label enumeration n=5..21 verified counts; its finite range is not the infinite proof.
 
-Ferrari, Leoni, and López Pujato previously proved the optimum Italian domination **weight** for web graphs, including \(C_n^2\); its inclusion in the theorem is only contextual. The new contribution is the exact count and structural classification of all minimum-weight assignments, including nonbinary anomalies at two orders. Shao and Zhao count ordinary cycle, tree and path functions, not squared cycles. Query comparisons included aliases Roman \(\{2\}\), binary \(2\)-domination, web graphs and domination-polynomial coefficients, and published record results were compared by implication. An equivalent older minimum-\(2\)-dominating-set enumeration could still subsume the binary part; complete priority cannot be certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Counting optimal assignments is a natural refinement of an established graph-domination parameter and an explicit coefficient of the Italian domination polynomial. The formula handles every order of an infinite class and gives complete cyclic tilings rather than only a transfer algorithm. The sporadic nonbinary minima explain the precise difference between the binary \(2\)-domination census and Italian domination, and the quadratic branch shows a substantive structural change between congruence classes.
+Qualified best-of-knowledge originality: Ferrari–Leoni–López Pujato already show the Italian domination NUMBER of these web/cycle-square graphs; Shao–Zhao count Italian domination polynomial coefficients of C_n, not C_n^2. The additional result is classification and number of all minimum Italian dominating functions, including two nonbinary sporadic cases. An earlier enumerative 2-domination count on web graphs could cover binary subfamilies.
 
-The result is limited to minimum weight on \(C_n^2\) for \(n\ge5\). It does not determine higher coefficients, other cycle powers, or independent historical priority.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact minimum coefficient and complete classification of extremizers for the natural circulant graph C_n^2 is a motivated graph invariant beyond the already known optimum weight. The exceptional nonbinary configurations and residue-class formula provide structural information relevant to Italian-domination polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
