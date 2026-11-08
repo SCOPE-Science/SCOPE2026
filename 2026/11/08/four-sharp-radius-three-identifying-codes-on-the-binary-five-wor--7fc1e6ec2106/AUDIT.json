@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md proof steps 1-3",
+      "certificate.tsv",
+      "signatures.csv",
+      "verify.py",
+      "crosscheck.cpp",
+      "generate_signatures.py"
+    ],
+    "rationale": "For each of sixteen disjoint four-bit prefixes, one ending is compulsory, so size is at least 16. The exact in-ball formula yields ten singleton symmetric differences, two triple differences, and four paired binary differences that force fourteen distinct codewords. Two choices at each remaining prefix leave exactly four candidates, and all four have 32 nonempty distinct identifying signatures. The full 128 signature rows and independent Python/C++ exact graph methods agree on masks 6949,6951,23333,23335. There is no extrapolation beyond the finite graph.",
+    "risk": "The result is parameter-specific; no all-alphabet or all-radius claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.5 gives the general lower bound q^(n-1)(q-1), equal to 16 here.",
+        "Theorem 3.6 addresses n >= 2t, which excludes n=5, t=3.",
+        "Theorem 3.9 gives a construction of size q^(n-1)(q-1)+q^t, equal to 24 here, and explicitly calls optimality for n=2t-1 an open question."
+      ],
+      "reasoning": "Neither lower bound 16 nor example upper bound 24 determines whether 16 is achievable. The wider existence theorem does not classify cardinality or equality cases. No inspected broader theorem entails the four-code enumeration. A separate radius-two result at word length three has different balls and is inapplicable.",
+      "searches": [
+        "Boutin Goliber Pelto n=2t-1 optimal boundary identifying code followup",
+        "\"directed de Bruijn graphs\" \"identifying codes\" \"radius three\"",
+        "arxiv:1412.5842 Theorem 3.5 Theorem 3.6 Theorem 3.9",
+        "\"t-identifying\" \"de Bruijn\" n=2t-1 optimal constructions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1412.5842 (first public record 2014-12-18)",
+      "https://arxiv.org/pdf/1412.5842 (full revised preprint)",
+      "https://people.hamilton.edu/dboutin/publicationpdfs/boutingoliberpelto (author full manuscript)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior results bracket the optimum between 16 and 24 for the parameter pair (q,n,t)=(2,5,3).",
+        "The new finite forcing lemma yields at most four sixteen-element codes, and four explicit identifying signatures establish existence of exactly four."
+      ],
+      "reasoning": "The prior lower bound is a necessary selection condition, not sufficient for identification. Prior general existence and upper constructions do not imply the new sharp boundary equality or classification. The new proof supplies that missing sufficiency and exhaustiveness by explicit exact constraints.",
+      "searches": [
+        "https://arxiv.org/pdf/1412.5842 Section 3 Theorems 3.5 3.6 3.9",
+        "https://people.hamilton.edu/dboutin/publicationpdfs/boutingoliberpelto Section 3 critical length",
+        "\"de Bruijn\" \"identifying\" \"16\" \"radius\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1412.5842, full revised text, Section 3: definitions use closed directed incoming balls; no radius-three five-word count is given.",
+        "The complete proof reduces optimal binary selectors to sixteen Boolean choices, then exactly four admissible choices; no named alternate construction found in the inspected primary text."
+      ],
+      "reasoning": "Aliases for the problem include 3-identifying codes, radius-three identifying sets, binary directed de Bruijn B(2,5), and one-per-prefix Boolean selectors. Directed incoming-ball identification is not equivalent to undirected neighborhood codes, nor does a different radius preserve the identifying property. The checked published formulations do not state these four optimal sets.",
+      "searches": [
+        "\"B(2,5)\" \"identifying\" \"3\"",
+        "\"de Bruijn\" \"3-identifying\" 5 binary",
+        "\"B(2,5)\" \"3 identifying\" 16",
+        "minimum 3-identifying code binary directed de Bruijn graph order 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible primary text supplies no exact 3-identifying-code table for the directed binary five-word graph.",
+        "Targeted mathematical research-record searches returned no exact four-optimum table; the closest listed material concerned other coding parameters."
+      ],
+      "reasoning": "The claim is not merely the known lower bound or an isolated found code: it is the complete equality count. Search nonappearance is only bounded evidence, not a proof of novelty. A missing or unindexed historical table remains a declared risk.",
+      "searches": [
+        "\"minimum\" \"B(2,5)\" \"identifying code\"",
+        "\"de Bruijn\" \"identifying codes\" \"length 5\" \"radius 3\"",
+        "\"B(2,5)\" \"3-identifying\" code",
+        "radius three identifying code B(2,5) four optimal codebooks"
+      ]
+    },
+    "rationale": "The publicly archived 2014 study (and its revised manuscript) proves a general lower bound and a nonoptimal critical-length construction, explicitly leaving the critical-length optimum unsettled. At the binary radius-three, length-five parameters, those bounds are 16 and 24, whereas the present result constructs and classifies exactly four optimum size-16 sets. Equivalence and broader-coverage comparisons identified no encompassing primary theorem; an unindexed prior enumeration remains a residual historical risk.",
+    "residual_risks": [
+      "An unindexed later paper, thesis, database, or independently discovered finite classification might already contain the same size and four-code list.",
+      "Search coverage is not a proof of universal nonexistence of prior statements; independent historical-priority review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The lower bound 16 and upper construction 24 apply; exact optimality and four-way classification are not given.",
+        "evidence": [
+          "Theorem 3.5 general lower bound",
+          "Theorem 3.6 hypothesis n>=2t",
+          "Theorem 3.9 gives an additional q^t terms and says optimality at n=2t-1 is open"
+        ],
+        "identifier_or_url": "arxiv:1412.5842; https://arxiv.org/pdf/1412.5842",
+        "material_read": "Relevant full-text sections containing definitions, Theorems 3.5-3.10, critical-length remark, and concluding open-problem discussion; manuscript pages 1, 7, 15-16, 25-26 and surrounding theorem passages.",
+        "method": "Primary open-access preprint with direct theorem/text and page inspection.",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Same directed graph, radius identification, critical-length open problem."
+      },
+      {
+        "assessment": "The manuscript again states the critical-length question as open and supplies no B(2,5), radius-three optimum count.",
+        "evidence": [
+          "Theorem 3.5 lower bound",
+          "Theorem 3.9 size q^(n-1)(q-1)+q^t",
+          "Post-Theorem 3.9 open-problem remark"
+        ],
+        "identifier_or_url": "https://people.hamilton.edu/dboutin/publicationpdfs/boutingoliberpelto",
+        "material_read": "Full accessible critical-length Section 3 theorem statements, definitions, and lower-bound argument.",
+        "method": "Primary author-hosted full text, with pertinent sections compared by explicit theorem statements.",
+        "title": "Identifying Codes on Directed De Bruijn Graphs (author-hosted manuscript)",
+        "trigger": "Potential later revision or journal text superseding the initial preprint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7fc1e6ec-2106-4dd6-b11b-f2a1b282ba28",
+  "value": {
+    "evidence": [
+      "Boutin et al. open critical-length question in Theorem 3.9 discussion",
+      "RESULT.md explicit fourteen-forced/two-free classification",
+      "signatures.csv full optimum certificates"
+    ],
+    "rationale": "The exact t=3, n=5 case is the first nontrivial higher-radius critical-length boundary case in the source’s unresolved n=2t-1 family. It closes the prior 16-to-24 gap, supplies an attainable sharp bound, and classifies all four optima by a short structural forcing argument, including three natural alphabet-interchange orbits. These are motivated graph identification and sensor-location invariants rather than arbitrary enumeration.",
+    "risk": "No extension to arbitrary q or t is asserted, and the present finite classification may not imply a broader formula.",
+    "status": "PASS"
+  }
+}
