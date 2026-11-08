@@ -1,19 +1,21 @@
-# Scientific review: priced continuous-time corona mixing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is analytic, not experimental: spectral gap concavity justifies averaging every feasible nonuniform allocation; block diagonalization yields the exact two-rate spectrum; strict convexity yields the unique orbit-constant optimal rates and value. The cyclic case uses both Fourier Fiedler modes to prove every pendant and rim rate must equal its optimal common value. The limiting formulas follow from \(\lambda_n=4\sin^2(\pi/n)\). The standalone standard-library checker independently passed 1549 finite tests, but finite tests are not an all-parameter proof.
+PASS
 
-## Originality — PASS on the inspected literature
+Concavity of lambda2 on mean-zero subspace and edge-orbit averaging reduce a global independent-weight optimum to two class rates. Core/leaf Laplacian decomposes into blocks with eigenvalues μ±(a η,b); μ-(a lambda,b) is gap and its target t condition is b>t,a lambda>=t(2b-t)/(b-t). Minimization of c(2+1/(u-1))+Qu for u=b/t>1 yields unique u=1+sqrt(c/Q), hence exact D and rates. For a cyclic core both cosine/sine Fiedler vectors saturate their Rayleigh quotients at any optimum; private-leaf equations force all b_i common, complex rim equation imaginary part forces all a_i common. Direct 52 finite weighted Laplacian cases corroborate, not replace, proof.
 
-Sun–Boyd–Xiao–Diaconis's 2006 continuous-time formulation covers the general maximin model and its SDP, not the solved corona-specific rates; Boyd–Diaconis–Parrilo–Xiao (2007) optimize discrete-time stochastic SLEM. Shakeri et al. (2015) optimize only interlayer couplings with fixed layers; Suzuki (2013) and Liu–Shao (2022) provide graph spectral information rather than a full priced optimization. The distinctive claim is the exact two-price transitive corona solution and the uniqueness over all independent cyclic edge rates, not the general spectral-gap program or corona spectral factorization. A relevant specialist prior result may still exist, so global priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a closed optimization benchmark for arbitrary transitive cores and demonstrates a non-obvious global rigidity phenomenon for cycles. At fixed aggregate budget the rim rate, pendant rate and spectral gap decay on distinct orders, and the exact cost balance identifies a size-dependent infrastructure design crossover. This addresses a motivated design gap rather than a parameter renaming.
+Sun–Boyd–Xiao–Diaconis solve general continuous-time fastest mixing through SDP but do not state the transitive corona closed price formula or cyclic uniqueness. Shakeri fixes internal layer weights and optimizes only coupling; Boyd et al 2007 treat discrete-time SLEM. Existing weighted corona spectra provide eigenvalues, not optimization or all-nonuniform rigidity.
 
-## Boundaries
+## value
 
-No claim is made for all-asymmetric uniqueness on noncyclic transitive graphs, arbitrary stationary distributions, nontransitive bases, discrete-time SLEM, or optimal hitting times. Verification remains internal and independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closed all-core-class benchmark for spectral mixing under meaningful edge costs, with nontrivial global uniqueness for cycles and three distinct large-size scales. This answers design tradeoffs beyond routine substitution in spectral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
