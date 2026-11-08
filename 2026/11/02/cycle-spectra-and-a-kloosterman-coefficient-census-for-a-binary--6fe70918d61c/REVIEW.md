@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is algebraic for all even prime powers \(q>2\): the norm-one parameter inverts under iteration, the second iterate scales by a nonzero base-field square, and all orbit lengths on paired fibers follow from multiplicative order. The quadratic trace criterion bijects paired fibers with \(S_q\); direct character orthogonality yields the Kloosterman coefficient count. The elliptic-curve point count and Hasse bound establish the sharp existence threshold. The independently implemented verifier replayed 57 coefficient cases across five field sizes and found no discrepancies.
+## correctness
 
-**Originality — PASS with residual risk.** Hou [1] determines permutation coefficients and explicitly exhibits a semilinear factorization that is the main starting point, but no cycle decomposition or coefficient census is stated in the inspected theorem, proof, or relevant full-text searches. Gerike–Kyureghyan [2] concern trace perturbations \(x+\gamma\operatorname{Tr}(x^{2q-1})\), and Zeng et al. [3] concern distinct four structured families. Direct searches for the trinomial with cycle terms and three mathematical-record comparisons found no matching or dominating result. The closeness of the semilinear identity to the cycle argument is a real originality risk; the Kloosterman distribution and sharp field threshold provide an additional nontrivial claim not supplied by Hou's permutation criterion.
+PASS
 
-**Value — PASS.** The full disjoint-cycle spectrum of a natural, previously classified but dynamically uncharacterized permutation family determines every periodic stratum for infinitely many extensions. The coefficient census distinguishes the unique small-field obstruction from all larger binary fields and identifies an elliptic-curve/Kloosterman mechanism controlling how frequently short cycles appear. The conclusion is more informative than a mere restatement of the permutation criterion.
+With u=x^(q-1) in the norm-one subgroup over F_(q^2), the exact identity F_t(x)=x^q[t+u+u^{-1}] inverts u and F_t^2(x)=[t+u+u^{-1}]^2 x. Admissible Tr(1/t)=0 excludes zero multipliers. The paired nontrivial norm-one fibers correspond one-to-one to z in F_q^× with Tr(1/z)=1 and each yield (q-1)/ord(t+z) cycles of length 2ord(t+z), while F_q^× has (q-1)/ord(t) cycles. Character orthogonality and w=1/(1+v) give T_q=(q-1-K_q)/4 admissible coefficients with 2cycles; Hasse bound and q=4 evaluation give positivity iff q>=8. Independently computed all admissible maps over F_8 by direct finite-field arithmetic: 3 coefficients, K_8=-5, each with q-1 two-cycles. The all-q result rests on field identities and the elliptic Hasse bound, not this finite test.
 
-**Limits.** This is not a new permutation-classification theorem, an inversion algorithm, or an independent priority certification. The bound on Kloosterman sums uses the classical Hasse theorem; finite replay does not establish a universal theorem. The published semilinear formula makes part of the new proof short.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for full cycle spectrum and exact Kloosterman parameter census. Hou proves the permutation criterion and the norm-one semilinear factorization, which is credited. That factorization does not itself enumerate orbits, count coefficients having two-cycles, or establish the Kloosterman/Hasse threshold. Other inspected cycle papers concern different polynomial families. The cycle decomposition is an elementary extension of Hou and may have appeared independently; no priority certification.
+
+## value
+
+PASS
+
+A complete orbit-count formula for a natural published characteristic-two permutation polynomial family and an exact Kloosterman-controlled cycle-statistic census (with sharp first base-field size) are useful finite-field dynamical invariants, not arbitrary small-field recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
