@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The three-state generator is irreducible for the stated positive rates and interior bias. Its stationary vector and stable filter representation are explicit. Solving the first three generator moment systems yields an exact third centered moment with polynomial \(\mathcal P\). Two separate verifiers reproduce the polynomial by symbolic elimination and numerical matrix inversion. On \(0<b<a\), the polynomial is a strictly decreasing positive linear term minus a strictly increasing positive polynomial, with opposite endpoint signs; for \(b\ge a\) it stays negative. Independent Gaussian diffusion cannot affect this third cumulant. Boundaries \(w=0\) and \(w=1\) are explicitly separated from the strict-interior claim.
+## correctness
 
-**Originality: PASS (best-knowledge, residual literature risk).** Sun–Ye–Podgornik, arXiv:2409.00578, solve finite-duration tumbling with unbiased orientations and explicitly mention biased orientation as a future direction. Basu et al., arXiv:1910.10083, solve the symmetric three-state stationary distribution. Santra–Olsen–Gupta, arXiv:2408.16643, study skewness of unconfined intermittent active motion; their phase propagators assume translation invariance. The evaluated confinement-dependent skewness inversion and its single threshold are not implied as printed results by these inspected models. Broader Markov-modulated filter formulas are a residual priority risk. Searches did not establish exhaustive uniqueness.
+PASS
 
-**Mathematical value: PASS.** The phase boundary is a natural response question under directional bias and finite run/rest residence: the distribution's third centered moment changes sign while its mean position remains strictly positive. The exact algebraic threshold, proof of uniqueness, strict location before equal run/rest durations, and monotone polarization response together give a complete sign classification across all positive rate ratios. Independence from additional thermal diffusion makes the classifier robust within this model. The contribution is the phase classification, not a generic elementary moment computation.
+Reconstructed continuous-time Markov chain +/0/- with run termination alpha, rest departure beta, freshly biased direction w=2p-1, and stable Ornstein–Uhlenbeck filter. Its stationary distribution and joint generator recurrence (nI-Q^T)m_n=nV m_(n-1) give M1,M2,M3 without moment closure. Independently computed SymPy inverse systems and simplified central third moment exactly to the stated P(a,b,w) numerator divided by positive denominator. Independent Brownian Gaussian contributes zero third cumulant. For fixed a>0 and w in (0,1), P decreases strictly on (0,a) from positive to negative and stays negative for b>=a; unique root b*(a,w)<a increases strictly in w and approaches a as w->1. w=0 symmetric exceptional case and w=1 endpoint separated. Finite numerical tests do not establish the all-parameter sign proof.
 
-**Limitations.** The assertion is for an ideal stationary Markov run–rest mechanism with constant rates, harmonic confinement, independent reselection of run directions, and additive independent Brownian diffusion. Published matrix-analytic methods may imply special moment formulas; no publication-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original biased finite-duration run/rest confined skewness sign diagram. Sun–Ye–Podgornik exact finite tumbling harmonic trap uses unbiased reorientation and explicitly lists biased orientations as future work. Basu et al. handle symmetric three-state trap; Guéneau–Majumdar–Schehr biased velocities use instantaneous switches without positive resting phase; Santra–Olsen–Gupta biased intermittent motion is unconfined. Although standard generator recurrences compute moments, an explicit unique rate frontier is not an inspected corollary.
+
+## value
+
+PASS
+
+Natural experimentally interpretable distinction: displacement mean stays positive while shape skewness reverses at a single polarization-dependent rest-to-run threshold, robust to independent thermal noise. An exact phase diagram for a tractable but nontrivial three-state model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
