@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The geometry reduces area to a sum of pairwise absolute determinants. Conditioning on one generator yields the exact first Hoeffding projection; the remaining degenerate pairs have exact orthogonal variances. The uniform-direction |sin| Fourier expansion and finite-coordinate CLT yield the exponential series, with L2 tail bounded by 4r^4/pi^2 times sum of squared coefficient denominators, uniformly in n. With bounded radial noise, the triangular degenerate-kernel difference has L2 norm O(n^{1-beta}), proving the three scales. Independence at beta=1/2 follows from independent directions and radii. Standalone tests verify 126 convex-hull examples, exact Fourier constants, 22k triangular simulation cases and exact finite-n covariance identities. Infinite claims rely on the proof, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schneider 2022 Theorem 3 proves normal limits for fixed iid segment law subject to a positive first projection.",
+        "de Wet 1987 Theorem 3.1 gives weighted chi-square limits for a fixed degenerate symmetric kernel."
+      ],
+      "reasoning": "The fixed-law Gaussian theorem and fixed-law degenerate theorem separately explain limiting endpoints but not the critical row-dependent combination. The present proof supplies an explicit n-dependent Hoeffding comparison with a uniform L2 bound and independence at the critical rate.",
+      "searches": [
+        "published-finding corpus semantic: random zonotopes valuations constant radius zero first Hoeffding projection nonnormal limit",
+        "Schneider 2022 Random zonotopes and valuations Section 4 Theorem 3",
+        "de Wet 1987 Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37920/sasj.1987.21.2.1",
+      "doi:10.2307/3213243",
+      "doi:10.1214/aoap/1177005938",
+      "arXiv:0807.3590",
+      "arXiv:2202.06774",
+      "published-finding corpus searches for zonotope area critical crossover, fixed-length angular limit, fixed-radius Hoeffding degeneracy",
+      "published geometry literature comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Silverman: fixed-circle pair-distance empirical process.",
+        "de Wet: fixed degenerate U-statistic eigenvalue limit and Hoeffding remainder.",
+        "Schneider: fixed-law zonotope valuation CLT.",
+        "Donoho–Tanner: random zonotope projected-hypercube face counts."
+      ],
+      "reasoning": "A single fixed-law limit statement is not sufficient to infer the crossover where radial variability itself vanishes as n^{-1/2}; proving independence of the surviving angular and radial components requires their coupled triangular-array decomposition. Donoho–Tanner counts faces, a different invariant. The fixed-radius sublaw is not claimed separately.",
+      "searches": [
+        "doi:10.2307/3213243",
+        "doi:10.37920/sasj.1987.21.2.1",
+        "arXiv:2202.06774",
+        "arXiv:0807.3590"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For constant radius, |sin(theta_i-theta_j)|=|e^{2i theta_i}-e^{2i theta_j}|/2, turning area into half a circular chord-distance sum.",
+        "Silverman 1978 abstract: weak convergence of distance empirical process for fixed uniform circle observations."
+      ],
+      "reasoning": "The fixed-radius non-Gaussian angular law is plausibly an implication of pre-existing circle-distance process results and is treated as background. The claimed critical triangular-array radial perturbation changes the observation distribution with n and retains an independent first-order radial fluctuation, which is not an equivalent fixed-circle statistic.",
+      "searches": [
+        "published-finding corpus semantic: planar random zonogon equal length uniform direction limiting distribution area centered n degenerate U statistic",
+        "Silverman 1978 circle-distance pair U-statistic via doubled angles",
+        "doi:10.2307/3213243"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records: 2026/10/11/SCOPE-full-support-atomic-stable-zonotopes-with-zero-dimensional-extre--5a84f5b2c46a (stable zonotope extreme-set dimensions); 2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae (deterministic angular quadrature); 2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8 (intersections of disks).",
+        "The checked records address different bodies, invariants or distributional setups, not the present random Minkowski-sum area crossover. Failed search alone is not taken as proof of novelty; primary-source implications are separately compared."
+      ],
+      "reasoning": "The closest located records are mathematically inapplicable to the row-dependent radial-angle area fluctuation law; no exact table or published matching coefficient was found.",
+      "searches": [
+        "published-finding corpus semantic: triangular array random zonotope area crossover fixed length random orientation radii variance 1/n non-Gaussian normal convolution",
+        "published-finding corpus semantic: planar random zonogon equal length uniform direction limiting distribution area centered n degenerate U statistic",
+        "published-finding corpus semantic: random zonotopes valuations constant radius zero first Hoeffding projection nonnormal limit",
+        "published-finding corpus semantic: random zonotope uniform circle variance area",
+        "published geometry literature query for zonotope and angular U-statistic"
+      ]
+    },
+    "rationale": "The complete triangular-array area crossover including the independent Gaussian-plus-exp-series law at radial noise n^{-1/2}, with its exact finite-n variance identity and sharp competing scales, was not found in the inspected literature or searched published records. Fixed-radius non-Gaussian behavior is explicitly not claimed original. Schneider 2022 addresses fixed generator laws and a nondegenerate U-statistic CLT; Silverman 1978 treats circle-distance empirical processes at a fixed distribution; de Wet 1987 provides generic degenerate U-stat theory. None of these inspected statements supplies the n-dependent radial perturbation or its independent critical convolution without additional triangular decomposition. Priority remains provisional, with clearly documented residual risks.",
+    "residual_risks": [
+      "Silverman (1978) full text unavailable; its fixed-radius empirical-process results may subsume the angular component, which is explicitly background.",
+      "Vitale (1991) original full text inaccessible; only its expected-determinant theorem was available through Schneider’s full text.",
+      "A generic triangular-array U-statistic theorem could potentially be specialized to this exact geometric model; the inspected sources do not give this specific independent critical convolution.",
+      "Independent historical-priority and mathematical review are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_TRIANGULAR_CROSSOVER",
+        "evidence": [
+          "Theorem 3.1 concerns a fixed degenerate U-statistic; section 2.4 discusses fixed-kernel Hoeffding projection.",
+          "Page 7 cites Silverman 1978 for circle samples, a potential equivalent formulation for the fixed-radius sublaw."
+        ],
+        "identifier_or_url": "doi:10.37920/sasj.1987.21.2.1",
+        "material_read": "full text pages 1,3,7-12,31 including Theorem 3.1, Fourier eigenvalue method, and reference to Silverman",
+        "method": "open-access PDF parsed text and page images",
+        "title": "Degenerate U- and V-statistics",
+        "trigger": "method closest to a fixed-length zonotope pair kernel"
+      },
+      {
+        "assessment": "FIXED_LAW_GAUSSIAN_CLT_NOT_TRIANGULAR_CROSSOVER",
+        "evidence": [
+          "Theorem 3 fixes the iid segment distribution, requires positive first-projection variance, and gives a Gaussian valuation limit.",
+          "The paper does not derive the critical independent mixture in a row-dependent radial concentration regime."
+        ],
+        "identifier_or_url": "arXiv:2202.06774",
+        "material_read": "full text sections 1-4, especially Theorem 3 and the nondegeneracy assumption in Lemma 1",
+        "method": "public full-text HTML transcription at ResearchGate of arXiv v1",
+        "title": "Random zonotopes and valuations",
+        "trigger": "closest direct random-zonotope volume theorem and CLT"
+      },
+      {
+        "assessment": "FIXED_CIRCLE_PROCESS_POSSIBLE_COVERAGE_OF_BACKGROUND_ONLY",
+        "evidence": [
+          "Abstract states a circle-distance pair empirical-process limit for fixed uniform samples.",
+          "This may already imply the fixed-radius angular component, which is not claimed original; no shrinking radial noise is part of the stated model."
+        ],
+        "identifier_or_url": "doi:10.2307/3213243",
+        "material_read": "publisher abstract and article bibliographic information; full article inaccessible",
+        "method": "Cambridge journal abstract page, separate full-text access attempt",
+        "title": "Distances on circles, toruses and spheres",
+        "trigger": "doubled-angle circle chord distance is equivalent to fixed-length zonogon area"
+      },
+      {
+        "assessment": "EXPECTATION_ONLY_NO_DISTRIBUTIONAL_CROSSOVER_VERIFIED",
+        "evidence": [
+          "Vitale expected-absolute-determinant result concerns mean volumes of zonotopes.",
+          "No claim of full-text inspection or whole-document noncoverage is made."
+        ],
+        "identifier_or_url": "doi:10.1214/aoap/1177005938",
+        "material_read": "primary metadata and its theorem as reproduced and discussed by Schneider 2022, Section 2; original full text inaccessible",
+        "method": "Project Euclid metadata/access attempt plus secondary full-text theorem discussion",
+        "title": "Expected Absolute Random Determinants and Zonoids",
+        "trigger": "classical exact expected zonotope area framework"
+      },
+      {
+        "assessment": "FACE_COUNTS_DIFFERENT_INVARIANT",
+        "evidence": [
+          "Results concern expected numbers of faces under random matrix projections, not planar area fluctuations."
+        ],
+        "identifier_or_url": "arXiv:0807.3590",
+        "material_read": "arXiv primary abstract, posted 2008-07-23",
+        "method": "arXiv abstract and university repository title/description",
+        "title": "Counting the Faces of Randomly-Projected Hypercubes and Orthants, with Applications",
+        "trigger": "random images of cubes are random zonotopes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95e06283-86f8-4dda-afc6-6d264b1b183b",
+  "value": {
+    "rationale": "An iid uniform-direction segment model is a canonical random planar zonotope. Its deterministic-length case has non-Gaussian order-n area variability, whereas nonzero fixed radial spread causes order-n^(3/2) Gaussian variation. The precise variance-competition scale n^(-1/2) for radial length noise is mathematically forced by these orders; the exact independent convolution at this critical scale is a structural phase boundary, not an arbitrary parameter slice or a restatement of a generic fixed-law CLT. The exact variance formula permits calibration across all finite sizes.",
+    "status": "PASS"
+  }
+}
