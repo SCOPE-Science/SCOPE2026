@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact ancestor-crossing alternatives, the geometric trailing-run bound, the eventual ancestral-cut stabilization, and the finite maximizing offset. It derives both exponential bounds with all quantifiers and the two-state Markov covariance series. The checker exhaustively verifies finite metric identities on 8191 topologies and 75 additional seeded larger samples. No computational extrapolation substitutes for the almost-sure proof.
+PASS
 
-## Originality — PASS, provisional
+The parent-index recursion yields adjacent depth increments X_j∈{0,1}, hence H_n=h_n; D_j=d(j,j−1) is exactly 1 plus trailing two-step run. Any i<j ancestral trajectory crosses index i first at i or i−1, so d(i,j)−h_j∈{−h_i,D_i−h_(i−1)}. Since D_i=O(log i) a.s. and h_i≥(i−1)/2, the upper bounds tend to −∞, forcing only finitely many possible diameter-enhancing i. Almost-sure recurring one-step attachments fix each finite-i offset, yielding eventual equality and finite K. An initial run of 2k two-step choices produces two arms, one finite and at least length k, giving lower tail q^(2k); trailing-run union bounds give upper tail. The two-state irreducible aperiodic increment Markov chain has stationary mean 1/(1+q) and lag eigenvalue −q, giving asymptotic variance pq/(1+q)^3. Independent exhaustive choices through tree size 11 check crossing/diameter identities only, not probability-limit statements.
 
-The searched current research record and recoverable prior claims yielded no matching last-two-attachment diameter–height locking and exponential offset theorem. The motivating Tang–Wang–Wu preprint is about one-endedness, branch structure, and collision of walks; one-endedness alone does not imply locking. Similar-sounding uniform-recursive-tree path-length and non-plane binary-tree diameter results concern different models. Full text for the 2026 preprint was unavailable, leaving possible implicit coverage from its branch-length formulas. Priority is provisional and this is not independent verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Graph diameter is a standard global metric invariant, and this theorem gives an almost-sure *eventually exact* relation with height rather than merely the same order. The offset is a genuine nondegenerate random correction with unbounded support and explicit exponential tails, while the simultaneous Gaussian fluctuation variance makes the geometry quantitatively usable. The result is a structural classification for a newly studied random tree model, not a routine restatement of its one-endedness.
+Qualified PASS: nearest same-model Tang–Wang–Wu source establishes one-endedness/collisions, not shown to state eventual exact diameter-minus-height locking, explicit two-sided offset tails and CLT; general one-endedness alone does not imply the metric theorem. Complete preprint text was inaccessible, leaving a material priority risk.
 
-## Closest literature and scientific limits
+## value
 
-Tang, Wang and Wu, arXiv:2607.02916, first public 2026-07-03, establish one-endedness and walk collisions. Broutin–Flajolet (2012) address non-plane random binary trees; Janson (2021) surveys broader tree limits. Full motivating manuscript not available, so an implicit prior implication remains possible. The proof concerns 0<p<1 only and does not identify the exact distribution of the diameter offset.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Height versus diameter of a growing tree is a central metric statistic. An eventually constant random difference with nontrivial exponential tails and explicit fluctuations is a structural, reusable characterization, not a sample-specific statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
