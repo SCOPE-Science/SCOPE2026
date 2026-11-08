@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses are explicitly met by compact-gradient smooth losses. All numerical iterates remain in the region with exactly linear sample gradients, giving an exact recurrence. Brownian reflection and second-moment bounds justify the exponentially accurate geometric-Brownian coupling to the target SDE. Their difference proves the exact nonzero scaled global weak error; finite checks merely corroborate the recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1811.01558v1: general stochastic modified-equation derivations for SGD and momentum, not this shared-sample Heun counterexample.",
+        "arxiv:2201.12782v1: shared-stage sampling in stabilized stochastic Runge--Kutta optimization and decreasing-step convergence, not a fixed-time weak order-two theorem for this scheme."
+      ],
+      "reasoning": "Related stochastic approximation theorems either address different integrators or weaker asymptotics; neither implies this exact smooth first-order obstruction. The motivating source's stronger advertised guarantee is false on this example, not a prior correct result covering it.",
+      "searches": [
+        "arxiv:1811.01558v1 stochastic modified equations weak approximation",
+        "arxiv:2201.12782v1 stochastic RK shared minibatch convergence",
+        "Stochastic Runge-Kutta methods adaptive SGD-G2 convergence claimed order two local expectation Hessian gradient"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2002.09304v1",
+      "arxiv:1811.01558v1",
+      "arxiv:2201.12782v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2002.09304v1 Theorem 1 and equations (5),(6),(16),(19): the source asserts second-order weak convergence of the exact shared-sample scheme that this example contradicts; it cannot cover its own falsifying counterexample.",
+        "arxiv:1811.01558v1: general stochastic modified-equation derivations for SGD and momentum, not this shared-sample Heun counterexample.",
+        "arxiv:2201.12782v1: shared-stage sampling in stabilized stochastic Runge--Kutta optimization and decreasing-step convergence, not a fixed-time weak order-two theorem for this scheme."
+      ],
+      "reasoning": "Theorem 1 asserts a bound \\(O(h^2)\\) under the very conditions satisfied here, whereas the present construction proves a nonzero \\(h\\) leading term. It is a counterexample to, not a corollary of, the claimed result. The other inspected papers do not establish or disprove this precise scheme-to-SDE comparison.",
+      "searches": [
+        "arxiv:2002.09304v1 Thm 1; equations 5, 6, 7, 16, 19, 20, 21",
+        "arxiv:1811.01558v1 weak modified equations",
+        "arxiv:2201.12782v1 stage sampling",
+        "Ayadi Turinici SGD-G2 stochastic Heun claimed weak second order 2020 covariance gradient Hessian counterexample sample reuse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2002.09304v1 Theorem 1 and equations (5),(6),(16),(19): the source asserts second-order weak convergence of the exact shared-sample scheme that this example contradicts; it cannot cover its own falsifying counterexample."
+      ],
+      "reasoning": "The statement is also the failure of one-step Jacobian-gradient covariance cancellation, but that local defect alone would not prove a global barrier; the exact global limit supplies the new witness. No inspected source stated this equivalent global counterexample.",
+      "searches": [
+        "stochastic Heun same batch weak order one rather than two multiplicative gradient curvature variance",
+        "Ayadi Turinici SGD-G2 stochastic Heun claimed weak second order 2020 covariance gradient Hessian counterexample sample reuse",
+        "arxiv:2002.09304v1 eqs (5),(6),(16),(19)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Keyword and semantic searches for a published Heun correction and exact first-moment counterexample did not return an identified exact table or record; absence of hits is not proof."
+      ],
+      "reasoning": "This concerns a universal weak-order claim, not a catalogued finite object or database lookup. Literature and semantic search did not yield the same formula.",
+      "searches": [
+        "2020 arxiv 2002.09304 second order weak convergence stochastic Heun modified diffusion false heterogenous sample Hessian bias",
+        "stochastic Heun same batch weak order one rather than two multiplicative gradient curvature variance"
+      ]
+    },
+    "rationale": "A smooth globally-Lipschitz counterexample with exact nonzero first-order weak-error coefficient directly falsifies the purported second-order statement in the motivating paper. Examination of that paper and two relevant full-text comparators showed no stronger prior statement implying this explicit result; residual historical overlap is acknowledged.",
+    "residual_risks": [
+      "An unindexed correction, specialist discussion, or earlier generic stochastic RK counterexample may prove equivalent facts.",
+      "The counterexample does not determine whether an appropriately drift-corrected stochastic modified equation is globally weak order two."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 claims weak order two for eq(5) relative to eq(6); eq(19) misses the same-sample Jacobian-gradient covariance, and the exact globally Lipschitz counterexample refutes the stated rate.",
+        "evidence": [
+          "Eq (5): same sample in both stages; eq(6): uncorrected covariance-driven SDE; eqs (16),(19): moment comparison; Theorem 1 assertion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2002.09304v1",
+        "material_read": "Abstract, introduction, Section 3.1 entire theorem and proof (equations (5)--(21)), Section 3.4 distinction between auxiliary and adaptive method",
+        "method": "Read original openly accessible HTML full text and compare identities",
+        "title": "Stochastic Runge-Kutta methods and adaptive SGD-G2 stochastic gradient descent",
+        "trigger": "Same-sample Heun scheme and explicit weak-order-two theorem"
+      },
+      {
+        "assessment": "Analyzes SGD and other gradient algorithms; not identical shared-sample stochastic-Heun scheme; does not supply this global counterexample.",
+        "evidence": [
+          "General weak approximation framework and modified equations for stochastic gradient algorithms."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1811.01558v1",
+        "material_read": "Abstract and relevant stochastic-modified-equation and weak approximation sections",
+        "method": "Read freely accessible HTML full text, mathematical assertions compared",
+        "title": "Stochastic Modified Equations and Dynamics of Stochastic Gradient Algorithms I: Mathematical Foundations",
+        "trigger": "Foundational weak stochastic modified-equation techniques cited by the motivating paper"
+      },
+      {
+        "assessment": "Gives stochastic optimization convergence guarantees and shared-sample implementation; not the same fixed-horizon weak order-two assertion or counterexample.",
+        "evidence": [
+          "The stochastic RKC method reuses sampled data across stages and analyzes decreasing-step optimization convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12782v1",
+        "material_read": "Full-text method definition including stagewise sample reuse; convergence hypotheses and results",
+        "method": "Read openly accessible HTML full text and compared method/claim",
+        "title": "SRKCD: a stabilized Runge--Kutta method for stochastic optimization",
+        "trigger": "Independent subsequent analysis of stochastic Runge--Kutta methods and shared sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ddc802d-7de2-48ce-aefc-a29c6ccdd6a7",
+  "value": {
+    "rationale": "The original mathematical guarantee is a motivated claim about a high-order stochastic numerical method. Exhibiting its exact first-order obstruction under the published global Lipschitz assumptions is mathematically consequential for stochastic-modified-equation modeling; the explicit coefficient diagnoses which covariance was omitted. The result is not a trivial renamed special case of an established valid theorem.",
+    "status": "PASS"
+  }
+}
