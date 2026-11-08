@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Analytical and computational verification
 
-The finite checks in `verify.py` reproduce the transition polynomial, the two endpoint factorizations, the exact root equations, and eigenvalue counts for 50 rational pairs. The script exits with success only when these tests pass. To reproduce: `python verify.py` with SymPy available. Its computational checks are finite and make no claim to exhaustive verification of an infinite parameter domain.
+# Independent mathematical audit
 
-The universal result instead follows from the proof in `RESULT.md`: two-cycle coordinates are forced by the shift structure, the quadratic discriminant enumerates all real cycles, and any multiplier crossing the unit circle must pass through one of the three algebraically classified cases. Nonreal unit-pair crossings occur only below the birth boundary, while the \(-1\) crossing is simple and transverse. No local existence result for a four-cycle is asserted. Independent validation remains unperformed.
+## correctness
+
+PASS
+
+Every primitive two-cycle alternates (u,v,u),(v,u,v); subtracting orbit equations forces u+v=b-1, with discriminant 4(a-a_birth), giving existence/unique unoriented cycle iff a>a_birth. Monodromy J(u)J(v) characteristic p(lambda)=lambda^3+2(b-1)lambda^2+4[b(b-1)-a]lambda-b^2, so p(1)=-4(a-a_birth)<0 gives a real root>1. The characteristic polynomial factors at birth and at a_flip=(5b^2-6b+3)/4; p(-1)=4(a-a_flip). Nonreal unit pair would require other root b^2 and a_pair-a_birth=b(b+2)(b^2-1)/4<0, impossible in existence domain. At flip -1 is simple and crosses outward, while other roots are >1 and in (-1,0). Thus unstable index exactly 1 then 2. Actual Sympy verification source read and direct algebra reconstructed; numeric tests are not proof of unrestricted b. No four-cycle bifurcation inferred.
+
+## originality
+
+PASS
+
+The family and near-onset period-two instability are established by earlier literature; the complete global primitive-two census and exact index-one to index-two threshold were not located in materially examined mode-locking and fixed-point sources. Qualified priority because 2002 Richter and other historic same-family treatments may imply it.
+
+## value
+
+PASS
+
+A complete parameter-uniform spectral and orbit census for the first nontrivial periodic branch in a canonical three-dimensional quadratic diffeomorphism, with exact saddle index jump and impossibility of attracting two-cycle. This sharp bifurcation boundary is intrinsically useful even without a higher-cycle theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
