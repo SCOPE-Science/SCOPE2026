@@ -1,0 +1,15 @@
+# Scientific review: Integral Weyl-group persistence of the 24-cell graph
+
+## Correctness — PASS
+The exact vertex coordinates, pairwise distances, octahedral-facet membership and clique-triangle identity are checked by a complete enumeration, not sampled experimentation. The key geometric proof that the scale-one flag complex is the two-skeleton of a convex three-sphere, and that removing twenty-four facet interiors gives a wedge of twenty-three two-spheres, is independent of numerical field homology. The scale-two graph is a complete graph with twelve forbidden antipodal pairs, giving a join of twelve zero-spheres. The integral \(W(F_4)\)-lattice follows from the top cellular exact sequence and a consistent ambient boundary orientation. The degree-eleven determinant character is proved from four generating reflections. All \(1152\) graph automorphisms are independently enumerated and all stated rational traces verified.
+
+## Originality — PASS relative to inspected evidence
+Adamaszek (2011) provides the foundational graph-power complex construction, not this symmetry calculation. Saleh (2023, §4.2 p.73) *already gives* the numerical ranks of degree-two and degree-eleven homology at related Euclidean thresholds for the same vertex configuration. Such numerical ranks and classical \(24\)-cell face data are **not** claimed as new. The inspected prior results do not supply the full integral \(W(F_4)\)-module quotient, the complete \(1152\)-element degree-two character distribution, the degree-eleven determinant action or their graph-shortest-path equivariant persistence. The strongest risk is an unindexed calculation or use of routine equivariant CW formalism in a previously uninspected text; definitive publication priority is not certified.
+
+## Mathematical value — PASS
+The exceptional \(W(F_4)\) action on this canonical regular polytope makes equivariant persistent topology a natural invariant. Explicit integral lattice structure matters here: the quotient by the diagonal class is not to be silently replaced by the integral augmentation kernel. The representation determines all rational traces and proves that the two positive-degree homology groups have no invariant classes. These conclusions are invisible in the previously tabulated nonequivariant Betti numbers and are more than a routine numerical increment. The theorem is deliberately restricted to the graph metric on one canonical polytope; no general polytopal theorem or independent validation is asserted.
+
+## Sources and residual limits
+The most directly relevant inspected primary documents are Adamaszek, *Clique complexes and graph powers* (arXiv:1104.0433, 2011), and Saleh, *On Vietoris-Rips Complexes of the 2-Sphere* (2023), Chapter 4 §4.2 p.73. The latter uses a four-distance convention and documents the overlapping non-equivariant ranks, while the present graph metric has diameter three. Finite checks use the included code; priority conclusions are qualified by the scope of actual literature and index coverage.
+
+Self-review: passed. Independent audit: not yet performed.
