@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:58:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-quadratic-embedding-constants-and-maximizing-fourier-modes--e4d98a43c5a0/RESULT.md blob daa5e575be2d50c50ed27985ff4bf28391fd11ee",
+        "2026/11/02/exact-quadratic-embedding-constants-and-maximizing-fourier-modes--e4d98a43c5a0/verify.py blob d1354cf6df160ef425652057af9e6689a542da7c",
+        "independent_checks.py freshly constructed and run"
+      ],
+      "rationale": "For each unit-edge M_{2n}, n≥3, the shortest-path profile f(k)=min(k,n+1−k) on 0≤k≤n is exact by cycle/opposite-jump parity. Thus D is a real symmetric 2n-circulant. Fourier transforming its discrete second difference at profile corners gives nonpositive even-index eigenvalues and, at odd j, (−1)^((j+1)/2)csc(πj/(2n)) for odd n or the corresponding cotangent for even n. Among positive reflected frequencies, j=3 gives the unique largest eigenvalue (one real dimension at n=3; 2 otherwise). Its strict positivity rules out squared-Hilbert embedding by conditional negative definiteness; Taylor series establish parity tails. Independent BFS-built matrix eigenanalysis corroborated all n=3,…,23; the corner algebra proves all n.",
+      "residual_risks": [
+        "Only shortest-path unweighted distances, not effective resistance or normalized graph distances; numerical eigenchecks are finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Obata–Zakiyyah establish the general spectral reduction; other graph families or resistance metrics do not state the geodesic Möbius ladder spectrum."
+        ],
+        "reasoning": "The broad theorems furnish a method, but they do not supply this exact family-dependent parity formula without a separate spectrum computation.",
+        "searches": [
+          "Obata Zakiyyah 2018 distance matrices quadratic embedding graphs",
+          "arxiv:2306.15589 quadratic embedding constants distance spectra",
+          "arxiv:2306.10497 Mobius resistance matrices"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md, verify.py frozen SHA identities",
+        "Resultary semantic query Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC",
+        "arxiv:2306.10497 relevant primary sections",
+        "arxiv:2306.15589 relevant primary sections",
+        "Obata–Zakiyyah QEC paper relevant sections",
+        "independent BFS real symmetric eigensolver n=3..23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resistance distance and shortest-path distance are distinct; general QEC reduction does not automatically compute a graph-family spectrum."
+        ],
+        "reasoning": "Neither identified prior statement logically yields the explicit parity csc/cot formula or j=3 maximizer without deriving the exact distances/eigenvalues.",
+        "searches": [
+          "arxiv:2306.10497 effective resistance formulas",
+          "Obata Zakiyyah QEC=max nontrivial eigenvalue",
+          "Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "QEC on distance-regular-row-sum graphs is max nonconstant geodesic distance eigenvalue; Azimi–Farrokhi paper studies resistance matrices of ladders."
+        ],
+        "reasoning": "A resistance-spectrum formula is not the same as the shortest-path distance circulant spectrum; the explicit geodesic Fourier j=3 extremum is a different invariant.",
+        "searches": [
+          "Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC",
+          "Möbius ladder graph geodesic distance spectrum circulant eigenvalues",
+          "arxiv:2306.10497"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct geodesic Möbius ladder distance table or same QEC found in inspected searches; n=3 specialization is already classical."
+        ],
+        "reasoning": "If a prior full distance spectrum of these graphs exists the QEC would be its direct corollary; this is specifically retained as priority risk rather than claiming search proves novelty.",
+        "searches": [
+          "Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC",
+          "Möbius ladder distance eigenvalue distance spectrum table OEIS",
+          "Resultary semantic search Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the parity-resolved geodesic-distance QEC plus exact maximizer subspaces and asymptotics. General constant-row-sum QEC/eigenvalue equivalence and known M6=K3,3 case are credited; identified Möbius-ladder matrix paper studies effective resistance, a different metric. Undiscovered classical distance-spectrum coverage remains a genuine risk.",
+      "residual_risks": [
+        "Older graph-distance spectrum of Möbius ladders under M_n or circulant graph C_{2n}(1,n) may imply the formula without matching title.",
+        "n=3 special case K3,3 already known and is not separately original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Effective-resistance rather than shortest-path distance; consequently noncovering for the specific geodesic-distance matrix, though other uninspected spectra may exist",
+          "evidence": [
+            "Paper matrix type is electric effective resistance"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.10497",
+          "material_read": "Title, abstract and relevant matrix definitions/results section including resistance metric",
+          "method": "Accessible primary PDF, relevant sections visually examined",
+          "title": "Explicit formulas for matrices associated to ladder, circular ladder, and Mobius ladder graphs",
+          "trigger": "Exact same graph family, possible stronger matrix spectrum"
+        },
+        {
+          "assessment": "General method acknowledged, no inspected closed Möbius ladder geodesic formula",
+          "evidence": [
+            "QEC bound in terms of nonconstant eigenvalues"
+          ],
+          "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/435/pdf_64",
+          "material_read": "Relevant QEC definition and constant-row-sum spectral reduction",
+          "method": "Accessible primary full text relevant sections",
+          "title": "Distance matrices and quadratic embedding of graphs",
+          "trigger": "Origin of QEC distance-eigenvalue reduction"
+        },
+        {
+          "assessment": "No specific matching Möbius ladder shortest-path formula observed; do not extrapolate to unread portions",
+          "evidence": [
+            "General QEC background and distance spectra"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.15589",
+          "material_read": "Introductory sections and listed graph-class scope",
+          "method": "Accessible primary preprint, partial full-text inspection",
+          "title": "Quadratic embedding constants of graphs: Bounds and distance spectra",
+          "trigger": "Potential dominating QEC classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-quadratic-embedding-constants-and-maximizing-fourier-modes--e4d98a43c5a0/RESULT.md blob daa5e575be2d50c50ed27985ff4bf28391fd11ee",
+        "Git RESULT.md, verify.py frozen SHA identities",
+        "Resultary semantic query Möbius ladder shortest path distance matrix eigenvalues quadratic embedding constant Fourier QEC",
+        "arxiv:2306.10497 relevant primary sections",
+        "arxiv:2306.15589 relevant primary sections",
+        "Obata–Zakiyyah QEC paper relevant sections",
+        "independent BFS real symmetric eigensolver n=3..23"
+      ],
+      "rationale": "A complete all-size exact signed-distance embedding obstruction and maximizing eigendirections for a natural cubic graph family identifies sharp non-Euclidean metric behavior; even-vs-odd asymptotic corrections are meaningful structural invariants.",
+      "residual_risks": [
+        "Older graph-distance spectrum of Möbius ladders under M_n or circulant graph C_{2n}(1,n) may imply the formula without matching title.",
+        "n=3 special case K3,3 already known and is not separately original."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "M_{2n} unweighted shortest path, n≥3; does not apply to effective resistance, normalized weights or arbitrary Möbius ladder conventions.",
+    "Only shortest-path unweighted distances, not effective resistance or normalized graph distances; numerical eigenchecks are finite.",
+    "Older graph-distance spectrum of Möbius ladders under M_n or circulant graph C_{2n}(1,n) may imply the formula without matching title.",
+    "n=3 special case K3,3 already known and is not separately original."
+  ],
+  "schema_version": 1
+}
