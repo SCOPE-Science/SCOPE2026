@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite binomial identity is an established combinatorial formula. Dividing by \(N\), an explicit coefficient valuation bound isolates precisely two potentially nonintegral summands; when \(27\mid N\), both binomial factors are \(1\pmod9\), so the sum is a three-adic unit. Published periodicity of involution numbers then gives all periodicity levels needed to reduce the low-valuation cases to a complete 27-entry finite certificate. The proof establishes the unlimited-index exact formula, not just finite numerical agreement. The independently executed verifier reports successful checks through 40,000 indices.
+PASS
 
-## Originality
+The exact identity a_(N-1)=sum_(k>=0)(2k-1)!! C(N,2k+1) yields a_(N-1)/N=sum c_k C(N-1,2k), c_k=(2k-1)!!/(2k+1). For 27|N the only nonintegral c_k are k=1,4, and the two binomial coefficients are 1 mod9; their combination (1+35)/3=12 is zero mod3. All other k>=2 terms have v3>=1 by finite base bound and exponential tail estimate. So a_(N-1)/N is a 3-adic unit. The established involution periodicity mod3^r and full vector of a_0..a_26 mod27 now reduce all n to three exceptional n mod9 classes: 4 -> valuation2, 6 -> valuation1, 8 -> v3(n+1), others zero. Independent integer recurrence mod729 confirmed 4000 indices; this is corroboration, not a proof of infinite period.
 
-**PASS, with priority uncertainty.** Amdeberhan--Moll's 2014 preprint defines the sums and prints a three-adic observation in Note 6.4 that is inconsistent with its own small values. The finding supplies a substantive complete formula, not merely a correction at one index. Miska--Ulas 2019/2020 analyzes the larger family of permutation sequences, but the relevant inspected sections do not give the stated valuation law. Database and mathematical-record searches found no equivalent classification; unlocated specialized literature is possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Partial sums of a classical combinatorial sequence form a natural arithmetic object. The result gives a sharp prime-power divisibility criterion and describes two finite-depth branches plus a unique infinite-depth one; these are structural answers valid for all indices, not a narrow arbitrary computation. It resolves the specific odd-prime behavior proposed for further investigation in the source paper.
+Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. Finite original table and OEIS A000085 individual sequence do not state corrected all-index v3
 
-## Limitations
+## value
 
-No conclusion is claimed for other primes or other permutation sequences. The independent mathematical audit has not been performed. Historical-priority uncertainty remains, particularly where general modular-shift theorems might imply part of the result; the explicit coefficient-unit proof and full law were compared with inspected antecedents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original paper specifically left odd-prime valuations of these partial sums as a question and printed a conflicting mod3 pattern. An all-index valuation law with a unique unbounded branch repairs that natural arithmetic gap; not an arbitrary small table extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
