@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The submitted analytic proof begins with the exact general-dimensional change of variables \(S=\sum_i x_i\), \(p_i=x_i/S\). Its key algebraic step is the identity
-\[
-\dot\Phi=(\dot S/S)^2+2\sum_i\dot p_i^{\,2}/p_i.
-\]
-The proof also verifies proper superlevels using strictly positive entries of \(A\) and \(\mu>0\), then invokes the standard finite-dimensional analytic-gradient convergence theorem. The conclusion is a theorem about every positive-time trajectory, not an extrapolation from finite simulations.
+## correctness
 
-The `CHECKER.py` file contains exact rational, standalone field/gradient/dissipation checks on two distinct symmetric positive competition matrices, two positive mutation rates, four frequency vectors and two mass values (32 cases), plus an exact discriminant check for the positive multistable case. It requires only the Python standard library. The checker passed after extraction from the submitted embedded file. These finite checks validate symbolic identities at test points; they are not a formal proof of the universal quantified result.
+PASS
 
-Limitations: the interacting growth matrix must be symmetric with strictly positive entries; mutation is positive and uniform all-to-all. The theorem establishes individual limit points but not a uniform rate, basin boundary, carrying manifold, or priority against uninspected literature. Self-review does not constitute independent scientific audit.
+Full frozen RESULT.md proof yields Sdot=S(1-Sq) and pdot_i=-S p_i((Ap)_i-q)+mu(1-d p_i). Symmetry ensures Phi_S=1/S-q and Phi_pi=-2S(Ap)_i+2mu/p_i, giving the exact positive metric sum-of-squares. Entrywise A>0 bounds Phi above by log S-mS, while positive mutation logarithms exclude simplex boundary, so positive superlevels are compact. Real-analytic gradient convergence via Lojasiewicz yields convergence to one equilibrium even with multistability, not necessarily same equilibrium for all initial points. Independently evaluated a rational d=3 asymmetric-in-state example with A diagonal 1/off-diagonal 13/10, mu=3/100; both Phi derivative and squares equal 1008907/1620000 exactly. The full general result is based on the analytic proof, not that one test.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit coupled mass-frequency entropy potential and point convergence for arbitrary entrywise-positive symmetric competition and all positive global mutation. Full Coville–Fabre 2013 Theorems 1.1–1.4 and Jaramillo–Mrad–Stepien 2022 symmetric-slice Section IV/Appendix A were read: the former assumes species-independent competition or bounded small perturbations for convergence, the latter gives local and equilibrium bifurcation information, not this all-A potential. Classical Shahshahani and Lojasiewicz tools are background.
+
+## value
+
+PASS
+
+The explicit coupled nonconservative potential and full point-convergence theorem for arbitrary positive symmetric species competition is a natural nontrivial stability classification; not a mere fixed-point formula. Global mutation, possible multistability and arbitrary dimension provide independent motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

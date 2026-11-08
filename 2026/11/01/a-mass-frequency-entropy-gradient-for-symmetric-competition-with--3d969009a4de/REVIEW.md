@@ -1,11 +1,21 @@
-# Review: mass–frequency entropy gradient and point convergence
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact mass and proportion ODEs reproduce the original competition–mutation field. Symmetry of the interaction matrix identifies a strict gradient with exact squared-speed dissipation. Positive-entry competition and positive mutation make potential superlevels compact in the simplex interior. Analytic gradient convergence proves the full point-limit statement without assuming a unique equilibrium. The separately executable rational checker exercises the formulas but finite tests are not the infinite proof.
+## correctness
 
-**Originality — PASS within checked sources.** The motivating 2022–23 article already gives analytic diagonal equilibrium expressions, local stability and numerical nonoscillation: those are credited rather than claimed. The materially inspected 2013 mutation–competition theory guarantees unique global convergence only for type-blind competition or small bounded deviations, with mere existence in a general-interaction theorem. It does not subsume arbitrary symmetric, multistable competition and every mutation rate. Published semantic retrieval returned related but materially different models. Remaining risk: uninspected potential-game and replicator–mutator literature may reveal structural predecessors.
+PASS
 
-**Value — PASS.** The energy identity provides a natural all-dimensional convergence mechanism where the motivating paper leaves global behavior to numerical work. It resolves the finite-dimensional recurrence question for the exchange-symmetric mutated May–Leonard system even in its multistable region, without claiming uniqueness, a global basin classification or a carrying surface.
+Full frozen RESULT.md proof yields Sdot=S(1-Sq) and pdot_i=-S p_i((Ap)_i-q)+mu(1-d p_i). Symmetry ensures Phi_S=1/S-q and Phi_pi=-2S(Ap)_i+2mu/p_i, giving the exact positive metric sum-of-squares. Entrywise A>0 bounds Phi above by log S-mS, while positive mutation logarithms exclude simplex boundary, so positive superlevels are compact. Real-analytic gradient convergence via Lojasiewicz yields convergence to one equilibrium even with multistability, not necessarily same equilibrium for all initial points. Independently evaluated a rational d=3 asymmetric-in-state example with A diagonal 1/off-diagonal 13/10, mu=3/100; both Phi derivative and squares equal 1008907/1620000 exactly. The full general result is based on the analytic proof, not that one test.
 
-**Scientific scope.** Symmetric strictly entry-positive competition, common positive complete-graph mutation and equal intrinsic growth only; no conclusion for the asymmetric cyclic competition regime. No independent publication-priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for explicit coupled mass-frequency entropy potential and point convergence for arbitrary entrywise-positive symmetric competition and all positive global mutation. Full Coville–Fabre 2013 Theorems 1.1–1.4 and Jaramillo–Mrad–Stepien 2022 symmetric-slice Section IV/Appendix A were read: the former assumes species-independent competition or bounded small perturbations for convergence, the latter gives local and equilibrium bifurcation information, not this all-A potential. Classical Shahshahani and Lojasiewicz tools are background.
+
+## value
+
+PASS
+
+The explicit coupled nonconservative potential and full point-convergence theorem for arbitrary positive symmetric species competition is a natural nontrivial stability classification; not a mere fixed-point formula. Global mutation, possible multistability and arbitrary dimension provide independent motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
