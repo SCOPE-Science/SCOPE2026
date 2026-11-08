@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:46:58.610788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and exact Python enumeration source, blobs dff481c00f90a9b95ea98f107e5fdbbd518ac7be and 67cc023f3b9f11bbb7df709f48b4ae545d9d4043",
+        "Independently enumerated all distinct 3-arc subsets at n=4,5,6: degree compatible 114,274,594; Euler-connected 104,264,584; exactly 10 failures each."
+      ],
+      "rationale": "Every surviving length-n block appears exactly once in a linear word iff the residual B(2,n−1) directed graph admits an Euler trail; only active vertices count. I reconstructed the classification of three deleted arcs into balanced triangles or loop+two-cycle (four), both loops plus a nonloop (N−2), two-cycle plus remaining nonloop (N−4), one loop and an open two-arc trail (4N−16), and loop-free three-arc open trail (4N−28), giving 10N−46 degree-compatible triples for N=2^n. The published super-edge-connectivity result reduces a ≤3-arc disconnection to isolation of a constant vertex; direct examination of the two external arcs and five possible third deletions at each constant vertex gives ten genuine failures when n≥4. Thus 10N−56 successful triples. The theorem depends on the cited connectivity premise, which is not claimed as newly proved.",
+      "residual_risks": [
+        "Super-edge-connectivity of de Bruijn digraphs is an external published theorem, not independently re-proved here.",
+        "n=3 and repeated forbidden words are excluded; only existence of a linear word, not the number of Euler trails."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. provide general bounds and exact s=1,2 cases; Xu–Lü prove super-edge-connectivity of de Bruijn graphs."
+        ],
+        "reasoning": "The published cut theorem supplies a necessary structural input but does not count all admissible deleted triples or their Euler-degree patterns; Chen’s general lower bounds do not force the exact stated numerator.",
+        "searches": [
+          "Chen Kitaev Sun arxiv 1908.01116 general s probability universal word bounds",
+          "Xu Lü restricted edge connectivity de Bruijn digraph theorem"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1908.01116",
+        "Xu–Lü, Ars Combinatoria 87 (2008), 385–392",
+        "Resultary exact binary universal word deletion query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xu–Lü isolates low-edge cuts; Chen et al. describe Eulerian characterization and short deletion examples."
+        ],
+        "reasoning": "The new four unbalanced combinatorial classes + ten active-component exceptions are needed for all-n exactness, rather than a direct stated corollary of cited general results.",
+        "searches": [
+          "Chen Kitaev Sun section 3 binary forbidden words and universal linear words",
+          "Xu Lu super-edge-connectivity Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Kitaev–Sun arXiv:1908.01116 defines exactly P_w(n,k,s) including the same linear-word model; its n=4,s=3 fraction 13/70 agrees with the evaluated formula."
+        ],
+        "reasoning": "This is exactly the P_w(n,2,3) probability under deleting distinct arcs; agreement for a single listed n does not entail all n≥4 or the ten exceptional disconnections.",
+        "searches": [
+          "Resultary: Exact probability of a linear universal word after deleting three binary length n de Bruijn arcs",
+          "Chen Kitaev Sun probability P_w(n,2,3) universal word",
+          "Euler trail binary de Bruijn graph three forbidden factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chen et al. n=4 table contains 13/70 =104/C(16,3), one instance. Resultary hits concern binary deletion reconstruction and scattered-subsequence universality, not factor-deletion Euler words."
+        ],
+        "reasoning": "The table confirms one base instance but is not an infinite table or general coefficient identity. An unindexed OEIS-style formula for 10·2^n−56 remains possible.",
+        "searches": [
+          "Chen Kitaev Sun 2020 table binary n4 s3 13/70",
+          "Resultary exact universal word after three forbidden binary factors probability"
+        ]
+      },
+      "rationale": "Qualified PASS for the all-n binary n≥4 exact 3-factor-deletion probability, not for the Euler-trail equivalence or known n=4 table. The 2020 universal-words primary source covers s≤2 plus small s=3 examples, while Xu–Lü provides the known connectivity theorem; no all-n three-deletion enumeration was observed in inspected texts.",
+      "residual_risks": [
+        "A later paper extending Chen–Kitaev–Sun to s=3 might contain the same closed form under a different term.",
+        "Dependence on Xu–Lü theorem statement as cited, including scope of de Bruijn digraph and cut size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": "Published n=4 value 13/70 and general Euler idea precede; no all-n three-arc formula in inspected mathematics.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.01116",
+          "material_read": "Primary full PDF: definitions, universal word/cycle distinction, exact small deletion cases and binary n=4,s=3 table, and general bounds",
+          "method": "Downloaded open preprint, read relevant sections and inspected page screenshots",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "Identical probability object P_w(n,2,3)"
+        },
+        {
+          "assessment": "EXTERNAL_LEMMA_USED",
+          "evidence": "Supports singleton-isolation argument; does not itself enumerate Euler-trail triples.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20087/volume-87-paper-30.pdf",
+          "material_read": "Primary PDF statement of restricted connectivity and super-edge-connectivity, including Corollary 1",
+          "method": "Read mathematical statements and inspected first-page PDF screenshot",
+          "title": "Restricted Edge-Connectivity of de Bruijn Digraphs",
+          "trigger": "Critical theorem restricting ≤3-edge disconnections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact 3-arc classification in frozen RESULT.md",
+        "Chen–Kitaev–Sun 2020 universal word existence problem"
+      ],
+      "rationale": "The universal-word existence probability under a fixed number of forbidden n-factors is the natural next exact case after published s≤2 results. A full infinite-family count, its 10 exceptional nonconnected configurations and Euler-trail interpretation are independently usable in constrained de Bruijn sequencing and word combinatorics.",
+      "residual_risks": [
+        "Only binary and three distinct deletions; not a distribution of number of valid Euler trails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires binary alphabet, n≥4, distinct exactly-three forbidden factors and linear rather than cyclic once-only coverage.",
+    "Source connectivity theorem is credited; external primary verification not an independently proved lemma."
+  ],
+  "schema_version": 1
+}
