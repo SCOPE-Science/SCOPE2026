@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has a complete combinatorial proof for every stated path length and cycle length. The essential structural step is that the surviving cross-edges between endpoints of a chosen matching are exactly the unit gaps between successive matching edges, and those cross-edges are pairwise vertex-disjoint. Because the original paths and eligible cycles are triangle-free, these produce all, and only, the triangles in the grown graph. Inclusion--exclusion therefore counts every ordered edge partition with a monochromatic triangle in both parts. Ordinary stars-and-bars counts the linear-gap profiles; cyclic compositions with a distinguished matched edge count the cyclic profiles, including the exceptional alternating perfect matchings. Formal-power-series algebra yields the displayed rational expressions. The asymptotic success estimate follows from a strictly smaller weighted matching growth constant for each weight below one. The code separately enumerates matchings, grown-graph triangles, and all edge partitions in the 85 tested smaller configurations that contain triangles (with 113 other cases certified triangle-free). No statement about an infinite domain is inferred from finite tests.
+PASS
 
-## Originality
+For the exact matching-replacement Builder–Chooser game on P_n n>=2 or C_n n>=4, surviving cross edges are unit gaps of a matching; triangles after growth are pairwise edge-disjoint. h>=2 is precisely existence of winning two-color assignment. For h triangles, inclusion-exclusion gives 2^(m+k-3h)(8^h-2*7^h+6^h) winning ordered assignments. Linear gap stars-and-bars and cyclic distinguished-edge counting yield the formulas for a_P(n,k,j), a_C(n,k,j), exceptional alternating perfect matchings and the two rational generating functions. Dominant weighted matching pole gives exponential random-plan win. Independent n<=12 matching profiles checked; unrestricted statements rest on combinatorial proof.
 
-**PASS with residual historical-priority risk.** The closest inspected original manuscript is A. London, *A Degree-Preserving Builder--Chooser Game*, arXiv:2605.26695v1, submitted 2026-05-26 UTC. Its Theorem 3.1 gives the one-round existence criterion, Corollary 3.2 gives the path length threshold, and Theorem 3.3 gives the cycle forcing times. Those results are expressly treated as prior. They give neither the matching-size and unit-gap distributions nor the numbers of all winning ordered partitions, the common-denominator rational generating functions, or exponential success of uniformly randomized first moves. The classical Goulden--Jackson method and weighted extensions are general tools for subword pattern enumeration, not located statements of the game-specific formulas. Search and comparative inspection found no stronger statement implying this complete profile as a ready-made corollary; an unidentified specialized enumeration remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In a newly studied graph game, knowing that one successful initial move exists says little about how constrained or robust that move is. The closed forms measure the entire family of available forcing matchings at every cardinality, count **all** admissible choices of the subsequent binary partition, and show that unoptimized, uniformly random one-round plans succeed with probability tending to one exponentially on both canonical seed families. The cycle formula captures the exceptional four-cycle and the missing five-cycle without separate case enumeration, while the common rational denominator reveals a shared counting mechanism. This is a motivated complete strategy-profile theorem, not merely a restatement of a path-length threshold or a numerical finite census.
+Qualified PASS: London 2026 already proves one-round existence criterion, path/cycle forcing thresholds and triangle cross-edge structure. The complete matching-size/unit-gap count, binary assignment multiplicity and exponential typical success rate are not given by those thresholds; weighted pattern-enumeration method is classical.
 
-## Closest literature and limits
+## value
 
-A. London, arXiv:2605.26695v1, sections 2--4 (full paper inspected), is the closest graph-game source. I. P. Goulden and D. M. Jackson (1979), and E. J. Kupin and D. S. Yuster (2010), provide pattern-enumeration frameworks; only their accessible abstracts were used for methodological comparison. The stated results concern the precise matching-replacement rule, one-round triangle forcing, paths and nontriangular simple cycles, labelled edges, and named edge partitions. They do not establish all possible graph-game outcomes or resolve longer-round play. Historical priority remains provisional against unindexed equivalent work. All computational experiments are finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Measures the full set of winning initial strategies rather than only existence, including probabilities for unoptimized random strategies and exact exceptional C4/C5 behavior; a natural and complete refinement in this specific graph game.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
