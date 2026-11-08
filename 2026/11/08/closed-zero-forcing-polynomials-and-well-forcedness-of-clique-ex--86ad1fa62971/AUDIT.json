@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3,m>=2, pairs of initially white true twins cannot be forced. Once at most one white lies in each fibre, every fibre contains a blue vertex and the literal one-white-neighbour condition is exactly a cyclic triple having two full and one partial fibres. A pair of full fibres at distance <=2 initiates an adjacent full pair (if necessary filling their middle fibre), after which a maximal consecutive full run extends across the cycle; without such pair no force starts. The complement of admissible B is precisely the independence-set family of C_n squared. Ordered positive cyclic gap compositions prove its size-k count n/(n-2k) binom(n-2k,k); k=0 is 1. Edge-minimal full index sets are exactly the edges of C_n squared, giving cardinality n(m-1)+2 and count |E(C_n squared)|m^(n-2). Verified directly for 128832 starting vertex subsets in ten graph profiles against the literal color-change rule and polynomial coefficients; the unrestricted claim follows from the proof, not finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang 2026 Corollary 3.6 gives an exact summation over fort-free type profiles for all twin blow-ups and O(3^n) algorithm, a broader computational framework; §5 Theorem 5.1 explicitly treats common clique unions (star type graph).",
+        "Javaid et al. 2016 arxiv:1607.04071 Corollary 3.17 explicitly asserts Z(C_n[K_m])=n(m-1)+ceil(n/2) for n>=4,m>=3, which is contradicted by an explicit C5[K3] 12-blue force sequence."
+      ],
+      "reasoning": "The broader modular-compression theorem already establishes binary twin feasibility and generic exact enumeration, so neither generic decidability nor binary twin compression is claimed as novel. The new claim is closed binomial evaluation and all-minimal classification on the cycle, not contained as a separately stated evaluative formula in that source. The 2016 asserted scalar is not stronger coverage because it fails on a fully explicit witness and disagrees with the proved theorem; the disagreement is stated transparently.",
+      "searches": [
+        "Modular Compression of Leaky Forts and Leaky Forcing Polynomials Xinjun Wang theorem 3.2 corollary 3.6 section 5",
+        "arxiv:1607.04071v1 §3 lexicographic product Proposition 3.16 Corollary 3.17",
+        "zero forcing of clique expansions G[K_m], complete fibers, propagation and minimal forcing configurations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.14298v1 2023-12-21",
+      "arxiv:1801.08910v1 2018-01-26",
+      "arxiv:1607.04071v1 2016-07-14",
+      "Wang 2026 DOI 10.5281/zenodo.20388397 relevant article-hosted text",
+      "published zero forcing polynomial results for fans and friendship graphs",
+      "published well-forced complete multipartite and general graph records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Javaid et al. 2016 Corollary 3.17 is contradicted at n=5,m=3: our twelve-blue witness forces three successive whites, whereas its claimed value is thirteen. This was checked against the original source PDF page 15.",
+        "Grood et al. 2023 defines well-forced and proves tree cases/elementary families, not the cyclic expansion theorem.",
+        "Wang 2026 gives the strongest related general theorem: universal fort-free profile enumeration, but does not provide the explicit square-cycle edge criterion or coefficient closed form."
+      ],
+      "reasoning": "The new theorem is not a corollary of the 2016 numeric formula; the formulas disagree, with a concrete counterexample. It refines the general zero forcing polynomial framework and produces a nontrivial closed evaluation beyond a general exponential-time algorithm. Remaining risk is that the 2026 general result may make the specialized closed evaluation seem routine to an independent expert or another source already gives that evaluation.",
+      "searches": [
+        "arxiv:1607.04071 Corollary 3.17 Cn circ Km original PDF page 15",
+        "arxiv:2312.14298 §3 well forced original PDF",
+        "2018 The zero forcing polynomial of a graph Theorem 10 Theorem 12 PDF",
+        "2026 Modular Compression Corollary 3.6 Theorem 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grood et al. 2023 arxiv:2312.14298 §3 Proposition 3.2 lists complete multipartite and cycles with pendant, not blow-up cycles.",
+        "Boyer et al. 2018 arxiv:1801.08910 Theorems 10 and 12 characterize threshold graphs; there is no lexicographic-product treatment in inspected full-text search.",
+        "Wang 2026 DOI 10.5281/zenodo.20388397 Corollary 3.6 provides true-twin binary profiles, while §5 derives star-type rather than cycle-type explicit formulas."
+      ],
+      "reasoning": "The search covers names clique-expanded cycles, complete clique blow-ups, lexicographic cycle products, true-twin modules and well-forced graphs. A generic binary twin reduction does not assert that a profile is admissible precisely when fully blue fibre indices contain an edge in the square cycle, nor evaluate its closed cardinality formula. No identical implication with this explicit result was located.",
+      "searches": [
+        "well-forced graphs zero forcing polynomial of cycle blowups C_n[K_m], all minimal forcing sets correspond to edges of square of cycle",
+        "lexicographic product C_n circ K_m zero forcing polynomial all initial blue sets full fibers distance at most two",
+        "zero forcing polynomial cycle of cliques lexicographic product complete graph C_n K_m zero forcing sets",
+        "arxiv:2312.14298 PDF find lexicographic, cycle",
+        "arxiv:1801.08910 PDF find lexicographic, blow, cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boyer et al. 2018 enumerates classical graph families including threshold graphs but no table for complete-clique cycle expansions.",
+        "Relevant published records returned exact zero-forcing polynomials for fans and friendship graphs and well-forced complete multipartite graphs, not this parameter family."
+      ],
+      "reasoning": "No exact prior polynomial coefficient table for this family was located. The subtraction involves the known independent-set enumeration of the squared cycle; that elementary ingredient by itself does not prove the zero-forcing equivalence.",
+      "searches": [
+        "zero forcing polynomial of thick cycles C_n[K_m] coefficient table",
+        "cycle-of-cliques exact zero forcing set characterization and weight enumerator by independence polynomial of square cycle",
+        "zero forcing polynomial for thick cycles blowups of cycle by complete graph"
+      ]
+    },
+    "rationale": "Novelty assessed only for the explicit cycle-square all-set equivalence, the closed coefficient formula and the classification of every inclusion-minimal set. The 2016 lexicographic-product paper has directly contrary Corollary 3.17 (it predicts 13 rather than the explicit 12-blue zero-forcing configuration on C5[K3]); the current proof corrects that statement, rather than claiming a number already proved there. The 2018 polynomial paper enumerates other families; 2023 well-forced paper treats trees/elementary families. The 2026 modular compression theorem covers twin-profile reduction and a generic exact exponential algorithm, but its assessed explicit specializations are star-type rather than cycle type. This broader coverage is acknowledged and limits novelty to the nontrivial closed cyclic evaluation and well-forced classification. Semantic public literature searches and published related records did not establish the exact theorem; priority remains provisional.",
+    "residual_risks": [
+      "A universal exact twin-profile algorithm predates the present explicit evaluation; independent expert may view cycle evaluation as a straightforward corollary.",
+      "Undiscovered papers under circular unit interval, cyclic clique expansions, true-twin substitutions or zero forcing polynomial terminology might prove the same formula.",
+      "The 2016 contradictory formula is from an arXiv preprint; later errata or versions might already correct it; checked v1 specifically.",
+      "Priority has not been independently established and proof has no independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the specific closed cycle-clique polynomial, while supplying well-forced terminology and known background families",
+        "evidence": [
+          "arXiv v1 dated 2023-12-21 on page 1; §3 Proposition 3.2 concerns complete multipartite and a cycle with pendant"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.14298",
+        "material_read": "Abstract, introduction, §3 well-forced families and Proposition 3.2, relevant tree results; original PDF front page also inspected visually",
+        "method": "Read publicly accessible PDF text and screenshot page 1; searched lexicographic and cycle within complete article",
+        "title": "Well-forced graphs",
+        "trigger": "Primary dated well-forced literature, possible classification containing clique expansions"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING evaluated closed polynomial for C_n[K_m]",
+        "evidence": [
+          "arXiv v1 2018-01-26; Theorem 12 counts threshold graphs using block subset algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+        "material_read": "Abstract, introduction, §4 threshold graphs including Theorems 10 and 12, searched whole full text for lexicographic/blow-up terms; original PDF first page inspected visually",
+        "method": "Public PDF text and page screenshot plus target term find",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Original general graph polynomial and potential stronger family enumerations"
+      },
+      {
+        "assessment": "CONTRADICTED_PRIOR_CLAIM: Corollary 3.17 states n(m-1)+ceil(n/2) for n>=4,m>=3, refuted at n5 m3 by an explicitly executable 12-vertex initial forcing set and proved bound; does not cover the new claim",
+        "evidence": [
+          "arXiv v1 2016-07-14 PDF page 16 printed Corollary 3.17",
+          "C5[K3] two complete fibres plus two initial blue in each of three other fibres force in three steps"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1607.04071",
+        "material_read": "§3 lexicographic products, Lemma 3.13, Proposition 3.16, Corollary 3.17; original PDF pages 1, 15 and 16 inspected visually",
+        "method": "Public full PDF text searched and exact original equations inspected by page screenshots",
+        "title": "On the zero forcing number of corona and lexicographic product of graphs",
+        "trigger": "Directly same objects C_n[K_m], exact scalar zero forcing claim plausible and decisive"
+      },
+      {
+        "assessment": "BROADER_GENERAL_PROFILE algorithm covers compression, not the explicit nontrivial cycle-square closed expression/unique inclusion-minimal-set structure; originality risk remains",
+        "evidence": [
+          "Corollary 3.6 (8) generic admissible-profile sum, Theorem 5.1 special common clique union of star type graph, May 2026 availability"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/405317381_Modular_Compression_of_Leaky_Forts_and_Leaky_Forcing_Polynomials",
+        "material_read": "Full hosted manuscript text, Abstract, §3 Corollary 3.6, §4 algorithm and §5 true-twin specializations, concluding remarks",
+        "method": "Read accessible article-hosted HTML complete-text sections and search key theorem phrases",
+        "title": "Modular Compression of Leaky Forts and Leaky Forcing Polynomials",
+        "trigger": "Most plausible broader true-twin blow-up zero forcing coefficient framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86ad1fa6-2971-4a1c-9f8f-e55ddcf842fb",
+  "value": {
+    "rationale": "The result gives a uniform closed binomial-coefficient zero forcing polynomial for every cyclic clique expansion, sharp set-level testing in terms of cyclic distance two, and a complete classification of inclusion-minimal sets and their multiplicities. It also supplies a concrete counterexample and an unbounded correction to a directly relevant published preprint scalar formula, rather than repeating a previously known bound. These address natural full enumeration and well-forcedness questions with exponentially many vertex configurations, using a structural reduction to squared-cycle independence not obtained by routine substitution into existing explicit examples. No general arbitrary-base theorem or independent certification is asserted.",
+    "status": "PASS"
+  }
+}
