@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-size theorem is proved by the uniform-prefix representation, independent Lehmer inversion digits and the exact covariance of uniform-permutation descents with inversions. The asymptotic joint theorem is proved using a conditional finite-population sampling CLT, the one-dependent descent CLT with inversion Hájek projection, and an independent occupancy CLT. Both the nonstandard covariance identity and the limiting covariance follow from exact formulas, rather than inferred from the marginal CLTs. All 219 enumerative exact-rational/numerical checks passed; they are corroborative, not proofs of the limit. The domain, boundary cases, scaling and fourth-moment justification are explicit.
+PASS
 
-## Originality — PASS (best-knowledge, historical priority provisional)
+Conditioning on K=k touched cards, the final deck is a uniformly random k-element prefix followed by the increasing untouched suffix. Lehmer digits yield mu_D=(k-1)/2+(n-k)/(n-k+1), mu_I=k(2n-k-1)/4, and conditional covariance C=(k-1)/4+(n-k)/(2(n-k+1)). Chebyshev covariance of nondecreasing mu_D/mu_I plus C>0 proves all-n,r strict positivity. For r=floor(cn), c>0, occupancy variance K/n tends to t=b-(1+c)b^2 (b=e^-c), while conditional CLTs for random-permutation descents, inverse-rank projection and finite-population sample sum give independent Gaussian noise with variances a/12 and (1-b^3)/36. Delta-method K effects add (H/2,bH/2), giving matrix [(a/12+t/4,bt/4),(bt/4,(1-b^3)/36+b^2*t/4)]. A fourth-moment bound justifies covariance convergence separately. Independent rational enumeration verifies conditional formulas at n<=5, not the infinite CLT.
 
-Clay's *On the statistics of random-to-top shuffles*, arXiv:2603.09008, proves separate (one-dimensional) descent and inversion limit theorems and the conditional prefix representation. Those statements alone do not specify the joint cross-covariance. Dörr and Heiny, arXiv:2309.17314, prove a joint normal/independence law and finite covariance on a uniformly distributed permutation, not on the nonuniform random-to-top distribution with a random count of moved labels. The closest indexed mathematical findings concern different pairings, such as a uniform-permutation cycle count–inversion covariance, fixed point–descent covariance, or individual inversion-indicator precision. None implies the finite exact conditional formula or the nonzero joint correlation here. Full relevant primary sections and abstracts were inspected; implicit earlier results remain a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Descents and inversions are two central mixing diagnostics. Their one-dimensional critical-regime fluctuation theorems do not answer whether the statistics fluctuate jointly or independently. The new joint covariance distinguishes their shared coupon-occupancy source from their negligible conditional order noise, yielding a nonzero, explicitly parameterized dependence and a finite-size positive-covariance identity. These are naturally motivated distributional invariants of the same shuffle, not an arbitrary parameter slice.
+PASS qualified: Clay proves the occupancy/prefix law and marginal asymptotic CLTs, but marginal limits do not determine the joint limiting cross covariance. Dörr–Heiny treat uniform permutations, which lack the finite-c occupancy shared randomness. Earlier multivariate shuffle-statistic limits remain priority risk.
 
-## Sources and limitations
+## value
 
-A. Clay, arXiv:2603.09008 (2026-03-09): main results, occupancy Proposition 3.1, conditional representation, Sections 4, 6, 7 and relevant references. P. Dörr and J. Heiny, arXiv:2309.17314 (2023-09-29): Sections 1–3, Lemma 2.6 and relevant appendices. Bibliographic novelty checking did not establish an absolute priority guarantee. The result is restricted to uniform moves from the identity deck and fixed positive time-density.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact strictly positive finite-time covariance and an explicit nonzero bivariate Gaussian limiting correlation explain how mixing-time occupancy fluctuations couple two classical shuffle statistics even though their uniform-permutation limits decouple.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

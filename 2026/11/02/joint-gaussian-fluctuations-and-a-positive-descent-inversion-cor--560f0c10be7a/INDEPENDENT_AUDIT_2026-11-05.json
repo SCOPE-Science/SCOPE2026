@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on K=k touched cards, the final deck is a uniformly random k-element prefix followed by the increasing untouched suffix. Lehmer digits yield mu_D=(k-1)/2+(n-k)/(n-k+1), mu_I=k(2n-k-1)/4, and conditional covariance C=(k-1)/4+(n-k)/(2(n-k+1)). Chebyshev covariance of nondecreasing mu_D/mu_I plus C>0 proves all-n,r strict positivity. For r=floor(cn), c>0, occupancy variance K/n tends to t=b-(1+c)b^2 (b=e^-c), while conditional CLTs for random-permutation descents, inverse-rank projection and finite-population sample sum give independent Gaussian noise with variances a/12 and (1-b^3)/36. Delta-method K effects add (H/2,bH/2), giving matrix [(a/12+t/4,bt/4),(bt/4,(1-b^3)/36+b^2*t/4)]. A fourth-moment bound justifies covariance convergence separately. Independent rational enumeration verifies conditional formulas at n<=5, not the infinite CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clay Theorems 1.2/1.3 and 6.1/7.1 give marginal fluctuation theorems.",
+          "A joint CLT with the displayed nonzero covariance cannot follow from one-dimensional marginal CLTs alone."
+        ],
+        "reasoning": "No inspected broader result dominates the exact cross covariance, but unindexed multivariate permutation shuffle CLTs may.",
+        "searches": [
+          "joint multivariate central limit theorem random-to-top shuffles descent inversion",
+          "random-to-top shuffling descents inversions joint central limit covariance touched cards occupancy",
+          "random permutations permutation patterns conditional occupancy multivariate CLT"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.09008",
+        "https://arxiv.org/abs/2309.17314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known joint independence at K=n would predict zero scaled cross term; varying K at time cn creates H term.",
+          "b*t/4 is strictly positive for every c>0, from the shared K fluctuation."
+        ],
+        "reasoning": "The nonzero limiting off-diagonal cannot be inferred from stationary asymptotic independence; explicit conditioning and projection are essential.",
+        "searches": [
+          "Clay arxiv 2603.09008 Proposition 3.1 Proposition 4.1 conditional law",
+          "Dorr Heiny arxiv 2309.17314 joint independence uniform permutation",
+          "random-to-top shuffling descents inversions joint central limit covariance touched cards occupancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clay Proposition 4.1 uses the same uniform-prefix/untouched-suffix representation.",
+          "Dörr–Heiny compute uniform-permutation descent/inversion statistics, not the non-stationary critical shuffle law."
+        ],
+        "reasoning": "The conditional representation is known; exact finite nonstationary cross covariance and bivariate central limit are the assessed additions.",
+        "searches": [
+          "random-to-top shuffling descents inversions joint central limit covariance touched cards occupancy",
+          "random to top last occurrence moved cards prefix occupancy Clay 2026",
+          "uniform permutation descent inversion covariance Dorr Heiny"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For k=n the conditional covariance is (n-1)/4, recovering uniform-permutation law; for k<n it has a boundary correction (n-k)/(2(n-k+1)).",
+          "Exact rational enumeration n=2..5 confirms each conditional correction."
+        ],
+        "reasoning": "The known full-permutation covariance table does not determine nonstationary occupancy mixtures for finite n,r.",
+        "searches": [
+          "random-to-top descents inversions finite n covariance table",
+          "random-to-top shuffling descents inversions joint central limit covariance touched cards occupancy",
+          "uniform permutation descent inversion (k-1)/4"
+        ]
+      },
+      "rationale": "PASS qualified: Clay proves the occupancy/prefix law and marginal asymptotic CLTs, but marginal limits do not determine the joint limiting cross covariance. Dörr–Heiny treat uniform permutations, which lack the finite-c occupancy shared randomness. Earlier multivariate shuffle-statistic limits remain priority risk.",
+      "residual_risks": [
+        "A general multivariate shuffle fluctuation result might imply the same covariance by specialization despite not appearing among inspected statements.",
+        "Independent finite n checks validate conditional identities only, not the unbounded-n CLT or covariance moment-tightness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHES_MARGINALS_AND_REPRESENTATION",
+          "evidence": [
+            "Conditional prefix and univariate CLTs; their stated results do not specify the present bivariate covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.09008",
+          "material_read": "Full-text primary PDF: Proposition 3.1 occupancy, Proposition 4.1 prefix, Theorems 1.2/1.3,4.2/4.3,6.1,7.1 on marginals",
+          "method": "Read mathematical statements and methods; compared conditional and joint laws",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Exact same shuffle and asymptotic regime"
+        },
+        {
+          "assessment": "DIFFERENT_STATIONARY_DISTRIBUTION",
+          "evidence": [
+            "Uniform permutation, not random-to-top at r=cn; uniform covariance is (k-1)/4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.17314",
+          "material_read": "Abstract and indexed Lemma 2.6 / joint asymptotic statements; complete primary PDF not independently read here",
+          "method": "Compared scope via accessible primary summary and cited lemmas",
+          "title": "Joint extremes of inversions and descents of random permutations",
+          "trigger": "Related joint statistics in uniform permutations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact strictly positive finite-time covariance and an explicit nonzero bivariate Gaussian limiting correlation explain how mixing-time occupancy fluctuations couple two classical shuffle statistics even though their uniform-permutation limits decouple.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general multivariate shuffle fluctuation result might imply the same covariance by specialization despite not appearing among inspected statements.",
+    "Independent finite n checks validate conditional identities only, not the unbounded-n CLT or covariance moment-tightness."
+  ],
+  "schema_version": 1
+}
