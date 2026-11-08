@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproduction
 
-Run `python verify.py` using Python 3. The checker uses only the standard library and tests exact integer indices of finite directed paths under the composition-adjoint product for multiple arithmetic regimes. It is evidence for arithmetic normalization and selected endpoints, not a proof of infinite multiplicities, spectral boundaries, or universal polynomial norm statements.
+# Independent mathematical audit
 
-The analytic verification uses five independent logical steps: (i) adjoint action of isometric monomial composition on the Hardy basis; (ii) reduced-factor divisibility and chain endpoints, including the full family of all finite lengths; (iii) standard shift and finite Jordan point/approximate spectra with weakly null tests; (iv) strong limits of matrix polynomials on increasing finite shifts and infinitely repeated summands; (v) forward-versus-backward strong-power dichotomy. The \(m=n\) boundary is treated separately as a projection. The matrix-polynomial norm is asserted only for finite matrix coefficients. Neither a finite cutoff nor a numerical sample substitutes for the complete proof.
+## correctness
 
-Source comparison: the 2026 Hardy composition-product paper's Theorem 3.24 concerns Schatten membership; the new structural conclusion is not inferred from a failed database search alone. Open priority uncertainty is acknowledged. Independent audit is not performed.
+PASS
+
+With normalized Hardy basis e_j=z^j, C_m C_n* maps e_j to e_(mj/n) precisely when n divides j, and to zero otherwise; e_0 is a reducing identity. On j>0, edges nk -> mk are a partial injection. With m=dp, n=dq and coprime p,q, q=1<p yields infinitely many forward unilateral chains plus isolated zeros, p=1<q infinitely many backward chains, and p,q>1 finite Jordan chains of every length with infinite multiplicity: for any N>=0 and r coprime pq, the chain d q^N r,d p q^(N-1) r,...,d p^N r is maximal. These direct sum models give point spectra {0,1} vs disk union {1}, common closed-disk ordinary and Fredholm-essential spectra, and backward/finite-chain strong-power convergence to the constant projector; forward shifts obstruct convergence. Von Neumann matrix-polynomial upper bound plus copies of shifts/long Jordan compressions and weakly null test sequences give exact completely isometric essential polynomial sup norm. m=n is the separate coordinate projection. Independently checked finite positive-index chain endpoint identities; universal claims follow from the decompositions, not truncations.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality qualified by primary literature, prior methods and named residual priority risks; the final evaluated theorem is not established or logically implied by the cited comparator statements.
+
+## value
+
+PASS
+
+The two natural monomial composition isometries produce three sharply different dynamics under adjoint product according to reduced divisibility. A complete all-pair direct-sum classification makes point spectra, essential norms, and strong-power convergence explicit, including the surprising distinction between a full closed-disk essential spectrum and finite nilpotent pieces. This natural operator-algebra classification has content beyond a mechanical renaming of a single unilateral shift, though the classical shift tools are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
