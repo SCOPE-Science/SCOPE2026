@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-complete-positivity-crossover-for-geodesic-gaussian-schu--d6ff3addfb0a/RESULT.md blob e64b2fe9ddfd531f32e7b57c788157ef9d5a49ce",
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-complete-positivity-crossover-for-geodesic-gaussian-schu--d6ff3addfb0a/verify_gaussian_cycle.py blob 7587b4d0b45989fb447cef17ca9d7a32eef38aeb",
+        "/mnt/data/scope_worker03_20261106T1238Z/independent_checks.py"
+      ],
+      "rationale": "The circulant eigenspaces are Fourier characters. The actual RESULT.md expresses each eigenvalue as an infinite positive Gaussian theta periodization P minus the omitted symmetric Gaussian tail E. Poisson summation gives P>=sqrt(pi n/c) exp(-pi^2 n/(4c)); E=O(exp(-cn/4)) for all frequencies, proving positivity when c>pi. For c<pi choose the largest even index <=floor(n/2): exact even tail has positive scaled limit tanh(c/2), while the paired odd tail has positive first scaled derivative pi*delta exp(-c/2)(1-exp(-c))/(1+exp(-c))^2, delta=1 or 3. Exponential-rate comparison suppresses P and yields negative eigenvalue and sharp asymptotics. Positivity of a Schur multiplier is equivalent to positive semidefiniteness of its symbol (apply to the all-ones rank-one matrix); proof addresses all n sufficiently large separately for both parities. Independent mpmath Fourier/periodization calculations checked signed modes and both leading constants, not the all-n theorem.",
+      "residual_risks": [
+        "Finite independent calculations do not replace the analytic and infinite-quantifier parts of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li addresses Gaussian fixed-scale nonpositive definiteness on closed non-simply-connected manifolds.",
+          "Graham et al. address sufficient positivity of circulant covariance embeddings, not both necessary and sufficient signs at moving scale."
+        ],
+        "reasoning": "Neither stronger geometric domain nor a sufficient embedding criterion by itself entails the fixed c/n crossover; uninspected appendices remain a risk.",
+        "searches": [
+          "arxiv:2303.06558",
+          "arxiv:1710.00751",
+          "circulant Gaussian geodesic circle kernel negative definite bandwidth threshold positivity"
+        ]
+      },
+      "checked_sources": [
+        "Da Costa, Mostajeran & Ortega, arXiv:2302.10623 (fixed-scale Gaussian on geodesic circle)",
+        "Li, arXiv:2303.06558 (continuous compact non-simply-connected manifold Gaussian)",
+        "Graham et al., arXiv:1710.00751 (stationary covariance circulant embedding)",
+        "Wood (1995), DOI 10.1016/0167-7152(94)00162-2 (unread full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under c>pi the Gaussian periodization beats the omitted tail; under c<pi a parity-tail term dominates.",
+          "This is a comparison of two n-dependent exponential rates, not a corollary of pointwise-in-parameter continuous nonpositivity."
+        ],
+        "reasoning": "Previous methods motivate Fourier decomposition, but the exact asymptotic c/n implication is additional. Wood full text remains inaccessible, so priority is provisional.",
+        "searches": [
+          "arxiv:2302.10623",
+          "arxiv:2303.06558",
+          "doi:10.1016/0167-7152(94)00162-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Da Costa et al. prove fixed-physical-parameter continuous geodesic-circle Gaussian nonpositive definiteness.",
+          "The audited Fourier symbol has t=c/n and identifies explicit signed modes, absent from that differently quantified statement."
+        ],
+        "reasoning": "Periodization and aliasing supply equivalent Fourier language; fixed-scale infinite-circle failure does not force the sharp coupled finite-grid threshold or constants.",
+        "searches": [
+          "circulant Gaussian geodesic circle kernel negative definite bandwidth threshold positivity",
+          "Gaussian cycle geodesic kernel continuous circle versus discrete circulant covariance aliasing",
+          "arxiv:2302.10623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary semantic results gave Fourier/kernel statements on different finite cycles and parameter regimes, no direct table of the c=pi transition."
+        ],
+        "reasoning": "The claim is an infinite-n sharp threshold with parity-resolved asymptotics, not an existing finite spectrum table; missing database hits do not prove novelty.",
+        "searches": [
+          "circulant Gaussian geodesic circle kernel negative definite bandwidth threshold positivity",
+          "cycle Gaussian circulant matrix negative eigenvalue pi over n table"
+        ]
+      },
+      "rationale": "Sharp finite-sample moving-parameter threshold c=pi and parity-resolved negative eigenvalue constants are not the fixed physical-scale continuous-circle nonpositive-definiteness shown by Da Costa et al., nor the sufficient positive-embedding results for periodized stationary kernels. Classical Fourier/Poisson identities are acknowledged. Priority remains best-of-knowledge because Wood 1995 and potential aliasing/circulant covariance literature might contain equivalent asymptotics.",
+      "residual_risks": [
+        "Wood (1995) full primary text was not obtained; an equivalent critical sampling/circulant truncation formula could already be present.",
+        "Neither critical c=pi nor finite-n exact thresholds nor general manifolds are proved.",
+        "Selected finite numerical Fourier calculations corroborate, not establish, the all-n asymptotic result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-text comparison: fixed Gaussian physical scale on continuous circle is non-positive definite; this does not imply sign for moving c/n geodesic cycles",
+          "evidence": "Geodesic circle theorem at fixed physical parameter and qualitative finite-grid positivity at high scale; no inspected c=pi formula.",
+          "identifier_or_url": "arxiv:2302.10623",
+          "material_read": "Author-uploaded accessible full-text manuscript, particularly main circle Fourier obstruction and discussion of increasing Gaussian parameter on fixed grids",
+          "method": "Open author manuscript and scholarly web text",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Same metric and Gaussian positive-definiteness obstruction"
+        },
+        {
+          "assessment": "Coverage of fixed-scale Gaussian obstructions acknowledged; not a whole-text noncoverage conclusion",
+          "evidence": "Quantifiers concern the fixed continuous kernel, not the coupled n and t=c/n regime.",
+          "identifier_or_url": "arxiv:2303.06558",
+          "material_read": "Abstract and source description only; full mathematical proof not retrieved here",
+          "method": "arXiv abstract metadata/search",
+          "title": "Gaussian kernels on non-simply-connected closed Riemannian manifolds are never positive definite",
+          "trigger": "Seemingly stronger manifold-wide obstruction"
+        },
+        {
+          "assessment": "Potentially related sufficient embedding positivity, not verified to give exact geodesic cycle necessity",
+          "evidence": "Sufficient positivity of extended periodic covariance differs from necessary and sufficient moving-parameter sign.",
+          "identifier_or_url": "arxiv:1710.00751",
+          "material_read": "Accessible bibliographic and theorem description; complete comparison of all appendices not available",
+          "method": "Published article/search and cited source summary",
+          "title": "Analysis of circulant embedding methods for sampling stationary random fields",
+          "trigger": "Circulant covariance positivity can dominate finite-grid results"
+        },
+        {
+          "assessment": "ACCESS LIMITED; no whole-document noncoverage conclusion",
+          "evidence": "Potential historical formulation involving Gaussian truncation is a priority risk.",
+          "identifier_or_url": "doi:10.1016/0167-7152(94)00162-2",
+          "material_read": "Abstract and bibliographic record only, full source unavailable",
+          "method": "Lawful open-web metadata attempt",
+          "title": "When is a truncated covariance function on the line a covariance function on the circle?",
+          "trigger": "Direct title about truncating covariance on circle"
+        }
+      ],
+      "source_searches": [
+        "circulant Gaussian geodesic circle kernel negative definite bandwidth threshold positivity"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-complete-positivity-crossover-for-geodesic-gaussian-schu--d6ff3addfb0a/RESULT.md blob e64b2fe9ddfd531f32e7b57c788157ef9d5a49ce",
+        "Da Costa, Mostajeran & Ortega, arXiv:2302.10623 (fixed-scale Gaussian on geodesic circle)",
+        "Li, arXiv:2303.06558 (continuous compact non-simply-connected manifold Gaussian)"
+      ],
+      "rationale": "The positive-definiteness of a geodesic Gaussian Gram matrix is exactly the admissibility of a kernel/covariance and complete positivity of the associated Schur map; the sharp n-dependent bandwidth boundary and parity magnitudes answer a natural nontrivial finite-sampling question. This is not a routine restatement of continuous-circle nonpositivity.",
+      "residual_risks": [
+        "Selected finite numerical Fourier calculations corroborate, not establish, the all-n asymptotic result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Da Costa, Mostajeran & Ortega, arXiv:2302.10623 (fixed-scale Gaussian on geodesic circle)",
+    "Li, arXiv:2303.06558 (continuous compact non-simply-connected manifold Gaussian)",
+    "Graham et al., arXiv:1710.00751 (stationary covariance circulant embedding)",
+    "Wood (1995), DOI 10.1016/0167-7152(94)00162-2 (unread full text)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Wood (1995) full primary text was not obtained; an equivalent critical sampling/circulant truncation formula could already be present.",
+    "Neither critical c=pi nor finite-n exact thresholds nor general manifolds are proved.",
+    "Selected finite numerical Fourier calculations corroborate, not establish, the all-n asymptotic result."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Wood (1995) full primary text was not obtained; an equivalent critical sampling/circulant truncation formula could already be present.",
+    "Neither critical c=pi nor finite-n exact thresholds nor general manifolds are proved.",
+    "Selected finite numerical Fourier calculations corroborate, not establish, the all-n asymptotic result."
+  ]
+}

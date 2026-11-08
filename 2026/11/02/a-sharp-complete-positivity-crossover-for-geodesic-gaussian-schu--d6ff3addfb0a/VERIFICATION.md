@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`: use the exact identity of the circulant Fourier eigenvalue as the full Gaussian theta periodization minus its omitted tail, Poisson summation, a global exponential lower/upper comparison, and explicit alternating geometric-tail limits for each parity. The proof applies to every sufficiently large cycle at each fixed \(c\) strictly above or below \(\pi\).
+## correctness
 
-To replay supplementary finite checks, run `python verify_gaussian_cycle.py` with Python 3 and `mpmath`. This run returned `PASS: 118 high-precision finite checks (not an infinite proof)`. Checks include direct Fourier sums versus theta-minus-tail, selected entire positive spectra when \(c>\pi\), negative selected modes when \(0<c<\pi\), and agreement with asymptotic prefactors. Such finite numerical checks are not exhaustive, do not establish all-dimensional statements and do not resolve \(c=\pi\). No independent mathematical audit has been performed.
+PASS
+
+The circulant eigenspaces are Fourier characters. The actual RESULT.md expresses each eigenvalue as an infinite positive Gaussian theta periodization P minus the omitted symmetric Gaussian tail E. Poisson summation gives P>=sqrt(pi n/c) exp(-pi^2 n/(4c)); E=O(exp(-cn/4)) for all frequencies, proving positivity when c>pi. For c<pi choose the largest even index <=floor(n/2): exact even tail has positive scaled limit tanh(c/2), while the paired odd tail has positive first scaled derivative pi*delta exp(-c/2)(1-exp(-c))/(1+exp(-c))^2, delta=1 or 3. Exponential-rate comparison suppresses P and yields negative eigenvalue and sharp asymptotics. Positivity of a Schur multiplier is equivalent to positive semidefiniteness of its symbol (apply to the all-ones rank-one matrix); proof addresses all n sufficiently large separately for both parities. Independent mpmath Fourier/periodization calculations checked signed modes and both leading constants, not the all-n theorem.
+
+## originality
+
+PASS
+
+Sharp finite-sample moving-parameter threshold c=pi and parity-resolved negative eigenvalue constants are not the fixed physical-scale continuous-circle nonpositive-definiteness shown by Da Costa et al., nor the sufficient positive-embedding results for periodized stationary kernels. Classical Fourier/Poisson identities are acknowledged. Priority remains best-of-knowledge because Wood 1995 and potential aliasing/circulant covariance literature might contain equivalent asymptotics.
+
+## value
+
+PASS
+
+The positive-definiteness of a geodesic Gaussian Gram matrix is exactly the admissibility of a kernel/covariance and complete positivity of the associated Schur map; the sharp n-dependent bandwidth boundary and parity magnitudes answer a natural nontrivial finite-sampling question. This is not a routine restatement of continuous-circle nonpositivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

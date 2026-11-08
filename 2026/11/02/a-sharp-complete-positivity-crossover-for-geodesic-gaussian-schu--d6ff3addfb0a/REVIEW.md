@@ -1,20 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the graph metric, the joint scaling \(t=c/n\), and the exact Fourier-mode choices for both parities. Its Poisson-periodization comparison gives a positive lower term of order \(\sqrt n\exp(-\pi^2n/(4c))\), while the omitted tail is of order \(\exp(-cn/4)\). At \(c>\pi\) the first dominates uniformly; at \(0<c<\pi\), explicit even/odd high-frequency limits show a positive omitted tail, hence a negative eigenvalue. The odd term is smaller by a factor \(1/n\), explicitly accounted for. Positivity and complete positivity of the Schur transformation are equivalent to positivity of the symbol. The analytical proof is independent of the 118 supplementary precision checks.
+PASS
 
-## Originality — PASS, with residual risks
+The circulant eigenspaces are Fourier characters. The actual RESULT.md expresses each eigenvalue as an infinite positive Gaussian theta periodization P minus the omitted symmetric Gaussian tail E. Poisson summation gives P>=sqrt(pi n/c) exp(-pi^2 n/(4c)); E=O(exp(-cn/4)) for all frequencies, proving positivity when c>pi. For c<pi choose the largest even index <=floor(n/2): exact even tail has positive scaled limit tanh(c/2), while the paired odd tail has positive first scaled derivative pi*delta exp(-c/2)(1-exp(-c))/(1+exp(-c))^2, delta=1 or 3. Exponential-rate comparison suppresses P and yields negative eigenvalue and sharp asymptotics. Positivity of a Schur multiplier is equivalent to positive semidefiniteness of its symbol (apply to the all-ones rank-one matrix); proof addresses all n sufficiently large separately for both parities. Independent mpmath Fourier/periodization calculations checked signed modes and both leading constants, not the all-n theorem.
 
-Da Costa–Mostajeran–Ortega, arXiv:2302.10623, prove a *fixed physical Gaussian parameter* obstruction on the continuous circle, and observe a fixed sample grid becomes positive at large enough parameter. The joint scale here corresponds to physical parameter growing linearly with the number of vertices and yields a quantified sharp threshold not supplied there. Li, arXiv:2303.06558, generalizes the fixed-parameter obstruction and asks for coarse/fine sampling quantification. Graham et al., arXiv:1710.00751, prove sufficient circulant-embedding estimates, not the exact threshold or the parity-resolved negative-mode coefficients. Wood (1995) is relevant to truncated covariance on circles, but its full text was inaccessible; its abstract alone cannot settle a coverage comparison. Historical equivalences under covariance-embedding terminology remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The work determines a sharp, nontrivial dimension–bandwidth phase boundary for a natural family of completely positive maps, and exhibits exact parity-sensitive modes obstructing positivity below it. The infinite parameter family and matching opposing implications answer a motivated quantitative sampling question; the numerical checks are supplementary, and the critical line is deliberately left open.
+Sharp finite-sample moving-parameter threshold c=pi and parity-resolved negative eigenvalue constants are not the fixed physical-scale continuous-circle nonpositive-definiteness shown by Da Costa et al., nor the sufficient positive-embedding results for periodized stationary kernels. Classical Fourier/Poisson identities are acknowledged. Priority remains best-of-knowledge because Wood 1995 and potential aliasing/circulant covariance literature might contain equivalent asymptotics.
 
-## Scientific limits
+## value
 
-The crossover statements are asymptotic with fixed \(c
-eq\pi\), not an exact finite-dimensional critical-bandwidth formula. No claim is made for critical scaling, arbitrary graphs, or other radial kernels. Priority risk from inaccessible older literature remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive-definiteness of a geodesic Gaussian Gram matrix is exactly the admissibility of a kernel/covariance and complete positivity of the associated Schur map; the sharp n-dependent bandwidth boundary and parity magnitudes answer a natural nontrivial finite-sampling question. This is not a routine restatement of continuous-circle nonpositivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
