@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The reproducibility script `check_theta_projection.py` was executed after finalizing the theorem statement. Output:
+# Independent mathematical audit
 
-`CHECK_OK rational_parameter_cases=6336 mesh_checks= 82368 regimes= {'short': 1944, 'balanced': 2975, 'saturated': 1417} unrestricted_LP_cases= 8 LP_edge_counts= [6, 7, 11, 8, 12, 14, 15, 22]`
+## correctness
 
-The rational test checks the formula, coefficient ranges, full edge-column norms, and multiple independent rational inputs for each parameter triple. The eight unrestricted linear programs optimize over every matrix of an \(\ell_1(E)\) projection onto the circulation space; no symmetry constraints are imposed in those numerical linear programs. Their computed optima agree with the proposed exact formulas to within \(10^{-8}\).
+PASS
 
-These finite computations do not establish the theorem for all integer parameters. The proof uses symmetry averaging, exact operator-column algebra, monotonicity outside the optimization interval, and the minimum of two affine functions, as detailed in RESULT.md. The independent mathematical audit remains unperformed.
+The edge-gradient copy is Z⊥⊂ℓ∞(E), Z the cycle space; ℓ∞ injectivity and adjunction give min ||I−P||₁ over projections onto Z, NOT min ||P||. Averaging path-edge permutations and repeated-branch permutations makes P a one-parameter hyperplane retraction x. Exact edge column norms reduce to min_{0≤x≤1/p} max(C+hx,1+Bx); outside interval norms cannot decrease. Piecewise minimax yields C (h≥0), H (h<0,H≥J), or 1+B(C−1)/(B−h); boundaries agree and long-b threshold follows. Fresh rational edge-column comparisons completed; all integer a,b,p≥2 follow analytically.
+
+## originality
+
+PASS
+
+Inspected directly relevant primary literature and searched published findings, comparing mathematical implications and weaker/stronger formulations. General symmetrization permits this proof but no stated prior formula supplies the new piecewise invariant without doing the specific constrained minimax. Material priority risks remain explicit; this is best-of-knowledge, not exhaustive certification.
+
+## value
+
+PASS
+
+The absolute projection constant is a central operator-space invariant of graph Lipschitz spaces. This complete infinite-family three-regime calculation identifies a structurally non-obvious saturation at finite long-path length, beyond known length-two equal-path diamond calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
