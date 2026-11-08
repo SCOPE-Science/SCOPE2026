@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The proof determines the two orientation-specific no-reset hitting transforms from the bounded telegraph backward system; incorporates full position-and-orientation Poisson resets through a separate renewal equation; proves the unique real exponential-tail pole by a strictly decreasing Laplace survival integral; and derives its positive residue and genuine exponential tail by an exponentially tilted key renewal theorem. A second tilt of the alternating bulk/adsorbed renewal yields a unique cumulant root for every real tilt and a differentiable full large-deviation principle. The two edge expansions are obtained respectively from the pole and the shortest possible adsorption path. The explicit constants and both orientation cases are checked from the formulas, with 164 finite supplementary numerical assertions. Mathematical assumptions include strictly positive fixed parameters and no permanent absorption. Finite tests are not substituted for the infinite-time proof.
+## correctness
 
-## Originality (O): PASS, qualified best knowledge
-Bressloff--Linn (2026), https://arxiv.org/abs/2602.02446, already give the resetting sticky-wall model, renewal decomposition, bulk hitting statistics and stationary **mean** bound fraction. Bressloff (2020), https://arxiv.org/abs/2009.01968, analyzes large deviations of *positive-halfline spatial occupation*, not *bound-wall adsorption occupation*. Mukherjee--Le Doussal--Smith (2024), https://arxiv.org/abs/2405.07032, treat active-particle local time and spatial occupation without sticky binding or bulk resetting. Meylahn--Sabhapandit--Touchette (2015), https://arxiv.org/abs/1510.02431, and Monthus (2020), https://arxiv.org/abs/2009.12287, give general restart/renewal large-deviation principles. Those generic methods are not claimed as new. In the inspected primary material, none supplies the explicit sticky-bound-occupation rate with its direction-sensitive, log-log near-complete-adsorption coefficient. Broader renewal-reward theorems could subsume the existence/form of the rate; independent priority assessment has not been performed.
+PASS
 
-## Value (V): PASS
-The original 2026 boundary study reports average adsorption fractions, which do not determine probabilities of extreme bound-time fractions. The result identifies two distinct universal rare-event mechanisms: long unadsorbed excursions give a square-root approach to the zero-occupation cost, while avoiding desorption for nearly an entire observation time gives a logarithmic approach to the complete-adsorption cost. The extra log-log term is a physically meaningful signature of whether a fastest surface arrival has a ballistic atom (inward orientation) or instead requires a near-immediate tumble (outward orientation). This is a structurally informative fluctuation diagnostic beyond the mean.
+For v,alpha,r,gamma,x0>0 and whole-state resets at x0 with fixed orientation sigma, the first-hitting transforms solve the two-velocity backward ODE: h_-(z)=exp[-tau sqrt(z(z+2alpha))], h_+(z)=alpha h_-(z)/(z+alpha+sqrt(z(z+2alpha))). Renewal at exponential rate r gives bulk return Laplace transform Phi_sigma(s)=(s+r)h_sigma(s+r)/(s+r h_sigma(s+r)). The survival-tail transform (1-h(z))/z is strictly decreasing and diverges as z tends to 0, providing unique z in (0,r) with z=r(1-h(z)), q=r-z, and simple positive pole residue R=z h(z)/(1+r h'(z)). The key renewal theorem under exponential tilt gives bulk tail ~R/q e^{-qt}. Alternating independent bulk duration H and Exp(gamma) bound duration B has tilted-cycle kernel Phi(lambda)*gamma/(gamma+lambda-k); the unique real root k=lambda+gamma(1-Phi(lambda)) generates everywhere-finite smooth SCGF psi(k). Gärtner–Ellis and exponential tightness on [0,1] establish good LDP with Legendre rate. Its derivative u=1/(1-gamma Phi'(lambda)) parametrizes all interior, with I(0)=q, I(1)=gamma, left edge q-2 sqrt(gamma R u)+O(u). Large lambda gives Phi~C_sigma lambda^{-m_sigma} exp(-tau lambda), m_-=0 for shortest-path no-tumble atom and m_+=1 for immediate-tumble density; inversion yields I(1-delta)=gamma-(delta/tau)log(1/delta)+(m_sigma delta/tau)log log(1/delta)+O(delta). The orientation-dependent subleading coefficient is specifically proven and does not follow from a numerical rate plot.
 
-## Scientific limitations and residual risks
-The process is a renewal system only under full reset after desorption with independent exponential binding durations. Stronger general results may imply portions of the renewal/cumulant component. Other desorption protocols, finite-time prefactors, measurement-noise estimators, and non-Markov binding are unproved. Computational experiments do not prove the large-deviation principle; they check formulas in a fixed parameter example.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.
+
+## value
+
+PASS
+
+The adsorbed fraction is a physically natural observable distinct from whole-line positive-halfspace occupation. Its exact all-parameter large deviation rate extends the same-model stationary mean into rare-event theory; singular edge expansions quantify the mechanism of almost-zero or almost-full adsorption. The different log-log coefficient distinguishes whether the shortest return carries an atom versus a density, a structural interpretation useful for related renewal and sticky-boundary processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

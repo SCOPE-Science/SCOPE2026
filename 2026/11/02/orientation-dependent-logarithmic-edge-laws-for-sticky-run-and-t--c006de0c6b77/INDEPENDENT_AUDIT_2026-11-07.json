@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/orientation-dependent-logarithmic-edge-laws-for-sticky-run-and-t--c006de0c6b77/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/orientation-dependent-logarithmic-edge-laws-for-sticky-run-and-t--c006de0c6b77/verify_sticky_occupation.py"
+      ],
+      "rationale": "For v,alpha,r,gamma,x0>0 and whole-state resets at x0 with fixed orientation sigma, the first-hitting transforms solve the two-velocity backward ODE: h_-(z)=exp[-tau sqrt(z(z+2alpha))], h_+(z)=alpha h_-(z)/(z+alpha+sqrt(z(z+2alpha))). Renewal at exponential rate r gives bulk return Laplace transform Phi_sigma(s)=(s+r)h_sigma(s+r)/(s+r h_sigma(s+r)). The survival-tail transform (1-h(z))/z is strictly decreasing and diverges as z tends to 0, providing unique z in (0,r) with z=r(1-h(z)), q=r-z, and simple positive pole residue R=z h(z)/(1+r h'(z)). The key renewal theorem under exponential tilt gives bulk tail ~R/q e^{-qt}. Alternating independent bulk duration H and Exp(gamma) bound duration B has tilted-cycle kernel Phi(lambda)*gamma/(gamma+lambda-k); the unique real root k=lambda+gamma(1-Phi(lambda)) generates everywhere-finite smooth SCGF psi(k). Gärtner–Ellis and exponential tightness on [0,1] establish good LDP with Legendre rate. Its derivative u=1/(1-gamma Phi'(lambda)) parametrizes all interior, with I(0)=q, I(1)=gamma, left edge q-2 sqrt(gamma R u)+O(u). Large lambda gives Phi~C_sigma lambda^{-m_sigma} exp(-tau lambda), m_-=0 for shortest-path no-tumble atom and m_+=1 for immediate-tumble density; inversion yields I(1-delta)=gamma-(delta/tau)log(1/delta)+(m_sigma delta/tau)log log(1/delta)+O(delta). The orientation-dependent subleading coefficient is specifically proven and does not follow from a numerical rate plot.",
+      "residual_risks": [
+        "Nonabsorbing sticky wall, desorption-induced resetting to x0>0 at a fixed orientation, alpha,r,gamma,v positive and no added diffusion; no wall-origin desorption protocol or general holding times.",
+        "Rate is asymptotic T->infinity at fixed physical parameters; no finite-time probability prefactors or claims about unreset positive-halfline occupation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General resetting renewal LDP theory of Meylahn–Sabhapandit–Touchette provides a method to compute SCGF from cycle tilting; no inspected result evaluates sticky adsorption with two reset orientations and their distinct ballistic edge prefactors."
+        ],
+        "reasoning": "A general theorem on renewal cumulant limits may imply existence/Legendre-transform structure in principle, but explicit inverse transforms, pole residue and orientation-sensitive log-log asymptotics require model-specific computations not supplied by the general theorem.",
+        "searches": [
+          "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge",
+          "https://arxiv.org/abs/2602.02446",
+          "https://arxiv.org/abs/2009.01968",
+          "https://arxiv.org/abs/1510.02431"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.02446",
+        "https://arxiv.org/abs/2009.01968",
+        "https://arxiv.org/abs/1510.02431",
+        "https://arxiv.org/abs/2405.07032",
+        "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 same-model article derives first-passage renewal transforms and mean adsorbed fraction. From the mean alone one cannot infer the pole at s=-q, the global Legendre rate, or m_sigma-dependent small-delta asymptotic. 2020 whole-line RTP occupation and 2015 general resetting LDP concern distinct endpoints or abstract kernels."
+        ],
+        "reasoning": "The claimed observable-specific closed formula and singularities are not mathematically implied by the reported final statements of the compared prior works, although broad renewal method is prior.",
+        "searches": [
+          "https://arxiv.org/abs/2602.02446",
+          "https://arxiv.org/abs/2009.01968",
+          "https://arxiv.org/abs/1510.02431",
+          "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff–Linn model uses the same sticky-wall nonabsorbing particle, orientation-specific resetting and stationary bound fraction. Bressloff 2020 analyzes whole-line halfspace occupation, not time immobilized at a sticky wall; its renewal observable is different."
+        ],
+        "reasoning": "Stationary occupation fraction is the derivative at k=0, but does not determine all cumulants, the full rate function or the near-endpoint log-log coefficient. Observables must not be conflated.",
+        "searches": [
+          "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge",
+          "https://arxiv.org/abs/2602.02446",
+          "https://arxiv.org/abs/2009.01968"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No discrete exact table or classification database is the natural form of this continuous stochastic large-deviation theorem. The model paper gives stationary quantities, while this theorem gives a continuous all-parameter rate and endpoint laws."
+        ],
+        "reasoning": "Database/table check is not applicable as a finite census; explicit literature and formula comparison, not a fabricated table search, is the proper coverage test.",
+        "searches": [
+          "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge",
+          "https://arxiv.org/abs/2602.02446"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.",
+      "residual_risks": [
+        "General renewal LDP results may imply existence of an LDP as a special case, so novelty should be scoped to evaluated sticky-wall SCGF/rate and the orientation-dependent singular edge.",
+        "Unindexed work might compute an equivalent adsorption-time large deviation transform; not all modern results were available in complete text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found prior reset first-passage and stationary bound fraction, but not the full speed-T wall adsorption-time LDP nor orientation-dependent log-log rate edge.",
+          "evidence": "Source explicitly computes stationary state and mean bound fraction; the assessed claim distinguishes the large-deviation spectrum and right-edge coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.02446",
+          "material_read": "Primary article full HTML available via ResearchGate, including state dynamics, desorption conventions, stationary bound probability and first-passage renewal formulas.",
+          "method": "Read actual accessible full HTML primary material and compared model assumptions, stationary quantities and investigated observable.",
+          "title": "Bressloff and Linn, Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+          "trigger": "Exact same stochastic sticky-wall RTP and desorption-induced resetting model."
+        },
+        {
+          "assessment": "Different observable, so no direct equal-rate implication.",
+          "evidence": "Half-line occupation includes moving trajectories and has no independent exponential wall holding phase.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.01968",
+          "material_read": "ArXiv abstract/synopsis and mathematical observable description, not full article text in this run.",
+          "method": "Compared occupancy of a spatial half-line for a free RTP with physically bound duration at a sticky wall.",
+          "title": "Bressloff, Occupation time of a run-and-tumble particle with resetting",
+          "trigger": "Related run-and-tumble occupation LDP."
+        },
+        {
+          "assessment": "Prior theory supplies method only, not the evaluated adsorption singularity or log-log coefficient.",
+          "evidence": "No sticky wall with shortest ballistic return and atom/density orientation asymmetry in inspected scope.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02431",
+          "material_read": "Accessible abstract and general renewal formulation, not a full same-model computation.",
+          "method": "Compared abstract kernel theory to the explicit orientation-specific Laplace and edge expansions.",
+          "title": "Meylahn, Sabhapandit and Touchette, Large deviations for Markov processes with resetting",
+          "trigger": "Generic renewal LDP machinery that might cover the model structurally."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2602.02446",
+        "https://arxiv.org/abs/2009.01968",
+        "https://arxiv.org/abs/1510.02431",
+        "https://arxiv.org/abs/2405.07032",
+        "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge"
+      ],
+      "rationale": "The adsorbed fraction is a physically natural observable distinct from whole-line positive-halfspace occupation. Its exact all-parameter large deviation rate extends the same-model stationary mean into rare-event theory; singular edge expansions quantify the mechanism of almost-zero or almost-full adsorption. The different log-log coefficient distinguishes whether the shortest return carries an atom versus a density, a structural interpretation useful for related renewal and sticky-boundary processes.",
+      "residual_risks": [
+        "Nonabsorbing sticky wall, desorption-induced resetting to x0>0 at a fixed orientation, alpha,r,gamma,v positive and no added diffusion; no wall-origin desorption protocol or general holding times.",
+        "Rate is asymptotic T->infinity at fixed physical parameters; no finite-time probability prefactors or claims about unreset positive-halfline occupation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2602.02446",
+    "https://arxiv.org/abs/2009.01968",
+    "https://arxiv.org/abs/1510.02431",
+    "https://arxiv.org/abs/2405.07032",
+    "Resultary: sticky boundary run tumble resetting adsorption occupation large deviations log log edge"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Nonabsorbing sticky wall, desorption-induced resetting to x0>0 at a fixed orientation, alpha,r,gamma,v positive and no added diffusion; no wall-origin desorption protocol or general holding times.",
+    "Rate is asymptotic T->infinity at fixed physical parameters; no finite-time probability prefactors or claims about unreset positive-halfline occupation."
+  ],
+  "residual_risks": [
+    "General renewal LDP results may imply existence of an LDP as a special case, so novelty should be scoped to evaluated sticky-wall SCGF/rate and the orientation-dependent singular edge.",
+    "Unindexed work might compute an equivalent adsorption-time large deviation transform; not all modern results were available in complete text."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Found prior reset first-passage and stationary bound fraction, but not the full speed-T wall adsorption-time LDP nor orientation-dependent log-log rate edge.",
+      "evidence": "Source explicitly computes stationary state and mean bound fraction; the assessed claim distinguishes the large-deviation spectrum and right-edge coefficient.",
+      "identifier_or_url": "https://arxiv.org/abs/2602.02446",
+      "material_read": "Primary article full HTML available via ResearchGate, including state dynamics, desorption conventions, stationary bound probability and first-passage renewal formulas.",
+      "method": "Read actual accessible full HTML primary material and compared model assumptions, stationary quantities and investigated observable.",
+      "title": "Bressloff and Linn, Renewal theory for a run-and-tumble particle with stochastic resetting and a sticky boundary",
+      "trigger": "Exact same stochastic sticky-wall RTP and desorption-induced resetting model."
+    },
+    {
+      "assessment": "Different observable, so no direct equal-rate implication.",
+      "evidence": "Half-line occupation includes moving trajectories and has no independent exponential wall holding phase.",
+      "identifier_or_url": "https://arxiv.org/abs/2009.01968",
+      "material_read": "ArXiv abstract/synopsis and mathematical observable description, not full article text in this run.",
+      "method": "Compared occupancy of a spatial half-line for a free RTP with physically bound duration at a sticky wall.",
+      "title": "Bressloff, Occupation time of a run-and-tumble particle with resetting",
+      "trigger": "Related run-and-tumble occupation LDP."
+    },
+    {
+      "assessment": "Prior theory supplies method only, not the evaluated adsorption singularity or log-log coefficient.",
+      "evidence": "No sticky wall with shortest ballistic return and atom/density orientation asymmetry in inspected scope.",
+      "identifier_or_url": "https://arxiv.org/abs/1510.02431",
+      "material_read": "Accessible abstract and general renewal formulation, not a full same-model computation.",
+      "method": "Compared abstract kernel theory to the explicit orientation-specific Laplace and edge expansions.",
+      "title": "Meylahn, Sabhapandit and Touchette, Large deviations for Markov processes with resetting",
+      "trigger": "Generic renewal LDP machinery that might cover the model structurally."
+    }
+  ]
+}
