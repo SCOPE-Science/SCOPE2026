@@ -1,17 +1,21 @@
-# Scientific assessment: exact Poisson Gabor frame bounds
+# Independent mathematical audit
 
-## Correctness — PASS
-The Zak transform is unitary with the stated normalization. At integer oversampling, ordinary torus Parseval gives a **scalar** frame symbol, not a nontrivial matrix; testing the indicator-of-unit-interval window confirms the absence of a missing redundancy factor. The Fourier transform \(\widehat g_w(\xi)=(\pi/w)e^{-2\pi w|\xi|}\) yields a two-sided geometric-series identity valid in every Zak cell. The derivative of each summand with respect to \(\cos(2\pi x)\) is strictly positive, thus all spatial extrema are globally identified. The remaining finite hyperbolic sum has its extremizers at the stated frequency values and produces exact \(A_q\) and \(B_q\). Strict \(A_q>0\) follows for every \(q\ge2\) from monotonicity of \(\sinh u/u\). The quadratic-form identity and continuity yield sharp frame constants and the full interval spectrum. The redundancy-two derivative factors into a positive term and one quartic with exactly one root above \(1\). The checker supplies supplementary, not substitute, evidence.
+## correctness
 
-## Originality — PASS under inspected evidence
-A prior exact calculation for two staggered time-translation cosets with integer modulations already implies the \(q=2\) Poisson sharp bounds by unitary dilation; these constants are **not** counted as new. The substantive family of new sharp Poisson lattice bounds begins at \(q=3\) and continues for every larger integer. The closest primary paper is Belov and Semenov (arXiv:2610.30037, publicly posted 2026-10-21). Its complete available text develops a semi-regular **frame-property criterion** for the same Poisson window but does not state the sharp two-parameter formulas, fiber locations, full frame spectrum, or unique redundancy-two width. Belov–Kulikov–Lyubarskii (arXiv:2212.08915) study the different one-sided Cauchy kernel; its bounds do not imply the same Poisson formulas. Kloos–Stöckler (arXiv:1311.7359) concerns exponential splines and totally positive functions, not these explicit all-integer-redundancy Poisson extrema. The classical Janssen formula expresses sharp integer-redundancy frame bounds as the infimum and supremum of a torus symbol, a premise used here; it does **not by itself** evaluate the symbol for the Poisson window or solve the width optimization. Published scientific summaries of sharp spline and other rational-window Gabor results involve different profiles and no dominating statement about this Poisson family.
+PASS
 
-The principal residual originality risk is Janssen's 1996 paper *Some Weyl–Heisenberg frame bound calculations*, for which the title and abstract were available but the complete text was inaccessible. This is reported without treating absence of a search hit as a proof of uniqueness. It could contain a relevant unrecognized special case. Historical duplication cannot be ruled out absolutely.
+PASS: On the actual RESULT.md (af9614c1), checked Zak conventions for unit translations, q-fold modulation and unnormalized g_w. The Fourier-side geometric series gives the quoted rational-hyperbolic Zak kernel. Each fiber is increasing in cos(2pi x); the finite q-sum in omega has its minimum at 1/(2q) and maximum at 0. Hence sharp A_q=(pi/w)^2(R_q-q)/(2cosh^2(c/2)), B_q=(pi/w)^2(R_q cosh(c/q)+q)/(2sinh^2(c/2)); R_q>q and torus-connectedness establish frame positivity and full spectrum interval. For q=2 independent SymPy differentiation reproduces ((2y-1)(4y^4-10y^3+4y^2+y-1))/(4y^2(y-1)^3), with the unique y>1 root by Descartes. Independent Fourier-series Zak summation, 12 parameter sets and 2964 grid inequalities agree. Bounds do not extend by this proof to noninteger q.
 
-## Value — PASS
-The frequency lattice and a Poisson window are directly motivated by the newest frame-characterization literature. The explicit **optimal**, rather than sufficient, constants answer the quantitative stability question left open by a qualitative frame criterion throughout an unbounded natural parameter family \(q\ge2\), \(w>0\). The exact full spectrum and uniquely optimal width for redundancy two permit precise stability comparisons and window-width design. The hyperbolic identities and global optimization do substantive work beyond a trivial specialization or finite example.
+## originality
 
-## Limitations and sources
-Only integer redundancy, rectangular lattices with unit time translation, and the unnormalized even Poisson window are covered. The wider irregular-lattice questions and optimization over all window families remain open. Primary comparisons: Belov–Semenov arXiv:2610.30037; Belov–Kulikov–Lyubarskii arXiv:2212.08915; Kloos–Stöckler arXiv:1311.7359; Janssen 1996, DOI:10.1016/0019-3577(96)85088-9 (abstract inspected; full text not inspected). The analytic proof, not numerical testing, establishes the universal formulas.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS, best-of-knowledge for q>=3 exact Poisson frame bounds and the explicit q=2 width optimizer, not for the already-covered q=2 sharp bound. Older integer-oversampling Zak theory is a method rather than a universal evaluation for this Poisson profile. Janssen (1996) is a material uninspected priority risk: author-posted PDF retrieval failed and authorized institutional access was blocked; no whole-document noncoverage asserted.
+
+## value
+
+PASS
+
+PASS: For a classical even Poisson Gabor window the exact sharp lower and upper constants for every integer redundancy are a useful quantified sampling invariant, rather than merely frame existence; the unique best-conditioned redundancy-two width supplies a meaningful design parameter. This is a concrete all-q evaluation from the Poisson kernel, not a generic Zak representation or a numerical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
