@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Every (n-1)-letter prefix class requires at least q-1 sensors, since two unselected final-letter siblings are indistinguishable. The checksum has exactly q-1 choices per class. The actual embedded verifier checks both exact reverse-edge and prefix-preimage constructions of all balls, and verifies all signatures nonempty and distinct across 243,1024,2187,16384 vertices in four complete parameter instances. It reports VERIFY_OK cases=4; no infinite-family inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1412.5842, Theorem 3.9 covers n>=2t, not the critical n=2t-1.",
+        "arXiv:1412.5842, Theorem 3.12 gives a nonsharp critical construction of size q^(n-1)(q-1)+q^t and expressly leaves the optimum open."
+      ],
+      "reasoning": "The covering range n>=2t cannot imply the critical n=2t-1 case by specialization, and the latter published upper bound does not establish equality with the general lower bound. A checked finite claim for binary alphabets has different q and does not imply the nonbinary theorem.",
+      "searches": [
+        "de Bruijn graph minimum t-identifying code \"n=2t-1\" alphabet optimal 2024 2025",
+        "\"critical\" \"de Bruijn\" \"identifying codes\" optimal 2020 2024",
+        "critical radius t=3 and t=4 directed de Bruijn d>=3 identifying code optimum d^(2t-2)(d-1)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.5842 rendered full relevant Section 3",
+      "arXiv:1508.00403 abstract",
+      "Exact directed critical-length parameter web searches",
+      "Published mathematical-record search for exact code claim and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published prefix-class argument implies only gamma_t(q,2t-1)>=q^(2t-2)(q-1).",
+        "The published nonoptimal critical construction proves only gamma_t(q,2t-1)<=q^(2t-2)(q-1)+q^t.",
+        "Accessible earlier binary critical-radius claims establish values only for q=2, and earlier nonbinary radius-two claims only for t=2."
+      ],
+      "reasoning": "Upper and lower bounds leave a nonzero gap for all four claimed cases. Binary instances and radius-two nonbinary instances are disjoint from the present q in {3,4}, t in {3,4} cases. The modular-checksum witnesses together with complete finite tests close the specific gap, which is not implied by the prior statements.",
+      "searches": [
+        "\"identifying codes\" \"de Bruijn\" t optimal critical dimension d",
+        "sharp critical radius identifying codes for three binary de Bruijn networks",
+        "de Bruijn graph identifying code minimum incoming radius 3 4 alphabet 3 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boutin–Horan Goliber–Pelto (arXiv:1412.5842), Section 3, Definition 3.7, defines the same incoming-radius identification invariant.",
+        "A related Horan (arXiv:1508.00403) result uses the undirected graph; underlying neighborhoods are not equivalent."
+      ],
+      "reasoning": "Incoming-radius sensor signatures, t-identifying codes, and closed in-ball identifying sets are the same problem under notation changes. Directed and undirected de Bruijn graphs are not interchangeable. Searches of the same object and common terminology produced no equal or stronger four-case result.",
+      "searches": [
+        "directed de Bruijn graph t-identifying code critical length n=2t-1 minimum radius 3 ternary radius 4 quaternary",
+        "de Bruijn graph identifying code minimum incoming radius 3 4 alphabet 3 4",
+        "\"3-identifying codes\" \"de Bruijn\" \"3\" 5",
+        "\"4-identifying codes\" \"de Bruijn\" 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arXiv:1412.5842 parameter statements contain a general lower bound and nonsharp critical upper bound, not a table with the four exact values.",
+        "Specific parameter searches produced no attributable numerical table or database entry resolving these minima."
+      ],
+      "reasoning": "No identical parameter table was identified. Absence from search is not itself evidence of novelty; stronger published results and exact implications were also examined.",
+      "searches": [
+        "site:oeis.org \"identifying\" \"de Bruijn\" code",
+        "\"minimum\" \"identifying\" \"de Bruijn\" \"3\" 5 162",
+        "\"minimum\" \"identifying\" \"de Bruijn\" \"4\" 7 12288",
+        "de Bruijn d 5 3-identifying code minimum ternary 162",
+        "de Bruijn d 7 4-identifying code minimum ternary 1458"
+      ]
+    },
+    "rationale": "The defining 2014 primary paper proves the same universal lower bound but does not attain it at n=2t-1; its construction in Theorem 3.12 has q^t extra vertices, and it expressly calls optimality open. The new stated values use a modular checksum with four exhaustive certifications. The available previously stated results for q=2 at radii 3,4,5 and for radius 2 over q>=3 concern disjoint parameter pairs and do not imply these exact cases. No covering indexed research record or primary-literature claim was located; this is a qualified best-knowledge conclusion, not a uniqueness or priority proof.",
+    "residual_risks": [
+      "Unindexed or differently named identifying-code constructions may imply these exact finite cases.",
+      "The broader all-q or all-t modular checksum conjecture is not asserted; finite tests cannot establish it.",
+      "No independent mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides universal lower bound and a nonsharp critical-length construction; no proof of the four exact optima identified in the inspected relevant full section",
+        "evidence": [
+          "Definition 3.7 and Theorem 3.8 specify the invariant and sharp candidate lower bound.",
+          "Theorem 3.9 assumes n>=2t; Theorem 3.12 assumes n=2t-1 but adds q^t vertices and says optimality is open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.5842",
+        "material_read": "Rendered full relevant Section 3, including definitions and proofs of Theorems 3.8, 3.9, 3.10, 3.12 and critical-length open-problem discussion; introduction and comparison definitions",
+        "method": "Read HTML-rendered primary full text with theorem-level implication comparison",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Same directed graph, same identifying-code invariant, critical-length hypothesis"
+      },
+      {
+        "assessment": "Different undirected graph, so its existence assertions do not determine these directed incoming-radius minima",
+        "evidence": [
+          "Abstract explicitly specifies undirected de Bruijn graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00403",
+        "material_read": "Bibliographic page and abstract; no full document comparison claimed",
+        "method": "Abstract-level relevance triage by graph orientation",
+        "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+        "trigger": "Related identifying-code setting with overlapping terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "408284ec-ac06-49ae-bacd-4b3314a02377",
+  "value": {
+    "rationale": "The critical dimension n=2t-1 is explicitly a published unresolved optimality boundary. The two natural higher radii 3 and 4 at the first two nonbinary alphabet sizes 3 and 4 now have exact minimum sensor counts, realized by one transparent modular balancing construction. This is a nontrivial exact optimization and explicit construction at four natural parameter cases, not a restatement of the universal lower bound or an arbitrary filtered enumeration.",
+    "status": "PASS"
+  }
+}
