@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing `COLLISIONS.csv`, using standard Python 3 only. The program computes the complete prefix-tree census for every binary length from seven to seventeen using fourteen exact integer counts. It checks all sixteen length-seventeen doubletons, no higher multiplicities, matching collision CSV, four size-four reversal/complement orbits and every smaller informative length's injectivity.
+## correctness
 
-An independent literal index-combination implementation recomputes each deck for all 1920 binary words of lengths seven to ten and each of the thirty-two words in the sixteen collision pairs. In the performed run, the output begins:
+PASS
 
-```
-VERIFY_OK length_range=7..17 words_at_17=131072 distinct_decks_at_17=131056 doubleton_decks_at_17=16 singleton_decks_at_17=131040 symmetry_orbits=4 independent_short_words=1920
-```
+PASS. Fourteen coordinates count length-1,2,3 binary scattered patterns with successive selected indices differing by >=3. Last-position partition gives C_i(p)=C_(i-1)(p)+[w_i=last(p)] C_max(0,i-3)(prefix(p)), including the empty-pattern convention. An independently written iterative exact-integer deck enumerator traversed EVERY binary word for n=7..17: all 2^n observations are distinct for 7<=n<=16; at n=17, 131072 words yield 131056 vectors, exactly 16 doubletons and no larger fiber. A second literal-index implementation independently matched all n=7..10, and direct checks of all 16 collision pairs and reversal/complement orbit actions corroborated the four size-four orbits (source file COLLISIONS.csv). This is a rigorously bounded finite census; nothing is claimed for n>=18 or vacuous n<7.
 
-It prints eleven additional census lines and four representatives. Numeric vector comparison is exact; no hash-equality or randomized test is used. The recurrence's mathematical validity is proved in `RESULT.md`. These checks establish only the stated finite range and do not constitute independent scientific audit.
+## originality
+
+PASS
+
+PASS best-of-knowledge. The gap-three multiplicity deck is different from ordinary deletion output sets and from the published two-separated gap case. Full original Golm et al. paper proves general bounds (41 at these parameters) but not this length-17 first informative threshold or exact 16-fiber first-failure census; Day et al. address constrained pattern sets, not their full multiplicities. Resultary nearest binary deletion-reconstruction record treats another channel and cannot imply this multiset observation. Nonindexed equivalent finite enumeration remains possible.
+
+## value
+
+PASS
+
+PASS. The first failure of injectivity after length-three observations become genuinely available is a natural sharp reconstruction boundary. Complete first-failure fiber sizes and reversal/complement orbit classification quantify information loss and are not simply a single arbitrary collision witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
