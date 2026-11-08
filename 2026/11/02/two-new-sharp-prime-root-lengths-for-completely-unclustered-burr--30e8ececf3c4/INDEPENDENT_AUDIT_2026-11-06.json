@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:14:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For primes p=5 mod8 with ord_p(2)=p-1, r=(p-5)/2 is divisible by four. The ternary last columns L2=(10)^r1012021 and L3=(10)^r10120121 have adjacent distinct output symbols. Their stable last-to-first permutation equals f(i)=2^-1(i-1) mod p except the explicitly listed suffix splices; after y=i+1 the nonzero residue cycle is multiplication by 2^-1, with the old zero-coordinate fixed row incorporated by the suffix. Hence both full LF permutations have exactly one cycle, giving primitive-necklace inverse BWT images. Exact sorted-block agreement counts show d_H(L,F)=r+4=(p+3)/2 at both lengths, and the established lower bound U_k(n)>=ceil(n/2) gives sharp optimality for all eligible primes and ordered alphabets k>=3. Independently checked stable LF cycle length and exact Hamming distance for eight named primes and two lengths each. The splice argument, not the finite test, proves uniform p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici et al show unclustered outputs at all lengths but do not bound the minimum input cyclic runs.",
+          "Kumallagov universal lower bound is necessary and is attained by the new explicit construction, rather than forced merely by existence."
+        ],
+        "reasoning": "A lower bound together with an unclustered existence theorem does not imply equality unless one constructs a necklace attaining the bound; the splice supplies that missing witness.",
+        "searches": [
+          "completely unclustered Burrows Wheeler primitive necklace p plus 2 p plus 3 cyclic runs primitive root modulo prime",
+          "General results and stronger/duality coverage in cited primary sources"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01267v1",
+        "arXiv:2508.20879; doi:10.4230/LIPIcs.CPM.2026.13",
+        "Resultary semantic search:completely unclustered Burrows Wheeler primitive necklace p plus 2 p plus 3 cyclic runs primitive root modulo prime"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kumallagov Theorem 4.4 gives global lower bound; this theorem constructs matching upper bound at other two lengths.",
+          "Fici et al guarantee existence of unclustered output without forcing optimal number of input runs."
+        ],
+        "reasoning": "Combining these prior results cannot conclude the new exact equalities without the valid single-cycle low-distance columns. Thus the new explicit construction is a substantive mathematical step.",
+        "searches": [
+          "completely unclustered Burrows Wheeler primitive necklace p plus 2 p plus 3 cyclic runs primitive root modulo prime",
+          "Direct final-claim implication comparisons with cited theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new claim is about minimum input cyclic run count conditional on completely unclustered output; equivalent forms include stable last-first single cycles plus sorted-column Hamming distance.",
+          "Published Kumallagov invariant U_k(n) is exactly the same parameter, making it a primary comparison."
+        ],
+        "reasoning": "Unlike earlier sharp values at n=p-1,p, the new formulas cover n=p+2,p+3. Need to check an earlier construction cannot be reindexed to these lengths; the explicit suffix splice and new row count is not just index renaming.",
+        "searches": [
+          "completely unclustered Burrows Wheeler primitive necklace p plus 2 p plus 3 cyclic runs primitive root modulo prime",
+          "Aliases and equivalent formulations in cited primary sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior Kumallagov finite examples to n<=64 and prime-root lengths p-1,p cited in reviewed package; new values include p+2,p+3 at unbounded eligible prime indices conditional on Artin-like eligibility.",
+          "Resultary search yielded unrelated prime-cycle/cyclotomic results."
+        ],
+        "reasoning": "No matching published U_k(p+2),U_k(p+3) table was found in available abstracts/records. A full manuscript/appendix comparison remains a concrete priority risk, not a verified negative finding.",
+        "searches": [
+          "completely unclustered Burrows Wheeler primitive necklace p plus 2 p plus 3 cyclic runs primitive root modulo prime",
+          "Known exact tables/database and prior computed instances"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. Combining these prior results cannot conclude the new exact equalities without the valid single-cycle low-distance columns. Thus the new explicit construction is a substantive mathematical step.",
+      "residual_risks": [
+        "Highly relevant Kumallagov primary full PDF/appendices could not be opened; comparison is limited to abstract and statement evidence in the reviewed package, so an unrecognized stronger theorem may overlap.",
+        "An older equivalent combinatorial suffix splice or BWT-necklace table could cover new lengths.",
+        "The existence of infinitely many primes p=5 mod8 with primitive root 2 is not established or used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit bound and p-1,p values are prior; full-text p+2,p+3 coverage cannot be ruled out solely from abstract",
+          "evidence": [
+            "Source credits Theorem 4.4 universal lower bound U_k(n)>=ceil(n/2) and Proposition 4.3 cyclic run/Hamming identity; prior prime-root lengths p-1,p."
+          ],
+          "identifier_or_url": "arXiv:2606.01267v1",
+          "material_read": "Accessible arXiv abstract and source-cited Theorem 4.4 / Proposition 4.3 / p-1,p construction statements; PDF and HTML full text unavailable in this run",
+          "method": "Primary search, abstract, detailed source mathematical comparison",
+          "title": "Kumallagov, An extremal problem for completely unclustered Burrows-Wheeler images",
+          "trigger": "Same exact invariant U_k(n), cyclic-run/Hamming identity and prime-root constructions"
+        },
+        {
+          "assessment": "Existence for every n,k>=3 need not imply sharp cyclic input run count",
+          "evidence": [
+            "Published existence result concerns output unclusteredness, not minimization of cyclic input runs."
+          ],
+          "identifier_or_url": "arXiv:2508.20879; doi:10.4230/LIPIcs.CPM.2026.13",
+          "material_read": "Accessible abstract and source-cited conference description; full paper not read",
+          "method": "Preprint/conference search and semantic comparison",
+          "title": "Fici, Gabory, Romana and Sciortino, Unclustered BWTs of any Length over Non-Binary Alphabets",
+          "trigger": "Same unclustered BWT existence but not same input minimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform explicit construction giving exact best possible run counts at two previously untreated prime-root lengths is a motivated extremal improvement beyond universal existence of unclustered BWT images. The ternary splice supplies a reusable structural bijection between modular multiplication cycles and primitive necklaces. No infinitude of eligible primes is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant Kumallagov primary full PDF/appendices could not be opened; comparison is limited to abstract and statement evidence in the reviewed package, so an unrecognized stronger theorem may overlap.",
+    "An older equivalent combinatorial suffix splice or BWT-necklace table could cover new lengths.",
+    "The existence of infinitely many primes p=5 mod8 with primitive root 2 is not established or used.",
+    "Source file blobs read at the frozen Git commit; independent raw Git tree identity was unavailable, so publication import is not ready.",
+    "Scientific PASS does not establish a public publication, external certification, or validated first-publication date."
+  ],
+  "schema_version": 1
+}
