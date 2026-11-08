@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "From \\(x_1=Ax_0/u\\), \\(x_2\\) is proportional to \\(((a^2+\\beta u)c,(b^2+\\beta u)s)\\); exact Rayleigh subtraction has strictly positive denominator and numerator sign \\(a^2b^2-(\\beta u)^2\\). Distinct positive eigenvalues ensure no zero denominator. Haar-circle first coordinate squared has \\(\\operatorname{Beta}(1/2,1/2)\\) law, giving the exact arccos tail and inverse risk cap; the two square-root cusp constants follow by Taylor expansion. Standard-library verifier passed 8,000 exact fraction algebra tests, 40,000 direct update tests, 36 circular probability grids, and endpoint asymptotics. Simulation is secondary to proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. arXiv:2610.41627, Sections 2-4: convergence bounds and GPR parameter choice conditional on permitted coefficient sequences, not sharp one-warm-start drop probabilities.",
+        "Austin, Pollock and Zhu arXiv:2403.09618: dynamic momentum algorithm and augmented-matrix convergence analysis.",
+        "Rabbani et al. arXiv:2108.09264: delayed momentum and streaming variants, parameter initialization and perturbation convergence.",
+        "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705: universal bounds for Richardson, rather than two-sweep eigenvector normalization."
+      ],
+      "reasoning": "Analyzed whether asymptotic convergence, general power-method ascent, or other two-step iterative bounds imply the proposed claim. They do not: a global linear convergence rate need not imply monotonicity at an arbitrary fixed early step; the standard one-vector power map is not the two-vector update. Results on a different recurrence cannot dominate this exact event probability.",
+      "searches": [
+        "two-sweep parameterized power method Rayleigh quotient monotonicity sharp beta parameter threshold two eigenvalues",
+        "accelerated power method two-step Rayleigh quotient decrease random initialization convergence nonmonotone",
+        "power method momentum two-step beta first accelerated step monotonicity failure probability spectral gap",
+        "\"power iteration\" \"Rayleigh quotient\" \"beta\" monotonicity momentum"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al., arXiv:2610.41627 (primary algorithm and convergence text)",
+      "Austin, Pollock, Zhu, arXiv:2403.09618 (primary full text)",
+      "Rabbani et al., arXiv:2108.09264 (primary full text)",
+      "Published published-finding corpus semantic record queries; nearest record IDs listed in exact_database_or_table",
+      "Relevant previously published claims on two-step spectral iterations were compared for recurrence aliases, probability quantities and eigenpair statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. arXiv:2610.41627, Method 2 defines the same iteration, and Theorem 1/2 give spectral convergence conditions.",
+        "Austin et al. arXiv:2403.09618 and Rabbani et al. arXiv:2108.09264 focus convergence and momentum estimation, not an exact Haar-first-step three-phase law.",
+        "published-finding corpus 2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3 concerns a different two-step extrapolation update."
+      ],
+      "reasoning": "Compared actual logical implications: admissible-sequence convergence cannot yield the exact probability for unrestricted beta, and a general nonmonotonicity example cannot imply the sharp parameter thresholds, risk inversion, or endpoint constants. The proof here is a standalone new direct computation whose structural setting and complete classification are beyond those identified source statements.",
+      "searches": [
+        "two-sweep parameterized power method Rayleigh quotient monotonicity sharp beta parameter threshold two eigenvalues",
+        "power method momentum two-step beta first accelerated step monotonicity failure probability spectral gap",
+        "\"two sweep\" \"Rayleigh quotient\" \"monotonic\" momentum eigenvalue"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.41627, Section 2 Method 2: \\(y_{k+1}=Ax_k+\\beta_{k-1}x_{k-1}\\).",
+        "The warmed first step equals the normalized quadratic spectral filter \\((A^2+\\beta\\|Ax_0\\|_2 I)x_0\\), whose two-mode coordinate quotient gives the exact sign condition.",
+        "published-finding corpus closest record 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2 studies residual-ratio adaptive gradient steps on a quadratic, not this momentum eigenvector update."
+      ],
+      "reasoning": "Tested the equivalent viewpoint as a degree-two filter with normalization-dependent constant term, the leading-eigenvector weight, the Rayleigh-quotient ordering, and the arcsine Haar angular tail. The closest located published claim concerns a distinct adaptive gradient recurrence, so neither it nor a fixed polynomial power-filter statement directly covers the all-parameter Haar risk formula.",
+      "searches": [
+        "\"two-sweep\" \"Rayleigh\" \"beta\" exact sign descent eigenvalue 2x2",
+        "two dimensional positive definite power iteration momentum parameter Rayleigh quotient deterioration arccos arcsine probability warm start",
+        "TPPM GPR Sun Peng Zhang Vong 2610.41627 Rayleigh quotient monotonicity",
+        "\"momentum power\" \"Rayleigh quotient\" monotonic 2D"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published-record semantic searches returned 56-58 nearby records per alias query and no direct two-sweep probability table; nearest records include 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12 and 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0.",
+        "The classical arcsine distribution of a Haar-circle coordinate is a known ingredient, not a claim of new probability theory."
+      ],
+      "reasoning": "Searched source title/authors/identifier and key quantity aliases for an exact tabulation of this event. Distinct published-finding corpus records concern gradient descent and residual distortion, not normalized two-sweep first-step Rayleigh drop. Search incompleteness is a residual priority risk, not a proof of absence.",
+      "searches": [
+        "TPPM GPR Sun Peng Zhang Vong 2610.41627 Rayleigh quotient monotonicity",
+        "\"two-sweep\" \"Rayleigh\" \"beta\" exact sign descent eigenvalue 2x2",
+        "two dimensional positive definite power iteration momentum parameter Rayleigh quotient deterioration arccos arcsine probability warm start"
+      ]
+    },
+    "rationale": "The exact first-two-sweep Rayleigh sign criterion, Haar-start failure law, inverse risk cap and square-root onset/saturation are not entailed by the 2026 primary paper's asymptotic convergence conditions, nor by the inspected earlier momentum schemes. published-finding corpus semantic queries with exact recurrence aliases and equivalent power/polynomial descriptions returned nearby but scientifically non-covering results (different iteration maps or quantities). Historical priority is uncertain, not declared proven from absence of search hits.",
+    "residual_risks": [
+      "Classical two-eigenmode rational-filter analysis could contain an algebraically equivalent one-step result not indexed under the current method name.",
+      "Other pre-2026 momentum and extrapolation eigenvalue full texts were not exhaustively inspected.",
+      "A search result and summary is insufficient to certify an entire remotely stored report does not cover the claim; comparisons rely on identifiable different objects or update maps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the one-warm-start exact Rayleigh descent sign condition or Haar law",
+        "evidence": [
+          "Section 2 Method 2 steps \\(y_{k+1}=\\beta_{k-1}x_{k-1}+Ax_k\\), normalized x_(k+1); Section 3 Theorems 1-2 address asymptotic convergence hypotheses, not this exact random-start classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.41627",
+        "material_read": "Full-text HTML Sections 1-4, especially Method 2, warm-start choices, Theorems 1-2 and regression discussion; relevant PDF page screenshots",
+        "method": "Primary full text and PDF-page visual inspection, recurrence-by-recurrence and quantifier comparison",
+        "title": "A Gaussian Process Regression-Enhanced Two-Sweep Parameterized Power Method for Computing Extreme Eigenpairs",
+        "trigger": "Exact same update and current motivating algorithm"
+      },
+      {
+        "assessment": "NOT_COVERING this normalized two-sweep warm-start event probability",
+        "evidence": [
+          "Austin, Pollock and Zhu, Sections 1-3 discuss augmented-matrix momentum acceleration and adaptive coefficients, not the arcsine one-step risk cap."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.09618",
+        "material_read": "Primary full text introduction, momentum and normalized update definitions and convergence discussion, with PDF page image inspection",
+        "method": "Compare the defined algorithm, coefficient scaling and convergence claims with the present exact two-sweep first step",
+        "title": "Dynamically accelerating the power iteration with momentum",
+        "trigger": "Earlier dynamic two-step momentum power method, possible general coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the normalized TPPM first-two-sweep exact probability law",
+        "evidence": [
+          "Rabbani, Jain, Rajkumar and Huang analyze DMPower/DMStream acceleration and parameter estimation, not a fixed first-step Haar-start Rayleigh-decrease event."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.09264",
+        "material_read": "Primary paper introduction, method and algorithm/convergence discussion with PDF-page visual inspection",
+        "method": "Compare delayed-momentum initialization and update mechanics with the exact signed two-sweep event",
+        "title": "Practical and Fast Momentum-Based Power Methods",
+        "trigger": "Preexisting accelerated power methods with warm-up and momentum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "00a94113-39c7-48f2-83b3-fb297722e666",
+  "value": {
+    "rationale": "The one-step Rayleigh loss is a natural and operationally meaningful risk for parameterizing the newly proposed two-sweep eigenvalue solver. Exact zero/mixed/one phases, a sharp universal safety threshold, and the full risk-constrained coefficient inversion give a complete two-spectral-mode benchmark. It is not a normalization caveat, arbitrary numerical slice, or an unmotivated tiny improvement: it separates safely accelerated updates from loss of a central computed quantity under random starts. No claims are made for a full GPR-based trajectory.",
+    "status": "PASS"
+  }
+}
