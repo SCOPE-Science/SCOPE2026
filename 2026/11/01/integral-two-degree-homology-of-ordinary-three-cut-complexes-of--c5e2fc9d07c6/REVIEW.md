@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The dual-face characterization is derived from the cut-complex definition. A connected triple is uniquely associated with a coordinate square; a four-set all of whose triples are connected is exactly one coordinate square; no five-set qualifies by bipartition parity. Two explicit elementary collapses per square leave the cube's triangulated two-skeleton and long edges. The cube's two-skeleton is simply connected with second homology rank \(\mu_d\); adding long edges increases first homology by \(h_d\). These groups are torsion-free integrally. Combinatorial Alexander duality and the integral universal coefficient theorem yield the two asserted cut-homology groups and non-shellability. The included checker verifies all four-set and boundary incidences through \(d=5\) without extrapolating to the general theorem.
+## correctness
 
-## Originality (PASS against inspected sources)
-Primary defining paper arXiv:2304.13675 treats ordinary cut complexes and uses conditions not covering graphs with four-cycles to force simpler homology. The prior cube-three-cut result explicitly concerns only \(d=3\). The published all-order high-girth theorem is inapplicable because cubes contain four-cycles; hypercube neighborhood-complex and four-cube total-cut results concern different definitions. The closest comparison is the previous cube result, which establishes precisely the base case, not the new \(d\ge4\) extension or dual collapse. Indexed searches under all these aliases found no stated stronger all-cube ordinary three-cut classification. Unindexed equivalent results remain possible.
+PASS
 
-## Value (PASS)
-The theorem determines the complete **integral** homology in all dimensions for a canonical family, gives explicit sphere and loop ranks for a geometric Alexander-dual reduction, and proves non-shellability uniformly. Two adjacent nontrivial homological degrees expose a structural obstruction that a rank or Euler-characteristic-only calculation would miss. The result is not a restatement of the known single-cube case or the high-girth theorem.
+Reconstructed Alexander dual K: subsets with every three vertices connected in Qd. Because the cube is bipartite and triangle-free, its triangles are unique-center length-two paths and its tetrahedra are exactly coordinate squares; no five-face can exist (three same-parity vertices). Each square has two free elementary collapse pairs, deleting one square tetrahedron and one diagonal so K collapses onto the cubical two-skeleton plus all Hamming-distance-at-least-three edges. The cubical two-skeleton is simply connected since higher-dimensional cells do not change π1; Euler characteristic gives μ=2^(d−3)(d²−5d+8)−1 free two-spheres. Long edges add h=2^(d−1)Σ_{j=3}^d C(d,j) loops, and the resulting two-complex is homotopy equivalent to the stated wedge. Integral UCT and combinatorial Alexander duality yield H_(2^d−5)=Z^μ, H_(2^d−4)=Z^h, all else zero; pure non-shellability follows from lower-degree homology. Independent enumeration of all connected triples and squares gives (d3:24 triangles,6 squares,μ1,h4) and (d4:96,24,μ7,h40), not a substitute for the uniform proof.
 
-## Scope and risks
-The verified claim concerns integral homology and dual homotopy only. It makes no homotopy-type assertion for the cut complex itself and no independent-certification assertion. Literature comparisons cannot exclude substantially differently indexed or unpublished coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the all-d ordinary cut homology and explicit dual collapse beyond the known d=3 instance. The exact Q3 prior result is the theorem’s base case; its full RESULT.md limits itself to Q3. The high-girth cut theorem cannot cover Qd because it has many four-cycles; the foundational complete-codimension-one-skeleton theorem fails because each coordinate square creates a nonface of the required size. A hypercube Lovász neighborhood complex has the same μ formula but distinct common-neighbor faces, not the cut complex or long-edge h. The Q4 total-cut calculation uses complements of independent (not all disconnected) triples. None supplies the d≥4 two-degree formula.
+
+## value
+
+PASS
+
+All binary cubes are a canonical infinite family, and the theorem solves complete integral homology for every dimension while identifying an elementary geometric dual model, explicit two distinct positive degrees and a uniform non-shellability obstruction. The square-plus-Hamming-chords decomposition is structural rather than a table extrapolation; the known Q3 case is a natural boundary, not the whole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
