@@ -1,15 +1,21 @@
-# Scientific review: four-modal observational fibers
+# Independent mathematical audit
 
-## Correctness
-PASS. For every upper-set suffix, a successor row meets it exactly when its maximum passes the suffix threshold and is contained in it exactly when its minimum passes that threshold; the four published semantic clauses turn these comparisons into two prefix maxima and two suffix minima. The four local recurrence constraints, plus initial and terminal sentinels, are equivalent to the prescribed records. Every allowed row endpoint pair has exactly the stated independent interior-choice weight. All quantifiers include empty rows via explicit sentinels. A separate exhaustive direct-semantic program verifies every relation on chains of one to four worlds and, independently, every corresponding fiber count. The all-size statements rest on proof rather than extrapolation.
+## correctness
 
-## Originality
-PASS on available evidence, not a claim of global historical priority. Balbiani–Gencer [1] supply the four operators, their eliminability relationships, and frame correspondences, but no representation-fiber computation. Přenosil [2] discusses canonical/modal relational representation in a more general signature; no exact raw-relation fibers for this specific four-modal chain signature were found. The closest publicly indexed chain result [3] counts a specially confluent subclass of relations, not equivalence classes of induced four-modal operations, and [4] concerns algebraic commuting condensations. Targeted searches for aliases, raw-versus-canonical relation equivalence, four-operator signatures, counts, and the parameter-specific sequence located no covering result. The possibility of an older equivalent inverse-image theorem in distributive modal algebra remains a concrete risk.
+PASS
 
-## Mathematical value
-PASS. Identifiability of a raw accessibility relation from its modal truth operations is a natural inverse problem raised by the distinction between relational and algebraic semantics. The all-size exact fiber factorization solves that inverse problem on arbitrary finite chains; it makes the obstruction structural rather than merely exhibiting an indistinguishable example. The sharp two-to-three-world threshold, exact first four quotient cardinalities, and exponential family of indistinguishable nonidentical relations quantify the information lost by restricting valuations to persistent sets. These are not consequences of the existing confluence census, which counts a different object.
+For every upward-closed suffix U_j, row intersection is equivalent to M_t>=j and row inclusion to m_t>=j, with M_t=-1,m_t=n for empty rows. The four Balbiani–Gencer semantic clauses therefore yield four threshold profiles A_i=max_{t<=i}M_t, B_i=min_{t>=i}M_t, H_i=max_{t<=i}m_t, K_i=min_{t>=i}m_t. Truth tables recover these exactly. Forward/backward recurrences characterize each admissible row endpoint pair; independent free interior bits give its weight 2^{max(M-m-1,0)}, so multiplication proves every fiber. Directly and independently enumerated all 2^{n^2} raw binary relations at n=1,2,3,4; direct four-modal suffix truth tables give class counts 2,16,279,7171 matching endpoint-record partition; all-row-extreme construction proves n>=3 shared fibers.
 
-## Boundaries and remaining risks
-The four operator semantics are those of [1], without additional frame hypotheses; the results are on labelled finite total orders only. Full-history priority cannot be guaranteed by indexed searches; a theorem about raw relational fibers in an older positive-modal or canonical-extension framework may cover some or all conclusions. The small-size maximal-fiber assertions use complete finite enumeration; no maximal-fiber formula for arbitrary larger carriers is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest statement/implication comparisons and bounded primary reading support best-of-knowledge originality with explicitly named residual priority risks; no claim of exhaustive historical uniqueness.
+
+## value
+
+PASS
+
+The inverse representation problem for four modal connectives is natural: a complete operator structure may hide exponentially many labelled binary relations even though all formulas under all persistent valuations agree. The exact all-size weighted fiber formula is a structural classification, and the sharp n=2/3 transition distinguishes semantic observability from raw accessibilities. It is not a mere restatement of confluence-based relation counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
