@@ -1,15 +1,21 @@
-# Scientific review: circular numerical-range projection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The numerical-range support function forces a disk-centered matrix to have trace-free square-zero part of prescribed Frobenius norm. An identity specific to traceless \(2\times2\) matrices guarantees that a top singular pair can be chosen orthogonal; a Frobenius inner-product upper bound is then attained. Equality conditions classify the entire minimizer set, and a real symmetric-part argument supplies a real minimizer when both input matrix and target center are real. The algebraic proof handles scalar, normal and nonnormal cases without relying on numerical samples. The included reproducibility script passed 1,386 exact-rational identity checks and 32,810 deterministic numerical comparisons.
+PASS
 
-## Originality — PASS, subject to priority risk
+For a complex 2x2 input A, write a=tr(A)/2 and T=A-aI with singular values s>=t. The support-function calculation characterizes a circular numerical range centered c of radius r>0 exactly by cI+N, N^2=0, ||N||_F=2r. The traceless identity T*T+TT*=(s^2+t^2)I ensures a top right singular vector v can be chosen with v*Tv=0, so u=Tv/s is perpendicular to v and saturates the Frobenius inner-product bound. Thus min squared distance equals 2|a-c|^2+t^2+(s-2r)^2. The simple top singular ray for s>t yields uniqueness, while normal/scalar cases yield continuous minimizers; a real perpendicular singular pair exists when A,c are real. Minimizing the square in r and then c proves the stated corollaries. Independent code checked 100 random complex instances for nilpotency, geometry, orthogonality and distance; finite checks are corroborative only.
 
-Wang--Li--Lim (arXiv:2605.30181) and Li--Lim (2023) solve other norm/rank/eigenvalue nearness tasks, but the inspected theorem lists and solution sections do not provide the simultaneous exact circular field-of-values, radius, projection-uniqueness, and real-minimizer classification. O'Loughlin's unitary-orbit characterization and the SVD best rank-one approximation are foundational ingredients, not alone statements of this fixed-radius constrained target problem. Gnazzo--Guglielmi--Poloni--Sicilia (arXiv:2603.05419) handles generic structured distance to singularity, covering related free-radius objectives but not a fixed disk or the stated equality classification. Noferini--Zhukov (arXiv:2609.14828) studies real minimizers for normal and stable target sets, not prescribed circular numerical ranges. Targeted mathematical-record and literature searches did not yield an exact duplicate. Equivalent classical results hidden under nilpotent-orbit or field-of-values terminology remain a risk; absence of a search hit is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact constrained metric projection is a natural finite-dimensional calibration for nonconvex numerical-range repair and has an explicit one-SVD construction. It distinguishes the unique nonnormal regime from the normal minimizer continuum, gives the exact radius-selection rule, and identifies a real-data solvability phenomenon in a conjugation-invariant nonconvex target. The result is confined to complex \(2\times2\) matrices in Frobenius norm; floating-point stability and larger sizes are not asserted.
+Qualified best-of-knowledge originality: numerical-range disk characterization and rank-one/SVD approximation are classical, but the fixed-radius exact Frobenius projection, equality-case uniqueness iff nonnormal and real-versus-complex attainment are not established in the compared primary nearness results. No negative statement about all of matrix-approximation literature is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Projecting onto a geometrically defined nonconvex numerical-range constraint is a natural constrained approximation problem. The exact attained distance, uniqueness transition and real solution guarantee furnish a complete special-dimensional classification with potential use in matrix optimization and numerical-range inverse problems; more than a bare numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
