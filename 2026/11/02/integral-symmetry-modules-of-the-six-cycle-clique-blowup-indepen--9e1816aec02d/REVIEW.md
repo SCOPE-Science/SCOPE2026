@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every simplex belongs to one of two independent triple joins or exactly one of the three opposite-fiber complete-bipartite bridges. The relative chain calculation establishes both integral module isomorphisms, including parity-twist orientation and factor-swap signs, without reliance on finite computation. Contracting spanning trees gives the claimed nonequivariant wedge. Exact character averaging establishes cyclic and full quotient ranks. The companion checker independently generated finite boundary matrices and signed action traces for three fiber sizes; these do not replace the uniform argument.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest inspected original sources are Okura 2021 (`arXiv:2109.04181`) and Okura 2023 (`arXiv:2303.11984`), which study the forest case and general polyhedral-join methods but do not state this cyclic six-clique full integral symmetry module or the quotient formulas. Actual specialized research-index queries found no exact table or broader covering statement; related entries concern generalized Mycielskians, a hexagonal prism cut complex, and categorical products rather than this lexicographic graph product. The difference is in the mathematical objects and consequences, not merely titles. Unindexed equivalence remains a bibliographic risk; this review does not claim global novelty certification.
+PASS
 
-## Value — PASS
-The smallest even cycle with three alternating independent sites combines two high-dimensional join summands with a cycle of cross-bridges. The resulting infinite two-degree integral character classification and its divergent rotation versus full-group quotients are informative invariants absent from ordinary homology ranks. This is more than a parameter change or a recomputation of forest formulas.
+For every integer m≥2 the independent supports of C6 comprise precisely alternating triples {0,2,4},{1,3,5} or one of three opposite pairs. Thus Ind(C6[K_m]) splits as two joins of three discrete m-point fibers plus exactly 3m² cross edges; relative H1 is the augmentation kernel of oriented cross-edge module with parity-swap sign ε, while H2 is the sum of two threefold tensor products of U_i=ker(sum:Z^m→Z) with Koszul permutation signs. A long exact sequence proves free integral homology, wedge counts and equivariance. Independent chain-boundary modular rank enumerations (not the supplied checker) yielded m=2: f=(12,36,16), Betti H1=11,H2=2; m=3: (18,81,54), (26,16); m=4: (24,144,128), (47,54). Rotation character averages give b1=m(m−1)/2 and b2=((m−1)^3+2(m−1))/3; normal fiber permutations and cycle rotation kill all rational invariants for W_m. The wedge splitting is only nonequivariant, rational quotient does not determine integral quotient torsion.
 
-## Limits
-No equivariant wedge-of-spheres homotopy equivalence is asserted, no integral quotient torsion is claimed, and finite checks are supporting evidence rather than an all-parameter proof. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest identified Okura forest lexicographic-product and polyhedral-join papers do not directly cover the cyclic six-site support complex or its full integral wreath-dihedral action. The specifically equivariant integral modules and quotient rational Betti formulas are best-of-knowledge additions. Another cyclic-product or graph polyhedral-join theorem could subsume them.
+
+## value
+
+PASS
+
+This is a natural exact integral G-module and quotient-homology classification for a symmetric infinite family of graph independence complexes, distinguishing ordinary Betti numbers from automorphism action and rational quotient invariants. The sign-twisted augmentation and graded factor action are structural, not simply a reported finite rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
