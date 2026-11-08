@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The nonmatching complex uses edge subsets with matching number below the threshold, not the graph's ordinary matching complex. Every relevant face is exhaustively enumerated. The coordinate-toggle acyclic matching is checked on every oriented Hasse incidence. The exact signed integral Morse boundaries have primitive image for the single-column cases, and an explicit determinant-one maximal minor plus primitive top kernel generator in the intermediate case. The discrete Morse, Hurewicz, and homological Whitehead arguments prove the claimed homotopy types, not only mod-two homology. An independent Kneser-graph implementation supplies full mod-two boundary ranks as a cross-check.
+
+**Originality: PASS on inspected evidence.** Linusson, Shareshian and Welker explicitly classify nonmatching complexes of complete and complete bipartite graphs, whereas the Petersen graph is neither. Their formulas do not determine the homotopy of its induced edge-subcomplex. Holmsen and Lee prove general Leray/vanishing bounds but not these exact integral groups or wedge types. The closest indexed Petersen computations concern degree-bounded two-matching, ordinary matching, higher-independence, graph cut, and Morse complexes; their face conditions are different. Full text was inspected selectively for the two closest primary articles; a similarly named GitHub record was available only through its indexed summary. Unindexed priority remains a risk.
+
+**Value: PASS.** The complete matching-threshold filtration of one of the most canonical nonbipartite cubic graphs is a natural benchmark for bounded-matching topology outside the complete-graph setting. It identifies the exact integral homotopy types at every nontrivial threshold and yields all positive-degree integral persistence intervals. The computation of the intermediate primitive integer boundary is a substantive part of the classification rather than a routine finite-field tabulation.
+
+**Scope and risks.** No result is claimed for other cubic graphs, equivariant homotopy, or arbitrary matching thresholds on a larger ambient graph. There is no independent mathematical validation; a covering unindexed result cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.

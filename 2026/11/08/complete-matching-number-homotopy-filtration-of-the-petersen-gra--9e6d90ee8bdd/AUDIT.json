@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "evidence": [
+      "verify_nonmatching.py",
+      "verify_nonmatching_output.txt",
+      "verify_kneser.py",
+      "verify_kneser_output.txt",
+      "Forman 1998 Morse theory for cell complexes; standard Hurewicz and homological Whitehead theorems"
+    ],
+    "rationale": "Every threshold k=2..5 is exactly enumerated from all matching masks, with 56/1073/8558/27449 faces. Explicit repeated-coordinate Morse matching is exhaustively certified acyclic on all 105/3990/47085/194040 face incidences. Signed integer Morse boundary columns are generated recursively; k=3 and k=5 boundaries are primitive, and k=4 has a 6-to-5 rank-four matrix with a +1 maximal minor and a primitive 7-to-6 kernel generator. The resulting sole reduced integral Betti ranks are respectively (degree,rank)=(1,6),(3,9),(5,4),(9,5), without torsion. CW connectivity, Hurewicz, and homological Whitehead imply the complete sphere wedges. An independent Kneser-model construction checks graph isomorphism and entire mod-two boundary ranks. Codes and outputs are included; no incomplete enumeration is treated as exhaustive.",
+    "residual_risks": [
+      "Independent mathematical review not performed."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linusson–Shareshian–Welker, arXiv:math/0410345, Theorem 1.1 computes exact sphere-wedge homotopy for NM_k(K_n); Corollary 1.2 treats no-perfect-matching complexes on complete graphs.",
+        "Holmsen–Lee, arXiv:2003.11270, Theorems 1.1 and 1.2 establish high-degree homological vanishing and link bounds for arbitrary graphs, over a field.",
+        "Neither checked arXiv PDF contains the word Petersen; the examined statements do not tabulate NM_k(P)."
+      ],
+      "reasoning": "The Petersen complex is indeed the induced subcomplex of NM_k(K_10) on its fifteen graph edges, but homotopy of a complex does not determine the homotopy of its induced subcomplex. The general Leray vanishing bound constrains only high degrees and does not imply the four exact free ranks, primitivity, or wedge decomposition. Thus the inspected broader statements do not logically cover the claim.",
+      "searches": [
+        "Web: simplicial complex graphs without matching k homotopy K_2n Linusson Shareshian Welker",
+        "Web: complex of graphs with bounded matching number homotopy K6 no perfect matching independence hypergraph",
+        "arXiv:math/0410345v1, Theorem 1.1, Corollary 1.2, sections 1 and 4; text search Petersen",
+        "arXiv:2003.11270v2, Theorems 1.1–1.2, §§1–2 and 8; text search Petersen"
+      ]
+    },
+    "checked_sources": [
+      "Linusson–Shareshian–Welker, arXiv:math/0410345v1, sections 1 and main theorem",
+      "Holmsen–Lee, arXiv:2003.11270v1/v2, sections 1,2,8 and main theorems",
+      "published-finding corpus semantic-search hits listed in the four structured comparison checks",
+      "Accessible current-week ledger part 1 generation 41, recoverable finding claims only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For complete K_n the nonmatching complex is a uniform-dimensional sphere wedge, but the present Petersen induced subcomplex has critical dimensions and exact matrices depending on the sparse edge set.",
+        "Holmsen–Lee §1.2 explicitly notes that general nonmatching complexes need not have homology concentrated in a single dimension, providing an example based on a subdivided edge of K6.",
+        "Exact new integer Morse matrices yield boundary degrees with primitive images and a rank-four primitive 6-to-5 image, information not supplied by the higher-degree vanishing theorem."
+      ],
+      "reasoning": "The known complete-graph equality, finite-field vanishing bounds, and graph-complex computations under other predicates imply none of the four exact integral ranks. The present claim uses the same definition as Holmsen–Lee, while restricting it to a graph that their main theorems allow but do not calculate. A decisive unpublished general classification would need comparison if located.",
+      "searches": [
+        "Linusson–Shareshian–Welker arXiv:math/0410345, Corollary 1.2 and Theorem 1.1",
+        "Holmsen–Lee arXiv:2003.11270, Theorems 1.1–1.2 and discussion of nonuniform examples",
+        "published-finding corpus: nonmatching complexes of Petersen graph NM_k and invariant homology",
+        "Web: \"Petersen graph\" \"bounded matching number\" simplicial complex homology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Petersen graph is also KG(5,2); the independent verifier constructs KG(5,2) and supplies an explicit isomorphism with GP(5,2).",
+        "Holmsen–Lee arXiv:2003.11270 §1.1 defines NM_k(G) exactly as edge subsets whose matching number is below k.",
+        "published-finding corpus record 2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1 describes a degree-at-most-two face condition, not this matching-number filtration."
+      ],
+      "reasoning": "The full claim was searched under nonmatching, non-matching, no k-matching, graph-matching-number filtration, Petersen/GP(5,2)/KG(5,2), and induced subcomplex terminology. The degree-bounded two-matching complex uses a different edge-set predicate. The ordinary matching complex requires the selected edges themselves to form a matching; that also differs from forbidding k disjoint edges.",
+      "searches": [
+        "published-finding corpus: Petersen graph matching-number filtration on edge subsets, no k pairwise disjoint edges, homotopy persistence",
+        "published-finding corpus: induced subcomplex of NM_5(K10) on the 15 Petersen edges, nonmatching complex of KG(5,2)",
+        "Web: \"Petersen graph\" \"non-matching complex\" homotopy",
+        "Web: \"Petersen\" \"complexes of graphs with bounded matching size\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus identifiers: 2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1; 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a; 2026/10/4/SCOPE-the-petersen-total-3-cut-complex-is-a-wedge-of-nine-4-spheres--f242ea5e9ffb.",
+        "The indexed descriptions identify degree-bounded, vertex-component-bounded, or cut-complex face conditions, not the bounded matching-number edge-subset condition.",
+        "No exact Petersen nonmatching filtration table was identified in actual targeted searches; this is not a proof of absence."
+      ],
+      "reasoning": "Comparison is based on the mathematical definition of the simplices, not shared graph names or matching words. The nearby indexed objects have different vertex sets or different face predicates, and no found table lists these four threshold homotopy types. Inaccessible GitHub full content leaves an acknowledged inspection limit.",
+      "searches": [
+        "published-finding corpus: Complete homotopy types of nonmatching complexes NM_2, NM_3, NM_4, NM_5 on Petersen graph, wedge six 1-spheres nine 3-spheres four 5-spheres five 9-spheres",
+        "published-finding corpus: nonmatching complex Petersen graph no 3-edge matching topology homotopy type NM_3(Petersen)",
+        "published-finding corpus: nonmatching subcomplex of Petersen graph with matching number less than three",
+        "Web: \"Petersen\" \"nonmatching\" \"homology\" graph complex",
+        "Web: \"Petersen graph\" \"NM_3\" \"NM_4\" simplicial"
+      ]
+    },
+    "rationale": "Literature and published-finding corpus searches checked exact ambient-graph/threshold definitions, alias KG(5,2), complete-graph reduction, degree-bounded matching, graph independence, and cut complexes. The closest inspected full texts prove complete/bipartite wedge formulas or arbitrary-graph Leray bounds, neither of which implies these four exact integral Petersen homotopy types. Indexed similarly named findings concern different simplicial face predicates.",
+    "residual_risks": [
+      "GitHub full text for closest published-finding corpus two-matching record could not be retrieved; summary gives a different face rule.",
+      "Possible unindexed equivalent results or more specific general theorems not discovered in bounded searches.",
+      "Finite-scope mathematical classification is original on inspected evidence, not a publication-priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The computed formulas treat complete or complete bipartite ambient graphs, not the fifteen-edge Petersen ambient graph.",
+        "evidence": [
+          "arXiv:math/0410345v1 dated 2004-10-15",
+          "Theorem 1.1",
+          "Corollary 1.2",
+          "No Petersen textual match"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0410345",
+        "material_read": "Abstract; introduction and definitions; Theorem 1.1; Corollary 1.2; comparison of NPM actions; targeted PDF text search for Petersen.",
+        "method": "Opened author preprint PDF and inspected rendered page 2 plus extracted theorem and introductory sections.",
+        "title": "Complexes of graphs with bounded matching size",
+        "trigger": "First public source of the nonmatching graph-complex concept and closest complete-graph wedge theorem."
+      },
+      {
+        "assessment": "The checked theorems establish Leray and high-degree homological vanishing, not integral ranks/homotopy for Petersen.",
+        "evidence": [
+          "arXiv:2003.11270v1 dated 2020-03-25",
+          "Theorem 1.1",
+          "Theorem 1.2",
+          "No Petersen textual match"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.11270",
+        "material_read": "Abstract, precise NM_k(G) definition, main theorem statements and discussion on pages 1–3; checked section 8 and targeted PDF text search for Petersen.",
+        "method": "Opened arXiv PDF, inspected rendered page 2, sections 1 and 8 via extracted text.",
+        "title": "Leray numbers of complexes of graphs with bounded matching number",
+        "trigger": "General arbitrary-graph nonmatching-complex result with a plausible stronger universal bound."
+      },
+      {
+        "assessment": "Reported two-matching complex uses maximum selected-edge degree at most two, not matching number below k; full file unavailable for complete comparison.",
+        "evidence": [
+          "published-finding corpus id 2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1",
+        "material_read": "published-finding corpus search-result title and summary only; linked GitHub page could not be fetched.",
+        "method": "published-finding corpus semantic-search metadata and attempted webpage retrieval.",
+        "title": "The Petersen 2-matching complex is a wedge of four 7-spheres",
+        "trigger": "Exact same ambient graph and similar terminology."
+      },
+      {
+        "assessment": "Uses vertex subsets with restrictions on induced connected components; different simplicial complex.",
+        "evidence": [
+          "published-finding corpus id 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a",
+        "material_read": "published-finding corpus title and abstract summary only.",
+        "method": "published-finding corpus semantic-search metadata.",
+        "title": "The 2-independence complex of the Petersen graph is a 3-sphere",
+        "trigger": "Same ambient graph and sphere homotopy computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e6d90ee-8bdd-4f91-a685-26bb873e10ba",
+  "value": {
+    "evidence": [
+      "Linusson–Shareshian–Welker, exact complete-graph families",
+      "Holmsen–Lee, general Leray bounds without graph-specific homotopy",
+      "Verified full-threshold integral Morse computations"
+    ],
+    "rationale": "The Petersen graph is a canonical symmetric sparse nonbipartite benchmark, whereas the foundational exact nonmatching-complex formula treats complete and complete bipartite graphs. The full threshold classification is a natural finite object/invariant, not an arbitrary parameter slice: it resolves all nontrivial possible matching thresholds, including integral homotopy rather than just finite-field Betti numbers. The distinct dimensions 1,3,5,9 and ranks 6,9,4,5 give a complete matching-number persistence calculation and a concrete comparison for general vanishing bounds and future symmetry/equivariant investigations.",
+    "residual_risks": [
+      "Scope is a single finite graph; no assertion of a broader family or application is proved."
+    ],
+    "status": "PASS"
+  }
+}
