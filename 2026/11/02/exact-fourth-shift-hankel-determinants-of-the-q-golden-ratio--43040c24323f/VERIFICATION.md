@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained accompanying `verify.py` requires Python 3 and `sympy`, and runs without a network connection or access to external data. It checks exact rational-function identities, not floating-point approximations.
+## correctness
 
-- The first identity transforms the quadratic equation of the fourth-shift series into the first parametric triple at \(t=2\).
-- The next three identities verify the entire parameter loop \(\mathcal S_1(t)\to\mathcal S_2(t)\to\mathcal S_3(t)\to\mathcal S_1(t+2)\), with an indeterminate \(t\). Assertions verify each input's leading \(q\)-term, each prescribed denominator truncation, normalization, polynomiality, and the exact successor triple.
-- An independent Taylor-series recurrence computes \(50\) coefficients and evaluates every Hankel determinant for sizes \(0,1,\ldots,22\), comparing them to the all-index closed formula.
+PASS
 
-Successful execution prints:
+Fourth-shift quadratic equation gives initial polynomial triple (A0,B0,C0), then rational-polynomial NextABC identities exhibit exact parameter loop S1(t)→S2(t)→S3(t)→S1(t+2), valid for every even integer t>=2. The cited Han–Pedon H-fraction determinant theorem converts nonzero index locations and telescoping a_i products into four residue-class formulas. Cyclotomic denominator (1+z^4)^2 with no cancellation forces least quasiperiod 8. Independent integer Hankel determinants for j=0..12 from 28 recurrence coefficients matched 1,2,0,-2,-3,-4,0,4,5,6,0,-6,-7; this finite test does not certify the parametric identities or H-fraction theorem.
 
-```
-SYMBOLIC_NEXTABC_OK initial_and_three_generic_transitions
-INDEPENDENT_HANKEL_OK sizes=0..22 coefficients=50
-```
+## originality
 
-The general Hankel-determinant product identity is taken from Han--Pedon (2026), Theorem 2.2; the code does not reprove it. The infinite part of the new proof is the exact symbolic family of transitions together with that general theorem. The finite determinant checks cannot establish an all-index statement on their own. No independent audit has been performed.
+PASS
+
+Best-of-knowledge first all-index proof for (metallic n=1,shift ell=4), exactly n+3 beyond prior proved shift<=n+2. Ovsienko–Pedon 2023 printed first sixteen terms, not all-index proof; Han–Pedon 2026 explicitly labels all higher shifts a Conjecture C. The all-index parametric H-fraction cycle is new content, distinct from numerical conjecture or initial table.
+
+## value
+
+PASS
+
+Solves a named first unresolved case of recent structural Hankel conjecture, supplies a reusable exact rational-parametric continued-fraction certificate and sharp quasiperiod, a mathematically meaningful boundary beyond previously periodic bounded shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

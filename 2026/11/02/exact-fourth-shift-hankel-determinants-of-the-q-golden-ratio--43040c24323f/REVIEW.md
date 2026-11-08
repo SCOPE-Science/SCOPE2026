@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact shifted quadratic equation yields a normalized polynomial triple. Four exact parametric identities and their truncation conditions determine every step of the published Hankel continued-fraction algorithm for all even parameters \(t\geq2\). The nonzero Hankel indices and values follow from the published determinant-product theorem and three telescoping products. The symbolic verifier checks the transition identities as rational-polynomial identities in an **indeterminate** parameter; independent fraction-free determinants through size \(22\) test normalization and signs, but are not the infinite proof. The generating-function argument proves the exact least quasi-period, not merely an upper bound.
+PASS
 
-## Originality — PASS, with remaining priority risk
+Fourth-shift quadratic equation gives initial polynomial triple (A0,B0,C0), then rational-polynomial NextABC identities exhibit exact parameter loop S1(t)→S2(t)→S3(t)→S1(t+2), valid for every even integer t>=2. The cited Han–Pedon H-fraction determinant theorem converts nonzero index locations and telescoping a_i products into four residue-class formulas. Cyclotomic denominator (1+z^4)^2 with no cancellation forces least quasiperiod 8. Independent integer Hankel determinants for j=0..12 from 28 recurrence coefficients matched 1,2,0,-2,-3,-4,0,4,5,6,0,-6,-7; this finite test does not certify the parametric identities or H-fraction theorem.
 
-Ovsienko--Pedon (2023/2024) explicitly prints sixteen terms of the same fourth-shift sequence but its proved golden-ratio theorem covers shifts only up to three. Han--Pedon (2025/2026) treats shifts up to \(n+1\). Han--Pedon (2026), Conjecture C, asks for the higher-shift quasi-polynomial property; its Theorem A/B proves only shift \(n+2\). This result settles the \(n=1,\ell=4\) instance with a new general-index expression and parameterized transform. Searches for equivalent formulations, dominating all-shift results, indexed exact sequences, and related records found no covering result. Residual risk: an overlooked prior proof might exist, particularly in unindexed continued-fraction or sequence literature; priority has not been independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The concrete first unsolved case of an explicitly stated contemporary conjecture is a natural mathematical target. The all-index theorem converts a previously observed finite progression into an exact unbounded quasipolynomial and explains its least period through rationally parameterized nonperiodic continued-fraction data. The result is narrow but advances the conjecture at the first open boundary, not a routine determinant calculation or invented finite cutoff.
+Best-of-knowledge first all-index proof for (metallic n=1,shift ell=4), exactly n+3 beyond prior proved shift<=n+2. Ovsienko–Pedon 2023 printed first sixteen terms, not all-index proof; Han–Pedon 2026 explicitly labels all higher shifts a Conjecture C. The all-index parametric H-fraction cycle is new content, distinct from numerical conjecture or initial table.
 
-## Scope and verification limits
+## value
 
-The theorem proves no cases with \(n\ne1\) or \(\ell>4\). The computational certificate uses `sympy` and exact arithmetic, with finite determinant tests supplementing but not replacing a mathematical induction. Indexed search is not exhaustive, and external human priority assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solves a named first unresolved case of recent structural Hankel conjecture, supplies a reusable exact rational-parametric continued-fraction certificate and sharp quasiperiod, a mathematically meaningful boundary beyond previously periodic bounded shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
