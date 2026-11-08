@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Explicit alternating-path densities give the tilted-beta conditional occupation law. Folding about half occupation yields a likelihood-ratio order with ratio proportional to \(1-a^2\), and the conditional sign mean has derivative of the required sign exactly when \((\alpha-\beta)t\le2\). A beta exponential-tilt expansion yields the sharp necessity condition; checks in `verify.py` corroborate representative regimes. The proof treats the no-switch atom separately and covers all positive rates and times.
+## correctness
 
-**Originality — PASS, residual risk retained.** Searches considered exact conditional occupation distributions, number of jumps, asymmetric telegraph bridges, likelihood-ratio monotonicity, and the threshold. The closest readable bridge note derives an equal-rate beta law for another observable, while the Kovchegov–Meredith–Nir and Bogachev–Ratanov references concern occupation-time densities. Roldán–Vivo's published work concerns discrete-time bridges. Colwell's abstract addresses Markov jump-count and occupation formulas; full text was not inspected. No inspected result states or immediately implies the precise signed-regression threshold without additional folding/order analysis. Historical priority remains uncertain, particularly given older joint occupation-law research.
+PASS
 
-**Value — PASS.** In a two-rate Markov bridge, changes in the number of return cycles alter the expected residence fraction in a qualitatively different way across a sharp dimensionless parameter. A universal monotone concentration law survives asymmetry while signed occupation regression reverses. These are natural diagnostics of dynamical imbalance, not arbitrary parameter slices.
+For k≥1 conditioned on even jump count 2k and return, alternating holding-time simplex volumes give normalized density u^k(1−u)^{k−1} e^(−δu) with δ=(α−β)t; k=0 gives U=1. Folding A=|2U−1| gives likelihood ratio across k proportional to 1−a², strictly decreasing. Conditional mean gδ(a)=1/2+(a/2)tanh(atanh(a)−δa/2) increases for δ≤2. For δ>2, beta-tilt gives m_k=1/2+(2−δ)/(8k)+O(k^-2), approaching 1/2 from below so no global decreasing sequence. Independent high-precision integrals verify representative δ and k, not the universal asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS, qualified. Classical occupation distributions and joint moment generating functions allow deriving a tilted-beta integral, but the precise signed conditional regression transition at δ=2 and the simultaneous universal folded likelihood ratio require an additional explicit analysis not found in inspected source passages. Colwell 2023 full source inaccessible and may contain equivalent consequences; no definitive priority assertion.
+
+## value
+
+PASS
+
+The fixed-cycle bridge occupation is a natural regression diagnostic of asymmetry in two-rate Markov dynamics. Its sharp dimensionless transition at δ=2 separates monotone means from eventual reversal even though absolute imbalance always contracts; both a structural phase boundary and ordered observable, beyond a routine moment normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

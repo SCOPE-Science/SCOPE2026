@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:55:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k≥1 conditioned on even jump count 2k and return, alternating holding-time simplex volumes give normalized density u^k(1−u)^{k−1} e^(−δu) with δ=(α−β)t; k=0 gives U=1. Folding A=|2U−1| gives likelihood ratio across k proportional to 1−a², strictly decreasing. Conditional mean gδ(a)=1/2+(a/2)tanh(atanh(a)−δa/2) increases for δ≤2. For δ>2, beta-tilt gives m_k=1/2+(2−δ)/(8k)+O(k^-2), approaching 1/2 from below so no global decreasing sequence. Independent high-precision integrals verify representative δ and k, not the universal asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Colwell 2023 abstract describes general finite-state MGF but full theorem pages inaccessible; no mathematically decisive implication verified."
+        ],
+        "reasoning": "A general transform could in principle imply scalar conditional moments but alone does not settle sign of all adjacent differences.",
+        "searches": [
+          "Resultary semantic query: conditional occupation fraction two state continuous time Markov bridge fixed even jumps asymmetry monotonic expectation",
+          "web: \"occupation time\" \"number of jumps\" \"conditioned\" \"two state\" bridge",
+          "General CTMC joint jump count and occupation generating functions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.1775",
+        "DOI:10.1016/j.spl.2023.109786",
+        "https://www.mdpi.com/1099-4300/23/2/231",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-occupation-regression-threshold-for-asymmetric-two-state--fa3b2d297a3e",
+        "Resultary search: conditional occupation fraction two state continuous time Markov bridge fixed even jumps asymmetry monotonic expectation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:0812.1775 computes occupation-time distributions; MDPI Entropy 23(2021)231 records even-jump holding-time sums."
+        ],
+        "reasoning": "Neither inspected statement contains the all-cycle threshold. A direct derivation may be possible, so historical priority is qualified.",
+        "searches": [
+          "Resultary semantic query: conditional occupation fraction two state continuous time Markov bridge fixed even jumps asymmetry monotonic expectation",
+          "web: \"occupation time\" \"number of jumps\" \"conditioned\" \"two state\" bridge",
+          "Classical occupation marginal laws vs signed regression threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovchegov–Meredith–Nir arXiv:0812.1775 occupation transform; Colwell 2023 abstract includes jump-count and occupation MGFs."
+        ],
+        "reasoning": "Integral representation may be known; new point is sharp monotonicity δ≤2 and folded MLR order, which do not follow by literal renaming.",
+        "searches": [
+          "Resultary semantic query: conditional occupation fraction two state continuous time Markov bridge fixed even jumps asymmetry monotonic expectation",
+          "web: \"occupation time\" \"number of jumps\" \"conditioned\" \"two state\" bridge",
+          "Asymmetric telegraph return bridge and tilted-beta conditional occupation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For δ=0 the elementary beta law E U=(k+1)/(2k+1) is known background; independent integration extends δ≠0."
+        ],
+        "reasoning": "Fixed tables do not establish all-real-δ threshold; no exact published table giving δ=2 found.",
+        "searches": [
+          "Resultary semantic query: conditional occupation fraction two state continuous time Markov bridge fixed even jumps asymmetry monotonic expectation",
+          "web: \"occupation time\" \"number of jumps\" \"conditioned\" \"two state\" bridge",
+          "Beta bridge moment tables or exact fixed-jump occupation lists"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified. Classical occupation distributions and joint moment generating functions allow deriving a tilted-beta integral, but the precise signed conditional regression transition at δ=2 and the simultaneous universal folded likelihood ratio require an additional explicit analysis not found in inspected source passages. Colwell 2023 full source inaccessible and may contain equivalent consequences; no definitive priority assertion.",
+      "residual_risks": [
+        "Full Colwell 2023 joint-jump occupation paper inaccessible (authorized access VPN disconnected); potential stronger equivalent formula remains.",
+        "Some older telegraph and alternating-renewal conditional moment results may imply a non-obvious equivalent threshold; no historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General marginal occupation transforms, not the cycle-conditioned signed mean threshold; transform may permit later derivation",
+          "evidence": "arXiv:0812.1775 introductory results",
+          "identifier_or_url": "arXiv:0812.1775",
+          "material_read": "PDF introduction, framework, stated occupation-time transform formula",
+          "method": "open arXiv PDF and inspect text/page images",
+          "title": "Occupation times via Bessel functions",
+          "trigger": "Potentially dominating general continuous-time Markov occupation law"
+        },
+        {
+          "assessment": "Cannot assert whole-paper noncoverage; strong residual risk that an equivalent integral implies the claim, though no decisive identical theorem found",
+          "evidence": "Statistics & Probability Letters 195 (2023), Colwell, published abstract",
+          "identifier_or_url": "DOI:10.1016/j.spl.2023.109786",
+          "material_read": "Publisher/abstract and bibliographic information only; full article inaccessible",
+          "method": "web publisher abstract; authorized institutional attempt returned vpn_disconnected",
+          "title": "Hitting times, number of jumps, and occupation times for continuous-time finite state Markov chains",
+          "trigger": "Direct joint jump-count/occupation transforms might imply regression threshold"
+        },
+        {
+          "assessment": "Contains natural occupation simplex bookkeeping; does not in inspected excerpt state monotone likelihood-ratio threshold",
+          "evidence": "Entropy 23 (2021), article 231, displayed sojourn decomposition",
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/23/2/231",
+          "material_read": "Search-result extract describing even/odd-jump occupation decompositions; complete source was rate limited",
+          "method": "web search extract, subsequent full-text 429",
+          "title": "Cusp of Non-Gaussian Density of Particles for a Diffusing Diffusivity Model",
+          "trigger": "Independent occupation-time alternating-sojourn representations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-cycle bridge occupation is a natural regression diagnostic of asymmetry in two-rate Markov dynamics. Its sharp dimensionless transition at δ=2 separates monotone means from eventual reversal even though absolute imbalance always contracts; both a structural phase boundary and ordered observable, beyond a routine moment normalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Colwell 2023 joint-jump occupation paper inaccessible (authorized access VPN disconnected); potential stronger equivalent formula remains.",
+    "Some older telegraph and alternating-renewal conditional moment results may imply a non-obvious equivalent threshold; no historical certification."
+  ],
+  "schema_version": 1
+}
