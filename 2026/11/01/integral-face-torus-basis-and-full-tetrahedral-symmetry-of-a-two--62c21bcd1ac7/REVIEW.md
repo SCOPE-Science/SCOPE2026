@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite unordered cubical chain model has exactly 66 vertices, 180 edges and 117 squares, with \(\partial_1\partial_2=0\). The explicit ten disjoint-face product cycles are all integral cycles and have a primitive ten-column embedding in the full square lattice (all Smith invariants one). The independent mod-two calculation gives rank 107 for the second boundary; the ten independent kernel vectors give the matching upper bound over the rationals. The integral cycle-lattice Smith calculation yields 107 unit factors and free first homology of rank eight. The full 24-element tetrahedral signed action and five-class character data are reconstructed and tested directly from the oriented cells and cycles. The topological identification uses the two-point graph sufficient-subdivision theorem. See `verify.py` and `verifier_output.txt` for a complete replay.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Barnett–Farber (arXiv:0903.2180) and Farber–Hanbury (arXiv:1005.2300) develop ordered two-point graph configuration homology; Prue–Scrimshaw (arXiv:0909.5511) establish the relevant discretization. These general sources may explain some nonequivariant ranks but do not state the integral ten-face-torus basis and complete unordered truncated-tetrahedral \(S_4\)-character. Inspected polyhedral two-point character computations concern cuboctahedral and dodecahedral graphs, not this graph; a general exchange-sign Borel–Moore result concerns a different theory. Search comparisons include matching, Rips, Čech and cut results on the same graph, which are not homology of this configuration space. No exact covering statement emerged, but an unindexed equivalent specialist computation cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-This calculation uses a canonical Archimedean graph and geometrically distinguished disjoint face cycles, and identifies a complete integral top-homology basis. The rational \(S_4\)-action and the difference between full and orientation-preserving symmetry quotients cannot be read from ordinary Betti numbers. The face-pair generators and full-group module are natural invariants rather than an arbitrary parameter slice.
+Unordered 2-point graph configuration of the explicit 12-vertex/18-edge truncated tetrahedral graph; sufficient subdivision holds for two particles because essential vertex paths and 3-edge cycles meet Abrams/Prue–Scrimshaw hypotheses. Independently constructed the 66 zero, 180 one and 117 two cubical cells with their product orientation boundaries. The 10 geometrically disjoint facial product 2-cycles form kernel columns with Smith diagonal all units, so a primitive rank-10 lattice in C2. Independent mod-2 elimination gives rank ∂2=107, while the 10 cycles force rational rank <=107, proving complete top kernel. A 115-nontree-edge basis for ker ∂1 gives an integral 115×117 boundary whose Smith form has exactly 107 unit factors, so H=(Z,Z^8,Z^10), no torsion. Independently transported oriented triangle/hexagon face cycles by every one of 24 S4 relabelings, computed chain Lefschetz and torus pair signs; the five conjugacy-class traces are H1 (8,-4,0,2,0) and H2 (10,2,-2,1,0). Character inner products give 2sgn+2V′ in H1, 1+2V+V′ in H2; rational invariant dimensions of S4/A4 yields quotient Betti (1,0,1)/(1,2,1). No quotient homotopy or integral representation irreducibility is inferred.
 
-## Limits
-No cohomology ring, quotient homotopy type, integral irreducible lattice decomposition or publication-priority certification is claimed. The same mathematical object and one statement appear consistently in the result, metadata, slogan and structured audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Checked actual theorems and their implications, original sources and relevant published exact results, including already-known special cases; none of those inspected entails the full target claim, subject to the explicit best-of-knowledge residual risks. This does not infer novelty from a failed search.
+
+## value
+
+PASS
+
+A natural Archimedean graph and configuration-space problem with an explicit integral geometric basis of all ten embedded disjoint-face tori. Full S4 characters distinguish rational quotient homology despite identical ordinary Betti numbers, delivering a motivated exact invariant not forced by generic graph-braid discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
