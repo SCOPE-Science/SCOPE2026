@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the Petersen Lipschitz projection constant
+# Independent mathematical audit
 
-Run `python verify_petersen_projection.py` using Python 3 with the standard library. Actual output:
+## correctness
 
-```
-CHECK_OK automorphisms=120 signed_stabilizer_rank=12 hodge_rows=15 rational_projector_identities=yes
-```
+PASS
 
-The checker enumerates the 10 graph vertices and 15 edges from disjoint two-subsets, uses exact fractions for the graph Laplacian inverse on the zero-sum subspace, verifies the Petersen strongly-regular adjacency identity, and tests every entry of \(P^2=P\), \(PB=B\), and \(P^{\mathsf T}=P\) for the proposed 15-by-15 projection. It verifies all \(120\) signed automorphism conjugacy identities, the rank-12 signed-stabilizer constraints leaving precisely three free parameters, the row coefficient support multiplicities and the forcing equations, including the trace identity. The checker has no third-party dependencies.
+The edge incidence map sends real Lip_0(P) isometrically into the nine-dimensional gradient subspace C of l_infinity^15. Hahn-Banach injectivity of l_infinity^15 identifies its relative and absolute projection constants. Averaging an arbitrary projection under the signed edge S5 representation preserves the retraction and does not increase norm. For one edge the stabilizer has order 8; its 15-coordinate signed row constraints have rank 12, leaving three signed orbit coefficients a,b,c with a+2b=1 and b=2c. Edge transitivity/trace gives 15a=9, so a=3/5,b=1/5,c=1/10 and row l1 norm 11/5. The Hodge projector B (B^TB)^dagger B^T attains this norm. Independent exact signed-stabilizer rank=12; numerical reconstructed incidence B rank=9, Hodge idempotency error <7e-16, row support 1x.6,4x.2,8x.1 and 2 zeros. Equivariant uniqueness only, not uniqueness of every norm-minimizer.
 
-The exact finite checks provide reproducibility for the nonstandard stabilizer, graph and projection calculations; they do not independently certify the analytic Hahn–Banach/injectivity or averaging arguments. Those arguments are proved in the main text. Historical originality and independent audit are not computationally certified.
+## originality
+
+PASS
+
+Classical absolute projection/injectivity methods and finite-graph cut-space representations do not state the nine-dimensional Petersen Lip_0 absolute projection constant or the unique signed-equivariant retraction. Petersen l1 metric distortion and its symmetric edge-polytope inradius concern different invariants; dual Lipschitz-free spaces are not silently identified with the current gradient subspace. A prior Hodge or Kneser-space exact-norm table is a residual historical risk.
+
+## value
+
+PASS
+
+The precise absolute projection constant of a canonical highly symmetric, nonplanar ten-point metric is a natural Banach-space invariant, with a sharp attainment certificate and equivariant rigidity; it is neither a tiny ad hoc graph parameter nor merely computing an accessible eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely the absolute real-linear projection constant \(\lambda(\operatorname{Lip}_0(P))=11/5\), together with uniqueness of the automorphism-equivariant projection in the oriented edge cube. The edge-gradient embedding is isometric because the Petersen metric is the shortest-path metric. Finite-dimensional \(\ell_\infty\) injectivity makes its fixed relative projection constant equal the absolute one. Averaging over the \(120\) graph automorphisms reduces arbitrary projections to equivariant projections without increasing their norm. The signed edge stabilizer produces exactly three free row coefficients, and incidence/retraction plus trace equations force the ratios \(3/5,1/5,1/10\). The Laplacian calculation gives an actual projection with corresponding row-support multiplicities \(1,4,8,2\). These steps prove both bounds without assuming the original projector is symmetric. An exact-rational standalone checker verifies all finite group, rank, matrix and combinatorial identities. The uniqueness statement is explicitly confined to equivariant projections.
+PASS
 
-## Originality — PASS, qualified
+The edge incidence map sends real Lip_0(P) isometrically into the nine-dimensional gradient subspace C of l_infinity^15. Hahn-Banach injectivity of l_infinity^15 identifies its relative and absolute projection constants. Averaging an arbitrary projection under the signed edge S5 representation preserves the retraction and does not increase norm. For one edge the stabilizer has order 8; its 15-coordinate signed row constraints have rank 12, leaving three signed orbit coefficients a,b,c with a+2b=1 and b=2c. Edge transitivity/trace gives 15a=9, so a=3/5,b=1/5,c=1/10 and row l1 norm 11/5. The Hodge projector B (B^TB)^dagger B^T attains this norm. Independent exact signed-stabilizer rank=12; numerical reconstructed incidence B rank=9, Hodge idempotency error <7e-16, row support 1x.6,4x.2,8x.1 and 2 zeros. Equivariant uniqueness only, not uniqueness of every norm-minimizer.
 
-Defant–Galicer–Mansilla–Mastyło–Muro (2022, arXiv:2208.06467v1) supplies general projection-constant definitions and averaging methodology but studies polynomial spaces. Dilworth–Kutzarova–Ostrovskii (2018, arXiv:1807.03814v1) studies graph edge/cycle models, principally diamond and Laakso families; its graph-flow results do not give the Petersen Lipschitz **function** projection constant. Basso (2021, arXiv:2104.14238) supplies general finite-dimensional relative-projection linear programs, not this exact value. Related known quantities such as \(\ell_1\) embedding distortion, symmetrized edge-polytope inradius and cut-space projection constants for other graphs do not imply the present invariant. Searches for the Petersen edge-gradient projection and its \(11/5\) value did not yield a directly covering theorem. These are comparisons of mathematical statements, not inferences from missing words; the possibility of an unlocated older equivalent calculation remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An absolute projection constant is a substantive isometric invariant in finite-dimensional Banach-space theory, and the Petersen graph is a canonical nonplanar, arc-transitive, nonbipartite cubic graph. This is an exact natural nine-dimensional invariant, not an arbitrary coordinate slice. The calculation is accompanied by rigidity of the invariant minimizer and a precise rational coordinate realization, making it a useful benchmark for symmetry-averaging and graph-gradient projection problems. The theorem neither claims a general classification for all graphs nor inflates an isolated finite computation to a generic asymptotic law.
+Classical absolute projection/injectivity methods and finite-graph cut-space representations do not state the nine-dimensional Petersen Lip_0 absolute projection constant or the unique signed-equivariant retraction. Petersen l1 metric distortion and its symmetric edge-polytope inradius concern different invariants; dual Lipschitz-free spaces are not silently identified with the current gradient subspace. A prior Hodge or Kneser-space exact-norm table is a residual historical risk.
 
-## Closest literature and limitations
+## value
 
-The central methodological comparisons are arXiv:2208.06467v1 (general projection constants), arXiv:1807.03814v1 (graph free-space flow models), and arXiv:2104.14238 (projection-constant linear programs). The assertion is real-scalar and only about the Petersen Lipschitz function space. The minimum for its dual Lipschitz-free space and uniqueness among all nonsymmetric projections are not determined. Historical priority is qualified; independent mathematical checking has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise absolute projection constant of a canonical highly symmetric, nonplanar ten-point metric is a natural Banach-space invariant, with a sharp attainment certificate and equivariant rigidity; it is neither a tiny ad hoc graph parameter nor merely computing an accessible eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
