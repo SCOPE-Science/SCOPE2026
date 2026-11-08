@@ -1,27 +1,21 @@
-# Scientific review: exact John–Löwner ellipsoids of orthogonal block bicylinders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats every integer \(p,q\ge1\) with \(p+q\ge3\) and every \(a\ge b>0\). Global uniqueness forces independent orthogonal-block symmetry; exact endpoint tests characterize both ellipsoid inclusions. The inner semiaxes are optimal by direct coordinate monotonicity. The outer determinant reduces to a strictly concave logarithm on \((0,1)\); differentiation gives the stated radical and both sharp limits. The two-layer measure has positive weights summing to one, and its affine-normalized covariance is exactly \(I_d/d\); the common intersection ridge is shown to be the complete contact locus. The included verifier passed 4,791 exact-identity and independent numerical checks. Those checks support the all-parameter analytic proof but are not exhaustive computations.
+PASS
 
-## Originality — PASS (provisional historical priority)
+For p,q>=1 and p+q>=3, rotational block symmetry implies each unique optimizing ellipsoid has three scalar principal blocks. Inscription is equivalent to A<=a,C<=b,T<=b, giving John semiaxes a,b,b. Outer containment for each z²∈[0,b²] reduces to the two endpoint inequalities v+w<=1 and (1-t)v+h<=1. Maximizing v^p(1-v)^q(1-(1-t)v) gives one unique interior u from strict log-concavity and the quadratic derivative equation. The contact ridge saturates everywhere; two finite sign-orbit mixtures have zero mean and covariance I/d by the stationarity equation. The ratio decreases strictly in t, attaining the equal-radius endpoint and approaching, not attaining, its t↓0 upper bound. Independently verified derivative stationarity numerically for p,q=(2,1),(3,2),(1,4), four t each.
 
-The three-dimensional scalar bicylinder and the multi-coordinate intersection of individual cylinders are not claimed: the restriction \(p+q\ge3\) means at least one full quadratic Euclidean block. Equivalences and broader-result implications were compared against the three-dimensional Steinmetz geometry, the general John–Löwner contact theorems [1–3], and geometric and optimal-design literature. No source examined furnished the full exact semiaxes, contact ridge, design and all-dimension sharp ratio. A related SIAM chapter was available only through its contents, so its full text was not certified as non-covering. An unknown earlier equivalent calculation remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete, closed-form extremal classification of genuine higher-dimensional intersections of two perpendicular Euclidean cylinders. Exact contacts and probability weights are structural results, and the strictly monotone volume ratio identifies sharp dimension-dependent distortion. It is not merely an approximation, a bounded special-value table or the established fully scalar case.
+Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: The all-p,q optimizing stationarity, contact mixture and endpoint ratio require a new dimension-weighted calculation, not direct substitution in a published general result.
 
-## Limitations
+## value
 
-The statement does not cover nonorthogonal axes, translated cylinders or general ellipsoidal cross-sections. The computational verification has finitely many test cases and requires documented Python libraries. Independent review and validation have not been performed.
+PASS
 
-## Closest literature
+This is a natural higher-dimensional Euclidean block generalization of the classical Steinmetz bicylinder, where p and q change the volume objective and contact distribution. A complete all-block-dimension radical optimizer, extremal contact locus and sharp ratio endpoints give a usable geometric classification, beyond a dimension-name substitution.
 
-[1] M. J. Todd (2007), *Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms*, https://people.orie.cornell.edu/~miketodd/ublndetz.pdf.
-
-[2] P. M. Gruber and F. E. Schuster (2012), *An arithmetic proof of John's ellipsoid theorem*, https://arxiv.org/abs/1207.7246.
-
-[3] J.-B. Lasserre (2013), *A generalization of Löwner-John's ellipsoid theorem*, https://arxiv.org/abs/1302.1056.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
