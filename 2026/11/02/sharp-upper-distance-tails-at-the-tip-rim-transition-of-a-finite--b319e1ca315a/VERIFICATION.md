@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The independent sampling model is \(R_1,R_2\sim2r\,dr\) and \(\Theta\sim\operatorname{Uniform}[0,\pi]\), with intrinsic developed-sector distance \(D_c^2=R_1^2+R_2^2-2R_1R_2\cos(c\Theta)\). The proof in RESULT.md supplies the required infinite-family reasoning by identifying all maximizing configurations and evaluating localized scaled integrals. This document records supplementary finite checks, not an independent certification.
+## correctness
 
-The standalone, standard-library `cone_verifier.py` performs independent quadrature for \(c=0.12,0.24,1/3,0.4,0.65,0.92,1\), at three decreasing distance deficits per parameter. It also checks the exact known squared-distance moment \(\mathbb E D_c^2=1-8\sin(\pi c)/(9\pi c)\) to test sampling normalization, and compares diameter candidates on a representative numerical grid. These 67 consistency comparisons pass in the supplied program. The smallest tested deficit has less than \(0.7\%\) relative error across the four formula regimes.
+PASS
 
-Run with Python 3.9+ using `python cone_verifier.py`; no nonstandard dependencies are required. Finite numerical checks do not establish an asymptotic theorem, historical uniqueness, or independent validation. For exact assumptions, proof boundary cases, source comparisons and limitations, see RESULT.md and REVIEW.md.
+Normalize slant length to 1; independent radial densities 2r and uniform shorter angle θ∈[0,π] yield intrinsic D=sqrt(r1²+r2²-2r1r2 cos(cθ)). The convex quadratic radial square reaches maximum at corners, so diameter max(1,2sin(πc/2)) with competing tip-rim and rim-rim max sets. For c<=1/3, expand near tip u=0 and rim 1-v: 1-D=v+u cos(cθ)+O((u+v)²), positive uniform cos gives ε³ coefficient 4tan(πc)/(3πc). For c>=1/3, expand rim-rim u,v,δ: M-D=s(u+v)+c b δ+O(‖(u,v,δ)‖²), leading 3-simplex volume 2/(3π c b s²) ε³. At c=1/3 contributions add 4sqrt(3)/π+16/(πsqrt(3))=28/(πsqrt(3)). At c=1 angular first derivative vanishes, δ²/4 dominates, anisotropic integral produces 32/(15π) ε^(5/2). Compactness excludes other max neighborhoods. Independent symbolic constants and bounding numerical checks corroborate, not substitute for all-c proofs.
+
+## originality
+
+PASS
+
+The cone distance formula, diameter, and squared-distance moment are acknowledged known and are not originality. Gell-Redman concerns harmonic maps on conic surfaces; Bäsel and Tong cover planar Euclidean random distance, not intrinsic cone near-diameter laws. Published cone-width and Steiner-polynomial findings are distinct. No inspected source gives exact four-regime extreme tail, with still-real risk of an unlocated specialized conical distance distribution.
+
+## value
+
+PASS
+
+Natural geometric probability near a sharp global endpoint undergoes two genuine shape phase transitions: competing maximizing orbit types at c=1/3 and degenerating angular cost at disk c=1. Exact coefficients and exponent offer a complete motivated asymptotic classification, not arbitrary finite sampling or known-diameter recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
