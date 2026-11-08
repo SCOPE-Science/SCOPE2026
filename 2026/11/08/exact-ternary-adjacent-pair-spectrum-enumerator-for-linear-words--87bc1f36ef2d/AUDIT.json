@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Direct Euler-trail criterion plus signed edge-flow parametrization covers exactly zero divergence and six unit-imbalance sectors. A complete three-vertex disconnected-support classification removes precisely the three forbidden families. Substitution yields the displayed integer rational series; leading pole has coefficient 7/12. Two independently implemented finite checkers matched the first 10 and 12 coefficients from matrices and words respectively, but finite checks are not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski, Counting Markov Types, explicitly say they restrict throughout to cyclic strings and balance all row/column sums; they derive the balanced ternary F_3^* in Section 3.",
+        "The 2012 journal abstract discusses asymptotics of balanced frequency matrices; full text not accessible and is named as priority risk."
+      ],
+      "reasoning": "Balanced all-matrices counting supplies only one of seven divergence sectors and lacks Euler-trail support-connectivity constraints. The proposed formula includes all six ordered endpoint sectors and exact disconnected corrections; neither follows just by substituting parameters into a balanced-cycle theorem. A later unavailable extension creates a residual historical rather than a proven covering implication.",
+      "searches": [
+        "https://doi.org/10.46298/dmtcs.2768",
+        "https://doi.org/10.1109/TIT.2012.2191476",
+        "Jacquet Knessl Szpankowski Counting Markov Types ternary noncyclic linear words extension six imbalances",
+        "counting Markov types ternary open paths three letters adjacent pairs generating function"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+      "https://doi.org/10.46298/dmtcs.2768",
+      "https://arxiv.org/abs/1605.03319",
+      "https://doi.org/10.1109/TIT.2012.2191476",
+      "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known balanced ternary Markov-type generating function is (1-z+z^2)/[(1-z)^7(1+z)^2(1+z+z^2)], corresponding to T0/(1-z)^3.",
+        "The new linear-trajectory numerator is 1+5z-8z^2+8z^3+13z^4-4z^5-10z^6-8z^7+11z^8+2z^9-5z^10+2z^11, with leading ratio seven to the balanced uncorrected series.",
+        "The 2-abelian theorem imposes equal prefix/suffix in addition to equal bigrams."
+      ],
+      "reasoning": "Neither the cyclic balanced case nor the finer fixed-endpoint equivalence yields the number of matrices when all endpoints may vary and are forgotten. The full correction is established independently by exhaustive disconnected-component case analysis on three vertices; algebraic enumerability does not mean prior publication of the exact formula.",
+      "searches": [
+        "ternary alphabet three symbols length-n words number of distinct adjacent-pair count matrices or 2-spectra Eulerian trails closed-form generating function",
+        "distinct bigram frequency matrices of ternary linear strings Euler trails weak connectivity balanced unbalanced counting",
+        "https://doi.org/10.46298/dmtcs.2768",
+        "https://arxiv.org/abs/1605.03319"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Euler-trail matrices are exactly the distinct length-two adjacent-pair count vectors of linear words; equivalence by equal count vector does not retain endpoints.",
+        "Karhumäki et al. Lemma 2.4 states that 2-abelian equivalence also fixes the length-one prefix and suffix; it is strictly finer."
+      ],
+      "reasoning": "The exact observation is a 9-entry ordered multiplicity matrix of a length-n linear word, not an Eulerian circuit, a Parikh matrix, a two-Abelian class (which preserves endpoints), or a mere set of observed pairs. Neither reviewed equivalence statement identifies this all-length quotient count.",
+      "searches": [
+        "ternary alphabet three symbols length-n words number of distinct adjacent-pair count matrices or 2-spectra Eulerian trails closed-form generating function",
+        "count of reconstruction equivalence classes under all 2-gram multiplicities for q-ary words q=3, ternary bigram multispectra",
+        "linear ternary words bigram spectrum distinct adjacent-pair count matrices 1 9 24 65 156 342 rational generating function",
+        "distinct bigram frequency matrices of ternary linear strings Euler trails weak connectivity balanced unbalanced counting",
+        "https://arxiv.org/abs/1605.03319"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence match or exact ternary matrix census was retrieved using the displayed prefixes and aligned terminology.",
+        "The closest indexed complete read-two count concerned the binary alphabet and has different coefficients."
+      ],
+      "reasoning": "The new table starts with the number of possible 9-entry profiles at zero to many edges, not with 2-abelian class counts or balanced cyclic matrices. Negative database search results are limited evidence only, not a proof of uniqueness.",
+      "searches": [
+        "linear ternary words bigram spectrum distinct adjacent-pair count matrices 1 9 24 65 156 342 rational generating function",
+        "1, 9, 24, 65, 156, 342 OEIS",
+        "1, 9, 24, 65, 156, 342 exact integer sequence ternary words bigram counts",
+        "count of reconstruction equivalence classes under all 2-gram multiplicities for q-ary words q=3, ternary bigram multispectra"
+      ]
+    },
+    "rationale": "The closest full-text published balanced cyclic Markov-type result gives only the zero-divergence matrix series; 2-abelian classes retain endpoints, and the closest indexed exact bigram-spectrum count is binary. Searches for exact ternary matrix spectra did not yield equivalent or stronger claims. The unavailable extended 2012 paper and unindexed sources are explicit priority risks.",
+    "residual_risks": [
+      "2012 expanded Jacquet–Knessl–Szpankowski article could contain a stronger unpublished-in-abstract comparison; full text was not obtained.",
+      "Indexed and sequence searches do not exclude an unindexed earlier exact linear ternary spectrum enumeration.",
+      "The statement is not a new general q-ary formula, and its balanced component was known previously."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly restricts to cyclic strings, establishes all balanced nonnegative matrices, not open-path realizable profiles. Its manuscript is dated 2009-09-02; public posting date not verified.",
+        "evidence": "Introduction states “To avoid this exception, throughout we only consider cyclic strings” and imposes zero net divergence for every vertex; the 3-symbol leading constant is 1/12.",
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+        "material_read": "Author-hosted preprint, introduction, precise balance equations and main enumeration results",
+        "method": "Inspected text and cover-page PDF image",
+        "title": "Markov Types Again Revisited",
+        "trigger": "Same authors, Markov type and pair-count matrix model; possible earlier full-strength covering theorem"
+      },
+      {
+        "assessment": "Prior balanced-cycle term T0/(1-z)^3 is credited. It does not enumerate unbalanced linear spectra or exclude all disconnected-support false Euler trails.",
+        "evidence": "Section 1 imposes row-sum=column-sum and excludes open paths. Page 394 gives F*_3=(1-z+z^2)/((1-z)^7(1+z)^2(1+z+z^2)). Publisher record states published 2009-12-31.",
+        "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+        "material_read": "Complete relevant original PDF sections: definition, cyclic restriction, 3-letter enumeration and rational generating function on page 394",
+        "method": "Inspected PDF text and actual pages 1, 3 and 8 via image viewing; publisher date checked",
+        "title": "Counting Markov Types",
+        "trigger": "Exact balanced ternary generating function in same mathematical family"
+      },
+      {
+        "assessment": "Studies finer endpoint-preserving k-abelian classes; no exact count of classes defined by only the nine two-gram entries in inspected statements.",
+        "evidence": "Lemma 2.4: equal 2-gram counts AND equal initial and final letters characterize 2-abelian equivalence.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.03319",
+        "material_read": "Abstract, definition, Lemma 2.4, introduction and goals in full PDF",
+        "method": "Read PDF text and viewed page image",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "Potential equivalent counting of two-gram spectra for noncyclic words"
+      },
+      {
+        "assessment": "Public abstract still describes balanced matrices; no assertion of whole-document noncoverage. Residual historical-priority risk explicitly retained.",
+        "evidence": "IEEE Transactions on Information Theory 58(7), 4261–4272, abstract centers asymptotics for balanced frequency matrices.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2012.2191476",
+        "material_read": "Bibliographic metadata and abstract only; full article inaccessible",
+        "method": "Searched arXiv and lawful open-access sources; complete article text not obtained",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Later expanded version of closest balanced-type paper could subsume present formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "87bc1f36-ef2d-42fc-b4ba-e74a258a1659",
+  "value": {
+    "rationale": "The exact distinguishable-signature population for window-two multiset reads on a ternary alphabet is a natural reconstruction invariant, not a chosen arbitrary slice. It is nontrivial beyond the binary case due to a three-cycle signed flow and six endpoint imbalance sectors; all-length rational count and asymptotic quantify precise length-dependent information loss.",
+    "status": "PASS"
+  }
+}
