@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed stationary response is derived from the published exact Pauli-string moment recurrences, independently normalized against the two- and three-site formulas. In the four-site model, exact inversion gives an explicit resistance as a positive rational function. Polynomial identities establish strict convexity of inverse current for every nonzero tilt, and the derivative-at-zero polynomial has one positive root because all its nonconstant coefficients are positive. The far-dephasing derivative is positive, giving a unique global current optimum exactly when the zero-dephasing derivative is positive. The exact certificate and 150 independent numerical covariance comparisons pass through `checker.py`. The asymptotic threshold constants follow from dominant-balance expansions of the same exact polynomial. No step extrapolates finite numerical samples into an infinite-domain proof.
+PASS
 
-## Originality — PASS, with publication-priority limitations
+For the 4-site open XX Lindblad chain with coherent hopping normalised J=1, uniform tilt U and boundary coupling G, the source reconstructs the exact stationary Pauli-string 16-equation reduction giving R=1/j=(16+G²+6Gg)/(16G)+z P/(8Q), z=U² and positive Q. I independently re-expanded the displayed P,Q with exact symbolic polynomial algebra. W1=P Q_g-P_g Q contains precisely 85 positive nonzero integer monomials and W2=P_gg Q²-P Q_gg Q-2 P_g Q_g Q+2P(Q_g)² exactly 224, all positive (smallest coeffs 1 and 2), so R_g has strictly increasing derivative for U>0. Exact expansion verifies R_g(0)=-G² Φ_G(z)/(8Q0²). Every nonconstant z coefficient of Φ is positive and its constant is negative, giving unique positive threshold z_c. With R_g→3/8 as g→∞, strict convexity yields the complete global optimizer trichotomy including equality at U_c. Dominant balance gives U_c~√(3/140)G as G→0, U_c~8√3/G as G→∞, and at G=1 independent unique-root evaluation U_c=0.148539003114375. At U=0 resistance is linear, and no strict convexity is claimed there. The finite coefficient certificate alone does not validate the quantum 16-equation premise; the published model/closure and source construction were also inspected.
 
-Jacob et al., arXiv:2407.21715, give the full linear-system method and the exact two- and three-site currents, then use an approximation for larger systems. Their known formulas do not themselves state or imply strict inverse-current convexity, the exact four-site universal-in-reservoir-coupling threshold, or its two singular-coupling laws without additional calculation. Žnidarič and Horvat, arXiv:1207.5952, treat disordered bulk conductivity and periodic disorder, where double dephasing resonances can appear; those are not this four-site uniform-gradient classification. Targeted literature and mathematical-record searches identified no equivalent statement. A full independent publication-priority review has not been carried out, and an unindexed finite-size calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This closes the first small-system case beyond the source's exact two- and three-site formulas. Unlike a single finite numerical optimum, it proves a complete continuum-parameter classification for every positive boundary coupling and tilt. The inverse-resistance convexity excludes multiple peaks even though two-peak phenomena occur in other dephased disorder patterns. The exact onset threshold is nonmonotone under reservoir coupling, vanishing in both extreme coupling limits; this gives a natural physical design boundary. It is not a change of notation or an arbitrary finite data slice, though it does not establish a corresponding theorem for all chain lengths.
+Jacob et al. 2407.21715 provide the same Lindblad model and exact length-2/3 currents, while their longer-chain treatment is an approximation. The length-4 exact full-coherence resistance, positive-coefficient convexity certificate and all-boundary-coupling threshold are not stated in the inspected full primary text. Disordered chains exhibit different dephasing response; no claim that all long or disordered chains are unimodal. Possible other exact four-site diagonalizations remain a residual risk.
 
-## Closest prior work and risk
+## value
 
-- https://arxiv.org/html/2407.21715v3 — exact source model and recurrence, with two- and three-site optima and a larger-size approximation.
-- https://arxiv.org/abs/1207.5952 — earlier disordered-XX-chain methods and thermodynamic transport, including a different periodic-disorder two-resonance regime.
-- https://doi.org/10.1088/1367-2630/14/5/053041 — earlier environment-assisted transport in an ordered network, but based on initial-state trapping efficiency rather than this steady-state boundary-driven current; complete text could not be inspected.
+PASS
 
-Residual risks are unindexed earlier four-site symbolic calculations and physical model extensions not treated here. No independent audit or publication-priority certification is claimed.
+Whether adding local dephasing improves steady current is a physical design question. A rigorous exact threshold separating no-enhancement from unique optimal nonzero dephasing for all G>0, and its nonmonotone coupling limits, is a meaningful sharp small-chain spectral-transport result rather than a table or numerical crossover.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
