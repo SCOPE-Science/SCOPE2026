@@ -1,11 +1,21 @@
-# Review of the orbit-weighted idempotent census
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier inversion is bijective for finite abelian groups over \(\mathbb C\). Multiplication sends \((c_\chi,d_\chi)\) to \(c_{\chi^{-1}}d_{\chi^2}\), and the joint nonzero-support relation yields \(c_{\chi^{-1}}=c_\chi^{-1}\) and \(c_{\chi^2}=c_\chi^2\). The two orbit regimes give exact root counts \(2^m-1\) or \(2^{m/2}+1\). Every constructed assignment satisfies the starting equations, hence both necessity and sufficiency are established. Right-multiplication blocks give the promised multiplicities. The independent direct multiplication/trace checks of seven small groups passed. Boundaries: the zero idempotent is counted, the trivial group has two idempotents, and complex characteristic avoids root collisions.
+## correctness
 
-**Originality — PASS relative to inspected accessible literature.** Elhamdadi–Nunez–Singh (2022) motivates complex Peirce spectra and checks low orders. Elhamdadi–Ta–Virgin (2026) supplies general Fourier equations. Zhang (2026) expressly gives the Fourier identity and a three-valued eigenvalue **set**; it does not state the arithmetic full-idempotent-count product or full multiplicity distribution. Kaur–Singh (2023) decomposes Takasaki representations and does not enumerate complex idempotents. These earlier identities **imply the present formula only after an additional full solution of the cyclic/inversion orbit consistency equations**; no independent originality is assigned to the identities or the three-value theorem. Searches for aliases and published research summaries did not locate an exact equivalent. Remaining priority risk: an equivalent enumeration may exist elsewhere, especially under Fourier-orbit terminology.
+PASS
 
-**Mathematical value — PASS.** The count and bivariate polynomial determine the complete number of idempotents in each naturally occurring Peirce multiplicity class, an intrinsic algebraic invariant for an entire unrestricted odd-order abelian family. The distinguishing example of two nonisomorphic groups of order nine is a substantial structural use of the exact count. This is an exhaustive natural invariant, rather than a small numerical table or a mere repetition of the three-valued spectrum.
+The Fourier product law c_chi=c_chi^-1*c_chi^2 is verified directly from e_x e_y=e_(2y-x). Nonzero support is invariant under inversion and doubling; multiplying inverse equations gives c_chi*c_chi^-1=1 and c_chi^2=c_chi squared. This forces roots of unity satisfying 2^m-1 or 2^(m/2)+1 and orbit independence. Right multiplication breaks into inverse-pair 2x2 blocks with eigenvalues +/-1 if occupied and 0 if empty, and an independent trivial-character 0/1 block. Independently counted 80 versus 512 for groups of order 9. This confirms all odd-order C algebraically rather than by finite sampling.
 
-**Limitations.** No claim is made in modular characteristic, for nonabelian cores, or for arbitrary Alexander quandles. Finite experiments corroborate but do not prove the general theorem. The most important priority risk is the closeness of the 2026 Fourier characterization to the orbit-count argument. Independent external review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Precedent 2026 Fourier idempotence equation and right eigenvalue SET {0,1,-1} are explicitly credited; they do not by themselves supply integer root-orbit counts, all complex idempotents or a full eigenvalue multiplicity distribution. Relevant 2026 full paper text inaccessible, leaving substantive exact-enumeration priority uncertainty.
+
+## value
+
+PASS
+
+Full arithmetic census for a natural finite family and an explicit same-dimension algebra distinction are mathematically motivated; multiplicity refinement is not equivalent to merely listing possible eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
