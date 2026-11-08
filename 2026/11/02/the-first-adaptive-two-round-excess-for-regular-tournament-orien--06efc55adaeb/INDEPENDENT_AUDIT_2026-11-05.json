@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:56:46.127959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and package verifiers",
+        "Independent replay as in scientific_evidence"
+      ],
+      "rationale": "The proof derives the all-assignment cut criterion via integral edge-orientation flow, then bounds VC by degree-three cuts and exhibits the K4 disjoint K3 witness. In independent V8 verification of the actual package depth11_tree.json (Git blob 4339ed5a45be4e1d869520bae2db99ee587c9483), all 2047 internal queries and 2048 distinct leaf masks were checked against their entire eleven-bit paths; all leaf tournaments had outdegree three. Separately enumerating all 2^21 edge orientations gave 2640 regular tournaments, excluding depth 12 since 2640<4096. Independently compiled C++ evaluated all 2,097,152 seven-vertex edge supports against every cut and returned coefficients (1,21,210,1330,5880,18732,40502,32490,315,35), zero thereafter. The claimed small orders follow from 2 and 24 hypotheses and K2+K1/K3+K2 supports.",
+      "residual_risks": [
+        "Finite exhaustive verification is restricted to its specified domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozma--Moran PDF sections 1-2 formulate graph orientations with shattering predicates and its sandwich theorem, no regular score class identified.",
+          "Brualdi--Kiernan 2009 abstract covers prescribed-score completion, not adversarial online shattering."
+        ],
+        "reasoning": "A general completion theorem proves the cut test used as lemma, but neither directly yields a certified depth 11 nor the exact coefficient vector. Generic online learning bounds do not determine this class parameter.",
+        "searches": [
+          "web: Kozma Moran Shattering Graph Orientations Connectivity 2013",
+          "web: Brualdi Kiernan Landau Rado partial tournaments"
+        ]
+      },
+      "checked_sources": [
+        "Kozma and Moran 2013 PDF selected sections and targeted searches",
+        "Brualdi and Kiernan 2009 journal abstract",
+        "Resultary 7-vertex tournament and shattering search results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The completion cut criterion implies the static VC/support test, and older results determine nine-edge extremizers.",
+          "The upper bound floor(log2 2640)=11 can coexist with any smaller adaptive dimension; a full adaptive mistake tree is genuinely additionally required."
+        ],
+        "reasoning": "Prior upper cardinality bounds and score-completion conditions do not imply the lower bound 11. Explicitly verified 2048 different regular tournament leaves establish it.",
+        "searches": [
+          "web: Brualdi Kiernan prescribed tournament scores",
+          "web: Kozma Moran shattering orientations",
+          "Resultary tournament semantic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozma--Moran 2013 discuss orientation-system shattering and strong shattering, primarily connectivity, flow and distance predicates.",
+          "Brualdi--Kiernan 2009 gives score-prescribed partial tournament completion criteria."
+        ],
+        "reasoning": "The orientation/VC translation and feasibility cut criteria are prior mathematical tools; the 11-deep adaptive tree and 7-point support polynomial are distinct exact claims.",
+        "searches": [
+          "Resultary: regular tournaments Littlestone adaptive edge direction queries seven",
+          "web: regular tournament Littlestone dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exhaustive enumeration of 2640 labeled regular tournaments is a known count but is not itself a table of depth-eleven adaptive trees.",
+          "The actual package supplies a 2047-internal-node/2048-leaf certificate and 2^21 support census."
+        ],
+        "reasoning": "No checked Resultary hit is an equivalent regular-score constrained adaptive-shattering table; background tournament enumeration is insufficient.",
+        "searches": [
+          "web: regular tournament orientations Littlestone dimension seven",
+          "Resultary: tournament query shattering"
+        ]
+      },
+      "rationale": "The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.",
+      "residual_risks": [
+        "Potential older online score-constrained orientation learning theorem under another name.",
+        "Brualdi--Kiernan complete primary PDF not materially read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior graph orientation shattering methodology; no matching score-constrained seven-vertex Littlestone result found in searched text",
+          "evidence": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf",
+          "material_read": "PDF sections 1-2 (definitions, Sandwich theorem and orientation applications) plus targeted full-document searches for regular tournament/score/outdegree",
+          "method": "Read PDF extracted text and visually inspect page 1",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Graph orientation shattering framework"
+        },
+        {
+          "assessment": "Strong prior completion criterion acknowledged; cannot from this partial reading conclude anything about all secondary results",
+          "evidence": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v16i1n2",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v16i1n2",
+          "material_read": "Primary abstract and theorem description on journal site, not the complete PDF",
+          "method": "Read journal source",
+          "title": "Landau’s and Rado’s Theorems and Partial Tournaments",
+          "trigger": "Prescribed-score completion needed for the cut lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Intrinsic object/invariant motivation in RESULT.md",
+        "Primary research comparison recorded under originality"
+      ],
+      "rationale": "This determines the first failure of equality between fixed and adaptive shattering dimensions for a natural score-constrained orientation class. The sharp 11-round certificate and entire intermediate static support census give precise query-learning benchmarks not mechanically implied by the earlier all-order static VC extremal theorem.",
+      "residual_risks": [
+        "The value is finite or parameter-specific and should not be promoted as an all-parameter theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Regular tournament edge-orientation classes first have VC/Littlestone gap at seven vertices: VC=9 and Littlestone=11; exact seven-vertex shattered-support polynomial and 35 K4+K3 extremizers.",
+  "limitations": [
+    "No general Littlestone formula at all odd orders, nor unbounded separation."
+  ],
+  "schema_version": 1
+}

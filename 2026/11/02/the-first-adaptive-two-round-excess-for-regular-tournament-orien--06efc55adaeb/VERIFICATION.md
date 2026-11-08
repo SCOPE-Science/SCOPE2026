@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Extract `depth11_tree.json`, `verify.py`, `census.cpp`, and `make_witness.py` into a single directory. Execute:
+## correctness
 
-```sh
-python3 verify.py
-g++ -O3 -std=c++17 census.cpp -o census
-./census
-```
+PASS
 
-`verify.py` enumerates all 2640 labeled regular tournaments on seven vertices, validates 2047 binary query nodes and 2048 distinct terminal tournament bit masks, and proves the upper bound through the 2640-vs-4096 cardinality obstruction. It checks cut-feasibility against direct trace enumeration on every query support at orders three and five and directly checks all 35 maximum supports at order seven. `census.cpp` exhausts all 2097152 edge supports for order seven using the cut criterion, with exact integer comparisons. `make_witness.py` reproduces the complete tree by finite recursion and can overwrite the included tree with an equivalent certificate.
+The proof derives the all-assignment cut criterion via integral edge-orientation flow, then bounds VC by degree-three cuts and exhibits the K4 disjoint K3 witness. In independent V8 verification of the actual package depth11_tree.json (Git blob 4339ed5a45be4e1d869520bae2db99ee587c9483), all 2047 internal queries and 2048 distinct leaf masks were checked against their entire eleven-bit paths; all leaf tournaments had outdegree three. Separately enumerating all 2^21 edge orientations gave 2640 regular tournaments, excluding depth 12 since 2640<4096. Independently compiled C++ evaluated all 2,097,152 seven-vertex edge supports against every cut and returned coefficients (1,21,210,1330,5880,18732,40502,32490,315,35), zero thereafter. The claimed small orders follow from 2 and 24 hypotheses and K2+K1/K3+K2 supports.
 
-The mathematical implication from cut inequalities to all-orientations shattering is established in `RESULT.md` using integer orientation feasibility. A finite experiment does not establish that implication; the independent code verifies its applications, not the infinite theorem in place of proof. The package verifies this finite claim only and does not assert a general all-odd-order Littlestone formula.
+## originality
+
+PASS
+
+The exact claim is not established as a corollary or table entry in the inspected relevant material; foundational objects, algorithms and covered subclaims are separately credited. This is a qualified best-of-knowledge comparison, not absolute priority certification.
+
+## value
+
+PASS
+
+This determines the first failure of equality between fixed and adaptive shattering dimensions for a natural score-constrained orientation class. The sharp 11-round certificate and entire intermediate static support census give precise query-learning benchmarks not mechanically implied by the earlier all-order static VC extremal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
