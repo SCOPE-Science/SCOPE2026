@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every integer m>=2, binary carry transitions give T=2r(s) for an invertible prefix-parity transform. The exact generating polynomial of r(s) is (1+z)(1+...+z^(2^(m-1)-1)), establishing every pair-weight multiplicity. Positive coordinate weights give the complete span rank without relying on enumeration. The Cayley graph has precisely the cosets of the generated span as components. Exhaustive direct enumerator and rank checks pass for all 1016 affine words at m=2,...,8; finite checks are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jurrius, arXiv:1104.0172, enumerates Hamming supports of subcodes, which are coordinate-permutation invariant.",
+        "Xia–Liu–Chen, arXiv:2312.16271, give general bounds rather than a family-specific ordered pair metric."
+      ],
+      "reasoning": "Hamming support profiles cannot determine cyclic adjacent-pair weights because a coordinate permutation changes adjacent runs without changing any Hamming support size. General bounds and component-count criteria do not supply the missing exact rank function without computing the pair-weight layers.",
+      "searches": [
+        "Reed Muller b-symbol weight enumerator",
+        "Reed Muller pair-weight distribution first order",
+        "arxiv:1104.0172 Section 4 (primary source inspected)",
+        "arxiv:2312.16271 Sections 1-3 (primary source inspected)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10989",
+      "https://arxiv.org/abs/2312.16271",
+      "https://arxiv.org/abs/1104.0172",
+      "https://arxiv.org/abs/2301.13497"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Singh–Singh supply the implication from span rank to graph-component count, not a determination of the span.",
+        "Jurrius and Carlet–Solé calculate Hamming quantities insensitive to coordinate order, whereas adjacency-defined pair weights are order-sensitive."
+      ],
+      "reasoning": "The component formula follows from published general theory once gamma is known, so only the explicit pair-spectrum and gamma evaluation is asserted as the new family result. Their determination requires the independent carry-prefix calculation and cannot be inferred solely from these earlier general statements.",
+      "searches": [
+        "arxiv:2609.10989 Section V-B (primary source inspected)",
+        "arxiv:1104.0172 Section 4 (primary source inspected)",
+        "arxiv:2301.13497 Sections 1-2 (primary source inspected)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper defines the exact same general invariant but does not calculate it for ordered Reed–Muller codes.",
+        "Its Cayley connectivity criterion is credited as prior; the new claim evaluates the distribution and ranks."
+      ],
+      "reasoning": "An equivalent result must give either the full multiplicities at every cyclic symbol-pair weight for the binary numerical-order affine evaluation code or its exact generated-subcode ranks. The inspected general definition does neither.",
+      "searches": [
+        "first order Reed-Muller code symbol-pair weight enumerator formula",
+        "first-order Reed-Muller codes symbol-pair weight distribution order coordinates lex",
+        "arxiv:2609.10989 Section V-B (primary source inspected)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical-order first-order Reed–Muller pair-weight table or all-length rank profile was identified in the inspected literature.",
+        "Nearest indexed work concerns a cyclic Hamming-code generation profile, a different family with different pair-weight geometry."
+      ],
+      "reasoning": "The specific claimed flat count of four for each intermediate weight and logarithmic rank steps were compared to searched names and parameter aliases, not merely to titles. Search absence leaves a stated unindexed-priority risk.",
+      "searches": [
+        "first order Reed-Muller code symbol-pair weight enumerator formula",
+        "Reed Muller code pair weight complete spectrum symbol pair distance 2023 2024",
+        "Reed Muller symbol-pair graph disconnection threshold affine Boolean functions",
+        "lexicographic affine evaluation code pair weight 1+4 z spectrum 3 maximal"
+      ]
+    },
+    "rationale": "The strongest direct source (Singh–Singh 2026) gives the general symbol-pair generation-profile framework and graph criterion but no numerical-order RM(1,m) exact spectrum/rank; earlier Reed–Muller weights are Hamming metrics and earlier pair coding works give general bounds. No equivalent statement found in actual targeted searches, with residual unindexed/implicit priority risk.",
+    "residual_risks": [
+      "An obscure or unindexed primary source may already contain the same ordered affine Boolean-function pair spectrum.",
+      "The general 2026 framework and its Cayley conclusion are not new, and are explicitly credited.",
+      "Coordinate ordering matters; equivalent Reed–Muller Hamming codes need not share the pair spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general generation-profile definitions and graph-coset implication, not the new evaluation of the full pair-weight enumerator or the exact Reed–Muller ranks in binary numerical order",
+        "evidence": "First posted 2026-09-10; Section V-B Definition 21 defines gamma and alpha-star; Corollary 5 gives component count in terms of gamma; examples are small ad hoc linear codes, and the document search found no Reed–Muller formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.10989",
+        "material_read": "ArXiv HTML text: abstract/introduction, definitions 1 and 21, Section V-A through V-C (including Cayley coset criterion, Theorem 7 and examples); whole-document term search for Reed",
+        "method": "Read primary full-text HTML at arxiv.org/abs/2609.10989 and compare mathematical statements, especially the span definition and explicit code families",
+        "title": "Data Protection in Function-Correcting Symbol-Pair Codes: Redundancy Bounds and Protection Profiles",
+        "trigger": "Introduces pair generation profile and disconnection threshold; strongest direct potential coverage"
+      },
+      {
+        "assessment": "Gives general irregular-pair-distance bounds and function classes, not ordered Reed–Muller pair-weight multiplicities or generation ranks",
+        "evidence": "First posted 2023-12-26; Sections 1–3 discuss irregular-pair-distance codes; no Reed match in document search.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.16271",
+        "material_read": "ArXiv HTML text: introduction and Sections 2–3; whole-document term search for Reed",
+        "method": "Read full-text HTML sections and search across the document",
+        "title": "Function-Correcting Codes for Symbol-Pair Read Channels",
+        "trigger": "Prior foundational work on pair metric and functions"
+      },
+      {
+        "assessment": "Gives generalized Hamming support and extension-code weight enumerators, invariant under coordinate order; neither cyclic pair weights nor pair generation profiles appear",
+        "evidence": "Section 2.1 defines subcode support weight as number of nonzero positions; Section 4 treats Reed–Muller subcode supports, not adjacency data.",
+        "identifier_or_url": "https://arxiv.org/abs/1104.0172",
+        "material_read": "ArXiv HTML text: Sections 2 and 4 (including Definition 15, Theorem 16 and Corollary 17) and concluding discussion",
+        "method": "Read relevant primary full-text sections and inspect notion of weight and coordinate-order dependence",
+        "title": "Weight enumeration of codes from finite spaces",
+        "trigger": "Full weight enumeration of first-order Reed–Muller codes may imply the claim"
+      },
+      {
+        "assessment": "The results concern Hamming weight spectrum for Reed–Muller orders near the top, not cyclic pair weight or generation of first-order codes",
+        "evidence": "Introductory paragraphs specify Hamming weights and code families of orders m-3 and m-4; term search found no pair-metric analysis.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.13497",
+        "material_read": "ArXiv HTML text: abstract, Sections 1–2 and whole-document search for pair",
+        "method": "Read original article definitions and scope, search for pair-metric discussion",
+        "title": "The weight spectrum of two families of Reed-Muller codes",
+        "trigger": "Reed–Muller weight spectra and possible stronger known family formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1548b4b4-f671-43b3-9c2e-42d8556a4a86",
+  "value": {
+    "rationale": "The claim identifies the complete flat pair-weight distribution and every rank step for a classical infinite code family under a newly studied protection invariant, producing an explicit connected-component staircase and a sharp 3n/4 transition. These facts address the natural gap between a general abstract pair-generation criterion and a concrete code family, not a single numerical or routine finite case.",
+    "status": "PASS"
+  }
+}
