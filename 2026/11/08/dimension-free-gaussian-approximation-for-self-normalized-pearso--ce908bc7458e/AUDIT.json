@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Conditionally on each realized length vector, pairwise spherical inner products are orthogonal with variance \\(1/d\\), giving exact normalized variance one. A Gaussian-polar coupling reduces the angular statistic to \\(d\\) iid unit-variance Gaussian quadratic forms, each with fourth moment at most \\(15\\). The angular-radial coupling error is exactly \\(2\\operatorname{Var}(\\|G\\|/\\sqrt d)\\le2/d\\). A Wasserstein Stein bound proves \\(W_1\\le(3\\cdot15^{3/4}+\\sqrt 2)/\\sqrt d<25/\\sqrt d\\). All boundaries and computations are specified in RESULT.md; finite checks supplement the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1210.7090, Theorem 1.1: radial increments are independent identically distributed with one fixed radius law and finite fourth moment.",
+        "arXiv:2211.08538, Theorem 3.3: iid rotational increments, one-dimensional radius law and n/d regimes; deterministic radius case includes equal weights.",
+        "arXiv:2609.05195, Theorem 5.4 imposes mixed-moment and step-growth conditions for unnormalized convergence."
+      ],
+      "reasoning": "Existing normal results already contain the equal-length/iid increment specializations. However, none of the inspected stronger claims provides a conditional W1 upper bound uniform in every deterministic length array and step count. The earlier theorem is not being repackaged as novel for its special cases.",
+      "searches": [
+        "Grundmann limit theorems radial random walks high dimensional radial sphere central limit theorem arbitrary lengths number steps",
+        "Kabluchko Marynych Wiener spiral theorem 3.3 Gaussian high dimension fixed arbitrary length",
+        "independent uniform spherical vector weighted sum squared norm CLT deterministic triangular arrays high dimensions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.05195v2, full accessible preprint",
+      "arXiv:2211.08538v2, primary preprint sections 1 and 3",
+      "Grundmann (2012), accessible university open preprint Theorem 1.1",
+      "Stam (1982), bibliographic abstract and later primary attribution",
+      "Targeted web scholarly searches for weighted-spherical U-statistic approximation and high-dimensional Pearson norms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main paper Lemma 5.3 controls moments of the angular cross term but does not yield its normal law merely from those moment bounds.",
+        "Fixed-n joint angular Gaussian convergence is insufficient for n=n_d unrestricted unless strengthened uniformly.",
+        "The new proof uses a common Gaussian radial coupling whose L2 error is bounded uniformly in all length arrays, plus a coordinate-sum normal comparison."
+      ],
+      "reasoning": "The new implication is quantitative distributional rather than first-order norm convergence. Prior general moment estimates alone do not imply asymptotic Gaussian shape; a uniform Berry–Esseen theorem for arbitrary coefficient matrices would, if located, be a possible broader covering theorem.",
+      "searches": [
+        "high dimensional Pearson random walks arbitrary step length universal central limit theorem squared radius dimension free Wasserstein",
+        "high dimensional random flights arbitrary dependent lengths second order mixed normal Gaussian limit spherical directions",
+        "\"norm\" \"weighted sum\" \"uniform on the sphere\" \"normal approximation\" high dimensional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.05195v2, Theorems 4.3, 4.5 and 5.4 and Lemma 5.3 concern first-order convergence and moment bounds.",
+        "arXiv:2211.08538, Remark 3.4 attributes fixed-number-of-steps Gaussian radial fluctuations to Stam (1982)."
+      ],
+      "reasoning": "Normalized cross-inner-product fluctuations are equivalent to a self-normalized quadratic U-statistic. Stam-type joint inner-product limits could imply any fixed-step special case, but a fixed-dimension-of-weights asymptotic does not uniformly control an arbitrary number of terms, changing weights and random dependent lengths.",
+      "searches": [
+        "isotropic Pearson random walk high dimension Gaussian fluctuations random dependent step lengths conditional central limit norm squared",
+        "high dimensional random flights arbitrary dependent lengths second order mixed normal Gaussian limit spherical directions",
+        "A J Stam 1982 limit theorems uniform sphere inner products random vectors theorem 4 PDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is a continuum of probabilistic estimates over arbitrary arrays, not a finite combinatorial value or listed exact invariant.",
+        "No exact tabulation or source with the present all-parameter rate was found in the targeted searches."
+      ],
+      "reasoning": "A finite table cannot cover the universally quantified theorem. Negative search results provide context only, not mathematical proof of priority.",
+      "searches": [
+        "\"weighted Pearson walk\" \"Wasserstein\" high dimensional",
+        "\"spherical random walk\" \"Wasserstein\" \"Gaussian\" squared length",
+        "Pearson random walk Dirichlet lengths second order radius central limit high dimension"
+      ]
+    },
+    "rationale": "The full-text motivating paper proves first-order radial convergence and moment bounds, not a conditional dimension-only \\(W_1\\) normal rate with arbitrary step-count growth and arbitrary dependent lengths. Earlier results for i.i.d. radial increments and fixed numbers of directions cover important special cases, but do not state the uniform assertion. Search non-detection is not itself a novelty proof; residual broad-normal-approximation priority risk remains.",
+    "residual_risks": [
+      "A general-purpose normal-approximation theorem for weighted Gaussian/spherical quadratic forms may directly imply this distributional inequality without mentioning Pearson walks.",
+      "The complete original text of Stam (1982) was not accessed, although its fixed-sample scope is independently attributed.",
+      "Definitive historical priority has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state conditional Gaussian distribution of the standardized squared-radius error or a step-count-uniform W1 rate.",
+        "evidence": [
+          "arXiv:2609.05195, PDF pp. 5, 7–9; Theorems 4.3 and 5.4, Lemma 5.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.05195",
+        "material_read": "Full preprint v2, especially introduction, Section 4 Theorems 4.3 and 4.5, Section 5 Hypothesis 5.1, Lemma 5.3, Theorem 5.4, and Section 6 examples.",
+        "method": "Scientific full-text PDF and arXiv HTML inspected, including theorem statements and proofs.",
+        "title": "Asymptotic Behaviour for Isotropic Pearson Random Walks",
+        "trigger": "Exact same Pearson walk with dependent, dimension-varying random step lengths."
+      },
+      {
+        "assessment": "Covers iid rotational increments and equal-radius special cases but not arbitrary arrays with a uniform conditional W1 bound.",
+        "evidence": [
+          "arXiv:2211.08538, Theorem 3.3 and Remark 3.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.08538",
+        "material_read": "Full-text Introduction and Theorem 3.3 with Remark 3.4; 2023 preprint PDF pp. 1–3 and 6–8.",
+        "method": "Primary PDF text and page images inspected.",
+        "title": "Random Walks in the High-Dimensional Limit I: The Wiener Spiral",
+        "trigger": "Potential general central limit theorems for squared radii."
+      },
+      {
+        "assessment": "Requires iid radial increments with a fixed radius distribution and finite moments; does not cover arbitrary dependent random lengths conditionally.",
+        "evidence": [
+          "Grundmann (2012), Theorem 1.1 and Section 1."
+        ],
+        "identifier_or_url": "https://eldorado.tu-dortmund.de/bitstream/2003/29488/1/mathematicalPreprint-2012-10.pdf",
+        "material_read": "Full abstract, Introduction and Theorem 1.1, with model assumptions and comparison to prior limit theorems.",
+        "method": "Open preprint PDF text and page image.",
+        "title": "Limit theorems for radial random walks on Euclidean spaces of high dimensions",
+        "trigger": "A possible stronger iid-radial central limit theorem."
+      },
+      {
+        "assessment": "Known fixed-sample special cases acknowledged; general arbitrary growing step-count comparison cannot be settled from the abstract alone.",
+        "evidence": [
+          "Stam (1982), abstract; Kabluchko–Marynych (2023), Remark 3.4."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213932",
+        "material_read": "Bibliographic abstract plus secondary attribution in Kabluchko–Marynych Remark 3.4; the original full article was not obtained.",
+        "method": "Abstract/index and a primary later paper citing its fixed-sample result.",
+        "title": "Limit theorems for uniform distributions on spheres in high-dimensional Euclidean spaces",
+        "trigger": "Fixed-sample spherical inner-product normal approximations are nearest historical precedence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce908bc7-458e-4df6-9670-768358eb09b2",
+  "value": {
+    "rationale": "The strong feature is uniformity over arbitrary growth of the number of steps and every realized dependent-length vector, with no length moments. This replaces the motivating paper's first-order angular-error estimates by a conditional second-order distributional approximation, making it useful even when unnormalized errors fail to converge. The Gaussian radial comparison is a reusable structural proof of that unusual uniformity, not an arbitrary numerical constant or relabeling.",
+    "status": "PASS"
+  }
+}
