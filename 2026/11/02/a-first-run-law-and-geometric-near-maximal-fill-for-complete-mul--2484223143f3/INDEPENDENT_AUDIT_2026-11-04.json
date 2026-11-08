@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:46:29.480089Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD M-matrices, Schur pivots remain positive and negative off-diagonals cannot cancel, so graphical vertex elimination creates all neighbor clique edges. If the first part is i with monochromatic run R, its first vertex completes every other part, the first outsider then completes the remaining n_i-R vertices of part i, and no more fill occurs. Thus F=M-C(n_i,2)+C(n_i-R,2) exactly; sampling without replacement proves Pr(I=i,R=s)=(n_i)_s(N-n_i)/(N)_(s+1). Missing pair indicator expectation gives E F=sum_i C(n_i,2)(N-n_i)/(N-n_i+2). Optimizing the run gives extrema. For balanced size m, R has uniformly geometric tails and tends to Geom((r-1)/r); scaled M-F and second moments give the geometric law and variance. I independently exhausted 1,012,508 labelled vertex orders on small multipartite graphs, comparing graphical elimination to the exact formula, all matching; this is corroboration only, not the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minimum-fill or minimum-degree algorithms optimize an ordering rather than evaluate the full uniform random ordering distribution.",
+          "RCHOL gives a different stochastic mechanism (sampled clique edges)."
+        ],
+        "reasoning": "Potential stronger order-independent fill theorems were sought; the inspected general principles do not imply the exact full distribution or geometric limit.",
+        "searches": [
+          "complete multipartite graph random elimination fill-in distribution Cholesky first run",
+          "minimum fill chordal bipartite Kloks 1993",
+          "minimum degree elimination orderings Fahrbach arxiv:1711.08446"
+        ]
+      },
+      "checked_sources": [
+        "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems (arXiv:2011.07769 / DOI:10.1137/20M1380624)",
+        "On Computing Min-Degree Elimination Orderings (arXiv:1711.08446)",
+        "Minimum fill-in for chordal bipartite graphs (Kloks 1993)",
+        "Resultary: complete multipartite graph random elimination fill-in distribution Cholesky first run"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact clique completion is classical and fully conceded.",
+          "The claimed conditional law depends on ordered initial run and recovers every random-order fill value."
+        ],
+        "reasoning": "The generic neighbor-clique rule permits derivation but does not itself state the new distribution; RCHOL and min-fill bounds do not logically imply the random full law as formulated. No novelty asserted for the fundamental elimination rule.",
+        "searches": [
+          "Chen Liang Biros RCHOL 2021",
+          "Fahrbach minimum degree elimination 2017",
+          "Kloks chordal bipartite 1993"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact symbolic fill for the graph family corresponds to a random permutation elimination fill-in law, not random edge retention.",
+          "Chen–Liang–Biros describe exact clique completion and the distinct approximate RCHOL sampler."
+        ],
+        "reasoning": "Compared sparse-elimination clique closure, chordal completion and random-permutation fill profiles; graph closure alone does not determine the first-run distribution without the two-stage family argument.",
+        "searches": [
+          "complete multipartite graph random elimination fill-in distribution Cholesky first run",
+          "RCHOL randomized Cholesky exact clique completion arxiv:2011.07769",
+          "random complete multipartite vertex ordering missing edge fill distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related multipartite zero-forcing and random greedy MIS, not a fill-count catalogue.",
+          "Unbounded part-size vectors cannot be established by a finite table."
+        ],
+        "reasoning": "No matching exact table or formula located; this is limited search evidence, not proof of historical absence.",
+        "searches": [
+          "complete multipartite graph random elimination fill-in distribution Cholesky first run",
+          "complete multipartite random ordering Cholesky fill first-run geometric fill distribution"
+        ]
+      },
+      "rationale": "The known neighbor-clique rule and deterministic minimum-fill methods do not, in inspected statements, provide the complete initial-run joint distribution or balanced geometric near-maximal-fill law. RCHOL concerns randomized approximate edge sampling and cannot be equated to uniformly random vertex order in exact Cholesky. A bounded best-of-knowledge PASS, not priority certification.",
+      "residual_risks": [
+        "Exact random-order Cholesky fill might exist under chordal completions or random permutation graph elimination outside indexed sources; not certified historically.",
+        "Full text of classic minimum-fill material was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MECHANISM_NOT_FULL_LAW",
+          "evidence": [
+            "Abstract explicitly contrasts exact neighbor-clique fill with random sparse sampled cliques; no examined exact uniform ordering distribution."
+          ],
+          "identifier_or_url": "arXiv:2011.07769 / DOI:10.1137/20M1380624",
+          "material_read": "Full abstract, stated approximate edge-sampling construction and algorithmic scope; direct full arXiv text was not retrievable",
+          "method": "open OA abstract/publisher record; full text attempted",
+          "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+          "trigger": "same exact clique-fill mechanics"
+        },
+        {
+          "assessment": "RELATED_OPTIMIZATION_NOT_RANDOM_LAW",
+          "evidence": [
+            "Minimum-degree graph elimination problem differs from random-order full distribution."
+          ],
+          "identifier_or_url": "arXiv:1711.08446",
+          "material_read": "Abstract and bibliographic description; no full-text inference",
+          "method": "published abstract and search",
+          "title": "On Computing Min-Degree Elimination Orderings",
+          "trigger": "possible stronger elimination results"
+        },
+        {
+          "assessment": "PRIORITY_RISK_NOT_NEGATIVE_PROOF",
+          "evidence": [
+            "Its graph class and optimization scope do not alone substantiate or exclude the full distribution."
+          ],
+          "identifier_or_url": "Kloks 1993",
+          "material_read": "Bibliographic description only; full text unavailable",
+          "method": "bibliographic lookup",
+          "title": "Minimum fill-in for chordal bipartite graphs",
+          "trigger": "deterministic minimum might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete random-order fill polynomial, exact expectation/extremes and geometric typical near-worst-case behavior quantify how a natural sparse-factorization graph family behaves under unstructured orderings. This is a natural invariant family with unbounded part sizes, not just a restatement of clique completion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact SPD M-matrix noncancelling graph pattern and uniform vertex order only; no results for arbitrary SPD sign patterns, thresholding, memory or runtime.",
+    "Finite enumeration supports but does not prove all part sizes."
+  ],
+  "schema_version": 1
+}
