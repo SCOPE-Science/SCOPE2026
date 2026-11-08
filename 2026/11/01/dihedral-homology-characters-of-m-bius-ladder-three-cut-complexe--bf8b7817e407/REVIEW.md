@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns the ordinary (not total) three-cut complex. A direct Alexander-dual construction gives a full one-skeleton, exactly \(6n\) path triangles and exactly \(n\) square tetrahedra for \(n\ge5\). The proof exhibits a \(5n\)-by-\(5n\) determinant-unit minor, proves that the square boundaries are the full integral two-cycle kernel, and uses equivariant Alexander duality to obtain the signed representation formula. It explicitly counts fixed oriented simplices for every dihedral element. The included program passed 504 group-element checks and direct independent cut-complex Lefschetz checks for three small widths. The finite checks do not substitute for the uniform proof.
+## correctness
 
-## Originality — PASS (qualified)
-The main 2026 Möbius-ladder article has nonequivariant independence/perfect-matching theorems and expressly proposes studying cut complexes. Closest published published-finding corpus results treat the untwisted circular-ladder ordinary cut complex, the Möbius-ladder **total** three-cut complex, the Möbius independence-complex dihedral representation, and a general graph theorem requiring edge-disjoint squares. None states or implies the present *twisted-ladder ordinary three-cut full dihedral character*. The numerical nonequivariant wedge rank matches the untwisted analogue and is not the novelty basis. The strongest remaining risk is an equivalent unindexed topological representation calculation.
+PASS
 
-## Value — PASS
-The complex addresses an explicitly motivated cut-complex direction on a standard symmetric graph family. The complete rational representation distinguishes even and odd reflection axes, determines every rotation character and shows that only \(\lfloor(n-3)/2\rfloor\) invariant homology classes survive the full dihedral action, although the total Betti number is quadratic. These are not implied by the known nonequivariant homotopy rank, and the all-width formula is structurally informative beyond isolated examples.
+For the ordinary (not total) three-cut of the 2n-vertex Möbius ladder, n≥5, Alexander dual K has full 1-skeleton, exactly 6n connected induced triples and n square tetrahedra; 5-vertex dual faces are impossible by 5·4=3e contradiction. In d2, 2n unique distance-two chord rows isolate all cycle-path triangles and 3 signed edge rows per square have determinant ±1, giving a 5n×5n unimodular minor. Since n primitive disjoint tetrahedron boundaries lie in ker d2, rank d2=5n and ker d2=im d3 integrally. H1(K)=Z^{2n²−8n+1}; duality and connectivity upgrade Δ≃∨^{2n²−8n+1}S^{2n−4}. Equivariant Alexander duality adds ambient permutation sign to signed K-chain Lefschetz: all nonidentity rotations (−1)^a; reflection cases n even even/odd a: n−3,3−n; n odd:4−n,n−2. Invariant dimension floor((n−3)/2). Independently built ladder edges, all connected triples, square faces, and signed simplicial traces for n=5…10; all match; finite checks do not establish integral saturation, which relies on the uniform integer minor.
 
-## Limits
-No assertions about smaller exceptional ladders, total three-cut complexes, integral representation splitting or independent validation are made. Closest scientific overlap is the existing circular-ladder ordinary three-cut proof. This review evaluates only this result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Read the full Agarwal–Basak 19-page 2026 manuscript: it treats independence and perfect-matching complexes, explicitly lists cut and total-cut complexes as future problems. Compared published untwisted circular-ladder ordinary cut wedge result and graph-wide edge-disjoint-square theorem; neither provides twisted Möbius D_{2n} character. Exact rank may coincide but equivalence/implication does not.
+
+## value
+
+PASS
+
+The family is a canonical symmetric cubic graph and cut-complex topology is explicitly proposed as a future direction by Agarwal–Basak. The all-n rational dihedral character differentiates reflection axes and computes invariant rank despite quadratic nonequivariant Betti rank. The exact topology of the twisted graph is mathematically motivated and not merely a repeated untwisted result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
