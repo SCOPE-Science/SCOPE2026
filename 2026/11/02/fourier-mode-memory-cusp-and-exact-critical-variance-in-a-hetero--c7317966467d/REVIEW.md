@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map and stationary domain are specified exactly. The three base cylinders have independent labels of probabilities \(a,a,1-2a\); the center's Fourier transition is therefore a weighted nearest-neighbor walk in dyadic frequency valuation. Nonnegative return paths from valuation zero are Catalan paths, giving the full correlation sequence and the zero cross-correlations between distinct odd parts. Exact variance is the stationary covariance convolution. Its generating function yields the cusp, the critical \(\sqrt N\) correction and the noncritical finite offset. At \(a>1/4\), the explicitly bounded Poisson solution establishes the martingale CLT without extending it into the neutral or expanding regimes. Exact rational and symbolic checks confirm key algebraic identities but do not certify an infinite theorem.
+## correctness
 
-## Originality — PASS, subject to stated literature risk
-The defining 2022 family and original 2018 example are prior; the 2023 mixing theorem, 2024 dynamical survey, and the 2024 critical random-walk mixing paper were examined by their mathematical assertions and relevant full-text sections. They establish decay rates, an absorbing-walk mechanism, and some numerical center correlations, but the inspected statements do not give this parameter-uniform, Fourier-resolved all-lag covariance, the exact variance cusp and \(\sqrt N\) correction. Published periodic-fiber geometry and symbolic-word-count results concern different observables and invariants. The crucial distinction is an implication comparison, not mere differences in titles. A possible unindexed equivalent computation remains the principal originality risk.
+PASS
 
-## Mathematical value — PASS
-The critical parameter is a natural zero-center-Lyapunov transition in the defining literature. Fourier harmonics are canonical smooth center observables: the theorem gives every lag, displays the sharp transition from exponential to polynomial memory, proves a non-differentiable Green–Kubo parameter response, and extracts a sharp finite-time critical correction. The joint limit in the contracting regime is a further quantitative inference, not just a rephrasing of qualitative mixing. The zero odd lags and all-frequency decoupling expose a structural mechanism not contained in a numerical plot.
+Independent branch labels yield the stationary Markov kernel P with Pe_j=p e_{2j} for odd j, and Pe_j=q e_{j/2}+p e_{2j} for even j, p=1-2a,q=2a. Dyadic level-return paths from zero are Dyck paths, so lag 2m autocovariance is Cat_m(pq)^m/2 and odd lags zero; odd parts and sin/cos are invariant orthogonal sectors. Stationary covariance convolution gives Var(S_N)=N/2+sum(N-2m)Cat_m(pq)^m. Catalan generating function yields σ²=1/max(p,q)-1/2 with slopes ±8 at a=1/4, and singularity analysis at ±1 gives 3N/2-4 sqrt(2N/pi)+4+O(N^-1/2). For a>1/4, the bounded Poisson series g=(1/q) sum_h(p/q)^h φ(2^h y) supplies martingale CLT using stationary ergodicity, not extended to a≤1/4. Independently checked dyadic walk returns at 4 rational a parameters through lag 16 and critical variance asymptotic at N=1000 (error -0.0757).
 
-## Closest literature and scope limits
-Takahasi–Tsujii's Haar-wavelet/absorbing-walk machinery is the strongest plausible broader antecedent: it establishes optimal critical decay and explicit random-walk transition probabilities, but their stated theorem supplies bounds for general Hölder observables, not the Fourier-mode coefficient/variance/cusp formulas. The 2024 survey provides a stationary Lebesgue context and numerical correlations. The claim is restricted to the exact \(M=2\) family, stationary Lebesgue measure, and the specified Fourier observable class; it does not assert a critical-regime CLT. No independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The M=2 model, stationary mixing, walk comparison and critical decay exponent were published earlier; the parameter-uniform exact Fourier coefficients, cusp and critical square-root finite-time correction are not supplied by the inspected sections/theorems. Best-of-knowledge originality carries risk of another implicit exact harmonic specialization.
+
+## value
+
+PASS
+
+Fourier harmonics are canonical smooth center observables, and the cusp parameter is the dynamically meaningful center-neutrality threshold. Exact temporal memory, the sharp parameter response and finite-time √N anomaly give natural quantitative statistics beyond prior rates/plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

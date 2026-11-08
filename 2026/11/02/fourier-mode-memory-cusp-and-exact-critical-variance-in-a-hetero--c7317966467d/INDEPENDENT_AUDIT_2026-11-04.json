@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent branch labels yield the stationary Markov kernel P with Pe_j=p e_{2j} for odd j, and Pe_j=q e_{j/2}+p e_{2j} for even j, p=1-2a,q=2a. Dyadic level-return paths from zero are Dyck paths, so lag 2m autocovariance is Cat_m(pq)^m/2 and odd lags zero; odd parts and sin/cos are invariant orthogonal sectors. Stationary covariance convolution gives Var(S_N)=N/2+sum(N-2m)Cat_m(pq)^m. Catalan generating function yields σ²=1/max(p,q)-1/2 with slopes ±8 at a=1/4, and singularity analysis at ±1 gives 3N/2-4 sqrt(2N/pi)+4+O(N^-1/2). For a>1/4, the bounded Poisson series g=(1/q) sum_h(p/q)^h φ(2^h y) supplies martingale CLT using stationary ergodicity, not extended to a≤1/4. Independently checked dyadic walk returns at 4 rational a parameters through lag 16 and critical variance asymptotic at N=1000 (error -0.0757).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published general Hölder-correlation rate is O(n^-3/2) at neutrality; the survey numerically examines center y.",
+          "The new exact formula 1/max(2a,1-2a)-1/2 and -4sqrt(2N/pi) correction are finer than a generic decay bound."
+        ],
+        "reasoning": "A bound cannot imply all exact Catalan coefficients; the specific Fourier calculation is not a stated corollary.",
+        "searches": [
+          "https://arxiv.org/html/2408.16618v1 Main Theorem",
+          "https://arxiv.org/html/2401.00836v2 §§2.5-2.7"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2209.04905",
+          "material_read": "Definitions of parameter-dependent map and invariant reference measure and related entropy results",
+          "title": "Heterochaos baker maps and the Dyck system: maximal entropy measures and a mechanism for the breakdown of entropy approachability"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/html/2401.00836v2",
+          "material_read": "Sections 2.5-2.7 (Lebesgue mixing, rates and numerical autocorrelations), plus definitions and map variants",
+          "title": "The dynamics of the heterochaos baker maps"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/html/2408.16618v1",
+          "material_read": "Main Theorem and Sections 2.1-2.5 reduced transfer/absorbing random-walk argument, critical decay estimates",
+          "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Established neutral n^-3/2 exponent and mixing provide compatible asymptotics; explicit zero odd-lag and all odd-frequency orthogonality require the new Fourier transition calculation.",
+          "Exact critical variance asymptotic includes coefficient -4sqrt(2/pi) and constant +4 not specified by prior rate statements."
+        ],
+        "reasoning": "Generic mixing and numerical correlation observations do not imply these exact coefficients, and the theorem does not misclaim first proof of critical n^-3/2 decay.",
+        "searches": [
+          "https://arxiv.org/html/2408.16618v1",
+          "https://arxiv.org/html/2401.00836v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior absorbing-walk transfer comparison is analogous to the dyadic-frequency walk; the precise return weights for e_k are Cat_m[a(2-4a)]^m."
+        ],
+        "reasoning": "The random-walk mechanism overlaps, but no inspected prior expression evaluates each Fourier-mode correlation, its exact integrated variance or its parameter cusp. An implicit Fourier specialization remains a risk.",
+        "searches": [
+          "Resultary: heterochaos baker center Fourier Catalan autocorrelation Green Kubo variance critical cusp",
+          "https://arxiv.org/html/2408.16618v1 §§2.1-2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed heterochaos finding describes neutral periodic fiber resolution, not time Fourier covariance or Green–Kubo variance."
+        ],
+        "reasoning": "The checked index has no duplicate table, but this does not rule out unindexed Fourier-correlation calculations.",
+        "searches": [
+          "Resultary: heterochaos baker center Fourier Catalan autocorrelation Green Kubo variance critical cusp",
+          "Resultary hit 2026/10/11/SCOPE-quantitative-density-and-sharp-center-resolution-of-neutral-peri--c900b3c68814"
+        ]
+      },
+      "rationale": "The M=2 model, stationary mixing, walk comparison and critical decay exponent were published earlier; the parameter-uniform exact Fourier coefficients, cusp and critical square-root finite-time correction are not supplied by the inspected sections/theorems. Best-of-knowledge originality carries risk of another implicit exact harmonic specialization.",
+      "residual_risks": [
+        "Takahasi–Tsujii reduced transfer and gambler-ruin machinery could yield the precise Catalan harmonic formula after specialization not explicitly compared in every appendix.",
+        "Other spectral or Haar-based studies of the same center observables may derive an equivalent variance law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes dynamical family but not an explicit all-lag Fourier harmonic Green–Kubo computation in the inspected statements",
+          "evidence": [
+            "The defined branch probabilities are a,a,1-2a; no claimed exact Catalan harmonic covariance table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.04905",
+          "material_read": "Definitions of parameter-dependent map and invariant reference measure and related entropy results",
+          "method": "Open arXiv primary full text/PDF relevant sections",
+          "title": "Heterochaos baker maps and the Dyck system: maximal entropy measures and a mechanism for the breakdown of entropy approachability",
+          "trigger": "Defines generalized two-dimensional M=2 baker family and invariant-measure setting"
+        },
+        {
+          "assessment": "Reports numerical correlations for center coordinate and qualitative mixing, not the Fourier-mode covariance/cusp/critical correction formula",
+          "evidence": [
+            "Section 2.7 numerical plots and setup for center y; no parameter-uniform odd-harmonic exact Fourier formula in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.00836v2",
+          "material_read": "Sections 2.5-2.7 (Lebesgue mixing, rates and numerical autocorrelations), plus definitions and map variants",
+          "method": "arXiv full HTML primary paper relevant sections",
+          "title": "The dynamics of the heterochaos baker maps",
+          "trigger": "Closest survey of center-coordinate autocorrelations and mixing"
+        },
+        {
+          "assessment": "Provides polynomial critical mixing rate for Hölder observables, not the precise Fourier return coefficients or finite-time variance correction",
+          "evidence": [
+            "Theorem gives sharp n^-3/2 scale for general observables, compatible with Catalan asymptotic but does not as stated determine exact all-lag Fourier variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.16618v1",
+          "material_read": "Main Theorem and Sections 2.1-2.5 reduced transfer/absorbing random-walk argument, critical decay estimates",
+          "method": "arXiv primary full HTML relevant theorem and proof sections",
+          "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center",
+          "trigger": "Sharp critical n^-3/2 rate and random-walk comparison potentially dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fourier harmonics are canonical smooth center observables, and the cusp parameter is the dynamically meaningful center-neutrality threshold. Exact temporal memory, the sharp parameter response and finite-time √N anomaly give natural quantitative statistics beyond prior rates/plots.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2209.04905",
+      "material_read": "Definitions of parameter-dependent map and invariant reference measure and related entropy results",
+      "title": "Heterochaos baker maps and the Dyck system: maximal entropy measures and a mechanism for the breakdown of entropy approachability"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/html/2401.00836v2",
+      "material_read": "Sections 2.5-2.7 (Lebesgue mixing, rates and numerical autocorrelations), plus definitions and map variants",
+      "title": "The dynamics of the heterochaos baker maps"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/html/2408.16618v1",
+      "material_read": "Main Theorem and Sections 2.1-2.5 reduced transfer/absorbing random-walk argument, critical decay estimates",
+      "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center"
+    }
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Takahasi–Tsujii reduced transfer and gambler-ruin machinery could yield the precise Catalan harmonic formula after specialization not explicitly compared in every appendix.",
+    "Other spectral or Haar-based studies of the same center observables may derive an equivalent variance law."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only stationary Lebesgue law for two-dimensional M=2 family and odd-frequency sin/cos; CLT only a>1/4.",
+    "No general-observable variance law or critical CLT claimed."
+  ]
+}

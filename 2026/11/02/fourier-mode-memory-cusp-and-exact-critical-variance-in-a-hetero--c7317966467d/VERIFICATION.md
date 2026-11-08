@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Mathematical verification notes
+# Independent mathematical audit
 
-The included standalone `verify_fourier.py` is executable with Python 3 and SymPy; NumPy enables an additional optional Monte Carlo diagnostic. It constructs exact rational Fourier transitions for six rational parameters, four odd harmonics, and 25 time steps, comparing the return coefficient to \(\mathrm{Cat}_{n/2}(2a(1-2a))^{n/2}\) for even \(n\). All 600 tested instances passed. It checks 136 rational recurrences of the bounded Poisson solution, 204 exact finite-time variance cases, the closed Catalan generating identity at six parameters, and critical variance at three horizons. Monte Carlo tests for three parameter values and eight positive lags had maximum absolute discrepancy approximately \(0.0029196\), within the declared \(0.01\) threshold. It finished with `PASS`.
+## correctness
 
-These finite symbolic and sampled tests are diagnostics, not an exhaustive proof for infinitely many times, harmonics or parameters. The infinite theorem uses the exact Fourier transition, Catalan path count, algebraic generating function and stationary martingale decomposition in RESULT.md. The critical finite-time \(O(N^{-1/2})\) bound relies on the two unit-circle singularities of its explicit algebraic generating function. The Gaussian assertion is restricted to \(a>1/4\), where the Poisson Fourier series is uniformly convergent. No independent mathematical audit is represented or implied.
+PASS
+
+Independent branch labels yield the stationary Markov kernel P with Pe_j=p e_{2j} for odd j, and Pe_j=q e_{j/2}+p e_{2j} for even j, p=1-2a,q=2a. Dyadic level-return paths from zero are Dyck paths, so lag 2m autocovariance is Cat_m(pq)^m/2 and odd lags zero; odd parts and sin/cos are invariant orthogonal sectors. Stationary covariance convolution gives Var(S_N)=N/2+sum(N-2m)Cat_m(pq)^m. Catalan generating function yields σ²=1/max(p,q)-1/2 with slopes ±8 at a=1/4, and singularity analysis at ±1 gives 3N/2-4 sqrt(2N/pi)+4+O(N^-1/2). For a>1/4, the bounded Poisson series g=(1/q) sum_h(p/q)^h φ(2^h y) supplies martingale CLT using stationary ergodicity, not extended to a≤1/4. Independently checked dyadic walk returns at 4 rational a parameters through lag 16 and critical variance asymptotic at N=1000 (error -0.0757).
+
+## originality
+
+PASS
+
+The M=2 model, stationary mixing, walk comparison and critical decay exponent were published earlier; the parameter-uniform exact Fourier coefficients, cusp and critical square-root finite-time correction are not supplied by the inspected sections/theorems. Best-of-knowledge originality carries risk of another implicit exact harmonic specialization.
+
+## value
+
+PASS
+
+Fourier harmonics are canonical smooth center observables, and the cusp parameter is the dynamically meaningful center-neutrality threshold. Exact temporal memory, the sharp parameter response and finite-time √N anomaly give natural quantitative statistics beyond prior rates/plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
