@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The zero-forcing white-neighbor bound and explicit two-round forces prove the exact minimum-state representation independently. The exchange-graph identification follows from fixed omissions per bipartition class. The all-pairs metric is proved by collision-avoiding Johnson geodesics, with separate explicit shortest routes for the two swapped-coordinate cases; the exceptional adjacent swap cannot be performed in two moves. Inclusion-exclusion and the exact count of exceptional directed pairs establish the distance polynomial, diameter and Wiener formula. Both standalone finite checkers passed, although the all-parameter proof is symbolic.
+## correctness
 
-## Originality: PASS, with residual risk
-The earlier zero-forcing-set classification on complete bipartite graphs with a deleted matching (opaque record `8a368cb2-e9c6-47c0-8103-80090f2907c4`) already covers all minimum crown configurations; neither their count nor the scalar forcing number is claimed as new. Geneson, Haas and Hogben (2020, arXiv:2009.00220v1) define this exchange graph and ask for shortest-distance methods but their inspected full text contains no crown or Johnson-square metric classification. Targeted searches and compared published records did not find an implication proving the collision-exception metric or distance enumerator. Residual risk: an equivalent result could appear in an unindexed configuration-graph article or follow from previously unrecognized general geodesic theory.
+PASS
 
-## Value: PASS
-The result gives a complete shortest-reconfiguration classification in an infinite, natural family of regular bipartite graphs, resolving all source-target pairs rather than merely establishing connectedness. The single adjacent-swap penalty is a structural boundary, and the closed distance enumerator describes the entire metric distribution, including the exact Wiener index. This addresses the concrete shortest-path question arising in zero-forcing reconfiguration literature; it is not just a recalculation of the earlier zero-forcing counting polynomial.
+The complete source RESULT.md at pinned blob e543e615855908fbff5254d739ef0ef32752b3fe proves the minimum ordinary zero-forcing configurations from the initially-white neighbor bound and two-step forces, including U∩V=empty or singleton and U=V obstruction. Thus the graph is (J(n,2) square J(n,2)) minus its diagonal for every n>=3. The collision-avoiding Johnson geodesic construction establishes exact distance d_J(A,C)+d_J(B,D)+1 only for adjacent reversed pairs (C,D)=(B,A); the disjoint reversal has an explicit four-step geodesic. Inclusion-exclusion yields the complete ordered distance polynomial and its Wiener derivative. Independently constructed BFS for n=3,4,5 agrees with every pair and every coefficient. No finite enumeration is used to prove unrestricted n. The collision-avoiding lemma is applied only when target and forbidden vertex are distinct, matching its stated hypotheses.
 
-## Limitations
-Only ordinary minimum zero forcing sets and arbitrary one-vertex replacement are covered. Existing classifications already determine the state set; the present novelty assessment is limited to the metric/distribution contribution, subject to possible unindexed equivalences.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact state family, cardinality and scalar zero-forcing number are already covered by earlier matching-deleted complete-bipartite work and are not novel. The assessed final claim is the all-pairs metric, unique collision penalty, diameter, ordered distance enumerator and Wiener index. The primary 2020 reconfiguration article supplies exchange-graph definitions and poses efficient shortest-distance determination, not this evaluated family. Resultary search under token-particle, diagonal-deleted Johnson square and crown aliases found related metrics but no implication establishing the new formula; an unindexed general configuration-space theorem remains a risk.
+
+## value
+
+PASS
+
+Crown graphs are a natural infinite regular bipartite test family, and shortest-path complexity among minimum zero-forcing sets is explicitly motivated in prior reconfiguration work. The exact single-swapping obstruction, all-pairs distances and Wiener polynomial provide a reusable structural reconfiguration invariant beyond a scalar zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

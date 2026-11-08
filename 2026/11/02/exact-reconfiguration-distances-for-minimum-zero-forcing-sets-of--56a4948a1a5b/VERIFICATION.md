@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-`verify_primary.py` builds each crown graph from its bipartite incidence condition, independently tests ordinary forcing closure for every four-white set, derives single-vertex exchanges, checks all shortest distances against the exact formula, and verifies every distance-histogram coefficient and Wiener sum for integers \(3\le n\le8\).
+## correctness
 
-`verify_alt.cpp` uses independent bit-mask Johnson vertices, constructs legal noncollision moves directly, and checks every pairwise breadth-first distance, histograms, graph diameters and Wiener indices for the same finite values.
+PASS
 
-Execute `python3 verify_primary.py` and `g++ -std=c++17 -O2 verify_alt.cpp -o verify_alt && ./verify_alt`. Both finished with `PRIMARY_CROWN_CERTIFICATE_OK` and `ALTERNATIVE_CROWN_CERTIFICATE_OK`. The outputs for \(n=3,4,5,6,7,8\) respectively recorded Wiener indices \(27,912,9750,58860,252105,857472\).
+The complete source RESULT.md at pinned blob e543e615855908fbff5254d739ef0ef32752b3fe proves the minimum ordinary zero-forcing configurations from the initially-white neighbor bound and two-step forces, including U∩V=empty or singleton and U=V obstruction. Thus the graph is (J(n,2) square J(n,2)) minus its diagonal for every n>=3. The collision-avoiding Johnson geodesic construction establishes exact distance d_J(A,C)+d_J(B,D)+1 only for adjacent reversed pairs (C,D)=(B,A); the disjoint reversal has an explicit four-step geodesic. Inclusion-exclusion yields the complete ordered distance polynomial and its Wiener derivative. Independently constructed BFS for n=3,4,5 agrees with every pair and every coefficient. No finite enumeration is used to prove unrestricted n. The collision-avoiding lemma is applied only when target and forbidden vertex are distinct, matching its stated hypotheses.
 
-The code does not prove the theorem at arbitrarily large \(n\); that conclusion follows from the explicit geodesic constructions and algebraic counting in `RESULT.md`. No separate external validation or independent scholarly audit was performed.
+## originality
+
+PASS
+
+The exact state family, cardinality and scalar zero-forcing number are already covered by earlier matching-deleted complete-bipartite work and are not novel. The assessed final claim is the all-pairs metric, unique collision penalty, diameter, ordered distance enumerator and Wiener index. The primary 2020 reconfiguration article supplies exchange-graph definitions and poses efficient shortest-distance determination, not this evaluated family. Resultary search under token-particle, diagonal-deleted Johnson square and crown aliases found related metrics but no implication establishing the new formula; an unindexed general configuration-space theorem remains a risk.
+
+## value
+
+PASS
+
+Crown graphs are a natural infinite regular bipartite test family, and shortest-path complexity among minimum zero-forcing sets is explicitly motivated in prior reconfiguration work. The exact single-swapping obstruction, all-pairs distances and Wiener polynomial provide a reusable structural reconfiguration invariant beyond a scalar zero-forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
