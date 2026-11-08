@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Independent panel variance identity is exact. Taylor expansion at panel midpoint with controlled O(c^{beta-4}) remainder establishes v_k=beta²(beta-1)² c^{2beta-4}/720+O(c^{2beta-6}), giving the summable, harmonic-log and power-sum cases. Unbiasedness, infinite variance threshold, independent comparator, monotone rearrangement optimum and smooth C² limit are proved with domain restrictions. Exact closed forms at beta=2,3 and 552 deterministic checks corroborate the algebra; finite checks do not replace proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu 2020 proves upper bounds in fractional Sobolev classes, without asserting matching lower constants for this singular power family",
+        "Owen 2008 provides smooth-rate antithetic context",
+        "published-finding corpus 2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648 concerns deterministic extrapolation on nested trapezoidal grids"
+      ],
+      "reasoning": "General Sobolev upper bounds are not exact sharp variance asymptotics at a logarithmic critical exponent; smoother antithetic rates cover the n^-5 order but not the leading coefficient or singular crossover. Romberg weights act on a different estimator and do not imply the within-panel antithetic constant.",
+      "searches": [
+        "randomized quadrature power law singular endpoint variance stratification phase transition",
+        "Yue Wu randomized trapezoidal quadrature t^gamma exact mean square variance gamma=3/2 log n critical logarithmic asymptotic constant",
+        "coupling optimal antithetic randomized quadrature two uniform marginal power integrand",
+        "arxiv:2011.15086 Theorem 3.2 fractional Sobolev bound",
+        "arxiv:0811.0528 local antithetic smooth convergence",
+        "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.15086",
+      "arxiv:0811.0528",
+      "arxiv:2309.09059",
+      "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+      "2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+      "2026/10/4/SCOPE-exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claimed new results concern explicit exact variance and sharp beta-dependent limits, not the estimator construction",
+        "Wu 2020: general upper convergence bounds and numerical power tests",
+        "Kunsch 2023: classwise confidence intervals; different statistical functional",
+        "published-finding corpus 2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648: positive deterministic Romberg coefficients and noise stability"
+      ],
+      "reasoning": "The reviewed sources have compatible and sometimes stronger rates under different regularity assumptions, but they do not imply the exact power-dependent leading constants. The present result analytically explains reported fits, which are explicitly acknowledged. It is not a claim to disprove any earlier theorem.",
+      "searches": [
+        "stratified Monte Carlo one random sample per interval integral x power singularity exact variance asymptotic zeta alpha",
+        "Yue Wu randomized trapezoidal quadrature t^gamma exact mean square variance gamma=3/2 log n critical logarithmic asymptotic constant",
+        "coupling optimal antithetic randomized quadrature two uniform marginal power integrand",
+        "arxiv:2011.15086 equation (4), theorem 3.2, Section 4.1",
+        "arxiv:2309.09059 stratified quadrature confidence",
+        "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu arXiv:2011.15086, equation (4) and Section 4.1: same antithetic estimator; theorem bounds rather than exact variance phases",
+        "Owen arXiv:0811.0528: locally antithetic smooth variance reduction and rate, but no critical power constant"
+      ],
+      "reasoning": "The algorithm and smooth root-MSE convergence statement are equivalent to prior known constructions and excluded as novel. Rephrasing the new theorem as the variance of a stratified antithetic estimator still requires the exact infinite sums and local-power coefficient at beta=3/2; no inspected equivalent formulation supplies those constants.",
+      "searches": [
+        "stratified Monte Carlo one random sample per interval integral x power singularity exact variance asymptotic zeta alpha",
+        "jittered Riemann sum x^alpha variance exact asymptotic fractional Sobolev",
+        "Yue Wu randomized trapezoidal quadrature t^gamma exact mean square variance gamma=3/2 log n critical logarithmic asymptotic constant",
+        "antithetic complementary uniform points randomised trapezoid endpoint powers gamma sharp saturation n^-5 variance",
+        "randomized trapezoidal t^gamma sharp rate phase gamma 3/2 logarithm and constants",
+        "\"randomised trapezoidal quadrature\" \"variance\" \"power\" Wu 2020 antithetic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wu 2020 Table 1 contains fitted convergence orders for beta=5/4,3/2,7/4 based on simulated errors, not exact mathematical variance constants",
+        "published-finding corpus 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 treats rounded stratified allocation; 2026/10/4/SCOPE-exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52 treats Monte Carlo p-value calibration rather than quadrature"
+      ],
+      "reasoning": "The source numerical table already exhibits the rate trend, so the rate observations themselves are prior art. The record searched for analytic critical constants and exact infinite-series variance laws; neither a simulation table nor the two differently parameterized records logically entails the stated coefficient 1/1280 or full threshold classification.",
+      "searches": [
+        "Yue Wu randomized trapezoidal quadrature t^gamma exact mean square variance gamma=3/2 log n critical logarithmic asymptotic constant",
+        "randomized trapezoidal t^gamma sharp rate phase gamma 3/2 logarithm and constants",
+        "Wu arXiv:2011.15086 Section 4 Table 1 power exponents",
+        "2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+        "2026/10/4/SCOPE-exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52"
+      ]
+    },
+    "rationale": "The exact antithetic rule, fractional-Sobolev error bounds and empirical power convergence orders are from Wu (2020), not new. Inspected Wu PDF material does not state the derived sharp exact-panel variance and critical-log coefficient, the complete power range, or the equal-cost independent-pair phase diagram. Owen supplies general antithetic smooth-rate context; independent stratified and deterministic extrapolation results do not imply the singular-power constants. Specific literature limitations and publication-priority risk remain.",
+    "residual_risks": [
+      "Older antithetic/stratified integration literature not exhaustively inspected may have equivalent special-function variance constants.",
+      "Wu peer-reviewed publisher page returned a 403 on direct open; the lawful original arXiv PDF and search-indexed publisher text were available and used.",
+      "The Kunsch PDF examination covered first sections rather than its entire text; the comparison has limited scope.",
+      "Same-model review does not constitute independent novelty or mathematical verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same construction and qualitative rates are established; the inspected results give no exact panel variance, critical-log coefficient or full sharp beta diagram",
+        "evidence": [
+          "arXiv:2011.15086; equation (4), Theorem 3.2, Example 1, Table 1",
+          "https://www.tandfonline.com/doi/full/10.1080/00207160.2021.1929194 published version 2021 online"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.15086",
+        "material_read": "ArXiv PDF rule definition, theorem statements, Example 1, numerical table and accompanying discussion; PDF pages including 1 and 9–12 examined",
+        "method": "Downloaded-open PDF text and visual page inspection",
+        "title": "A randomised trapezoidal quadrature",
+        "trigger": "Exactly the same complementary-pair quadrature and power examples"
+      },
+      {
+        "assessment": "Smooth n^-5/2 root-MSE behavior and antithetic principle anticipated, but not the singular power constants",
+        "evidence": [
+          "arXiv:0811.0528, introduction and stated smooth-rate results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.0528",
+        "material_read": "ArXiv PDF abstract, introduction and related method/rate discussion, including first page inspected visually",
+        "method": "Open-access PDF text and screenshot reading",
+        "title": "Local antithetic sampling with scrambled nets",
+        "trigger": "Antithetic stratification could dominate generic smooth rate claim"
+      },
+      {
+        "assessment": "Different classwise confidence goal, no identified explicit complementary-power phase diagram; unread later sections remain a limitation",
+        "evidence": [
+          "arXiv:2309.09059, sections 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.09059",
+        "material_read": "Introduction and first two sections of the open-access PDF, with first page inspected visually",
+        "method": "Open-access PDF text and screenshot reading",
+        "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+        "trigger": "Stratified random quadrature and function-class confidence bounds"
+      },
+      {
+        "assessment": "Deterministic Richardson coefficient positivity is not antithetic power variance",
+        "evidence": [
+          "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+        "material_read": "Search-record scientific title and summary (not full paper)",
+        "method": "Published research-record abstract comparison",
+        "title": "Positive-weight generalized Romberg quadrature for every integer refinement factor",
+        "trigger": "Prior exact analysis of nested trapezoidal noise"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2306aa68-5e20-4e16-9def-646e1623ac21",
+  "value": {
+    "rationale": "The source specifically measured power-integrand rates but lacks a sharp classification. The critical logarithmic coefficient quantifies a genuine integrability boundary for curvature energy and reveals the precise difference between independent and complementary same-cost pairings. This is a motivated diagnostic and benchmark for Monte Carlo quadrature, not merely a small numerical constant improvement.",
+    "status": "PASS"
+  }
+}
