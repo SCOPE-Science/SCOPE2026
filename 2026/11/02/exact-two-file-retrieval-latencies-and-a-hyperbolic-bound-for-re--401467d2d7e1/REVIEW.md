@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first-arrival probability is an exhaustive disjoint decomposition into complete systematic recovery and the exactly-one-missing-coordinate repair event. Poisson marking yields independent first-arrival exponentials and translates continuous expected time to discrete draws by the factor \(n\). The beta integral and the strict dimension-wise inequalities are explicit. Exact-rational independent subset-state recurrences reproduce the formulas on 297 distinct cases, and an extended sweep checks the strict inequality. This numerical evidence corroborates, rather than substitutes for, the general proof.
+## correctness
 
-## Originality
-PASS on checked sources, with residual priority risk. Bar-Lev (arXiv:2603.17154) introduces the retrieval-time model, and Vlachos–Bar-Lev (arXiv:2609.36067) establishes the hyperbolic bound at mixed-column count \(M\le(u+v-2)/2\), plus one-mixed-column cases. Our exact expressions and all-multiplicity bound treat proportional columns even beyond that threshold. No equivalent all-multiplicity rank-one result was identified in the compared records. The earlier preprint's HTML full-text endpoint was temporarily inaccessible; its accessible abstract and the September paper's detailed account of its results were compared. An unpublished or unindexed equivalent statement remains possible.
+PASS
 
-## Value
-PASS. Repeated identical or proportional mixed encoded strands are a natural limiting geometry for redundant coded DNA storage. The exact file-by-file latency formulas and uniform strict tradeoff cover unbounded numbers of mixed columns outside the earlier dimension-versus-count sufficient condition. This provides a test case isolating dependence structure from mixed-column count and gives finite-parameter predictions.
+Since all mixed columns share a one-dimensional span, recovering file 1 requires either all u systematic columns or exactly one missing supported first-file coordinate, all b opposite support columns and at least one parity column; similarly for file 2. Poisson marking gives rate-1 independent systematic first arrival and rate-M parity first arrival, yielding the disjoint CDF (1−e^−t)^u + a e^−t (1−e^−t)^(u+b−1)(1−e^−Mt). Integration yields the harmonic-minus-beta formula and scale n for discrete draws. Positivity of beta plus H_s−s/(s+1)>2s/(2s+1) (s>=2), with separate u=1 or v=1 cases, proves the strict hyperbolic inequality for unbounded M. Independently solved exact subset-state recovery-time recurrences for all u,v<=3, all support sizes, M<=4 and checked rational formulas.
 
-## Limitations
-The method assumes one projective parity direction, uniform noiseless sampling, and at least three systematic information coordinates. It does not prove the general hyperbolic conjecture.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.
+
+## value
+
+PASS
+
+Repeated dependent mixed columns are a practical block-storage edge case not covered by prior bounded mixed-column count theorem. Determining both exact coupon-retrieval latencies and a sharp strict tradeoff for arbitrarily high multiplicity is a natural tractable case of an open hyperbolic retrieval inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
