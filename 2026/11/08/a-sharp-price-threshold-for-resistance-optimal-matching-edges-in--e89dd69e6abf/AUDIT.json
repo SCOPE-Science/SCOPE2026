@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Strict convexity on connected Laplacians and edge injectivity give a unique unrestricted optimizer. Budget-saturating symmetry reduction to matching/off-matching classes follows from uniqueness. The exact Laplacian eigenvalues 2d, nb (n−1 times), and 2a+(n−2)b (n−1 times) reconstruct the Kirchhoff-index objective. Differentiation and convexity along the one-dimensional budget line prove the sharp c_n support threshold, unique positive root, price regimes and expansion. Verified symbolic identities, rational matrix inverses, numerical random checks; finite verification is supplementary. Explicit boundary n≥3, c,B>0 and disconnection at b=0 are respected.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh et al. 2008 Sections 4–5 (https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf) develop general strictly convex weight allocation, first-order KKT, symmetry, trees, wheels, and barbells.",
+        "Bhoite et al. 2026 Section II (https://arxiv.org/abs/2609.29790) fixes base edges, imposes exact-cardinality augmentation, uses an SDP relaxation and numerical heuristics."
+      ],
+      "reasoning": "General convex optimality frameworks permit deriving a specialized screening threshold after additional spectral calculation, but their cited statements do not directly subsume the evaluated all-price classification. The fixed-base exact-k problem differs materially from independently sizing every existing crossing edge; no theorem in inspected text supplies the new closed threshold.",
+      "searches": [
+        "Ghosh Boyd Saberi minimizing effective resistance of a graph full text Section 5 analytical solutions",
+        "cost weighted optimal network resistance graph symmetric edge groups threshold deletion matching",
+        "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization arXiv 2609.29790"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://onlinelibrary.wiley.com/doi/full/10.1155/2012/195242",
+      "https://arxiv.org/pdf/1904.07766",
+      "https://arxiv.org/abs/2609.29790",
+      "https://doi.org/10.1016/j.dam.2016.07.001 (abstract only)",
+      "https://numberdb.org/Kirchhoff_indices_of_connected_graphs (fixed indices only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh et al. 2008 prove uniqueness of minimizing edge weights and give generic KKT but do not evaluate the priced matching threshold.",
+        "Shi and Chen 2016 DOI 10.1016/j.dam.2016.07.001 gives a weighted involution reduction and computes nearly complete bipartite indices according to its abstract; its full text remained inaccessible.",
+        "Ge and Dong 2019 Section 5.3 cites the 2016 unweighted crown formula without budget-price optimization.",
+        "Bhoite et al. 2026 addresses a distinct budgeted exact-cardinality graph-augmentation setting."
+      ],
+      "reasoning": "Already known: optimization convexity, fixed-weight spectral/effective-resistance reductions, unit-weight deleted-matching endpoint. Newly established here, conditional on source coverage: exact c_n, both sides of support switching, all-individual-edge uniqueness, and a 1/n price-premium law. The general methods could imply the result after further calculations but a stronger published statement directly declaring the price phase transition was not found. Full 2016 weighted-involution details remain priority-sensitive.",
+      "searches": [
+        "\"optimal\" \"Kirchhoff index\" \"edge costs\" perfect matching",
+        "\"Resistance distances and Kirchhoff index of graphs with an involution\" pdf Shi Chen 2016",
+        "arxiv \"Resistance distances and Kirchhoff index of graphs with an involution\"",
+        "published-finding corpus: Kirchhoff index of K_{n,n} optimized over symmetric conductances matching edges price c versus off matching edges: exact edge deletion threshold c_n= n²(4n²-11n+8)/(4n⁴-19n³+32n²-24n+8), unique optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ge and Dong 2019, Section 5.3 (https://arxiv.org/pdf/1904.07766), determines the unit-conductance Kirchhoff index of K_(n,n) minus a matching; its value agrees exactly with the new formula only at zero matching conductance.",
+        "Shi and Chen 2016 DOI 10.1016/j.dam.2016.07.001 abstract treats a general involution-based weighted-index reduction, not an asserted optimum under costs."
+      ],
+      "reasoning": "The graph admits the equivalent two-orbit parametrization by matching/off-matching conductances. Fixed-weight electrical resistance formulas and the known deleted-matching endpoint do not by themselves state a price-dependent optimal support decision. An uninspected 2016 full-text result remains a material possible route to the same formula, but neither available abstract nor its later citation asserts the support threshold.",
+      "searches": [
+        "\"crown graph\" \"effective resistance\" weights Kirchhoff",
+        "\"complete bipartite\" \"matching\" \"Kirchhoff index\" weights",
+        "published-finding corpus: price-weighted Kirchhoff index minimization K_{n,n} with designated perfect matching edges support threshold",
+        "published-finding corpus: crown graph resistance optimal conductance matching expensive edges deletion budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ge and Dong 2019 Theorem 5.8 and Corollary 3 (https://arxiv.org/pdf/1904.07766) quote and generalize an earlier unit-weight deleted-matching Kirchhoff-index expression.",
+        "NumberDB records small fixed unweighted Kirchhoff indices; it is not a continuous-price optimal conductance table.",
+        "published-finding corpus returned related deleted-matching geodesic and crown graph invariants but no same objective/price-dependent Kirchhoff optimizer in returned summaries."
+      ],
+      "reasoning": "The boundary endpoint is an exact known formula and is excluded from priority. The new two-price family is an infinite real-parameter optimization problem with unrestricted edge-by-edge weights, not a fixed finite graph table. A negative search does not prove unique priority.",
+      "searches": [
+        "Kirchhoff indices of connected graphs NumberDB",
+        "published-finding corpus: total effective resistance optimal conductance perfect matching price threshold complete bipartite",
+        "published-finding corpus: Kirchhoff index of K_{n,n} optimized over symmetric conductances matching edges price c versus off matching edges: exact edge deletion threshold c_n= n²(4n²-11n+8)/(4n⁴-19n³+32n²-24n+8), unique optimizer",
+        "Spanning trees in complete bipartite graphs resistance distance nearly complete bipartite Ge Dong 2019"
+      ]
+    },
+    "rationale": "The exact price-induced matching-support threshold and unique unrestricted optimal edge allocation are not stated in the examined 2008 general optimization cases, 2012 unweighted bipartite extremality article, or 2019 unit-weight deleted-matching Kirchhoff-index theorem. The known crown boundary formula is explicitly attributed. The related 2026 augmentation work has a fixed connected base and exact-cardinality constraints and does not solve this unconstrained all-edge sizing family. A 2016 weighted-involution paper was not accessible beyond abstract, so originality is a bounded best-knowledge conclusion with named priority risk.",
+    "residual_risks": [
+      "Full text of Shi–Chen 2016 unavailable; weighted involution formulas could make further special-case deductions or conceal a directly evaluated priced version.",
+      "Unindexed or non-English edge-sizing literature may have an equivalent matching-price support theorem.",
+      "Public semantic search and selected source inspection cannot establish absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL FRAMEWORK NOT EVALUATED SPECIAL CASE",
+        "evidence": "Section 5 includes tree, wheel, and barbell analyses; no matching-price balanced-biclique threshold was stated.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full PDF available; introduction, spectral/convex representation, Section 4 optimality conditions, Section 5 analytical solutions and symmetry, and checked Section 5 example families.",
+        "method": "Opened PDF full text and inspected page images plus relevant section text.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational global problem and possible directly solved graph family"
+      },
+      {
+        "assessment": "DIFFERENT OBJECTIVE DOMAIN",
+        "evidence": "Compares unweighted graph topologies for extrema; does not distribute priced conductance over edges.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2012/195242",
+        "material_read": "Full accessible article HTML Sections 1–3, including Theorems 2.5 and 3.1 and cited equal-part bound.",
+        "method": "Read primary full-text article.",
+        "title": "Bounds for the Kirchhoff Index of Bipartite Graphs",
+        "trigger": "Exact balanced bipartite Kirchhoff indices and potential stronger graph extremality"
+      },
+      {
+        "assessment": "COVERS ENDPOINT, NOT PRICE-SUPPORT THRESHOLD",
+        "evidence": "Their quoted 5n-6 over (n-1)(n-2) plus 4n+1 is exactly the unit-weight crown index, which is credited rather than claimed.",
+        "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+        "material_read": "Full 21-page preprint available; introduction and main matching results, Section 5 resistance formulas, Theorem 5.8 and Corollary 3; inspected PDF page images.",
+        "method": "Read arXiv text and page screenshots.",
+        "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+        "trigger": "Exactly the deleted-matching endpoint of the candidate theorem"
+      },
+      {
+        "assessment": "DIFFERENT FEASIBILITY CLASS AND NO EVALUATED MATCHING THRESHOLD",
+        "evidence": "Requires a connected fixed base and exactly k selected augmentation edges with weight bounds; provides general convex/numerical techniques.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+        "material_read": "Accessible arXiv full text, introduction, problem formulation and Section II cost-normalized KKT proposition.",
+        "method": "Read article HTML and searched its main terms.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Recent heterogeneous-budget network design with identical scalar objective"
+      },
+      {
+        "assessment": "ACCESS-LIMITED, PRIORITY RISK",
+        "evidence": "Available abstract states a general weighted involution reduction and applications to almost-complete bipartite indices, without claiming optimal cost allocation.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.07.001",
+        "material_read": "Abstract and secondary citation in Ge–Dong 2019, not full primary text.",
+        "method": "Searched arXiv and lawful open sources without finding a full paper; institutional access was not available.",
+        "title": "Resistance distances and Kirchhoff index of graphs with an involution",
+        "trigger": "Weighted-graph involution method could potentially provide a dominating reduction for the same graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e89dd69e-6abf-4c9e-81d3-08f219230db2",
+  "value": {
+    "rationale": "The exact all-price conductance allocation and sharp optional-link screening law resolve a natural economic network-design question: when an entire orbit of matched pair links ceases to be worth any investment. The threshold is a non-obvious rational function with asymptotic price premium 2/n; it applies to an infinite topology family and unrestricted non-invariant allocations. A known endpoint formula, generic KKT, and routine graph relabelings alone would not supply this phase diagram.",
+    "status": "PASS"
+  }
+}
