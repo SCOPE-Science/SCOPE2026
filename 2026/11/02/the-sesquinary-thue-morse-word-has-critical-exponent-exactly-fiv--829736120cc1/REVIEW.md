@@ -1,19 +1,21 @@
-# Review: critical exponent five for sesquinary Thue–Morse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factor-period quantifiers, alignment bounds and base-\(3/2\) normalization were checked directly. The argument passes through two exact three-letter macroblock identities. The absence of four alternating or six equal even-subsequence letters supplies local obstructions. For a factor of period coprime to three, three shifted adjacent-edge witnesses force it to be constant or alternating. For a divisible period, inverse decoding of complete blocks reduces the period by a factor \(2/3\) with an explicit boundary loss; iterating yields the forbidden threshold \(L\ge5q-1\). This excludes all length-\(5p+1\) periodic factors of the main word, with a separate exact case for \(p=3\). The fifteen-letter period-three fifth-power witness establishes equality. The Python verifier checks finite prefixes only; the above argument covers all periods.
+PASS
 
-## Originality — PASS within examined literature
+The recurrence x_{3m}=u_m, x_{3m+1}=1-u_m, x_{3m+2}=u_m with u_m=x_{2m} yields u-blocks (u_{2m},u_{2m},1-u_{2m+1}). Hence u has no four-letter alternating factor and no six-letter constant factor; x has no three-letter constant factor or ten-letter alternating factor. A period p not divisible by three and long enough forces all cyclic adjacent edges constant in u, or alternating in x, contradicting these obstructions. For a 3r period in u, retaining aligned blocks recovers contiguous period-2r input with Lnew>=2L/3-8/3, so repeated desubstitution excludes u periods q>=2 with length>=5q-1. A 3q period in x produces >=5q-1 complete blocks and reduces to u; q=1 is ruled out by the no-six-equal bound. Literal recursion gives x[18:33]=(101)^5; therefore critical exponent exactly five for all periods, including fractional powers. The finite tests corroborate rather than replace the desubstitution proof.
 
-Dekking [1], Sections 2–3, explicitly calls critical exponent five Conjecture 9. A recent same-object paper [2] relates the word to a normalized-base sibling and establishes uniform recurrence, reversal symmetry and word frequencies; inspection did not identify the critical exponent as one of its results. A 2025 paper [3] proving other Shallit conjectures concerns a different indexed family. mathematical research index and targeted text searches for the sequence name, number A357448, the exact period-length criterion and repetition aliases found no covering claim. Bibliographic risk remains: an unindexed equivalent proof could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result exactly resolves a natural infinite-word repetition invariant explicitly identified as an open conjecture in a foundational number-representation paper. The all-period exclusion is not a finite verification or arbitrary parameter slice, and the desubstitution estimate is a reusable structural tool for rational-base block words. The ordinary fractional critical exponent, not just the largest integer power, is determined.
+Dekking 2023 poses exactly this critical-exponent-five assertion as a conjecture, but the accurate number in the primary PDF is Conjecture **10**, not Conjecture 9 as the frozen RESULT.md states. Cassaigne–Espinoza–Rigo–Stipulanti 2026 treat the same unscaled word and its frequencies, reversals, recurrence, but do not state the universal 5p+1 period exclusion in accessible full text. The other Shallit-conjectures paper addresses a different Thue–Morse-like family. Resultary search returned adjacent word problems, no identical conclusion. Historical priority remains provisional.
 
-## Limitations and sources
+## value
 
-Scope: the unscaled base-\(3/2\) digit-sum parity sequence only. This finding does not provide factor counts or extensions to other bases. Closest sources: [1] F. M. Dekking, arXiv:2301.13563v1 (2023), Conjecture 9; [2] J. Cassaigne et al., arXiv:2602.21895v1 (2026), Sections 1.4–1.5; [3] L. Dvořáková et al., arXiv:2506.04407 (2025), a different sequence family. Independent verification has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Solving a published sharp repetition conjecture for a naturally defined rational-base digit-parity word is an explicit mathematical target; an infinite threshold and a length-15 attaining witness are precise combinatorics-on-words results, not a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
