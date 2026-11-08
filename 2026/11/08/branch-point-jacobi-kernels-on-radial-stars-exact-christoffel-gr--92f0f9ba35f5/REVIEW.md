@@ -1,0 +1,15 @@
+# Review of the Jacobi-star kernel finding
+
+## Correctness — PASS
+The weighted scalar polynomial kernel is the orthogonal direct sum of \(q\) Jacobi blocks, not a multiple-orthogonal polynomial system. Root-of-unity averaging and \(u=r^q\) give the precise Beta normalization. The endpoint Gamma formula follows by an exact telescoping identity. The locally uniform scaling limit follows from the classical Jacobi hypergeometric expansion, compact-uniform majorants, and an integrable Riemann-sum bound at \(t=0\). The checker independently compares the block kernel with the monomial Gram inverse and verifies the central and asymptotic formulas in specified finite cases. The center-normalized limit follows by dividing by the center Gamma quotient, removing the outer-Jacobi parameter. Those checks do not certify an infinite theorem.
+
+## Originality — PASS, provisionally
+The most relevant source is Marinescu–Vu, arXiv:2210.11031 (2022), which establishes polynomial Bergman/Christoffel growth bounds for wide classes of singular totally real supports but not an exact radial-star Gamma quotient or a full hard-edge kernel. Leurs–Van Assche, arXiv:1804.07512 (2018), study the same star and weighted rays using a different multiple-orthogonality problem. Danka–Totik, arXiv:1504.03968 (2015), prove precise Christoffel constants at locally smooth interiors and endpoints; these hypotheses do not include a transverse multi-ray junction. The classical Jacobi Mehler–Heine asymptotic used here is acknowledged, including Van Assche, arXiv:1408.6140. The scalar center exponent and Gamma factor can also be recovered by standard Jacobi endpoint orthogonality after the elementary symmetry reduction; they are not independently claimed as novel. The proposed increment is the full joint \(q\)-channel complex scaling limit and its **outer-weight parameter universality after normalizing by the center kernel**. Searches for scalar star kernels, equivalent Bessel limits, and broader singular-junction universality did not identify a dominating statement, but missing historical sources remain a substantive risk.
+
+## Mathematical value — PASS
+The full two-variable limit identifies the distinct cyclic harmonics surviving at the local vertex scale; remarkably the normalized limit loses the outer boundary exponent \(\alpha\). This produces a concrete, exact universality law for a transverse polynomial-kernel singularity, beyond scalar Jacobi endpoint growth. This is a motivated, complete model of a singular support in polynomial Christoffel theory, not an arbitrary finite computation.
+
+## Boundaries
+The result requires equal ray lengths and angles, equal positive power-type densities on each ray, and fixed weight parameters. It supplies no effective convergence rate, extension to unequal rays, or general junction theorem. The literature comparison is provisional, not an independent certification or exhaustive priority determination.
+
+Self-review: passed. Independent audit: not yet performed.
