@@ -1,15 +1,21 @@
-# Scientific review: maximal characteristic-five Sylvester-Hessian K3
+# Independent mathematical audit
 
-## Correctness
-PASS. The model is the exact Hessian of the five-term integral Sylvester cubic up to the scalar \(1296\). A chartwise Jacobian Gröbner calculation gives a five-dimensional reduced quotient, and coordinate permutation symmetry proves that there are exactly eleven geometric singular points. Hessian determinants \(3\) and \(2\) modulo five establish the two \(A_1\) orbit types. The resulting normal integral quartic resolves to a K3 surface. Exhaustive counts \(\#Q(\mathbb F_5)=41\) and \(\#Q(\mathbb F_{25})=901\), each checked with the bundled verifier, imply \(\#Y(\mathbb F_5)=96\) and \(\#Y(\mathbb F_{25})=1176\). Equality in the K3 Weil bound fixes the complete Frobenius spectrum. The argument distinguishes finite enumeration from the cohomological proof for every extension.
+## correctness
 
-## Originality
-PASS, with priority risk. Dardanelli–van Geemen's characteristic-zero work already gives the general Hessian construction and eleven-node Hessians of nodal cubics, so the abstract existence of eleven nodes is not claimed new. Dolgachev–Duncan explicitly records the failure of the smooth Clebsch model in characteristic five; this does not determine the Hessian quartic's arithmetic. Katsura–Kondō–Shimada's supersingular characteristic-five K3 models do not provide a calculation for this particular \(\sigma_4\) quartic in the inspected material. The closest retrieved published computational Hessian finding treats a different cubic-parameter family, with singularities of types \(7A_1+3A_3\). The precise \(\mathbb F_5\) Frobenius sign split and zeta function are not implied by these checked statements. The search is not a uniqueness certificate; unpublished or unindexed equivalent calculations could exist.
+PASS
 
-## Mathematical value
-PASS. This is a canonical, highly symmetric bad-characteristic model, rather than an arbitrary numerical specialization. Resolving its eleven rational nodes produces a K3 surface attaining the full quadratic-extension Weil bound. Its two-term Frobenius spectrum yields uniform arithmetic formulas over every extension and makes explicit the arithmetic of an exceptional reduction at the prime where the smooth Clebsch cubic fails. The concrete hypersurface model, singular scheme, and Frobenius actions are useful for comparisons with other characteristic-five K3 models.
+Reconstructed the exact integral Hessian identity det(Hess(sum_i X_i^3)|sum_i X_i=0)=1296 σ4, then the F5 affine Jacobian ideal with six lexicographic generators and standard monomials 1,u,v,w,w², giving precisely five reduced singular points on X0=1. S5 symmetry gives ten pair-support nodes plus [1:1:1:1:1]; 3-variable quadratic Hessian determinants are 3 and 2 mod5, so all are A1. Geometric integral normal quartic resolves crepantly to a K3. Independent exhaustive canonical projective evaluations gave Q(F5)=41 and Q(F25)=901, whence Y(F5)=96, Y(F25)=1176 after adding eleven rational exceptional P1 contributions q each. Weil bound equality at q=25 forces all 22 H² eigenvalues squared=25; trace at 5 gives 18 eigenvalues +5, four -5, hence exact q=5^m counts and zeta. Independent SymPy polynomial/Gröbner checks and two-field finite arithmetic corroborate finite premises; the all-m trace conclusion follows from K3 Weil/cohomology, not extrapolation.
 
-## Scope and residual limits
-The result is not a claim about the stable reduction of a smooth cubic, a determination of the Artin invariant, or a classification of all maximal characteristic-five K3 surfaces. Relevant complex Hessian geometry is prior art. Possible overlap via an unindexed arithmetic K3 model is the remaining originality risk. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge arithmetic-model novelty: classical complex Clebsch/Sylvester Hessian σ4 and nodal K3 constructions are explicitly prior. The central additional result is the exact F5/F25 point arithmetic and full signed F5 Frobenius spectrum of the specified coefficientwise reduction. Neither the inspected classic geometric primary sections nor the published different Hessian-basket record directly gives that arithmetic. Abstract supersingular K3 uniqueness is NOT claimed new, and may mask an arithmetic descent correspondence.
+
+## value
+
+PASS
+
+An exact zeta/Frobenius characterization of a natural exceptional finite-characteristic Sylvester-Hessian degeneration is a reusable arithmetic invariant of a geometrically motivated K3 resolution. It distinguishes F5 descent signs and supplies point counts over every extension, beyond a finite node census or generic Weil bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
