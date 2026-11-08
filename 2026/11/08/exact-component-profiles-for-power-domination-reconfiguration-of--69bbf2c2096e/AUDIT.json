@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The power-domination rule is exactly the at-most-two-auxiliary-isolates condition; removing one edge characterizes star-forest and near-perfect-matching inclusion-minima. One-spare-edge reductions and explicit matching slides prove all lower-budget minima connected. The remaining maximal-budget minima are necessarily isolated. Independent direct simulation, partition enumeration, and BFS check every case n=4..8 within the stated finite scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bjorkman et al. Proposition 2.8 gives general lower/upper thresholds in terms of upper X-number, not exact components",
+        "2024 survey discusses universal TAR bounds and various parameters; inspected portions do not specialize the full component distribution"
+      ],
+      "reasoning": "The universal lower bound upper-minimal-size+1 is attained here, but equality and the counts of all intermediate components require explicit star/matching exchange paths and do not follow from those bounds. Related reconfiguration of ordinary edge covers does not directly identify triangular-graph PDS states without the proved reduction.",
+      "searches": [
+        "Literature search: \"edge cover\" \"reconfiguration\" \"connected components\" complete graphs",
+        "arXiv:2201.01798v1, Proposition 2.8 and Corollary 3.8",
+        "arXiv:2406.05509v2, opening and TAR survey"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.01798v1, inspected original Sections 2–3",
+      "arXiv:2406.05509v2, abstract, introduction, and targeted survey content",
+      "arXiv:1805.10984v1, bibliographic record and abstract only",
+      "Open journal version of Power domination reconfiguration, targeted full-article HTML"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 paper gives abstract bounds and examples for complete bipartite and specially constructed graphs; it does not provide the triangular-graph star-forest minimality proof or count",
+        "2018 polynomial article predates 2022 TAR formalism and its accessible abstract states general formulae for several graph families but does not state the exact component theorem"
+      ],
+      "reasoning": "A general implication would need to prove every submaximal minimal set can join a common core using one spare selected edge. This is supplied by the present explicit star reductions and matching-switch argument, not by the cited general inequalities. The ancillary all-set polynomial is less strongly screened because the full 2018 text was inaccessible.",
+      "searches": [
+        "arXiv:2201.01798v1 Proposition 2.8, Corollary 3.8, Example 3.10, Theorem 3.12",
+        "arXiv:2406.05509v2 introduction and survey of universal TAR",
+        "arXiv:1805.10984v1 arXiv abstract and bibliographic record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2201.01798v1, §§2–3: general power-domination TAR parameters and examples; no triangular/line-graph exact component theorem in inspected text",
+        "Root graph uses edge-incidence representation, equivalent to auxiliary graph with at most two isolated labels"
+      ],
+      "reasoning": "Aliases checked include triangular/Johnson graphs J(n,2), line graphs of complete graphs, power domination, edge coverings with two allowed isolates, and TAR reconfiguration. No equivalent stated theorem was identified in searched records and inspected primary sections; negative search is not exhaustive.",
+      "searches": [
+        "Literature search: \"power domination\" \"line graph of a complete graph\"",
+        "Literature search: \"power domination\" \"triangular graph\" \"reconfiguration\" \"matching\"",
+        "arXiv:2201.01798v1, Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bjorkman and coauthors provide general bounded-TAR connectivity arguments and nontriangular examples, rather than an exact triangular-graph budget-by-budget table",
+        "Direct finite verification in verify.cpp agrees with the derived component formula for orders four through eight; its output is not attributed to any published database"
+      ],
+      "reasoning": "The searched primary articles and relevant open bibliographic records do not imply the explicit triangular-graph component sequence. Searches cannot establish absolute publication priority; the component-count conclusion additionally uses the new explicit exchange argument.",
+      "searches": [
+        "Literature search: \"power domination\" \"Johnson graph\" reconfiguration",
+        "Literature search: \"power domination\" \"triangular graph\" \"reconfiguration\" \"matching\"",
+        "arXiv:2201.01798v1, Section 3 examples"
+      ]
+    },
+    "rationale": "The general X-set TAR bounds and examples in the primary 2022 reconfiguration preprint and the 2024 survey do not imply the triangular-graph component counts. The structural incidence criterion and exact component-count formula were compared against published and recoverable records. The 2018 polynomial source is only abstract-inspected and remains a concrete residual risk for the ancillary enumerator, but cannot establish the later TAR formula.",
+    "residual_risks": [
+      "Full text of arXiv:1805.10984v1 unavailable in attempted channels; ancillary polynomial exact prior coverage not resolved",
+      "Surveys and record searches may miss other formulations of star-cover reconfiguration or an unindexed exact triangular-graph theorem",
+      "Independent mathematical review and exhaustive publication-priority assessment have not occurred"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bounds and unrelated families only in inspected material; central exact triangular-graph component formula not covered by those statements",
+        "evidence": [
+          "arXiv:2201.01798v1 pp. 4–8, §2.2 and §3.2",
+          "2026 article full HTML at https://link.springer.com/article/10.1007/s44007-025-00187-5"
+        ],
+        "identifier_or_url": "arXiv:2201.01798v1; https://arxiv.org/pdf/2201.01798",
+        "material_read": "Abstract; opening definitions; original manuscript §§2–3 including Proposition 2.8, Corollary 3.8, and connectedness examples and constructions; other targeted headings/sections; not asserted full-page reading of all 17 pages",
+        "method": "Accessible full primary arXiv PDF parsed text, visual screenshot of page one and targeted section reading; cross-check 2026 open full-article HTML",
+        "title": "Power domination reconfiguration",
+        "trigger": "Direct origin of the TAR parameter and potentially dominating general connectivity theorems"
+      },
+      {
+        "assessment": "General X/Y set reconfiguration theorems and surveys, not an inspected exact Johnson/triangular family component enumeration",
+        "evidence": [
+          "arXiv:2406.05509v2 pp. 1–3, general X-set and survey descriptions"
+        ],
+        "identifier_or_url": "arXiv:2406.05509v2; https://arxiv.org/pdf/2406.05509",
+        "material_read": "Abstract, introduction, parameter setup, indexed searches for triangular/line graph, selected survey descriptions; not all 38 pages",
+        "method": "Accessible primary PDF parsed text and first-page visual screenshot",
+        "title": "TAR reconfiguration for vertex set parameters",
+        "trigger": "Survey/generalization might subsume a family-specific TAR result"
+      },
+      {
+        "assessment": "Coverage of the ancillary polynomial cannot be excluded from the abstract. The central TAR component theorem remains a distinct reconfiguration claim not evidenced by this abstract.",
+        "evidence": [
+          "arXiv:1805.10984v1 abstract, first published 2018-05-28"
+        ],
+        "identifier_or_url": "arXiv:1805.10984v1; https://arxiv.org/abs/1805.10984",
+        "material_read": "Public bibliographic record and abstract only; original PDF fetch failed and open-source alternatives did not provide full text",
+        "method": "arXiv record, indexing/alternative full-text searches; no whole-document assertion",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "General polynomial paper might contain the auxiliary counting polynomial"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69bbf2c2-096e-4d4e-9d60-0a83c7cd664c",
+  "value": {
+    "rationale": "Every connected component is determined for every budget in a classical strongly regular graph family, sharpening a general lower bound to equality and producing an explicit nontrivial isolated-component enumerator. The star-forest and matching exchange mechanism explains the exact first connectivity threshold and many-component last disconnected step; these are reconfiguration questions with substantive mathematical motivation, not a mere substitute into an existing formula.",
+    "status": "PASS"
+  }
+}
