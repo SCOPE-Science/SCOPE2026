@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` is the infinite certificate. The standalone stdlib `verify.py` is a finite cross-check.
+## correctness
 
-Run `python3 verify.py` in the directory containing this file. A successful execution prints `VERIFY_OK`. The script forms the binary prefix of length \(2^{15}\), independently extracts observed factor sets for lengths through \(40\), compares their minimal absent words to the explicit families, enumerates every binary test word through length \(12\), and cross-checks the generating-series coefficients. It neither assumes a finite prefix captures every factor at all lengths nor promotes enumeration to proof of the infinite statement.
+PASS
 
-Independent scientific audit has not been performed.
+One indices 2^j-1 give successive unique gaps 1,2,4,... . For power gap g=2^j, the two-1 block H_g=10^(g−1)1 occurs uniquely with exactly λ_1=0 or λ_g=g/2−1 preceding zeros and 2g−1 following zeros. Consequently absent H_g for nonpowers and minimal padding obstructions L_g,R_g for powers plus 111. Conversely avoidance forces every successive gap power-of-two and adjacent gaps e=2d (else forbidden R_d if too big or L_e/111 if too small). Left/right padding then fits the unique c occurrence; hence the listed basis is complete for the infinite word. Enumerating lengths yields F(z)=z²/(1−z)−∑z^(2^j+1)+2z³+2∑z^(3·2^j+1). An independent substring set comparison on the first 16384 symbols checked lengths 1..30 (34 predicted absent words) and full short-factor avoidance to length14. No finite-prefix extrapolation is claimed.
+
+## originality
+
+PASS
+
+General finite-text antidictionary and CDAWG algorithms characterize what minimal absent words mean but do not give this exact infinite nonrecurrent powers-of-two word. Resultary produced a theorem about the same sparse positions as maximal Abelian-pattern-Sturmian support and another using those positions as a greedy string-attractor set; neither implies its minimal-absent-factor language. Priority remains qualified against differently named sparse-gap descriptions.
+
+## value
+
+PASS
+
+Exact complete antidictionary of a natural exponential-gap automatic word; all but 111 have exactly two ones and the length spectrum has at most three words per length. This is useful for exact factor-membership/forbidden-pattern questions, not a finite toy enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
