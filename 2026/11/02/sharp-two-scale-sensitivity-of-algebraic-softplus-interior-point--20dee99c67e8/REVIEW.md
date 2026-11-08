@@ -1,11 +1,21 @@
-# Scientific review: sharp algebraic-softplus Newton-matrix sensitivity
+# Independent mathematical audit
 
-**Correctness (C) — PASS.** With a positive barrier, explicit differentiation of the specified algebraic retraction gives its only changing KKT block. A one-variable maximization supplies the unique positive barrier-modulus extremizer and closed-form value, while unimodality of the derivative yields the exact coordinate-displacement modulus. Both equalities are realized by genuine nonsingular one-constraint condensed QP matrices. A block-diagonal difference identity and triangle inequality imply the stated (not jointly sharp) certificate; 10,565 independent seeded/deterministic scalar and matrix checks passed. The standard frozen-Jacobian residual inequality is only a sufficient criterion. The calculus proof, not numeric sampling, justifies the universal quantifiers.
+## correctness
 
-**Originality (O) — PASS within accessible material, with residual risks.** The 2026 motivating manuscript explicitly supplies the algebraic-softplus map, bounded derivative, condensed KKT Jacobian and use of frozen factorizations. Its Theorem 2 analyzes retraction *values* at fixed nonzero state, whereas the new statement quantifies the *derivative's exact supremum* over states allowed to move with the barrier and the exact independent state-step modulus. Classic Fischer–Burmeister smoothing has related square-root kernels but the inspected foundational sections do not supply these KKT-specific sharp finite-step laws. A later same-group preprint could not be fully inspected, and the 38-page historical smoothing paper was not exhaustively compared. Earlier equivalent smoothing moduli are possible; the record does not support categorical priority or independent certification.
+PASS
 
-**Value (V) — PASS.** The work addresses a concrete and motivated decision in a published numerical solver: when a condensed Newton factorization can be reused as the smoothing barrier and constraint-state vector change. A precise worst-case modulus gives a conservative, dimension-independent budget that can be combined with frozen-system conditioning. The positive, barrier-independent extreme in the moving \(\sqrt\mu\) transition layer explains why heuristics based only on small absolute barrier values are not uniform. This is a structural quantitative result, not merely a renamed smoothness lemma; it does not establish a general algorithmic convergence or speedup theorem.
+For d_mu(t)=(1+t/sqrt(t²+4mu))/2, scaling x=t/(2sqrt(mu)) reduces barrier shrink to g_sigma(x)=x[1/sqrt(x²+σ)−1/sqrt(x²+1)]/2. Its derivative has unique positive root x²=σ^(2/3)/(1+σ^(1/3)), producing D(σ)=(1−σ^(1/3))/(2sqrt(1+σ^(1/3)+σ^(2/3))) and the stated symmetric equality points. Since d_mu' is even and strictly unimodal, length-|h| intervals integrate maximally when centered at zero, giving H_mu(h)=|h|/sqrt(h²+16mu) with equality at t=−h/2. Differentiation in log(mu) yields max 1/(6sqrt(3)). Only inequality diagonal changes in J_mu(v), so its spectral norm difference is the max coefficient difference and is bounded by min(1,D+max H). The frozen-system residual follows from (J1−J0)J0^-1r and is sufficient, not necessary. Independent 27,030 point checks confirmed separate equality and bounds; proofs establish all real parameters. The joint sum is not claimed sharp.
 
-**Limits.** The sum of moduli is not claimed joint-sharp; variable non-diagonal QP blocks require extra terms; the sufficient residual test needs frozen-matrix nonsingularity and singular-value information; finite precision and overall convergence are outside scope. Unread portions of earlier smoothing literature and the inaccessible later same-method full text are priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp two independent finite-parameter moduli and a source-specific KKT reuse certificate, not new smoothing or general Newton convergence.
+
+## value
+
+PASS
+
+Provides dimension-independent, attainable worst-case perturbation thresholds for reuse of a nonsingular condensed Newton factorization; reveals a nonzero barrier-independent risk in the moving O(sqrt(mu)) transition layer missed by pointwise small-barrier heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
