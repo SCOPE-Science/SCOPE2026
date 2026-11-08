@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unbiased initial sign S, E[S_sS_t]=exp(-2∫_s^t λ); integrate covariance to obtain D and justify long-time limit with geometric bound exp(-2Λ floor(u/T)). Period splitting gives D=v²/(1-exp(-2Λ))∫_0^T A(w)dw, A(w)=T^-1∫_0^T exp(-2∫_s^{s+w}λ)ds. Sliding hazards lie in [0,Λ] and have phase mean Λw/T. Strict Jensen lower bounds A; the chord from x=0 to Λ upper bounds it. Integrating proves both sharp constants. Equality in Jensen for almost every w plus Lebesgue differentiation forces λ constant a.e. Absolute continuity makes the upper-chord bound strict for positive small w for every L1 protocol; shrinking pulse protocols converge by dominated convergence to the extremal limit. Independent physical-time covariance integration for pulsed schedules confirmed strict bounds and monotone approach; this numerical check proves only selected schedules.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cited active-matter comparisons study standard RTP/ABP processes, and the 2019 work treats fixed mode-transition probabilities in discrete time.",
+          "The all-L1 fixed-integral timing extremum is not an implication of a constant-rate diffusivity formula by parameter substitution."
+        ],
+        "reasoning": "A general Jensen inequality is used in the proof, but prior coverage of that inequality alone is not prior coverage of the sharp physical-time budget envelope with all equality cases.",
+        "searches": [
+          "Solon–Cates–Tailleur arXiv:1504.07391",
+          "Shaebani–Rieger 2019 DOI 10.3389/fphy.2019.00120",
+          "periodic time dependent reversal rate telegraph process fixed integrated hazard diffusivity maximum minimum bang bang pulse"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, periodic_flip_checker.py and exact Git tree/blob identities",
+        "Cates–Tailleur 2012 arXiv abstract",
+        "Solon–Cates–Tailleur 2015 abstract",
+        "Shaebani–Rieger 2019 publisher description",
+        "Resultary semantic query: periodic time dependent reversal rate telegraph process fixed integrated hazard diffusivity maximum minimum bang bang pulse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known telegraph dynamics imply the correlation kernel; the mean fixed-rate expression yields only the lower endpoint in this variational problem."
+        ],
+        "reasoning": "The sharp upper limit and equality/nonattainment statements need the periodic window-budget chord argument, not supplied in the inspected general model descriptions.",
+        "searches": [
+          "Cates–Tailleur 2012 arXiv:1206.1805",
+          "Solon–Cates–Tailleur 2015 arXiv:1504.07391",
+          "Shaebani–Rieger 2019 Frontiers article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson parity yields a time-inhomogeneous telegraph covariance; D is a period-averaged time-integrated velocity correlation.",
+          "The design problem is equivalent to optimizing a Laplace functional of window-integrated hazard under fixed mean."
+        ],
+        "reasoning": "General stochastic-velocity formulas are prior art, but solving their time-dependent periodic envelope with exact equality and singular extremizer is a distinct statement.",
+        "searches": [
+          "periodic time dependent reversal rate telegraph process fixed integrated hazard diffusivity maximum minimum bang bang pulse",
+          "Cates–Tailleur arXiv:1206.1805",
+          "Shaebani–Rieger 2019 Frontiers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent pulse evaluations at width fractions .5, .1, .025 produce D=0.5100762,0.7039492,0.7526985 for T=1,Λ=1.7,v=1.2; approach the calculated upper bound without attaining it."
+        ],
+        "reasoning": "No relevant exact allocation table appeared in published-result search; this negative search alone does not certify originality.",
+        "searches": [
+          "periodic time dependent reversal rate telegraph process fixed integrated hazard diffusivity maximum minimum bang bang pulse",
+          "periodic run and tumble diffusion time-dependent switching protocol optimum"
+        ]
+      },
+      "rationale": "The telegraph and run-and-tumble covariance/diffusivity framework and constant-rate formula are classical. The asserted contribution is the universal extremal fixed-budget periodic time-allocation theorem for ALL measurable nonnegative deterministic rates, including strict optimizer conditions and singular supremum. The inspected contextual works concern general active matter or constant-transition-rate dynamics, and the targeted Resultary query did not locate a dominating theorem. A specialist covariance-design inequality under another name remains a priority risk.",
+      "residual_risks": [
+        "Specialist optimal stochastic switching control literature may use Laplace-functional or renewal-transport terminology not covered by the search.",
+        "The closest full active-matter reviews were not all independently read in full; do not infer their global noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No claim of novelty for RTP transport/covariance; cannot exclude uninspected time-modulation results.",
+          "evidence": [
+            "Cates and Tailleur (2012), arXiv:1206.1805"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.1805",
+          "material_read": "Abstract and available public conceptual model description; full article NOT inspected.",
+          "method": "Primary arXiv abstract/context",
+          "title": "When are active Brownian particles and run-and-tumble particles equivalent?",
+          "trigger": "Classical RTP transport equivalence"
+        },
+        {
+          "assessment": "Broad comparison of transport models; no whole-document negative novelty finding is made.",
+          "evidence": [
+            "Solon, Cates, Tailleur (2015), arXiv:1504.07391"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.07391",
+          "material_read": "Public abstract/introductory description; the whole article was not accessed in this audit.",
+          "method": "arXiv/public abstract and legitimate open-manuscript attempt",
+          "title": "Active Brownian Particles and Run-and-Tumble Particles: a Comparative Study",
+          "trigger": "Potential broader theory of RTP diffusivity"
+        },
+        {
+          "assessment": "Discrete-time persistence/transient model is not the claimed arbitrary periodic continuous-time hazard-allocation theorem.",
+          "evidence": [
+            "Shaebani and Rieger (2019), Frontiers in Physics 7, 120"
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2019.00120",
+          "material_read": "Available article abstract/method description and assigned source citation, not complete independent theorem-by-theorem review.",
+          "method": "Primary publisher article context and bibliographic retrieval",
+          "title": "Transient Anomalous Diffusion in Run-and-Tumble Dynamics",
+          "trigger": "Closest titled prior diffusivity analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mathematically natural infinite-dimensional optimization of long-time spreading under an exact reversal-frequency budget; it gives both extremizers, their uniqueness/strictness, and the finite enhancement factor Λ coth Λ. It distinguishes equivalent mean event rates with different physical diffusivities and is not merely the textbook homogeneous telegraph formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, periodic_flip_checker.py and exact Git tree/blob identities",
+    "Cates–Tailleur 2012 arXiv abstract",
+    "Solon–Cates–Tailleur 2015 abstract",
+    "Shaebani–Rieger 2019 publisher description",
+    "Resultary semantic query: periodic time dependent reversal rate telegraph process fixed integrated hazard diffusivity maximum minimum bang bang pulse"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any nonnegative integrable periodic Poisson flip intensity with fixed period T and integrated budget Λ>0, v²T/(2Λ) ≤ D < (v²T/2)coth Λ; constant intensity is the unique minimizer and a periodic concentrating pulse approaches the unattained upper supremum.",
+  "limitations": [
+    "Only unbiased one-dimensional sign-flip Poisson model with deterministic nonnegative periodic L1 intensity and fixed Λ>0.",
+    "Upper constant is a strict supremum in the L1 class; measure-valued impulse is an enlargement, not an admissible finite-rate optimizer."
+  ],
+  "residual_risks": [
+    "Specialist optimal stochastic switching control literature may use Laplace-functional or renewal-transport terminology not covered by the search.",
+    "The closest full active-matter reviews were not all independently read in full; do not infer their global noncoverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "No claim of novelty for RTP transport/covariance; cannot exclude uninspected time-modulation results.",
+      "evidence": [
+        "Cates and Tailleur (2012), arXiv:1206.1805"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1206.1805",
+      "material_read": "Abstract and available public conceptual model description; full article NOT inspected.",
+      "method": "Primary arXiv abstract/context",
+      "title": "When are active Brownian particles and run-and-tumble particles equivalent?",
+      "trigger": "Classical RTP transport equivalence"
+    },
+    {
+      "assessment": "Broad comparison of transport models; no whole-document negative novelty finding is made.",
+      "evidence": [
+        "Solon, Cates, Tailleur (2015), arXiv:1504.07391"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1504.07391",
+      "material_read": "Public abstract/introductory description; the whole article was not accessed in this audit.",
+      "method": "arXiv/public abstract and legitimate open-manuscript attempt",
+      "title": "Active Brownian Particles and Run-and-Tumble Particles: a Comparative Study",
+      "trigger": "Potential broader theory of RTP diffusivity"
+    },
+    {
+      "assessment": "Discrete-time persistence/transient model is not the claimed arbitrary periodic continuous-time hazard-allocation theorem.",
+      "evidence": [
+        "Shaebani and Rieger (2019), Frontiers in Physics 7, 120"
+      ],
+      "identifier_or_url": "https://doi.org/10.3389/fphy.2019.00120",
+      "material_read": "Available article abstract/method description and assigned source citation, not complete independent theorem-by-theorem review.",
+      "method": "Primary publisher article context and bibliographic retrieval",
+      "title": "Transient Anomalous Diffusion in Run-and-Tumble Dynamics",
+      "trigger": "Closest titled prior diffusivity analysis"
+    }
+  ]
+}

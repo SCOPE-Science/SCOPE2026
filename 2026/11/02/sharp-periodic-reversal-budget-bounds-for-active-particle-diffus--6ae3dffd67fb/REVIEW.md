@@ -1,19 +1,21 @@
-# Review — sharp periodic reversal-budget diffusivity bounds
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Independent reconstruction from Poisson parity gives the exact two-time covariance. Period decomposition produces the convergent geometric resolvent; Fubini fixes the sliding interval hazard's mean, and the strict convexity/chord inequalities yield the sharp constants for all integrable nonnegative periodic controls. Lebesgue differentiation proves homogeneous uniqueness and absolute continuity of the integral proves strictness of the upper bound. The delta-like pulse family proves sharpness without falsely assigning an optimizer inside the original function class. The supplied checker independently evaluates 188 deterministic test assertions. The all-time result relies on the analytical argument, not finite simulations.
+PASS
 
-## Originality
+For unbiased initial sign S, E[S_sS_t]=exp(-2∫_s^t λ); integrate covariance to obtain D and justify long-time limit with geometric bound exp(-2Λ floor(u/T)). Period splitting gives D=v²/(1-exp(-2Λ))∫_0^T A(w)dw, A(w)=T^-1∫_0^T exp(-2∫_s^{s+w}λ)ds. Sliding hazards lie in [0,Λ] and have phase mean Λw/T. Strict Jensen lower bounds A; the chord from x=0 to Λ upper bounds it. Integrating proves both sharp constants. Equality in Jensen for almost every w plus Lebesgue differentiation forces λ constant a.e. Absolute continuity makes the upper-chord bound strict for positive small w for every L1 protocol; shrinking pulse protocols converge by dominated convergence to the extremal limit. Independent physical-time covariance integration for pulsed schedules confirmed strict bounds and monotone approach; this numerical check proves only selected schedules.
 
-PASS on examined materials, with priority uncertainty. The archives [1], [2] introduce and analyze run-and-tumble processes and standard transport, while the full 2019 study [3] works with constant mode-transition probabilities and derived asymptotic diffusion coefficients; it does not give this universal fixed-period, fixed-integrated-hazard protocol inequality or its singular upper extremizer. Semantic checks against the published finding index and recoverable in-project claims found no statement implying both limits. The 2015 original full text was not accessible through attempted open manuscript and institutional routes, so historical priority is provisional, not certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact extremal theorem solves a natural infinite-dimensional transport-design question under a physically interpretable total flipping budget. Both endpoints are sharp, the minimizer is unique, the maximizer becomes singular, and the dimensionless improvement factor \(\Lambda\coth\Lambda\) quantifies temporal gating without changing the mean event frequency. This is stronger than restating the homogeneous telegraph diffusion formula or sampling a few switching schedules.
+The telegraph and run-and-tumble covariance/diffusivity framework and constant-rate formula are classical. The asserted contribution is the universal extremal fixed-budget periodic time-allocation theorem for ALL measurable nonnegative deterministic rates, including strict optimizer conditions and singular supremum. The inspected contextual works concern general active matter or constant-transition-rate dynamics, and the targeted Resultary query did not locate a dominating theorem. A specialist covariance-design inequality under another name remains a priority risk.
 
-## Scientific limitations
+## value
 
-One-dimensional independent particle, deterministic periodic hazard, instantaneous Poisson sign reversal, unbiased initial sign, asymptotic time; no interaction, stochastic environment, time-dependent speed, arbitrary orientation change, or finite-horizon objective. Novelty is bounded by source access and terminology differences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically natural infinite-dimensional optimization of long-time spreading under an exact reversal-frequency budget; it gives both extremizers, their uniqueness/strictness, and the finite enhancement factor Λ coth Λ. It distinguishes equivalent mean event rates with different physical diffusivities and is not merely the textbook homogeneous telegraph formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
