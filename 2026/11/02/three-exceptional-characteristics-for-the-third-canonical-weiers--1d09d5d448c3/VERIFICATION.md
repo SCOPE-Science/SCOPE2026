@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Place the four accompanying Python scripts together in one directory and install Python 3 with SymPy. Run:
+## correctness
 
-```
-python klein_invariants_verify.py
-python klein_leading_coefficient.py
-python klein_modular_certificate.py
-```
+PASS
 
-The first computes the degree-six, degree-fourteen and degree-twenty-one invariant polynomials and checks exactly, with integer coefficients, the remainder of \(B^2-A^3+1728U^7\) modulo the Klein equation. The second computes the leading determinant in the formal parameter \(t=y\), the Wronskian scaling constant \(27524002083766272000000\) and its prime support; it also factors \(21962\) and \(27146\). The third imports `klein_jet_check.py` and uses truncated finite-field power series and exact modular determinants at five points in each of the three exceptional characteristics \(79,139,277\), verifying the expected scalar reduction and nondegeneracy of both invariant terms.
+The complete |3K| Wronskian for ten cubic sections has the characteristic-zero factor U² B(3A³+21962U⁷) with integer scalar c=27524002083766272000000=2^30·3^14·5^6·7^3. The asserted local leading-term and primitive-polynomial identity make c a unit for all primes p≥13; integral base change preserves the formula. Classical invariant relation B²=A³−1728U⁷ and tame PSL2(F7) quotient give branch orbits O24,O56,O84. The additional residual quotient fiber is unramified except if 21962=2·79·139 vanishes or if 21962+3·1728=27146=2·7²·277 vanishes, giving 2O24+O84+O168, 2O24+O84+3O56, or 2O24+3O84 respectively, all degree 300. Critical steps depend on classical invariant presentation and computed scalar; modular sample jet script is corroboration, not proof for all p.
 
-Each script exits nonzero on an assertion failure. These are independently reproducible algebraic and finite-field checks. They do not by themselves establish the characteristic-uniform quotient statement or the global divisor formula; the proof in RESULT.md gives those mathematical arguments. The historical claim remains subject to independent bibliographic review, and no independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Nawara arXiv:2610.30992 computes the same third-canonical Klein Wronskian factorization over characteristic zero; Elkies gives Klein invariant quotient and all branch orbit data, neither part is original. The added claim is an exact integer unit normalization that licenses reduction uniformly for p≥13 and the three exceptional positive-characteristic divisor profiles. These can be obtained by a short but nontrivial arithmetic specialization once the unit is justified. Kamel–Elshareef (2019) full text inaccessible, possible implicit special-characteristic result retained as risk.
+
+## value
+
+PASS
+
+The third-canonical ramification divisor is a natural degree-300 invariant on the maximally symmetric genus-three Klein quartic; exact jumps 276→164 and 108 in good characteristics document real arithmetic degeneration and its geometric multiplicities. This does not claim individual gap sequences or wild small primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

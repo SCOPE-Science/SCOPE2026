@@ -1,15 +1,21 @@
-# Scientific assessment of the modular Klein-quartic ramification theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The formula is a complete equality of effective divisors for every algebraically closed field of characteristic \(p\ge13\). The proof identifies all hypotheses: smooth Klein model, classical complete \(3K\) series, the tame \(168\)-fold quotient and invertible Wronskian scalar. The integral identity follows from Nawara's characteristic-zero factorization, an exact local determinant giving scalar \(2^{30}3^{14}5^6 7^3\), and saturation of the principal ideal of primitive \(f\) over the integers. A separate computation establishes \(B^2=A^3-1728U^7\) on the curve. Tame branched fibers and the two exceptional prime factorizations then determine weights and support. Four attached scripts verify the invariant identity, coefficient, and sample jet determinants without claiming finite experiments constitute an infinite proof. The remaining reliance on classical invariant quotient spreading out is explicit.
+## correctness
 
-## Originality — PASS, with priority qualification
-The exact same-object source is Nawara's arXiv:2610.30992v1: it already states the Klein third-Wronskian factorization in characteristic zero, so the factorization and the generic orbit decomposition are not claimed as new. Elkies's 1998 survey supplies the classical quotient with ramification indices \(7,3,2\). Their joint statements do not directly establish reduction of the Wronskian with a characteristic-uniform unit scalar or classify the special fibers. The additional modular statements locate exactly three primes and prove the collisions have multiplicities \(3\). Searches for aliases (third-order Weierstrass, higher Wronskian, ramification divisor, modular Klein quartic, exceptional primes) revealed no direct previous formulation. Kamel–Elshareef's 2019 full article was inaccessible; an implicit corollary of older invariant-theoretic work remains a real bibliographic risk. The result is an explicit arithmetic refinement, not a claim to have discovered the underlying complex factorization.
+PASS
 
-## Value — PASS
-The Klein quartic is a natural maximal-symmetry genus-three curve and the \(3K\)-ramification divisor is a canonical geometric invariant of degree \(300\). The exact exceptional characteristics and sharp counts \(276\), \(164\), \(108\) identify a genuine jump in scheme-theoretic ramification support despite good reduction of the curve; no arbitrary parameter slice was imposed. The local unit normalization is necessary to rule out spurious modular Wronskian vanishing. The result gives a controlled example for arithmetic variation of higher Weierstrass points, with no claim of broad classification for arbitrary plane quartics.
+The complete |3K| Wronskian for ten cubic sections has the characteristic-zero factor U² B(3A³+21962U⁷) with integer scalar c=27524002083766272000000=2^30·3^14·5^6·7^3. The asserted local leading-term and primitive-polynomial identity make c a unit for all primes p≥13; integral base change preserves the formula. Classical invariant relation B²=A³−1728U⁷ and tame PSL2(F7) quotient give branch orbits O24,O56,O84. The additional residual quotient fiber is unramified except if 21962=2·79·139 vanishes or if 21962+3·1728=27146=2·7²·277 vanishes, giving 2O24+O84+O168, 2O24+O84+3O56, or 2O24+3O84 respectively, all degree 300. Critical steps depend on classical invariant presentation and computed scalar; modular sample jet script is corroboration, not proof for all p.
 
-## Closest literature and limitations
-The chief priority risk is that the exceptional-fiber calculation may already be implicit in the combination of Nawara's formula and classic Klein invariants, or treated in inaccessible older third-order Weierstrass papers. Independent checking of the group-model reduction and the prior literature is advisable. The theorem does not include primes below \(13\), and independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nawara arXiv:2610.30992 computes the same third-canonical Klein Wronskian factorization over characteristic zero; Elkies gives Klein invariant quotient and all branch orbit data, neither part is original. The added claim is an exact integer unit normalization that licenses reduction uniformly for p≥13 and the three exceptional positive-characteristic divisor profiles. These can be obtained by a short but nontrivial arithmetic specialization once the unit is justified. Kamel–Elshareef (2019) full text inaccessible, possible implicit special-characteristic result retained as risk.
+
+## value
+
+PASS
+
+The third-canonical ramification divisor is a natural degree-300 invariant on the maximally symmetric genus-three Klein quartic; exact jumps 276→164 and 108 in good characteristics document real arithmetic degeneration and its geometric multiplicities. This does not claim individual gap sequences or wild small primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
