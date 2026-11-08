@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The exact inverse-swap clause law follows by an explicit bijection from selections of 01 junctions to predecessor words. Each clause is bounded by a cyclic vertex-cover constraint, whose number is Lucas L_t. Even extremizers require all unit runs; odd extremizers have precisely one doubled run and a forced vertex yielding F_(k+1) path covers. The n=7 coarse-bound tie and n<=3 bijective cases are separately resolved. Executed direct exhaustive forward maps through n=18, separate inverse-swap comparisons through n=14, and transfer-matrix evaluations through n=200. Finite tests do not replace the all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Powley 2009 Chapter 4 and Section 9.3, especially the trace of a product of symbol-conditioned de Bruijn matrices (Equations 9.32-9.34), give exact predecessor counts for any specified cyclic output, with no computational savings when the period equals the ring length.",
+        "Fukś 1999 specializes to preimages of blocks of zeros and flow, rather than maximization over cyclic outputs.",
+        "Jen 1989 Section 3 classifies Rule 184 among Fibonacci-type finite-block preimage recurrences, and Section 5.4 discusses maximizing probabilities of finite blocks for selected different rules; no Rule 184 cyclic-ring maximum is asserted there."
+      ],
+      "reasoning": "Pointwise target-counting algorithms subsume computation of any fixed target, but do not logically imply an analytic all-length maximum or equality classification without comparing exponentially many target patterns. The new proof supplies that nontrivial comparison.",
+      "searches": [
+        "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "\"rule 184\" \"maximum\" \"preimages\"",
+        "https://arxiv.org/abs/comp-gas/9902001",
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:comp-gas/9703001",
+      "arxiv:comp-gas/9902001",
+      "arxiv:cond-mat/9810306",
+      "Powley2009:GlobalPropertiesCellularAutomata",
+      "Jen1989:EnumerationOfPreimages"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evans, Rajewsky and Speer 1998 study a parallel-update exclusion process with open stochastic boundaries and stationary observables.",
+        "Fukś 1997 Proposition 1 derives particular t-step preimages of finite linear blocks.",
+        "Powley 2009 explicitly notes general periodic-target matrix products apply at full period, but the method does not reduce computation in that case.",
+        "Jen 1989 demonstrates the generic possibility of optimizing one-step finite-block probabilities but not the equality classes for fully cyclic Rule 184 targets."
+      ],
+      "reasoning": "The candidate specializes to the deterministic periodic traffic rule but asks a different all-output extremal question: the papers do not in their inspected statements supply the claimed sharp maximum or unique equality classes. The methods can calculate or bound individual fibers but the global comparison is additional.",
+      "searches": [
+        "https://arxiv.org/abs/cond-mat/9810306",
+        "https://arxiv.org/abs/comp-gas/9703001",
+        "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact Rule 184 deterministic traffic swap interpretation and block preimage results are explicit in Fukś 1997, Section II.",
+        "The specific alternating-target Lucas count is an immediate vertex-cover reduction, but the candidate determines the maximum over every target and every length.",
+        "Jen 1989, Section 5.4, optimizes finite-linear-block one-step probabilities for Rules 12, 76, and 126; this is an earlier extremal preimage problem with different boundary and target rule."
+      ],
+      "reasoning": "Aliases examined include maximal inverse branching, maximum one-step predecessor multiplicity, worst-case indegree, traffic reverse histories, and Lucas/Fibonacci cyclic counts. No inspected statement asserted the same global optimization or all equality cases; known pointwise methods and classical cover counting are not claimed as novel.",
+      "searches": [
+        "\"rule 184\" \"Lucas\" preimages",
+        "Rule 184 traffic cellular automaton maximum indegree finite cyclic configurations Lucas numbers Fibonacci reverse histories one step",
+        "https://arxiv.org/abs/comp-gas/9703001"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Powley 2009 Appendix F is explicitly labeled tables for Chapter 9 on preimages of homogeneous configurations, rather than an all-output extremal table.",
+        "Powley 2009 Appendix C gives finite transition graphs for ring length ten, with a Rule 184 diagram but not an all-length extremal formula."
+      ],
+      "reasoning": "Specific finite-ring tables could numerically encode small cases, but an exact all-length optimized formula and all maximizers were not found in the inspected tables/section descriptions. Search nonmatches are not a proof of novelty.",
+      "searches": [
+        "\"rule 184\" \"maximum\" \"preimages\"",
+        "Rule 184 finite-ring image avoiding 1100, preimage multiplicity and predecessor count",
+        "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf"
+      ]
+    },
+    "rationale": "The claimed contribution is optimization of predecessor number over all indexed cyclic target words at each size, and classification of all maximizers. Jen 1989 gives arbitrary finite-block counting and studies maximal probability for other specific rules, not the Rule 184 cyclic extremizers; Fukś 1997/1999 addresses specific finite-block preimages and traffic flow, Evans/Rajewsky/Speer 1998 studies open-boundary stochastic traffic, and Powley 2009 provides pointwise de Bruijn transfer matrices (including heterogeneous cyclic targets) but no theorem optimizing those counts simultaneously for Rule 184 or classifying extremizers in examined material. The general pointwise transfer method and Lucas cover numbers are acknowledged prior tools, not independently novel claims. Residual historical priority risk remains.",
+    "residual_risks": [
+      "An unpublished or unindexed finite-state traffic study might state the same all-length maximum and equality patterns.",
+      "Classical Lucas counting for a chosen alternating output is elementary, so novelty is restricted to the global bound and complete equality classification.",
+      "Full PDF page-image inspection of the Powley thesis was unavailable; the relevant text was inspected via accessible extraction.",
+      "No independent external audit of correctness, priority, or value has been performed.",
+      "The general extremal finite-block methodology in Jen 1989 could be adapted to a cyclic model; the adaptation to this exact theorem is not provided in the inspected section."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact all-output cyclic maximum: counts preimages of a specified linear finite block through multiple steps",
+        "evidence": [
+          "Section II defines block-preimages on the infinite line and counts preimages of the block 00."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/comp-gas/9703001",
+        "material_read": "Full accessible HTML article, particularly Section II on rule definition and the preimage-counting Proposition 1",
+        "method": "Read full article text and compared the quantifiers, target patterns, and finite-block versus cyclic whole-configuration definitions",
+        "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+        "trigger": "Foundational exact Rule 184 preimage calculations"
+      },
+      {
+        "assessment": "NOT_COVERING exact cyclic maximizer theorem in the inspected text; it addresses flow and preimages of particular blocks",
+        "evidence": [
+          "For m=1 the traffic model is Rule 184; the derivation uses preimages of blocks of zeros, not maximum whole-configuration indegree."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/comp-gas/9902001",
+        "material_read": "Full accessible article, especially Sections 1-3 and the preimage-of-zero-block argument",
+        "method": "Compared the periodic traffic update and zero-block preimage/flow results to full-output extremal branching",
+        "title": "Exact results for deterministic cellular automata traffic models",
+        "trigger": "Rule 184 and its deterministic traffic generalization"
+      },
+      {
+        "assessment": "NOT_COVERING the specified deterministic periodic extremal predecessor distribution",
+        "evidence": [
+          "The model assumes probabilities for car movement and open entrance/exit boundaries, with stationary density/flow observables."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9810306",
+        "material_read": "Full accessible text, abstract and introductory model/boundary definitions and exact-solution discussion",
+        "method": "Compared update rules and open stochastic boundaries to deterministic cyclic one-step inverse counts",
+        "title": "Exact solution of a cellular automaton for traffic",
+        "trigger": "Adjacent parallel-update traffic dynamics"
+      },
+      {
+        "assessment": "PARTIAL_BROADER_METHOD: computes arbitrary specified cyclic predecessor counts but does not give the optimized all-length Rule 184 maximum in inspected material",
+        "evidence": [
+          "Section 9.3 states every finite configuration is periodic of period N and the method reduces to its general Theorem 4.7, without additional efficiency in that case.",
+          "Appendix F is devoted to Chapter 9 homogeneous-preimage tables; Appendix C includes a finite Rule 184 transition graph."
+        ],
+        "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "material_read": "Accessible extracted PDF text of Chapter 4, Chapter 9, Section 9.3 (especially equations 9.32-9.34), table of contents and Appendix F descriptions; page-image access failed",
+        "method": "Compared exact source quantifiers and broad pointwise trace-matrix counting with all-target max and maximizing-set classification",
+        "title": "Global properties of cellular automata",
+        "trigger": "Highly relevant generic cyclic-target de Bruijn preimage method"
+      },
+      {
+        "assessment": "PARTIAL_BROADER_METHOD: finite-block exact preimage recurrence and optimization framework, but not the claimed cyclic Rule 184 all-length formula or equality classes in inspected relevant sections",
+        "evidence": [
+          "Section 3 includes Rule 184 in the Fibonacci-type group of finite-block preimage recurrences.",
+          "Section 5.4 explicitly optimizes linear-block outputs for Rules 12, 76 and 126, not fixed-coordinate Rule 184 rings."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Accessible PDF text, including full introduction, Sections 2–3 preimage recurrence classification and Section 5.4 maximizing one-step probabilities; page image of Section 5.4 inspected",
+        "method": "Compared infinite-line finite-block preimages and examples for Rules 12, 76 and 126 with deterministic fixed-coordinate full cyclic Rule 184 target optimization",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Generic one-step preimage formulas and explicit maximal-probability arguments could dominate the claimed optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce61cd8d-6c38-4772-a127-2d3237a75ba6",
+  "value": {
+    "rationale": "The worst one-step inverse ambiguity for a ubiquitous deterministic particle-conserving cyclic traffic model is a natural and operationally meaningful invariant. The formula is exact for every length, supplies a matching sharp upper bound and equality classification, and reveals a parity-dependent transition from two perfectly alternating maximizers to 2n once-defective ones. This is not merely a finite census, known-table recomputation or one-target Lucas recurrence.",
+    "status": "PASS"
+  }
+}
