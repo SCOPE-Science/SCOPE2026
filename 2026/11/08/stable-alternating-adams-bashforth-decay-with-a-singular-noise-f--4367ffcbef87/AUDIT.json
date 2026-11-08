@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact AB2 interpolation yields transfer T(h,p); factorized quadratic Schur inequalities prove if-and-only-if a+b<2, including equality and instability boundaries. Stable discrete Lyapunov recursion and explicit \\(a\\downarrow 0\\) transfer/noise limits prove the sharp positive \\(a^{-2}\\) coefficient. Full b=1 stationary rational solution and 12 additional exact rational covariances replayed successfully; numerical checks do not substitute for the analytic quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Throwe–Teukolsky (2018), Secs. 2, 4, 5: variable-step Adams-based multirate construction, convergence and conservation; no stationary fixed-scalar additive-noise theorem in the inspected material.",
+        "López–Romay (2010), Secs. 1–3 and numerical results: ratio-dependent coefficients and efficiency; no exact stationary stochastic error gain."
+      ],
+      "reasoning": "General convergent-covariance theory is a proof technique and yields P as a solution of a matrix equation for any stable recurrence, but the evaluated singular coefficient requires the explicit AB2 matrices, rescaling and stable-limit calculation. Full broader coverage of this evaluated AB2 scalar claim was not established; older Nordsieck material was only partially accessible.",
+      "searches": [
+        "variable step adams bashforth round-off error accumulation amplification small steps",
+        "Lyapunov stationary covariance amplification variable step Adams-Bashforth 2",
+        "arxiv:1811.02499",
+        "doi:10.1155/2010/765620"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1811.02499",
+      "https://doi.org/10.1155/2010/765620",
+      "https://arxiv.org/pdf/1909.04153",
+      "https://doi.org/10.1137/0720056",
+      "https://doi.org/10.1137/0726052",
+      "https://ketch.github.io/numipedia/methods/AB2.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 construction allows arbitrary time-step variation but discusses conservation and truncation accuracy in its main results; a scalar long-time stationary injected-noise coefficient is not provided there.",
+        "The 2019 work uses an adaptive third-order formula on Boussinesq equations; this is neither the same recurrence nor a stronger exact bound for its variance.",
+        "Calvo–Lisbona–Montijano (1989) abstract concerns ratio conditions for interpolatory Nordsieck stability."
+      ],
+      "reasoning": "Nothing in the fully inspected selected primary results gives the exact AB2 period-two forcing covariance and sharp fixed-b short-step limit. Generic fixed-step or zero-equation results do not imply the singular response coefficient without new evaluation. A full-text comparison against the closest older Nordsieck article could not be completed and is disclosed rather than designated NOT_COVERING.",
+      "searches": [
+        "arxiv:1811.02499",
+        "arxiv:1909.04153",
+        "doi:10.1155/2010/765620",
+        "doi:10.1137/0726052",
+        "Adams Bashforth roundoff noise variable steps ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-period transfer is the product of two explicit 2x2 AB2 companion matrices, not the Nordsieck interpolatory-method matrix of the cited 1989 article.",
+        "The joint assertion includes the stationary variance under iid additive update perturbations and its exact singular leading constant."
+      ],
+      "reasoning": "A change of variables to a state-space or a periodic AR(2) process recovers the Lyapunov method, but does not itself report the sharp AB2 period-total stability interval and the particular \\(a^{-2}\\) noise-gain coefficient. Neither the accessible abstracts of the two Nordsieck papers nor the inspected Adams implementations report an equivalent exact noisy statement. The 1989 full text was not read and remains a precedence risk.",
+      "searches": [
+        "Adams Bashforth alternating steps stability step ratio",
+        "two-periodic Adams Bashforth stability",
+        "periodic second order autoregressive AR(2) noise covariance Adams-Bashforth numerical integration Floquet two step",
+        "doi:10.1137/0726052"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard fixed-step AB2 sources give the negative-real-axis interval of length one, which agrees with the equal-step specialization of the new period-total criterion, but give no table of fixed-period forced stationary variances.",
+        "Skeel–Jackson (1983) abstract advertises stepsize-ratio stability tables for Nordsieck methods, not the exact additive-noise covariance evaluated here."
+      ],
+      "reasoning": "The standard AB2 stability table is only the equal-step subcase. A table of Nordsieck zero-stability restrictions is not a stationary-response table for this noisy scalar AB2 recurrence. The former is not claimed new; the evaluated singular variance law is not contained in material inspected.",
+      "searches": [
+        "absolute stability boundary Adams Bashforth 2 periodic two-step decay exactly sum h1+h2 2",
+        "Adams Bashforth periodic steps stability monodromy",
+        "doi:10.1137/0720056",
+        "https://ketch.github.io/numipedia/methods/AB2.html"
+      ]
+    },
+    "rationale": "The accepted scientific contribution is the precise coexistence of period-total negative-real-axis stability with a sharp, explicitly evaluated fixed-b singular stationary noise gain for standard alternating AB2. Inspected primary sources do not establish this joint statement. Earlier Nordsieck stability articles are relevant historical prior art and their unavailable full text is recorded as a residual precedence risk; generic stationary Lyapunov theory supplies technique but not the evaluated sharp coefficient.",
+    "residual_risks": [
+      "The 1983 and 1989 Nordsieck stability primary full texts were unavailable; an earlier equivalent deterministic period-two stability classification is possible.",
+      "A specialist periodic-AR or numerical-roundoff study might already evaluate the exact stationary coefficient under a mathematically equivalent normalization, despite the negative searches.",
+      "The iid additive perturbation model is an analytic benchmark and is not automatically the error law of floating-point arithmetic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating framework; no evaluated alternating scalar stationary additive-noise coefficient in inspected content",
+        "evidence": "Sec. 2.1, Eqs. (2)–(4), gives arbitrary-step Adams weights; Sec. 5 discusses accuracy, conservation and efficiency.",
+        "identifier_or_url": "https://arxiv.org/abs/1811.02499",
+        "material_read": "Full openly rendered article: abstract, sections 1–2, numerical tests in section 4, conclusions in section 5 and appendix references",
+        "method": "Open full arXiv HTML scientific text and inspect explicit method equations, comparison and conclusion",
+        "title": "A high-order, conservative integrator with local time-stepping",
+        "trigger": "Adams-based integration with arbitrary time-step variation; motivating source"
+      },
+      {
+        "assessment": "Prior ratio-dependent construction and implementation; no exact stationary variance or period-two noise asymptotic in read material",
+        "evidence": "Sec. 2, Proposition 2.1, shows dependence of coefficients on step ratios; numerical results focus on CPU/accuracy.",
+        "identifier_or_url": "https://doi.org/10.1155/2010/765620",
+        "material_read": "Open-access article abstract, Secs. 1–3 and conclusions of numerical comparisons",
+        "method": "Read hosted full scientific HTML sections and coefficient-ratio discussion",
+        "title": "Implementing Adams Methods with Preassigned Stepsize Ratios",
+        "trigger": "Possible prior fixed-ratio variable-step scheme and coefficient table"
+      },
+      {
+        "assessment": "Adaptive third-order PDE algorithm and CFL tests, different from scalar period-two AB2 forced covariance",
+        "evidence": "Section 3.2 and its variable-step interpolation formulas; abstract describes implementation/benchmarks.",
+        "identifier_or_url": "https://arxiv.org/pdf/1909.04153",
+        "material_read": "PDF abstract, introduction, numerical time stepping derivation and relevant screenshots on pages 6 and 8",
+        "method": "Read searchable PDF excerpts and inspect rendered pages of the method derivation",
+        "title": "Adaptive Third Order Adams-Bashforth Time Stepping for Extended Boussinesq Equations",
+        "trigger": "Adaptive Adams time stepping and practical stability context"
+      },
+      {
+        "assessment": "Potential historical precedence for deterministic stability component; no full-text noncoverage claim",
+        "evidence": "1983 abstract gives step-ratio stability restrictions and tables, not an accessible formula for iid injected-noise stationary variance.",
+        "identifier_or_url": "https://doi.org/10.1137/0720056",
+        "material_read": "Abstract and metadata only; full text not accessible in this run",
+        "method": "Publisher record and open-access query",
+        "title": "The Stability of Variable-Stepsize Nordsieck Methods",
+        "trigger": "Potential stronger older variable-step stability result"
+      },
+      {
+        "assessment": "Specialist precedence risk remains, particularly for the spectral subclaim; no confident full-document exclusion",
+        "evidence": "1989 abstract describes sufficient or necessary step-ratio conditions for Nordsieck interpolation, without visible noise covariance analysis.",
+        "identifier_or_url": "https://doi.org/10.1137/0726052",
+        "material_read": "Abstract, references and publisher metadata only; full article not obtained",
+        "method": "Publisher HTML and open-access search; authorized full-text retrieval attempt unavailable",
+        "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+        "trigger": "Closest older specialist stability analysis of variable-step Adams formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4367ffcb-ef87-427f-9aea-9fc4f356f576",
+  "value": {
+    "rationale": "Step-ratio degeneration in a standard variable-step Adams method creates a sharp quadratic stationary noise amplification despite an unchanged period-total stability threshold and a limiting spectral radius bounded below one. The explicit positive all-b coefficient is a structural diagnostic for the distinction between Floquet stability and perturbation robustness. It is not a mere parameter substitution into the constant-step AB2 table or an arbitrary isolated computation.",
+    "status": "PASS"
+  }
+}
