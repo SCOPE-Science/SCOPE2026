@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every k>=2,a<b and ak<n<bk, coordinatewise minima of the two periodic feasible lifts preserve every gap inequality. The active-coordinate dependency digraph has no directed cycle: a two-cycle would impose a=b on a gap, and a full directed circuit would force n=ak or n=bk. A legal decrement thus exists until the meet is attained; the reverse descent from the target yields a path with length exactly the L1 transportation sum. Cyclic order cannot change in legal slides, establishing matching lower bound. Exhaustive BFS and independent constructive checks passed over the stated finite ranges; they supplement the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma–Kamiński–Wrochna Theorem 16 addresses polynomial-time reachability for claw-free independent sets, not exact shortest paths under simultaneous minimum and maximum cyclic gap constraints.",
+        "Brewster–Mynhardt–Teshima Theorem 3.7 gives entire i-graph adjacency for cycles, with later Hamiltonicity/traceability results, but no shortest-slide metric formula.",
+        "Demaine et al. arxiv:1406.6576 treats token sliding on trees, which excludes cyclic topology."
+      ],
+      "reasoning": "Knowing the configuration graph or reachability does not imply an isometric embedding into unconstrained circular transportation. The proof here establishes a stronger all-pairs geodesic property and holds for intervals beyond the independent-domination gap range.",
+      "searches": [
+        "web: \"bounded gaps\" \"token sliding\" shortest paths cycle configurations reconfiguration",
+        "web: \"i-graphs of paths and cycles\" \"distance\" \"diameter\" geodesic",
+        "arxiv:1403.0359 full-text Sections 1, 3, 6, 7",
+        "arxiv:2303.08190 full-text Sections 2, 3.1–3.4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1403.0359",
+      "https://arxiv.org/pdf/2303.08190",
+      "https://arxiv.org/abs/1406.6576",
+      "published-finding corpus semantic results: 2026/10/4/SCOPE-exact-graph-metric-of-consecutive-layer-s-hypersimplices--aed724149739 (unrelated graph polytope metric)",
+      "published-finding corpus semantic results: 2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627 (unrelated matching polytope)",
+      "Accessible own ledger 2026-11_week1__private research ledger__p0001_g000086.jsonl: recoverable claims only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 source identifies bracelet graph topology and its Hamiltonicity but does not prove a transportation-isometry statement.",
+        "2014 claw-free source proves reachability and polynomial diameter bounds, not equality with any optimal circular transportation objective."
+      ],
+      "reasoning": "The result is not merely a restatement of a known graph isomorphism: it gives exact distances for arbitrary endpoints and a constructive monotone geodesic theorem across all uniform lower/upper cyclic gap intervals. It could still be implicit in unsearched hard-particle literature; this is retained as a priority risk.",
+      "searches": [
+        "arxiv:2303.08190 Theorem 3.7 vs all-pairs transport identity",
+        "arxiv:1403.0359 Theorem 16 vs exact shortest feasible path",
+        "published-finding corpus: Distance formula and diameter for bracelet graph i-graph of cycles C_{3k+1} all-pairs shortest moves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2303.08190 identifies independent dominating sets of cycles and their bracelet graphs; matching interpretations arise from line graphs, whereas the present theorem includes all feasible gap-interval configurations.",
+        "Search matches were overwhelmingly non-equivalent cycle transportation norms, graph polytopes and general reconfiguration results."
+      ],
+      "reasoning": "Constrained cyclic spacing is a uniform hard-core token model; the specialization to minimum maximal matchings of cycles is exactly minimum independent domination on a line graph. No inspected source gives the equality of exact graph distance to cyclic order-preserving transport cost.",
+      "searches": [
+        "web: \"gaps\" \"minimum cost matching\" \"reconfiguration\" cycle token sliding",
+        "web: \"minimum independent dominating sets\" \"cycle\" \"reconfiguration graph\"",
+        "published-finding corpus: Fixed number of unlabeled tokens on a discrete ring with all cyclic inter-token gaps constrained between integers a and b, shortest single-site token sliding distances equal circular earth mover transport, optimal geodesics preserve gap bounds, isometric configuration graph."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact circular bounded-gap geodesic formula in inspected 2014 and 2023 primary material; the 2023 article explicitly gives vertex counts and bracelet graphs rather than shortest paths.",
+        "Closest own historical item relates to minimum maximal matchings in the Möbius–Kantor graph, a different noncyclic graph."
+      ],
+      "reasoning": "A graph adjacency table is not an all-pairs shortest path certificate, and numerical small cases cannot imply the general theorem. No database hit supplied matching all-parameter transport equality.",
+      "searches": [
+        "published-finding corpus: Fixed number of unlabeled tokens on a discrete ring with all cyclic inter-token gaps constrained between integers a and b, shortest single-site token sliding distances equal circular earth mover transport, optimal geodesics preserve gap bounds, isometric configuration graph.",
+        "published-finding corpus: Cycle independent domination minimum maximal matchings shortest path geodesic isometric reconfiguration configuration space earth mover distance.",
+        "published-finding corpus: Distance formula and diameter for bracelet graph i-graph of cycles C_{3k+1} all-pairs shortest moves",
+        "own current ledger exact-claim and alias scan including bracelet graph, i-graph, minimum maximal matching, earth mover, optimal transport"
+      ]
+    },
+    "rationale": "A general uniform lower/upper cyclic gap geodesic theorem and an exact all-pairs transport metric are not present in the examined 2014 claw-free reachability paper or the 2023 direct cycle i-graph structural paper. published-finding corpus and own ledger searches found no matching statement; hard-particle literature under different terms is a residual priority risk.",
+    "residual_risks": [
+      "Older or unpublished cyclic exclusion-process / hard-rod transport work may independently establish the same isometry.",
+      "The 2023 bracelet-graph adjacency theorem makes the cycle specialization structurally accessible; the new claim is the transport metric, not rediscovery of adjacency or counts.",
+      "Earlier-week private ledgers were not present in the accessible working directory; duplicate checking is bounded to the accessible current-week ledger and published-finding corpus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary paper gives polynomial reachability and polynomial component diameter bounds, not all-pairs exact shortest paths with gap constraints.",
+        "evidence": [
+          "Theorem 16 and Section 7, lines 370–400 of web PDF extraction",
+          "arxiv v1 dated 2014-03-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+        "material_read": "Abstract, sections 1–3 and 6–7 with theorem statements; appendix shortest-sequence discussion and searches for diameter, shortest.",
+        "method": "Full-text parsed PDF inspected with rendered page 1",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Cycles and line graphs are claw-free, so a broad reachability theorem could subsume this metric statement."
+      },
+      {
+        "assessment": "Direct exact structural predecessor for the cycle specialization; no all-pairs distance/circular transport theorem; general interval bounds absent.",
+        "evidence": [
+          "Theorem 3.7 and bracelet graph definition in PDF lines 406–493",
+          "Full-text search for diameter returned no matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.08190",
+        "material_read": "Abstract, Sections 2, 3.1–3.4 (including definitions, bracelet graph, Theorem 3.7, Hamiltonicity/traceability discussion), rendered page 11; full-text searched for diameter.",
+        "method": "Full-text parsed PDF inspected with rendered page 11",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "It gives complete adjacency structure of the exact minimum-independent-domination specialization."
+      },
+      {
+        "assessment": "Studies paths/trees and reachability; not sufficient to claim full document lacks closest metric, so priority risk retained.",
+        "evidence": [
+          "arXiv v1 published 2014-06-25; abstract reports a linear-time reachability decision and a quadratic-length construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.6576",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "arXiv abstract read",
+        "title": "Linear-Time Algorithm for Sliding Tokens on Trees",
+        "trigger": "Early token-slide algorithm on restricted graph families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "edbf2b8c-afb9-4470-860d-8eafe23bac6e",
+  "value": {
+    "rationale": "The theorem exactly solves a natural constrained optimal-motion problem on every discrete cycle with simultaneous hard minimum/maximum spacing. It identifies a surprisingly zero-detour regime and gives an explicit quadratic-time distance formula plus feasible geodesic construction, not just a count or a small-instance property. The minimum-independent-domination specialization supplies a directly motivated nontrivial infinite-family application; boundary rigidity explains why strict interior conditions matter.",
+    "status": "PASS"
+  }
+}
