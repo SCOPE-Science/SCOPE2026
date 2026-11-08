@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The recursion of the uniform substitution is exactly the 2-adic valuation recurrence. Every residual after e low-order bits is either constant or G_{ceil((c+1)/2^e),e mod m}; the exceptional residue is unique. The integer offsets strictly decrease until one, giving k=ceil(log2(c+1)) preperiodic states, m periodic phase states and m reachable constant states. Pairwise inequivalence is proved by n=2^H-q with H of varying residue mod m; this works for all m>=2 and c>=0, and establishes both construction and Myhill-Nerode minimality. Correctness was additionally cross-checked by 2048 independently minimized DFAOs, 163840 numerical output checks and 8192 substitution symbols for each of eight alphabet sizes. Finite tests are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2603.18858v1",
+        "https://arxiv.org/abs/2511.20881",
+        "https://orbi.uliege.be/handle/2268/240402"
+      ],
+      "reasoning": "Moradi et al. give a generic binary LSD transducer O(m log c) construction, a Fibonacci-specific exact LSD formula (Theorem 3.2), and MSD bounds, all in Zeckendorf representation for the Fibonacci claim, not a general sharp formula valid for the 2-adic valuation sequence. Charlier et al. give a constructive minimal automaton for translated/multiplied Thue-Morse sets, not a stronger shifted period-doubling theorem.",
+      "searches": [
+        "\"generalized period-doubling\" \"state complexity\" \"shifts\"",
+        "State complexity of shifted Fibonacci automatic words and period doubling valuation parity sequence; minimal automaton c-shift"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2511.20881",
+      "https://arxiv.org/html/2603.18858v1",
+      "https://orbi.uliege.be/handle/2268/240402",
+      "2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+      "2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2511.20881",
+        "https://arxiv.org/html/2603.18858v1",
+        "https://orbi.uliege.be/handle/2268/240402",
+        "Published indexed result 2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba addresses rank compression of a named synchronizing automaton, a different optimization problem."
+      ],
+      "reasoning": "An upper bound O(log c) for arbitrary binary shifted automatic words does not imply a minimal-state equality, let alone the exact constant 2m; generalized period-doubling factorization and period-doubling attractor results have no direct state-count implication. Exact Thue-Morse-set translation state complexity does not specialize by any established reduction to the valuation-parity period-doubling word.",
+      "searches": [
+        "Exact minimal least-significant-digit-first binary DFAO state complexity of all shifts of period-doubling word p(n)=v2(n+1) mod 2; closed formula ceil(log2(c+1))+4",
+        "Generalized period-doubling P_k(n)=nu_2(n+1) mod k shifted sequence P_k(n+c) least-significant-digit-first DFAO exact minimum states ceil(log2(c+1))+2k",
+        "\"period-doubling\" \"kernel\" \"shift\" \"automaton\" \"states\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact minimal LSD-first DFAO size equals the number of distinct binary 2-kernel subsequences; the proof identifies all residuals as valuations or constants.",
+        "https://arxiv.org/abs/2511.20881",
+        "https://arxiv.org/html/2603.18858v1"
+      ],
+      "reasoning": "Explicitly checked the alias 2-kernel cardinality, valuation-of-n+c, period-doubling shift and residual-language quotient. Indexed hits did not state or imply the formula. The theorem proves equivalence internally rather than treating absent word matches as novelty proof.",
+      "searches": [
+        "Generalized period-doubling P_k(n)=nu_2(n+1) mod k shifted sequence P_k(n+c) least-significant-digit-first DFAO exact minimum states ceil(log2(c+1))+2k",
+        "Minimal 2-kernel cardinality of k-letter period-doubling sequence shifted by c with exact state complexity and output DFAO",
+        "Shifts of 2-adic valuation parity modulo m automatic sequence binary 2-kernel residuals states",
+        "Minimal binary 2-kernel size for shifts of the ruler sequence valuation v2(n+c) modulo 2, explicit DFAO state counts and Myhill-Nerode"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related indexed record 2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69 concerns greedy string attractors.",
+        "Related indexed record 2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899 concerns subshift component and fibre ranks.",
+        "Accessible prior finding 3d3875c7-c512-4c98-95d1-8241d12c5606 concerns a Fibonacci MSD-first Zeckendorf lower bound; 37245f79-a301-4d6d-963c-26766ae04de3 concerns minimal unique substrings of finite period-doubling iterates."
+      ],
+      "reasoning": "Neither the accessible prior claims nor indexed exact-table searches yielded a 2-kernel/DFAO table for shifts of the generalized period-doubling word. This is a bounded comparison and cannot establish global uniqueness.",
+      "searches": [
+        "Minimal 2-kernel cardinality of k-letter period-doubling sequence shifted by c with exact state complexity and output DFAO",
+        "\"period-doubling\" \"kernel\" \"shift\" \"automaton\" \"states\"",
+        "\"period-doubling\" \"2-kernel\" \"shifted\""
+      ]
+    },
+    "rationale": "Compared exact functions and implied results, not only titles: the generalized period-doubling factorization paper establishes the substitution but no shifted DFAO count; the Fibonacci-shift paper proves an exact Fibonacci-specific LSD state count (Theorem 3.2), logarithmic MSD bounds, and a generic transducer upper bound in base 2; none covers this different valuation word; the Thue-Morse-set paper studies a different arithmetic set. The available indexed research results on period-doubling give attractors or symbolic dynamical lifts, not the exact 2-kernel of shifts. A previous result on Fibonacci MSD Zeckendorf complexity and a separate period-doubling minimal-unique-substring result in accessible comparison records do not imply the all-alphabet, all-shift, LSD binary formula. Residual risk is unindexed prior exact enumeration, not positive detected coverage.",
+    "residual_risks": [
+      "An independent exact 2-kernel count may appear in older automatic-sequences literature or unindexed papers under another name.",
+      "Only the abstract, not full text, was inspected for the Thue-Morse translation paper; it is not the same mathematical object.",
+      "The two closest indexed period-doubling records were inspected as abstracts only; there is no apparent stronger coverage, but they are not used as whole-document negative evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes the same morphism and combinatorial factorizations, without minimal automata of shifted sequences or binary 2-kernel cardinalities.",
+        "evidence": [
+          "Section 3 explicitly defines generalized period-doubling substitution and s_k(a)=0 E_k(a).",
+          "Sections 4-5 concern kernel words and gaps; the conclusion identifies factorization as main contribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.20881",
+        "material_read": "Accessible entire rendered article, including substitution definition in section 3, results and conclusion",
+        "method": "Read rendered primary source sections 1-5 and inspected its main claims about kernel words, gaps and factorization",
+        "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+        "trigger": "Identical generalized m-letter fixed point and earliest source for this direction"
+      },
+      {
+        "assessment": "Covers Fibonacci word in Zeckendorf representation and gives O(log c) shift bounds; its base-k comment does not derive a sharp count for the distinct valuation-mod-m word.",
+        "evidence": [
+          "Introduction states generic base-k LSD shift construction has O(m log c) states.",
+          "Theorems 3.1 and 3.2 include an exact Fibonacci LSD formula, and Theorem 4.1 gives Fibonacci MSD bounds, all using Zeckendorf representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18858v1",
+        "material_read": "Complete accessible HTML manuscript, including Introduction, Sections 2-5, and proof statements in Sections 3 and 4",
+        "method": "Read full arXiv HTML, checked the introductory base-k transducer comparison, Theorems 3.1 and 4.1 and their exact numerical representation conditions",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Highly relevant 2026 primary shift state-complexity paper and potential general implication"
+      },
+      {
+        "assessment": "Described object is the Thue-Morse integer set under multiplication and translation, distinct from the shifted generalized period-doubling valuation word. No verified reduction implies the current claim.",
+        "evidence": [
+          "Abstract specifies the set mT+r for the Thue-Morse set T and powers-of-two bases."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/handle/2268/240402",
+        "material_read": "Repository bibliographic metadata and abstract, not the attached full paper",
+        "method": "Checked exact described set and operation in abstract; no full-document negative coverage determination",
+        "title": "Minimal automaton for multiplying and translating the Thue-Morse set",
+        "trigger": "Possible stronger general minimal-automaton result for arithmetic translations"
+      },
+      {
+        "assessment": "Attractor positions/minimal attractor size do not imply DFAO complexity; no whole-document noncoverage claim.",
+        "evidence": [
+          "Abstract describes greedy attractor at positions 2^k-1 and optimal attractor size two."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69",
+        "material_read": "Search summary and title only; no complete text inspection",
+        "method": "Compared mathematical object and stated invariant in the accessible indexed abstract",
+        "title": "Exact greedy string attractor of the period-doubling word",
+        "trigger": "Nearest published indexed result involving the same word"
+      },
+      {
+        "assessment": "Subshift component counts and fibre rank are not finite-word 2-kernel or minimal DFAO counts; no whole-document negative determination.",
+        "evidence": [
+          "Abstract gives 2-adic component count and fibre rank for a three-block difference lift."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-component-and-fibre-rank-law-for-the-three-block-period-do--a7e0bd7bb899",
+        "material_read": "Search summary and title only; no complete text inspection",
+        "method": "Compared derived invariant and parameter space in the accessible indexed abstract",
+        "title": "Exact component and fibre-rank law for the three-block period-doubling lift",
+        "trigger": "Another indexed result using generalized period-doubling objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "274a76ec-56ed-4e3d-bbcc-451321604d8f",
+  "value": {
+    "rationale": "This is a natural complete classification for every shift c>=0 and every alphabet size m>=2 of a canonical generalized period-doubling automatic word. It gives the exact minimal descriptional complexity and whole binary 2-kernel structure, not a finite table or a routine special-case numerical increment. The invariant is motivated directly by the recent study of shift state complexity, and the uniform bit-length law exhibits sharp logarithmic growth with a nontrivial double-alphabet term. The result can be used to size optimally minimized sequence generators; no unproved downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
