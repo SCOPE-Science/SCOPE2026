@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:13:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_q4_two_ind.py",
+        "METADATA.json"
+      ],
+      "rationale": "A vertex subset of Q4 is an Ind_2 face exactly when every selected vertex has <=1 selected neighbor; this equivalence follows because connected induced components of maximum degree one are isolated vertices/edges. Exhausting all 2^16 subsets yields 3,055 faces including empty, f-vector by cardinality (1,16,120,464,964,960,440,80,10). A full sequential vertex toggle matching using pivot order (15,0,4,3,8,11,10,13,9,14,2,7,6,1,5,12) yields 1,519 matched pairs, 16 critical 3-faces, one critical 4-face, and an acyclic reversed-Hasse orientation across all 13,584 covers. Independently reproduced signed gradient reduction of the unique critical 4-cell into the 16 critical 3-cells and obtained an identically zero integral boundary column. The Morse CW model has no 1/2-cells; pi3 of its 3-skeleton wedge^16 S3 is Z^16, so a zero boundary means the unique S3-valued 4-cell attaching map is nullhomotopic. The added 4-cell splits as S4: the exact homotopy result follows, without a homology-only inference.",
+      "residual_risks": [
+        "This exhaustively proves the precise Q4 instance, not higher hypercube dimensions.",
+        "Independent signed zero boundary (not only mod-two reduction) was checked; all relevant group assertions are integral."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande--Singh formulate element matching and exact families complete multipartite, fully whiskered, paths, cycles, rooted trees.",
+          "Carnero Bravo treats some forest filtrations of Cartesian ladders and categorical products, not 4-fold Cartesian product Q4.",
+          "Q4 has induced squares and is not chordal, so chordal-graph higher independence theorems do not directly apply."
+        ],
+        "reasoning": "General matching methodology supports correctness but does not imply this specific exact H3/H4 integral homotopy classification under the published family hypotheses.",
+        "searches": [
+          "Deshpande Singh Higher independence complexes arXiv:2001.05448 full PDF Sections 2--5",
+          "Carnero Bravo Forest Filtration arXiv:2307.13271 Section 4.2.2",
+          "Abdelmalek et al Chordal graphs higher independence arXiv:2106.10863"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.05448 relevant full text",
+        "arXiv:2307.13271 relevant full text",
+        "arXiv:2106.10863 chordal families",
+        "Resultary ordinary independence Q4 and other cube functor searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior element-toggle acyclicity criterion is methodological, not an exact count of Q4 critical cells or signed attaching degree.",
+          "Known F1 results for categorical complete-graph products are not specializations to Q4, which is Cartesian K2^square4."
+        ],
+        "reasoning": "The exact primitive/zero integral Morse attaching calculation is additional to available family-level statements and not a formal corollary of the known Ind(Q4) result.",
+        "searches": [
+          "Deshpande Singh arXiv:2001.05448 Proposition 2.10 element matching and main cases",
+          "Carnero Bravo arXiv:2307.13271 forest filtration product statements",
+          "Abdelmalek et al arXiv:2106.10863 chordal hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind_2(Q4) is exactly F_1(Q4), the first forest-filtration stage, and this alias was explicitly checked.",
+          "The ordinary independence complex Ind(Q4) is a strict subcomplex; its earlier wedge^7 S3 value concerns component bound 1, not 2."
+        ],
+        "reasoning": "Alias searches and component/degree definitions were compared mathematically, not just by title: neither forest-filtration paper statement found the exact F1(Q4) wedge.",
+        "searches": [
+          "Resultary 2 independence complex of 4 cube Q4, forest filtration F1 homotopy 16 S3 wedge S4",
+          "Carnero Bravo arXiv:2307.13271 Section 4 first forest filtration",
+          "Deshpande Singh arXiv:2001.05448 definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the ordinary independence complex of Q4 wedge7 S3, other cube homology functors and graph classes, but no F1(Q4) or Ind_2(Q4) wedge(16,1) table."
+        ],
+        "reasoning": "The specific exact table was not located in the bounded indexed search; a missing hit alone does not establish novelty.",
+        "searches": [
+          "Resultary 2 independence complex of 4 cube Q4, forest filtration F1 homotopy 16 S3 wedge S4",
+          "web two independence complex Q4 hypercube forest filtration homotopy 16 spheres 2026"
+        ]
+      },
+      "rationale": "Ind_2(G) equals the first forest filtration F_1(G) as identified by Carnero Bravo, which is an equivalent name, not a separate result. Deshpande--Singh give general methods and exact results for other graph families; Q4 is not their tree, path, cycle, complete multipartite or whiskered case. The chordal-graph result excludes Q4, which has induced four-cycles. Published ordinary Ind(Q4) and matching(Q4) concern different complexes. No stronger prior theorem found to imply the 16/1 wedge; best-of-knowledge PASS.",
+      "residual_risks": [
+        "A niche exact forest-filtration computation or stronger theorem for Cartesian graph products may have escaped searches.",
+        "The acyclic element matching is a standard method; novelty belongs to the finite Q4 critical counts and zero signed attaching vector."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONS_METHOD_COVERED_Q4_EXACT_NOT_FOUND",
+          "evidence": [
+            "Existing complete multipartite/path/cycle/whiskered/tree hypotheses do not include four-cube Q4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+          "material_read": "Original full PDF: definitions, Proposition 2.10 and main family theorems/sections 2--5; cover page image",
+          "method": "arXiv full PDF text and image",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Direct same functor and potentially universal theorem"
+        },
+        {
+          "assessment": "EQUIVALENT_INVARIANT_NO_Q4_COMPUTATION",
+          "evidence": [
+            "F1(G)=Ind2(G), but studied products are two-row ladder top stage/categorical complete-graph products, not fourfold Cartesian Q4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.13271",
+          "material_read": "Original full PDF intro and Section 4.2.2 product cases; first page image",
+          "method": "arXiv full PDF text and image",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "F1 is exactly Ind2 and might compute Q4"
+        },
+        {
+          "assessment": "CHORDAL_FAMILY_NOT_Q4",
+          "evidence": [
+            "Q4 has induced C4 and fails chordality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.10863",
+          "material_read": "Original full PDF abstract, introduction and chordal hypotheses; cover screenshot",
+          "method": "arXiv full PDF and image",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Possible all-graph upper result with Q4 as corollary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2001.05448 relevant full text",
+        "arXiv:2307.13271 relevant full text",
+        "arXiv:2106.10863 chordal families",
+        "Resultary ordinary independence Q4 and other cube functor searches"
+      ],
+      "rationale": "The four-cube is a natural smallest higher-dimensional Cartesian hypercube beyond standard small cases, and Ind_2 / F1 is a canonical graph-topological invariant with established motivation from higher independence and graph forest filtrations. Its strongly nonpure 7-dimensional simplicial model unexpectedly collapses to a mixed wedge of sixteen S3 and one S4; the exactly null integral attaching map is mathematically substantive and useful as a finite benchmark for later family theorems. No general theorem is required for this independently useful exact natural case.",
+      "residual_risks": [
+        "This is one finite graph instance and the result does not classify arbitrary graph-product forest filtrations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This exhaustively proves the precise Q4 instance, not higher hypercube dimensions.",
+    "Independent signed zero boundary (not only mod-two reduction) was checked; all relevant group assertions are integral.",
+    "A niche exact forest-filtration computation or stronger theorem for Cartesian graph products may have escaped searches.",
+    "The acyclic element matching is a standard method; novelty belongs to the finite Q4 critical counts and zero signed attaching vector.",
+    "This is one finite graph instance and the result does not classify arbitrary graph-product forest filtrations."
+  ],
+  "schema_version": 1
+}

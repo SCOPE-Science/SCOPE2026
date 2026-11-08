@@ -1,19 +1,21 @@
-# Scientific review of the four-cube two-independence classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim uses the standard two-independence definition (each induced component has no more than two vertices). For a finite simple graph this is exactly induced maximum degree at most one. Both predicates were independently exhaustively evaluated for all 65,536 subsets of the 16-vertex cube. The enumerated face numbers and facet spectrum are self-consistent. Every one of 13,584 Hasse cover incidences was oriented by the specified sequential matching and a complete topological sort proved there is no directed cycle. The 1519 pairs leave the empty face matched, sixteen critical three-cells, and one critical four-cell. Exact signed integer gradient elimination produces a zero sixteen-by-one Morse boundary. The three-skeleton is a wedge of three-spheres, so Hurewicz identifies its third homotopy group with integral third homology. This makes the last attaching map nullhomotopic. Independent full-chain mod-two ranks and Euler characteristic corroborate the integral homotopy proof.
+PASS
 
-## Originality
+A vertex subset of Q4 is an Ind_2 face exactly when every selected vertex has <=1 selected neighbor; this equivalence follows because connected induced components of maximum degree one are isolated vertices/edges. Exhausting all 2^16 subsets yields 3,055 faces including empty, f-vector by cardinality (1,16,120,464,964,960,440,80,10). A full sequential vertex toggle matching using pivot order (15,0,4,3,8,11,10,13,9,14,2,7,6,1,5,12) yields 1,519 matched pairs, 16 critical 3-faces, one critical 4-face, and an acyclic reversed-Hasse orientation across all 13,584 covers. Independently reproduced signed gradient reduction of the unique critical 4-cell into the 16 critical 3-cells and obtained an identically zero integral boundary column. The Morse CW model has no 1/2-cells; pi3 of its 3-skeleton wedge^16 S3 is Z^16, so a zero boundary means the unique S3-valued 4-cell attaching map is nullhomotopic. The added 4-cell splits as S4: the exact homotopy result follows, without a homology-only inference.
 
-**PASS relative to checked evidence, with residual search risk.** Deshpande–Singh (arXiv:2001.05448, inspected introduction, Morse preliminaries and classified families) do not treat the four-cube. Carnero Bravo (arXiv:2307.13271, inspected introduction and graph-products section) introduces the exact alias \(\mathcal F_1(Q_4)\), but its graph-product theorems do not classify this fourfold Cartesian cube. Abdelmalek and coauthors (arXiv:2106.10863, inspected introduction and stated chordal results) only supply classes inapplicable to the nonchordal cube. Related indexed results about the ordinary four-cube independence complex, cut complexes, and neighborhood complexes involve different face conditions. A search for an implicit or independently published calculation may nevertheless miss an equivalent classification. No identity or stronger theorem found in the inspected material subsumes the stated homotopy equivalence.
+## originality
 
-## Value
+PASS
 
-**PASS.** The binary four-cube is a canonical fourfold Cartesian product and the smallest dimension in which the displayed computation exhibits homology in adjacent positive dimensions: the two- and three-dimensional cubes instead have same-dimensional sphere wedges. Determining a complete integral homotopy type on this nonchordal, nonpure example is a natural exact finite invariant and an informative contrast to previously classified graph classes. The nullhomotopy of the top attachment cannot be deduced from mod-two Betti numbers alone. The result does not claim a formula for larger cubes or a broader classification.
+Ind_2(G) equals the first forest filtration F_1(G) as identified by Carnero Bravo, which is an equivalent name, not a separate result. Deshpande--Singh give general methods and exact results for other graph families; Q4 is not their tree, path, cycle, complete multipartite or whiskered case. The chordal-graph result excludes Q4, which has induced four-cycles. Published ordinary Ind(Q4) and matching(Q4) concern different complexes. No stronger prior theorem found to imply the 16/1 wedge; best-of-knowledge PASS.
 
-## Closest literature and limitations
+## value
 
-The fundamental higher-independence definitions and element-matchings are from arXiv:2001.05448. The equivalent first forest-filtration stage is explicit in arXiv:2307.13271. Chordal results arXiv:2106.10863 do not apply. The checker is an exhaustive finite proof component, not a general theorem or a separate human audit. Unindexed equivalences and unexamined related full texts remain search limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-cube is a natural smallest higher-dimensional Cartesian hypercube beyond standard small cases, and Ind_2 / F1 is a canonical graph-topological invariant with established motivation from higher independence and graph forest filtrations. Its strongly nonpure 7-dimensional simplicial model unexpectedly collapses to a mixed wedge of sixteen S3 and one S4; the exactly null integral attaching map is mathematically substantive and useful as a finite benchmark for later family theorems. No general theorem is required for this independently useful exact natural case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
