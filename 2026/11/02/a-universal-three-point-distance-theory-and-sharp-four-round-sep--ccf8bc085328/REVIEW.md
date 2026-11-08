@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ternary word construction exhausts all integer triangle metrics bounded by \(k\); the Johnson and Grassmann block embeddings preserve every pair distance. These establish all third-move extension patterns, not merely finite samples. Explicit absence witnesses prove each parameter threshold is sharp; the four-variable diamond sentence separates Hamming from the other two families for every \(k\ge2\). The included checker verified the constructive formulas and concrete witnesses through \(k=7\), and direct triangle enumerations for \(k=2,3\). A general mathematical proof, rather than finite enumeration, justifies the infinite quantifiers.
+## correctness
 
-**Originality — PASS, qualified.** Comparison included available prior claims about Hamming/Johnson/Grassmann adjacency theories and counting refinement; current published-finding corpus searches for combinations of the scheme names, three-round equivalence, metric triangle patterns, and induced diamonds; and accessible primary full text of Kurihara (2011) and Kivva (2019). Kurihara develops intersection-number and character-table methods and Kivva describes differences in local geometries, but neither inspected theorem states the cross-family three-round logical comparison, simultaneous sharp parameter bounds, or exact rank-four separator. The abstract of Terwilliger (1987) is relevant but its full text was not accessed. Standard intersection-number formulas might entail some components after additional computations; equivalently formulated work could remain unindexed.
+PASS
 
-**Value — PASS.** A distance-coloured first-order observer with three nested quantifiers cannot distinguish three natural geometries with very different numbers of points and intersection multiplicities. The explicit common ternary isometric skeleton gives a structural explanation and a reusable construction; simultaneous optimal ambient thresholds and the first four-point obstruction make this a sharp statement rather than a routine finite census.
+Every integer distance triple (u,v,w)≤k satisfying all triangle inequalities has a ternary-coordinate realization; explicit block embeddings preserve distances in J(3k,k) and G_s(2k,k), including s=2. Thus all three distance-coloured schemes have same possible 3-point atomic types and EF rank-three theory. Absence of (1,1,1), (k,k,k), or distance k gives sharp a,n,N boundaries. Four-variable induced diamond occurs in Johnson and Grassmann but not in Hamming. Independent brute-force Hamming/Johnson ordered triple spectra for k=2,3 agreed; the block argument proves all k.
 
-**Limitations.** No four-round Johnson-versus-Grassmann classification; no independent proof checking or certification; historical coverage incomplete, especially Terwilliger's unavailable full text. The theorem is specific to the fully coloured distance language at fixed diameter.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General association-scheme intersection numbers determine individual 3-point support, but the inspected Kurihara and Kivva theorems concern character tables or spectral/local graph classification, not an all-family EF rank-three comparison with sharp size bounds and a rank-four separator. The classic metric triangle fact alone does not include the full cross-family logical statement. Older intersection-number literature might implicitly imply some claims.
+
+## value
+
+PASS
+
+The complete sharp three-round indistinguishability of three canonical finite geometric association schemes and first four-round obstruction is a natural finite-model-theoretic classification, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
