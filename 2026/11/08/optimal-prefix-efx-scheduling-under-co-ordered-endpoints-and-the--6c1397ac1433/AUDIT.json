@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The ordered-subsequence capacity criterion is an iff: m+1 overlapping intervals forbid a schedule, while cyclic coloring attains one if spaced endpoints are disjoint. Dominance induction over earliest accepted indices proves greedy cardinality optimal at each prefix. Cyclic counts certify EFX. The m-1 long + 3 short example forces loads (3,1,...,1); removing one long yields (2,1,...,1), while every feasible family of <=m+1 jobs can be fairly assigned by extracting an existing compatible pair. Half-open ties and nondecreasing endpoints checked. Exact rational CHECK.py passed 14,965 tests; it does not stand in for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borst–Shahkarami–Vaish (arxiv:2608.15159) prove an offline 3/2 guarantee and general online 2-1/m sharp ratio; those apply more broadly but are weaker numerically and their statements do not assert this exact restriction-specific optimum.",
+        "Gomes–Lima–dos Santos (arxiv:1810.13036) cite equitable coloring of claw-free graphs; that covers only existence of static equitable proper coloring among accepted jobs.",
+        "The original paper explicitly builds m-1 long intervals and 2m-1 short intervals for its unweighted lower bound; a related geometry is therefore not new by itself."
+      ],
+      "reasoning": "A weaker global approximation or an offline coloring existence theorem does not logically imply exact throughput and prefix feasibility. Conversely the new theorem is restricted to nondecreasing finishes; it does not improve unrestricted-domain guarantees. Classical greedy maximum-cardinality interval scheduling may imply a constituent, which is credited.",
+      "searches": [
+        "EF1 optimum loss zero for proper interval jobs on m identical machines, start-time arrival, cyclic greedy online fairness, arbitrary varying duration no containments",
+        "equitable coloring proper interval graph prefix online throughput m-colorability optimal subgraph",
+        "https://arxiv.org/abs/2608.15159",
+        "https://arxiv.org/abs/1810.13036"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.15159",
+      "https://arxiv.org/abs/2401.05648",
+      "https://arxiv.org/abs/1810.13036",
+      "Semantic mathematical research index searched with seven literal queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2608.15159 general ratio results imply upper bounds on this restricted class, but not equality 1 from the published statements inspected.",
+        "arxiv:2401.05648 addresses online proper graph coloring using possibly non-chronological presentation; it does not imply finite-prefix optimal *acceptance* under m colors.",
+        "arxiv:1810.13036 describes a prior claw-free equitable coloring existence result, which is acknowledged as supplying a related static conclusion."
+      ],
+      "reasoning": "The claimed exact new combination requires both irrevocable, at-every-prefix throughput equality and fair machine loads, plus sharp m+2 obstruction under arbitrarily small nesting. No inspected broader statement logically subsumes all those quantifiers. Earlier ingredients are acknowledged; an undiscovered combination could still cover the claim. The long/short conflict idea in the motivating paper directly anticipates the example, so only its near-unit refinement and global m+2 minimality are claimed.",
+      "searches": [
+        "equal-length unweighted interval scheduling m identical machines round-robin coloring all accepted greedy jobs yields EF1 envy-free up to one and optimum competitive ratio 1",
+        "EF1 optimum loss zero for proper interval jobs on m identical machines, start-time arrival, cyclic greedy online fairness, arbitrary varying duration no containments",
+        "unweighted unit intervals lower bound positive fairness price with tiny nesting perturbation, first obstruction m+2 intervals",
+        "https://arxiv.org/abs/2608.15159",
+        "https://arxiv.org/abs/2401.05648",
+        "Borst Shahkarami Vaish fair scheduling no nested intervals coordered endpoints greedy cyclic EFX optimal online unit length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.05648 analyzes online coloring of unit interval graphs with arbitrary proper-interval presentation order and number of colors; this proof deals with start-ordered maximum accepted throughput and cyclic equitable loads.",
+        "arxiv:1810.13036 discusses previously known equitable coloring for claw-free graphs; static equitable coloring is a constituent but does not itself establish every-prefix throughput optimality or the nesting obstruction."
+      ],
+      "reasoning": "A schedule is a coloring of the intersection graph of the chosen jobs, and EFX is equitable color-class size. This equivalence is acknowledged. Ordinary proper-interval equitable coloring does not imply existence of an online, irrevocable, prefix-optimal selection; a separate ordered-subsequence theorem supplies it. No matching statement was located, but a hidden combined theorem is possible.",
+      "searches": [
+        "equal-length unweighted interval scheduling m identical machines round-robin coloring all accepted greedy jobs yields EF1 envy-free up to one and optimum competitive ratio 1",
+        "unit interval graphs online equitable coloring maximum cardinality subset EF1 no price of fairness",
+        "online interval scheduling equal length unweighted irrevocable greedy cyclic balanced allocation cost fairness",
+        "https://arxiv.org/abs/2401.05648",
+        "Optimal prefix-EFX scheduling under co-ordered endpoints and the sharp thin-nesting obstruction: arbitrary m equal machine counts, greedy acceptance is offline-optimal for every prefix, exact first counterexample m+2 jobs length 1+epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The specific all-m family of m-1 intervals containing one central unit job plus three adjacent unit jobs, and first obstruction n=m+2, was not found in the inspected primary material.",
+        "No pre-existing finite table is used as a proof; the m+2 minimality follows for all m from the pigeonhole argument."
+      ],
+      "reasoning": "The example is a parametrized exact construction with a universal minimality theorem, not a small enumerated table or a lookup from a database. The semantic results have incomplete coverage, so absence from search is treated as a risk rather than a proof.",
+      "searches": [
+        "near-unit equal lengths discontinuous price of EF1 fairness interval scheduling four jobs two machines arbitrarily small perturbation",
+        "unweighted unit intervals lower bound positive fairness price with tiny nesting perturbation, first obstruction m+2 intervals",
+        "https://arxiv.org/abs/2608.15159",
+        "Minimum size m+2 interval jobs for strict positive price of fairness EF1 identical machines, m-1 long intervals near unit length and three disjoint unit intervals"
+      ]
+    },
+    "rationale": "The closest fair scheduling paper addresses arbitrary interval streams and bounds their price, not the exact optimal prefix-EFX/structural threshold stated here. Proper interval online coloring literature assumes different arrival and minimizes colors rather than maximizing accepted jobs with fair loads. Classical equitable coloring of claw-free graphs covers part of offline existence, so that part is explicitly credited and not marketed as independent novelty. Queries to a semantic research index, primary studies and prior claims revealed no matching combined statement. Unindexed implication risk remains; no uniqueness is inferred from database partition.",
+    "residual_risks": [
+      "The static proper-interval equitable coloring component is known; the combined theorem may be an unstated easy corollary in older interval-scheduling theory.",
+      "The full text of online proper-interval coloring and the original de Werra proof was not exhaustively inspected, and terminology for fair machine loading varies.",
+      "Semantic index non-matches and role partitions are not novelty certificates.",
+      "The new minimal nested witness is conceptually close to the published unweighted long-versus-short lower-bound construction; only the thin-nesting and universal minimality refinements are asserted beyond that motif."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL DOMAIN; NOT_FOUND_COVERING for co-ordered optimal every-prefix EFX coupled to first minimal thin-nesting obstruction",
+        "evidence": [
+          "Unrestricted unweighted offline EF1 ratio 3/2 and general online sharp deterministic 2-1/m; proper co-ordered subclass not claimed as an exact optimal fair scheduling theorem in inspected material.",
+          "The source lower bound uses m-1 long intervals conflicting with 2m-1 sequential short intervals; our nested family adapts that pre-existing motif to three shorts, all lengths near one, and a sharp first-instance size."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.15159",
+        "material_read": "HTML body: definitions, main theorems, offline approximation arguments, online Greedy-Balanced and adversarial lower-bound construction (including Sections 3–4 and pertinent proof segments)",
+        "method": "Primary open-access HTML and targeted in-document reading",
+        "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+        "trigger": "Introduces precisely the identical-machine fair interval scheduling problem and reports general online and offline bounds"
+      },
+      {
+        "assessment": "A different online objective and arrival order; full-text hidden-equivalence risk remains",
+        "evidence": [
+          "Adversary presents intervals with no nesting relative to previous intervals and algorithm irrevocably colors all; objective minimize colors, not optimize scheduling acceptance and equitable load."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.05648",
+        "material_read": "Abstract, chronological submission and MSC details; not full PDF text",
+        "method": "Open-access arXiv abstract inspected",
+        "title": "On the on-line coloring of unit interval graphs with proper interval representation",
+        "trigger": "Online proper-interval representation seems closely connected to cyclic machine coloring"
+      },
+      {
+        "assessment": "Known static coloring theorem is related and explicitly credited, but does not itself give prefix throughput selection or first instability size",
+        "evidence": [
+          "Paper invokes de Werra (1985) for claw-free equitable coloring dichotomy; known equitable-coloring component is not independently claimed as new."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.13036",
+        "material_read": "Abstract and its attribution to de Werra; no full proof read",
+        "method": "ArXiv abstract inspected",
+        "title": "Parameterized Complexity of Equitable Coloring",
+        "trigger": "Equitable colorability of claw-free interval intersection graphs may subsume static fairness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c1397ac-1433-4337-b8f8-9f7d5333d451",
+  "value": {
+    "rationale": "The motivating paper provides an exact worst-case online fair penalty in general streams. A no-nesting geometric restriction is natural in scheduling, and the proposed policy achieves an optimal ratio simultaneously after every input prefix without revocation. The m+2 minimality and arbitrarily small nesting family identify an exact structural boundary rather than a routine finite instance. This clarifies which interval geometry, not just task length variability, creates a fairness-efficiency tradeoff.",
+    "status": "PASS"
+  }
+}
