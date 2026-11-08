@@ -1,15 +1,21 @@
-# Scientific review: friendship domination reconfiguration metric
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof exhausts dominating sets at cap \(r+1\) as hub states, transversals and one-doubled-blade upper states. Its six distance formulas use unavoidable symmetric-difference changes, the unique hub-exit bridge, and a forced two-operation overhead when two different upper states share their doubled blade. The upper constructions never exceed the cardinality cap. The radius/diameter, center/periphery and counts follow by maximizing these exact formulas over the three classes. A separate analysis of \(\mathcal D_r(F_r)\) establishes the sharp threshold. Independent exhaustive verifiers reproduce the state graph and the distance/eccentricity formulas on finite instances; their finite ranges are not claimed to prove the infinite-family statement.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant original studies are Haas–Seyffarth (arXiv:1209.5138), Suzuki–Mouawad–Nishimura (arXiv:1401.5714) and Alikhani–Brown–Jahari (arXiv:1401.2092). Their established general connectivity and complexity results, and the ordinary domination polynomial of friendship graphs, are all excluded from the claimed advance. Messinger–Porter (arXiv:2404.10962) studies Eulerian, not distance, questions. Searches for \(D_{\Gamma+1}\) diameter, friendship or windmill graph, dominating-set exchange, fixed reconfiguration cap, and exact eccentricity found no equivalence or stronger covering statement. Related research records on dissociation, zero forcing and fractional edge resolution of friendship graphs concern different objects. The residual risk is an unindexed historical all-pairs enumeration or equivalent formula; absence from searchable indexes alone cannot prove priority.
+PASS
 
-## Value — PASS
-For a canonical chordal graph family, \(\Gamma+1\) is the first size cap at which previously isolated minimal dominating sets can move. A general connectivity theorem does not determine how long transformations take. The complete exact metric shows a growing separation between center and periphery, gives a natural combinatorial description of each eccentricity class, and supplies sharp worst-case transformation lengths and explicit counts for algorithmic benchmarking. It is a structural infinite-family result, not an arbitrary parameter substitution or isolated small-graph computation.
+For every r>=2, the friendship graph F_r has hub h and r outer edges. A capped dominating set with size≤r+1 is exactly H_X={h}∪X, |X|≤r, a transversal L_T choosing one vertex each edge, or an upper U with one doubled edge and singletons elsewhere. Edges are all allowed outer toggles inside H-ball, H_T↔L_T, and L_T↔U where T is a floor of U. This supplies explicit sharp routes: hub-hub Hamming; hub-lower 1+Hamming; hub-upper 2+min floor-Hamming; lower-lower Hamming; lower-upper 1+min floor-Hamming; upper-upper Hamming unless their same doubled blade forces two extra operations (U≠V). The crucial hub-upper lower bound uses the last hub deletion; same-doubled upper pairs must first delete and later readd a currently common blade vertex. Maximizing these distances gives stated eccentricity by singleton/double counts a,b, radius r+2, diameter 2r+1, center r+1, periphery (r+2)2^r. Counting the three vertex classes and allowed toggles gives claimed vertex/edge formulas. At cap r each transversal is isolated; cap r+1 is connected via hub states. Independent subset-domination/BFS for r=2,3,4,5 obtained (states,edges,radius,diameter,centers,periphery) equal respectively (19,28,4,5,3,16), (62,128,5,7,4,40), (211,592,6,9,5,96), (750,2752,7,11,6,224), as symbolic formulas predict. The all-r proof is the route/lower-bound argument; finite BFS corroborates.
 
-## Reproducibility and limits
-Both standalone Python 3 files run without dependencies and can be inspected directly. Direct exhaustive tests cover all states through \(r=5\), with symmetry-class checks through \(r=8\); an independently generated abstract graph checks all ordered pairs through \(r=5\) and representative distances at \(r=6\). The full mathematical quantifier rests on the stated proof. Potential equivalence with unpublished or unindexed historical work is a remaining originality uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for complete all-pairs TAR reconfiguration metric and eccentricities of friendship graphs at cap Γ+1, not for the definition, upper domination number or threshold connectivity. Haas–Seyffarth’s 2013 chordal theorem already gives connected D_{Γ+1}, and general Suzuki–Mouawad–Nishimura bounds do not supply precise F_r distances; ordinary domination polynomial counts alone cannot establish shortest paths. This new exact metric is a structurally motivated classification of a natural family at its first connected size cap, though an unindexed graph-specific metric calculation remains possible.
+
+## value
+
+PASS
+
+At the first connected dominating-set size cap, determining actual shortest change sequences is a natural reconfiguration metric problem, and known chordal connectivity does not answer it. All-pairs formulas, eccentricities, unique center types, periphery counts and the sharp disconnected-to-connected threshold give a complete infinite-family classification valuable for graph reconfiguration comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

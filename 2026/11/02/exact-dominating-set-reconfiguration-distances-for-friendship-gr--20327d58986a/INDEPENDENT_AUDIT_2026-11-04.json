@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:00:23.096044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every r>=2, the friendship graph F_r has hub h and r outer edges. A capped dominating set with size≤r+1 is exactly H_X={h}∪X, |X|≤r, a transversal L_T choosing one vertex each edge, or an upper U with one doubled edge and singletons elsewhere. Edges are all allowed outer toggles inside H-ball, H_T↔L_T, and L_T↔U where T is a floor of U. This supplies explicit sharp routes: hub-hub Hamming; hub-lower 1+Hamming; hub-upper 2+min floor-Hamming; lower-lower Hamming; lower-upper 1+min floor-Hamming; upper-upper Hamming unless their same doubled blade forces two extra operations (U≠V). The crucial hub-upper lower bound uses the last hub deletion; same-doubled upper pairs must first delete and later readd a currently common blade vertex. Maximizing these distances gives stated eccentricity by singleton/double counts a,b, radius r+2, diameter 2r+1, center r+1, periphery (r+2)2^r. Counting the three vertex classes and allowed toggles gives claimed vertex/edge formulas. At cap r each transversal is isolated; cap r+1 is connected via hub states. Independent subset-domination/BFS for r=2,3,4,5 obtained (states,edges,radius,diameter,centers,periphery) equal respectively (19,28,4,5,3,16), (62,128,5,7,4,40), (211,592,6,9,5,96), (750,2752,7,11,6,224), as symbolic formulas predict. The all-r proof is the route/lower-bound argument; finite BFS corroborates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haas–Seyffarth Theorem 9 guarantees connectivity at Γ+1 but no exact radius or eccentricities.",
+          "Suzuki et al. obtain general diameter bounds and exponential examples at different graph families and caps."
+        ],
+        "reasoning": "A general upper bound and existence of paths do not imply equality in F_r or a six-case metric formula.",
+        "searches": [
+          "Haas Seyffarth arxiv:1209.5138 Theorem 9",
+          "Suzuki Mouawad Nishimura arxiv:1401.5714v2 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 93ff4fe3acf0dd91871228a7f51afa97f926cf1e, verify_direct.py blob e8f9e0280df1ea2d43fc6240c1ce3af6b92b68b4 and verify_metric.py blob 7ca5faa5dd49eca33d7474f0ff46c48d63d1c809",
+        "Haas Seyffarth full primary HTML arxiv:1209.5138v2",
+        "Suzuki Mouawad Nishimura full primary HTML arxiv:1401.5714v2",
+        "Resultary semantic friendship reconfiguration query",
+        "Alikhani Brown Jahari arxiv:1401.2092 indexed abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectedness at Γ+1 and ordinary dominating-set counts are prior facts, explicitly excluded from novelty.",
+          "No inspected theorem asserts the target all-pairs formula or center and periphery cardinalities."
+        ],
+        "reasoning": "Logical implication from prior generic connectivity to exact distances is invalid; the new proof exploits H/L/U state decomposition.",
+        "searches": [
+          "arxiv:1209.5138 Theorem 9",
+          "arxiv:1401.5714v2 Sections 3,5",
+          "arxiv:1401.2092 domination polynomials"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haas–Seyffarth defines precisely D_k with addition/deletion and proves connectedness for chordal G, without the six F_r distance classes.",
+          "Resultary published record on fractional edge resolvers for friendship graphs concerns different metric invariants."
+        ],
+        "reasoning": "The alternative name k-dominating graph and windmill graph with triangular blades were searched; no equivalent all-pairs shortest-path formulas found.",
+        "searches": [
+          "friendship graph dominating set reconfiguration TAR radius diameter full distances k=r+1 [Resultary]",
+          "\"friendship graph\" \"k-dominating graph\" \"diameter\" radius [web]",
+          "arxiv:1209.5138v2 full text §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alikhani–Brown–Jahari ordinary domination polynomial counts selected sets but not reconfiguration graph distances.",
+          "The result is an all-r symbolic state/metric classification, not a small-n lookup table."
+        ],
+        "reasoning": "Small enumerations would not yield arbitrary r; independent BFS validates boundary cases only.",
+        "searches": [
+          "friendship graph F_n dominating reconfiguration state graph spectrum exact distance census [web]",
+          "friendship graph k dominating graph cardinalities diameter center table [web]"
+        ]
+      },
+      "rationale": "PASS for complete all-pairs TAR reconfiguration metric and eccentricities of friendship graphs at cap Γ+1, not for the definition, upper domination number or threshold connectivity. Haas–Seyffarth’s 2013 chordal theorem already gives connected D_{Γ+1}, and general Suzuki–Mouawad–Nishimura bounds do not supply precise F_r distances; ordinary domination polynomial counts alone cannot establish shortest paths. This new exact metric is a structurally motivated classification of a natural family at its first connected size cap, though an unindexed graph-specific metric calculation remains possible.",
+      "residual_risks": [
+        "Unindexed exact all-pairs F_r reconfiguration metric analysis may predate this work",
+        "Alikhani et al. full mathematical paper not read; its stated subject is ordinary domination enumeration"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the correct connectivity threshold as a known fact, but not exact friendship metric",
+          "evidence": [
+            "Theorem 9: D_{Γ+1}(G) connected for all nontrivial chordal G."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1209.5138v2",
+          "material_read": "Full accessible HTML, especially definitions §2 and chordal Theorem 9 with proof §4",
+          "method": "web HTML lines 33–185",
+          "title": "The k-Dominating Graph",
+          "trigger": "exact same reconfiguration relation and chordal superfamily"
+        },
+        {
+          "assessment": "General diameter phenomena but different graph families and no F_r exact formula",
+          "evidence": [
+            "§5 constructs exponential-diameter family, not friendship graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1401.5714v2",
+          "material_read": "Full available HTML, abstract, §2 definitions, §§3–5 including diameter results",
+          "method": "web HTML lines 30–220",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "possible global diameter coverage"
+        },
+        {
+          "assessment": "Do not assert full text lacks reconfiguration; plain domination polynomials cannot determine distance graph without further work",
+          "evidence": [
+            "Record title and abstract describe ordinary domination polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.2092",
+          "material_read": "Indexed title and abstract only; not full text",
+          "method": "web source lookup",
+          "title": "On the Domination Polynomials of Friendship Graphs",
+          "trigger": "exact dominating-set table/possible implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the first connected dominating-set size cap, determining actual shortest change sequences is a natural reconfiguration metric problem, and known chordal connectivity does not answer it. All-pairs formulas, eccentricities, unique center types, periphery counts and the sharp disconnected-to-connected threshold give a complete infinite-family classification valuable for graph reconfiguration comparisons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 93ff4fe3acf0dd91871228a7f51afa97f926cf1e, verify_direct.py blob e8f9e0280df1ea2d43fc6240c1ce3af6b92b68b4 and verify_metric.py blob 7ca5faa5dd49eca33d7474f0ff46c48d63d1c809",
+    "Haas Seyffarth full primary HTML arxiv:1209.5138v2",
+    "Suzuki Mouawad Nishimura full primary HTML arxiv:1401.5714v2",
+    "Resultary semantic friendship reconfiguration query",
+    "Alikhani Brown Jahari arxiv:1401.2092 indexed abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only r>=2, cap r+1, TAR moves; not token-jumping, sliding, arbitrary chordal or windmill blade sizes",
+    "Finite BFS through r=5 is not an all-r certificate",
+    "Prior chordal connectivity acknowledged"
+  ],
+  "schema_version": 1
+}
