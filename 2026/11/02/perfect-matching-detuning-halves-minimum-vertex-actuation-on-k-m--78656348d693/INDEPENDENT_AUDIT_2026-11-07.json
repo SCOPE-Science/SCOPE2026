@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:12:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 62e7e26fb0a06abe21719d56160bf1da74ea3c20",
+        "paired_bipartite_rank_verify.py blob 7e5be9b7e1eaff6e57b9341f0392fd96690033bc",
+        "Independent SymPy exact Kalman matrices m=2..4 all S and 3 rational t values"
+      ],
+      "rationale": "The weighted graph Laplacian is exactly [[dI,-J-(t-1)I],[-J-(t-1)I,dI]] with d=m-1+t. The orthogonal invariant spaces E0=(c1,c1), Ec=(c1,-c1), E+=(x,x), E-=(x,-x), x·1=0, have eigenvalues 0,2d,m,m-2+2t and dimensions 1,1,m-1,m-1. With m>=2,t>0, the only eigenvalue collision is E+ with E- at t=1. For every nonempty coordinate actuator set, both constant eigenspaces have rank-one nonzero projection. The projections to E± are copies of v_i=e_i-1/m·1 with span dimension min(|T|,m-1); at the collision t=1 side-specific projections instead span independent zero-sum axes. Spectral Lagrange interpolation proves the reachable space equals the sum of distinct-eigenvalue projection ranges (Kalman rank, not just eigenvalue multiplicity). This yields rank=2+min(|A|,m-1)+min(|D|,m-1) at t=1, and 2+2min(|A∪D|,m-1) otherwise; rho(empty)=0. Full-rank min actuator cardinalities 2m-2 vs m-1 and placements m^2 vs m2^(m-1). Independent exact SymPy Kalman matrix ranks covered 999 nonempty sets for m=2..4,t=1,2,1/2; modular verifier read separately. The algebra, rather than finite checks, supports real t>0.",
+      "residual_risks": [
+        "Algebra assumes t>0; at t=0 the crown graph has further disconnection/degeneracy cases not claimed.",
+        "Control energy/conditioning can diverge near t=1 despite exact rank change; no robustness assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan et al. provides general maximum geometric eigenvalue multiplicity lower bound on free inputs, but not rank for every prescribed site set.",
+          "Qualitative-class zero forcing ensures controllability for all allowed positive matrices and does not give the exact fixed-weight detuned family."
+        ],
+        "reasoning": "The general tools are applicable antecedents. Their claims do not themselves provide the family-specific index coverage/placement census without the projector calculation.",
+        "searches": [
+          "Yuan et al 2013 doi:10.1038/ncomms3447 full text",
+          "Monshizadeh Zhang Camlibel arxiv 1403.4868 full text",
+          "Xiang et al 2013 doi:10.1155/2013/405034"
+        ]
+      },
+      "checked_sources": [
+        "Yuan et al 2013 PMC3945876",
+        "Monshizadeh et al arxiv:1403.4868",
+        "Xiang et al doi:10.1155/2013/405034",
+        "Resultary weighted matched-biclique semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum eigenvalue multiplicity supplies a lower bound and the min count at generic t after deriving the eigenvalues; it does not supply site-by-site rank formula or enumerate m2^(m-1) sets.",
+          "Varying weights to break symmetry is prior general insight, not the exact discontinuity formula here."
+        ],
+        "reasoning": "A PBH calculation is required to establish the finite structural law. The new fact is not a new general PBH principle.",
+        "searches": [
+          "Yuan et al 2013 eigenvalue multiplicity controllability criterion",
+          "Xiang et al 2013 edge weight tuning controllability examples",
+          "Monshizadeh 2014 zero forcing strong controllability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The crown graph is the excluded t=0 boundary; positive matched weights are a uniformly detuned biclique.",
+          "PBH tests rank by eigenprojection, equivalent to polynomial Kalman reachability at fixed L."
+        ],
+        "reasoning": "Compared spectral multiplicity, fixed-weight PBH and coordinate leader-selection aliases. An ordinary crown-graph statement at t=0 cannot settle positive detuning at t=1.",
+        "searches": [
+          "weighted crown graph (K_m,m minus matching) controllability matched-edge weighted Laplacian",
+          "\"K_{m,m}\" \"leader\" \"weighted perfect matching\"",
+          "Resultary: weighted complete bipartite matched pair edges common parameter t minimum leader controllability exact Kalman rank jump at t=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary query returned unrelated complete-bipartite hitting domination and detuned state-transfer entries, not the all-S rank table.",
+          "No directly matching rank/placement catalogue was observed in targeted primary papers."
+        ],
+        "reasoning": "Negative search evidence alone does not certify novelty; specialist control-network literature may give a different parameterization.",
+        "searches": [
+          "\"weighted complete bipartite\" \"matched edges\" \"Kalman rank\"",
+          "\"K_{n,n}\" \"detuned matching\" \"minimum leader\"",
+          "Resultary weighted graph exact controllability matched inputs"
+        ]
+      },
+      "rationale": "General PBH spectral-mode controllability, maximum eigenvalue multiplicity and qualitative zero forcing are prior art. The claimed result is an evaluated all-vertex-placement rank function for one natural dense graph with matched-edge detuning, a singular positive conductance and exact minimum input-set multiplicities. Matched biclique/crown graph aliases and the broad PBH texts were compared; no exact all-placement formula was identified. This is a modest but motivated special-family specialization of well-known linear algebra, qualified against specialized controllability catalogues.",
+      "residual_risks": [
+        "Family-specific result may appear under weighted crown graph or leader selection vocabulary in an unindexed control paper.",
+        "The result requires classical spectral calculations; do not overstate as a new general control theorem.",
+        "Xiang et al uninterrupted full journal text not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_ONLY",
+          "evidence": "The maximum-geometric-multiplicity principle is explicit but exact all-vertex placements for a detuned matched K(m,m) are not displayed.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+          "material_read": "Full open article abstract, Results, spectral and network examples, discussion",
+          "method": "Read primary PMC full HTML and searched matched/bipartite examples",
+          "title": "Exact controllability of complex networks",
+          "trigger": "Primary general eigenvalue-multiplicity theorem potentially covering special family"
+        },
+        {
+          "assessment": "NOT_IMPLY_FIXED_RANK",
+          "evidence": "Qualitative class guarantee does not assert the exact fixed-detuned family rank nor site enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+          "material_read": "Full rendered preprint relevant definitions, Section IV qualitative matrices, zero-forcing proof, examples",
+          "method": "Opened lawful arXiv text and compared universal vs fixed-matrix quantifiers",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Potential all-graphs controllability theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "Changing link weights can improve control; no matched-bipartite all-input rank equation observed, full text incomplete.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/405034",
+          "material_read": "Indexed introduction, edge-weight modification sections, model examples, conclusion; continuous full page not recovered",
+          "method": "Publisher/indexed text inspection, material coverage limitation retained",
+          "title": "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics",
+          "trigger": "Weight perturbation could cover t≠1 transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md blob 62e7e26fb0a06abe21719d56160bf1da74ea3c20",
+        "Yuan et al 2013 PMC3945876",
+        "Monshizadeh et al arxiv:1403.4868"
+      ],
+      "rationale": "A natural matched-edge perturbation of a maximally symmetric control network has a sharp exactly-one-parameter controllability phase boundary. Every site subset has a closed Kalman-rank formula, optimal-actuator count falls by half (2m−2 to m−1) away from t=1, and all minimum placements are enumerated. This is a reusable graph-specific control-design invariant, notwithstanding known general PBH methods; it makes no unsupported robustness/energy claim.",
+      "residual_risks": [
+        "Exact full-rank does not imply practically conditioned actuation close to t=1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Algebra assumes t>0; at t=0 the crown graph has further disconnection/degeneracy cases not claimed.",
+    "Control energy/conditioning can diverge near t=1 despite exact rank change; no robustness assertion.",
+    "Family-specific result may appear under weighted crown graph or leader selection vocabulary in an unindexed control paper.",
+    "The result requires classical spectral calculations; do not overstate as a new general control theorem.",
+    "Xiang et al uninterrupted full journal text not inspected."
+  ]
+}
