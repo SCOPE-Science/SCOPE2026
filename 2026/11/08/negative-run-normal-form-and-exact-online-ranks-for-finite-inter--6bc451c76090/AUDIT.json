@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Both version-space normal forms follow from the geometry of positive spans and negative separators. The rank recurrence follows from the exact binary query branches, with infeasible negative states handled by -1. Threshold rank and product additivity have separate proofs. The dyadic equality has a matching product construction and information bound; static shattering has explicit witnesses. Independent finite masks agree through ten sites.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manurangsi and Rubinstein (2017), Appendix A, give a generic quasi-polynomial procedure for any explicit concept matrix and generic complexity bounds, not the finite-interval conditional-state theorem.",
+        "Ghazi et al. (2021), introductory claims and closure results, give asymptotic aggregation bounds, not exact ranks for the interval concept class.",
+        "Haghtalab et al. (2021 preprint), Section 3.4, construct disjoint-domain threshold products; Section 5 uses the VC dimension of ordinary intervals, not exact online interval ranks."
+      ],
+      "reasoning": "General-purpose computability implies a numerical answer exists but does not state the claimed rank normal form or exact dyadic invariant. The broader online threshold and aggregation bounds allow such examples but do not imply the specific rank recurrence.",
+      "searches": [
+        "arxiv:1705.09517 Appendix A Littlestone general exact algorithm",
+        "arxiv:2007.03668 Littlestone closure properties",
+        "arxiv:2102.08446 Section 3.4 online thresholds union",
+        "\"Littlestone dimension\" \"unions of intervals\" exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.09517",
+      "arxiv:2007.03668",
+      "arxiv:2102.08446"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general exact algorithm in the 2017 paper applies to all explicit classes but does not prove the interval-dependent formulas or state compression in the manuscript.",
+        "The 2021 closure bounds yield broad asymptotic dependence under composition, not the exact split-run equation.",
+        "The 2021 smoothed analysis construction provides threshold-product lower-bound methodology but no unrestricted interval membership exact conditional rank."
+      ],
+      "reasoning": "The claim uses established threshold and product-rank facts. Its surviving new component is the two-form classification of every realizable version space and the specific integer-partition recurrence, plus its exact dyadic consequences. The dyadic threshold-tree argument alone is not assigned disproportionate novelty.",
+      "searches": [
+        "\"Inapproximability of VC Dimension and Littlestone’s Dimension\" Manurangsi Rubinstein",
+        "\"Near-tight Closure Bounds for the Littlestone and Threshold Dimensions\"",
+        "\"Smoothed Analysis with Adaptive Adversaries\" Littlestone threshold intervals",
+        "\"Littlestone dimension\" \"intervals\" finite ordered"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite-chain interval class uses AND of two endpoint-threshold membership predicates, but a fixed positive observation creates a Cartesian product and a sequence of negative answers creates a multiset of separate permissible runs.",
+        "The previous exact theorem for fixed-width translated intervals does not cover variable-length intervals; the previous order-ideal theorem on two-row posets makes a different kind of query."
+      ],
+      "reasoning": "Exact conditional structure is not obtained by substituting parameters into fixed-width intervals or the two-row order-ideal rank: endpoint-comparison queries and interval-membership queries are not isomorphic, and negative-only histories in the latter create split run components. Two-threshold product ranks are acknowledged prior elementary ingredients, not claimed novelty.",
+      "searches": [
+        "\"Littlestone dimension\" \"intervals\" finite ordered",
+        "\"Littlestone dimension\" \"interval\" finite n mistake",
+        "Littlestone dimension all intervals on finite line n points exact values dynamic programming",
+        "online mistake bound interval indicator concepts finite chain dyadic entropy saturation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched published material did not expose an exact table or integer-partition recursion for the unrestricted finite interval class.",
+        "Computed small finite values are independently cross-checked by the supplied explicit-concept recurrence rather than sourced from a published table."
+      ],
+      "reasoning": "A missing search hit is not a priority proof; earlier tables or equivalent algorithms may exist outside the accessible corpus. No claim of exhaustive literature or database search is made.",
+      "searches": [
+        "finite intervals Littlestone dimension exact computation dynamic programming mistake trees",
+        "Littlestone dimension all intervals on finite line n points exact values dynamic programming",
+        "\"Littlestone dimension\" \"intervals\" finite ordered"
+      ]
+    },
+    "rationale": "The final exact conditional-state classification for unrestricted variable-length intervals is not covered by the checked general Ldim complexity work, aggregation closure bounds, or threshold-product learning example. The closest alternative fixed-width interval theorem and two-row-ideal theorem have distinct hypothesis/query structures. The literature check is bounded, and historical priority remains uncertain.",
+    "residual_risks": [
+      "An equivalent exact online-rank recurrence may appear in earlier interval concept or query-learning literature under different names.",
+      "Generic exact computation is known, and the present state bound is not claimed to dominate known general quasi-polynomial algorithms.",
+      "The threshold-product lower bound is an acknowledged ingredient, so the originality burden rests on the exact conditional-state normal form rather than that ingredient alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic exact quasi-polynomial algorithm and hardness, not interval-specific normal forms or sharp ranks",
+        "evidence": "2017 paper, Introduction, Section 1.3 and Appendix A.",
+        "identifier_or_url": "https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+        "material_read": "Title, abstract, complexity statements, related work, definition and Appendix A algorithm statement, including the end-page material.",
+        "method": "Full-document searchable extracted text with visual inspection of first PDF page",
+        "title": "Inapproximability of VC Dimension and Littlestone's Dimension",
+        "trigger": "Exact Littlestone computation for explicitly given classes"
+      },
+      {
+        "assessment": "Aggregation bounds, not a statement covering exact finite-chain interval ranks",
+        "evidence": "2021 ALT paper, Introduction and related work.",
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Title, abstract, introductory main quantitative claims and related-work description; text searched for interval-specific results.",
+        "method": "Document text and first-page PDF screenshot",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Interval indicators are a conjunction of endpoint conditions"
+      },
+      {
+        "assessment": "Disjoint threshold-product lower bounds and static VC dimension; no exact conditional online rank for unrestricted intervals",
+        "evidence": "2021 arXiv preprint, Sections 3.4 and 5.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2102.08446",
+        "material_read": "Abstract, Section 3.4, Section 5 relevant interval discussion, and their displayed arguments.",
+        "method": "Accessible open preprint HTML, with targeted searches and section reads",
+        "title": "Smoothed Analysis with Adaptive Adversaries",
+        "trigger": "Two-threshold product constructions and VC dimension of interval families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6bc451c7-6090-412a-8ca3-8fed60d43c79",
+  "value": {
+    "rationale": "The exact structure of every conditional online version space is captured by two simple canonical states; negative-only histories are compressed to integer partitions instead of arbitrary sets of interval hypotheses. This supplies an exact all-domain online rank recurrence and decision procedure for a canonical VC-two class, with an infinite sharp cardinality-bound family and the asymptotically maximal two-logarithm online separation. This is a structural characterization, not a routine fixed-parameter substitution or an isolated table increment.",
+    "status": "PASS"
+  }
+}
