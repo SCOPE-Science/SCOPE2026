@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_random_evolution.py` using only a standard Python installation. Expected final output: `VERIFY_OK 10 exhaustive invertible-matrix cases and 16 scalar partition checks`.
+## correctness
 
-The verifier independently enumerates every invertible structure matrix in the prime-field cases \((q,n)=(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(5,1),(5,2)\), and in the extension-field case \((q,n)=(4,2)\). The first four binary configurations are regression tests only. In each case it checks all scaled permutation automorphisms and independently constructs the monomial group orbits. It additionally checks exact transposition centralizer counts and sixteen finite scalar-restriction partition sums.
+PASS
 
-Important selected checks: over \(\mathbb F_3\) with \(n=3\), there are \(11232\) invertible structure matrices, \(576\) nonrigid matrices, and \(249\) isomorphism classes. Over \(\mathbb F_4\) with \(n=2\), the corresponding figures are \(180\), \(36\), and \(13\). These computations are exhaustive for their finite domains, but do not certify the asymptotic estimates. The latter follow from the algebraic and combinatorial proof in `RESULT.md`.
+Because A∈GL_n(Fq), pairwise distinct natural basis vectors have linearly independent squares, so images under any algebra automorphism have disjoint coordinate supports; every invertible automorphism is monomial t_i e_{σ(i)}. The coefficient condition is t_j a_ij=t_i² a_{σ(i),σ(j)}. Averaging fixed matrix counts, scalar restriction sum Z_r(q)-1=O_q(r q^-r) bounds perturbations on fixed coordinates; permutations moving ≥3 indices impose at least (2sn-s²)/2 orbit constraints, negligible compared with β=binom(n,2)(q−1)²q^{1−2n}. A diagonal nontrivial symmetry in an invertible matrix requires periodic orbits under scalar squaring, forcing extra zeros; its contribution is lower order. A transposition survives only with reciprocal scalars, (q−1) possible choices, and its GL centralizer has leading ratio (q−1)q^{1−2n}; combinations produce exactly β. Products of distinct transpositions force negligible other symmetries, hence conditional stabilizer C2 and probability β(1+o_q(1)); Burnside gives the orbit-class correction. Independent exact finite GF3 enumeration: n=2 has 48 nonsingular, 8 nonrigid, seven classes; n=3 has 11232 nonsingular, 576 nonrigid and 249 classes. This verifies small cases but not fixed-q n→∞ error estimates. No claim q=2 or algebra schemes.
 
-Scientific limits: fixed finite field of order at least three, perfect evolution algebras, ordinary rational automorphisms. No independent audit has been performed.
+## originality
+
+PASS
+
+Wei–Zou derive the general exact monomial Burnside orbit count and explicit low-dimensional classifications, while Sriwongsa–Zou classify automorphism structures. Neither inspected theorem evaluates the rare transposition probability, first nontrivial stabilizer coefficient or the asymptotic class-count correction for fixed q≥3 and large dimension. The source states a genuine probabilistic refinement of those prerequisites; possible implicit monomial fixed-point estimates remain priority risk.
+
+## value
+
+PASS
+
+Exact first-order deviation from generic automorphism rigidity and orbit count for a natural uniform random finite-field algebra ensemble answers a specifically motivated classification/probability problem. The concentration of exceptional automorphisms on a single two-cycle is a meaningful structural phenomenon, not merely an approximate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
