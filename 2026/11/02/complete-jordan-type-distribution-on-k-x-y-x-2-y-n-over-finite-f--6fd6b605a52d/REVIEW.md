@@ -1,12 +1,21 @@
-# Assessment of the complete multiplication Jordan-type census
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the identity \((a+xb)^t=a^t+t x a^{t-1}b\) directly from \(x^2=0\), computes the invariant factors of its two-by-two matrix over \(\mathbb F_q[y]/(y^n)\), and converts exact power ranks to Jordan multiplicities by finite differences. The valuation weights sum to every coefficient choice and include the zero polynomial. The characteristic transition follows from the last possible nonzero off-diagonal term. A standalone independent multiplication-matrix computation exhaustively verifies eleven finite configurations, including two extension fields. The resulting arithmetic does not depend on experiments outside the specified test ranges.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-Glasby–Praeger–Xia (arXiv:1401.2748v1, 2014) proves modular tensor-product Jordan partition results related to linear-form multiplication, not the all-element partition distribution. Iarrobino–Macias Marques–McDaniel (arXiv:1802.07383, 2018) explicitly develops Jordan types for arbitrary Artinian-algebra elements and includes nonlinear examples; neither nonlinear Jordan types in general nor the idea of considering them is claimed to originate here. Altafi–Iarrobino–Khatami (arXiv:1810.00716, 2018) treats possible linear-form partitions over algebraically closed fields in characteristic zero or large characteristic. The claimed increment is the simultaneous complete valuation-sensitive finite-field multiplicity census for every \(n\) and every positive characteristic, including all nonlinear elements. Historical priority remains provisional; stronger undiscovered general enumeration results are possible, and the full 2018 height-two classification text was not accessible for a decisive whole-document comparison.
+PASS
 
-## Value — PASS
-The Jordan partition of multiplication is a standard invariant of finite-dimensional local algebras; exact multiplicity strata for every element reveal which types are generic or exceptional and how modular resonance changes them. The formula applies to infinitely many dimensions and finite fields and includes nonlinear types omitted from a linear-form-only census. It determines a natural complete enumeration problem rather than a single arbitrary numerical slice. The result is deliberately limited to the monomial family and does not assert a downstream general theorem.
+For f=lambda+a(y)+xb(y) in k[x,y]/(x^2,y^n), (a+xb)^t=a^t+t*x*a^(t-1)*b in any positive characteristic. Over k[y]/(y^n) multiplication on free basis (1,x) is a 2x2 block triangular matrix; Smith valuations of diagonal and offdiagonal terms yield r_t=2n-min(n,d_t)-min(n,2u_t-d_t), including the p|t vanishing term. Second rank differences recover exact Jordan block multiplicities; each alpha,beta valuation cell has size q*w_alpha*w_beta, summing to q^(2n). The alpha=1 top-stratum dichotomy depends on p|n. Independent direct GF(2) multiplication-matrix rank computations exhaust all nilpotent a,b for n=2,3,4 and match every predicted rank and Jordan histogram. This verifies finite examples, not all n and characteristics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: For linear forms x+y, Jordan partitions are the modular tensor product Jordan form and are established; the new count ranges over nonlinear f=lambda+a(y)+xb(y) and all characteristic-sensitive valuation cells. The claimed distribution implies which Jordan partitions linear forms attain but does not claim priority for them. Known qualitative Jordan stratifications do not imply exact uniform counts on valuation cells without the two-by-two Smith analysis. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
+
+## value
+
+PASS
+
+The complete finite-field multiplicity distribution of all multiplication Jordan types (not merely linear forms) in a standard codimension-two monomial complete intersection is a natural algebraic invariant, including a sharp modular top-stratum transition. Exact frequencies can support finite-field Artinian classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

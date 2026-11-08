@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The code file `checker.py` computes multiplication matrices directly in the monomial basis, and obtains ranks of their powers by row reduction over prime and quadratic-extension fields. The predictor is a separate valuation formula. It enumerates all nilpotent parts and compares the exact full Jordan histograms, allowing all scalar constants. Run `python checker.py` in the same directory as this document; expected output is `checker_output.txt`. The last line must be `JORDAN_MULTIPLICATION_VALUATIONS_OK 11_EXHAUSTIVE_CONFIGURATIONS`.
+## correctness
 
-Eleven configurations are exhaustively checked: `GF(2),n=2,3,4,5`; `GF(3),n=2,3,4`; `GF(5),n=2,3`; `GF(4),n=3`; `GF(9),n=2`. A true irreducible quadratic represents each extension field. All checked histograms match the formula and have total cardinality equal to that of the algebra. Computations do not establish correctness for untested fields/dimensions, nor do they establish publication priority or independent validation. The general proof is given in `RESULT.md`.
+PASS
+
+For f=lambda+a(y)+xb(y) in k[x,y]/(x^2,y^n), (a+xb)^t=a^t+t*x*a^(t-1)*b in any positive characteristic. Over k[y]/(y^n) multiplication on free basis (1,x) is a 2x2 block triangular matrix; Smith valuations of diagonal and offdiagonal terms yield r_t=2n-min(n,d_t)-min(n,2u_t-d_t), including the p|t vanishing term. Second rank differences recover exact Jordan block multiplicities; each alpha,beta valuation cell has size q*w_alpha*w_beta, summing to q^(2n). The alpha=1 top-stratum dichotomy depends on p|n. Independent direct GF(2) multiplication-matrix rank computations exhaust all nilpotent a,b for n=2,3,4 and match every predicted rank and Jordan histogram. This verifies finite examples, not all n and characteristics.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: For linear forms x+y, Jordan partitions are the modular tensor product Jordan form and are established; the new count ranges over nonlinear f=lambda+a(y)+xb(y) and all characteristic-sensitive valuation cells. The claimed distribution implies which Jordan partitions linear forms attain but does not claim priority for them. Known qualitative Jordan stratifications do not imply exact uniform counts on valuation cells without the two-by-two Smith analysis. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
+
+## value
+
+PASS
+
+The complete finite-field multiplicity distribution of all multiplication Jordan types (not merely linear forms) in a standard codimension-two monomial complete intersection is a natural algebraic invariant, including a sharp modular top-stratum transition. Exact frequencies can support finite-field Artinian classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
