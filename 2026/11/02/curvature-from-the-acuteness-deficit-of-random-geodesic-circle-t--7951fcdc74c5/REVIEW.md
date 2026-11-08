@@ -1,15 +1,21 @@
-# Review of the curvature–acuteness asymptotic
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes an arbitrary smooth Riemannian surface, a point, normalized geodesic-circle arclength sampling, and intrinsic minimizing-geodesic angles. In geodesic normal coordinates, the metric and its constant-curvature comparison agree to second order, with rescaled \(C^2\) difference \(O_p(r^3)\). The angular sampling density agrees to \(O_p(r^3)\). Smooth dependence of geodesic tangent angles and transversality of the three right-angle boundaries transfer probability with error \(O_p(r^3)\). The constant-curvature cosine law yields the explicit threshold \(b_*(a,z)\) and the one-angle nonacute probability \(1/4+z/\pi^2+O(z^2)\). Multiple-angle overlap contributes only \(O(z^2)\). The coefficient and the resulting curvature limit follow with all quantifiers and curvature sign conventions specified. The supplied standalone checker tests the threshold identity, normalization, derivative and independently integrated model probabilities for both curvature signs.
+## correctness
 
-## Originality — PASS, provisional
-Akopyan–Edelsbrunner–Nikitenko, arXiv:2007.07783, Section 4, analyze acute **Euclidean** random triangular facets from **sphere-area** sampled vertices, not intrinsic triangles from three arclength-uniform points on an infinitesimal geodesic circle of a variable-curvature surface. Abelgas–Carrillo–Palacios–Weisbart–Yassine, arXiv:2009.06755, Theorem 1.1 and Sections 2–4, use a **Buffon needle crossing** experiment for **constant-curvature space forms**, not the stated acute-triangle Bernoulli observable on general surfaces. The classical Bertrand–Diguet–Puiseux theorem recovers curvature from circumference or area, not triangle acuteness. Huiling Le's 1989 spherical-triangle density model instead samples within a cap, as far as available abstract evidence establishes; its complete text was not examined. Published geometric-probability results for random triangles and the closest currently visible semantic records did not furnish the stated local curvature coefficient for this exact observable. Priority is not asserted as exhaustively resolved.
+PASS
 
-## Mathematical value — PASS
-An intrinsic binary measurement on just three independent geodesic-circle boundary points yields a pointwise curvature invariant for *every* smooth Riemannian surface, including variable-curvature and nonorientable cases. The result identifies both the sharp coefficient and the sign of the first departure from the Euclidean one-quarter baseline. This is a natural complementary probabilistic characterization to metric circle-length and Buffon curvature measurements; the extension beyond space forms and the explicit acuteness-event coefficient are its substantive mathematical features. No claim is made that the general idea of curvature recovery is new.
+On every smooth Riemannian surface, for any interior point and sufficiently small geodesic circle sampled by normalized arclength, the quadratic normal-coordinate metric jet matches the constant-curvature K(p) model with O_p(r^3) C^2 discrepancy after scaling. Polar Jacobi formula gives normalized angle density (2pi)^-1+O_p(r^3). Smooth dependence of short minimizing geodesic tangents, including coalescing endpoints after dividing out chord factor, together with transverse near-right-angle gap boundaries, supports O_p(r^3) probability comparison. In the constant-K model generalized cosine law gives b_*(a,z)=2 atan(cot(a/2)/(1-z))=pi-a+z sin(a)+O(z^2) for z=Kr^2+O(r^4), so a specified angle has nonacute probability 1/4+z/pi^2+O(z^2); pairs of nonacute constraints intersect only in O(z^2) area. Thus P_p(r)=1/4-3K(p)r^2/pi^2+O_p(r^3), with correct sign convention. Independent symbolic differentiation confirms sin(a), and high-precision integrations with K=+1,-1 shrinking radii approach slope -/+3/pi^2. Finite model integrations do not prove general smooth metrics; the normal-coordinate uniform boundary control is essential.
 
-## Limits and residual risks
-The estimate is local and concerns the exact population probability; no nonasymptotic estimator or universal finite-radius formula is proved. The proof of the arbitrary-surface step uses standard smooth dependence for minimizing geodesics and transverse right-angle event boundaries rather than a machine-verified analytic certificate. Historical priority for older geometric-probability literature, especially inaccessible full texts on random spherical triangles, remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Bertrand–Diguet–Puiseux recovers curvature from geodesic circumference/area, and Abelgas et al use a different Buffon intersection Bernoulli probability for constant-curvature geometries. Akopyan et al study Euclidean acute facets sampled from a 2-sphere, not intrinsic geodesic triangle angles sampled on a shrinking geodesic circle of a variable-curvature surface. Hall considers uniform interior ball sampling, a different distribution. The exact pointwise acuteness deficit for every smooth surface is not supplied by those inspected results; other local geometric-probability expansions remain possible.
+
+## value
+
+PASS
+
+The theorem offers a natural scale-local binary intrinsic triangle statistic encoding Gaussian curvature at any point, with sign discrimination and explicit universal coefficient. Unlike direct metric circumference measurement, it uses only the acuteness of sampled geodesic triangles; the pointwise variable-curvature extension and uniform probability asymptotics form a meaningful geometric-probability result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
