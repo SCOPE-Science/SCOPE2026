@@ -1,0 +1,11 @@
+# Scientific review of the simplex-translate depth classification
+
+**Correctness (PASS).** For any translate of a simplex, barycentric facet thresholds sum to zero; missing a query point forces one threshold strictly above that point's barycentric coordinate. This bounds the captured mass by a one-sided marginal cap. Conversely, an explicit translation realizes caps at every slightly higher threshold, and measure-continuity from below gives equality even for atoms. Right-continuous CDF quantiles then yield the complete depth-region shape, and sorted empirical coordinates give the exact median algorithm. Uniform-simplex and face-center cases are obtained from independently justified homothetic volume ratios. Exact-rational tests supplied in `verify.py` passed 15,707 assertions. No finite test is treated as a general proof.
+
+**Originality (PASS, provisional historical priority).** The closest source, Molchanov and Nagy (arXiv:2610.26108; Sections 2, 6 and 7), gives the general translate-depth framework, erosion identity and empirical representation, but not the all-measure simplex-specific formula, its atomic quantile regions or an order-statistic median algorithm. Schütt, Werner and Yalikun (arXiv:2504.15488) give floating-body definitions and a covariogram representation, not this exact marginal calculation. Related mathematical research-record hits on simplex erosion and three-slice halfspace depth concern distinct statements. Small's older centrality paper was accessible at abstract level only; an undiscovered special-case formulation is the main priority risk.
+
+**Mathematical value (PASS).** The result resolves the entire depth function, all depth regions and all empirical medians in a canonical high-dimensional testing family for arbitrary measures, including discrete empirical data. This converts a geometric infinite translation optimization into \(d+1\) marginal CDF evaluations and sorting, and identifies exact non-generic behavior and high-dimensional uniform medians. Its value is the structural and algorithmic reduction, **not** the already-known general Helly lower bound or the one-dimensional case.
+
+**Scientific limits.** Support outside the testing simplex is not handled. Definitive historical priority and independent verification remain open.
+
+Self-review: passed. Independent audit: not yet performed.
