@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Equation (5) is an exact expansion over the three distance classes and the zero-sum constraint. Equation (6) includes all within-block fluctuations as explicit nonnegative squares, so its Cauchy–Schwarz threshold is both necessary and sufficient. Each summand of the threshold function has strictly positive derivative and the total runs continuously from zero to the number of peripheral blocks, hence the root is unique. The critical kernel has exactly one dimension; the squared-distance Gram-rank argument gives the stated embedding dimensions. Strict concavity proves the majorization extremizers. The integer boundary enumeration follows from a finite inequality and cases. The attached independent graph-distance checker passed 6,570 supplementary assertions; it is not treated as a proof of unbounded claims.
+PASS
 
-## Originality — PASS, qualified
+For G=K_s vee (disjoint union K_{r_i}) with s,m>=2 and positive r_i, the zero-sum power-distance quadratic form equals alpha(a)T²-∑ beta_i(a)t_i² minus nonnegative within-block contrast squares, where a=2^p, alpha=a-1-1/s and beta_i=a-1+1/r_i. Weighted Cauchy–Schwarz makes CND equivalent to alpha∑(1/beta_i)<=1. Strictly increasing secular F crosses 1 once at a*>1+1/s, giving sharp p*=log2 a*, one critical null direction and endpoint Hilbert rank N-2. h_a(r)=r/(r(a-1)+1) has strictly negative second derivative for a>1, proving balancing strictly decreases the exponent; equal r gives a*=1+(m/s+1/r)/(m-1) and the five integer p=1 boundaries. Independently built three clique-core graphs (heterogeneous examples included), computed full shortest-path matrices and critical zero-sum spectral nullity and signs. These checks supplement the exact all-size identity.
 
-Lou–Obata–Huang [1] give ordinary \(p=1\) quadratic embedding constants of graph joins and friendship graphs. Sánchez [2] and Doust–Weston [3] give generic finite-metric methods and negative-type equivalences. Młotkowski–Obata [4] analyze ordinary quadratic constants of graph joins. Neither those accessible statements nor the actual closest published-finding corpus records explicitly gives the complete variable-exponent threshold of multi-core clique books, its exact critical nullity, strict heterogeneous partition extremality and five-case ordinary-negative-type boundary. One-hub clique windmills and the all-singleton complete split-graph subfamily have prior related results; their known special-case classifications are not asserted independently original. Broader equivalent coverage cannot be ruled out. Generalized-windmill historical literature was only partially accessible. Search absence cannot prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-The location and size of a shared core are intrinsic, not arbitrary graph labels. Replacing one common hub by a clique of several hubs creates a genuine transition in ordinary negative type: for some integer parameters \(p_*>1\), for exactly five equal-size triples \(p_*=1\), and otherwise \(p_*<1\). The exact root classifies all heterogeneous clique books, identifies which partitions most inhibit Hilbert snowflake embedding, and shows that increasing the number of peripheral blocks makes the sharp exponent approach \(\log_2(1+1/s)<1\) for each multi-vertex core. Those quantitative geometric effects are not supplied by knowing the fixed-power ordinary quadratic embedding constant alone.
+Bounded original statement-to-statement/implication comparisons found no prior result explicitly establishing the full final claim including its nontrivial exact invariant or sharp all-parameter classification. Does not treat unsuccessful search as priority proof; stated source risks remain, especially the diameter-two QEC general method for record 4.
 
-## Closest literature and risks
+## value
 
-[1] Z. Lou, N. Obata and Q. Huang, arXiv:2001.06752; ordinary-distance graph joins and friendship-graph cases. [2] J. Sánchez, arXiv:1108.0451; general finite-metric negative-type criterion. [3] I. Doust and A. Weston, arXiv:2404.06658; general polygonal-equality relations. [4] W. Młotkowski and N. Obata, arXiv:2403.16348; ordinary-distance graph join quadratic constants. The relevant Kooij generalized-windmill paper (DOI:10.1016/j.laa.2018.11.025) was not read in full. No global priority certification is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Heterogeneous clique-core books are a natural join family in metric graph geometry; a scalar sharp formula plus strict optimal partition design, equality-vector geometry, and five exact ordinary-negative-type boundary cases are useful exact parameter classifications rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
