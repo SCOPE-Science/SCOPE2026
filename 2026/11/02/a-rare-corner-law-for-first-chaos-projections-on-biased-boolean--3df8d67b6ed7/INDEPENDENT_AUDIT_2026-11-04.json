@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:48:33.731461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pinned RESULT.md uses the exact rank-n orthogonal kernel K(x,y)=Σ(x_i-p_i)(y_i-p_i)/(p_i(1-p_i)); on finite C(Ω), norm is max_x E|K(x,Y)|, attained by choosing input sign of that row. At x_i rare, the individual centered summand U has endpoints -1 and (1-r)/r; at common x_i, V has endpoints -1 and r/(1-r) contained in [minU,maxU]; both have zero mean. Chord convexity proves V≤cx U, and independence lets one replace each common coordinate for convex |S+t|, yielding global rare-corner optimum for arbitrary heterogeneous p_i. At homogeneous p the row is ±(Bin(n,p)-np)/min(p,1-p); binomial telescoping yields 2n max(p,q) C(n-1,floor(np)) p^{floor(np)} q^{n-1-floor(np)}. Local CLT and Poisson convergence prove fixed-bias sqrt n and sparse p=c/n linear boundary; integer c handled by equal adjacent Poisson masses. Independently exact-rational enumerated 308 row assertions including four heterogeneous profiles and homogeneous n≤5. Boundaries n=1, p=1/2 included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al analyze Haar-uniform Boolean Walsh spectral projections and minimal projection constants in a symmetric setting, not the biased L²(μ)-orthogonal operator for arbitrary p_i.",
+          "Filmus provides the biased orthonormal coordinate basis, a hypothesis/tool rather than a proven L∞ norm formula."
+        ],
+        "reasoning": "The broader polynomial-projection framework overlaps the objects but lacks the asymmetric measure and specified operator to deduce rare-corner extremality as an immediate special case.",
+        "searches": [
+          "Defant Galicer Mansilla Mastyło Muro Projection constants for spaces of multivariate polynomials 2022 Chapter 8",
+          "Filmus Boolean Function Analysis 2022 Chapter 8"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2208.06467 Defant Galicer Mansilla Mastyło Muro Chapter 8",
+        "Filmus Boolean Function Analysis lecture notes biased Fourier basis 2022",
+        "Resultary Boolean Walsh projection semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p_i=1/2, the formula is a known uniform Boolean Walsh projection expression.",
+          "For p_i≠1/2 the orthogonal measure changes; uniform group translations and averaging no longer apply."
+        ],
+        "reasoning": "The known fair-case value is a strict special case of the claim but does not imply biased or sparse scaling; the convex-order comparison is the additional key argument.",
+        "searches": [
+          "Defant et al arxiv:2208.06467 Theorem 8.1.1",
+          "Filmus 2022 biased Fourier basis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For independent variables the degree-one orthogonal projector is the sum of centered coordinate conditionals (Hoeffding projection); kernel row formula identifies it explicitly.",
+          "A prior Boolean Walsh norm may use a uniform measure; that is the special case p_i=1/2, not unequal bias."
+        ],
+        "reasoning": "We checked ANOVA/Hoeffding and biased Fourier aliases; uniform projection theorem covers the fair case but does not by itself imply the full heterogeneous rare-corner optimizer.",
+        "searches": [
+          "biased Bernoulli product Hoeffding Efron Stein first-order projection L infinity operator norm",
+          "Resultary biased Boolean cube first chaos L-infinity operator projection norm rare corner convex order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included uniform Hamming/Walsh projection constants and other Banach-space projectors, not the heterogeneous product-biased max row norm.",
+          "Finite Boolean tables are smaller slices and do not establish the exact all-n convex-order statement."
+        ],
+        "reasoning": "No exact table or database covering the arbitrary unequal p_i norm expression appeared; fair-cube constants are prior known.",
+        "searches": [
+          "Resultary Boolean first Walsh chaos projection rare corner",
+          "biased Boolean first degree Walsh projection l infinity exact norm Poisson binomial"
+        ]
+      },
+      "rationale": "Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.",
+      "residual_risks": [
+        "An earlier ANOVA/Hoeffding projection-norm or convex-order theorem could already imply the heterogeneous rare-corner law without Walsh language.",
+        "The norm is for this explicit L²(μ) projection and not the optimal projection constant among arbitrary projections; independent product only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair Haar-uniform first-chaos component known. Biased specified orthogonal projector with unequal p_i not proved in the inspected Chapter 8 results",
+          "evidence": [
+            "arxiv:2208.06467 Chapter 8 §8.1–8.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.06467",
+          "material_read": "Full PDF accessed: Chapter 8 relevant pp. 101–104 and Theorem 8.1.1 read with page screenshot, uniform Boolean cube Walsh projection cases; document overall covers polynomial projection constants",
+          "method": "arXiv full PDF targeted chapter visual/text inspection",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "most plausible known exact Walsh projection norm"
+        },
+        {
+          "assessment": "Prior provides the basis and orthogonality, not the investigated sharp heterogeneous operator norm in material read",
+          "evidence": [
+            "Filmus Chapter 8 biased Fourier analysis"
+          ],
+          "identifier_or_url": "https://yuvalfilmus.cs.technion.ac.il/Courses/BooleanFunctionAnalysis/2021/LectureNotes.pdf",
+          "material_read": "Accessible material in biased Fourier basis chapter and definitions; no complete manuscript noncoverage assertion",
+          "method": "lecture-notes available sections",
+          "title": "Boolean Function Analysis lecture notes",
+          "trigger": "biased Fourier orthonormal basis could imply formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes a natural, nonminimum L∞ amplification factor of the canonical first Hoeffding/Walsh chaos projector for *unequal* product biases, reducing a 2^n row optimization to one explicit rare corner. The sparse-to-dense scaling transition matters for stability of biased Boolean decompositions. Uniform cube results were known and are not claimed as new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2208.06467 Defant Galicer Mansilla Mastyło Muro Chapter 8",
+    "Filmus Boolean Function Analysis lecture notes biased Fourier basis 2022",
+    "Resultary Boolean Walsh projection semantic query",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-rare-corner-law-for-first-chaos-projections-on-biased-boolean--3df8d67b6ed7/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-rare-corner-law-for-first-chaos-projections-on-biased-boolean--3df8d67b6ed7/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier ANOVA/Hoeffding projection-norm or convex-order theorem could already imply the heterogeneous rare-corner law without Walsh language.",
+    "The norm is for this explicit L²(μ) projection and not the optimal projection constant among arbitrary projections; independent product only."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "An earlier ANOVA/Hoeffding projection-norm or convex-order theorem could already imply the heterogeneous rare-corner law without Walsh language. The norm is for this explicit L²(μ) projection and not the optimal projection constant among arbitrary projections; independent product only."
+}

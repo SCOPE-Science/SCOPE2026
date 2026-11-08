@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The orthogonal-coordinate kernel follows from independent centered Bernoulli coordinates. Its supremum operator norm is exactly the largest absolute kernel row sum. The crucial nonstandard step is a coordinatewise convex-order comparison: the common-corner summand is centered and supported inside the rare-corner summand's two-point support, so every convex expectation, including an independent absolute-sum expectation, is no larger. The binomial boundary formula follows from a finite telescoping identity. Its two limits use standard local binomial and Poisson limits. The exact-rational reproducibility tests independently exercise both the homogeneous and heterogeneous cases; they are diagnostics rather than proof of an unbounded quantifier.
+## correctness
 
-## Originality
-**PASS, qualified by residual bibliographic risk.** The closest fully inspected primary source, Defant–Galicer–Mansilla–Mastyło–Muro (arXiv:2208.06467, Chapter 8), works on the uniform Boolean group and derives projection constants by translation averaging. It covers the fair-bias specialization but does not state an arbitrary non-Haar product-measure row extremum or the heterogeneous convex-order formula in the material inspected. Filmus (2022, Chapter 8) gives the biased orthogonal basis, not this sharp \(L^\infty\)-operator norm. Indexed mathematical records on higher-degree uniform Hamming projections, unbiased Walsh chaos and Fourier concentration concern different operators; these do not imply the asserted rare-corner formula. The possibility of an older result under Hoeffding/ANOVA or probability-theoretic terminology remains open.
+PASS
 
-## Mathematical value
-**PASS.** The main object is a canonical spectral truncation/orthogonal projector in product-function analysis. The rare-corner theorem identifies global maximizing evaluation points despite nonidentical biases and reduces an exponential-row supremum to a single first-absolute-moment calculation. Its homogeneous specialization gives an exact finite formula and separates Gaussian-scale amplification from Poisson-scale, linearly growing amplification. This distinction matters when biased Fourier approximations are used in supremum norm, and cannot be obtained from the uniform projection-constant formula alone.
+Pinned RESULT.md uses the exact rank-n orthogonal kernel K(x,y)=Σ(x_i-p_i)(y_i-p_i)/(p_i(1-p_i)); on finite C(Ω), norm is max_x E|K(x,Y)|, attained by choosing input sign of that row. At x_i rare, the individual centered summand U has endpoints -1 and (1-r)/r; at common x_i, V has endpoints -1 and r/(1-r) contained in [minU,maxU]; both have zero mean. Chord convexity proves V≤cx U, and independence lets one replace each common coordinate for convex |S+t|, yielding global rare-corner optimum for arbitrary heterogeneous p_i. At homogeneous p the row is ±(Bin(n,p)-np)/min(p,1-p); binomial telescoping yields 2n max(p,q) C(n-1,floor(np)) p^{floor(np)} q^{n-1-floor(np)}. Local CLT and Poisson convergence prove fixed-bias sqrt n and sparse p=c/n linear boundary; integer c handled by equal adjacent Poisson masses. Independently exact-rational enumerated 308 row assertions including four heterogeneous profiles and homogeneous n≤5. Boundaries n=1, p=1/2 included.
 
-## Scope and limits
-The theorem gives the norm of the specified orthogonal projector, not a minimum projection constant; no assertion is made for dependent variables, degenerate biases or higher-chaos projections. A prior equivalent norm result might be indexed under different terminology. The finite checker does not replace the proof, and no independent assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.
+
+## value
+
+PASS
+
+Computes a natural, nonminimum L∞ amplification factor of the canonical first Hoeffding/Walsh chaos projector for *unequal* product biases, reducing a 2^n row optimization to one explicit rare corner. The sparse-to-dense scaling transition matters for stability of biased Boolean decompositions. Uniform cube results were known and are not claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
