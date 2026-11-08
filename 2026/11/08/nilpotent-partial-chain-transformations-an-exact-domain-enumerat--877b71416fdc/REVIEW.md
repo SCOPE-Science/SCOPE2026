@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Nilpotence is equivalent to absence of fixed points because an increasing partial map has no nontrivial directed cycles. Inclusion-exclusion over prescribed fixed points produces two exterior gap enumerators and one interior gap enumerator; a Lagrange diagonal identity gives their radical expressions and the stated bivariate generating function. The square-root branch at the unique positive dominant radius yields a uniform quasi-power expansion, with explicit nonzero variance, and hence a Gaussian limit. A fresh direct enumeration and an algebraically independent interval-count recurrence agree for every coefficient through degree eight. Risk: general and asymptotic assertions rely on symbolic arguments, not finite enumeration, and independent review is outstanding.
+
+## Originality — PASS relative to inspected evidence
+The strongest antecedent, Laradji (2021/2022), obtains fixed-point-refined counts; setting the fixed-point number to zero recovers the pre-existing unweighted nilpotent totals, but does not determine how domain cardinality is distributed among these maps. OEIS A110122 independently gives those totals and their asymptotic; none is claimed here. Imam et al. (2024) study generation by quasi-idempotents within the same partial transformation monoid, not the nilpotent domain distribution. Garba (1994) studies nilpotent-generated semigroups and rank/depth, not a domain-refined census in its available abstract. Laradji–Umar (2013) treat the order-decreasing subsemigroup. Targeted semantic searches of published mathematical records revealed nearby but logically non-covering results. Risks: the full Laradji and Garba papers remained inaccessible and an equivalent weighted enumeration elsewhere may exist; publication priority is provisional.
+
+## Value — PASS
+Nilpotence and domain cardinality are intrinsic semigroup invariants; the motivating paper explicitly uses domain size as a projection-characteristic parameter. The result recovers every finite rank-cell of the nilpotent domain distribution for an infinite family, going beyond the known unweighted census, and identifies the nontrivial normal concentration and scale of typical nilpotent domains. The domain law informs the size profile of nilpotent elements relevant to generator studies. This is not an arbitrary selected degree or a finite table.
+
+## Closest literature and limitations
+Imam et al. (2024) on generating the same semigroup; Laradji (2021) on fixed points (unweighted nilpotents); Garba (1994) on nilpotent-generated subsemigroups; Laradji–Umar (2013) on order-decreasing partial transformations; OEIS A110122 on unweighted totals. Full antecedent texts for Laradji and Garba could not be read completely, so equivalent domain-weighted results under alternate notation remain a specific originality risk. The theorem assumes the entire partial order-preserving monoid on a finite chain, not general partial maps or posets. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
