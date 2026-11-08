@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement holds for all integers \(m,n\ge1\), all \(0<r,s<1\), and all real relative phases. The Cauchy double-alternant identity and direct discrete Fourier diagonalization of each normalized one-ring Gram matrix yield its within-ring factor. The cross-ring pair product is exactly a two-polynomial resultant: the \(n\)-th powers of the \(m\)-th roots repeat with multiplicity \(\gcd(m,n)\), giving the exponent and \(\operatorname{lcm}(m,n)\)-frequency phase. A strictly negative derivative gives a unique maximizing phase modulo the true period. The logarithmic quotient is an exact scalar identity, and its derivative supplies a globally sharp stability coefficient. Distinctness and collision boundaries are explicitly covered. The finite checker provides supplementary numerical corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS relative to inspected literature
+Independently reconstructed the unit-normalized Szegő Cauchy double-alternant; within-ring discrete Fourier eigenvalues yield C_m(r)C_n(s), and root-of-unity resultants yield a cross factor with g=gcd(m,n), L=lcm(m,n), a=r^L, b=s^L. Its cos(Lθ) derivative is strictly negative since (1−a²)(1−b²)>0; equality occurs uniquely cos=-1 modulo 2π/L. The exact quotient (1−αt)/(1−βt) has log derivative ≥α−β and tends to that coefficient as t→0, proving globally sharp deficit; coincident equal-radius nodes are correctly singular. The model-space Wold decomposition supports the infinite orbit interpretation but no infinite determinant is claimed. Independent numerical Gram determinants match in 72 mixed-radius cases; they are not an infinite proof.
 
-The closest full inspected record, *Sharp determinant stability and conditioning of concentric Szegő orbit frames* (2026), assumes one fixed radius and expressly excludes mixed radii, so its same-radius angular perturbation result does not imply a two-radius cross-resultant or a gcd/lcm phase law. Aguilera and Carando (arXiv:2606.00912, §§2 and Theorem 2.6) characterize finite Blaschke orbit frames and exhibit Malmquist–Walsh generators, without placement optimization of normalized kernel seeds. Neumayer and Ullrich (arXiv:2609.15556) motivate kernel \(D\)-optimal designs in general, but its full text was inaccessible and only its abstract was inspected. The 2010 two-circle Fekete question concerns unrestricted Euclidean products, not this fixed-regular pseudohyperbolic determinant. published-finding corpus queries covering two orbit sizes, aliases, exact resultants, phase optimization and sharp stability returned no implication-equivalent record; absence of retrieval is not proof of universal novelty. Residual risk: unindexed hyperbolic Fekete formulas or uninspected appendices of the general sampling paper may contain an equivalent implication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The jointly constrained two-orbit design is a natural next case beyond the sharp one-radius seed-frame determinant. The theorem gives a complete all-cardinality design classification including unequal sizes, a radius-independent optimal stagger, an arithmetic period/multiplicity law, and an optimally sharp quantitative determinant-loss bound for rotation errors. These are exact stability guarantees for unorthogonalized Hardy interpolation/orbit frames rather than a standalone restatement of the classical Cauchy identity. The result does not resolve arbitrary-angle two-circle Fekete placement, the spectral condition number, or weighted/non-Hardy kernels.
+Qualified PASS: closest inspected Resultary theorem determines all-angle same-radius one-ring determinant and stability, explicitly excluding two radii. Aguilera–Carando gives Riesz orbit-frame existence, not mixed-radius raw-seed D-optimality. Cross-ring exact resultant plus strict phase optimum and sharp logarithmic defect are not implied by these inspected results. General D-optimal sampling and classical Fekete work remain risk; failed search is not novelty proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: two concentric individually regular Hardy sampling orbits are the natural next interpolation design after the known single circle. An exact globally optimal radius-independent stagger with arithmetic gcd/lcm behavior and sharp determinant sensitivity bounds has independent design relevance, not merely the Cauchy identity. Distinguishes determinant from condition-number objectives and does not pretend unrestricted two-circle optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

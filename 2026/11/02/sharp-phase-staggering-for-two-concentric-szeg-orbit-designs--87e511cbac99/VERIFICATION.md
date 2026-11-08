@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is decisive. The determinant factorization uses the standard Cauchy identity and the exact root-of-unity resultant, valid for all positive orbit cardinalities. The phase derivative is strictly negative for all interior radii. Differentiating the exact logarithmic deficit establishes a universal sharp coefficient, including the collision boundary as a limit.
+## correctness
 
-Execute `python CHECK.py` with Python 3 and NumPy. The checker constructs normalized Szegő Gram matrices for eight orbit-size pairs, four radius pairs, and five phases (160 direct determinant and stability tests). It then verifies three near-optimal phase-loss ratios in a non-coprime example. Expected output: `PASS: 160 direct determinant and sharp-stability comparisons, 3 local-limit checks`. The finite cases cannot prove any universal quantifier and are not used to infer optimality by enumeration.
+PASS
 
-Source inspection: the author-uploaded primary preprint arXiv:2606.00912 was read through its frame definitions, theorem statement, proof and model-space construction; the closest public one-radius Szegő determinant theorem was read in full. The general kernel \(D\)-optimality paper arXiv:2609.15556 was available only through its public abstract. The 2010 two-circle Fekete question and accompanying answer were inspected for the differences in object and quantifiers. No independent mathematical audit has been performed.
+Independently reconstructed the unit-normalized Szegő Cauchy double-alternant; within-ring discrete Fourier eigenvalues yield C_m(r)C_n(s), and root-of-unity resultants yield a cross factor with g=gcd(m,n), L=lcm(m,n), a=r^L, b=s^L. Its cos(Lθ) derivative is strictly negative since (1−a²)(1−b²)>0; equality occurs uniquely cos=-1 modulo 2π/L. The exact quotient (1−αt)/(1−βt) has log derivative ≥α−β and tends to that coefficient as t→0, proving globally sharp deficit; coincident equal-radius nodes are correctly singular. The model-space Wold decomposition supports the infinite orbit interpretation but no infinite determinant is claimed. Independent numerical Gram determinants match in 72 mixed-radius cases; they are not an infinite proof.
+
+## originality
+
+PASS
+
+Qualified PASS: closest inspected Resultary theorem determines all-angle same-radius one-ring determinant and stability, explicitly excluding two radii. Aguilera–Carando gives Riesz orbit-frame existence, not mixed-radius raw-seed D-optimality. Cross-ring exact resultant plus strict phase optimum and sharp logarithmic defect are not implied by these inspected results. General D-optimal sampling and classical Fekete work remain risk; failed search is not novelty proof.
+
+## value
+
+PASS
+
+PASS: two concentric individually regular Hardy sampling orbits are the natural next interpolation design after the known single circle. An exact globally optimal radius-independent stagger with arithmetic gcd/lcm behavior and sharp determinant sensitivity bounds has independent design relevance, not merely the Cauchy identity. Distinguishes determinant from condition-number objectives and does not pretend unrestricted two-circle optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
