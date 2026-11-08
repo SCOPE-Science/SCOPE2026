@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For \(\mathcal N(T_7)\), `verify.py` reconstructs every one of the 18,494 nonempty simplices by the defining open-neighborhood rule. It produces 9,120 disjoint matched covering pairs and exactly one critical vertex, 246 critical three-cells, and seven critical four-cells. An exhaustive topological sort of all 98,805 signed/unsigned Hasse covering incidences verifies acyclicity. The complete signed integral Morse differential from the seven critical four-cells to 246 critical three-cells is zero; therefore all four-cell attaching maps are nullhomotopic, because the three-skeleton is a wedge of three-spheres and Hurewicz identifies its degree vectors. The actual standalone checker returns `ALL_CHECKS_PASS`. A separate chain calculation and Jonsson's \(B_{7,2}\) comparison recover integral homology ranks, but homology alone would not prove the homotopy assertion.
+
+## Originality — PASS on inspected evidence, with risks
+The strongest close published coverage is Jonsson's 2007 unbalanced-bipartite complex \(B_{7,2}\simeq\bigvee^{246}S^3\). The **different** neighborhood complex omits exactly seven full-star five-simplices; Jonsson's result plus the relative sequence already implies its integral homology, not the explicit vanishing of the seven integral attaching maps after Morse reduction. The 2026 published direct \(\mathcal N(T_7)\) calculation determines mod-two homology, not homotopy; its full `RESULT.md` was inspected. Fröberg's full 2026 open-access article concerns different graph families, and Matsushita's foundational paper is background, not a calculation of this graph. Searches covered \(T_7\), \(L(K_7)\), \(J(7,2)\), common-neighbor/Dowker complexes, integral torsion, unbalanced bipartite graphs, and matching numerical ranks. No source inspected asserts or implies this exact integral homotopy type. Residual risk: an unindexed theorem, preprint or alternative general construction might yield the same homotopy equivalence. Absence from search results is not a proof of priority.
+
+## Value — PASS
+This is the **first mixed-dimensional** member of the canonical triangular-graph neighborhood-complex sequence, previously known only by mod-two Betti ranks. The seven full-star exclusions distinguish it from Jonsson's wedge-of-three-spheres theorem and introduce seven topologically relevant four-cells. Determining that every attaching map is nullhomotopic is a natural complete integral homotopy classification, not merely a renamed homology vector or an arbitrary graph subcase. It supplies a reproducible reference example for higher-dimensional neighborhood-complex attachment problems.
+
+## Scope and limits
+The theorem is restricted to the explicitly specified 21-vertex graph and open-neighborhood construction. It does not provide a uniform theorem for all triangular graphs or an equivariant refinement. External independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
