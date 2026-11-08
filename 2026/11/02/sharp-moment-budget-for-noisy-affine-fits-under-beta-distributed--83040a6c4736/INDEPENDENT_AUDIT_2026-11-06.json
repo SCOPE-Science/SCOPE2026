@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:44.450805Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on nodes, the slope error is N(0,sigma²/S_m) with S_m=sum_i(X_i-Xbar)²; hence q-moment finiteness reduces to E S_m^{-q/2}. For range R, R²/2<=S_m<=mR²/4, so their small-ball exponents govern the same moment threshold. Exact minimum-order-statistic integral m int_0^1 f(x)[F(min(1,x+r))-F(x)]^{m-1}dx splits into two endpoint layers and interior. Endpoint pieces give r^{m alpha}, r^{m beta}, interior r^{m-1} and a log only at endpoint-integrability ties, proving gamma and boundary divergence by layer cake. Four arcsine nodes yield 48/pi^4 via x=r*sinh²(t) and 2 int exp(-3t) cosh(t) dt=3/4, while uniform range formula is 4r³-3r⁴. Independent small-radius quadrature approaches 48/pi^4 and exact m alpha threshold identities corroborate. No claim to higher-degree or weighted/conditioned regression.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen gives the same exponent mechanism and logarithmic boundary at np=n-1 for one-sided pure powers; much of the argument is inherited.",
+          "Published Resultary same Beta variance theorem is restricted to exactly three observations and states no sample sizes beyond three.",
+          "Conditioned/weighted least-squares analyses change the estimator or design event."
+        ],
+        "reasoning": "A general regular-variation theorem for variance under a beta density could strongly dominate the present distributional component; none was established after primary Royen comparison. Strong method overlap is an explicit residual risk.",
+        "searches": [
+          "Royen 2008 Theorem 3 n observations x^(p-1) endpoint small sample variance",
+          "Osan Chu Yu arxiv:2609.25333 three sample variance beta",
+          "Cohen Migliorati arxiv:1608.00512 conditioned weighted least squares"
+        ]
+      },
+      "checked_sources": [
+        "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree e818e841986e762cb85b1e550f258508fec5af62; full RESULT.md blob 5026ad3c2ee5a85f68c0a9c51ab833bb9687ec8d and inspected verify.py blob 25f211c55a78cc07cf1d683f4b3eacf5668221f5",
+        "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+        "Actual Resultary semantic search for this claim and related published mathematical records",
+        "https://arxiv.org/abs/0810.1572",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1/RESULT.md",
+        "https://arxiv.org/abs/2306.07435",
+        "https://arxiv.org/abs/1608.00512"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Royen Theorem 3 yields exponent min(n-1,np) for Beta(p,1) as a special case; the present theorem specializes consistently and credits it.",
+          "The published 3-sample result explicitly says no claim for m!=3; a numeric extension is not logically automatic without proving its two-endpoint integral."
+        ],
+        "reasoning": "Prior strong one-endpoint coverage does not directly give the full two-endpoint all-q noise moment criterion and four-versus-five example, although adaptation via regular variation is plausible and recorded as risk.",
+        "searches": [
+          "arxiv:0810.1572 Royen Theorem 3 and Lemma 2",
+          "Resultary 2026/10/4 three-sample Beta variance scope statement",
+          "Chkifa Dolbeault arxiv:2306.07435 random least squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OLS moment condition is exactly a negative-moment condition for S_m; range equivalence converts it to a small-range beta problem.",
+          "Royen 2008 Theorem 3 has general n but one-sided pure-power density, not the full Beta(alpha,beta) family with competing endpoints."
+        ],
+        "reasoning": "This formulation is directly related to Royen’s small-variance tails; the primitive mechanism is not new. The two-endpoint sharp m>=4 regression threshold has not been verified as an existing equivalent statement.",
+        "searches": [
+          "Resultary beta iid design affine OLS slope inverse variance moment threshold m alpha beta arcsine nodes",
+          "arxiv:0810.1572 Royen exact distribution sample variance",
+          "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary title and full text cover m=3 and give three-sample constants; they do not tabulate m=4 or 5 OLS slope moments.",
+          "Royen includes exact finite-sample distribution expansions for beta parents but no identified general two-endpoint m>=4 small-range table in inspected theorem."
+        ],
+        "reasoning": "Exact finite sample table coverage was investigated; Royen’s distribution series are a relevant possible route to the same consequences, so tabular noncoverage is not asserted globally.",
+        "searches": [
+          "Resultary three-sample beta variance full RESULT.md",
+          "Royen exact sample variance beta density expansions and tables",
+          "four arcsine nodes least squares infinite mean square error five arcsine finite"
+        ]
+      },
+      "rationale": "Critical strongest predecessor now identified and actually inspected: Royen (2008), Theorem 3, proves the general-n pure-power one-endpoint small-variance exponent and critical logarithm, plus a range identity. This important mechanism is prior and must not be portrayed as new. Published Resultary three-Beta-sample paper explicitly limits itself to m=3 and credits Royen. The present m>=4, two-endpoint Beta competition, noisy OLS moment interpretation and sharp four-versus-five arcsine MSE boundary are not stated in those inspected results; transfer from Royen and beta endpoint asymptotics is a substantive but fairly close extension. A broader Royen theorem or probabilistic negative-moment criterion may imply the general beta formula; retain material risk.",
+      "residual_risks": [
+        "Royen 2008 is a strong general-n methodological predecessor, especially for Beta(p,1); novelty is restricted to all-n two-endpoint Beta and regression interpretation, not the phase mechanism.",
+        "A general negative-moment criterion could make the extension an implicit corollary, and no exhaustive priority certification is possible.",
+        "Gaussian noise, iid Beta nodes, affine unweighted OLS only; higher degree and conditioning excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general-n one-sided pure-power mechanism and range formula, substantially narrows novelty; no verified explicit full-beta all-n OLS q-budget statement",
+          "evidence": "Theorem 3 pure-power f_p, phase boundary np=n-1 and log tie; Lemma 2 relates sample variance and sample range.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.1572",
+          "material_read": "Primary PDF text including Theorem 3, Lemma 2, beta-series discussion; page images checked for relevant pages",
+          "method": "Read PDF proof and theorem via web PDF viewer and corresponding screenshots",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables",
+          "trigger": "Decisive general-n predecessor with singular endpoint density"
+        },
+        {
+          "assessment": "Same mechanism and two-endpoint competition for m=3 only; no m>=4 statement.",
+          "evidence": "Explicit assumptions: exactly X1,X2,X3 and no assertion for other sample sizes; references Royen Theorem 3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1/RESULT.md",
+          "material_read": "Complete published RESULT.md retrieved from actual GitHub repository and read",
+          "method": "Compared n=3 scope, Royen references, endpoint corner and logarithm with present m>=4 range argument",
+          "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+          "trigger": "Very close same Beta lower-tail object"
+        },
+        {
+          "assessment": "Related algorithms and conditioning, not directly this raw moment theorem",
+          "evidence": "Study employs stabilization/conditioning choices absent from raw OLS sample.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07435",
+          "material_read": "Available indexed abstract/algorithm synopsis; full text not independently downloaded in this run",
+          "method": "Compared conditioned approximation objectives versus unconditional noisy affine slope risk",
+          "title": "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+          "trigger": "Sampling motivation including iid arcsine/uniform nodes"
+        },
+        {
+          "assessment": "Different estimator/sampling conditioning; no direct moment criterion verified",
+          "evidence": "Conditioning/truncation can remove heavy-tailed raw-error moments.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.00512",
+          "material_read": "Accessible source overview/abstract; complete full text not obtained",
+          "method": "Compared weighted, conditioned setups to raw unweighted Gaussian-noisy OLS",
+          "title": "Optimal weighted least-squares methods",
+          "trigger": "Potential dominating random design guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact unconditional moment budget is a natural stability threshold for unweighted noisy interpolation, notably contrasting apparently benign uniform and Chebyshev/arcsine four-node designs. It gives sharp sample-count boundaries for every beta parameter and all error moments q, not just another finite table. Mathematical value does not require a new concentration theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree e818e841986e762cb85b1e550f258508fec5af62; full RESULT.md blob 5026ad3c2ee5a85f68c0a9c51ab833bb9687ec8d and inspected verify.py blob 25f211c55a78cc07cf1d683f4b3eacf5668221f5",
+    "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+    "Actual Resultary semantic search for this claim and related published mathematical records",
+    "https://arxiv.org/abs/0810.1572",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1/RESULT.md",
+    "https://arxiv.org/abs/2306.07435",
+    "https://arxiv.org/abs/1608.00512"
+  ],
+  "disposition": "passed",
+  "final_claim": "For iid Beta(alpha,beta) nodes, m>=4, and Gaussian-noisy unweighted affine least squares with intercept, the slope-error q-th absolute moment is finite iff q<min(m-1,m alpha,m beta), with divergence at equality and logarithmic leading range tail precisely at tied critical endpoint exponents. Four uniform nodes give finite MSE but four arcsine nodes do not; five arcsine nodes restore it. The four-arcsine range coefficient is 48/pi^4.",
+  "limitations": [
+    "Proof and cited full result confined to its stated hypotheses; independent finite tests do not establish any unrestricted result.",
+    "Royen 2008 is a strong general-n methodological predecessor, especially for Beta(p,1); novelty is restricted to all-n two-endpoint Beta and regression interpretation, not the phase mechanism.",
+    "A general negative-moment criterion could make the extension an implicit corollary, and no exhaustive priority certification is possible.",
+    "Gaussian noise, iid Beta nodes, affine unweighted OLS only; higher degree and conditioning excluded."
+  ],
+  "residual_risks": [
+    "Royen 2008 is a strong general-n methodological predecessor, especially for Beta(p,1); novelty is restricted to all-n two-endpoint Beta and regression interpretation, not the phase mechanism.",
+    "A general negative-moment criterion could make the extension an implicit corollary, and no exhaustive priority certification is possible.",
+    "Gaussian noise, iid Beta nodes, affine unweighted OLS only; higher degree and conditioning excluded."
+  ],
+  "schema_version": 1
+}

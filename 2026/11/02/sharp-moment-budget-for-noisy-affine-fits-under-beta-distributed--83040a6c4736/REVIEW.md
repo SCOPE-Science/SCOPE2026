@@ -1,15 +1,21 @@
-# Scientific review: beta-sampled noisy affine least squares
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact stated Gaussian-noise model, the conditional slope-error variance is \(\sigma^2/S_m\), where \(S_m\) is the unnormalized sample variance. The sharp two-sided comparison of \(S_m\) with the squared sample range reduces every absolute error moment to a negative range moment. The exact minimum-order-statistic integral and the endpoint/interior beta-density decomposition prove the \(\min\{m-1,m\alpha,m\beta\}\) threshold, including logarithmic ties and divergent boundary moments. For the four-arcsine example, the rescaled endpoint integral equals \(3/4\) and leads to \(48/\pi^4\). Numerical quadrature and uniform-density identities were replayed from the included executable, but finite computation is not substituted for the proof.
+## correctness
 
-## Originality — PASS, qualified
-The motivating randomized least-squares analysis treats approximation and algorithmic sample selection/conditioning; the present theorem concerns *unconditional unweighted affine OLS* under iid beta samples with Gaussian measurement errors. The 2016 weighted-method paper conditions or truncates ill-conditioned designs, and the 2021 experimental-design study optimizes different asymptotic criteria. A published three-observation beta-variance lower-tail result covers \(m=3\) and provides a close structural comparator, but its indexed stated result does not imply the claimed finite-moment criterion for *all* \(m\ge4\), nor the four-to-five Chebyshev-vs-uniform noisy-regression threshold. The accessible full text of this most similar three-observation record could not be retrieved. The comparison is therefore evidence-based but does not establish absolute publication priority; a hidden general-\(m\) theorem in that record is a residual risk.
+PASS
 
-## Value — PASS
-The least sample count permitting a finite *unconditional* slope mean-squared error is an exact and natural stability invariant for noisy random-node affine approximation. Four draws suffice under uniform sampling but fail under arcsine sampling, and five arcsine draws suffice; this distinguishes high-probability conditioning from the existence of a second moment and provides a concrete sampling-budget caution. The law covers arbitrary beta endpoint singularities, integer sample counts and positive real moments, rather than an arbitrary numerical parameter slice.
+Conditioning on nodes, the slope error is N(0,sigma²/S_m) with S_m=sum_i(X_i-Xbar)²; hence q-moment finiteness reduces to E S_m^{-q/2}. For range R, R²/2<=S_m<=mR²/4, so their small-ball exponents govern the same moment threshold. Exact minimum-order-statistic integral m int_0^1 f(x)[F(min(1,x+r))-F(x)]^{m-1}dx splits into two endpoint layers and interior. Endpoint pieces give r^{m alpha}, r^{m beta}, interior r^{m-1} and a log only at endpoint-integrability ties, proving gamma and boundary divergence by layer cake. Four arcsine nodes yield 48/pi^4 via x=r*sinh²(t) and 2 int exp(-3t) cosh(t) dt=3/4, while uniform range formula is 4r³-3r⁴. Independent small-radius quadrature approaches 48/pi^4 and exact m alpha threshold identities corroborate. No claim to higher-degree or weighted/conditioned regression.
 
-## Related literature and scope limits
-Relevant comparisons: Chkifa–Dolbeault (2023), arXiv:2306.07435, full available arXiv text and discussion of uniform/arcsine samples; Cohen–Migliorati (2016), arXiv:1608.00512, full text with conditioning/truncation; Azriel (2021), arXiv:2112.14178, full text on random-design minimax methods; indexed three-observation beta-variance result at the published published-finding corpus record cited in RESULT.md (summary only). No claim about conditioned/weighted designs, higher-degree polynomial fitting, deterministic Chebyshev nodes, non-Gaussian errors, or independent publication validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Critical strongest predecessor now identified and actually inspected: Royen (2008), Theorem 3, proves the general-n pure-power one-endpoint small-variance exponent and critical logarithm, plus a range identity. This important mechanism is prior and must not be portrayed as new. Published Resultary three-Beta-sample paper explicitly limits itself to m=3 and credits Royen. The present m>=4, two-endpoint Beta competition, noisy OLS moment interpretation and sharp four-versus-five arcsine MSE boundary are not stated in those inspected results; transfer from Royen and beta endpoint asymptotics is a substantive but fairly close extension. A broader Royen theorem or probabilistic negative-moment criterion may imply the general beta formula; retain material risk.
+
+## value
+
+PASS
+
+The exact unconditional moment budget is a natural stability threshold for unweighted noisy interpolation, notably contrasting apparently benign uniform and Chebyshev/arcsine four-node designs. It gives sharp sample-count boundaries for every beta parameter and all error moments q, not just another finite table. Mathematical value does not require a new concentration theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
