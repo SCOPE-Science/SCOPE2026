@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each \\(\\kappa>1,\\varepsilon>0\\) the two gradients have determinant \\(2\\kappa\\varepsilon\\ne0\\), the exact ray-intersection multipliers are positive, and zero ray separation is uniquely attained. The closed-form intersection and damped affine combinations yield a positive leading quadratic coefficient multiplied by \\(\\eta^2/\\varepsilon^2\\). The condition-two limiting objective polynomials have the stated exact roots, giving the complete strict threshold; the angle-gap scaling follows from the determinant. 181 independent rational/threshold assertions supplement but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 Computational Optimization and Applications paper uses acceleration steps chosen with the objective or objective linesearch, not distance between two independent descent paths.",
+        "Original Twin paper §5 safeguards by an angle test, restart and ABBmin switch; a guaranteed safe clipped step does not imply failure or success of a fixed common damping factor."
+      ],
+      "reasoning": "Objective-linesearch guarantees for other step-selection rules cannot dominate an exact worst-case statement for the unsafeguarded distance selector. The source conditional convergence arguments presuppose bounded angle-dependent steps and do not contradict this explicit initial family.",
+      "searches": [
+        "Twin gradient method mutual distance no objective descent arbitrary fixed damping unbounded quadratic overshoot angle nearly parallel",
+        "Two coupled descent rays nearest points objective blowup 2D convex quadratic fixed condition number",
+        "A speed up strategy for gradient methods De Magistris two-dimensional objective-based line search 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.11575",
+      "https://doi.org/10.1007/s10589-026-00778-0",
+      "https://doi.org/10.1137/20M1349011",
+      "published-finding corpus search results for six actual query strings",
+      "Archived mathematical-claim texts (only for mathematical implication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly mentions the \\(n=2\\) first-iteration coincidence and near-collinearity-driven large steps; these parts are acknowledged as previously known.",
+        "Source Proposition 3.7 bounds mutual distance, while Corollary 3.3 requires bounded \\(R_k\\) to infer gradient convergence. No objective-ratio upper/lower frontier for fixed damping is supplied.",
+        "A different published-finding corpus CG_AOS initial transient and a BB interval worst-case factor do not apply to a two-path minimum-distance quadratic program."
+      ],
+      "reasoning": "The new claim is the simultaneous unbounded objective blowup under any fixed common damping at any prescribed \\(\\kappa>1\\), plus the exact limiting critical damping coefficient for \\(\\kappa=2\\). These are not implied by either distance convergence or a vague statement that large steps may occur. The independent exact proof gives an explicit family and complete threshold.",
+      "searches": [
+        "arxiv:2607.11575 Twin Gradient Method fixed damping objective increases arbitrarily despite distance contraction",
+        "two coupled gradient descent paths minimizing mutual distance sharp damping scaling angle cosine squared",
+        "arxiv:2607.11575 full text §3.3 Remark 3.5 Table 1 §5 Algorithm 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Motivating source arXiv:2607.11575v2 §2 defines the minimum-distance ray problem; §3.3 notes potentially large steps and divergence; §3.3 does not state the all-fixed-damping bounded-input unbounded-objective theorem or its limiting damping constant.",
+        "published-finding corpus searches returned no same-algorithm same-statement entry among ranked results."
+      ],
+      "reasoning": "The source qualitative possibility of overshoot and the known planar coincidence do not logically establish unbounded objective amplification for each fixed positive damping at every fixed curvature ratio >1, nor the exact limiting threshold. The present result uses an explicit positive-ray intersection and objective comparison, not a renaming of classical gradient descent.",
+      "searches": [
+        "arxiv:2607.11575 Twin Gradient Method fixed damping objective increases arbitrarily despite distance contraction",
+        "twin-step two-dimensional positive gradient rays coalescence nonstationary objective blowup bounded condition number",
+        "two coupled gradient descent paths minimizing mutual distance sharp damping scaling angle cosine squared",
+        "web: \"Twin Gradient Method\" \"divergence\" \"damping\" example quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest hits include 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c and 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53; their methods and conditions differ.",
+        "Prior archived mathematical-claim statements inspected for the same objects and step rule did not contain the quantified Twin-Step theorem."
+      ],
+      "reasoning": "Neither an indexed exact table nor equivalent reported limiting phase boundary was located. This is not proof of bibliographic uniqueness; unindexed or later materials remain a residual risk.",
+      "searches": [
+        "arxiv:2607.11575 Twin Gradient Method fixed damping objective increases arbitrarily despite distance contraction",
+        "twin-step two-dimensional positive gradient rays coalescence nonstationary objective blowup bounded condition number",
+        "De Magistris Hochstenbach Toraldo twin gradient method distance objective divergence damping example",
+        "published-finding corpus: twin-step distance minimizing normalized gradient quadratic damping",
+        "Archived claim-text searches: Twin Gradient; Twin-Step; De Magistris; arXiv:2607.11575; mutual distance"
+      ]
+    },
+    "rationale": "The motivating full paper acknowledges the qualitative small-angle problem and planar coincidence; a statement-by-implication comparison finds no fixed-curvature, all-fixed-damping unbounded objective family nor the sharp limiting best-objective damping constant. Related accelerated gradient and twin Kaczmarz schemes select different quantities. Full-text and indexed history comparisons are bounded and the residual risk is stated.",
+    "residual_risks": [
+      "The motivating work already describes qualitative near-collinearity instability; a prior exact example could be hidden in unindexed or uninspected supplementary material.",
+      "The older twin-Kaczmarz full manuscript was not read; based on method mismatch the abstract suggests low overlap risk, not whole-document noncoverage.",
+      "Finite database search cannot prove absolute historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers two-dimensional undamped coincidence and qualitative near-parallel instability, but not uniform fixed-damping objective blowup at fixed curvature or sharp limiting output coefficient.",
+        "evidence": [
+          "§2 defines the constrained nearest-distance step.",
+          "§3.3 says n=2 without damping terminates after the first iteration and describes divergence caused by near-parallel steps.",
+          "§5 introduces the adaptive-angle restart, a distinct safeguarded algorithm."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.11575",
+        "material_read": "Accessible rendered full primary text: §2 normalized-gradient constrained step and Algorithm 1; §3.1–3.3 including Proposition 3.7, Lemma 3.15, Remark 3.5, Table 1 discussion; §5 hybrid and Algorithm 2.",
+        "method": "Compared the precise two-ray minimization, nonnegative-step boundaries, angle safeguard, conditional hypotheses and quantified objective claims.",
+        "title": "A Twin gradient method for unconstrained optimization",
+        "trigger": "Exact algorithm and nearest possible dominating theorem"
+      },
+      {
+        "assessment": "Its objective-based search differs from the present simultaneous two-gradient ray-distance step; no dominating theorem applies.",
+        "evidence": [
+          "The paper describes objective-minimizing subspace acceleration and Wolfe/Armijo line-search conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10589-026-00778-0",
+        "material_read": "Accessible primary open full-text HTML: introduction, objective-based acceleration and line searches, convergence discussion and generalized search directions.",
+        "method": "Compared whether the optimized quantity was the two-trajectory distance or objective value.",
+        "title": "A speed up strategy for gradient methods",
+        "trigger": "Same first/last author and a recent two-dimensional acceleration method"
+      },
+      {
+        "assessment": "Abstract addresses Kaczmarz up/down-sweep stopping and error gauge, not the normalized-gradient two-ray step; whole-paper coverage not excluded by an abstract alone.",
+        "evidence": [
+          "Abstract defines regularized tomography and two Kaczmarz sweep sequences."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1349011",
+        "material_read": "Publisher bibliographic information and accessible abstract, not the complete primary full text.",
+        "method": "Checked objects and algorithm roles at abstract level, and retained limited-access risk.",
+        "title": "A Twin Error Gauge for Kaczmarz's Iterations",
+        "trigger": "Prior twin-sequence method cited by motivating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fc7056f8-8a09-422f-b918-5b5e742d6f67",
+  "value": {
+    "rationale": "An exact uniformly quantified no-constant-damping safeguard result and a sharp asymptotic angle-dependent objective criterion address an algorithmic design gap: decreasing trajectory separation is not a bound on either objective. Fixed-condition-number and bounded-start assumptions exclude trivial pathology from ill-conditioning or huge initialization. The theorem motivates safe clipping and monitoring; it does not mischaracterize safeguarded hybrid convergence.",
+    "status": "PASS"
+  }
+}
