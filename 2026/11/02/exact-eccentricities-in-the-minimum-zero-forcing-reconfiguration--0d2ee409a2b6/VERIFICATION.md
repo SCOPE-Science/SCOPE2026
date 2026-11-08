@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-Run the two standard-Python programs from this directory:
+# Independent mathematical audit
 
-```
-python verification/verify_gear_direct.py
-python verification/verify_gear_metric.py
-```
+## correctness
 
-The first checks every standard-zero-forcing triple for rim lengths 4 through 10 and compares it with the proposed five families. It independently builds every token-jump edge from two-element intersections, all-pairs shortest paths, and the claimed exact eccentricities. The second reads the entire included integer table and checks the Bellman inequalities, descending-neighbor condition, all branch transitions, symbolic two-step tail periodicity, the reduction to the nearest two deck translates, every base case from 4 to 27, and all four residues of the induction boundary inequalities. The all-size proof uses mathematical arguments in RESULT.md in addition to these finite symbolic checks. The scripts do not establish independent scholarly priority or external validation.
+PASS
+
+The five listed families A_i..E_i are minimum triples under standard forcing, and pairwise two-element intersections yield a 5m-vertex, 11m-edge adjacency graph. Inspected complete verification/cover_distance_table.json and verify_gear_metric.py: the explicit infinite-cover potential satisfies zero only at source, nonnegative Bellman unit-Lipschitz neighbor bounds and a descending neighbor, which characterizes exact distance; linear parity tails permit finite branch checks for every integer displacement. Quotient distances minimize over translates, nearest-two suffice by tail monotonicity, and band/boundary inequalities give eccentricity recurrence e(m+4)=e(m)+3 beyond four base classes. Independently rebuilt adjacency and BFS distances for every m=4..80, all five types; matched floor((3m+3)/4) radius, floor((3m+6)/4) diameter and C/E exception. Unbounded result rests on symbolic tail induction, not finite BFS alone.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for full labelled token-jump eccentricity metric for gear graphs; the 2020 source defines the reconfiguration graph and the 2024 paper supplies minimum forcing three/propagation properties, not the 5-class distance formula. No Resultary exact gear-reconfiguration metric was found in search.
+
+## value
+
+PASS
+
+Exact farthest-set geometry for a canonical reconfiguration family, determining accessibility and center/periphery by state type for all graph sizes, not merely counting minimal sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

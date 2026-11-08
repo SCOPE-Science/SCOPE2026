@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:16:16.849709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five listed families A_i..E_i are minimum triples under standard forcing, and pairwise two-element intersections yield a 5m-vertex, 11m-edge adjacency graph. Inspected complete verification/cover_distance_table.json and verify_gear_metric.py: the explicit infinite-cover potential satisfies zero only at source, nonnegative Bellman unit-Lipschitz neighbor bounds and a descending neighbor, which characterizes exact distance; linear parity tails permit finite branch checks for every integer displacement. Quotient distances minimize over translates, nearest-two suffice by tail monotonicity, and band/boundary inequalities give eccentricity recurrence e(m+4)=e(m)+3 beyond four base classes. Independently rebuilt adjacency and BFS distances for every m=4..80, all five types; matched floor((3m+3)/4) radius, floor((3m+6)/4) diameter and C/E exception. Unbounded result rests on symbolic tail induction, not finite BFS alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anderton et al. prove Z(G_r(m,r))=3 and analyze propagation times; their radius/diameter parameters are for different objects if present",
+          "2020 source gives structural complexity and examples"
+        ],
+        "reasoning": "The number of minimum forcing vertices and propagation times cannot imply eccentricities in their token-jump reconfiguration graph.",
+        "searches": [
+          "arxiv:2009.00220 Sections 1-2",
+          "arxiv:2310.18513 Theorems 2.3-2.4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2009.00220v1 pp.1-4 primary PDF",
+        "arxiv:2310.18513v2 pp.1,4-6 primary PDF",
+        "Resultary actual query: gear graph zero forcing token jumping reconfiguration eccentricity radius diameter",
+        "Source verifier cover_distance_table.json and verify_gear_metric.py checked via GitHub blob identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Z(G_m)=3 and Z(C_n)=C_n results do not specify Z(G_m) geometry",
+          "Proposed theorem gives full five-type metric and all-size extrema"
+        ],
+        "reasoning": "The new graph-specific metric requires a separate adjacency and Bellman certificate; it is not a corollary of the cited general properties.",
+        "searches": [
+          "arxiv:2310.18513 Theorem 2.3",
+          "arxiv:2009.00220 Proposition 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson-Haas-Hogben define precisely the token-jumping adjacency rule but their inspected examples concern paths/cycles/forests rather than gear all-distance census",
+          "Direct code implements same minimum-set graph definitions"
+        ],
+        "reasoning": "The prior reconfiguration definition is an antecedent, not an equivalent distance theorem.",
+        "searches": [
+          "gear graph zero forcing token jumping reconfiguration eccentricity radius diameter",
+          "\"gear graph\" \"zero forcing graph\" diameter",
+          "arxiv:2009.00220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact search finds a mixed-resolving gear-graph result, not the token-jumping reconfiguration distance table",
+          "The assigned package includes an explicit parity-tail table of 25 source/target type pairs"
+        ],
+        "reasoning": "No prior exact metric table identified; this does not establish absolute priority.",
+        "searches": [
+          "Resultary search: gear graph zero forcing token jumping reconfiguration eccentricity radius diameter",
+          "\"gear graph\" \"zero forcing graph\" diameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full labelled token-jump eccentricity metric for gear graphs; the 2020 source defines the reconfiguration graph and the 2024 paper supplies minimum forcing three/propagation properties, not the 5-class distance formula. No Resultary exact gear-reconfiguration metric was found in search.",
+      "residual_risks": [
+        "The cover-distance Bellman table was read but its provided entire verifier was not separately executed; independent BFS checks m<=80 do not replace its all-integer symbolic tail proof.",
+        "An older gear-specific reconfiguration metric theorem outside indexed sources could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines method but does not present the claimed gear metric in inspected sections",
+          "evidence": "§1 token-jump definition; §§2.1-2.2 path/cycle, connectedness and neighbor trading",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "Primary PDF pp.1-4, introduction, exact definition and early propositions",
+          "method": "PDF text and first-page screenshot, targeted early results",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same token-jumping definition"
+        },
+        {
+          "assessment": "Establishes Z=3 and propagation time; no identified all-pairs reconfiguration-distance theorem in inspected gear section",
+          "evidence": "Theorem 2.3 and Theorem 2.4",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.18513",
+          "material_read": "Primary PDF pp.1,4-6 and gear Theorem 2.3, Theorem 2.4; passage on minimal configurations",
+          "method": "PDF text and first-page screenshot",
+          "title": "The zero forcing numbers and propagation times of gear graphs and helm graphs",
+          "trigger": "Same gear base objects and minimum size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact farthest-set geometry for a canonical reconfiguration family, determining accessibility and center/periphery by state type for all graph sizes, not merely counting minimal sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The cover-distance Bellman table was read but its provided entire verifier was not separately executed; independent BFS checks m<=80 do not replace its all-integer symbolic tail proof.",
+    "An older gear-specific reconfiguration metric theorem outside indexed sources could overlap.",
+    "The unchanged source package is not publication-ready because privacy-safe metadata replacements were not staged."
+  ],
+  "schema_version": 1
+}

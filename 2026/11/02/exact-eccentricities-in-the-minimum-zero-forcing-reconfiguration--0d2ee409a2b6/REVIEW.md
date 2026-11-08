@@ -1,15 +1,21 @@
-# Scientific review of the gear-graph zero-forcing reconfiguration metric
+# Independent mathematical audit
 
-## Correctness — PASS
-The candidate's state space is explicitly defined, its five rotational classes admit a direct forcing derivation, and the graph adjacency follows by exact set intersection. The infinite-cover metric is accompanied by an entire coefficient table and a branch-complete Bellman and descent verifier. The covering-space distance reduction and the four-step central-band induction turn the explicit table into a proof for every rim length, not a finite extrapolation. A separately written direct zero-forcing/graph-distance program confirms all individual states and distances for the first seven admissible rim lengths. Risk: readers should rerun the integer certificate and inspect the finite-to-infinite tail reasoning; the proof concerns only the defined graph and update rule.
+## correctness
 
-## Originality — PASS, qualified
-The 2023 gear-graph study describes minimum sets up to graph isomorphism and the zero-forcing number three. The 2020 reconfiguration-graph paper defines the exchange operation and develops general foundations. Neither inspected text provides the sharp all-parameter eccentricity formula, five-family labelled exchange graph, or its cover-metric certificate. Searches for zero forcing reconfiguration of gears, labelled minimal-set graphs, and equivalent wheel-subdivision terminology did not identify a stronger theorem implying the metric formulas. Available earlier mathematical records and earlier accessible research claims were compared by their mathematical objects; the closest gear-specific research record concerns a different mixed-resolving invariant. Residual risk: indexing is incomplete and there may be an equivalent unindexed computation; lack of a hit is not proof of absolute priority.
+PASS
 
-## Value — PASS
-A minimum zero-forcing set represents a smallest sensor/control placement that can deterministically propagate to the full graph. Changing exactly one placement is the natural constrained reconfiguration operation. Gear graphs are a classical infinite family obtained by a controlled structural change to wheels: the exact radius and diameter describe the worst possible number of placement replacements, and type-by-type eccentricities expose genuinely different central and peripheral minimum sets. The sharp mod-four dependence and explicit covering metric provide information not implied by knowing the zero-forcing number or symmetry orbits. Risk: no mixing-time, directed forcing or higher-degree-family implications are asserted.
+The five listed families A_i..E_i are minimum triples under standard forcing, and pairwise two-element intersections yield a 5m-vertex, 11m-edge adjacency graph. Inspected complete verification/cover_distance_table.json and verify_gear_metric.py: the explicit infinite-cover potential satisfies zero only at source, nonnegative Bellman unit-Lipschitz neighbor bounds and a descending neighbor, which characterizes exact distance; linear parity tails permit finite branch checks for every integer displacement. Quotient distances minimize over translates, nearest-two suffice by tail monotonicity, and band/boundary inequalities give eccentricity recurrence e(m+4)=e(m)+3 beyond four base classes. Independently rebuilt adjacency and BFS distances for every m=4..80, all five types; matched floor((3m+3)/4) radius, floor((3m+6)/4) diameter and C/E exception. Unbounded result rests on symbolic tail induction, not finite BFS alone.
 
-## Literature and limitations
-Geneson–Haas–Hogben (arXiv:2009.00220) provides the token-jump framework; Anderton et al. (arXiv:2310.18513) establishes prior minimum gear-graph forcing configurations; *Propagation time for zero forcing on a graph* (arXiv:1410.4191) supplies archival context. The all-size distance result is the sole new claim. No independent external assessment has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for full labelled token-jump eccentricity metric for gear graphs; the 2020 source defines the reconfiguration graph and the 2024 paper supplies minimum forcing three/propagation properties, not the 5-class distance formula. No Resultary exact gear-reconfiguration metric was found in search.
+
+## value
+
+PASS
+
+Exact farthest-set geometry for a canonical reconfiguration family, determining accessibility and center/periphery by state type for all graph sizes, not merely counting minimal sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
