@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Greedy subsequence embedding in \((012)^m\) has an exact nonincrease-count statistic. Every possible single deletion changes that statistic by zero or one; endpoint and local triple tests therefore characterize the entire minimal absent antichain. The weighted nine-state transfer expression enumerates its elements once each, and an embedded polynomial-vector certificate verifies the closed bivariate fraction symbolically over the integers. Literal small-host enumeration and independent transfer coefficients provide consistency evidence, not a substitute for proof.
+## correctness
 
-**Originality: PASS with specific residual risk.** The closest full-text primary reference, Kosche et al. (arXiv:2108.13968), covers generic MAS characterizations and exponential lower bounds for related repeating permutations, but its inspected pages 203–208 give no exact ternary full length spectrum. Adamson et al. (arXiv:2407.18599) treat counts of all absent subsequences, not the minimal absent antichain, and Manea et al. (arXiv:2504.21471) give generic enumeration methods. A previously recorded binary repeating-permutation rational identity covers the binary specialization only. The 2023 Tronícek paper, DOI:10.1007/978-3-031-49614-1_26, could not be inspected in full and remains an identifiable originality risk.
+PASS
 
-**Value: PASS.** Beyond general-purpose MAS enumeration, the result gives an all-length, all-repetition ternary enumerator, a short exact structural recognition test and a finite algebraic certificate. This resolves the first nonbinary periodic permutation family after the known binary case, a mathematically natural missing-pattern benchmark. It is a complete bivariate classification rather than a narrow or arbitrary finite table.
+The increasing permutation (012) repeated m times greedily embeds a target u using exactly 1+d(u) periods, where d counts adjacent weak descents (a≥b). Thus absence iff d≥m. Every letter deletion reduces d by at most one, and reduction for an internal (a,b,c) is [a≥b]+[b≥c]-[a≥c]. Therefore minimal absent iff d=m, its endpoint pairs are weak descents, and every triple has decrement 1; lengths m+1≤ℓ≤2m. Encoding successive pairs as q² states gives an injective weighted-path count v(I−M)^−1w. For q=3 the 9-state rational identity is verified by an exact polynomial-vector certificate in the package; independently reconstructed the transfer matrix and algebraically simplified v(I−M)^−1w against the displayed rational N(t,z)/D(t,z), with exact symbolic zero difference; numerator/denominator have denominator constant 1. First total counts 6,16,46,127,349,960,2640,7264. Higher q have the matrix expression, not the special small fraction. All algebra is exact, not extrapolated from 1035 finite coefficients.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: Kosche–Koß–Manea–Siemer examine the same repeated permutation B_k and prove generic MAS characterization and lower bounds (not this full q3 length-layer rational form). Adamson et al. count *all* absent subsequences not minimal antichain; Manea et al. give generic enumeration. Earlier binary repeated-permutation formula does not supply q3 transition structure. Tronícek's 2023 absent-subsequence automaton and MAS-counting article is a relevant full-text priority risk; full text unavailable after arXiv/OA and institutional route returned vpn_disconnected, without bypass.
+
+## value
+
+PASS
+
+Complete exact length-by-repetition distribution of a canonical nonbinary word family, with local recognition, finite-state transfer and symbolic fraction; a motivated refinement of the earlier shortest-absence counts and an explicit combinatorial benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

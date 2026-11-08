@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical identity is checked without external packages by `verify_ternary_periodic_mas.py` using `ternary_mas_algebra_certificate.json`. The certificate has nine polynomial entries and verifies \((I-M)p=Dw\) and \(vp=N\) coefficient-by-coefficient in the integral polynomial ring. This is an exact algebraic check of the generating function for every repetition index and length.
+# Independent mathematical audit
 
-Independent direct occurrence tests covered 143,310 literal target words over 12 small hosts, identifying 740 minimal absent strings and agreeing with the local criterion. A separate transfer recurrence agreed with the bivariate rational coefficient identity in 1,035 positions for bounded indices. The results were `VERIFY_OK direct_parameter_cases=12 literal_targets=143310 tested_MAS=740 rational_coefficients=1035 ternary_prefix=6,16,46,127,349,960,2640,7264` and `ALGEBRA_CERT_OK states=9 polynomial_terms=47`.
+## correctness
 
-Limits: the finite exhaustive tests are bounded. The all-parameter theorem relies instead on the paper proof and finite exact polynomial certificate. No external independent assessment or formal proof-assistant certification was performed.
+PASS
+
+The increasing permutation (012) repeated m times greedily embeds a target u using exactly 1+d(u) periods, where d counts adjacent weak descents (a≥b). Thus absence iff d≥m. Every letter deletion reduces d by at most one, and reduction for an internal (a,b,c) is [a≥b]+[b≥c]-[a≥c]. Therefore minimal absent iff d=m, its endpoint pairs are weak descents, and every triple has decrement 1; lengths m+1≤ℓ≤2m. Encoding successive pairs as q² states gives an injective weighted-path count v(I−M)^−1w. For q=3 the 9-state rational identity is verified by an exact polynomial-vector certificate in the package; independently reconstructed the transfer matrix and algebraically simplified v(I−M)^−1w against the displayed rational N(t,z)/D(t,z), with exact symbolic zero difference; numerator/denominator have denominator constant 1. First total counts 6,16,46,127,349,960,2640,7264. Higher q have the matrix expression, not the special small fraction. All algebra is exact, not extrapolated from 1035 finite coefficients.
+
+## originality
+
+PASS
+
+Qualified PASS: Kosche–Koß–Manea–Siemer examine the same repeated permutation B_k and prove generic MAS characterization and lower bounds (not this full q3 length-layer rational form). Adamson et al. count *all* absent subsequences not minimal antichain; Manea et al. give generic enumeration. Earlier binary repeated-permutation formula does not supply q3 transition structure. Tronícek's 2023 absent-subsequence automaton and MAS-counting article is a relevant full-text priority risk; full text unavailable after arXiv/OA and institutional route returned vpn_disconnected, without bypass.
+
+## value
+
+PASS
+
+Complete exact length-by-repetition distribution of a canonical nonbinary word family, with local recognition, finite-state transfer and symbolic fraction; a motivated refinement of the earlier shortest-absence counts and an explicit combinatorial benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
