@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The double-root companion is a nonscalar Jordan block modulo each prime \(p\ge5\); its order modulo \(p\) is \(mp\). The first lifting calculation uses \(B^2\equiv0\pmod p\), \(B^p\equiv0\pmod{p^2}\), and the nonzero coefficient \(pB\); it forces a nontrivial lift and induction through every prime power. In the independent polynomial argument, the coefficient of \(X-1\) supplies the contradiction. The explicit characteristic-three exception is verified by an integer factorization. The exhaustive finite script is a corroborating test, not an infinite proof.
+## correctness
 
-**Originality (PASS, residual priority risk).** Section 4.3 of Shi et al. (2026, arXiv:2603.25343v1) asserts a quadratic Hensel lift in a repeated-root construction. The exact lift obstruction and complete maximal-period tower are not stated there; rather, the attempted construction has the opposite outcome for \(p\ge5\). Vince (1981), cited by the paper, is relevant to the general one-step period dichotomy; full text could not be inspected, so implicit stronger historical coverage remains possible. Searches of available published mathematical records and earlier accessible number-theory research found no covering classification. Independent priority validation is still needed.
+PASS
 
-**Value (PASS).** This is a natural complete ramified-prime branch of the period-lifting problem, not a freely chosen finite slice. It gives a sharp all-prime, all-prime-power obstruction and explains why the new double-root construction cannot work in characteristic at least five, while retaining the characteristic-three example. The result does not adjudicate distinct-root constructions or broader number-field implications.
+Companion matrix A is cyclic on e1, so sequence period equals matrix order. Mod p the nonscalar repeated-root A=alpha I+J yields ord(A)=m p. B=A^m−I has B nonzero, B²=0 mod p; (I+B)^p=I+pB mod p² since p>=5 gives B^p=0 mod p². This forces exact first and higher lifts by binomial induction. Under Y=X−1, any monic factorization of X^p−1 with both degrees >=2 has linear coefficient divisible by p², whereas target has coefficient p. The p=3 cyclotomic factor is an explicit exception. Independent modular companion powers checked 108 cases p=5,7,11,13 for k=1..3; finite checks are not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison finds no inspected stronger result covering the full final claim; known components and related earlier theorems are credited. This is not a novelty certificate.
+
+## value
+
+PASS
+
+The repeated-root branch of a current prime-period construction is a canonical arithmetic case; a complete prime-power answer and failed non-coprime Hensel lift are mathematically useful, with a sharp characteristic-three boundary. It corrects a specific proposed coding-theory construction rather than a randomly chosen case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

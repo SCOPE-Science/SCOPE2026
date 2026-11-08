@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility checks
-Run `python3 verify.py` with Python 3; no nonstandard package is required. The script evaluates exact matrix powers over \(\mathbb Z/p^k\mathbb Z\), for each \(p=5,7,11,13\), each coefficient pair modulo \(p^2\) satisfying the ramified and invertible hypotheses (\(3632\) pairs in total), and \(k=1,2,3\). It verifies the predicted order and excludes divisors corresponding to all prime factors of the order. It separately tests the exceptional \(p=3\) example.
+# Independent mathematical audit
 
-Expected output: `VERIFY_OK primes=5,7,11,13 coefficient_lifts=3632 levels=1,2,3 p3_exception=yes`.
+## correctness
 
-These checks cover the specified finite ranges only. The all-primes and all-powers claim is established by the independent binomial-matrix proof. The factor obstruction is also a symbolic proof, not inferred from these experiments. No independent audit has been performed.
+PASS
+
+Companion matrix A is cyclic on e1, so sequence period equals matrix order. Mod p the nonscalar repeated-root A=alpha I+J yields ord(A)=m p. B=A^m−I has B nonzero, B²=0 mod p; (I+B)^p=I+pB mod p² since p>=5 gives B^p=0 mod p². This forces exact first and higher lifts by binomial induction. Under Y=X−1, any monic factorization of X^p−1 with both degrees >=2 has linear coefficient divisible by p², whereas target has coefficient p. The p=3 cyclotomic factor is an explicit exception. Independent modular companion powers checked 108 cases p=5,7,11,13 for k=1..3; finite checks are not proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison finds no inspected stronger result covering the full final claim; known components and related earlier theorems are credited. This is not a novelty certificate.
+
+## value
+
+PASS
+
+The repeated-root branch of a current prime-period construction is a canonical arithmetic case; a complete prime-power answer and failed non-coprime Hensel lift are mathematically useful, with a sharp characteristic-three boundary. It corrects a specific proposed coding-theory construction rather than a randomly chosen case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
