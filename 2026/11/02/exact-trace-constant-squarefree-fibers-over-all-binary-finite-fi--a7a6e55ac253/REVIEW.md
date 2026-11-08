@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All degree and characteristic assumptions are explicit. The proof reconstructs the character-weighted monic-polynomial generating functions, applies unique factorization \(f=gh^2\), specializes to characteristic two, then inverts the trace/constant Fourier transform. The nontrivial multiplicative characters make no contribution in degrees at least two. The remaining trivial and additive-character sectors give exact rational generating functions whose coefficients yield the stated integer formulas. Direct exhaustive tests in four binary fields compare the formulas against polynomial derivative gcd tests in 1,034 fibers. Computation is finite corroboration only.
+PASS
 
-## Originality — PASS (with residual risk)
+Trace coefficient b(fg)=b(f)+b(g) and constant c(fg)=c(f)c(g) yield two-character Euler products. Unique factorization f=gh^2 gives S_{psi,chi}(u)=Z_{psi,chi}(u)/Z_{psi^2,chi^2}(u^2). In characteristic 2 additive psi^2 is trivial and nontrivial chi^2 remains nontrivial (q-1 odd); for n>=2 their terms vanish. Inverse Fourier transform gives exact two formulas independent of nonzero constant and treats n=2 where t=0 produces 0. Independently enumerated GF(2) monic-polynomial fibers n=2..8 with derivative-gcd squarefreeness, all 14 trace/constant fibers matching. Infinite result is the formal power-series argument.
 
-Full-text comparison was made with Ri et al. (arXiv:1304.0521), Almousa–Wood (arXiv:1210.0472), and Kuttner–Wang (arXiv:2105.07550). They respectively count irreducible trace/subtrace classes, unrestricted root-multiplicity classes, and factorization patterns with initial coefficients; these do not assert the squarefree simultaneous trace/constant distribution. Oppenheim–Shusterman (arXiv:1707.06528) states existence for prescribed coefficient sets, not this exact formula, though only its abstract was inspected. Most importantly, Gao–Kuttner–Wang (doi:10.1016/j.ffa.2020.101770) treats trace/norm for irreducibles and *related objects*; its full text was not accessible, and equivalent coverage cannot be ruled out. Searches and overlap checks did not yield a decisive equivalent theorem, but search absence is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies exact arithmetic fiber counts over every binary finite field and all degrees at least two. The striking all-nonzero-constant uniformity and alternating one-unit defect between zero and nonzero trace classes are not supplied by the classical unrestricted squarefree count. This is a complete natural two-coefficient classification, not an arbitrary finite table or a narrow experimental slice.
+Irreducible prescribed trace/norm enumeration, unrestricted squarefree totals and large-q coefficient-existence results do not explicitly imply these exact all-binary-field squarefree fibers. A closely related 2021 related-objects article could contain stronger implicit coverage; unavailable text is explicitly retained as residual risk, not claimed checked.
 
-## Limitations
+## value
 
-The field must have characteristic two, degree at least two and nonzero prescribed constant. There is no refined factorization-type census, no odd-characteristic analogue, and no independent mathematical audit. Related trace/norm literature not available in full remains a real originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact fiber distribution of squarefree polynomials simultaneously constrained at opposite ends is a natural arithmetic statistic relevant to finite-field enumeration and polynomial sampling. Sharp characteristic-two uniformity and nonemptiness boundary are information not contained in the unrestricted total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
