@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:06:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two-stage order-three Radau IIA has rational stability map R(z)=(6+2z)/(6-4z+z²). For Q_n=S_n-I, denominator invertible on CTMC spectrum and R(hQ_n) has row sums 1. Taylor R(z)=1+z+z²/2+z³/6+z⁴/36-z⁵/108+O(z^6); for n<=5 any generator reachable off-diagonal minimal path length <=4 yields local positivity, whereas n>=6 directed cycles have length-5 target with negative leading coefficient. Exact modular inversion modulo S^n=1 of the rational matrix coefficients, supported by explicit all-polynomial certificates for n2..6, shows all entries strictly positive n2..5 for all h>0. n6 only exceptional coefficient is h^5 q(h) where q=h^5+15h^4+60h^3+90h²+36h−12, with strictly positive q derivative, unique root rho~0.208608859735; other coefficient numerators and denominator positive, including diagonal via two interval arguments. At h0 the identity is nonnegative. Fourier diagonalization yields positive rank-one limit at large h for any n. Fresh independent rational matrix evaluations for n2..6 and Taylor/root checks agreed; source SymPy modular inversion code checks full identities, not simply sampled logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna 2012 analyzes diagonal Padé maps on Metzler systems; Lóczi–Ketcheson 2014 scalar absolute monotonicity; [2/2] Gauss example n8 different coefficient order."
+        ],
+        "reasoning": "General losses of positivity are known, but n<=5 all-step Radau cycle positivity and unique n6 root are not logical consequences of these results.",
+        "searches": [
+          "two stage Radau IIA method Markov positivity directed cycle six states step size positivity threshold",
+          "Zappavigna Essentially Negative News About Positive Systems 2012",
+          "Lóczi Ketcheson radius absolute monotonicity rational functions 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "https://arxiv.org/abs/1303.6651",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known [2/2] Gauss eighth-state witness derives from a negative seventh coefficient, vs Radau negative fifth.",
+          "Zappavigna works on diagonal Padé, not subdiagonal [1/2]."
+        ],
+        "reasoning": "Distinct rational maps/quantifiers prevent numerical implication from the earlier n8 threshold; no full stronger covering Radau statement found in read primary sections.",
+        "searches": [
+          "two stage Radau IIA method Markov positivity directed cycle six states step size positivity threshold",
+          "arxiv 1303.6651 scalar rational absolute monotonicity",
+          "published Resultary 2026 8-state [2/2] Pade barrier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R=(6+2z)/(6-4z+z²) is [1/2] Padé; n-cycle generator is circulant S-I; endpoint map stochastic iff nonnegative."
+        ],
+        "reasoning": "Equivalence to Padé matrix-function coefficients was checked, but classical scalar absolute monotonicity is a different stronger/sufficient property and does not give the exact finite-cycle recovered window.",
+        "searches": [
+          "two stage Radau IIA method Markov positivity directed cycle six states step size positivity threshold",
+          "Radau IIA [1/2] Padé rational function directed cycle Markov generator positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes 8-state [2/2] Gauss-Padé barrier and 3-state SDIRK2 positivity boundary, different rational maps and graphs."
+        ],
+        "reasoning": "No exact six-cycle [1/2] coefficient table found in the queried results; lack of match cannot establish uniqueness.",
+        "searches": [
+          "two stage Radau IIA method Markov positivity directed cycle six states step size positivity threshold",
+          "Resultary Radau IIA six-state positivity exact quintic 15 60 90 36 -12",
+          "[1/2] Padé cyclic stochastic matrix coefficients six cycle"
+        ]
+      },
+      "rationale": "Earlier diagonal Padé positivity theory (Zappavigna et al), scalar absolute-monotonicity radius (Lóczi–Ketcheson), and a published 8-state [2/2] Gauss-Padé Markov failure are distinct. This precise [1/2] Radau directed-cycle n6 recovery quintic and n<=5 all-step classification were not identified in primary material read. Specialized older RK positivity examples could still be present, so best-of-knowledge qualifier.",
+      "residual_risks": [
+        "Specialized earlier implicit Runge-Kutta circulant or Radau IIA examples may contain the same polynomial; the search is not exhaustive.",
+        "No general nonuniform cycle-rate or stage-positivity guarantee; merely endpoint map for unit-rate directed cycles, local arbitrary n<=5 CTMC."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses diagonal Padé and general sufficient conditions, no [1/2] Radau cycle classification in inspected sections.",
+          "evidence": "Zappavigna–Colaneri–Kirkland–Shorten 2012",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Lawful open 2012 PDF introduction, relevant Padé family definitions and positivity theorem discussion; PDF page screenshot inspected.",
+          "method": "OA primary PDF",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Direct historical Padé positivity work on Metzler systems"
+        },
+        {
+          "assessment": "Classifies scalar absolute monotonicity properties rather than cyclic Markov entrywise nonnegativity and recovery window.",
+          "evidence": "Lóczi–Ketcheson 2013/2014",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+          "material_read": "OA publisher/preprint PDF introduction, definitions and main absolute monotonicity radius claims, visually inspected PDF page.",
+          "method": "OA primary PDF",
+          "title": "Rational Functions with Maximal Radius of Absolute Monotonicity",
+          "trigger": "Potential general rational Runge-Kutta positivity theorem"
+        },
+        {
+          "assessment": "Different [2/2] rational map and pure-birth witness, not directly covering [1/2] n6 cycle formula; no whole-document exclusion asserted.",
+          "evidence": "Published 2026 Resultary abstract",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Published Resultary summary and linked exact title, not full primary RESULT re-read during this execution.",
+          "method": "Resultary semantic search and published record summary",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Closest published mathematical finite-state barrier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact dimension and timestep boundaries for endpoint Markov positivity in an L-stable high-order integrator are natural numerical analysis invariants; the small-step loss followed by large-step recovery illustrates a practically significant nonmonotonic positivity phenomenon with a reproducible algebraic certificate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+    "https://arxiv.org/abs/1303.6651",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+  ],
+  "disposition": "passed",
+  "limitations": "Two-stage Radau IIA exact arithmetic, unit-rate directed cycles all h, arbitrary CTMC only local n<=5. External formal/Lean expert verification not performed.",
+  "residual_risks": [
+    "Specialized earlier implicit Runge-Kutta circulant or Radau IIA examples may contain the same polynomial; the search is not exhaustive.",
+    "No general nonuniform cycle-rate or stage-positivity guarantee; merely endpoint map for unit-rate directed cycles, local arbitrary n<=5 CTMC."
+  ],
+  "schema_version": 1
+}

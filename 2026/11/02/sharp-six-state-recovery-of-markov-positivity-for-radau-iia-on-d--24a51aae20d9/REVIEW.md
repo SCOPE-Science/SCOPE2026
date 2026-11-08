@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact rational stability function is derived from the Radau tableau and the inverse of its denominator exists on every CTMC generator. Shortest-directed-path expansions establish the universal local statement and the sharp negative fifth-order entry. Complete symbolic rational coefficient identities through dimension six, with a direct denominator/numerator sign certificate, establish unconditional positivity for two through five states and precisely one recovery boundary for six states. The large-step limit follows from the Fourier diagonalization of the directed cycle. An embedded deterministic SymPy verifier passed 158 assertions on the actual public coefficients and matrix maps. Numerical root evaluation was used only to display the certified algebraic root, not to substitute for proof.
+## correctness
 
-**Originality: PASS (qualified).** The nearest primary general sources concern diagonal Padé positivity on Metzler systems and rational absolute monotonicity. A published eight-state barrier treats the different diagonal \([2/2]\) Gauss map, whereas this theorem derives the exact six-state all-step support transition for the subdiagonal \([1/2]\) Radau map on a conservative directed cycle. Comparison of the mathematical statements, rational maps, path structures, and exact root sets revealed no implication covering this result. Specialized earlier literature could still exist, and lack of a search hit is not a uniqueness theorem.
+PASS
 
-**Value: PASS.** A high-order, A- and L-stable stiff integrator can lose Markov positivity at tiny timesteps even on six-state conservative cycles. A universal five-state safe family, an exact six-state forbidden window, and eventual recovery form a sharp boundary relevant to positivity-constrained discretizations. The polynomial certificate provides a concrete reproducible positivity test rather than a sampled numerical example.
+Two-stage order-three Radau IIA has rational stability map R(z)=(6+2z)/(6-4z+z²). For Q_n=S_n-I, denominator invertible on CTMC spectrum and R(hQ_n) has row sums 1. Taylor R(z)=1+z+z²/2+z³/6+z⁴/36-z⁵/108+O(z^6); for n<=5 any generator reachable off-diagonal minimal path length <=4 yields local positivity, whereas n>=6 directed cycles have length-5 target with negative leading coefficient. Exact modular inversion modulo S^n=1 of the rational matrix coefficients, supported by explicit all-polynomial certificates for n2..6, shows all entries strictly positive n2..5 for all h>0. n6 only exceptional coefficient is h^5 q(h) where q=h^5+15h^4+60h^3+90h²+36h−12, with strictly positive q derivative, unique root rho~0.208608859735; other coefficient numerators and denominator positive, including diagonal via two interval arguments. At h0 the identity is nonnegative. Fourier diagonalization yields positive rank-one limit at large h for any n. Fresh independent rational matrix evaluations for n2..6 and Taylor/root checks agreed; source SymPy modular inversion code checks full identities, not simply sampled logs.
 
-**Closest sources and limitations.** Zappavigna et al. (2012), Lóczi and Ketcheson (2013/2014), and the published eight-state Gauss result (2026) are explicitly compared. The claim is exact-arithmetic endpoint positivity on *unit-rate* directed cycles; stagewise, nonlinear, arbitrary-rate and general-graph thresholds are not established. No independent review or exhaustive historical coverage is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier diagonal Padé positivity theory (Zappavigna et al), scalar absolute-monotonicity radius (Lóczi–Ketcheson), and a published 8-state [2/2] Gauss-Padé Markov failure are distinct. This precise [1/2] Radau directed-cycle n6 recovery quintic and n<=5 all-step classification were not identified in primary material read. Specialized older RK positivity examples could still be present, so best-of-knowledge qualifier.
+
+## value
+
+PASS
+
+Exact dimension and timestep boundaries for endpoint Markov positivity in an L-stable high-order integrator are natural numerical analysis invariants; the small-step loss followed by large-step recovery illustrates a practically significant nonmonotonic positivity phenomenon with a reproducible algebraic certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
