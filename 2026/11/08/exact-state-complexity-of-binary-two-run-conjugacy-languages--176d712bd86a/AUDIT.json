@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Steps 1–4, exact quotient formula and three-case table",
+      "verify.py, exhaustive 484 run pairs through length 44 plus 150 larger seeded instances",
+      "VERIFICATION.md, reproduction and limits"
+    ],
+    "rationale": "The word has n distinct rotations since its unique oriented cyclic transitions forbid a nontrivial period. Every mixed prefix and suffix identifies a unique cyclic boundary. A homogeneous prefix contributes exactly one quotient class; mixed prefixes yield singleton quotients that merge precisely on homogeneous suffixes. Correcting for the two run-boundary splits gives equation (1), and its three disjoint regimes give \\(\\lambda_j=2\\min\\{j,a,b,n-j\\}\\). Summation and the Myhill–Nerode theorem yield \\(2ab+3\\) complete DFA states, including root, accepting and rejecting sink. Direct quotient enumeration, independent minimized-trie construction and a separate homogeneous-collision formula passed 634 parameter pairs; these finite tests are supplementary to the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabric–Holub–Shallit, Section 3 Theorems 6–7: bound on sc(C(w)) and equality iff generalized de Bruijn; proof describes quotient machinery, no exact value for the two-run subfamily.",
+        "Jirásková–Okhotin abstract: general worst-case cyclic-shift complexity for regular languages, not the exact one-word family.",
+        "Jirásek–Jirásková abstract: maximum complexity for cyclic shift on prefix-free languages, rather than the exact conjugate set of a prescribed word."
+      ],
+      "reasoning": "A bound valid for every word does not fix exact sc(C(\\(0^a1^b\\))), and equality is exceptional; application of Myhill–Nerode still needs the new homogeneous-prefix/suffix collision count. Abstract-only comparisons are not conclusive about uninspected appendices.",
+      "searches": [
+        "arxiv:1903.05442 Gabric Holub Shallit Theorems 6 7 full text",
+        "State complexity of cyclic shift Jirásková Okhotin 2008",
+        "Cyclic Shift on Prefix-Free Languages Jirásek Jirásková 2013"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1903.05442 (full text)",
+      "https://doi.org/10.1051/ita:2007038 (abstract)",
+      "https://doi.org/10.1007/978-3-642-38536-0_22 (abstract)",
+      "https://oeis.org/A316936 (global maximum table)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7 gives sc(C(w)) at most a function of n and equality only for generalized de Bruijn words, not \\(2ab+3\\) for every a,b.",
+        "Theorem 6 gives a global bound on uniform-length languages, with a quotient counting method that does not settle the two-run collision profile."
+      ],
+      "reasoning": "When a,b are highly unbalanced, C(\\(0^a1^b\\)) is not maximally complex at its length, so the general extremal equality case cannot imply the desired exact count. Our formula distinguishes n−1 different run splits through their products while the global bound is independent of them.",
+      "searches": [
+        "arxiv:1903.05442 Section 3 Theorem 7 generalized de Bruijn equality case",
+        "\"conjugates\" \"state complexity\" \"two runs\"",
+        "minimal DFA cyclic rotations zero run one run languages exact automaton state count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact two-run formula located by these literal and semantic aliases.",
+        "arxiv:1903.05442 gives definitions of C(w) and sc(C(w)) and a different general maximum problem."
+      ],
+      "reasoning": "The candidate concerns left-quotient classes of a fixed finite language C(\\(0^a1^b\\)). This is equivalent to minimal complete DFA state complexity, but the known maximizer theorem does not provide its nonmaximal layers.",
+      "searches": [
+        "\"state complexity\" \"conjugates\" \"0^a\" \"1^b\"",
+        "\"minimal automaton\" \"conjugates\" \"runs\" \"binary\"",
+        "\"2ab+3\" \"conjugates\" automata",
+        "Myhill Nerode quotient complexity binary two-run conjugate languages prefix residual states 2 min(j,a,b,n-j)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A316936 records the length-wise global maximum, not the full run-pair or layer-resolved values.",
+        "Gabric–Holub–Shallit Table 2 lists small generalized de Bruijn maximizers; Table 3 lists global maxima, and neither classifies all two-run lengths."
+      ],
+      "reasoning": "Balanced small two-run examples coincide with known global maxima, so those individual table values are covered. The all-positive-integer two-parameter formula and depth profile are not table recomputation; for nonmaximal run splits the upper-bound table does not determine the answer.",
+      "searches": [
+        "\"2ab+3\" \"conjugates\" automata",
+        "OEIS A316936 Gabric Shallit maximum state complexity of conjugates",
+        "arxiv:1903.05442 Tables 2 and 3"
+      ]
+    },
+    "rationale": "The inspected complete primary text of Gabric–Holub–Shallit (2019) characterizes maximal state complexity among all conjugacy languages, rather than the exact \\(2ab+3\\) two-run count or its layer profile. The older cyclic-shift descriptions concern arbitrary regular languages/prefix-free operations, so their abstracted claims do not imply this specific classification. The exact formula is not explained by a maximizer-only result outside its few extremal small cases; target-alias and exact-formula searches produced no equivalent published statement. Nevertheless bibliographic incompleteness remains possible.",
+    "residual_risks": [
+      "The full texts of the older general shift papers were not read; a specialized example could in principle occur there.",
+      "An equivalent two-run automaton count might be published with alternate notation or absent from searched indices.",
+      "The 2019 quotient construction is sufficiently general that an unstated specialization may be straightforward to a specialist; priority remains to be independently checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact state formula or complete quotient-level classification for the two-run family found; theorem covers maximal complexity and its achievers only.",
+        "evidence": [
+          "Theorem 7 gives global upper bound and iff generalized de Bruijn extremality.",
+          "Section 3 Theorem 6 studies arbitrary fixed-length language bounds; Table 3 is global maxima.",
+          "Full-text search found no two-run formula or 2ab expression."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.05442",
+        "material_read": "Full publicly rendered article text, especially introduction, Section 3 Theorems 6 and 7 and proofs, Tables 2–3 and concluding enumeration discussion.",
+        "method": "Read primary open-access full-text HTML article, with targeted searches for two-run notation and formula.",
+        "title": "Maximal State Complexity and Generalized de Bruijn Words",
+        "trigger": "Same language C(w), exact deterministic state complexity, maximum theorem could subsume subclass."
+      },
+      {
+        "assessment": "The abstract claims general worst-case state-complexity bounds, not the proposed two-run exact formula; cannot exclude an example in the uninspected body.",
+        "evidence": [
+          "The abstract describes general 2- and 3-letter alphabet complexity and a 4-letter witness."
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/ita:2007038",
+        "material_read": "Public journal abstract and bibliographic information only; complete article not inspected.",
+        "method": "Read original publisher and institutional abstract pages.",
+        "title": "State complexity of cyclic shift",
+        "trigger": "Foundational work on cyclic shifts of regular languages."
+      },
+      {
+        "assessment": "Describes state-complexity upper bounds and alphabet witnesses for general prefix-free languages, not a prescribed two-run conjugacy language; remaining full-text risk noted.",
+        "evidence": [
+          "The abstract is about maximum complexity for shift of a prefix-free language."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-38536-0_22",
+        "material_read": "Public abstract and citation metadata only; no full paper.",
+        "method": "Read accessible abstract record.",
+        "title": "Cyclic Shift on Prefix-Free Languages",
+        "trigger": "Cyclic-shift complexity for an important constrained regular-language class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "176d712b-d86a-4c91-a37c-1b451945f5fb",
+  "value": {
+    "evidence": [
+      "Gabric–Holub–Shallit arxiv:1903.05442 identifies cyclic conjugacy language state complexity as a natural object.",
+      "RESULT.md shows the exact infinite-family shape and full layer profile."
+    ],
+    "rationale": "This completely computes the exact deterministic state complexity and every Myhill–Nerode layer for the smallest nonconstant binary circular run family. The result fills a natural exact-instance gap left by extremal conjugacy-language work, and yields sharp composition-dependent minimum/maximum state costs and a quadratic balanced-run benchmark. The quotient-collision accounting is substantive structural information, not merely a finite enumeration, arbitrary slice or normalization check.",
+    "status": "PASS"
+  }
+}
