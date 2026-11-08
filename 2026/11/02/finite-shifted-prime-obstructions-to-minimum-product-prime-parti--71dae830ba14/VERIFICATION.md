@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3 from the directory containing this file and `verify.py`.
+## correctness
 
-Recorded output:
+PASS
 
-`VERIFY_OK fixed_sets=4 exact_sum_cases=867 even_offsets_for_3_5_19=82`
+For a finite minimum-product A, sum U <= product U and q>16M^4 force the product R of all but the largest competitor prime below M; R>M contradicts q(R-M)<=R(u-d) and R<4M², R=M yields the same A via unique factorization. Then t=q+d-u gives exactly the finite even-shift condition, with strict comparison in converse. Selberg sieve yields O_A(X/log² X) exclusions. Independently re-enumerated Δ_{3,5}={6,8} ; inspected the source’s large-prime witness without an independent primality run; finite checks are not the proof.
 
-The program constructs the prime list with a sieve, computes minimum products for each exact target sum using a descending distinct-prime dynamic program, independently enumerates finite even offsets from sets with smaller products, and checks the equivalence for four fixed minimum-product sets and 867 prime extensions. It separately asserts explicit small offset sets. All calculations use exact integers.
+## originality
 
-The code checks only finite examples (many below the stated sufficient threshold). The general equivalence is proved mathematically in `RESULT.md`. The quantitative density statement additionally invokes the classical Selberg-sieve upper bound for prime pairs separated by any fixed nonzero even integer. No general independence or third-party mathematical audit has been performed.
+PASS
+
+Qualified best-knowledge original contribution; prior tools and claimed antecedents are explicitly excluded. The exact finite shift obstruction classifies all large q; isolated primes in Campbell suffice but do not capture successful nonisolated primes.
+
+## value
+
+PASS
+
+The exact finite obstruction set is a computable arithmetic classifier refining isolated-prime sufficiency; successful prime extensions have density one and precise excluded shifts. It settles the growth question in a meaningful structural way, though density one itself follows from standard sieve arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
