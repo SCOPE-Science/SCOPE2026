@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The equation \(X^2=T\) forces nilpotency of index at most four; squaring the four Jordan block lengths supplies a complete finite type parameterization. Centralizer-unit orbit transitivity is established explicitly by squaring a conjugacy. The unit-centralizer cardinality follows from the radical quotient and module Hom dimension. The two-defect formula separates into summable weights after a uniform finite-product estimate; the Gaussian tail gives the quantitative total-variation bound. The included verifier independently enumerates the small cases listed in the result. Computation is finite corroboration, not the infinite proof.
+
+**Originality — PASS against searched records and inspected literature, with residual risks.** Öztürk (2021) classifies admissible nilpotent matrix-root Jordan types, not operator multiplicities or the independent defect law. Mingueza–Montoro–Roca (2019) describe arbitrary-field centralizers, not root-fiber asymptotics. Bogdanić et al. (2022) treat nilpotents commuting with two equal-length Jordan blocks, not this square-root fiber. Relevant published mathematical-record searches and inspected prior statements found no dominating result. The strongest contribution is the quantitative product limit; existence criteria and centralizer formulas remain credited prior mathematics. Broader root-counting theorems not located in the search may imply aspects of the result.
+
+**Mathematical value — PASS.** The fiber of a distinguished central element in a natural endomorphism ring is an algebraically motivated count. The exact solution multiplicities recover the full rank/cubic-rank spectrum across every finite field and dimension. The limiting independent defect law, with explicit error, distinguishes typical actual roots from classification up to conjugacy and reveals nontrivial rank-deficit probabilities.
+
+**Limits.** Only the two-length module family and quadratic fiber are handled; parity-specific first defects and fixed-field asymptotics must be respected. Publication priority is not guaranteed by a bounded search. Independent validation is pending.
+
+Self-review: passed. Independent audit: not yet performed.
