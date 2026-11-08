@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof writes every complex degree-two spherical harmonic as a trace-free symmetric quadratic, gives all four orthogonal O(m)×O(m) sectors and multiplicities summing to 2m²+m−1, calculates each output/input Gram ratio from normalized second and fourth moments, and treats scalar beta variance. Positivity gives injectivity precisely off t=1/2. On t in (0,1/2), min{λX,λZ} crosses only at the claimed t_minus; normalized spectral ratios are strictly decreasing before and increasing after it, and at that crossing λY dominates λM for m>=2. Symmetry gives exactly two global optimizers. The exact-rational stand-alone cubature code reconstructs all Gram entries on m=2,3,4 and verifies 4779 assertions; finite tests supplement, not replace, the all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zandieh--Han--Avron, arxiv:2202.12995v1 Theorem 14 concerns O(beta log beta) samples randomly distributed on the full sphere.",
+        "Bangun--Behboodi--Mathar, arxiv:1904.11596v2, Section 4 studies mutual coherence, a different measure than singular-value conditioning of an entire homogeneous restriction operator.",
+        "Published sharp L4/L2 extremizer result for degree-two spherical harmonics, result identifier d4106097159f: concerns full-sphere fourth norms rather than the L2 trace on a codimension-one product hypersurface."
+      ],
+      "reasoning": "Uniform full-sphere polynomial reconstruction and whole-sphere fourth norms are not stronger theorems about product-sphere trace stability: neither implies the exact spectrum and global radius optimization by simple parameter substitution. Standard fourth-moment identities are used transparently as known ingredients, not claimed novel.",
+      "searches": [
+        "Quadrupole restriction O(p) times O(q) Clifford torus optimal conditioning harmonic concentration",
+        "Spherical harmonic frame sampling optimal rotationally symmetric configurations fourth degree",
+        "Spherical harmonics restriction to product of spheres balanced torus zonal null mode exact singular values",
+        "arxiv:2202.12995 Theorem 14"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.12995v1 (primary HTML: introduction, Theorem 14, related work)",
+      "arxiv:1904.11596v2 (primary HTML: Sections 4-5)",
+      "arxiv:2106.02023 (primary abstract only)",
+      "Published scientific record d4106097159f, sharp degree-two spherical-harmonic L4/L2 norm (returned title and short mathematical summary only)",
+      "Published scientific record e5356e299a36, weighted harmonic Bergman circle trace staircase (returned title and short mathematical summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2202.12995v1, Theorem 14: randomized sphere samples, approximation guarantee, not fixed hypersurface frame optimality.",
+        "arxiv:1904.11596v2, Definition 2 and Section 5: normalized pairwise coherence of finite columns, not the smallest and largest singular values of full continuous trace.",
+        "Roddy--McEwen, arxiv:2106.02023 abstract: spherical Slepian functions and wavelets for observation regions, not zero-measure homogeneous hypersurfaces."
+      ],
+      "reasoning": "The only implications from the compared results are motivation and standard general spherical-harmonic decompositions. Their conclusions neither select t=sqrt(m+2)/(2+2sqrt(m+2)) nor imply the all-m four-block trace singular spectrum. The new proof derives these separately from basic moments and globally monotone quotient comparisons.",
+      "searches": [
+        "Sharp condition number for restricting degree-two spherical harmonics on S^{2m-1} to Clifford hypersurface sqrt(t) S^{m-1} times sqrt(1-t) S^{m-1}",
+        "Optimal quadratic harmonic trace sampling product spheres radius t sqrt(m+2) condition number 1+2/sqrt(m+2)",
+        "arxiv:1904.11596 spherical sensing coherence construction",
+        "arxiv:2202.12995 spherical reconstruction submanifold restrictions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2202.12995v1, Secs. 1.1, 3, Theorem 14: full-sphere randomized sample regression, not product-surface trace spectra.",
+        "arxiv:1904.11596v2, Secs. 4-5: finite spherical sensing-matrix mutual-coherence optimization.",
+        "No equivalent statement in the checked full-text sections or in the closest returned scientific records."
+      ],
+      "reasoning": "The product-surface restriction is unitarily represented by a four-sector Gram operator on all pure quadrupoles, unlike full-sphere random reconstruction or finite coherent sampling. Equivalent labels including generalized Clifford torus, isoparametric level set, quadrupole trace, and product-sphere restriction were searched. No verified source asserts the four-eigenvalue formula plus its minimax optimizer.",
+      "searches": [
+        "Sharp condition number for restricting degree-two spherical harmonics on S^{2m-1} to Clifford hypersurface sqrt(t) S^{m-1} times sqrt(1-t) S^{m-1}",
+        "Clifford torus product spheres degree-two spherical harmonic sampling exact spectral frame bounds all p q optimal torus radii",
+        "\"Clifford torus\" \"spherical harmonics\" \"restriction\" \"quadratic\"",
+        "\"product of spheres\" \"spherical harmonics\" \"restriction\" \"degree two\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved records on spherical harmonic spectral problems have different restrictions: weighted Bergman circle traces and hemispherical Slepian concentration.",
+        "No source located tabulating the complete four-sector m-dependent trace spectrum, its two optimal radii or κ=1+2/sqrt(m+2)."
+      ],
+      "reasoning": "The exact dimension-parameter formula was searched numerically and symbolically by aliases. Retrieval absence alone is not evidence of nonexistence, but no exact published table or formula with identical objects was found in the inspected sources.",
+      "searches": [
+        "Optimal quadratic harmonic trace sampling product spheres radius t sqrt(m+2) condition number 1+2/sqrt(m+2)",
+        "Spherical harmonics restriction to product of spheres balanced torus zonal null mode exact singular values",
+        "\"Clifford torus\" \"spherical harmonics\" sampling \"condition number\"",
+        "\"generalized Clifford torus\" \"spherical harmonics\" \"restriction\" \"norm\""
+      ]
+    },
+    "rationale": "The claim combines four explicit full-space trace eigenvalues with sharp global conditioning, two and only two minimizing radii, a coincident E-optimal lower bound, and strict dimension dependence for all m>=2. Search comparison found no matching or dominating statement among the retrieved published results. Zandieh et al. prove randomized whole-sphere approximate recovery; Bangun et al. study finite sensing-matrix coherence. Their quantifiers, sample geometry, and objectives differ. General sphere moment formulas are ingredients and do not themselves specify the sharp Clifford restriction optimizer. The search does not guarantee historic novelty, and an implicit isoparametric branching theorem remains a risk.",
+    "residual_risks": [
+      "A classical O(m)×O(m) branching or isoparametric restriction theorem may implicitly derive the four-sector operator without using Clifford-torus wording.",
+      "The 2021 Slepian-wavelet paper was inspected at the abstract level only and cannot be declared wholly non-covering.",
+      "No independent exhaustive historical-priority or expert audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact product hypersurface singular-value objective, despite shared spherical-harmonic input spaces.",
+        "evidence": [
+          "Sec. 1.1 and Theorem 14 establish randomized full-sphere observations and an approximate regression error guarantee.",
+          "Theorem 14 is not a statement about fixed continuous Clifford traces or an optimization in their radii."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.12995v1",
+        "material_read": "Full-text introduction and main results, Theorem 14, related work, and text search for torus/submanifold.",
+        "method": "ArXiv HTML, primary text; inspected Theorem 14 and absence of product-hypersurface terminology.",
+        "title": "Near Optimal Reconstruction of Spherical Harmonic Expansions",
+        "trigger": "2022 whole-sphere near-optimal spherical-harmonic reconstruction is directly relevant to stable sampling."
+      },
+      {
+        "assessment": "NOT_COVERING exact continuum product-surface L2 trace frame spectrum.",
+        "evidence": [
+          "Definition 2 is matrix mutual coherence, based on pairwise column correlations.",
+          "Section 5 optimizes finite sampling-point locations rather than probability-uniform Clifford products."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.11596v2",
+        "material_read": "Full-text Sections 4 and 5, especially Definition 2, Theorem 4 discussion, and optimization algorithm, plus abstract and bibliography.",
+        "method": "ArXiv primary HTML; inspected sensing objectives and claims.",
+        "title": "Sensing Matrix Design and Sparse Recovery on the Sphere and the Rotation Group",
+        "trigger": "A directly related deterministic spherical-harmonic sampling design paper."
+      },
+      {
+        "assessment": "Contextual; not used to certify whole-document non-coverage.",
+        "evidence": [
+          "Abstract concerns Slepian concentration on missing regions and wavelet bases.",
+          "Potential uninspected appendices remain outside the checked material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.02023",
+        "material_read": "Primary arXiv abstract and public version metadata only; complete paper not examined.",
+        "method": "ArXiv abstract page.",
+        "title": "Slepian Scale-Discretised Wavelets on the Sphere",
+        "trigger": "Related concentration and incomplete-data spherical-harmonic analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a088b665-2f83-4b8a-8a6d-048c420f7b65",
+  "value": {
+    "rationale": "Generalized Clifford hypersurfaces are natural homogeneous level sets; stable recovery of the full first even spherical-harmonic band from one hypersurface is an intrinsic sampling problem. A complete dimension-uniform four-sector spectrum yields the exact blind mode, the two uniquely best radii for BOTH minimax conditioning and largest lower frame bound, and the nontrivial asymptotic 1+2/sqrt(m+2). This is not merely a small parameter variant of the cited finite and random sampling analyses; restrictions and normalization are explicit.",
+    "status": "PASS"
+  }
+}
