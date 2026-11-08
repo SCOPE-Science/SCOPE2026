@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_circular_four_run.py` from the directory containing that file. The script requires only Python 3's standard library and checks two implementations of the circular-palindrome language: a direct enumeration of starts and lengths, and expansion about possible palindrome centers in the doubled word.
+## correctness
 
-Observed output: `VERIFY_OK direct_definition_instances=3836 symbolic_compositions=1502486 six_run_cases=20`.
+PASS
 
-The direct finite tests include all positive four-run lengths through \(18\), all two-run lengths through \(29\), deterministic random four-run lengths, and six-run witnesses through \(t=21\). The symbolic census checks parameter formulas, optimality, equality conditions and all optimizing-quadruple counts through length \(79\). All formula cases and proofs are contained in `RESULT.md`. Finitely many tests cannot certify all integer parameters and are not presented as independent validation.
+The palindrome factor cap is one traversal of the circle. Two runs yield n+floor(a/2)+floor(b/2). Four runs have only palindromes of one, three or five symbol runs; enumerating center run and full flanking blocks gives four exact cases. Parity of unequal opposite runs yields equality counts; rotation maps ordered quadruples in two-element orbits for equality tuples. A known six-run family attains 10t-2 for n=6t and beats the bound for t>=3. Independent definition-level enumeration verified 1,001 ordered positive four-run compositions with n<=14, and t=2..8 six-run witnesses. Proof, not samples, supports every length.
 
-External scientific priority comparison remains incomplete because the full text of the closest 2014 paper could not be obtained. Publication-level independent audit has not been performed.
+## originality
+
+PASS
+
+Simpson 2014 full accessible primary proves general <5n/3 and exhibits the near-extremal six-run Biggles family, explicitly prior; its Lemma 6 and Theorem 7 do not imply the stronger conditional <=3n/2, exact four-run enumeration and equality census. OEIS A247000 tracks unrestricted maximum values but not this all-length run-stratified identity.
+
+## value
+
+PASS
+
+A sharp threshold in the number of cyclic symbol blocks is a natural structural explanation for when the standard 3n/2 palindrome barrier can fail. Complete formulas, equality classification, and six-run sharp obstruction are usable independently in combinatorics on words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

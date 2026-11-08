@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustively classify one-, three-, and five-run palindromes in the four-run circle; their disjoint counts yield the four-case formula. Elementary parity inequalities characterize sharpness, and summing positive compositions produces the extremizer counts. A separate six-run run-count argument yields the stated witness formula. Direct factor enumeration agrees with center-expansion enumeration on 3,836 instances; a symbolic census covers 1,502,486 four-run compositions. The finite tests corroborate, rather than replace, the all-length proof.
+## correctness
 
-**Originality — PASS, qualified.** Simpson (2014) proves a general weaker circular-palindrome upper bound and supplies six-run near-extremal examples; those are not claimed as new. OEIS A247000 tabulates unrestricted short-length maxima. Neither available stated result implies the exact four-run parameterization, equality classification, or sharp run-complexity separation. Targeted equivalence, database, and published-result searches found no covering result. The full Simpson manuscript was not accessible through the attempted lawful routes, so priority remains provisional, not independently settled.
+PASS
 
-**Value — PASS.** The invariant is the central quantity in circular-palindrome extremal research. The sharp all-length four-run ceiling and its equality cases distinguish structural complexity from mere length, and prove that gaining beyond the familiar \(3n/2\) level requires at least six symbol runs, a boundary achieved infinitely often. This is an explicit natural classification, not a recomputation of finite maxima.
+The palindrome factor cap is one traversal of the circle. Two runs yield n+floor(a/2)+floor(b/2). Four runs have only palindromes of one, three or five symbol runs; enumerating center run and full flanking blocks gives four exact cases. Parity of unequal opposite runs yields equality counts; rotation maps ordered quadruples in two-element orbits for equality tuples. A known six-run family attains 10t-2 for n=6t and beats the bound for t>=3. Independent definition-level enumeration verified 1,001 ordered positive four-run compositions with n<=14, and t=2..8 six-run witnesses. Proof, not samples, supports every length.
 
-**Closest literature and limitations.** Jamie Simpson, *Palindromes in circular words*, Theoretical Computer Science 550 (2014), 66–78, https://doi.org/10.1016/j.tcs.2014.07.012; OEIS A247000, https://oeis.org/A247000. The four-run theorem does not solve the unrestricted maximum. Historical priority and mathematical correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Simpson 2014 full accessible primary proves general <5n/3 and exhibits the near-extremal six-run Biggles family, explicitly prior; its Lemma 6 and Theorem 7 do not imply the stronger conditional <=3n/2, exact four-run enumeration and equality census. OEIS A247000 tracks unrestricted maximum values but not this all-length run-stratified identity.
+
+## value
+
+PASS
+
+A sharp threshold in the number of cyclic symbol blocks is a natural structural explanation for when the standard 3n/2 palindrome barrier can fail. Complete formulas, equality classification, and six-run sharp obstruction are usable independently in combinatorics on words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
