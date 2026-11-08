@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On SPD quadratic U(x)=x^T H x/2, substitution into the two explicitly specified SRK-I/SRK-II stages yields the same pathwise recursion Z_new=P(hH)Z+sqrt(2)(DeltaB-HJ), with P(x)=1-x+x^2/2 and Brownian-pair covariance Var(DeltaB-HJ)=h(1-x+x^2/3). The AR modal contraction satisfies |P(x)|<1 precisely 0<x<2; its invariant variance v=2h q/(1-P^2). Exact factor 2xq-(1-P^2)=x^3(3x-4)/12 establishes unique calibration x=4/3 and simultaneous SPD calibration only isotropic H=4I/(3h). Summing stationary lag covariances gives physical-time variance 2/lambda^2 q/(1-x/2)^2 = (2/lambda^2)[1+x^2/(3(2-x)^2)], strictly above OU for every positive stable step and exactly 7/3 at resonance. Euler scalar coefficient equals OU because the AR multiplier is 1-x and innovation variance 2h. Independently rechecked polynomial identities and 7/3 rational value and stage algebra. Proof covers arbitrary dimension by spectral diagonalization, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang-Wang provides two/three-gradient schemes and convergence bounds for general potentials.",
+          "The relevant Resultary findings deal with underdamped UBU/ULMC transitions, not the same overdamped coupled-noise stages."
+        ],
+        "reasoning": "General convergence/MSE rates and different splitting schemes do not mathematically determine the finite-step invariant Gaussian calibration and exact asymptotic variance for these two stages.",
+        "searches": [
+          "arxiv:2605.07939 convergence and SRK methods",
+          "arxiv:2609.11528 Mean Square Error Analysis of Stochastic Runge-Kutta Integrators",
+          "Resultary harmonic UBU and ULMC findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen SCOPE RESULT.md/verify.py/VERIFICATION.md/AUDIT.json, direct stage algebra",
+        "Yang-Wang arxiv:2605.07939v1 primary HTML §2.2",
+        "Ye arxiv:2609.11528 accessible abstract; full text not obtained, Oxford VPN disconnected",
+        "Li et al arxiv:1906.07868 older method comparison",
+        "Resultary harmonic UBU/ULMC published comparisons",
+        "Independent rational polynomial checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algebraic substitution of source stage definitions establishes pathwise equality, an implication not stated in the inspected Yang-Wang sections.",
+          "Generic OU asymptotic formulas when combined with the NEW reduced recursion derive the claimed factor; they do not independently state it for this pair."
+        ],
+        "reasoning": "A standard AR(1) textbook formula supplies part of the proof but cannot substitute for model-specific stage reduction and unique resonance. Any full-text direct Yang-Wang/Ye equality claim would cover originality; accessible sections did not supply one, full Ye unavailable.",
+        "searches": [
+          "Yang-Wang arxiv:2605.07939 stage equations",
+          "Ye arxiv:2609.11528 source abstract/full text access attempt",
+          "Li arxiv:1906.07868"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The AR(1) covariance and physical-time integrated autocovariance are standard identities for Gaussian Markov chains.",
+          "Yang-Wang source stages reduce to the same polynomial recursion on linear gradients; the source does not present the specific 4/3 resonance in the inspected portions."
+        ],
+        "reasoning": "Equivalent OU harmonic analysis must identify the actual stage noise covariance, not merely generic AR(1) formulas. Exact invariance at 4/3 plus strict time-average inflation is the joint specific statement under evaluation.",
+        "searches": [
+          "Resultary stochastic Runge Kutta Langevin harmonic Gaussian invariant covariance asymptotic variance",
+          "arxiv:2605.07939 SRK I SRK II",
+          "arxiv:2609.11528 sampler mean square error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned STORM, UBU and ULMC Gaussian covariance findings but no table for these two overdamped SRK transitions.",
+          "The older Li et al. stochastic Runge-Kutta sampler uses a different transition/stage scheme."
+        ],
+        "reasoning": "The evidence does not show a pre-existing exact 4/3-versus-7/3 calibration table; an uncatalogued specialist benchmark remains possible.",
+        "searches": [
+          "Resultary exact SRK variance resonance query",
+          "arxiv:2605.07939 harmonic experiments",
+          "arxiv:1906.07868 older SRK LD"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.",
+      "residual_risks": [
+        "Exact Ye 2026 full source unavailable because authorized Oxford VPN disconnected; identical Gaussian-mode analysis might occur there despite absence in abstract.",
+        "Older harmonic SRK discretization literature may contain equivalent alias under different numerical-analysis nomenclature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines SRK stages and general convergence but inspected portions do not explicitly give 4/3 resonance or 7/3 asymptotic factor",
+          "evidence": "The same Brownian data and linear gradient yield common P(x) and q(x) after substitution.",
+          "identifier_or_url": "https://arxiv.org/html/2605.07939v1",
+          "material_read": "HTML §2.2 scheme stages and convergence/experiment statements, especially original stage definitions",
+          "method": "arXiv HTML targeted full-text reading",
+          "title": "Accelerating Langevin Monte Carlo via Efficient Stochastic Runge–Kutta Methods beyond Log-Concavity",
+          "trigger": "Primary definitions for the two target samplers"
+        },
+        {
+          "assessment": "POTENTIALLY RELEVANT, unresolved exact comparison because primary full text unavailable; no claim of whole-document noncoverage",
+          "evidence": "Abstract advertises mean square error/ergodic estimates, not direct expression of displayed resonance; this alone is not enough to rule out a corollary.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11528",
+          "material_read": "Accessible abstract and bibliographic description only; attempted arXiv/OA retrieval, then authorized Oxford returned vpn_disconnected (job 54ee65a8bcbb4d3c12bb127662f4490d). No full-text read this run.",
+          "method": "arXiv abstract and lawful OA search; authorized institution unavailable",
+          "title": "Mean Square Error Analysis of Stochastic Runge–Kutta Integrators",
+          "trigger": "Closest paper specifically coupling Brownian input and sampling variance"
+        },
+        {
+          "assessment": "Different stage transition, not a logical specialization of the target schemes in inspected description",
+          "evidence": "Different algorithm means its Gaussian covariance result, if any, does not directly establish this target recursion.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.07868",
+          "material_read": "Abstract/source scheme description and cited older sampler distinctions; full text not reread this run",
+          "method": "arXiv bibliographic and model comparison",
+          "title": "Stochastic Runge–Kutta Accelerates Langevin Monte Carlo and Beyond",
+          "trigger": "Older stochastic Runge–Kutta sampler possibly dominating Gaussian benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly invariant Gaussian stationary distribution need not optimize physical-time Monte Carlo variance. These two source samplers coincide pathwise on Gaussian targets even though their stage counts differ, have a unique invariant-exact step, and always inflate linear-observable asymptotic variance while the biased first-order Euler chain has the OU coefficient. This sharp concrete tradeoff is a natural integrator diagnostic; no claim of superiority at equal gradient cost.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen SCOPE RESULT.md/verify.py/VERIFICATION.md/AUDIT.json, direct stage algebra",
+    "Yang-Wang arxiv:2605.07939v1 primary HTML §2.2",
+    "Ye arxiv:2609.11528 accessible abstract; full text not obtained, Oxford VPN disconnected",
+    "Li et al arxiv:1906.07868 older method comparison",
+    "Resultary harmonic UBU/ULMC published comparisons",
+    "Independent rational polynomial checks"
+  ],
+  "disposition": "passed",
+  "limitations": "Only SPD quadratics, jointly sampled exact Brownian increment/integral pairs, constant stable h, stationary linear-observable physical-time variance. Not nonlinear potentials, equal gradient-evaluation costs, full-time finite N, or other SRK schemes. Relevant Ye full text inaccessible after authorized access failure.",
+  "residual_risks": [
+    "Exact Ye 2026 full source unavailable because authorized Oxford VPN disconnected; identical Gaussian-mode analysis might occur there despite absence in abstract.",
+    "Older harmonic SRK discretization literature may contain equivalent alias under different numerical-analysis nomenclature."
+  ],
+  "schema_version": 1
+}

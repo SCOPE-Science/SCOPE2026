@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The full stage definitions in Ye (2026), §2.2, reduce on the linear gradient to the same polynomial AR(1) update, without approximation. Brownian increment/integral covariances give its exact innovation covariance. Orthogonal spectral diagonalization, the AR stationary Lyapunov equation, an exact polynomial difference of stationary and target variance, and a summable covariance series establish all stability, sign, and time-average assertions, including the unique resonance. `verify.py` independently exercises rational identities, stage evaluation, and finite-series formulas (11052 passing checks). Simulations cannot establish the universal claims; the displayed exact identities do.
+## correctness
 
-**Originality — PASS on examined sources, not a priority certificate.** Yang and Wang (2026), §2.2 and analysis/experiments, and Ye (2026), §§2.2–5 plus appendices, establish order/Wasserstein/MSE bounds and implement two distinct schemes. They do not state the common Gaussian AR transition, unique invariant-exact \(4/3\) resonance, or strictly inflated linear time-average variance \(7/3\) at that resonance. The older Li et al. Langevin SRK uses another transition. Closest published Gaussian UBU and underdamped results concern other kernels. Explicit published mathematical-record searches included exact formula, scheme aliases, continuous-time OU equivalence, and covariance benchmarks; these did not identify an equivalent or stronger claim. It remains possible that older specialist harmonic SRK theory already implies a portion; such priority risk is disclosed.
+PASS
 
-**Value — PASS.** Exact invariant-law calibration and Monte Carlo sampling-efficiency calibration are distinct design goals. This gives an explicit finite-step benchmark where the first is perfect and the second is suboptimal by a sharp factor, and proves anisotropic impossibility for a common-step exact invariant law. The counterpart Euler identity and the two-scheme pathwise collapse make the finding a natural methodological distinction, beyond a formula for an arbitrarily chosen parameter. It does not claim better practical performance at equal computational work.
+On SPD quadratic U(x)=x^T H x/2, substitution into the two explicitly specified SRK-I/SRK-II stages yields the same pathwise recursion Z_new=P(hH)Z+sqrt(2)(DeltaB-HJ), with P(x)=1-x+x^2/2 and Brownian-pair covariance Var(DeltaB-HJ)=h(1-x+x^2/3). The AR modal contraction satisfies |P(x)|<1 precisely 0<x<2; its invariant variance v=2h q/(1-P^2). Exact factor 2xq-(1-P^2)=x^3(3x-4)/12 establishes unique calibration x=4/3 and simultaneous SPD calibration only isotropic H=4I/(3h). Summing stationary lag covariances gives physical-time variance 2/lambda^2 q/(1-x/2)^2 = (2/lambda^2)[1+x^2/(3(2-x)^2)], strictly above OU for every positive stable step and exactly 7/3 at resonance. Euler scalar coefficient equals OU because the AR multiplier is 1-x and innovation variance 2h. Independently rechecked polynomial identities and 7/3 rational value and stage algebra. Proof covers arbitrary dimension by spectral diagonalization, not finite experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.
+
+## value
+
+PASS
+
+An exactly invariant Gaussian stationary distribution need not optimize physical-time Monte Carlo variance. These two source samplers coincide pathwise on Gaussian targets even though their stage counts differ, have a unique invariant-exact step, and always inflate linear-observable asymptotic variance while the biased first-order Euler chain has the OU coefficient. This sharp concrete tradeoff is a natural integrator diagnostic; no claim of superiority at equal gradient cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
