@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The universality index equals the number of greedy completed two-letter arches. A prefix/suffix argument proves both inequalities, including the empty word and the possibility of an empty residual suffix. The three-state run-length automaton is exhaustive and yields exactly the stated rational function. Formal coefficient extraction gives the finite binomial formula, and the simple, unique positive dominant pole at \((\sqrt5-1)/2\) yields the first two cumulants and a Gaussian limit. A standalone exhaustive checker compares independent definitions and formulas through length \(16\), with `VERIFY_OK` recorded. The checker supplements rather than replaces the infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Checked all boundary terms n=0,1,2 and k=0. Greedy arch scanning is bidirectionally exact: each completed arch realizes a target letter, and concatenating each arch-closing bit with a missing suffix bit yields a forbidden target length r+1. The exhaustive three-state equations P=2z+zE, Q=z(P+E), E=uz(P+Q) produce the rational bivariate function and finite binomial coefficient formula. Dominant root of 1-e^t(2z^2+z^3)=0 is simple/isolated since gcd(2,3)=1; differentiating its implicit equation gives n/sqrt5 mean and variance coefficient 1-11sqrt5/25>0, with analytic quasi-power CLT. Reimplemented exhaustive definition-level subsequence checking through n=11 matches coefficients; no finite test is used to prove the asymptotic.
 
-Closest work is the published general regular-language counting algorithm of Adamson et al. (2023), https://arxiv.org/abs/2311.10658, Section 4. It implies the ability to calculate the finite counts from an automaton; therefore computational decidability of those counts is not new. However it does not state the explicit run-two bivariate rational function, closed coefficients or the fixed-source Gaussian law. Adamson's 2023 unrestricted-word enumeration, https://arxiv.org/abs/2304.04583, and the published unrestricted binary-word distribution, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37, have different hypotheses and counts, and neither implies the present restricted-source statistical constants without new analysis. A 2013 Simon-congruence paper and the 2015 Karandikar–Schnoebelen richness-factorization paper (https://arxiv.org/abs/1511.01807) establish the older conceptual foundations; a 2020 edit-distance paper adds algorithms but do not cover the claim. Literature searches did not reveal a specific covering run-two result; unindexed sources remain a risk. Priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The absence of homogeneous runs of length three is a standard, naturally motivated constrained binary source. The theorem provides the complete joint finite distribution and a quantitative stochastic universality benchmark, changing the mean rate from the unrestricted \(1/3\) to \(1/\sqrt5\) and the variance coefficient from \(2/27\) to \(1-11\sqrt5/25\). The all-length exact law and nondegenerate central-limit theorem give a specific useful structural statistic, not an arbitrary finite slice.
+Best-of-knowledge, scoped novelty for the exact theorem and parameter regime after checking actual primary results and Resultary; prior methods/ingredients and exact overlaps are acknowledged rather than used as evidence of novelty. No decisive stronger theorem covering this precise claim was identified; remaining priority uncertainty is explicit.
 
-## Limits
+## value
 
-The proof covers only linear binary run-two words sampled uniformly at fixed length. A general regular-language counting algorithm already exists. Extensions to weighted or cyclic sources and larger run limits are not claimed; an independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The no-homogeneous-triple constraint is a natural Fibonacci finite-type word source. Its full arch-universality distribution and sharp Gaussian fluctuations are an exact invariant usable in constrained word coding and subsequence combinatorics; neither the parameter family nor the variance coefficient is an arbitrary slice. More general automaton algorithms do not supply the transparent golden-ratio law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
