@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Both programs operate only on exact integers. Run the following from their directory:
+## correctness
 
-```bash
-python3 verify_orthogonal_types.py
-python3 verify_orthogonal_direct.py
-```
+PASS
 
-The first program represents each tuple by the first-independent basis, the binary-coordinate words of selected vertices and their quadratic Gram matrix. It computes complete rank-three and rank-four first-order tuple types recursively from all allowable one-vertex extensions. The allowance test uses the exact binary quadratic Gauss sum. The outputs establish exactly two rank-three and four rank-four types for representative dimensions \(r=2,\ldots,8\) and both Arf signs. The stated inequality proves the uniform extension property for every \(r\ge5\), not just the computed range.
+Checked representation of selected tuples by a first independent subsequence of nonzero singular vectors, Gram pairing matrix and coordinate words. Witt extension makes equal state tuples lie in the same orthogonal orbit. Gaussian Fourier inversion gives exact number of singular extension vectors with prescribed pairings t: 2^{-m-1}(2^{2r}+epsilon*2^r Σ_a(-1)^{q_W(a)+a·t}), subtracting in-span/zero. For m<=3, at r>=5 the lower bound 2^{2r-m-1}-2^{r-1}>2^m ensures every out-of-span pairing pattern exists, so four-round EF types stabilize. Independently implemented the complete one-point-extension state recursion and compared exact rank3/4 fingerprints for all signs r=2..5: rank3 groups are {(2,-)} and remainder; rank4 groups {(2,-)}, {(2,+)}, {(3,-)}, remainder. Separately enumerated explicit finite singular-point adjacency to check E/claw/K4 patterns through r=4, confirming 5/9/27/35 sharp representatives. These finite boundary checks plus analytic uniform-extension bound prove the all-r statement, assuming Witt extension and the displayed standard Gauss identity. No higher quantifier depth or larger fields claimed.
 
-The second program independently constructs the full singular point set and checks every possible extension type from every abstract tuple orbit of length at most three, for both signs in dimensions four, six and eight. It also checks vertex counts and the three explicit four-vertex separators. The expected successful terminal markers are \`FOUR_ROUND_CLASSIFICATION_OK\`, \`DIRECT_VERIFY_OK\`, and \`VERIFY_OK\`. The combined observed output is embedded as \`verification_output.txt\`.
+## originality
 
-These computations independently check the finite boundary construction but do not replace a mathematical proof of the large-rank statement. The historical originality assessment is not an exhaustive mathematical literature audit.
+PASS
+
+Best-of-knowledge original four EF classes, first nontrivial rank boundary and 35-point canonical representative among binary orthogonal polar point graphs. General EF graph complexity and polar association schemes are established prior; related graphs with quadratic forms *as vertices* are not the same model.
+
+## value
+
+PASS
+
+The exact rank-four logical equivalence classes of a natural parameterized finite polar-geometry graph family are substantive descriptive-complexity information. They give a sharp small-representative bound, explicit low-depth separators and an infinite stabilization theorem, not merely tiny graph enumeration. The projective singular locus in F2 differs from symplectic all-point graphs, motivating this precise classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

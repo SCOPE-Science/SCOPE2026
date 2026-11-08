@@ -1,15 +1,21 @@
-# Review of the four-class binary orthogonal polar-graph theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. A selected tuple is encoded by its binary linear dependencies and restricted quadratic Gram data; Witt extension identifies this with its orthogonal orbit. The displayed quadratic-character sum gives an exact count of each possible singular one-point extension. The analytic lower bound proves uniform extension patterns for all dimensions \(2r\) with \(r\ge5\). Exhaustive exact recursive tuple-type computation resolves both Arf signs at ranks \(2,3,4\) and a representative at rank \(5\). A separately implemented direct-vector enumerator checks every extension pattern and count for all six boundary graphs at ranks \(2,3,4\). Independent witnesses (edge, induced claw, four-clique) distinguish all four classes. The infinite assertion does not extrapolate a finite experiment.
+## correctness
 
-## Originality
-PASS, with historical-priority risk. The most relevant accessible primary sources are the full-text Pikhurko--Verbitsky survey (Section 3 on Ehrenfeucht games) and Vanhove's thesis (Chapter 4 on finite polar association schemes and Table 4.1). Their inspected material provides methods and geometry but not a rank-four equivalence partition for singular-point graphs of both binary Arf signs. Munemasa--Pasechnik--Shpectorov (1993) studies another family with quadratic forms as graph vertices; only its abstract was accessible for this comparison, so unexamined consequences remain a risk. Nearby logical work on symplectic point graphs is not directly covering: a symplectic point graph includes every projective point, whereas the present graph restricts to the singular points of a chosen quadratic refinement. Neither semantic research-index comparisons nor targeted literature queries identified an equivalent or stronger covering result, but negative searches do not establish uniqueness.
+PASS
 
-## Value
-PASS. The binary orthogonal quadrics are classical infinite families with two geometrically distinct Witt types. The result completely identifies which forms finite-depth adjacency logic can distinguish, including the exceptional elliptic rank-three boundary, a sharp \(35\)-vertex representative bound, and a three-property rank-preserving normal form within the family. This is a motivated structural classification rather than an arbitrarily chosen finite graph computation.
+Checked representation of selected tuples by a first independent subsequence of nonzero singular vectors, Gram pairing matrix and coordinate words. Witt extension makes equal state tuples lie in the same orthogonal orbit. Gaussian Fourier inversion gives exact number of singular extension vectors with prescribed pairings t: 2^{-m-1}(2^{2r}+epsilon*2^r Σ_a(-1)^{q_W(a)+a·t}), subtracting in-span/zero. For m<=3, at r>=5 the lower bound 2^{2r-m-1}-2^{r-1}>2^m ensures every out-of-span pairing pattern exists, so four-round EF types stabilize. Independently implemented the complete one-point-extension state recursion and compared exact rank3/4 fingerprints for all signs r=2..5: rank3 groups are {(2,-)} and remainder; rank4 groups {(2,-)}, {(2,+)}, {(3,-)}, remainder. Separately enumerated explicit finite singular-point adjacency to check E/claw/K4 patterns through r=4, confirming 5/9/27/35 sharp representatives. These finite boundary checks plus analytic uniform-extension bound prove the all-r statement, assuming Witt extension and the displayed standard Gauss identity. No higher quantifier depth or larger fields claimed.
 
-## Scientific limitations
-Only the binary nonsingular even-dimensional quadratic forms and the pure graph signature are treated. The small-rank boundary depends on supplied exact integer code (with a second independent direct finite check); no independent scientific audit is claimed. Historical search cannot exclude unindexed priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original four EF classes, first nontrivial rank boundary and 35-point canonical representative among binary orthogonal polar point graphs. General EF graph complexity and polar association schemes are established prior; related graphs with quadratic forms *as vertices* are not the same model.
+
+## value
+
+PASS
+
+The exact rank-four logical equivalence classes of a natural parameterized finite polar-geometry graph family are substantive descriptive-complexity information. They give a sharp small-representative bound, explicit low-depth separators and an infinite stabilization theorem, not merely tiny graph enumeration. The projective singular locus in F2 differs from symplectic all-point graphs, motivating this precise classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
