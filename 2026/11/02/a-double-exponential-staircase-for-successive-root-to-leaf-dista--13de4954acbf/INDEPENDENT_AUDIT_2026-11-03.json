@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For critical binary Kesten tree, side-branch leaf-count PGFs obey f0(z)=(1+z)/2, f_h(z)=(z+f_{h-1}(z)^2)/2. The zero coefficients a_h=2^{-(2^{h+1}-1)} give the exact probability via coefficients ≤m of product f0...f_(r-1). The support set S*= {r-m,...,r-1} has uniquely maximal removed zero-leaf cost and contributes B_{r,m}=2^{-2^{r-m+1}+r-2m+2}; every other support loses ≥2^{r-m} in the binary exponent. With at most (m+1)r^m supports and b_h≤1/2+a_(h-1), this yields the explicit relative upper bound and the comb-like conditional concentration. m0 equality agrees with prior. The finite tree claim only takes N→infinity at fixed r,m, then r→infinity. Independent exact rational PGF bounds passed for r≤10,m≤3; general proof is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maciá–Stufler 2026 applies to simply generated tree local limits and gives nearest-leaf moment/tail estimates; local limit for conditioned Galton-Watson Kesten tree is established background"
+        ],
+        "reasoning": "More general offspring-law nearest-leaf bounds provide a framework but do not by themselves supply rank-by-rank sharp binary support pattern asymptotics for all fixed m.",
+        "searches": [
+          "Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase",
+          "arXiv:2606.15339",
+          "arXiv:2205.10645",
+          "Devroye-Janson ECP 2014"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15339 (full 2026 primary text §§4.5–4.6)",
+        "arXiv:2205.10645 (introductory scope)",
+        "Devroye–Janson ECP 2014 publication record",
+        "Resultary semantic query: Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m=0 formula Pr(R1>r)=2^{-2^{r+1}+r+2} is prior; for m≥1 the unique largest support indices r-m,...,r-1 minimize protection cost with exponent gap≥2^{r-m}"
+        ],
+        "reasoning": "The first leaf avoidance product does not imply the higher coefficients of the product of PGFs without additional analysis. These specific m≥1 constants and conditional comb-like concentration are the surviving claim.",
+        "searches": [
+          "Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase",
+          "arXiv:2606.15339",
+          "arXiv:2205.10645",
+          "Devroye-Janson ECP 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maciá–Stufler arXiv:2606.15339 §4.6 (4.15)–(4.16) exact zero-or-two offspring first nearest leaf probability; Maciá arXiv:2205.10645 first root-border distance"
+        ],
+        "reasoning": "Higher nearest-leaf order equals the lower-tail event that the number of leaves within radius r is ≤m. Classical protection number is the special case m=0; it does not determine the joint PGF coefficient tail for fixed m≥1.",
+        "searches": [
+          "Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase",
+          "arXiv:2606.15339",
+          "arXiv:2205.10645",
+          "Devroye-Janson ECP 2014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source full text Equation (4.16) gives exact m=0 tail; current proof gives exact finite PGF identity and explicit m-dependent bound"
+        ],
+        "reasoning": "A nearest-leaf table covers m=0 only. No inspected exact higher-order distribution/census table was found, but index coverage is not exhaustive.",
+        "searches": [
+          "Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase",
+          "arXiv:2606.15339",
+          "arXiv:2205.10645",
+          "Devroye-Janson ECP 2014"
+        ]
+      },
+      "rationale": "The critical binary first-leaf tail m=0 is explicitly known in Maciá–Stufler 2026. The new higher order m≥1 exact fixed-order staircase, relative error and conditional dominant side-subtree configuration require multi-leaf PGF coefficients and a support weight gap absent from the checked original first-distance proofs. No simultaneous (m,r) or (N,r) limit is claimed.",
+      "residual_risks": [
+        "Other branching-process small-deviation or k-protection results may contain a buried equivalent higher-leaf count asymptotic.",
+        "The asymptotic concerns m fixed and does not extend to m increasing with r or joint finite-size limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIRST_LEAF_m0_COVERED_HIGHER_ORDER_NOT_STATED",
+          "evidence": [
+            "Eq. (4.16) exact m0 binary tail; Proposition 4.15 zero-leaf avoidance recurrence"
+          ],
+          "identifier_or_url": "arXiv:2606.15339, accessible full manuscript reproduction",
+          "material_read": "Materially read accessible full-text sections 4.5 (Proposition 4.15) and 4.6 (equations 4.15–4.16) and the theorem scope",
+          "method": "Compared nearest leaf R1 recurrence and stated moment results to higher order R_{m+1} claim; an initial authorized Oxford attempt returned vpn_disconnected, but lawful full text was subsequently available",
+          "title": "Uniform integrability of the distance to the nearest leaf in random trees",
+          "trigger": "Closest exact critical binary Kesten first-leaf tail"
+        },
+        {
+          "assessment": "FIRST_ORDER_ONLY_IN_INSPECTED_MATERIAL",
+          "evidence": [
+            "Maciá 2022 first boundary distance and associated protection context"
+          ],
+          "identifier_or_url": "arXiv:2205.10645",
+          "material_read": "Accessible introduction and publication scope; complete article not read in this execution",
+          "method": "Compared first-nearest boundary variable with higher-leaf order statistics",
+          "title": "The distance to the border of a random tree",
+          "trigger": "Earlier random-tree nearest-leaf literature"
+        },
+        {
+          "assessment": "PRIOR_BACKGROUND_PRIORITY_RISK",
+          "evidence": [
+            "2014 protection numbers, no specific higher-rank formula confirmed"
+          ],
+          "identifier_or_url": "Devroye–Janson, Electron. Commun. Probab. 19 (2014)",
+          "material_read": "Citation and abstract-level background only; full article not accessed",
+          "method": "Compared protection of first leaf against m-extra-leaves event",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Potential equivalent protection-number phrasing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Higher nearest-leaf order statistics (m≥1) in a canonical critical branching local limit exhibit a sharp successive doubling of protection costs plus a unique rare-event geometry, addressing a meaningful refinement beyond already known nearest-leaf tail.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2606.15339 (full 2026 primary text §§4.5–4.6)",
+    "arXiv:2205.10645 (introductory scope)",
+    "Devroye–Janson ECP 2014 publication record",
+    "Resultary semantic query: Kesten binary Galton Watson spine k-th nearest leaf root distance double exponential protection staircase"
+  ],
+  "disposition": "passed",
+  "final_claim": "The mathematical theorem in the assigned pinned RESULT.md survives unchanged within the scope and limitations documented above.",
+  "limitations": "m fixed, critical binary offspring p0=p2=1/2; N then r iterated limit only. m0 already known.",
+  "residual_risks": [
+    "Other branching-process small-deviation or k-protection results may contain a buried equivalent higher-leaf count asymptotic.",
+    "The asymptotic concerns m fixed and does not extend to m increasing with r or joint finite-size limits."
+  ],
+  "schema_version": 1
+}
