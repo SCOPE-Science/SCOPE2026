@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns simple random walks on centered, finite, reflected odd paths with an independent geometric reset decision at every unit step. The renewal identity is derived with resetting duration included and with previous coverage retained. The first phase solves a two-absorbing-endpoint recurrence; the second phase solves a one-absorbing, one-reflecting recurrence. The exact formula follows by the strong Markov property. Strict convexity in reset odds follows from the positive Chebyshev-coefficient recurrence and a nonnegative discounted-survival series. The graph-size threshold follows from the exact derivative at zero. Uniform Taylor expansion plus coercivity proves the limiting optimization and the order-one lattice correction. A second construction of the finite-state process has been checked with exact rational arithmetic for five graph sizes and four reset probabilities; the optional numerical asymptotic tests are not substituted for proofs.
+PASS
 
-A boundary detail is essential: the three-vertex case has an affine, strictly increasing mean in reset odds, not a strictly convex mean; strict convexity is claimed only for paths with at least five vertices. Reset events consume time, and non-reset steps from endpoints move inward deterministically. The limiting diffusion coefficient is the unit-step symmetric walk's standard one-half.
+Two-phase strong Markov splitting at first endpoint, reset-generating function F_x(s), and renewal H_x^r=(1-F_x)/(r F_0) give the exact mean. Chebyshev coefficient recurrence has positive coefficients; discounted survival-tail representation is convex, strictly so L>=2, while L=1 is affine M_1(u)=5+3u. Exact boundary derivative L^2(25-7L^2)/6 is negative L>=2. Uniform arcosh expansion at r=alpha/L^2 gives f(alpha) and h(alpha), and coercivity plus f strict convexity give alpha_* and optimized order-one term. Nine independent exact-rational finite-state mean calculations for L<=3 and rates 0,1/5,1/2 matched; extrapolation not used as proof.
 
-## Originality — PASS, qualified
+## originality
 
-The most relevant primary source, Linn and Lawley (2024), gives an exact continuous reflecting-interval formula and frequent-reset network asymptotics, not an exact finite discrete graph cover-time optimization. The continuum function in this finding is explicitly identified as already known, rather than claimed original. Das and Giuggioli (2022) give general resetting renewal and bounded-lattice first-passage formulas, using a different stay-or-move convention at reflecting endpoints and investigating a *single* target rather than the time to visit both endpoints. Michelitsch and coauthors (2024) develop network first-hitting statistics, not this two-endpoint cover and strict odds-convexity threshold. Pal and Prasad (2018) consider Brownian interval exit, stopping at the first endpoint, not full coverage.
+PASS
 
-Targeted published-record searches for equivalences, stronger graph-level results, exact tables and parameter changes returned only distinct mathematical objects or broader first-passage frameworks. The latest available historical ledger's recoverable claims were compared and no same claim found. These comparisons establish a qualified best-knowledge originality assessment, not a proof of global priority. A general unpublished or differently indexed theorem could still imply the finite path optimization; that is a residual risk.
+Best-of-knowledge qualified originality: the precise complete claim is not shown to be implied by the inspected primary sources, searched published findings, or general results. Pre-existing components are explicitly credited; inaccessible source material remains as named residual risk.
 
-## Value — PASS
+## value
 
-The natural mathematical question is whether stochastic resetting really benefits finite exhaustive path exploration and, if so, whether its optimum is unique. The result gives the exact first graph size at which the answer changes, proves global uniqueness for *all* positive integer half-lengths, and quantifies how optimal finite-graph performance differs at order one from the established diffusion limit. This is a structural optimization and finite-size statement, not merely a new name for a known Brownian formula, an isolated numerical example, or a routine parameter substitution.
+PASS
 
-## Limitations
+Completing coverage of two endpoints is a natural renewal-search objective rather than one-target hitting. The exact five-vertex positive-reset threshold, all-rate uniqueness, and O(1) lattice correction to the previously known continuum optimizer are concrete reusable discrete search results.
 
-The conclusions are specific to a central reset, a graph-neighbor reflected walk, and independent per-step geometric resetting. The prior continuous limiting function is credited. The decimal constants are non-certified approximations. Both independent audit and definitive historical priority remain outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
