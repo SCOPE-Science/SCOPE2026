@@ -1,13 +1,21 @@
-## Correctness
-PASS. An explicit exhaustive list of eight atomic two-round tests is reduced analytically to finite order and divisibility categories. All exceptional widths are certified by exact full atomic-diagram enumeration, and the dihedral–cyclic transfer is supported by the full primary proof in Gomaa's Lemma 3.10; an independent direct dihedral enumerator corroborates the classification through width 200. The finite computation is not substituted for the infinite arithmetic argument.
+# Independent mathematical audit
 
-## Originality
-PASS, qualified. The closest inspected full primary source, Gomaa (2007, Section 3.8), proves a general dihedral–cyclic EF equivalence but not the rank-two greatest-common-divisor classification or the thirteen sharp classes. Contemporary semantically searched research-index entries concern prime cyclic groups or other dihedral invariants; comparisons with previously published results find no result whose statement implies the present relational-multiplication theorem. A previous modulus-24 classification for a ternary reflection/quandle relation is a different logic at a different rank and has no demonstrated rank-preserving interpretation. Residual historical priority risk remains.
+## correctness
 
-## Mathematical value
-PASS. This is a complete exact logical-depth classification of an entire fundamental nonabelian group family; it identifies a sharp finite universal representative and isolates a modulus-24 arithmetic structure of low-rank group expressibility. Unlike a small isolated enumeration, all rotation widths are classified by a structural proof, with natural connections to permutation square roots and group-theoretic EF games.
+PASS
 
-## Scope and limitations
-Rank two only, relational multiplication only, rotation widths at least three. No claim of independent audit or complete historical priority certification.
+The group signature, quantifier rank versus variable count, and width/order convention are explicit. An atomic diagram on 0,x,y in C_n reduces to tests x=0,2x=0,y=0,2y=0,y=x,y=-x,y=2x,2y=x. For n>=9 the bounded exceptional loci leave a generic y; root profiles depend only on divisibility by 2,3,4,8, with the n=7 boundary explicitly handled. Small n3..24 are finite exact atomic calculations. Gomaa 2007 Lemma 3.10 identifies rank-l dihedral and cyclic equivalence, not merely a heuristic. Independently computed entire cyclic root extension types (actual atomic multiplication/equality diagrams, not the eight-test compression) for n3..109, exactly 13 classes with representatives 3,4,5,6,7,8,9,10,12,16,18,20,24 and correct gcd24 memberships. Infinite claim rests on symbolic case split plus transfer, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
+
+## value
+
+PASS
+
+A complete quantifier-depth-two classification of every dihedral group in a precisely limited relational group language is a natural exact finite-model-theory invariant; the sharp representative bound and arithmetic gcd24 split are not just a renaming of known broad depth bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

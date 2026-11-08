@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact two-round recurrence encodes all 3 equality comparisons and all 27 relational multiplication atoms over the ordered tuple (identity, first pebble, second pebble). For each first pebble it stores the set of second-pebble atomic diagrams; for each structure it stores the set of first-pebble types. Equality of these root sets is exactly a two-round EF win.
+# Independent mathematical audit
 
-`dihedral_rank2.cpp` was executed across n=3..200 and gave precisely 13 root types. `cyclic_rank2.cpp` was executed across n=1..110. A distinct Python cyclic pointed-profile implementation evaluated all widths up to 144. The recorded C++ output `dihedral_rank2.out` is included, and the boundary classifications were checked against the analytic case split. The proofs of the finite exceptions rely on exact enumeration, not numerical approximations. The infinite argument and the cited dihedral transfer are necessary; the finite output by itself has no infinite scope.
+## correctness
 
-Self-review only; independent audit has not been performed.
+PASS
+
+The group signature, quantifier rank versus variable count, and width/order convention are explicit. An atomic diagram on 0,x,y in C_n reduces to tests x=0,2x=0,y=0,2y=0,y=x,y=-x,y=2x,2y=x. For n>=9 the bounded exceptional loci leave a generic y; root profiles depend only on divisibility by 2,3,4,8, with the n=7 boundary explicitly handled. Small n3..24 are finite exact atomic calculations. Gomaa 2007 Lemma 3.10 identifies rank-l dihedral and cyclic equivalence, not merely a heuristic. Independently computed entire cyclic root extension types (actual atomic multiplication/equality diagrams, not the eight-test compression) for n3..109, exactly 13 classes with representatives 3,4,5,6,7,8,9,10,12,16,18,20,24 and correct gcd24 memberships. Infinite claim rests on symbolic case split plus transfer, not finite enumeration.
+
+## originality
+
+PASS
+
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
+
+## value
+
+PASS
+
+A complete quantifier-depth-two classification of every dihedral group in a precisely limited relational group language is a natural exact finite-model-theory invariant; the sharp representative bound and arithmetic gcd24 split are not just a renaming of known broad depth bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
