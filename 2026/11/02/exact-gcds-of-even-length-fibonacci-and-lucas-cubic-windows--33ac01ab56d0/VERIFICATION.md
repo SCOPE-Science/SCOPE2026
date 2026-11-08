@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify_cubic_windows.py` with Python 3 (standard library only). Successful execution prints exactly one line beginning `VERIFY_OK` and confirms the values recorded below. The checker calculates the gcd of twelve consecutive length-\(2m\) windows independently for both standard Fibonacci and Lucas sequences and every \(1\le m\le160\); it compares the result against the closed formulas. It also tests the exact cubic-sum identity and normalized half-length reductions at 1,600 explicit pairs, four-term normalized gcd formulas at 1,001 integer parameters, and the fourth-order recurrence for both normalized sequences at six indices for each parameter. All computations are exact integers, not floating point.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK windows=320 signed_sum_checks=1600 linear_parameter_cases=1001 k6_F_actual=2_proposed=4 k6_L_actual=2_cube_difference_gcd=28
-```
+The theorem for every integer m>=1 and two sequences is proved from 5F_r^3=F_(3r)-3(-1)^r F_r and L_r^3=L_(3r)+3(-1)^rL_r, endpoint pairing at half-length, and reversible fourth-order T_a(t),U_a(t) normalized recurrences. Directly evaluated four initial terms imply gcd_t T_a(t)=gcd(a+6,30) and gcd_t U_a(t)=gcd(3a+6,11a+12), whose Bezout combination divides 30. Parities and Lucas norm identities isolate p=2,3,5; hence for odd m both Fibonacci and Lucas 2m-window gcd equal L_m/2^[3|m], while for even m they are 3^[4|m]F_m/2^[3|m] (Fibonacci) and five times that (Lucas). Independently recomputed both sequence families for m<=60 using 15 shifts each, including length6 gcd=2 for each. The all-m result is algebraic, not obtained by extrapolating that finite range.
 
-The infinite theorem is proved algebraically in `RESULT.md`. The program provides independent finite consistency checks and reproduces illustrative counterexamples; no finite range is used to infer an unbounded conclusion. Source comparisons were literature searches, not an independent referee validation. There is no external independent audit evidence.
+## originality
+
+PASS
+
+The Fibonacci half of the finding is contained in the distinct same-assignment all-k Fibonacci theorem, so do NOT claim its independent originality here; the additional full Lucas-cubic branch with its factor-five transition is the surviving distinct all-even-length claim. Earlier arxiv:2204.12626 §6.1 poses (rather than proves) even cubic gcd expressions for both sequences, with wrong small boundary; arxiv:2104.12262 and 2301.05758 are first/square powers. The comparative Lucas theorem is not a direct implication of first-power or Fibonacci-only formulas. Residual unindexed resolution possible.
+
+## value
+
+PASS
+
+The Lucas sequence is the canonical companion to Fibonacci in the published infinite-window GCD problem. A complete exact Lucas-cube classification at every even width, including an unexpected factor five for even half-width, answers a motivated natural invariant, beyond reusing the Fibonacci-only theorem. The result also corrects a printed cubic conjecture at length six. It is a substantive paired recurrence classification, while clearly distinguishing the Fibonacci branch that overlaps a separate same-batch result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
