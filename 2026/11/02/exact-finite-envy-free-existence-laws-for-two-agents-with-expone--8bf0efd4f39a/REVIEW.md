@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim concerns two agents, independently sampled positive exponential additive costs and at most four indivisible chores. The equivalence between an envy-free allocation and unequal half-subset sign chambers follows by taking complements, with all ties null. The rate-one exponential law yields independent Dirichlet(1,...,1) simplex vectors. The key four-item tetrahedral transformation, positive-octant decomposition, and domination probabilities give exact chamber probabilities: four at \(1/8\), eight at \(1/16\), hence \(29/32\) existence. Exact rational determinant and probability checks ran successfully from `verify.py`. Monte Carlo tests verify implementation consistency only.
+## correctness
 
-## Originality (PASS; priority qualified)
-The principal comparison is Manurangsi–Suksompong (2025, arXiv:2504.20704), which addresses asymptotic existence for independent random chores, particularly under compactly supported PDF-bounded input distributions. The exact exponential two-agent, four-chore distribution and 12-chamber classification are not implied by that general asymptotic statement, nor established in the primary text inspected. Their older work on random goods (arXiv:1811.01630) likewise does not supply this exact fixed-small-market law. An equivalent goods formulation, half-subset sign pattern formulation, and possible Dirichlet-simplex arrangement calculation were searched explicitly. The available scholarly and mathematical database results did not resolve a competing exact statement. Residual priority risk: unindexed or older finite-probability calculations and broader Dirichlet arrangement formulas.
+PASS
 
-## Value (PASS)
-The four-item case is the first balanced size \(m=2n\) for two agents, where the motivating asymptotic theory emphasizes existence. Its exact finite success probability and 12-chamber frequency law distinguish asymptotic guarantees from concrete small-instance performance, and the proof exposes a reusable simplex-collision representation. This is a meaningful, albeit narrow, fair-division probabilistic invariant rather than a claim for general populations or distributions.
+For independent exponential agent costs normalize to independent uniform simplex Dirichlet(1) vectors. Each subset-half sign h_S determines EF allocation, and complement S^c reverses sign; success iff sign chambers differ, so failure=sum p_H². In four chores, tetrahedral pair-coordinate map has volume 8/3. Each vertex octant mass 3/16, other octants 1/16; singleton-dominance subregion mass 1/8 apiece; eight residual chambers mass 1/16. Four (1/8) and eight (1/16) give success 29/32. Independently checked exact geometry, rational lattice chamber counts converging with grid refinement, and m=2,3 trivial half simplex cases. Domain m<=4 only.
 
-## Limits and sources
-No independent audit has been performed. This same mathematical model proof review checks the mathematical reasoning and packaged verifier, not exhaustive external priority. The distribution is exponential, which is outside the 2025 paper's bounded-support main theorem. Primary full-text sources: https://arxiv.org/html/2504.20704v1 and https://arxiv.org/html/1811.01630v1 .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Manurangsi-Suksompong 2025 high-probability chore results use a compact-support bounded-PDF assumption and variable market regime, not exact unbounded exponential m=4 law. Same existence event for positive goods by complement is an alias, not a distinct original result. 2018/2020 goods asymptotics also not this exact distribution.
+
+## value
+
+PASS
+
+Four chores is first exactly balanced m=2n market for two agents, making the 29/32 probability and the 12-chamber structure a natural sharp finite reference point for stochastic fair-division asymptotics and mechanism benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

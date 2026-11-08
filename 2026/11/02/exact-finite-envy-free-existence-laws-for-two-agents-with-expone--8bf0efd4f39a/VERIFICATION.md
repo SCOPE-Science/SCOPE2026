@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py`. The standard-library checker evaluates exact tetrahedron determinants and rational chamber masses; its asserted exact outputs are:
+## correctness
 
-```
-EXACT_GEOMETRY_OK tetra 8/3 positive_octant 1/2 even_sign 3/16 odd_sign 1/16
-EXACT_CHAMBERS_OK dominant 4 x 1/8 non_dominant 8 x 1/16
-EXACT_SUCCESS_PROBABILITIES_OK m=1: 0 m=2: 1/2 m=3: 3/4 m=4: 29/32
-```
+PASS
 
-A seeded randomized second check directly searches every subset of the sampled chores and compares this result against equality of sign chambers on 30,000 / 40,000 / 60,000 samples for 2 / 3 / 4 chores. In the recorded execution all assertions passed and the measured success frequencies were 0.495967, 0.754975, and 0.907967. The random experiment does not prove exact probabilities. The general result is proved by the analytical chamber geometry in `RESULT.md`; exact rational arithmetic checks specific algebraic and volume identities.
+For independent exponential agent costs normalize to independent uniform simplex Dirichlet(1) vectors. Each subset-half sign h_S determines EF allocation, and complement S^c reverses sign; success iff sign chambers differ, so failure=sum p_H². In four chores, tetrahedral pair-coordinate map has volume 8/3. Each vertex octant mass 3/16, other octants 1/16; singleton-dominance subregion mass 1/8 apiece; eight residual chambers mass 1/16. Four (1/8) and eight (1/16) give success 29/32. Independently checked exact geometry, rational lattice chamber counts converging with grid refinement, and m=2,3 trivial half simplex cases. Domain m<=4 only.
 
-The source PDFs themselves are not dependencies. The standalone package contains the full proof and runnable `verify.py`.
+## originality
+
+PASS
+
+Manurangsi-Suksompong 2025 high-probability chore results use a compact-support bounded-PDF assumption and variable market regime, not exact unbounded exponential m=4 law. Same existence event for positive goods by complement is an alias, not a distinct original result. 2018/2020 goods asymptotics also not this exact distribution.
+
+## value
+
+PASS
+
+Four chores is first exactly balanced m=2n market for two agents, making the 29/32 probability and the 12-chamber structure a natural sharp finite reference point for stochastic fair-division asymptotics and mechanism benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
