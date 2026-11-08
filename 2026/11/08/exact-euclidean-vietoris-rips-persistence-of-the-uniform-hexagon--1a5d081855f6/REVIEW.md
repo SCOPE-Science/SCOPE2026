@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claim concerns all Euclidean distances between a specified twelve-point subset of \(\mathbb R^3\), not a sampled range of radii. The cosine rule produces exactly five shells with multiplicities \(24,12,12,6,12\); all six relevant topological regimes, including the discrete starting and contractible ending regimes, follow. The provided certificate contains 18, 43 and 65 elementary collapse pairs, respectively, at the first three nonzero scales; an independently implemented replay checks each pair's unique immediate coface before deletion. The residues are respectively a six-cycle, a five-cycle, and a connected two-complex with face vector \((12,31,23)\). The degree-one map is integrally primitive by its angular winding functional. All new edges at the third scale admit two-edge replacements using triangles, and a displayed four-triangle disk kills the preceding fundamental-group generator. Simple connectivity, dimension two, and Euler characteristic four establish the three-two-sphere wedge over the integers. At the fourth scale the twelve forbidden pairs form a single cycle, yielding the classical integral type \(\operatorname{Ind}(C_{12})\simeq\bigvee^2S^3\). The last stage is a full simplex. Field-rank verification corroborates but does not substitute for these topological arguments.
+
+## Originality — PASS against inspected evidence
+
+Saleh, Titz Mite and Witzel, arXiv:2302.14388v1 (February 28, 2023), classify the five Platonic vertex configurations and expressly suggest Archimedean solids as an extension. Their complete theorem does not include this uniform hexagonal antiprism. Adamaszek, arXiv:1106.6250, and the cycle formula recalled by Przytycki–Silvero, DOI 10.1007/s13398-024-01594-z, already imply the **abstract** penultimate-stage wedge \(\operatorname{Ind}(C_{12})\simeq\bigvee^2S^3\). That known cycle formula is not claimed as new. It does not establish the five Euclidean threshold values, the three-two-sphere stage, or the inclusion map between the two circle stages. Related indexed cuboctahedral and other polyhedral Rips calculations concern different point sets, often different metrics; neither their exact results nor their implications determine the present filtration. Targeted searches for antiprism aliases, diameter sequences, sphere multiplicities, and stronger family theorems found no covering statement. An unknown unindexed equivalent remains possible.
+
+## Value — PASS
+
+The uniform hexagonal antiprism is a natural, vertex-transitive twelve-point polyhedral example explicitly within the Archimedean extension suggested by the motivating literature. The exact classification exhibits both a threefold two-sphere stage and a twofold three-sphere stage, at distinct Euclidean thresholds, while detecting that the earlier circle persists across a genuine simplicial change. The structural explanations are metric shells, certified collapses, an integral winding functional, and a forbidden-edge cycle—not just a list of computational Betti numbers. This is a natural complete invariant for this finite configuration; it is not a general theorem for all antiprisms.
+
+## Closest literature and remaining limitations
+
+The most important older implication is the cycle-independence theorem, which wholly covers the **abstract homotopy type of the fourth scale**. The most relevant polyhedral literature covers Platonic solids, not the present configuration; related published examples on twelve or more vertices do not by themselves cover the distance-indexed inclusions here. Unindexed exact calculations could exist. A finite verifier cannot establish novelty and is not an independent external mathematical audit. The integral topological conclusions rely additionally on the stated proofs and classical homotopy theorems.
+
+Self-review: passed. Independent audit: not yet performed.
