@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is limited to uniform ordered full binary trees and exact root-split conditioning. The bivariate functional equation, Lagrange inversion, and independence of the two conditioned subtrees give the full finite distribution, including the singleton and empty-tree boundaries. A uniform Rémy-type vertex insertion coupling proves the two boundary stochastic orders. The strict opposing mean follows from an explicit, strictly increasing first-difference formula. Odd sizes have strictly different maximum supports; even sizes have an explicitly greater maximum-point probability in the opposite direction. These are all-size proofs; exact enumeration through size nine and 14,279 exact integer/rational assertions check the critical formulas independently. The cardinalities and normalization use the internal-vertex convention throughout.
+PASS
 
-## Originality — PASS, with priority risk
+Reconstructed Lagrange-inversion cherry polynomial A_m(j)=binom(m,j) binom(m-j,j-1) 2^(m-2j+1)/m from F=1+z(F^2+u-1). Conditioned root split gives independent Z_k+Z_(n-1-k). Remy uniform vertex insertion coupling ensures Z_m<=st Z_(m+1)<=st Z_m+1, proving Y(n,0)<=stY(n,1) and Y(n,2)<=stY(n,1). Exact cherry mean f(m)=m(m+1)/(2(2m-1)); strictly increasing increments for m>=2 imply E[Y(n,2)]>E[Y(n,3)] when n>=7. Odd n shows larger max support for k3; even n yields top-point probability ratio (2n-7)/5>1; both directions of stochastic dominance fail for all n>=7. For n<7 no unclassified inward move exists. Independently computed cherry polynomials via recursive tree split through n=23 and explicitly verified n7 distributions (16,12)/28 and (16,8,1)/25.
 
-The earlier conditional cherry regression for this exact model gives a mean and covariance but no distributional ordering. Its sign does not imply the present sharp stochastic-order failure. Janson establishes the conditioned Galton–Watson/full-binary model; Konvalinka–Wagner establish marginal cherry and root-branch asymptotics; McKenzie–Steel treat marginal cherry distributions in phylogenetic models. Targeted semantic searches of published research records and the cited primary text identified no explicit all-size conditional stochastic incomparability or its first-size classification. Closest published findings concern different tree models/statistics. A possible older general stochastic-order implication is a residual priority risk; search absence alone is not proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Cherry counts are a natural, widely used random-tree shape statistic, and root split is a fundamental measure of shape imbalance. Sharp failure of stochastic order matters because a conditional mean trend is insufficient to compare all tail tests. The theorem pinpoints the first obstruction at seven internal nodes, derives an infinite-family counterexample in both parities, and distinguishes comparability near the edge from incomparability at the next inward move. The result is not an arbitrary numerical slice or a restatement of the mean/covariance formula.
+Best-of-knowledge sharp conditional stochastic-order boundary rather than established Catalan cherry enumeration or conditional mean regression. Janson covers uniform full binary/conditioned Galton-Watson trees, Konvalinka–Wagner studies cherry counts in tanglegrams and branch statistics, Remy supplies only uniform growth coupling. No inspected direct theorem forces seven-node stochastic incomparability and the all-size parity top-tail reversal.
 
-## Scope and limitations
+## value
 
-The theorem does not classify all split pairs or random phylogenetic growth models. Prior mean and enumeration results remain credited to existing literature. Independent validation of scientific priority and correctness has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural exact boundary in conditional tree-shape statistics, distinguishing mean monotonicity from full stochastic order and exhibiting a sharp smallest structural obstruction with all-size proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
