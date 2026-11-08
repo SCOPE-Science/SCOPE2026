@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For any integer state the first iterate has x<=1. The proof partitions all integer states of x<=1 into exhaustive sign/integer cases, driving every state except (0,1) to (1,2). The fixed state is its sole preimage. Distinct-state explicit orbit certificates prove least periods 18,19,22,24, with x>=-4 on the last certificate proving uniformity for all integer c>=4. Exact branch sums yield N^2+2N+2. Standalone Python 3 checker passed 210378 supporting finite tests; infinite statements rest on the stated analysis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Willox (2026), §2 and figure 2: T=1, Gamma=6, Delta=5 example has period 32 and source discusses qualitative fixed point and cycle behavior, not the balanced integer period law.",
+        "Ohmori and Yamazaki (2024), §4–5, parameter-dependent periods for another max-plus model."
+      ],
+      "reasoning": "No inspected theorem gives all-initial-state finite absorption for F_c on Z^2 at every integer c>=1. A global theorem for a broader class could imply the present classification, so uninspected sources remain a stated priority risk.",
+      "searches": [
+        "ultradiscrete Lotka Volterra predator prey periodic orbit length 18 global integer lattice",
+        "Willox arxiv 2607.15627 T=1 Gamma=Delta=c balanced max-plus predator prey integer lattice all initial states unique global cycle period 18 19 22 24",
+        "A simple strategy for constructing ultradiscrete systems that exhibit the same dynamics as a given continuous model"
+      ]
+    },
+    "checked_sources": [
+      "Willox (2026) arXiv:2607.15627v1, full accessible text, equation (9)",
+      "Ohmori–Yamazaki (2021) arXiv:2107.09300, full accessible text, equation (1)",
+      "Ohmori–Yamazaki (2024) arXiv:2402.06230, full accessible text, recurrence and cycle tables",
+      "Willox et al. (2007), DOI:10.1016/j.physa.2007.07.002, abstract/bibliographic metadata only",
+      "Published mathematical-results search on balanced max-plus recurrence, period aliases and parameter plateau"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source derives full ultradiscrete model and qualitatively compares T=+1 and T=-1; the balanced integer parameter family is a specialization of its equations but the global finite-time conclusion is not printed.",
+        "2021 and 2024 sources study reset-type max-plus maps; their period analyses do not entail the presented cycle lists.",
+        "The 2007 Willox et al. item was identified from an abstract; full technical claims were unavailable."
+      ],
+      "reasoning": "Merely specializing Willox’s equation does not logically supply the all-initial-state proof, four exact primitive period values, stabilization of cycle states for c>=4, or N^2+2N+2 first-hitting law. They require the case partition, explicit certificates and transient calculation. The inaccessible older source creates nonzero historical-priority risk.",
+      "searches": [
+        "arXiv:2607.15627 equation 9",
+        "arXiv:2107.09300 equation 1",
+        "arXiv:2402.06230 sections 3 and 4",
+        "quadratic transient n squared initial condition max plus predator prey automaton"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ohmori and Yamazaki (2021), Eq. (1), next second coordinate B-max(0,2X).",
+        "Ohmori and Yamazaki (2024), Eq. (1), next second coordinate B-max(0,DX).",
+        "Willox (2026), Eq. (9), next second coordinate Y+max(0,Gamma+X)-max(0,Delta)."
+      ],
+      "reasoning": "The older Selkov and generalized Selkov maps reset Y, whereas this map carries Y forward and has a distinct integer-domain global absorption structure. No reduction or conjugacy establishing coverage was identified; differences in printed formulas alone do not prove mathematical inequivalence under every possible transformation.",
+      "searches": [
+        "max plus map X'=1+X-max(0,X,Y), Y'=Y+max(0,1+X)-1 global attractor 18 cycle",
+        "universal attracting period 18 cycle integer lattice max plus ultradiscrete equation logistic predator prey",
+        "arXiv:2107.09300",
+        "arXiv:2402.06230"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Willox (2026) contains example numerical period 32 only for unequal Gamma and Delta.",
+        "Ohmori and Yamazaki (2024) tables classify periods for a map with two parameters T,D in a different recurrence.",
+        "Published-result semantic matches on an ultradiscrete Selkov map concern its strict expanding-branch survivor areas, not these balanced states or four parameter periods."
+      ],
+      "reasoning": "No exact cycle list/table or global hitting-time formula matching (18,19,22,24) was encountered in the inspected primary texts or available published records. A failed search is not an exhaustive novelty proof.",
+      "searches": [
+        "Willox ultradiscrete predator prey cellular automaton T=1 Gamma=Delta=1 all integer initial conditions period 18 orbit",
+        "Willox arxiv 2607.15627 T=1 Gamma=Delta=c balanced max-plus predator prey integer lattice all initial states unique global cycle period 18 19 22 24",
+        "ultradiscrete gamma=delta=1 period",
+        "arXiv:2402.06230 Table 1 periods"
+      ]
+    },
+    "rationale": "The newly analyzed equation is equation (9) of Willox (2026); the source discusses qualitative dynamics and a period-32 example at unbalanced parameters, not a global balanced integer-lattice classification. Full texts of Ohmori–Yamazaki (2021, 2024) analyze an inequivalent printed max-plus recurrence where the next second coordinate does not retain the old second coordinate. Those papers provide important precedent for ultradiscrete cycles but not this exact global period plateau or quadratic hitting time. Semantic queries of published records returned different predator–prey flows or different max-plus maps. One older related source was inspected only at abstract level; priority remains provisional.",
+    "residual_risks": [
+      "The related 2007 article could not be checked beyond abstract and metadata.",
+      "An unknown broader result on tropical recurrence integer orbits or an undiscovered conjugacy might imply this special family; no global novelty guarantee is claimed.",
+      "The classification is integer-only; known rational/real classifications could differ and are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_MODEL_NOT_COVERING_INSPECTED_CLAIM",
+        "evidence": "Equation (9) prints F; §2 discusses T=1 cycles and example Gamma=6, Delta=5 with period 32, without the balanced integer global basin theorem or period table.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.15627",
+        "material_read": "Full accessible article text, especially sections 1–3, equations (7)–(10), figure 2 and reference discussion",
+        "method": "Read accessible primary manuscript as text",
+        "title": "A simple strategy for constructing ultradiscrete systems that exhibit the same dynamics as a given continuous model",
+        "trigger": "Exact recurrence source, balanced parameter family"
+      },
+      {
+        "assessment": "DIFFERENT_RECURSION_NOT_COVERING_SPECIFIED_CLAIM",
+        "evidence": "Eq. (1) has X+=Y+max(0,2X), Y+=B-max(0,2X), unlike the persistent Y coordinate in the present F_c.",
+        "identifier_or_url": "https://arxiv.org/abs/2107.09300",
+        "material_read": "Complete accessible article text including displayed recurrence and cycle discussions",
+        "method": "Read primary manuscript as text",
+        "title": "Periodicity of limit cycles in a max-plus dynamical system",
+        "trigger": "Max-plus limit cycle period and return-map precedent"
+      },
+      {
+        "assessment": "DIFFERENT_RECURSION_NOT_COVERING_SPECIFIED_CLAIM",
+        "evidence": "The model X+=Y+max(0,TX), Y+=B-max(0,DX) is analyzed, including finite periodic cycles, but its parameter tables do not contain the balanced F_c map.",
+        "identifier_or_url": "https://arxiv.org/abs/2402.06230",
+        "material_read": "Complete accessible article text including sections 1, 3–5, tables and recurrence",
+        "method": "Read primary manuscript as text",
+        "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+        "trigger": "Parameter-dependent max-plus periods, tables and global basins"
+      },
+      {
+        "assessment": "ACCESS_LIMIT_PRIORITY_UNRESOLVED",
+        "evidence": "The accessible abstract concerns ultradiscretisation of periodic orbits; it does not provide enough technical detail to rule out implicit coverage.",
+        "identifier_or_url": "DOI:10.1016/j.physa.2007.07.002",
+        "material_read": "Bibliographic record and abstract only; complete primary manuscript unavailable",
+        "method": "Searched preprint and open-access routes; institutional retrieval unavailable",
+        "title": "From limit cycles to periodic orbits through ultradiscretisation",
+        "trigger": "Earlier related model and historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5aafc048-b9ab-40f2-8e5a-21e9368affe7",
+  "value": {
+    "rationale": "The balanced equality Gamma=Delta=c in Willox’s recently derived predator-prey recurrence is a naturally selected parameter boundary, and Z^2 is its natural integer cellular-automaton state space. Classification of all initial conditions on an infinite state space, all primitive periods including a plateau beyond c=4, and an exactly quadratic transient family are structural dynamical results not implied by showing one short orbit. No claims extend to rational states, global Euclidean attraction or arbitrary parameter pairs.",
+    "status": "PASS"
+  }
+}
