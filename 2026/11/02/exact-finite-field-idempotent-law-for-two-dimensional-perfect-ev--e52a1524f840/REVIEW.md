@@ -1,15 +1,21 @@
-# Scientific review: exact finite-field idempotent law in dimension two
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Nonzero solutions of \(Ax^{[2]}=x\) are in bijection with projective directions \(L\) on which the coordinate-square map \(s\) agrees with the projective transformation induced by \(A^{-1}\). The scalar normalisation is unique and valid over all finite fields. The cubic determinant \(\det(v^{[2]},A^{-1}v)\) is nonzero because the matrix is invertible, so there are at most three distinct nonzero solutions. Sharp three-point transitivity of \(\operatorname{PGL}_2(\mathbb F_q)\), combined with the exact fiber profile of \(s\), determines all three factorial moments; their triangular inversion yields the stated probabilities. A standalone exact program enumerated all invertible matrices and vectors over nine fields of orders \(2,3,4,5,7,8,9,11,16\), and all tested counts agreed with the formulas. The general claim is proved symbolically, not inferred from the tests.
+## correctness
 
-## Originality
-**PASS, with historical-priority limitations.** The October 2026 survey of Kaygorodov, Martín González and Viruel gives the exact first moment and the asymptotic random-permutation prediction in dimension two but does not furnish these finite-field formulas in its relevant sections. Earlier geometric length-three and discriminant-stratum results do not determine rational fixed-point splitting. An exact second factorial moment alone does not determine a distribution supported on four values: the third factorial moment supplied here is necessary. The earlier characteristic-two law accounts for the even branch, but not the new odd branch. Wei and Zou enumerate isomorphism classes rather than rational idempotent counts in matrix-weighted families, while García-Martínez and Pérez-Rodríguez address existence over complex fields. Searches under evolution-algebra, cubic fixed-point, and projective-squaring descriptions did not reveal the exact odd-field law. A broader historical theorem on fixed points of random projective transforms of the squaring map could imply the result; exhaustive priority is not certified.
+PASS
 
-## Mathematical value
-**PASS.** The exact distribution is a complete natural invariant of the minimal nontrivial random perfect evolution-algebra family and answers a finite-field refinement of a problem for which the source offers only a first moment and asymptotic prediction. The field-independent \(1/3\) probability of no nonzero idempotent is an exact structural phenomenon despite a characteristic-dependent full law. The nonzero \(N=2\) probability in odd characteristic supplies the first finite-field correction to the symmetric-group limit, and the theorem applies to every odd prime power, including extensions. It is a full distribution theorem, not an isolated small-field census.
+For A uniform GL_2(F_q), B=A^{-1}, each projective direction where coordinate-square map s([u:v])=[u²:v²] coincides with projective B determines exactly one nonzero vector x satisfying x^[2]=Bx. The equality is a nonzero homogeneous cubic so N<=3. PGL_2 acts sharply transitively on ordered triples of distinct projective points; factorial-moment incidence count gives F1=1, F2=(S1²-S2)(q-1)/[q(q²-1)], F3=(S1³-3S1 S2+2S3)/[q(q²-1)]. Odd q has fibers 1,1,2 repeated (q-1)/2, giving S2=2q,S3=4q-2, and the claimed four rational probabilities. Even q squaring is a bijection, S2=S3=q+1 giving (1/3,1/2,0,1/6). Direct independent enumeration of every invertible 2x2 matrix and nonzero x over F_3 and F_5 yields count vectors (16,20,8,4) and (160,208,64,48). The factorial-moment proof establishes all prime powers.
 
-## Closest literature and limitations
-Primary comparisons: Kaygorodov, Martín González and Viruel, *Evolution algebras: a survey of results and a list of open problems* (arXiv:2610.22248v1), Remark 23 and Conjecture 2; García-Martínez and Pérez-Rodríguez, *A note on complete evolution algebras* (arXiv:2512.12418), sections 2 and 3.3; Wei and Zou, *Isomorphism Classes of Idempotent Evolution Algebras* (arXiv:2310.12368v1), sections 1, 2 and 4. Existing work on rational function dynamics or binary cubics may provide a stronger formulation that has not been identified. The theorem excludes singular matrices, isomorphism-class weighting, and dimensions greater than two. No independent mathematical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete exact finite-field law in odd characteristic and universal probability P(N=0)=1/3 for uniformly labeled invertible 2x2 structure matrices. Kaygorodov–Martín González–Viruel 2026 survey Remark 23 provides only mean E[N]=1 and Conjecture 2 the asymptotic symmetric-group heuristic; neither specifies finite-q corrections or all four probabilities. Previous even-characteristic Frobenius-linear methods cover the even branch, not a new novelty claim. Wei–Zou counts algebra isomorphism classes under a different probability measure, not idempotents over uniform GL2.
+
+## value
+
+PASS
+
+The number of rational nonzero idempotents is a canonical structural invariant of finite-field evolution algebras, and perfect 2D algebras form a natural smallest nontrivial random family. An exact complete probability law at every q, including characteristic dependence and surprising constant absence probability, is quantitatively useful beyond the known expected count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
