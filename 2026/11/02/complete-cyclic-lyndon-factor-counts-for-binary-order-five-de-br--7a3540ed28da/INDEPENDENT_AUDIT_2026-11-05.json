@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:42:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every binary order-five de Bruijn cycle corresponds uniquely to a Boolean table on 16 four-bit suffixes: the feedback state permutation F_g(16a+s)=2s+(a XOR g_s) is a single 32-cycle exactly when it represents a de Bruijn sequence. Anchoring at the unique all-zero 5-block prevents rotational double counting. The 65536 tables exhaust all possibilities and exactly 2048 produce valid cycles. The inspected checker.py additionally reconstructs that same canonical set as Euler tours using every five-bit edge. For each of the 2048 cycles all 32 cuts are factored by Duval's algorithm AND by longest-Lyndon-prefix definition with nonincreasing order validation; independent alternative enumeration and factor implementation reproduced the 65536 rooted count spectrum and 2048 max-by-cycle spectrum, including exactly two 16-factor roots. Every cycle has one L=1 root by primitive-necklace uniqueness. All statements are finite exact classification with complete enumeration and injectivity, not inferred beyond order five.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence (https://arxiv.org/abs/1510.02637): A construction/decoding of lex least de Bruijn sequence cannot imply 2048-cycle rooted census by itself.",
+          "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences (https://doi.org/10.1016/0012-365X(78)90002-X): Concatenation count of Lyndon pieces in FKM construction is not the per-cut CFL factor count of all cycles.",
+          "Daykin, Algorithms for the Lyndon unique maximal factorization (https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/): Computability of individual L(w) does not state its complete frequency distribution on this restricted class."
+        ],
+        "reasoning": "Duval/Daykin algorithms work for arbitrary words and produce individual factorizations, but a generic algorithm is not a precomputed all-cycle distribution and does not imply the numerical histogram without complete enumeration. Classical de Bruijn enumeration yields 2048 cycles, not the joint CFL statistics.",
+        "searches": [
+          "Resultary: binary de Bruijn sequences order five Chen Fox Lyndon factorization of all rotations distribution",
+          "de Bruijn order 5 rotations Chen Fox Lyndon number of factors distribution 2048",
+          "arXiv:1510.02637 FKM Lyndon ranking",
+          "Fredricksen Maiorana de Bruijn necklaces"
+        ]
+      },
+      "checked_sources": [
+        "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence — https://arxiv.org/abs/1510.02637 — material read: Accessible full PDF, abstract, main theorem statements and treatment of lexicographically minimal/FKM sequence",
+        "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences — https://doi.org/10.1016/0012-365X(78)90002-X — material read: Historical construction and bibliographic theorem scope, no direct complete full text",
+        "Daykin, Algorithms for the Lyndon unique maximal factorization — https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/ — material read: Article scope and algorithm description, no complete paper-wide reading"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence (https://arxiv.org/abs/1510.02637): A construction/decoding of lex least de Bruijn sequence cannot imply 2048-cycle rooted census by itself.",
+          "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences (https://doi.org/10.1016/0012-365X(78)90002-X): Concatenation count of Lyndon pieces in FKM construction is not the per-cut CFL factor count of all cycles.",
+          "Daykin, Algorithms for the Lyndon unique maximal factorization (https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/): Computability of individual L(w) does not state its complete frequency distribution on this restricted class."
+        ],
+        "reasoning": "Kociumaka et al decode the lex-minimal sequence and classical FKM supplies a particular construction. Neither determines the 32 CFL counts for each of the other 2047 cycles; independent exhaustive bijective census is the new precise finite content.",
+        "searches": [
+          "Resultary: binary de Bruijn sequences order five Chen Fox Lyndon factorization of all rotations distribution",
+          "de Bruijn order 5 rotations Chen Fox Lyndon number of factors distribution 2048",
+          "arXiv:1510.02637 FKM Lyndon ranking",
+          "Fredricksen Maiorana de Bruijn necklaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence (https://arxiv.org/abs/1510.02637): A construction/decoding of lex least de Bruijn sequence cannot imply 2048-cycle rooted census by itself.",
+          "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences (https://doi.org/10.1016/0012-365X(78)90002-X): Concatenation count of Lyndon pieces in FKM construction is not the per-cut CFL factor count of all cycles.",
+          "Daykin, Algorithms for the Lyndon unique maximal factorization (https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/): Computability of individual L(w) does not state its complete frequency distribution on this restricted class."
+        ],
+        "reasoning": "Compared Lyndon substrings, FKM necklace concatenation, Duval's nonincreasing CFL factorization, and cyclic rotation equivalence. The result specifically counts factors of length-32 rooted linear traversals, not distinct Lyndon substrings or FKM construction terms.",
+        "searches": [
+          "Resultary: binary de Bruijn sequences order five Chen Fox Lyndon factorization of all rotations distribution",
+          "de Bruijn order 5 rotations Chen Fox Lyndon number of factors distribution 2048",
+          "arXiv:1510.02637 FKM Lyndon ranking",
+          "Fredricksen Maiorana de Bruijn necklaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence (https://arxiv.org/abs/1510.02637): A construction/decoding of lex least de Bruijn sequence cannot imply 2048-cycle rooted census by itself.",
+          "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences (https://doi.org/10.1016/0012-365X(78)90002-X): Concatenation count of Lyndon pieces in FKM construction is not the per-cut CFL factor count of all cycles.",
+          "Daykin, Algorithms for the Lyndon unique maximal factorization (https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/): Computability of individual L(w) does not state its complete frequency distribution on this restricted class."
+        ],
+        "reasoning": "Searches and Resultary nearest indexed binary word papers did not show the 16-entry rooted histogram or 10-entry cycle-max histogram; complete 65536 root enumeration is beyond the general 2048 cycle count alone.",
+        "searches": [
+          "Resultary: binary de Bruijn sequences order five Chen Fox Lyndon factorization of all rotations distribution",
+          "de Bruijn order 5 rotations Chen Fox Lyndon number of factors distribution 2048",
+          "arXiv:1510.02637 FKM Lyndon ranking",
+          "Fredricksen Maiorana de Bruijn necklaces"
+        ]
+      },
+      "rationale": "Fredricksen–Maiorana and FKM theory construct individual de Bruijn sequences by concatenating Lyndon words; Kociumaka–Radoszewski–Rytter address efficient ranking/decoding of the lexicographically least sequence. Daykin/Duval give algorithms for Lyndon factorization of a given word. Neither construction nor per-word algorithm enumerates CFL factor counts over all 2048 cycles and all 32 rotations. A full published order-five table remains an indexing risk.",
+      "residual_risks": [
+        "Unindexed full order-five de Bruijn sequence databases may allow or tabulate equivalent Lyndon-factor histograms.",
+        "No extension to binary order >=6 or other alphabets is asserted; this is a finite exact result, not a general asymptotic theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithms for Lyndon ranking and one distinguished de Bruijn sequence, not full-population cyclic CFL-factor distribution",
+          "evidence": "A construction/decoding of lex least de Bruijn sequence cannot imply 2048-cycle rooted census by itself.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02637",
+          "material_read": "Accessible full PDF, abstract, main theorem statements and treatment of lexicographically minimal/FKM sequence",
+          "method": "Full-text/PDF with inspected page images",
+          "title": "Kociumaka, Radoszewski and Rytter, Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence",
+          "trigger": "Exact de Bruijn/Lyndon subject intersection"
+        },
+        {
+          "assessment": "Constructs de Bruijn sequences by ordered necklaces; different from factorizing all cyclic root words",
+          "evidence": "Concatenation count of Lyndon pieces in FKM construction is not the per-cut CFL factor count of all cycles.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(78)90002-X",
+          "material_read": "Historical construction and bibliographic theorem scope, no direct complete full text",
+          "method": "Secondary theorem citation and primary bibliographic comparison",
+          "title": "Fredricksen and Maiorana, Necklaces of beads in k colors and k-ary de Bruijn sequences",
+          "trigger": "Classic necklace/Lyndon concatenation alternative"
+        },
+        {
+          "assessment": "Provides factorization method, not order-five de Bruijn census",
+          "evidence": "Computability of individual L(w) does not state its complete frequency distribution on this restricted class.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/",
+          "material_read": "Article scope and algorithm description, no complete paper-wide reading",
+          "method": "Publisher article page and theorem-level abstract comparison",
+          "title": "Daykin, Algorithms for the Lyndon unique maximal factorization",
+          "trigger": "A possible all-words classification by generic factorization algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All 2048 binary order-five de Bruijn necklaces form a canonical complete, manageable finite class, and the number of factors in the unique Chen–Fox–Lyndon decomposition is an intrinsic ordered-word statistic. Two full distributions, unique single-factor cut per cycle, sharp 16-factor cutoff and explicit extremal cycles answer a natural finite classification question; value does not depend on a higher-order generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed full order-five de Bruijn sequence databases may allow or tabulate equivalent Lyndon-factor histograms.",
+    "No extension to binary order >=6 or other alphabets is asserted; this is a finite exact result, not a general asymptotic theorem.",
+    "The assessment gives a qualified priority judgment; finite computations prove only the exact finite ranges exhausted and do not substitute for general arguments."
+  ],
+  "schema_version": 1
+}
