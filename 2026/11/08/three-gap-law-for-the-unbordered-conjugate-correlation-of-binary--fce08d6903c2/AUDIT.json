@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Proof enumerates all candidate borders of a rotation with first and last symbols different: for cuts after a marker, the criterion is a>c; before a marker, a<c, using the three-one bound on numbers of markers in proper borders. Other cuts have a one-letter border. The binomial-composition double count handles periodic triples; rational moment formulas follow algebraically. Independent KMP comparison and direct prefix/suffix tests validated 27405 words through n=29; experiments are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2003/2004 general unrestricted bound is floor(n/2), with general border-correlation exclusions and unrestricted extremizers.",
+        "Clokie--Gabrić--Shallit (2019), Theorems 3, 13, 14, concern unrestricted maximal spectrum, realizable counts and Bernoulli-unrestricted expectation respectively.",
+        "The present fixed-three-one law yields maximum 3 for every length, with rare periodic words having zero and a conditional expectation tending to 3."
+      ],
+      "reasoning": "The unrestricted maxima and average do not logically determine conditional counts among binomial(n,3) words, nor the marker-wise locations of unbordered shifts. The older structural theorem on exactly two shifts is compatible and partly overlaps one branch; our full three-branch local classifier and population law are not direct quoted corollaries of that result.",
+      "searches": [
+        "unbordered rotations fixed number of ones distribution",
+        "primitive words number of unbordered conjugates conjecture binary 2015",
+        "Clokie--Gabrić--Shallit, arXiv:1904.08187, Sections 1, 3--5",
+        "Harju--Nowotka, Border Correlation of Binary Words, TUCS TR546, Sections 1--2 and discussion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.02222",
+      "TUCS-TR-546-2003",
+      "arxiv:1904.08187",
+      "OEIS:A321162",
+      "OEIS:A091838"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harju--Nowotka proves every primitive binary word has at least two unbordered rotations and gives general upper bounds; these are consistent with our 2-or-3 statement but do not produce the strict three-gap criterion.",
+        "Holub--Müller characterizes words with exactly two unbordered conjugates by a recursive palindrome-related construction; the three-one two-equal subclass should be regarded as a specialized manifestation of that existing boundary, not a new general characterization of fully bordered words.",
+        "Clokie--Gabrić--Shallit gives all-word existence/maxima and unconditional expectation, not this conditioned distribution or exact indexed cut pattern."
+      ],
+      "reasoning": "Our claim does not assert novelty of the already known two-conjugate concept, unrestricted bounds, or the existence of three-conjugate words. Its contribution is an explicit exact full correlation in the first sparse case with a third unbordered shift, including all n class counts. Stronger all-weight results in sources were checked for whether they imply this data directly; none inspected provides the three-gap conditional law.",
+      "searches": [
+        "arxiv:1504.02222 Theorems 1--3",
+        "doi:10.1016/j.jcta.2004.07.009; TUCS TR546 Lemma 1, Theorems 4--5",
+        "arxiv:1904.08187 Theorems 3, 13--14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holub--Müller (2015), Sections 1--2, define fully bordered words and give an inductive construction for exactly two unbordered conjugates, without an explicit three-gap cut-correlator.",
+        "Harju--Nowotka (TUCS TR546/2004), introduction and Lemma 1, define the full border-correlation word and bound total unbordered rotations; the inspected passages are not a fixed-weight local formula.",
+        "Scientific database search results concerned unrelated code, automata, and string-attractor invariants; no same cut classification was retrieved."
+      ],
+      "reasoning": "The local cut law gives both positions and counts, whereas knowing that certain words have exactly two unbordered rotations does not alone determine the three-rotation case, the zero-gap orientation rule, or the class sizes at each length. No equivalent statement was found in inspected material; this is not a uniqueness guarantee.",
+      "searches": [
+        "unbordered conjugates exactly three ones Hamming weight three binary circular word counting spectrum",
+        "border correlation function cyclic word sparse three marked letters adjacent gap inequalities exact distribution",
+        "\"unbordered conjugates\" \"gaps\" run lengths",
+        "Holub--Müller, arXiv:1504.02222, full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A321162 lists unrestricted maximum counts for binary words by length, not the three-one conditional counts.",
+        "OEIS A091838 counts distinct border-correlation images at each length over all binary words, not the number of words in the three-one locus with each image-count.",
+        "No exact fixed-three-one class-count table appeared in the searched results."
+      ],
+      "reasoning": "Our N_0,N_2,N_3 count original words under fixed Hamming weight, as opposed to unrestricted maximum values or distinct correlation images; parameters and quantifiers differ. A database search cannot establish the nonexistence of an unindexed table.",
+      "searches": [
+        "OEIS unbordered conjugates binary words with exactly 3 ones counts",
+        "OEIS A321162 maximum number of unbordered conjugates",
+        "OEIS A091838 number of border correlation images",
+        "\"border correlation\" \"three\" \"ones\" word"
+      ]
+    },
+    "rationale": "Checked 2003/2004 border-correlation foundational bounds, 2015 fully bordered two-conjugate structural theorem, 2019 unrestricted maximum/expectation paper, and accessible database entries. No inspected statement determines the complete three-one cyclic cut pattern or its exact fixed-weight distribution. The exactly-two class is not claimed as novel in isolation; priority remains qualified by possible unindexed equivalent results and text-only 2003 report inspection.",
+    "residual_risks": [
+      "The 2015 fully bordered structural characterization may indirectly permit the exactly-two subclass, which is explicitly treated as known context, not independent novelty.",
+      "A short three-gap formula or conditional population table could exist in unindexed papers, course notes or appendices not retrieved by these searches.",
+      "The original 2003 TUCS report was text-accessible but its visual PDF page fetch failed; the 2004 journal edition was not separately read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A known structural treatment of the exactly-two case; no explicit full three-marker correlation or all-length Hamming-weight-three distribution found.",
+        "evidence": [
+          "Section 2 defines fully bordered as exactly two unbordered conjugates; Theorem 2 gives inductive characterization, Theorem 3 products of two palindromes; MSC 68R15."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+        "material_read": "Accessible arXiv full-text HTML: inspected preliminaries, the definition of fully bordered words, Lemmas 1--6, Theorems 1--3, and relevant proof/conclusion passages; not a claim of word-by-word independent certification.",
+        "method": "Read accessible primary preprint text and located theorems/definitions.",
+        "title": "Fully bordered words",
+        "trigger": "Direct coverage of binary words with exactly two unbordered conjugates; primary archive-era anchor"
+      },
+      {
+        "assessment": "Proves general no-adjacent-unbordered and unrestricted extremal statements; the material inspected does not give the three-gap conditional class enumerator. Whole-paper absence is not asserted merely from excerpt reading.",
+        "evidence": [
+          "Lemma 1 gives two minimum unbordered rotations for primitive words and a floor(n/2) maximum; abstract and discussion describe global beta-image problem."
+        ],
+        "identifier_or_url": "https://citeseerx.ist.psu.edu/document?doi=912065a268d68bfb1e44494181f636a0c491d9c2&repid=rep1&type=pdf",
+        "material_read": "PDF text extraction of abstract, introduction, definition, full Lemma 1 and surrounding discussion, Theorems 4--5, and concluding discussion; no reliable visual-page image.",
+        "method": "Examined extracted primary TUCS Technical Report 546 (August 2003), including definitions, Lemma 1, relevant main theorems and concluding discussion. A visual-page retrieval was attempted but unavailable.",
+        "title": "Border Correlation of Binary Words",
+        "trigger": "Original definition of border correlation; plausible stronger global coverage"
+      },
+      {
+        "assessment": "Unrestricted maximum, existence, and expected number results; does not state the fixed-three-one full cut correlations and conditional class histogram.",
+        "evidence": [
+          "Theorem 14 concerns independent uniform letters over the full alphabet; Theorem 13 existence of counts, not classification of all three-one words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.08187",
+        "material_read": "Accessible arXiv HTML preprint, including Sections 1, 3--5 and Theorems 3, 13 and 14.",
+        "method": "Read primary HTML preprint and compared exact sampling quantifiers and unbordered-conjugate invariants.",
+        "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+        "trigger": "Later unrestricted maximum-spectrum and expected-count theorems potentially dominating fixed-weight counts"
+      },
+      {
+        "assessment": "Neither sequence gives the exact conditional three-one counts; A321162 is unrestricted maximum, A091838 distinct correlation-image number.",
+        "evidence": [
+          "Their definitions describe different statistics from M_j(n)."
+        ],
+        "identifier_or_url": "https://oeis.org/A321162 ; https://oeis.org/A091838",
+        "material_read": "Sequence definitions and summaries and listed values/notes on accessible pages.",
+        "method": "Compared sequence definitions and quantifiers with fixed-weight enumerators.",
+        "title": "OEIS A321162 and A091838",
+        "trigger": "Possible exact tables for the same invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fce08d69-03c2-451d-9710-76427e4c88dc",
+  "value": {
+    "rationale": "Border correlation is a central intrinsic invariant studied in the cited literature. Exactly three ones is the first fixed-marker binary stratum in which a third unbordered rotation appears: the theorem completely classifies all cut locations for infinitely many lengths, not merely a finite table or recomputation of an unrestricted maximum, and determines exact class sizes and sample moments. The result is an interpretable structural boundary of the fully bordered two-conjugate locus, with an explicit cyclic-necklace classification.",
+    "status": "PASS"
+  }
+}
