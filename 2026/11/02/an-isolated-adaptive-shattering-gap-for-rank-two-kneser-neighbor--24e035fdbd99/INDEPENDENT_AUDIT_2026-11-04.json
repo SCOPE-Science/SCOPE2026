@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:21:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned exact RESULT.md Git blob f3e605d..., DEPTH4_TREE.json, verify_kneser.py, METADATA.json, root tree identity",
+        "Independent Python bitmask VC/Ldim for n=2..8"
+      ],
+      "rationale": "For shattered d fixed two-element queries, all-one pattern requires at least two vertices outside support and all-zero pattern implies a size-two vertex cover. Every trace is union of <=2 incidence stars. Counting bounds 1+t+binom(t,2) and degree-one collision exclude VC>=5 and the n=7 VC four-set; explicit star-pair constructions supply lower bounds. For Littlestone, conditional family of centers meeting first query has dimension <=3 because any second query forces a child with <=4 concepts or a star family with dimension <=2. The supplied complete depth-four n=7 query tree has 15 internal nodes/16 distinct terminal centers; additionally an independent bitmask dynamic program computed exact VC/Ldim for every n=2..8: (0,0),(0,0),(1,1),(2,2),(3,3),(3,4),(4,4). The all-n classification rests on structural upper bounds and monotonic witnesses, not extrapolation from finite n.",
+      "residual_risks": [
+        "Primary Johnson paper inspected by abstract rather than full theorem text; a hidden exact closed-neighborhood table might cover the VC part"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benediktsson–Macpherson–Adler establish uniform VC<=4 for open Johnson neighborhoods and bounded closed neighborhoods; they do not establish adaptive Ldim formulas at each n in the accessible abstract.",
+          "General algorithmic graph VC work does not mathematically determine n=7 Kneser adaptive shattering."
+        ],
+        "reasoning": "Benediktsson–Macpherson–Adler establish uniform VC<=4 for open Johnson neighborhoods and bounded closed neighborhoods; they do not establish adaptive Ldim formulas at each n in the accessible abstract. General algorithmic graph VC work does not mathematically determine n=7 Kneser adaptive shattering.",
+        "searches": [
+          "rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7",
+          "arXiv:2007.16042",
+          "arXiv:2405.07588",
+          "Resultary query rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7"
+        ]
+      },
+      "checked_sources": [
+        "Assigned exact RESULT.md Git blob f3e605d..., DEPTH4_TREE.json, verify_kneser.py, METADATA.json, root tree identity",
+        "Independent Python bitmask VC/Ldim for n=2..8",
+        "Benediktsson–Macpherson–Adler arXiv:2007.16042 abstract and Resultary search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published bound does not imply a strict gap at exactly n=7; n=7 uses a hereditary no-four-VC argument and a separate Littlestone witness. Equivalence with closed Johnson neighborhoods is explicitly acknowledged.",
+          "Possible alternative closed-neighborhood specialization in a thesis or unpublished online-learning classification remains a risk."
+        ],
+        "reasoning": "The published bound does not imply a strict gap at exactly n=7; n=7 uses a hereditary no-four-VC argument and a separate Littlestone witness. Equivalence with closed Johnson neighborhoods is explicitly acknowledged. Possible alternative closed-neighborhood specialization in a thesis or unpublished online-learning classification remains a risk.",
+        "searches": [
+          "rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7",
+          "arXiv:2007.16042",
+          "arXiv:2405.07588",
+          "Resultary query rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open KG(n,2) neighborhoods correspond to complements of *closed* Johnson J(n,2) neighborhoods; the published 2007.16042 studies open Johnson neighborhoods, so simply reusing its VC dimension bound without this distinction is invalid.",
+          "Complementing a concept class preserves both dimensions, but does not identify a formula for the closed Johnson class."
+        ],
+        "reasoning": "Open KG(n,2) neighborhoods correspond to complements of *closed* Johnson J(n,2) neighborhoods; the published 2007.16042 studies open Johnson neighborhoods, so simply reusing its VC dimension bound without this distinction is invalid. Complementing a concept class preserves both dimensions, but does not identify a formula for the closed Johnson class.",
+        "searches": [
+          "rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7",
+          "arXiv:2007.16042",
+          "arXiv:2405.07588",
+          "Resultary query rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exceptional (VCdim,Ldim)=(3,4) at n=7 arises from a concrete 15-query/16-center decision certificate and is not a recalled table entry from Resultary or the Johnson paper.",
+          "The finite dimension table was independently recomputed via exhaustive bitmask version-space DP for n=2..8; full all-n conclusions still rely on the proof."
+        ],
+        "reasoning": "The exceptional (VCdim,Ldim)=(3,4) at n=7 arises from a concrete 15-query/16-center decision certificate and is not a recalled table entry from Resultary or the Johnson paper. The finite dimension table was independently recomputed via exhaustive bitmask version-space DP for n=2..8; full all-n conclusions still rely on the proof.",
+        "searches": [
+          "rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7",
+          "arXiv:2007.16042",
+          "arXiv:2405.07588",
+          "Resultary query rank two Kneser open neighborhoods VC Littlestone dimensions adaptive shattering n=7"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified priority: Open KG(n,2) neighborhoods correspond to complements of *closed* Johnson J(n,2) neighborhoods; the published 2007.16042 studies open Johnson neighborhoods, so simply reusing its VC dimension bound without this distinction is invalid. The published bound does not imply a strict gap at exactly n=7; n=7 uses a hereditary no-four-VC argument and a separate Littlestone witness. Equivalence with closed Johnson neighborhoods is explicitly acknowledged. An unsuccessful search is not novelty proof; sources and risks delimit the decision.",
+      "residual_risks": [
+        "Primary Johnson paper inspected by abstract rather than full theorem text; a hidden exact closed-neighborhood table might cover the VC part",
+        "Finite dynamic programming through n=8 is corroboration only; all-n classification uses structural bounds",
+        "Higher-rank Kneser or closed-Kneser analogues not established"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds open Johnson VC uniformly, and says closed Johnson bounded; abstract does not give exact closed Johnson VC/Ldim table",
+          "evidence": [
+            "arXiv:2007.16042 abstract",
+            "DOI 10.1016/j.dam.2021.09.017 abstract"
+          ],
+          "identifier_or_url": "arXiv:2007.16042",
+          "material_read": "primary arXiv abstract and publisher abstract; full body not retrieved",
+          "method": "open arXiv abstract and DOI landing page",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Complement duality to closed rank-two Johnson neighborhoods"
+        },
+        {
+          "assessment": "Specific n=7 Littlestone gap not independently excluded from full paper",
+          "evidence": [
+            "Assigned RESULT.md references"
+          ],
+          "identifier_or_url": "arXiv:2405.07588",
+          "material_read": "reference/scope in assigned result, no primary full text",
+          "method": "citation comparison",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Possible graph neighborhood algorithmic table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned exact RESULT.md Git blob f3e605d..., DEPTH4_TREE.json, verify_kneser.py, METADATA.json, root tree identity",
+        "Independent Python bitmask VC/Ldim for n=2..8",
+        "Benediktsson–Macpherson–Adler arXiv:2007.16042 abstract and Resultary search"
+      ],
+      "rationale": "The isolated n=7 strict online-versus-static shattering gap is a natural complete finite-parameter classification for open rank-two Kneser neighborhoods and gives a reproducible 16-leaf adaptive certificate. This is more than re-proving a bounded VC dimension: the precise mismatch of Ldim and VCdim at one order can be used in online-learning complexity comparisons.",
+      "residual_risks": [
+        "Finite dynamic programming through n=8 is corroboration only; all-n classification uses structural bounds",
+        "Higher-rank Kneser or closed-Kneser analogues not established"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Primary Johnson paper inspected by abstract rather than full theorem text; a hidden exact closed-neighborhood table might cover the VC part",
+    "Finite dynamic programming through n=8 is corroboration only; all-n classification uses structural bounds",
+    "Higher-rank Kneser or closed-Kneser analogues not established"
+  ],
+  "schema_version": 1
+}
