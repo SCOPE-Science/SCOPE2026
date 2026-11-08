@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every distinct Abelian-square content in a four-run word has one, three, or four runs; the one-boundary case is impossible. The proof enumerates the two three-run families and the two four-run midpoint cases, identifies their sole possible overlap, and proves the exact count for all positive run lengths. The fixed-Parikh minimum uses a one-unit split deficit lemma, with explicit distinct mixed squares covering each deficit, and an attaining effective partition. The standalone verification compares direct Parikh-sum enumeration, structural content sets, and the formula in 6,561 parameter tuples; it also checks minima for 361 pairs of letter counts. Finite tests are supplementary, not an infinite proof.
+
+**Originality — PASS, with documented priority risk.** The closest paper, Fazekas–Mammoliti–Mercaş–Simpson (arXiv:2604.23188, Theorem 12), constructs four-run words with the asserted count. Their Conjecture 13 states a lower bound for arbitrary nonboundary binary words, without proving the four-run lower bound. The new exact arbitrary-four-run formula and its parity-dependent mixed-square families are not supplied by the reviewed theorem or by the conditional trivial-only lower bound in the Fici–Saarela report. A published equivalent specialization outside the inspected literature is possible; semantic indexing and keyword searches cannot conclusively establish priority.
+
+**Value — PASS.** The candidate family is directly motivated by the recent open fixed-Parikh minimum conjecture. The exact formula describes all mixed-square contributions and proves that the established effective constructions are optimal within the *entire* natural four-run class for every interior Parikh vector, not just within trivial-square-free examples. The result is a substantive infinite classification, not a numerical extension or unmotivated restriction.
+
+**Scope and residual risk.** This is a same-source-family partial result, not a proof of the conjecture for arbitrary binary words. Distinct contents are not synonymous with distinct occurrences or inequivalent Parikh types; the manuscript fixes this convention. Unindexed work remains a priority risk. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
