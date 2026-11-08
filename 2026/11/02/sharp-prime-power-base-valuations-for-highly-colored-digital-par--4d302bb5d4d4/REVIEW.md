@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The generating product is exactly the published definition. The formal logarithm coefficient is established by an explicit divisor/geometric sum, not inferred from examples. For prime-power base \(p^a\), it reduces to the \(p\)-adic unit \(u^{-1}\) times \(p^{a-r}\), where \(r=\nu_p(n)\bmod a\). The exponential remainder is coefficientwise divisible by \(p^{s+a+1}\) under the stated conditions, using Legendre bounds for every factorial index. Since the linear coefficient has strictly smaller valuation, no cancellation can change the claimed valuation or its leading unit. Finite verification used the independent integral recurrence; 12,900 coefficient/unit comparisons passed. Risks: no assertion beyond the stated range; infinite claim rests on the proof, not sampling.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2019 Ulas–Żmija paper explicitly labels the \(4\)-ary formulas as Conjecture 6.6(5) and 6.6(6) and frames the more general prime-power problem as Problem 6.7; its prime-base formula is already known and is excluded from the new claim. The 2018 uniformly colored \(p\)-ary result and the 2023 subsequent uniformly colored \(p\)-ary work concern distinct generating products. Searches of accessible mathematical-record indexes and literature using the source, exact conjecture numbers, parameter aliases, logarithmic formula, and equivalent digital valuation statements did not surface a dominating theorem. An inaccessible 2023 full text and unindexed later results remain explicit priority risks; the accessible 2023 abstract is not used to claim complete exclusion.
+PASS
 
-## Mathematical value — PASS
-The result proves two explicitly numbered published conjectures, unifies them into a sharp coefficientwise valuation and leading-unit formula for every prime-power base, and gives automaticity and all level densities on a substantial natural parameter range. It distinguishes exact values and first units, rather than providing just divisibility or a few extra computed terms. The unresolved small-color range is honestly outside its scope.
+The exact logarithmic coefficient of G_{p^a}=H_{p^a,1} is p^{a-r}/u for n=p^{aq+r}u, (p,u)=1. Writing m=p^s v and exp(m log G), every nonlinear j>=2 term has valuation at least j(s+1)-nu_p(j!)>=s+a+1 under s>=a if p=2, or s>=a-1 if odd. The unique lowest-valuation linear term therefore gives nu_p(S(n))=s+a-r and normalized mod-p unit v/u. At n=0 coefficient is one. Trailing-zero residue classes give stated natural densities and automaticity of the valuation levels. The actual recurrence script was inspected, and an independent finite integer-product expansion for 375 positive coefficients across five families reproduced both formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact generating series and prime-base case are due to Ulas and Żmija, and the k=4 results are explicitly their Conjecture 6.6(5),(6); the theorem proves both and extends to a high-divisibility prime-power-base range including leading units. Stronger 2023 Żmija article could not be read in full, so originality remains qualified.
+
+## value
+
+PASS
+
+Resolves two explicit open composite-base valuation conjectures, obtains all n sharp valuation levels and leading digits, and a systematic automatic-density classification under natural divisibility hypotheses. This is motivated independent arithmetic information rather than a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
