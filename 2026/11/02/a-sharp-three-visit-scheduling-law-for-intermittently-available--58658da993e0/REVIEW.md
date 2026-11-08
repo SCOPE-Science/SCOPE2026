@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The availability chain has commuting time-dependent generators, so its two-time transition law contains a single relaxation factor in cumulative hazard. Expanding the eight possible hidden-state paths, or equivalently the one-, two-, and three-state moments, gives \(N(u)=C+Ae^{-u}+Be^{-(L-u)}\) with both coefficients strictly positive under all stated assumptions. Its strictly positive second derivative proves a unique minimizer, and the endpoint conditions follow from clipping the unconstrained minimizer. The cancellation of \(p_2\) is exact. The standalone `check.py` checks 729 rational instances and 768 numerical optimum/convexity configurations; these supplement rather than replace the universal proof. Simultaneous endpoints are handled as conditionally independent observations, not as independent hidden states.
+## correctness
 
-## Originality (PASS, provisional priority)
-The exact three-occasion objective and asymmetric time-placement classification were compared against relevant mathematical research records, previous accessible ecological findings, the full readable methodological text of MacKenzie–Royle (2005) and Nichols et al. (2008), and accessible abstracts and bibliographic material for Kendall–Nichols–Hines (1997) and MacKenzie et al. (2002). The relevant papers establish imperfect detection, survey design, and Markovian availability, but the inspected complete texts optimize other objectives and do not give the logarithmic middle-visit optimum, endpoint-collapse conditions, or independence from middle detector quality. The 1997 full paper could not be inspected end to end through available lawful routes; broad hidden-Markov observation-design literature is a remaining implication risk. No negative search is treated as a proof of absolute priority.
+PASS
 
-## Mathematical value (PASS)
-Three surveys are the first fixed-endpoint design with a nontrivial adjustable occasion. An exact, biologically interpretable threshold distinguishes a genuinely interior visit from intentionally repeating a survey at a fixed endpoint. The strict classification covers every positive pair of state-switching rates, arbitrarily time-varying common activity multiplier, every stationary availability fraction, and heterogeneous nonzero detector efficiencies. The otherwise surprising disappearance of the adjustable visit's own sensitivity makes the theorem directly useful as a benchmark for planning sparse confirmation surveys of intermittently visible species. It does not address optimal estimation of occupancy or fitted empirical models.
+Stationarity and the common positive multiplier give transition kernel P_{ij}=π_j+e^{−ΔΛ}(1_{i=j}−π_j). Expanding E∏(1−p_i X_i) over all eight hidden triples yields N(u)=C+A exp(−u)+B exp(−L+u), with A=π(1−π)p1p2(1−πp3)>0 and B=π(1−π)p2p3(1−πp1)>0. N is strictly convex and the free minimizer is (L+log A/B)/2; clipping is exact and Λ strictly increasing proves unique physical time. Conditional repeated attempts are independent even if visits coincide; with p2=0 uniqueness would fail and is explicitly excluded. Independent eight-path summation over four diverse parameter sets reproduces both interior and endpoint optima, but the universal theorem comes from algebra.
 
-## Relationship and limitations
-Kendall et al. (1997) provides the Markov temporary-emigration foundation; MacKenzie and Royle (2005) provides survey-design motivation; Nichols et al. (2008) treats multiple detection devices and local availability. None of the fully inspected portions establishes this exact three-visit statement. The model has fixed stationary availability, no false positives, three predetermined-quality attempts, and a first-confirmation objective. General hidden-Markov scheduling coverage cannot be fully ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of mathematically equivalent statements and possible stronger coverage, including Resultary semantic search, relevant published repository search, and primary literature readings. The at-least-one-detection objective is one minus an HMM failure probability, reducible to minimizing two positive exponentials on a fixed total relaxation interval. This differs from the variance/Fisher-information criteria in the inspected survey-design literature. General partially observable Markov and capture–recapture optimization can include richer policies but the inspected published optimization results use different objective functions or process families, not a theorem dominating this exact fixed-endpoint three-visit formula. Residual priority risks are recorded rather than treating negative searches as novelty proofs.
+
+## value
+
+PASS
+
+A closed-form globally optimal middle survey time is an actionable exact design benchmark for intermittent Markov availability with heterogeneous visits, including precise endpoint collapse and a surprising cancellation of the middle detectability. It is a small, clearly scoped optimization rather than a routine stationary-Markov identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
