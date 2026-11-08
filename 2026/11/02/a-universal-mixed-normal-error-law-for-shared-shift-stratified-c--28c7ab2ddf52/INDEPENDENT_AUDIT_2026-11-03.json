@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:46:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two interpolation points a=Xi/2,b=(1+Xi)/2 are separated by 1/2, permitting a uniform C2 interpolation remainder R_i(u)=[f''(i/m)/(2m²)](u-a)(u-b)+o(m^-2). Direct uniform moments give V(t)=Var((U-t/2)(U-(1+t)/2))=1/180+(t-1/2)^2/12, E V=1/80, E V²=101/518400. Given Xi, 2m independent centered residual evaluations each have small O(m^-3) contribution; scaled terms vanish individually, total conditional variance tends J_f V(Xi)/8, so a conditional triangular-array CLT gives the normal scale mixture and joint convergence with Xi. Fourth-moment convergence follows bounded summands; standardized moment 3 E[V²]/E[V]^2=101/27 proves it is non-Gaussian. Cell conditional means zero under any shift, so common versus independent shifts have identical finite-m means/variances. Independent shifts yield ordinary Lindeberg CLT. The paired residual difference has expectation 2 Var(R_i|Xi), giving exactly conditionally unbiased estimator; uniform Taylor expansion plus bounded LLN proves m^5 consistency and conditional Slutsky pivot. Independent symbolic polynomial integration confirmed V moments and 101/27, the exact variance identity and quadratic benchmark. Finite checks are not used as proof of all C² limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kunsch defines the shared phase and randomized interpolation SCV but establishes probabilistic error bounds, not the exact 1D m^5 conditional variance, universal 101/27 kurtosis, or paired-residual studentized limit.",
+          "Uses a different locally stratified higher-order estimator, so its normal limit does not imply normality or nonnormality for a single common SCV interpolation phase."
+        ],
+        "reasoning": "A general stable CLT with common random environment could imply mixture normality once the polynomial V is computed, but prior Kunsch high-probability bounds or independent-strata CLTs alone do not yield the sharp mixture coefficient and feasible pivot.",
+        "searches": [
+          "stratified control variates common global interpolation shift mixed normal Gaussian mixture fourth moment",
+          "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8",
+          "Resultary: stratified control variates global interpolation shift mixed normal kurtosis"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+        "https://arxiv.org/abs/2210.01554",
+        "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8",
+        "Resultary: stratified control variates global interpolation shift mixed normal kurtosis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kunsch defines the shared phase and randomized interpolation SCV but establishes probabilistic error bounds, not the exact 1D m^5 conditional variance, universal 101/27 kurtosis, or paired-residual studentized limit.",
+          "Uses a different locally stratified higher-order estimator, so its normal limit does not imply normality or nonnormality for a single common SCV interpolation phase."
+        ],
+        "reasoning": "Kunsch Eq.19 includes the shared Xi as an algorithmic premise; its error-rate theorem does not imply full limiting distribution. Chopin-Gerber standard normal limit applies to different independent locally randomized cubic stratification, not this common-shift interpolation.",
+        "searches": [
+          "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+          "https://arxiv.org/abs/2210.01554",
+          "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kunsch defines the shared phase and randomized interpolation SCV but establishes probabilistic error bounds, not the exact 1D m^5 conditional variance, universal 101/27 kurtosis, or paired-residual studentized limit.",
+          "Compared established theorem: Linear Monte Carlo quadrature with optimal confidence intervals (https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals)"
+        ],
+        "reasoning": "Equivalent terms: conditionally Gaussian triangular-array limit in a shared random environment, random-variance normal mixture, non-ergodic global randomization, and robust studentization. This general mechanism is known, but the specific SCV variance polynomial and 101/27 moment have not been read as prior exact claims.",
+        "searches": [
+          "stratified control variates common global interpolation shift mixed normal Gaussian mixture fourth moment",
+          "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8",
+          "Resultary: stratified control variates global interpolation shift mixed normal kurtosis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact and semantic sources: arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8, Resultary: stratified control variates global interpolation shift mixed normal kurtosis",
+          "Primary inspected: https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals"
+        ],
+        "reasoning": "Resultary semantic search found unrelated Gaussian-chaos kurtosis and interpolation range results but no table of the exact SCV asymptotic V(t), 101/27 kurtosis, or studentized ratio. No exact table was found in Kunsch Section 2.",
+        "searches": [
+          "stratified control variates common global interpolation shift mixed normal Gaussian mixture fourth moment",
+          "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8",
+          "Resultary: stratified control variates global interpolation shift mixed normal kurtosis"
+        ]
+      },
+      "rationale": "Kunsch (arXiv:2309.09059) introduced SCV and explicitly allows a single common interpolation shift across cells in Section 2 Eq.19 and randomized interpolation for smooth functions in Remark 2.8. Those algorithms and their error-rate/confidence bounds are not new. In the materially read primary text, no exact conditional variance mixing law, kurtosis 101/27, equal-variance independent-cell contrast or paired-residual pivot is stated. Chopin-Gerber cubic stratification and Nakayama-Tuffin randomized-QMC normality use different estimators. Classical Gaussian scale-mixture/conditional CLT theory is acknowledged. Best-knowledge PASS for this algorithm-specific sharp asymptotic calibration, with risk of an unlocated general random-environment CLT specialization.",
+      "residual_risks": [
+        "A specialized later paper or generic common-environment conditional central limit theorem may contain the same asymptotic calibration after specialization.",
+        "Only C2 one-dimensional order-two randomized interpolation and two residual samples per cell; coverage claim asymptotic, not finite-sample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Kunsch defines the shared phase and randomized interpolation SCV but establishes probabilistic error bounds, not the exact 1D m^5 conditional variance, universal 101/27 kurtosis, or paired-residual studentized limit.",
+          "evidence": [
+            "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+            "Kunsch defines the shared phase and randomized interpolation SCV but establishes probabilistic error bounds, not the exact 1D m^5 conditional variance, universal 101/27 kurtosis, or paired-residual studentized limit."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+          "material_read": "Complete author-uploaded scholarly full-text reproduction, reading Section 2 including the shared shift at Eq. (19), discussion of randomized interpolants, Remark 2.8, main error-rate theorems, and relevant confidence-interval discussion.",
+          "method": "Lawful primary full-text HTML read, targeted theorem and section comparison",
+          "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+          "trigger": "Strongest same-object/source paper from the assigned record and independent literature search"
+        },
+        {
+          "assessment": "Uses a different locally stratified higher-order estimator, so its normal limit does not imply normality or nonnormality for a single common SCV interpolation phase.",
+          "evidence": [
+            "https://arxiv.org/abs/2210.01554",
+            "Uses a different locally stratified higher-order estimator, so its normal limit does not imply normality or nonnormality for a single common SCV interpolation phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.01554",
+          "material_read": "ArXiv abstract and the contrasting published Gaussian CLT statement as cited in source; complete paper not materially re-read in this audit.",
+          "method": "Source metadata/accessible portions and theorem comparison as specified in material_read",
+          "title": "Higher-order stochastic integration through cubic stratification",
+          "trigger": "Nearby broader theorem or same-subject source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single global randomization variable is a genuine algorithmic feature of Kunsch SCV, and two methods can have the same exact variance yet distinct confidence-limit distributions. The universal 101/27 excess-kurtosis calibration and a no-extra-function-evaluation studentization formula directly matter to an investigator using nominal Gaussian confidence intervals. This is a motivated algorithmic boundary, not an arbitrary numerical test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+    "https://arxiv.org/abs/2210.01554",
+    "arxiv:2309.09059 Kunsch Section 2 Eq. 19 Remark 2.8",
+    "Resultary: stratified control variates global interpolation shift mixed normal kurtosis"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a one-dimensional two-residual per-cell randomized-interpolation control-variate rule with one shared uniform shift and nonaffine C2 integrand, m^(5/2) times error converges to sqrt(J_f V(Xi)/8) G with V(t)=1/180+(t-1/2)^2/12. The standardized limiting fourth moment is 101/27. Independent per-cell interpolation shifts have the exact same finite-m expectation/variance but a Gaussian limit. A within-cell paired-residual variance estimate yields a studentized N(0,1) pivot.",
+  "limitations": [
+    "Nonaffine input J_f>0 and continuous f second derivative are essential; no claim for deterministic SCV, arbitrary interpolation templates or high dimensions.",
+    "Identical finite variances do not imply identical finite error distributions, and the studentized denominator may vanish at finite m."
+  ],
+  "residual_risks": [
+    "A specialized later paper or generic common-environment conditional central limit theorem may contain the same asymptotic calibration after specialization.",
+    "Only C2 one-dimensional order-two randomized interpolation and two residual samples per cell; coverage claim asymptotic, not finite-sample."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact estimator, interpolation template, common versus independent shift coupling, and all probability distributions are specified in RESULT.md. Uniform second-order interpolation remainder gives a centered bounded triangular array with limiting conditional variance \(J_f V(\Xi)/8\); conditional Lindeberg implies the mixed-normal law. Exact uniform-shift polynomial integrals yield \(\mathbb E V=1/80\) and the non-Gaussian standardized fourth moment \(101/27\). Zero conditional cell means imply identical finite-size variances under the two shift schemes, while independent shifts give an ordinary Lindeberg CLT. Pair differences give the exactly conditionally unbiased variance estimator, and its triangular-array law of large numbers supports studentization. The packaged verifier checks 137 polynomial, finite-moment, and numerical identities. Boundary restrictions: \(f\in C^2([0,1])\), \(J_f>0\), and the specified uniform template and two residual draws. No numerical experiment is used to justify infinite convergence.
+PASS
 
-## Originality — PASS, with bounded priority risk
+The two interpolation points a=Xi/2,b=(1+Xi)/2 are separated by 1/2, permitting a uniform C2 interpolation remainder R_i(u)=[f''(i/m)/(2m²)](u-a)(u-b)+o(m^-2). Direct uniform moments give V(t)=Var((U-t/2)(U-(1+t)/2))=1/180+(t-1/2)^2/12, E V=1/80, E V²=101/518400. Given Xi, 2m independent centered residual evaluations each have small O(m^-3) contribution; scaled terms vanish individually, total conditional variance tends J_f V(Xi)/8, so a conditional triangular-array CLT gives the normal scale mixture and joint convergence with Xi. Fourth-moment convergence follows bounded summands; standardized moment 3 E[V²]/E[V]^2=101/27 proves it is non-Gaussian. Cell conditional means zero under any shift, so common versus independent shifts have identical finite-m means/variances. Independent shifts yield ordinary Lindeberg CLT. The paired residual difference has expectation 2 Var(R_i|Xi), giving exactly conditionally unbiased estimator; uniform Taylor expansion plus bounded LLN proves m^5 consistency and conditional Slutsky pivot. Independent symbolic polynomial integration confirmed V moments and 101/27, the exact variance identity and quadratic benchmark. Finite checks are not used as proof of all C² limits.
 
-Kunsch, *Linear Monte Carlo quadrature with optimal confidence intervals* (arXiv:2309.09059), defines shared interpolation shifts in his stratified-control-variate construction but proves error/confidence-width rates, not this common-shift Gaussian-mixture limit, universal kurtosis, exact shared/independent-shift variance equivalence, or feasible conditional pivot. Chopin–Gerber (arXiv:2210.01554), full-text Theorem 2, derive a CLT for different locally controlled cubic stratification, not the same randomized interpolation scheme. Nakayama–Tuffin (DOI:10.1145/3643847), author-preprint sections 1–4, develop normal calibration conditions for randomized quasi-Monte Carlo and discuss fixed-randomization normality failure, without deriving this explicit interpolation-based coefficient or pivot. Glynn–Szechtman (2002) study general control variates and iid sampling; their broad methods do not specify the SCV model. Actual semantic searches of the research-record database for both algorithm and formulas did not return an implication-complete equivalent. The general common-environment mixture mechanism is classical and is not claimed as independently new. Undiscovered specialized literature is a residual publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A shared randomization phase is an actual structural feature of the motivating estimator, not an arbitrary mathematical slice. Two algorithms with **exactly equal finite-sample mean squared error** can have fundamentally different limiting confidence calibration; the explicit non-Gaussian constant \(101/27\) and accessible two-residual studentization quantify the difference at no added function-evaluation cost. This is a specific reproducible test case for confidence-interval design in smooth stratified quadrature. The result does not claim broader optimality or universal superiority of independent shifts.
+Kunsch (arXiv:2309.09059) introduced SCV and explicitly allows a single common interpolation shift across cells in Section 2 Eq.19 and randomized interpolation for smooth functions in Remark 2.8. Those algorithms and their error-rate/confidence bounds are not new. In the materially read primary text, no exact conditional variance mixing law, kurtosis 101/27, equal-variance independent-cell contrast or paired-residual pivot is stated. Chopin-Gerber cubic stratification and Nakayama-Tuffin randomized-QMC normality use different estimators. Classical Gaussian scale-mixture/conditional CLT theory is acknowledged. Best-knowledge PASS for this algorithm-specific sharp asymptotic calibration, with risk of an unlocated general random-environment CLT specialization.
 
-## Verification and limitations
+## value
 
-Run `python verify.py` with `requirements.txt`. The checker establishes symbolic equalities and numerical sanity checks; the infinitely many-cell convergence follows from the written analytic argument. The 95% unstudentized coverage of approximately 0.9446368 is a numerical integral of the proved limit, not an exact finite-sample guarantee. Publication priority and all analytic steps have not undergone independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single global randomization variable is a genuine algorithmic feature of Kunsch SCV, and two methods can have the same exact variance yet distinct confidence-limit distributions. The universal 101/27 excess-kurtosis calibration and a no-extra-function-evaluation studentization formula directly matter to an investigator using nominal Gaussian confidence intervals. This is a motivated algorithmic boundary, not an arbitrary numerical test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
