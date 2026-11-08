@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The Gill--Linusson/Torres exact H-representation proves all boundary halfspaces. Projecting each normal to the actual affine tangent subspace yields exact Euclidean clearances; summing each symmetric family gives sharp upper bounds attained at the uniform matrix. Equality of every minimizing family proves complete center loci and dimensions at all ranks, including k=m where row equalities change the intrinsic tangent space. The 175 independent small LP tests and exact integer critical checks corroborate rather than replace the universal proof. No open lemma is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus square-case finding 2026/10/11/...6c3de65c0b12, RESULT.md Findings/Limitations, treats N-by-N k<N and expressly excludes rectangular sizes and k=N.",
+        "published-finding corpus transportation-polytope finding 2026/10/11/...dbb208ea5834, RESULT.md Finding, treats matrices with both all row and all column margins fixed.",
+        "published-finding corpus square John-ellipsoid finding 2026/10/11/...d070eb07f633, RESULT.md assumptions, excludes rectangular and k=n."
+      ],
+      "reasoning": "The prior square partial-assignment result has equal row/column projected normal scales and at high rank a Birkhoff center locus. For m<n, strict row/column scale separation gives an m(n-1)-dimensional high-rank locus; at k=m only rows become affine equalities, giving a second transportation-type center phase. Equality-margin transportation polytopes have a different affine hull and their own inradius is not the inradius of the encompassing k-assignment polytope. None dominates this rectangular theorem.",
+      "searches": [
+        "published-finding corpus: k-matching polytopes bipartite graph inradius Euclidean ball centers and parametric phase transitions",
+        "published-finding corpus: complete bipartite fixed-size k-matching K_{m,n} with m different from n row-active incenter product of simplices; sharp aspect ratio threshold",
+        "published-finding corpus: rectangular k matching polytope Euclidean Chebyshev center exact threshold"
+      ]
+    },
+    "checked_sources": [
+      "Torres 2023 arXiv:2306.11910v1, Definitions 2.7 and Theorem 3.1, relevant proof and normality sections",
+      "Gill--Linusson 2009 author-postprint, Theorem 3, facet table, Theorems 20--21",
+      "Heuer--Striker 2020 arXiv:2012.09901, introductory and partial-permutation sections",
+      "Public square-case inball research record 6c3de65c0b12, full RESULT.md",
+      "Public transportation-polytope inradius research record dbb208ea5834, specified sections",
+      "Public square fixed-cardinality John ellipsoid research record d070eb07f633, specified sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The square theorem formula includes two equal margin-bound families and a scaled N-by-N Birkhoff center set, and explicitly excludes m!=n and k=N.",
+        "Gill--Linusson Theorem 3 gives row/column inequalities but its diameter theorems concern the graph one-skeleton, not Euclidean inspheres.",
+        "The proof here uses different orthogonal projections in the two affine ranks and identifies exactly when row vs column sums are forced equality at optimal centers."
+      ],
+      "reasoning": "An explicit H-representation and a generic Chebyshev LP algorithm do not themselves state the exact parameter-dependent minimizer, the integer aspect-ratio suppression criterion, or the full center-locus affine types. Square symmetric or all-margins-equality results do not imply these as corollaries via an isometry because the affine ranks and projected normal lengths differ.",
+      "searches": [
+        "Direct claim comparison with published-finding corpus square-case RESULT.md, identifier 6c3de65c0b12",
+        "Direct claim comparison with published-finding corpus transportation RESULT.md, identifier dbb208ea5834",
+        "Web: Gill Linusson The k-assignment polytope 2009 full author-postprint",
+        "Web: arXiv:2306.11910v1 Torres Section 3 Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill--Linusson (2009), Theorem 3, calls the objects k-assignment polytopes and provides exact halfspaces and dimension/facet table.",
+        "Torres (2023), Definition 2.7 and Theorem 3.1, calls them fixed-cardinality k-matching polytopes and proves the same description for bipartite graphs.",
+        "Heuer--Striker (2020), Section 3, treats PPerm(m,n), the all-cardinalities doubly substochastic polytope, not its fixed-total intrinsic inball."
+      ],
+      "reasoning": "Names fixed-size rook placement, k-assignment, k-matching of a biclique, and total-k slice of the rectangular doubly substochastic polytope describe the same set, but a slice changes affine tangent space and does not inherit the full-polytope Euclidean inball. No result asserting the claimed two rectangular incenter phases was located in these inspected texts.",
+      "searches": [
+        "published-finding corpus: Euclidean inradius and set of maximal inscribed ball centers for fixed-cardinality k-matching polytopes of complete bipartite graphs K_{m,n}; exact Chebyshev center radius facets row column nonnegative",
+        "published-finding corpus: rectangular rook k-assignment polytope intrinsic inball radius full center locus and facet contact",
+        "Web: \"k-assignment polytope\" \"inradius\" Chebyshev",
+        "Web: \"rectangular\" \"k-assignment\" \"inradius\" \"incenter\" polytope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gill--Linusson (2009) Section 2 table enumerates affine dimensions and facet counts, not any Euclidean inradius or optimal-center locus.",
+        "Heuer--Striker (2020) Section 3 contains facet and volume tables for the unrestricted-rank partial permutation polytope.",
+        "published-finding corpus returned the square fixed-cardinality inball theorem, not a rectangular radius table."
+      ],
+      "reasoning": "Existing tables establish combinatorial facets and dimensions; they are used as inputs, not re-reported as novel metric values. No checked exact table contains the claimed rectangular formulas, critical parameter tuples, or two center-locus dimensions.",
+      "searches": [
+        "Gill and Linusson k-assignment polytope Section 2 dimension facets table",
+        "Web: \"partial assignment\" \"inradius\" rectangular",
+        "published-finding corpus: hypersimplex Birkhoff polytope k-matching partial assignment inradius"
+      ]
+    },
+    "rationale": "The exact rectangular rank and endpoint formulas are not implied by the known 2009/2023 facet representation, the 2020 full-dimensional all-ranks partial permutation polytope, the earlier square fixed-cardinality inball theorem, or equality-margin transportation inradius formulas. Square theorem explicitly excludes rectangular shapes and the maximal-rank endpoint. Different tangent spaces and active facet families yield phase and dimension classifications absent in inspected same-object literature. Priority remains provisional in light of unindexed equivalent formula risk.",
+    "residual_risks": [
+      "A separate unindexed result may have computed the rectangular Chebyshev center using dual LP or transportation-slice terminology.",
+      "The checked same-object published literature contains the entire facet system, making rediscovery straightforward; geometric novelty is limited to exact phase and center-locus classification.",
+      "Sections of the larger Heuer--Striker paper outside the inspected partial-permutation material were not subjected to an exhaustive theorem-by-theorem audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact polytope H-representation and normality; no geometric inradius, maximal-ball center, or Euclidean metric theorem in inspected sections.",
+        "evidence": [
+          "PDF Definition 2.7 p. 3; Theorem 3.1 p. 4; Section 4 on normality pp. 6--11; full-text find radius/inradius none"
+        ],
+        "identifier_or_url": "arxiv:2306.11910v1; https://arxiv.org/pdf/2306.11910",
+        "material_read": "Definitions 2.7 and 2.8, theorem 3.1 and proof, Section 4 normality statements and concluding proof portions (PDF pp. 3--11)",
+        "method": "Public full-text PDF examined via text and page renderings",
+        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+        "trigger": "Verified 2023 source for fixed-cardinality matrix H-representation and its full bipartite scope"
+      },
+      {
+        "assessment": "Establishes the H-representation and facet dimensions; the stated diameter is one-skeleton graph diameter, not Euclidean inradius or incenter classification.",
+        "evidence": [
+          "Theorem 3 and facet table pp. 3--4; Theorems 20--21 on 1-skeleton diameter"
+        ],
+        "identifier_or_url": "Gill--Linusson (2009), DOI 10.1016/j.disopt.2008.10.003; https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "material_read": "Abstract, complete introduction and publication overview, Section 2 Theorem 3 and facet-dimension table, Section 4 graph diameter Theorems 20--21",
+        "method": "Author-postprint full text via extracted text and rendered pages",
+        "title": "The k-assignment polytope",
+        "trigger": "Earliest same-object facet and dimension classification; comparison for direct coverage"
+      },
+      {
+        "assessment": "Different full-dimensional convex hull of all partial permutation matrices; Section 3 discusses halfspaces, faces, volumes, not inballs of fixed-cardinality slices.",
+        "evidence": [
+          "Definitions 2.1 and 3.1; Proposition 3.4 and Corollary 3.5; Theorem 3.8"
+        ],
+        "identifier_or_url": "arxiv:2012.09901v1; https://arxiv.org/pdf/2012.09901",
+        "material_read": "Abstract, contents, Section 2.1 definitions, Section 3 up to volume theorem, viewed PDF pp. 4--6",
+        "method": "Public PDF with full-text search and page renderings",
+        "title": "Partial Permutation and Alternating Sign Matrix Polytopes",
+        "trigger": "Plausible same-matrix terminology and possible stronger full-dimensional coverage"
+      },
+      {
+        "assessment": "Complete square-case inball theorem excludes rectangular and maximal-matching cases, so cannot imply the new asymmetric phase classification by specialization.",
+        "evidence": [
+          "RESULT.md finding eqs. (5)--(10), assumptions and explicit rectangular exclusion in Limitations"
+        ],
+        "identifier_or_url": "published-finding corpus record 6c3de65c0b12 (2026)",
+        "material_read": "Complete RESULT.md including findings, proof, relationships and limitations",
+        "method": "Public repository read of research result",
+        "title": "A Birkhoff-polytope family of incenters for partial assignment polytopes",
+        "trigger": "Closest pre-existing explicit incenter theorem for same family at square parameters"
+      },
+      {
+        "assessment": "Treats intrinsically doubly fixed margin affine spaces; cannot determine Euclidean radius in larger inequality-margin spaces here.",
+        "evidence": [
+          "RESULT.md Finding and Assumptions and scope"
+        ],
+        "identifier_or_url": "published-finding corpus record dbb208ea5834 (2026)",
+        "material_read": "RESULT.md finding, precise affine-hull assumptions and beginning of proof",
+        "method": "Public repository read",
+        "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+        "trigger": "Potential broader coverage via fixed row and column margins"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea0b0150-88bd-48fc-9cf0-896d2a0ba896",
+  "value": {
+    "rationale": "This is a natural complete classification for arbitrary rectangular fixed-cardinality assignment polytopes, with two genuinely different center-locus types and a sharp aspect-ratio suppression phenomenon. The high-rank nonterminal locus has affine dimension m(n-1), while at maximal matching rank the locus becomes a translated rectangular transportation polytope of dimension (m-1)(n-1). Infinite families have arbitrarily large center sets, while sufficiently wide rectangles have unique centers at every rank. These exact affine-geometric invariants are not addressed by previous facet, normality, face count or one-skeleton diameter results.",
+    "status": "PASS"
+  }
+}
