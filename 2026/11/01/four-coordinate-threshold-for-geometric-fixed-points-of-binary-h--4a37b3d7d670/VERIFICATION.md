@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 orbit_fixed_checker.py` and `python3 homology_check.py` in the directory containing both scripts (Python 3.10 or newer, which supplies integer `bit_count`). These are self-contained tests with no third-party packages.
+# Independent mathematical audit
 
-`orbit_fixed_checker.py` enumerates orbit representatives independently and computes every pairwise Hamming distance. It checks all four permutation block lengths \(4\le k\le7\) with \(0\le f\le3\), plus \((4,4)\) and \((5,4)\): 18 parameter cases. It explicitly enumerates all cliques to verify component counts and Euler characteristics. `homology_check.py` independently constructs all simplices, assembles mod-two boundary matrices and performs exact elimination for \(k=4,5\), \(0\le f\le3\): eight cases. The expected first Betti numbers for \(k=4\) are \(1,3,7,15\) for \(f=0,1,2,3\), and all the \(k=5\) cases have two components and vanishing positive homology.
+## correctness
 
-The tests do not cover arbitrarily large parameters, do not prove a PL identification with the wedge spaces, and do not furnish independent auditing. The proof in `RESULT.md` establishes the all-parameter result using exact orbit diameters, strong simplicial collapses, and a graph-of-spaces decomposition. No mathematical certification external to the supplied proof is claimed.
+PASS
+
+A geometric fixed simplex supports unions of full admissible S_k vertex orbits. Internal orbit diameter 2min(w,k−w) selects weights 0,1,k−1,k. Exact maximum distances give two families of principal clique complexes, each collapsing by dominated-vertex U_z→A_z or V_z→B_z onto X_f. For k≥5 no cross edges and two disjoint copies of X_f remain. For k=4 precisely 2·2^f cross edges are maximal 1-cells; since both principal complexes connected, attaching them produces 2^{f+1}−1 independent circles together with the two copies. Independently reconstructed orbit graph adjacency in bounded k,f cases from all binary representatives; explicit combinatorial proof covers all k,f.
+
+## originality
+
+PASS
+
+The nonequivariant scale-three homotopy theorem and a characteristic-zero ambient homology representation under symmetric groups do not imply geometric fixed-point spaces of S_k with untouched coordinates. Searches of published Resultary fixed-point and Hamming records found no same two-copy/loop threshold. Primary Galetto–Montaño–Wellner and Bendersky–Elia–Grbić inspect homology/cohomology, not an identified fixed-space classification; full text of most relevant Galetto preprint could not be accessed.
+
+## value
+
+PASS
+
+A uniform sharp four-to-five coordinate transition in genuine topological fixed-point geometry, including an exact loop count for every number of free coordinates, supplies a structural family-wide classification not accessible from ordinary equivariant Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
