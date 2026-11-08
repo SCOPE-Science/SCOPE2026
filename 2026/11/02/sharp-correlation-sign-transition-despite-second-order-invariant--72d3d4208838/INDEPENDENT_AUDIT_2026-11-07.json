@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:11:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The BDF2 update reuses the Gaussian increment ξ_{n−1}; replacing it by fresh noise would change the theorem. Its 3D Markov state (Y_n,Y_{n−1},ξ_n) has a stable linear covariance Lyapunov equation for every z=λh>0. Explicit solution gives C0/(σ²h)=(5z+4)/(2z(z+1)(z+4)) and C1/C0=(12+11z−3z²)/((2z+3)(5z+4)). For k>=2 the homogeneous covariance recurrence has real positive roots for 0<z<=1/2, with q above the larger root, and a positive repeated-root boundary. For z>1/2 roots are R exp(±iθ), whose nonzero real sinusoid has both signs infinitely often (rational and irrational angular orbits). BDF2 underestimates invariant OU variance by relative z²/((z+1)(z+4)) but is strictly closer than backward Euler. Independently numerically solved six covariance Lyapunov systems and computed the exact rational z=1 lag-four witness C4/(σ²h)=−3/2500; finite lags are corroboration, not the infinite sign proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary strong-convergence papers define algorithm and finite-time error, not its exact invariant time-covariances.",
+          "Stochastic multistep 2006 specialist full text unavailable."
+        ],
+        "reasoning": "Generic convergence bounds do not imply the equality rational formulas or the sharp positivity vs oscillation statement. The inaccessible older source remains a live priority risk.",
+        "searches": [
+          "BDF2 Maruyama Ornstein Uhlenbeck invariant covariance sign oscillations step z half invariant variance",
+          "arXiv:1509.00609",
+          "arXiv:2105.08767",
+          "DOI:10.1137/040602857"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.00609",
+        "arXiv:2105.08767",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "DOI:10.1137/040602857",
+        "BDF2 Maruyama Ornstein Uhlenbeck invariant covariance sign oscillations step z half invariant variance",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical root discriminant implies oscillatory homogeneous solutions beyond z=1/2.",
+          "It does not fix stationary C0 and C1 or imply the strict BEM bias comparison without colored-increment covariance computations."
+        ],
+        "reasoning": "The known root threshold is credited; stochastic stationary formulas and their all-lag positive-side proof are a distinct mathematical implication requiring the Lyapunov solution.",
+        "searches": [
+          "BDF2 Maruyama Ornstein Uhlenbeck invariant covariance sign oscillations step z half invariant variance",
+          "arXiv:1509.00609",
+          "published exact delayed BDF2 sign loss"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary process is a stable AR(2) state with MA(1) noise; covariance follows order-two Yule–Walker recurrence.",
+          "Deterministic BDF2 shares roots but has a different starter and no stationary noise covariance."
+        ],
+        "reasoning": "The ARMA representation and roots are standard; novelty is exact C0/C1 forcing-dependent initial conditions and their statistical consequences.",
+        "searches": [
+          "BDF2 Maruyama Ornstein Uhlenbeck invariant covariance sign oscillations step z half invariant variance",
+          "arXiv:1509.00609",
+          "published deterministic BDF2 exact delayed sign loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published BDF2 result provides exact deterministic first-negative index, not Gaussian stationary C0/C1 table.",
+          "No matching stationary-OU numerical-invariant table appeared in Resultary query."
+        ],
+        "reasoning": "Not a combinatorial table result, but precise rational covariance entries could be covered by a numerical SDE invariant table; no decisive instance found.",
+        "searches": [
+          "BDF2 Maruyama Ornstein Uhlenbeck invariant covariance sign oscillations step z half invariant variance",
+          "Resultary published BDF2 deterministic sign-loss full finding"
+        ]
+      },
+      "rationale": "The 2015 Andersson–Kruse and 2021 Kruse–Weiske source publications define the colored-increment BDF2–Maruyama scheme and analyze convergence, not exact stationary OU covariance at all lags. Published deterministic BDF2 sign-loss result already supplies the root transition z=1/2; this known discriminant is not new. The exact stationary C0,C1 and BEM bias comparison and stochastic all-lag sign classification are the assessed increment. Specialist stochastic multistep invariant covariance literature, including Buckwar–Winkler 2006, remains a qualified priority risk because the latter full text was inaccessible via authorized routes.",
+      "residual_risks": [
+        "Buckwar–Winkler 2006 full text inaccessible owing to institutional connection; cannot exclude stationary OU formula.",
+        "Older ARMA numerical-invariant measure literature may cover the exact rational covariance and bias as an implicit special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE of the neighboring-increment scheme, finite-time theory; no exact OU invariant C0/C1 or all-lag sign law in inspected material",
+          "evidence": "BDF2 recursion retains weighted consecutive Brownian increments, and analysis targets strong convergence.",
+          "identifier_or_url": "arXiv:1509.00609",
+          "material_read": "Full 32-page arXiv PDF, definition of BDF2–Maruyama and main strong-convergence theorems",
+          "method": "Public PDF text and visual page inspection",
+          "title": "Mean-square convergence of the BDF2-Maruyama and backward Euler schemes for SDE satisfying a global monotonicity condition",
+          "trigger": "Exact BDF2 noise coupling and potential stationary theorem"
+        },
+        {
+          "assessment": "Broader monotone stochastic evolution results do not give scalar stationary lag covariance formulas",
+          "evidence": "Stability and convergence analysis, not OU stationary covariance classification.",
+          "identifier_or_url": "arXiv:2105.08767",
+          "material_read": "Full publicly accessible arXiv text with introductory scheme and convergence sections inspected",
+          "method": "Primary full-text review",
+          "title": "The BDF2-Maruyama Scheme for Stochastic Evolution Equations with Monotone Drift",
+          "trigger": "Broader BDF2 stochastic convergence coverage"
+        },
+        {
+          "assessment": "COVERS deterministic root sign transition, not BDF2–Maruyama stationary random forcing",
+          "evidence": "Backward-Euler starter for u'=-λu with formula for first negative index; no stochastic stationary Ck.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "Entire published RESULT.md proof and first-negative-index statement",
+          "method": "Actual published GitHub file text",
+          "title": "Exact delayed sign loss just beyond BDF2 positivity boundary",
+          "trigger": "Published SCOPE exact same z=1/2 root boundary"
+        },
+        {
+          "assessment": "INACCESSIBLE relevant full text, not adjudicated as NOT_COVERING",
+          "evidence": "Authorized institutional access reported disconnected VPN; no access bypass.",
+          "identifier_or_url": "DOI:10.1137/040602857",
+          "material_read": "Public abstract/bibliographic details; full text not accessible",
+          "method": "Open-access/arXiv check followed by authorized institutional request",
+          "title": "Multistep methods for SDEs and their application to problems with small noise",
+          "trigger": "Plausible specialist ancestor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stationary marginal variance may converge with second-order bias even while lag correlations become eventually negative, unlike the exact OU dynamics. The exact all-lag positivity boundary and lag-one delay are meaningful tests for equilibrium time-series simulation and stochastic numerical method selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scalar additive-noise Ornstein–Uhlenbeck process under the stated MA(1) reused Brownian increments, no nonlinear/matrix claim.",
+    "Complex-root phase argument proves infinite sign changes; finite numerical propagation only confirms selected lags.",
+    "The 2006 stochastic multistep source was not fully accessible; its potential exact stationary variants are a residual originality risk."
+  ]
+}
