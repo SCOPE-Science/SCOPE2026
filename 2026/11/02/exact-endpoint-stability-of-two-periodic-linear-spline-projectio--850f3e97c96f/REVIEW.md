@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Strict diagonal dominance proves Gram invertibility, the gauge transformation makes the inverse positive, and a second-order recurrence yields the explicit exponentially decaying coefficients. Integrating sign-changing linear kernel pieces and summing geometric series proves the rational law. Periodizing the infinite Gram inverse gives the finite-circle domination; incompatible zero crossings in two translates establish strictness. The standalone exact rational and symbolic checks support the key formulas, but do not replace the analytic proof.
+## correctness
 
-**Originality: PASS (qualified).** Shadrin's general boundedness theorem and Passenbrunner's periodic uniform estimate do not state this exact sharp two-parameter family. The older uniform periodic-mesh case is excluded from the novelty claim except as a specialization. The arbitrary-knot inverse-Gram estimates are upper bounds, not exact row-norm evaluations. Full-text comparisons covered Passenbrunner (arXiv:1608.06720), Passenbrunner--Shadrin (arXiv:1308.4824), and Oswald (arXiv:math/0611573); equivalent old specialist computations remain a priority risk.
+PASS
 
-**Value: PASS.** The general linear-spline bound is \(3\), yet two-periodic meshes have a distinct sharp bound \(2\), with a strictly monotone rational dependence on the dimensionless mesh contrast. The exact finite-circle limit and strict loss explain how stable periodic approximation behaves under repeated nonuniform refinement. This is a motivated classification for a natural model mesh, not an arbitrary point evaluation or a restatement of the general spline theorem.
+For positive alternating gaps a,b on the real line, the infinite hat Gram operator has diagonal s/3 and off-diagonal a/6,b/6. The diagonal sign gauge makes a strictly diagonally dominant M-matrix and yields a scalar recurrence (3s^2+2ab)x_k-ab(x_{k-1}+x_{k+1})=12s delta_0. Its unique decaying Green solution x_k=C lambda^|k| and explicit odd coordinates yield an absolutely integrable sign-changing row kernel. Cell integration plus geometric sums and the recurrence's quadratic relation simplify to (5s^2+12ab)/(3s^2+4ab). Increasing u=ab/s^2 shows strict range 5/3<norm<=2, with upper equality iff a=b. Even finite-circle inverse kernels are periodizations; unequal zeros of two translated tails yield strict L1 loss at every knot, and geometric decay gives convergence. Independently inverted exact cyclic Gram matrices for (a,b)=(1,1),(1,2),(1,4),(3,7) and m=2..6; all nodal row norms agreed and were strictly below the claimed envelope. Exact envelope examples 2,69/35,173/91. The infinite assertion rests on recurrence and algebra rather than finite samples.
 
-**Scientific limitations.** The positive two-periodic model is one-dimensional, piecewise affine, and orthogonal in unweighted Lebesgue \(L^2\); it does not treat arbitrary knot disorder or higher polynomial orders. Full bibliographic exhaustiveness is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact rational two-gap norm law, strict finite cyclic loss, and all-contrast comparison. Passenbrunner--Shadrin give general inverse-Gram decay; Shadrin and Oswald provide broader nonsharp/generic constants. The uniform a=b special case, including the other assigned record's uniform finite-circle formula, is prior to this claim and not independently novel. The real additional content is a continuum of unequal mesh ratios and its optimizer/strict cyclic envelope.
+
+## value
+
+PASS
+
+Alternating gap lengths are the canonical first nonuniform periodic mesh, and the exact L2-to-L-infinity stability constant is a fundamental numerical approximation invariant. An all-ratio closed law pinpoints balance as the unique worst contrast and proves finite periodic models are strictly more stable than their infinite envelope. This is an exact natural structural classification, not a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
