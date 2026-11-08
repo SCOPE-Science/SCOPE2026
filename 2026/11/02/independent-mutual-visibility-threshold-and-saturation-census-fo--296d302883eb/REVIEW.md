@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Cartesian distance formula forces a single color change along geodesics between distinct colors. Independent sets have at most one vertex per clique layer; visibility allows at most two per color. A saturated set must therefore have two occurrences of every color. Any disjoint pair of occurrence intervals would obstruct an extreme-endpoint geodesic. Pairwise interval intersection yields two permutation blocks. If the blocks meet across adjacent layers, the last first-occurrence and first second-occurrence give a geodesic obstruction (or an independent-set violation), so one separating layer is necessary. Conversely, the explicit switch paths prove sufficiency, and the middle-gap compression gives the exact count. The \(2m-1\)-word construction supplies all scalar lower bounds, including the exceptional \(L=2m\) case. The proof covers all integers \(m,L\ge2\) with no unproved limiting step. Independent BFS-based finite enumeration verifies the boundary transition and counting cases, without being used as an infinite proof.
+PASS
 
-## Originality — PASS with residual priority uncertainty
+The graph distance is |i-j|+[a != b] and a geodesic between unequal colors changes color once. Independence permits one chosen vertex per clique layer; convex same-color paths permit at most two per color. If 2m vertices occur, each color occurs twice, disjoint first/second occurrence intervals block any clean geodesic; pairwise interval intersection forces two permutation blocks. Their adjoining selected layers would block a cross-block geodesic, forcing an empty gap. Conversely two permutations with a gap have explicit clean within-block and across-gap geodesics. Compress the middle gap to obtain C(L-1,2m) labeled position sets, hence (m!)^2 C(L-1,2m) saturated configurations. The 2m-1 color-word 1..m,1..m-1 and its prefixes supply every unsaturated optimum, proving mu_i=min(L,2m)-1_{L=2m}. Independently enumerated exact BFS geodesic-clearance sets for m=2, L=2..6 and m=3, L=2..8; all boundary values and saturated counts match. The enumerations are finite corroboration, not the unrestricted proof.
 
-The first-public 2021 paper of Cicerone, Di Stefano, and Klavžar introduces independent mutual visibility and generic Cartesian-product bounds, but does not classify independent visibility of \(P_L\square K_m\). The 2024 path-cycle product paper treats ordinary rather than independent visibility; the 2025/2026 independent-visibility coloring paper studies chromatic partitions and product coloring bounds; the 2026 independent-visibility paper characterizes generic graph properties and complexity. The nearest accessible mathematical-record findings concern connected mutual visibility on high-girth products, ordinary visibility polynomials on rook graphs, independent resolving sets, and edge general position; none implies the independent visibility threshold or the two-permutation extremizer census. Comparisons were made by invariant, quantifier, graph operation, parameter range, and claimed implication, not title alone. A previously unpublished or unindexed equivalent remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The product \(P_L\square K_m\) is a natural network with \(m\) parallel path channels and complete intra-layer communication. Independent mutual visibility combines a local nonadjacency constraint with global unobstructed geodesics. The theorem gives a complete two-parameter extremal invariant, exposes an isolated one-layer failure of the obvious upper bounds, and classifies/counts every saturated optimizer by a permutation-and-gap structure. The saturation threshold and count are not immediate from the generic \(2m\) bound or the ordinary visibility number; they provide reusable structural information about constrained geodesic placements. The result does not require a broader graph-class extension to be meaningful.
+Cicerone–Di Stefano–Klavzar introduce independent mutual visibility and Cartesian-product inequalities, but the full primary relevant section does not give this path–clique threshold or enumerated two-permutation saturators. Korze–Vesel treat ORDINARY mutual visibility on path–cycle products, and Bresar et al. treat independent-visibility colorings, neither equivalent to this vertex-set parameter. Resultary produced nearby connected/low-distance visibility on other graph products, without a dominating formula. This best-of-knowledge assertion is limited to the exact infinite path–clique law and count, and may be superseded by an unindexed specialized product classification.
 
-## Closest literature and limits
+## value
 
-Sources: arXiv:2112.13024 (independent mutual-visibility foundations and general Cartesian bounds); DOI 10.1007/s00025-024-02139-x (ordinary visibility for path/cycle products); arXiv:2505.04144 (independent mutual-visibility colorings); arXiv:2602.23403 (independence versus mutual visibility). The full accessible text was checked at the relevant definitions, theorem statements, product sections, and proof arguments. External priority uncertainty and the lack of independent audit remain; no formula is asserted for numbers of shorter-regime maximizers or other fibers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The path–clique Cartesian product is a standard product with competing geodesic and independence constraints. The result identifies one sharp saturation defect at L=2m and classifies every saturated configuration, not merely a generic upper bound. The gap/permutation bijection is a natural reusable extremal combinatorial structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

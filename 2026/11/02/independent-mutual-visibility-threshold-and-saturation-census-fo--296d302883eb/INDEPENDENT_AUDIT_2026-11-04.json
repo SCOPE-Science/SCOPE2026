@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:11:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph distance is |i-j|+[a != b] and a geodesic between unequal colors changes color once. Independence permits one chosen vertex per clique layer; convex same-color paths permit at most two per color. If 2m vertices occur, each color occurs twice, disjoint first/second occurrence intervals block any clean geodesic; pairwise interval intersection forces two permutation blocks. Their adjoining selected layers would block a cross-block geodesic, forcing an empty gap. Conversely two permutations with a gap have explicit clean within-block and across-gap geodesics. Compress the middle gap to obtain C(L-1,2m) labeled position sets, hence (m!)^2 C(L-1,2m) saturated configurations. The 2m-1 color-word 1..m,1..m-1 and its prefixes supply every unsaturated optimum, proving mu_i=min(L,2m)-1_{L=2m}. Independently enumerated exact BFS geodesic-clearance sets for m=2, L=2..6 and m=3, L=2..8; all boundary values and saturated counts match. The enumerations are finite corroboration, not the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cartesian-product inequalities imply an upper bound but not attainability for this P_L square K_m family.",
+          "Ordinary mutual visibility on a path-cycle graph can exceed independent mutual visibility; product operation and invariant matter."
+        ],
+        "reasoning": "The upper bound mu_i<=min(L,2m) is known in spirit but does not imply the isolated L=2m defect or counts of maximizers.",
+        "searches": [
+          "Cicerone Di Stefano Klavzar arxiv:2112.13024 Theorems 3.2,3.4",
+          "Korze Vesel 2024 P2 square C3",
+          "Tian Bujtas Klavzar arxiv:2602.23403"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen RESULT.md and verify_independent_mv.cpp; Git tree 8300808ee9730b10edea4e0a4bb81fdfcef15757",
+        "arxiv:2112.13024",
+        "doi:10.1007/s00025-024-02139-x",
+        "arxiv:2505.04144",
+        "arxiv:2602.23403",
+        "Resultary query independent mutual visibility number path cartesian clique P_n square K_m"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bound of 2m cannot establish failure specifically at L=2m.",
+          "A coloring optimum does not count the independent mutually visible sets of maximum size."
+        ],
+        "reasoning": "The additional forbidden interval and separator arguments supply mathematically new-looking implications absent from the compared results.",
+        "searches": [
+          "arxiv:2112.13024 full relevant text, Section 3",
+          "arxiv:2505.04144 independent visibility coloring",
+          "doi:10.1007/s00025-024-02139-x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent mutual-visibility requires an independent set and one clear geodesic between every chosen pair.",
+          "Ordinary visibility and visibility coloring are logically different requirements."
+        ],
+        "reasoning": "The definitional aliases were compared, including general position (all shortest paths clear) which imposes a stronger quantifier; none establishes the exact threshold.",
+        "searches": [
+          "\"independent mutual visibility\" \"Cartesian\" \"path\" \"clique\"",
+          "independent mutual visibility number P_L square K_m saturated sets",
+          "Resultary query independent mutual visibility number path cartesian clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned connected visibility high-girth products and low-distance hypercube visibility, not this exact L,m table."
+        ],
+        "reasoning": "A known table of exceptional L and saturated counts was not located; this is a bounded negative search, not a proof of originality.",
+        "searches": [
+          "Resultary semantic query independent mutual visibility number path cartesian clique",
+          "visibility P_n Cartesian K_m configuration sequence exact binomial count"
+        ]
+      },
+      "rationale": "Cicerone–Di Stefano–Klavzar introduce independent mutual visibility and Cartesian-product inequalities, but the full primary relevant section does not give this path–clique threshold or enumerated two-permutation saturators. Korze–Vesel treat ORDINARY mutual visibility on path–cycle products, and Bresar et al. treat independent-visibility colorings, neither equivalent to this vertex-set parameter. Resultary produced nearby connected/low-distance visibility on other graph products, without a dominating formula. This best-of-knowledge assertion is limited to the exact infinite path–clique law and count, and may be superseded by an unindexed specialized product classification.",
+      "residual_risks": [
+        "An unindexed path–clique product independent-visibility result may already include the defect and full saturated count.",
+        "Related 2026 papers not inspected in full may contain an equivalent product specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general visibility/product principles, not identified path–clique exact saturation transition in inspected relevant portions",
+          "evidence": [
+            "Generic bounds do not require the empty separator between two full color-permutation blocks."
+          ],
+          "identifier_or_url": "arxiv:2112.13024",
+          "material_read": "Full accessible PDF relevant definitions, Sections 2–3, Theorems 3.2 and 3.4; screenshot of a relevant page",
+          "method": "Web primary PDF text and screenshot",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Origin of independent mutual visibility and exact general Cartesian bounds"
+        },
+        {
+          "assessment": "Different invariant and partly different product factor",
+          "evidence": [
+            "Ordinary mu(P2 square C3) is not the independent parameter."
+          ],
+          "identifier_or_url": "doi:10.1007/s00025-024-02139-x",
+          "material_read": "Abstract and available theorem descriptions, not complete article",
+          "method": "Bibliographic search",
+          "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+          "trigger": "Related Cartesian product graph with ordinary visibility"
+        },
+        {
+          "assessment": "Coloring invariant, not max independent-visible set count",
+          "evidence": [
+            "Product coloring bounds do not determine all size-2m extremizers."
+          ],
+          "identifier_or_url": "arxiv:2505.04144",
+          "material_read": "Abstract and result summaries, full paper not read",
+          "method": "ArXiv and web search",
+          "title": "Independent mutual-visibility coloring and related concepts",
+          "trigger": "Possible general independent-product results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path–clique Cartesian product is a standard product with competing geodesic and independence constraints. The result identifies one sharp saturation defect at L=2m and classifies every saturated configuration, not merely a generic upper bound. The gap/permutation bijection is a natural reusable extremal combinatorial structure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classification counts only saturated size-2m sets, not all optimizers below saturation.",
+    "All L,m>=2 covered analytically; independent BFS enumeration covers only small parameter ranges."
+  ],
+  "schema_version": 1
+}

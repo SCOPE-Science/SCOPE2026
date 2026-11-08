@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of independent mutual-visibility threshold
+# Independent mathematical audit
 
-The supplied `verify_independent_mv.cpp` uses the original graph adjacency to test whether a chosen independent set is mutually visible. It enumerates every potentially feasible choice with at most one selected vertex per path layer and at most two per clique color. The latter restrictions are proved necessary in RESULT.md. For each candidate of size at least the asserted optimum, and for each selected pair, it runs BFS in the graph after deleting all other selected vertices. The pair is visible if and only if this restricted BFS distance equals the original product distance. Thus the finite tests do not reuse the analytic two-block criterion from the proof.
+## correctness
 
-Compile and run:
+PASS
 
-```
-c++ -O3 -std=c++17 verify_independent_mv.cpp -o verify_independent_mv
-./verify_independent_mv
-```
+The graph distance is |i-j|+[a != b] and a geodesic between unequal colors changes color once. Independence permits one chosen vertex per clique layer; convex same-color paths permit at most two per color. If 2m vertices occur, each color occurs twice, disjoint first/second occurrence intervals block any clean geodesic; pairwise interval intersection forces two permutation blocks. Their adjoining selected layers would block a cross-block geodesic, forcing an empty gap. Conversely two permutations with a gap have explicit clean within-block and across-gap geodesics. Compress the middle gap to obtain C(L-1,2m) labeled position sets, hence (m!)^2 C(L-1,2m) saturated configurations. The 2m-1 color-word 1..m,1..m-1 and its prefixes supply every unsaturated optimum, proving mu_i=min(L,2m)-1_{L=2m}. Independently enumerated exact BFS geodesic-clearance sets for m=2, L=2..6 and m=3, L=2..8; all boundary values and saturated counts match. The enumerations are finite corroboration, not the unrestricted proof.
 
-The recorded `verifier_output.txt` gives all tested parameter cases: \(m\in\{2,3,4\}\), \(2\le L\le2m+3\). The program verifies that the largest cardinality equals the claimed formula, checks that no larger candidate succeeds, and for each \(L\ge2m+1\) in this range checks that the exact number of size-\(2m\) sets is \((m!)^2\binom{L-1}{2m}\). The last line is `VERIFY_OK` only if all those comparisons hold.
+## originality
 
-**Scope:** these are exhaustive finite enumerations for the specified small graph instances, not a proof for all dimensions. The infinite theorem is established by Steps 1--6 of RESULT.md. Geodesic normalization and endpoint cases \(m=2\), \(L=2\), \(L=2m-1\), \(L=2m\), \(L=2m+1\) are covered in that proof. Independent external mathematical review has not occurred.
+PASS
+
+Cicerone–Di Stefano–Klavzar introduce independent mutual visibility and Cartesian-product inequalities, but the full primary relevant section does not give this path–clique threshold or enumerated two-permutation saturators. Korze–Vesel treat ORDINARY mutual visibility on path–cycle products, and Bresar et al. treat independent-visibility colorings, neither equivalent to this vertex-set parameter. Resultary produced nearby connected/low-distance visibility on other graph products, without a dominating formula. This best-of-knowledge assertion is limited to the exact infinite path–clique law and count, and may be superseded by an unindexed specialized product classification.
+
+## value
+
+PASS
+
+The path–clique Cartesian product is a standard product with competing geodesic and independence constraints. The result identifies one sharp saturation defect at L=2m and classifies every saturated configuration, not merely a generic upper bound. The gap/permutation bijection is a natural reusable extremal combinatorial structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
