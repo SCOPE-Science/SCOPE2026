@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses exact integer arithmetic and two distinct constructions of the forced-presence coefficient series. Run `python3 verify.py` in the directory containing this document and `verify.py`; no third-party packages or external data are required.
+## correctness
 
-Recorded execution: `VERIFY_OK exact_coefficients=2394 n_max=170 m_max=13 base_overpartitions=verified identity=verified monotone=verified`. The program also reports three finite-size comparisons with the asymptotic survival; these are exploratory checks, not a convergence certificate.
+PASS
 
-The unrestricted theorem is proved analytically through the Boltzmann conditioning identity and a Gaussian local-limit Fourier bound, including a uniform global tail bound. Code can check the exact combinatorial identity but not the infinite limit or all positive moments. All mathematical verification in this package is self-review only; no independent audit was performed.
+Each overpartition part contributes (1+q^j)/(1-q^j), and forced presence of an odd part contributes the ratio 2q^j/(1+q^j); the exact survival coefficient identity follows. The conditioned Boltzmann model decomposes parts into independent geometric G_j and Bernoulli B_j and forced presence changes only the odd Bernoulli part and shift. Common geometric factors yield an all-m uniform Fourier bound, while uniform lattice LLT for m=O(t^(-1/2)) identifies the survival at m~yn^(1/4)/2 as exp(-πy²/16). The all-m Gaussian majorant supports uniform integrability of every fixed positive moment, giving Gamma constants. Independently computed two algebraically distinct generating-function coefficient methods for n≤75 and m≤6, 532 exact coefficient comparisons. Finite checks are not the limit proof.
+
+## originality
+
+PASS
+
+The exact statistic searches only odd candidate sizes but samples all overpartitions. Prior odd ordinary mex (parity filter), mex of odd-part-only overpartitions, and moments of ordinary-partition mex have different measures or events. Published abstracts and inspected formulations do not imply the complete odd-restricted law; a general Gibbs-conditioning theorem remains a possible priority umbrella.
+
+## value
+
+PASS
+
+A natural extreme-gap statistic of overpartitions acquires a complete scaling limit and sharp all-moment asymptotics, extending classical partition asymptotics to an unstudied odd-restricted ensemble without conflating different mex conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

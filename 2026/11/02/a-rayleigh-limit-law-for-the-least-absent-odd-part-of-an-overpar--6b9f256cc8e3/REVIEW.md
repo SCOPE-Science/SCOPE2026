@@ -1,17 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Claim:** Rayleigh convergence, exact fixed-size survival generating function, and all fixed positive real moment convergence for the first absent odd part of a uniformly chosen overpartition of \(n\), counting either overline state as present.
+## correctness
 
-## Correctness — PASS
-The positive-multiplicity overpartition factor is \(2q^j/(1-q^j)\). The exact coefficient identity and independent geometric-plus-Bernoulli representation follow algebraically. The Fourier proof uses a common geometric component to control conditional coefficient extraction for all forced odd sets; the central limit remains unchanged when \(m=O(n^{1/4})\). The exact presence product yields the survival exponent \(-\pi y^2/16\) and its global Gaussian majorant ensures fixed real moment convergence. The executable verifier checks 2394 finite coefficient identities with exact integers; it is explicitly not a proof of the limit.
+PASS
 
-## Originality — PASS, subject to independent priority review
-The most relevant 2026 preprint studies parity-filtered *ordinary* mex, distinct from an odd-restricted search. The 2024 paper defines odd-only mex on overpartitions **into odd parts**, unlike the candidate on the complete overpartition measure. Chern–Xia's moment theorem is for ordinary partitions. Donato addresses ordinary overpartition mex and Bhoria–Eyyunni–Santra count all missing integers. None of their examined theorem statements implies the all-overpartition Rayleigh law. Actual mathematical searches and semantic record comparisons were performed as documented in `AUDIT.json`; possible broader abstract equivalences or unindexed work remain residual risks.
+Each overpartition part contributes (1+q^j)/(1-q^j), and forced presence of an odd part contributes the ratio 2q^j/(1+q^j); the exact survival coefficient identity follows. The conditioned Boltzmann model decomposes parts into independent geometric G_j and Bernoulli B_j and forced presence changes only the odd Bernoulli part and shift. Common geometric factors yield an all-m uniform Fourier bound, while uniform lattice LLT for m=O(t^(-1/2)) identifies the survival at m~yn^(1/4)/2 as exp(-πy²/16). The all-m Gaussian majorant supports uniform integrability of every fixed positive moment, giving Gamma constants. Independently computed two algebraically distinct generating-function coefficient methods for n≤75 and m≤6, 532 exact coefficient comparisons. Finite checks are not the limit proof.
 
-## Mathematical value — PASS
-This supplies the full first-order law for a naturally distinguished gap statistic rather than only a summatory mean or a modular identity. All fixed positive real moments, the exact mean \(2n^{1/4}\), the sharp variance constant and the Gaussian-tail uniform integrability are new kinds of information relative to the closest inspected literature. The central probabilistic argument is an explicit, nontrivial fixed-size transfer rather than a finite numerical fit.
+## originality
 
-## Boundaries
-Uniform all-overpartitions of each fixed \(n\), first absent positive odd size, overlined-or-not presence. No claim about overpartitions into odd parts alone, the parity indicator of conventional mex, changing moment exponents, or quantitative convergence rates. Search cannot certify absolute priority and no independent audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact statistic searches only odd candidate sizes but samples all overpartitions. Prior odd ordinary mex (parity filter), mex of odd-part-only overpartitions, and moments of ordinary-partition mex have different measures or events. Published abstracts and inspected formulations do not imply the complete odd-restricted law; a general Gibbs-conditioning theorem remains a possible priority umbrella.
+
+## value
+
+PASS
+
+A natural extreme-gap statistic of overpartitions acquires a complete scaling limit and sharp all-moment asymptotics, extending classical partition asymptotics to an unstudied odd-restricted ensemble without conflating different mex conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
