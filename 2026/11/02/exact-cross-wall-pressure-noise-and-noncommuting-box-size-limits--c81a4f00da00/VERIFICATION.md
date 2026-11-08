@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-The primary verification is the analytic generator and boundary Poisson calculation in RESULT.md, supplemented by the exact pathwise spin–displacement identity and the stationary fixed-time moment bound. The proof covers every strictly positive speed, flip rate, mobility and finite interval length.
+## correctness
 
-Run the supplied standalone Python 3 program with the command `python verify_pressure_noise.py`. In the checked environment it returned `PASS: 117 exact-arithmetic assertions`. The program uses only Python's standard library and exact rational arithmetic. It tests the Poisson solution and wall boundary conditions for four rational dimensionless widths; independently constructs finite persistent-walk generators with three grid resolutions and solves stationary balance plus two additive-functional Poisson systems. The numerical discretizations converge toward the analytic continuum rates in the tested cases; they are not a substitute for proving the infinitely many continuum parameter instances.
+PASS
 
-The calculation assumes a hard-wall convention in which the orientation flips at the same rate at a wall and in the interior. Readers comparing earlier work should map its orientation randomization rate to twice this physical flip rate where appropriate. No independent mathematical, priority or external channel audit has been performed.
+Checked stationary interior orientation densities and wall atom balance, centered Poisson equation for total pinned occupation including outward wall generators and quadratic solution, bounded-martingale variance-rate identity, orientation telegraph autocovariance e^(−2γ|t|) and pathwise force-difference/bounded-displacement relation. Reflection annihilates sum/difference covariance. Symbolically reconstructed Poisson boundary equations and zero-mean condition, derivative R′(k)=2k/(1+k)^4 and rates for sum, difference and both walls. For finite L cross-covariance rate F0²(R−1)/(4γ); letting L→∞ after T→∞ gives −F0²/(6γ), whereas stationary pinned occupation vanishes for each fixed T as L→∞. Finite-lattice checker is corroboration only.
+
+## originality
+
+PASS
+
+Angelani prior work covers the same sticky RTP invariant law and mean pressure (with flip-rate conversion α=2γ). General occupation-time large deviations and later 2026 active ideal gas article cover mean/other geometries. The inspected full texts do not establish this exact two-wall cross-covariance or noncommuting order of limits; latest active-gas supplement inaccessible, explicitly qualified.
+
+## value
+
+PASS
+
+This exact cross-wall fluctuation geometry reveals universal negative long-time coupling and a physically significant noncommutation between thermodynamic size and observation-time limits. The asymmetric sum/difference decomposition is structural, not a routine mean-pressure calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
