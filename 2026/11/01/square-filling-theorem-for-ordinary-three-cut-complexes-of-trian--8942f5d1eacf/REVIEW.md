@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Alexander dual contains exactly all vertices and edges, the triangles on induced two-edge paths, and the tetrahedra on induced four-cycles. The five-vertex exclusion is proved by the triangle-free extremal edge count. The maximum-codegree-two hypothesis gives a private nonedge for every nonsquare path triangle and a private triangle followed by a private diagonal for every square tetrahedron. Both are genuine elementary collapses, including when distinct squares share original graph edges. The survivor is the square filling plus edges joining vertex pairs at distance at least three. Since the square filling is connected, these edges each introduce a circle up to homotopy. Integral Alexander duality and the universal coefficient theorem then give the precise two-degree homology including torsion. The graph-size and purity assumptions justify the shellability obstruction.
+## correctness
 
-The embedded checker actually reconstructs the simplices, performs and checks each collapse, and calculates exact Smith forms for seven finite graphs. Its glued-cube example has \(\widetilde H_7\cong\mathbb Z^2\) and \(\widetilde H_8\cong\mathbb Z^{20}\). Finite computations are corroborating evidence, not the proof of the quantified graph-wide theorem.
+PASS
 
-## Originality
-**PASS on the inspected evidence.** The most relevant published graph-wide cut-complex result for triangle-free graphs with squares assumes all four-cycles are pairwise **edge-disjoint** and collapses the dual to a graph. That hypothesis fails on the cube, the glued-cube example, and all the square grids with neighboring cells. In those cases the new theorem retains the homotopy type of an arbitrary square-complex core, including two-dimensional homology and possible integral torsion, so it is not a corollary or rephrasing of the earlier sphere-wedge theorem. The foundational cut-complex papers treat two-cut complexes and specific families such as rectangular grids but do not state this general shared-square criterion. A related square-completion result addresses discrete cubical homology instead of ordinary three-cut complexes.
+For a connected triangle-free simple G with n>=8 and codegree ≤2, every K=Δ_3(G)^vee face requires all triples connected. Thus all vertex pairs, path triples and exactly square tetrahedra occur; no size-five face exists since requiring >=2 edges per triple demands >=7 edges on five vertices contrary to Mantel. A path triangle with a unique common-neighbor pair collapses along its free nonedge. Every opposite square pair has exactly its two square common neighbors (codegree≤2), so collapse each square tetrahedron along one path triangle, then its other triangle along the now-free diagonal. These removals do not interfere between squares because a shared opposite pair would violate codegree. The survivor is a triangulation of S(G) plus precisely L distance-≥3 edges, so the Alexander dual is S(G)∨(∨^L S¹). Integral combinatorial Alexander duality and UCT imply H_(n−5)(Δ_3)=Z^b2 ⊕Tor H1(S(G)), H_(n−4)=Z^(b1+L), others zero, with no unsupported natural splitting assertion. Shellability obstruction follows nonzero next-to-top homology for a pure cut complex. Independently constructed the two-cubes-glued-along-a-face example from edges and verified n=12, e=20, squares=11, max codegree=2, L=20, with square complex homotopy ∨²S²; hence H7=Z²,H8=Z²⁰. Inspected full verifier including direct free-coface tests and Smith calculations for grid, torus, Klein bottle, and cubes. General argument is mathematical, not inferred from seven test graphs.
 
-The concrete overlap comparisons include the public edge-disjoint-square result `8ca830284420`, the square-completion record `c9ee617a65ec`, the full original cut-complex preprint arXiv:2304.13675 (especially Section 6), and its sequel arXiv:2407.08158 (especially Section 5). Earlier exact graph-specific computations are proper special cases of the structural theorem. Search coverage cannot rule out equivalent results written in unrelated algebraic or square-complex language; that is the remaining bibliographic risk.
+## originality
 
-## Value
-**PASS.** The result gives a structural and reproducible reduction for **every** connected triangle-free graph satisfying a natural common-neighbor restriction, including graphs whose four-cycles share edges. The new mechanism precisely identifies which part of the Alexander dual can carry two-dimensional topology and explains how both free and torsion integral homology move to the original cut complex. It recovers contrasting known grid cases and also supplies a new glued-cube case with two lower-degree generators. The theorem yields an obstruction to shellability without requiring a surface structure, and enables systematic use of familiar square-complex invariants for an otherwise high-dimensional cut complex. This is broader than a routine single-graph computation.
+PASS
 
-## Limits and closest coverage
-The full homotopy type of the **original** cut complex is not classified. No claim is made beyond the connected, triangle-free, maximum-codegree-two domain or that all possible torsion groups are realized by it. The codegree condition is needed for the displayed free-face matching. The previous grid and edge-disjoint-square results cover proper subfamilies, while indexed search cannot certify universal priority.
+Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. The theorem makes a genuinely stronger claim over shared-edge graphs and detects torsion; its cut-complex consequence cannot be deduced solely from cubical H2 or top Betti formulas for special grids.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+It translates overlapping four-cycle geometry to the complete integral homology of ordinary three-cut complexes, including next-to-top free classes and torsion from nontrivial square fillings. This substantially extends the edge-disjoint-square top-degree-only result and gives useful non-shellability tests and natural cube/periodic-grid examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
