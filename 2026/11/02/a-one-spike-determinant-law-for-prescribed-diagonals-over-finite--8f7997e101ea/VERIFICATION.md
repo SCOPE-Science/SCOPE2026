@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof uses additive and multiplicative orthogonality and derives the needed twisted matrix Gauss identity directly by unitriangular averaging. It covers all finite fields and dimensions at least one, including characteristic two.
+# Independent mathematical audit
 
-Reproduction: run `python verify_counts.py` with Python 3.8 or later; standard library only. It exhaustively counts all matrices with each specified diagonal and compares all nonzero determinant fibers with the one-spike formula. Expected final line: `VERIFY_OK 9 exhaustive configurations`. Example counts for dimension three over the field of three elements are given in RESULT.md.
+## correctness
 
-The finite enumerations do not establish the general theorem. No independent audit has been performed. Literature comparison remains subject to the potentially broader implications of historical matrix Gauss-sum identities.
+PASS
+
+The multiplicatively twisted additive GL_n matrix Gauss sum vanishes for singular test A by scaling a kernel direction with arbitrary determinant. For invertible A, multiplication reduces to A=I; averaging over upper unitriangular matrices kills all strictly lower entries, leaving q^(n choose 2) G(chi)^n. Additive Fourier inversion enforcing the n diagonal entries kills all nontrivial determinant moments if any diagonal entry is zero; otherwise ordinary 1D Gauss product yields S_chi=q^(n choose 2)chi(product x_i). Multiplicative orthogonality gives the claimed one-spike law uniformly in prime powers, including q=2 and n=1. Independent exhaustive prime-field checks of five prescribed diagonals match all fibers; universal validity comes from the Fourier argument.
+
+## originality
+
+PASS
+
+Gorodetsky 2026 proves the full-diagonal nonsingular total T, not visibly a determinant-resolved count in its abstract. Historical Kim 1997 and Li–Hu 2012 Gauss-sum results may give the required twisted transform directly. The determinant fiber formula then follows by routine Fourier inversion; without the older primary full text, substantial possible implied coverage remains. The explicit one-spike distribution is nevertheless not identified as a stated result in searches, so the positive O is explicitly qualified.
+
+## value
+
+PASS
+
+A natural exact refinement of a recent all-diagonal GL count separates conditional uniformity when the diagonal includes zero from a single exceptional determinant fiber when all entries are nonzero. The exact all-q,all-n jump q^(n choose 2) is an independently useful structural counting invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
