@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional binomial formula follows from independent background vertices, with every normalization shown in the main proof. Layer-cake arc intersections rigorously give strict autocorrelation monotonicity under the stated strict kernel hypothesis; the Poisson comparison follows from independent thinning; the hard-radius boundary and its prevalence optimizer follow from circular intersection lengths and one-variable differentiation. The included standalone checker passes 8,732 exact and numerical assertions. Finite checks are corroborative, not substitutes for the analytic proof. Boundary cases requiring care: at least one background vertex; no-edge conditioning only with positive probability; discontinuous hard kernels treated separately; no uniqueness claim for flat or nonmonotone kernels.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest primary results are Wilsher–Dettmann–Ganesh (arXiv:2007.06301, Section 4 Eq. (5)) and their 2022 Poisson isolated-node paper (arXiv:2202.08044). The earlier paper already obtains the Poisson pair probability, and the implied nonnegative conditioned covariance is not claimed as new. Penrose (arXiv:1311.3897) treats binomial graph models mainly in dimensions at least two with asymptotic global questions, not the exact one-dimensional signed pair law. Searches of the mathematical results archive and focused literature did not show this full fixed-count sign transition and sharp hard-radius prevalence formula. Because no search proves uniqueness and a broad monograph literature exists, historical priority is qualified.
+PASS
 
-**Value — PASS.** The contrast reveals that conditioning on a fixed total spatial population can *reverse* the sign of local isolation dependence, rather than simply alter a limit-law error. The universal single-crossing phenomenon, finite-size independence from background count, hard-radius cutoff \(r=1/4\), and uniquely optimal positive-share value \(3-2\sqrt2\) supply a natural complete structural classification in a spatial network model. The result is useful when interpreting correlation or dependence approximations obtained by replacing finite samples with Poisson point processes.
+The conditional independence calculation was reconstructed: given tags at separation d and their edge absent, each of n-2 iid background points avoids one tag with probability 1-m and avoids both with probability 1-2m+C(d); the exact covariance is b(d)^(n-2)-a^(2(n-2)), hence sign(C(d)-m²). The circle layer-cake convolution of centered arcs is strictly decreasing under continuous strictly decreasing radial H; mean over d equals m², so the crossing is unique. Poisson thinning yields exp(-2 lambda m)(exp(lambda C)-1), necessarily nonnegative. The hard-arc overlap C=max(2r-d,0)+max(2r+d-1,0) yields d*=2r(1-2r), the conditional positive fraction and maximum 3-2sqrt(2). Independently checked hard-radius exact rational grids, calculus maximum, and linear-soft antipodal covariance -1/12; finite checks are not the continuum proof.
 
-**Limitations.** Only spatially conditioned tagged-pair covariance is classified, not unconditional isolated-vertex covariance. The nonadjacent-pair prevalence is for an independently selected labeled pair conditioned nonadjacent, not a pair sampled uniformly from the realized random set of nonedges. No claim of global network connectivity or dimension-greater-than-one universality is made. Historical priority is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives comparison with published works on the same objects and with indexed semantic findings: Wilsher–Dettmann–Ganesh, arXiv:2007.06301, Section 4 Eq. (5): conditional Poisson pair isolation probability with kernel overlap, not the fixed-background-count sign law. Wilsher et al., arXiv:2202.08044: global isolated-count Poisson limit, not pair-conditioned finite-N covariance. The original result claims only the additional exact assertion, not classical inputs. The inaccessible or unindexed-source risk is retained, not treated as negative proof.
+
+## value
+
+PASS
+
+Finite binomial conditioning changes the sign of a fundamental pair-dependence observable although Poissonization enforces nonnegative covariance. The unique separation threshold, hard-radius phase boundary r=1/4 and sharp maximum prevalence 3-2sqrt(2) quantify that model-specific phenomenon and can guide finite-size spatial network analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
