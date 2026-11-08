@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Kummer carry count is exact for \(n+2n\), including the terminal zero input. Each merged automaton state has the same outgoing weighted transitions and the same terminal weight as its constituent states, and exact inversion yields the displayed rational function. Differentiation gives the mean; the primitive matrix has a simple leading root and verified first two derivatives, yielding the variance coefficient and Gaussian limit. The finite standalone checks reproduce 131,071 valuations, but unrestricted correctness rests on the proof. Mathematical scope is expressly restricted to binary valuations in dyadic intervals.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest related published results cover distributions *inside one fixed row* of Pascal's triangle (Spiegelhofer–Wallner, 2017–2018), divisibility of a more elaborate binomial quotient (Yang 2017), fibbinary indexing (Lindroos–Sills–Wang 2018), and analytic reciprocal series for the same coefficient family (Adegoke–Frontczak–Goy 2023). None of the inspected statements entails the exact full dyadic-window distribution along \(\binom{3n}{n}\), its reduced length-three recurrence, or its explicit Gaussian parameters. General Kummer digit methods and generic digital-transfer theory are acknowledged as antecedents. Unindexed work and an unidentified stronger general specialization remain possible; a negative search is not a proof of absolute priority.
+PASS
 
-## Mathematical value — PASS
-A complete counting polynomial for all valuations and all initial dyadic block lengths is a natural refinement of the familiar fibbinary zero-valuation set. The exact rational denominator gives a minimal three-state recurrence; exact means and a nondegenerate central-limit law quantify divisibility beyond parity. These are infinite structural conclusions for a canonical binomial sequence rather than an arbitrary truncated table.
+Kummer identifies valuations with carries of the overlapping binary strings for n+2n. Merging states (1,0),(0,1) gives exact 3x3 weighted transfer matrix M(z), initial state (1,0,0) and a necessary final zero-input carry column (1,1,z). Independent symbolic inversion reproduced (1+t)(1-tz)/(1-(1+z)t+(z-z^2-1)t^2+(z+z^2)t^3); numerator and denominator are coprime over Q(z). The first carry forces a second, excluding valuation 1; no-carry words are Fibonacci. Dominant eigenvalue derivatives lambda'(1)=1 and lambda''(1)=4/3 give slopes 1/2 and 11/12, with primitive transfer matrix yielding a genuine CLT. Independent direct digit-sum checks r<=14 corroborated exact zero count and absent valuation 1; finite data do not prove the CLT.
 
-## Boundaries and evidence
-Reproduce with `python3 verify.py` (standard library). Computational evidence is exact but finite, supplementary to the proof in `RESULT.md`. The comparison with the general fixed-row theory may require continued bibliographic review. A separate independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit diagonal binomial valuation enumerator, reduced order-three rational function and concrete Gaussian law. Spiegelhofer-Wallner compute distributions along fixed Pascal rows, a different quantifier domain. General digit-function normality tools could imply an asymptotic but not automatically this exact polynomial or constants.
+
+## value
+
+PASS
+
+A complete finite-block distribution of a classical binomial-diagonal valuation; it gives nontrivial forbidden valuation, Fibonacci zero count, moments and asymptotic fluctuations, which are mathematically natural rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
