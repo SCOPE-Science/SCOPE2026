@@ -1,9 +1,21 @@
-# Review of the prime-to-42 cobalancing square-window law
+# Independent mathematical audit
 
-**Correctness — PASS.** A five-frequency decomposition of half-cobalancing squares is exact by the Pell closed form, with constant term \(5/64\). Quadratic norms of the four root differences are \(-4,-32,-196,-1152\), all units at the stated primes. Their Vandermonde matrix is invertible, converting divisibility of every window into divisibility of the five Fourier coefficients. The nonconstant coefficient valuations reduce to those of \(\lambda^k-1\); the basis of the quadratic algebra gives the balancing/Lucas-balancing formula. Modulo \(5\), \(\lambda\) has exact order \(6\), with a simple fifth-power valuation at that order; a binomial lifting argument yields the explicit prime-five law. The exact recurrence and integer verification for the first 500 lengths passed. The infinite assertion rests on the algebraic proof, not those checks.
+## correctness
 
-**Originality — PASS on available comparisons.** The 2023 motivating full text (not merely its abstract) explicitly poses the cobalancing-square GCD as Question 30, giving only divisibility by \(4\). The 2022 full-text precursor treats a different homogeneous Fibonacci recurrence. Comparisons with related balancing-sequence GCD identities show no implication of the precise prime-to-42 valuation law for the affine cobalancing squares. Search terms for prime factors, affine recurrence, equivalent index-GCD formulas, and square-window aliases identified no equivalent completed claim. Published article databases may miss later or unpublished work; this is a residual bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** This is systematic arithmetic information about *all* nonexceptional prime factors of the infinite GCD in a family singled out as an open problem. The five-adic formula is a particularly concrete contribution, including an unexpected factor \(5\) at all window lengths divisible by \(6\). The three exceptions arise naturally from a spectral root-collision obstruction rather than arbitrary parameter slicing. The complete GCD, and valuations at \(2,3,7\), remain open here.
+With b_n=2y_n and y_n=a lambda^n+b lambda^(-n)-1/4, squaring gives five modes 1,lambda^(+/-n),lambda^(+/-2n), constant 5/64. In Z_p[sqrt2] for p>=5 not7, all five frequency differences are units because their pairwise norm factors are supported on 2,3,7: norms lambda^j-1 for j=1..4 equal -4,-32,-196,-1152. Vandermonde invertibility makes common p-divisibility of all k-windows equivalent to divisibility of all five exponential coefficients; only the constant 5k and lambda^k-1 matter in the minimum. Since lambda^k=C_k+2sqrt2 B_k this gives min(v_p(5k),v_p(B_k),v_p(C_k-1)). For p=5, lambda mod5 has exact order six and v(lambda^6-1)=1, so the elementary 5-adic binomial lifting lemma gives 0 unless 6|k and 1+v5(k) otherwise. Five-mode monic recurrence makes the first five windows exhaustive for infinite GCD. Fresh independent exact integer checks at k=1..36 tested co42 and ν5 and passed. Unsettled p=2,3,7 factors are outside the claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Mbirika–Schrader–Spilker (2023), Section 6.1 Question 30 explicitly asks for squared cobalancing window GCD and reports only observed divisibility by 4. The prior solved linear-window GCDs and 2022 Fibonacci square-window GCD with different characteristic polynomial do not determine the stated nonexceptional prime valuations. The assessed theorem is partial progress on that precise open question, not the full integer GCD.
+
+## value
+
+PASS
+
+A published natural open problem asks for the square-window GCD of cobalancing numbers; prime-by-prime exact valuations outside the three spectral exceptional primes are a substantive structural classification with an especially explicit 5-adic dichotomy. This is meaningful partial progress even though the 2/3/7-primary factors remain unresolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
