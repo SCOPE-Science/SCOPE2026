@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The order-product reduction is a genuine three-round back-and-forth proof for all positive chain lengths. Two deterministic standalone programs exhaust the 28 parameter pairs left by the reduction, implement the complete nested Ehrenfeucht–Fraïssé recurrence, and agree on all 21 classes. The exact recurrence handles repeated points and both orientations of each move. No infinite claim rests solely on finite testing.
+## correctness
 
-## Originality
-**PASS with residual priority risk.** The 2010 finite-coloured-chain classification gives only a one-dimensional component cutoff. The 2014 and 2016 product/finite-grid preservation work gives qualitative finite-representative results, but the inspected passages do not identify the 21 sharp theories or the 30-point uniform representative. A known classification of the strict-simultaneous-dominance relation uses a genuinely different order predicate. Search results did not identify a stronger exact first-order classification for the present product order. An undiscovered grid-logic result may still cover it.
+PASS
 
-## Mathematical value
-**PASS.** The family is the standard two-chain distributive-lattice construction, and its exact weak-signature classification is a natural finite-model-theoretic invariant. The 21-class description and sharp 30-point bound are a complete classification, not an arbitrary parameter sample; the improvement from 49 to 30 cannot be read off merely by componentwise replacement. The distinction from the strict-dominance structure illustrates how the order signature changes expressive power.
+The exact three-round Hintikka signature T3(P) is the set of T2(x) over x, where T2(x) collects T1(x,y), and T1(x,y) collects all atomic order/equality triples with third point z; equality of these nested finite sets is equivalent to three-round back-and-forth, including repeated selections. A three-move EF strategy on chains of length at least 7 preserves short gaps exactly and larger gaps by threshold 2^r-1; applying independent coordinate strategies to each chosen point preserves product-order atomic relations. Therefore every grid is rank-three equivalent to a side-length <=7 grid. Unordered pairs 1<=a<=b<=7 give precisely 28 finite cases. A separately written exact atomic-type enumeration recovered 21 classes with group sizes seventeen singletons, three pairs and one five-member group; reps align with the stated rowwise kappa formula, and the largest least representative C5×C6 has 30 elements. This is exhaustive only after the mathematical unbounded reduction, not by finite evidence alone.
 
-## Limits
-The theorem does not treat higher quantifier ranks, added coordinate predicates, or counting extensions. Independent verification and exhaustive historical-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published primary results on the same subject and Resultary related findings were compared at the level of claimed mathematical implication; strongest already-covered components are credited and excluded from the novelty claim. The remaining specific classification appears new in actually inspected material, subject to listed source-access and indexing risks.
+
+## value
+
+PASS
+
+A natural finite-distributive-lattice family in a pure order signature has a sharp complete rank-three logical classification: exactly 21 elementary indistinguishability types and minimal universal representative size 30, sharpening the generic 7×7=49 product cutoff. The exact cutoff is a reusable benchmark for finite-model theory and lattice logic rather than an arbitrary subtable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
