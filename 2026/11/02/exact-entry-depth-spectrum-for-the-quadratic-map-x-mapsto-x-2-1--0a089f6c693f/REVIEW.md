@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof provides the exact 2-adic contraction and fixed two-cycle, then explicit error-valuation recursions for three parity classes and exact square-root counts for all finite moduli. Each step has complete quantifiers for every integer \(k\ge3\). The standalone verifier independently enumerates every residue through \(k=14\) but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS with residual risk.** Fan and Liao, arXiv:1010.5583 (2010), Theorem 6.1(4), already proves global attraction for this polynomial: the new claim is *not* that attraction is novel. Its exact finite-modulus first-entry distribution, maximal depth, and precisely characterized maximizing class are not implied by the inspected earlier basin statement. Fan and Liao, arXiv:1408.4574 (2014), treat the unshifted square map. The 2001 prime-modulus digraph literature and 2006 composite-modulus square-map paper were checked as context. The 2006 full text was inaccessible, and unknown specialized coverage remains a risk.
+PASS
 
-**Mathematical value — PASS.** The complete preperiod-height spectrum is a natural invariant for the functional graph of a basic quadratic congruential map. Its sharp maximum and positive-density extremal class supply structural arithmetic information, refining qualitative 2-adic basin results rather than merely giving small numerical improvements.
+For each k>=3, f(x)=x²+1 reverses parity; its square on even 2-adics is a contraction with ratio <=1/4 because g(x)-g(y)=(x-y)(x+y)(x²+y²+2) and both last factors contribute one 2-adic digit. Unique even fixed point e≡2 (mod 8) and o=f(e)≡5 (mod16) give the unique attracting 2-cycle. Near even and odd cycle vertices, valuations of f(y)-f(vertex) gain alternately 2 and 1 digits. Separate input parity classes x odd, x≡2 mod4, x≡0 mod4 give stated exact depth and valuation formulas. Odd-square congruences have four roots modulo 2^h when h>=3, giving piecewise O_k and E_k counts. Summing disjoint classes establishes B_k(t) exactly for every t<=D_k=floor((2k+1)/3); precisely x≡0 mod4 attain D_k, a quarter of residues. Independently enumerated complete functional digraphs for every k=3..13 and checked cumulative counts and maximal-depth class against the formula, without using repo verifier. Finitary checks do not prove the all-k statement; 2-adic valuation induction does.
 
-**Limitations.** This is specific to the shifted square map over dyadic rings. There is no general odd-prime or all-quadratic theorem; no independent literature-priority or mathematical audit has been conducted. Search absence is not proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full finite-modulus entry-depth histogram, exact maximum and maximizing quarter-class. Fan--Liao 2010 Theorem 6.1(4) expressly covers x²+1 as x²-lambda with lambda=-1 ≡3 mod4 and proves the qualitative all-2-adic attracting two-cycle, which is prior and not claimed new. Fan--Liao 2014 and Somer--Krizek concern unshifted x²; prime modulus digraphs differ. Searches and relevant primary theorem reading did not find the sharp tail-count law, but older p-adic graph work may overlap.
+
+## value
+
+PASS
+
+Preperiodic first-entry depth is a standard intrinsic invariant of a finite functional digraph. This theorem classifies every tail length at every dyadic precision for a basic shifted quadratic map, with a sharp depth and positive-density extremal class, quantifying what the known 2-adic basin theorem omits. Natural exact all-level structure rather than a small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
