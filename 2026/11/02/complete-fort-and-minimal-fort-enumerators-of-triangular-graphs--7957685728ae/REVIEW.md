@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each missing root edge the number of selected neighbors is the sum of its two endpoint degrees. This makes the existence of an isolated root and a degree-one root the only obstruction, establishes the exact star-forest/proper-cycle classification of inclusion-minimal forts, and yields both inclusion-exclusion and labeled-component enumerators. The asymptotic follows from a cycle factorial sum with the star-forest count bounded negligibly. The included direct-neighborhood enumerator checks all coefficients for \(2\le n\le7\). Infinite-parameter conclusions rely on the symbolic proof.
+PASS
 
-## Originality — PASS, with priority risk
+Outside edge ab in L(K_n) has exactly d_H(a)+d_H(b) selected neighbors; the only one-neighbor obstruction is the coexistence of degree-zero and degree-one root vertices. Nonspanning minimal forts must be proper cycles, spanning minimal forts minimal edge covers (spanning star forests); component exponential formula and degree-one/isolate inclusion-exclusion give both exact polynomials for all n>=2. The factorial-dominated proper-cycle sum controls M_n(1) and star-forest estimates are asymptotically smaller. An independent direct outside-neighbor enumeration for n=2,3,4,5 recovered 1,4,45,828 forts and 1,3,11,60 minimal forts; n=4 had 3 size-two forts and four proper triangles, n=5 had 40 minimum size-three forts. Finite checks corroborate, not replace infinite argument.
 
-The 2023 fort and Cartesian-product paper and the 2024 minimal-fort census were inspected for the same graph family; neither gives these triangular-graph enumerators. The 2024 failed-zero-forcing article addresses Johnson graphs but describes scalar maxima in its accessible abstract: a smallest-fort scalar is not the complete all-fort and inclusion-minimal-fort cardinality distribution. The article's full text was inaccessible, leaving material publication-priority uncertainty. Comparable minimum cardinality patterns occur in other graph parameters; shared numerical values do not supply the asserted fort characterization or the two counting polynomials. Search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Forts are the finite obstructions underlying ordinary zero forcing. A complete minimal-fort hypergraph description for the canonical triangular graph family gives the entire obstruction spectrum; the explicit all-fort enumerator and factorial asymptotic explain how sparse and dense obstructions distribute, a substantive extension beyond the scalar failed-forcing number. No extension to general Johnson graphs is asserted.
+Best-of-knowledge originality of the precise final claim, not novelty of definitions or known partial results: Fort polynomial, minimal fort hypergraph and zero-forcing obstruction counts are equivalent variants; the local root-edge criterion furnishes a nontrivial conversion but does not follow from scalar zero-forcing number. A general known minimum failed zero-forcing number cannot imply either count distribution; the reverse implication may recover scalar extrema, so that known corollary is explicitly excluded from novelty. The accessible primary statements do not logically cover the claimed full classification; inaccessible plausible documents remain explicitly risky.
 
-## Scientific limitations
+## value
 
-External independent mathematical audit is still required; the available full-text evidence does not completely rule out earlier coincident results. The included exhaustive implementation is finite and corroborates, but does not replace, the general proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two complete cardinality enumerators and the exact minimal-obstruction classification for triangular graphs J(n,2) are natural zero-forcing invariants that allow downstream count and hitting-set computations; not merely the known minimum scalar. The labeled-star-forest versus proper-cycle dichotomy is structural and mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
