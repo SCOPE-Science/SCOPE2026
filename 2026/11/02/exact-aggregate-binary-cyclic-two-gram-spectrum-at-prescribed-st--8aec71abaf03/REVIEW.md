@@ -1,19 +1,21 @@
-# Review: aggregate cyclic binary two-gram spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The cyclic degree-balance equation and positive alternating-run decomposition are proved directly. Each active cycle with \(t\ge1\) realizes every integral equal-pair allocation between the two symbols via the explicit word \(0^{A+1}1^{B+1}(01)^{t-1}\); inactive cycles contribute only all-zero or all-one profiles. Minkowski sums of the intervals establish the complete profile criterion. A unit-capacity allocation for all-active cycles gives the sharp full-layer threshold, with length-two cycles providing the obstruction one transition earlier. The two-cycle exceptional interval gap, exact layer sum and deterministic code-capacity interpretation all follow without computational assumptions. Standalone exhaustive finite comparisons were run, but are not treated as proof of infinite assertions.
+PASS
 
-## Originality
+For one nonconstant cyclic binary word, each t≥1 transition pair count yields t positive 0-runs and t positive 1-runs, forcing 2t≤n and allowing all A∈[0,n−2t] through 0^(A+1)1^(B+1)(01)^(t−1). Constant cycles give exactly A=0 or n. Summing independent integer intervals over active cycles plus zero-constant subset sums establishes the iff characterization, with explicit witnesses. For T≥r distribute T−r among all capacities floor(n_i/2)−1 so all cycles active and full A-layer results; all 2-length strands show sharp failure at T=r−1. For r=2 direct T=0,1,≥2 layer counting gives exact formula, including equal-length missing A=n1−1. Independent exhaustive enumeration of both-cycle word pairs for 2≤n1,n2≤7 agrees; analytic run decomposition is all-length proof.
 
-**PASS, with residual risk.** Tesler (2017, arXiv:1708.03654) studies cyclic and multicyclic realizations for prescribed read multiplicities, but does not give a formula for fixed **individual cycle lengths** and the missing binary two-read observation when they match; Theorem 9.3 allows generic multicycle decompositions without fixing their lengths. Yehezkeally–Marcovich–Yaakobi (2021, arXiv:2108.11725) addresses multiple **linear** strings and multi-substring reconstruction, not this cyclic fixed-length short-read spectrum. Kiah–Puleo–Milenkovic (2015, arXiv:1502.00517) provides related linear sequence-profile methods. Public research-record searches for fixed-length cyclic multistrand aggregated dinucleotide types did not identify an equivalent formula. An undiscovered reduction from general multicycle-flow theory remains a concrete novelty risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** A natural sequencing observation loses strand labels while retaining exact circular digram multiplicities. The theorem completely characterizes its attainable information states for *any* fixed number of prescribed-length cycles, proves a sharp dimensionless saturation threshold, and derives a closed finite-length zero-error capacity with a previously non-obvious equal-length defect for two cycles. This is a structural profile classification, not merely a numerical example or application of a listed prior bound.
+Qualified PASS: Tesler’s multi de Bruijn theory covers balanced Eulerian cycle multisets and decomposition counts, but inspected general enumeration does not give prescribed individual strand-length support or the exact two-strand equality defect. Published Resultary binary two-multispectrum theorem is for a SINGLE LINEAR word with n−1 reads and permitted unbalanced transitions, not a multi-cycle fixed-length problem.
 
-## Limits
+## value
 
-Only noiseless complete binary cyclic two-read observations and known lengths at least two are covered. The theorem does not give the sizes of ambiguous reconstruction fibers nor address errors, unknown lengths or alphabets with more than two symbols. Published multicyclic flow theory could contain an equivalent specialization. Finite computations verify tested lengths only; the written proof establishes the general statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prescribed component lengths are intrinsic to multistrand sequence reconstruction. Exact realizable aggregate read profiles and optimal zero-error code cardinality give a natural operational invariant and a sharp parity/equal-length boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

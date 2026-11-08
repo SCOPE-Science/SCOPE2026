@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of aggregate cyclic two-gram profiles
+# Independent mathematical audit
 
-Execute `python3 VERIFY.py` using Python 3 and the standard library. The script enumerates literal circular binary words, constructs their exact two-gram count tuples, and checks them against the interval characterization. Its coverage is all 64 ordered pairs of lengths \(2\) through \(9\), 64 triples of lengths \(2\) through \(5\), and 81 quadruples of lengths \(2\) through \(4\). It checks the symbolic two-strand formula and the all-length obstruction template for \(2\le r\le12\).
+## correctness
 
-Actual local execution result:
+PASS
 
-```
-VERIFY_OK two_length_pairs=64 triple_length_tuples=64 quadruple_length_tuples=81 sharpness_k=2..12
-```
+For one nonconstant cyclic binary word, each t≥1 transition pair count yields t positive 0-runs and t positive 1-runs, forcing 2t≤n and allowing all A∈[0,n−2t] through 0^(A+1)1^(B+1)(01)^(t−1). Constant cycles give exactly A=0 or n. Summing independent integer intervals over active cycles plus zero-constant subset sums establishes the iff characterization, with explicit witnesses. For T≥r distribute T−r among all capacities floor(n_i/2)−1 so all cycles active and full A-layer results; all 2-length strands show sharp failure at T=r−1. For r=2 direct T=0,1,≥2 layer counting gives exact formula, including equal-length missing A=n1−1. Independent exhaustive enumeration of both-cycle word pairs for 2≤n1,n2≤7 agrees; analytic run decomposition is all-length proof.
 
-The independent-audit channel remains **not performed**. This program is a finite mathematical cross-check, not an independent audit or exhaustive test of unbounded lengths. The general result is proved in `RESULT.md`.
+## originality
+
+PASS
+
+Qualified PASS: Tesler’s multi de Bruijn theory covers balanced Eulerian cycle multisets and decomposition counts, but inspected general enumeration does not give prescribed individual strand-length support or the exact two-strand equality defect. Published Resultary binary two-multispectrum theorem is for a SINGLE LINEAR word with n−1 reads and permitted unbalanced transitions, not a multi-cycle fixed-length problem.
+
+## value
+
+PASS
+
+Prescribed component lengths are intrinsic to multistrand sequence reconstruction. Exact realizable aggregate read profiles and optimal zero-error code cardinality give a natural operational invariant and a sharp parity/equal-length boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
