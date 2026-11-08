@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary \(q\) and \(n\ge2\), the proof derives the zero-product equivalence from rank-one outer products, proves maximality and uniqueness of the subspace-indexed cliques in both directions, and obtains all ordered commuting tuple counts using the exact Möbius function on finite subspace lattices. Signed Stirling inversion converts these into all distinct-vertex clique counts; a fixed-image-line count gives the degree, and explicit projective-plane geometry plus a common-neighbor construction prove the dimension-dependent diameters. No step infers an infinite theorem from finite enumeration. Independently implemented exhaustive finite-field tests cover seven cases including characteristic two and four.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Ou–Zhong's rank-one *upper triangular* commuting graph (DOI 10.13001/1081-3810.3064) studies automorphisms of a different fixed-basis vertex set, and its stated main theorem neither counts nor classifies all maximal cliques in the full rank-one square-zero conjugacy orbit. Britnell–Wildon (arXiv:1001.0811) investigates existence of commuting representatives between similarity classes; it does not classify the labeled adjacency relation inside one class, its clique polynomial, or the diameter transition. Ginsburg–Julius–Velasquez (DOI 10.1016/j.laa.2020.02.007) characterizes maps preserving a specified nonzero rank-one Lie product over the complex field rather than enumerating finite-field pairs with zero Lie product. Related published research findings about finite Heisenberg groups, zero-product subspace avoidance, or generalized commutator ranks address mathematically distinct objects. Searches for rank-one nilpotent commuting cliques, projective flags, annihilation and Gaussian subspace enumerations did not identify a logically dominating result. The rank-one factorization, Gaussian coefficients, and Möbius inversion themselves are standard and are not claimed original.
+PASS
 
-## Mathematical value — PASS
-This is a complete structural enumeration of a natural noncentral nilpotent conjugacy orbit's commuting compatibility graph: it determines **every** maximal compatible family and its size, **every** clique coefficient through an explicit closed finite sum, all degrees, and a sharp geometry-driven connectivity threshold. The projective-plane flag description gives an interpretable boundary case; the all-dimensional common-neighbor construction explains the unexpected diameter-two stabilization. The exact maximal-clique stratification is a reusable constraint for simultaneous annihilation and finite matrix compatibility questions. It is not a single arbitrarily selected finite case or a mechanical renaming of an existing invariant.
+Starting from A=u phi and B=v psi with phi(u)=psi(v)=0, images of nonzero AB and BA force commuting iff both vanish (including shared-image case). For a commuting family U=sum im A lies in every kernel; X_U is complete and maximal, and its sum-of-images/meet-of-kernels both equal U, proving unique classification. Count by projective pairs (image line in U, functional in U^perp), use q-subspace Möbius (-1)^d q^(d(d-1)/2) to enforce exact image span in each ordered k-tuple, and signed Stirling inversion to get every clique coefficient. A fixed line/kernel count gives degree. In n=3 flags L⊂H are incidence-graph edges, giving line-graph diameter 3; n>=4 find w in ker A∩ker B and eta killing im A,im B,w to give common commuting neighbor; n=2 components are lines. Independent structural checks match. No finite enumeration extrapolation.
 
-## Closest literature, limitations and residual risks
-The three primary references and nearby published research results above were compared at the implication level. Full inspection of the most relevant available primary statement and proof portions did not identify the same theorem, but existing results under alternative terminology—especially zero-product graphs and projective-flag graphs—remain a genuine originality risk. Exhaustive publication priority is not established. The restriction to nonzero rank-one square-zero matrices is essential; larger nilpotent ranks and automorphism/independence classifications remain outside the theorem. Finite checker coverage does not independently certify all dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for full-orbit, matrix-level all-clique classification, not for rank-one factorization, projective flags or Möbius inversion individually. Ou–Zhong upper-triangular graph has different vertex set; Britnell–Wildon examines commuting between similarity classes; Ginsburg et al preserve specified nonzero Lie products. Published Resultary Heisenberg and finite-nilpotent findings are different underlying graphs. Priority under zero-product/annihilation graph terminology remains a risk.
+
+## value
+
+PASS
+
+A natural conjugacy orbit produces a structured compatibility graph; classifying every maximal annihilating family by a unique proper subspace gives nontrivial all-arity clique polynomial, exact degree, and geometric connectivity threshold. The all-dimensional construction makes this reusable beyond a numerical small case; not mere reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

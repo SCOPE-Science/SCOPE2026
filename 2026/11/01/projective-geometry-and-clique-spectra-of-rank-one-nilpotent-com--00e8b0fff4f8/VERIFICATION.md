@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Direct reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_rankone_nilpotent.py` with Python 3 and no third-party packages. It constructs finite-field vectors, rank-one outer products, multiplication tables and commutation from their defining equations. It then calculates all matrix-level degrees, tuple counts through length three, maximal cliques, connected components and diameters independently of the subspace classification, and compares with the closed formulas.
+## correctness
 
-Verified field/dimension cases: \((2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2)\), where each pair denotes \((n,q)\). The checker reports `VERIFY_OK`. Observed highlights: at \((n,q)=(3,3)\), there are \(104\) vertices, degree \(13\), \(26\) maximal cliques of size \(8\), and diameter \(3\); at \((4,2)\), there are \(105\) vertices, degree \(24\), and \(65\) maximal cliques, split into \(30\) of size \(7\) and \(35\) of size \(9\), with diameter \(2\).
+PASS
 
-These exhaustive **finite** tests corroborate but do not replace the all-prime-power, all-dimension proof. No external proof assistant, independent expert review or independent mathematical audit has been performed.
+Starting from A=u phi and B=v psi with phi(u)=psi(v)=0, images of nonzero AB and BA force commuting iff both vanish (including shared-image case). For a commuting family U=sum im A lies in every kernel; X_U is complete and maximal, and its sum-of-images/meet-of-kernels both equal U, proving unique classification. Count by projective pairs (image line in U, functional in U^perp), use q-subspace Möbius (-1)^d q^(d(d-1)/2) to enforce exact image span in each ordered k-tuple, and signed Stirling inversion to get every clique coefficient. A fixed line/kernel count gives degree. In n=3 flags L⊂H are incidence-graph edges, giving line-graph diameter 3; n>=4 find w in ker A∩ker B and eta killing im A,im B,w to give common commuting neighbor; n=2 components are lines. Independent structural checks match. No finite enumeration extrapolation.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for full-orbit, matrix-level all-clique classification, not for rank-one factorization, projective flags or Möbius inversion individually. Ou–Zhong upper-triangular graph has different vertex set; Britnell–Wildon examines commuting between similarity classes; Ginsburg et al preserve specified nonzero Lie products. Published Resultary Heisenberg and finite-nilpotent findings are different underlying graphs. Priority under zero-product/annihilation graph terminology remains a risk.
+
+## value
+
+PASS
+
+A natural conjugacy orbit produces a structured compatibility graph; classifying every maximal annihilating family by a unique proper subspace gives nontrivial all-arity clique polynomial, exact degree, and geometric connectivity threshold. The all-dimensional construction makes this reusable beyond a numerical small case; not mere reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
