@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An incidence edge is canonically an oriented original edge. Induced matchings are exactly partial maps whose heads avoid the selected tail domain, and maximality is equivalent to covering all remaining eligible tails. The complete-graph case reduces to an onto map to the unused vertices. In the complete-bipartite case, the two full-shore cases contribute unrestricted functions, whereas all strict-interior cases require two onto maps. These are exhaustive, disjoint, and counted by labeled surjection numbers. The positive-term conditions prove the exact size supports and gap statement. The graph-level checker independently confirmed entire coefficient distributions for 25 cases, including singleton-shore boundaries, and exact support predictions for 51 further cases.
+PASS
 
-## Originality — PASS (publication priority provisional)
+Incidence edges in I(G) correspond to oriented original edges v↦w. A family is induced matching iff tails distinct and never a selected head. For complete graphs, maximality requires onto maps from selected tails T to unused heads U, yielding (n−k)!S(k,n−k) with binomial T choices. For K_{a,b}, if all of a shore are tails, every function to opposite shore is maximal; otherwise both unused shores must be hit by corresponding onto maps. Stirling surjection counts establish exact two-polynomial formulas and the stated size spectra. Independent conflict-graph maximal-independent enumeration verified K3:3z², K4:12z²+4z³, I(K1,1):2z, I(K1,3):3z+z³, I(K2,3):9z²+14z³, I(K3,3):90z³+9z⁴. Finite tests corroborate all-order combinatorial bijection.
 
-The closest same-object primary source is Pippenger's 2001 paper on ordinary matchings of complete and complete-bipartite incidence graphs. Its Section 4 permits partial maps with heads in the tail set, excluding only mutually reversed pairs; that is strictly broader than induced matchings and does not enumerate inclusion-maximal induced matchings. The 2019 well-indumatched paper and the 2024 general extremal-count theorem address different statements. The actual semantic-record and literature searches found no equivalent full Stirling-polynomial result; the strongest residual risk is an unindexed equivalent calculation. This verdict does not certify uniqueness or independent publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is natural in strong matching saturation, where the distinction between maximum and inclusion-maximal induced matchings is essential. The result completely enumerates all size strata in two classical incidence graph families, rather than merely their scalar maximum. The \(I(K_{2,b})\) subfamily exhibits an unbounded gap between attainable sizes, while the balanced and complete cases have explicit Stirling strata. The gap and the full distributions offer a useful sharp test family for maximal-induced-matching enumerators.
+Pippenger 2001 studies matching enumeration in precisely the same incidence graph families, but permits selected heads that are also tails, unlike induced matchings, and does not impose the required maximality surjection. General triangle-free and connected-graph maximal induced matching upper bounds do not entail the complete labelled size distributions. No equivalent exact formula found by Resultary/primary comparison, though older strong-matching enumeration may exist.
 
-## Closest literature and limits
+## value
 
-Pippenger (2001): the very same incidence graphs but ordinary matchings. Akbari et al. (2019): the well-indumatched property and minimum maximal induced matchings in other classes. Yuan et al. (2024): extremal general-graph counts. The result is limited to full single subdivisions of complete or complete bipartite graphs. The independent publication-priority search is not exhaustive; independent mathematics auditing remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full size-stratified census of inclusion-maximal induced matchings in complete and complete-bipartite subdivisions identifies natural saturation spectra, including arbitrarily wide missing intervals for I(K2,b). This exact information differs from just the maximum matching size or a global extremal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

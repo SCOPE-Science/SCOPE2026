@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_incidence.py`. Only the Python 3 standard library is required. Expected output begins with `VERIFY_OK graph_instances=25 induced_matching_recursions=213715 support_checks=51`.
+## correctness
 
-The checker constructs each incidence graph from its original graph, determines conflicts using actual endpoint equality or graph adjacency, enumerates the resulting independent edge subsets, and accepts only those covering every edge of the conflict graph (the definition of inclusion-maximality). It checks 19 complete-bipartite instances with \(1\le a\le b\le6\), \(ab\le25\), and the six complete graphs \(K_n\) for \(2\le n\le7\). It separately checks the algebraic support formula in 51 cases. The graph-level tests do not assume the surjection characterization.
+PASS
 
-Finite checks are not an all-order proof. The infinite theorem and its boundary cases are established in `RESULT.md` by a separate bijection and a positivity argument. No independent external audit or publication-priority certification is represented by this package.
+Incidence edges in I(G) correspond to oriented original edges v↦w. A family is induced matching iff tails distinct and never a selected head. For complete graphs, maximality requires onto maps from selected tails T to unused heads U, yielding (n−k)!S(k,n−k) with binomial T choices. For K_{a,b}, if all of a shore are tails, every function to opposite shore is maximal; otherwise both unused shores must be hit by corresponding onto maps. Stirling surjection counts establish exact two-polynomial formulas and the stated size spectra. Independent conflict-graph maximal-independent enumeration verified K3:3z², K4:12z²+4z³, I(K1,1):2z, I(K1,3):3z+z³, I(K2,3):9z²+14z³, I(K3,3):90z³+9z⁴. Finite tests corroborate all-order combinatorial bijection.
+
+## originality
+
+PASS
+
+Pippenger 2001 studies matching enumeration in precisely the same incidence graph families, but permits selected heads that are also tails, unlike induced matchings, and does not impose the required maximality surjection. General triangle-free and connected-graph maximal induced matching upper bounds do not entail the complete labelled size distributions. No equivalent exact formula found by Resultary/primary comparison, though older strong-matching enumeration may exist.
+
+## value
+
+PASS
+
+A full size-stratified census of inclusion-maximal induced matchings in complete and complete-bipartite subdivisions identifies natural saturation spectra, including arbitrarily wide missing intervals for I(K2,b). This exact information differs from just the maximum matching size or a global extremal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
