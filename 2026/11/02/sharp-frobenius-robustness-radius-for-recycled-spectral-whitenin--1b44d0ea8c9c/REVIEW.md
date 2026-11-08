@@ -1,15 +1,21 @@
-# Scientific review: spectral-whitening robustness radius
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Positivity for all perturbations in the claimed closed ball follows from the strict inequality \(t_*<\lambda_1\). The condition-number statement is converted to inequalities for every orthonormal pair; Frobenius duality is exact for the symmetric rank-two test matrix. The two-dimensional compression calculation is a convex quadratic and the min-max principle identifies the maximum using the two largest eigenvalues of \(A^{-1}\). An explicit rank-two commuting perturbation attains the endpoint, and scaling it establishes failure at every larger radius. The algebraic two-dimensional witness and 8,472 reproducible finite checks agree with the proof. No test is treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS under inspected-source comparison.** The October 2026 Diouane–Gürol–Mouhtal–Orban article derives fixed-direction, first-order PCG-versus-deflation estimates and expressly identifies varying perturbation directions as a further direction; its 2026 precursor treats finite-step energy error under cluster placement. Giraud–Gratton (2006) studies first-order perturbation of approximate eigenpairs, including pointwise eigenvalue sensitivity, not the exact Frobenius-ball condition-number tolerance. Rump (2003) studies distance to singularity and perturbation condition numbers rather than the finite conditioning cap here. Focused semantic searches of published findings identified no dominating theorem. The components of the proof use classical matrix inequalities, and the possibility of an unlocated equivalent optimization result remains a residual priority risk.
+PASS
 
-## Value
-**PASS.** In recycled preconditioning, a uniform tolerance over perturbation directions is needed before spectral data from a reference system can be trusted. The exact formula is a finite, dimension-independent certificate depending only on the smallest two eigenvalues; the extremizing perturbation surprisingly commutes with the reference matrix even when arbitrary noncommuting perturbations are allowed. It strictly improves the usual norm-only Weyl condition bound and covers repeated smallest eigenvalues. This is a benchmark for full whitening, not a claim of practical low-rank efficiency or nonlinear generality.
+For n≥2, SPD A and all symmetric Frobenius-unit-ball E, whitening gives B=I+t A^-1/2 E A^-1/2. The condition-number cap K>1 is exactly all orthonormal-pair quadratic inequalities. Frobenius duality reduces to sqrt(K²a²+d²-2Kb²) for the compression of H=A^-1; its plane-angle quadratic is convex, so extrema align with the top two compression eigenvectors; Poincaré/min-max bounds them by 1/λ1 and 1/λ2. Thus t*=(K-1)/sqrt(K²/λ1²+1/λ2²). Since t*<λ1, all endpoint matrices are SPD. Rank-two commuting E*=(-K h1 w1w1^T +h2 w2w2^T)/L has norm one and saturates K; scaled adversary disproves robustness at every t>t*. Independently checked exact A=diag(1,2),K=2 B eigenvalues 9/17,18/17 and 100 4x4 random perturbations. Repeated minimal eigenvalues covered via orthonormal basis.
 
-## Limits
-Only real SPD matrices, exact full spectral whitening, symmetric Frobenius perturbations, and spectral condition number are covered. The quantitative error bounds for restarted or deflated Krylov iterates are not addressed. Independent mathematical scrutiny and comprehensive historical-priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+October 2026 perturbed-system spectral-preconditioner research studies fixed-direction PCG/deflation estimates, while older sensitivity and singularity distances address different metrics/events. The all-Frobenius-E exact condition-cap radius and two-eigenmode optimizer were not derived in inspected sources. PASS with matrix perturbation optimization historical priority risk.
+
+## value
+
+PASS
+
+Uniform all-directions finite-radius conditioning under reused full spectral whitening is a mathematically natural benchmark and exact robustness certificate, improves conservative Weyl norm-only estimates, and identifies the genuinely optimal two-mode commuting perturbation even among all symmetric noncommuting errors; not claimed as a low-rank practical algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

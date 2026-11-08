@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:10:00.562092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2, SPD A and all symmetric Frobenius-unit-ball E, whitening gives B=I+t A^-1/2 E A^-1/2. The condition-number cap K>1 is exactly all orthonormal-pair quadratic inequalities. Frobenius duality reduces to sqrt(K²a²+d²-2Kb²) for the compression of H=A^-1; its plane-angle quadratic is convex, so extrema align with the top two compression eigenvectors; Poincaré/min-max bounds them by 1/λ1 and 1/λ2. Thus t*=(K-1)/sqrt(K²/λ1²+1/λ2²). Since t*<λ1, all endpoint matrices are SPD. Rank-two commuting E*=(-K h1 w1w1^T +h2 w2w2^T)/L has norm one and saturates K; scaled adversary disproves robustness at every t>t*. Independently checked exact A=diag(1,2),K=2 B eigenvalues 9/17,18/17 and 100 4x4 random perturbations. Repeated minimal eigenvalues covered via orthonormal basis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related theories give first-order fixed-E bounds, approximate eigenpair sensitivities, or distance to singularity, not a finite prescribed K cap over all E."
+        ],
+        "reasoning": "General linear algebra inequalities support the proof, but inspected broader statements do not imply the exact K-dependent radius without further optimization.",
+        "searches": [
+          "arXiv:2610.28808 Diouane et al. full text",
+          "arXiv:2603.28969 iteration-budget preconditioning",
+          "Giraud–Gratton 2006 spectral sensitivity",
+          "Rump 2003 structured singularity distance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.28808 full text",
+        "arXiv:2603.28969 precursor bibliographic/main claims",
+        "Giraud–Gratton 2006 eigenpair sensitivity",
+        "Rump 2003 distance-to-singularity treatment",
+        "Resultary spectral whitening Frobenius search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-E first-order PCG bounds do not quantify sup_E κ2(B), and derivative-level eigenpair sensitivity cannot alone give all radii t plus sharp rank-two attainment."
+        ],
+        "reasoning": "The exact finite worst-case theorem is a stronger specific quantitative statement for the full-whitening subclass, distinct from general CG residual claims.",
+        "searches": [
+          "arXiv:2610.28808 Section 3 and conclusion",
+          "Giraud–Gratton 2006 eigenpair error sensitivity",
+          "RESULT.md rank-two extremizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation is weighted Frobenius distance from whitened identity to spectral condition-number threshold K; source focuses CG error for fixed perturbation."
+        ],
+        "reasoning": "Different target observables (fixed-direction iteration error versus worst-direction spectral ratio) are not equivalent.",
+        "searches": [
+          "Resultary query: spectral whitening SPD Frobenius perturbation sharp worst condition number threshold two smallest eigenvalues rank two",
+          "arXiv:2610.28808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed related records concern weighted Jacobi damping and other preconditioners, not full-whitening original-coordinate Frobenius perturbation radius."
+        ],
+        "reasoning": "No exact matching matrix condition-distance table identified; still a residual database coverage risk.",
+        "searches": [
+          "Resultary query: spectral whitening SPD Frobenius perturbation sharp worst condition number threshold two smallest eigenvalues rank two",
+          "Resultary SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+        ]
+      },
+      "rationale": "October 2026 perturbed-system spectral-preconditioner research studies fixed-direction PCG/deflation estimates, while older sensitivity and singularity distances address different metrics/events. The all-Frobenius-E exact condition-cap radius and two-eigenmode optimizer were not derived in inspected sources. PASS with matrix perturbation optimization historical priority risk.",
+      "residual_risks": [
+        "A classical matrix distance-to-condition-number theorem not indexed here could subsume the two-eigenmode formula.",
+        "Not a guarantee for partial whitening, sparse perturbations, approximate eigenvectors or finite precision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior treats fixed-direction first-order PCG/deflated-CG bounds rather than exact worst condition-number cap",
+          "evidence": [
+            "Section 3 estimates; conclusion on varying perturbations"
+          ],
+          "identifier_or_url": "arXiv:2610.28808",
+          "material_read": "Full arXiv article accessible: perturbation statements in Section 3 and concluding varying-E directions",
+          "method": "Read primary full text and compared fixed perturbation versus all-directions radius",
+          "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+          "trigger": "Same recycled spectral preconditioning on A+tE"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform all-directions finite-radius conditioning under reused full spectral whitening is a mathematically natural benchmark and exact robustness certificate, improves conservative Weyl norm-only estimates, and identifies the genuinely optimal two-mode commuting perturbation even among all symmetric noncommuting errors; not claimed as a low-rank practical algorithm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.28808 full text",
+    "arXiv:2603.28969 precursor bibliographic/main claims",
+    "Giraud–Gratton 2006 eigenpair sensitivity",
+    "Rump 2003 distance-to-singularity treatment",
+    "Resultary spectral whitening Frobenius search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact SPD full whitening with symmetric real Frobenius-ball perturbation; n≥2 and K>1.",
+    "Cannot infer low-rank preconditioner or CG convergence guarantee.",
+    "A classical matrix distance-to-condition-number theorem not indexed here could subsume the two-eigenmode formula.",
+    "Not a guarantee for partial whitening, sparse perturbations, approximate eigenvectors or finite precision.",
+    "No GitHub write or dispatcher closeout; publication is withheld."
+  ],
+  "schema_version": 1
+}
