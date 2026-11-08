@@ -1,15 +1,21 @@
-# Research assessment: priced tripartite resistance design
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-edge problem has a unique optimum because the trace of the inverse shifted Laplacian is strictly convex in independent edge conductances. The symmetry reduction is therefore globally valid rather than merely a restriction to two weights. The exact weighted spectrum gives the Kirchhoff index, and a one-dimensional boundary derivative yields the deletion threshold. The \(1/m\) transition follows by expanding the stationary equation with controlled remainders. The standalone verifier passed symbolic identities, full-Laplacian spectral comparisons, an independent pairwise-resistance computation, and nonsymmetric optimization comparisons. Finite checks do not prove the general result; they audit key algebraic steps.
+## correctness
 
-## Originality — PASS (qualified)
-The general convex optimization method is from Ghosh–Boyd–Saberi, not this result. Johnson–Chertkov discuss priced power-network optimization but use different graphs and objectives. Gervacio's complete-multipartite resistance formulas and Kooij–Achterberg's tripartite unweighted identity recover \(\mathcal K(K_{m,m,m})=(9m-5)/2\), not the heterogeneous-priced unrestricted optimum, exact deletion threshold, or critical scaling law. Published-source searches and searches of existing mathematical claims did not locate the asserted weighted theorem or a stronger implication. The original 2012 Gervacio PDF could not be accessed through the available public route, although its abstract expressly concerns all unit resistors, so specialized previously unindexed results remain a residual risk. Search absence is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The result characterizes precisely when an entire class of direct inter-community connections becomes unnecessary, rather than giving an arbitrary table entry. It detects a finite-size exception at a natural price ratio and proves a nontrivial size-dependent \(1/m\) transition window. The exact rule can be used as an analytic benchmark for network design with three equally sized communities, while its transfer to real grids requires a different model.
+For m>=2, the objective is K=3m(tr(L+11^T/(3m))^{-1}-1); strict positive second derivative of trace inverse and injectivity of edge Laplacian entries give a unique unrestricted connected optimum. Budget saturation and permutations within parts and A<->C force the two conductance orbits x>0,y>=0. The full nonzero spectrum is m(x+y) with multiplicity 2(m-1), 2mx with multiplicity m-1, m(x+2y) and 3mx. This proves the displayed K(x,y), with t=y/x and r=P/Q. Differentiating F_m(t) yields F_m prime at zero=r(15m-7)/2-12m, giving deletion iff r>=24m/(15m-7), including the equality/tie case; uniqueness inherited from the original convex optimization. Taylor expansion at r=8/5+κ/m gives mt→max(0,7/6-25κ/16). Independent symbolic derivations and direct full Laplacian spectra matched in 20 instances over m=2,3,4,6. None establishes the infinite m limit without the proof.
 
-## Closest literature and limitations
-Ghosh–Boyd–Saberi (2008; 2006 conference version): general convexity and examples, not this graph-price law. Gervacio (2012): complete multipartite graphs with unit resistances. Johnson–Chertkov (2010): priced network design framework, but no three-community theorem. Kooij–Achterberg (2023): unweighted \(K_{m,m,m}\) Kirchhoff index used in a complexity proof. Mathematical uniqueness depends on independent conductance variables and positive linear prices; only balanced three-part graphs are classified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the exact priced balanced-tripartite deletion frontier and critical 1/m window; optimization convexity and unweighted Kirchhoff indices explicitly credited.
+
+## value
+
+PASS
+
+PASS: Exact edge-deletion frontier in a natural three-community resistance network under heterogeneous prices and unconstrained individual conductances, including nontrivial finite-size exceptional behavior and universal critical scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

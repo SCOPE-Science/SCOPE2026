@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:46:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2, the objective is K=3m(tr(L+11^T/(3m))^{-1}-1); strict positive second derivative of trace inverse and injectivity of edge Laplacian entries give a unique unrestricted connected optimum. Budget saturation and permutations within parts and A<->C force the two conductance orbits x>0,y>=0. The full nonzero spectrum is m(x+y) with multiplicity 2(m-1), 2mx with multiplicity m-1, m(x+2y) and 3mx. This proves the displayed K(x,y), with t=y/x and r=P/Q. Differentiating F_m(t) yields F_m prime at zero=r(15m-7)/2-12m, giving deletion iff r>=24m/(15m-7), including the equality/tie case; uniqueness inherited from the original convex optimization. Taylor expansion at r=8/5+κ/m gives mt→max(0,7/6-25κ/16). Independent symbolic derivations and direct full Laplacian spectra matched in 20 instances over m=2,3,4,6. None establishes the infinite m limit without the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The variable priced network is a special case of a broad effective-resistance convex design framework, which is credited.",
+          "No explicit 24m/(15m-7) or m^-1 crossover was found in full Ghosh-Boyd-Saberi text and inspected Johnson-Chertkov abstract/scope."
+        ],
+        "reasoning": "A generic convex optimizer does not establish the spectral two-orbit formula or the analytic support transition unless those calculations are actually supplied; they are proved in the package.",
+        "searches": [
+          "Ghosh Boyd Saberi 2008 section 5 analytic symmetries",
+          "Johnson Chertkov arxiv:1004.2285 design of power networks",
+          "Gervacio 2012 unit resistor multipartite"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh Boyd Saberi 2008 full text",
+        "Gervacio 2012 article abstract",
+        "Johnson Chertkov arxiv:1004.2285",
+        "Kooij Achterberg 2023 DOI:10.1016/j.orl.2023.10.002",
+        "Resultary q4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General trace-inverse convexity is a direct precursor but all-prices tripartite threshold and 1/m window not displayed.",
+          "Fixed unweighted K(K_m,m,m) is a special case of the new formula, not conversely sufficient to imply its minimax design."
+        ],
+        "reasoning": "The assessed threshold is an evaluated structured application with nontrivial spectral and critical-scaling calculations; partial prior overlap is credited.",
+        "searches": [
+          "Ghosh Boyd Saberi Minimizing Effective Resistance 2008 full text",
+          "Gervacio Resistance distance in complete n-partite graphs 2012",
+          "Johnson Chertkov 2010 power transmission design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh-Boyd-Saberi establish strict convex effective-resistance minimization for arbitrary weighted networks; examples include trees, wheels and barbell designs.",
+          "Gervacio treats complete multipartite effective resistance at fixed unit conductances."
+        ],
+        "reasoning": "The general convexity theorem ensures symmetry and uniqueness but does not explicitly evaluate the nonuniform priced tripartite threshold or its asymptotic size window.",
+        "searches": [
+          "complete tripartite network edge conductance pricing Kirchhoff index minimizing effective resistance edge deletion threshold",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2008 PDF",
+          "Gervacio 2012 Resistance distance in complete n-partite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kooij-Achterberg use the unweighted Kirchhoff value for balanced tripartite graphs in a complexity construction, not a priced optimization formula.",
+          "Resultary nearest hits concern other graph invariants such as symmetric-edge polytopes, not this resistance frontier."
+        ],
+        "reasoning": "Known unweighted exact tables evaluate a single x=y point, not a whole heterogeneous price parameter or the deleted-AC optimum; no matching priced table in actual searches.",
+        "searches": [
+          "Resultary semantic query: complete tripartite network edge conductance pricing Kirchhoff index minimizing effective resistance edge deletion threshold",
+          "Kooij Achterberg Minimizing the effective graph resistance by adding links is NP-hard 2023",
+          "Gervacio 2012 n-partite Kirchhoff index"
+        ]
+      },
+      "rationale": "Qualified PASS for the exact priced balanced-tripartite deletion frontier and critical 1/m window; optimization convexity and unweighted Kirchhoff indices explicitly credited.",
+      "residual_risks": [
+        "Earlier specialized priced complete-tripartite design might exist outside the searched texts.",
+        "Gervacio 2012 full PDF not inspected; do not assert whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_PRIOR",
+          "evidence": "General trace-inverse objective and convexity are known; inspected examples do not state priced balanced tripartite frontier.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full text, including convexity theorem and analytic examples (trees, wheels, barbell)",
+          "method": "Read full PDF text; inspected a sample rendered PDF page",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same objective and general convex program"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_DESIGN",
+          "evidence": "Uses power-grid numerical design and different sparsity treatment, not exact balanced tripartite support threshold in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.2285",
+          "material_read": "Accessible article abstract and design scope",
+          "method": "Inspected abstract/scope; no full-text noncoverage claim",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Electrical network conductance design and price sparsity"
+        },
+        {
+          "assessment": "UNWEIGHTED_PRECURSOR",
+          "evidence": "Unit-weight resistance calculations do not supply arbitrary priced conductance minimizer; full-text not inspected.",
+          "identifier_or_url": "https://journals.msuiit.edu.ph/tmjm/article/view/26",
+          "material_read": "Published abstract and unit-resistor formulas; original PDF not available",
+          "method": "Inspected bibliographic and abstract material, not whole document",
+          "title": "Resistance distance in complete n-partite graphs",
+          "trigger": "Same underlying topology and Kirchhoff index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact edge-deletion frontier in a natural three-community resistance network under heterogeneous prices and unconstrained individual conductances, including nontrivial finite-size exceptional behavior and universal critical scaling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal part sizes, prices shared in two edge orbits, nonnegative conductances, linear budget, total pairwise effective resistance.",
+    "Finite full-matrix checks do not prove uniqueness or critical asymptotics."
+  ],
+  "schema_version": 1
+}
