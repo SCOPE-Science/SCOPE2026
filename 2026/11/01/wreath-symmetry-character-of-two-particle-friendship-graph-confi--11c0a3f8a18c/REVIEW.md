@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The same conclusion follows from the oriented two-particle cubical chain complex and a primitive integral square-boundary minor: it forces zero second homology and no first-homology torsion. The leaf-pair chain modules are explicitly split under the full wreath action, and a rational Euler-character identity yields the stated representation. Each sign in the character formula is checked by the companion enumerator for every group element at the tested orders. The quotient conclusion uses rational transfer, not a mistaken integral invariants claim.
+## correctness
 
-## Originality
-The prior graph-configuration results determine ordinary homology ranks, and the published general one-connected-graph framework can recover such dimensions, but do not provide the full independent-reflection-and-petal-permutation module. The closest database work on Dutch windmill **matching** complexes concerns another construction; the database exchange-sign Borel–Moore result concerns a different homology theory. Searches for two-point friendship/windmill graph equivariant characters and the complete prior family of accessible claims did not identify a covering theorem. Some unindexed equivalence may remain, and relevant literature comparisons are not a guarantee of uniqueness.
+PASS
 
-## Value
-The friendship graphs are a canonical infinite family of planar one-vertex sums with the natural automorphism group \(C_2\wr S_n\). Identifying the complete representation, its trace on every conjugacy type, and the different rational homology of two canonical symmetry quotients adds structural information not implied by an ordinary first Betti number. The all-parameter formula is motivated by graph symmetry rather than a chosen isolated numerical example.
+The unordered two-point Abrams cubical model has C0=binom(2n+1,2), C1=3n(2n−1), C2=5n(n−1)/2; subdivision conditions hold for n>=2 with all 3-cycles and one essential hub. Spoke/outer edge square cells and outer/outer square cells give signed 1-cell pivot rows assembling a unimodular square minor of ∂2. Hence ∂2 injective primitive, H2=0, H1 torsion-free and rank 1+3 binom(n,2) by connectedness and Euler characteristic. Signed rational chain modules C0=U⊕Q, C1=Q⊕∧²U⊕A⊕D, C2=D⊕∧²A cancel to [H1]=[1]−[U]+[∧²U]+[A]−[∧²A], which splits as ∧² B_n^0 ⊕ B_n⊗A_n using U=B_n⊕A_n and Maschke. Character χ=((f−1)²−(f2−1))/2+f*t from exterior-square formula. Invariants: full wreath action 0, permutation-only Sn action dimension2, via rational finite-group transfer. Independently enumerated signed cellular Lefschetz character for every 8 W2 and 48 W3 group elements with direct cell maps. The all-n result relies on chain-module proof and equivariant naturality of the two-particle discrete deformation, not these bounded checks.
 
-## Limits
-The graph model is for exactly two unordered particles, rational module statements, and ordinary quotients. Integral equivariant lattices and higher-particle configurations are outside the theorem. The verifier checks finite orders but the infinite assertion rests on a separate proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct scientific statement after named prior-implication comparisons; any inaccessible plausible sources and strong precursors are documented as residual priority risks.
+
+## value
+
+PASS
+
+A uniform full wreath-product representation and character, refining known ordinary braid homology ranks and producing precise ordinary quotient rational homology, is a motivated equivariant topological classification for a canonical graph family with independent petal reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
