@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Proof bounds all periodic states in [-1,1]^2, excludes first-coordinate self-delay for least period dividing four, then reduces to a complete three-mode scalar cyclic recurrence. All 81 four-letter mode words are exhausted by exact rational parametric linear elimination (DDDD singular and inconsistent), with exactly 9 feasible mode words and 2 genuine primitive cycles above t=5/3, 1 at equality, 0 below. Standalone check_exact_phase.py was executed against actual package file; direct max-plus iterates and strict Jacobian products were checked. No derivative assertion at collision.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ohmori–Yamazaki 2024 studies X_next=Y+max(0,T X), Y_next=B-max(0,D X), not F_t.",
+        "published-finding corpus candidate 2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864 concerns zero-input homogeneous limit and extinction, distinct regime.",
+        "published-finding corpus candidate 2026/10/11/SCOPE-exponentially-thin-parameter-gaps-in-a-max-plus-reset-oscillator--532755a6950a concerns a separate reset oscillator and parameter R near 4.",
+        "Ohmori–Yamazaki 2022 arxiv:2204.00745 concerns a Selkov-derived seven-state map X_next=Y+max(0,2X),Y_next=B-max(0,2X), not the present period-four F_t."
+      ],
+      "reasoning": "Different recurrence equations do not contain the strict finite-step F_t branch system as a special case based on inspected formulas; none of the retrieved broad claims implies the exact 5/3 threshold and dual return spectra.",
+      "searches": [
+        "published-finding corpus: ultradiscrete feedback four-cycle border collision parameter 5/3 superstable saddle return multiplier four",
+        "published-finding corpus: phase lock ultradiscrete negative feedback max plus exact periodic orbit count parameter thresholds",
+        "arxiv:2402.06230"
+      ]
+    },
+    "checked_sources": [
+      "Yamazaki–Ohmori 2023 arxiv:2306.00733, DOI:10.1093/ptep/ptad099, full text",
+      "Ohmori–Yamazaki 2023 arxiv:2305.05908, full text",
+      "Ohmori–Yamazaki 2024 arxiv:2402.06230, full text",
+      "Gibo–Ito 2015 DOI:10.1016/j.jtbi.2015.04.024, abstract only",
+      "published-finding corpus published records for exact feedback/cycle/spectral alias searches",
+      "Ohmori–Yamazaki 2022 arxiv:2204.00745, full HTML and return-map analysis"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Originating numerical observation gives existence of an attracting 4-state orbit and a repelling 4-state orbit at selected values, without proving no other primitive period-four cycles anywhere on the plane.",
+        "The 2023 infinite-step limit is not the finite-step recurrence; the 2024 generalized oscillator has a structurally different update.",
+        "The 2015 precursor abstract is related but full text could not be inspected."
+      ],
+      "reasoning": "The principal claim is exactly N4=0,1,2 with sharp transition at T/B=5/3 and explicit strict return eigenvalues. Numerical or asymptotic cycle existence alone logically does not imply this global count or exact threshold. No inspected earlier statement dominates all those conclusions; 2015 remains a documented residual priority risk.",
+      "searches": [
+        "Yamazaki–Ohmori 2023 full text arxiv:2306.00733 and DOI:10.1093/ptep/ptad099",
+        "Ohmori–Yamazaki 2023 arxiv:2305.05908 full text",
+        "Ohmori–Yamazaki 2024 arxiv:2402.06230 full text",
+        "Gibo–Ito 2015 doi:10.1016/j.jtbi.2015.04.024 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yamazaki–Ohmori 2023 Eq.(8) is exactly F_t under x=X/B,y=Y/B,T=tB,m=2; preceding analysis documents numerical 4-state attractor and unstable cycle, not the exact global census.",
+        "Ohmori–Yamazaki 2023 describes the infinite-discretization-step limit X_next=Y, Y_next=B-max(0,mX), which omits the finite-step competition terms."
+      ],
+      "reasoning": "The exact same map is in the originating paper, so equivalence of definitions is acknowledged. Comparison of consequences separates qualitative/numerical locking from the present exact all-plane primitive-four-cycle count, sharp T/B threshold, and return derivatives. The simplified limiting map does not imply the finite-step threshold.",
+      "searches": [
+        "published-finding corpus: max-plus negative feedback Eq. 9 Yamazaki Ohmori finite time T B m=2 exact primitive period-four cycle onset 5B/3",
+        "published-finding corpus: piecewise linear map max(x-t,y) max(y+1-t,1-max(0,2x)) exact 4-cycle border collision",
+        "arxiv:2306.00733; arxiv:2305.05908"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact global period-four count or T/B=5/3 table identified in the source text inspected.",
+        "Related indexed results enumerate unrelated reset or border-collision maps, not a database of the period-four states of this exact map."
+      ],
+      "reasoning": "The source records numerical phase locking and cycle coexistence, which is not equivalent to a fully exhaustive parametric symbolic table. The 81-mode exact eliminations establish a new statement beyond sampled diagrams within inspected evidence.",
+      "searches": [
+        "published-finding corpus: max-plus negative feedback Eq. 9 Yamazaki Ohmori finite time T B m=2 exact primitive period-four cycle onset 5B/3",
+        "published-finding corpus: piecewise linear map max(x-t,y) max(y+1-t,1-max(0,2x)) exact 4-cycle border collision",
+        "Yamazaki–Ohmori 2023 Eq.(9), Figs. 5–6 and accompanying text"
+      ]
+    },
+    "rationale": "Within inspected primary texts and indexed findings, the original finite-step max-plus model and qualitative/numerical locking are known, but the exact all-plane parameter-sharp primitive-four-cycle count 0/1/2 at t=5/3 and explicit zero versus four strict return multipliers were not covered or implied. Exact model equivalence with the source is acknowledged. Gibo–Ito 2015 full text remains inaccessible and a genuine priority risk.",
+    "residual_risks": [
+      "Unindexed or unavailable older exact symbolic calculations may yield equivalent census",
+      "Gibo–Ito 2015 full text not inspected, despite relevant precursor",
+      "Classification is only for m=2 and 3/2<t<2; no assertion about global attractor or all higher periods"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects, earlier qualitative/numerical attracting and unstable cycles; no exact sharp 5/3 primitive-four census or strict return matrices identified",
+        "evidence": [
+          "Eq.(8) finite-step max-plus map; numerical parameter plots of cycles",
+          "Its separate smooth finite-discretization map has numerical saddle-node threshold and is not identical to the nonsmooth exact max-plus collision"
+        ],
+        "identifier_or_url": "arxiv:2306.00733; doi:10.1093/ptep/ptad099",
+        "material_read": "Full text: model equations, numerical phase diagrams and max-plus section, concluding discussion",
+        "method": "Viewed lawful arXiv full text and publisher full article, compared exact model formula and mathematical assertions",
+        "title": "Emergence of ultradiscrete states due to phase lock caused by saddle-node bifurcation in discrete limit cycles",
+        "trigger": "Same finite-step map in Eq.(8), directly competing potential prior theorem"
+      },
+      {
+        "assessment": "Infinite-step limiting recurrence, not the finite-step F_t global parameter theorem",
+        "evidence": [
+          "Limiting X_next=Y,Y_next=B-max(0,mX), removing competing affine update terms"
+        ],
+        "identifier_or_url": "arxiv:2305.05908",
+        "material_read": "Full primary preprint, focusing on max-plus limit equation and periodic orbit statements",
+        "method": "Compared map term by term and inspected cycle results",
+        "title": "Dynamical properties of discrete negative feedback models",
+        "trigger": "Earlier closely-related negative feedback model"
+      },
+      {
+        "assessment": "Different max-plus oscillator, no implication of present parameter window found",
+        "evidence": [
+          "X_next=Y+max(0,TX), Y_next=B-max(0,DX), unlike F_t"
+        ],
+        "identifier_or_url": "arxiv:2402.06230",
+        "material_read": "Primary full arXiv paper including update equations and cycles",
+        "method": "Compared dynamical map formulas and dependent parameters",
+        "title": "A Generalization for Ultradiscrete Limit Cycles in a Certain Type of Max-Plus Dynamical Systems",
+        "trigger": "Relevant later generalized max-plus cycle work"
+      },
+      {
+        "assessment": "Strong historical precursor; exact threshold and global period-four census cannot be definitively excluded from inaccessible full text",
+        "evidence": [
+          "2015 abstract identifies negative-feedback ultradiscretization and limit cycles",
+          "Yamazaki–Ohmori 2023 credits it for numerically obtained attracting four-state cycle"
+        ],
+        "identifier_or_url": "doi:10.1016/j.jtbi.2015.04.024",
+        "material_read": "Abstract and lawful citation/summary passages only; full text inaccessible",
+        "method": "Reviewed available abstract and original 2023 paper discussion of the 2015 study",
+        "title": "Discrete and ultradiscrete models for biological rhythms comprising a simple negative feedback loop",
+        "trigger": "Earlier original negative-feedback discretization and 4-state limit cycle"
+      },
+      {
+        "assessment": "Studies Selkov-derived map X_next=Y+max(0,2X),Y_next=B-max(0,2X) with two seven-state cycles, not the finite-step negative-feedback map or its period-four threshold",
+        "evidence": [
+          "arxiv:2204.00745, Secs.1–3: explicit map, period-seven cycles and Poincare map"
+        ],
+        "identifier_or_url": "arxiv:2204.00745",
+        "material_read": "Full arXiv HTML, introduction, precise defining map, section on return-map construction and periodic cycles",
+        "method": "Compared exact update equations and physical least periods against finite-step negative-feedback map",
+        "title": "Poincare Map Method for Limit Cycles in a Max-Plus Dynamical System",
+        "trigger": "Earlier same-author max-plus cycle/Poincare-map technique that might give stronger period-four classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71e6382f-a924-409d-929a-ae57e0270b74",
+  "value": {
+    "rationale": "Yamazaki–Ohmori introduce finite-step max-plus phase locking as a central mechanistic question and numerically observe attracting/unstable four-state states. The exact global existence threshold and exhaustive count throughout its natural first locking window explain a switching-border collision and differentiate its distinct unstable/superattracting sides; this is stronger than a routine renaming or arbitrary isolated value.",
+    "status": "PASS"
+  }
+}
