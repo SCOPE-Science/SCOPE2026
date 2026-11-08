@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The companion `verify.py` uses only the Python standard library. Run `python verify.py` in a directory containing that file. On the 13-vertex three-arm tree it reconstructs the original adjacency lists, enumerates all \(91\) geodesics of length at most \(8\), and checks the \((4,8)\)-clique condition for all vertex subsets using all \(4\)-subsets. The maximum clique size is \(9\). With the center color fixed to \(0\) by color-name permutation, all \(3^{12}=531441\) three-color assignments are checked against the three length-eight diameter paths and all fail. A concrete four-color assignment is checked against all geodesics and succeeds, so \(\chi_8^4=4\).
+## correctness
 
-Expected terminal output:
+PASS
 
-```
-THREE_COLOR_EXHAUSTIVE_FAIL_FIXED_CENTER 531441 assignments 3 diameter_paths
-FOUR_COLOR_PATH_EXHAUSTIVE_OK 91 geodesics omega 9
-VERIFY_OK
-```
+PASS: For even k>=4, odd q>=3, d=q(k-1)-1 even and L=d/2. A diameter path of length d holds d+1 vertices, producing a (k,d)-clique. Any larger set meets three arms; an extending k-subset with one vertex from each cannot be on any simple path, proving omega=d+1. A supposed q-coloring must have every palette color exactly k-1 on each of the 3 diameter paths because each has q(k-1) vertices. For any noncentral color, counts a_i of its occurrences on arm i satisfy a1+a2=a1+a3=a2+a3=k-1, forcing 2a_i=k-1, impossible as k even. Thus chi>=q+1. At k=4,q=3 a depth mod4 four-coloring realizes chi=4, omega=9 on S(4,4,4). This uses diameter paths, not unchecked finite enumeration. Independently checked parity and diameter counts for (k,q)=(4,3),(4,5),(6,3),(8,3).
 
-The infinite result for even \(k\ge4\) and odd \(q\ge3\) follows from the written argument, not the finite experiment. Its key noncomputational steps are: every larger-than-diameter clique meets three arms and fails the \(k\)-subpath property; any optimal \(q\)-palette coloring saturates the \(k-1\) occupancy ceiling on every diameter path; the three two-arm equations force an integer arm count equal to half an odd number. The general chromatic number is only bounded below, not claimed exact. Independent mathematical validation has not been carried out.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Cody–Detore arXiv:2601.04351v2 explicitly asks Question 6.7 whether every finite tree is (k,d)-perfect; Proposition 3.6 proves only (3,2) tree case. An infinite two-parameter family of negative witnesses is neither a corollary of their positive result nor a simple parameter renaming.
+
+## value
+
+PASS
+
+PASS: This supplies a substantive family of obstructions answering a published open structural question; a small exact 13-vertex example makes the sharp failure transparent. It establishes strict chromatic/clique gap, with parity rather than a numerical search as the mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
