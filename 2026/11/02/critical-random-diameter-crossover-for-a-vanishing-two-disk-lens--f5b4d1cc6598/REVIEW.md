@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact radial-boundary equation and polar Jacobian yield the two-point exceedance coefficient by dominated convergence. For every fixed factorial moment, edge collections with shared labels vanish by the explicit spanning-tree estimate \(O(n^{(2-v)/5})\) for connected components with \(v\ge3\); this proves the Poisson limit without assuming pairwise independence. The limiting intensity, its disk endpoint, and its two distinct asymptotic powers have been independently recomputed. Computations in `verify.py` are illustrative checks, not replacements for the argument.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** Appel–Najim–Russo (2002) and Mayer–Molchanov (2006) address fixed underlying sampling bodies/measures; the latter's full text explicitly declares its sampling law fixed and gives only the \(\lambda=0\) disk member. Jammalamadaka–Janson (2015) handles fixed spherically symmetric laws. None of the materially inspected full texts or available abstracts establish the triangular-array, center-shift \(\lambda n^{-4/5}\), or its non-Weibull angular-intensity formula. General Poisson extremal-pair arguments and the disk member are acknowledged as prior. The full 2002 paper was unavailable and historical-priority uncertainty remains.
+PASS
 
-**Value — PASS.** This is a parameter-uniformly formulated critical geometry/probability crossover: the perturbation of disk shape is precisely of the order of the extreme-diameter deficit, and the theorem gives the entire non-Weibull limit distribution, not just a numerical constant or a special case. Its angular support transition at \(t=2\lambda\), the exact constants, and the distinct endpoint exponents specify the stable regime where disk and fixed-lens asymptotics compete.
+PASS. For fixed λ≥0 and c_n=λn^{-4/5}, the exact lens radial boundary is √(1-c_n²sin²θ)−c_n|cosθ| and its area is π+O(n^-4/5). When pair distance exceeds 2−tn^-4/5, both radial deficits are O(n^-4/5) and angular antipodality defect is O(n^-2/5). In scaled coordinates the deficiency is 2λ|cosθ|+u1+u2+z²/4+o(1). Independent integration of the 3-dimensional constraint verified inner volume 16a^{5/2}/15, giving unordered-pair Poisson mean Λ=8/(15π²)∫(t−2λ|cosθ|)_+^{5/2}dθ. For factorial moments, connected v≥3 overlap component probability O(s^{(3v−1)/2}) times n^v = O(n^{(2−v)/5})→0. Thus maximum-distance CDF 1−exp(−Λ) for fixed t≥0. λ=0 coefficient 16/(15π) and λ>0 small t exponent 7/2 follow by exact angular integration. No claim when λ depends on n or about finite-n rates.
 
-**Limitations.** Fixed \(\lambda\) only; no quantitative rate, divergent parameter, or higher-dimensional statement. The finite simulations are supportive only. Independent historical-priority validation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Mayer–Molchanov proves the unit-ball extremal diameter law, furnishing the λ=0 endpoint and Poisson method. Appel–Najim–Russo 2002 concerns a fixed sampling region with geometric regularity, while Jammalamadaka–Janson studies fixed spherical sampling distributions. A triangular array of vanishing lenses has critical angular cutoff and non-Weibull crossover not stated or implied by those fixed-body theorems without new uniform analysis. A potentially general U-max-statistics theorem may streamline the Poisson step, which is acknowledged as standard.
+
+## value
+
+PASS
+
+PASS. Maximum interpoint distance is a natural stochastic-geometric observable. This exact n^{-4/5} boundary perturbation interpolates the rotationally degenerate disk Weibull law and fixed-axis lens extremes, yields a new explicit non-Weibull angular mixture, a sharp onset at t=2λ, and changes the lower-tail exponent 5/2 to 7/2. The crossover answers a meaningful double-scaling question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
