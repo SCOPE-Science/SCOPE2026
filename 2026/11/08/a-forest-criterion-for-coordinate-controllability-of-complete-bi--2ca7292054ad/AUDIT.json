@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact symmetric-Laplacian eigenvector equations (1), discriminant and difference-factor checks exhaust all eigenvalues. At eigenvalue two, invisible modes are the cycle space of the unactuated inserted-edge subgraph, with p=q=2 handled separately. For balanced p=q, an original-only eigenvector forces an original actuator. At every spanning-tree complement, contrast eigenvectors are detected: unbalanced, two unobserved same-side labels give a forbidden K2,2 in the tree; balanced, the controlled-edge components have constrained sizes and at most one invisible contrast, killed by any original actuator. Every forest extends to a tree. Counts follow via matrix-tree theorem; verify.py replay passed 734 supplementary rank checks. No numerical experiment substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. (2013) establishes general geometric multiplicity and driver selection principles.",
+        "Dai (2022), DOI 10.1049/cth2.12385, develops graphical tests for leader selection on other families.",
+        "Mousavi et al. (arXiv:1802.03599) study P4-free cographs."
+      ],
+      "reasoning": "A general PBH criterion is a necessary and sufficient test when applied to a given system, but none of these inspected sources evaluates the test for every coordinate actuator set on the subdivision K_{p,q}. The network contains induced P4 and is not a cograph. The new result is a specialized, proved evaluation of a known general criterion, not a new universal controllability theorem.",
+      "searches": [
+        "spanning tree complement controllability incidence graph complete bipartite  p^{q-1} q^{p-1} balanced exception",
+        "Rook graph K_m Cartesian K_n leader controllability spanning trees exceptional balanced double star coordinate actuators",
+        "subdivision graph minimum leader nodes controllability Laplacian PBH subdivision complete bipartite graph",
+        "subdivision networks controllability actuator eigenvectors Laplacian subdivision edge vertex 2011 2015"
+      ]
+    },
+    "checked_sources": [
+      "Yuan et al., DOI 10.1038/ncomms3447, full text",
+      "Mousavi, Haeri, Mesbahi, arXiv:1802.03599, full author-shared text",
+      "Dai, DOI 10.1049/cth2.12385, full text",
+      "Zhang, Camlibel, Cao, DOI 10.1109/CDC.2011.6160658, abstract only",
+      "published-finding corpus semantic search across incidence/subdivision/PBH/forest and rook graph aliases",
+      "Own current-week ledger p0001_g000002 and historical claims including earlier rook graph and affine-plane incidence graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own earlier record f58b654d-20dc-4140-873e-ee683745d843 concerns the rook graph with pq coordinate vertices and a cycle-space/forest placement argument.",
+        "The current H_{p,q} has pq inserted and p+q original coordinates, with the balanced original-only mode (1_p,-1_p,0), which has no state counterpart in the rook graph.",
+        "Classical complete-bipartite spanning-tree count p^(q-1) q^(p-1) is prior."
+      ],
+      "reasoning": "The shared cycle-space structure covers the simple edge-complement lower bound and the spanning-tree count, so those pieces are not assigned novelty. However the rook graph theorem does not imply the present PBH iff on a nonisomorphic (p+q+pq)-vertex graph or that any original vertex resolves balanced contrast eigenvectors. The new proof derives both. The cited general controllability and cograph results likewise do not logically imply the explicit placement and enumeration classification without additional work.",
+      "searches": [
+        "minimum Laplacian leader controllability coordinate actuator sets subdivision graphs of complete bipartite graphs spectral multiplicity incidence incidence matrix",
+        "Rook graph K_m Cartesian K_n leader controllability spanning trees exceptional balanced double star coordinate actuators",
+        "Laplacian control edge subdivision K_{p,q} original vs subdivision vertices forest characterization",
+        "Rook graph K_m Cartesian K_n leader controllability spanning trees exceptional balanced double star coordinate actuators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new criterion is equivalent to absence of an invisible eigenvector for the Laplacian of the once-subdivision; the cycle part is the real cycle-space/forest criterion.",
+        "Yuan et al., DOI 10.1038/ncomms3447, gives the general PBH/multiplicity framework without this geometry-specific coordinate-placement iff."
+      ],
+      "reasoning": "Explicitly compared subdivision, incidence, edge-state and PBH formulations. Cycle-space equivalence is routine prior knowledge and not claimed as new. In balanced cases a separate original-only eigenvector creates the additional condition; this does not follow from counting cycles alone.",
+      "searches": [
+        "minimum Laplacian leader controllability coordinate actuator sets subdivision graphs of complete bipartite graphs spectral multiplicity incidence incidence matrix",
+        "subdivision graph K_{p,q} subdivision incidence graph edge-vertex leader actuator controllability if and only if complement spanning tree spanning tree enumeration",
+        "minimum coordinate inputs subdivision of complete bipartite graph Laplacian eigenvalue two cycle space equal bipartition conductor",
+        "\"subdivision graphs\" \"controllability\" \"Laplacian\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest hits 2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680 (different basis-exchange graph), 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02 (different polytope graph).",
+        "Own prior rook-graph result f58b654d-20dc-4140-873e-ee683745d843 concerns K_p square K_q, not the once-subdivided K_{p,q}."
+      ],
+      "reasoning": "Checked identical graph names, edge-incidence aliases, related spectral table and labeled spanning-tree counts. A table giving tau(Kpq) is known and not novel; it does not establish which node sets actuate the much larger subdivision network. No exact table establishing the additional balanced original-actuator rule was found.",
+      "searches": [
+        "subdivision graph K_{p,q} subdivision incidence graph edge-vertex leader actuator controllability if and only if complement spanning tree spanning tree enumeration",
+        "minimum coordinate actuators controlling rook-graph Laplacian unactuated cells spanning tree exact count",
+        "\"subdivision of complete bipartite\" \"controllability\""
+      ]
+    },
+    "rationale": "After statement-level comparisons with accessible primary literature, published-finding corpus semantic queries, and own historic claims, no inspected theorem covers the complete PBH forest-and-original-actuator criterion on the once-subdivided K_{p,q}. Priority remains qualified by inaccessible specialist material, so this is not a uniqueness or independent priority certificate.",
+    "residual_risks": [
+      "The 2011 Zhang–Camlibel–Cao specialist paper was not accessible in full, so no claim that the complete paper lacks the theorem.",
+      "Unknown equivalent incidence-network controllability statements in other mathematics/control literature may exist.",
+      "Priority judgment is based on source statements actually inspected, not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General PBH and multiplicity theory; does not compute coordinate PBH placement for the subdivision K_{p,q}.",
+        "evidence": [
+          "DOI 10.1038/ncomms3447, Nature Communications, 12 September 2013",
+          "General eigenvalue multiplicity vs specific vertex-selection restrictions"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+        "material_read": "Accessible full HTML: abstract, linear-dynamics/PBH and eigenvalue-multiplicity discussion, node-driver placement discussion, main results",
+        "method": "Full-text page reading and comparison of assumptions and implications",
+        "title": "Exact controllability of complex networks",
+        "trigger": "General minimum-driver-node and eigenspace-multiplicity theorem for arbitrary networks"
+      },
+      {
+        "assessment": "Cograph family is P4-free; once-subdivided K_{p,q} has induced P4, so special theorem is inapplicable.",
+        "evidence": [
+          "arXiv:1802.03599; studied cographs via graph decomposition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.03599",
+        "material_read": "Author-shared full research text accessible with sections on P4-free cographs, joins and unions, spectral tests",
+        "method": "Full document text inspection with graph-family applicability check",
+        "title": "Laplacian Dynamics on Cographs: Controllability Analysis Through Joins and Unions",
+        "trigger": "Potentially broader graph-family controllability characterization"
+      },
+      {
+        "assessment": "General leader-selection tests and scale-free/Cayley-tree constructions; no complete subdivision K_{p,q} placement characterization found.",
+        "evidence": [
+          "First online 29 October 2022; IET Control Theory & Applications 17 (2023)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Full open-access HTML article, including definitions, test criteria, graph-family examples and conclusion",
+        "method": "Scientific statement/assumptions and graph class comparison",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "Closest general node-local leader placement classification"
+      },
+      {
+        "assessment": "Unresolved priority risk; accessible abstract does not establish this specific all-subsets theorem.",
+        "evidence": [
+          "CDC/ECC 2011, Zhang, Camlibel, Cao"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2011.6160658",
+        "material_read": "Publisher/conference abstract and bibliographic metadata; full PDF access was denied",
+        "method": "Abstract-only applicability comparison; explicitly no full-text NOT_COVERING inference",
+        "title": "Controllability of Diffusively-Coupled Multi-Agent Systems with General and Distance Regular Coupling Topologies",
+        "trigger": "Potentially broad incidence-style control placement criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ca72920-54ad-4dc6-bf65-8967b103dde7",
+  "value": {
+    "rationale": "The objective is a structural, network-control design problem with physically restricted coordinate actuators. The result classifies all admissible placements and exact minimum size for every rectangular complete-bipartite subdivision. The balanced-versus-unbalanced resonance forces an additional original actuator, which cannot be inferred from generic maximum multiplicity alone. Counting p^(q-1) q^(p-1) tree-complement placements (and balanced factor 2p) quantifies feasible equally sparse designs. It is a natural complete classification, not an arbitrary finite example or routine parameter substitution.",
+    "status": "PASS"
+  }
+}
