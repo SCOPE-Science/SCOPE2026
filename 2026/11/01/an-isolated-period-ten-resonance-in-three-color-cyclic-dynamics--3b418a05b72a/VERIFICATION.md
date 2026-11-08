@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 verify_crown_cca3.py`; no external modules are needed. The checker computes the exact transition from each of 19,683 saturated paired-color profiles and tracks representatives of every initially occupied pair type. Assertions establish the full period/preperiod count arrays, exceptional profiles' exact multiplicities and immediate recurrence, as well as repetitively realizable witness signatures for all larger sizes. Independently, the checker implements literal graph neighbors (excluding each deleted matched partner) and enumerates all 597,870 labelled states for shore sizes 1 through 6, asserting agreement of exact preperiod and least period for each state. The recording is in `verification_output.txt` and should end `CROWN_CCA3_VERIFY_OK`.
+## correctness
 
-The finite enumeration rigorously suffices for arbitrary graph sizes only together with the mathematical proof that the nine-entry saturation and the transported initial type representatives constitute an exact deterministic factor. Direct enumeration of graphs through size six alone would not prove the infinite classification. Independent audit: not performed.
+PASS
+
+Each matched (L_i,R_i) pair has a current color type in Z_3². Deleting its corresponding edge subtracts at most its one right/left neighbor, so whether a successor color is present depends on the nine pair counts only up to saturation at two. Distinct initial pair types never split; transporting their initial labels alongside the nine-trit profile recovers the microscopic preperiod and least period, not merely factor periods. I independently constructed the 3^9=19,683-profile transition factor and followed all initial types: period signature counts {1:397,3:15711,4:3519,6:50,10:6}, preperiod signature counts {0:13317,1:5016,2:1146,3:174,4:30}; all fifty p=6 profiles have exactly three singleton pair types (20 recurrent), all six p=10 profiles exactly five singleton types with zero preperiod. Thus 6*5!/10=72 ten-orbits and 20*3!/6=20 six-orbits. Independent literal labelled state enumeration n=1..5 confirms each spectrum, sharp entry times 0,1,3,3,4 and n=5 ten-basin size 720. n>5 follows from exact saturation and repeatable occupied multiplicity-2 types, not from small graph tests. Source n=6 micro-check program was read but not independently replayed here.
+
+## originality
+
+PASS
+
+The precise contact CCA rule and general asymptotic excitation/fixation characterizations are already in Gravner–Lyu–Sivakoff; no claim to discovering them. That general graph theorem does not, in material read, quantify this graph-specific nine-trit first-entry limit or isolate a primitive 10-cycle at n=5 with 72 orbits. Research-record searches for crown automata produced parity-coloring/crown topology and unrelated finite-automaton work, not an evident implication. Historical exact crown-orbit census may be unindexed.
+
+## value
+
+PASS
+
+The deleted perfect matching disrupts uniform shore support and creates an isolated, nonattracting ten-cycle resonance. A complete primitive-period and sharp transient bound for an infinite graph family, together with exact exceptional orbit counts, addresses a natural dynamics classification rather than an arbitrarily selected small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

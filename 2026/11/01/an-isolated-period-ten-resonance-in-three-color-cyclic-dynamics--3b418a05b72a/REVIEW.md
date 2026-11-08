@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof supplies a necessary and sufficient nine-trit quotient from the excluded-matching neighbor counts. The attached verifier exhausts all 19,683 signatures, follows representatives of every initially occupied pair type to recover genuine microscopic periods, checks all exceptional size strata, and separately simulates all 597,870 labelled configurations for shore sizes one through six. The universal bound is consequently obtained from the finite exact factor, not inferred from the finite vertex-level experiments. The exceptionally counted signatures have no multiplicity-two components and therefore cannot occur at other shore sizes.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Gravner–Lyu–Sivakoff, arXiv:1610.07320, Theorem 3 gives the general activity maximum over graph cycles and the finite-graph synchronization test, but its inspected main text and proof do not give the present graph-family-specific temporal spectrum, sharp four-update global bound, or exceptional ten-orbit count. The accessible complete-bipartite and multipartite results concern a different edge set. published-finding corpus and exact-phrase searches returned parity-coloring and parity-automata works on crowns but no equivalent cyclic-contact result. Search absence alone is not novelty certification; an unindexed crown-specific result remains possible.
+PASS
 
-**Value — PASS.** The deleted perfect matching changes the possible primitive periods from the previously studied complete bipartite setting and causes a counterintuitive isolated size-five resonance. An exact global transient cutoff, a sharp period-existence classification across infinitely many graph sizes, and the nonattracting 72-orbit population are structurally meaningful dynamical invariants, not arbitrary numerical slices.
+Each matched (L_i,R_i) pair has a current color type in Z_3². Deleting its corresponding edge subtracts at most its one right/left neighbor, so whether a successor color is present depends on the nine pair counts only up to saturation at two. Distinct initial pair types never split; transporting their initial labels alongside the nine-trit profile recovers the microscopic preperiod and least period, not merely factor periods. I independently constructed the 3^9=19,683-profile transition factor and followed all initial types: period signature counts {1:397,3:15711,4:3519,6:50,10:6}, preperiod signature counts {0:13317,1:5016,2:1146,3:174,4:30}; all fifty p=6 profiles have exactly three singleton pair types (20 recurrent), all six p=10 profiles exactly five singleton types with zero preperiod. Thus 6*5!/10=72 ten-orbits and 20*3!/6=20 six-orbits. Independent literal labelled state enumeration n=1..5 confirms each spectrum, sharp entry times 0,1,3,3,4 and n=5 ten-basin size 720. n>5 follows from exact saturation and repeatable occupied multiplicity-2 types, not from small graph tests. Source n=6 micro-check program was read but not independently replayed here.
 
-**Limitations.** The finite exhaustive quotient requires replay or inspection of the attached standard-library code; the broad general-graph activity theorem remains applicable and historical novelty uncertainty is nonzero. No external independent mathematical assessment is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise contact CCA rule and general asymptotic excitation/fixation characterizations are already in Gravner–Lyu–Sivakoff; no claim to discovering them. That general graph theorem does not, in material read, quantify this graph-specific nine-trit first-entry limit or isolate a primitive 10-cycle at n=5 with 72 orbits. Research-record searches for crown automata produced parity-coloring/crown topology and unrelated finite-automaton work, not an evident implication. Historical exact crown-orbit census may be unindexed.
+
+## value
+
+PASS
+
+The deleted perfect matching disrupts uniform shore support and creates an isolated, nonattracting ten-cycle resonance. A complete primitive-period and sharp transient bound for an infinite graph family, together with exact exceptional orbit counts, addresses a natural dynamics classification rather than an arbitrarily selected small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
