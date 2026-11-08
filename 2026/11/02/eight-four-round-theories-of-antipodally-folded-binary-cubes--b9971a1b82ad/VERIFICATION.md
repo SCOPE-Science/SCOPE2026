@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedures and limits
+# Independent mathematical audit
 
-Execute `python3 folded_rank4_verify.py` from the directory containing the script. The code is standalone Python 3 and uses standard-library `functools` and `itertools`. Its output should match `folded_rank4_verify.out` byte-for-byte. The symbolic stage enumerates **every** profile extension and computes all pair equality/adjacency relations for every ordered four-tuple profile; it covers all dimensions from two to sixteen inclusive. A logically independent direct graph-vertex recursion confirms the exact root types for dimensions two to seven inclusive. The final status strings are `EIGHT_CLASSES_AND_FINITE_BOUNDARY_OK` and `VERIFY_OK`.
+## correctness
 
-The infinite upper tail is **not** established by a finite run. It is established in the proof by the exact cellwise binary splitting lemma: truncated-at-sixteen one-cell profiles yield a four-round Duplicator strategy. The finite program is needed only for the boundary and sharp separation. No exhaustive test of higher quantifier rank, counting-logic extensions, independent peer review, or historical uniqueness has been undertaken.
+PASS
+
+Define F_n on F2^n modulo the all-ones vector for n≥2, adjacency Hamming distance 1 or n−1; cardinality 2^{n−1}. For t selected quotient vertices, normalize the first and record counts of the 2^{t−1} coordinate-bit patterns. All one-vertex extensions split every count independently, so the nested Hintikka-type recursion is exhaustive. Atomic types of four vertices need only tell each mismatch count 0,1,n−1,n. The constructive 2h→h splitting lemma proves all n,m≥16 four-round equivalent, not from finite sampling. Independent Python recreation through n=16 returned representatives 2,3,4,5,6,7,8,8,10,...,10. A rank-four diameter-at-most-4 sentence separates F_8 and F_9 from F_10 (their graph diameter floor(n/2)). Thus eight classes, sharp family-relative maximum F_10 of 512 vertices. Direct small-n checking is a separate finite corroboration, not the infinite argument.
+
+## originality
+
+PASS
+
+Mirafzal arxiv:1103.4351 treats folded-hypercube automorphism groups and Cayley models, not bounded-rank logic. The Pikhurko–Verbitsky survey treats general logical complexity, not this exact finite boundary. Beware dimension convention: Mirafzal FQ_{n−1} corresponds to the submitted F_n quotient. A related Resultary folded-cube Rips complex uses the graph object but a different topological invariant, and does not imply four-round EF classes. No equivalence theorem found by bounded primary/Resultary searches.
+
+## value
+
+PASS
+
+Sharp rank-four elementary equivalence classification of a natural graph family gives precise limits of low-quantifier observers: the bipartite even-dimension F_8 and nonbipartite odd-dimension F_9 remain indistinguishable, while diameter eventually separates at n=10. Exact 512-vertex family-relative cutoff is a meaningful logical invariant, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

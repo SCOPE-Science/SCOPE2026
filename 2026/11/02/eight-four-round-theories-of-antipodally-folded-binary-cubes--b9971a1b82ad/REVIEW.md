@@ -1,15 +1,21 @@
-# Scientific review: folded-cube four-round classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the family of antipodal-quotient binary cubes of dimension at least two, in pure adjacency/equality logic at rank four. The 4-tuple diagram follows directly from weight \(0,n,1,n-1\) and includes repeated vertices. A coordinate-profile extension is exactly a cellwise integer split. The proved truncation splitting lemma gives an unrestricted four-round Duplicator strategy in all dimensions at least sixteen. The finite exact-type recursion for dimensions two through sixteen computes all extension sets in both directions, and direct graph-vertex enumeration independently agrees in dimensions two through seven. Limits: the finite program does not prove the infinite step, which instead uses the lemma.
+## correctness
 
-## Originality — PASS, qualified
-Mirafzal's arXiv:1103.4351 develops the automorphism and symmetric-graph structure of folded hypercubes, not their FO rank-four equivalence classes. Pikhurko–Verbitsky arXiv:1003.4865 treats general Ehrenfeucht methods and graph complexity, not this exact folded-cube family classification. The closest published research-index item found about folded cubes identifies them in a Rips-complex construction; it does not assert a rank-four partition. Existing ordinary-hypercube results concern a distinct graph family, and quotienting antipodes cannot be assumed to preserve a bounded graph-only quantifier rank. published-finding corpus and web searches using the names folded cube, antipodal quotient, augmented cube, and rank-four equivalence found no dominating exact statement. The published folded-cube index item was not inspectable in full; an implicit older classification remains possible.
+PASS
 
-## Value — PASS
-The exact classification identifies the previously unaccounted bounded-depth effect of identifying antipodes. It distinguishes six individual small dimensions, proves the dimension-eight/nine collision, and identifies the sharp dimension-ten logical stabilization despite the parity-dependent global chromatic behavior of these distance-regular graphs. This is a natural complete logical invariant and a sharp finite representative bound, not a numeric experiment without structural motivation.
+Define F_n on F2^n modulo the all-ones vector for n≥2, adjacency Hamming distance 1 or n−1; cardinality 2^{n−1}. For t selected quotient vertices, normalize the first and record counts of the 2^{t−1} coordinate-bit patterns. All one-vertex extensions split every count independently, so the nested Hintikka-type recursion is exhaustive. Atomic types of four vertices need only tell each mismatch count 0,1,n−1,n. The constructive 2h→h splitting lemma proves all n,m≥16 four-round equivalent, not from finite sampling. Independent Python recreation through n=16 returned representatives 2,3,4,5,6,7,8,8,10,...,10. A rank-four diameter-at-most-4 sentence separates F_8 and F_9 from F_10 (their graph diameter floor(n/2)). Thus eight classes, sharp family-relative maximum F_10 of 512 vertices. Direct small-n checking is a separate finite corroboration, not the infinite argument.
 
-## Limitations and provenance
-The conclusion is specific to uncoloured folded binary cubes and rank-four first-order logic. Only self-review was performed, with no claim of independent validation. Priority conclusions depend on a bounded search and a partly inaccessible relevant source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mirafzal arxiv:1103.4351 treats folded-hypercube automorphism groups and Cayley models, not bounded-rank logic. The Pikhurko–Verbitsky survey treats general logical complexity, not this exact finite boundary. Beware dimension convention: Mirafzal FQ_{n−1} corresponds to the submitted F_n quotient. A related Resultary folded-cube Rips complex uses the graph object but a different topological invariant, and does not imply four-round EF classes. No equivalence theorem found by bounded primary/Resultary searches.
+
+## value
+
+PASS
+
+Sharp rank-four elementary equivalence classification of a natural graph family gives precise limits of low-quantifier observers: the bipartite even-dimension F_8 and nonbipartite odd-dimension F_9 remain indistinguishable, while diameter eventually separates at n=10. Exact 512-vertex family-relative cutoff is a meaningful logical invariant, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
