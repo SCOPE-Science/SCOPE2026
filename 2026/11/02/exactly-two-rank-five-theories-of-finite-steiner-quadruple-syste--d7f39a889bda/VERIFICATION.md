@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted directory using Python 3 and the standard library. It constructs a Boolean affine \(\operatorname{SQS}(8)\), an explicit \(\operatorname{SQS}(10)\), and a Boolean affine \(\operatorname{SQS}(16)\). Each block is a four-element subset of the points. The program checks unique completion of every triple, distinctness of the four completion points of a nonblock four-set, and then computes exact equality-plus-quaternary-relation atomic extension signatures recursively through rank five. The expected terminal line is `VERIFY_OK`, and `verification_output.txt` contains the actual recorded run.
+## correctness
 
-The computation proves the finite signatures of these three structures only. The separate mathematical proof in RESULT.md gives the uniform extension argument for every admissible finite order \(v\ge8\) and uses Hanani existence to attain the sharp representative size ten. No mechanically checked proof of the general theorem and no external independent validation are claimed.
+PASS
+
+For any chosen nonblock four-set A, each of its four 3-subsets has a different completion outside A: otherwise two distinct blocks would share a triple, contradicting the Steiner axiom. There are exactly v-8 unused fifth-move generic points. For a block four-set all unused points generic; after a three-set there is one triple-completion and other generic points. These atomic extension spectra coincide across all SQS through four moves, and at five moves across v>=10. A five-quantifier sentence selecting a nonblock 4-set plus a fifth point outside all four completion types separates order 8 from order >=10; Hanani orders 8 and 10 exist. No greater-rank or block-sorted language theorem is claimed. Independently constructed Boolean SQS(8), SQS(16), verified each triple once and all nonblock extension counts (0 and 8).
+
+## originality
+
+PASS
+
+The 2006 enumeration of 1,054,163 nonisomorphic SQS(16), 2006/2007 colorings, and 2012 overlap cycles concern completely different invariants, not first-order point-only rank-five theories. The EF description follows logically from the Steiner triple-completion axiom but the exact two-class sharp rank boundary was not identified as already published. Qualified best-of-knowledge; unindexed model-theory treatments remain a risk.
+
+## value
+
+PASS
+
+First-order finite-rank theory is a natural coarse invariant of a highly diverse design class; the exact depth-four/depth-five boundary and smallest representatives make a complete nontrivial logical classification, not an arbitrary finite subcase. It quantifies how little quantifier rank five detects despite enormous isomorphism multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

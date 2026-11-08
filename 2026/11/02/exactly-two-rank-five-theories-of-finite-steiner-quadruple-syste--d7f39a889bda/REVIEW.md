@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is in the point-only language with equality and a symmetric, irreflexive quaternary block relation. With up to four points selected, atomic one-point extensions are precisely equality, triple completion, or generic points. Distinct triples in a four-point nonblock have four pairwise different completions outside the four-set, leaving exactly \(v-8\) generic candidates. The resulting five-round back-and-forth handles all point selections, repeated variables, and admissible orders; an explicit rank-five five-point existential sentence separates order eight from larger orders. Both minimum representatives are exhibited and checked. Exact first-order type computation independently agrees for orders eight, ten and sixteen. Risks: the mathematical proof is not mechanically formalized, and the verifier alone does not prove the infinite claim.
+PASS
 
-## Originality — PASS (qualified)
+For any chosen nonblock four-set A, each of its four 3-subsets has a different completion outside A: otherwise two distinct blocks would share a triple, contradicting the Steiner axiom. There are exactly v-8 unused fifth-move generic points. For a block four-set all unused points generic; after a three-set there is one triple-completion and other generic points. These atomic extension spectra coincide across all SQS through four moves, and at five moves across v>=10. A five-quantifier sentence selecting a nonblock 4-set plus a fifth point outside all four completion types separates order 8 from order >=10; Hanani orders 8 and 10 exist. No greater-rank or block-sorted language theorem is claimed. Independently constructed Boolean SQS(8), SQS(16), verified each triple once and all nonblock extension counts (0 and 8).
 
-Searches targeted the same block relation, Steiner quadruple systems, five-round Ehrenfeucht–Fraïssé equivalence, unique triple completions, and stronger design classifications. The closest literature treats colouring spectra (Linek), overlap cycles (Horan–Hurlbert), and isomorphism enumeration at sixteen points (Kaski–Östergård–Pottonen). None inspected theorem states or implies the exact two rank-five first-order classes. The SQS result is distinct from first-order classifications for Steiner triple systems (different block arity and uniqueness axiom) and general finite triple-hypergraph spectrum theorems. Risks: unindexed historical treatments of logical equivalence remain possible, and Linek's publisher full text was not available beyond its abstract and metadata.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete classification, not a narrow chosen slice: all admissible nontrivial Steiner quadruple systems collapse into just two bounded-depth logical classes despite the more than one million ordinary isomorphism types already at order sixteen. The four-round universal agreement and the sharp five-round eight-versus-ten threshold identify the exact first visibility of unused triple completions. The theorem supplies a compact structural reason and a sharp minimal representative bound, useful as a baseline for rank-six behavior.
+The 2006 enumeration of 1,054,163 nonisomorphic SQS(16), 2006/2007 colorings, and 2012 overlap cycles concern completely different invariants, not first-order point-only rank-five theories. The EF description follows logically from the Steiner triple-completion axiom but the exact two-class sharp rank boundary was not identified as already published. Qualified best-of-knowledge; unindexed model-theory treatments remain a risk.
 
-## Scientific limits
+## value
 
-The claim makes no assertion at rank six, under incidence structures with separately named blocks, or about exhaustive novelty. Finite computation verifies representatives but the universal implication relies on the separate mathematical proof. Independent assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First-order finite-rank theory is a natural coarse invariant of a highly diverse design class; the exact depth-four/depth-five boundary and smallest representatives make a complete nontrivial logical classification, not an arbitrary finite subcase. It quantifies how little quantifier rank five detects despite enormous isomorphism multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
