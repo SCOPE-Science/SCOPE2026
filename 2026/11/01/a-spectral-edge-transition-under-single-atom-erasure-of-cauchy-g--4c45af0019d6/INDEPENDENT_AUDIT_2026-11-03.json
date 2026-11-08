@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:55:21Z",
+  "axes": {
+    "correctness": {
+      "checked_boundary_cases": [
+        "q=2: no deep-pole unchanged-bound regime deduced because limiting E=1; no monotone-transition uniqueness asserted.",
+        "a>0, one erased atom and unnormalized Cauchy window; q fixed for limits.",
+        "Improper logarithmic singularities integrable; test E<=1 includes edge equality."
+      ],
+      "proof_sources": [
+        "Pinned RESULT.md Git blob 7a25276dee5345e6f3b0959ea25baee12e072653, Steps 1–5",
+        "Pinned verify_erasure.py blob 22e4b10da70ed6db8edf272590a8dc8fd42babfa; independent recomputation only supplementary",
+        "Cauchy-frame operator arXiv:2212.08915 (relevant mathematical sections)"
+      ],
+      "rationale": "From actual RESULT.md, the Cauchy Zak magnitude and q-shifted Poisson-kernel root-of-unity identity diagonalize the original frame operator as 4pi² r^{2(1-omega)}K_q/D_q. The exact lower A and upper B follow from essential extrema. The one-atom negative rank-one perturbation has leverage Phi(0)=integral W_q=1/q<1, so every deletion retains a strictly positive lower bound. Phi(lambda) is strictly increasing below A, its finite improper logarithmic edge limit is E_q(a), and the Birman–Schwinger inequality gives either no below-edge eigenvalue or exactly one simple root. Compact perturbation preserves essential spectrum and sharp upper B. Near the q angular edge zeros, logarithmic scaling u=sqrt(tau)*v gives the claimed coefficient from the cosecant-square identity; the deep-pole averaged log yields 1/2+1/q. Independent midpoint quadrature at q=3,4 confirms both strict regimes and exact leverage to displayed accuracy. This is not a proof by quadrature.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belov–Kulikov–Lyubarskii operator formula and rational-function Gabor theory provide the undeleted diagonalization.",
+          "Faulhuber–Shafkulovska arXiv:2204.02917 obtains sharp unperturbed bounds for one-sided exponential windows.",
+          "Balan–Casazza–Heil–Landau 2003 excess proves qualitative removability."
+        ],
+        "reasoning": "Baseline multiplier and A,B are covered prior material. Neither the compared primary theorem statements nor abstract generic excess supplies the Cauchy-specific post-erasure E_q edge integral and shallow/deep limits.",
+        "searches": [
+          "arxiv:2212.08915 Cauchy Gabor frame operator",
+          "arxiv:2204.02917 optimized original Gabor frame bounds",
+          "Gabor singleton atom erasure frame bound Cauchy kernel"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2212.08915 relevant full-text Cauchy operator material",
+        "arxiv:2204.02917 frame-bound results",
+        "doi:10.1007/s00222-022-01151-8 rational functions background",
+        "Resultary 17f2ca4bfacb full RESULT.md",
+        "Balan–Casazza–Heil–Landau DOI 10.1016/S1063-5203(03)00006-X abstract-level"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior rank-one lemma gives a necessary-and-sufficient operator resolvent inequality but not its singular edge value; the explicit q angular singularity asymptotics supply the new two-regime result."
+        ],
+        "reasoning": "The edge equality or strict-loss conclusion does not follow merely from positivity (leverage=1/q), nor from exact *undeleted* frame bounds, without evaluating the full resolvent at the spectral edge.",
+        "searches": [
+          "arxiv:2212.08915 original operator",
+          "Resultary critical atomic leverage singleton-erasure 17f2ca4bfacb",
+          "arxiv:2204.02917 frame bound optimizations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary/2026, critical atomic leverage singleton-erasure, Git blob ec4cef6bad3bfc6ab736763433c11c2804995e7a: S-m|f><f| = S^{1/2}(I-|u><u|)S^{1/2}, leverage<1 iff frame remains.",
+          "Belov–Kulikov–Lyubarskii, arXiv:2212.08915, same Cauchy window original frame operator."
+        ],
+        "reasoning": "Abstract leverage is equivalent to qualitative frame survival but does not evaluate sharp A-edge spectral loss for the specified Gabor window; the present edge test determines the optimum, not only positivity.",
+        "searches": [
+          "Exact sharp lower and upper Gabor frame bounds after deleting one atom Cauchy window Gabor frames rank one spectral threshold resolvent edge integral redundancy",
+          "Resultary semantic record 17f2ca4bfacb, singleton leverage; full RESULT.md inspected"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved semantic results on two-character cyclic Fourier erasures, tent-spline Gabor bounds and canonical leverage concern different operators or weaker frame-survival invariants."
+        ],
+        "reasoning": "No exact table or matching parameter-dependent spectral edge function in inspected results. Search nonreturn is residual risk, not mathematical novelty proof.",
+        "searches": [
+          "Resultary semantic query: Exact sharp lower and upper Gabor frame bounds after deleting one atom Cauchy window Gabor frames rank one spectral threshold resolvent edge integral redundancy",
+          "Cauchy Gabor single atom erasure spectral edge pole depth exact lower bound"
+        ]
+      },
+      "rationale": "Best-of-knowledge original part is an explicitly evaluated sharp spectral edge test and two pole-depth regimes; undeleleted Gabor bounds, abstract rank-one inequality and qualitative frame excess are acknowledged prior results.",
+      "residual_risks": [
+        "Specialized earlier single-erasure spectral perturbation literature may evaluate the same Cauchy edge implicitly.",
+        "Balan et al. excess paper full text not inspected, so no whole-document noncoverage claim.",
+        "No claim of uniqueness or monotonicity of depth transition; q=2 endpoint is not classified into both regimes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original frame operator and dual background; no matching one-deleted-atom edge phase threshold among inspected statements",
+          "evidence": [
+            "Zak and Cauchy Gabor frame operator formulas in paper, see math comparison in pinned RESULT Step1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.08915",
+          "material_read": "Abstract, relevant operator derivation and Cauchy kernel formulas, plus PDF page screenshot; not every proof paragraph",
+          "method": "Opened public arXiv preprint PDF, examined text and screenshot for operator normalization",
+          "title": "Gabor frame operator for the Cauchy kernel",
+          "trigger": "Exact same window and Zak frame operator"
+        },
+        {
+          "assessment": "Proves positive frame survival iff singleton leverage<1; not sharp lower-edge equality for Cauchy Gabor",
+          "evidence": [
+            "Exact positivity/conjugation, but no E_q(a) or spectral-edge limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-critical-atomic-leverage-exactly-controls-singleton-erasure-for--17f2ca4bfacb",
+          "material_read": "Entire primary RESULT.md text, including hypotheses and proof",
+          "method": "Fetched actual Git blob ec4cef6bad3bfc6ab736763433c11c2804995e7a",
+          "title": "Critical atomic leverage exactly controls singleton erasure for continuous frames",
+          "trigger": "Most relevant published SCOPE erasure criterion"
+        },
+        {
+          "assessment": "Optimizes unperturbed Gabor frames, not the present post-erasure sharp bound",
+          "evidence": [
+            "Publication arXiv:2204.02917; compare the undeleted A/B with single-deletion Phi(A)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917",
+          "material_read": "Relevant original frame-bound statements in public preprint, not the entire paper",
+          "method": "Primary paper scholarly comparison; no claim of exhaustive line-by-line inspection",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Sharp baseline bounds for Fourier-related Gabor windows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 7a25276dee5345e6f3b0959ea25baee12e072653, Steps 1–5",
+        "Pinned verify_erasure.py blob 22e4b10da70ed6db8edf272590a8dc8fd42babfa; independent recomputation only supplementary",
+        "Cauchy-frame operator arXiv:2212.08915 (relevant mathematical sections)"
+      ],
+      "rationale": "Sharp *optimal* frame stability under one missing time-frequency coefficient is a natural reconstruction invariant beyond positive frame survival. The exact simple-eigenvalue bifurcation and two pole-depth regimes give mathematically meaningful robustness information.",
+      "residual_risks": [
+        "The general spectral rank-one criterion is standard, so value relies on the new sharp Cauchy evaluation and asymptotic transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A single deletion at integer redundancy q>=2; two behaviors demonstrated for fixed q>=3, not for all a or for q=2.",
+    "Finite numerical quadrature not a certificate for infinite frame operator spectral assertions."
+  ],
+  "schema_version": 1
+}
