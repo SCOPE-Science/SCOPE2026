@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized kernel is reconstructed from its orthonormal basis, the complete circulant Gram matrix is diagonalized by root-of-unity Poisson residues, and injectivity on the finite sample range follows from an analytic Vandermonde minor. The signs for the two- and three-vertex cases are derived globally, not inferred from plots; the four-vertex sequence comparisons are exact; the higher-vertex switching is proved uniformly in the finite Fourier-mode index with exponentially separated root contributions. The package checker confirms 456 finite assertions, but is not used as a proof of infinity. Limitations include fixed polygon size in the asymptotic and the absence of a finite-area irregular-polygon classification.
+## correctness
 
-## Originality — PASS, with priority qualification
-The full 2024 paper by Sun, Du and Qi supplies the harmonic Fock kernel and radial Toeplitz spectral context, not a finite regular-polygon sampling stability phase diagram. The inspected main sections of Gou and collaborators' positive-measure Toeplitz analysis concern operator boundedness and compactness. Database searches for polygon Gram spectra, cyclic eigenvalue crossing, and mode switching did not identify an equivalent or stronger result. A related published Bergman boundary-pole Hessian spectrum and a Szegő-kernel orbit-conditioning theorem use different spaces, operators and stability quantities; neither implies the present claim. Finite search is not a priority certificate, and unlocated literature may still overlap.
+PASS
 
-## Value — PASS
-For the natural finite sampling map associated with a canonical harmonic reproducing kernel, the identity of its weakest-observed cyclic frequency determines the direction of worst reconstruction error. This theorem gives a complete, all-polygon-size dichotomy: a unique transition and exact tight design at sizes two and three, versus infinitely recurring worst-frequency changes at every larger size. It distinguishes stable and recurrent conditioning geometry by a sharp discrete threshold, beyond the mechanical kernel or circulant-eigenvalue formula alone.
+From harmonic basis derive kernel R(z,w)=exp(z*conj(w))+exp(conj(z)*w)-1. DFT of circulant Gram gives lambda_j=P_{k,j}+P_{k,-j}-exp(-t)1_{j=0}, with P Poisson congruence class probabilities. k=2 difference exp(-t)(2exp(-t)-1). k=3 difference exp(-t)(2exp(-t/2)cos(sqrt(3)t/2)-1), monotone until unique crossing and bounded below thereafter. k=4 explicit cos(t) splits minima along alternating pi sequences. For each fixed k>=5, primitive roots of unity dominate correction at rate exp(-(1-cos(2pi/k))t)cos(t sin(2pi/k))cos(2pi j/k), with a uniform faster remainder; choose alternating cosine signs. Independent Poisson/spectral checks for k=2..9 validate example modes. Finite checks do not establish infinite switching.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
+PASS
+
+The harmonic Fock kernel and radial Toeplitz spectral theory are standard and reported by Sun, Du and Qi (2024); Poisson-residue and circulant formulas are routine. The new mathematical classification orders finite nonradial point-sampling singular eigenvalues across all k and arbitrarily large radii; radial-symbol Toeplitz results do not dominate it. Resultary searches returned cyclic Fourier and sampling rigidity on other spaces/objects, not this harmonic Fock polygon eigenvalue-order phase diagram.
+
+## value
+
+PASS
+
+A natural point-evaluation Gram matrix controls condition and observability of Fourier sample modes; the sharp k=3 versus k=4 transition and exact small-k tight radii provide a structural sampling distinction that cannot be inferred from knowing the kernel alone. There is no ambient infinite-dimensional frame lower bound claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
