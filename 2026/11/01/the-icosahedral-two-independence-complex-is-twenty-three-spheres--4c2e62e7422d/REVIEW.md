@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the two-independence complex of the fixed 12-vertex, 30-edge icosahedral graph, not its ordinary independence, neighborhood or three-cut complex. The embedded program independently constructs all \(4096\) subsets and verifies exactly \(324\) augmented faces with nonempty face vector \((12,66,140,105)\). The specified sequential pivot matching pairs \(304\) faces and leaves twenty dimension-three critical faces. A topological sort of all \(984\) oriented Hasse incidences certifies acyclicity. After excluding the empty face the ordinary Morse vector is one zero-cell and twenty three-cells; this forces a wedge of twenty three-spheres **integrally**. All \(120\) automorphisms are enumerated, the signed face-fixed Lefschetz computation is exact, and the character decomposition follows from the rational \(A_5\) character table. The independent mod-two boundary ranks \((11,55,85)\) agree but are not used to infer integral homotopy. The program has been executed successfully on the bundled files.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Primary full-text inspections covered Deshpande--Singh (arXiv:2001.05448), which defines higher independence and establishes homotopy types for multipartites, whiskered graphs, paths/cycles and rooted trees, and Abdelmalek et al. (arXiv:2106.10863), whose central hypotheses concern chordal graphs and related families. The icosahedral graph is neither a cycle, whiskered graph, complete multipartite graph, tree nor chordal graph. Its induced five-cycles prohibit direct use of chordal classifications. Targeted searches compared the *statement* with results for icosahedral open-neighborhood, distance-neighborhood, and three-cut complexes, as well as the two-independence complex of the Petersen graph. These are not the same simplicial complex, graph, or representation and do not imply the claimed result. Search results alone are not considered a proof of novelty. A 2025 article concerning Alexander duals was only inspected at abstract level, and equivalent unindexed mathematical work remains a genuine risk; no decisive stronger theorem was identified.
+PASS
 
-## Value — PASS
-The icosahedron is an archetypal small vertex-transitive and highly symmetric graph. The first higher-independence complex on its vertices is a natural topological invariant: unlike numerical independent-set counts, its homotopy and full integral homology are sensitive to the allowed induced edges. The complete finite homotopy classification is supported by exact exhaustive certification, and the antipodal character split \(15/5\) and full rational \(A_5\times C_2\) decomposition capture information invisible in the nonequivariant wedge count. The result does not assert a general theorem for arbitrary polyhedral graphs; a natural exact invariant with its full symmetry action is the central value.
+The graph has twelve vertices, 30 listed edges and induced-degree<=1 admissibility. Independently enumerating all 4096 subsets yields exactly 324 augmented faces, f=(12,66,140,105). The explicitly ordered 12-vertex sequential toggling matching gives 152 augmented pairs, leaving 20 critical 3-simplices; independent construction and topological sorting of all 984 directed Hasse incidences confirmed acyclicity. Removing the empty-face pairing gives one critical vertex and twenty 3-cells, hence an integral wedge20 S3 and no torsion. The inspected standalone verifier exhaustively enumerates 120 automorphisms and calculates signed fixed-simplex Lefschetz traces: A5 proper rotation traces (20,4,-1,0) at orders (1,2,3,5) and antipodal-twisted values (10,2,1,0). A5 rational character identities imply central-even (1+V4+2V5) and odd V5, dimensions 15/5, total20. The integral wedge result is not asserted to split as an integral A5 x C2-module.
 
-## Scientific limitations and literature risk
-The acyclic matching is a finite, transparent computational certificate and can be checked without third-party dependencies; it is not an efficient universal method for larger graph classes. The rational module statement does not imply an integral splitting. The recent Alexander-dual article was inspected only via its abstract and cannot be ruled out as a source of indirect overlap by title or abstract alone. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The main higher-independence literature develops the definition and classes such as paths, cycles, whiskered/chordal or rooted trees but does not supply this icosahedral Ind2 character. Nearby published exact icosahedral neighborhood/3-cut complexes are different objects. Best-of-knowledge PASS despite limited access to a 2025 Alexander-dual paper.
+
+## value
+
+PASS
+
+The icosahedral graph is a canonical nonchordal highly symmetric finite object; Ind2 allows edges but excludes induced paths of three, so it is not its classical independence complex. Computing its full integral homotopy type and A5 x C2 rational homology character is a meaningful natural exact invariant. The antipodal-odd dimension five adds representation data not implied by the wedge count. No family-sized result is needed to justify an exact high-symmetry test example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
