@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:14:47.482493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After factoring e^{ict}, orthogonal basis cos(dt/2), sin(dt/2) has squared norms 1+s_d and 1−s_d, s_d=sin d/d; the Gram representer gives exact K_d(x)=(1−s_d cos dx)/(1−s_d²), with an attained fixed-gap extremizer. For d≥π the bound K_d≤(1−1/π)^{-1}<2≤(1+3x²)/2 is strict. For 0<d<π, |sin(xd/2)|≤|x|sin(d/2) when |x|≥1, and F(d)=d²+d sin d cos d−2sin²d has F(0)=F′(0)=0 and F″=4sin d(sin d−d cos d)>0, so K_d(1)<2. The affine-in-x² comparison and K_d(0)>1/2 yield strict cap. Taylor of s_d and cos(dx) gives coefficient (15x⁴+6x²−5)/120>0 with O_x(d⁴); coalescing frequencies give global supremum and nonattainment for d>0. Independent symbolic differentiation/Taylor and 21 numeric exterior gap checks agreed. The expansion is for fixed x, NOT uniform x→∞.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang 2026 arXiv:2607.10501 gives frequency-separation-free k-term extrapolation bounds with unspecified constants, and §8.2 general kernel, but no sharp k=2 gap maximum.",
+          "Borwein–Erdélyi 2000 Theorems 2.1–2.2 concern REAL exponentials and interior y∈(a,b), with nonsharp constants, not complex oscillatory frequencies or exterior |x|≥1.",
+          "Chen–Price 2019 Lemma 8.5 supplies nonsharp exterior growth bounds in frequency recovery."
+        ],
+        "reasoning": "Broad-looking theorems cover more terms or different real exponentials but have weaker constants or incompatible interior/exterior hypotheses; their published statements do not logically imply this exact oscillatory all-gap value.",
+        "searches": [
+          "Zhang Optimal Extrapolation Bounds for Sparse Fourier Sums Theorem 1.1 and §8.2",
+          "Borwein Erdé​lyi 2000 pointwise Remez Nikolskii exponential sums full text remez7.pdf",
+          "Chen Price 2019 Estimating the Frequency of a Clustered Signal Lemma 8.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.10501",
+        "https://people.tamu.edu/~terdelyi/papers-online/remez7.pdf",
+        "https://arxiv.org/abs/1904.13043",
+        "https://arxiv.org/abs/1602.02315",
+        "Resultary 69c7d8c4e990"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang presents exactly the general inverse-Gram framework, which implies the fixed-gap K_d upon substitution; this part is a standard two-dimensional calculation and must not be claimed wholly new.",
+          "Neither Zhang nonsharp extrapolation bounds nor Borwein–Erdélyi real interior estimates imply the strict maximality of K_{d→0}, the exact global coefficient, or quadratic defect."
+        ],
+        "reasoning": "The substantive originality is precise uniform strict comparison and d² collision defect, not mere Gram inversion or its fixed-frequency kernel.",
+        "searches": [
+          "Zhang arXiv:2607.10501 §8.2 kernel and Theorem 1.1",
+          "Borwein–Erdélyi 2000 Theorem 2.2 full paper",
+          "Chen–Price 2019 Lemma 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang arXiv:2607.10501 Section 8.2 uses general reproducing-kernel identity ν*G^{-1}ν for arbitrary frequencies, but does not maximize the explicit two-frequency sinc expression over all gaps.",
+          "The d→0 limit agrees with the degree-1 Legendre Christoffel kernel (1+3x²)/2; that limit alone does not prove strictness at all d>0 nor the exact d² defect."
+        ],
+        "reasoning": "Equivalent aliases are two-frequency Christoffel functions, inverse Gram leverage scores and colliding Prony nodes; the general identity is a known ingredient, not the claimed all-gap extremum.",
+        "searches": [
+          "Resultary: sharp exterior point evaluation norm two arbitrary real frequency exponential sum L2 interval collision Legendre kernel",
+          "two-frequency exponential polynomial sharp point evaluation outside interval 1+3x² least squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby records concern exact L8/L2 norms of three consecutive frequencies (69c7d8c4e990) and sparse polynomial constraints, not this L2 exterior evaluation kernel.",
+          "No exact fixed-gap sinc formula plus global gap supremum found in checked Zhang, Borwein–Erdélyi, Chen–Price material."
+        ],
+        "reasoning": "No existing table of the exact two-frequency exterior leverage was identified among inspected records; that bounded search is evidence, not an exhaustive novelty certificate.",
+        "searches": [
+          "Resultary: sharp exterior point evaluation norm two arbitrary real frequency exponential sum L2 interval collision Legendre kernel",
+          "Remez Nikolskii exponential sums exterior exact 2-frequency sin(d)/d"
+        ]
+      },
+      "rationale": "Equivalent aliases are two-frequency Christoffel functions, inverse Gram leverage scores and colliding Prony nodes; the general identity is a known ingredient, not the claimed all-gap extremum. Broad-looking theorems cover more terms or different real exponentials but have weaker constants or incompatible interior/exterior hypotheses; their published statements do not logically imply this exact oscillatory all-gap value. The substantive originality is precise uniform strict comparison and d² collision defect, not mere Gram inversion or its fixed-frequency kernel. Best-of-knowledge priority assessment with listed risks, not certification.",
+      "residual_risks": [
+        "Bounded literature search and non-indexed historical works leave residual priority risk; search absence is not proof of novelty.",
+        "Known inverse-Gram identity already gives each fixed-gap kernel; an alternative sharp all-gap two-frequency treatment could exist under Christoffel/Nikolskii aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING",
+          "evidence": "Same general kernel identity known; gives nonsharp k-dependent estimates, not explicit global k=2 sharp constant or d² loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10501",
+          "material_read": "Complete accessible preprint, especially Theorem 1.1, §8.2 and its formula K=ν*G^{-1}ν",
+          "method": "full HTML/mirrored preprint text with numbered formulas",
+          "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+          "trigger": "same Fourier extrapolation and leverage-score family"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "E_n consists of REAL exponentials with real exponents; Theorem 2.2 for a<y<b and unspecified c_i, distinct from complex frequencies and exterior |x|≥1. Newly located original full text materially removes prior access risk.",
+          "identifier_or_url": "https://people.tamu.edu/~terdelyi/papers-online/remez7.pdf",
+          "material_read": "Full original 20-page accessible manuscript, theorem statements §§1–2, definitions, proofs through §7",
+          "method": "web parsed PDF plus first-page screenshot",
+          "title": "Pointwise Remez- and Nikolskii-type inequalities for exponential sums",
+          "trigger": "previously plausible inaccessible older Remez source"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Quantitative nonsharp extrapolation estimates, not exact two-atom Gram maximum.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.13043",
+          "material_read": "Section 8.3 Lemma 8.5 and relevant problem statements in accessible paper",
+          "method": "web HTML text",
+          "title": "Estimating the Frequency of a Clustered Signal",
+          "trigger": "outside-window sparse frequency approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides the sharp exact two-atom exterior leverage of sparse Fourier extrapolation in a well-defined natural low-sparsity model, with fixed-gap extremizer and quantitative quadratic rate at colliding frequencies. Exact coefficient replaces merely order-optimal bounds and is relevant to stable extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two atoms only; complex coefficients, distinct real frequencies, real exterior x; expansion fixed x.",
+    "General inverse-Gram framework is prior work, only the global optimal sharp coefficient and quantitative defect are assessed as original."
+  ],
+  "schema_version": 1
+}

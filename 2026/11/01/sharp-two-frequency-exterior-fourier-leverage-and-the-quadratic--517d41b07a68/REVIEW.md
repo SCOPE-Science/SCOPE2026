@@ -1,19 +1,21 @@
-# Scientific review — exterior two-frequency leverage
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof is reconstructible from elementary orthogonality and the reproducing kernel of the two-dimensional exponential space. The fixed-gap formula and equality cases follow from the exact norms of sine and cosine. The global bound uses an explicit strict high-gap bound, an elementary sine comparison at low gaps, and a positive second-derivative certificate for the endpoint value. Taylor expansion yields the stated positive quadratic loss. The executable supplementary checker returned 448 passed assertions at high precision. The script does not certify infinitely many gaps; the analytic proof does.
+PASS
 
-## Originality: PASS relative to inspected sources
+After factoring e^{ict}, orthogonal basis cos(dt/2), sin(dt/2) has squared norms 1+s_d and 1−s_d, s_d=sin d/d; the Gram representer gives exact K_d(x)=(1−s_d cos dx)/(1−s_d²), with an attained fixed-gap extremizer. For d≥π the bound K_d≤(1−1/π)^{-1}<2≤(1+3x²)/2 is strict. For 0<d<π, |sin(xd/2)|≤|x|sin(d/2) when |x|≥1, and F(d)=d²+d sin d cos d−2sin²d has F(0)=F′(0)=0 and F″=4sin d(sin d−d cos d)>0, so K_d(1)<2. The affine-in-x² comparison and K_d(0)>1/2 yield strict cap. Taylor of s_d and cos(dx) gives coefficient (15x⁴+6x²−5)/120>0 with O_x(d⁴); coalescing frequencies give global supremum and nonattainment for d>0. Independent symbolic differentiation/Taylor and 21 numeric exterior gap checks agreed. The expansion is for fixed x, NOT uniform x→∞.
 
-Zhang's July 2026 full text treats the same extrapolation setting, but proves a general-order upper bound and qualitative/exponential-scale sharpness rather than the exact universal \(k=2\) constant, the fixed-gap evaluator, or the quadratic collision coefficient. Chen and Price's full text (2019, §8.3) gives polynomial/exponential upper estimates. Erdélyi's cited endpoint result is not an exact exterior pointwise statement. Searches of the mathematical results database and open literature for the exact formula, aliases, reproducing-kernel interpretation, and two-frequency gap dependence yielded no covering statement. The abstract of Borwein–Erdélyi (2000) was examined; its complete text could not be accessed, so possible equivalent older work is a genuine residual risk. Negative search results alone are not proof of novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This solves a naturally motivated exactly sharp two-atom case of an active recent extrapolation problem. The quantitative result describes the worst possible price of predicting outside a sampled interval even when arbitrarily close frequencies make the coefficient representation ill-conditioned. The fixed-gap kernel and its \(d^2\)-order loss provide a precise benchmark for clustered-spectrum regression and distinguish intrinsic prediction stability from coefficient instability. Its scientific value does not rely on numerical testing.
+Equivalent aliases are two-frequency Christoffel functions, inverse Gram leverage scores and colliding Prony nodes; the general identity is a known ingredient, not the claimed all-gap extremum. Broad-looking theorems cover more terms or different real exponentials but have weaker constants or incompatible interior/exterior hypotheses; their published statements do not logically imply this exact oscillatory all-gap value. The substantive originality is precise uniform strict comparison and d² collision defect, not mere Gram inversion or its fixed-frequency kernel. Best-of-knowledge priority assessment with listed risks, not certification.
 
-## Scope and limitations
+## value
 
-Only real two-frequency sums and pointwise real exterior extrapolation are treated. The coefficient of \(d^2\) is for each fixed \(x\); no uniformity as \(|x|\to\infty\) is asserted. Historical coverage risks remain, and no external audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides the sharp exact two-atom exterior leverage of sparse Fourier extrapolation in a well-defined natural low-sparsity model, with fixed-gap extremizer and quantitative quadratic rate at colliding frequencies. Exact coefficient replaces merely order-optimal bounds and is relevant to stable extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
