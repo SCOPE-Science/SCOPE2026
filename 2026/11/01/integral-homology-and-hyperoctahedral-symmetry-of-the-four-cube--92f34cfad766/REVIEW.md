@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every simplex is exhaustively reconstructed by two independent definitions on all 65536 vertex masks. A complete acyclicity check of 329552 Hasse incidences establishes a discrete Morse CW model with critical-cell degrees zero (one), seven (ten), and nine (one). The absence of adjacent critical-cell degrees proves the exact **integral** homology, including torsion-freeness; the mod-two boundary calculations are only independent corroboration. The signed 448-simplex ninth cycle is explicitly boundary-checked; integral Morse-coordinate reduction verifies the top character under all 384 symmetries. The seventh character follows from the fixed-simplex Lefschetz identity, and the quotient from rational invariant theory. The five-cube corollary uses the published suspension theorem and Alexander duality, with dimension shift verified on the 16-vertex ground set. No infinite graph family, homotopy wedge, or equivariant homotopy splitting is claimed.
+PASS
 
-## Originality — PASS against inspected evidence
+The forbidden-simplex predicate is equivalent to avoiding each of the 16 closed neighborhoods of Q4. Inspected the actual exhaustive Python verifier: it tests all 2^16 masks using two predicates, obtains 45,706 nonempty faces, constructs 22,847 disjoint vertex-toggle matching pairs, and topologically sorts every one of the 329,552 directed Hasse incidences. Its critical cells (one vertex, ten 7-cells, one 9-cell) give full free integral homology by absent adjacent Morse dimensions, not merely field ranks. The checker explicitly constructs a 448-simplex signed integral 9-cycle, reduces it under all 384 automorphisms to coordinate-permutation sign, and applies the fixed-simplex reduced Lefschetz formula to derive chi_7 and invariant ranks. Checked the 16-vertex Alexander-dual degree shift 14-j and Matsushita Corollary 4 to obtain Ind(Q5) H5 and H7. Independently reconstructed all 65,536 masks and identical complete face vector/Euler -11.
 
-Matsushita (2020, arXiv:2009.04145) proves a connectivity bound but no four-cube integral homology; Matsushita and Wakatsuki (2023, arXiv:2312.02639) study Alexander duality, an independence-complex relation, and paths, cycles and open rectangular grids rather than the present four-cube. Nearby indexed results for the four-cube ordinary independence, neighborhood, cut, Čech and graph-domination-parameter complexes concern distinct objects or parameters. Searches included the aliases four-cube, hypercube, \(C_4\square C_4\), and via the published duality the ordinary five-cube independence complex. No inspected stronger result implies these ranks or characters. This is an evidence-based originality assessment, not a claim of bibliographic completeness; an unindexed source remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This computes the complete integral homology and symmetry of a canonical 16-vertex graph's dominance complex, exhibiting nontrivial groups in two nonadjacent degrees. The 384-element character and two-dimensional rational quotient invariant distinguish it from a bare Betti-number calculation. The suspension/Alexander-duality corollary supplies complete integral homology of the ordinary five-cube independence complex, a natural next-dimensional invariant. Those precise objects are motivated by the published structural theory, rather than chosen as arbitrary finite slices.
+Matsushita and Matsushita--Wakatsuki supply the definition, general connectivity bounds, and duality/suspension equivalence, not exact Q4 dominance integral homology or B4 characters; the separate Resultary results for Q4 independence/Čech/3-cut concern different simplex predicates. Through duality the Q5 ordinary independence consequence is compared as a corollary, not claimed novel merely by different wording.
 
-## Scope and limitations
+## value
 
-The exact checker and output accompany this package. The main result is homological, not a wedge-of-spheres homotopy result. A potentially equivalent inaccessible or unindexed computation is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dominance complex is a canonical closed-neighborhood graph invariant of the first nontrivial higher-dimensional hypercube, and its two mixed integral homology degrees plus full 384-element character quantify topology and symmetry beyond a Betti-only small example. The established duality also gives exact Q5 independence homology, a natural next-dimensional case. These invariants are mathematically motivated by general dominance/independence theory and are neither a parameter renaming nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

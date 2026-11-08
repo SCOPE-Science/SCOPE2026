@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Execute `python3 four_cube_dominance_verify.py` with Python 3.10 or later; no external dependencies, network services or specialized algebra packages are required. The exact stdout is embedded in `four_cube_dominance_verification.txt`.
+## correctness
 
-The executable checks all \(65536\) subsets with two independent face predicates, verifies \(45706\) nonempty faces, \(22847\) disjoint Morse pairs and every one of the \(329552\) oriented Hasse cover incidences, and topologically sorts the complete directed Morse graph to certify acyclicity. Only one critical vertex, ten critical seven-simplices and one critical nine-simplex survive, which proves the full integral homology via the cellular theorem. The separate mod-two simplicial boundary computation checks ranks in every dimension and does not substitute for the integral proof.
+PASS
 
-The symmetry certificate constructs an integral nine-cycle with \(448\) signed simplices, verifies its boundary vanishes exactly, and evaluates the induced integral homology coordinate for all \(384\) graph automorphisms, independently of the Lefschetz enumeration of the seventh-degree character. Character averaging checks the rational quotient homology. The cited suspension theorem and Alexander duality are separately required for the five-cube conclusion; no finite calculation on \(Q_4\) alone is presented as a proof of a higher-dimensional uniform formula.
+The forbidden-simplex predicate is equivalent to avoiding each of the 16 closed neighborhoods of Q4. Inspected the actual exhaustive Python verifier: it tests all 2^16 masks using two predicates, obtains 45,706 nonempty faces, constructs 22,847 disjoint vertex-toggle matching pairs, and topologically sorts every one of the 329,552 directed Hasse incidences. Its critical cells (one vertex, ten 7-cells, one 9-cell) give full free integral homology by absent adjacent Morse dimensions, not merely field ranks. The checker explicitly constructs a 448-simplex signed integral 9-cycle, reduces it under all 384 automorphisms to coordinate-permutation sign, and applies the fixed-simplex reduced Lefschetz formula to derive chi_7 and invariant ranks. Checked the 16-vertex Alexander-dual degree shift 14-j and Matsushita Corollary 4 to obtain Ind(Q5) H5 and H7. Independently reconstructed all 65,536 masks and identical complete face vector/Euler -11.
 
-These are deterministic, finite, exhaustive mathematical checks under the stated combinatorial definitions. They do not constitute external or independent validation. Homology does not by itself determine the full (possibly unstable) homotopy type.
+## originality
+
+PASS
+
+Matsushita and Matsushita--Wakatsuki supply the definition, general connectivity bounds, and duality/suspension equivalence, not exact Q4 dominance integral homology or B4 characters; the separate Resultary results for Q4 independence/Čech/3-cut concern different simplex predicates. Through duality the Q5 ordinary independence consequence is compared as a corollary, not claimed novel merely by different wording.
+
+## value
+
+PASS
+
+The dominance complex is a canonical closed-neighborhood graph invariant of the first nontrivial higher-dimensional hypercube, and its two mixed integral homology degrees plus full 384-element character quantify topology and symmetry beyond a Betti-only small example. The established duality also gives exact Q5 independence homology, a natural next-dimensional case. These invariants are mathematically motivated by general dominance/independence theory and are neither a parameter renaming nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
