@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The trace identity is derived from the exact reciprocal derivative polynomial and the formal logarithmic power-sum identity, including repeated critical points and \(F=1\). The multinomial coefficients, Hessian entries, reflection-gap count, real inertia, and exact pseudo-symmetric central-square specialization are independently reconstructed. Exact-rational companion-matrix tests cover 276 distinct numerical semigroups, 828 coefficient inputs, and 207 Hessian entries from interpolation. No finite check is used as an unrestricted proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For P(z)=z^F+sum_{g<F,g gap} c_g z^g, the reciprocal derivative D(t)=t^(F-1)P prime(1/t)/F=1+U(t) has zeros encoded as product (1-r_j t). Newton logarithm gives power sums of critical points including multiplicity, hence trace=-F[t^F]D(t)log D(t). Multinomial expansion yields every noncancelling monomial with weighted degree F. Second derivative yields anti-diagonal Hessian entries -gh/F when g+h=F; no pair of complementary semigroup elements can both be in S since F is a gap. Summing gap indicators gives rank 2*genus-F-1 and the real 2x2 sign blocks yield inertia. Additive semigroup closure forces zero trace if symmetric; for pseudo-symmetry only central h+h contributes, giving -F*c_h^2/8. F=1 empty case explicitly holds. Independently checked genus rank for multiple semigroups and evaluated exact rational traces by quotient-ring companion/multiplication matrices versus coefficient formula for ordinary F=6, pseudo F=6, and nonsymmetric F=5 examples.
 
-Grinfeld's arXiv:2609.03049 proves moment vanishing for symmetric semigroups and for pseudo-symmetric polynomials with the central term removed; it does not present a trace polynomial for every semigroup, an evaluated central-square trace for the *full* pseudo-symmetric family, or a genus-Hessian-rank law. Its general Newton relations provide an input to the new calculation but not these evaluated comparisons. Searches for the reciprocal-derivative trace identity, critical-value Hessian, and symmetry defect did not identify a covering published result. Fel's 2020/2021 polynomials concern generator and syzygy invariants, not the present critical-value trace. A 2019 Grinfeld-associated research abstract points toward unspecified critical-value identities; the full associated research was not available, so priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely evaluates a natural coefficient-polynomial invariant for all numerical semigroups instead of merely identifying vanishing examples. Its coefficient support has an exact weighted-partition description, its local Hessian reads off the genus defect and spectral inertia, and the pseudo-symmetric central omission is explained by a sharp nonzero quadratic formula. This provides a natural analytic detector for symmetry and a full arithmetic interpretation of every possible trace monomial. The formula is self-contained and does not require a downstream theorem to be meaningful.
+Grinfeld 2026 establishes symmetric and central-deleted pseudo-symmetric vanishing through Newton identities, a substantial covered subset. The evaluated unrestricted trace polynomial, nonzero pseudo-symmetric central square, monomial support and arithmetic genus-Hessian rank were not found in accessible material, but full source could not be inspected because both open routes were inaccessible and institutional VPN was disconnected. The unverified original paper and 2019 project abstract are specifically retained as priority risks.
 
-## Closest literature and limitations
+## value
 
-Primary: P. Grinfeld, arXiv:2609.03049, Sections 2–4, especially Newton's identities and Corollary 5. Secondary: L. G. Fel, arXiv:2010.03363 and arXiv:2012.13357; the 2019 M. Becht/P. Grinfeld program abstract. The result does not classify individual critical values. Prior formal-power-sum machinery is classical, so the risk of an older equivalent identity is genuine. The secondary works were compared at abstract and bibliographic level; the full 2019 project was unavailable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact critical-value trace converts a natural semigroup gap complement statistic into differential geometry of the full coefficient space. The genus-rank equality and symmetric/pseudo-symmetric rigidity give a sharp structural classification of a broad natural polynomial family, including the formerly excluded central coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

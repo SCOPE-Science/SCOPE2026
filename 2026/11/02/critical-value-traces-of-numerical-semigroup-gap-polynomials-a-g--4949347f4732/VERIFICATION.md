@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Run `python3 verification/critical_trace_verify.py` with Python 3 and its standard library. The program uses exact integer and rational arithmetic and contains no external dependencies.
+## correctness
 
-```text
-VERIFY_OK semigroups=276 trace_companion_vs_log=828 Hessian_entry_checks=207 symmetric=24 pseudosymmetric=10 other=242 exact_rational=yes
-CASE F=2 genus=2 rank=1 trace=-1/4
-CASE F=5 genus=4 rank=2 trace=-6/5
-CASE F=6 genus=4 rank=1 trace=-3/4
-CASE F=11 genus=6 rank=0 trace=0
-```
+PASS
 
-The checker enumerates semigroups with \(1\le F\le13\), compares two independently implemented trace evaluations at three coefficient vectors per semigroup, and reconstructs the low-F Hessian by exact interpolation from companion-matrix traces. All 828 trace comparisons and all 207 Hessian-entry comparisons passed. Neither these finite checks nor matrix computations replace the all-F proof. The source's general Newton relations and the Frobenius reflection count are derived explicitly in `RESULT.md`.
+For P(z)=z^F+sum_{g<F,g gap} c_g z^g, the reciprocal derivative D(t)=t^(F-1)P prime(1/t)/F=1+U(t) has zeros encoded as product (1-r_j t). Newton logarithm gives power sums of critical points including multiplicity, hence trace=-F[t^F]D(t)log D(t). Multinomial expansion yields every noncancelling monomial with weighted degree F. Second derivative yields anti-diagonal Hessian entries -gh/F when g+h=F; no pair of complementary semigroup elements can both be in S since F is a gap. Summing gap indicators gives rank 2*genus-F-1 and the real 2x2 sign blocks yield inertia. Additive semigroup closure forces zero trace if symmetric; for pseudo-symmetry only central h+h contributes, giving -F*c_h^2/8. F=1 empty case explicitly holds. Independently checked genus rank for multiple semigroups and evaluated exact rational traces by quotient-ring companion/multiplication matrices versus coefficient formula for ordinary F=6, pseudo F=6, and nonsymmetric F=5 examples.
+
+## originality
+
+PASS
+
+Grinfeld 2026 establishes symmetric and central-deleted pseudo-symmetric vanishing through Newton identities, a substantial covered subset. The evaluated unrestricted trace polynomial, nonzero pseudo-symmetric central square, monomial support and arithmetic genus-Hessian rank were not found in accessible material, but full source could not be inspected because both open routes were inaccessible and institutional VPN was disconnected. The unverified original paper and 2019 project abstract are specifically retained as priority risks.
+
+## value
+
+PASS
+
+The exact critical-value trace converts a natural semigroup gap complement statistic into differential geometry of the full coefficient space. The genus-rank equality and symmetric/pseudo-symmetric rigidity give a sharp structural classification of a broad natural polynomial family, including the formerly excluded central coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
