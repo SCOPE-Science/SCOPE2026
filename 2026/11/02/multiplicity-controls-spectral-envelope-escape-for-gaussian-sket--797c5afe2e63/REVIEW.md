@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Orthogonal invariance gives an independent beta spectral weight and Gaussian Student ratio; these imply the exact regularized-beta escape formula. Endpoint beta expansions and explicit beta moments yield the sharp multiplicity-dependent probability constants. An independent truncated-beta integral and chi-square inverse-moment asymptotics give the mean overshoot; a uniform regularly varying tail bound gives the exact fixed-sketch tail constant and all moment boundaries. The main numerical checker independently tests the symbolic identities, finite-dimensional Gaussian simulations, beta quadrature, and tail constants. No simulation is used as a proof of a limit.
+## correctness
 
-**Originality — PASS, qualified.** The sketched Rayleigh quotient itself, the Gaussian ratio representation for a fixed trial direction, and classical beta and Student laws are prior mathematics. Nakatsukasa–Tropp (arXiv:2111.00113, Section 6) and Balabanov–Grigori (arXiv:2111.14641, Section 4.4 and supplementary section) give the method and deterministic conditional stability setting. The distinct derived statement is the exact Haar-averaged *spectral-envelope escape* law and its nontrivial dependence on the smaller extreme eigenvalue multiplicity, plus the sharp conditional-overshoot constant. The inspected primary texts do not state these laws, and targeted literature and published-record searches found no direct covering result. A prior fixed-direction Gaussian-quotient result is mathematically adjacent, so the distributional mechanism itself is not claimed as novel; priority remains qualified.
+PASS
 
-**Value — PASS.** For a symmetric operator, ordinary Rayleigh quotients never leave the spectral interval, but Gaussian sketching can destroy this guarantee. The sharp probability and overshoot scales quantify a natural failure metric in randomized eigenvalue approximation, distinguish extreme-eigenspace degeneracy from ambient dimension, and provide a benchmark for sketch size choices. This is more informative than the observation that individual sketches can fail or the textbook Student-moment cutoff alone.
+Rotational Gaussian invariance makes W=||Pi_b v||² independent Beta(q/2,p/2), while the orthogonal split Av=(a+Delta W)v+Delta sqrt(W(1-W))u gives independent Gaussian Sv,Su. Hence lambda_hat=a+Delta[W+sqrt(W(1-W)) Z/chi_k] with independent ratio. The square of the Student ratio transformed to T=U²/(1+U²) is Beta(1/2,k/2). Escape is exactly W<T or 1-W<T according to ratio sign, proving the two incomplete-beta integrals and P(k=1)=1/2. Small-t incomplete-beta and exact beta moments yield escape k^(-r/2) with r=min(p,q) and the stated sharp constant; corresponding scaled overshoot integral yields k^(-r/2-1). The one-sided Student tail and beta moment give the fixed-k t^(-k) overshoot tail with positive constant and moment cutoff s<k. The p=q=1 planar angular integral gives P(k=2)=1-2/pi and EH/Delta=2/pi-1/2. Independent Student-ratio integration reproduced P(k=1,2,3,5)=(.5,.363380227632,.297357632715,.229810176954), corroborating the k=2 closed form.
 
-**Limitations and priority risk.** Two spectral levels only, a one-vector trial subspace, Gaussian sketches, fixed multiplicities as sketch size grows, and exact arithmetic. No broad spectral-matrix theorem, higher-dimensional trial space, or floating-point guarantee is asserted. Highly specialized sketched-eigenvalue distribution literature could overlap; independent audit and publication-priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sketched Rayleigh–Ritz framework and possibility of non-Hermitian sketched projection are prior, as are Student/Gaussian/Beta identities. The assessed new invariant is the unconditional joint Haar-direction/Gaussian-sketch probability of leaving a two-point spectral envelope, its exact edge multiplicity rate, fixed-row tail and overshoot moments. Embedding-conditional approximation bounds do not imply this rare-event distribution, but a specialized later probabilistic analysis may.
+
+## value
+
+PASS
+
+A sketched eigenvalue of a symmetric two-level operator can fall outside its actual spectral interval; the probability, overshoot and moment classification quantify a real error mode of a natural randomized linear algebra estimator. The sharp decay exponent depends on extreme eigenspace multiplicity rather than ambient dimension, with a fixed-row moment cutoff, providing a mathematically motivated exact probabilistic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
