@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation gives h'(x)=h(x)[h(x)-g(x)] and a single-turn score g; every crossing of h-g before its score maximum is strict and downward, while h-g<0 afterward. Uniform beta-function and incomplete-survival expansions at x=epsilon+epsilon^2 z, |z|<=C|log epsilon|, give H=epsilon[b(log epsilon+K_b)-z]+O(epsilon^2 log^2 epsilon). Its derivative is -1/epsilon+O(|log epsilon|), giving the asserted O(epsilon^3 log^2 epsilon) root error and hazard-height estimate. Standalone tests passed 5910 assertions, supplementing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cox 2008 abstract explicitly characterizes generalized F hazard shapes as decreasing or arc-shaped outside generalized gamma.",
+        "Glaser 1980 abstract describes general sufficient criteria for upside-down bathtub-shaped hazard functions."
+      ],
+      "reasoning": "These broader statements can subsume qualitative uniqueness and are acknowledged; neither accessible abstract states a parameter-approach expansion of the beta-prime hazard peak. Full texts were not obtained, creating a named residual risk and no claim of complete noncoverage.",
+      "searches": [
+        "The generalized F distribution: An umbrella for parametric survival analysis Cox 2008 hazard shapes",
+        "Bathtub and Related Failure Rate Characterizations Glaser 1980",
+        "https://doi.org/10.1002/sim.3292",
+        "https://doi.org/10.1080/01621459.1980.10477530"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37725v1 (full preprint, Theorem 4)",
+      "arXiv:1812.07935v1 (full HTML)",
+      "doi:10.1002/sim.3292 (publisher abstract; full text unavailable)",
+      "doi:10.1080/01621459.1980.10477530 (publisher abstract; full text unavailable)",
+      "https://www.randomservices.org/random/special/BetaPrime.html (full online exposition)",
+      "SciPy beta-prime distribution documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baricz et al. 2026 Theorem 4 states NWU iff a<=1 and never NBU; neither that property nor its negation specifies the location of the hazard peak or the digamma coefficient.",
+        "Leão et al. 2018 Introduction and Section 2 describe arc-shaped beta-prime hazards within survival modelling; no threshold expansion appears in material read.",
+        "A direct calculation near a=1 is needed to obtain the logarithmic epsilon-squared shift and height asymptotics."
+      ],
+      "reasoning": "The new assertion is a finer perturbative invariant at the already known shape threshold. Matching the known qualitative arc does not imply its sharp onset speed or the b-dependent digamma correction.",
+      "searches": [
+        "https://arxiv.org/abs/2610.37725",
+        "https://arxiv.org/abs/1812.07935",
+        "beta prime odds ratio law unique hazard peak x_star a=1+epsilon small shape asymptotics",
+        "beta-prime inverse beta distribution hazard maximizer x_a near a=1 has shift b(a-1)^2 log(a-1) digamma expansion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SciPy describes beta-prime as a scaled central F distribution with degrees (2a,2b).",
+        "The beta-prime odds transform and F-rescaling preserve the relevance of hazard-shape literature, but only positive linear scaling directly transports a hazard peak location."
+      ],
+      "reasoning": "The exact new coefficient b[psi(b+1)-psi(1)+log epsilon] transfers to scaled central F laws; no distinct F result was located that yields this boundary-layer coefficient.",
+      "searches": [
+        "beta prime beta II distribution unique unimodal hazard failure rate upside-down bathtub shape parameter a>1",
+        "F distribution failure rate function upside down bathtub shaped unimodal 2 parameters",
+        "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betaprime.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard distribution references tabulate the density and density mode (a-1)/(b+1), not the quantified failure-rate maximum at a downarrow 1.",
+        "The explicit a=2 hazard check yields x=1/sqrt(b+1), generally distinct from the density mode."
+      ],
+      "reasoning": "The precise critical location/height expansion is not a re-expression of the density mode or of a numerical distribution table.",
+      "searches": [
+        "beta prime distribution hazard function unimodal mode reliability functions",
+        "beta prime probability distribution mode hazard critical asymptotic",
+        "https://www.randomservices.org/random/special/BetaPrime.html",
+        "https://docs.scipy.org/doc/scipy/tutorial/stats/continuous_betaprime.html"
+      ]
+    },
+    "rationale": "The accepted target is the two-term critical mode expansion with its logarithmic coefficient and the peak-height expansion, not the already known decreasing/arc hazard taxonomy. The 2026 full text gives NWU classification, the 2018 full text describes the arc shape, and accessible broader taxonomies do not state the claimed location/height asymptotics. Targeted research-index and literature searches and current accessible claim-history comparisons yielded no implication covering these coefficients. Broader full texts remain a historical-priority risk, rather than proven exclusions.",
+    "residual_risks": [
+      "The full Cox (2008) and Glaser (1980) papers could contain an unlocated beta-prime perturbative formula; their abstracts alone do not prove noncoverage.",
+      "More general Pearson type VI or generalized-F hazard-mode asymptotics may exist under different notation; no exhaustive global priority guarantee.",
+      "The basic qualitative unimodality is known or strongly dominated by general hazard taxonomy and is not presented as independently novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A complete NWU/NBU classification and DFR for a<=1; no location/height boundary-layer expansion in the inspected relevant result.",
+        "evidence": [
+          "Theorem 4 and proof, pp. 10-11, arXiv:2610.37725v1"
+        ],
+        "identifier_or_url": "arXiv:2610.37725v1; https://arxiv.org/pdf/2610.37725",
+        "material_read": "Relevant portions of the accessible 20-page preprint, including the abstract, Theorem 4, proof and subsequent remarks on pp. 10-11; PDF page 11 was visually inspected.",
+        "method": "ArXiv full-text extraction and PDF page inspection.",
+        "title": "The NWU ageing property of the gamma-gamma distribution",
+        "trigger": "Earliest eligible source and direct beta-prime NBU/NWU theorem."
+      },
+      {
+        "assessment": "Generalized cure model and arc-shaped hazard descriptions; no visible digamma/logarithmic parameter-onset expansion in the material inspected.",
+        "evidence": [
+          "Introduction paragraph discussing upside-down bathtub beta-prime hazard, Section 2 formulas (2)-(4)"
+        ],
+        "identifier_or_url": "arXiv:1812.07935v1; https://arxiv.org/abs/1812.07935",
+        "material_read": "Accessible arXiv HTML research text, materially read Introduction and Section 2 equations and beta-prime model setup.",
+        "method": "Full-text HTML read; claim compared with its qualitative shape statement.",
+        "title": "The negative binomial beta prime regression model with cure rate",
+        "trigger": "Prior study explicitly stating arc-shaped beta-prime failure rates."
+      },
+      {
+        "assessment": "Strong prior coverage of qualitative shape. Whether full text has the precise critical coefficients could not be decided from the accessible material.",
+        "evidence": [
+          "Cox (2008) abstract characterizing generalized F hazards as decreasing or arc-shaped"
+        ],
+        "identifier_or_url": "doi:10.1002/sim.3292",
+        "material_read": "Publisher abstract and bibliographic references only; full text unavailable through available lawful access.",
+        "method": "Bibliographic/publisher abstract and open full-text search; full text not accessible in available sources.",
+        "title": "The generalized F distribution: An umbrella for parametric survival analysis",
+        "trigger": "Broader family containing beta prime; possible complete hazard classification."
+      },
+      {
+        "assessment": "General criteria are prior; exact beta-prime boundary-layer coefficients could not be excluded without full text.",
+        "evidence": [
+          "Glaser (1980) abstract stating criteria for upside-down bathtub hazard functions"
+        ],
+        "identifier_or_url": "doi:10.1080/01621459.1980.10477530",
+        "material_read": "Journal abstract only; full article unavailable through available lawful access.",
+        "method": "Bibliographic/publisher abstract and open full-text search; full text not accessible in available sources.",
+        "title": "Bathtub and Related Failure Rate Characterizations",
+        "trigger": "General hazard-shape criteria could subsume qualitative uniqueness."
+      },
+      {
+        "assessment": "The documented density mode differs from the hazard peak; no matching critical hazard displacement formula found.",
+        "evidence": [
+          "Density mode (a-1)/(b+1) and density derivative calculation"
+        ],
+        "identifier_or_url": "https://www.randomservices.org/random/special/BetaPrime.html",
+        "material_read": "Online basic theory and distribution-function discussion, including density derivative and mode.",
+        "method": "Read publicly accessible mathematical exposition.",
+        "title": "The Beta Prime Distribution",
+        "trigger": "Standard density-mode and parameter-table coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d906e1d-04b0-48c3-b7ee-0f0d4c262f9a",
+  "value": {
+    "rationale": "The onset of a failure-rate maximum across the exact a=1 reliability phase threshold is a natural hazard-shape invariant. The universal leading distance epsilon, b-dependent digamma/logarithmic correction, and uniform rate reveal a genuine boundary-layer sensitivity absent from qualitative decreasing-versus-arc classifications and are meaningful for quantitative risk-peak location near threshold. This is a self-contained two-parameter asymptotic, not an arbitrary numerical evaluation.",
+    "status": "PASS"
+  }
+}
