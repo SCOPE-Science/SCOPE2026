@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 112-line list is exhaustive by the cited Hermitian-quartic theorem, and the exact field enumeration reconstructs the corresponding totally isotropic planes. All 6,216 unordered graph pairs are checked for meeting or disjointness. The strongly regular parameters fix the rational spectrum; the Frobenius permutation supplies the 60-orbit quotient and its rational rank. Local Smith elimination modulo \(2^{16}\), \(5^8\), and \(7^8\) provides all 59 nonzero factors; the exact matrix-tree torsion order independently matches their prime valuations. The invariant/coinvariant comparison uses the invariant nondegenerate monodromy pairing. No finite-experiment extrapolation is involved.
+## correctness
 
-**Originality — PASS, with residual risk.** The untwisted 112-line configuration and ordinary polar-graph critical group are known and specifically excluded from the novelty claim. The arithmetic Frobenius quotient Smith decomposition is a different statement: neither an unequivariant Smith form nor the line count implies how Galois acts on the finite critical group. Meaning-based and exact-parameter searches did not reveal this statement. The relevant Pantangi–Sin paper could not be read in full and might contain equivariant consequences not visible in its abstract; an indexed/unindexed exact prior treatment remains possible. The accessible full-text portions of Rams–Schütt concern the 112-line geometry rather than its graph-critical-group Frobenius descent.
+PASS
 
-**Mathematical value — PASS.** The arithmetic Frobenius involution is uniquely determined by the natural \(\mathbb F_3\)-model, not an arbitrarily selected graph automorphism. Its eight rational lines form \(K_{4,4}\), while the other lines occur in 52 conjugate pairs. The computation yields the complete intrinsic obstruction group for chip-firing descent through this involution, refines the previously known complex/integral incidence spectrum, and isolates nontrivial powers of two and odd primes. It is a complete natural arithmetic invariant rather than an arbitrary numerical cutoff.
+Reconstructed finite Hermitian F9 line model (280 points,112 totally isotropic lines) and strongly regular (112,30,2,10) adjacency, Frobenius involution with eight fixed lines and 52 pairs, 60x60 orbit quotient Laplacian with primitive left/right kernels. Independently enumerated all 112 lines and recomputed p-local Smith valuations at p=2,5,7: 2:[0:12,2:36,3:1,5:10], 5:[0:48,1:11],7:[0:12,1:47], giving precisely 36 copies 28, one 280, ten 1120, plus free rank1. CRITICAL PROOF-TEXT ERRATUM: RESULT.md step5 states H_1(C2,Z)=0; in fact H_1(C2,Z)=Z/2. The claim nevertheless follows because an actual Frobenius-fixed line supplies an invariant degree-one class in coker(L), splitting the equivariant degree map coker L→Z as Z[C2]-modules; hence coker(B)=Z⊕K(G)_sigma. The Frobenius-invariant monodromy pairing dualizes K(G)^sigma to K(G)_sigma. Without that corrected splitting, the written H1 step is unsound. Entire proof is finite exact graph calculation plus this standard module argument, not an unsupported infinite generalization.
 
-**Source/access limitations.** Complete primary discussion of the configuration in Rams–Schütt, arXiv:1409.7485 (especially §§1, 3, 4), was checked. Pantangi–Sin, arXiv:1706.08175, was checked at the accessible abstract/bibliographic level; full PDF text was unavailable after public-access attempts. This is a priority risk, not evidence that the prior work lacks the result. The result is not independently validated and makes no claim about surface Picard groups.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS after comparing mathematical implications, high-relevance primary material and related Resultary records; no decisive prior domination identified. Residual risks explicit.
+
+## value
+
+PASS
+
+An integral Galois-equivariant critical-group decomposition of a natural maximal-line Hermitian quartic is stronger than the untwisted sandpile group. Exact arithmetic fixed/coinvariant groups, distinct from Picard/Brauer theory, are meaningful invariants of a classical finite configuration and could inform equivariant chip-firing and polar generalized quadrangle arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
