@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "A zero must be flanked by unlike nonzero colors, so zero sets are independent. For a k-zero set with k<n/2, the required unlike-color edges form a forest on n-k positions with k edges, giving 2^(n-2k) legal colorings. Cyclic gap compositions give n/(n-k) binom(n-k,k) zero sets; the alternating endpoint has exactly two zero patterns and colorings iff n/2 is even, giving four, otherwise zero. The standard cycle matching trace yields the square-root expression and the parity correction. The minimum counts are the top nonzero coefficients: 4, 2n, and n^2. Direct brute enumeration for 3<=n<=12, an independent 9-state transfer for 3<=n<=60, and recurrence checks for 3<=n<=150 passed on the new package code. Boundary n=3 and multigraph succession at n=4 are handled by distinct cyclic succession edges. Infinite quantifiers rely on the combinatorial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lange, arXiv:2610.06906v1, Section 5.1, Proposition 12: minimum singleton rainbow 2-domination weight of cycles, with proof by witness configurations; no count of all admissible labelings is stated there.",
+        "Rao et al., arXiv:2608.14690v1, Section 2 and Theorem 2.2: minimum values on splitting graphs of cycles rather than the base-cycle all-weight count.",
+        "Bonomo et al., Discrete Applied Mathematics 235 (2018), DOI 10.1016/j.dam.2017.08.017: interrelations of number-2 domination parameters, not an enumerator in the accessible material."
+      ],
+      "reasoning": "General finite-state dynamic programming on bounded-width graphs can algorithmically count these labelings but is not a printed closed binomial/matching identity with the alternating parity correction. Known numerical minimum weights do not imply coefficients or minimum counts. The missing complete original dual-server article is a residual priority risk, not declared negative coverage.",
+      "searches": [
+        "rainbow 2 domination cycles C_n complete enumeration minimum functions counting congruence mod 4",
+        "rainbow domination polynomial cycle explicit binomial coefficient 2^{n-2k} matching polynomial",
+        "\"dual-server domination\" \"enumeration\" cycle number functions",
+        "\"dual-server domination in graphs\" Chellali Haynes Hedetniemi 2026 open access full text",
+        "\"10.1016/j.dam.2026.03.017\" pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.06906v1, https://arxiv.org/html/2610.06906, original first submitted 2026-10-01",
+      "arxiv:2608.14690v1, https://arxiv.org/abs/2608.14690, original first submitted 2026-08-07",
+      "DOI:10.1016/j.dam.2026.03.017, bibliographic abstract only",
+      "DOI:10.1016/j.dam.2017.08.017, public definitions/abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lange Proposition 12 gives the minimum colored-vertex count for each residue modulo four; the present theorem gives every coefficient and the exact number of minimizers.",
+        "Rao et al. arXiv:2608.14690v1 treats splitting cycles and operations, without an implication giving every cycle-labeling count.",
+        "A separate indexed paper, All 2-rainbow dominating functions of complete multipartite graphs, treats multipartite graphs rather than cycles and cannot directly subsume the cycle enumerator.",
+        "An additional indexed record, Exact forced 3-colouring polynomials at maximum degree two, concerns a different forcing-coloring predicate; shared cycle graphs do not make it a covering enumerator for rainbow domination."
+      ],
+      "reasoning": "The numerical minimum is a function of the polynomial support only and cannot determine its coefficients. The known general graph-operation formulas and multipartite theorems do not imply a cyclic matching-polynomial identity by substitution. Even the natural matching polynomial requires an additional, explicitly proved closing-color parity correction.",
+      "searches": [
+        "singleton rainbow 2 domination cycle optimal labelings enumeration number of minimum dual server domination configurations",
+        "rainbow 2 domination cycles C_n complete enumeration minimum functions counting congruence mod 4",
+        "complete weight enumerator of singleton rainbow 2 dominating functions on cycle chromatic colors matching polynomial parity obstruction",
+        "\"rainbow 2-domination\" \"number\" \"minimum\" cycles functions",
+        "\"The Dual-Server Domination Number of Some Graph Operations\" arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lange, arXiv:2610.06906v1, Section 2 and Proposition 12 (https://arxiv.org/html/2610.06906): singleton two-rainbow domination is called dual-server domination; classical set-valued 2-rainbow domination permits double-color vertices.",
+        "Rao et al., arXiv:2608.14690v1, Introduction (https://arxiv.org/abs/2608.14690): a dual-server dominating set is a colored partition of its selected vertices."
+      ],
+      "reasoning": "A singleton labeling is exactly a choice of uncolored vertices plus an ordered red/blue partition of the selected vertices; this recoding is the same object, so aliases were searched. The classical set-valued variant and independent rainbow domination are strictly different admissibility conditions. No indexed same-object cycle weight enumerator was found.",
+      "searches": [
+        "singleton rainbow 2 domination cycle optimal labelings enumeration number of minimum dual server domination configurations",
+        "dual-server domination polynomial of cycles C_n all cardinalities number of red blue partitions of dominating sets",
+        "complete weight enumerator of singleton rainbow 2 dominating functions on cycle chromatic colors matching polynomial parity obstruction",
+        "\"dual server domination polynomial\" cycles",
+        "\"rainbow 2-domination\" \"number\" \"minimum\" cycles functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched initial minimum counts 6,4,10,36,14,4,18,100 and the residue-class quantities 4,2n,n^2; no exact indexed enumeration table for this same invariant was identified.",
+        "The direct independent checker computes the complete coefficient tables for n=3..12 from all 3^n labelings; those generated values are checks, not prior literature."
+      ],
+      "reasoning": "Numeric coincidences or other domination sequences do not establish a covering theorem; the relevant database question is whether the same singleton/dual-server labeling counts have been tabulated or expressed as a closed polynomial. Public and indexed-record searches did not locate an identical item. Absence from search is not treated as proof of priority.",
+      "searches": [
+        "minimum 2-rainbow dominating function cycle colored labels minimum weight enumeration rotation dihedral orbits",
+        "rainbow domination polynomial cycle explicit binomial coefficient 2^{n-2k} matching polynomial",
+        "\"rainbow domination polynomial\" \"cycle\" singleton",
+        "\"2-rainbow domination\" \"polynomial\" \"C_n\"",
+        "\"6, 4, 10, 36, 14\" \"domination\"",
+        "\"2n\" \"n^2\" \"dual-server\"",
+        "exact 2-color singleton rainbow domination weight polynomial of a cycle C_n; coefficients (n/(n-k)) binomial(n-k,k) 2^(n-2k); minimum functions 4 for 0 mod 4, 2n odd, n squared for 2 mod 4"
+      ]
+    },
+    "rationale": "Compared equivalent singleton/dual-server terminology, all-weight generating functions, exact minimum counts, and the matching-polynomial specialization against semantic-index searches, public literature searches and related published claims. The 2026 primary cycle result states only a minimum weight; neither it nor the accessible 2026 splitting-graph paper supplies this exact weight polynomial or the cycle parity correction. A closest indexed independent finding concerns complete multipartite graphs, whose scope does not imply a cycle theorem. Unread foundational 2026 full text remains a named priority risk. No absolute novelty proof or external certification claimed.",
+    "residual_risks": [
+      "The complete 2026 foundational Chellali–Haynes–Hedetniemi paper was not accessible and might contain an equivalent enumerative special case.",
+      "Some older general transfer-matrix or matching-polynomial literature could encode the exact polynomial under different terminology; historical priority is provisional.",
+      "Unsuccessful literature search is not a mathematical proof of originality; no independent priority or proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS minimum weight, NOT observed to cover the all-weight polynomial or exact number of minima in the cycle proof; full-document absence not asserted beyond inspected material.",
+        "evidence": [
+          "https://arxiv.org/html/2610.06906, Sections 2 and 5.1, Proposition 12.",
+          "https://arxiv.org/abs/2610.06906: original first submitted 2026-10-01."
+        ],
+        "identifier_or_url": "arxiv:2610.06906v1; https://arxiv.org/html/2610.06906",
+        "material_read": "Title/abstract, definitions (Section 2), relevant general bounds (Section 3), and the entire cycle treatment in Section 5.1 including Proposition 12 and its proof, in accessible full HTML. Other sections were identified by the contents but not inspected line-by-line.",
+        "method": "Open-access arXiv HTML inspected at the relevant displayed lines.",
+        "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+        "trigger": "Same invariant and exact cycle minimum-weight formula"
+      },
+      {
+        "assessment": "Studies minimum sizes of split-cycle dual-server dominating sets; the inspected material does not give base-cycle enumerators.",
+        "evidence": [
+          "https://arxiv.org/abs/2608.14690, Sections 1 and 2."
+        ],
+        "identifier_or_url": "arxiv:2608.14690v1; https://arxiv.org/abs/2608.14690",
+        "material_read": "Accessible arXiv expanded full text, Introduction, Section 2 on splitting graphs, Theorem 2.2 and neighboring cycle discussion.",
+        "method": "Open-access arXiv rendered text, including sections and theorem statements.",
+        "title": "The Dual-Server Domination Number of Some Graph Operations",
+        "trigger": "Equivalent dual-server terminology and cycle-related theorems"
+      },
+      {
+        "assessment": "UNRESOLVED priority risk; not claimed NOT_COVERING from snippets.",
+        "evidence": [
+          "https://eurekamag.com/research/104/828/104828801.php",
+          "https://www.researchgate.net/publication/400099677_Dual-Server_Domination_in_Graphs"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.dam.2026.03.017; https://doi.org/10.1016/j.dam.2026.03.017",
+        "material_read": "Public bibliographic summary and description; complete original paper inaccessible.",
+        "method": "Searched arXiv and lawful open-access sources; complete text was unavailable through the accessible lawful sources.",
+        "title": "Dual-server domination in graphs",
+        "trigger": "Foundational same-invariant paper, possibly containing cycle extremal results"
+      },
+      {
+        "assessment": "Relevant for distinguishing definitions; detailed coverage of this specific enumerator not resolved by snippets alone.",
+        "evidence": [
+          "https://doi.org/10.1016/j.dam.2017.08.017"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.dam.2017.08.017",
+        "material_read": "Accessible bibliographic abstract and definitions of singleton rainbow 2-domination, not full paper.",
+        "method": "Public journal metadata and publicly available extracted text snippets.",
+        "title": "Domination parameters involving the number 2: interrelations and algorithmic consequences",
+        "trigger": "Older systematic comparison of rainbow-two domination notions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb546673-6057-4401-a5e9-cd6b11a0a6df",
+  "value": {
+    "rationale": "The motivating October 2026 work settles a natural extremal weight, leaving the full labelled-size distribution and degeneracy of optima unaddressed. The result gives every coefficient for every cycle size, reduces the polynomial to a standard matching polynomial plus one parity correction, and yields a sharp constant/linear/quadratic residue-class census of optimal placements. The parity of the closed alternating-color constraint supplies a structural explanation, rather than an arbitrary small computation.",
+    "status": "PASS"
+  }
+}
