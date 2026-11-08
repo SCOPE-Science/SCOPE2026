@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The newest-vertex depth is the tree height because its increment is always zero or one. The exact leaf recurrence and iid geometric renewal-block decomposition give a vector renewal-reward CLT. Independently calculated second moments yield the displayed covariance, and finite-state geometric mixing gives the stated \(O(1)\) variance/covariance errors. The standalone exact checker reproduces tree path statistics and independent finite-state moments, and verifies the geometric covariance calculation. A computational check does not replace the regenerative proof.
+
+**Originality — PASS, provisional.** Tang, Wang and Wu's full publicly readable paper identifies the same parent process and analyzes its unique end, branches and walk collisions; it does not state the height/leaf Gaussian covariance or the sign transition. General Markov and renewal CLTs imply asymptotic Gaussianity after model-specific representation but do not by themselves supply the displayed explicit covariance or its exact golden-ratio zero. Relevant database searches and accessible earlier records identified related tree statistics, not the same model and pair of observables. There remains a risk of a differently worded finite-state reward formula covering this specialization or an unindexed prior analysis.
+
+**Mathematical value — PASS.** Tree height and number of leaves are canonical, independently motivated measures of longitudinal growth and branching. The result quantifies their joint fluctuations and reveals a nontrivial sharp change from anticorrelation to positive correlation, with asymptotic independence at a concrete parameter. It illuminates geometry of a recent, explicitly studied random-tree law rather than an arbitrary numerical slice; the novelty/value is not the textbook regenerative CLT alone.
+
+**Closest literature and limitations.** Tang, Wang and Wu, arXiv:2607.02916 (2026), Sections 1–3, analyze the model's spine and walk collisions. Leckey and Neininger's Hoppe-tree results and other tree-profile CLTs concern different attachment mechanisms. The finding assumes fixed \(0<p<1\); it does not cover endpoint scaling, other memory lengths, quantitative normal-approximation rates, or independent historical certification.
+
+Self-review: passed. Independent audit: not yet performed.
