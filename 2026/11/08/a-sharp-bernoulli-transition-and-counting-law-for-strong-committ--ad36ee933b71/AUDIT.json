@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The solution-family equality is a two-direction deterministic proof on the event that every candidate has a singleton-ballot supporter. Every cohesive candidate c must then be elected: its full supporter group contains a voter approving only c. A committee containing every cohesive candidate represents all cohesive groups by a common elected candidate. Probability that a particular private ballot never occurs is (1-q(1-q)^(m-1))^n; union bound yields the family-coupling error without requiring dependence assumptions. Candidate approval counts are mutually independent binomials, so the exact distribution of the proxy solution count follows. The LLN and centered triangular-array CLT establish all asymptotic and conditional claims. An exhaustive exact checker independently inspected 78,664 small full approval profiles and verifies the stated finite proxy; finite tests are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han et al. Theorem 2.2 establishes two AJR transitions (one coalescing for k=2) with high-density recovery; the present SJR/SSJR profile instead has no recovery for any fixed q<1 above 1/k.",
+        "Elkind et al. address existence of JR representation, whose underrepresentation witness requires every voter of a cohesive group to be unrepresented, unlike SJR/SSJR.",
+        "Brill et al. use the stronger all-level individual-representation criterion and empirical model comparisons, without this probability/count law."
+      ],
+      "reasoning": "The superficially broader AJR statement concerns a different noncomparable collection of constraints and does not provide the exact random SJR/SSJR solution count. The original JR theorem is genuinely weaker and cannot imply either strong axiom. Individual representation across all levels has a different domain and is not a probabilistic solution-family theorem here.",
+      "searches": [
+        "https://arxiv.org/abs/2510.18718 Theorem 2.2 all-level average justified representation Bernoulli phase transitions",
+        "https://arxiv.org/abs/2108.12949 Theorem 3.1 random approval JR justifying groups",
+        "https://doi.org/10.1007/s00355-024-01563-w independent approval individual representation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.29332v2",
+      "https://arxiv.org/abs/2510.18718",
+      "https://arxiv.org/abs/2108.12949",
+      "https://doi.org/10.1007/s00355-024-01563-w",
+      "https://arxiv.org/abs/2608.13085",
+      "https://doi.org/10.1007/s00355-016-1019-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Defining cohesive candidate by support >=n/k in the 2026 SJR paper is necessary but not sufficient for the new private-ballot iff reduction; its deterministic worst-case complexity results allow collisions.",
+        "Han et al. prove AJR likelihood 1 at sufficiently large approval probability; the present SJR/SSJR likelihood is 0 there for fixed q<1.",
+        "Grossi et al. give equality SJR/SSJR under correlated transitive liquid delegation profiles, not an iid Bernoulli probability statement."
+      ],
+      "reasoning": "The new theorem strictly adds a probabilistic event ensuring that omitting any cohesive candidate fails both exact axioms. It proves total-variation control of the whole count distribution, not just axiom hierarchy or probabilistic existence. The AJR high-density recovery illustrates why its theorem cannot dominate the SJR/SSJR claim.",
+      "searches": [
+        "https://arxiv.org/html/2609.29332v2 Definitions 2,4,5 and Proposition 9",
+        "https://arxiv.org/abs/2510.18718 Theorem 2.2",
+        "https://arxiv.org/abs/2608.13085 representation liquid delegation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chingoma et al., Definition 4 and Definition 5, formulate SJR/SSJR by common elected approvals and individual coverage of cohesive voters.",
+        "Han et al. 2025, Definition 2.1, defines AJR by average number of elected approvals for every ell-cohesive group; this is not equivalent to single-level SJR or SSJR."
+      ],
+      "reasoning": "An alternative formulation of the new claim is that full-family SJR/SSJR membership agrees, with exponentially high probability, with the rule of including every candidate supported by at least the Hare quota. The deterministic equivalence needs a private supporter of each candidate, which does not follow from any cited general definitions or results. AJR cannot be substituted, as its all-level average-satisfaction constraints are different.",
+      "searches": [
+        "\"strong justified representation\" \"Bernoulli\" exact number of committees",
+        "\"semi-strong justified representation\" private singleton approval",
+        "https://arxiv.org/html/2609.29332v2#S2",
+        "https://arxiv.org/abs/2510.18718"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chingoma et al. report empirical satisfiability/score data and cohesive-candidate counts, not a symbolic binomial family law.",
+        "Han et al. report AJR trichotomy and boundary orders, but not SJR/SSJR exact conditional distributions."
+      ],
+      "reasoning": "No accessed published table/database states the binomial count proxy or the Gaussian transition for both strong axioms. Existing simulations do not constitute the exact result.",
+      "searches": [
+        "https://arxiv.org/html/2609.29332v2 section 8 experimental tables satisfiability cohesive candidates",
+        "https://arxiv.org/abs/2510.18718 tables and figures likelihood AJR",
+        "\"Bernoulli\" \"SSJR\" \"number of committees\" probability"
+      ]
+    },
+    "rationale": "The 2026 SJR/SSJR source defines the exact cohesive-group axioms and empirically studies their feasibility. Its accessible definitions, result sections and experimental discussion contain no law for the entire feasible-committee family in independent Bernoulli voting. The closest probabilistic theory, Han et al. 2025, concerns the distinct all-level average-justified-representation axiom and has a high-density existence-recovery phase incompatible with strong individual/common-winner coverage. The 2021 JR random-profile result treats the weaker existentially covered voter criterion. No accessible identical or stronger theorem was found. Same-model originality, not independent priority certification.",
+    "residual_risks": [
+      "Equivalent independently developed/private-ballot formulas may occur in unindexed preprints or uninspected older appendices; no independent novelty certification.",
+      "Only the abstract/secondary citation of the 2017 axiomatic source was inspected directly, though the 2026 full text reproduces formal definitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exactly the SJR/SSJR axioms and empirical motivation; does not assert the proposed fixed-m Bernoulli full-family or Gaussian result",
+        "evidence": [
+          "Definitions 4–5 give group-quantified axioms; Definitions 7–8 optimize per-candidate coverage; the experimental section reports feasibility and cohesive counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.29332v2",
+        "material_read": "Definitions 2–8, Sections 3–5 and 8, relations, appendix on restricted domains and hardness",
+        "method": "Read rendered full primary paper, searched for random Bernoulli laws and exact score/count statements",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Direct motivating source of SJR/SSJR axioms and empirical feasibility experiment"
+      },
+      {
+        "assessment": "Different all-level average-satisfaction AJR axiom; two transitions and high-density recovery cannot imply new one-transition SJR/SSJR count law",
+        "evidence": [
+          "Theorem 2.2 gives AJR high-density recovery for fixed m,k; Definition 2.1 defines averaged satisfaction over ell-cohesive groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.18718",
+        "material_read": "Full rendered text, abstract, Sections 1–5, Theorem 2.2, Definitions 2.1, and comparisons with JR and individual representation",
+        "method": "Inspected original HTML-extracted primary full text; compared quantified AJR definition, threshold conclusions and implications",
+        "title": "Likelihood of the Existence of Average Justified Representation",
+        "trigger": "Same iid Bernoulli approval model and sharp 1/k threshold, potentially dominating prior"
+      },
+      {
+        "assessment": "Concerned ordinary JR, strictly weaker than SJR/SSJR; no full strong-family law",
+        "evidence": [
+          "Theorem 3.1 uses an omitted candidate and avoidance of elected candidates to study ordinary justifying groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.12949",
+        "material_read": "Rendered primary text, Sections 1–3, Theorem 3.1 and discussion of JR",
+        "method": "Compared existential group representation and impartial-culture justification with full-member SJR/SSJR",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Prior probabilistic approval-voting cohesive-group theory"
+      },
+      {
+        "assessment": "Empirical and all-level individual representation, not the exact one-level SJR/SSJR probability result",
+        "evidence": [
+          "The paper investigates committee existence under sampling models, including independent approvals, without a closed-form SJR/SSJR count distribution."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00355-024-01563-w",
+        "material_read": "Full accessible journal HTML, definition/existence discussion and Section 5 sampling experiments",
+        "method": "Read accessible publisher primary HTML; compared model and quantified fairness constraints",
+        "title": "Individual Representation in Approval-Based Committee Voting",
+        "trigger": "Higher-level individual-representation axiom and Bernoulli experimental models"
+      },
+      {
+        "assessment": "Deterministic equality on liquid-delegation structured profiles does not imply Bernoulli equality with exponential probability or committee-count law",
+        "evidence": [
+          "Liquid delegation imposes common structure unavailable in unrestricted random approval sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.13085",
+        "material_read": "Rendered primary full HTML, abstract, introductory definitions and structural result sections",
+        "method": "Compared transitivity/correlation hypotheses to independent approval matrices",
+        "title": "Representation in Peer Selection: A Liquid Democracy Perspective",
+        "trigger": "Published SJR/SSJR coincidence on a structured preference domain"
+      },
+      {
+        "assessment": "Provides original axioms, not evidence for the new Bernoulli counting theorem; incomplete direct inspection is a residual risk",
+        "evidence": [
+          "Chingoma et al. Definition 4–5 attribute SJR and SSJR to Aziz et al. 2017."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00355-016-1019-3",
+        "material_read": "Abstract and definitions cited in the more recent primary SJR/SSJR full text; not the complete 2017 source",
+        "method": "Crosschecked cited axiom provenance against 2026 directly inspected definitions",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Original formal source of JR/SJR/SSJR hierarchy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad36ee93-3b71-4665-bd1a-ea4d65472bf8",
+  "value": {
+    "rationale": "The main SJR/SSJR literature explicitly studies feasibility and the number of cohesive candidates but does not quantify their probabilistic relation. The result supplies an event-by-event characterization of every qualifying committee, a finite-n distribution approximation, the exact feasibility phase boundary and Gaussian-window profile, and a nontrivial conditioning on positive cohesive representation. It gives a mathematically motivated counterpart to empirical feasibility studies, with appropriate fixed-m and iid limitations.",
+    "status": "PASS"
+  }
+}
