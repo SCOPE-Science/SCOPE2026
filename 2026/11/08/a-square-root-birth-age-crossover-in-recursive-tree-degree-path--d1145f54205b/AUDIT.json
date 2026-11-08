@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The parent-choice indicator formula is established by holding all other parent choices fixed; only descendants of the arriving vertex change depth, their expected final subtree size is n/j, and the expected depth of a uniform earlier parent is H_(j-1)-1. Finite double-sum interchange yields the covariance and first-difference identities exactly; the signs imply one crossing, while the harmonic expansion gives the sqrt(n/log n) threshold. Direct enumeration of all (n-1)! parent sequences for n=3..9 plus algebraic checks for n=3..150 pass. Ten numerical asymptotic diagnostics supplement, not replace, the proof. Boundary cases i=1, i=n-1, i=n, j=2 are explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eslava arxiv:1611.07466 (2016), Theorems 1.1–1.3 concern degrees and depths of high-degree or random vertices; no total-path-length covariance by labelled birth rank in inspected main results.",
+        "Lodewijks arxiv:2204.09032 (2022), Theorem 2.6 and Section 6 concern several prescribed-vertex degrees and depths.",
+        "Drmota–Hwang DOI 10.1239/aap/1118858628 concerns correlations between level sizes, not an individual vertex offspring count and total path length."
+      ],
+      "reasoning": "More general distributional or profile theorems may cover different random variables but do not directly provide the exact mixed global-local covariance or the single-threshold classification. A complete unseen mixed generating function would be decisive; no such formula was established in the accessible material.",
+      "searches": [
+        "Web: random recursive trees joint distribution degree node total path length correlation covariance parent child 2021",
+        "Web: recursive trees fixed node degree total path length birth label sign change correlation",
+        "Web: profiles of random trees correlation and width random recursive trees binary search trees",
+        "published-finding corpus: joint degree and total internal path length recursive trees covariance degree fixed label"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1611.07466 (first public 2016-11-22; primary MSC 60C05)",
+      "arxiv:2204.09032 (first public 2022-04-19)",
+      "Published root-attachment full result https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+      "Dobrow–Fill 1999 DOI 10.1017/S0963548399003855 (abstract only)",
+      "Drmota–Hwang 2005 DOI 10.1239/aap/1118858628 (abstract/introduction only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The root-only full result states Cov(1{P_j=1},T_n)=-n(H_(j-1)-1)/(j(j-1)), and a root-only monotone-transform consequence. This is exactly the i=1 specialization of the local formula here.",
+        "The current i>=2 formula adds the term H_(i-1) in every local covariance; summing causes a birth-rank sign change and sqrt(n/log n) threshold.",
+        "Dobrow–Fill 1999 available abstract deals with path length alone; full-text priority cannot be ruled out."
+      ],
+      "reasoning": "The old root theorem fixes the parent at vertex 1, and substituting a different parent is not an implication of that statement; it requires new depth averaging and global sign analysis. No claim is made that the standard parent-coupling method is new. The finite and asymptotic nonroot classification is the single claimed contribution.",
+      "searches": [
+        "published-finding corpus: uniform random recursive tree fixed birth label i child count D_{n,i} covariance total internal path length exact harmonic H2 threshold sqrt(n/log n)",
+        "Published root-only full RESULT.md https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "Web: On joint properties of vertices with a given degree or label in the random recursive tree arxiv 2204.09032",
+        "Web: Total Path Length for Random Recursive Trees Dobrow Fill 1999"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba gives only the root attachment covariance and stochastic comparison.",
+        "Lodewijks arxiv:2204.09032 Theorem 2.6 and Section 6 treat degree/depth at prescribed labels, not degree versus total path length."
+      ],
+      "reasoning": "The present quantity is a mixed moment of offspring of vertex i with the sum of all vertex depths, unlike a root-only indicator or a joint marginal distribution of the degree and depth at a single vertex. Its birth-label sign change and mesoscopic scale are not supplied by those previous statements.",
+      "searches": [
+        "published-finding corpus: uniform random recursive tree fixed birth label i child count D_{n,i} covariance total internal path length exact harmonic H2 threshold sqrt(n/log n)",
+        "published-finding corpus: random recursive tree offspring count total path length covariance sign reversal mesoscopic birth age",
+        "Web: \"random recursive tree\" \"covariance\" \"total path length\" \"degree\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned the precise known root-only case, rather than a nonroot rank table.",
+        "Independent parent-vector enumeration covers n<=9 only and is not used as a novelty argument.",
+        "A related fixed-label offspring–leaf covariance theorem has a different target variable and a different (macroscopic) threshold; neither statistic yields the present total-path-length moments."
+      ],
+      "reasoning": "There is known exact coverage for the root and a related but different local-global pair; neither table contains a general labelled-vertex total-path-length covariance. Exhaustive small-order calculations are evidentiary checks, not database uniqueness proofs.",
+      "searches": [
+        "published-finding corpus: random recursive tree root degree path length covariance local parent attachments n harmonic",
+        "published-finding corpus: random recursive tree offspring count total path length covariance sign reversal mesoscopic birth age"
+      ]
+    },
+    "rationale": "The root-only case is already covered by a published exact parent-attachment covariance and is expressly excluded from the novel component. The nonroot full birth-rank covariance profile and sharp mesoscopic sign threshold are not direct corollaries of that root-only statement or of the inspected degree/depth distribution literature. A different prior fixed-label offspring/leaf covariance has a different global statistic and transition scale. The principal residual risk is an earlier mixed generating-function calculation not yet located.",
+    "residual_risks": [
+      "Older bivariate degree–path-length generating functions might subsume the mixed first-moment formula under different notation, even though no such expression was located.",
+      "The 1999 Dobrow–Fill full text was not accessible in this comparison; its abstract does not settle the historical-priority question.",
+      "The argument extends the known root-attachment parent-coupling method; novelty attaches to the nonroot profile and sharp mesoscopic threshold, not the underlying coupling technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the i=1 special case; no nonroot classification or mesoscopic sign threshold is claimed in the full text.",
+        "evidence": [
+          "Local root covariance equals -n(H_(j-1)-1)/[j(j-1)] for j>=2; its global covariance is H_n-1-n(H_n^(2)-1)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "material_read": "Full public RESULT.md including theorem, proof, prior-work discussion and limitations",
+        "method": "Public GitHub raw file through authorized read-only access",
+        "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+        "trigger": "Exact same global statistic and single-vertex offspring at the root"
+      },
+      {
+        "assessment": "Main results concern prescribed-vertex degree and depth (plus pairwise graph distances) rather than the total sum of all depths; no direct covering mixed moment found.",
+        "evidence": [
+          "Initial posting 2022-04-19; Section 6 describes degree/depth joint distribution for prescribed labels; Theorem 2.6 is a limit theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+        "material_read": "Accessible full-text HTML: abstract, introductory literature comparison, Section 2 Theorem 2.6, and Section 6 Proposition 6.1 and surrounding argument",
+        "method": "arXiv full-text HTML reading and text search for total path length / covariance",
+        "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "trigger": "Joint degree and birth-label depth results could potentially imply target covariance"
+      },
+      {
+        "assessment": "Results concern depths and degrees of high-degree or random vertices, not offspring covariance with global total path length.",
+        "evidence": [
+          "First public 2016-11-22; explicit primary MSC 60C05; Theorems 1.1–1.3 and independent uniform-parent definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1611.07466",
+        "material_read": "Accessible full-text HTML: abstract, main theorems in Section 1 and formal recursive growth definition",
+        "method": "arXiv full-text HTML and targeted theorem/definition inspection",
+        "title": "Depth of vertices with high degree in random recursive trees",
+        "trigger": "Primary probability classification and parent-model / joint degree-depth foundations"
+      },
+      {
+        "assessment": "Abstract describes total path length laws, moment recurrences and nonnormal limit; uninspected full text leaves a named residual priority risk.",
+        "evidence": [
+          "Dobrow and Fill, 1999, Combinatorics, Probability and Computing 8, 317–333."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+        "material_read": "Journal abstract and bibliographic information only; complete text not accessible in the consulted source",
+        "method": "Journal abstract examination, open-access search; no claim of complete article coverage",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Most relevant classical work on total path length; could contain mixed generating functions"
+      },
+      {
+        "assessment": "Correlations are between level-size counts, not vertex offspring and total path length. It demonstrates that sign changes as a topic are not new.",
+        "evidence": [
+          "Drmota and Hwang 2005 study sign-changing covariance of level sizes; no inspected target mixed local-global moment."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1118858628",
+        "material_read": "Published abstract and opening introduction of preprint text",
+        "method": "Public article bibliographic/abstract page and accessible introduction excerpt",
+        "title": "Profiles of random trees: correlation and width of random recursive trees and binary search trees",
+        "trigger": "Known sign-changing correlations in recursive-tree depth profiles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1145f54-205b-4c29-adc0-0ab59373ed4e",
+  "value": {
+    "rationale": "Offspring count and total root-to-node path length are canonical local and global observables in recursive trees. The complete covariance profile reveals a unique age-dependent reversal at sqrt(n/log n) and a sharp scaled crossover; these are mathematically motivated structural facts about a canonical random tree, not a parameter substitution or arbitrary finite table. The exact one-crossing law and scaling retain future utility for studying local-global dependence and search cost.",
+    "status": "PASS"
+  }
+}
