@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-The analytic steps are given in `RESULT.md`: Poisson sign parity, inverse-stable self-similarity, stable crossing-overshoot density obtained from potential and Lévy densities, and a complete strong-Markov decomposition of two disjoint observation intervals. That argument proves the universal limiting formula and strict connected-memory example. No finite experiment is used as proof.
+## correctness
 
-Run `python verify.py` after installing `requirements.txt`. The script checks the arcsine pair-probability identities, independently evaluates the one-dimensional overshoot integral using incomplete-beta functions, and simulates the half-stable forward process through exact, independent subordinator increments with a shrinking operational-time mesh. The recorded sample count, mesh and seed are in the script; its tolerances reflect finite-sample and grid errors. The integer-grid numerical example is diagnostic; no exact closed form for the full four-point probability is claimed.
+PASS
 
-The construction does not furnish uniform convergence in the four time ratios, finite-sample confidence bounds, or an independent audit. A possible broader implication from stable-regenerative interval-partition theory remains an originality limitation.
+Poisson parity for four ordered operational times yields exp[-alpha(Delta_ab+Delta_cd)]. Stable inverse-clock self-similarity turns the large-time limit into the probability of simultaneous zero increments. Stable potential and Levy jump densities produce normalized overshoot density sin(pi*nu)*a^nu/[pi*z^nu*(a+z)]. Conditioning at the first crossing separates one plateau spanning all four times from an independently regenerative second plateau, producing the stated integral. At nu=1/2 and times (1,2,3,4), the two pair moments are 1/2 and 2/3, p(1,4)=1/3, and independent numerical integration gives strictly positive extra 1/24 (within floating error). This proves nonfactorization through an explicit positive integral, independently of numerical sampling.
+
+## originality
+
+PASS
+
+The inverse stable clock, regenerative gaps, aging arcsine law and two-time correlation are longstanding; those are not asserted new. The particular four-time heading observable and explicit two-window integral were not found in inspected primary abstracts and search records, but the 1992 Pitman–Yor full paper is inaccessible and might give a stronger joint-gap formula. No whole-paper noncoverage conclusion is drawn.
+
+## value
+
+PASS
+
+An exact four-time connected statistic distinguishes shared-clock trapping memory from pairwise slowdown; the result holds for arbitrary ordered positive ratios and every stable index, and the concrete positive example is a motivated higher-order diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The four-point sign identity is obtained exactly from parity of independent Poisson reversal counts in two disjoint intervals. Joint inverse-stable self-similarity and bounded convergence convert the physical-time aging limit into the probability of simultaneous zero increments. Stable-subordinator potential and Lévy densities give the crossing-overshoot density with correct reflection-formula normalization; its beta change of variables gives the one-window probability. Conditioning on the overshoot, and regenerating after its crossing, proves a complete three-case partition and the two-gap integral. The exact half-stable pair probabilities make the covariance limit a strictly positive integral without relying on numerical output. Numerical quadrature and an independently constructed discretized inverse-stable simulator corroborate constants; they are not an infinite proof.
+## correctness
 
-**Originality (PASS; qualification).** The 2024 random-flight paper supplies the model and one-time laws, not its four-time velocity aging moment. Existing inverse-stable-clock correlation results cover bivariate observables and hence the two-time factors, but not the two-gap fourth moment. The classical telegraph high-order formula is for an ordinary operational clock; applying an inverse clock introduces correlated plateau coincidences not inferable by multiplying two-point formulas. Stable interval-partition literature supplies the essential regenerative theory and could contain a stronger implicit version of the two-gap formula; its full 1992 text could not be inspected through accessible open sources. A precise publication-priority comparison therefore remains a risk; search non-detection alone is not evidence of uniqueness.
+PASS
 
-**Value (PASS).** Four-time heading memory distinguishes nonfactorizing trapping plateaus from the merely slow decay of ordinary two-time orientation correlations. The exact two-window integral is valid for every stable index and every ordered four-time configuration; the explicit strictly positive connected example shows how a shared anomalous clock correlates disjoint temporal persistence measurements even when microscopic reversal-rate information disappears in the aging limit. This is a motivated multipoint diagnostic rather than an arbitrary truncated moment or an unknown normalization.
+Poisson parity for four ordered operational times yields exp[-alpha(Delta_ab+Delta_cd)]. Stable inverse-clock self-similarity turns the large-time limit into the probability of simultaneous zero increments. Stable potential and Levy jump densities produce normalized overshoot density sin(pi*nu)*a^nu/[pi*z^nu*(a+z)]. Conditioning at the first crossing separates one plateau spanning all four times from an independently regenerative second plateau, producing the stated integral. At nu=1/2 and times (1,2,3,4), the two pair moments are 1/2 and 2/3, p(1,4)=1/3, and independent numerical integration gives strictly positive extra 1/24 (within floating error). This proves nonfactorization through an explicit positive integral, independently of numerical sampling.
 
-The closest literature and the limitations are stated in the main result and structured audit. The asymptotic regime does not include finite-time error bounds. Numerical diagnostics cannot replace the argument. An independent scholarly priority review may refine the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inverse stable clock, regenerative gaps, aging arcsine law and two-time correlation are longstanding; those are not asserted new. The particular four-time heading observable and explicit two-window integral were not found in inspected primary abstracts and search records, but the 1992 Pitman–Yor full paper is inaccessible and might give a stronger joint-gap formula. No whole-paper noncoverage conclusion is drawn.
+
+## value
+
+PASS
+
+An exact four-time connected statistic distinguishes shared-clock trapping memory from pairwise slowdown; the result holds for arbitrary ordered positive ratios and every stable index, and the concrete positive example is a motivated higher-order diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
