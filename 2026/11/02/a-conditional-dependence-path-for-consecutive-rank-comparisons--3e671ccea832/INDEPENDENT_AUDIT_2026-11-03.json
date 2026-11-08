@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T18:19:58.669995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f4124c9855b03ccf30b429977cafcf970f353026; verify_conditional_comparisons.py blob 0f5f0a0bba6238d109326f004f5e0547e4ed7a19",
+        "Independent permutations enumeration n=4,5; original script defines exhaustive n<=10 conditional determinant checks and an explicit length-five negative Rayleigh witness"
+      ],
+      "rationale": "Conditioning on the observed comparison pattern splits independent underlying variables into L/M/R blocks. The two tested bits reduce to a decreasing endpoint response f(X_{i+1}) and increasing g(X_j); a missing intermediate edge disconnects endpoints conditionally, proving exact independence. If every intervening edge observed, each strict-order kernel 1{x<y} or 1{x>y} is TP2, products with arbitrary positive one-variable densities and consecutive Cauchy-Binet integrations remain TP2. Positive-density strict interlacing produces a positive determinant on a positive-measure set, forcing Cov(f(T),g(U))<0. Adjacent case uses Chebyshev antitonicity. Direct independent uniform-permutation counts checked n=4,5: for n=4 conditioned middle bit covariance -1/36, unconditional 0; n=5 cases negative/zero as predicted. This is all-n proof, not enumeration extrapolation.",
+      "residual_risks": [
+        "Requires common open interval of positive densities and conditioning only on comparison bits, not raw observed values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uniform descent generating polynomial at n=5 has Rayleigh determinant 16*(-44)-76*(-9)=-20 at (-3,-3,2,-3), so it is not real stable; Kahn–Neiman competing-urn variables differ."
+        ],
+        "reasoning": "General strongly-Rayleigh implication cannot be applied because the stability premise fails; no other inspected stronger conditional comparison theorem dominates.",
+        "searches": [
+          "Borcea Branden Liggett 0707.2340 Theorem 4.9 strong Rayleigh conditional negative association",
+          "arxiv:1001.0610 conditional negative association"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0904.3740",
+        "arXiv:0707.2340",
+        "arXiv:1001.0610",
+        "arXiv:1609.01370",
+        "Resultary query Permutation descent indicators conditional negative association conditional covariance for two descents with all intermediate comparisons conditioned independent nonidentical continuous variables TP2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 1-dependence and determinant imply marginal independence beyond adjacent sites, not conditional negativity for adjacent retained bits under all fixed patterns. Failure of Rayleigh witness prevents lifting generic strong-Rayleigh NA."
+        ],
+        "reasoning": "The submitted TP2 composition gives a genuinely stronger, statement-level conditional property for a different, larger input class.",
+        "searches": [
+          "arXiv:0904.3740",
+          "arXiv:0707.2340"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borodin–Diaconis–Fulman 2009 Theorem 7.1 establishes determinantal representation for 1-dependent processes and permutation descents; does not classify covariance after arbitrary conditioning."
+        ],
+        "reasoning": "Compare conditioned sign functions directly; ordinary k-dependence is not stable under conditioning on intervening sites.",
+        "searches": [
+          "Permutation descent indicators conditional negative association conditional covariance for two descents with all intermediate comparisons conditioned independent nonidentical continuous variables TP2",
+          "\"conditional negative association\" descents permutations",
+          "Borodin Diaconis Fulman arXiv:0904.3740"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary inversion-precision law concerns unconditional linear partial correlations of all inversion indicators, not arbitrary nonlinear conditioning on descent patterns; current source supplies n=4 -1/36 exact pair benchmark and n=5 non-stability witness."
+        ],
+        "reasoning": "Known descent Eulerian enumeration could yield specific finite tables but does not in itself supply heterogeneous all-n strict conditional path criterion.",
+        "searches": [
+          "permutation descent set exact conditional covariance table small n",
+          "Permutation descent indicators conditional negative association conditional covariance for two descents with all intermediate comparisons conditioned independent nonidentical continuous variables TP2"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact all-conditioning sign criterion, strictness and heterogeneous independent marginals. Unconditional one-dependence and determinantal descents are established prior, not the new claim. Strong-Rayleigh/conditional negative association does not directly cover uniform descents because its generating polynomial violates a necessary Rayleigh inequality at n=5.",
+      "residual_risks": [
+        "Older total-positivity literature might phrase the same conditional sign property indirectly; the deterministic n<=10 checker is not an all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES NOT STATE arbitrary comparison-bit-conditioned strict covariance criterion in inspected claims",
+          "evidence": [
+            "Unconditional 1-dependence and determinantal representations; conditional all-pattern sign requires separate TP2 proof."
+          ],
+          "identifier_or_url": "arXiv:0904.3740",
+          "material_read": "Accessible full mathematical source, section on descent process and its one-dependence/determinantal conclusions",
+          "method": "Primary full text inspected at accessible sections of document; compared theorem statements and mathematical implications",
+          "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+          "trigger": "Same permutation descent process"
+        },
+        {
+          "assessment": "NOT_APPLICABLE to descent-set law due demonstrable non-stability",
+          "evidence": [
+            "Rayleigh determinant -20 at explicit n=5 point violates necessary stability inequality."
+          ],
+          "identifier_or_url": "arXiv:0707.2340",
+          "material_read": "Theorem 4.1 Rayleigh criterion and Theorem 4.9 strong Rayleigh conditional results",
+          "method": "Primary full text inspected at accessible sections of document; compared theorem statements and mathematical implications",
+          "title": "Negative dependence and the geometry of polynomials",
+          "trigger": "Possible stronger conditional negative-association theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md full conditional TP2 argument and n=4 explicit covariance",
+        "Borodin–Diaconis–Fulman 2009 established unconditional descent process"
+      ],
+      "rationale": "Conditional dependence between retained adjacent rank comparisons is a standard natural statistic in permutation/comparative ranking probability. Identifying precisely which observed edges transmit strict anticorrelation and proving the path criterion for all heterogeneous independent absolutely continuous inputs is a nontrivial structural classification, not a finite table or renaming of unconditional one-dependence.",
+      "residual_risks": [
+        "Does not assert general negative association, stability, or results for ties/Mallows-dependent coordinates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires common open interval of positive densities and conditioning only on comparison bits, not raw observed values.",
+    "Older total-positivity literature might phrase the same conditional sign property indirectly; the deterministic n<=10 checker is not an all-n proof.",
+    "Does not assert general negative association, stability, or results for ties/Mallows-dependent coordinates."
+  ],
+  "schema_version": 1
+}
