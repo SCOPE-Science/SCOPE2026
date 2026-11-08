@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Beta integral and recurrence reconstruct normalized cost. Exact sign factor H and its increasing ratio for alpha<1 give an exhaustive unique first crossing and all boundary ties; C(k)<1 for large k excludes singleton. Gamma asymptotics and uniform log expansion give k~1/alpha and two-term Cmin. Exact rational checks pass and their finite nature is explicitly limited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Landolfi and Lall, arXiv:2308.11050, full HTML, sections 1,2,4,6: general finite exchangeable distributions and integer-partition optimization.",
+        "Basso et al., 2021, Appendix A: relative optimal pool size ordering; finite pool-size 32 numerical evaluations."
+      ],
+      "reasoning": "General finite-population partition machinery can calculate any fixed-size objective, but a finite algorithm or monotone comparison does not imply the new uniform-in-size unimodality, the alpha=1 boundary, or the sharp rare-p asymptotic. They overlap in model and objectives; these aspects are not claimed independently.",
+      "searches": [
+        "\"Optimal Dorfman Group Testing for Symmetric Distributions\" beta-binomial asymptotic",
+        "\"The effect of correlation and false negatives in pool testing strategies for COVID-19\" \"unimodal\"",
+        "https://ar5iv.labs.arxiv.org/html/2308.11050"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384753/",
+      "https://link.springer.com/content/pdf/10.1007/s10729-021-09578-w.pdf",
+      "https://ar5iv.labs.arxiv.org/html/2308.11050",
+      "https://biostats.bepress.com/uncbiostat/art16/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2011: P(all negative) is beta-binomial mixture and expected tests have a closed probability formula, but no monotone crossing ratio.",
+        "2021: the correlated optimum is at least the independent optimum, not a sharp asymptotic equivalence.",
+        "2023: finite exchangeable partitioning and q(h), no explicit fixed-correlation rare-p limit."
+      ],
+      "reasoning": "The classical independent optimum k~p^(-1/2) and lower bound on correlated k do not imply \\(k\\sim1/(\\kappa p)\\). The new exact threshold H(k) is necessary for the one-crossing and asymptotic location; prior finite algorithms would require a separate uniform proof to yield it.",
+      "searches": [
+        "\"group testing\" beta binomial optimal size rare prevalence asymptotic",
+        "Group Testing for Case Identification with Correlated Responses 2011",
+        "https://link.springer.com/content/pdf/10.1007/s10729-021-09578-w.pdf",
+        "https://ar5iv.labs.arxiv.org/html/2308.11050"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lendle et al., Biometrics 2011 online, full text sections 2 and 3, derive beta-binomial marginal probabilities and fixed-pool efficiency.",
+        "Basso et al., 2021, Proposition 2 and Appendix A supply beta-binomial cost function and compare its optimum with independent pooling."
+      ],
+      "reasoning": "Exact zero-pool probability and finite-size objective are already known. Neither inspected statement identifies one global discrete sign crossing for all pool sizes with alpha<1, nor the optimizing-size inverse-p limit and cost second term. The new work proves these from a threshold ratio; it does not relabel the known pooled-cost formula as novel.",
+      "searches": [
+        "\"beta-binomial\" \"optimal pool size\" \"Dorfman\" correlated",
+        "\"beta-binomial\" \"rare\" \"group testing\" \"asymptotic\" optimal",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384753/",
+        "https://link.springer.com/content/pdf/10.1007/s10729-021-09578-w.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Basso et al. Table 1 caps n at 32, reporting numerical optimal pool sizes for prevalences 0.0001 through 0.4; its capped table is not an all-k classification.",
+        "Lendle et al. Figure 2 uses finite cluster and pool sizes, e.g. n=64, p=0.001."
+      ],
+      "reasoning": "Existing finite tables cannot determine the global integer optimum when the optimum diverges like 1/p; no exact table for the claimed unbounded parameter regime or its two-term asymptotic was identified.",
+      "searches": [
+        "beta binomial correlated group testing pool size rare prevalence",
+        "Dorfman group testing fixed intraclass correlation rare disease prevalence pool size asymptotic inverse p"
+      ]
+    },
+    "rationale": "The novel assertion is not the beta-binomial zero-pool law known since Lendle et al. or the 2021 beta-binomial optimal-pool comparison. It is a complete unrestricted integer crossing classification in the low-shape regime and its fixed-correlation rare-prevalence inverse-p scaling with a two-term cost asymptotic. Primary full-text sections and generalized 2023 framework were compared by mathematical implication rather than by title; residual priority risk is explicit.",
+    "residual_risks": [
+      "Unidentified specialized asymptotic group-testing source may have derived the same all-k threshold or \\(p^{-1}\\) scaling.",
+      "Public precursor record dated October 2010 lacks day-resolution; metadata uses first precisely verified day 2011-09-27.",
+      "Primary MSC 92D30 reflects infectious-disease screening; the same probability optimization also connects to statistical group-testing classifications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_AND_FINITE_COST_COVERED; new global sign crossing and asymptotic not asserted in inspected full text",
+        "evidence": [
+          "PMC3384753, sections 2 and 3, Lemmas 2-3, two-stage efficiency formula and Figure 2"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384753/",
+        "material_read": "Accessible manuscript full-text portions: introduction, sections 2, 3.1 through 3.4, relevant model, lemmas, equations and examples",
+        "method": "full-text reading, checking formulas for q and two-stage cost",
+        "title": "Group Testing for Case Identification with Correlated Responses",
+        "trigger": "direct original beta-binomial screening model and expected pool-test count"
+      },
+      {
+        "assessment": "KNOWN_PROPOSITION_COMPARED; beta-binomial optimal size lower-bounded by independent optimum; no exact unrestricted k-threshold or rare-p two-term asymptotic",
+        "evidence": [
+          "DOI 10.1007/s10729-021-09578-w, eq. (1), Proposition 2, Appendix A and Table 1"
+        ],
+        "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s10729-021-09578-w.pdf",
+        "material_read": "Accessible complete-paper PDF at relevant abstract, main-model, Proposition 2, Table 1, Appendix A and Appendix B passages",
+        "method": "relevant primary-text reading plus PDF screenshots of pages 1, 7 and 16",
+        "title": "The effect of correlation and false negatives in pool testing strategies for COVID-19",
+        "trigger": "closely matching beta-binomial pool-size optimization with correlation"
+      },
+      {
+        "assessment": "FINITE_PARTITION_COVERED but no closed rare-prevalence optimized-size or cost law established in inspected work",
+        "evidence": [
+          "arXiv:2308.11050, sections 1.1, 2, 4 and 6, explicit finite-population regime"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2308.11050",
+        "material_read": "Accessible article HTML: introduction, section 4 algorithmic lemmas, section 5 finite data, section 6 prior-work discussion",
+        "method": "material reading of those sections and full-text term searches for beta, asymptotic and unimodal",
+        "title": "Optimal Dorfman Group Testing for Symmetric Distributions",
+        "trigger": "broader model class potentially implying every finite beta-binomial optimization"
+      },
+      {
+        "assessment": "2010-10 month-only public record; no day verified; original model is known and excluded from novelty",
+        "evidence": [
+          "UNC Biostatistics Research Archive, Working Paper 16, Suggested Citation October 2010"
+        ],
+        "identifier_or_url": "https://biostats.bepress.com/uncbiostat/art16/",
+        "material_read": "Repository bibliographic record, abstract, and date field, rather than a claimed full report inspection",
+        "method": "repository record review",
+        "title": "2010 UNC technical report citation",
+        "trigger": "earliest possible public source version"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3ec6a71f-09f8-49cd-8256-7aa72b06664d",
+  "value": {
+    "rationale": "For fixed positive dependence, beta mixture produces an inverse-prevalence rather than inverse-square-root pooling scale, and a \\(p\\log(1/p)\\) rather than sqrt(p) test-cost scale. This affects how correlated rare-infection screening models can be optimized, and the exact integer crossing rule is globally usable without numerical cutoff. No empirical or finite-cluster implementation claim is made.",
+    "status": "PASS"
+  }
+}
