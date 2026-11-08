@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:15:56.478933Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kernel K_a=(a+1)^-1 1_{x+y>0} on [-1,1] has complete mixed Dirichlet–Neumann sine eigenbasis φ_m=sin((2m+1)π(x+1)/4), eigenvalues 4(-1)^m/[π(a+1)(2m+1)]. Doob conjugation by φ0 gives Q-spectrum ν_m=(-1)^m/(2m+1), stationary ρ=h² and normalized f_m=φ_m/h; a cancels. For each fixed x>-1, one-step density belongs to L²(ρ), allowing spectral expansion; higher modes are O_x(5^-n) (after f1) and O_x(7^-n) (after f2). f1(x)=3−4sin² u vanishes only at u=π/3 (x=1/3), while f2(1/3)=−1. Exact sign-resolved L1(ρ) integrals give displayed coefficients 3√3/(4π)|f1(x)| and (5/(6π))(sinπ/5+sin2π/5). Strictly positive two-step kernel ensures unique invariant law. Independently verified sine eigenvalues, zero location, and L1 constants by direct integration; finite check is not proof of infinite spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Q-process exponential convergence gives qualitative rate bounds but not the exceptional x=1/3 mode cancellation or sharp constants.",
+          "The source establishes a special solvable kernel, a mathematically stronger primitive object from which many model-specific observables may be computed."
+        ],
+        "reasoning": "A source containing the full spectral expansion could dominate the two-speed result; full source unavailable this run so a residual risk remains, and no whole-paper noncoverage is claimed.",
+        "searches": [
+          "quasi-stationary Q-process exponential ergodicity Champagnat Villemonais 2016",
+          "Aurzada Worf 2026 conditioned MA1 uniform innovations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary conditioned uniform MA1 TV semantic query (10 returns, none exact)",
+        "Aurzada–Worf 2026 arxiv:2606.01832 accessible abstract/theorem summaries",
+        "Aurzada–Raschel 2025 arxiv:2507.04427 original PDF",
+        "Champagnat–Villemonais 2016 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Q kernel alone provides no literal exact L1 constants for f1,f2 or exceptional initial state.",
+          "Known persistence generating functions refer to survival before conditioning, not Q^n pointwise TV."
+        ],
+        "reasoning": "The claimed pair of precise mixing laws requires spectral expansion in L²(ρ), evaluation of signed eigenprojections and absolute integrals; these steps are not stated in accessible primary theorems.",
+        "searches": [
+          "Aurzada–Worf 2026 original abstract",
+          "Aurzada–Raschel original 2507.04427 primary PDF",
+          "Champagnat–Villemonais general Q-process"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aurzada–Worf provide the killed kernel/Doob chain and Perron eigenfunction, while the claimed object is exact pointwise total-variation asymptotic.",
+          "Aurzada–Raschel analyze persistence generating functions rather than conditioned chain mixing."
+        ],
+        "reasoning": "The previous kernel can be diagonalized by mixed sine eigenfunctions; that explicit diagonalization and L1 projection cancellation are new calculated observables, though implicit derivability creates a priority risk.",
+        "searches": [
+          "Resultary: moving average uniform innovations conditioned stay positive Doob Markov chain exceptional initial state total variation mixing eigenvalue 1/3 1/5",
+          "Aurzada–Worf arxiv:2606.01832 Theorems 1.1–1.2 abstract",
+          "Aurzada–Raschel arxiv:2507.04427"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching continuum TV coefficient table or unique fast-start statement was found in retrieved records; related results concern general Markov chains."
+        ],
+        "reasoning": "This is not an isolated numerical tabulation: exact spectral projection proves all-time asymptotics and unique cancellation; index absence alone is insufficient novelty proof.",
+        "searches": [
+          "Resultary MA(1) conditioned uniform Doob 1/3 1/5 query",
+          "arxiv:2507.04427 full PDF persistence functions"
+        ]
+      },
+      "rationale": "Qualified PASS for exact two-speed pointwise total-variation relaxation of the conditioned uniform MA(1) Doob chain, with unique x=1/3 cancellation of the 1/3 mode and precise 1/5 leading coefficient. The underlying kernel and harmonic eigenfunction are credited to Aurzada–Worf; novelty is only the sharp TV spectral consequence.",
+      "residual_risks": [
+        "Aurzada–Worf original full text uninspected this run: a spectral appendix could imply this special-mode result; Oxford request reported VPN disconnected.",
+        "Classical reflection/Volterra integral-operator literature may contain the same sharp TV asymptotics under another name.",
+        "Asymptotics are pointwise fixed x>-1, not uniform near the excluded endpoint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_KERNEL; whole-paper coverage unknown",
+          "evidence": "Aurzada–Worf describe limiting conditioned kernel; uninspected material might contain full mixing spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01832",
+          "material_read": "Accessible author abstract and theorem summaries only; original PDF and legal OA full text inaccessible in this run; Oxford VPN disconnected",
+          "method": "Compare accessible stated conditioned kernel and Perron eigenfunction; do not assert full paper absence",
+          "title": "MA(1) processes with uniform innovations conditioned to stay positive in the non-expanding regime",
+          "trigger": "The exact same Doob chain underlying all claims"
+        },
+        {
+          "assessment": "PERSISTENCE_NOT_Q_MIXING in inspected primary theorems",
+          "evidence": "The earlier work computes generating functions/probabilities of persistence, not pointwise TV mixing of Doob conditioned chain.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.04427",
+          "material_read": "Original open arXiv PDF principal theorems, persistence formula, references and an original PDF page screenshot",
+          "method": "Compare survival generating-function observable with conditioned Q-process mixing",
+          "title": "Persistence probabilities for MA(1) sequences with uniform innovations",
+          "trigger": "Same moving-average persistence model"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY: no assertion of whole text noncoverage",
+          "evidence": "General theory advertises Q-process convergence; no exact special-kernel constants in accessible abstract.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-014-0611-7",
+          "material_read": "Accessible published abstract only, no full theorem or proof inspected",
+          "method": "Differentiate general exponential-rate bounds from exact model-specific two-mode asymptotics",
+          "title": "Exponential convergence to quasi-stationary distribution and Q-process",
+          "trigger": "Possible general exponential convergence domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pointwise mixing from a prescribed initial condition for a persistence-conditioned Markov chain is a natural dynamical statistic. A unique initial innovation suppresses the slow mode and accelerates sharp total-variation convergence from 3^-n to 5^-n, with explicit prefactors; exact uniqueness and parameter-uniformity add meaningful structure beyond textbook spectral-gap bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pointwise fixed state x>-1 only; not uniform near singular left endpoint.",
+    "Source Aurzada–Worf 2606.01832 full text inaccessible this run; Oxford VPN disconnected.",
+    "Potential older reflection-kernel spectral formula may subsume claim."
+  ],
+  "schema_version": 1
+}
