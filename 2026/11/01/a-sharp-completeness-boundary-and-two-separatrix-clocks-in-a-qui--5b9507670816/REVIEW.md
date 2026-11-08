@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The conserved energy follows by direct differentiation. Its potential is even, strictly increasing in positive position, and has the exact finite Gaussian ceiling. That establishes the exhaustive orbit-level trichotomy. Laplace asymptotics give the two critical trajectory velocities and the finite-time escape tail. For periods, an explicitly estimated turning-point strip prevents the endpoint singularity from corrupting the uniform comparison with the critical speed. The energy-to-amplitude logarithmic conversions and local fifth-order calculation have been reconstructed independently. The companion symbolic identities and finite quadrature agree, but no finite computation is used to prove the infinite limiting statements.
+## correctness
 
-## Originality — PASS within inspected sources
-Da Cruz–Llibre (arXiv:2312.05709v1) classifies local and global centers, and its full open manuscript discusses invariant directions at infinity; those qualitative classification results are credited. It does not derive the present exact energy ceiling, original-time completeness partition or divergent period constants. The closest published result (*Strict period decrease and sharp large-amplitude laws for quintic global centers*, research record ffe383da-977f-4317-a16d-d4029c859573) concerns the opposite sign of the cubic velocity-square term, where the potential has no finite ceiling and the periods tend to zero. Its theorem therefore cannot imply the proposed two-regime divergence. Independent searches for equivalent sign conventions, energy rescalings, full-period formulae and finite-time boundary laws found no identified covering statement. General Jacobi-multiplier identities and generic period-function criteria remain previously established tools, not claimed new. Residual risk is possible stronger, differently parameterized results in unindexed literature and the primary journal revision not compared word-for-word.
+PASS
 
-## Value — PASS
-The originating classification leaves open the physical-time and recurrence consequences of failure of global centering. The sharp single energy ceiling identifies exactly where bounded recurrence yields to infinite-time traversal and then to finite-time escape; the transition from a square-root-logarithmic to a double-logarithmic period law under any positive quintic restoring force is a structural, non-routine distinction with exact constants. The independent small-amplitude period sign further forces at least two distinct periodic orbits with the same period on a natural parameter region. These facts give a global parameter/energy phase portrait rather than a selected numerical instance.
+Multiplying y′=-x−βx⁵+αx³y² by e^{−αx⁴/2}y and using V′=e^{−αx⁴/2}(x+βx⁵) exactly conserves H=½e^{−αx⁴/2}y²+V(x). The potential is even, strictly monotone on x>0, with Gaussian ceiling E*=√π/(2√(2α))(1+β/α). For 0<E<E* energy level is a compact periodic oval, E=E* two monotone complete branches with critical speed²~(1+βx⁴)/(αx²), and E>E* two finite-time escaping branches. The one-sided Laplace estimate for R(x)=E*−V(x) yields critical x(t) growth and supercritical tail e^{−αx⁴/4}/(αx³√(2(E−E*))). For periods the ratio of periodic to critical speed away from x=A is 1−R(A)/R(x); a strip h_A=K log A/A³ has reciprocal-speed integral o(1), controlling the singular turning point. Integrating critical reciprocal speed yields T~2√α A² (β=0), T~4√(α/β)log A (β>0); substituting log(E*/δ)~αA⁴/2 gives the stated sqrt-log and log-log laws. Time-preserving coordinate z=∫e^{−αx⁴/4}dx yields local g(z)=z+(β−α/5)z⁵+..., period correction (α−5β)A⁴/16. Independently checked the conservation identity and local coefficient symbolically; finite quadrature cannot establish limits.
 
-## Sources and limitations
-Primary full text inspected: da Cruz and Llibre, arXiv:2312.05709v1, Theorems 1–2 and the infinity analysis in Section 4. Closest published mathematical proof inspected: *Strict period decrease and sharp large-amplitude laws for quintic global centers* (2026-10-11), complete RESULT.md. General background: Chanda–Ghose-Choudhury–Guha (2018) Jacobi multiplier and Yang–Zeng (2013) period functions; their general literature is not asserted to establish a new construction. Exact coefficients are specific to the stated non-global planar flow; no uniform beta-to-zero claim or uniqueness of the period minimum is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+da Cruz–Llibre identify local-center but non-global-center parameter classes for this quintic family, not the exact energy/temporal trichotomy and period constants. A published opposite-feedback sign result has globally unbounded potential and periods shrinking rather than diverging; cannot imply this statement. Standard Jacobi multipliers and generic period criteria explain transformations but not sharp physical-time laws. Priority risk persists for alternate Liénard sign conventions.
+
+## value
+
+PASS
+
+The problem naturally refines a known local/non-global center distinction: it explicitly resolves which unbounded energy levels are complete, which escape in finite time, and how the period diverges. Any β>0 switches an A² law to a logarithm with an exact coefficient; local period reversal forces multiple orbits of the same period for β>α/5. This is a full two-parameter/energy phase portrait, not a tiny numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
