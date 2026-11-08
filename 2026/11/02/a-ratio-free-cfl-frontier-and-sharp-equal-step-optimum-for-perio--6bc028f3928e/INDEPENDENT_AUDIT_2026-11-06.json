@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:44:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inspected standard variable-coefficient AB2 transfer matrices B(1/r,c/(1+r)) and B(r,rc/(1+r)) have exact period trace a+d and determinant d, a=1-c+c²/2 and d=c²r/[4(1+r)²]. Thus p(1)=c(1-c/2); the factorized discriminant is nonnegative for 0<c<2 and both roots lie in (0,1), while c=2 has unit multiplier and c>2 has a multiplier exceeding one. At fixed c, d is maximal only for r=1 and the dominant root decreases in d, giving the unique minimum. The exact polynomial p_eq(3a/5)=-(3c-4)²(7c²-6c+12)/800 proves global supremal penalty 5/3 at c=4/3 with extreme ratios. The same scalar argument on SPD eigenmodes proves the stated λ_max condition. Independently reconstructed SymPy exact trace, determinant, factors and P=I/3. Strict spectral rather than transient-norm stability is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calvo et al. 2016 focus on differing Nordsieck or step-change techniques and zero stability; López–Romay 2010 bound practical ratios."
+        ],
+        "reasoning": "Neither inspected account supplies an unrestricted two-periodic negative-axis all-ratio frontier, equal-step minimum and the sharp 5/3 ratio. Prior full 1989 study remains unchecked.",
+        "searches": [
+          "Resultary: periodic variable stepsize two-step Adams Bashforth AB2 ratio free stability Floquet equal step optimal stability",
+          "Calvo Montijano Rández 2016 Adams step changes",
+          "López Romay 2010 preassigned stepsize ratios"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1137/0726052 abstract",
+        "doi:10.21042/AMNS.2016.2.00043",
+        "doi:10.1155/2010/765620",
+        "https://homepages.math.uic.edu/~jan/mcs471/variablestep.pdf",
+        "Resultary query on alternating AB2",
+        "SCOPE source RESULT.md and verify_ab2.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known constant-step AB2 stability concerns only r=1; code and direct algebra give a(c),d(c,r) and prove all r>0."
+        ],
+        "reasoning": "The constant-step restriction cannot logically imply the uniform ratio result or global optimization. The oldest close article could imply it through an undiscovered reduction; full text unavailable, so that risk remains.",
+        "searches": [
+          "standard AB2 real negative stability r=1",
+          "Calvo Lisbona Montijano 1989 interpolatory Nordsieck stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard variable AB2 coefficients reduce to B(q,z); constant-step AB2 is the r=1 specialization; reverse product has the same nonzero Floquet spectrum."
+        ],
+        "reasoning": "Nordsieck step-change and zero-stability formulations do not automatically express the scalar negative-axis Floquet radius of the exact interpolatory recurrence.",
+        "searches": [
+          "Resultary: periodic variable stepsize two-step Adams Bashforth AB2 ratio free stability Floquet equal step optimal stability",
+          "variable step AB2 interpolatory recurrence versus Nordsieck Adams stability",
+          "Calvo–Lisbona–Montijano 1989 DOI:10.1137/0726052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact numeric or symbolic periodic-AB2 frontier/penalty tabulation was located in bounded searches."
+        ],
+        "reasoning": "The number 5/3 is mathematically tied to the 4/3 double-root parameter, unlike unrelated general stability tables. Failure to find a table alone is not proof of originality.",
+        "searches": [
+          "Adams Bashforth alternating steps exact Floquet multiplier 5/3 stability c=4/3",
+          "Resultary: periodic variable stepsize two-step Adams Bashforth AB2 ratio free stability Floquet equal step optimal stability"
+        ]
+      },
+      "rationale": "A two-periodic all-positive-ratio real-negative stability frontier plus exact spectral optimization and 5/3 ratio was not identified in the compared standard formula, implementation/zero-stability results, or related published SCOPE results; earlier specialized Adams stability work is a material remaining priority risk.",
+      "residual_risks": [
+        "Most relevant Calvo–Lisbona–Montijano (1989) primary full text not accessible: Oxford VPN disconnected; it might contain equivalent specialized stability analysis.",
+        "Transfer-matrix spectral criterion does not bound transients uniformly in r; source explicitly limits to Schur spectral stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Historical priority cannot be excluded on whole-document basis",
+          "evidence": [
+            "SIAM J. Numer. Anal. 26 (1989), 946–962; title explicitly concerns interpolatory variable-step Adams in Nordsieck form"
+          ],
+          "identifier_or_url": "doi:10.1137/0726052",
+          "material_read": "Publisher abstract only; attempted lawful/OA access first; Oxford authenticated attempt returned vpn_disconnected",
+          "method": "Publisher bibliographic/abstract reading; full text not retrieved",
+          "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+          "trigger": "Closest historical stability paper with related numerical method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp necessary-and-sufficient stability limit invariant under arbitrary positive step imbalance, and the exact unique optimal equal split and worst penalty, give motivated quantitative rules for a canonical variable-step integration method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Most relevant Calvo–Lisbona–Montijano (1989) primary full text not accessible: Oxford VPN disconnected; it might contain equivalent specialized stability analysis.",
+    "Transfer-matrix spectral criterion does not bound transients uniformly in r; source explicitly limits to Schur spectral stability."
+  ],
+  "schema_version": 1
+}

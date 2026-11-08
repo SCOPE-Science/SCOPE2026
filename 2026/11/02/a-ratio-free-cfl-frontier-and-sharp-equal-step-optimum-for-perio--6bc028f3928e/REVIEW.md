@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard variable-coefficient AB2 recurrence is reconstructed from the two-point interpolation formula. Multiplication of the two exact transfer matrices yields \(\operatorname{tr}P=a+d\) and \(\det P=d\). The discriminant factorization proves real positive multipliers throughout the stable domain. The unit-root test \(p(1)=c(1-c/2)\) proves both the precise boundary and instability beyond it. A monotonicity derivative in the single ratio-dependent determinant proves uniqueness of the balanced-step optimum. The factorization of the equal-step polynomial at \(3a/5\) proves the global sharp \(5/3\) penalty. The SPD corollary follows by orthogonal spectral decomposition. The standalone verifier executes the critical algebra from its own file.
+PASS
 
-## Originality — PASS, qualified
+The inspected standard variable-coefficient AB2 transfer matrices B(1/r,c/(1+r)) and B(r,rc/(1+r)) have exact period trace a+d and determinant d, a=1-c+c²/2 and d=c²r/[4(1+r)²]. Thus p(1)=c(1-c/2); the factorized discriminant is nonnegative for 0<c<2 and both roots lie in (0,1), while c=2 has unit multiplier and c>2 has a multiplier exceeding one. At fixed c, d is maximal only for r=1 and the dominant root decreases in d, giving the unique minimum. The exact polynomial p_eq(3a/5)=-(3c-4)²(7c²-6c+12)/800 proves global supremal penalty 5/3 at c=4/3 with extreme ratios. The same scalar argument on SPD eigenmodes proves the stated λ_max condition. Independently reconstructed SymPy exact trace, determinant, factors and P=I/3. Strict spectral rather than transient-norm stability is essential.
 
-The closest accessible sources concern variable-step AB2 formulas (Verschelde, 2022), general Adams coefficient and implementation strategies (López–Romay, 2010), and zero-stability of interpolation/Nordsieck Adams step changes (Calvo–Montijano–Rández, 2016). The inspected full texts do not establish the necessary-and-sufficient two-periodic negative-real CFL criterion, unique equal-split optimality or sharp universal \(5/3\) spectral penalty. Searches for alternating AB2 Floquet transfer, periodic Adams–Bashforth root conditions and two-step sum thresholds returned no directly dominating claim. A highly relevant 1989 Calvo–Lisbona–Montijano paper was identified but only its abstract was accessible; it is expressly a residual priority risk, not treated as conclusively excluding coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by stability of adaptive multistep solvers when the step-size ratio changes sharply. The theorem supplies the exact stability condition for the simplest nontrivial periodic mesh and, separately, the unique optimal step allocation and a universal sharp price of imbalance. A ratio-free spectral CFL condition coexists with a ratio-unbounded transient norm; the explicit distinction prevents misuse in adaptive error analysis. The bound is a complete all-ratio classification, not a sample-specific numerical threshold or a routine restatement of the constant-step result.
+A two-periodic all-positive-ratio real-negative stability frontier plus exact spectral optimization and 5/3 ratio was not identified in the compared standard formula, implementation/zero-stability results, or related published SCOPE results; earlier specialized Adams stability work is a material remaining priority risk.
 
-## Closest literature and limits
+## value
 
-The work is distinct from general Nordsieck zero-stability and practical adaptive ratio-selection analysis. Only a negative real spectrum and a strictly repeating pair of steps are covered; positivity, nonlinear stability, arbitrary step patterns, and ratio-uniform perturbation bounds remain unproved. The unavailable full 1989 article and potentially uncatalogued textbook discussions leave finite priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp necessary-and-sufficient stability limit invariant under arbitrary positive step imbalance, and the exact unique optimal equal split and worst penalty, give motivated quantitative rules for a canonical variable-step integration method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
