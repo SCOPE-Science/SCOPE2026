@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, after fixing the hub value zero the feasible Lipschitz set is [-1,1]^n and the centered log moment generating function has a positive-definite tilted covariance Hessian because the hub retains positive tilted mass. Hence each maximum occurs at a leaf-sign vertex. The exact consecutive F_{k+1}/F_k ratio strictly decreases with k, locating all maximizers at ceil(X_n(t)), with exactly two adjacent optimizer counts at an integer crossing. The derivative X_n' is strictly negative by an identity for (sinh(Ny)/sinh y)^2 and a rigorous positive-term bound (N>=5, with N=3,4 handled separately). Limits X_n(0+)=(n-1)/2 and X_n(infinity)=0 force exactly floor(n/2)-1 unique transitions. The fixed-tilt large-leaf limit follows by substitution. The embedded checker executes exact rational finite comparisons and numerical limit spot tests; finite tests do not support unbounded quantifiers by themselves.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bobkov-Houdre-Tetali 2006, Proposition 3.2 gives paths and Proposition 6.1 complete graphs; their metric classes exclude stars with at least three leaves.",
+        "Sammer-Tetali 2009, introductory summary and Section 5 opening analyze cycles, DOI 10.1017/S0963548309990319."
+      ],
+      "reasoning": "The new family is not a subfamily of paths for n>=3 and is not a complete graph (distinct leaf distance is two). It is not a Cartesian product of a fixed two-point graph, so tensorization alone cannot yield the finite star tilt staircase. General finite-graph MGF definitions do not include the sharp star optimizer counts.",
+      "searches": [
+        "subgaussian constant complete bipartite graph K1,n star exact",
+        "sharp sub-Gaussian constant complete bipartite graph Lipschitz metric graph measure complete multipartite",
+        "Bobkov Houdre Tetali subgaussian constant concentration inequalities star graph PDF 2006"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF02773835 (primary full text sections 1, 3, 6)",
+      "doi:10.1017/S0963548309990319 (primary full text introduction and cycle section)",
+      "Indexed mathematical star-geometry titles/summaries including exact Dudley star norms",
+      "Accessible own relevant archival and current claim titles/identifiers for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bobkov-Houdre-Tetali, Section 6, proves two-point indicator reduction for clique metric using pairwise distance one; Section 3 path optimizer uses order structure.",
+        "Sammer-Tetali Section 5 invokes the geometry of two paths between cycle extrema, absent in a star with three or more leaves."
+      ],
+      "reasoning": "The new result uses common convexity technology but adds the nontrivial exact ratio cutoff, a strict all-parameter hyperbolic derivative certificate, all discrete bifurcations, and infinite-leaf optimizer scaling. These formulas are not asserted as corollaries of a prior known sharp-star result. The graph K_{1,2}=P_3 is known and excluded; general star n>=3 remains the claimed domain.",
+      "searches": [
+        "Bobkov Houdre Tetali subgaussian constant concentration inequalities star graph PDF 2006",
+        "Concentration on the Discrete Torus Using Transportation Sammer Tetali arxiv first posted date",
+        "sharp logarithmic moment generating functional uniform star graph graph subgaussian Chernoff extremizers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bobkov-Houdre-Tetali 2006, Sections 1 and 6: normalized log-Laplace and two-level clique extremizers, DOI 10.1007/BF02773835.",
+        "Related indexed title: Exact Dudley norms and mass-imbalance thresholds on equiradial stars (bounded-Lipschitz dual norm rather than exponential moments)."
+      ],
+      "reasoning": "Centered exponential-moment supremum, graph optimal sub-Gaussian proxy and transport-entropy duality are equivalent ways to encode concentration information, but one scalar proxy discards the tilt-dependent optimizer information. A star transportation-space dual norm does not determine its nonlinear centered MGF. No inspected precise equivalent star MGF theorem was identified; no uniqueness claim follows from that search.",
+      "searches": [
+        "star graph K_{1,n} exact centered exponential moment supremum over Lipschitz functions optimizer switching leaf signs as tilt changes",
+        "sharp logarithmic moment generating functional uniform star graph graph subgaussian Chernoff extremizers",
+        "subgaussian constant complete bipartite graph K1,n star exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed related star findings concern transport norms, tree geometry, and unrelated star maximal-variation operators, with no retrieved numerical table of centered exponential moments.",
+        "The accessible preceding and current related local claim titles/objects concern graph spread, heat, affine projections, maximal variation and metric-star distances, not this centered exponential envelope."
+      ],
+      "reasoning": "The comparisons did not reveal an exact table of sharp star-graph MGF values or transition locations. Database incompleteness and title-only gaps remain a residual originality risk; the current assessment does not treat absence as proof.",
+      "searches": [
+        "star graph K_{1,n} exact centered exponential moment supremum over Lipschitz functions optimizer switching leaf signs as tilt changes",
+        "one parameter phase transition number of plus leaves on uniform tree star graph exponential Lipschitz Laplace transform",
+        "sharp Lipschitz variance weighted complete multipartite graph nonuniform vertex probabilities two-point and three-level extrema partition discrepancy"
+      ]
+    },
+    "rationale": "The 2006 Bobkov-Houdre-Tetali primary paper supplies the exponential moment framework and exact path and complete-graph results; its path case includes K_{1,2}, deliberately outside the new claim, but not the branching K_{1,n} family with n>=3. Its clique metric has distance one between every pair, whereas the star has leaf-to-leaf distance two. The 2009 Sammer-Tetali primary work studies cycle transportation and sub-Gaussian behavior. The indexed related star results concern other norms or geometries and do not state the full sharp centered Laplace envelope with finite-n leaf-sign tilt thresholds. The final claim is limited to those distinct new statements and their asymptotic law. No search can rule out all equivalent unindexed literature.",
+    "residual_risks": [
+      "An exact star-Laplace expression or equivalent tilted-extremizer theorem could appear in unindexed literature or in uninspected portions of indexed documents.",
+      "Only the indicated sections of the 2009 cycle paper and indexed short summaries, not every appendix of all potential references, were materially read.",
+      "The new result does not give a closed scalar expression for the separately optimized sub-Gaussian variance proxy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Path and complete-graph results are relevant foundations; K_{1,2} is known, but the stated hypotheses do not cover branching stars n>=3",
+        "evidence": "Sections 1, 3 (Proposition 3.2) and 6 (Proposition 6.1, Corollary 6.2), DOI 10.1007/BF02773835",
+        "identifier_or_url": "https://tetali.math.gatech.edu/PUBLIS/BHT_SUB85.pdf",
+        "material_read": "Full-text introduction, Section 3 path theory and proofs, Section 6 complete-graph theorem and proof, and listed graph families",
+        "method": "Directly examined the author-hosted primary PDF and its path and complete-graph statements",
+        "title": "The subgaussian constant and concentration inequalities",
+        "trigger": "Exact graph Laplace functional and possible dominating graph-class theorem"
+      },
+      {
+        "assessment": "Main exact cases are cycles and transportation/concentration consequences; the inspected parts contain no sharp star-specific MGF staircase",
+        "evidence": "Introduction and Section 5, DOI 10.1017/S0963548309990319",
+        "identifier_or_url": "https://tetali.math.gatech.edu/PUBLIS/torus_Jun3.pdf",
+        "material_read": "Full-text introduction including statement of results and Section 5 opening and cycle structural lemma",
+        "method": "Directly examined the author-hosted primary PDF and relevant theorem summaries",
+        "title": "Concentration on the discrete torus using transportation",
+        "trigger": "Possible larger class of sharp concentration constants covering trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bfd26efd-8b62-470f-a40c-2e5049bd9dc8",
+  "value": {
+    "rationale": "The complete centered exponential-moment envelope is a motivated sharp quantity for graph concentration and optimal Chernoff bounds under Cartesian tensor powers, strictly finer than maximal Lipschitz variance. The exact staircase of floor(n/2)-1 leaf-sign optimizer switches provides a non-obvious structural classification across an infinite family, with a new explicit limiting optimizer density and limit envelope. It quantifies how a branching hub alters extremal rare-event geometry; this is not a routine substitution into a known path formula, and the precise threshold count has motivated downstream use for tilt-dependent concentration bounds.",
+    "status": "PASS"
+  }
+}
