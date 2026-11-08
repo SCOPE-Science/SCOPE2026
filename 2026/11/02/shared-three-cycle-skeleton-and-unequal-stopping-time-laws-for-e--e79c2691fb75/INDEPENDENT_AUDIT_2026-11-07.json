@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:57:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F_n bouquet of n labelled triangles, synchronous 3-color CCA and threshold-one GHM, all initial states correspond to center color c in {0,1,2} and a sequence of n ordered leaf-pair types from 9 choices. Since contact rules depend on *presence*, not multiplicity, the nonempty support subset S suffices for all time, giving exactly 3(2^9-1)=1533 universal finite symbolic cases. Reviewed source explicit symbolic transition algorithm; complete support census verifies C_n^5=C_n^2, G_n^7=G_n^4 and exact first periodic entry coefficient rows. Onto(s,n)=sum(-1)^j binom(s,j)(s-j)^n transforms the support counts to exact all-n formula: CCA D0=3*3^n,D1=3*6^n,D2=3*(9^n-6^n-3^n); GHM D0=3^(n+1)-2,D1=6^n+4^n-3^n,D2=9^n-3^n+1,D3=9^n-4^n+1,D4=9^n-6^n-3^n. Primitive 3-cycle configurations share identical update maps, 3*(3^n-1) states => 3^n-1 orbits; eventually enter 3-cycle iff one originally rainbow petal. Independent direct graph-neighborhood enumeration for all 3^(2n+1) initial states n=1,2,3 confirmed exact distribution and common periods. As n->infinity, CCA T->2 while GHM T uniform {2,3,4}. The all-n assertion follows from exact support quotient and symbolic count, not extrapolating n<=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner et al provide arbitrary-graph criterion for synchronization/oscillation based on nonzero cycle circulation; implies the common basin count but not per-model first-entry time.",
+          "Doba studies GHM time evolution on general finite graphs, including walk criterion, but no friendship graph exact n-parametric histogram located in inspected material.",
+          "Bello–Sivakoff study random infinite regular trees and higher thresholds; different graph regime."
+        ],
+        "reasoning": "Prior frameworks are broader in graph families, but do not mathematically dominate the specific sharp entry-time and periodic-orbit enumeration, with no identified bound that specializes exactly to it.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arxiv1610.07320 Theorem3 and 5",
+          "Doba 2018 DOI:10.25088/ComplexSystems.27.2.101",
+          "Bello–Sivakoff 2021 arxiv2108.06404"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md e768afea2ae0dcb94c0c5058cef62a64219dfa62",
+        "Pinned verify.py d8be277c0cb78f6e8bf63174ef6456d5a3d363ea",
+        "Gravner–Lyu–Sivakoff arxiv1610.07320 primary full PDF",
+        "Doba 2018 primary 26-page PDF",
+        "Bello–Sivakoff arxiv2108.06404 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General circulation tests whether a trajectory oscillates, not when it first becomes periodic. Equality of basin sets does not imply equality—or give counts—of transient time distributions.",
+          "Doba trajectory descriptions are qualitative for general finite graphs, not an evaluated friendship graph exact census in material inspected."
+        ],
+        "reasoning": "The new laws are not corollaries of a previously tabulated basin probability or diameter-based synchronization bound. Exact two-model support-state analysis yields distinct leading 9^n terms at t=2,3,4.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff 2016 Theorem3",
+          "Doba 2018 Sections 2,5–7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General cycle circulation criterion of Gravner–Lyu–Sivakoff does imply common oscillation basin, but not the time-of-first-periodic-entry distribution.",
+          "Resultary returns other ternary CAs and cycle theories not this friendship-graph two-model exact law."
+        ],
+        "reasoning": "Triangle bouquet is also the friendship/dutch windmill graph F_n, included in searches by both names. General zero-circulation theorem covers the basin predicate, explicitly credited, but not exact finite stopping histograms or orbit count.",
+        "searches": [
+          "Resultary: friendship graph three color cyclic cellular automaton Greenberg Hastings exact transient time stopping distribution",
+          "Web: friendship graph Greenberg Hastings cyclic cellular automata time to periodicity three color"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit exact formulas for t=0..4 across two models independently checked for n=1,2,3; normalized counts yield point mass at 2 versus uniform {2,3,4}.",
+          "No retrieved exact database/table contains both finite-time distributions for all n."
+        ],
+        "reasoning": "The already known oscillatory-basin probability 1-(7/9)^n is excluded from originality; the distinct first-entry histograms and common primitive 3-cycle count are new assessed facts.",
+        "searches": [
+          "Resultary friendship F_n CCA GHM exact entry histogram n triangles",
+          "Gravner et al 2016 general cycle theorem",
+          "Pinned verify.py exact support enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after checking exact formulations, stronger work, tables and implication: Triangle bouquet is also the friendship/dutch windmill graph F_n, included in searches by both names. General zero-circulation theorem covers the basin predicate, explicitly credited, but not exact finite stopping histograms or orbit count. Prior frameworks are broader in graph families, but do not mathematically dominate the specific sharp entry-time and periodic-orbit enumeration, with no identified bound that specializes exactly to it. The new laws are not corollaries of a previously tabulated basin probability or diameter-based synchronization bound. Exact two-model support-state analysis yields distinct leading 9^n terms at t=2,3,4.",
+      "residual_risks": [
+        "An unlocated all-graph excitation-time formula may imply special F_n histograms; searched primary general works do not present explicit such specialization.",
+        "Finite support certificate is exhaustive only for these precise contact rules; small graph direct checks do not prove different dynamics on other graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rainbow cycle catalyst/basin; does not state the sharp two-model friendship finite-time histograms",
+          "evidence": [
+            "Gravner, Lyu, Sivakoff 2016 Theorem3 nonzero circulation on cycles"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Primary full PDF inspected, update definitions, Theorems 3 and 5 and proof of cycle circulation criterion with screenshot pages",
+          "method": "Compared basin theorem to first-entry-time and primitive-orbit counts",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same exact CCA and GHM models, stronger general-graph theorem"
+        },
+        {
+          "assessment": "General finite-graph GHM evolution criteria, no exact CCA-versus-GHM F_n histogram in inspected material",
+          "evidence": [
+            "Doba 2018, Complex Systems 27(2), 101–126"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Primary PDF Sections2,5–7 and relevant main theorem text examined with PDF page image; source searched for friendship graph, triangles and stopping time",
+          "method": "Compared graph specialization and output sought",
+          "title": "The Time Evolution of a Greenberg-Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Same GHM model on general finite graphs and possible time bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact microscopic finite-time distributions and shared periodic skeleton provide a sharp and informative comparison of two standard excitable-graph automata: same oscillator basin yet nonidentical limiting transient-time laws. A complete natural family with unbounded n is classified by a finite support reduction, yielding a reusable technique and meaningful dynamical distinction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md e768afea2ae0dcb94c0c5058cef62a64219dfa62",
+    "Pinned verify.py d8be277c0cb78f6e8bf63174ef6456d5a3d363ea",
+    "Gravner–Lyu–Sivakoff arxiv1610.07320 primary full PDF",
+    "Doba 2018 primary 26-page PDF",
+    "Bello–Sivakoff arxiv2108.06404 abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strictly 3-state synchronous threshold-one CCA/GHM on n labelled triangular petals sharing a central vertex; n>=1.",
+    "General oscillation-basin criterion and its probability are prior work, not claimed new; no statement for arbitrary graphs, other colors, asynchronous rules."
+  ],
+  "residual_risks": [
+    "An unlocated all-graph excitation-time formula may imply special F_n histograms; searched primary general works do not present explicit such specialization.",
+    "Finite support certificate is exhaustive only for these precise contact rules; small graph direct checks do not prove different dynamics on other graph families."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers rainbow cycle catalyst/basin; does not state the sharp two-model friendship finite-time histograms",
+      "evidence": [
+        "Gravner, Lyu, Sivakoff 2016 Theorem3 nonzero circulation on cycles"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+      "material_read": "Primary full PDF inspected, update definitions, Theorems 3 and 5 and proof of cycle circulation criterion with screenshot pages",
+      "method": "Compared basin theorem to first-entry-time and primitive-orbit counts",
+      "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+      "trigger": "Same exact CCA and GHM models, stronger general-graph theorem"
+    },
+    {
+      "assessment": "General finite-graph GHM evolution criteria, no exact CCA-versus-GHM F_n histogram in inspected material",
+      "evidence": [
+        "Doba 2018, Complex Systems 27(2), 101–126"
+      ],
+      "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/09/27-2-1.pdf",
+      "material_read": "Primary PDF Sections2,5–7 and relevant main theorem text examined with PDF page image; source searched for friendship graph, triangles and stopping time",
+      "method": "Compared graph specialization and output sought",
+      "title": "The Time Evolution of a Greenberg-Hastings Cellular Automaton on a Finite Graph",
+      "trigger": "Same GHM model on general finite graphs and possible time bounds"
+    }
+  ]
+}
