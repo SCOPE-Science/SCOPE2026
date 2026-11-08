@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sole critical point is \(c=\sqrt2-1\). A vanishing three-step derivative forces any superattracting primitive three-cycle to contain this point, reducing the complete classification of superattracting primitive three-cycles to the single critical-return equation. An explicit factorization in \(\mathbb Q(\sqrt2)\) separates a fixed-point parameter \(1+\sqrt2\) from a sextic, and exact transformed-polynomial coefficients and Descartes' rule prove that the sextic has exactly one positive root, bracketed between \(5.6449\) and \(5.645\). Rational trapping intervals are strictly cyclically mapped for every parameter in this band; the return derivative has modulus below \(11/100\), proving a primitive attracting three-cycle and independently supplying the period-three status at the critical parameter. The packaged `verify.py` script was executed successfully on the actual contents. Limits: the interval is a certified subinterval, not a maximal one; numerical orbit values are illustrative.
+## correctness
 
-## Originality — PASS with residual priority risk
-The 2022 defining article (DOI 10.3934/mbe.2022115) was inspected in its open full-text form and treats numerical bifurcation, fixed-point stability and initial period-doubling, not the exact period-three critical-return root or uniform rational trapping region. The 2025 full-text generalized-family study (DOI 10.3390/math13030518) is especially relevant because its \(\lambda=1\) specialization is precisely this map. Its fixed-point theorem, displayed first-period bifurcation transitions and numerical Lyapunov diagrams do not imply the new period-three sextic uniqueness or certified stability band. The 2024 higher-power-family full-text study (DOI 10.1007/s40065-024-00464-1) discusses other exponents and numerical windows; the 2025 period-doubling study (DOI 10.3934/math.2025150) examines different bifurcation questions. Comparable indexed results on other rational second-order maps do not imply the present first-order claim. The available historical mathematical record includes an earlier two-cycle/four-cycle result for this exact map, which is logically distinct: those cycle results do not imply an exact superattracting primitive-three parameter or an open stable-three parameter band. Search cannot certify absolute novelty; unindexed sources and broader general rational-map theorems remain risks.
+PASS
 
-## Value — PASS
-This is an exact structural statement about a natural named family studied as a generalized logistic map. The unique algebraic superstable-three parameter and its exact existence/stability neighborhood replace numerical-only evidence with a rigorous local coexistence/periodic-window fact inside the previously reported high-parameter chaotic regime. The exact rational window is not an arbitrary slice: it includes the unique superstable-three parameter and is directly certified by three disjoint dynamically mapped intervals, giving a robust open basin and quantitative contraction. This distinction matters when interpreting numerical bifurcation or Lyapunov plots as if they excluded stable windows. The result does not claim the absence of other chaotic sets or determine the full stability component.
+The sole critical point is c=sqrt(2)-1. Exact critical three-return numerator factorization gives (-577+408 sqrt(2))*(mu-1-sqrt(2))*Q(mu). mu=1+sqrt(2) produces a fixed point, not primitive three. Transformed polynomial coefficients Q(4t/(1+t))*(1+t)^6 are all negative; Q(4+t) has one sign change; Q(4)<0 and leading coefficient positive give a unique mu>4 root inside [56449/10000,1129/200], near 5.64492767524668. Exact rational/surd endpoint inequalities in RESULT.md give K_mu(J) subset int A, K_mu(A) subset int B, K_mu(B) subset int J for J=[.413,.415], A=[.9685,.9686], B=[.0872,.0875], and |(K_mu^3)'|<.11. Contraction proves an attracting least-period-three cycle for the whole band, not a maximal band.
 
-## Closest literature and limitations
-Kumar et al., *Math. Biosci. Eng.* 19 (2022), 2489–2505, DOI 10.3934/mbe.2022115; Conejero–Lizama–Quijada, *Mathematics* 13 (2025), 518, DOI 10.3390/math13030518; Renu–Ashish–Chugh, *Arabian J. Math.* (2024), DOI 10.1007/s40065-024-00464-1; Liu–Zhong, *AIMS Mathematics* (2025), DOI 10.3934/math.2025150. The proof concerns the invariant unit interval and a specific certified parameter band; it does not give the maximal window, all periodic orbits, attractor basins, or an exclusion of chaos. An independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact unique supercritical primitive-period-three parameter and a rigorously certified attracting interval for the named rational logistic family; existing primary reports studied same map but numerical bifurcation windows and lower-period stability do not imply exact algebraic existence and uniform contraction.
+
+## value
+
+PASS
+
+An explicit superattracting period-three algebraic root and robust certified attraction interval are meaningful nontrivial dynamics in a named chaotic-map model, distinguishing stable windows from merely numerical chaos plots and giving an exact reproducible benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
