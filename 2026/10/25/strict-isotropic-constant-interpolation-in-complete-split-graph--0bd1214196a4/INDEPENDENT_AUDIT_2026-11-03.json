@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:48:54.163532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p>=1, stable-set hull equals {x_i>=0, y_j>=0, T+y_j<=1}; slicing at T=sum x_i yields coarea density T^(p-1)/(p-1)! and beta(p,q+1) law. Direct q-cube integration gives Vol=q!/N!, conditional Dirichlet p-simplex and conditional independent U[0,1-T] variables give raw means and the stated unsheared covariance. The determinant-one shear W_j=Y_j+T/2 eliminates clique/independent cross covariance and all independent off-diagonals, with Var(W_j)=(q+1)(q+2)/[12(N+1)(N+2)]. Cov(X) has p-1 equal eigenvalues 1/[(N+1)(N+2)] and sum-direction eigenvalue (q+1)/[(N+1)^2(N+2)], yielding the claimed determinant. p=0 reduces to the cube. The explicit B_N(q+1)/B_N(q) expression equals (1+1/s)^2(1+2/s)^s/12, s=q+1>=2; s=2,3 checked rationally and for s>=4 the bounds (5/4)^2 e^2 < (5/4)^2(11/4)^2 <12 establish strictness. Uniform Stirling including q=1 and q=N yields log L=-p/N-q log 12/(2N)+O(log(N+2)/N); alpha limit follows. Independent Fraction/sympy implementation independently derived conditional second moments and checked full covariance determinants and shear for 66 (p,q) pairs (p=0..8,q=1..9,N<=12), 149 exact rational adjacent ratios for q=1..149 and asymptotic errors for N=25,100,500,2500. These checks corroborate but are not used as infinite proofs. No claim for q=0, p=N, general split graphs or vertex-uniform measure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Hanner exact recursion assumes central symmetry and yields symmetric ℓ1-sum constants.",
+          "Kohl–Olsen–Sanyal characterizes unconditional/sign-reflection bodies and perfect-graph clique facets, without a theorem for these nonsymmetric continuous second moments.",
+          "The newer global simplex-maximality abstract bounds all convex bodies against the endpoint but does not order intermediate nested bodies."
+        ],
+        "reasoning": "The nontrivial complete-split P_{p,q} is not centrally symmetric, so Hanner results do not specialize. Perfect-graph facet/extension-complexity statements concern the same feasible sets but neither integrals nor the strict p-to-p+1 inequality. Even a theorem that all bodies lie below the simplex does not imply every adjacent strict comparison.",
+        "searches": [
+          "Resultary: isotropic constants of graph stable set polytopes graph edge inclusion monotonicity Hanner",
+          "Resultary published Hanner theorem, full RESULT.md",
+          "DOI:10.1007/s00454-020-00199-8, sections 3/4/7",
+          "DOI:10.1016/j.aim.2025.110361, published abstract",
+          "2026-10-05 simplex inequality abstract https://open-research-index.vercel.app/r/openai-math/A-sharp-entropy-bound-and-the-simplex-inequality-for-isotropic-constants"
+        ]
+      },
+      "checked_sources": [
+        "Aliniaeifard, Benedetti, Bergeron, Li, Saliola, Stable set polytopes and their 1-skeleta, arXiv:1804.00360, https://ar5iv.labs.arxiv.org/html/1804.00360 (read HTML introduction, §§2.3–2.4, Theorem 4 in §3, §6 bounds and §7 facet discussion; term searches).",
+        "Kohl, Olsen, Sanyal, Unconditional Reflexive Polytopes, D&CG 64 (2020), https://link.springer.com/article/10.1007/s00454-020-00199-8 (read accessible full-text sections 3, 4, 7 and introduction).",
+        "On the linear extension complexity of stable set polytopes for perfect graphs, European J. Comb. 80 (2019), DOI 10.1016/j.ejc.2018.02.014 (read searchable publisher-derived abstract and sections 1, 2, 3 and 5 excerpts; direct DOI open returned 403, not fully inspected).",
+        "Published Resultary 2026/10/11/SCOPE-sharp-isotropic-constant-range-of-all-hanner-polytopes--7976b0937cd2 (actual RESULT.md read; exact symmetric ℓ1-sum recursion and bounds).",
+        "Published Resultary 2026/10/11/SCOPE-the-john-ellipsoid-and-full-contact-structure-of-balanced-comple--fc5ba86494aa (semantic index summary; different graph class and John ellipsoid, not uniform-volume covariance).",
+        "Kipp, Isotropic constants and regular polytopes, Adv. Math. 476 (2025), DOI 10.1016/j.aim.2025.110361, https://depositonce.tu-berlin.de/items/8a5e34e3-e693-404a-8783-d77a8bcf3a43 (abstract/summary; different local-extremizer results).",
+        "A sharp entropy bound and the simplex inequality for isotropic constants, dated 2026-10-05, https://open-research-index.vercel.app/r/openai-math/A-sharp-entropy-bound-and-the-simplex-inequality-for-isotropic-constants (abstract only; stronger global simplex extremality asserted, no full-text inspection).",
+        "Stanley, Two poset polytopes, Discrete Comput. Geom. 1 (1986) (volume/chain-polytope background from primary references, original text not read in this run)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aliniaeifard et al Theorem 4 is one-skeleton structure; its chain-polytope identification is general.",
+          "Perfect-graph Theorem 2.7 gives exactly this family’s clique constraints, but it has no covariance-determinant conclusion.",
+          "Published Hanner recursion covers symmetric ℓ1-sums, not the present noncentered join; its cube endpoint is known.",
+          "A maximal-simplex inequality is logically insufficient to show a strictly ordered entire inclusion chain."
+        ],
+        "reasoning": "Reviewed hypotheses and conclusions mathematically. None of the inspected comparisons yields all three target ingredients: explicit uniform-volume determinant, strict graph-edge completion ordering, and uniform density limit. Known polytope definitions and volume are credited. The remaining plausible risk is an old general convex-join inertia formula plus a previously proved strict ratio, not simply a paper with the word isotropic.",
+        "searches": [
+          "arXiv:1804.00360 HTML §§2–3,6–7",
+          "DOI:10.1016/j.ejc.2018.02.014 publisher-indexed excerpts",
+          "DOI:10.1007/s00454-020-00199-8 sections 3–4,7",
+          "Resultary published Hanner RESULT.md",
+          "Web: \"isotropic constant\" \"simplex\" \"cube\" \"convex hull\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G_{p,q} is the comparability graph of the ordinal sum of a p-chain and q-antichain; P_{p,q} is its chain polytope, also convex hull of a (p-1)-simplex on the clique singleton vectors with a q-cube on the independent side.",
+          "Aliniaeifard et al §2.4.3 establishes general graph stable-set/chain-polytope identification, not continuous second moments.",
+          "Search results did not identify an exact all-q constant or finite strict chain under these aliases."
+        ],
+        "reasoning": "Compared graph, poset-chain, anti-blocking, convex join and simplex–cube pyramid aliases. Those representations recover the object and known volume but not automatically an explicit determinant and its strict adjacent-q ratio; a generic unindexed join formula could imply a portion and is a stated residual risk.",
+        "searches": [
+          "Resultary: complete split graph stable-set polytope isotropic constant covariance determinant strict monotonicity cube simplex",
+          "Resultary: chain polytope ordinal sum chain antichain isotropic constant beta Dirichlet simplex cube join",
+          "Web: \"isotropic constant\" \"chain polytope\" poset formula",
+          "Web: \"isotropic constant\" \"pyramid over a cube\"",
+          "arXiv:1804.00360 §2.4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stanley chain-polytope volume framework and the standard cube/simplex endpoint constants are classical and do not constitute the reviewed original content.",
+          "Resultary did return nearby Hanner constants and John ellipsoid facts, not a full complete-split table for the same invariant."
+        ],
+        "reasoning": "The invariant is not a finite known-table lookup: it is all-dimensional and has a symbolic ratio and uniform asymptotic. The q!/N! volume and endpoints are identified as known, not counted as independently novel. Search nonhits are not proof against unindexed exact tables.",
+        "searches": [
+          "Web: \"isotropic\" \"(q+1)^(q+1)\" \"(q+2)^q\"",
+          "Web: \"stable-set polytope\" \"covariance\" \"determinant\"",
+          "Web: \"isotropic constants\" \"joins\" polytopes",
+          "Resultary: complete split graph stable set polytope isotropic constant cube simplex interpolation strict monotonicity factorial formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim-level comparison: graph stable-set literature gives the body and clique facets, and the known chain-polytope volume yields q!/N!, but no inspected primary full theorem yields the normalized continuous covariance determinant together with strict p-step ordering and uniform macroscopic interpolation. The closest published exact Hanner isotropic formula applies to centrally symmetric ℓ1 sums rather than these generally nonsymmetric positive stable-set bodies. A reported 2026 global simplex maximum entails at most the final endpoint upper bound, not the strict full chain. Closely related unindexed simplex-cube join or beta-Dirichlet moment recursions remain priority risks, not mathematical disproof.",
+      "residual_risks": [
+        "An unindexed exact isotropic-constant formula for noncentrally symmetric simplex–cube joins, star-pyramid chain polytopes or beta-slice inertia might imply the closed determinant and strict comparison.",
+        "The perfect-graph extension article was only partially accessible via searchable extraction; its full text could not be opened directly in this run (403).",
+        "The 2025 regular-polytope paper and October 2026 global simplex-inequality preprint were read only at abstract level; neither abstract gives a full-chain theorem but full-text unseen material remains a limited overlap risk.",
+        "Negative web and published-record searches cannot certify exhaustive historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its actual claims characterize vertices and one-skeleton, define chain polytopes, and bound diameter. No isotropic-constant or split-family strict ordering theorem is in the inspected material; it supplies the object but not assessed metric conclusion.",
+          "evidence": [
+            "§2.4.2 identifies empty-graph stable set polytope as cube and §2.4.3 identifies chain polytopes of comparability graphs; §3 Theorem 4 is edge criterion; §6 Theorem 14 is diameter bound.",
+            "Document-wide indexed searches for isotropic and volume returned none."
+          ],
+          "identifier_or_url": "arXiv:1804.00360; https://ar5iv.labs.arxiv.org/html/1804.00360",
+          "material_read": "Accessible 773-line primary HTML, especially abstract, contents, §§1, 2.3–2.4, Theorem 4 in §3, passages of §6 on diameter, §7 facet description, and document-wide searches for volume/isotropic.",
+          "method": "Read primary HTML sections and mathematical theorem statements; tested whether continuous volume covariance, determinant or strict graph-edge interpolation was among its conclusions.",
+          "title": "Stable set polytopes and their 1-skeleta",
+          "trigger": "Original graph stable-set polytope and chain-polytope correspondence, possible exact coverage."
+        },
+        {
+          "assessment": "Theorem 4.1 gives facet description for perfect-graph stable-set polytopes, also consistent with this source. The major results address unconditional reflexive construction, Ehrhart/toric properties, not the nonsymmetric unsheared body determinant or strict isotropic ordering.",
+          "evidence": [
+            "Section 4 Theorem 4.1: perfect graph clique inequalities define P_G; Section 7 Theorems 7.3–7.4: Gröbner bases for signed chain polytopes; no isotropic-constant theorem seen."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00454-020-00199-8; https://link.springer.com/article/10.1007/s00454-020-00199-8",
+          "material_read": "Accessible publisher HTML introduction, sections 3 and 4 (anti-blocking and perfect graph description) and §7.3–7.4 (Groebner bases for signed chain polytopes).",
+          "method": "Compared object definitions, the signed reflection operation and stated invariants with original nonnegative stable-set body and uniform-volume covariance.",
+          "title": "Unconditional Reflexive Polytopes",
+          "trigger": "Signed anti-blocking stable set constructions and chain polytopes could resemble original family."
+        },
+        {
+          "assessment": "Observed the known clique-facet formulation and extension complexity bounds, not an identified moment determinant. Incomplete primary access remains a bounded residual risk; no whole-document noncoverage is claimed.",
+          "evidence": [
+            "Theorem 2.7 (Chvátal): for perfect graphs, clique and nonnegativity inequalities describe STAB(G); Section 5 theorem bounds xc via decomposition tree."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.ejc.2018.02.014; https://doi.org/10.1016/j.ejc.2018.02.014",
+          "material_read": "Search-indexed publisher extraction of abstract, introduction, §2 setup and Theorem 2.7, selected §§3,5 statements; direct web open returned 403. Full article was NOT inspected.",
+          "method": "Compared exact facet characterization and nonnegative slack rank statements to target continuous-volume covariance determinant.",
+          "title": "On the linear extension complexity of stable set polytopes for perfect graphs",
+          "trigger": "General perfect-graph theorem could dominate complete-split polytope geometry."
+        },
+        {
+          "assessment": "Does not entail intermediate complete-split graph values or their monotonicity; only cube endpoint and some general integration techniques overlap. Hanner hypotheses fail for p>=1 and N>=2.",
+          "evidence": [
+            "The published formula for a symmetric ℓ1-sum uses centered covariance block factors, and Theorem scope explicitly restricts to recursively centrally symmetric Hanner polytopes; the interior complete-split bodies are not centrally symmetric."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-isotropic-constant-range-of-all-hanner-polytopes--7976b0937cd2",
+          "material_read": "Actual full RESULT.md read from Resultary GitHub repository: finding, full proof of product and ℓ1-sum isotropic-constant recursions, equality cases and scope.",
+          "method": "Compared hypotheses (centrally symmetric Hanner bodies, orthogonal ℓ1 products) with our generally nonsymmetric convex hull of simplex vertices and cube.",
+          "title": "Sharp isotropic-constant range of all Hanner polytopes",
+          "trigger": "Closest published exact family-wide isotropic constant results, including cube endpoint and ℓ1-sum covariance recursion."
+        },
+        {
+          "assessment": "The abstract-level statements do not establish the claimed entire strict interpolation, but absence of additional full-text results is not asserted.",
+          "evidence": [
+            "Abstract describes simplicial-vertex and zonotope local-maximizer conditions; exact complete-split covariance/ordering not among abstract claims."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.aim.2025.110361; https://depositonce.tu-berlin.de/items/8a5e34e3-e693-404a-8783-d77a8bcf3a43",
+          "material_read": "Published-version repository abstract and metadata only; article full text not read.",
+          "method": "Compared reported scope (local extremality, zonotopes, simplex conditions) with strict two-parameter complete-split family formula.",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "Potential broad isotropic extremizer theorem implying simplex endpoint."
+        },
+        {
+          "assessment": "Global simplex upper bound, if correct, is weaker than strict ordering of every intermediate nested split family; no full-text priority exclusion asserted.",
+          "evidence": [
+            "Abstract says simplex is the unique maximizer among convex bodies; does not assert isotropic constants monotone under graph-edge inclusion."
+          ],
+          "identifier_or_url": "https://open-research-index.vercel.app/r/openai-math/A-sharp-entropy-bound-and-the-simplex-inequality-for-isotropic-constants",
+          "material_read": "2026-10-05 abstract and source link; GitHub full text could not be opened in web search, so article proof not read.",
+          "method": "Compared claimed global maximality statement to a consecutive strict monotonicity statement.",
+          "title": "A sharp entropy bound and the simplex inequality for isotropic constants",
+          "trigger": "New 2026 all-convex-body simplex maximizer claim could dominate only endpoint ordering."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural complete split-graph edge-completion chain that genuinely interpolates from the hypercube to the simplex, the affine-invariant isotropic constant measures global uniform-volume concentration, not a merely cosmetic edge/volume statistic. A complete closed determinant, strict all-dimension monotonicity under this specific inclusion (not true for arbitrary convex inclusions), and a uniform limiting density curve separating macroscopic clique fractions form a motivated and independently useful geometric classification. Although beta slicing and the classical endpoint constants are standard, the strict ordered family and uniform interpolation are not simply another small finite instance or restatement of a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Aliniaeifard, Benedetti, Bergeron, Li, Saliola, Stable set polytopes and their 1-skeleta, arXiv:1804.00360, https://ar5iv.labs.arxiv.org/html/1804.00360 (read HTML introduction, §§2.3–2.4, Theorem 4 in §3, §6 bounds and §7 facet discussion; term searches).",
+    "Kohl, Olsen, Sanyal, Unconditional Reflexive Polytopes, D&CG 64 (2020), https://link.springer.com/article/10.1007/s00454-020-00199-8 (read accessible full-text sections 3, 4, 7 and introduction).",
+    "On the linear extension complexity of stable set polytopes for perfect graphs, European J. Comb. 80 (2019), DOI 10.1016/j.ejc.2018.02.014 (read searchable publisher-derived abstract and sections 1, 2, 3 and 5 excerpts; direct DOI open returned 403, not fully inspected).",
+    "Published Resultary 2026/10/11/SCOPE-sharp-isotropic-constant-range-of-all-hanner-polytopes--7976b0937cd2 (actual RESULT.md read; exact symmetric ℓ1-sum recursion and bounds).",
+    "Published Resultary 2026/10/11/SCOPE-the-john-ellipsoid-and-full-contact-structure-of-balanced-comple--fc5ba86494aa (semantic index summary; different graph class and John ellipsoid, not uniform-volume covariance).",
+    "Kipp, Isotropic constants and regular polytopes, Adv. Math. 476 (2025), DOI 10.1016/j.aim.2025.110361, https://depositonce.tu-berlin.de/items/8a5e34e3-e693-404a-8783-d77a8bcf3a43 (abstract/summary; different local-extremizer results).",
+    "A sharp entropy bound and the simplex inequality for isotropic constants, dated 2026-10-05, https://open-research-index.vercel.app/r/openai-math/A-sharp-entropy-bound-and-the-simplex-inequality-for-isotropic-constants (abstract only; stronger global simplex extremality asserted, no full-text inspection).",
+    "Stanley, Two poset polytopes, Discrete Comput. Geom. 1 (1986) (volume/chain-polytope background from primary references, original text not read in this run)."
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed exact isotropic-constant formula for noncentrally symmetric simplex–cube joins, star-pyramid chain polytopes or beta-slice inertia might imply the closed determinant and strict comparison.",
+    "The perfect-graph extension article was only partially accessible via searchable extraction; its full text could not be opened directly in this run (403).",
+    "The 2025 regular-polytope paper and October 2026 global simplex-inequality preprint were read only at abstract level; neither abstract gives a full-chain theorem but full-text unseen material remains a limited overlap risk.",
+    "Negative web and published-record searches cannot certify exhaustive historical novelty."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only complete split graphs K_p vee independent(q), q>=1,N>=2, and normalized continuous uniform volume in the given coordinates.",
+    "The nested inclusion monotonicity does not hold for arbitrary convex body inclusions.",
+    "Unpublished or differently named free-join/chain-polytope moment formulas could affect best-of-knowledge originality.",
+    "The direct DOI article was only partially read through extracted text, not full paper."
+  ]
+}
