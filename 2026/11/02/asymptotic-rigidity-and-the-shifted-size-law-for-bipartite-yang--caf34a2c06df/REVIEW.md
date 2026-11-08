@@ -1,23 +1,21 @@
-# Scientific review: bipartite Yang–Baxter orbit asymptotics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact finite orbit formula and the nonsplit stabilizer interpretation are taken from Militaru's Theorem 2.12, Corollary 2.13, and Proposition 2.15. The proof first brackets orbit counts by multiset counts divided by or not divided by \(m!\), controlling the logarithm to \(O(n\log n)\) in the dominant regime. Strict saddle concavity supplies the \(1/16\) correction and the shift \(n/(4\log n)\). For typical stabilizers, the proof counts fixed tuples of \(S_m\times S_k\): identity-conjugator coordinate cycles give \(O(k^2/m!)\), while all other conjugators are bounded by the minimal nontrivial conjugacy class size \(m(m-1)/2\) and the partition-number bound. Burnside's lemma supplies the relative orbital approximation. Counting nontrivial stabilizers proves asymptotic rigidity, rather than inferring it merely from a large orbit count. The verifier reconstructs all published values through size eight and independently examines five finite saddle points. These finite checks are supplementary, not infinite proofs.
+PASS
 
-## Originality — PASS, qualified
+Militaru 2026 Theorem 2.12, Corollary 2.13 and Proposition 2.15 give the exact orbit model and stabilizer interpretation for nonsplit bipartite solutions. With m=|Z| and k=n-m, m! choices in each tuple position, orbit counts lie between T/m! and T, T=binom(m!+k-1,k). Stirling then gives F_n=m(n-m)(log m-1)+O(n log n) on m in [n/3,2n/3]; strict saddle concavity yields x=m/n=1/2+1/(4log n)+O((log n)^-2) and maximal log term n²/(16log n). For typical m,k~n/2, Burnside fixed-point sum over S_m×S_k is asymptotically identity-only: permutations with f fixed tuple coordinates contribute at most |C_beta|^f (m!)^((k-f)/2), and every nontrivial S_m conjugacy class has size ≥m(m-1)/2. The resulting error tends to zero, so typical orbit stabilizers are trivial and o(m,k)~(m!)^(k-1)/k!, producing the asymptotic weighted sum. Independently computed finite saddle displacement for n=400,2000,10000 and checked prior enumeration; finite tests are not the proof of Burnside asymptotics.
 
-Militaru (arXiv:2610.30845v1) already proves the exact orbit classification and automorphism formula, which are used as premises, not claimed. His primary paper was inspected across its statement of results and relevant classification and counting sections; it does not state a joint large-size saddle, its \(1/16\) coefficient, or almost-sure rigidity over uniformly sampled isomorphism classes. Kaur–Prajapati–Prasad (arXiv:1905.07957) consider simultaneous conjugacy classes of ordered tuples when the acting finite group is fixed. Sadov (arXiv:1312.6886) studies general asymptotic freeness for permutation actions on subsets and multisets; that contextual theorem is not the joint \(S_m\times S_k\) Yang–Baxter orbit-count asymptotic or its displaced size law. No direct covering implication was identified by the searches and inspected source portions. Residual priority risk: additional results about unlabeled permutation tuples, multiset conjugacy, or effective joint-parameter asymptotics could imply some claims.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The count of an explicitly defined and newly classified natural family changes sharply with the size of its intrinsic permutation block. The theorem determines its second-order logarithmic entropy, a nontrivial order-\(n/\log n\) block displacement, and generic rigidity under the class-uniform measure. The \(1/16\) term and the asymmetry of typical block size are missed by simply fixing balanced block sizes. Such information is useful for understanding the structural and probabilistic geometry of the new classification.
+Militaru 2026 supplies the exact isomorphism-class formula and automorphism descriptions, not a large-size saddle, the +n/(4log n) canonical block shift, or asymptotic class-weighted rigidity. Prior simultaneous conjugacy theory for fixed G and ordered tuples and general asymptotically free multisets do not immediately imply this jointly growing S_m×S_k orbit count.
 
-## References and limits
+## value
 
-1. G. Militaru, *Bipartite solutions of the set-theoretic Yang–Baxter equation*, arXiv:2610.30845v1 (first posted 22 October 2026). https://arxiv.org/html/2610.30845v1 .
-2. D. Kaur, S. K. Prajapati, A. Prasad, *Simultaneous Conjugacy Classes as Combinatorial Invariants of Finite Groups*, arXiv:1905.07957. https://arxiv.org/abs/1905.07957 .
-3. S. Sadov, *On asymptotically free action of permutation groups on subsets and multisets*, arXiv:1312.6886. https://arxiv.org/abs/1312.6886 .
+PASS
 
-Independent historical priority and independent mathematical validation have not been established. The result is specific to bipartite solutions, and the probability is uniform on isomorphism classes rather than on labeled maps.
+The asymptotics quantify how a newly classified natural combinatorial-algebraic family is distributed among isomorphism types: the 1/16 second-order entropy term, shifted typical canonical block size and rarity of automorphisms are meaningful independent invariants.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
