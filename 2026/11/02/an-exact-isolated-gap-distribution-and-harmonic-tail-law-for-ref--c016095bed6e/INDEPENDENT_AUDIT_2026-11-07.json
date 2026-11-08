@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Shor Proposition 3.4 fully classifies reflective semigroups by admissible multiplicity a with explicit gap layers. For a>=3, only g+ja upper-layer gaps are isolated, including g iff a|(g-1); for a=2, all odd gaps isolated. Thus I(g,a)=floor(g/a)+1_(a|g-1)+(g-1)/2*1_(a=2,g odd). Summing admissible a gives exact integer tail, with at most two exceptional one-unit corrections. Divisor counts provide uniform rate and k=2 lower scale; divisor-sum identity gives mean log g using standard hyperbola estimates. Independently generated actual semigroups and checked every tail for g=2..59.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor Proposition 3.4 and 5.2 provide genus-multiplicity bijection and N_g=g+1-tau(g). Smith studies isolated gap theory and Apery sets."
+        ],
+        "reasoning": "Neither inspected theorem explicitly dominates the uniform fixed-genus histogram; Smith full-paper content remains unavailable.",
+        "searches": [
+          "Shor 2022 full paper Sections 3 and 5",
+          "Smith 2022 Turkish J Mathematics abstract"
+        ]
+      },
+      "checked_sources": [
+        "Shor arxiv:2207.00051 full 27-page PDF, Prop 3.4 and 5.2",
+        "Smith DOI 10.3906/mat-2107-54 abstract only",
+        "Resultary reflective-semi-group query",
+        "Git RESULT.md blob 1f5c73da84d96fc0c5b1c7602681ec0fddd31b14",
+        "Git reflection_gap_verify.py blob 81c6bdb667100bbadf4cf752d460e91751d15c45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shor establishes generator and gap layers but not the derived arithmetic histogram/mean or quantified error."
+        ],
+        "reasoning": "Full distribution is derivable with new isolated-gap neighbor analysis and arithmetic summation, not already asserted as a result of Shor; novelty is qualified by inaccessible later/older related work.",
+        "searches": [
+          "Shor arxiv:2207.00051 Proposition 3.4, 5.2",
+          "Smith DOI:10.3906/mat-2107-54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shor explicitly parametrizes every reflective semigroup, but treats genus/multiplicity and Frobenius counts, not the random isolated-gap law in the inspected 27-page document."
+        ],
+        "reasoning": "Reflective classification is a prerequisite, while isolated-gap tail is an additional statistic of those objects.",
+        "searches": [
+          "Shor 2022 arxiv:2207.00051 Proposition 3.4",
+          "Smith On isolated gaps in numerical semigroups 2022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shor examples show small genus semigroups and population counts, but no exact C_g(k) table in paper; Resultary nearest records concern different semigroup invariants."
+        ],
+        "reasoning": "An exact table for finite g would not itself imply uniform tail limit; none found for full family.",
+        "searches": [
+          "Shor 2022 full PDF numerical semigroups",
+          "web reflective numerical semigroups isolated gaps count distribution",
+          "Resultary reflective semigroups isolated gaps semantic query"
+        ]
+      },
+      "rationale": "Shor 2022 directly supplies the complete genus/multiplicity classification and gap formula, explicitly credited. This does not itself state isolated-gap histogram, harmonic fixed-genus tail or logarithmic mean. Smith 2022 studies isolated gaps generally but full source unavailable; its possible coverage is retained as material risk.",
+      "residual_risks": [
+        "Smith 2022 complete paper inaccessible, may imply or state a subset of the distribution.",
+        "The distribution is conditional on uniform sampling from reflective semigroups, not all numerical semigroups."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS family parametrization and N_g but not specific tail law",
+          "evidence": "Prop 3.4 classifies by a in [2,g+1] with a not dividing g and gives gap sets; paper states population g+1-tau(g).",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.00051",
+          "material_read": "All 27 pages available through parsed primary PDF; focused review of Prop 3.4 proof at pp.8-9, Prop 5.2 and intro; visually inspected p.8",
+          "method": "Primary PDF text and page screenshot",
+          "title": "Reflective Numerical Semigroups",
+          "trigger": "Exact same family and foundational classification"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Abstract gives general Apery-set properties, embedding-dimension-two isolated gaps, and small perfect families; Oxford VPN disconnected job c6f8ff4999099f62f8573216387ce370.",
+          "identifier_or_url": "doi:10.3906/mat-2107-54",
+          "material_read": "Primary journal abstract only; full article unavailable",
+          "method": "Journal public abstract and institutional Oxford attempt",
+          "title": "On isolated gaps in numerical semigroups",
+          "trigger": "Same isolated-gap invariant, possible cross-family implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distribution of a natural combinatorial statistic on a precisely classified, nontrivial finite population gives a sharp heavy-tail law and expectation asymptotic with divisor-scale quantitative error; this is mathematically more informative than recomputing the population size.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Shor arxiv:2207.00051 full 27-page PDF, Prop 3.4 and 5.2",
+    "Smith DOI 10.3906/mat-2107-54 abstract only",
+    "Resultary reflective-semi-group query",
+    "Git RESULT.md blob 1f5c73da84d96fc0c5b1c7602681ec0fddd31b14",
+    "Git reflection_gap_verify.py blob 81c6bdb667100bbadf4cf752d460e91751d15c45"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniformly sampled reflective numerical semigroups of genus g>=2, the isolated-gap number has the exact multiplicity-derived tail formula C_g(k) and mean involving divisor sums, a uniform sup_k tail error O(tau(g)/g) against 1/k with optimal divisor-count scale, point masses converging to 1/[k(k+1)], and mean asymptotic to log g.",
+  "limitations": [
+    "Smith 2022 complete paper inaccessible, may imply or state a subset of the distribution.",
+    "The distribution is conditional on uniform sampling from reflective semigroups, not all numerical semigroups."
+  ],
+  "residual_risks": [
+    "Smith 2022 complete paper inaccessible, may imply or state a subset of the distribution.",
+    "The distribution is conditional on uniform sampling from reflective semigroups, not all numerical semigroups."
+  ],
+  "schema_version": 1
+}
