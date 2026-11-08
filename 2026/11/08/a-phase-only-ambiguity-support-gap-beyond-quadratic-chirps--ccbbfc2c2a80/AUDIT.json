@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The proof covers every odd prime p>=5 and arbitrary complex unimodular f. For a two-/three-element Fourier support, a unique ordered difference forces a nonzero nonconstant Fourier coefficient of |h|^2. Three-element supports always possess such a difference by parity of inverse difference pairs; multiplicity three would give an impossible translation-invariant proper subset. Every ambiguity delay quotient is unimodular. A single-character nonzero-delay quotient solves to a chirp after p recurrence steps and c^p=1; otherwise each of p-1 nonzero delays has >=4 frequencies, plus one zero-delay coefficient. An explicit p5 construction gives exactly 17. The exact checker passes 3443 independent finite checks; these are not used to infer infinite validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicola Theorem 1.2 classifies exactly p-supported STFT pairs but does not bound every other phase-only self-STFT by 4p-3.",
+        "For two full-support inputs, Krahmer–Pfander–Rashkov Proposition 4.4 reduces to the lower bound p.",
+        "The published sharp all-pairs support gap gives p or at least 2p; its attaining 2p example uses sparse inputs, violating the constant-modulus self-pair condition."
+      ],
+      "reasoning": "Neither a general result with smaller threshold, nor an equality-only theorem, implies the requested all-nonchirp stronger bound. The specifically checked all-pairs argument does not contain the necessary no-two/no-three Fourier-tone lemma for phase quotients.",
+      "searches": [
+        "arxiv:2204.14176v1 Theorem 1.2",
+        "arxiv:math/0611493v1 Proposition 4.4",
+        "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "phase coded prime sequences ambiguity support gap chirp vs nonchirp four frequencies per time delay"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.14176v1, Theorem 1.2 and proof",
+      "arxiv:math/0611493v1, Proposition 4.4 and proof",
+      "arxiv:1107.1887v1, Sections 1-3",
+      "arxiv:2202.04793v1, relevant framing (partial inspection)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+      "Published semantic research record 2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known p-point chirp equality is explicitly excluded from the novel part.",
+        "New bound is 4p-3, which exceeds 2p for every p>=5.",
+        "Benedetto–Benedetto–Woodworth estimates the size |A(x,k)| of ambiguity entries for selected CAZAC sequences; a pointwise magnitude upper bound cannot force the number of zeros of every nonchirp sequence."
+      ],
+      "reasoning": "The principal new implication rests on an exact unimodular Fourier difference-support obstruction and is not supplied by the more general support estimates. No claim that a known all-pairs lower bound is new.",
+      "searches": [
+        "arxiv:2204.14176v1 Theorem 1.2",
+        "arxiv:math/0611493v1 Proposition 4.4",
+        "arxiv:1107.1887v1 Theorem 3.8",
+        "2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "unimodular polynomial finite cyclic prime 3 Fourier coefficients impossible flat modulus, self short time Fourier transform gap p to 4p minus 3 chirp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For g=f, finite STFT and auto-ambiguity agree up to the nonzero normalization sqrt(p).",
+        "For |f|=1 each delay quotient h_x(t)=f(t)conj(f(t-x)) is unimodular; the new four-per-delay constraint applies to all x nonzero.",
+        "Quadratic chirps are exactly singleton-row self-ambiguity signals."
+      ],
+      "reasoning": "Translations/modulations and Fourier normalization do not change support. The self-ambiguity phase-only hypothesis is substantially narrower than arbitrary signal-window pairs. A generic classical p-supported chirp description does not logically force the gap above p.",
+      "searches": [
+        "Every unimodular nonquadratic chirp signal on odd prime cyclic group has periodic auto ambiguity support at least 4p minus 3, because derivatives cannot have Fourier support two or three; five point sharp",
+        "unimodular polynomial finite cyclic prime 3 Fourier coefficients impossible flat modulus, self short time Fourier transform gap p to 4p minus 3 chirp",
+        "ambiguity support unimodular chirp prime cyclic gap",
+        "arxiv:2204.14176v1 Theorem 1.2",
+        "arxiv:1107.1887v1 Definition 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic search returned nearby three-tap periodic ambiguity support classifications, with sparse time signals instead of unimodular full support.",
+        "The accessible five-point numerical ambiguity examples do not establish all-odd-prime coverage for arbitrary complex phases.",
+        "Exact checker yields the 5th-root phase-code support histogram [(5,25),(17,500),(21,100)], which is a restricted corroboration, not an all-phase census."
+      ],
+      "reasoning": "No matching exact theorem or table was found in the specifically queried records. This negative search result is only bounded evidence and not a global novelty certificate.",
+      "searches": [
+        "Every unimodular nonquadratic chirp signal on odd prime cyclic group has periodic auto ambiguity support at least 4p minus 3, because derivatives cannot have Fourier support two or three; five point sharp",
+        "prime cyclic unimodular phase functions non-chirp autoambiguity STFT support gap at least 4p-3, minimal sparse Fourier support of unimodular derivative three-character obstruction",
+        "finite ambiguity function of unimodular functions on prime cyclic groups minimal non-chirp support lower bound 4p-3 and sharp p=5",
+        "minimal support ambiguity function unimodular sequences non chirp finite prime cardinality",
+        "2026/10/11/SCOPE-parity-rigid-ambiguity-support-spectra-for-primitive-three-tap-c--4fe8e5c0fab7",
+        "arxiv:1107.1887v1 Section 4"
+      ]
+    },
+    "rationale": "The candidate excludes the entire support interval p+1 through 4p-4 for every complex unimodular self-STFT of odd prime length; the closest known equality classification establishes only p, the published unconstrained sharp gap gives only p to 2p, and the earlier ambiguity literature addresses magnitudes or a narrow special signal class. Verified direct comparison of statements found no dominating theorem. Historical priority is provisional and no exhaustive bibliographic uniqueness is claimed.",
+    "residual_risks": [
+      "Unindexed older literature might independently imply the row-wise four-tone obstruction or the composite support bound in different terminology.",
+      "Any generic theorem about exact sparse spectra of unimodular finite-group functions could subsume the elementary key lemma; targeted source comparison did not identify one.",
+      "Low-ambiguity-zone and radar sources were not all inspected in complete proof detail; they were treated as contextual rather than decisive sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS equality at p; does not state or imply the conditional nonchirp lower bound 4p-3",
+        "evidence": [
+          "Theorem 1.2 conditions (a)-(c) classify |supp V_g f|=N and all minimizing functions.",
+          "Theorem 1.2 does not bound the next support level for g=f unimodular."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.14176v1",
+        "material_read": "Full arXiv HTML sections 1–4 and Theorem 1.2; theorem proof examined",
+        "method": "Full-text primary source with mathematical equality statements",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Directly comparable support-p equality and chirp classification"
+      },
+      {
+        "assessment": "General inequality p(p+1)-|supp f||supp g| gives only p for two full-support inputs; not covering stronger claim",
+        "evidence": [
+          "Proposition 4.4, page 15, explicitly states lower bound and Cauchy-Davenport proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0611493",
+        "material_read": "PDF section 4, especially page 15 Proposition 4.4, associated proof and surrounding figures/remarks; not all 37 pages",
+        "method": "PDF text and visual page inspection",
+        "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+        "trigger": "Classical STFT support bounds in prime order"
+      },
+      {
+        "assessment": "Bounds sidelobe magnitudes of Björck CAZAC sequences; does not claim universal support cardinalities for all nonchirps",
+        "evidence": [
+          "Theorem 3.8 is an upper magnitude bound off the origin for specially constructed Björck sequences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1107.1887",
+        "material_read": "ArXiv full text sections 1, 2 and 3 theorem/explanations and section 4 context",
+        "method": "HTML full text (not just abstract)",
+        "title": "Optimal ambiguity functions and Weil's exponential sum bound",
+        "trigger": "Closest primary study of unimodular prime-length auto ambiguity"
+      },
+      {
+        "assessment": "Proves uniform all-pairs p-or-at-least-2p gap; not the conditional 4p-3 bound",
+        "evidence": [
+          "Sharp 2p example has f a one-point impulse and g two-point support.",
+          "The full-support step uses character ratios but establishes a weaker at-least-2p alternative."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-sharp-support-gap-above-the-odd-prime-short-time-fourier-uncer--c42ba46f36bb",
+        "material_read": "Entire published RESULT.md, including proof all-pairs gap and relationship to known equality cases",
+        "method": "Primary repository full-file read, not just search summary",
+        "title": "A sharp support gap above the odd-prime short-time Fourier uncertainty minimum",
+        "trigger": "Closest semantic match in published research records"
+      },
+      {
+        "assessment": "Concerns ambiguity magnitudes/local zones rather than a global exact support-gap statement; limited inspection risk retained",
+        "evidence": [
+          "Its stated objectives are Doppler resilience and local low-ambiguity-zone bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.04793",
+        "material_read": "Abstract, introduction and relevant low-ambiguity-zone definitions and statements in accessible HTML; not every proof/appendix",
+        "method": "Text page read",
+        "title": "Low Ambiguity Zone: Theoretical Bounds and Doppler-Resilient Sequence Design in Integrated Sensing and Communication Systems",
+        "trigger": "Relevant phase-coded ambiguity waveform motivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccbbfc2c-2a80-47cd-801b-457f7e5c6a92",
+  "value": {
+    "rationale": "Support sparsity of phase-coded prime-period radar/time-frequency ambiguity is a natural invariant. The theorem shows a structural p-to-4p-3 forbidden interval that is stronger than the sharp general p-to-2p STFT gap and independent of phase alphabet: all nonzero delays of a nonchirp must carry four or more Doppler tones. This is a meaningful exact bound for all odd prime periods, with a sharp first-prime construction. It does not claim broad noise robustness or optimality of 4p-3 for every p.",
+    "status": "PASS"
+  }
+}
