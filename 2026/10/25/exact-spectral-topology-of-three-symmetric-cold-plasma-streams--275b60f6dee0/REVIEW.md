@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete dispersion equation reduces without extraneous roots to a cubic in squared frequency. Exact discriminants, root signs, and equality cases prove the global phase partition. Twelve symbolic identities and 2,500 independent parameter configurations were checked with the attached standalone script; computations do not substitute for the algebraic proof. Degenerate real-frequency cutoffs may exhibit algebraic growth.
+## correctness
 
-## Originality
-PASS against verified accessible evidence, **with substantial unresolved priority risk**. Cuperman, Gomberoff and Roth (1978) directly investigate the more general same three-electron-population model and already identify qualitative standing/travelling instabilities. The restricted quantitative contributions assessed here are the exact ratio 1/4, complete positive-wavenumber root-type partition, and two precise transition-width asymptotics, which are not established in the accessible abstract. The original full text could not be inspected. Bawa'aneh et al. (2009) employ one ion and two electron populations and thus a different dielectric equation; the earlier two-stream model lacks the stationary third electron pole. Searches of published mathematical records found no matching claim, which alone is not proof of originality.
+PASS
 
-## Value
-PASS. The full density-contrast phase diagram and singular weak-background scaling distinguish two physically different instability mechanisms in a standard three-population plasma. The result gives exact parameter boundaries rather than fitting one example.
+Derived P by multiplying the original dielectric equation by z(z-t)², and verified P(0)=-ut² and P(t)=-4t² so no spurious roots occur for u,t>0. Independently factored disc_z P=4t²Q and disc_t Q=-629856u(2u-1)³. For 0<u<1/4 Q has three real roots with negative product, positive sum, positive Q(0), and Q(2(1-u))<0: one negative and precisely two positive. For 1/4<u<1/2, Q(-1/2)<0<Q(-u) and Q(0)<0 ensure two negative and one positive root; at u=1/2 double negative root, above u=1/2 a single real positive root, at u=1/4 t=0 is excluded. For Q<0, cubic P has one positive real and a conjugate nonreal z pair, whose square roots give two growing oscillatory ω. For Q>0, real-root sign uses positive sum/product and sign of t[t+2(u-1)]: negative means one positive/two negative z, positive means three positive z. Boundary continuity identifies negative and positive double roots. IFT at (u,t)=(1/4,0), quadratic degeneracy near (u,t)=(0,2), and Q_{1/4} factorization establish the reported asymptotics and cutoff. All key symbolic identities plus exact rational u root counts for ten values and 23 independently sampled root-type cases were rechecked in independent_plasma_checks.py; finite checks are not the unrestricted proof. Degenerate real cutoffs can support secular growth.
 
-## Limitations
-Cold collisionless longitudinal temporal modes only; no kinetic, nonlinear, electromagnetic, or spatial-instability conclusions. The principal historical-priority limitation is incomplete access to the 1978 full text. Bibliographic day-precision evidence is for its 2009 online posting, not its 1978 initial print date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge quantitative originality survives the primary texts that were actually readable: the submitted exact three-pole symmetric discriminant phase partition, u=1/4 disappearance of pure-imaginary growth, t_±=2±2√6√u+O(u), and t_-=3(1/4-u)+O((1/4-u)^2) were not established in the inspected 2009 electron-electron-ion article nor in accessible general abstracts. Crucially the 1978 Cuperman/Gomberoff/Roth paper investigates the SAME three-electron physics with broader hypotheses and its complete body is unavailable; its abstract already covers qualitative standing/travelling coexistence. Quantitative priority is therefore materially uncertain and this PASS is not a historical originality guarantee. The conclusion does not treat failed searches as proof.
+
+## value
+
+PASS
+
+The symmetric three-electron cold longitudinal dispersion is a physically motivated multistream model. Its exact all-density split between nonoscillatory and oscillatory temporal growth, sharp finite-wavenumber transition ratio b/a=1/4, and singular square-root opening at dilute background distinguish two instability mechanisms and provide quantitative boundaries for further plasma stability comparisons. Although cubic discriminants and qualitative standing/travelling modes are classical, the complete natural one-parameter phase classification and endpoint scaling are non-arbitrary and useful mathematical invariants rather than a random numerical slice or routine normalization check. Does not claim kinetic or nonlinear physics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
