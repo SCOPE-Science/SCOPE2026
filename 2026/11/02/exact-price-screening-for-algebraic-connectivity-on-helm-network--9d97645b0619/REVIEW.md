@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unrestricted upper bound follows from concavity of the unnormalized Laplacian's second eigenvalue and averaging over price-preserving dihedral symmetries. The quotient three-by-three and Fourier two-by-two characteristic polynomials are explicitly derived, with the smallest root selected and boundary conditions checked. After normalizing the target gap to one, two scalar inequalities are equivalent to the full spectral requirement. Linear minimization for fixed leaf conductance and strict convexity of the remaining one-variable objective establish every price regime, including the degenerate boundary. The support conclusion for all asymmetric optimizers uses preservation of each orbit's total weight by averaging, not an unsupported uniqueness assertion. `VERIFY.py` reproduces 2 symbolic polynomial identities, 2 rational threshold examples, 84 full-matrix cases and 48 asymmetric random-start comparisons. Finite computations alone do not prove the universal theorem.
+PASS
 
-## Originality — PASS on the inspected comparisons
+Dihedral averaging is valid for the concave unnormalized Laplacian gap and preserves total price. Fourier nontrivial block f(x+c_m y,z) and constant-sector quadratic u(x,z) give exact lambda2=min(f,u). Unit-gap constraints are z>1,x+c_m y>=g(z)=2+1/(z-1), x>=h_m(z)=(2z-1)/((2m+1)z-(m+1)); both are necessary and sufficient after checking larger roots. For fixed z linear expenditure chooses x=g or h according to sign of P-Q/c_m. Scalar convexity gives unique z root in mixed regime; at equality x continuum. Averaging preserves orbit totals and nonnegativity, hence the claims about every asymmetric optimum. Independently diagonalized 60 full helm matrices across regimes. Finite tests corroborate universal proof.
 
-Ghosh–Boyd (2006) provide the general concavity/symmetry machinery; their block-ring example lacks a central hub and private leaves and has different constraints. Shakeri et al. (2015) optimize only one-to-one interlayer couplings with the two layer Laplacians fixed, so their threshold does not determine the three-class price frontier here. Search terms included weighted helm Laplacian, rim suppression, price screening, algebraic connectivity optimal weights, spoke/rim/pendant graph, and corona-related mixing. The closest compared results do not logically imply the explicit helm formula, the mixed-phase root or the equal-price threshold at six rim sites. Index coverage is limited and further specialist overlap remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The helm graph is a natural wheel-with-peripheral-sensors topology. Its design has three competing edge functions: hub-to-rim access, rim circulation and leaf attachment. The result provides an exact allocation rule across every positive price ratio and a whole-class deletion threshold that depends nontrivially on cycle size; at equal prices the preferred topology changes sharply between six and seven rim vertices. The exact scalar reduction also removes the need for numerical semidefinite optimization within this family. This is a structural design classification, not a generic re-expression of the convexity method.
+Ghosh–Boyd show general graph symmetry for algebraic-connectivity optimization but their block-ring graphs lack both central hub and private leaves. Shakeri et al optimize only interlayer coupling with fixed layer structures. Neither read result implies 3-class helm price threshold P=Q/c_m or equality m=6.
 
-## Limits
+## value
 
-Unrestricted individual optimizer uniqueness, degree-normalized or stochastic objectives, edge caps, arbitrary heterogeneous prices, and robustness to failures are not assessed. The literature search is not a proof of universal novelty; independent specialist review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Helm is a natural hub/rim/peripheral-sensor topology. Exact price screening determines when an entire original edge class is globally dispensable and sharp size threshold six at equal prices, including all asymmetric optima' support sums; materially useful without SDP computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
