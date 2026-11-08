@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite reproducibility and proof limits
+# Independent mathematical audit
 
-Run `python3 verify_cayley_open.py` with Python 3. The program is pure standard-library Python; no special computer algebra dependency or network access is needed. The included `verify_cayley_open.out` is the exact execution output. The program checks all 24 permutations of four labels, independent normalization/branch fixed-point counts, and all five cycle classes; split point enumerations over four prime fields; and independent arithmetic enumeration of all five degree-four étale algebras over the field of three elements. Both final lines indicate successful completion.
+## correctness
 
-The general theorem is not deduced from those finite tests: its all-field validity is established by the geometric inversion, exhaustive five-conjugacy-class argument, and extension-of-scalars Frobenius action described in `RESULT.md`. The explicit rational zeta functions are derived algebraically from the periodic point-count coefficients. Characteristic two is excluded. No external scientific audit or independent validation is claimed.
+PASS
+
+The invertible-coordinate locus of e3(z)=0 is isomorphic, via four coordinate reciprocals, to the complement of the four coordinate and three partition lines on the trace-zero plane. Its six triple and three double geometric intersections are S4-equivariant. Normalization and branch correction yield q^2+(1-v-m)q+1-v-2m+b+m(m-1), giving every field form by the five S4 conjugacy classes and every extension via sigma^n. Independently recomputed all 24 permutations, incidence coefficients, the split q=3,5,7 counts and the zeta periodicity; these are checks on the full geometric proof, not an extrapolation.
+
+## originality
+
+PASS
+
+The complete five-fold Frobenius-twist and extension-zeta table is not found in the inspected literature. The split polynomial follows fairly directly from a classical seven-line arrangement; the added classwise arithmetic descent distinguishes the claimed result.
+
+## value
+
+PASS
+
+The exact zeta functions of every arithmetic form of a classical singular cubic line complement and the sharp empty-twist criterion are natural arithmetic-geometric invariants; this is more than renaming the split count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

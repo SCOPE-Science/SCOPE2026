@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cubic is the elementary-symmetric cubic attached to an étale quartic algebra. The geometric nine-line description is proved by the rational-function pole argument, including characteristic three. Inversion is an explicit scheme isomorphism from the line-free locus to the seven-line arrangement complement in the trace-zero projective plane. The four coordinate lines and three pairing lines have exactly six ordinary triple and three ordinary double points for every odd characteristic. Normalization/branch correction gives the fixed-point polynomial; direct enumeration of all 24 label permutations supplies exactly five cases. Applying each Frobenius power and exponentiating determines the stated rational zeta functions. The fully packaged verifier independently counts the split surface over four odd prime fields, independently counts each of the five finite-étale forms over the field of three elements, and checks every fixed-incidence configuration. Full generalized proof does not rely on testing primes.
+## correctness
 
-## Originality — PASS, qualified
-Heath-Brown's full 2002 preprint defines precisely the split Cayley cubic line-free locus and all nine geometric lines. Its number-field height asymptotic does not imply the five explicit finite-field twist zeta functions by any stated theorem. Baez's 2016 exposition identifies the surface and its four-node symmetry but does not count finite-field points. Classical arrangement theory covers the seven-line geometry and the split characteristic polynomial; neither directly supplies the full five-class Frobenius descent table or five rational zeta functions. A separate published study of a non-Fano seven-line arrangement treats a discriminant scheme, not the point count of twisted Cayley cubic opens. Work on characteristic-two Gauss maps and a characteristic-five Hessian concerns different invariants. Residual historical risk: Bruce Hunt's 2000 full text was not obtained; it may contain additional geometry. Search absence does not prove absolute priority.
+PASS
 
-## Mathematical value — PASS
-The complement of all geometric lines is the canonical nontrivial-rational-point locus used in studies of Cayley cubic rational points. Exact counts on this open surface, not just on the complete cubic, decide whether finite fields support points avoiding all lines. The five étale twists exhaust the geometric forms over finite fields, producing a natural complete arithmetic classification rather than an arbitrary finite slice. The unique point-free split case at order three and the distinct transposition versus double-transposition counts show that the arithmetic incidence data genuinely matter. The full zeta functions provide exact local counting information over every extension. This is a narrowly scoped but useful computation, not a claim of broader progress on Manin's conjecture.
+The invertible-coordinate locus of e3(z)=0 is isomorphic, via four coordinate reciprocals, to the complement of the four coordinate and three partition lines on the trace-zero plane. Its six triple and three double geometric intersections are S4-equivariant. Normalization and branch correction yield q^2+(1-v-m)q+1-v-2m+b+m(m-1), giving every field form by the five S4 conjugacy classes and every extension via sigma^n. Independently recomputed all 24 permutations, incidence coefficients, the split q=3,5,7 counts and the zeta periodicity; these are checks on the full geometric proof, not an extrapolation.
 
-## Sources and limitations
-D. R. Heath-Brown, arXiv:math/0210333v1, original 2002-10-21 (full text inspected, Sections 1–2 and searches through remaining sections); J. Baez, *Cayley's Nodal Cubic Surface* (2016-08-15, full web text read); B. Hunt, *Nice modular varieties*, Experimental Mathematics 9 (2000) (bibliographic abstract inspected; complete text unavailable); and primary mathematical-record comparisons under Cayley cubic twists, seven-line arrangement, and line-free arithmetic. The result is limited to odd characteristic and the reduced open surface. An independent scientific review of novelty and proof details remains advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete five-fold Frobenius-twist and extension-zeta table is not found in the inspected literature. The split polynomial follows fairly directly from a classical seven-line arrangement; the added classwise arithmetic descent distinguishes the claimed result.
+
+## value
+
+PASS
+
+The exact zeta functions of every arithmetic form of a classical singular cubic line complement and the sharp empty-twist criterion are natural arithmetic-geometric invariants; this is more than renaming the split count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
