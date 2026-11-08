@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-The accompanying `verification.py` checks the generator residuals of the exact Laplace functions for all three velocity states, the absorbing first-contact condition, the antipodal-folding condition, and a symbolic derivative yielding the exact mean. It checks the first nine moment coefficients (orders \(2\) to \(10\)) against the rare-reversal expansion. It then runs event-driven, orientation-flip simulations (38,000 trajectories for each of three positive-rate parameter cases) independently of the backward-equation evaluator, comparing six Laplace values and three means within seven empirical standard errors. Six additional high-precision tests compare the natural scaled-Laplace expansion at positive reversal rates. **All 30 checks passed.**
+## correctness
 
-Run `python verification.py`, requiring only standard Python plus the publicly available packages `sympy` and `mpmath`.
+PASS
 
-The proof itself is in `RESULT.md`: generator elimination and boundary conditions establish the exact transform; fixed-rate Taylor differentiation gives the mean; an independent first-flip argument establishes typical ballistic convergence and a conditional exponential law; and a locally uniform holomorphic expansion justifies differentiation for every fixed integer order. Finite simulations are diagnostics rather than proofs of infinitely many moment identities, and a failed run would not establish a theorem's negation.
+The folded distance has three mobile-state types C,O,S and generator rates C/O -> S of 2alpha, S -> C/O each alpha. Eliminating F_S from the backward equations gives U=s(s+4alpha)U/(4v^2), with incoming contact F_C(0)=1 and antipodal folding F_O(H)=F_C(H). This yields the quoted hyperbolic quotient for x in (0,H] and s>=0, all alpha,v,H>0. Its fixed-alpha s expansion gives the mean. The chance of a preballistic reversal is exactly 1-exp(-alpha*x/v); conditioned on this event the first stalled holding time is Exp(rate 2alpha), and a further reversal before contact has probability O(alpha), proving alpha*T|E => Exp(rate 2). The scaled transform at s=alpha*z expands uniformly holomorphically on |z|<1 as 1-alpha*x*z*(z+4)/(2v*(z+2))+O(alpha^2), so Cauchy coefficient extraction proves every fixed moment coefficient, not merely weak convergence. Independent SymPy verification recalculated mean and coefficients m=2,...,16; source program generator identities and incoming boundaries inspected.
 
-The model excludes asymmetric flip rates, finite tumble duration, post-contact jamming residence, arbitrary initial velocity states, and thermodynamic limiting regimes. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original for the precise quantified final claim after comparing same-object and broader primary literature; the prior components/techniques are explicitly credited and residual historical-priority risk is retained.
+
+## value
+
+PASS
+
+First entry to a jammed encounter is a natural kinetic observable, distinct from stationary jamming occupation or mixing. The exact spectral transform and sharp rare-tumble hierarchy reveal genuine nonuniform integrability: typical collision tends to ballistic while mean doubles and all higher moments diverge. The effect and conditional Exp(2) mechanism are useful beyond a numerical or textbook observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
