@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For kappa>2D_K/mu^2, the two-sided Gaussian-stiffness stochastic convolution is L2. Only shared W increments contribute to E[X0 Xt]. Exact Gaussian Var(A_u), Var(B_t), Cov(A_u,B_t) give a convergent positive integral and its beta-tilt transform. Derivative of log C yields kappa-q+q exp(-mu t)(2M_lambda(c(t))-1). M_lambda is strictly increasing since its derivative is the strictly positive tilted variance. Its endpoint values yield a unique positive root precisely for 0<lambda<1, at most one crossing and sharp endpoint cases. Analytic expansion gives the positive e^(-2mu t) critical term. Actual checker.py ran to completion with 96 independent quadrature, differentiation, sign, variance and asymptotic diagnostics. Finite tests are auxiliary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alston et al., arXiv:2202.02630, continuous fluctuating-stiffness treatment addresses stationary thermodynamics and entropy production rather than this temporal position covariance classification.",
+        "Cocconi et al., Phys. Rev. Research 5, 043032 (2023), Appendix B Eqs. (B8)–(B9) are ordinary OU correlations with constant stiffness under special parameter decoupling; (B13)–(B20) concern fluctuating-stiffness marginal variance.",
+        "Gupta and Klapp, arXiv:2507.20915, abstract and examined positional-moment and thermodynamic sections identify a potentially overlapping model but do not state the precise rate-reversal law."
+      ],
+      "reasoning": "The earlier covariance applies to a nonfluctuating observed restoring coefficient, whereas a genuinely multiplicative OU stiffness introduces a stochastic propagator shared across past and future time intervals. The 2025 text is related and remains a residual risk; source inspection did not identify a covering two-time theorem.",
+      "searches": [
+        "Ornstein Uhlenbeck multiplicative OU noise stationary correlation finite variance decay rate overshoot effective rate",
+        "Gaussian harmonic trap with fluctuating OU stiffness stationary position autocorrelation hypergeometric formula",
+        "stationary OU2 process autocorrelation relax exponentially squared OU fluctuating stiffness covariance",
+        "https://arxiv.org/pdf/2507.20915 (text search: autocorrelation; two-time)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2405.09460 (2024-05-15, complete Section 4 variance and higher-moment material)",
+      "arxiv:2202.02630 (2022, stochastic thermodynamics in continuous fluctuating potentials)",
+      "doi:10.1103/PhysRevResearch.5.043032 (2023, Appendix B equations B4–B20)",
+      "arxiv:2507.20915 (2025, relevant introductory and moment analysis)",
+      "Published mathematical-record searches, with scientific query equivalents recorded in named originality comparisons",
+      "Scientifically comparable claims on Poisson-reset energy correlations, discrete two-state stiffness switching and active-particle stationary autocovariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2405.09460 Eq. (30) controls E[X_t^2] but has no future interval, whereas the target theorem is for E[X_0 X_t] at every t>=0 and the derivative of its logarithm.",
+        "A published result on a squared-position covariance for Poisson-reset *driving* noise, not Gaussian *multiplicative stiffness*.",
+        "A published result on a *discrete two-state on/off* stiffness covariance aliasing theorem, not an OU stiffness law.",
+        "A published result concerns active-particle resetting and finite-lag parameter identification; neither its generator nor its conclusion contains the asserted phase boundary."
+      ],
+      "reasoning": "Comparing exact model stochastic generators and observables, none of these results dominates the continuously fluctuating Gaussian stiffness covariance law or its critical cancellation. The source variance identity alone does not supply the two-time cross integral or a global monotonicity/uniqueness argument.",
+      "searches": [
+        "OU2 fluctuating stiffness stationary position two-time covariance exact integral effective logarithmic decay single crossover threshold c star",
+        "The OU2 process Characterising dissipative confinement in noisy traps Cocconi Alston Romano Bertrand 2405.09460 stationary two-time position covariance logarithmic relaxation",
+        "logarithmic relaxation rate Brownian motion fluctuating OU stiffness correlation crossing",
+        "own claim IDs 9942883e-9395-48cc-832e-01b8dcedd80f; 4a5a9c8a-661b-4579-8be0-af5fe57233a3; 846dab8f-4f22-4b78-8fe4-59fbd6d7bf1f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cocconi et al., arXiv:2405.09460, Sec. 4.1 Eqs. (30)–(34): gives C(0), the stationary variance, not positive-lag E[X(0)X(t)].",
+        "The 2024 source uses integrated OU Gaussian moments; its Sec. 4 treats one-time even moments, not adjacent-time cross-covariance.",
+        "A related mathematical result comparing critical OU damping to independently mixed nuisance rates, not multiplicatively fluctuating stiffness."
+      ],
+      "reasoning": "The new formula agrees with published single-time variance at t=0 but introduces Cov(int[-u,0]K,int[0,t]K), which is absent from the variance. Nor does a damping trend reversal for an independent nuisance mixture imply this OU-squared exponential-tilt criterion.",
+      "searches": [
+        "The OU2 process Characterising dissipative confinement in noisy traps Cocconi Alston Romano Bertrand 2405.09460 stationary two-time position covariance logarithmic relaxation",
+        "OU squared OU2 Gaussian Ornstein Uhlenbeck stiffness stationary correlation integral crossing instantaneous rate covariance time lag",
+        "OU squared process fluctuating stochastic harmonic stiffness exact two-time autocorrelation 2024 2025",
+        "https://arxiv.org/pdf/2405.09460 (full Sections 3–5; search: autocorrelation, correlation function, two-time)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2405.09460, Eq. (32) is a single-time variance series with parameter xi=4D_K/mu^3, not a table of logarithmic covariance-rate crossings.",
+        "The exact example threshold c_{0.5}=1.692031042701... is the solution of a one-dimensional integral mean equation, not a lookup constant.",
+        "The 96-diagnostic checker compares an independent Gaussian integral and the derived time-lag formula; its values are not copied from a database."
+      ],
+      "reasoning": "No known table or exact database found containing the positive-lag OU-squared rate-crossing or critical second-harmonic coefficient. This is a bounded search finding, not proof of global absence.",
+      "searches": [
+        "OU2 exponential tilt beta mean c critical phase relaxation rate finite lag two-rate e to minus 2mu correction",
+        "OU squared process stochastic stiffness stationary position autocorrelation hypergeometric formula",
+        "OU squared OU2 Gaussian Ornstein Uhlenbeck stiffness stationary correlation integral crossing instantaneous rate covariance time lag",
+        "Published mathematical-research records; no matching integral or critical tilted-mean threshold found"
+      ]
+    },
+    "rationale": "Best-knowledge statement comparison: the motivating source proves the one-time variance and higher moments; its 2023 predecessor derives a two-time correlator only for a constant-stiffness decoupled OU state and an OU-squared one-time variance. The new adjacent-interval Gaussian contraction, exact time-lag covariance, strictly monotone tilted mean, phase classification and cancellation coefficient are not implied by those inspected results or accessible published mathematical claims. Relevant published-record searches returned no dominating statement. Residual risk is unindexed general Gaussian filtering or later related literature; no global novelty certificate is asserted.",
+    "residual_risks": [
+      "An unindexed Gaussian stochastic filter or general Feynman–Kac theorem may already yield the exact covariance or stronger crossing classification.",
+      "The closely related 2025 annealed OU-stiffness article may contain a general implication outside the inspected passages, although exact-term searches found no two-time covariance formulation.",
+      "No independent expert or exhaustive world-literature audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sec. 4 provides stationary one-time moment integrals, a threshold and series. It supplies the zero-lag identity but no finite-lag covariance or monotone-rate phase theorem in inspected material.",
+        "evidence": [
+          "Eq. (30) is the stationary variance integral, Eq. (32) its series; Eq. (35) is a one-time fourth-moment integral.",
+          "arXiv:2405.09460v1 first posted 2024-05-15; original model Eq. (2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.09460",
+        "material_read": "Complete paper outline plus Sections 3 and 4 including pp. 9–13, Eqs. (25)–(37), especially Sec. 4.1 variance; arXiv version-1 full PDF text and page images.",
+        "method": "Lawful arXiv preprint full-text inspection and PDF page rendering; exact term checks for autocorrelation, correlation function, two-time.",
+        "title": "The OU-squared process: Characterising dissipative confinement in noisy traps",
+        "trigger": "The motivating primary source introduced the identical SDE and finite-second-moment threshold."
+      },
+      {
+        "assessment": "The paper establishes stationary thermodynamic expressions and fluctuating-potential framework, not the precise positive-lag position covariance phase diagram.",
+        "evidence": [
+          "Abstract characterizes exact entropy-production rates in continuous and discrete fluctuating harmonic potentials."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.02630",
+        "material_read": "Abstract, introductory framework, Sec. 2 continuous Markov fluctuating potentials and the harmonic-entropy-production discussion; page images and searchable PDF.",
+        "method": "Lawful arXiv PDF reading and targeted model/content comparison.",
+        "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+        "trigger": "Earlier continuous fluctuating-stiffness physical model by two of the motivating authors."
+      },
+      {
+        "assessment": "The two-time correlation Eqs. (B8)–(B9) is for the special constant-stiffness OU coordinate y when theta=-1. Its fluctuating-stiffness section instead computes the one-time variance. Neither entails the stated OU-squared rate phase theorem.",
+        "evidence": [
+          "Eqs. (B4b) and (B8)–(B9) have constant deterministic stiffness.",
+          "Eqs. (B13)–(B20) identify an OU-squared variance calculation without a positive-lag counterpart."
+        ],
+        "identifier_or_url": "https://thibaultbertrand.com/assets/pdf/2023_prresearch_a.pdf",
+        "material_read": "Full abstract/description and Appendix B pp. 7–9, equations (B4)–(B20), including page 8 and 9 rendered images.",
+        "method": "Lawful open author-hosted primary full PDF read and equation-by-equation implication comparison.",
+        "title": "Active bound states arising from transiently nonreciprocal pair interactions",
+        "trigger": "Its Appendix B explicitly names the OU-squared process and a time-correlation function."
+      },
+      {
+        "assessment": "Closely related model; inspected statements concern position moments and work/heat at finite time. No exact two-time crossover located, but a full exhaustive implication audit of all possible general theorems remains a residual risk.",
+        "evidence": [
+          "Abstract: expressions for nth positional moments, average work and heat; no claimed stationary two-time correlation theorem.",
+          "PDF full-text searches for autocorrelation and two-time returned no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.20915",
+        "material_read": "Complete searchable PDF abstract, introductory model, related-work passages and the positional-moment formulas on p. 6; PDF text queries for autocorrelation and two-time; additional thermodynamic scope by abstract/contents.",
+        "method": "Lawful arXiv PDF source and page rendering; search of full PDF text for candidate terms.",
+        "title": "Nonequilibrium fluctuations in a harmonic trap with annealed stochastic stiffness",
+        "trigger": "Directly relevant later article using fluctuating OU stiffness and reporting exact positional moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "995c75ff-1382-4d5f-8818-747f031e7f0e",
+  "value": {
+    "rationale": "The directly motivated unknown is temporal stationary position memory for the standard continuously fluctuating OU stiffness model, whereas the cited primary source derives only single-time statistics. The natural log-correlation relaxation rate has three qualitatively distinct approach phases and a unique crossing time with an explicit threshold. At a sharp parameter surface its first exponential correction cancels and an unexpected second-harmonic rate correction emerges. This is a structural temporal classification, not a numerical threshold fit or arbitrary parameter slice, and is relevant for distinguishing noisy trapping memory from effective constant-stiffness decay. No downstream application or finite-sample feasibility is asserted.",
+    "status": "PASS"
+  }
+}
