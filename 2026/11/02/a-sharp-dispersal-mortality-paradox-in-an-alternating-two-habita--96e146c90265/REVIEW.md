@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The period-two population matrix factors as the square of a nonnegative two-by-two matrix after a patch swap. Its Perron root is explicit. The second derivative of the square-root norm is strictly positive for all allowed parameters, so comparing the two endpoints is exhaustive; their derivatives yield the second threshold and unique interior minimum. The exact rescue witness and rational grid characteristic polynomials were replayed by the attached checker. Boundary cases, including optimal ties and the threshold where the initial slope is zero, are included; finite checks are corroboration, not a substitute for the universal proof.
+PASS
 
-## Originality — PASS, conditional on accessible evidence
+Frozen RESULT.md derives two-year monodromy M_2=(J D_m G_0)^2, with nonnegative transformed 2-by-2 T. Its Perron root R(m)=[sm(a+b)+sqrt(s^2(a-b)^2m^2+4ab(1-m)^2)]/2 applies to all a>b>0, 0<s<=1, 0<=m<=1 with positive starts at reducible endpoints. Explicit R''(m)=s²(a-b)²(2sqrt(ab))²/[2(sqrt(s²(a-b)²m²+4ab(1-m)²))³]>0 proves only endpoints maximize: m=1 if s>sqrt(b/a), m=0 if less, endpoints tie at equality. R'(0)=s(a+b)/2-sqrt(ab) gives distinct infinitesimal threshold 2sqrt(ab)/(a+b), so in nonempty intermediate interval complete migration is best while every sufficiently small migration is worse. Exact witness a=4,b=1/5,s=3/10 has R(0)=2/sqrt5, R(1/10)=87/100, R(1)=6/5 and unique R(m)=1 at (85+5sqrt(1745))/364. Independently recalculated T trace/determinant and witness numerically (m_c~0.80732413665, R(m_c)=1). Strict convexity proves interior cannot be global maximum, not merely from sampled m. No stochastic extinction claim.
 
-Schreiber (2010) studies stochastic spatial/temporal growth approximations; Schreiber and Li (2011, 2010 preprint) analyze cost-free, period-varying evolutionary dispersal; Bansaye and Lambert (2013, 2012 preprint) give general persistence/ancestral criteria, but not the exact cost-dependent extremal curve; Wu (2016) treats continuous-time constant-environment density-dependent resident–mutant strategies with travel mortality; Katriel (2021) studies continuous-time periodic migration without this discrete switching mechanism. These broader frameworks encompass population persistence questions but their inspected results do not imply the present two thresholds as stated. A general earlier spectral optimization formula not found in inspected sources remains possible; the priority judgement is not independent certification.
+## originality
 
-The closely related alternating-patch literature also includes cases without movement mortality and models with random rather than perfectly alternating environments. Those neither supply the two-parameter cost interval nor the global-vs-local dispersal reversal by simple substitution without new analysis.
+PASS
 
-## Value — PASS
+Qualified PASS for the precise survival-penalized, antiphase two-patch necessary-and-sufficient threshold and paradox. The same Perron/Floquet tools and dispersal-induced growth are established, but the inspected prior work has a stochastic no-loss migration operator, continuous-time travel loss, or a different evolutionary objective. This is a best-of-knowledge assessment, not comprehensive priority certification.
 
-It is biologically consequential that mortality from movement can reverse the locally observed effect of dispersal while full switching remains optimal: decisions based on a small intervention test can be wrong about the best corridor policy. The two different sharp survival cutoffs, exact no-interior-optimum theorem, and population-rescue witness provide an interpretable benchmark. This is an idealized population-growth model, not a field-calibrated policy recommendation.
+## value
 
-## Limitations and residual risks
+PASS
 
-The conclusion requires deterministic two-year alternation, symmetric unconditional migration, a common migration survival fraction and no density dependence. It is not a general theorem for dispersal in all seasonal ecologies. Historical equivalence under another matrix formulation remains a priority risk. No independent review or empirical validation has been performed.
+A genuinely motivated sharp two-threshold distinction between global optimum and local response, with exact growth rescue in a natural minimal two-habitat environmental-alternation model. This is not a renaming of Perron theory: the nonempty survival-penalty interval and all-parameter classification add a physically interpretable boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
