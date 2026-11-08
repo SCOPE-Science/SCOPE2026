@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Represent each transition by a strictly decreasing affine self-map. Two-step extrema are iterates of increasing maps and hence monotone along each parity. Unique optimality of the full word makes each prefix uniquely extremal with suffix-parity sign; at each fixed position parity the chosen symbol is the strict maximizing/minimizing affine function at monotone inputs. Strict preference cells are intervals, so symbols cannot recur after an intervening distinct symbol. Distinct-run count yields T_q(m), and exact rational exhaustive finite tests corroborate the calculation. The universal claim rests on proof, not experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kjos-Hanssen Theorem 1.2 establishes A_P(w)<=3 for all finite alphabets by a three-state quadratic construction.",
+        "Gill Theorem 4.1 is explicitly for alphabet {i,j}."
+      ],
+      "reasoning": "Universal existence of a three-state witness does not imply restrictions on two-state strictly decreasing witnesses; the binary classification does not extend quantifiers to q>=3 by itself.",
+      "searches": [
+        "Kjos-Hanssen arxiv:2607.26275 full text",
+        "Gill arxiv:2402.13376 sections 4.1-4.4",
+        "probabilistic automatic complexity negative slope iterated function systems ternary alphabet alternating parity monotone envelope"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.26275 full preprint",
+      "arxiv:2402.13376 full PDF, Sections 4.1-4.4",
+      "Semantic research-record queries for negative determinant, PFA, parity-run and nonbinary sparsity",
+      "earlier mathematical claim concerning nonnegative transition determinants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill Theorem 4.1 classifies exactly two-state winning binary words.",
+        "Kjos-Hanssen proves every nonempty finite word has a three-state probabilistic witness.",
+        "The closest nonnegative-determinant statement covers increasing maps and one-run-per-symbol full words, not negative maps."
+      ],
+      "reasoning": "Neither the 3-state construction nor the q=2 complete classification contains the q>=3 all-negative necessary two-parity run condition. The positive-sign case uses order preservation rather than reversal and its all-word one-run criterion is not the same implication. The new claim does not assert mixed-sign or exact realizability.",
+      "searches": [
+        "all-negative determinant two-state probabilistic finite automata unique maximizing words odd even position subsequences consecutive runs sparse polynomial count",
+        "probabilistic automatic complexity negative slope iterated function systems ternary alphabet alternating parity monotone envelope",
+        "arxiv:2402.13376 Theorem 4.1",
+        "arxiv:2607.26275 Theorem 1.2",
+        "Earlier statement on nonnegative-determinant two-state PFA winners"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill Section 4 represents two-state PFA probabilities by affine iterated functions, and Theorem 4.1 classifies binary words only.",
+        "No exact nonbinary parity-run theorem appeared in the returned indexed descriptions."
+      ],
+      "reasoning": "The theorem can equivalently be stated for families of strictly decreasing affine maps of [0,1] with a unique maximizing composition of length n. Gill treats q=2 more strongly; his statement does not quantify over arbitrary q>=3. The all-negative sign class is distinct from nonnegative sign classes.",
+      "searches": [
+        "all-negative determinant two-state probabilistic finite automata unique maximizing words odd even position subsequences consecutive runs sparse polynomial count",
+        "probabilistic automatic complexity negative slope iterated function systems ternary alphabet alternating parity monotone envelope",
+        "Gill arxiv:2402.13376 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest unrelated indexed items include a published result on polynomial sparsity of Parikh-matrix unambiguous words on Parikh matrices and a published result on parity-alternating rank compression on deterministic rank compression."
+      ],
+      "reasoning": "No exact table/database entry for all-negative two-state PFA unique winner words was located. An absent hit is not proof of novelty; this is a nonbinary symbolic bound rather than a finite table lookup.",
+      "searches": [
+        "all-negative determinant two-state probabilistic finite automata unique maximizing words odd even position subsequences consecutive runs sparse polynomial count"
+      ]
+    },
+    "rationale": "Sources inspected distinguish the three-state all-alphabet upper bound, the binary two-state classification, and the known increasing-map sign case from the nonbinary strictly decreasing two-parity run obstruction and O_q(n^{2q-2}) count. Searches found no statement implying this particular q>=3 theorem; unindexed priority risk remains.",
+    "residual_risks": [
+      "An unpublished/unindexed nonbinary monotone-envelope classification might imply this bound.",
+      "The upper bound might be nonsharp, and exact nonbinary two-state realizability remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: explicit universal three-state witness; no parity-run two-state all-negative bound",
+        "evidence": [
+          "Theorem 1.2: A_P(w)<=3 for every nonempty word over every finite alphabet",
+          "The main construction tracks two coordinates u,u^2 in a three-state PFA"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.26275",
+        "material_read": "Full author manuscript through publicly readable research preprint transcription, including theorem, construction and concluding references",
+        "method": "Full-text structured scientific comparison",
+        "title": "Every string has probabilistic automatic complexity at most three",
+        "trigger": "Closest new universal PFA complexity bound"
+      },
+      {
+        "assessment": "PARTIALLY_RELATED: q=2 fully covered, but theorem explicitly limited to two-letter alphabets and does not state nonbinary all-decreasing parity-run bound",
+        "evidence": [
+          "Equation (33): composition of affine update functions",
+          "Theorem 4.1: if Sigma={i,j}, precise complete binary two-state classification"
+        ],
+        "identifier_or_url": "https://nowheredense.github.io/PFAcomplexity.pdf",
+        "material_read": "Section 4.1 affine representation and 4.2-4.4 binary proofs/classification; title and introductory summary",
+        "method": "Primary full-PDF text inspection and page screenshot",
+        "title": "Probabilistic automatic complexity of finite strings",
+        "trigger": "Original definition and closest two-state classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fae7dee5-b08e-42cd-94d3-a48b9aeeb427",
+  "value": {
+    "rationale": "In the new all-alphabet three-state universality context, the two-state boundary for q>=3 is a motivated structural gap. For the canonical determinant-negative orientation-reversing subclass, the result provides an infinite-alphabet-size quantified, subexponential candidate-space theorem and a parity-sensitive forbidden-pattern test, not a finite table or textbook relabeling of Gill’s binary classification.",
+    "status": "PASS"
+  }
+}
