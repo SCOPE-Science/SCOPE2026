@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the Python 3 standard library. The verifier independently constructs the risk from the Wick/chi-square moment identities, compares it to the closed rational law at every integer sample size from 2 through 200, checks the exact oracle crossover, evaluates the OLS intercept reduction on deterministic rational samples, and independently simulates Gaussian samples for several dimensions.
+## correctness
 
-Observed run: 1,790 independent exact-rational assertions passed. Fixed-seed Gaussian diagnostics passed at sample sizes 2, 3, 4, 6, and 10. The exact small-sample values 6, 37/18, and 8/7 were checked. The script is a reproducibility aid; finite checks do not certify an infinite theorem, and simulations are not used to establish the sign classification.
+PASS
 
-The proof uses elementary Gaussian projection independence, Wick pairings, chi-square radial moments, and direct polynomial positivity. It does not claim numerical floating-point accuracy or validity for other sampling distributions.
+For n≥2 iid N(0,1) and cubic f(x)=μ+bx+cx³, c≠0, OLS with intercept and h(x)=x is well-defined almost surely (residual sum squares Q>0). Exact decomposition into independent Gaussian sample mean M and centered residuals yields fitted-intercept error H=−2M³+M(3Q/n−U/Q)+T/n−3M²T/Q, and sign symmetry gives unbiasedness. Wick contractions and radial-angular χ²/sphere factorization yield exact E(H²)=6(n⁵+4n⁴−13n³+176n²−168n+480)/[n³(n+1)(n+3)(n+5)]. Independently reconstructed and symbolically checked rational moment identities in source and their combination; all n≥2 have finite needed ratios, including T=0 at n=2. Best fixed coefficient b+3c leaves variance 6c²/n; exact difference has negative polynomial P(n)=5n⁴+36n³−161n²+168n−480, negative P at 2 and 3 and positive for every integer n≥4; n=4 intercept 8c²/7 versus oracle 3c²/2. No claim against arbitrary integration rules or other integrands.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact finite-n Gaussian cubic OLS-intercept risk and strict n=4 reversal relative to the best *fixed coefficient* control variate. Portier–Segers 2018 derive OLS control-variate integration and asymptotic behavior, Leluc et al 2022 analyze adaptive quadrature, and Blanchet et al 2023 use other regression-adjusted estimators; these generic theories do not explicitly provide this cubic residual Wick moment or sharp n=4 inequality. Resultary Gaussian regression findings address different estimators/objectives.
+
+## value
+
+PASS
+
+A data-fitted intercept outperforming the population-fixed-coefficient variance optimum in a concrete minimal odd cubic Gaussian family illustrates a real finite-sample risk distinction. The exact all-n formula and unique switch at four observations clarify what is and is not meant by oracle within a restricted estimator class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
