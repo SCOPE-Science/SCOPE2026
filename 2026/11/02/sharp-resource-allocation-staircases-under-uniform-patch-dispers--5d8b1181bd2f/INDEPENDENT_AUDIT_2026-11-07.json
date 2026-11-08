@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_{ii}=1-theta and P_{ij}=theta/(n-1), D=diag(c_i h_i), PD and S=D^{1/2}PD^{1/2} have the same characteristic polynomial. S=aD+beta vv^T with a=1-n theta/(n-1). For theta<theta_c=(n-1)/n PSD trace bound forces single best patch, and at equality S has rank one and permits every allocation on tied maximal efficiencies. When theta>theta_c, the unique positive Perron eigenvalue obeys F_h(lambda)=beta sum_i c_i h_i/(lambda+s c_i h_i)=1. For each lambda>0 F_h is strictly concave on the budget simplex; its KKT unique maximizer has square-root truncated form. Solving sum_i(1-z/sqrt(c_i))_+=delta=n-(n-1)/theta yields the unique global h and exact monotone activation thresholds; zero-root allocations at theta=1 cannot beat a positive candidate. Exact four-patch c=(16,9,4,1), theta=1: h/B=(21,20,6,0)/47 and rho/B=96/47. Distinctions between spectral radius and nonlinear persistence are explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delmas Theorem 4.2 treats mu-weighted but capped nonvaccinated coordinates with fixed total mass, giving horizontal profiles.",
+          "Kirkland changes dispersal rather than a fixed budget on heterogeneous fecundity."
+        ],
+        "reasoning": "Neither inspected mathematical statement directly supplies the full uncapped heterogeneously costed active-set staircase; broader constrained spectral optimization literature still poses a risk.",
+        "searches": [
+          "Delmas Dronnier Zitt 2023 Section 4 full theorem/proof",
+          "Kirkland Li Schreiber 2006 on evolution of dispersal",
+          "Delmas Dronnier Zitt 2025 optimal vaccination heterogeneous SIS"
+        ]
+      },
+      "checked_sources": [
+        "Delmas Dronnier Zitt 2023 Theorem 4.2 Section 4, DOI 10.1007/s00285-022-01858-5",
+        "Kirkland Li Schreiber 2006 DOI 10.1137/050628933",
+        "Haight Travis 2007 DOI 10.1007/s10666-007-9088-4",
+        "Resultary weighted spectral allocation similarity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior horizontal or capped profiles under different constraints.",
+          "New delta-indexed KKT profile h_i proportional to 1/sqrt(c_i)-z/c_i with exact activation if delta>sum_{i<j}(1-sqrt(c_j/c_i))."
+        ],
+        "reasoning": "A change of constraint is mathematically substantive; equal-efficiency instances may specialize to prior theory, but general heterogeneous thresholds are not an immediate implication of the inspected theorem.",
+        "searches": [
+          "Delmas Dronnier Zitt 2023 Theorem 4.2 and Section 4 proof",
+          "Kirkland Li Schreiber 2006 model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonzero spectra of PD and D^{1/2}PD^{1/2} agree.",
+          "The rank-one disassortative vaccination kernel is an analogue but its decision constraint is capped unweighted masses."
+        ],
+        "reasoning": "Spectral symmetrization and secular equations are standard equivalences; comparing feasible cost sets prevents falsely calling a capped equal-mass solution identical to the heterogeneous square-root formula.",
+        "searches": [
+          "Resultary: uniform patch dispersal spectral radius heterogeneous budget allocation square root support threshold vaccination",
+          "Delmas Dronnier Zitt 2023 Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary entries concerned numerical radius of weighted shifts or epidemic vaccination but no exact uniform-dispersal cutoff table."
+        ],
+        "reasoning": "There is no independently maintained exact database/table of all c_i,theta,B in the searched corpus, and a finite example is not the full theorem.",
+        "searches": [
+          "Resultary: uniform patch dispersal spectral radius heterogeneous budget allocation square root support threshold vaccination",
+          "published SCOPE allocation transition weighted shift search result"
+        ]
+      },
+      "rationale": "Closest Delmas–Dronnier–Zitt 2023 Theorem 4.2 solves rank-one homogeneous mixing with a capped/unweighted mass constraint, and yields horizontal allocation for disassortative kernels. Our uncapped heterogeneous cost sum_i x_i/c_i=B after x_i=c_i h_i has a different feasible geometry, changing the optimal shape to square-root cutoff. Kirkland et al optimize dispersal with fixed fecundities; Haight–Travis target stochastic habitat survival. Generic secular equations, matrix inertia and KKT are prior methods, not claimed novel. Possible broader weighted matrix-allocation theorem remains a priority risk.",
+      "residual_risks": [
+        "A general heterogeneous uncapped spectral allocation theorem elsewhere could subsume the formula.",
+        "The result is only the linear low-density spectral growth optimum, not a result about actual survival or arbitrary dispersal matrices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED but not full theorem due to capped unweighted feasible set",
+          "evidence": "Delmas Dronnier Zitt 2023, Theorem 4.2 / Section 4",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01858-5",
+          "material_read": "Full open-access Section 4 including Theorem 4.2, problem constraints and proof of disassortative allocation",
+          "method": "Springer open-access full HTML theorem and mathematical section",
+          "title": "Optimal vaccination: various (counter) intuitive examples",
+          "trigger": "same disassortative rank-one mixing spectral objective"
+        },
+        {
+          "assessment": "Different optimized variable: dispersal strategy with fixed fecundity",
+          "evidence": "Kirkland Li Schreiber 2006",
+          "identifier_or_url": "https://doi.org/10.1137/050628933",
+          "material_read": "Model description, objective and fixed reproduction/dispersal optimization comparisons",
+          "method": "lawful open-author paper and source comparison",
+          "title": "On the Evolution of Dispersal in Patchy Landscapes",
+          "trigger": "same patch dispersal matrix model"
+        },
+        {
+          "assessment": "Different nonlinear simulation persistence criterion, no Perron root cutoff formula",
+          "evidence": "Haight Travis 2007/2008",
+          "identifier_or_url": "https://doi.org/10.1007/s10666-007-9088-4",
+          "material_read": "Introduction, model and stochastic simulation-based criterion",
+          "method": "lawful open paper source comparison",
+          "title": "Reserve Design to Maximize Species Persistence",
+          "trigger": "habitat-budget optimization analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The qualitative switch from concentration to diversification, exactly ordered site-entry thresholds, and permanently uninvested low-efficiency sites answer a natural heterogeneous budget-planning question across every patch count. The sharp support phase diagram, not merely a routine numerical maximizer, is useful even in this deliberately simplified linear system.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "n>=2, B>0, c_i>0, uniform all-to-all probability theta in [0,1], uncapped divisible budget, continuous source production; no nonlinear ecological inference."
+  ]
+}

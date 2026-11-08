@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The standalone `verify.py` is executable with Python 3, NumPy and SymPy (`python verify.py`). In the recorded run, it passed exact rational arithmetic for the four-patch activation values, the rational allocation \((21,20,6,0)/47\), the eigenvalue \(96/47\), and 18,375 random feasible-budget comparisons across sizes \(2\) through \(8\) and dispersed mixing levels. The random seed is fixed to 20261026. The verification program and instructions are embedded in the same package.
+## correctness
 
-The universal theorem has an analytical proof in `RESULT.md`: positive-semidefinite trace inequality for concentration, rank-one secular equation for high mixing, strict concavity with global KKT optimality, and a monotone cutoff equation. Neither the finite numerical tests nor the printed pass message substitutes for this proof. The experiments cannot certify novelty or imply a theorem for arbitrary dispersal, finite stochastic persistence, or capped habitat capacities.
+PASS
+
+For P_{ii}=1-theta and P_{ij}=theta/(n-1), D=diag(c_i h_i), PD and S=D^{1/2}PD^{1/2} have the same characteristic polynomial. S=aD+beta vv^T with a=1-n theta/(n-1). For theta<theta_c=(n-1)/n PSD trace bound forces single best patch, and at equality S has rank one and permits every allocation on tied maximal efficiencies. When theta>theta_c, the unique positive Perron eigenvalue obeys F_h(lambda)=beta sum_i c_i h_i/(lambda+s c_i h_i)=1. For each lambda>0 F_h is strictly concave on the budget simplex; its KKT unique maximizer has square-root truncated form. Solving sum_i(1-z/sqrt(c_i))_+=delta=n-(n-1)/theta yields the unique global h and exact monotone activation thresholds; zero-root allocations at theta=1 cannot beat a positive candidate. Exact four-patch c=(16,9,4,1), theta=1: h/B=(21,20,6,0)/47 and rho/B=96/47. Distinctions between spectral radius and nonlinear persistence are explicit.
+
+## originality
+
+PASS
+
+Closest Delmas–Dronnier–Zitt 2023 Theorem 4.2 solves rank-one homogeneous mixing with a capped/unweighted mass constraint, and yields horizontal allocation for disassortative kernels. Our uncapped heterogeneous cost sum_i x_i/c_i=B after x_i=c_i h_i has a different feasible geometry, changing the optimal shape to square-root cutoff. Kirkland et al optimize dispersal with fixed fecundities; Haight–Travis target stochastic habitat survival. Generic secular equations, matrix inertia and KKT are prior methods, not claimed novel. Possible broader weighted matrix-allocation theorem remains a priority risk.
+
+## value
+
+PASS
+
+The qualitative switch from concentration to diversification, exactly ordered site-entry thresholds, and permanently uninvested low-efficiency sites answer a natural heterogeneous budget-planning question across every patch count. The sharp support phase diagram, not merely a routine numerical maximizer, is useful even in this deliberately simplified linear system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
