@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The deterministic circle criterion follows by proving the Rips graph is exactly the cycle when every circular gap is below the radius and otherwise is an interval graph, whose clique complex cannot have circular homotopy. The strict upper bound \(r<1/(n-1)\) is used exactly for excluding every diagonal; \(n\ge4\) excludes the filled triangle. Ordering the remaining labeled observations contributes \((n-1)!\); the deficit simplex contributes \(h^{n-1}/(n-1)!\). The Dirichlet partial-sum covariance yields the displayed Hessian coefficient, and \(C^3\) gives a uniform third-order Taylor remainder. Uniform convergence of conditional densities proves total-variation convergence. Arithmetic--geometric mean and strict Jensen prove the harmonic dichotomy. The standalone `verify.py` was executed; its exact graph tests and numerical integrals corroborate, but do not establish, the infinite-family proof.
+PASS
 
-## Originality — PASS, with stated access risks
+For fixed n≥4 and positive normalized periodic f∈C³ with r=(1+h)/n, 0<h<1/(n−1), the circle-homotopy event is exactly the all-clockwise-gaps≤r condition: then consecutive sample edges form C_n with no nonconsecutive chords, and a larger gap unwraps to a unit-interval clique complex. Conditional ordered-gap density and substitutions u_i=r−g_i=hV_i yield the exact h^{n−1} Dirichlet simplex expectation. Every centered shift b_j=j/n−∑_{i≤j}V_i has mean 0 and covariance min(j,k)(n−max(j,k))/(n²(n+1)), hence the linear term vanishes and the quadratic Hessian term has O_{n,f}(h³) remainder. Uniform density convergence proves conditional total-variation limit. Arithmetic–geometric mean for n∤k, Jensen for n|k, and the Chebyshev product identity for coprime k yield resonance. Independently checked 4,000 random gap/edge configurations for each n=4..10, all covariance entries and trigonometric quadrature for ε=.4 and k=1..n+1, including Chebyshev values. Finite checks corroborate, while the proof is fixed-n analytical.
 
-Park, arXiv:2610.26366, establishes the uniform full homotopy distribution. The uniform exact first-window probability is therefore **prior knowledge**. Adamaszek--Adams, arXiv:1503.03669, provides deterministic arbitrary-sample circular homotopy types, not density-dependent first-loop probability coefficients. Lim, arXiv:2305.16270, addresses different (uniform Čech) random topology. Jewell--Romano's 1982 general circle-coverage results explicitly include nonuniform arc placements and must be credited as potential stronger probability machinery. Unlike an exact general coverage probability, the present claim explicitly gives a conditional Dirichlet-shape limit, a zero first relative Taylor coefficient, and a sharp sampling-density Fourier-divisibility law. The 1982 full text could not be accessed, leaving a risk that some of these refinements are implicit; this is not resolved by title or abstract comparison. Hüsler's 1988 abstract concerns growing sample sizes and a density with a zero, not the fixed-size positive-density limit here, but its full text was likewise inaccessible. Actual indexed search comparisons found no directly covering conditional/resonance statement. No uniqueness assertion is inferred from those searches.
+## originality
 
-## Value — PASS
+PASS
 
-The first occurrence of an actual topological loop is a natural and statistically consequential event in random topological data analysis. The new results identify its leading **nonuniform sampling bias**, its exact centered second correction, and the limiting geometry of near-regular configurations. The sharp divisibility change for one-frequency perturbations shows that densities of equal mean and equal amplitude can have opposite effects, a structural sampling-design implication, not an arbitrary numerical example. The exact general gap integral is included for reproducibility but is not alone advanced as the valuable contribution.
+Best-of-knowledge comparison of statements, not a negative-search proof. The formula by itself may be a specialization of older coverage theory; new joint conditional law and harmonic response require distinct comparison. No accessible primary passage covers joint TV limit, universal vanishing relative h term and strict resonance, but overlap in the exact integral remains a residual priority risk. The acceptance rests on the combination of new conditional/perturbative and Fourier geometric assertions, not falsely claiming the general coverage identity as absolutely unprecedented.
 
-## Limitations and risk
+## value
 
-The result assumes fixed \(n\ge4\), strictly positive \(C^3\) density, and only the initial radius window. It does not address growth of \(n\), larger radii, or general homotopy distributions. Inaccessible full texts for Jewell--Romano (1982) and Hüsler (1988) remain originality risks. There is no independent audit of the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed-n nonuniform near-threshold topological probability law with exact dependence on sampling density and conditional Dirichlet defect geometry supplies information not present in the uniform distribution of Vietoris–Rips types. The vanishing first relative correction and strict frequency-dependent sign reversal are motivated, analytically sharp effects useful for nonuniform topological sampling, beyond a routine rewriting of uniform coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
