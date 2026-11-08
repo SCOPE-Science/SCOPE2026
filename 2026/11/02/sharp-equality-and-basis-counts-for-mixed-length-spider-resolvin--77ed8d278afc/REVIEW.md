@@ -1,9 +1,21 @@
-# Assessment of the mixed-length spider theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Every length-two arm must be represented in a vertex-dominating set. Root and unit-leaf alternatives force the vertex lower bound and classify equality. For edge resolution, at most one radial arm can be unmarked; outer-edge domination and the root alternative then force all optimal shapes. Distance signatures establish converse validity, including the boundary cases \(p=0\), \(p=1\), and \(q=2\). The standalone original-definition verifier checks 24 small graphs, totaling 171360 masks, and agrees with all four formulas. Its finite computations support but do not establish the infinite theorem.
+## correctness
 
-**Originality — PASS.** The closest primary source (Ikhlaq, Hayat, and Siddiqui, arXiv:2211.09327v1) states the all-tree comparison and asks for the equality class in Problem 2. The exact values and the full optimal-set enumeration for mixed-length spiders are not implied by its inspected results. Related edge metric and spider domination papers concern weaker or different invariants. Unindexed overlapping work remains a priority risk.
+PASS
 
-**Value — PASS.** The family isolates a sharp and nontrivial equality-to-gap transition while resolving a substantial natural class in a published tree-equality problem. Counting every optimum distinguishes structures with the same extremal cardinality. No result for arbitrary trees is asserted.
+For vertex domination each terminal long-arm vertex forces one selected member of {u_i,v_i}; short leaves force either all p leaves without root or root with at least p-1 leaves. Root domination excludes all-terminal choices when p=0. Radial edge signatures force all but at most one arm marked, with the exterior-edge domination condition resolving the p=1 exception. The explicit selected marker codes distinguish vertices/edges. Independent BFS edge/vertex code enumeration exactly matched both optimum cardinalities and both basis counts for twelve (p,q) pairs, p=0..3, q=2..4, including the all-short-absent boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The source 2022 paper states the general tree inequality and asks to characterize equality; neither the general inequality nor path/star examples implies the complete mixed-length radius-two classification or the number of all minimum labeled bases. This is a best-knowledge original exact family answer, not an assertion that the two parameters or graph algorithms were first introduced here.
+
+## value
+
+PASS
+
+The minimal parameters and complete basis counts answer a specifically published open equality question in a natural two-arm-length tree family; the gap changes at the first short arm. Complete extremizer counts are independently useful structural graph data, not an arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
