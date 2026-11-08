@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:43:26.311129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/arithmetic-spectral-switch-and-corner-capture-geometry-on-prime--153e3eace576/RESULT.md",
+        "2026/11/02/arithmetic-spectral-switch-and-corner-capture-geometry-on-prime--153e3eace576/VERIFICATION.md",
+        "2026/11/02/arithmetic-spectral-switch-and-corner-capture-geometry-on-prime--153e3eace576/CHECKER.py"
+      ],
+      "rationale": "For Hermitian finite grid adjacency H with absorbing diagonal local loss of strictly positive rates, orthogonal complement of the absorber Krylov cyclic subspace is completely dark; any hypothetical real eigenvalue of the effective Hamiltonian inside the cyclic subspace forces vanishing absorber components, contradiction. Thus maximally mixed eventual capture is cyclic rank divided by (p-1)(q-1). Endpoint sine eigenvectors are nonzero at a corner; one-corner rank equals number of distinct a lambda_i^(p)+b lambda_j^(q). Cyclotomic elements u_r=zeta^r+zeta^(-r) have trace Gram matrix pI-2J, strictly positive eigenvalues 1 and p, hence rational independence; intersections of distinct-prime real cyclotomic fields are Q and for p>=7 differences between distinct path eigenvalues cannot be rational. Rational a/b therefore yields simple spectrum when primes differ. For equal primes the signed-basis representation gives simple spectrum for positive rational a/b !=1 and precisely 2d^2+1 energies when a=b. Endpoint parity makes opposite-corner projections collinear on each eigenspace while adjacent corner adds d^2-d+1 directions, giving 3d^2-d+2. Independent exact SymPy Krylov ranks on 4x4 and 4x6 agreed; original integer modular checker and CHECKS.txt were inspected. General-prime proof is cyclotomic, not numerical.",
+      "residual_risks": [
+        "Fixed open path adjacency, positive local trap rates, maximally mixed initial state, corner placements, rational positive ratio. No finite-time rates or irrational generality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Notarstefano-Parlangeli studies graph Laplacian L=D-A, so boundary degree shifts differ from this adjacency H.",
+          "Novo et al analyze general CTQW invariant Krylov subspaces, not number-theoretic eigenvalue collisions on these weighted path products."
+        ],
+        "reasoning": "A general Krylov framework supplies method, not the exact rank as function of odd primes and rational hopping ratio. Laplacian observability classification is not automatically identical to adjacency absorption for open-boundary grids.",
+        "searches": [
+          "Notarstefano-Parlangeli arXiv:1203.0129v1",
+          "Novo et al arXiv:1412.7209v2",
+          "Varbanov-Krovi-Brun arXiv:0803.3446"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1412.7209v2",
+        "https://arxiv.org/html/1203.0129v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-corner-spectral-measure-and-quadratic-grover-reduction-on--98cafbedc798",
+        "Resultary semantic query: Quantum walk absorption from a corner of prime-sided Cartesian grid p-1 x q-1 adjacency Hamiltonian energy degeneracies two corner absorbers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General absorber-projection rank identity is prior; for prime paths, a new explicit field-intersection and signed-basis analysis is needed.",
+          "Homogeneous P4 rank9 is a covered special case, not claimed novel; (p,q) arbitrary odd primes and two absorber geometry are outside the compared statement."
+        ],
+        "reasoning": "Strict comparison is based on operator and implications, not mismatching vocabulary: adjacency plus imaginary trap, rational anisotropy and rank of two projected corner vectors differ from both search-Hamiltonian powers and Laplacian control.",
+        "searches": [
+          "Novo et al Krylov transport subspace",
+          "Notarstefano-Parlangeli Laplacian grid controllability",
+          "SCOPE P4-power exact spectral support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior P4 Cartesian powers source gives homogeneous 4x4 single-corner rank 9, explicitly credited. Novo et al establish Krylov reduction generally.",
+          "Neither one example nor the general rank-method identity equates to the all-odd-prime simple-spectrum and two-corner count."
+        ],
+        "reasoning": "Same physical Krylov observability mechanism is established, but the explicit equal-prime cyclotomic dichotomy and parity resolved two-trap geometry have not been implied by the indexed prior claims.",
+        "searches": [
+          "Resultary: Quantum walk absorption from a corner of prime-sided Cartesian grid p-1 x q-1 adjacency Hamiltonian energy degeneracies two corner absorbers",
+          "SCOPE exact corner spectral measure P4 Cartesian powers 98cafbedc798",
+          "Novo et al arXiv:1412.7209v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small homogeneous four-by-four corner rank 9 is known. No comprehensive p,q prime rational anisotropy and second-corner rank table found."
+        ],
+        "reasoning": "Small-case tables do not logically imply the infinite-prime formula, especially the cyclotomic distinct-prime argument.",
+        "searches": [
+          "Resultary: Quantum walk absorption from a corner of prime-sided Cartesian grid p-1 x q-1 adjacency Hamiltonian energy degeneracies two corner absorbers",
+          "prime-sided rectangular quantum grid corner capture exact rank",
+          "P4 Cartesian powers published rank 9"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality qualified by primary literature, prior methods and named residual priority risks; the final evaluated theorem is not established or logically implied by the cited comparator statements.",
+      "residual_risks": [
+        "Only a published summary, not full paper, of the P4 Cartesian-power rank predecessor was inspected; an unreviewed specialization may cover more than rank 9.",
+        "Only positive rational anisotropy and corner traps considered; irrational resonances possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Krylov capture methodology already established; does not calculate specified all-prime-grid ranks",
+          "evidence": [
+            "Methods §1 derives the invariant Krylov subspace; applications concern particular graphs and search/transport."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1412.7209v2",
+          "material_read": "Full HTML Methods and transport applications: invariant span(H^k|site>), trapping and dimensionality reduction",
+          "method": "Accessible full-text HTML; identified result, argument sections and references read",
+          "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+          "trigger": "Same adjacency-Hamiltonian Krylov subspace and trapping"
+        },
+        {
+          "assessment": "Uses graph Laplacian grid system and controllability; not a proof of this adjacency prime-sided weighted energy-degeneracy formula",
+          "evidence": [
+            "Introduction specifies Laplacian-induced LTI model and prime-factor eigenvector symmetries."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1203.0129v1",
+          "material_read": "Full accessible HTML introduction, model setup and eigensymmetry/criterion statement",
+          "method": "Accessible full-text HTML; identified result, argument sections and references read",
+          "title": "Controllability and observability of grid graphs via reduction and symmetries",
+          "trigger": "Grid graph spectral controllability, potential stronger coverage"
+        },
+        {
+          "assessment": "Covers homogeneous 4x4 rank9 special case; insufficient to rule out other detail; record priority risk",
+          "evidence": [
+            "Indexed summary gives homogeneous d=2 P4-power support 4d+1=9."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-corner-spectral-measure-and-quadratic-grover-reduction-on--98cafbedc798",
+          "material_read": "Published Resultary index title and summary, not full paper body",
+          "method": "Published index summary ONLY; full paper not read",
+          "title": "Exact corner spectral measure and quadratic Grover reduction on weighted P4 Cartesian powers",
+          "trigger": "Same four-state path corner cyclic rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/arithmetic-spectral-switch-and-corner-capture-geometry-on-prime--153e3eace576/RESULT.md",
+        "specific predecessor comparisons in originality axis"
+      ],
+      "rationale": "Determines exact asymptotic absorption for a natural whole family of prime-denominator product paths, revealing a sharp isotropic/equal-side dark-state obstruction, rational anisotropy full capture, and a striking difference between opposite and adjacent trap placement. The irrational sqrt5 resonance gives a meaningful boundary showing exactly why the theorem does not assume unrestricted real weights.",
+      "residual_risks": [
+        "Fixed open path adjacency, positive local trap rates, maximally mixed initial state, corner placements, rational positive ratio. No finite-time rates or irrational generality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed open path adjacency, positive local trap rates, maximally mixed initial state, corner placements, rational positive ratio. No finite-time rates or irrational generality.",
+    "Only a published summary, not full paper, of the P4 Cartesian-power rank predecessor was inspected; an unreviewed specialization may cover more than rank 9.",
+    "Only positive rational anisotropy and corner traps considered; irrational resonances possible."
+  ],
+  "schema_version": 1
+}
