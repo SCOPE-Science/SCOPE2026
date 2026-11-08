@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Explicit stable-focus Jacobian and matrix exponential yield the frozen-input prey response; |sin(qt)|<=qt gives a uniform 2/e bound. The exact L1 predator response is kappa*coth(pi*alpha/(4q)). Variation of constants and an exponential-semigroup bootstrap provide O(epsilon^2) errors uniformly for all t>=0 and bounded inputs. A resonant sine at omega=sqrt(d) has prey gain c/alpha, forcing a finite prey crossing with predator strictly above threshold. At a possible grazing contact an f1 Filippov continuation exists until inward entry; the two prey-below-threshold fields have negative N derivative, and predator later decays. A constant frozen input remains entirely in the coexistence compartment and approaches its positive equilibrium. An executed extracted verifier checks 79 matrix identities, 39 frozen profiles and three transversal sinusoidal events; finite checks do not certify the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao et al. Theorem 1 is a general switching criterion conditioned on an admissible crossing and does not supply an epsilon-uniform frozen-safety and crossing witness.",
+        "Swailem–Rucklidge analyze time-dependent carrying capacity and Floquet/parametric resonance, not thresholded compartmental extinction.",
+        "Phase-tipping study analyzes preexisting periodic attractors and changing frozen basins."
+      ],
+      "reasoning": "A criterion that says a transverse threshold crossing entails extinction does not by itself imply such a crossing for arbitrarily small amplitude or exclude crossing for all frozen controls. The new inequalities rigorously verify both required premises for every sufficiently small epsilon. Different-forcing and periodic-attractor results do not dominate the quantified theorem.",
+      "searches": [
+        "frequency induced tipping predator prey periodic forcing analytic small amplitude threshold crossing boundary asymptotic oscillation",
+        "frequency selective tipping Gao Poloni Wang Lewis 2610.39113 small forcing linear response resonant prey predator thresholds",
+        "periodically forced logistic Lotka Volterra prey threshold predator threshold first passage linear forced response omega sqrt(d) exact transfer function",
+        "arXiv:2511.03521v2; full HTML §§I–III",
+        "PMC8511773 2021 phase tipping abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.39113v1, full HTML equations (1)–(15), Sections 2 and 4 plus supplementary material",
+      "arXiv:2511.03521v2, full accessible HTML, model and Floquet setting",
+      "Phys. Rev. E 78, 021126 (2008), abstract only",
+      "PMC8511773 (2021), abstract and extract only",
+      "published-finding corpus semantically searched for aliases, parameter inequalities, extinction and stronger results; returned related predator–prey results with nonmatching dynamical systems",
+      "Accessible historical claims for the own slot were inspected for deduplication; closest smooth-response predecessor is not a switched-system extinction theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Already established: smooth periodic response and peak frequency; threshold crossing criterion in the original work.",
+        "Not established by those premises alone: exact step-response envelope for an arbitrary frozen rate, strict universal 2/e gain gap, uniform-in-time nonlinear perturbation remainder, guaranteed first inward threshold entry, and simultaneous predator-barrier exclusion."
+      ],
+      "reasoning": "The new theorem uses known sinusoidal susceptibility and general Filippov theory as inputs but proves the missing sufficient small-amplitude corridor and counterfactual frozen-input safety. It is neither identical to the earlier periodic minimum crossover nor an immediate special case of a stronger quantitative theorem found in inspected full texts. Historical priority remains open for inaccessible or unindexed sources.",
+      "searches": [
+        "arXiv 2610.39113v1 Gao Poloni Wang Lewis forcing predator prey exact resolvent sensitivity omega sqrt(det J) prey resonance predator resonance",
+        "Filippov threshold predator-prey frozen safe arbitrarily small amplitude epsilon resonance extinction step input bound coth pi damping",
+        "periodically forced logistic Lotka Volterra prey threshold predator threshold first passage linear forced response omega sqrt(d) exact transfer function",
+        "arXiv:2610.39113v1 Theorem 1 and equations (4)–(8)",
+        "arXiv:2511.03521v2 sections II–III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct transfer-function formulas, impulse/step response under constant growth, and the four original threshold fields were compared.",
+        "The pre-existing smooth-response analysis is known to contain the sinusoidal susceptibilities and optimal prey frequency but explicitly does not establish tipping or admissibility in the discontinuous system."
+      ],
+      "reasoning": "Rewriting the harmonic response in complex-resolvent form does not create novelty. The final theorem instead compares frozen trajectories from the *same* initial state with a periodic trajectory under the *same bounded range*, proves uniform confinement of every frozen solution, then constructs an admissible extinction continuation. Those state-and-input quantifiers are absent from the established smooth-response claim and original crossing criteria.",
+      "searches": [
+        "exact resonance frequencies prey and predator oscillations logistic Lotka Volterra forced growth linear harmonic response frequency sqrt det Jacobian predator resonance",
+        "arXiv 2610.39113v1 Gao Poloni Wang Lewis forcing predator prey exact resolvent sensitivity omega sqrt(det J) prey resonance predator resonance",
+        "Filippov threshold predator-prey frozen safe arbitrarily small amplitude epsilon resonance extinction step input bound coth pi damping",
+        "arXiv:2610.39113v1; HTML §§2.2–2.4, 4.2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gao et al. numerical scans use fixed amplitudes and thresholds; no displayed table of an epsilon-dependent universal frozen-step/harmonic ratio.",
+        "published-finding corpus semantic search returned related predator–prey results but not the same frozen-safe extinction corridor."
+      ],
+      "reasoning": "This is a continuous all-parameter analytic statement and not an isolated database entry or remeasurement of a published table. Absence of index hits is treated as limited evidence, not a proof of global novelty.",
+      "searches": [
+        "exact resonance frequencies prey and predator oscillations logistic Lotka Volterra forced growth linear harmonic response frequency sqrt det Jacobian predator resonance",
+        "Filippov threshold predator-prey frozen safe arbitrarily small amplitude epsilon resonance extinction step input bound coth pi damping",
+        "periodically forced logistic Lotka Volterra prey threshold predator threshold first passage linear forced response omega sqrt(d) exact transfer function",
+        "Gao et al. Fig. 3 and Theorem 1, arXiv:2610.39113v1"
+      ]
+    },
+    "rationale": "The source paper's full mathematical sections provide frequency-induced tipping criteria and numerical bands, and prior smooth-system work gives the harmonic gains, but neither supplies the universal 2/e frozen-step-to-sine separation or the epsilon-scaled theorem contrasting every frozen input from one initial state with actual extincting Filippov continuation. The inspected Swailem–Rucklidge model differs in forcing and lacks threshold switching. One potentially relevant 2008 paper and some historical texts were not accessible in full, so priority is provisional.",
+    "residual_risks": [
+      "Historical priority cannot be certified from indexed or accessible sources alone.",
+      "Full text of Naess–Dimentberg–Gaidai 2008 and full PMC text were not inspected; their exact overlap remains unverified.",
+      "The original source and earlier smooth-response study establish important ingredients, which are not attributed to the present result.",
+      "At tangential threshold contact Filippov continuations need not be unique; the new theorem claims only existence of an extincting continuation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes a qualitative/numerically illustrated frequency-selective crossing criterion and simulation windows. It does not state a universal 2/e frozen-step/harmonic gap, the parameterized epsilon-threshold corridor, or the theorem that all frozen inputs from the same state are safe while the sinusoidal input admits extinction for every sufficiently small amplitude.",
+        "evidence": [
+          "arXiv:2610.39113v1, Sections 2.2–2.4, 4.2.1, Supplementary Information; equations (4)–(8), (14)–(15)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39113v1",
+        "material_read": "Full accessible HTML including mathematical Results, the exact four vector fields, crossing criterion, Methods and supplementary sections; examined its eigenfrequency and simulation sections specifically.",
+        "method": "Compared equations (1), (4)–(8), (14)–(15), and boundary crossing classification with the present uniform-in-frozen-rate theorem.",
+        "title": "Frequency-induced Tipping: Resonance-Driven Tipping in a Threshold Predator-Prey System",
+        "trigger": "Identical threshold model and resonant tipping mechanism; the strongest relevant primary work."
+      },
+      {
+        "assessment": "Its forcing changes carrying capacity and optionally attack rate; no abrupt population threshold/Filippov compartments or frozen-safe versus forced extinction theorem. Not a direct implication, despite shared logistic predator–prey family.",
+        "evidence": [
+          "arXiv:2511.03521v2, Sections I–III, equations (1)–(7)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.03521v2",
+        "material_read": "Full accessible HTML, abstract, introduction, model Section II, eigenfrequency and Floquet setting Section III, and summary of regimes.",
+        "method": "Compared actual differential equations and parameters before discussing implication.",
+        "title": "Parametric resonance, chaos and spatial structure in the Lotka–Volterra model",
+        "trigger": "Potential stronger prior periodic predator–prey resonance result."
+      },
+      {
+        "assessment": "Its abstract mentions oscillations from prey reproduction-rate fluctuations but does not establish whether threshold switching or a frozen-safe extinction corridor is considered. Full-text uncertainty explicitly retained.",
+        "evidence": [
+          "Phys. Rev. E 78, 021126 (2008), publicly visible abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.78.021126",
+        "material_read": "Accessible publisher abstract only; full paper not accessed.",
+        "method": "Compared only disclosed model scope and abstract; no full-text noncoverage assertion.",
+        "title": "Lotka–Volterra systems in environments with randomly disordered temporal periodicity",
+        "trigger": "Older study of periodically varying prey reproduction in an asymptotically stable predator–prey model."
+      },
+      {
+        "assessment": "Article studies phase dependence of transitions out of established predator–prey limit cycles, rather than arbitrary-small harmonic excitation of a stable equilibrium and a universal frozen-step bound; full-text coverage not claimed.",
+        "evidence": [
+          "PMC8511773 abstract and displayed discussion, 2021"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8511773/",
+        "material_read": "Search-extracted article abstract and selected scientific discussion; direct full-text retrieval hit a browser verification screen.",
+        "method": "Compared limit-cycle P-tipping with the equilibrium-based, sinusoidal stable-focus threshold theorem.",
+        "title": "Phase tipping: how cyclic ecosystems respond to contemporary climate",
+        "trigger": "Potentially dominating frozen-safe population tipping framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d15a1d3f-02d5-4f49-94b9-1015c3f3b351",
+  "value": {
+    "rationale": "A natural counterfactual in frequency-induced tipping is whether every fixed environmental condition in a driving interval can be safe from the same initial population state while a periodic schedule causes extinction. This theorem supplies such a nontrivial mechanism at arbitrarily weak amplitude in every stable-focus parameter family, with explicit admissible thresholds, a universal sharp 2/e step-versus-sine gain separation, and an exact predator barrier bound; it goes beyond merely reproducing a harmonic peak or numerically detecting tipping.",
+    "status": "PASS"
+  }
+}
