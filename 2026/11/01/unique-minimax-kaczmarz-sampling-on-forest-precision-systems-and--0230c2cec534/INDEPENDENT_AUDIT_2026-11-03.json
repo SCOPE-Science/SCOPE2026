@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:41:34.671484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit Euclidean rows of invertible real square B, one row projection subtracts |b_i^T z|², giving exactly gamma(p)=lambda_min(B^T diag(p)B) as the worst-direction conditional one-step expected squared decrement. PSD congruence yields diag(p)-lambda K >=0, K=(BB^T)^(-1). A sign vector s on each forest component with s_i s_j=sign(K_ij) gives 1>=lambda T, T=tr K+2 sum_{i<j}|K_ij|. With d_i=K_ii+sum_{j!=i}|K_ij|, diag(d)-K is a sum of positive rank-one signed edge Laplacians, proving p*=d/T achieves gamma=1/T. At optimality a PSD zero quadratic form forces (diag(p)-K/T)s=0, which uniquely determines all coordinates; includes zero edges, isolated vertices and disconnected forest. Gaussian edge autoregression directly yields G_ij=product path rho_e and inverse precision K_ii=1+sum rho_e²/(1-rho_e²), K_ij=-rho_e/(1-rho_e²) on edges; thus p_i=(1+sum incident |rho_e|/(1-|rho_e|))/[N+2 sum_e |rho_e|/(1-|rho_e|)]. Equal magnitude r yields p_i=(1-r+r degree_i)/(N+(N-2)r) and gamma=(1-r)/(N+(N-2)r), independent tree topology. No cyclic or rectangular extension is proven.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general all-system probability SDP is broader in permitted inputs but gives no graph-specific formula in inspected sections.",
+          "The published inverse-positive SPD coordinate-descent finding concerns energy contraction for coordinate updates, not randomized row-hyperplane projections with sparse inverse row Gram.",
+          "Classical normalized-row Kaczmarz weights would be uniform, but here the optimizer is degree-dependent for nonzero edge correlation."
+        ],
+        "reasoning": "Checked whether the present claim is an automatic corollary of more general SDP frameworks or the semantically similar inverse-positive coordinate-descent result. Neither examined statement implies the explicit all-forest formula without additional edge-sign saturation; special stars and small systems are subsumed but do not imply the all-tree claim.",
+        "searches": [
+          "Randomized Kaczmarz optimal fixed probabilities forest sparse inverse Gram precision matrix Gaussian Markov trees signless Laplacian unique minimax E optimal design",
+          "optimal diagonal positive semidefinite majorant tree sparse matrix trace absolute row sums forest signing unique diagonal design",
+          "arxiv:1506.03296",
+          "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1506.03296",
+        "arxiv:1402.2863",
+        "arxiv:math/0702226",
+        "doi:10.1109/globalsip.2014.7032145",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strohmer–Vershynin norm-squared weights are uniform under this theorem’s unit-row normalization.",
+          "Dai 2014: SDP for one-step worst-direction eigenvalue optimization; no forest-specific explicit minimizer in the inspected primary sections.",
+          "Gower–Richtárik 2015 Sec. 5.1: general stochastic reformulation and optimized probabilities via SDP, not the signed-tree unique solution.",
+          "Agaskar–Wang–Lu (2014) Section 3 eq.(20): arg min lambda_max(R_A(p)) for Kronecker two-projection operator governs exact annealed MSE exponent, not the same one-step lambda_min criterion."
+        ],
+        "reasoning": "Compared actual objective functions and logical implications rather than paper titles: the 2014 Agaskar long-horizon tensor objective differs from one-step worst-direction decrement; prior general SDPs require additional signed forest saturation and covariance-specific precision computation to yield the exact closed formula.",
+        "searches": [
+          "arxiv:math/0702226",
+          "arxiv:1402.2863",
+          "arxiv:1506.03296",
+          "doi:10.1109/globalsip.2014.7032145",
+          "Randomized Kaczmarz optimal fixed probabilities forest sparse inverse Gram precision matrix Gaussian Markov trees signless Laplacian unique minimax E optimal design"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Congruence converts lambda_min(B^T diag(p) B) to trace-minimal diagonal PSD majorant of K=(BB^T)^(-1).",
+          "A forest sign vector saturates the trace bound, and the signed-edge Laplacian yields a unique optimizer.",
+          "Dai 2014 and Gower–Richtárik 2015 formulate the general simplex SDP without the inspected closed forest majorant."
+        ],
+        "reasoning": "Compared one-step E-optimal-design, graph-signable PSD majorant, diagonal domination and Gaussian Markov-tree precision aliases. The general SDP is an optimization recipe and does not itself display the closed optimal probabilities, rigidity or topology invariance; the signed-edge proof supplies those exact statements.",
+        "searches": [
+          "Randomized Kaczmarz optimal fixed probabilities forest sparse inverse Gram precision matrix Gaussian Markov trees signless Laplacian unique minimax E optimal design",
+          "optimal diagonal positive semidefinite majorant tree sparse matrix trace absolute row sums forest signing unique diagonal design",
+          "arxiv:1402.2863",
+          "arxiv:1506.03296"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed similarities to an inverse-positive quadratic coordinate-sampling theorem and graph precision results but no all-forest optimal row-probability table.",
+          "The claim has continuous arbitrary edge parameters and unbounded forest size, so testing finite graph tables cannot prove the theorem."
+        ],
+        "reasoning": "Looked for a tabulated exact family or a dominating known parametric formula, not only a matching rate numeral. None was found in inspected search results; this is limited search evidence, not an independent novelty certificate.",
+        "searches": [
+          "Randomized Kaczmarz optimal fixed probabilities forest sparse inverse Gram precision matrix Gaussian Markov trees signless Laplacian unique minimax E optimal design",
+          "optimal diagonal positive semidefinite majorant tree sparse matrix trace absolute row sums forest signing unique diagonal design",
+          "Gaussian tree covariance product of edge correlations optimal randomized Kaczmarz probabilities sampling by weighted vertex degree exact one-step spectral contraction"
+        ]
+      },
+      "rationale": "Forest-precision exact unique optimizer and tree topology-invariant rate are additional structural results beyond norm-based randomized Kaczmarz and previously formulated general probability-selection SDPs. Dai et al and Gower–Richtárik give the same one-step eigenvalue/SDP objective but not an inspected explicit forest formula. The complete accessible Agaskar–Wang–Lu (2014) paper instead optimizes annealed long-run mean-square decay using a tensor-square propagator; it does not state a sharp forest-precision one-step optimizer. This qualified decision does not claim that negative searches prove worldwide novelty.",
+      "residual_risks": [
+        "Classical E-optimal design or signed diagonally dominated majorant literature could contain an equivalent closed-form forest calculation without using Kaczmarz terminology.",
+        "Only inspected source statements are excluded; no exhaustive historical-priority certification.",
+        "The exact long-run Kaczmarz-optimal sampling problem is different and not covered by this one-step result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Presents the general SDP but not the specific forest sign-vector saturation or its unique closed-form tree rule.",
+          "evidence": [
+            "Gower–Richtárik 2015, Sec. 5.1, sampling probability optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Materially read the freely available full article, especially method definitions and Section 5.1 probability-selection SDP.",
+          "method": "Rendered scholarly PDF and text mathematical comparison of sampling objective, explicit formulas and sparse graph hypotheses.",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "General randomized iterative methods and optimal sampling SDP"
+        },
+        {
+          "assessment": "Formulates optimal weights in general, but the checked statements do not solve the forest precision subclass in closed form.",
+          "evidence": [
+            "Dai–Soltanalian–Pelckmans 2014, Section II."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Materially read the accessible full article and its optimization/SDP section, including the displayed objective.",
+          "method": "PDF page rendering and surrounding theorem text inspection.",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Closest explicit optimization of one-step contraction"
+        },
+        {
+          "assessment": "Different optimized risk: lambda_max of averaged tensor two-step projector, not the one-step worst-direction lambda_min(B^T diag(p)B); its general method does not state the forest closed rule.",
+          "evidence": [
+            "Agaskar–Wang–Lu 2014, eq.(6), Section 3 eq.(20), conclusion."
+          ],
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+          "material_read": "Read the freely accessible full 2014 GlobalSIP PDF, introduction, exact-MSE section and Section 3 optimal sampling including eq.(20) and conclusion.",
+          "method": "PDF text and rendered page; identified exact Kronecker-tensor propagator R_A(p), long-time annealed exponent and SDP.",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Title promises exact optimal sampling and could dominate the claimed optimization"
+        },
+        {
+          "assessment": "Baseline norm-square probabilities and exponential upper bound do not assert degree-specific optimality under unit-row normalization.",
+          "evidence": [
+            "Strohmer–Vershynin (2007/2009), norm-square row sampling and exponential error bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+          "material_read": "Retrieved bibliographic metadata and abstract plus its norm-weighted bound as quoted and compared in the full later articles.",
+          "method": "Open-access abstract and primary-paper citations in Dai and Gower; not represented as complete direct full-text inspection.",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "Foundational norm-weighted rate comparison"
+        },
+        {
+          "assessment": "Applies to coordinate descent on SPD quadratics, not the Kaczmarz row-projection criterion; no source summary implies the present result.",
+          "evidence": [
+            "Published research summary: p proportional to inverse normalized Hessian times 1, unlike precision absolute row sums."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Retrieved and compared indexed title, scientific finding summary and hypotheses; not read entire package.",
+          "method": "Resultary semantic discovery, followed by explicit objective comparison.",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Relevant published research finding on unique optimal sampling from matrix inverse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed global optimizer is a complete, natural structural solution to a nontrivial convex design problem over an infinite class of Gaussian graphical linear systems, with global uniqueness and the surprisingly topology-independent optimal rate at fixed edge magnitude. It is not a renaming of the general SDP and it distinguishes topology-dependent probabilities from topology-independent rate. This exact minimax one-step contraction could guide choice of row sampling for tree-structured precision systems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-step worst-direction conditional iid fixed-row probabilities only; not exact optimal long-horizon MSE, adaptive sampling or annealed exponent.",
+    "Square nonsingular real normalized-row systems with forest precision graph; nonforest cycles and rectangular systems not established.",
+    "Numerical checks on finite trees corroborate only the general analytical proof; historical-priority risk remains."
+  ],
+  "schema_version": 1
+}
