@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every fixed R>0, single-disk diagonalization gives ℓ0=1-e^{-R}, ℓ1=1-(1+R)e^{-R}, gap Re^{-R}; coherent states have exact overlap s=e^{-πd²/2}. The separated-disk trace bound Tr(B+B-)≤R²e^{-π(d-2√(R/π))²} bounds the nonleading sector. The opposite-disk leakage q≤Re^{-π(d-√(R/π))²} bounds the squared complement coupling. The exact even/odd compression has eigenvalues (ℓ0+q±2ℓ0s)/(1±s); an explicit Schur-complement estimate transfers these to the two largest eigenvalues with O_R(q), and parity controls the modes. Since q=o(s), the stated coefficient and gap are rigorous. The independently coded numerical matrix checker passed 56 assertions; it is supplementary rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Zhang, arxiv:2405.11147, Theorem 3: uniform bound by the integral norm for arbitrary nonradial symbols, with no top-doublet asymptotic.",
+        "Gómez–Guerra–Ramos–Tilli (2024), Theorem 1.1 and Corollary 1.4: stability from the globally extremizing single disk measured by Fraenkel asymmetry; does not identify two large-separated leading spectral eigenvalues.",
+        "Nicola–Tilli (2022), Theorem 1.1: sharp norm bound at fixed symbol Lp constraints, not a two-mode spectral asymptotic."
+      ],
+      "reasoning": "A stronger universal norm inequality does not imply the sharp two-eigenvalue separation, since it is independent of the center separation and does not determine the second eigenvalue. Broad anti-Wick tunneling results were searched by topic; any unknown general applicable result remains an explicit priority risk.",
+      "searches": [
+        "arxiv:2405.11147v1 Theorem 3 and Lemma 5 (nonradial Fock Toeplitz bounds)",
+        "Gómez–Guerra–Ramos–Tilli, DOI:10.1007/s00222-024-01248-2 (Theorem 1.1 and Corollary 1.4)",
+        "\"Bargmann\" \"two disks\" \"spectral\" \"eigenvalues\"",
+        "\"anti-Wick\" \"double-well\" \"tunneling\" spectral splitting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.08624 (Nicola–Tilli, 2022)",
+      "arxiv:2106.03423 (Nicola–Tilli, 2021)",
+      "DOI:10.1007/s00222-024-01248-2 (Gómez–Guerra–Ramos–Tilli, 2024)",
+      "arxiv:2405.11147 (Huang–Zhang, 2024)",
+      "arxiv:2102.02031 (Galbis, 2021; radial-only abstract and theorem)",
+      "Classical Daubechies 1988 one-disk spectrum (as quoted in Nicola–Tilli and Galbis)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The one-disk disk optimizer and norm ℓ_0(R)=1-e^{-R} are known; new asymptotic concerns λ1,λ2 of a union and a normalized exponentially small difference.",
+        "Nonradial symbol bounds provide an upper envelope 1-e^{-2R} independent of center distance, which is too coarse to identify λ_0(R)±λ_0(R)e^{-πd²/2}.",
+        "The 2024 stability theorem addresses configurations close to global Faber–Krahn equality, whereas two widely separated equal disks have a nonvanishing global optimizer deficit at total area 2R."
+      ],
+      "reasoning": "None of the inspected theorems has both the d-dependent leading splitting and two mode classification as a consequent assertion. The effect is smaller than any fixed-area upper-bound slack. Standard coherent-state overlaps are acknowledged as classical, but an overlap identity without the complement spectral gap does not imply the global top-doublet statement.",
+      "searches": [
+        "arxiv:2207.08624 Theorem 1.1 and section on weighted symbols",
+        "arxiv:2106.03423 Theorem 1.1 and §1 disk spectral information",
+        "arxiv:2405.11147v1 Theorem 3 and full proof",
+        "DOI:10.1007/s00222-024-01248-2 Theorem 1.1 and §1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nicola–Tilli, arxiv:2207.08624, §1–3: general optimal weighted localization norm and radial information; no separated-double-disk eigenvalue pair.",
+        "Nicola–Tilli, arxiv:2106.03423, introduction and main theorem: disk uniqueness and coherent optimizer, not two disconnected far-separated top eigenvalues.",
+        "Full-text literature searches for Fock Toeplitz and anti-Wick two-well eigenvalue splitting did not expose an identical theorem."
+      ],
+      "reasoning": "The Bargmann–Fock Toeplitz, anti-Wick, Gaussian STFT and coherent-state languages were treated as equivalent models. A single-center eigenfunction result is not an equivalent double-center splitting law; the claimed leading coefficient comes from an exact two-dimensional compression plus control of its complement.",
+      "searches": [
+        "\"anti-Wick\" \"double-well\" \"tunneling\" spectral splitting",
+        "\"Toeplitz\" \"two wells\" \"tunneling\" Bargmann-Fock",
+        "\"coherent states\" \"two disks\" \"localization\" \"eigenvalues\"",
+        "arxiv:2207.08624 and arxiv:2106.03423 (spectral, disjoint, separated, double searches)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical radial disk table gives ℓ_n(R)=n!^{-1}∫_0^R e^{-t}t^n dt for one disk, used explicitly as a premise, not claimed as new.",
+        "No accessible table was found giving both leading eigenvalues of the two-disk localization mask as center separation varies."
+      ],
+      "reasoning": "Combining two translated one-disk diagonalizations does not directly diagonalize their sum; the noncommuting Toeplitz summands produce the distinct exponentially split doublet. Exact one-disk spectra therefore do not tabulate the target.",
+      "searches": [
+        "\"localization operator\" \"disjoint disks\" \"eigenvalues\" Bargmann",
+        "\"separated discs\" Toeplitz operators Bargmann Fock spectrum",
+        "\"Gabor\" \"two balls\" eigenvalue splitting",
+        "Daubechies radial spectrum / arxiv:2106.03423 single-disk Hermite eigenvalues"
+      ]
+    },
+    "rationale": "The full source text of the 2022 Gaussian localization norm paper, the 2021 Faber–Krahn work, the 2024 stability analysis, and a 2024 nonradial Fock Toeplitz norm result were examined for the same objects and implications. Their conclusions bound or optimize a single largest norm or supply one-disk spectra; none of their stated results supplies the area-dependent exponential coefficient, both eigenvalues, and parity-resolved modes for two fixed-area disks at large separation. Targeted literature and repository searches found no equivalent claim. Historical priority is provisional, as a broad double-well Toeplitz theorem with an unstated specialization may exist.",
+    "residual_risks": [
+      "General anti-Wick/Toeplitz semiclassical multiwell tunneling theorems may specialize to this fixed-area distant-disk scaling; absence of a located match is not proof of uniqueness.",
+      "Only a finite set of searchable primary sources and mathematical records was compared; historical priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes global norm inequalities for symbols but does not classify distant two-disk spectral doublets.",
+        "evidence": [
+          "Theorem 1.1 treats Lp- and L∞-constrained symbol norm, not separation-dependent λ1−λ2.",
+          "The paper recalls Gaussian coherent-state localization and the single-disk bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.08624",
+        "material_read": "Full accessible arXiv HTML transcription, introduction, Theorem 1.1, radial/weighted operator formulation and proof section; searched disjoint/separated spectral terminology.",
+        "method": "Primary full-text reading and within-page search.",
+        "title": "The norm of time-frequency and wavelet localization operators",
+        "trigger": "Focal 2022 paper: same Gaussian localization operator, general sharp norm claims."
+      },
+      {
+        "assessment": "The exact single-disk optimizer and global inequality are prior; no exact double-disk two-eigenvalue tunneling theorem is stated.",
+        "evidence": [
+          "Theorems 1.1 and 1.2 characterize a single optimal ball, not a two-ball spectral splitting."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00222-022-01119-8",
+        "material_read": "Accessible open-access full-text, introduction, Theorems 1.1/1.2, Fock transformation and disk spectrum discussion, with targeted disjoint/two-ball searches.",
+        "method": "Primary HTML inspection and within-text search.",
+        "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+        "trigger": "Plausible source of the one-disk top mode, optimal bound and multi-component consequences."
+      },
+      {
+        "assessment": "A global quantitative stability theorem, not an exponentially sharp split for a fixed non-optimal disconnected mask.",
+        "evidence": [
+          "Theorem 1.1 controls global deficit and Fraenkel asymmetry; Corollary 1.4 controls the top eigenfunction from near-global equality."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00222-024-01248-2",
+        "material_read": "Primary open-access HTML, Theorem 1.1, Corollary 1.4, relevant discussion of eigenvalues and optimizer, and searches for far-apart and disjoint two-ball shapes.",
+        "method": "Primary full-text focused inspection and within-document search.",
+        "title": "Stability of the Faber–Krahn inequality for the short-time Fourier transform",
+        "trigger": "Potential stronger 2024 stability or near-extremizer coverage."
+      },
+      {
+        "assessment": "Uniform norm bound for general nonradial Fock symbols; no eigenvalue splitting or parity-resolved eigenvectors.",
+        "evidence": [
+          "Theorem 3 is a bound depending on L1 and L∞ norms only, while the target splitting depends on center distance d."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.11147v1",
+        "material_read": "Complete short primary article HTML (203 lines), Theorem 3, Lemma 5 and proof.",
+        "method": "Primary article inspection.",
+        "title": "Norm bounds for self-adjoint Toeplitz operators with non-radial symbols on the Fock space",
+        "trigger": "Plausible exact nonradial coverage of union-of-disks Toeplitz symbols."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0351362e-84ab-413f-9443-2ba013d7fea2",
+  "value": {
+    "rationale": "Two disjoint observation apertures represent a natural two-channel concentration problem with nearly degenerate localized coherent states; neither a single-disk norm nor a global mask-size inequality quantifies the conditioning of the resulting two-dimensional top spectral space. The exact exponential tunneling coefficient, parity-resolved signals and residual spectral gap together determine the mode ambiguity and its separation dependence. The statement is a structural fixed-area asymptotic, not a minor numerical constant or arbitrary finite experiment.",
+    "status": "PASS"
+  }
+}
