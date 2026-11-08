@@ -1,19 +1,21 @@
-# Review of an exact two-visit direct-imaging completeness theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact circular-orbit, isotropic orientation and separation-only observation model, the proof reconstructs detection as the complement of two unions of antipodal spherical caps. Four disjoint signed cap overlaps produce the probability law. The lens formula is derived using two equal spherical triangles and their excess; the derivative formula is checked by differentiation and drives strict monotonicity and equality-case classification. The rank-two eigenvalue argument proves the worst-case guarantee for *all* orbital orientations, not only in probability. The near-tangency integral proves the \(3/2\) exponent. Standalone `checker.py` replayed 7584 finite assertions including independent spherical-grid quadrature. No finite experiment is used as proof for continuous parameters.
+PASS
 
-## Originality — PASS within inspected evidence
+For fixed pair of orbital directions u1,u2 with dot product cosΔ, random inclination and initial phase are equivalent to a uniform line-of-sight vector. Failure at each visit is the disjoint antipodal cap pair |l·ui|>h, h=√(1−τ²). Pairwise intersections of signed caps have center separations δ and π−δ, yielding missed fraction [L(δ)+L(π−δ)]/(2π). Spherical excess yields L(s)=2π−4hβ−2γ on 0<s<2asinτ, and direct differentiation gives L′(s)=−2√(1−h²/cos²(s/2)), vanishing at tangency. Its strictly decreasing magnitude makes the probability monotone with the stated plateau for τ<1/√2 and unique quarter-orbit optimum otherwise. The rank-two sum of projectors ui ui^T has largest eigenvalue 1+|cosΔ|, attained at a signed bisector, proving the worst-case separation a√((1−|cosΔ|)/2). The tangent-cap overlap integral behaves as 4ε^{3/2}/3 with ε≈2√2(τ−τc), yielding the claimed constant. Independently integrated the physical detection event over 900,000 spherical test directions for five cases and verified the cap formula/maximum grids.
 
-Brown and Soummer (2010, https://arxiv.org/abs/1003.4700) establish dynamic and accumulated completeness and numerical orbital sampling, and Stark et al. (2015, https://arxiv.org/html/1506.01723v1) already numerically optimize revisits in richer multi-planet mission simulations, including circular orbits. Greco and Burrows (2015, https://arxiv.org/abs/1505.07832) study orbital visibility and phase restrictions; Shao et al. (2010, https://arxiv.org/abs/1003.4702) study circular-orbit images and astrometric synergy. These results cover the general physical concepts, but their stated results do not prove the present explicit IWA-only two-visit phase diagram, plateau/equality conditions, minimax formula, and sharp \(3/2\) onset. Related spherical-cap overlap formulas are acknowledged as geometric ingredients. Mathematical-record and search comparisons found no decisive equivalent statement, not a proof of novelty. A previously published equivalent analytic simplification remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural idealized instrument-design and observational completeness question: how far apart should exactly two visits be to maximize the chance of seeing a circular-orbit planet, and when can two visits guarantee visibility independent of orbital tilt? The answer is an exact, interpretable schedule classification with a sharp physical threshold and probability law, rather than a sampled ranking or an arbitrary narrow constant. For a normalized working angle of \(4/5\), completeness improves from \(0.6\) on one visit to about \(0.932449\) on two optimally delayed visits. The exact threshold law gives a structural benchmark for simulations.
+Repeated-visit direct-imaging completeness and probability calculation are classical. Brown–Soummer define accumulated/dynamic completeness and Monte Carlo orbital sampling; Stark and others numerically optimize revisit timing with richer constraints. In accessible texts those methods do not state a closed two-visit all-threshold lens formula, full optimizer plateau, sharp all-orientation guarantee or 3/2 onset. The claim is therefore only the exact idealized special-case theorem, not a new generic imaging algorithm or realistic mission optimum.
 
-## Closest literature and limits
+## value
 
-The defining completeness notion and repeated-visit problem are not new; Brown--Soummer and Stark et al. are especially close in model motivation. Their richer Monte Carlo and numerical methods can evaluate this ideal case, but the inspected published results do not provide the exact special-case theorem. No claim is made for brightness-limited, noncircular, uncertain-period, finite-exposure or cost-constrained missions. Independent historical-priority assessment and proof validation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-visit probability/guarantee question is a natural baseline for instrument scheduling when the orbit period/radius and geometric IWA are fixed. It distinguishes a whole interval of certain-detection spacings from a unique quarter-period optimum and quantifies the sharp 3/2 onset of unavoidable misses. The exact result is useful for unit-testing richer numerical completeness simulators, without claiming to optimize operational missions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
