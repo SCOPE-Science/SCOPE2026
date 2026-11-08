@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The programs `verify_cycle11.py` and `independent_check.py`, with data `cycle11_certificate.json`, are standalone Python checks. Both were executed from the delivered project directory, without external datasets or third-party packages.
+# Independent mathematical audit
 
-The first performs exhaustive enumeration of all vertex subsets for cycles of orders three through eleven, checks the private-neighbor minimality criterion, verifies exact VC dimensions for those finite orders, enumerates all \(462\) five-query supports of the eleven-cycle, checks a four-query shattering support, and replays a complete depth-five query tree. The second independently defines minimality by single-vertex removal, evaluates the exact adaptive version-space recurrence, and reconstructs the full five-query spectrum and the tree witness validity.
+## correctness
 
-The universal product statements are deduced mathematically from componentwise minimality, the additivity of VC dimension and Littlestone dimension on disjoint-domain products, and vertex transitivity of equal-length cycle unions. The programs do not independently certify the product lemma for every multiplicity, nor do they decide arbitrary connected cycle sizes beyond eleven.
+PASS
 
-Expected final markers:
+Minimal dominating set enumeration was independently implemented from the literal dominate-after-removal predicate on every 2^n vertex subset. For C11 it gives 44 hypotheses and a complete five-query trace histogram over all binom(11,5)=462 supports with maximum 29, excluding VC=5. The source four-query witness and full 32-leaf depth-five tree cover lower bounds; 44<64 excludes depth six. Independently recalculated the full n=3..11 sequence: VC and Ldim agree at (1,2,2,2,3,3,4,4) through C10, then (4,5) at C11. Disjoint-union minimal dominating sets factor, giving VC and Littlestone additivity by product and independent mistake bounds; automorphisms of m disjoint identical cycles are vertex-transitive. Computation proves finite base cases, product proof proves all m.
 
-`ALL_CYCLE11_MINIMAL_DOMINATION_CHECKS_PASS`
+## originality
 
-`ALL_INDEPENDENT_CYCLE11_CHECKS_PASS`
+PASS
 
-Self-review only; independent scientific audit has not been performed.
+Couturier et al. primary 2013 full paper establishes minimal dominating set enumeration, private-neighbor criterion and component factorization (Observation 1), but not the VC/Littlestone measures or C11 trace histogram. Bhaskar thicket and Malliaris–Moran online-learning frameworks contain general definitions, not the claimed finite cycle spectrum. Published SCOPE cover-free path/cycle numbers concern another invariant, while path minimal-domination and cycle maximal-independent hypothesis classes are different. Thus known general theory does not imply first gap, adaptive tree, or trace distribution.
+
+## value
+
+PASS
+
+A first graph-size gap for a natural canonical domination concept class, together with a vertex-transitive 2-regular unbounded additive amplification, provides a motivated structural learning-theoretic phenomenon rather than arbitrary finite cataloguing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
