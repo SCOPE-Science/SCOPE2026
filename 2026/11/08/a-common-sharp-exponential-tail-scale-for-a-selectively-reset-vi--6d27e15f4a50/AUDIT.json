@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact propagator and covariance verified from the drift matrix; the bath at Poisson epochs is a strictly contractive affine Gaussian recursion with a unique stationary perpetuity. Gaussian innovation exponential moments have sharp threshold sqrt(r(gamma+1)); a cosh Foster inequality proves finite bath moments below threshold. Stationary Poisson age mixing gives the same threshold for the reset tracer, with divergence at the endpoint. Chernoff and a long reset-free interval with bounded initial bath provide matching logarithmic tail exponents for both coordinates. Proof does not infer infinite tails from finite tests; extracted numerical verifier independently passed 387 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2412.09260 §III expressly requires restarting the full GLE memory to use renewal.",
+        "https://arxiv.org/abs/2205.03363 §II product law and Laplace sum for scalar proportional reset.",
+        "https://arxiv.org/html/2603.17027v1 §III.3 identifies no closed distribution at finite parameters and uses a large-γ timescale approximation."
+      ],
+      "reasoning": "Full-renewal GLE calculations cannot directly handle the unreset bath mark. Scalar proportional-reset Brownian diffusion has a product characteristic function, but no bath-coupled generator or exact parameter sqrt(r(gamma+1)). The same-source second/fourth moments are lower-order observables, not a stronger tail theorem.",
+      "searches": [
+        "partial stochastic resetting coupled overdamped Langevin Gaussian particles stationary exponential tails reset only one coordinate",
+        "partial reset coupled Brownian viscous environment stationary tracer large displacement tails finite bath relaxation exponential Gaussian crossover",
+        "Biswas Dubbeldam Sandev Pal 2025 resetting viscoelastic bath arxiv:2412.09260",
+        "Tal-Friedman Roichman Reuveni 2022 diffusion with partial resetting arxiv:2205.03363"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.17027v1",
+      "https://arxiv.org/abs/2412.09260",
+      "https://arxiv.org/abs/2205.03363",
+      "https://doi.org/10.1103/PhysRevLett.106.160601"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2603.17027v1 (11),(14),(19),(28),App.A: partial reset model, low moments, quasistatic large-friction mixture.",
+        "https://arxiv.org/abs/2412.09260 §III: full memory renewal is a distinct process.",
+        "https://arxiv.org/abs/2205.03363 §II: Brownian proportional reset solved by independent Laplace convolution."
+      ],
+      "reasoning": "The new statement is neither identical to the large-γ Gaussian mixture nor implied by finitely many stationary moments: moment data cannot determine a moment-generating-function convergence boundary. An exact finite-γ logarithmic tail rate for both coordinates requires the affine retained-bath Markov recursion and a matching long-unreset-flight argument. A scalar model with a Laplace tail gives useful precedent but does not yield this precise coupled-model rate.",
+      "searches": [
+        "Santra Das 2026 viscoelastic bath partial resetting tracer only no Gaussian tails at any finite bath friction long-reset-free intervals exponential lower bound singular noncommuting limits",
+        "viscoelastic bath stochastic resetting tracer only finite gamma exponential stationary tails large deviations",
+        "arxiv:2603.17027v1 Sec. III.3 Gaussian tails strong memory",
+        "arxiv:2412.09260 Sec. III renewal kernel reset",
+        "arxiv:2205.03363 Sec. II partial Brownian scaling",
+        "prior same-model kurtosis scientific claim f3ae0a97-dc36-4c6d-8dcf-32a23b1e21b7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2603.17027v1 §§II,III.2–III.3 and App.A: exact selective-reset generator, second/fourth moments and quasistatic density, but no finite-parameter moment domain or logarithmic tail exponent.",
+        "https://arxiv.org/abs/2205.03363 §II: diffusion in one coordinate with x->a x rather than a retained independent bath."
+      ],
+      "reasoning": "Equivalent formulations considered: exponential-moment radius, Laplace-transform abscissa, logarithmic spatial tail length, coupled Gaussian reset perpetuity, two-coordinate selective resetting. The exact model is in Santra–Das but the compared sections give moments and a singular large-memory approximation, not a complete finite-parameter mgf domain. The scalar proportional reset is structurally different.",
+      "searches": [
+        "arxiv 2603.17027 exact exponential tails mgf radius retained bath two coupled diffusion selective Poisson reset finite gamma",
+        "large displacement stationary distribution two coupled Brownian particles x reset q unchanged critical tail rate sqrt r gamma plus 1",
+        "Santra Das 2026 viscoelastic bath partial resetting tracer only no Gaussian tails at any finite bath friction long-reset-free intervals exponential lower bound singular noncommuting limits",
+        "viscoelastic resetting single bath particle tracer stationary exact exponential tail rate sqrt r gamma tail asymptotic",
+        "arxiv:2603.17027v1 sections II, III.2, III.3, appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual nearest indexed IDs included 2026/9/19/SCOPE-endpoint-gamma-localization-poisson-laguerre-inradii--28a16606f392, 2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95, 2026/10/4/SCOPE-fourth-moment-universality-between-real-gaussian-hafnians-and-pf--ccb34ddb925d; their retrieved summaries concern Poisson–Laguerre geometry, hybrid oscillator correlation, and Gaussian hafnian fourth moments, not the coupled selective-reset bath.",
+        "The accessible earlier same-model scientific claim classified the stationary kurtosis monotonicity threshold, not convergence of all exponential moments."
+      ],
+      "reasoning": "No exact database/table entry establishing the present common marginal abscissa or spatial logarithmic rate was found. Search incompleteness is not used as proof of novelty; same-model prior work was compared by implication, not just by title.",
+      "searches": [
+        "arxiv 2603.17027 exact exponential tails mgf radius retained bath two coupled diffusion selective Poisson reset finite gamma",
+        "large displacement stationary distribution two coupled Brownian particles x reset q unchanged critical tail rate sqrt r gamma plus 1",
+        "stationary fourth cumulant kurtosis versus far-tail exponential mgf of selectively reset viscoelastic Brownian pair",
+        "Indexed scientific-claim search, queries on finite-gamma selective resetting and moment-generating cutoff",
+        "own prior claim f3ae0a97-dc36-4c6d-8dcf-32a23b1e21b7 (scientific statement only)"
+      ]
+    },
+    "rationale": "The identical 2026 source provides the dynamics and finite moments, not the sharp finite-parameter logarithmic tails. The two closest broader primary works address either full-renewal GLE or scalar proportional resetting; neither derives the coupled retained-bath abscissa. The accessible earlier same-model claim concerns only fourth cumulant monotonicity. Actual indexed-claim semantic searches found no covering statement; priority remains subject to nonindexed literature and independent review.",
+    "residual_risks": [
+      "Full publication-priority coverage cannot be guaranteed by the searchable corpus; independent field review has not been performed.",
+      "General random-affine perpetuity and Brownian-reset tail tools are known, so methodological components are not claimed new.",
+      "The source studies a large-memory Gaussian profile; extreme-tail nonuniformity must be interpreted at fixed finite gamma, not as a refutation of the limiting approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the model, covariance and a large-memory Gaussian-mixture approximation. Does not state the exact finite-gamma exponential-moment boundary or log-tail exponent for both coordinates.",
+        "evidence": [
+          "https://arxiv.org/html/2603.17027v1 eqs. (2),(7),(9),(11),(19),(26)–(29), Appendix A and conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+        "material_read": "Full HTML: model equations in Sec. II; Sec. III.1–III.3 stationary generator, covariance, asymptotic profiles; Appendix A fourth-moment expression; conclusions.",
+        "method": "Read equations and explanatory paragraphs, compared exact quantifiers and the fixed-gamma vs quasistatic gamma-to-infinity limit.",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Identical selective-reset two-coordinate viscoelastic model; source could already contain the requested finite-parameter tail law."
+      },
+      {
+        "assessment": "Assumes resetting the entire memory state for renewal; this differs from selective probe-only resetting and has no asserted finite-gamma two-coordinate tail scale.",
+        "evidence": [
+          "https://arxiv.org/abs/2412.09260 Sec. III, paragraph requiring full reset of dynamics/memory."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+        "material_read": "Full-text Sec. II covariance and Sec. III renewal discussion, including its explicit assumption that the entire memory dynamics is restarted.",
+        "method": "Read primary article text and compared resetting state and renewal property.",
+        "title": "A resetting particle embedded in a viscoelastic bath",
+        "trigger": "Plausibly broader GLE reset paper in the same physical setting."
+      },
+      {
+        "assessment": "Analytical principle is relevant but not a theorem about the viscoelastic two-coordinate model; not covering the parameter-exact result.",
+        "evidence": [
+          "https://arxiv.org/abs/2205.03363 Sec. II, equations (1)–(13)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+        "material_read": "Full text Sec. II, including reset map (1), stationary characteristic-function product (5), Laplace sum (6), kurtosis and Gaussian limit.",
+        "method": "Compared scalar reset x→a x to a coupled system retaining a separately diffusing bath coordinate.",
+        "title": "Diffusion with Partial Resetting",
+        "trigger": "General partial-resetting result could dominate any exponential-tail calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6d27e15f-4a50-4517-b195-1fd7a1e1365e",
+  "value": {
+    "rationale": "For the same physically motivated selective-probe reset with a memory-retaining bath, the exact tail scale of both coordinates at finite bath friction is a natural rare-event observable unprovided by the parent mean-square/kurtosis analysis. It shows that large-friction Gaussian-looking central profiles hide exponential extreme tails at any finite friction, and supplies a parameter-exact decay length relevant to extreme excursion estimates. This is not a low-order normalization check or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
