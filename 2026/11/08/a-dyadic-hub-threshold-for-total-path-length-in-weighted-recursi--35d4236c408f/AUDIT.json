@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Stepwise proof: insertion-depth PGF gives exact mean and second moments; conditional parent-centered innovation xi_j has variance v_j; the orthogonal expansion T_n-ET_n=sum_j[1+(n-j)p_j]xi_j yields exact normalized variance. For beta<1, hub probabilities squared are geometrically summable and weighted depth second moments are O(log² j), yielding a convergent nonzero martingale and centered n-scaled L²/a.s. limit; cumulative weight perturbations give absolutely summable mean corrections. For beta>=1, each dyadic arrival assigns uniformly positive conditional mass to two distinct earlier hubs whose expected depths differ uniformly; Jensen then forces a positive contribution to normalized variance at every dyadic time, at least logarithmically many. Exact rational checker passed 1602 assertions; finite checks supplement but do not prove the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sénizergues (arXiv:1904.07115) assumes polynomial-precision cumulative-weight growth and supplies a stronger framework potentially covering the beta<1 side; that positive convergence is explicitly not the standalone novelty.",
+        "For beta>=1, W_j has persistent macroscopic jumps at dyadic hubs, precluding polynomial-precision regular variation with the needed shrinking relative error.",
+        "Gałązka-Wdowicka require p_j=O(1/j), whereas p_{2^k} remains bounded away from zero at beta>=1."
+      ],
+      "reasoning": "The more general-looking existing conditions do not imply the full claimed sharp boundary. Where 2019 theory likely dominates the positive regime, the finding explicitly excludes that side from independent priority. The negative logarithmic variance bound is separate and requires lower-bounding martingale innovations at each hub.",
+      "searches": [
+        "nonuniform random recursive trees deterministic weights linear variance divergent total path length irregular weight sequence",
+        "weighted random recursive tree total depth martingale variance infinite sudden mass bursts convergence",
+        "Dyadic spike weighted random recursive trees weights at powers of two, exact threshold beta=1 for total path length n-scaled variance divergence logarithmic and martingale convergence",
+        "arXiv:1904.07115 polynomial cumulative-weight regularity",
+        "arXiv:1810.02735 weighted recursive tree memory"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00614 (relevant full text material)",
+      "arXiv:1904.07115 (relevant full text material)",
+      "arXiv:1810.02735 (abstract only)",
+      "doi:10.1017/S0269964807000058 (abstract only)",
+      "published-finding corpus, six semantic searches listed in named checks; closest IDs 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba, 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f, 2026/10/4/SCOPE-squared-root-imbalance-has-an-exact-cubic-covariance-with-random--6d69fbada9a9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 sufficient p_j=O(1/j) excludes beta>0 hub subsequences, so it does not prove the full classification even though its identity is used verbatim.",
+        "2019 profile theory plausibly implies portions of convergence under beta<1 but its regularity hypotheses are not met by persistent high hubs for beta>=1.",
+        "The 2007 paper is a plausible general weighted-path-length comparison but only its abstract was accessible; absence of the stronger theorem is not asserted."
+      ],
+      "reasoning": "The joint result is not obtained merely by substituting dyadic weights into the 2026 theorem, because the sufficient condition fails even below the new threshold. Its critical and supercritical lower bound uses two independently random earlier depths with positive conditional parent mass at infinitely many hubs. A fully covering but inaccessible general variance theorem is a residual historical risk.",
+      "searches": [
+        "weighted recursive tree with nonregular attachment weights irregular mass bursts; path-length fluctuation convergence criteria and sharp phase change",
+        "nonuniform random recursive trees deterministic weights linear variance divergent total path length irregular weight sequence",
+        "Dyadic spike weighted random recursive trees weights at powers of two, exact threshold beta=1 for total path length n-scaled variance divergence logarithmic and martingale convergence",
+        "arXiv:2610.00614 total path length condition",
+        "arXiv:1904.07115 weighted recursive attachment profile",
+        "Kuba Panholzer weighted path lengths increasing trees 2007"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 primary work gives an exact innovation expansion for arbitrary positive deterministic weights but supplies an L² convergence theorem under p_j=O(1/j), which dyadic hubs with beta>0 violate.",
+        "The same work poses the boundary of sufficient hypotheses for irregular weights as a further direction.",
+        "The dyadic-hub parameter family is a specific independent attachment model, not a renamed uniform recursive tree."
+      ],
+      "reasoning": "The law of total path length, not merely marginal vertex depth, is central. The searched innovation and weight-profile formulations do not assert the supercritical normalized variance logarithmic divergence for geometric spikes, so the new boundary is not an equivalent restatement of a located source.",
+      "searches": [
+        "random recursive tree deterministic attachment weights sparse spikes along dyadic labels; total path length linear-scale martingale limit beyond p_n=O(1/n) and critical spike exponent",
+        "weighted recursive tree with nonregular attachment weights irregular mass bursts; path-length fluctuation convergence criteria and sharp phase change",
+        "dyadic spikes weights w_{2^k}=2^{beta k}, other weights 1, weighted recursive trees fluctuation phase transition beta=1 total path length",
+        "Dyadic spike weighted random recursive trees weights at powers of two, exact threshold beta=1 for total path length n-scaled variance divergence logarithmic and martingale convergence",
+        "weighted recursive tree dyadic spike variance normalized total depth",
+        "arXiv:2610.00614 Sections 5-6 and 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matched a uniform recursive-tree result for forced root attachment and path-length covariance, not the dyadic attachment weight model or its variance threshold.",
+        "A second near neighbor concerns the covariance of root degree and leaf count in uniform recursive trees.",
+        "No exact finite dyadic-hub phase table or equal implication was returned by the six searches."
+      ],
+      "reasoning": "A table or a theorem giving the normalized path-length variance of the identical dyadic-hub family could dominate the claim, but the closest results returned use different random objects or statistics. No missing match is treated as proof of novelty.",
+      "searches": [
+        "random recursive tree deterministic attachment weights sparse spikes along dyadic labels; total path length linear-scale martingale limit beyond p_n=O(1/n) and critical spike exponent",
+        "dyadic spikes weights w_{2^k}=2^{beta k}, other weights 1, weighted recursive trees fluctuation phase transition beta=1 total path length",
+        "Dyadic spike weighted random recursive trees weights at powers of two, exact threshold beta=1 for total path length n-scaled variance divergence logarithmic and martingale convergence",
+        "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ]
+    },
+    "rationale": "The exact innovation identity is prior work and positive-side convergence may be covered by 2019 profile theory. The novelty assessed is the sharp fixed-family exponent boundary, including a proven log n lower bound for Var(T_n)/n² at every beta>=1, contrasted with a finite positive n² variance coefficient for beta<1. A read of relevant primary literature and six published-finding corpus searches did not identify an implication proving this combined boundary. Search absence is not uniqueness; older weighted-path-length treatments and other general variance lower bounds remain historical risks.",
+    "residual_risks": [
+      "2007 general increasing-tree weighted path length full text was inaccessible; possible dominating formulation remains unchecked.",
+      "The broad 2019 weighted tree profile theory likely dominates the beta<1 convergence portion; novelty is not attached to that portion alone.",
+      "A general variance criterion not indexed by the semantic searches could imply the dyadic supercritical lower bound without an exact title match.",
+      "No independent historical-priority or mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains the general innovation tool and a sufficient convergence theorem, but its displayed theorem conditions do not give the dyadic all-exponent variance threshold or the logarithmic supercritical lower bound",
+        "evidence": [
+          "First version posted 2026-09-30 (arXiv:2610.00614v1).",
+          "Section 10 asks for general weight sequences and sharpness of sufficient conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+        "material_read": "Accessible arXiv HTML primary full text including definitions, Sections 5–8 path-length martingale and limit proofs, and Section 10 open questions",
+        "method": "Compared assumptions p_j=O(1/j), the innovation identity, the finite-variance theorem, and the stated follow-up question to the dyadic-hub discontinuous weight family",
+        "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+        "trigger": "Exact same object, general deterministic weights, total path length; explicit irregular weight open direction"
+      },
+      {
+        "assessment": "Positive regime may be subsumed by the general theory; critical/supercritical regime has persistent macroscopic jumps outside its regularity hypothesis",
+        "evidence": [
+          "Polynomial-precision cumulative-weight conditions apply when beta<1.",
+          "Relative mass of each new hub stays positive for beta>=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.07115",
+        "material_read": "Primary work sections on weighted recursive trees, cumulative-weight regularity assumptions and profile asymptotics",
+        "method": "Matched W_j = j(1+O(j^{beta-1})) for beta<1; checked high-hub jumps at beta>=1 against polynomially regular cumulative weight hypotheses",
+        "title": "Geometry of weighted recursive and affine preferential attachment trees",
+        "trigger": "Potential stronger general asymptotic profile result for deterministic weight sequences"
+      },
+      {
+        "assessment": "Insufficient full-text evidence to exclude every result; distinct stated primary observable",
+        "evidence": [
+          "Available abstract concerns preferential-relocation random walks and a recursive-tree representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.02735",
+        "material_read": "Public abstract and bibliographic metadata only",
+        "method": "Screened scope and objects; no full-document exclusion concluded",
+        "title": "Random walks with preferential relocations and fading memory: a study through random recursive trees",
+        "trigger": "General weighted recursive tree representations in a different stochastic process"
+      },
+      {
+        "assessment": "Not classified as NOT_COVERING; explicit historical-priority risk retained",
+        "evidence": [
+          "Journal publication 2007, Probability in the Engineering and Informational Sciences 21, 419–433.",
+          "Full-text institutional retrieval was unavailable."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0269964807000058",
+        "material_read": "Abstract and bibliographic information only; full text not obtained from open routes",
+        "method": "Compared abstract-level model and statistic; attempted lawful institutional full-text request after open routes failed, access not available",
+        "title": "On Weighted Path Lengths and Distances in Increasing Trees",
+        "trigger": "Plausibly broader exact weighted path-length formulas in increasing trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35d4236c-408f-4653-964c-5703026a4316",
+  "value": {
+    "rationale": "The 2026 motivating work explicitly seeks conditions beyond p_j=O(1/j). Geometrically sparse hubs model a natural borderline between negligible cumulated mass and persistent macroscopic attachment preference. Exact sharp exponent beta=1 separates a finite positive normalized path-length variance with an L² limit from at least logarithmically divergent normalized variance. This is an all-n structural phase boundary for a naturally defined family, not a small numerical increment or the already-known positive-regime convergence result.",
+    "status": "PASS"
+  }
+}
