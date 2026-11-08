@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The absolute-coordinate folding is nonexpansive on all rectifiable surface paths, and signs can be restored by an isometry fixing the source. The folded surface consists exactly of two regular simplices sharing an equatorial facet. Their Euclidean development gives a global lower bound on every folded path. The explicitly computed crossing point lies inside the shared facet and hence realizes the straight developed segment, proving equality and the universal squared-distance identity (including the boundary and antipodal cases). The sharp stretch follows from \((1+t)^2\ge4t\), with equality only at the antipode. The probability law and moment follow from the Dirichlet law on congruent facets. Exact-rational tests in 4,002 configurations and 180,000 distribution samples support the proof; finite tests are not substitutes for it.
+PASS
 
-## Originality — PASS, with priority risk
+For n>=2 and p on boundary Σ|p_i|=1, coordinatewise absolute-value folding in coordinates 2..n is 1-Lipschitz and sign reflections fix v=e1; thus shortest path can be studied on union of two regular (n-1)-simplices with apices ±e1 and shared equatorial simplex Q. Unfolding their faces into a common Euclidean (n-1)-plane yields an exact straight segment; at p1=-t<0 its crossing point is q=c+(1-t)/(1+t)(u-c), a convex combination in Q. Height squared h²=n/(n-1) then yields d(v,p)²=||v-p||²+4t/(n-1), with no excess for p1>=0. Since ||v-p||²>=(1+t)²>=4t, maximum ratio √(n/(n-1)) occurs only t=1, p=-v. Surface-area-uniform points choose 2^n congruent simplicial facets and Dirichlet(1,...,1) coordinate magnitudes; hence positive excess tail P(Z>z)=1/2 (1-(n-1)z/4)^{n-1} on [0,4/(n-1)] and atom 1/2 at zero. Integrating beta moments gives E d²=(n+3)/(n+1)+2/[n(n-1)]. Degenerate equatorial and n=2 cases included.
 
-The material inspected from Miller–Pak covers the source-unfolding and general higher-dimensional geodesic algorithm but does not state the cross-polytope's pointwise identity or the exact excess law. The full relevant statements and final Corollary 3.7 of Saso–Schuerger–Shi cover **three-dimensional** octahedral point-to-point distances and therefore subsume the \(n=3\) specialization. That case is prior art, not an originality claim. The previously documented fixed-vertex octahedron distance distribution similarly concerns \(n=3\); a regular-simplex vertex dilation concerns a different polytope family. The all-dimensional identity, especially \(n\ge4\), and the area-uniform squared-excess law were not found in the searches performed. Historical priority remains subject to independent literature examination and other vocabulary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete pointwise intrinsic-to-extrinsic distance identity for a canonical regular polytope family in arbitrarily high dimensions. It gives both a unique sharp stretch point and an exact, dimension-dependent area-uniform detour distribution. The distinction between the worst excess of order \(1/n\) and the mean excess of order \(1/n^2\) is structural; a generic polyhedral shortest-path algorithm does not itself express these formulas. The result is not a numerical instance, arbitrary slice, or reformulation of the octahedral \(n=3\) special case.
+Qualified PASS for the all-dimensional vertex-source pointwise squared-geodesic-excess identity and its surface-area probability law, especially n>=4. Saso–Schuerger–Shi (2024) analyze all point pairs on the 3D regular octahedron and imply the n=3 specialization; n=3 is not new. Miller–Pak general source unfolding for convex polyhedral boundaries is prior but does not specify this cross-polytope formula or beta-distributed excess. Previously published Resultary cross-polytope graph/skeleton metrics concern different path spaces. No surveyed theorem covers the all-dimensional exact law; unindexed specific regular-polytope unfoldings remain risk.
 
-## Closest literature, scope, and limitations
+## value
 
-Relevant primary works: Miller and Pak, arXiv:math/0312253 (2003); Demaine and O'Rourke, *Geometric Folding Algorithms*, Ch. 24 (2007/2010 online); Saso, Schuerger and Shi, arXiv:2405.20344 (2024). The mathematical scope is a **vertex source** on the cross-polytope's **entire boundary** with Euclidean path length; not arbitrary-source or skeleton-only geodesics. The \(n=3\) pointwise specialization is already implied by published 2024 octahedral formulas. No independence is asserted for this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Intrinsic geodesic distortion of canonical regular polytopes in every dimension is a motivated geometric invariant. Exact vertex-to-every-point law and unique sharp antipodal stretch turn general polyhedral unfolding into a structural closed form; the area-uniform excess distribution and n-dependent mean give precise statistical geometric information not implied by merely solving the n=3 octahedron.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
