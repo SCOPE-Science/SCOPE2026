@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:55:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PO is equivalent to assigning each good to an approver: otherwise transfer to an approver gives Pareto improvement; supported allocations maximize sum utility. Under binary values and supported assignments, EQX is exactly max_i u_i-min_i u_i<=1, which implies EFX by removing an approved good from any holder’s bundle. Because each agent approves two goods, utilities are 0,1,2; the range condition implies a matching saturates either all agents (u>=1) or all goods (u<=1), and such matchings construct the allocation. Edge-to-vertex injections exist in a connected multigraph iff e<=v (tree/unicyclic orientations); vertex-to-edge injections iff e>=v (spanning unicyclic subgraph). Thus mixed e<v and e>v components are the sole obstruction. Lower bounds four multigraph agents and six simple-edge agents follow from minimum multicyclic component edge count plus separate tree; explicit witnesses attain them. Independent enumerator tested all 1296 ordered four-edge profiles using four goods against all supported allocations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freeman et al 2019 Theorem 4 and Remark 3, accessible primary full text"
+        ],
+        "reasoning": "Freeman et al prove general binary EQ1+EF1+PO existence testing/construction and note implications for up-to-any-item variants; thus the generic algorithmic feasibility question is not novel. Their general algorithm does not explicitly state the iff cycle-rank condition or sharp degree-two 4/6-agent thresholds; a general decision procedure does not automatically give these particular structural formulas.",
+        "searches": [
+          "Resultary semantic query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank; primary sources: Freeman et al 2019 Theorem 4 and Remark 3, accessible primary full text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen fair RESULT.md, verify.py; all 1296 labeled four-agent/four-good profiles independently checked",
+        "Freeman et al 2019 IJCAI Theorem 4 (https://ijcai.org/proceedings/2019/40)",
+        "Hosseini et al arXiv:2608.26410 abstract",
+        "Resultary query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2608.26410 abstract",
+          "arXiv:1905.10656 and IJCAI 2019 Theorem 4"
+        ],
+        "reasoning": "Hosseini et al 2026 address combined envy/equitability with normalized binary goods but the indexed abstract does not establish the exact PO-constrained two-approvals matching criterion. Freeman 2019 implies some form of computational feasibility for this special subclass, but not visibly the exact multigraph component obstruction. Full Hosseini text was inaccessible; it remains a real risk, not a claim of whole-paper noncoverage.",
+        "searches": [
+          "Resultary semantic query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank; primary sources: arXiv:2608.26410 abstract, arXiv:1905.10656 and IJCAI 2019 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freeman–Sikdar–Vaish–Xia IJCAI 2019 Theorem 4/Remark 3",
+          "Frozen RESULT.md matching reduction"
+        ],
+        "reasoning": "EQX/EQ1 coincide under supported binary bundles, and EQX+PO implies EFX in this restricted setting. The existence condition is equivalent to a matching saturating the smaller side of the bipartite approval incidence graph, and to pseudoforest versus no-tree component signatures in the approval multigraph.",
+        "searches": [
+          "Resultary semantic query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank; primary sources: Freeman–Sikdar–Vaish–Xia IJCAI 2019 Theorem 4/Remark 3, Frozen RESULT.md matching reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive 1296 labeled four-edge profiles",
+          "Frozen verify.py canonical 7,87,1657 profiles; Resultary query binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank"
+        ],
+        "reasoning": "The exact failure counts for small two-approval profiles were checked against explicit allocation enumeration; the claim is not a numerical lookup, and no relevant prior enumerative table was found in the inspected Freeman general binary paper. A dedicated unindexed restricted-goods table could alter priority.",
+        "searches": [
+          "Resultary semantic query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank; primary sources: Independent exhaustive 1296 labeled four-edge profiles, Frozen verify.py canonical 7,87,1657 profiles; Resultary query binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final result is retained after direct scope/implication comparisons and meaningful reading, with identified prior machinery and explicit inaccessible-source risks. No failed search is treated as a novelty proof.",
+      "residual_risks": [
+        "Hosseini–Pathak–Xia–Zhang 2026 full paper inaccessible, so a stronger theorem could imply this degree-two restricted structural result.",
+        "A strong general binary fair-division algorithm is already known; do not claim a general feasibility or complexity breakthrough.",
+        "Interpretation depends on EQX removing positively valued goods under supported allocation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General binary polynomial-time algorithm and general implication are credited; no specific multigraph two-approval iff or sharp thresholds in inspected results",
+          "evidence": [
+            "IJCAI 2019 Theorem 4 and Remark 3"
+          ],
+          "identifier_or_url": "https://ijcai.org/proceedings/2019/40",
+          "material_read": "Full accessible conference paper, binary EQ1+EF1+PO theorem and accompanying remark examined",
+          "method": "publisher HTML/full paper",
+          "title": "Equitable Allocations of Indivisible Goods",
+          "trigger": "Strong prior all-binary existence theorem"
+        },
+        {
+          "assessment": "Possible priority coverage unresolved but no direct documented implication; authorized institutional retrieval returned vpn_disconnected",
+          "evidence": [
+            "arXiv:2608.26410v1 (2026-08-26); full-text access risk"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.26410",
+          "material_read": "Arxiv indexed abstract and secondary technical summary only; primary full text unavailable",
+          "method": "arxiv metadata and secondary indexing",
+          "title": "Simultaneous Envy and Equitability Guarantees",
+          "trigger": "Recent same-fairness paper that could dominate restricted class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a graph-theoretic forbidden-component classification, linear-time direct construction and sharp 4-versus-6 agent boundary for a natural restriction of simultaneous efficiency, envy and equitability fairness. The structural cycle-rank explanation goes beyond merely running a known generic fair-division algorithm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen fair RESULT.md, verify.py; all 1296 labeled four-agent/four-good profiles independently checked",
+    "Freeman et al 2019 IJCAI Theorem 4 (https://ijcai.org/proceedings/2019/40)",
+    "Hosseini et al arXiv:2608.26410 abstract",
+    "Resultary query: binary fair division exactly two liked goods each agent PO EFX EQX equitable envy graph multigraph matching cycle rank"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all finite 0/1-goods instances with exactly two approved goods per agent and each good approved, complete PO+EFX+EQX allocation exists iff the approval multigraph has no tree component together with a distinct multicyclic component; equivalently the agent-good incidence graph has a matching saturating its smaller bipartition.",
+  "limitations": [
+    "Additive binary values, each agent exactly two distinct approved goods, every good approved; no claim without PO.",
+    "Independent enumeration tests 1296 labeled small profiles; all-size proof is matching and multigraph structure."
+  ],
+  "residual_risks": [
+    "Hosseini–Pathak–Xia–Zhang 2026 full paper inaccessible, so a stronger theorem could imply this degree-two restricted structural result.",
+    "A strong general binary fair-division algorithm is already known; do not claim a general feasibility or complexity breakthrough.",
+    "Interpretation depends on EQX removing positively valued goods under supported allocation."
+  ],
+  "schema_version": 1
+}

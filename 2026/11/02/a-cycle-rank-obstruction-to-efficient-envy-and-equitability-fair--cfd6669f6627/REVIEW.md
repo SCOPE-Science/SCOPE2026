@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A supported assignment is exactly Pareto optimal; PO+EQX forces all agent utilities into either \(\{0,1\}\) or \(\{1,2\}\), equivalent to a one-side-saturating incidence matching. A connected component of the approval multigraph has an edge-saturating endpoint matching exactly for tree/unicyclic types, and a vertex-saturating endpoint matching exactly for unicyclic/multicyclic types. Explicit six- and four-agent obstructions establish sharpness, and the standalone verifier checks small profiles independently. All quantifiers and definitions are fixed in RESULT.md.
+## correctness
 
-**Originality — PASS, with residual risk.** Freeman et al. (arXiv:1905.10656, Theorem 4) already establish general binary PO+EF1+EQ1 polynomial existence testing and the upgrade to EFX/EQX; these are credited, not counted as original. The new exact tree-versus-multicyclic obstruction and sharp degree-two lower boundaries are not stated by the inspected 2019 source or the accessible 2026 abstract/technical summary. The inaccessible full 2026 paper and differently formulated graph incidence work create genuine residual uncertainty, but no identified statement implies the present exact cycle-rank criterion without new specialized analysis.
+PASS
 
-**Value — PASS.** A natural constant-support, equally normalized binary domain has a complete, easily visualized forbidden-component classification and linear-time constructive explanation of exactly when fairness and efficiency conflict. The smallest bad instances at four agents and six with pairwise distinct approvals provide structural boundary information that is not supplied by the general Nash-welfare decision algorithm. This is not a claim of general algorithmic improvement.
+PO is equivalent to assigning each good to an approver: otherwise transfer to an approver gives Pareto improvement; supported allocations maximize sum utility. Under binary values and supported assignments, EQX is exactly max_i u_i-min_i u_i<=1, which implies EFX by removing an approved good from any holder’s bundle. Because each agent approves two goods, utilities are 0,1,2; the range condition implies a matching saturates either all agents (u>=1) or all goods (u<=1), and such matchings construct the allocation. Edge-to-vertex injections exist in a connected multigraph iff e<=v (tree/unicyclic orientations); vertex-to-edge injections iff e>=v (spanning unicyclic subgraph). Thus mixed e<v and e>v components are the sole obstruction. Lower bounds four multigraph agents and six simple-edge agents follow from minimum multicyclic component edge count plus separate tree; explicit witnesses attain them. Independent enumerator tested all 1296 ordered four-edge profiles using four goods against all supported allocations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final result is retained after direct scope/implication comparisons and meaningful reading, with identified prior machinery and explicit inaccessible-source risks. No failed search is treated as a novelty proof.
+
+## value
+
+PASS
+
+Provides a graph-theoretic forbidden-component classification, linear-time direct construction and sharp 4-versus-6 agent boundary for a natural restriction of simultaneous efficiency, envy and equitability fairness. The structural cycle-rank explanation goes beyond merely running a known generic fair-division algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
