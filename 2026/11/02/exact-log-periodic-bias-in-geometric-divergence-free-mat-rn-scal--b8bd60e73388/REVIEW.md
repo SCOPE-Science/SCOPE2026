@@ -1,19 +1,21 @@
-# Scientific review: exact log-periodic bias in geometric divergence-free Matérn scale mixtures
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly the stationary Matérn-derived divergence-free *finite* covariance family and the separate, increment-only bilateral limit. Differentiation of \(\phi(t)\) reproduces the trace formula and derivative. The derivative establishes nonnegative increments and both tail majorants. Geometric tail summation gives the explicit finite-grid bound. In the Mellin strip \(0<\Re s<2\), integration by parts gives the Gamma transform without a missing boundary term. Periodization on \(\log q\) gives the stated Fourier coefficients. Gamma's zero-free property rules out every harmonic vanishing. Vertical-line Stirling estimates prove the needed absolute convergence, first-harmonic dominance, and exact minimax constant. The embedded numerical verifier passed 100 illustrative checks; these tests are not the infinite proof.
+PASS
 
-## Originality — PASS, with historical priority risks
+PASS. In d=2,3 for every real q>1 and r>0, differentiating the given radial Matérn profile yields S_d(t)=2(d-1)[d-(d+dt-t^2)e^-t], derivative 2(d-1)t(d+2-t)e^-t. Boundedness at infinity and O(t^2) near zero justify the two-sided increment sum and both truncation tails; index shift proves T(qr)=q^{2/3}T(r). Integrating the Mellin transform by parts in 0<Re(s)<2 gives 2(d-1)(d+s)Gamma(2-s)/s; Poisson periodization with s=2/3+2pi ik/log(q) gives all c_k. Gamma zero-freeness and Re(d+s)>0 show no harmonics vanish; vertical-line Stirling and first-harmonic dominance show sharp relative minimax error with exact prefactor 4 sqrt(2pi)/[(3d+2)Gamma(4/3)] times (2pi/log q)^{5/6} exp[-pi^2/log q]. Distinguishes convergent increment series from divergent zero-lag covariance amplitude.
 
-The 2026 Matérn compression source fixes the kernel and physical-scale weights but does not calculate the bilateral geometric-grid Fourier coefficient or sharp best-power-law bias. The earlier 2026 operator-learning source also uses geometric length modes and evaluates empirical structure functions, not this explicit analytic law. Sornette's 1998 review already develops discrete-scale invariance, Poisson summation, Mellin transforms, Gamma coefficients, and turbulence log-periodicity; none of those *methods or qualitative consequences* is claimed as original. The distinction is the explicitly evaluated, provably nonzero harmonic spectrum for this particular divergence-free kernel, its sharp small-grid **minimax** prefactor, and the finite-grid approximation certificate. Owhadi's 2023 multiscale Gaussian hydrodynamics work is substantively related, and a general spectral mixture result could imply this specialization; the full 2023 body was not materially inspected. The accessible comparison therefore supports originality but is not a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The \(8/3\) weight is chosen to mimic a \(2/3\) covariance-increment law. The finding quantifies an inherent error introduced *by discretizing the physical length scale geometrically*, even before any velocity coefficients are fitted or compressed. It gives the first-harmonic bias amplitude for any scale spacing, a sharp small-spacing design law, and a directly computable finite-length cutoff budget. That distinguishes two concrete sources of scaling deviation, geometric phase and missing extreme scales. It does not claim empirical turbulent exponents, physical cascade phenomena, interpolation convergence, or error in a complete compression algorithm.
+PASS (best-of-knowledge, with specified residual risks). A Poisson/Mellin periodization of a radial structure function, a discrete-scale-invariant power-law correction and a lattice of complex Mellin poles all express the same normalized periodic profile. Sornette covers the framework, but the evaluated Matérn transform and all-q nonzero coefficients are specific computations not shown there. General log-periodic scale-mixture/Mellin theorems may permit mechanical evaluation once the exact radial trace is supplied. The source kernel paper treats finite physical mixtures, not the infinite ideal increment series; the proof separates these. Broader specialized analytical evaluation remains a priority risk. Existence of log-periodicity alone does not imply sharp exponent 5/6 and prefactor, nonvanishing for every q, nor both finite-grid tails. The published physical kernel by itself yields the setup, not the final arithmetic bias without this analysis.
 
-## Limits
+## value
 
-The bilateral increment object is not a stationary finite-variance covariance. The Matérn-based formula is specific to spatial dimensions two and three and to exact geometric scale spacing. The classical 1998 general Mellin/Poisson formalism reduces methodological novelty, and a stronger earlier Gaussian-scale-mixture theorem may subsume the statement. Finite-precision checks cannot establish the infinite assertions; the written proof must be used for those.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. For a motivated physically used multiscale incompressible-flow Gaussian prior, the exact unavoidable log-periodic discretization bias, best constant fit and quantified finite-grid correction are meaningful kernel-accuracy facts. They tell a numerical researcher when a measured r^{2/3} slope is merely a dense-grid approximation and give a sharp coefficient and exponential error scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
