@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The mathematical proof uses a complete local word bijection, a four-state weighted transfer, and an exhaustive *symbolic* classification of the occupancy patterns attaining the largest possible cardinality. This is an infinite proof for integer parameters \(m\geq3\), \(n\geq1\), independent of finite experiments.
+# Independent mathematical audit
 
-Run the included `verify_open_packing.py` with Python 3.9 or later (`python3 verify_open_packing.py`). The program needs no third-party packages and uses no network resources. It constructs graph adjacency independently, enumerates all subsets on 16 small graphs, and compares both vertex-count and induced-edge-count coefficients with the transfer polynomial. It then tests the formal-power-series recurrence and maximum coefficients for six clique orders and 27 path lengths, or 162 cases.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK: 16 independent all-subset graph cases; 162 exact recurrence/maximum cases
-```
+For m>=3, same-column distinct picks share a third neighbor; selected columns encode 0 or one row label. Length-two common-neighbor walks force adjacent occupied labels equal and distance-two occupied labels unequal, an exact four-memory-state transfer. Its formal inverse supplies the rational bivariate generating function. The no-111 condition gives k=ceil(2n/3); classifying the 3q,3q+1,3q+2 run/gap patterns proves all maximum-count formulas including n=1,2,3. Independently built literal graph neighborhoods and exhaustively compared all subsets with the four-state enumerator for six small labeled graphs (m,n)=(3,1..5),(4,3). Those finite results corroborate, not prove, the symbolic all-parameter identity.
 
-The tested finite ranges are not an exhaustive check of the infinite family. Source comparisons do not certify worldwide publication priority. Independent audit has not been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS only for the bivariate full enumerator and labeled residue-dependent maximizer counts, not for the known scalar open-packing number. The Cartesian result of Mojdeh et al. bounds rho^o by alpha_2 and proves sharpness for relevant path factors (Theorem 3.4), but does not enumerate size/induced-edge coefficients. The common-neighbor independent-set reinterpretation alone does not supply the new polynomial; no matched table appeared in a targeted published-record search.
+
+## value
+
+PASS
+
+Open packings are the natural independent sets of the common-neighbor graph. The full two-parameter Q(x,y) enumerates each size and induced matching-edge count, refining a known optimum. Its exact n-mod-3 maximizer multiplicities and finite-width transfer provide a reusable combinatorial benchmark rather than a merely restated scalar bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
