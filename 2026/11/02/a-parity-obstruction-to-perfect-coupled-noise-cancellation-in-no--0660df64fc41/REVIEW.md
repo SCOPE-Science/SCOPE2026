@@ -1,11 +1,21 @@
-# Review of the coupled-noise extragradient parity theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** Direct substitution yields the affine recursion. For normal matrices the finite-horizon controllability Gramian commutes with the polar factor and positive polar modulus. Scalar Cauchy--Schwarz bounds on each joint Gaussian marginal coordinate are attained simultaneously by exactly one coupling, including among non-jointly-Gaussian couplings. Geometric weights give the stationary formula. The identity \(p(e^{i\theta})=e^{i\theta}(2\cos\theta-1)\), together with the real orthogonal eigenvalue parity constraint, proves the sharp odd/even boundary. Conditioning on the first noise removes the cross term, demonstrating that ordinary conditional oracle unbiasedness forbids this improvement. A standalone verifier produced 915 finite checks; infinity/all-dimension conclusions are analytical rather than extrapolations from tests.
+## correctness
 
-**Originality: PASS, qualified.** Actual indexed mathematical-record searches on Gaussian polar/noise coupling, extragradient conditional unbiasedness and parity found no direct equivalent. Accessible own finding claims on multiplicative two-call sampling and same-sample affine skew models do not imply the asserted additive isotropic polar factor, conditional-oracle boundary or parity. Full-text inspection of arXiv:2306.16502v1 and arXiv:2111.08611v3 identified the related but distinct ordinary SEG oracle formulations and ergodic/convergence claims. Classical Gaussian optimal transport and orthogonal Procrustes already implies an alignment sublemma, which is explicitly treated as known rather than a new result. The new claim is the exact extragradient-specific spectral and stable-cancellation classification; priority remains subject to external expert review.
+PASS
 
-**Value: PASS.** Two-query randomization design raises the nontrivial question of whether common randomness can suppress the stationary noise floor while preserving both marginal error laws. The theorem provides a complete answer for normal positive-stable linear systems, including a strict **information-contract boundary** between marginal and adaptive-conditional unbiasedness, a non-obvious even/odd obstruction to stable perfect cancellation and a fully computable Gaussian benchmark. No claim of a general-purpose conditional-unbiased oracle algorithm is made.
+Substitution gives x_{k+1}=p(eta M)x_k+eta(eta M xi-zeta). For real normal M, polar M=QH, T=p(eta M), W_n=Σ(T^k)^T T^k commute; each scalar covariance between xi_j and Q^T zeta_j is <=sigma^2, equality forces coordinate equality a.s., so unique coupling zeta=Qxi even among non-Gaussian joints. Spectral weights give exact n and stationary contraction formulas. Zero stationary noise requires eta H=I, hence M=rQ. For orthogonal mode e^{iθ} with cosθ>0, |p(e^{iθ})|=|2cosθ-1|<1 iff cosθ<1; an odd real orthogonal matrix must have +1 or -1, monotonicity excludes -1; rotations supply all even dimensions. Conditional unbiasedness E[zeta|xi]=0 eliminates cross term. Independent 3 direct computations corroborated the analytical argument.
 
-**Closest literature and residual risks:** Vlatakis-Gkaragkounis et al. (2023) supplies constant-step SEG Markov-chain motivation; Gorbunov et al. (2021/2022) supplies the same-/independent-sample contrast; Procrustes/Gaussian optimal transport is prior coverage of an alignment ingredient. The model uses controllable additive joint noise and a known normal matrix, and its optimal pairing is generally adaptively conditionally biased. Earlier specialized Gaussian coupling and stochastic linear-iteration work may contain an equivalent corollary; publication-priority certainty is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gaussian OT/Procrustes polar alignment is classical; the claim assessed is its exact normal-extragradient finite/stationary reduction, unique unrestricted coupling and stable parity information boundary, not invention of Gaussian covariance alignment.
+
+## value
+
+PASS
+
+Two-query stochastic algorithm design poses a meaningful information-contract question: perfect cancellation under separately Gaussian marginals need not respect conditional oracle unbiasedness. The uniquely optimal polar coupling, full weighted error and even/odd stable-cancellation obstruction are nontrivial and natural, while no claim of standard conditional-unbiased stochastic gradient improvement is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
