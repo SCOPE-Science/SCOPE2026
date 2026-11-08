@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For all integer t>=1 and real r>=1, the proof directly establishes fPO by crossed fractional exchanges and global positive-weighted-sum optimality. The EFX constraint reduces to a single exact bound on a labeled subset size. Symmetric family inclusion-exclusion, r=1 exact balance, precise jump equalities, and Stirling tail bounds prove all claimed cases. A standard-library independently coded exact verifier checked 356,980 allocations across 85 rational instances and every applicable small jump equality; this is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aziz et al. (2022), arXiv:2211.00879, Lemma 4.1 and Theorem 5.1, concern fPO and EFX respectively, not the simultaneous all-optima count.",
+        "Garg, Murhekar and Qin (2022), arXiv:2212.02440, prove EFX+fPO existence for specified bivalued instances, a strictly weaker statement than the exact census."
+      ],
+      "reasoning": "Any broad theorem enumerating EFX+fPO allocations for arbitrary two-agent positive bivalued disutilities would subsume this one, but no such theorem was found in the inspected primary sources or record searches. Existence does not determine counts, threshold jumps, or entropy, while broad fPO structure needs a new EFX counting argument.",
+      "searches": [
+        "number of envy-free up to any item fractionally Pareto optimal allocations two agent chores two-valued Pareto frontier",
+        "arxiv:2212.02440",
+        "arxiv:2211.00879",
+        "EFX fPO bivalued chores two agents existence complete classification"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2211.00879",
+      "https://arxiv.org/pdf/2211.00879",
+      "https://www.southampton.ac.uk/~eg/AAMAS2023/pdfs/p143.pdf",
+      "https://arxiv.org/abs/2212.02440",
+      "https://www.ijcai.org/proceedings/2023/0302.pdf",
+      "published mathematical-record searches for EFX/fPO/two chores, documented in named comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: Aziz et al. Lemma 4.1 characterizes fPO two-type allocations; the special-case non-crossing criterion follows.",
+        "Known: their Theorem 5.1 shows an EFX allocation exists; it need not be fPO as a consequence.",
+        "New claim: exact joint enumeration, all rational threshold jumps, and singular count probability exponent after intersecting fairness with efficiency."
+      ],
+      "reasoning": "The published fPO characterization implies only the admissible efficiency families. Its conjunction with EFX existence does not quantify their intersection or its weighted labeling multiplicities. The counting result follows after imposing a separate sharp EFX inequality, counting labeled subsets, and evaluating binomial-tail asymptotics. The earlier theorems cover a crucial proof ingredient, but no covering joint-count result was located.",
+      "searches": [
+        "arxiv:2211.00879 Lemma 4.1 fPO",
+        "arxiv:2211.00879 Theorem 5.1 EFX",
+        "arxiv:2212.02440 EFX fPO chores",
+        "exact binomial staircase number of EFX and fractionally Pareto optimal allocations symmetric two agent two bivalued chore types cost ratio r fairness efficiency enumeration entropy phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aziz et al., arXiv:2211.00879, Lemma 4.1 supplies the fPO structure as a known prior ingredient.",
+        "The paper distinguishes EF1+fPO from EFX existence; it does not give the exact number of jointly EFX+fPO assignments."
+      ],
+      "reasoning": "Using negative utilities instead of positive costs, switching agents and types, or quotienting the labels all yields equivalent formulations of this count. The ratio-ordered fPO characterization is prior art and is expressly credited. Neither that characterization alone nor the published EFX-existence algorithm states the ratio-dependent complete joint EFX+fPO census or its singular entropy rate.",
+      "searches": [
+        "two agents two types of chores symmetric cross disutilities 1 and r exact enumeration of EFX and fractionally Pareto optimal allocations via binomial sums",
+        "bivalued chores EFX fPO all optimal allocations counting symmetric antialigned preferences m items of each type",
+        "exact bivalued chores EFX fPO structural classification versus number of copies",
+        "\"EFX\" \"fractionally Pareto\" \"two agents\" chores binomial",
+        "arxiv:2211.00879"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 29-page arXiv full text 2211.00879 was checked for the complete classification, its explicit two-type results, enumeration and the word binomial; no matching table or formula was located.",
+        "The retrieved mathematical-record hits about exact fairness counts concerned random serial dictatorship and school choice, not two-type chore EFX+fPO counts."
+      ],
+      "reasoning": "The present infinite-parameter staircase is not an entry in a finite comparison table. No searched database or primary paper returned a matching exact count for jointly EFX and fPO allocations in this symmetric chore domain. Search absence is only negative evidence, not proof of novelty.",
+      "searches": [
+        "two agents two types of chores symmetric cross disutilities 1 and r exact enumeration of EFX and fractionally Pareto optimal allocations via binomial sums",
+        "exact binomial staircase number of EFX and fractionally Pareto optimal allocations symmetric two agent two bivalued chore types cost ratio r fairness efficiency enumeration entropy phase transition",
+        "binomial EFX fPO chores counting allocations",
+        "arxiv:2211.00879 binomial"
+      ]
+    },
+    "rationale": "Aziz et al. arXiv:2211.00879 Lemma 4.1 is an expressly credited fPO structural precursor and their Theorem 5.1 gives separate EFX existence. Their full 29-page source and Garg et al. arXiv:2212.02440 were inspected for any dominating joint-count or entropy statement; none was found. Actual mathematical-record queries and local ledger-claim comparisons disclosed no covering equivalent. Priority is not certain for unindexed work or overlooked corollaries.",
+    "residual_risks": [
+      "An unindexed specialist source may contain equivalent exact count, ratio staircase or probability exponent.",
+      "The count is elementary after the known fPO classification; a more general published joint-criterion theorem could implicitly subsume it.",
+      "Existence and the fPO characterization are known and are not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The fPO characterization is established prior art; this full version does not state the joint EFX+fPO count, the ratio jump thresholds, or the probability exponent.",
+        "evidence": [
+          "arxiv:2211.00879 v1 November 2, 2022; full PDF v2 29 pages",
+          "Lemma 4.1 structural fPO condition",
+          "Theorem 4.7 EF1+fPO",
+          "Theorem 5.1 EFX existence",
+          "Conclusion says the general EFX+PO question remains open."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.00879",
+        "material_read": "Full 29-page preprint: contributions, preliminary definitions, fPO characterization and proof (Sections 3–4), EFX results and algorithm (Section 5), envy-free algorithm (Section 6), conclusions and related-work material; checked for counts and binomial formulas",
+        "method": "Full-text PDF pages and theorem/keyword navigation, with printed-page image inspection",
+        "title": "Fair Allocation of Two Types of Chores",
+        "trigger": "Exact two-chore-type model, likely strong structural coverage"
+      },
+      {
+        "assessment": "Confirms known fPO ingredient and separate EFX existence; no matching complete joint enumerative statement.",
+        "evidence": [
+          "AAMAS 2023 paper Lemma 4.1, Section 4",
+          "Section 5 EFX existence",
+          "Section 4 three-agent EFX/fPO incompatibility example"
+        ],
+        "identifier_or_url": "https://www.southampton.ac.uk/~eg/AAMAS2023/pdfs/p143.pdf",
+        "material_read": "Nine-page AAMAS paper: abstract, introduction, Lemma 4.1, EF1+fPO and EFX sections, results and example",
+        "method": "Full-text PDF and page-image comparison with longer arXiv text",
+        "title": "Fair Allocation of Two Types of Chores, conference version",
+        "trigger": "Short published version to check whether main statements differ"
+      },
+      {
+        "assessment": "Covers EFX+fPO existence for selected bivalued domains and incompatibility in general, not the all-allocations binomial count for two symmetric types.",
+        "evidence": [
+          "arxiv:2212.02440 v1 December 5, 2022",
+          "IJCAI 2023 abstract and Table 1"
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2023/0302.pdf",
+        "material_read": "Abstract, introduction, theorem overview, fairness and efficiency definitions, compatibility table and bivalued statement",
+        "method": "Published conference PDF extracted text and theorem-context search",
+        "title": "New Algorithms for the Fair and Efficient Allocation of Indivisible Chores",
+        "trigger": "Closest published bivalued EFX+fPO theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad3092af-31f2-40f0-8a36-913e405b2774",
+  "value": {
+    "rationale": "The exact count of all jointly EFX and fPO allocations, rational phase thresholds and a discontinuous change in uniform-allocation probability quantify the size and robustness of the feasible fair-and-efficient set in a natural symmetric two-type chore model. This answers a structural classification/counting question beyond mere existence; it gives precise integer cutoffs and sharp asymptotic rates relevant to randomized allocation methods.",
+    "status": "PASS"
+  }
+}
