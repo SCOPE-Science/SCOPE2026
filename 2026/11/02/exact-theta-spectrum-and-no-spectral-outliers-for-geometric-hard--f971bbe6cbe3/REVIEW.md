@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized Hardy kernel formula gives the matrix entries. The identity \(G=D(H+H\circ J)D\) is checked algebraically, where \(J\) is a positive Cauchy–Laplace Gram matrix with summable diagonal. Its normalized Schur factor \(R\) is positive and has diagonal one, giving exact operator-order bounds. The trace-class comparison follows from \(D-I\in\mathcal S_1\) and \(H\circ J\in\mathcal S_1\). Classical Jacobi \(\operatorname{dn}\) Fourier formulas give the theta endpoints of the Toeplitz symbol; translated truncated plane waves give every value as essential spectrum. The simultaneous spectral inclusion and essential equality prove the complete spectral statement. Numerical tests independently exercise finite matrices but are not substituted for the operator argument.
+## correctness
 
-## Originality
-PASS under checked literature, with residual historical-priority risk. The source by Baranov and Batenev establishes representing-system constructions, not the spectral set of a geometrically spaced radial Riesz sequence. Pushnitski addresses homogeneous Hardy integral kernels restricted to arithmetic indices and finds circumstances with spectral outliers; neither its hypotheses nor its conclusions imply the normalized geometric Hardy Gram formula or its no-outlier result. Classical Toeplitz and elliptic identities are used as known tools, not originality claims. A related finite-polygon claim concerns two finite angular polygons at two fixed radii and does not imply an infinite boundary-approach chain. Dedicated searches for geometric Szegő Gram theta spectra yielded no exact prior theorem, but coverage of older interpolation-operator work cannot be excluded exhaustively.
+PASS
 
-## Mathematical value
-PASS. A canonical radial Carleson/Blaschke interpolation sequence receives exact best Riesz inequalities and the entire spectral set. The independence from starting depth is substantive: a mere compact-perturbation argument controls essential spectrum but normally allows isolated eigenvalues; the positive normalized Schur factorization excludes all such outliers. The theorem supplies sharp coefficient-conditioning constants with a non-elementary theta dependence, and the trace-class relation offers a structural tool for related sequences.
+For x_n=cq^n in (0,2), normalized Szegő Gram G decomposes as G=H∘R=D(H+H∘J)D with H_nm=sech((n−m)|log q|/2), J_nm=1/(u_n+u_m), u_n=1/x_n−1/2>0, d_n=sqrt(1−x_n/2). R is a positive normalized Gram correlation (diagonal 1), so the unital Schur map transfers both optimal Toeplitz bounds. J and D−I are trace class, establishing G−H trace class and identical essential spectra. DLMF dn Fourier/θ identities give symbol range [theta4(sqrt q)^2,theta3(sqrt q)^2]; translated long plane waves put this full range into essential spectrum. No spectral outliers can lie outside transferred bounds. Independently checked Gram factorization, PSD and endpoint inequalities for three q,c,N settings and Fourier sums.
 
-## Residual scientific limitations
-Only points on one disk diameter with exact geometric spacing are treated. A sequence of normalized kernels is a Riesz sequence for its closed span, not a frame for all of \(H^2\). The argument does not claim purely absolutely continuous spectrum for \(G\), absence of embedded eigenvalues, or stability under arbitrary perturbations. Independent mathematical and historical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theta endpoint identity itself and standard Toeplitz essential spectra are classical and excluded. Baranov–Batenev construct representing systems of Szegő kernels using different configurations, not the exact global Gram spectrum of one geometric radial chain. Pushnitski studies homogeneous integer-index Hardy kernel matrices, where outliers can occur; his theorem does not imply no outliers here. A prior interpolation/Riesz inequality under a different operator formulation remains possible.
+
+## value
+
+PASS
+
+The exact best Riesz constants and entire spectrum for a canonical radial interpolating Blaschke sequence give a genuine structural result. Mere compact Toeplitz comparison would allow isolated eigenvalues; the normalized positive Schur factor is the essential new mechanism excluding them uniformly for all starting c. It provides precise condition numbers for stable interpolation on the closed span.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

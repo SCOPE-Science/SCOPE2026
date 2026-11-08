@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:55:05.081667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x_n=cq^n in (0,2), normalized Szegő Gram G decomposes as G=H∘R=D(H+H∘J)D with H_nm=sech((n−m)|log q|/2), J_nm=1/(u_n+u_m), u_n=1/x_n−1/2>0, d_n=sqrt(1−x_n/2). R is a positive normalized Gram correlation (diagonal 1), so the unital Schur map transfers both optimal Toeplitz bounds. J and D−I are trace class, establishing G−H trace class and identical essential spectra. DLMF dn Fourier/θ identities give symbol range [theta4(sqrt q)^2,theta3(sqrt q)^2]; translated long plane waves put this full range into essential spectrum. No spectral outliers can lie outside transferred bounds. Independently checked Gram factorization, PSD and endpoint inequalities for three q,c,N settings and Fourier sums.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pushnitski arXiv:2103.12642, main Hardy matrix spectral theorems",
+          "Baranov–Batenev arXiv:2207.08985, Theorems 1.1–1.2"
+        ],
+        "reasoning": "Both are broader in topic but different in matrix entries or kernel-node patterns; neither supplies sharp operator inequalities for exactly r_n=1−cq^n.",
+        "searches": [
+          "geometric Szego normalized reproducing kernels Hardy H2 Gram matrix essential spectrum theta Jacobi dn Riesz constants",
+          "Baranov Batenev representing systems reproducing kernels geometric points Szego Riesz q spectral"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2207.08985",
+        "https://arxiv.org/pdf/2103.12642",
+        "https://dlmf.nist.gov/22.11",
+        "https://dlmf.nist.gov/20.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2207.08985",
+          "https://arxiv.org/pdf/2103.12642",
+          "https://dlmf.nist.gov/22.11",
+          "https://dlmf.nist.gov/20.4"
+        ],
+        "reasoning": "Pushnitski compact-perturbation-type results alone would give only essential spectrum and cannot rule out outliers. Baranov–Batenev representing systems do not specify the same Gram spectral set; the normalized Schur order argument is necessary.",
+        "searches": [
+          "geometric Szego normalized reproducing kernels Hardy H2 Gram matrix essential spectrum theta Jacobi dn Riesz constants",
+          "Baranov Batenev representing systems reproducing kernels geometric points Szego Riesz q spectral"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DLMF §22.11.3 Fourier dn, https://dlmf.nist.gov/22.11",
+          "Baranov–Batenev arXiv:2207.08985"
+        ],
+        "reasoning": "The claim can be expressed as sharp Carleson-interpolation/Riesz-sequence bounds or a full spectral-set theorem for a non-Toeplitz Gram matrix. Existing theta function identities prove only the Toeplitz symbol, not uniform lack of outliers.",
+        "searches": [
+          "geometric Szego normalized reproducing kernels Hardy H2 Gram matrix essential spectrum theta Jacobi dn Riesz constants",
+          "Szegő kernel geometric sequence Gram matrix theta 4 Riesz bounds sech kernel spectral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tabulates θ and dn, not the Gram operator; https://dlmf.nist.gov/20.4"
+        ],
+        "reasoning": "The theta constants are known exact evaluations of an intermediate Fourier symbol. The novel asserted full operator spectrum and c-independence are not a database entry.",
+        "searches": [
+          "geometric Szego normalized reproducing kernels Hardy H2 Gram matrix essential spectrum theta Jacobi dn Riesz constants",
+          "Szegő kernel geometric sequence Gram matrix theta 4 Riesz bounds sech kernel spectral"
+        ]
+      },
+      "rationale": "The theta endpoint identity itself and standard Toeplitz essential spectra are classical and excluded. Baranov–Batenev construct representing systems of Szegő kernels using different configurations, not the exact global Gram spectrum of one geometric radial chain. Pushnitski studies homogeneous integer-index Hardy kernel matrices, where outliers can occur; his theorem does not imply no outliers here. A prior interpolation/Riesz inequality under a different operator formulation remains possible.",
+      "residual_risks": [
+        "An older exact geometric interpolating-sequence constant may be stated under Carleson/Schur multiplier terminology.",
+        "Trace-class equivalence does not classify embedded spectrum or spectral type."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact radial chain spectra or sharp Riesz constants",
+          "evidence": [
+            "Theorems 1.1–1.2 concern representation, not geometric-chain Gram operator eigenvalue bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.08985",
+          "material_read": "Full arXiv primary PDF; introduction and Sections 1–6, theorem statements, examples",
+          "method": "Read PDF primary text with displayed page-image inspection",
+          "title": "Representing systems of reproducing kernels in spaces of analytic functions",
+          "trigger": "Direct Hardy/Szegő system antecedent"
+        },
+        {
+          "assessment": "NOT_COVERING: homogeneous integer-index kernels, not normalized geometric Szegő Gram; some outliers are possible in this different model",
+          "evidence": [
+            "Theorems 2.1–2.3 and accompanying homogeneous matrix definitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.12642",
+          "material_read": "Full arXiv PDF primary sections and examples, with page 1 visibly inspected",
+          "method": "Read primary PDF, compare matrix indexing and Toeplitz reductions",
+          "title": "The spectral density of Hardy kernel matrices",
+          "trigger": "Potential dominating spectral theorem"
+        },
+        {
+          "assessment": "KNOWN_INGREDIENT, no Hardy operator spectrum asserted",
+          "evidence": [
+            "Equation 22.11.3 and theta product identities 20.4.4–5"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/22.11",
+          "material_read": "Explicit 22.11.3 dn Fourier series and 20.4.4–5 theta constants inspected",
+          "method": "Read DLMF web primary equations and matched Fourier constants",
+          "title": "NIST DLMF §§22.11 and 20.4",
+          "trigger": "Special-function normalization in exact endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact best Riesz constants and entire spectrum for a canonical radial interpolating Blaschke sequence give a genuine structural result. Mere compact Toeplitz comparison would allow isolated eigenvalues; the normalized positive Schur factor is the essential new mechanism excluding them uniformly for all starting c. It provides precise condition numbers for stable interpolation on the closed span.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2207.08985",
+    "https://arxiv.org/pdf/2103.12642",
+    "https://dlmf.nist.gov/22.11",
+    "https://dlmf.nist.gov/20.4",
+    "Frozen Git RESULT.md and verification code with complete nontruncated Git tree identity"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact theta-spectrum and no spectral outliers for geometric Hardy kernel chains",
+  "limitations": [
+    "Only 0<q<1, 0<c<2 on a single diameter, Gram acting on ℓ² coefficients.",
+    "Finite eigenvalue comparisons are not proof of infinite spectral equality."
+  ],
+  "residual_risks": [
+    "An older exact geometric interpolating-sequence constant may be stated under Carleson/Schur multiplier terminology.",
+    "Trace-class equivalence does not classify embedded spectrum or spectral type."
+  ],
+  "schema_version": 1
+}
