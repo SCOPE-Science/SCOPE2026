@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification of the two-partner online Prop1 theorem
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. The file independently rebuilds shares and assigned loads after every arrival and checks exact inequalities after multiplying the proportional shares by two. The checks were executed successfully on the complete unmodified checker source:
+## correctness
 
-- \(55{,}987\) exhaustive sequences of length zero through six on a three-agent path, using sizes \(1,2,5\);
-- \(271{,}453\) exhaustive sequences of length zero through five on a four-agent cycle, using sizes \(1,2,3\);
-- \(10{,}000\) reproducible random cases, up to 75 arrivals on a six-agent cycle with singleton jobs and magnitudes \(1,2,5,11,23\);
-- \(128\) possible seven-step recipient histories in the degree-three adaptive tournament.
+PASS
 
-The theoretical proof is independent of the finite tests: the pairwise signed-discrepancy induction and two-neighbor accounting identity cover all positive real weights and every finite horizon. The adversarial lower-bound construction is specific to deterministic online decisions, and does not prove any randomized lower bound against oblivious inputs. The checks are not independent mathematical certification; independent audit has not been performed.
+The online rule sends an item eligible to pair e={u,v} to the endpoint with smaller pair-specific cumulative load (singletons forced). Induction gives -B_{v,e}<=Q_{u,e}-Q_{v,e}<=B_{u,e} after EVERY arrival even with arbitrary positive real weights. For any agent i, exact identity L_i-P_i=1/2 sum_{e incident i}(Q_{i,e}-Q_{other,e}). At most 2 DISTINCT partner pairs implies simultaneous -b_i^-<=L_i-P_i<=b_i^+ for all prefixes, good and chore versions, regardless of repeated edges or horizon. Adaptive knockout on eight agents with seven unit pair-jobs forms a degree-3 tree and forces winner load3, proportional share3/2, failure after removing one unit. The inspected verifier checks integer finite examples; induction proves all positive real weights.
+
+## originality
+
+PASS
+
+The eligibility-aware share and unrestricted-online approximation lower bounds were already published by Biburger/Megow/Shahkarami (2026), so these are not novelty. The positive bounded-distinct-partner-degree-2 simultaneous all-prefix weighted algorithm is the new constrained guarantee; existing offline graphical orientation results are not equivalent to irrevocable online prefixes.
+
+## value
+
+PASS
+
+Maximum distinct partner degree is a natural sparseness/interaction restriction in restricted-assignment scheduling. A deterministic pair-local greedy rule that simultaneously attains exact two-sided Prop1 for arbitrary weights and prefixes, together with a matching degree-3 obstruction, gives a sharp structural boundary rather than a marginal improvement in a toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

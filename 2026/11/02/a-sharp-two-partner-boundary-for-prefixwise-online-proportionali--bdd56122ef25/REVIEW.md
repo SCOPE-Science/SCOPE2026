@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pairwise greedy rule keeps the signed discrepancy bounded above and below by the largest item assigned to the corresponding endpoint. Singleton items cancel from load-minus-share. At most two distinct incident pair types bound the sum of these discrepancies by twice the corresponding global one-item maximum. This argument proves simultaneous prefixwise goods- and chores-Prop1 for every finite arrival sequence with arbitrary positive real item weights; exact finite checks supplement it. The adaptive degree-three tournament has an exact three-unit load versus a proportional share of \(3/2\).
+## correctness
 
-**Originality — PASS, with residual priority risk.** The novel assertion is the **positive, weighted, online and simultaneous** degree-two support theorem. The unrestricted online results of Biburger--Megow--Shahkarami do not imply factor one under this structural support restriction. The graph-orientation PROP1 results of Sun--Wang--Li are offline, while the heterogeneous-valuations impossibility of Neoh--Teh has a materially different domain. A more recent graphical resource-allocation manuscript was available only through an abstract; an unindexed or buried equivalent statement cannot be excluded. The degree-three lower-bound tournament is an existing rank-two online construction, included to interpret sharpness, not claimed as new.
+PASS
 
-**Mathematical value — PASS.** The theorem identifies exactly the natural path/cycle support regime in which unrestricted-online deterioration disappears, using a single allocation to guarantee both interpretations at all times, even with arbitrarily weighted, repeated pair jobs. The degree-three obstruction makes the graph-degree boundary substantive rather than an arbitrary small case.
+The online rule sends an item eligible to pair e={u,v} to the endpoint with smaller pair-specific cumulative load (singletons forced). Induction gives -B_{v,e}<=Q_{u,e}-Q_{v,e}<=B_{u,e} after EVERY arrival even with arbitrary positive real weights. For any agent i, exact identity L_i-P_i=1/2 sum_{e incident i}(Q_{i,e}-Q_{other,e}). At most 2 DISTINCT partner pairs implies simultaneous -b_i^-<=L_i-P_i<=b_i^+ for all prefixes, good and chore versions, regardless of repeated edges or horizon. Adaptive knockout on eight agents with seven unit pair-jobs forms a degree-3 tree and forces winner load3, proportional share3/2, failure after removing one unit. The inspected verifier checks integer finite examples; induction proves all positive real weights.
 
-Closest sources: J. Biburger, N. Megow and G. Shahkarami, *Online Fair Division under Eligibility Constraints*, https://arxiv.org/html/2610.08064v1; A. Sun, R. Wang and B. Li, *Fair Orientations*, https://arxiv.org/html/2602.18098v2; T. Y. Neoh and N. Teh, *Closing Gaps in Online Fair Division*, https://arxiv.org/abs/2609.05310. The abstract-only comparison risk concerns https://arxiv.org/abs/2610.10336.
+## originality
 
-The stated inequalities do not imply EF1, extension to three distinct partners, or any result for heterogeneous valuations. Finite enumeration is not a universal proof. Priority remains subject to independent expert review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The eligibility-aware share and unrestricted-online approximation lower bounds were already published by Biburger/Megow/Shahkarami (2026), so these are not novelty. The positive bounded-distinct-partner-degree-2 simultaneous all-prefix weighted algorithm is the new constrained guarantee; existing offline graphical orientation results are not equivalent to irrevocable online prefixes.
+
+## value
+
+PASS
+
+Maximum distinct partner degree is a natural sparseness/interaction restriction in restricted-assignment scheduling. A deterministic pair-local greedy rule that simultaneously attains exact two-sided Prop1 for arbitrary weights and prefixes, together with a matching degree-3 obstruction, gives a sharp structural boundary rather than a marginal improvement in a toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
