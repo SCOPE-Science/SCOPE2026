@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:07:54.219877Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem fixes full-cross-ratio Hilbert distance (not the half normalization), a nondegenerate d=m-1 simplex for m>=2, and Euclidean-uniform point sampling. Centered log-softmax coordinates turn H into a variation norm and give strictly log-concave analytic density f(y) proportional to (sum exp y_i)^(-m). Prekopa convolution with the centered norm ball makes Euclidean ball volume log-concave and permutation symmetric; any second maximizer would force constancy along a ray by log concavity and analyticity, contradicting decay. The expected distance is convex and symmetric; the source provides an explicit positive-measure strict Jensen swap witness proving uniqueness of the median. Dirichlet exponential coordinates give center distance as log(max E/min E), yielding an exact beta product, endpoints and mean; two independent samples yield iid logistic log(E_i/F_i), their order-statistic range integral, mean 2H_{m-1} and independent extreme-value Gumbels. Independent checks gave CDF 1/2 at m=2,q=3 and rational product values at m=3,10. The source script verifies 167 diagnostics but the analytic theorems handle all m, not finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acharya–Gezalyan–Mount describe finite-halfspace Hilbert balls for high-dimensional classifiers but do not evaluate Euclidean volume and randomized distances.",
+          "Prekopa implies center log concavity, not the explicit beta product or unique mean-distance center without extra argument."
+        ],
+        "reasoning": "General facts used in the proof do not directly imply the stated quantitative and rigidity ensemble without nonlinear Jacobian and Dirichlet/logistic specialization.",
+        "searches": [
+          "arxiv:2601.13410",
+          "arxiv:1704.00454",
+          "arxiv:2203.11434",
+          "Prekopa Leindler convolution log concavity"
+        ]
+      },
+      "checked_sources": [
+        "Clustering in Hilbert simplex geometry (https://ar5iv.labs.arxiv.org/html/1704.00454)",
+        "Non-linear Embeddings in Hilbert Simplex Geometry (https://proceedings.mlr.press/v221/nielsen23a/nielsen23a.pdf)",
+        "Classifiers in High Dimensional Hilbert Metrics (https://arxiv.org/abs/2601.13410)",
+        "Hyperbolic contractivity and the Hilbert metric on probability measures (https://arxiv.org/abs/2309.02413)",
+        "Resultary semantic query: Hilbert geometry simplex uniform random points ball Euclidean volume center logistic range Gumbel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The center CDF needs the Euclidean-simplex Dirichlet(1,...,1) density, which is not preserved under log isometry.",
+          "Classifier halfspace descriptions and embeddings do not directly assert the unique optimal center or the two normalized high-d limits."
+        ],
+        "reasoning": "No inspected combined primary source entails the complete theorem without significant probabilistic and strict-convexity additions; specific logistic extreme-value facts are not separately claimed original.",
+        "searches": [
+          "arxiv:2601.13410",
+          "arxiv:1704.00454",
+          "arxiv:2203.11434"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nielsen–Sun establish isometry between simplex Hilbert geometry and variation norm in centered log coordinates. Standard iid logistic range theory covers the distribution after the exponential/Dirichlet identification."
+        ],
+        "reasoning": "The isometry and sample-range identities are prior ingredients, not new assertions by themselves; the evaluated Euclidean-uniform simplex ball distribution and unique geometric center optimizers constitute the final combined claim.",
+        "searches": [
+          "Hilbert geometry simplex uniform random points ball Euclidean volume center logistic range Gumbel",
+          "arxiv:1704.00454",
+          "logistic distribution sample range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard logistic sample range and extreme Gumbel distributions are known and credited; no located full Hilbert simplex geometry table evaluates the entire ball law and center rigidity."
+        ],
+        "reasoning": "Classical statistics might contain isolated exact formulas, especially pair-range integral; priority of the full geometry is best-knowledge only.",
+        "searches": [
+          "Hilbert geometry simplex uniform random points ball Euclidean volume center logistic range Gumbel",
+          "logistic sample range integral CDF statistics tables",
+          "Hilbert simplex Euclidean uniform random distance distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the complete evaluated claim: The isometry and sample-range identities are prior ingredients, not new assertions by themselves; the evaluated Euclidean-uniform simplex ball distribution and unique geometric center optimizers constitute the final combined claim. General facts used in the proof do not directly imply the stated quantitative and rigidity ensemble without nonlinear Jacobian and Dirichlet/logistic specialization. No inspected combined primary source entails the complete theorem without significant probabilistic and strict-convexity additions; specific logistic extreme-value facts are not separately claimed original. Residual source-access and priority risks are explicit.",
+      "residual_risks": [
+        "Logistic-sample order statistics, beta products, Prékopa and independent Gumbel extremes are classical; any isolated formula may be a direct older statistical corollary.",
+        "Older unindexed simplex ball-volume or geometric-median works may have the same combined result.",
+        "Only mathematically relevant sections of some primary papers were materially read; not all source texts were inspected page by page."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_ISOMETRY_NOT_PROBABILITY_LAW",
+          "evidence": "Log variation-norm model is established, but Euclidean-uniform ball volumes and unique centers not found in inspected relevant statements.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1704.00454",
+          "material_read": "Full accessible HTML: Hilbert metric isometry, coordinates, distance comparison and clustering",
+          "method": "Ar5iv full primary HTML opened and relevant sections read",
+          "title": "Clustering in Hilbert simplex geometry",
+          "trigger": "Potential prior log-coordinate norm isometry"
+        },
+        {
+          "assessment": "EMBEDDINGS_NOT_VOLUME_LAW",
+          "evidence": "No cited precise Euclidean-uniform distance distributions or maximizing ball center.",
+          "identifier_or_url": "https://proceedings.mlr.press/v221/nielsen23a/nielsen23a.pdf",
+          "material_read": "Abstract, embeddings, Hilbert metric formula and relevant sections",
+          "method": "Published PMLR primary PDF and sections inspected",
+          "title": "Non-linear Embeddings in Hilbert Simplex Geometry",
+          "trigger": "Potential stronger all-dimension geometry result"
+        },
+        {
+          "assessment": "DIFFERENT_ALGORITHMIC_PROBLEM",
+          "evidence": "Finite halfspace shape of balls used for classification, not exact Euclidean ball volumes or center optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.13410",
+          "material_read": "Abstract and indexed theorem-level description",
+          "method": "ArXiv public abstract and SWAT published HTML descriptions, not page-by-page complete source",
+          "title": "Classifiers in High Dimensional Hilbert Metrics",
+          "trigger": "Directly analyzes Hilbert balls in probability simplex"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING_GEOMETRY",
+          "evidence": "Contraction of metric on probability measures is not Euclidean-uniform finite simplex distance law.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.02413",
+          "material_read": "Abstract and theorem-level description",
+          "method": "Public arXiv source and indexed prior overview",
+          "title": "Hyperbolic contractivity and the Hilbert metric on probability measures",
+          "trigger": "Same metric terminology but on measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact Euclidean-uniform metric probability law and two distinct dimension-asymptotic fluctuation regimes in Hilbert simplex geometry, together with unique center-volume and mean-distance rigidity, are natural geometric/statistical invariants. The nonlinear Euclidean volume profile is not obtained merely from knowing the variation-norm isometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, AUDIT.json, METADATA.json, SLOGAN.txt and indicated verification script at https://github.com/SCOPE-Science/SCOPE2026/tree/c28b4266dfbab93d91d6bdc1c317b603480caaa8/2026/11/01/exact-uniform-hilbert-geometry-of-simplices-central-balls-median--185776c2c88a",
+    "Clustering in Hilbert simplex geometry (https://ar5iv.labs.arxiv.org/html/1704.00454)",
+    "Non-linear Embeddings in Hilbert Simplex Geometry (https://proceedings.mlr.press/v221/nielsen23a/nielsen23a.pdf)",
+    "Classifiers in High Dimensional Hilbert Metrics (https://arxiv.org/abs/2601.13410)",
+    "Hyperbolic contractivity and the Hilbert metric on probability measures (https://arxiv.org/abs/2309.02413)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Logistic-sample order statistics, beta products, Prékopa and independent Gumbel extremes are classical; any isolated formula may be a direct older statistical corollary.",
+    "Older unindexed simplex ball-volume or geometric-median works may have the same combined result.",
+    "Only mathematically relevant sections of some primary papers were materially read; not all source texts were inspected page by page.",
+    "Claims of scientific acceptance are best-of-knowledge, not independent externally certified publications; no GitHub publication or dispatcher completion was performed.",
+    "Publication intake must not copy operational identifiers in source metadata into public files."
+  ],
+  "schema_version": 1
+}

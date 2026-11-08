@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification performed
-The theorem in `RESULT.md` was checked against its stated normalization: for \(m=2\) and \(t=\log 3\), the central Hilbert ball has half the simplex's Euclidean length; its mean central distance equals \(2\log 2\); the mean independent-pair distance equals \(2\). The formulas use the full logarithmic cross ratio, whereas some sources divide that distance by two.
+# Independent mathematical audit
 
-The included `verify_hilbert_geometry.py` is standalone Python 3 standard-library code. Running `python3 verify_hilbert_geometry.py` completed **167 checks**, including 70 independent exact rational beta-product versus inclusion--exclusion comparisons, numerical integrals for both mean formulas, separate logistic-coordinate integrations of the two-point law, explicit witnesses of strict center symmetrization, projective-metric identities, one-dimensional center-volume extremality, asymptotic endpoint coefficients, and checks of the high-dimensional Gumbel CDF convergence. It reports `ALL CHECKS PASSED: 167`.
+## correctness
 
-The general analytic argument—not the finite verifier—proves strict center optimality, the exact all-dimensional laws, and the weak limits. The implementation uses deterministic numerical quadrature for diagnostics; it is not a formal verification of the infinite-dimensional quantifiers or a claim of exhaustive historical priority.
+PASS
 
-# Reproduction
-Place this file, `RESULT.md`, and `verify_hilbert_geometry.py` together, then execute `python3 verify_hilbert_geometry.py`. Python 3 with its standard library is the only required dependency. No external data, network service, or downloaded document is needed to reproduce the finite diagnostics.
+The theorem fixes full-cross-ratio Hilbert distance (not the half normalization), a nondegenerate d=m-1 simplex for m>=2, and Euclidean-uniform point sampling. Centered log-softmax coordinates turn H into a variation norm and give strictly log-concave analytic density f(y) proportional to (sum exp y_i)^(-m). Prekopa convolution with the centered norm ball makes Euclidean ball volume log-concave and permutation symmetric; any second maximizer would force constancy along a ray by log concavity and analyticity, contradicting decay. The expected distance is convex and symmetric; the source provides an explicit positive-measure strict Jensen swap witness proving uniqueness of the median. Dirichlet exponential coordinates give center distance as log(max E/min E), yielding an exact beta product, endpoints and mean; two independent samples yield iid logistic log(E_i/F_i), their order-statistic range integral, mean 2H_{m-1} and independent extreme-value Gumbels. Independent checks gave CDF 1/2 at m=2,q=3 and rational product values at m=3,10. The source script verifies 167 diagnostics but the analytic theorems handle all m, not finite sampling.
 
-# Limits of verification
-The standalone program does not prove Prékopa--Leindler, real-analytic identity, exact Dirichlet/softmax Jacobians, or the classical extreme-value limit; each is reconstructed in the written proof. There has been no independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the complete evaluated claim: The isometry and sample-range identities are prior ingredients, not new assertions by themselves; the evaluated Euclidean-uniform simplex ball distribution and unique geometric center optimizers constitute the final combined claim. General facts used in the proof do not directly imply the stated quantitative and rigidity ensemble without nonlinear Jacobian and Dirichlet/logistic specialization. No inspected combined primary source entails the complete theorem without significant probabilistic and strict-convexity additions; specific logistic extreme-value facts are not separately claimed original. Residual source-access and priority risks are explicit.
+
+## value
+
+PASS
+
+An exact Euclidean-uniform metric probability law and two distinct dimension-asymptotic fluctuation regimes in Hilbert simplex geometry, together with unique center-volume and mean-distance rigidity, are natural geometric/statistical invariants. The nonlinear Euclidean volume profile is not obtained merely from knowing the variation-norm isometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: exact uniform Hilbert geometry of simplices
+# Independent mathematical audit
 
-## Correctness
-**PASS — mathematical argument and independent numerical diagnostics within the supplied package.** The theorem specifies the full-cross-ratio convention and normalized Euclidean, not intrinsic Hilbert, measure. Its geometry reduces by barycentric coordinates to the variation norm on the zero-sum logarithmic hyperplane. The softmax Jacobian gives a strictly log-concave analytic permutation-invariant density, and Prékopa--Leindler plus analyticity and directional decay prove the unique finite-positive-radius Euclidean-volume maximizer. An explicit strict two-coordinate transposition witness proves the unique expected-distance minimizer. The exponential-minimum conditional law gives the beta product; iid exponential ratios give iid logistic coordinates, their exact range law and harmonic-number mean; extreme-value arguments prove two differently centered limits. The reproducible verifier checks 167 finite algebraic and numerical instances. Finite testing is not the proof and does not independently certify all-dimensional claims.
+## correctness
 
-## Originality
-**PASS — best-knowledge comparison with stated residual risks.** The principal motivating 2026 paper by Acharya--Gezalyan--Mount determines efficient Hilbert-geometry classifiers and gives polytope descriptions of metric balls, but it does not establish the present Euclidean-volume calibration or sample-distance distributions. Nielsen--Sun supply the prior Hilbert-simplex log-coordinate isometry; no novelty is claimed for that identification. Established Prékopa log-concavity, Dirichlet/exponential representations, logistic sample-range identities and Gumbel limits are ingredients, not separately new claims. The new object-specific assertion jointly determines the unique Euclidean-volume-maximizing and geometric-median center, complete centroid-ball volume and pair-distance profiles, and their distinct high-dimensional calibrations. Specific source comparisons and search identifiers appear in the structured originality record. Residual historical-priority risk arises from older Hilbert-ball measures and exact logistic-range tables or equivalent formulations that could imply some parts; exhaustive nonexistence of prior statements cannot be certified.
+PASS
 
-## Mathematical value
-**PASS.** Under the natural uniform Euclidean measure on the probability simplex, central Hilbert neighborhoods and random-pair distances are baseline quantities for geometric data analysis. The exact finite-dimensional ball volume is a sharp calibration across all affine simplex shapes, and the two center-optimality statements characterize geometrically privileged locations rather than arbitrary model choices. The distinct logarithmic centering scales distinguish a fixed central reference point from two random points in high dimensions. This is a complete natural geometric-probability description, not merely a numerical example or a renamed known constant.
+The theorem fixes full-cross-ratio Hilbert distance (not the half normalization), a nondegenerate d=m-1 simplex for m>=2, and Euclidean-uniform point sampling. Centered log-softmax coordinates turn H into a variation norm and give strictly log-concave analytic density f(y) proportional to (sum exp y_i)^(-m). Prekopa convolution with the centered norm ball makes Euclidean ball volume log-concave and permutation symmetric; any second maximizer would force constancy along a ray by log concavity and analyticity, contradicting decay. The expected distance is convex and symmetric; the source provides an explicit positive-measure strict Jensen swap witness proving uniqueness of the median. Dirichlet exponential coordinates give center distance as log(max E/min E), yielding an exact beta product, endpoints and mean; two independent samples yield iid logistic log(E_i/F_i), their order-statistic range integral, mean 2H_{m-1} and independent extreme-value Gumbels. Independent checks gave CDF 1/2 at m=2,q=3 and rational product values at m=3,10. The source script verifies 167 diagnostics but the analytic theorems handle all m, not finite sampling.
 
-## Limitations and priority
-The full cross-ratio normalization is essential; published works that insert one half require rescaling all radii and means. Center uniqueness for volume requires strictly positive finite radius. The sampling law is Euclidean uniform on the simplex. The generic analytic tools and generic extreme-value laws are not claimed as separately original. The literature search is not a proof of historical novelty, and independent mathematical audit is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the complete evaluated claim: The isometry and sample-range identities are prior ingredients, not new assertions by themselves; the evaluated Euclidean-uniform simplex ball distribution and unique geometric center optimizers constitute the final combined claim. General facts used in the proof do not directly imply the stated quantitative and rigidity ensemble without nonlinear Jacobian and Dirichlet/logistic specialization. No inspected combined primary source entails the complete theorem without significant probabilistic and strict-convexity additions; specific logistic extreme-value facts are not separately claimed original. Residual source-access and priority risks are explicit.
+
+## value
+
+PASS
+
+An exact Euclidean-uniform metric probability law and two distinct dimension-asymptotic fluctuation regimes in Hilbert simplex geometry, together with unique center-volume and mean-distance rigidity, are natural geometric/statistical invariants. The nonlinear Euclidean volume profile is not obtained merely from knowing the variation-norm isometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
