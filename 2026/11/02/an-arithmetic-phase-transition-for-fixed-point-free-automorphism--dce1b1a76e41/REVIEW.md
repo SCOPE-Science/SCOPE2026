@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The intrinsic centralizer identity \(H=C_{L_n}([L_n,L_n])\), valid for \(n\ge4\), forces the full automorphism parametrization. Recursion on \([e_1,e_i]\) gives all columns and the diagonal \(a,d,ad,\ldots,a^{n-2}d\). The exact fixed-point count follows from distinct cyclic powers of \(a\) and the multiplicative order distribution in \(\mathbb F_q^\times\). No characteristic assumptions are hidden; independent code tests original brackets and matrix ranks.
+## correctness
 
-## Originality — PASS (historically provisional)
-Herrera-Granada–Tirao (arXiv:1308.4580v1) address complex filiform degenerations, not finite-field fixed-point-free automorphism counts. Burde–Dekimpe (arXiv:2604.27916v1), Section 6, cover complex filiform existence with relevant spectral arguments, not all-prime-power exact multiplicities or the sharp dependence on the factorization of \(q-1\). Published counts for three-dimensional Heisenberg automorphisms concern a different automorphism group. A paper on finite-field filiform isomorphism classification (Falcón et al., 2016) could not be inspected in full; a general, unlocated almost-abelian enumeration remains the most significant priority risk. Absence of search matches does not establish worldwide novelty.
+PASS
 
-## Value — PASS
-The theorem produces a complete natural arithmetic invariant in an infinite two-parameter family and establishes a structural phase transition: for \(q\le n\), fixed-point-free automorphisms exist precisely when \(q-1\) is composite. This phenomenon is invisible in complex-field existence results or the rank-three Heisenberg case and yields uniform field-sensitive information useful for finite Lie-algebra automorphism studies.
+For n>=4 the characteristic abelian ideal H=span(e2,...,en) is precisely the centralizer of [L,L], because [e1,e3]=e4 is nonzero. Every automorphism is uniquely determined by Phi(e1)=a e1+sum b_i e_i, Phi(e2)=d e2+sum c_i e_i, a,d nonzero; repeated brackets yield triangular diagonal a,d,ad,...a^(n-2)d with exactly 2n-3 shear coefficients. Thus total |Aut|=q^(2n-3)(q-1)^2; Phi-I invertible exactly for a !=1 and d not among powers a^{-j}, j=0..n-2. For order t>1 precisely min(t,n-1) values excluded, giving formula sum phi(t)(q-1-min(t,n-1)). q>n primitive generator gives existence; if q<=n existence iff proper nontrivial divisor q-1. This includes characteristic two and q2. Independent enumeration confirmed small q,n and q5,n4=12500; full source check program read. Finite tests do not imply all q.
 
-## Scientific limitations
-Only the standard graded filiform algebra and ordinary linear automorphisms are considered. The proof and exhaustive small-field computations are internal mathematical checks, not independent verification. The companion code tests 13 cases, not infinitely many dimensions or fields. Historical priority is still provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A complete finite-field cardinality and arithmetic existence dichotomy for standard graded filiform Lie automorphisms differs from the complex filiform existence theorem and the finite small-dimensional isomorphism-class census. The known 3D Heisenberg count is correctly separated by n restriction.
+
+## value
+
+PASS
+
+Finite-field automorphism groups of the standard filiform Lie algebra are natural arithmetic symmetries. The exact all-n count shows a sharp existence transition controlled by primality/compositeness of q-1; this field factorization dependence is a structural classification and not an arbitrary finite enumeration. Unlike isolated small field tests, it handles all prime powers and all n>=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verified checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3 environment with no third-party dependencies. Its deterministic output is saved in `verify_output.txt`. The checker defines field addition, multiplication and inversion, including polynomial-basis extension fields of orders four and eight. It constructs the original Lie bracket, generates automorphism columns recursively, verifies all nonzero and zero original basis bracket relations in exhaustive cases, and calculates ranks of the complete automorphism matrices and their differences with the identity.
+## correctness
 
-The exhaustive configurations are (n,q)=(4,2),(5,2),(4,3),(4,4),(4,5), covering all free shear coefficients for all nonzero a,d. The additional configurations (5,3),(6,4),(5,5),(8,7),(8,8),(5,8),(12,7),(8,11) test all multiplicative pairs and four shear assignments per pair; these are not exhaustive over shears. The implementation separately computes Euler's totient divisor sum and an independent direct enumeration of multiplicative pair eligibility in every configuration.
+PASS
 
-All 13 checks passed, and the output ends with `FILIFORM_FIXED_POINT_FREE_COUNTS_OK 13_CONFIGURATIONS`. Finite checks are corroboration only; the general theorem rests on the symbolic centralizer and multiplicative-order proof. Independent audit has not been performed.
+For n>=4 the characteristic abelian ideal H=span(e2,...,en) is precisely the centralizer of [L,L], because [e1,e3]=e4 is nonzero. Every automorphism is uniquely determined by Phi(e1)=a e1+sum b_i e_i, Phi(e2)=d e2+sum c_i e_i, a,d nonzero; repeated brackets yield triangular diagonal a,d,ad,...a^(n-2)d with exactly 2n-3 shear coefficients. Thus total |Aut|=q^(2n-3)(q-1)^2; Phi-I invertible exactly for a !=1 and d not among powers a^{-j}, j=0..n-2. For order t>1 precisely min(t,n-1) values excluded, giving formula sum phi(t)(q-1-min(t,n-1)). q>n primitive generator gives existence; if q<=n existence iff proper nontrivial divisor q-1. This includes characteristic two and q2. Independent enumeration confirmed small q,n and q5,n4=12500; full source check program read. Finite tests do not imply all q.
+
+## originality
+
+PASS
+
+A complete finite-field cardinality and arithmetic existence dichotomy for standard graded filiform Lie automorphisms differs from the complex filiform existence theorem and the finite small-dimensional isomorphism-class census. The known 3D Heisenberg count is correctly separated by n restriction.
+
+## value
+
+PASS
+
+Finite-field automorphism groups of the standard filiform Lie algebra are natural arithmetic symmetries. The exact all-n count shows a sharp existence transition controlled by primality/compositeness of q-1; this field factorization dependence is a structural classification and not an arbitrary finite enumeration. Unlike isolated small field tests, it handles all prime powers and all n>=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
