@@ -1,0 +1,15 @@
+# Scientific review: exact binary conditional-independence profiles
+
+## Correctness — PASS
+The quantified team-semantics definition reduces, on each fixed conditioning fibre, to rectangularity of a subset of a Boolean \(2\times2\) matrix. The proof identifies all and only the six forbidden support masks, namely the two diagonal pairs and the four three-corner masks. Two separate algorithms implement the explicit quantified definition and this characterization. Both agree on all \(1{,}572{,}840\) nonempty-team/atom pairs. All \(65{,}535\) teams are enumerated, their exact signatures are grouped, and the complete \(S_4\) action is evaluated; the scripts assert every claimed count. Since the universe is finite and completely traversed, this supports exact counts and the global bound for **four Boolean variables**, not an assertion for arbitrary domains.
+
+## Originality — PASS within inspected evidence
+The older logical source establishes the relational independence atom but not this restricted four-variable enumerative classification. Published probabilistic independence-model censuses over four variables concern random variables/distributions with different realization semantics, so do not imply the number of profiles or sharp witness bound for binary teams. The 2026 finite-atom sequent-calculus source concerns proof theory; accessible abstract and publication metadata do not report these numerical classifications. Targeted literature and research-index searches found no exact match for the figures, the 24-bit team semantics or the ten-assignment cutoff. Originality remains subject to historical-priority uncertainty because an equivalent older binary-relational table may be unindexed; the recent source's full text was not available for complete inspection.
+
+## Mathematical value — PASS
+Conditional independence is a fundamental relational invariant of a team. The result supplies all possible elementary profiles at the first fixed Boolean arity where the full \(24\)-atom signature is sizable, identifies the precise resource needed to realize any profile, and settles the sharp worst-case witness number. The archived canonical witnesses and per-profile counts support later comparisons of logical axiom systems, representation bounds and independence entailment on a fixed binary universe. This is a complete motivated finite classification rather than a handful of isolated small cases.
+
+## Comparison and risks
+The strongest related numerical study located was P. Šimeček's 2006 classification of probabilistic four-variable independence models, whose realizability notion is not the relational product-of-projections criterion. The original logical semantics is from E. Grädel and J. Väänänen; the contemporaneous paper by F. Barbero, M. Girlando, V. Müller and F. Yang treats finite-variable team logics. Only the mathematical assertion inside the present stated scope is supported. Independent checks of historical priority and mathematical correctness remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.
