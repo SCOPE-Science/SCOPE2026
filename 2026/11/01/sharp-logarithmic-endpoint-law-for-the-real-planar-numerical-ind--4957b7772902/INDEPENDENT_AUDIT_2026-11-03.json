@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:51:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact reduction t=exp(-2z/p), eta=|1-2/p| transforms the published rotation-radius formula to sinh(eta z)/cosh z. Strictly monotone tanh(eta z)tanh z yields the unique interior maximizer. At epsilon=1-eta, u=exp(-2z), v=u^(1-epsilon) satisfy epsilon=2(u+v)/[(1+u)(1+v)], forcing u~epsilon/4 and z~L/2; second Taylor expansion yields u=(epsilon/4)(1+epsilon(1-L)/2+O(epsilon^2 L^2)) and the two-term value including -epsilon^2(L^2+1)/8. Hilbert-end follows stationary perturbation z=z*+O(eta^2) and the derivative vanishing at z*. Finite high-precision checks of four epsilon values showed residuals on predicted scales; these are not infinite proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026 theorem covers the exact index for all real p, which determines all values implicitly, but its proof does not assert the epsilon^2 log^2 coefficient or quantified optimizer displacement."
+        ],
+        "reasoning": "An exact formula logically determines its asymptotics but is not a published statement with the quantified two-term boundary layer; no stronger quantitative implication was located in inspected text.",
+        "searches": [
+          "arXiv:2606.01675v1 Theorem 1.1 and §7",
+          "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion"
+        ]
+      },
+      "checked_sources": [
+        "Git:2026/11/01/sharp-logarithmic-endpoint-law-for-the-real-planar-numerical-ind--4957b7772902/RESULT.md@51486eba9725ce7f0cde1afdda8c34a8016b8b53",
+        "arXiv:2606.01675v1 §§1,2,7",
+        "arXiv:2205.08807v1 §2",
+        "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion",
+        "Resultary 2026/10/11/SCOPE-sharp-c-symmetry-of-two-hilbert-summands-and-its-near-hilbert-sl--4c68c3cb1287"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Merí–Quero treats a restricted exponent range; Chiclana proves equality across the full range; the result under review adds uniform O(eps^3 L^3) and displacement."
+        ],
+        "reasoning": "The prior exact maximization is the starting lemma, not evidence that the higher-order expansion with a moving unbounded maximizer was already given. Direct calculation of the displayed log expansion supplies an additional quantitative claim.",
+        "searches": [
+          "arXiv:2205.08807v1",
+          "arXiv:2606.01675v1",
+          "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chiclana proves n(ell_p^2 real)=v(J) for all p; the exact maximization and stationary equation were already known.",
+          "The same optimization is N(eta)=sup_z sinh(eta z)/cosh z; eta=|1-2/p|."
+        ],
+        "reasoning": "Hyperbolic and t-variational forms describe the identical invariant, so neither the identity nor stationarity is new. The claimed contribution is singular two-term asymptotics at eta=1 and Hilbert-end profile geometry, which the checked primary statements do not state.",
+        "searches": [
+          "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion",
+          "arXiv:2606.01675v1 §§1,2,7",
+          "arXiv:2205.08807v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned results for real ell_p but none reproduces the numerical-index logarithmic coefficients; the C-symmetry finding concerns an orthogonality asymmetry invariant with a different denominator."
+        ],
+        "reasoning": "The superficially matching coefficient at eta≈0 is attached to a different function, and cannot imply the eta→1 numerical-index boundary layer.",
+        "searches": [
+          "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion",
+          "Resultary 2026/10/11/SCOPE-sharp-c-symmetry-of-two-hilbert-summands-and-its-near-hilbert-sl--4c68c3cb1287"
+        ]
+      },
+      "rationale": "Best-knowledge original only for the refined singular endpoint coefficients, optimizer displacement, and shape properties. Exact index equality, scalar supremum and critical stationary relation are credited to earlier work, not claimed new.",
+      "residual_risks": [
+        "A differently parameterized older asymptotic expansion of the same scalar variational maximum may remain unindexed; search is not proof of priority.",
+        "Published Chiclana stationary equation is prior, so no novelty is attributed to it or exact n_p formula.",
+        "Remainder constants are qualitative near endpoints, not global explicit numerical bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the index equality/critical optimizer condition; not the explicit two-term endpoint expansion as stated",
+          "evidence": [
+            "Theorem 1.1 n_p=v(J); §7 exact maximizer algebra; no two-term logarithmic conclusion in stated results."
+          ],
+          "identifier_or_url": "arXiv:2606.01675v1",
+          "material_read": "Full accessible HTML text: Theorem 1.1, numerical-radius reduction and §7 stationary hyperbolic relation",
+          "method": "open/read arxiv HTML; compare theorem and §7 formulas",
+          "title": "The Numerical Index of Two-Dimensional Real ell_p Spaces",
+          "trigger": "Identical numerical index for every p"
+        },
+        {
+          "assessment": "Partial p range, source variational formula; no universal two-term polyhedral expansion",
+          "evidence": [
+            "Abstract gives 6/5<=p<=3/2 and 3<=p<=6; exact scalar radius predates 2026 complete theorem."
+          ],
+          "identifier_or_url": "arXiv:2205.08807v1",
+          "material_read": "Full accessible HTML text, introduction and scalar radius/maximizer calculations and conclusion",
+          "method": "arxiv full HTML and within-page term/theorem search",
+          "title": "On the numerical index of the real two-dimensional L_p space",
+          "trigger": "Earlier formula for same numerical index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonanalytic logarithmic boundary layer quantifies a natural operator-space invariant at the polyhedral endpoint, distinguishing it from routine substitutions. The order-two term and moving argmax resolve genuine singular asymptotic behavior from a known variational identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git:2026/11/01/sharp-logarithmic-endpoint-law-for-the-real-planar-numerical-ind--4957b7772902/RESULT.md@51486eba9725ce7f0cde1afdda8c34a8016b8b53",
+    "arXiv:2606.01675v1 §§1,2,7",
+    "arXiv:2205.08807v1 §2",
+    "real two dimensional Lp numerical index asymptotic logarithmic endpoint p infinity n lp2 hyperbolic optimizer expansion",
+    "Resultary 2026/10/11/SCOPE-sharp-c-symmetry-of-two-hilbert-summands-and-its-near-hilbert-sl--4c68c3cb1287"
+  ],
+  "disposition": "passed",
+  "final_claim": "For real two-dimensional ell_p, sharp epsilon log(1/epsilon) and second-order logarithmic approach to numerical index 1; optimizer displacement, global strict convexity, and analytic Hilbert-end expansion.",
+  "limitations": [
+    "Only real ell_p^2, not higher dimensions or complex fields.",
+    "The two-term index profile was derived using an established numerical-index theorem."
+  ],
+  "residual_risks": [
+    "A differently parameterized older asymptotic expansion of the same scalar variational maximum may remain unindexed; search is not proof of priority.",
+    "Published Chiclana stationary equation is prior, so no novelty is attributed to it or exact n_p formula.",
+    "Remainder constants are qualitative near endpoints, not global explicit numerical bounds."
+  ],
+  "schema_version": 1
+}

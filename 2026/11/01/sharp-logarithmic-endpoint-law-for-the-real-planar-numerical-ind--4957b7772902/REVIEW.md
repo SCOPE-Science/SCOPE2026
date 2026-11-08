@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published numerical-index equality and scalar radius formula, verifies the precise exponential reparametrization, then proves uniqueness of the critical point through a strictly increasing hyperbolic product. Strict convexity is certified by pointwise convexity at the attained interior maximizer, including one-sided endpoints. The Hilbert expansion follows from an analytic implicit equation whose leading derivative vanishes at the limiting maximizer. The polyhedral-end proof derives an exact critical identity, first controls the boundary-layer scale, then obtains the two-term expansions for both the optimizing coordinate and the function. The second coefficient was checked independently by expanding the logarithm of the exact value; finite arithmetic checks only corroborate the proof. Correctness risk: the big-O constants are not explicit, but the stated uniformity follows from the displayed small parameter \(\varepsilon\log(1/\varepsilon)\) and Taylor remainder bounds.
+## correctness
 
-## Originality
-PASS on a best-knowledge comparison, with residual priority risk. Martín–Merí (2009) give the scalar rotation radius; Merí–Quero (2022) analyze it for a partial exponent range; Chiclana (2026) establishes its equality with the numerical index for every exponent and includes the stationary hyperbolic equation. The known exact maximization and critical equation are not claimed to be novel. The new statement is the sharp two-term singular asymptotic profile (plus optimizer displacement), together with global convex shape and a smooth-end expansion; none appears in the inspected primary texts. The closest published numerical resemblance, the published-finding corpus record on approximate Birkhoff symmetry, computes a different invariant with a nonidentical hyperbolic denominator and cannot imply the stated polyhedral numerical-index law. A former or unpublished expansion of the same elementary scalar maximization remains possible. There is no independent priority certification.
+PASS
 
-## Mathematical value
-PASS. This is not a sample calculation at an arbitrary exponent: it quantifies exactly how a central classical Banach-space invariant approaches the two polyhedral endpoints after a recently settled all-exponent identification. The nonanalytic leading scale \(\varepsilon\log(1/\varepsilon)\), explicit next coefficient, and location of its extremal vector provide sharper quantitative information than the exact variational formula alone states. The near-Hilbert linear coefficient and strict convexity connect both ends of the full exponent range. No claim is made about infinite-dimensional or higher-dimensional spaces.
+The exact reduction t=exp(-2z/p), eta=|1-2/p| transforms the published rotation-radius formula to sinh(eta z)/cosh z. Strictly monotone tanh(eta z)tanh z yields the unique interior maximizer. At epsilon=1-eta, u=exp(-2z), v=u^(1-epsilon) satisfy epsilon=2(u+v)/[(1+u)(1+v)], forcing u~epsilon/4 and z~L/2; second Taylor expansion yields u=(epsilon/4)(1+epsilon(1-L)/2+O(epsilon^2 L^2)) and the two-term value including -epsilon^2(L^2+1)/8. Hilbert-end follows stationary perturbation z=z*+O(eta^2) and the derivative vanishing at z*. Finite high-precision checks of four epsilon values showed residuals on predicted scales; these are not infinite proofs.
 
-## Closest literature and limitations
-Chiclana, arXiv:2606.01675v1 (Theorem 1.1 and §7); Merí–Quero, arXiv:2205.08807v1 (Lemma 1, maximizers); Martín–Merí (2009, Lemma 2); public published-finding corpus 2026/10/11 record on sharp \(C\)-symmetry of two Hilbert summands. The original scalar identity is prior literature, and both the logarithmic refinement and its priority await independent scrutiny. The finite checker is not an infinite theorem prover.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge original only for the refined singular endpoint coefficients, optimizer displacement, and shape properties. Exact index equality, scalar supremum and critical stationary relation are credited to earlier work, not claimed new.
+
+## value
+
+PASS
+
+The nonanalytic logarithmic boundary layer quantifies a natural operator-space invariant at the polyhedral endpoint, distinguishing it from routine substitutions. The order-two term and moving argmax resolve genuine singular asymptotic behavior from a known variational identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
