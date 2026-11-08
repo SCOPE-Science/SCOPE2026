@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The matrix determinant lemma reduces each fiber to a linear coefficient map. For fixed u its kernel is the annihilator of the cyclic Krylov subspace and its image is exactly (chi_A/g_u) times the polynomials below degree deg(g_u); both assertions are established by triangular polynomial division. Primary kernel sizes count the u-exponents exactly; multiplication yields the target formula. Removing the zero-update factorizations and applying strict partition dominance proves the remaining claims. Literal determinant enumeration verifies complete target fibers for 10 canonical types and 92 targets; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merzel et al. 2021 characterize spectral rank-one reachability over algebraically closed fields; Merzel et al. 2023 extend existence for arbitrary fields and rank at most m.",
+        "Carriegos–Trobajo, online 2022-03-18, Section 2.1–2.2 reviews the Kalman reachable-subspace and pole-assignability criterion for each fixed input vector."
+      ],
+      "reasoning": "The 2023 theorem dominates all existence claims here, so those are explicitly not claimed new. Neither inspected theorem counts the number of update matrices yielding each allowed characteristic polynomial or orders their unchanged-target counts by dominance. The classical fixed-input pole assignment claim is also covered; it does not supply multiplicities after summation over all possible input vectors.",
+      "searches": [
+        "arXiv:2111.10624v1, Theorem 2",
+        "arXiv:2306.10253v1, Theorem 1",
+        "isospectral low-rank matrix perturbations characteristic polynomial eigenvalue finite field",
+        "Kalman reduced form and pole placement by state feedback for multi-input linear systems over Hermite rings 2022, single input systems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1104.0618v1 (2011-04-04)",
+      "arXiv:1508.07633v1 (2015-08-30)",
+      "arXiv:2111.10624v1 (2021-11-20)",
+      "arXiv:2306.10253v1 (2023-06-17)",
+      "Carriegos–Trobajo, DOI:10.1002/mma.8240 (first online 2022-03-18)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farrell bounds the number of distinct eigenvalues after perturbation; Ran–Wojtylak derive the rank-one determinant formula; Merzel et al. provide a reachability if-and-only-if.",
+        "Single-input Kalman pole-placement theory implies the affine space of reachable polynomials for a fixed input and therefore the easy q-power fiber size for that fixed input."
+      ],
+      "reasoning": "Bounds and existence do not determine fiber multiplicity. The older resolvent identity implies the starting linear algebra reduction but not, without the new exact cyclic-annihilator enumeration, the product of primary-partition differences or its strict monotonicity. A hidden equivalent counting theorem remains possible. The novelty assessment expressly excludes the fixed-u portion and hinges on the complete all-u primary-partition formula and strict dominance.",
+      "searches": [
+        "arXiv:1508.07633v1, Theorem 3",
+        "arXiv:1104.0618v1, Proposition 2.2",
+        "arXiv:2306.10253v1, Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ran–Wojtylak, arXiv:1104.0618v1, Proposition 2.2 gives the rank-one secular polynomial but works over complex parameters and does not give finite-field fiber cardinalities."
+      ],
+      "reasoning": "Secular-polynomial equality, rank-one update, and rational-canonical/transfer-function representations were compared. The coefficient-map identity is covered; enumeration over its individual fibers and dominance are additional statements.",
+      "searches": [
+        "rank one perturbations matrix characteristic polynomial unchanged finite field counting number u v isospectral",
+        "rank-one updates preserving characteristic polynomial over finite fields enumerative formula",
+        "arXiv:1104.0618v1, Proposition 2.2, resolvent characteristic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved source set included spectral perturbation theorems and random matrix topics, not a table/formula for full target fibers for arbitrary primary partitions."
+      ],
+      "reasoning": "Searched for a precomputed finite-field table and random rank-one update distribution. No matching exact-table source was identified; negative search evidence alone is not a proof of novelty.",
+      "searches": [
+        "\"rank one perturbations\" \"same characteristic polynomial\" \"count\"",
+        "\"rank one\" \"characteristic polynomial\" \"finite field\" \"number\" perturbations",
+        "\"rank-one\" perturbation \"irreducible\" \"characteristic polynomial\" finite field uniform"
+      ]
+    },
+    "rationale": "The assessed contribution is exact multiplicity at each finite-field polynomial target and strict primary-partition monotonicity, not the rank-one determinant identity or existence/support criterion already in prior work. Classical single-input pole placement also covers the fixed-u image; only the all-u primary-type enumeration and strict dominance are assessed new.",
+    "residual_risks": [
+      "An older finite-field transfer-function or cyclic-module counting paper not found by the searches could give the same product law.",
+      "The elementary-divisor counting identity is derivable from standard tools; its degree of novelty and historical priority need independent specialist review.",
+      "Classical systems-theoretic enumerations of all single-input pairs and their pole placements might implicitly cover the complete formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP_ONLY: determinant/resolvent relation credited; complex eigenvalue trajectories rather than finite-field prescribed-fiber counts",
+        "evidence": [
+          "Proposition 2.2(i) is the characteristic-polynomial rank-one resolvent relation; main outcomes concern generic spectral curves and eigenvalue coincidences."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1104.0618v1",
+        "material_read": "Introduction; Preliminaries; full Section 2 including Lemma 2.1 and Proposition 2.2; searched remaining sections for finite-field enumerations",
+        "method": "Read primary arXiv HTML and searched full rendered text",
+        "title": "Eigenvalues of rank one perturbations of unstructured matrices",
+        "trigger": "Same rank-one characteristic polynomial map, closest archival primary source"
+      },
+      {
+        "assessment": "NOT_COVERING: upper bound on distinct eigenvalues, not finite-field characteristic-polynomial fiber cardinalities",
+        "evidence": [
+          "Theorem 3 gives an upper bound on the number of distinct eigenvalues after perturbation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.07633",
+        "material_read": "Full rendered main theorem and subsequent Krylov-iteration section",
+        "method": "Read primary arXiv HTML mathematical statements and proof",
+        "title": "The number of distinct eigenvalues of a matrix after perturbation",
+        "trigger": "Archival rank-one spectral perturbation and Krylov behavior"
+      },
+      {
+        "assessment": "SUPPORT_ONLY: existence classification, no primary target-fiber multiplicities observed",
+        "evidence": [
+          "Theorem 2 is necessary and sufficient for the existence of a rank-one matrix with target characteristic polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.10624",
+        "material_read": "Primary arXiv main theorem and supporting necessary/sufficient sections; searched article for counting and finite-field scope",
+        "method": "Read arXiv full HTML and searched for exact enumeration",
+        "title": "Spectral perturbation by rank one matrices",
+        "trigger": "Strongest near-topic rank-one target existence theorem"
+      },
+      {
+        "assessment": "SUPPORT_DOMINATES_EXISTENCE_NOT_MULTIPLICITY: explicitly credited reachability, no target-by-target counts",
+        "evidence": [
+          "Theorem 1 and Propositions 2–3 establish a divisibility test for existence using invariant factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.10253",
+        "material_read": "Main theorem, necessary condition and rational-canonical sufficiency proof including Proposition 2 and 3",
+        "method": "Read primary arXiv full HTML of main sections and searched for finite-field counting",
+        "title": "Spectral perturbation by rank-m matrices",
+        "trigger": "Broader arbitrary-field, arbitrary-rank existence result which could dominate claim"
+      },
+      {
+        "assessment": "FIXED_INPUT_SUPPORT_ALREADY_KNOWN: all-input total enumeration and partition dominance not provided",
+        "evidence": [
+          "Section 2.1 Remarks 1–2 describe polynomial assignability for a fixed (A,B) via a Kalman-reduced subsystem; Section 2.2 addresses single-input cases."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/mma.8240",
+        "material_read": "Full-text introduction and Section 2 through single-input systems and Kalman reachability; searched later statements of assignable polynomials",
+        "method": "Read primary open-access journal HTML, including fixed-input pole-assignment statements",
+        "title": "Kalman reduced form and pole placement by state feedback for multi-input linear systems over Hermite rings",
+        "trigger": "Pole-placement formulation can subsume the fixed-input rank-one characteristic-polynomial mapping"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2b967606-e5d0-4231-8661-fd4240339ef2",
+  "value": {
+    "rationale": "The full finite-field target-by-target characteristic-polynomial distribution for arbitrary fixed base matrices is a motivated invariant beyond reachability. It distinguishes primary similarity types with identical characteristic polynomial by a strict Jordan-dominance law, and yields sharply contrasting uniform irreducible and concentrated scalar regimes. These are complete natural classifications usable for finite-field spectral perturbations.",
+    "status": "PASS"
+  }
+}
