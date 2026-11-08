@@ -1,11 +1,21 @@
-# Scientific review: arithmetic slope switch for coherent capture on prime square tori
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes odd primes \(p\ge5\), uniform hopping, a complete affine-line set of absorbers with individually positive loss rates and the maximally mixed initial excitation. Its proof derives asymptotic capture from the invariant dark space; proves the full torus spectral equivalence using the prime cyclotomic polynomial; and counts the spectral restrictions in every slope using the eight signed permutations. All mathematical cases, including \(r^2=-1\), the axis/diagonal directions, and the absence of such a slope for \(p\equiv3\pmod4\), are explicit. Two-modulus block-Krylov calculations independently match the closed form on finite graphs. Finite checks are supplemental, not a substitute for the all-prime proof.
+## correctness
 
-**Originality — PASS on accessible evidence, with historical risk.** Prior studies support the underlying physics and methods: Krapivsky–Luck–Mallick (arXiv:1311.6298) classify finite one-dimensional ring trapping and study disordered higher-dimensional lattices; Varbanov–Krovi–Brun (arXiv:0803.3446) analyze symmetry-related hitting obstructions; Novo et al. (arXiv:1412.7209) give the general Krylov reduction; and Le et al. (arXiv:1707.07482) study dark-subspace suppression. Those general techniques are credited and not claimed new. Torney (1988, LA-UR-88-915) covers the classical single-trap square torus and its spectral degeneracies, which could overlap the cyclotomic ingredient; only front matter and an opening page were examined. Available searches identified no earlier all-prime quantum *full affine-line* absorber result establishing the three slope classes, the modular \(r^2=-1\) transition, and positive-rate invariance. A missing fuller priority comparison remains a real limitation; failure to find the claim is not proof of novelty.
+PASS
 
-**Value — PASS.** The quantitative placement effect is substantial: axial/diagonal lines have eventual capture fraction \((p+1)/(2p)\), while generic oblique lines approach full capture with an exact \(O(1/p)\) shortfall, and the special Gaussian slope halves that shortfall. This supplies a natural, complete and reusable design benchmark for coherent absorption on periodic lattices, without overstating finite-time performance or arbitrary-trap-set optimality.
+For positive sink rates, eigenvectors with nonnegative real growth under the loss generator are exactly Hamiltonian dark eigenvectors, so eventual maximally mixed capture is the A-cyclic accessible dimension divided by p^2. For odd prime p, cyclotomic minimal-polynomial independence separates C_p square adjacency energies into signed-permutation D4 momentum orbits. Restriction to an affine line has rank the number of distinct k+r l projected frequencies per orbit. Reflection/half-turn/quarter-turn analysis yields p(p+1)/2 for slopes 0,infinity,+/-1; p^2-3(p-1)/4 if r^2=-1; and p^2-3(p-1)/2 for every other slope, with the exceptional class iff p=1 mod 4. Requires p>=5, a full affine sink line, J>0 and every sink rate positive.
 
-**Evidence and limitations.** The self-contained Python checker `verify_torus.py` and `verification_output.txt` give actual reproducible tests. Scope is one excitation on finite prime square tori with uniform bonds and constant positive local sink rates. Time-to-capture, composite moduli, disorder, decoherence, many-body effects, unrestricted site placement and independent scientific verification are outside the claim. The closest relevant literature is cited in `RESULT.md` and the structured comparisons in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.
+
+## value
+
+PASS
+
+The exact rank change distinguishes arithmetic optimal orientations of a natural set of p traps on prime-square grids; the sqrt(-1) slope class changes a macroscopic finite dark-subspace dimension. It is a design classification within affine lines, not arbitrary p-site optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
