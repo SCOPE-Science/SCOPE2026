@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized and unnormalized coupling families agree identically for isolated nodes and edges. The triangle reduction to effective coupling \(\kappa/2\) is exact. The quartic gradient potential gives global boundedness; the common stationary cubic gives an exhaustive partition by coordinate multiplicity. The unique nontrivial two-equal root, six all-distinct permutations, and symmetric-Hessian factorization prove the thirteen-equilibrium census with the exact unstable indices. Every orbit tends to a fixed point, and the hyperbolic nonsink stable sets have measure zero. The numerical checker verifies representative residuals and signs, but its finite tests are not the basis for the universal statements.
+## correctness
 
-## Originality — PASS under inspected evidence
-The direct motivating 2026 study of pair-trained modules expressly assumes a known weighted coupling matrix, so it does not subsume the conditional nonidentifiability theorem for an unknown normalization. The open-access cubic network reaction–diffusion work of Caputo, Cruz-Pacheco and Panayotaros studies **positive** diffusion of an intrinsically bistable local law; the Kouvaris–Kori–Mikhailov front work uses the same qualitative setting. McCullen and Wagenknecht examine a multispecies activator-inhibitor setting. Published mathematical-record comparisons on repulsive triangles, cubic equilibria, degree normalization and phase-portrait classifications revealed no matching stronger theorem. This is not a guarantee of historical priority: specialized symmetric cubic-gradient literature may cover the same algebra under other coordinates.
+PASS
 
-## Mathematical value — PASS
-An isolated node and a paired node are maximally informative at their sizes: the two network laws coincide as complete vector fields for all initial data and all strengths. The first possible higher-degree graph nevertheless changes from unique global attraction to six coexisting sinks, with a sharp interval and a complete, all-parameter algebraic census. This is a rigorous boundary condition for transferring pairwise dynamical information across network topology, not a routine parameter substitution. The claim is explicitly limited to uncertainty about the weighted coupling convention and does not criticize an approach whose coupling matrix is specified.
+For degree one, the coupling sums agree identically; K3 normalized strength is kappa/2. The potential V=||x||²/2+sum(x_i^4)/4-kappa x^T Lx/2 is proper, gradient flow with bounded trajectories. The exact stationary depressed cubic x_i^3-(3kappa-1)x_i+kappa S=0 exhausts all equal, three-distinct, and exactly-two-equal cases; the strictly increasing ratio cubic has one root -2<s<-2^(1/3), giving six paired states plus six distinct and zero. At zero Hessian index two; the six all-distinct Hessians have one negative eigenvalue; factorized block determinants prove six sinks. Bounded gradient trajectories have connected omega limit in finite critical set, hence converge to a single equilibrium; stable manifolds of hyperbolic nonsinks have measure zero. At kappa=1/3 quartic positivity establishes global but not exponential decay. Independent exact/numeric check kappa=.5 reconstructed 13 roots and indices {0:6,1:6,2:1}.
 
-## Literature, verification, and limitations
-Primary texts considered: Fan et al., arXiv:2610.30632v1 (2026); Caputo et al., arXiv:1406.7742v1 (2014); Kouvaris et al., doi:10.1371/journal.pone.0045029 (2012); McCullen and Wagenknecht, doi:10.1038/srep27397 (2016). The supplied `verify.py` uses floating-point bisection and elementary matrix checks; it corroborates examples only. The mathematical argument covers all real initial conditions and the full positive parameter regime stated in RESULT.md. Priority uncertainty persists from unindexed and differently formulated work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No full manuscript read implies the complete 13-equilibrium phase portrait at the exact triangle parameterization. The motivating source explicitly gives the weighted matrix, requiring careful limited comparison, not a claimed contradiction.
+
+## value
+
+PASS
+
+Complete phase portrait of the first graph size that can distinguish two aggregation conventions and a sharp thirteen-versus-one global bifurcation for an identical monostable cubic law. The observational limitation is precisely that weighted coupling conventions are not supplied, not a claim that specified network models lack their own information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

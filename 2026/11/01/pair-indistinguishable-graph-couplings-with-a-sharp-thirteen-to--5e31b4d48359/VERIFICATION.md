@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the mathematical result
 
-The executable `verify.py` is standalone Python with only standard-library dependencies. Invoking `python3 verify.py` in its package directory reported `VERIFY_OK: pair equality, 13 equilibria, six saddles, six sinks, and normalized K3 threshold` and the example values \(s\approx-1.543689012692076\), \(u\approx0.521387098369377\) at \(\kappa=1/2\).
+# Independent mathematical audit
 
-The code constructs all thirteen claimed roots using bisection and permutations, evaluates the residuals in the original ODE, and checks the signs of Hessian principal minors and determinants for seven representative coupling strengths. It also verifies the exact identity of the two K2 coupling expressions on three sample states and the strict normalized-triangle inequality at \(\kappa=1/2\).
+## correctness
 
-Finite-precision residual tests, sampled parameters, and the numerical code do not establish the theorem for all strengths. The universal result is proved analytically by the depressed-cubic root classification, sign-factored Hessian blocks, proper gradient potential, and stable-manifold dimension argument in RESULT.md. The exceptional critical strength \(\kappa=1/3\) is treated via the positive quartic energy term; no unsupported claim of exponential attraction is made there. The independent scientific audit has not been performed.
+PASS
+
+For degree one, the coupling sums agree identically; K3 normalized strength is kappa/2. The potential V=||x||²/2+sum(x_i^4)/4-kappa x^T Lx/2 is proper, gradient flow with bounded trajectories. The exact stationary depressed cubic x_i^3-(3kappa-1)x_i+kappa S=0 exhausts all equal, three-distinct, and exactly-two-equal cases; the strictly increasing ratio cubic has one root -2<s<-2^(1/3), giving six paired states plus six distinct and zero. At zero Hessian index two; the six all-distinct Hessians have one negative eigenvalue; factorized block determinants prove six sinks. Bounded gradient trajectories have connected omega limit in finite critical set, hence converge to a single equilibrium; stable manifolds of hyperbolic nonsinks have measure zero. At kappa=1/3 quartic positivity establishes global but not exponential decay. Independent exact/numeric check kappa=.5 reconstructed 13 roots and indices {0:6,1:6,2:1}.
+
+## originality
+
+PASS
+
+No full manuscript read implies the complete 13-equilibrium phase portrait at the exact triangle parameterization. The motivating source explicitly gives the weighted matrix, requiring careful limited comparison, not a claimed contradiction.
+
+## value
+
+PASS
+
+Complete phase portrait of the first graph size that can distinguish two aggregation conventions and a sharp thirteen-versus-one global bifurcation for an identical monostable cubic law. The observational limitation is precisely that weighted coupling conventions are not supplied, not a claim that specified network models lack their own information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
