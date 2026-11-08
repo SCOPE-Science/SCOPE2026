@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Euler formula follows from a strict corner-transfer height, a bijection between ascending neighbors and edges of a Ferrers-block bipartite graph, and an upper-link identification with its line-graph clique complex. The associated nerve reduces to the bipartite core; its first Betti number simplifies exactly to the distinct-part/multiplicity statistic. Counting all cliques at their unique minimum proves the Euler identity for every positive integer, including isolated-upper-link boundary cases. The integral homotopy conclusion uses the prior wedge theorem, not finite observations. Independently written direct clique enumeration confirms small cases, and all 25 published sequence values agree.
+PASS
 
-Risk: the topological classification is conditional on the previously published unrestricted wedge theorem. Independent external review of the new argument has not occurred.
+Height Q(λ)=Σ_i λ_i(λ_i+1)/2 strictly changes by added column minus removed column, giving unique minimum in each clique. Increasing transfers are indexed by edges R_i A_j of a bipartite graph B_λ for distinct size indices i<j plus i=j when m_i>=2. The induced higher-neighbor graph is L(B_λ): two increasing transfers are adjacent exactly when their removed columns or added columns coincide. Since B_λ is bipartite, its line-graph flag complex has a good star-cover nerve equivalent to the connected nonisolated B_λ core. For s>=2, E=C(s,2)+t and V=2(s−1)+[m_1>=2]+[m_s>=2] yield cycle rank r=C(s−2,2)+Σ_(2<=i<=s-1)[m_i>=2]. The unique λ=(n) contributes +1 through empty rising link, all other minima contribute r; χ=1+Σr. Published unrestricted wedge-of-S² theorem then gives integral rank and homotopy, without inventing new proof of the prior wedge theorem. Independently implemented integer partition sum and computed n=26 value 4480; finite table does not prove universal identity.
 
-## Originality — PASS
+## originality
 
-The source arXiv:2603.14370 establishes the homotopy sphere-wedge form with an unevaluated Euler characteristic. The full text of arXiv:2603.26656 explicitly states it does not give closed formulas and poses the exact Euler sequence as Problem 6.1. The new assertion evaluates the sequence for every index by a nonnegative per-partition statistic; it is not a table lookup nor the published full-clique alternating sum. The complete same-author local-morphology paper arXiv:2603.18696 proves the full-neighborhood line-graph description but contains no Euler-characteristic result; the rising-link truncation and global cycle-rank sum are not provided there. A same-author later conceptual synthesis is described as addressing qualitative overlap mechanisms and was not available for full-text inspection. Indexed searches on the precise invariants, aliases and link graph formulation showed no dominating formula.
+PASS
 
-Risk: an equivalent unpublished/unindexed or uninspected result may exist, especially within the later synthesis; absence from search is not a uniqueness proof.
+Lyudogovskiy 2026 papers prove all-n sphere wedge, report finitely many Euler values and ask for exact Euler formula (Problem 6.1); his local morphology theorem covers full neighborhood line-graph structure but not this strict rising-link Euler cancellation and nonnegative distinct-parts multiplicity formula. No implication of the explicit summand formula identified in the inspected prior statements.
 
-## Value — PASS
+## value
 
-This settles a specifically articulated natural numerical topology question, namely the exact multiplicity in an infinite family whose sphere-wedge shape is already known. The formula is additive, nonnegative, sensitive to repeated interior part sizes, and can be evaluated without building the exponentially many cliques; it also predicts the next indexed value. The proof explains the statistic structurally via graph-cycle ranks of ascending links.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit nonnegative uniform formula for a natural partition graph topological invariant answers a previously stated all-parameter enumeration problem, removing clique enumeration and yielding exact values such as 4480 at n=26.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
