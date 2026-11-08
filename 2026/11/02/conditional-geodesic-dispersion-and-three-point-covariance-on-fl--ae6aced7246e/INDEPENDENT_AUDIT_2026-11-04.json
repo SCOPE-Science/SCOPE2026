@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:03:14.303137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deck generators (x,y)→(x,y+b),(x,y)→(x+a,−y), the intrinsic squared distance from anchor P=(0,v) to Y=(x,y) equals min[x²+A_y,(a−x)²+B_y], with A_y=dist(y−v,bZ)² and B_y=dist(y+v,bZ)². Since |A_y−B_y|<=b²/4<=a², integration over x uniform in [0,a] of the positive part gives a²/12+(A_y+B_y)/2−(A_y−B_y)²/(4a²). Writing h={2v/b}, the circular squared-distance correlation is exactly h²(1−h)²/3; I independently integrated the two polynomial branches symbolically. Consequently m(v)=(a²+b²)/12−b⁴ h²(1−h)²/(12a²). Conditional independence of D(P,Y)²,D(P,Z)² given P makes shared-endpoint covariance Var(m(P)). The exact quartic beta moments 1/30 and 1/630 yield Var(h²(1−h)²)=1/2100, so covariance=b⁸/(302400a⁴). Pair overlap counting yields the stated finite-n U-statistic variance, and the nondegenerate bounded Hoeffding projection yields sqrt(n) CLT with variance b⁸/(75600a⁴). Boundary a=b/2 included; no claim for a<b/2 or ambient distances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geodesic complexity counts motion-planning rules, not conditional geodesic squared-distance moments.",
+          "Spectral geometry gives the flat quotient but not the nonconstant quartic anchor mean.",
+          "General U-statistic theorem yields CLT once the novel first projection m(P) is computed; this standard consequence is not itself claimed new."
+        ],
+        "reasoning": "Underlying metric and probabilistic tools are prior; their general statements do not supply the exact covariance coefficient without the circle-correlation integration.",
+        "searches": [
+          "arXiv:1912.07411 geodesic complexity",
+          "arXiv:2007.09219 flat Klein Laplacian/nodal spectrum",
+          "general U-statistic Hoeffding variance and CLT"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE Git tree c8139da25df4ea44ec8209b8a1f9d4927a017d46: RESULT.md and checks directory",
+        "https://arxiv.org/abs/1912.07411",
+        "https://arxiv.org/abs/2007.09219",
+        "Resultary query: flat Klein bottle conditional mean squared geodesic distance shared endpoint covariance sampling U statistics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearest deck lifts specify a pointwise minimization but not its integral over Y at each fixed P.",
+          "Marginal pairwise mean is E_P m(P), insufficient to determine Var_P m(P).",
+          "Standard U-statistic asymptotics apply after calculating this nonzero projection."
+        ],
+        "reasoning": "The present conditional profile is additional information not implied by a scalar marginal; the exact positive covariance and aspect-ratio inverse are genuine consequences. Sampling CLT is a correctly attributed standard theorem application.",
+        "searches": [
+          "arXiv:1912.07411 §2 nearest deck lifts",
+          "arXiv:2007.09219 §3 flat Klein metric",
+          "Hoeffding decomposition standard U-statistic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known deck-lift quotient geometry uses the same glide/reflection generators.",
+          "Neither a generic two-point distance distribution nor geodesic complexity fixes the conditional m(P) and variance over P."
+        ],
+        "reasoning": "Identified the quotient model but the stochastic conditional mean and three-point law are not mere equivalent expressions of geodesic complexity or the Laplace spectrum.",
+        "searches": [
+          "Davis–Recio-Mitter arXiv:1912.07411 quotient geodesic formula",
+          "Bérard–Helffer–Kiwan arXiv:2007.09219 flat Klein model",
+          "Resultary flat Klein bottle conditional mean squared geodesic distance shared endpoint covariance sampling U statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns Klein-bottle triangulation and unrelated metric sampling findings, not a formula b^8/(302400 a^4).",
+          "No same exact three-point covariance table in checked primary literature."
+        ],
+        "reasoning": "Exact known table coverage was not found, qualified by potential unavailable work on random distance distributions.",
+        "searches": [
+          "Resultary: flat Klein bottle conditional mean squared geodesic distance shared endpoint covariance sampling U statistics",
+          "\"Klein bottle\" \"mean square geodesic distance\" covariance",
+          "arXiv:1912.07411, arXiv:2007.09219"
+        ]
+      },
+      "rationale": "Flat Klein quotient geodesic and spectral literature supplies deck transformations and global geometry, but not the anchor-dependent mean-square distance quartic, its nonzero three-point shared-anchor covariance or the aspect-ratio inversion. A one-pair marginal cannot determine shared-endpoint dependence. Resultary semantic search for this conditional covariance and Klein geometry returned only unrelated distance or triangulation results. Novelty remains qualified against unindexed specialized stochastic-geometry computations.",
+      "residual_risks": [
+        "Other published/unindexed flat Klein bottle random-distance moments may overlap; checked search is not historical novelty proof.",
+        "The closed-form quartic requires a>=b/2; other aspect regimes not covered.",
+        "Independent numerical quadrature from package was not rerun; independent symbolic correlation and beta moments were."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior quotient geometry, not squared-distance conditional-moment formula",
+          "evidence": "Geodesic complexity is not shared-anchor covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07411",
+          "material_read": "Public primary text on Klein bottle geodesic quotient and geodesic motion planning, Sections 1–2",
+          "method": "Read accessible primary mathematical text, compared invariant",
+          "title": "The geodesic complexity of n-dimensional Klein bottles",
+          "trigger": "Same flat Klein bottle and nearest-lift geodesic geometry"
+        },
+        {
+          "assessment": "Flat metric construction known; no covariance law in material read",
+          "evidence": "Section 3.1 fixes flat Klein quotient; main results spectral/nodal.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09219",
+          "material_read": "Public arXiv identification/flat quotient Section 3.1 material, no claimed full-document negative exclusion",
+          "method": "Geometrical model and theorem-statement comparison",
+          "title": "Courant-sharp eigenvalues of compact flat surfaces: Klein bottles and cylinders",
+          "trigger": "Same rectangular flat Klein quotient"
+        },
+        {
+          "assessment": "Independent check exactly confirms key correlation and Var quartic =1/2100, not whole geometric theorem",
+          "evidence": "m(v) and Cov coefficients analytically consistent with the conditional-independence argument.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/conditional-geodesic-dispersion-and-three-point-covariance-on-fl--ae6aced7246e",
+          "material_read": "Actual RESULT.md and package check plan; independently re-evaluated piecewise circle integral and beta variance",
+          "method": "Read actual Git blob and ran independent SymPy integration",
+          "title": "SCOPE conditional Klein geodesic moment source package",
+          "trigger": "Critical geometric derivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonhomogeneous Klein bottle has a mathematically natural nonconstant conditional distance profile absent on a flat torus; the exact strictly positive shared-endpoint covariance is a metric-space statistic that recovers aspect ratio given area. It controls the leading sampling variance and CLT for the pair-distance statistic. This is a coherent analytical three-point invariant, not a made-up numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE Git tree c8139da25df4ea44ec8209b8a1f9d4927a017d46: RESULT.md and checks directory",
+    "https://arxiv.org/abs/1912.07411",
+    "https://arxiv.org/abs/2007.09219",
+    "Resultary query: flat Klein bottle conditional mean squared geodesic distance shared endpoint covariance sampling U statistics"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Other published/unindexed flat Klein bottle random-distance moments may overlap; checked search is not historical novelty proof.",
+    "The closed-form quartic requires a>=b/2; other aspect regimes not covered.",
+    "Independent numerical quadrature from package was not rerun; independent symbolic correlation and beta moments were."
+  ],
+  "schema_version": 1
+}
