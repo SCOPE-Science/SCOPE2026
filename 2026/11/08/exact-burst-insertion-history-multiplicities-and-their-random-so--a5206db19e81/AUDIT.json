@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Two deletion positions agree iff all intervening coordinates satisfy period-b comparisons, forcing a contiguous set of valid positions. Intersections of insertion-position image sets are q^(b-d) for d<=b and a period indicator for d>b. Consecutive interval tail counts invert by second differences. Uniform random comparison indicators along b disjoint paths are independent Bernoulli(1/q). Boundary s=m+1 is handled separately. The standalone checker covers 736 source centers, 54,360 outputs and additional exact-rational random-law cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lan et al. Theorem III.2 covers arbitrary burst count t at the total size level, and Section III-B covers maximal pairwise *center* intersections.",
+        "Xi et al. Sections 2–3 cover one burst deletion plus insertion output-ball sizes, average size and extrema.",
+        "Sun-Xi-Ge 2023 DOI abstract describes intersection maxima for two distinct centers and reconstruction-code constructions."
+      ],
+      "reasoning": "Larger t-parameter ranges in published results do not imply within-center insertion-location multiplicity distributions. An earlier paper with plausible single-burst content was located but its full text was unavailable; its implicit priority risk remains reported.",
+      "searches": [
+        "Exact inverse sphere list-size and multiplicity spectrum for burst deletion channel, collisions of different length-b insertion positions and period-b strings",
+        "arxiv:2504.20460",
+        "arxiv:2506.07817",
+        "doi:10.1109/TIT.2023.3250459"
+      ]
+    },
+    "checked_sources": [
+      "Lan et al., arXiv:2504.20460v1, accessible Sections I and III and IV overview",
+      "Xi et al., arXiv:2506.07817v1, accessible introduction, Section 2 and relevant Section 3 statements",
+      "Sun-Xi-Ge, DOI:10.1109/TIT.2023.3250459, bibliographic/abstract material",
+      "Semantic mathematical search for same-center burst-insertion history multiplicity spectra and their longest-run laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem III.2 of Lan et al. gives only |I_b(y)| as a constant, a sum over multiplicity groups.",
+        "Xi et al. Lemma 2.2 gives periodic deletion-equivalence but no per-output counting."
+      ],
+      "reasoning": "The total sphere size and equivalence criterion are explicitly treated as prior. The full N_s(y) histogram entails intersecting each pair of position-image sets, counting consecutive histories, taking second differences, and using the forest independence of random centers. These additional steps are not implied as stated numerical conclusions by known ball-size formulas. The period-b lemma makes the approach possible, so an unindexed implicit derivation is a real risk.",
+      "searches": [
+        "arxiv:2504.20460",
+        "arxiv:2506.07817",
+        "For a fixed q-ary word y of length m and a single contiguous burst of b inserted symbols, full histogram N_s of length m+b superwords with exactly s valid burst deletion positions, interval of valid positions, b-periodic runs, geometric law for longest run and MAP output probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lan et al., arXiv:2504.20460v1, Sections III-A to III-C: counts distinct received words rather than how many edit locations yield each received word.",
+        "Xi et al., arXiv:2506.07817v1, Lemma 2.2: equivalence of two deletion positions under a period-b run; not the complete size-biased output law."
+      ],
+      "reasoning": "The deletion-equivalence criterion supplies a key overlap lemma, but a histogram over all output words must count intersections of insertion-location images and invert their consecutive-run tails. Equal total ball size does not determine the nonuniform output distribution. Bernoulli-run maximum and exact expected histogram are additional derived claims.",
+      "searches": [
+        "Exact multiplicity distribution of all length n words produced by inserting a contiguous burst of b symbols into a fixed word; number of insertion positions per parent, dependence on b-periodic substrings, factorial moments and binomial inversion",
+        "Exact inverse sphere list-size and multiplicity spectrum for burst deletion channel, collisions of different length-b insertion positions and period-b strings",
+        "Distribution of number of burst-deletion positions yielding a fixed received string, b-burst deletion insertion supersequence spectrum",
+        "For a fixed q-ary word y of length m and a single contiguous burst of b inserted symbols, full histogram N_s of length m+b superwords with exactly s valid burst deletion positions, interval of valid positions, b-periodic runs, geometric law for longest run and MAP output probability",
+        "\"burst insertion\" \"multiplicity\" \"positions\" words coding",
+        "\"burst insertion\" \"number of ways\" insert same word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved finding concerns the inverse degree of noisy tandem duplication, a different error model with an inverse-parent rather than insertion-history statistic.",
+        "Another retrieved finding is an exact binary (3,1) burst-code size through length eight, not a full same-center burst-insertion history multiplicity distribution.",
+        "Nearby findings about two deletions and length-limited multispectra have different error operations and outcome objects."
+      ],
+      "reasoning": "The new formulas are not a finite code optimum or table lookup; they hold for every positive alphabet size, burst length and input length. Search coverage is finite and cannot establish global uniqueness.",
+      "searches": [
+        "Exact multiplicity distribution of all length n words produced by inserting a contiguous burst of b symbols into a fixed word; number of insertion positions per parent, dependence on b-periodic substrings, factorial moments and binomial inversion",
+        "Distribution of number of burst-deletion positions yielding a fixed received string, b-burst deletion insertion supersequence spectrum",
+        "For a fixed q-ary word y of length m and a single contiguous burst of b inserted symbols, full histogram N_s of length m+b superwords with exactly s valid burst deletion positions, interval of valid positions, b-periodic runs, geometric law for longest run and MAP output probability"
+      ]
+    },
+    "rationale": "Inspected primary accessible 2025 full texts for insertion-ball and deletion equivalence statements; known total sphere size and period-b criterion explicitly credited. New complete within-one-center multiplicity spectrum, expected spectrum and exact random maximum law are not theorems of those inspected works. Relevant 2023 full text uninspected: residual priority risk, not misrepresented as fully checked.",
+    "residual_risks": [
+      "The 2023 Sun-Xi-Ge journal full text was not accessed; an implicit equivalent result might be inside.",
+      "Searches and accessible primary sources cannot exclude uncatalogued history-spectrum derivations.",
+      "Random-center law assumes exactly uniform independent letters; generalized source models are unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers total insertion balls and pairwise intersections for distinct source centers; no full within-center edit-history multiplicity spectrum found",
+        "evidence": [
+          "Theorem III.2 and Sections III-A to III-C; arXiv v1 dated 2025-04-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.20460v1",
+        "material_read": "Accessible arXiv HTML: abstract, Section I, Section III including insertion-ball formula and distinct-center intersection focus, and Section IV organization",
+        "method": "Read accessible arXiv HTML, compared exact claim objects and parameters",
+        "title": "Sequence Reconstruction under Channels with Multiple Bursts of Insertions or Deletions",
+        "trigger": "Direct same fixed-length burst-insertion channel and established total ball formula"
+      },
+      {
+        "assessment": "Period-b equivalence and insertion-ball size are known, but the complete history fiber spectrum and uniform random-center maximum distribution are not stated in the inspected sections",
+        "evidence": [
+          "Lemma 2.2; main cardinality sections; arXiv v1 dated 2025-06-09"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.07817",
+        "material_read": "Accessible arXiv HTML: abstract, Sections 1–2 including period-b deletion-equivalence lemma and relevant Section 3 statements",
+        "method": "Read accessible arXiv HTML and contrasted same-center period equivalences with output-history fibers",
+        "title": "On the Fixed-Length-Burst Levenshtein Ball with Unit Radius",
+        "trigger": "Same fixed-length bursts; period-b run lemma likely decisive"
+      },
+      {
+        "assessment": "Targets maximum intersections between distinct source words and reconstruction codes; possible implicit history fiber treatment cannot be excluded",
+        "evidence": [
+          "IEEE TIT 69 (2023), 4466–4483; DOI 10.1109/TIT.2023.3250459"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3250459",
+        "material_read": "Bibliographic/abstract material only; full text unavailable in consulted sources",
+        "method": "Read abstract/indexed bibliographic description; attempted lawful open full text discovery without locating it",
+        "title": "Sequence Reconstruction Under Single-Burst-Insertion/Deletion/Edit Channel",
+        "trigger": "Original single-burst reconstruction work cited by both newer sources"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5206db1-9e81-4a23-b31b-06aa1ea610ad",
+  "value": {
+    "rationale": "The exact nonuniform output probability mass spectrum under a natural uniform insertion mechanism is a motivated alignment-ambiguity invariant, more informative than known ball cardinalities. A closed center-dependent spectrum for all parameters, rigid low multiplicity counts, mean distribution and exact longest-run extreme-value reduction are mathematically natural complete classifications with applications to induced output concentration.",
+    "status": "PASS"
+  }
+}
