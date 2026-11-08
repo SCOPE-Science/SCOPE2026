@@ -1,0 +1,19 @@
+# Scientific review of the periodic Rhaly Calkin power law
+
+## Correctness — PASS
+
+The statement quantifies over every nonzero complex periodic coefficient sequence, including coefficients with zero entries, and every positive integer power. The proof computes the two decisive matrix kernels rather than assuming an averaged operator product: mean-zero periodic cancellation bounds the Cesàro sandwich by \(1/(nk)\), and the Gram sandwich by \(\max(j,k)^{-2}\). Both kernels are Hilbert–Schmidt. The ordinary Cesàro image is normal in the Calkin algebra by an explicit Hilbert–Schmidt selfcommutator estimate; its norm is exactly \(2\) by Hardy's inequality and a weakly null sequence. The quotient products then give the claimed identity for every essential power, the spectral radius and the square-zero case. The key domain, normalization and the \(m=0\), \(p=1\) boundary have been checked. The standalone checker reports 2,884 finite identities and diagnostics; it is not used as proof of infinite summability.
+
+## Originality — PASS, with priority risk
+
+The closest directly inspected primary literature includes Sang's 2026 Toeplitz-algebra results (arXiv:2608.25740), Bellavita–Dellepiane–Stylogiannis's Rhaly boundedness and Schatten classification (arXiv:2503.21930), Gallardo-Gutiérrez–Partington's spectral/moment and invariant-subspace work (arXiv:2408.03182), Bellavita–Stylogiannis's sampled-ratio Mellin calculus (arXiv:2609.09453), and Gül's essential normality of ordinary Cesàro (arXiv:2311.15245). The quantitative Gram relation for periodic coefficients has also been considered separately, so it is not advanced as the novelty. The new joint conclusion is a **complete exact power-essential-norm profile** controlled by two distinct means, particularly a noncompact operator whose second power is Hilbert–Schmidt and whose Gram equals the ordinary Cesàro Gram. Searches of publicly indexed mathematical findings, including claims formulated as compact powers, nilpotent Calkin elements and periodic averaging, revealed no directly covering statement. A general, differently phrased operator-algebraic averaging theorem could subsume the result; that remains the principal publication-priority risk.
+
+## Mathematical value — PASS
+
+The power law supplies an exact invariant throughout a natural infinite family with arbitrary complex periodic modulation. In the alternating-sign example the positive Gram operator is **exactly identical** to that of the standard Cesàro operator, while the essential spectral radius collapses from \(2\) to \(0\); this is an operator-theoretically substantive separation of singular data and spectral data. A compact square but noncompact generator is a concrete, norm-sharp witness to nonzero nilpotence in the Calkin algebra. Neither an arbitrary symbol substitution nor an isolated computed finite instance gives these two conclusions.
+
+## Boundaries and literature risk
+
+No full essential-spectrum formula for nonzero coefficient mean is asserted. The argument requires exact periodicity, and the Hilbert–Schmidt remainder is not claimed to have optimal Schatten order. Numerical experiments remain finite checks. The paper by Gallardo-Gutiérrez and Partington does address general Rhaly matrices, but its explicitly inspected spectral theorems concern moment-generated coefficients, which are not equivalent to arbitrary signed periodic diagonals. The discrete Mellin calculus concerns sampled-ratio matrices, which Sang identifies as intersecting Rhaly matrices only in scalar multiples of Cesàro; nonconstant periodic Rhaly modulations lie outside that covered family. Uninspected broader averaging and essential-spectrum theories constitute a priority risk. Independent mathematical audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
