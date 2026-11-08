@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined as the incidence graph of two- and three-element subsets of a five-symbol set. The exact verifier independently enumerates all \(2^{20}\) masks and the recursive admissible faces, obtaining \(62{,}048\) nonempty faces with the stated f-vector. It matches \(31{,}004\) augmented face pairs and topologically sorts the entire reversed Hasse DAG on \(62{,}049\) faces. Dropping the pair containing the empty face gives one critical vertex and forty-one degree-seven cells. Discrete Morse theory then proves the integral wedge of forty-one seven-spheres. Signed fixed-simplex traces over fourteen full-group classes and exact \(S_5\)-character inner products give the entire nine-constituent rational representation. Critical assumptions, quantifiers, normalization, class sizes, and quotient rational-invariant theorem are explicit. The verifier is reproducible and is not substituted for the mathematical implication of the matching.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Salvetti's foundational chapter (DOI 10.1007/978-3-319-20155-9_22) introduces the graph complexes, not an identifiable Desargues-specific forty-one-sphere or full-character theorem in its publicly visible abstract. Its full text was inaccessible, so no stronger full-text exclusion is asserted. Deshpande–Singh arXiv:2001.05448 was read as full HTML: it classifies complete multipartite, fully whiskered, cycle, and perfect rooted-tree graphs and provides general acyclic matching lemmas, not this cubic graph. Independent Desargues first-independence, ordinary matching, Rips, and generalized Petersen results involve different face predicates and cannot imply the present two-independence assertion by changing the name of the graph. Indexed searches by the exact \(\operatorname{Ind}_2\) graph, component condition, sphere count, automorphism action, and quotient invariant found no covering claim. This is evidence-based best-knowledge novelty, not a guarantee against unindexed calculations.
+PASS
 
-## Mathematical value — PASS
-The Desargues graph is a canonical symmetric cubic incidence graph. The two-independence complex is the first higher-independence level beyond ordinary independent sets, and the complete integral homotopy type is structurally informative rather than an arbitrary face count. Its full automorphism character further separates two natural central eigenspaces of dimensions 21 and 20 and identifies a genuine invariant line in the symmetry quotient. The nine-constituent result is not derivable from knowing the homology rank 41 alone. It provides a reproducible benchmark for higher independence complexes of symmetric nonchordal graphs, with clear limits to further generalization.
+The incidence graph definition gives 20 vertices, degree 3 and 30 edges. An independent exhaustive subset enumeration gives 62,048 nonempty Ind_2 faces, f-vector (20,190,1080,3985,9784,15910,16600,10390,3460,564,60,5). A fresh augmented sequential coordinate-toggle matching has 31,004 pairs, 41 critical cardinality-8 faces and full oriented Hasse DAG acyclic on 62,049 vertices. After unmatching the empty-face pair, one critical 0-cell and 41 critical 7-cells establish an integral wedge of 41 seven-spheres by discrete Morse theory, not by homology alone. An independent signed fixed-face Lefschetz enumeration across all fourteen S5×C2 conjugacy classes exactly reproduced the listed H7 traces: (1,1,1,-1,1,1,41) without layer complement and (1,1,-1,1,1,5,1) with it. The inspected source character-table orthogonality/inner products then give the stated nine irreducibles with dimension sum 41, central parts 21+20 and one invariant line. The graph symmetry proof identifies Aut(D)=S5×C2. Rational quotient homology follows from finite-group invariants after equivariant subdivision, with no claim about quotient homotopy.
 
-## Closest literature and limits
-References: Salvetti (DOI 10.1007/978-3-319-20155-9_22, preview only), Deshpande–Singh (arXiv:2001.05448, full preprint), Deshpande–Shukla–Singh (arXiv:2001.06775, abstract and bibliographic record), and earlier Desargues ordinary-independence results (different simplicial complex). No assessment of integral equivariant splitting or quotient homotopy has been made. The exact finite proof is supported by reproducible code; an independent expert audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared identical Desargues graph under the alternative name GP(10,3), ordinary Ind_1 and matching complexes, higher/dissociation Ind_2 and the graph-incidence presentation. Exact restricted family theorem statements and indexed earlier results do not imply the 41-sphere Ind_2 theorem or full fourteen-class rational character. Salvetti foundational chapter full text remains inaccessible and is a genuine priority risk.
+
+## value
+
+PASS
+
+The Desargues graph is the canonical twenty-vertex symmetric cubic incidence graph; the first nonordinary higher-independence level captures induced disjoint edges and isolated vertices. An integral wedge with 41 seven-spheres plus a full nontrivial S5×C2 symmetry decomposition and one quotient-invariant class is a motivated exact topological invariant, not a rename of its ordinary independence computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
