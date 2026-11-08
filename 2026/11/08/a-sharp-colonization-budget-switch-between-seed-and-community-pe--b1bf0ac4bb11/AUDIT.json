@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The seven transient-state backward equations uniquely determine exact mean extinction times. Symbolic inversion gives the stated rational T_center and T_full expressions in s=a+b and p=ab. The factorized center comparisons prove exact concentrated/balanced/tie regimes including boundaries, and an explicitly positive polynomial proves full-occupancy balancing. A standalone checker passed six symbolic identities, 240 independent rational CTMC solves, and 21 exact regime comparisons. Rescaling e is exact. No extrapolation from testing is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ross and Pollett (2009), https://www.maths.uq.edu.au/MASCOS/MODSIM09/RossPollett.pdf, use a homogeneous colonization coefficient c and choose between increasing c and decreasing the extinction parameter e; their Discussion explicitly identifies patch-targeted/weighted allocation as future work.",
+        "Artzy-Randrup and Stone (2010), doi:10.1371/journal.pcbi.1000876, derive a deterministic linear age-structured spectral-radius criterion; this does not imply equality or inequality of expected finite CTMC extinction times.",
+        "Etienne and Heesterbeek (2001), doi:10.1086/321986, discuss colonization versus local extinction investments in the abstract but do not therein state the exact three-patch product law."
+      ],
+      "reasoning": "The primary fully inspected two papers have substantially different mathematical objectives or feasible-control sets. The generality of the stochastic management literature remains a residual risk; no claim is made that abstract-only papers were entirely checked.",
+      "searches": [
+        "ecological contact process dispersal budget allocate migration rates edges to maximize mean time extinction connected patches optimization",
+        "\"Simple rules for ranking and optimally managing metapopulations\" optimal colonization budget connectivity",
+        "\"Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking\" full pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2916855/",
+      "https://www.maths.uq.edu.au/MASCOS/MODSIM09/RossPollett.pdf",
+      "https://doi.org/10.1016/j.ecolmodel.2010.02.016",
+      "https://doi.org/10.1086/321986",
+      "https://doi.org/10.1016/j.spa.2016.01.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Artzy-Randrup and Stone show deterministic persistence is controlled by the leading eigenvalue, which here equals sqrt(a²+b²) and always favors concentration; it does not compare T_center and T_full.",
+        "The Ross–Pollett 2009 full article explicitly states that the simple model has colonization rate c shared across patches and that targeting or weighted allocation is an unexamined modification (Discussion, pp. 6–7).",
+        "The new result gives T_center(s,p) and T_full(s,p) and proves opposite allocation policies for the same budget when 0<s<1."
+      ],
+      "reasoning": "The deterministic spectral claim is strictly weaker for this stochastic objective; homogeneous-budget rules do not imply a two-link constrained split or its seed-dependent threshold. Earlier three-site directional-imbalance results constrain *outbound vs inbound* rates and optimize distinct persistence observables, so they neither imply the new left/right symmetric-edge phase diagram nor its central-seed threshold. Potential unpublished exact reductions remain a historical-priority caveat.",
+      "searches": [
+        "Connectivity Cycles Persistence Thresholds Metapopulation Networks 2010 spectral radius lonely links weighted graph",
+        "Ross Pollett 2009 Rules of thumb for metapopulation management optimal management strategy R2",
+        "three site SIS contact process expected extinction time initial single infected versus full occupancy edge weights fixed sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The continuous-time occupied/empty habitat model is exactly the contact (SIS) process on a three-site weighted path under the stated finite CTMC rules.",
+        "Search results included Mountford et al. 2016, doi:10.1016/j.spa.2016.01.001, whose described conclusion concerns supercritical large-graph extinction-time scaling, not a link-rate optimizer.",
+        "Related earlier local work on two habitats used a two-patch asymmetric extinction/recolonization chain; its state space and initialization differ."
+      ],
+      "reasoning": "The canonical process, epidemic SIS terminology, occupied-patch terminology, and weighted-link budget formulations were compared. No retrieved statement gave the same \\(p=ab\\) phase diagram under a+b fixed for central-only and full occupancy. The transformation from two edge rates to the product \\(ab\\) is proved here, not treated as a novelty certificate.",
+      "searches": [
+        "Three patch line contact process allocate fixed total colonization transmissibility rates between two edges to maximize mean time to absorption from initial central occupancy, threshold budget at unit recovery",
+        "Finite SIS metapopulation edge-weight investment concentration versus equalization depending on initially occupied patches, sharp diversification switch",
+        "contact process graph edge weights optimal extinction time budget epidemic path stochastic immigration dispersal",
+        "\"three patch\" \"contact process\" \"extinction time\" \"edge\" \"optimize\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches retrieved general contact-process extinction bounds and metapopulation management papers, but no exact seven-state allocation table or product-dependent expression matching equations (1)–(5).",
+        "Relevant existing records with three patches compared a triangle to a path under equal per-edge rates, not a split of the two path link strengths with central-only initialization."
+      ],
+      "reasoning": "The concrete object (three-site weighted path), initial states, control constraint, and exact expected extinction-time invariant were jointly checked. Search failure is only a bounded negative result and does not establish absolute uniqueness.",
+      "searches": [
+        "optimal edge weight allocations contact process extinction time resource budget three node",
+        "three habitat path expected lifetime extinct CTMC graph edge rates total budget initial all occupied balanced edges",
+        "stochastic contact process weight balancing extinction time concentration equalization on path with three sites"
+      ]
+    },
+    "rationale": "Full accessible foundational texts were examined by model, observable and control set, not title alone. The nearest strong inspected management work studies homogeneous colonization versus extinction improvements and explicitly identifies weighted targeting as an unexamined modification. The nearest spectral source gives a deterministic proxy but no stochastic finite-absorption optimizer. Full journal texts of two plausible predecessors remain inaccessible, so the priority finding is provisional and not an assertion of exhaustive novelty.",
+    "residual_risks": [
+      "Full journal text of Etienne–Heesterbeek (2001) was not available for a decisive statement-by-statement comparison.",
+      "Full Ross–Pollett (2010) journal text was not available, although the earlier full conference exposition was inspected.",
+      "Detailed small-network CTMC identities may have appeared in uncatalogued dissertations or epidemiological literature under distinct terminology.",
+      "The full Mountford et al. (2016) article was not inspected; available exposition is asymptotic, but no entire-document exclusion is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different objective: deterministic linearized age-structured growth threshold, not finite-state Markov extinction-time optimal control.",
+        "evidence": [
+          "Spectral radius of connectivity matrix controls growth/extinction threshold; lonely links do not change that spectral threshold."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2916855/",
+        "material_read": "Full-text HTML: Abstract, Introduction, spectral connectivity and cycles sections, including model definition and spectral threshold.",
+        "method": "Read accessible primary article HTML and compared state variables, invariants, network weights, and what the principal theorems imply.",
+        "title": "Connectivity, Cycles, and Persistence Thresholds in Metapopulation Networks",
+        "trigger": "Old literature on network structure and ecological persistence, primary archive date 2010-08-05."
+      },
+      {
+        "assessment": "Not covering the new fixed-sum *two-link* allocation and central-only seed threshold; the paper uses a single homogeneous colonization coefficient and a budget tradeoff between c and e.",
+        "evidence": [
+          "Rule R2 optimizes increasing homogeneous c or decreasing homogeneous e; Discussion says weighted/patch-targeted investment could be future research."
+        ],
+        "identifier_or_url": "https://www.maths.uq.edu.au/MASCOS/MODSIM09/RossPollett.pdf",
+        "material_read": "Full extracted conference paper through model, rule R1, rule R2, spatial calibration, Methods, Discussion, Appendix and References.",
+        "method": "Read available primary full-text PDF extraction. Graphical PDF screenshot service returned an access error; claims used are explicitly present in extracted source text.",
+        "title": "Rules of thumb for metapopulation management",
+        "trigger": "Highly relevant metapopulation persistence-time optimization under a fixed management budget."
+      },
+      {
+        "assessment": "Unresolved full-text priority risk despite known homogeneous-management focus of the accessible abstract.",
+        "evidence": [
+          "Abstract describes comparing colonization-rate improvements to reductions in local extinction rate with a stochastic Levins model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ecolmodel.2010.02.016",
+        "material_read": "Accessible article abstract and institutional repository metadata; complete journal text unavailable.",
+        "method": "Searched arXiv and lawful OA variants; institutional access was unavailable, so no complete-paper NOT_COVERING assertion.",
+        "title": "Simple rules for ranking and optimally managing metapopulations",
+        "trigger": "Closely related follow-on journal paper on budget allocation for extinction-time management."
+      },
+      {
+        "assessment": "Material unresolved, not a decisive contrary theorem identified; retains historical-priority risk.",
+        "evidence": [
+          "Abstract recommends context-dependent improvements to local colonization/extinction probabilities but does not give the three-site product and threshold."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/321986",
+        "material_read": "Abstract, bibliographic metadata and descriptions of management rules; complete article not accessible.",
+        "method": "Searched arXiv and legal OA variants; institutional access remained unavailable. No whole-text negative comparison claimed.",
+        "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+        "trigger": "Earlier spatially explicit stochastic optimization and potentially strong prior coverage."
+      },
+      {
+        "assessment": "Contextually relevant, not sufficient evidence of full-text noncoverage; identified results target asymptotic graph-order growth.",
+        "evidence": [
+          "Accessible introduction describes exponential extinction-time estimates on finite trees and other graph families from full occupancy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spa.2016.01.001",
+        "material_read": "Accessible text excerpt of Introduction and stated large-graph results; attempted full page access was denied.",
+        "method": "Read available abstract and detailed introduction excerpt, explicitly not asserted to be a complete paper inspection.",
+        "title": "Exponential extinction time of the contact process on finite graphs",
+        "trigger": "Same class of finite weighted/unweighted contact processes and expected extinction time observable."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1bf0ac4-bb11-4c4f-a5a9-5c0a8801c965",
+  "value": {
+    "rationale": "The control set and observables are natural ecological design questions: splitting a fixed corridor investment among two links, with contrasting initial occupancy scenarios. The theorem gives an exact, equality-inclusive budget threshold, a complete allocation classification on the minimal nontrivial path, and a non-implied mismatch against a standard spectral persistence proxy. It identifies when protecting rare colonization founders and maintaining an established community require different spatial design. No general ecological field efficacy is asserted.",
+    "status": "PASS"
+  }
+}
