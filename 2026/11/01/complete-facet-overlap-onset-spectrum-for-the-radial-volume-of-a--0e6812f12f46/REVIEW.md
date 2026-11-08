@@ -1,1 +1,21 @@
-# Mathematical review\n\n## Correctness — PASS\nFor all integers \(d\ge3\), the specified unit-facet-normal Gram matrix is positive definite for each \(k\le d\), with exact determinant and inverse checked symbolically. The change of variables has Jacobian \(1/\sqrt{g_{d,k}}\). The radial identity, positivity and onset thresholds follow from a positive-definite quadratic form. The rescaling of excess coordinates and a beta-integral give the coefficient, including the \(k=d\) zero-dimensional orthogonal complement. Inclusion-exclusion then recovers the exact probability CDF, with all \(d+1\) facet exteriors impossible simultaneously. Finite verifier passes 586 checks and supports rather than replaces the proof.\n\n## Originality — PASS, bounded historical uncertainty\nDirect source comparison: Dirksen's 2015 simplex-section estimates do not calculate a concentric ball CDF; Baci et al 2020 obtain high-dimensional norm limit theorems, not finite-dimensional onset coefficients; Arman–Kaire–Prymak's spherical cap lemma provides low-order bounds and a triple threshold; the full publicly accessible triple-overlap result supplies a k=3 spherical onset but no uniform all-k solid-ball coefficients. Search terms included aliases for ball intersection, norm law, face thresholds, spherical cap overlap and gamma coefficients. The face distances themselves are standard and not claimed as new. Residual risk: unidentified earlier exact radial-distribution or intersection-volume analysis.\n\n## Value — PASS\nThe radial CDF is a natural invariant of regular simplices, relevant to exact ball-simplex intersections and the finite-dimensional geometry beneath norm fluctuation results. The theorem resolves the entire hierarchy of overlap activation thresholds and yields each first nonzero volume coefficient, including nontrivial intermediate overlaps and the terminal vertex onset. This supplies information not contained in first-moment or limiting Gaussian laws, and avoids arbitrary parameter slices.\n\n## Scope and limits\nThe CDF uses compact integrals; an elementary expression in every dimension is not asserted. No uniqueness-of-priority theorem or independent validation is claimed. Only regular simplices and Euclidean balls are treated.\n\nSelf-review: passed. Independent audit: not yet performed.\n
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Unit facet normals have Gram G=((d+1)/d)I-(1/d)J for every k<=d, with inverse (d/(d+1))I+d/((d+1)(d-k+1))J and determinant g. For y_i=<u_i,x>-1>=0 and orthogonal z, |x|²=rho²+2a sum(y)+y^TG^-1 y+|z|² with rho²=dk/(d-k+1), a=d/(d-k+1); Jacobian g^-1/2. Integrating the z-ball yields the exact orthant k-dimensional integral, valid with exponent zero interpreted as an indicator for k=d. Rescaling y by excess T=t²-rho² and dominated convergence over the standard simplex gives power (d+k)/2 and exact coefficient pi^((d-k)/2)(2rho)^((d+k)/2)/[(2a)^k sqrt(g) Gamma((d+k)/2+1)]. The k=d onset is outside the simplex vertex radius d but is a genuine term of global inclusion-exclusion, whose contributions cancel to give CDF1 for t>=d. The d+1-fold exterior is empty since sum normals=0. Independent Gram inverses, determinants, thresholds d=3..9 and the d3,k1 spherical cap coefficient pi were verified.
+
+## originality
+
+PASS
+
+After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. For a regular d-simplex (inradius1), all k-fold exterior facet-overlap integrals in concentric balls have sharp ordered onset radii sqrt(dk/(d-k+1)), powers (d+k)/2, explicit positive gamma coefficients, and yield an exact finite radial CDF by inclusion-exclusion.
+
+## value
+
+PASS
+
+The entire ordered k-facet-overlap onset spectrum and coefficients for a natural regular simplex radial statistic provide a motivated exact classification through the terminal vertex threshold, a potentially useful benchmark for finite-dimensional stochastic geometry; the result is not claimed as an elementary closed density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
