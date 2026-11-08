@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem reduces every labelled initial configuration to six homogeneous initial-color cohorts; replacing each cohort size by zero, one, or at least two preserves the exact threshold-two excitation decision at each update. Absent cohorts are masked, so the six-coordinate recurrence preserves the exact labelled least period and first-periodic-entry time. The `certificate.tsv` exhausts all 676 allowed signatures, and `verify.py` regenerates each row, checks the sharp size table, and tests the direct labelled rule on 73,449 configurations. The infinite family follows from the reduction rather than from finite-size extrapolation. The ordinary fixed-point and orbit-count formulas are independently checked by multinomial sums and arise from the three recurrent signature types.
+PASS
 
-## Originality
+For any a,b>=1, each initial-color cohort remains homogeneous; replacing its cardinality by min(cardinality,2) preserves all opposite-shore threshold-two predicates and, with absent cohorts masked, preserves first entry T and least labelled period p. Independently reconstructed all 676 admissible capped signatures: the histogram has exactly twelve (T,p) types, periods 1,3,4, maximal T=5; checked the entire sharp maximum-T matrix for 1<=a,b<=6. A shore capped triplet realizable at size m iff its sum<=m and either it has a 2 or the sum=m; hence the size-feasible pattern family stabilizes at m>=6. Exact multinomial count of recurrent signatures gives 1 fixed configuration, period-three H(a)H(b)/3 orbits (a,b>=6), period-four F(a)F(b)/2 orbits (a,b>=4). All-size results use finite quotient proof, not enumerated graph sizes; our separate calculation did not compare raw certificate.tsv bytes.
 
-**PASS, qualified.** Fisch–Gravner–Griffeath introduced threshold GH models in 1991; the inspected full-text portions concern lattice wave phenomena. Gravner–Lyu–Sivakoff's arXiv:1610.07320v1 addresses threshold-one finite graphs, while Bello–Sivakoff's arXiv:2108.06404 studies threshold-at-least-two on infinite regular trees. A previously available threshold-one biclique classification has different excitation criteria and orbit-count formulas; a threshold-two crown-graph result concerns a different graph and supports periods absent on bicliques. Actual published-finding corpus and literature searches did not identify an implication or equivalent exact threshold-two biclique classification. The original journal-era source was not read in its entirety, and unindexed equivalents remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The sharp, independent onsets at shore sizes four and six separate two kinds of sustained excitable-wave oscillation, while every other initial condition settles in no more than five iterations. Closed primitive-orbit formulas, an explicit all-transient coefficient census, and the overwhelmingly immediate period-three regime for large shores constitute a motivated complete infinite-family dynamic classification rather than a minor numerical increment.
+General three-state Greenberg–Hastings models and threshold-one graph dynamics precede this work; the exact threshold-two biclique quotient, first-entry law, onset sizes and all-initial-state census were not implied by the inspected primary results or Resultary matches. Priority provisional.
 
-## Verification boundaries
+## value
 
-The exhaustively checked finite transition certificate is a mathematical proof component only because the exact homogeneous-cohort reduction covers every graph size. The 73,449 direct trajectories are supplemental checks, not themselves a proof of the infinite statement. Independent review and universal historical originality are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural complete orbit classification for an infinite two-parameter graph family and an exact finite dynamical quotient: sharp 4- versus 6-vertex shore thresholds, all primitive orbit counts and transient population EGF expose distinct modes of synchronization, rather than routine brute force.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
