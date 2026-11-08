@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Radial beta-function monomial norms give the stated kernel numerator. The unperturbed roots are simple; the two roots at \(s=\pm i\) are differentiated by the implicit-function theorem. The exact alternating sum for the displacement has strictly increasing summand magnitudes, giving its sign for every integer \(k\ge1\). Rouché's theorem then gives the local zero counts, with the unattainable scalar origin explicitly excluded from genuine punctured-disk fibres. The standalone standard-library exact-rational checker passed 75 supplementary assertions. No finite computation is presented as an infinite proof.
+## correctness
 
-## Originality
-PASS on examined evidence, with residual historical priority risk. Ghiloufi--Snoun, *Zeros of new Bergman kernels* (arXiv:2009.04307, 2020, published 2022), computes the parity numerators and their unperturbed counts. Their Proposition 3 omits precisely the critical odd exponents \(\alpha\equiv2\pmod4\), and Corollary 3 includes an enlarged-radius condition \(\eta>1\). Their end discussion raises the unscaled case. The new claim determines the missing transverse crossing, its alternating sign for all critical exponents, and a contrary family of unscaled counts. A separate meromorphic Bergman-space framework paper does not state this boundary-root classification. Searches of mathematical research records and public literature found no equivalent; indirect broader coverage remains possible. The full published journal typeset edition was not separately examined in its entirety; a published-text excerpt was compared with the complete arXiv preprint.
+PASS
 
-## Mathematical value
-PASS. The result resolves a structurally motivated boundary degeneracy that standard root-count continuity cannot decide, and gives infinitely many explicit counterexamples to a natural strengthening of an existing enlarged-radius zero count. The odd parity projection and the full progression \(\alpha=4k-2\) are intrinsic to the critical-boundary mechanism rather than arbitrary finite parameter sampling.
+With m=4k and alpha=m-2, beta-moment monomial norms give K=H_{m,beta}(s)/(1-s)^m, and odd numerator F=(1+s)^m H(s)-(1-s)^m H(-s). At beta=0, finite simple roots are s=i tan(pi j/m), with exactly 2k-1 strictly interior and the two critical ±i on |s|=1. Differentiation of the numerator at (0,i) gives s_+'(0)=2i S_{4k}/m, where S_{4k}=sum_{j<k}(-4)^j[1/(4j+1)+2/(4j+2)+2/(4j+3)]. Positive block magnitudes 4^j A_j strictly increase, including j=0→1, so the alternating sum has sign (-1)^(k-1) for all k; root continuity proves inward/outward crossing and exact disk count 2k+(-1)^(k-1) for sufficiently small beta<0. Independently recomputed S_{4k} with Fraction arithmetic for k=1..8, including slope -16/105 for k=2. The origin is a numerator zero, not an attainable nonzero scalar for two punctured-disk points; count of fibers is one less. Finite checks do not prove the infinite sign law.
 
-## Limitations
-The crossing statement applies only for sufficiently small negative \(\beta\), with a threshold depending on \(k\). It does not classify the even projection, the other endpoint, or arbitrary exponents. The zero at scalar argument zero is not an attainable pair on the punctured disk. No independent audit or external mathematical certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Ghiloufi–Snoun establish the rational odd kernel and unperturbed roots but exclude precisely alpha≡2 mod4 critical cases with ±i boundary zeros. Their η>1 enlarged-disk statement does not imply the unscaled η=1 count. The explicit analytic transversality and alternating inward/outward family supplies a negative answer for even k and a complete local count. Further priority risk from subsequent meromorphic-kernel or zero-crossing literature.
+
+## value
+
+PASS
+
+The critical boundary case arises intrinsically because odd kernel roots sit exactly at ±i when m divisible by four; continuity alone cannot decide inclusion. Resolving direction for the entire infinite congruence family answers a specific near-endpoint question in an existing theorem and supplies infinitely many concrete counterexamples to an attractive stronger η=1 inclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
