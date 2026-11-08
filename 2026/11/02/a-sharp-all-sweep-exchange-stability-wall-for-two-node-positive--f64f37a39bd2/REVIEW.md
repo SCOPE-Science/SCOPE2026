@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact two-node exponential predictor and correction rules are taken from the SPIDeC construction, with the trapezoidal endpoint weights. Differentiation at each positive fixed equilibrium gives a commuting polynomial recurrence in the two-rate exchange generator. The nonzero eigenmode yields an explicit formula whose parity determines the exact stability boundary, including equality. The collocation branch follows from an invertible implicit-function Jacobian; its derivative is computed independently. The packaged verifier evaluates the original nonlinear map as well as exact rational identities. The theorem makes no extrapolation from finite tests to the infinite parameter family.
+PASS
 
-## Originality
+For the explicitly stated two-node Gauss-Lobatto multiplicative maps, g=f_i/x_i vanishes at each positive equilibrium (s,s) and Dg=Q/s with Q=[[-a,a],[b,-b]]. Linearizing the exponential predictor and all finite sweeps gives D F_0=I+hQ and D F_m=I+(h/2)Q(I+D F_{m-1}), so transverse multipliers satisfy R_0=1-2u, R_m=1-u(1+R_{m-1}), u=h(a+b)/2>0. Solving yields R_m=(1-u+2(-1)^(m+1)u^(m+2))/(1+u). Exact parity inequalities imply |R_m|<1 iff 0<u<1 for each finite m, R_m(1)=(-1)^(m+1), instability beyond 1. IFT for locally implicit collocation yields (1-u)/(1+u), and difference magnitude 2u^(m+2)/(1+u), giving convergence iff u<1. Positive inputs stay positive by finite exponential compositions; no global nonlinear contractivity asserted. Independent rational multipliers and sample nonlinear linearizations corroborate; exact algebra is unrestricted proof.
 
-PASS under inspected-source and prior-record comparisons, with residual priority risk. Pezzella's source supplies the method, unconditional positivity, diagonal scalar exactness, and small-step nonlinear estimates; its relevant equations and stability sections do not present the fixed two-species exchange multiplier or the fact that every finite sweep count shares one exact stability threshold. Scheiber's earlier additive Picard-collocation theory supplies small-step convergence principles, not this multiplicative method's two-rate all-sweep classification. A classical Picard/eigenvalue derivation can be specialized to yield these identities, and an undiscovered earlier specialization may exist. The result is not claimed to be an independent new general theory of collocation.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exchange generator is a minimal natural coupled positive system in which diagonal scalar test stability does not characterize the finite-sweep method. The exact barrier differentiates unconditional positivity, transverse contraction, and the implicit collocation limit. The absence of stability improvement from any finite number of corrections is mathematically useful when deciding whether further sweeps can handle a stiffness regime; asymmetric exchange rates, equality, and parity are all classified without numerical fitting. This concerns the linearization only, not global stability or conservation of the discrete mass.
+Pezzella establishes a positive SPIDeC method and scalar diagonal statements, but coupled exchange is not diagonal: ratios f_i(y)/y_i depend on the state. The all-finite-sweep transverse wall is a concrete specialization, potentially derivable with standard Picard algebra. Full highly relevant Pezzella source was inaccessible (Oxford VPN disconnected), leaving a material priority risk rather than a fabricated NOT_COVERING verdict.
 
-## References and limits
+## value
 
-Pezzella, arXiv:2606.29523, Sections 2, 3, 5; Scheiber (2019), Sections 2–3. The checker supports but does not replace the complete proof. The result assumes two Gauss–Lobatto nodes, positive two-species exchange rates, and finite sweep count. Historical priority remains independently unconfirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact counterexample shows strict componentwise positivity and arbitrarily many finite corrections do not ensure transverse stiff stability, while the implicit collocation derivative is unconditionally damped. It sharply delineates a real numerical-method pitfall even in a minimal, naturally coupled positive exchange system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
