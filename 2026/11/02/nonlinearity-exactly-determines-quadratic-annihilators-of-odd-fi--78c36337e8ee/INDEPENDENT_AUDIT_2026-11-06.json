@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:47:32.348198Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f=x0 xor g(y) with y in F2^4 and odd wt(g), g has degree 4 and nonlinearity s in {1,3,5} (odd affine distance, four-variable covering-radius bound). A closest affine ell makes g+ell the indicator of an affinely independent s-point subset: the s=5 dependent case would lie in an affine hyperplane, toggling its affine indicator to reduce distance to 3. Affine input changes reduce to S={0},{0,e1,e2},{0,e1,e2,e3,e4}. Every degree<=2 polynomial is A(y)+x0 B(y), dim A=11, dim B=5; the top-degree quotient rank of gB is s (explicit 5x5 matrices), hence restriction rank 11+s to both graph supports and each annihilator dim 5-s. No nonzero degree-1 annihilator because g has degree 4; the degree-3 restriction kernel is nonzero since dim RM(3,5)=26>16. Therefore AI=3 iff s=5, NL(f)=2s. Independent computation directly formed full graph restriction evaluation rows and recovered kernel dimensions 4,2,0 in the three normal forms. The order-five one-cycle 24,1128,896 nonlinearity counts are Turan 2012, not new; independent source checker enumerates 2048 maximum-period feedback functions but logs alone are not relied upon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turan Table 2 explicitly lists n=5 nonlinearity values and frequencies; Carlet et al. provide general annihilator definitions and constructions; Boyar et al. prove broad incomparability of nonlinearity measures."
+        ],
+        "reasoning": "General results on nonlinearity or algebraic immunity are not in themselves the specific odd-four-variable graph-restriction rank law, but an older specialized algebraic-immunity NFSR result could imply it.",
+        "searches": [
+          "Meltem Sönmez Turan 2012 On the Nonlinearity of Maximum-length NFSR Feedbacks Section 3 Table 2",
+          "Carlet Dalai Gupta Maitra 2006 Algebraic Immunity... IEEE TIT",
+          "Boyar Find Peralta 2016 On Various Nonlinearity Measures"
+        ]
+      },
+      "checked_sources": [
+        "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910672",
+        "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=921030",
+        "https://doi.org/10.1109/TIT.2006.876253"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Turan, n=5 nonlinearity distribution is prior; general algebraic-immunity theory gives bounds and construction principles rather than the rank 5-s for every odd 4-variable g."
+        ],
+        "reasoning": "Taking Turan Table 2 and the newly proved rank law gives the immunity counts; the old table alone is not sufficient to decide algebraic immunity without the missing structural implication.",
+        "searches": [
+          "ePrint 2012/112 Section 3 plus Table 2",
+          "IEEE TIT 2006 Carlet et al algebraic immunity annihilators",
+          "NIST publication Boyar Find Peralta 2016"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odd-feedback representation is standard for nonsingular shift registers; the graph-support restriction kernel is equivalent to a Reed–Muller evaluation rank."
+        ],
+        "reasoning": "Compared feedback, de Bruijn, affine Reed–Muller rank, annihilator and algebraic immunity formulations. The identical nonlinearity table is a known equivalent count, whereas the full dimension law is a different invariant.",
+        "searches": [
+          "Resultary semantic query: Boolean functions f=x0+g(y) odd weight algebraic immunity quadratic annihilators nonlinearity five variables feedback",
+          "web: NFSR five variables annihilator dimensions RM(2,5) algebraic immunity nonlinearity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three nonlinearity multiplicities occur in the preexisting 2012 table; a Resultary four-variable Walsh census 2026/9/8/SCOPE051 counts a different family and no annihilator dimensions."
+        ],
+        "reasoning": "Matching Table 2 numbers are treated as known, not novel. The new data are both quadratic-annihilator dimensions and the all-32768 odd truth-table classification.",
+        "searches": [
+          "Resultary semantic query: Boolean functions f=x0+g(y) odd weight algebraic immunity quadratic annihilators nonlinearity five variables feedback",
+          "ePrint 2012/112 Table 2 order five 24 1128 896"
+        ]
+      },
+      "rationale": "Turan 2012 already tabulates precisely the 24/1128/896 maximum-period nonlinearity distribution and parity restriction. The additional asserted all-odd-g annihilator-rank identity and AI equivalence are not found in inspected primary material; general algebraic-immunity literature discusses different families. Qualified originality PASS for the rank theorem, not for the counts.",
+      "residual_risks": [
+        "Older specialized algebraic-immunity studies of five-stage NFSR feedbacks could contain equivalent rank formulas; not ruled out by search.",
+        "Algebraic immunity result does not certify security against fast algebraic attacks, and restriction to odd g matters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FOR_NONLINEARITY_ONLY",
+          "evidence": "Table 2 accounts for 24/1128/896 order-five nonlinearities; analysis is about nonlinearity rather than complete degree-two annihilator kernels.",
+          "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910672",
+          "material_read": "Full available primary PDF text, Sections 3–4 and Table 2; checked parity and multiplicity statements",
+          "method": "lawful author/NIST PDF text inspection",
+          "title": "On the Nonlinearity of Maximum-length NFSR Feedbacks",
+          "trigger": "Same maximum-period five-stage feedback class, exact n=5 multiplicities"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": "Proves several nonlinearity notions incomparable over general Boolean classes; no claim inferred about this restricted family.",
+          "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=921030",
+          "material_read": "Abstract and NIST research summary, without full section-by-section reading",
+          "method": "bibliographic/abstract",
+          "title": "On Various Nonlinearity Measures for Boolean Functions",
+          "trigger": "Possible broader theorem equating immunity and nonlinearity"
+        },
+        {
+          "assessment": "ACCESS_LIMIT",
+          "evidence": "Defines and studies algebraic immunity; possible specialized implication remains unverified.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2006.876253",
+          "material_read": "Indexed bibliographic and selected theorem descriptions; complete text not accessed",
+          "method": "primary metadata and available summary",
+          "title": "Algebraic Immunity for Cryptographically Significant Boolean Functions: Analysis and Construction",
+          "trigger": "Potential general annihilator dimension formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Algebraic immunity and nonlinearity are generally distinct cryptographic invariants; for a naturally constrained maximal-period feedback family, a complete exact rank law relates them and classifies all quadratic annihilator dimensions. The parity hypothesis, normal forms, and immunity threshold make this a useful intrinsic structural theorem; reusing the known maximum-period nonlinearity multiplicities alone would not be valuable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only five-input feedback forms with odd-weight four-input g; not all balanced Boolean functions.",
+    "2012 nonlinearity frequencies are prior work; the specialist Carlet and later NFSR literature was not exhaustively inspected."
+  ],
+  "schema_version": 1
+}
