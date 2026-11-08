@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The standalone `verify_moments.py` is executable with Python 3 and no third-party dependencies. It compares the exact stationary Fourier-generator recurrence with the independent ordered-time/Wick product in rational arithmetic for multiple nondegenerate parameter sets through degree 32, including the nonrotating boundary. It checks the fourth-to-second inversion and strict moment feasibility for nonaligned axes, then tests two angular Brownian occupation moments using a fixed-seed Monte Carlo time discretization. The recorded run completed 98 assertions.
+## correctness
 
-The infinite-order formula, identifiability, feasibility region, degeneracies, and quantitative limit are established in the mathematical proof, not by the finite checker. The Monte Carlo check has sampling and time-discretization error and cannot prove exact identities. No independent scientific validation or independent audit has been performed.
+PASS
+
+For exponential age T the complex conditional Gaussian moment is (2n-1)!! (4Delta)^n exp(2in theta0) I_T^n. Ordered times in I_T^n and Brownian independent increments yield n!/product_{j=1}^n(r+4gamma j^2); the independent stationary generator recursion (r+4gamma k^2)F_{n,k}=4n(2n-1)Delta F_{n-1,k+1} confirms this without using a log. m2=4Delta exp(2i theta0)/(r+4gamma), m4=96Delta^2 exp(4i theta0)/((r+4gamma)(r+16gamma)); Q decreases 6 to 3/2, giving the inverse gamma/r=(6-Q)/(16Q-24), S=4barD/r and strict A/S<(4Q-6)/(3Q). Boundary gamma=0 is included, infinite gamma excluded; isotropy and common-rate scaling are true degeneracies. Independent rational diagnostic compared the generator product for eight even orders.
+
+## originality
+
+PASS
+
+Qualified PASS: Chaki–Olsen–Löwen 2024 supplies this very reset model and renewal/second-order equations, but no inspected fourth complex-moment ratio inversion or feasible region; generic Fourier propagators may encode ingredients implicitly rather than assert the claimed identifiability theorem.
+
+## value
+
+PASS
+
+Exact population-moment identifiability and the complete attainable set in the exact motivating stochastic model are natural inverse-problem invariants; the sharp second-order obstruction explains why fourth-order measurements are necessary. Not an estimator or a discovery of renewal theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

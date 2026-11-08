@@ -1,23 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under independent body-frame translational Brownian drivers, rotational Brownian motion, complete Poisson resetting, and strictly positive unequal body diffusivities, the regenerative age is exponential. Conditional complex Gaussian Wick pairing reduces all even spatial angular moments to a Brownian phase-occupation integral; ordering the times gives the product of exact positive denominators \(r+4\gamma j^2\). An independent stationary-generator recurrence yields the same all-order formula. Direct inversion establishes the entire physically admissible moment region, identifiability, and the continuum of second-moment ambiguities. All expectations are justified by the finite exponential-age moments. Exact-rational and stochastic path diagnostics pass; these do not replace the proof. No claim extends to other resetting regimes.
+PASS
 
-## Originality — PASS (subject to external priority verification)
+For exponential age T the complex conditional Gaussian moment is (2n-1)!! (4Delta)^n exp(2in theta0) I_T^n. Ordered times in I_T^n and Brownian independent increments yield n!/product_{j=1}^n(r+4gamma j^2); the independent stationary generator recursion (r+4gamma k^2)F_{n,k}=4n(2n-1)Delta F_{n-1,k+1} confirms this without using a log. m2=4Delta exp(2i theta0)/(r+4gamma), m4=96Delta^2 exp(4i theta0)/((r+4gamma)(r+16gamma)); Q decreases 6 to 3/2, giving the inverse gamma/r=(6-Q)/(16Q-24), S=4barD/r and strict A/S<(4Q-6)/(3Q). Boundary gamma=0 is included, infinite gamma excluded; isotropy and common-rate scaling are true degeneracies. Independent rational diagnostic compared the generator product for eight even orders.
 
-Chaki–Olsen–Löwen (2024), arXiv:2406.17550v1, explicitly supplies the joint-resetting renewal law and the second moments; these ingredients are prior. The inspected paper's Section III and perturbative Section III.1 do not provide fixed-angle complex fourth and higher moments, exact fourth/second inverse tomography, or the feasible region. Kurzthaler–Franosch (arXiv:1911.03425) provides a broad conditional no-reset Fourier description and fourth radial displacement after rotational averaging, which potentially implies some moment ingredients by substantial calculation, but does not state the stationary inverse result; Ghosh–Mandal (arXiv:2501.05149v1) treats an active extension with lower moments. Semantic mathematical-database searches and accessible earlier claims were compared by objects and implications rather than titles. A general unpublished or unindexed propagator-inversion theorem remains a genuine priority risk; database silence alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The original stationary second-moment anisotropy confounds body diffusion contrast with the rotational decorrelation rate: infinitely many models can share all second spatial moments. One fourth complex angular moment resolves that ambiguity exactly and makes the entire hidden, normalized dynamical parameter quadruple reconstructible from stationary positions alone. The sharp feasible region, all-order predictions, and singular limits supply testable structural constraints on proposed reset-colloid models; these go beyond a routine rewriting of second moments. This is an exact population theorem, not a claim of estimator robustness.
+Qualified PASS: Chaki–Olsen–Löwen 2024 supplies this very reset model and renewal/second-order equations, but no inspected fourth complex-moment ratio inversion or feasible region; generic Fourier propagators may encode ingredients implicitly rather than assert the claimed identifiability theorem.
 
-## Closest literature and limitations
+## value
 
-- Chaki, Olsen and Löwen, arXiv:2406.17550v1: same dynamics and renewal; only lower moments and perturbative density explicitly treated.
-- Kurzthaler and Franosch, arXiv:1911.03425: broad Fourier-operator solution and angle-averaged radial fourth moment in a nonreset setting.
-- Ghosh and Mandal, arXiv:2501.05149v1: active extension and lower moments.
-- Distinct prior moment/inverse results for active orientation-reset models, two-state diffusivity switching, and harmonic-noise-reset models do not contain this passive joint-reset position-only angular theorem.
-- No independent publication-priority review or independent scientific validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact population-moment identifiability and the complete attainable set in the exact motivating stochastic model are natural inverse-problem invariants; the sharp second-order obstruction explains why fourth-order measurements are necessary. Not an estimator or a discovery of renewal theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
