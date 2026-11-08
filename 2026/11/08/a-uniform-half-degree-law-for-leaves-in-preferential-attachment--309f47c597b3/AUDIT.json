@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every existing vertex, the exact conditional leafneighbour-minus-half-degree increment is I/2-J, producing the linear drift factor 1-1/[2(n-1)], increments bounded by 2, and conditional variance at most degree/(n-1). The exact expected squared-degree sum 2(n-1)H_(n-1) makes the maximum degree at most sqrt(n) log n with probability tending to 1. A stopped deterministic-weight Freedman argument and union bound yield a uniform O_P(n^(1/4)(log n)^2) approximation. Exact rising-factorial moments establish a positive half-normal root-degree lower anchor on the sqrt(n) scale. The deterministic maxima comparison then proves L_n/D_n ->1/2 in probability. A standalone exact-rational finite-state checker passed 53,992 assertions and seeded diagnostics, but no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source itself notes that known degree-count concentration extends only to degrees below a small power of N, not the maximal-degree scale; it explicitly leaves the extremal ratio conjectural.",
+        "Classical preferential-attachment maximum-degree results concern only ordinary degree, not max leafneighbour degree or simultaneous difference.",
+        "The inspected 2025 paper addresses ordinary recursive trees and leafdegree-based growth (attachment rate ell+a)."
+      ],
+      "reasoning": "Even a sharp maximum-degree limit does not imply a maximum-leafdegree limit without joint control of all high-degree vertices. The 2025 attachment mechanisms differ; fixed degree and leafdegree distributions alone do not dominate a simultaneous finite-tree concentration inequality. No verified broader directly covering theorem surfaced in the queries.",
+      "searches": [
+        "leaf degree maximum degree ratio preferential attachment Hartle Krapivsky 2026",
+        "uniform bound leaf neighbor count half degree preferential attachment martingale",
+        "maximal leaf-neighbor degree and degree root preferential attachment trees",
+        "2602.01021 leaves of preferential attachment trees conjecture max leafdegree/max degree 1/2",
+        "the degree-proportional BA tree has maximum leaf-neighbor degree equal to half maximum ordinary degree",
+        "uniform simultaneous martingale concentration leafdegree minus degree/2 all vertices BA model",
+        "preferential attachment tree leafdegree conditional degree beta binomial mixing Gaussian local central limit theorem",
+        "random preferential attachment degree conditioned leaf neighbor counts quantitative normal approximation beta mixture",
+        "random preferential attachment tree maximum number leaf neighbors asymptotic one half maximum degree",
+        "preferential attachment tree leaf degree high degree martingale maximum leaf count proof",
+        "preferential attachment leafdegree Gaussian binomial Krapivsky Hartle",
+        "conditional leafdegree beta binomial preferential attachment",
+        "preferential attachment maximum degree scaled square root limit random variable theorem 2002 trees arxiv",
+        "preferential attachment leafdegree maximum convergence theorem 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2602.01021",
+      "https://arxiv.org/abs/2511.04085",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "https://arxiv.org/abs/2602.01021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hartle--Krapivsky 2026 explicitly labels ell_max/k_max -> 1/2 in probability a conjecture, despite established fixed-stratum moment control.",
+        "Published result titled \"Equal-share covariance of root degree and leaves in a random recursive tree\" treats covariance with total leaf counts in uniform random recursive trees, not leaf neighbours in a degree-proportional growth tree.",
+        "Published result titled \"Root attachments have an exact negative path-length profile in random recursive trees\" treats an unrelated path-length statistic.",
+        "Published result titled \"Exact negative regression between endpoint degree and distance in a uniform Cayley tree\" concerns a fixed-size uniformly random tree and distance, not degree-driven growth or extrema."
+      ],
+      "reasoning": "None of these results logically yields a uniform bound on leafneighbour count minus half ordinary degree in the classical degree-proportional tree. The new proof uses a previously unstated local mean-reversion martingale and global degree-square control. Fixed-degree conditional statements alone cannot transfer by a naive union bound through the high-degree random maximum.",
+      "searches": [
+        "preferential attachment trees largest leafdegree maximum degree ratio one half conjecture",
+        "maximal leaf-neighbor degree and degree root preferential attachment trees",
+        "uniform simultaneous martingale concentration leafdegree minus degree/2 all vertices BA model",
+        "leaf degree maximum degree preferential attachment ratio 1/2 proof",
+        "random preferential attachment tree maximum number leaf neighbors asymptotic one half maximum degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hartle--Krapivsky arXiv:2602.01021v1 overview explicitly conjectures ell_max/k_max -> 1/2 after proving fixed-degree conditional leafdegree concentration (overview around Eq. (18), lines 139-156).",
+        "The inspected paper analyses n_{k,ell} for fixed (k,ell) and N_{k,ell} fluctuations for small fixed cells, rather than a uniform random degree-dependent estimate for all vertices.",
+        "The available 2025 companion article concerns different attachment processes."
+      ],
+      "reasoning": "The source conjecture is precisely the new ratio conclusion, so neither restating fixed-degree concentration nor a consequence of it is counted as a proof: maxima have degrees of order square-root graph size, outside the source's fixed-degree regime. The new uniform bound also provides an inequivalent stronger statement. Searches included aliases leafdegree, leaf-neighbour degree, hub leaf neighbours, and degree ratios.",
+      "searches": [
+        "preferential attachment trees largest leafdegree maximum degree ratio one half conjecture",
+        "leaf degree maximum degree ratio preferential attachment Hartle Krapivsky 2026",
+        "uniform bound leaf neighbor count half degree preferential attachment martingale",
+        "maximal leaf-neighbor degree and degree root preferential attachment trees",
+        "2602.01021 leaves of preferential attachment trees conjecture max leafdegree/max degree 1/2",
+        "the degree-proportional BA tree has maximum leaf-neighbor degree equal to half maximum ordinary degree",
+        "leaf degree maximum degree preferential attachment ratio 1/2 proof",
+        "leafdegree k_max ell_max random tree conjecture",
+        "random preferential attachment tree maximum number leaf neighbors asymptotic one half maximum degree",
+        "preferential attachment tree leaf degree high degree martingale maximum leaf count proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant primary source gives an exact joint limiting degree-leafdegree distribution, Table 1, and conditional moments, but presents the maximal-ratio value as a conjecture, not a proven table entry.",
+        "No exact published finite graph table or accessible mathematical findings database entry returned a proved uniform-all-vertices concentration bound or this extremal probability limit."
+      ],
+      "reasoning": "Exact fixed-(k,ell) frequencies and simulated maximum ratios at finite N are not equivalent to the new theorem, which simultaneously quantifies deviations for all vertices as n grows. The search is not exhaustive proof of novelty.",
+      "searches": [
+        "preferential attachment trees largest leafdegree maximum degree ratio one half conjecture",
+        "2602.01021 leaves of preferential attachment trees conjecture max leafdegree/max degree 1/2",
+        "uniform simultaneous martingale concentration leafdegree minus degree/2 all vertices BA model",
+        "leaf degree maximum degree preferential attachment ratio 1/2 proof",
+        "leafdegree k_max ell_max random tree conjecture"
+      ]
+    },
+    "rationale": "The closest directly matching 2026 primary paper explicitly conjectures the extremal maximum ratio but proves fixed-degree conditional and local empirical statistics. Neither those results nor the inspected different-model companion or retrieved published statements imply the uniform high-degree deviation bound. Actual broad and alias published-finding corpus plus primary-literature searches revealed no verified stronger result. This is provisional same-model priority assessment, not worldwide uniqueness proof.",
+    "residual_risks": [
+      "Other pre-2026 maximal-degree/leafneighbour results may use different terminology and could imply the theorem.",
+      "The second source was examined at abstract and introductory model level, not as an exhaustive page-by-page inspection.",
+      "Published mathematical-record matches beyond the primary paper were compared at statement/abstract level, and not all complete underlying proofs were available; none supplied a decisive overlap.",
+      "Independent mathematical validation and definitive historical priority assessment have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides fixed-stratum distribution/moments and explicitly conjectures the new maximum-ratio conclusion rather than proving it.",
+        "evidence": [
+          "arXiv:2602.01021v1, 2026-02-01; overview: \"This leads to the conjecture\" for ell_max/k_max -> 1/2 (around lines 141-156).",
+          "The paper states its high-degree fixed-stratum and count analyses do not cover maximal degrees of order sqrt(N) (around lines 155-157)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.01021",
+        "material_read": "Abstract; introduction; main results around equations (17)-(23) and conjecture at overview lines 139-158; Sec. III.1--III.6 including fixed-degree moments; Sec. IV and Sec. V discussion, plus appendix and table of contents for overlap.",
+        "method": "Direct public arXiv HTML text inspection, including source search for maximal leafdegree and conjecture.",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "Same model and exactly the conjectured ratio; maximally relevant prior claim."
+      },
+      {
+        "assessment": "Random recursive and leafdegree-driven growth models, unlike the classical degree-proportional tree; cannot imply the claimed result by direct specialization.",
+        "evidence": [
+          "arXiv:2511.04085v1, 2025-11-06: RRT leafdegree and attachment at rate ell+a."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.04085",
+        "material_read": "Abstract and introductory model definitions in lawful public source.",
+        "method": "Direct arXiv abstract and accessible primary material.",
+        "title": "Statistics of leaves in growing random trees",
+        "trigger": "Same authors and leafdegree terminology with potentially stronger extremal theorems."
+      },
+      {
+        "assessment": "Different model (uniform recursive tree) and different invariant (global total leaf count), so its stated covariance does not cover maxima or uniform degree/leaf-neighbour differences.",
+        "evidence": [
+          "Published summary states Cov(root degree,total leaf count)=(n-2)/(2(n-1)) in the uniform recursive model."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+        "material_read": "Public record title and scientific summary only, not full underlying proof.",
+        "method": "Published mathematical-record result; statement-level implication comparison.",
+        "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+        "trigger": "Closest semantically retrieved published mathematical result involving leaf and degree statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "309f47c5-97b3-4255-95dc-0b60d28062b3",
+  "value": {
+    "rationale": "A 2026 primary publication explicitly conjectures this ratio, making the gap substantive rather than arbitrary. Fixed-degree concentration is not a solution because a maximum over n dependent vertices occurs at order sqrt(n) degree. The new uniform martingale theorem provides a quantitative whole-tree comparison and resolves the exact natural invariant 1/2, not a small or routine parameter substitution. The limitation to the canonical model and unoptimized logarithmic factors are explicitly stated.",
+    "status": "PASS"
+  }
+}
