@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every directed cycle on at least three vertices, all-one witnesses force supports into a directed Hamiltonian cycle. The cases of all but one arc and all arcs fail by a two-block forced continuation; for supports missing at least two cycle arcs, reversing the quotient cyclic order of positive path blocks realizes every negative constraint, with the three-block boundary treated explicitly. Inclusion-exclusion over remaining forbidden arcs counts exact labels by factorials. Ordered component cuts count supports. Along an all-positive branch, \\(n-2\\) positive arcs leave one hypothesis, excluding a depth-\\(n-1\\) mistake tree. A standalone exhaustive verifier for \\(3\\le n\\le6\\) checks the polynomial and all exact label counts; finite checks are not general proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al., PMLR 132 (2021), bound generic dimension changes under Boolean aggregation, without this single-cycle incidence class.",
+        "Guingona et al., arXiv:2109.04805, Theorem 3.10 is for zero-sets of linear combinations, a hypothesis family with fundamentally different closure and algebraic hypotheses."
+      ],
+      "reasoning": "There is no specified representation of cyclic-permutation arc indicators as the zero-set family of linearly independent functions satisfying the cited theorem; even an abstract equal-dimension conclusion would not imply the exact support polynomial or all labeling multiplicities. General closure inequalities do not supply the formula.",
+      "searches": [
+        "VC dimension Hamiltonian cycle incidence families directed permutations learning",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions Ghazi Golowich Kumar Manurangsi 2021",
+        "Littlestone and VC-dimension of families of zero sets 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.05459",
+      "arXiv:2109.04805",
+      "arXiv:2007.16042",
+      "DOI:10.37236/8288",
+      "PMLR 132 (2021) pp. 686-696",
+      "related prior undirected Hamiltonian-tour support classification (implication comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Albert et al. Theorems 33, 36, 43, 44 address first-order expressibility and cycle-pattern structure, not this fixed-label arc membership shattering family.",
+        "Adler et al. Theorem 1.1 concerns neighborhoods of Johnson and Hamming graphs and dimensions at most four and three; the present dimensions grow with n.",
+        "A related undirected Hamiltonian-tour result treats unoriented edges modulo reversal, yielding a different support boundary and no directed exact-trace uniformity."
+      ],
+      "reasoning": "A theorem about undirected cycles alone cannot fix how the orientations distribute positive and negative arc constraints; the present proof relies on reversing the *block order* while retaining each contracted path orientation. No identified stronger result logically covers the precise uniform formula.",
+      "searches": [
+        "Two first-order logics of permutations Albert Bouvel Féray arXiv 1808.05459",
+        "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs arxiv 2007.16042",
+        "exact shattering of Hamiltonian tours undirected complete graphs",
+        "directed Hamiltonian n-cycle arc incidence all linear forests of at most n minus 2 edges shattered"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches of public research records under cyclic permutations, directed Hamiltonian arcs, and path forests returned no statement of this incidence trace theorem.",
+        "Albert, Bouvel & Féray, arXiv:1808.05459, treat permutations as one-bijection relational structures and their logical expressibility; their searched text has no VC or Littlestone computation."
+      ],
+      "reasoning": "The directed arc set of a cyclic permutation is a functional digraph. The equivalence to directed Hamiltonian cycles and consistently oriented path forests was compared explicitly, not solely a phrase match. None of the inspected mathematical statements implies the formula.",
+      "searches": [
+        "directed cyclic permutation shattering multiplicity inclusion-exclusion factorial",
+        "cyclic permutations arc incidence shattering directed linear forests",
+        "Littlestone VC dimensions of permutations graph of a single n cycle",
+        "\"n-cycles\" \"shattering\" arcs VC dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The combinatorial coefficient counts ordered-path set partitions and can be obtained by classical permutation-cut counting; this elementary enumeration is not claimed as independently novel.",
+        "No searched exact shattering table for the cyclic-permutation incidence class was identified."
+      ],
+      "reasoning": "A known sequence for directed path forests would not automatically state which ones are shattered by one-cycle permutations, nor yield the uniform label multiplicity or Littlestone bound. Database coverage remains incomplete.",
+      "searches": [
+        "OEIS 1 30 300 1200 1800 directed linear forests six vertices",
+        "\"number of directed linear forests\" labeled paths generating polynomial",
+        "\"VC dimension\" \"Hamiltonian\" \"directed\" cycles shattering"
+      ]
+    },
+    "rationale": "Published permutation-as-bijection, general set-system, zero-set learning and graph-neighborhood papers do not imply the full directed cyclic-permutation trace census or its online dimension. The closest identified undirected Hamiltonian-tour incidence statement does not determine orientation-sensitive trace multiplicities. Unsearched equivalent directed enumeration formulations remain a real priority risk.",
+    "residual_risks": [
+      "A different term such as cyclic rook theory or directed Hamiltonian extension-avoidance might hide the exact formula in uninspected primary literature.",
+      "The general union-theorem and general online-closure papers were evaluated from official abstracts, not complete PDFs; they are not direct-object plausible matches.",
+      "No independent mathematical audit or comprehensive priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different logical expressibility questions; no explicit arc shattering theorem identified",
+        "evidence": [
+          "Introduction distinguishes bijection and two-order interpretations; Section 2 defines binary graph R for permutation bijection; Section 6 concerns cycle types and expressibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1808.05459",
+        "material_read": "Abstract, introduction, one-bijection relational signature, section road map, and passages on cycle types and expressibility; full-document term search for shatter, Littlestone and VC; not line-by-line all 47 pages",
+        "method": "read publicly accessible arXiv full text and inspect relevant page images",
+        "title": "Two first-order logics of permutations",
+        "trigger": "same permutations as bijections and cycles; verified earliest public source 2018-08-16"
+      },
+      {
+        "assessment": "Theorem about zero-sets of linear function combinations, not a statement about directed cycles; scope difference resolves direct implication risk",
+        "evidence": [
+          "Theorem 3.10 requires linearly independent functions and ranges over zero-sets of their nontrivial linear combinations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+        "material_read": "Abstract, introduction and stated Theorem 3.10 on first two pages; not entire 18-page article",
+        "method": "read arXiv text and inspect abstract page image",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "exact equality of static and online shattering dimensions"
+      },
+      {
+        "assessment": "Different objects: open neighborhood concepts on Johnson/Hamming graphs, with constant VC bounds",
+        "evidence": [
+          "Theorem 1.1 has VC dimension four for Johnson edge relation and three for Hamming; no Hamiltonian-cycle incidence class."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, introduction, definition of set family and Theorem 1.1 on pages 1-4; not entire 26-page article",
+        "method": "read arXiv text and inspect abstract page image",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "combinatorial shattering of explicitly given relational graph families"
+      },
+      {
+        "assessment": "A general theorem about symmetric-difference closure; cannot be used to infer this arc-incidence trace result from its inspected hypotheses",
+        "evidence": [
+          "Abstract fixes VC of k-fold symmetric differences, not the class of n-cycles or exact labeling counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/8288",
+        "material_read": "Official journal abstract and publication metadata; full PDF not read",
+        "method": "read official journal page",
+        "title": "VC Dimension and a Union Theorem for Set Systems",
+        "trigger": "general VC set-system structural results"
+      },
+      {
+        "assessment": "Generic closure bounds rather than an exact one-conjugacy-class calculation",
+        "evidence": [
+          "The result bounds arbitrary Boolean aggregations of classes with bounded online dimension."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Official PMLR conference abstract and bibliographic page; full PDF not read",
+        "method": "read official publisher record",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "potential stronger uniform online-learning result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "342e6f34-cf9f-4745-ab78-55e95fae7bae",
+  "value": {
+    "rationale": "The exact uniform trace law is a nontrivial coefficientwise refinement beyond a dimension bound. The all-n classification of shattered directed arc supports, its factorial polynomial and sharp Littlestone equality provide a natural complete answer for the single-cycle conjugacy class. It distinguishes incidence learnability of oriented cyclic permutations from their unoriented tour quotient by a structural reversal-of-blocks argument.",
+    "status": "PASS"
+  }
+}
