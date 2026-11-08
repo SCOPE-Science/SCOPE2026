@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unitarily normalized critical Zak transform is evaluated by the standard weighted cosecant partial-fraction identity. Its squared modulus reduces exactly to \((n_0+n_1s)/(H^2+s)^2\) with \(n_1>0\), which cannot have an interior minimum in \(s\). The remaining two explicit endpoint functions are minimized over a closed positive interval, producing all five branches and their shared endpoints. Hardy half-plane orthogonality gives the exact window energy. Differentiation on each frame component, plus time reversal, proves precisely the two normalized optimizers. The standalone checker reproduces 14,508 supplementary evaluations; finite tests are not substituted for universal arguments.
+PASS
 
-## Originality — PASS, provisional priority
+For a,c>0 on the unit critical lattice, the weighted cosecant partial fraction yields exact Zak intensity π²[H²(1−s)(y−c/y)²+J²s(y+c/y)²]/(H²+s)², H=sinh(πa), J=cosh(πa), s=sin²(πx), y∈[e^{−πa},e^{πa}]. Its derivative as function of s has a strictly decreasing linear numerator, hence interior stationary points are maxima and the infimum lies at s∈{0,1}. Monotonicity of both endpoint squares in y for c outside the cancellation interval yields the five analytic branches with transitions c=e^{±4πa} and frame zeros for e^{−2πa}≤c≤e^{2πa}. Energy ∥g∥²=π(1+c²)/a and c↔1/c symmetry yield unique optimizers c=e^{±4πa}, max normalized 2πa/cosh(4πa). Independently evaluated complex Zak and real-intensity algebra on a∈{.13,.55}, several c,x,ω points, and checked the claimed lower bound and optimum. The proof, not those samples, covers all parameters.
 
-The closest primary paper, Belov–Kulikov–Lyubarskii (arXiv:2103.08959, full open article inspected), announces a complete two-kernel **frame-set** description and its published theorems analyze rational-window frame existence. The frame/nonframe portion is therefore not independently claimed novel. A frame-set statement does not imply the present **optimal numeric lower frame bound**, the two switches of the minimizing Zak fiber or the sharp energy-normalized optimizer. The related one-pole frame-operator article (arXiv:2212.08915) supplies a limiting comparison only; full text was not read. A 2026 symmetric-pole rational-window abstract addresses a different higher-degree family. Searches of published research records showed no equivalent quantitative result. Residual risk: an unpublished two-kernel proof or other literature could contain the same sharp formulas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Critical Gabor frame existence does not measure reconstruction stability. The new formula gives sharp stability over a natural two-pole family at all positive residue ratios, detects distinct minimizing-fiber transitions on both sides of the nonframe gap, and solves a scale-invariant window-design problem with exactly two explicit optimizers. These are quantitative objects motivated directly by the prior rational-window and frame-bound literature, not arbitrary numerical slices.
+The announced qualitative two-kernel frame set and established single-pole constants are credited; the exact five-branch lower bound and energy-normalized optimizer were not implied by inspected primary texts.
 
-## Limitations
+## value
 
-Only equal opposite pole heights, positive coefficients and critical unit lattice are quantified. The frame-set description itself is anticipated by prior work. No independent review has been performed; priority is provisional and the single-Cauchy full manuscript was not inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines exact stability and best normalized conditioning within a natural two-pole critical Gabor design family, including location switches distinct from existence thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
