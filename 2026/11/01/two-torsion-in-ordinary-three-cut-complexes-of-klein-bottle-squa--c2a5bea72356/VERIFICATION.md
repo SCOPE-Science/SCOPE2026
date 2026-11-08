@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The included `verify_klein_cut.py` uses Python 3 and SymPy. Execute `python3 verify_klein_cut.py` from the extracted package. The expected terminal marker is `KLEIN_ORDINARY_THREE_CUT_INTEGRAL_DUAL_CHECKS_OK`.
+## correctness
 
-It reconstructs the reflected seam for three parameter pairs: \((5,5)\), \((5,6)\), and \((6,6)\). For each, it enumerates every dual three-face and every four-vertex candidate, verifies the explicit \(4mn\) free-face collapse pairs against the entire live face set, and checks equality of the surviving simplicial complex with a chosen Klein triangulation plus all long edges. A spanning tree of the square graph is independently determined before computing the exact integer Smith normal form of its square-cell boundary matrix.
+PASS
 
-Results: the Smith invariant lists are \(1^{24},2\), \(1^{29},2\), and \(1^{35},2\); the corresponding long-edge counts are \(150\), \(255\), and \(414\). Therefore the sample ordinary three-cut groups in the two nonzero reduced degrees are respectively \((\mathbb Z/2,\mathbb Z^{151})\), \((\mathbb Z/2,\mathbb Z^{256})\), and \((\mathbb Z/2,\mathbb Z^{415})\).
+The combinatorial Alexander dual X contains exactly vertex, pair, connected induced triple P3, and induced four-cycle four-faces: the no-disconnected-triple criterion plus Mantel bound excludes five-faces in triangle-free 4-regular grid. In min(m,n)≥5 reflected quotient, local radius≤4 lattice lifts ensure precisely mn squares, 6mn triangles and complete pair graph. Free-pair collapses N square-tetrahedron/corner-triangle, N square-diagonal/triangle, 2N straight-distance-two-edge/triangle leave a triangulated Klein bottle plus h=binom N2−6N long 1-cells. The result is K∨∨^hS1; UCT H^1=Z^{h+1}, H^2=Z/2 and combinatorial Alexander duality give claimed degrees. Independently reconstructed exact dual f-vectors and each free pair for m,n=(5,5),(5,6),(6,6), finding h=150,255,414 and final surface χ=0, edges all in two triangles. Finite checks are not universal proof.
 
-**Proof boundary:** The finite checks do not prove the theorem for arbitrary sizes. The all-parameter classification of graph faces, universal free-face argument, and the Klein surface identification in `RESULT.md` supply the actual infinite-family proof. No independent audit or external formal certificate is asserted.
+## originality
+
+PASS
+
+Bayer et al. 2023/2024 study ordinary cut complexes for other graph classes, including untwisted rectangular grids. Full published Resultary Klein grid theorem applies to scale-2 Rips complex and yields same geometric core but not ordinary 3-cut Alexander dual/long-edge torsion. Thus the present exact integer cut-homology is a distinct consequence proved separately.
+
+## value
+
+PASS
+
+A uniform infinite family of natural nonorientable graph quotients whose pure ordinary cut complexes have genuine Z/2 torsion one dimension below the top, with exact free rank and explicit 4N collapse certificate. Reveals a topological mechanism not seen in orientable torus grids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

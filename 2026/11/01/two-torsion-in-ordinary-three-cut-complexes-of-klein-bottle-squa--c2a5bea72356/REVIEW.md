@@ -1,12 +1,21 @@
-# Review: two-torsion in ordinary three-cut complexes of Klein-bottle grids
+# Independent mathematical audit
 
-## Correctness — PASS
-The connected-triple Alexander-dual criterion and Mantel bounds completely classify face sizes. Unique short lattice lifts establish all local face-incidences for arbitrary \(m,n\ge5\). The \(4mn\) elementary collapses leave a triangulated Klein bottle with exactly \(\binom{mn}{2}-6mn\) additional circle edges. Integral universal coefficients and Alexander duality give torsion \(\mathbb Z/2\mathbb Z\) in degree \(mn-5\), free rank \(\binom{mn}{2}-6mn+1\) in degree \(mn-4\), and zero otherwise. A standalone checker exhaustively validates three finite parameter cases and computes integral Smith normal forms, not as a replacement for the all-parameter proof.
+## correctness
 
-## Originality — PASS against inspected literature
-The closest primary cut-complex papers are arXiv:2304.13675 (various graph families; a distinct artificial high-parameter torsion example) and arXiv:2407.08158 (rectangular path grids). The same reflected grid occurs in the published scale-two Rips result in the References; that result concerns a different simplicial construction and gives neither ordinary-cut homology nor torsion in degree \(mn-5\). The untwisted toroidal-grid ordinary three-cut calculation has orientable rather than nonorientable surface core and does not include the reflected seam. Statement-level comparison and indexed searches found no covering result; unindexed equivalences remain a bibliographic risk.
+PASS
 
-## Value — PASS
-The theorem furnishes a complete integral homology classification for a natural two-parameter family and produces persistent torsion where the untwisted analogue has none. This supplies a structural non-shellability obstruction and illustrates an orientation-sensitive Alexander-duality mechanism. It does not claim the homotopy type of the cut complex itself.
+The combinatorial Alexander dual X contains exactly vertex, pair, connected induced triple P3, and induced four-cycle four-faces: the no-disconnected-triple criterion plus Mantel bound excludes five-faces in triangle-free 4-regular grid. In min(m,n)≥5 reflected quotient, local radius≤4 lattice lifts ensure precisely mn squares, 6mn triangles and complete pair graph. Free-pair collapses N square-tetrahedron/corner-triangle, N square-diagonal/triangle, 2N straight-distance-two-edge/triangle leave a triangulated Klein bottle plus h=binom N2−6N long 1-cells. The result is K∨∨^hS1; UCT H^1=Z^{h+1}, H^2=Z/2 and combinatorial Alexander duality give claimed degrees. Independently reconstructed exact dual f-vectors and each free pair for m,n=(5,5),(5,6),(6,6), finding h=150,255,414 and final surface χ=0, edges all in two triangles. Finite checks are not universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bayer et al. 2023/2024 study ordinary cut complexes for other graph classes, including untwisted rectangular grids. Full published Resultary Klein grid theorem applies to scale-2 Rips complex and yields same geometric core but not ordinary 3-cut Alexander dual/long-edge torsion. Thus the present exact integer cut-homology is a distinct consequence proved separately.
+
+## value
+
+PASS
+
+A uniform infinite family of natural nonorientable graph quotients whose pure ordinary cut complexes have genuine Z/2 torsion one dimension below the top, with exact free rank and explicit 4N collapse certificate. Reveals a topological mechanism not seen in orientable torus grids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
