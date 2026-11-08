@@ -1,19 +1,21 @@
-# Scientific review: multi-collector first-desynchronization theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact event is the first round in which the *counts* of distinct coupon types differ, not the first different coupon identities or the time of eventual collection completion. Conditional elimination of all-idle steps at a synchronized level gives the exact mixed-event joint mass. Expanding its finite product gives a uniform first-order local Rayleigh correction and Gaussian localization. Controlled Euler--Maclaurin summation gives the signed constant \(-1/(3q)\) in the mean for every fixed \(q\ge3\); the two-laggard probability follows by a distinct Gaussian weighted sum and has a positive \(d^{-1/2}\) leading term. All-error constants may depend on fixed \(q\), and the terminal all-tie atom is exponentially small. The exceptional \(q=2\) bridge representation follows by a binomial ratio and reflection. The submitted standard-library checker passed 3278 checks, including exact rational enumeration. This is supporting evidence, not a replacement for the infinite proof.
+PASS
 
-## Originality
+For fixed q>=3 and d coupon types, independent parallel uniform draws at synchronized size k have all-new probability (1-k/d)^q, all-old probability (k/d)^q; deleting geometric all-idle rounds yields survival a_q(u)=(1-u)^q/(1-u^q) and exact joint first-unequal round law with j laggards S(k-1)*binom(q,j)u^j(1-u)^(q-j)/(1-u^q). For k~x sqrt(d), log S(k-1)= -q x²/2+d^(-1/2)(q x/2-q x³/6)+ O_q((1+x^4)/d), uniformly on the Gaussian localization window. Mixed-hazard expansion gives local correction H=x/2-q x³/6 and Rayleigh density qx exp(-q x²/2), Gaussian tails justify summation. Gaussian moments give mean correction -1/(3q) (Euler-Maclaurin zero boundary) and two-laggard probability (q-1)/2 sqrt(pi/(2q)) d^(-1/2), higher laggards O(d^-1). For q=2 the pre-existing exact binomial product gives symmetric-bridge maximum and exact moments; no originality attached to old tie-break law. Independently checked 32 exact rational finite-stage models for d=2..9,q=2..5, and independently summed q=3,d=100000 to mean 228.712713 and P(J=2)=0.002287127; errors agree with the stated asymptotics. Finite checks are not the uniform asymptotic proof. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree ddb1d832a9eaf5f9f6666adf480119e83ccd972c
 
-**PASS (best-knowledge, subject to historical priority).** Long's May 2026 paper proves the \(q=2\) entrance law and Rayleigh limit, explicitly credited and not claimed as a new distribution. Krityakierne and Aek Thanatipanonda treat several collectors but their observable is the longest/shortest *completion time*, not first count desynchronization. Myers--Wilf work concerns two-player post-tie ballot outcomes. The result here allows at least two lagging collectors on the first unequal update and determines a new \(q\)-dependent order \(d^{-1/2}\) probability, plus a \(q\ge3\) mean correction that disappears at \(q=2\). Thus neither the higher-laggard event nor its constant is a two-player corollary. Targeted mathematical-record searches and the accessible prior research ledger returned no equivalent statement. Classical Gaussian summation and renewal methods provide ingredients but not identified prior coverage. An unindexed simultaneous-collector first-exit paper remains a nonzero risk; the search is not proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** In a parallel multi-collector race, the first loss of equality of collection sizes is a natural stopping boundary: it determines where subsequent rank/ballot dynamics start. The theorem distinguishes two qualitatively different initial boundary geometries, showing that pairwise competition has zero constant mean bias, whereas each fixed \(q\ge3\) has negative bias \(-1/(3q)\) and a sharp rare multi-laggard probability. The exact joint finite distribution, local expansion, and entire family of constants allow accurate finite-size boundary initialization, beyond the leading Rayleigh scaling. This is more than a re-labeling of a known two-player probability and makes a specific structural prediction for the otherwise invisible multi-laggard channel.
+Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.
 
-## Closest literature and limits
+## value
 
-The closest primary texts are Long (arXiv:2605.09641v1), Myers and Wilf (arXiv:math/0304229v1), and Krityakierne--Aek Thanatipanonda (arXiv:2211.04374). No claim is made for growing \(q\), nonuniform coupons, timing in raw rounds, or post-break winner probabilities. The result has no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural first loss of exact distinct-count synchronization in parallel coupon collection has a sharply quantified second-order departure index and probability of *two simultaneous laggards*, an event absent in two-player contests. The constant -1/(3q) and d^(-1/2) rare-event coefficient distinguish the general fixed-multiple-collector regime from the known two-player cancellation and terminal-completion statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

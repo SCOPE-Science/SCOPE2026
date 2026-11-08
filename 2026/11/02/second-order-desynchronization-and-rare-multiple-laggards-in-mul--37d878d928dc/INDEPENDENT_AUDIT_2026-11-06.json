@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed q>=3 and d coupon types, independent parallel uniform draws at synchronized size k have all-new probability (1-k/d)^q, all-old probability (k/d)^q; deleting geometric all-idle rounds yields survival a_q(u)=(1-u)^q/(1-u^q) and exact joint first-unequal round law with j laggards S(k-1)*binom(q,j)u^j(1-u)^(q-j)/(1-u^q). For k~x sqrt(d), log S(k-1)= -q x²/2+d^(-1/2)(q x/2-q x³/6)+ O_q((1+x^4)/d), uniformly on the Gaussian localization window. Mixed-hazard expansion gives local correction H=x/2-q x³/6 and Rayleigh density qx exp(-q x²/2), Gaussian tails justify summation. Gaussian moments give mean correction -1/(3q) (Euler-Maclaurin zero boundary) and two-laggard probability (q-1)/2 sqrt(pi/(2q)) d^(-1/2), higher laggards O(d^-1). For q=2 the pre-existing exact binomial product gives symmetric-bridge maximum and exact moments; no originality attached to old tie-break law. Independently checked 32 exact rational finite-stage models for d=2..9,q=2..5, and independently summed q=3,d=100000 to mean 228.712713 and P(J=2)=0.002287127; errors agree with the stated asymptotics. Finite checks are not the uniform asymptotic proof. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree ddb1d832a9eaf5f9f6666adf480119e83ccd972c",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krityakierne–Aek Thanatipanonda address fastest/slowest full coupon completion times in several players; Myers–Wilf analyze two-player completion competition; Long 2026 gives two-player tie-break and leading Rayleigh."
+        ],
+        "reasoning": "Broader player count in the first paper does not dominate a first *disagreement* time of evolving partial count vectors. Two-player work cannot imply a positive two-laggard probability.",
+        "searches": [
+          "arxiv:2211.04374 The Slowest Coupon Collector Problem",
+          "arxiv:math/0304229 Some New Aspects coupon collector",
+          "arxiv:2605.09641 q2 ballot event"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2605.09641 full relevant text",
+        "arxiv:2211.04374 full relevant text",
+        "arxiv:math/0304229 abstract and cited passages",
+        "Resultary two search queries: ['multi-player coupon collection first desynchronization number of laggards second order asymptotic', 'several parallel coupon collectors first unequal number of distinct types first departure Rayleigh multiple misses']"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The q=2 binomial/bridge identities are explicitly attributed and not claimed new.",
+          "For q>=3 a mixed first step has two-laggard weight binom(q,2)u²(1-u)^(q-2), which is zero as a first-unequal event in q=2."
+        ],
+        "reasoning": "Neither the old q=2 law nor the general end-of-collection asymptotics give the q>=3 mean offset and two-laggard d^-1/2 coefficient. The general transition probabilities are elementary, but uniform second-order asymptotic evaluation is substantive.",
+        "searches": [
+          "arxiv:2605.09641 first entrance product and q2 Rayleigh",
+          "arxiv:2211.04374 multi-player completion probability",
+          "arxiv:math/0304229 two-person coupon race"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-player first-desynchronization law yields the q=2 product a_2=(d-k)/(d+k). In the q>=3 process several simultaneous failed new-coupon draws create a new J=2 channel."
+        ],
+        "reasoning": "The exact joint renewal law is a natural multicollector extension of the classic first-exit kernel; its second-order expansion and rare multiple-laggard asymptotics do not follow from q=2 formulas. Prior work could use alternative terminology (simultaneous coupon race).",
+        "searches": [
+          "arxiv:2605.09641 first tie break coupon collectors Catalan",
+          "arxiv:2211.04374 slowest coupon collector",
+          "multi-player coupon collection first desynchronization number of laggards second order asymptotic",
+          "several parallel coupon collectors first unequal number of distinct types first departure Rayleigh multiple misses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two separate Resultary searches returned coupon-reset and unrelated multiplayer resource problems, not the first-tie-break law or its exact multi-laggard constants.",
+          "Standard coupon-collector tables focus on completion times, not synchronized first exit."
+        ],
+        "reasoning": "The result is a motivated all-d/q fixed asymptotic, not a recomputation from a table; unindexed first-exit analyses are a residual priority risk.",
+        "searches": [
+          "multi-player coupon collection first desynchronization number of laggards second order asymptotic",
+          "several parallel coupon collectors first unequal number of distinct types first departure Rayleigh multiple misses"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.",
+      "residual_risks": [
+        "Alternative earlier multi-collector synchronized-race literature could state the same second-order coefficients under a different observable or Poisson approximation.",
+        "Asymptotics fix q as d grows; q growing with d, nonuniform coupons and elapsed round-to-break are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers two-player boundary, not q>=3 simultaneous double-laggard events",
+          "evidence": "Section 3 formula and leading Rayleigh limit",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.09641",
+          "material_read": "Full accessible PDF introduction and Section 3 with exact two-player entrance law, leading scale and bridge interpretation",
+          "method": "arXiv PDF text and rendered screenshot",
+          "title": "The Ballot Event for Two-Player Coupon Collection: A Renewal–Catalan Asymptotic",
+          "trigger": "Same first distinct-count tie-break for q=2"
+        },
+        {
+          "assessment": "Treats terminal completion times rather than first departure from count synchronization",
+          "evidence": "Main theorem and completion-time definitions",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.04374",
+          "material_read": "Full accessible PDF introductory and main theorem sections on slowest complete coupon collection",
+          "method": "arXiv PDF text and rendered screenshot",
+          "title": "The Slowest Coupon Collector’s Problem",
+          "trigger": "Several coupon collectors under parallel independent draws"
+        },
+        {
+          "assessment": "Two-player completion focus; remaining generality risk",
+          "evidence": "Abstract and two-player coupon competition topic",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+          "material_read": "ArXiv abstract and referenced two-player comparison; entire PDF not materially read for this run",
+          "method": "abstract/source description; no whole-document noncoverage inference",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Classical competition model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural first loss of exact distinct-count synchronization in parallel coupon collection has a sharply quantified second-order departure index and probability of *two simultaneous laggards*, an event absent in two-player contests. The constant -1/(3q) and d^(-1/2) rare-event coefficient distinguish the general fixed-multiple-collector regime from the known two-player cancellation and terminal-completion statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2605.09641 full relevant text",
+    "arxiv:2211.04374 full relevant text",
+    "arxiv:math/0304229 abstract and cited passages",
+    "Resultary two search queries: ['multi-player coupon collection first desynchronization number of laggards second order asymptotic', 'several parallel coupon collectors first unequal number of distinct types first departure Rayleigh multiple misses']"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Alternative earlier multi-collector synchronized-race literature could state the same second-order coefficients under a different observable or Poisson approximation.",
+    "Asymptotics fix q as d grows; q growing with d, nonuniform coupons and elapsed round-to-break are outside scope."
+  ],
+  "residual_risks": [
+    "Alternative earlier multi-collector synchronized-race literature could state the same second-order coefficients under a different observable or Poisson approximation.",
+    "Asymptotics fix q as d grows; q growing with d, nonuniform coupons and elapsed round-to-break are outside scope."
+  ],
+  "schema_version": 1
+}
