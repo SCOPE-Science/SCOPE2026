@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:49:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md Git blob c92248934498ac7e2bb7928e1699e872b1dd52d6",
+        "Actual source verification code blob 2666dd651be31d66d6c2f29c5994c77b30d5bd6d",
+        "Independent bounded check /mnt/data/check06_20261106.py: C3"
+      ],
+      "rationale": "The irrational coefficient of (u-lambda sqrt d)^k is -lambda F_{k,d}(u,lambda), so for lambda>0 the rationality conditions are exactly F_{k,d}=1. Over C the degree-(k-1) binary form has simple roots indexed by nontrivial k-th roots of unity via a Mobius ratio, hence the projective plane curve F(U,V)=W^(k-1) is smooth of genus (k-2)(k-3)/2 (including infinity). k=2 forces u=1/2; k=3 is a rational conic with either no rational points or infinitely many and lambda sign normalization; k=4 maps to Y²=X³−4d³ by X=d/u,Y=2d²lambda/u, with Y!=0 so positive-lambda solutions correspond to E_d(Q) nonzero modulo sign. For d=15, P=(60,450), 2P=(24,-18), 5P has nonintegral x=167460/3721; Nagell–Lutz on the integral nonsingular model implies positive rank. For k>=5, g>=3 and Faltings yields finiteness for fixed d,k. Independently computed exact rational 2P and input identity.",
+      "residual_risks": [
+        "Relies on named standard Mordell–Weil/Nagell–Lutz/Faltings theorems; the result is non-effective for k>=5 and does not determine arbitrary ranks or all rational points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Faltings theorem implies rational-point finiteness for genus>1 once the smoothness/genus calculation is supplied.",
+          "Mordell–Weil and Nagell–Lutz are pre-existing elliptic tools, not asserted as new."
+        ],
+        "reasoning": "These powerful general theorems cover background components but not the complete low-exponent rationality reduction or explicit rank witness without nontrivial hypothesis matching. Unindexed prior application of superelliptic theory remains a meaningful risk.",
+        "searches": [
+          "https://arxiv.org/html/2610.30658v2",
+          "Faltings 1983 Endlichkeitssätze für abelsche Varietäten über Zahlkörpern",
+          "Resultary semantic search: simultaneous rationality quadratic irrational shifts u lambda sqrt d exponent k superelliptic Faltings elliptic curve rank"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.30658v2",
+        "Faltings 1983 Inventiones Mathematicae 73 pp.349–366",
+        "Silverman 1986 The Arithmetic of Elliptic Curves",
+        "Resultary semantic search: simultaneous rationality quadratic irrational shifts u lambda sqrt d exponent k superelliptic Faltings elliptic curve rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pisani’s original fixed-integer theorem is inapplicable to rationally scaled radicals unless d lambda² happens to be a nonsquare integer.",
+          "Smoothness and genus give k>=5 finiteness but not the k=3 conic or k=4 MW criterion and explicit positive rank example."
+        ],
+        "reasoning": "The prior article neither implies nonexistence in the scaled setting nor provides this full family classification; the standard named theorems only close its general finiteness step.",
+        "searches": [
+          "https://arxiv.org/html/2610.30658v2",
+          "classical plane curve genus/Faltings theorem",
+          "Resultary semantic search: simultaneous rationality quadratic irrational shifts u lambda sqrt d exponent k superelliptic Faltings elliptic curve rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pisani 2026 Section 4 writes an odd-binomial divided difference for unscaled integer radicands.",
+          "The submitted variable lambda changes the arithmetic domain, producing actual (d,k)=(6,3),(15,4) families absent from the fixed-radicand theorem."
+        ],
+        "reasoning": "Equivalent forms are F_{k,d}(u,lambda)=1, the smooth plane curve F(U,V)=W^(k-1), and for k=4 the Mordell twist Y²=X³−4d³. The closest primary paper fixes the radical coefficient and does not classify rationally scaled shifts.",
+        "searches": [
+          "Resultary semantic search: simultaneous rationality quadratic irrational shifts u lambda sqrt d exponent k superelliptic Faltings elliptic curve rank",
+          "https://arxiv.org/html/2610.30658v2",
+          "Lucas binomial divided difference variable quadratic radical coefficient genus curve"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit d=15 point and its nonintegral fifth multiple were independently checked by rational chord/tangent arithmetic.",
+          "No exact database table resolving this simultaneous-rationality question across all squarefree d and k was identified."
+        ],
+        "reasoning": "An elliptic-curve database may independently list the d=15 curve and rank, but a point listing alone does not supply the natural simultaneous-rationality equivalence and genus classification. Non-discovery is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: simultaneous rationality quadratic irrational shifts u lambda sqrt d exponent k superelliptic Faltings elliptic curve rank",
+          "Mordell curve y2=x3-13500 rational point 60 450 5P 167460/3721"
+        ]
+      },
+      "rationale": "Pisani’s October 2026 paper analyzes a fixed nonsquare integer radicand and proves a different nonexistence theorem using valuations; its binomial divided difference is acknowledged. Allowing independent positive rational lambda makes the radicand d lambda² nonintegral, invalidating fixed-integer restrictions and introducing conic and positive-rank elliptic families. Standard smooth-plane-curve genus, Faltings and Mordell–Weil imply parts only after a specific separation and reduction; they do not constitute an existing complete rationality classification. This is qualified originality with a substantial alternative superelliptic-formulation risk.",
+      "residual_risks": [
+        "Specialized Lucas/superelliptic-curve literature could already contain the rational-scale reduction in a different language.",
+        "Specific Mordell curve d=15 and rational witness may be historically known; originality concerns their application and full parameter boundary, not raw elliptic facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses fixed nonsquare integer radicand, whereas current claim rationally scales a fixed squarefree radical; direct theorem does not cover scaled families.",
+          "evidence": [
+            "Theorem 2, Section 4, odd-index binomial equation"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30658v2",
+          "material_read": "Primary full six-page paper accessible via lawful mirrored PDF and HTML; introductory statement, main fixed-integer-radicand theorem, Section 4 binomial identity/proof.",
+          "method": "Full primary PDF reading with rendered formula examination",
+          "title": "On the Open Problem in the 2023 Simon Marais Mathematics Competition",
+          "trigger": "Same simultaneous rationality problem and exponent one"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md Git blob c92248934498ac7e2bb7928e1699e872b1dd52d6",
+        "https://arxiv.org/html/2610.30658v2",
+        "Faltings 1983 Inventiones Mathematicae 73 pp.349–366"
+      ],
+      "rationale": "An arithmetically natural one-parameter relaxation of a published rationality puzzle changes feasibility sharply: linear/quadratic, conic, elliptic positive-rank and genus>=3 finite regimes all appear, including explicit infinite families and a clean universal fixed-parameter finiteness threshold. This is a precise conceptual boundary linking elementary coefficient cancellation to algebraic geometry.",
+      "residual_risks": [
+        "The high-genus finiteness is ineffective and the arbitrary d elliptic rank decision is not supplied; the special examples are not complete point enumerations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Relies on named standard Mordell–Weil/Nagell–Lutz/Faltings theorems; the result is non-effective for k>=5 and does not determine arbitrary ranks or all rational points.",
+    "The high-genus finiteness is ineffective and the arbitrary d elliptic rank decision is not supplied; the special examples are not complete point enumerations.",
+    "Specialized Lucas/superelliptic-curve literature could already contain the rational-scale reduction in a different language.",
+    "Specific Mordell curve d=15 and rational witness may be historically known; originality concerns their application and full parameter boundary, not raw elliptic facts."
+  ],
+  "schema_version": 1
+}

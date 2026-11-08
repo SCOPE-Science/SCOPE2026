@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial divided-difference identity is exact for rational coefficients and a positive nonsquare \(d\). The binary form has precisely the \(k-1\) simple roots indexed by the nonidentity \(k\)-th roots of unity, proving the associated projective curve smooth. Its genus is therefore \((k-2)(k-3)/2\); Faltings applies only in the stated fixed-parameter, genus-at-least-two range. The conic parametrization is verified symbolically, and the birational elliptic map is algebraically reversible on all finite rational points. The displayed nonintegral fifth multiple and Nagell–Lutz establish non-torsion, not a numerical heuristic.
+PASS
 
-## Originality — PASS, with priority caveat
+The irrational coefficient of (u-lambda sqrt d)^k is -lambda F_{k,d}(u,lambda), so for lambda>0 the rationality conditions are exactly F_{k,d}=1. Over C the degree-(k-1) binary form has simple roots indexed by nontrivial k-th roots of unity via a Mobius ratio, hence the projective plane curve F(U,V)=W^(k-1) is smooth of genus (k-2)(k-3)/2 (including infinity). k=2 forces u=1/2; k=3 is a rational conic with either no rational points or infinitely many and lambda sign normalization; k=4 maps to Y²=X³−4d³ by X=d/u,Y=2d²lambda/u, with Y!=0 so positive-lambda solutions correspond to E_d(Q) nonzero modulo sign. For d=15, P=(60,450), 2P=(24,-18), 5P has nonintegral x=167460/3721; Nagell–Lutz on the integral nonsingular model implies positive rank. For k>=5, g>=3 and Faltings yields finiteness for fixed d,k. Independently computed exact rational 2P and input identity.
 
-Pisani's 2026 preprint treats fixed integer radicands and obtains the unscaled binomial identity. It cannot imply the positive-rank rational-amplitude example because its integer-radicand theorem excludes precisely those exponent-four pairs. Standard Faltings and Mordell–Weil results supply the general finiteness mechanism, but do not by themselves identify the particular rationality curve or give the explicit elliptic non-torsion witness. Targeted searches for rational scaling, Lucas divided differences, equivalent plane curves and Mordell twists did not reveal this complete sharp combination. Equivalent earlier presentations in superelliptic/Thue-curve literature remain a residual priority risk; negative search results are not uniqueness proofs.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original integer-radicand obstruction is sharply sensitive to allowing a rational multiplier. The complete trichotomy by curve genus shows both how an infinite family reappears at exponents three and four and why the same mechanism is necessarily finite for every higher fixed exponent. The non-torsion rank witness is an essential arithmetic ingredient not supplied by a generic genus count. The reduction is motivated by an explicit recent simultaneous-rationality question, not an arbitrary curve selection.
+Pisani’s October 2026 paper analyzes a fixed nonsquare integer radicand and proves a different nonexistence theorem using valuations; its binomial divided difference is acknowledged. Allowing independent positive rational lambda makes the radicand d lambda² nonintegral, invalidating fixed-integer restrictions and introducing conic and positive-rank elliptic families. Standard smooth-plane-curve genus, Faltings and Mordell–Weil imply parts only after a specific separation and reduction; they do not constitute an existing complete rationality classification. This is qualified originality with a substantial alternative superelliptic-formulation risk.
 
-## Limitations and closest literature
+## value
 
-The original Pisani theorem is a different, more restrictive amplitude domain. General Faltings-type finiteness is an invoked classical theorem, not an independent new result. The source's Section 4 and conclusion were read in full; other potential equivalent treatments of the resulting superelliptic curve could exist. Point sets for high exponents and Mordell–Weil ranks for arbitrary \(d\) are not computed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An arithmetically natural one-parameter relaxation of a published rationality puzzle changes feasibility sharply: linear/quadratic, conic, elliptic positive-rank and genus>=3 finite regimes all appear, including explicit infinite families and a clean universal fixed-parameter finiteness threshold. This is a precise conceptual boundary linking elementary coefficient cancellation to algebraic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
