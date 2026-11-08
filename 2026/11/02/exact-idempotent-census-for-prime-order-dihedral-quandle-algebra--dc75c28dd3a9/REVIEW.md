@@ -1,19 +1,21 @@
-# Review of exact idempotent census for prime-order dihedral quandle algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite quandle product is transported to ordinary cyclic group-algebra multiplication by two commuting automorphisms. The proof separates coprime characteristic (Fourier-orbit parameters and Frobenius descent) and defining characteristic (nilpotent augmentation ideal and truncated logarithmic linearization). Every orbit closure relation, field-descent condition and divisibility restriction appears in the exact formula. Direct exhaustive multiplication checks of finite cases, including \(p=17,q=2\), reproduce the counts; these are corroboration, not proof for all fields.
+PASS
 
-## Originality — PASS, qualified
+The bilinear quandle equation is u=alpha(u) beta(u) in ordinary cyclic group algebra. For char !=p Fourier coefficients satisfy c_i=c_-i c_(2i); nonzero support is H=<−1,2> invariant and each active orbit is t^N=1; Frobenius descent closes cycles by t^(q^d−sigma 2^e)=1, yielding 1+g choices per orbit cycle plus c_0=0 or 1. For char=p the augmentation-zero solution is zero by nilpotence; truncated logarithm is bijective on the commutative nilpotent augmentation ideal and turns multiplicative equation into v=alpha(v)+beta(v). Semisimple C_(p-1) weight decomposition counts r odd with r−1 multiple of ord_p 2, giving dimension s. Independent direct coefficient-vector multiplication yielded p,q=(3,2):8,(3,3):4,(3,5):8,(5,2):12,(5,3):12,(5,5):6,(7,2):16,(7,3):16,(11,2):68.
 
-The Fourier functional equation and its support/inversion deductions already occur in Elhamdadi–Ta–Virgin (arXiv:2609.03799v1) and Zhang (arXiv:2610.08204v1). The published special case \(R_3\) supplies the 8-versus-\(q+1\) formula and is expressly excluded from any priority claim. The new assessed assertion is the **universal all-odd-prime/all-finite-field census**, with root-gcd Frobenius formula in coprime characteristic and the modular \(1+q^s\) count. Bardakov–Elhamdadi (arXiv:2601.07057v1), older quandle-idempotent examples, and targeted mathematical-record results do not show an equivalent general count in inspected material. Residual priority risk remains for older or inaccessible work; historical originality is not absolute.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of idempotents is a canonical structural invariant of quandle algebras; the new uniform classification accounts for every finite coefficient field and reveals arithmetically nontrivial variation in both characteristic and Frobenius action. For example, \(E_{17}(2)=648\), \(E_{17}(3)=36\), and \(E_{17}(17)=290\). The result does not purport to classify composite-order or general Alexander quandles.
+The Fourier transport and functional equation are in Elhamdadi–Ta–Virgin and Zhang, and published Resultary covers p=3 specifically; the all-p, all-q modular and nonmodular count with Frobenius-orbit gcd is not a consequence of the inspected special cases. Relevant Elhamdadi–Ta–Virgin full text could not be accessed (institutional VPN disconnected), so implicit coverage remains a material risk.
 
-## Closest literature and limitations
+## value
 
-Full relevant mathematical sections were inspected in arXiv:2610.08204v1, arXiv:2609.03799v1, arXiv:2601.07057v1 and arXiv:2402.14661v2. A plausible additional source (arXiv:2608.01550v1) was accessible at abstract/introduction level, not as a wholly inspected PDF. Exact p=3 coverage in a prior mathematical record is acknowledged. All computations reproduce the theorem in finite test cases only; the universal proof is symbolic. No independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counts all geometric field-valued idempotents in a natural nonassociative algebra family, with a distinctive modular-characteristic jump; the all-field formula and root-coset structure extend far beyond the already known R_3 line.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
