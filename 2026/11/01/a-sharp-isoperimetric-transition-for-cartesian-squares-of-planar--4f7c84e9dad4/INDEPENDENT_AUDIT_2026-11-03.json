@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T00:09:31.134475Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonempty-interior planar convex B with area A and perimeter P, the Euclidean R^4 product parallel volume splits by zero, one and two exterior factors. Quadrant disk integration gives S_{B×B}(t)=A²+2APt+(2pi A+pi P²/4)t²+(4pi P/3)t³+(pi²/2)t⁴. Independent symbolic normalization yields F_q(z)=z⁴/2+(8/3)z³+(pi+2q)z²+4qz+q² with q=4pi A/P². Independent SymPy discriminant computation recovers disc(F_q)=(8/27)q²G(q) with the source quartic G, and high-precision root q*=0.8766744290496891255567354... . An independent exact rational Bernstein computation over [0,1/2],[1/2,3/4],[3/4,7/8],[7/8,1] plus a rigorous pi interval checks G'<0 globally, not merely at sampled points; endpoint and rational bracketing give a single simple critical q. At q→0 the quartic splits into two distinct negative O(1) roots and two distinct negative O(q) roots, so four real roots on q<q*. At q>q*, discriminant negative gives two real roots and one conjugate pair; at the simple discriminant crossing exactly one double negative root. Positive coefficients preclude nonnegative real roots. Polygon quotient q_m=pi/[m tan(pi/m)] strictly increases; q5<.87<q*<.9<q6 proves cutoff between pentagon and hexagon. Source algebra and critical bounds were independently examined; all-convex-body conclusion is from analytic normalization, not numerical sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general four-dimensional root cone of Henk et al. concerns possible root positions over arbitrary convex bodies, not the sharp real-root count for equal-factor products.",
+          "Katsnelson product theorem covers exact coefficients and low-dimensional left-half-plane location, but not the real root count change at q*."
+        ],
+        "reasoning": "Neither a possible-root cone nor left-half-plane root constraints imply the exact discriminant sign transition along the special one-parameter family without a further calculation.",
+        "searches": [
+          "real rooted Steiner polynomials products of planar convex bodies fourth dimension isoperimetric inequality root locations",
+          "Henk Hernandez Cifre Saorin arXiv:1112.4741 Section 5 all Steiner roots in dimension 4",
+          "Katsnelson arXiv:0803.2346 Section12 and root-location Theorem2.5"
+        ]
+      },
+      "checked_sources": [
+        "Katsnelson arXiv:0803.2346 Section12, Theorem12.4 (full relevant section)",
+        "Henk–Hernández Cifre–Saorín arXiv:1112.4741 Section5",
+        "Henk–Hernández Cifre arXiv:math/0703373 principal theorems",
+        "Resultary Steiner product root searches and published mixed-volume product record 0d44775e55e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Katsnelson proves S_{B×B}=S_B∘S_B without any q-root phase theorem; this prior directly covers Step1 only.",
+          "Henk et al. describe which roots are possible for general four-dimensional bodies, not how many are real in the family indexed by planar q."
+        ],
+        "reasoning": "The new discriminant G has a unique simple zero across physical q, with proof via certified Bernstein signs; that additional nontrivial family-wide implication was not identified in the earlier statements.",
+        "searches": [
+          "Steiner polynomial Cartesian square planar convex isoperimetric quotient quartic discriminant real roots pentagon hexagon",
+          "Katsnelson Theorem 12.4 full primary PDF",
+          "Henk Hernandez Cifre Saorin arXiv:1112.4741 Section5",
+          "Henk Hernandez Cifre arXiv:math/0703373 Theorems1.1-1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katsnelson Theorem12.4 provides a product polynomial M-operation for arbitrary convex factors, from which the current quartic polynomial is calculable.",
+          "The proposed new invariant is root reality count versus q=4pi A/P² and a unique critical discriminant root q*."
+        ],
+        "reasoning": "The coefficients are already implied by known M-product theory and are not claimed as a new theorem; their sharp q-indexed real-root classification is an additional analysis.",
+        "searches": [
+          "Steiner polynomial Cartesian square planar convex isoperimetric quotient quartic discriminant real roots pentagon hexagon",
+          "real rooted Steiner polynomials products of planar convex bodies fourth dimension isoperimetric inequality root locations",
+          "Katsnelson arXiv:0803.2346 Theorem 12.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary product law concerns Bézout mixed-volume constants, not roots of the Steiner polynomial.",
+          "No located source tabulates q*=0.876674429... for equal planar Cartesian squares or the regular pentagon/hexagon crossing."
+        ],
+        "reasoning": "A polynomial’s classical discriminant expression is a computational method, not itself a prior table of this isoperimetric root-count boundary.",
+        "searches": [
+          "Steiner polynomial Cartesian square planar convex isoperimetric quotient quartic discriminant real roots pentagon hexagon",
+          "real rooted Steiner polynomials products of planar convex bodies fourth dimension isoperimetric inequality root locations",
+          "Resultary 2026/10/11/SCOPE-exact-cartesian-product-law-for-the-two-body-b-zout-mixed-volume--0d44775e55e7"
+        ]
+      },
+      "rationale": "Katsnelson, On H. Weyl and J. Steiner Polynomials (arXiv:0803.2346), Section12 Theorem12.4, already proves the Cartesian-product Steiner M-product and hence the quartic coefficients; these are credited as known. Henk–Hernández Cifre (2007) studies general root location and Henk–Hernández Cifre–Saorín (2011) determines the general possible-root cone, not the one-parameter real-root count for all equal planar Cartesian squares. Resultary searches for quartic equal-factor, regular-polygon root cutoffs and isoperimetric thresholds found no dominating published mathematical record. The root-type transition remains plausibly original as a natural specialization not explicitly implied by a prior root-count theorem; an unindexed computation is a residual risk.",
+      "residual_risks": [
+        "Some prior unindexed equal-factor quartic discriminant analysis could give this exact threshold as an implicit corollary; not ruled out exhaustively.",
+        "Classifies only equal planar factors in R4, not unequal factors or exact complex root locations.",
+        "Certificate for G'<0 relies on Machin pi enclosure and Bernstein coefficient inequalities; these are present in the reviewed reproducible package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS coefficient product identity and generic root location, NOT located family-wide q-threshold",
+          "evidence": "Theorem12.4 states Steiner polynomial of product equals M-product of factor polynomials; proof uses squared product distance decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.2346",
+          "material_read": "Full public 76-page source accessible; read abstract, relevant early low-dimensional root statements and Section12 Theorem12.4 with proof on PDF pp. 58–60",
+          "method": "Opened arXiv PDF, extracted theorem text and visually inspected theorem page",
+          "title": "On H. Weyl and J. Steiner Polynomials",
+          "trigger": "Direct product formula could cover polynomial and all root types"
+        },
+        {
+          "assessment": "NONCOVERING by inspected Section5 statement: describes possible-root cone, not equal-planar Cartesian-square root counts",
+          "evidence": "Section5 analyzes possible root loci in dimension four, whereas the current result fixes K=B×B and varies its q quotient.",
+          "identifier_or_url": "https://arxiv.org/pdf/1112.4741",
+          "material_read": "Primary 16-page PDF abstract/introduction and Section5 on the cone of four-dimensional Steiner roots, relevant pages visually inspected",
+          "method": "Open-access PDF read and screenshot of Section5",
+          "title": "Steiner polynomials via ultra-logconcave sequences",
+          "trigger": "Potentially stronger classification of all 4D Steiner polynomial roots"
+        },
+        {
+          "assessment": "NONCOVERING: general root bounds and tangential conditions, no family-specific q discriminant transition identified",
+          "evidence": "The source studies bounds and root positions with geometric radii but not equal Cartesian planar squares.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0703373",
+          "material_read": "Intro and Theorems1.1–1.3 on root location and tangential bodies from public PDF",
+          "method": "Inspected arXiv public PDF passages and theorem overview",
+          "title": "Notes on the roots of Steiner polynomials",
+          "trigger": "Earlier general real root location could subsume the classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural four-dimensional convex-geometric construction reduces real Steiner-root topology of all equal planar products to a single geometric isoperimetric quotient. Its rigorously unique four-to-two real-root transition and exact regular-pentagon/hexagon boundary provide a nontrivial, independently useful classification beyond the classical product coefficient identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Katsnelson arXiv:0803.2346 Section12, Theorem12.4 (full relevant section)",
+    "Henk–Hernández Cifre–Saorín arXiv:1112.4741 Section5",
+    "Henk–Hernández Cifre arXiv:math/0703373 principal theorems",
+    "Resultary Steiner product root searches and published mixed-volume product record 0d44775e55e7"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The universal convex base claim uses the planar Steiner formula and exact discriminant, not finite polygon enumeration.",
+    "Only same-factor orthogonal Cartesian square; no universal result for all 4D convex bodies.",
+    "Public-bound AUDIT.json and METADATA.json contain private scope_run_id; complete independently guarded UTF-8 sanitizing replacements were unavailable, so publication withheld. No source modification was made."
+  ],
+  "schema_version": 1
+}
