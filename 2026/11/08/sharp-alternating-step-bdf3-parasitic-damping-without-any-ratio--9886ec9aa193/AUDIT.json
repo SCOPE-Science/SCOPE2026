@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The interpolation nodes and weights are derived symbolically; direct multiplication of the two ratio-specific 2x2 matrices gives trace and determinant depending only on q=r+1/r. The strict degree-two Jury inequalities, proved by three displayed positive polynomials on q>=2, give sharp spectral bound 1/5; the quartic discriminant has exactly one positive root and derivative signs prove the unique optimum. Exact rational and interval program checks corroborate, not replace, proof. Claim excludes arbitrary grids and uniform transient bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao (2022), Theorem 3.1, assumes all adjacent ratios below about 2.553; Remark below theorem notes sufficiency not necessity.",
+        "Chen et al. arXiv:2112.13613v2 Theorem 4.2 assumes adjacent ratios at most 1.405 for its PDE energy result.",
+        "Söderlind–Fekete–Faragó (2018), Section 2, assumes smooth deformation with r_n=1+O(N^-1)."
+      ],
+      "reasoning": "The present r can be any fixed value, including 28.515 or much larger. Bounds requiring r below 1.405 or 2.553 do not imply those cases, and a fixed nonunit alternating ratio fails the smooth-grid assumptions. Neither broader-equation setting implies this exact spectral optimizer.",
+      "searches": [
+        "Li Liao Stability Variable-Step BDF2 BDF3 Methods arxiv",
+        "BDF3 two-periodic step ratio stability Floquet multiplier",
+        "variable step BDF3 two-periodic grid stability Floquet multiplier",
+        "Li Liao variable-step BDF3 zero stability constant step ratio periodic meshes sharp damping"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.00527v1 relevant full-text sections",
+      "arxiv:2112.13613v2 relevant full-text sections",
+      "doi:10.1007/s10543-018-0716-y full-text hypothesis/sections",
+      "Guglielmi–Zennaro 2001 bibliographic abstract only",
+      "Grigorieff–Paes-Leme 1984 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guglielmi–Zennaro (2001) abstract describes joint spectral radius and general variable-step bounds, but its full text was unavailable; potential periodic special-case overlap is unresolved.",
+        "Grigorieff–Paes-Leme (1984) abstract reports a uniform adjacent-ratio sufficient bound, and full source unavailable.",
+        "Li–Liao (2022) explicitly discusses constant-ratio geometric grids and DOC kernel damping, distinct from the reciprocal alternating product."
+      ],
+      "reasoning": "A uniform sufficient bound for arbitrary ratio sequences cannot infer the theorem for ratios exceeding that bound; conversely our theorem does not infer any arbitrary-sequence result. Stronger historical full-text coverage remains a risk and has not been falsely ruled out.",
+      "searches": [
+        "On the zero-stability of variable stepsize multistep methods spectral radius approach preprint pdf",
+        "Grigorieff Paes-Leme 1984 BDF3 nonuniform grids alternating",
+        "Variable step BDF3 zero stability on alternating two-periodic meshes step ratios r and reciprocal r, exact Floquet monodromy, sharp ratio threshold."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Liao arXiv:2201.00527v1 Eq. (1.5), Section 3 and Remark 4 use the two-component BDF3 difference-kernel companion recurrence but not its reciprocal-ratio period product.",
+        "The current statement is equivalent to the exact trace/determinant and the cubic-interpolation recurrence, rather than just an adjacent-ratio sufficient estimate."
+      ],
+      "reasoning": "Examined equivalences between zero-stability of y values, decay of their differences, DOC-kernel companion matrices, and Floquet spectra; no inspected source identifies their two-periodic r,1/r specialization or the global damping optimum.",
+      "searches": [
+        "variable step BDF3 alternating step ratios r 1/r zero stability periodic mesh sharp threshold",
+        "BDF3 alternating mesh arbitrary ratio stable for any ratio zero stability",
+        "Variable step BDF3 zero stability on alternating two-periodic meshes step ratios r and reciprocal r, exact Floquet monodromy, sharp ratio threshold.",
+        "BDF3 three step backward differentiation zero stability alternating step sizes two-periodic grid arbitrary ratios reciprocal, Floquet spectral radius 1/5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried source returned q*=28.5500009388, the quartic q^4-22q^3-173q^2-390q-279, or the exact 1/5 Floquet cap.",
+        "Related public mathematical findings included a BDF2 scalar sign-delay result and periodic recurrence bounds not for variable-step BDF3."
+      ],
+      "reasoning": "The exact invariant is a parametric all-ratio formula with an algebraic optimum, not a finite numerical lookup. Nonappearance in a database is not used as sufficient novelty evidence.",
+      "searches": [
+        "BDF3 28.55 step ratio",
+        "BDF3 1/5 alternating stability",
+        "Variable-step backward differentiation third-order alternating 2-periodic step pattern spectral radius optimal ratio 28.5149 parasitic mode",
+        "Variable step third-order backward differentiation formula periodic mesh instability and parasitic roots"
+      ]
+    },
+    "rationale": "The exact unrestricted alternating-grid Floquet trace/determinant, sharp 1/5 supremum and unique reciprocal optimum are not implied by the checked bounded-ratio or smooth-grid theorems. Exact-object and parameter searches found no matching theorem. Earlier 1984 and 2001 spectral-radius BDF3 sources were only available as abstracts/secondary descriptions, leaving genuine residual overlap risk.",
+    "residual_risks": [
+      "Unseen full Guglielmi–Zennaro (2001) joint spectral-radius treatment may include two-periodic exact cases.",
+      "Unseen Grigorieff–Paes-Leme (1984) may contain a related sharp periodic bound.",
+      "Indexing of older specialist terminology may miss an equivalent alternating-grid theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reviewed statements provide sufficient bounds for variable step sequences but not reciprocal-periodic global Floquet optimization",
+        "evidence": [
+          "Theorem 3.1: ratios below about 2.553; Remark 4 gives constant-step extraneous roots; equations (3.4)–(3.7) give a variable companion recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+        "material_read": "Introduction and definitions, BDF3 formula (1.5), Theorem 3.1 proof and matrix norm sections, Remarks 1–4, numerical tests, Appendix formulae and references",
+        "method": "Primary arXiv PDF text plus page-image inspection of pages 2, 7, 9, 12, 14 and 19",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Closest exact BDF3 difference matrices and general variable-step stability bounds"
+      },
+      {
+        "assessment": "The stated PDE energy/solvability estimates do not determine all-ratio alternating test-equation Floquet spectra",
+        "evidence": [
+          "Theorem 4.2 assumes ratios at most 1.405; formula (1.5) is consistent with the cubic interpolation definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.13613",
+        "material_read": "Introduction, equations (1.4)–(1.5), second-section norm criterion, section 3 ratio bound, Theorems 4.1 and 4.2",
+        "method": "Primary arXiv PDF extracted text with page images of pages 2 and 7",
+        "title": "Variable step-size BDF3 method for Allen-Cahn equation",
+        "trigger": "Closest alternative BDF3 coefficient and energy stability source"
+      },
+      {
+        "assessment": "Its smooth deformation hypothesis excludes fixed nonunit alternating ratios as refinement proceeds",
+        "evidence": [
+          "Section 2 assumes t_n=Phi(n/N) with Phi in C^2 and ratios 1+O(1/N), unlike fixed r and r^-1."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/85237/1/B111_BIT.pdf",
+        "material_read": "Abstract, introduction, Sections 2–3 and smooth deformation and near-unity ratio hypotheses from searchable full text; page-image retrieval timed out",
+        "method": "Lawful open-access full-text PDF parsed text; page screenshot attempted and failed",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Potential broad zero-stability coverage on nonuniform grids"
+      },
+      {
+        "assessment": "UNRESOLVED possible overlap; no conclusion that full paper does not cover the exact periodic result",
+        "evidence": [
+          "Bibliographic abstract discusses spectral-radius bounds for general variable-step 3-step BDF; full body unavailable."
+        ],
+        "identifier_or_url": "https://hdl.handle.net/11368/1703201",
+        "material_read": "Repository citation and scientific abstract only, not the paper text",
+        "method": "Searched arXiv and open-access full text first; institutional access attempt reported VPN disconnected",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Historically plausible BDF3 spectral radius coverage"
+      },
+      {
+        "assessment": "UNRESOLVED exact special-case overlap risk",
+        "evidence": [
+          "Abstract describes a bound for all nonuniform grids satisfying adjacent-ratio constraints."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01934518",
+        "material_read": "Accessible abstract/citation only",
+        "method": "Historical abstract and bibliography search, no full text",
+        "title": "On the zero-stability of the 3-step BDF-formula on nonuniform grids",
+        "trigger": "Early source of ratio restrictions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9886ec9a-a193-4732-b02e-4dce24e83fc3",
+  "value": {
+    "rationale": "Unrestricted fixed-ratio alternating meshes are a natural non-smooth-grid stress test against customary sufficient step-ratio bounds for BDF3. The fully explicit Floquet spectrum, global 1/5 barrier, and unique highly nonuniform optimal damping ratio resolve a structural numerical-stability/design question. Unlike a textbook frozen-coefficient root check, it exploits a noncommuting two-step product to establish all-ratio stability.",
+    "status": "PASS"
+  }
+}
