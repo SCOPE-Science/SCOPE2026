@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The package contains all five labeled graph edge lists, the exhaustive subset enumerator (`enumerate.cpp`), an independent direct-forcing simulator (`direct_check.cpp`), expected count vectors (`baseline_counts.json`), and a reproducibility driver (`verify.py`). Running `python3 verify.py` compiles both C++17 programs, checks graph input validity and count vectors for \(\ell=0,1,2\), and requires successful direct-process comparisons.
+## correctness
 
-For each graph, the exhaustive enumerator visits each of its \(2^{|V|}\) possible white masks. It computes unique-neighbor exposure and recursively records whether any nonempty fort is contained in the mask. Every initial blue mask is then classified, and minimal forts are counted by examining every single-vertex deletion. These loops prove exactness conditional on the source's elementary bit-mask correctness; their execution does not depend on sampling.
+PASS
 
-The independent direct checker uses iterative force propagation under every at-most-two-vertex leak set. It classifies every blue set on the tetrahedron, cube, octahedron, and icosahedron, checking every leak choice for predicted successful sets and stopping at the first explicit counterexample for unsuccessful sets. It additionally checks all \(2360\) certified optimal blue sets and deterministic further examples on the dodecahedron. The dodecahedral independent comparison is deliberately not represented as a complete direct-forcing census.
+The standard leaky-fort characterization is correctly used: an initial S resists any two vertex leaks iff it hits each nonempty W with at most two outside vertices having exactly one neighbor in W. The subset DP A(W)=b(W) OR any single-deletion A(W\{v}) exactly detects whether W contains a two-leak fort, by size induction, and thus counts every S using complementary W; minimal forts are b(W) and no proper subfort. The inspected source C++ loops over all masks of each of five genuine Platonic graph edge lists (N=4,8,6,20,12), not a sample. Independently implemented a separate C++ complete 2^N mask enumeration, including the 20-vertex dodecahedron, and exactly reproduced every two-leak forcing and minimal-fort coefficient. Two-leak minima are (3,6,5,9,8), optimal-set counts (4,16,6,2360,240); dodecahedral minimal fort total 1205=30+120+695+120+240 in five sizes, icosahedral 255 size-four forts. The larger graph input was checked for degree, edge count and explicit GP(10,2) graph isomorphism via inspected verification script.
 
-Limitations: verification is finite, specific to the five embedded graphs, and uses a C++17 implementation rather than a formally verified theorem prover. Independently validating the asserted graph isomorphisms and manually auditing the short fort recursion remain worthwhile external audit steps. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. Previous work supplies the algorithmic means, not the computed complete invariant. The statement is evaluated mathematical data for natural named graphs, whose exact coefficients were computed and cross-checked.
+
+## value
+
+PASS
+
+These are natural finite exact graph invariants for the complete class of five regular Platonic graph skeletons, with the striking distinction between dodecahedral five-size minimal-fort spectrum and icosahedral single-size spectrum. The census informs robustness of zero forcing against two adversarial vertex leaks; object class, invariant and full boundary are mathematically motivated despite finite size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
