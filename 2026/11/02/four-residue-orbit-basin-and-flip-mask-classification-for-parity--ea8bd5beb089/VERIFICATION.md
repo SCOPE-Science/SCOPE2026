@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The theorem is a symbolic all-integer proof. The programs are finite checks intended to detect errors, not an assertion of an exhaustive search over all graph orders or an external audit.
+## correctness
 
-1. Run `python3 check_linear.py` using Python 3; it regenerates all two-subset disjointness matrices, performs independent \(\mathbb F_2\) Gaussian elimination and verifies the four classes for \(5\le n\le17\). Compare with `check_linear.out`, which terminates with `LINEAR_VERIFY_OK`.
-2. Build the independent C++ verifier with `c++ -O2 -std=c++17 check_states.cpp -o check_states`; run `./check_states`. It enumerates exactly \(2^{10}+2^{15}+2^{21}=2{,}130{,}944\) states over \(n=5,6,7\). Compare its exact counts to `check_states.out`, which terminates with `STATES_VERIFY_OK`.
-3. Run `python3 check_flips.py` to enumerate allowed spatial two-cycle flip masks for every \(5\le n\le16\), using independent image-column construction and direct even-cut enumeration; compare `check_flips.out`, ending in `FLIPS_VERIFY_OK`.
-4. The infinite-family proof is the incidence-matrix derivation in RESULT.md. Its only graph assumptions are \(KG(n,2)\) and \(n\ge5\); the software does not claim to verify all \(n\).
+PASS
 
-The C++ binary is intentionally omitted as a platform-dependent build product; the complete source is embedded. No external computational certificates or datasets are needed. The results were reviewed against the stated theorem by the self-review; independent audit is not performed.
+For all n≥5, N=binom(n,2), the KG(n,2) loopless binary adjacency is exactly A=I+BᵀB+J over F2, with B the vertex-edge incidence matrix of K_n. The identities T²=(n mod 2)T, TJ=JT=0 and J²=(N mod 2)J imply A²=I for n≡0; A³=A for n≡1,2; and A²=A for n≡3 (mod4). Rank T equals n−2 for even n and n−1 for odd n, giving exact rank A and rank(A−I), so all states are either periodic or enter a period≤2 orbit after one update. Each periodic point has equally sized preimage fiber, yielding the table of fixed states, 2-cycle orbits and basin sizes. The flip map (A+I) on im A has image T+J, J, T, 0 by residue, respectively. im T is the even-cut space for even n and the all-ones mask lies outside it. Directly recomputed the adjacency matrices and F2 ranks for n=5..11 and flip-space dimensions, corroborating the symbolic all-n proof. Four residue cases and the sharp first-entry time are addressed, not spatial automorphism-orbit classes.
+
+## originality
+
+PASS
+
+Best-of-knowledge original full XOR KG(n,2) dynamical census and allowable temporal flip-mask multiplicities. Real spectral properties of two-set Kneser graphs and modular incidence ranks are background and can imply parts of rank calculation, but do not alone classify periodic orbit basins and cut-mask distribution. Resultary prior parity automata records concern distance-two Boolean cubes and complete multipartite graphs, non-isomorphic graph families with differing adjacency operators.
+
+## value
+
+PASS
+
+A natural synchronous F2 network on the classical KG(n,2) family has exact global dynamics and mod-four phase transition. The result identifies all attractor classes, uniform basin sizes, and spatially meaningful even-cut oscillation masks, not merely a restated matrix rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

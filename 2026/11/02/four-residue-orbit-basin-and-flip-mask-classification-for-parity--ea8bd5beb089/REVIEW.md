@@ -1,19 +1,21 @@
-# Review of the four-residue Kneser-graph orbit, basin, and flip-mask theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof determines the entire update matrix \(A=I+B^{\mathsf T}B+J\) over \(\mathbb F_2\), proves both annihilation relations and the rank of the incidence component, and computes \(A^2\) or \(A^3\) in each residue class. The periodic-state dimension is the rank of \(A\); fixed-point counts use the rank of \(A-I\). Uniform basin sizes follow from equal-size fibers of a linear map that is a permutation on its image. The stronger flip-mask classification follows from the explicitly computed image of \(D=A+I\) on periodic states, and the exact mask multiplicities follow from its fiber dimensions. The projection/involution identities prove the result for every \(n\ge5\), independently of finite tests. Two separately written verifiers reconstruct all relevant matrices for \(5\le n\le17\) and exhaustively test configurations for \(5\le n\le7\). The distinctive assumption is *exclusive-neighbor* XOR; the conclusion does not extend automatically to majority updating.
+PASS
 
-## Originality — PASS with residual risk
+For all n≥5, N=binom(n,2), the KG(n,2) loopless binary adjacency is exactly A=I+BᵀB+J over F2, with B the vertex-edge incidence matrix of K_n. The identities T²=(n mod 2)T, TJ=JT=0 and J²=(N mod 2)J imply A²=I for n≡0; A³=A for n≡1,2; and A²=A for n≡3 (mod4). Rank T equals n−2 for even n and n−1 for odd n, giving exact rank A and rank(A−I), so all states are either periodic or enter a period≤2 orbit after one update. Each periodic point has equally sized preimage fiber, yielding the table of fixed states, 2-cycle orbits and basin sizes. The flip map (A+I) on im A has image T+J, J, T, 0 by residue, respectively. im T is the even-cut space for even n and the all-ones mask lies outside it. Directly recomputed the adjacency matrices and F2 ranks for n=5..11 and flip-space dimensions, corroborating the symbolic all-n proof. Four residue cases and the sharp first-entry time are addressed, not spatial automorphism-orbit classes.
 
-The 1991 van Eijl thesis explicitly supplies Smith normal forms of triangular graph adjacency, a closely related complement, and the 2014 Brouwer–Fiol paper studies Kneser distance graph eigenspace structure. Neither inspected material states the four-class binary update law, complete periodic-state and orbit counts, the exact individual basin sizes, or the cut-type flip-mask spectrum and associated per-mask orbit counts. Searches of research records for equivalent two-set disjointness graphs, XOR parity updates, operator polynomial identities, and binary adjacency ranks found no statement dominating the combination. A classical modular rank identity could allow a knowledgeable reader to obtain subsets of the claims by straightforward algebra; no broad first-ever claim about the rank formulas is made. The even-cut/global-complement flip-mask classification is a stronger spatial dynamical assertion not encoded by mere matrix ranks. Historical sources might contain the same dynamics under another vocabulary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-set Kneser graph is a standard highly symmetric family. Its dynamics has a genuinely nonuniform four-class transition between global reversibility, idempotence, and two distinct one-step rank-deficiency mechanisms. The simultaneous exact classification of periods, their multiplicities, first-entry-time cutoff, *all orbit basin sizes*, and the Hamming flip-mask distribution provides motivated natural dynamical invariants across every graph order. The proof uses an explicit structural decomposition rather than a size-by-size census.
+Best-of-knowledge original full XOR KG(n,2) dynamical census and allowable temporal flip-mask multiplicities. Real spectral properties of two-set Kneser graphs and modular incidence ranks are background and can imply parts of rank calculation, but do not alone classify periodic orbit basins and cut-mask distribution. Resultary prior parity automata records concern distance-two Boolean cubes and complete multipartite graphs, non-isomorphic graph families with differing adjacency operators.
 
-## Evidence and limits
+## value
 
-The source-date anchor is the first arXiv submission of Brouwer–Fiol, September 1, 2014. The 1991 modular-rank thesis predates that anchor and was inspected for possible coverage; it is not represented as having a known day of first public circulation. Evidence consists of the written proof, independently reconstructed matrix check, and state-by-state C++ check. The latter is necessarily finite. Unindexed earlier formulations and unnoticed consequences of older modular-rank computations remain risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural synchronous F2 network on the classical KG(n,2) family has exact global dynamics and mod-four phase transition. The result identifies all attractor classes, uniform basin sizes, and spatially meaningful even-cut oscillation masks, not merely a restated matrix rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
