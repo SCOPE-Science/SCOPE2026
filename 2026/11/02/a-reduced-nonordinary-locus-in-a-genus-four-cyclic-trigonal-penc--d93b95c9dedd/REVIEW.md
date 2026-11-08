@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The genus-four branch calculation and complete holomorphic differential basis give a diagonal Cartier action. A coefficient-ratio congruence makes the two outer coefficients nonzero on the smooth locus; a uniform hypergeometric-polynomial differential equation identifies the other two entries and forces the exceptional polynomial to be squarefree away from the excluded singular boundary. Because the matrix is diagonal, its rank equals its stable semilinear rank. The order-three quotient differential is an outer nonzero eigendirection, and prime-to-characteristic Prym decomposition establishes the stated Prym invariants. Exact finite-prime replays in the attached programs corroborate, but do not substitute for, this proof.
+PASS
 
-## Originality: PASS, with priority limitations
+The smooth six-branch-point cyclic 3-cover has genus four and the four given differential forms are regular. Cartier extraction for y³=g(x³) is diagonal because exponents are congruent mod 3, with A=[t^r]g^r, B=[t^r]g^{2r}, C=[t^{2r}]g^{2r}. The factorial coefficient ratios prove B=binom(4m,2m)Δ^m, and the finite-characteristic second-order ODE L_n(H_n)=0 (or an equivalent coefficient recurrence) proves C=Δ^mH_r. Independent exact multinomial arithmetic reproduced both polynomial identities for 13 primes 7≤p≤109, plus gcd(H_r,H_r′)=1 and H_r(±2)≠0. Analytically, the ODE and r<p make repeated roots away from ±2 impossible, while H_r monic degree r has exactly r geometric roots. With Δ≠0 the two B slots are never zero; diagonal semilinear Cartier stability yields p-rank/a-number (4,0) or (2,2). The quotient norm has degree a power of 3, prime to p, so its ordinary elliptic factor and Prym ranks follow. The finite-prime test supplements, not replaces, the all-prime coefficient and separability argument.
 
-Achter–Howe (arXiv:1710.10726, Sections 1–2) supplies Cartier/Hasse–Witt conventions and twisted matrix products. Kudo (arXiv:1804.09063, Theorem 3.1) treats the superspeciality of a different single genus-four complete intersection for primes congruent to two modulo three. Obus–Shaska (arXiv:2006.12685, Sections 3–5) addresses characteristic-zero automorphism and CM classifications. Neither gives the moving pencil's uniformly reduced degree-\((p-1)/3\) nonordinary divisor or its Prym rank change. Exact equation, equivalent factorization, mathematical-record, and accessible prior-claim comparisons were made; no dominating statement was located. Unindexed or differently parametrized earlier work remains a genuine priority risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a complete infinite-prime arithmetic stratification of a natural genus-four family. The two simultaneous Cartier degenerations, the exact reduced number of exceptional parameters, and the localization of the defect in a Prym threefold supply a structural answer rather than a sporadic computation. The theorem is deliberately restricted to coefficient-marked curves and the prime class where the Cartier matrix is diagonal.
+General Cartier-Manin conventions and superelliptic Jacobian theory are established. Achter–Howe explains semilinearity pitfalls, Kudo analyzes a different genus-four superspecial complete intersection, and Obus–Shaska treats characteristic-zero high-automorphism superelliptic CM settings. The inspected sources do not state the exact reduced r=(p−1)/3 smooth nonordinary parameter divisor, its two-step diagonal rank loss, or the complementary ordinary quotient and Prym invariants for this same pencil. Equivalent Legendre/Deuring polynomial or branch-cross-ratio descriptions remain a priority risk.
 
-## Limits and external checks
+## value
 
-The classification makes no claim for primes congruent to two modulo three, for geometric isomorphism-class counts, or for finer Newton polygons. Independent external validation and priority confirmation are not reported.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a complete geometrically reduced nonordinary divisor, including exact multiplicities and p-rank/Prym specialization, for a natural one-parameter tame genus-four cyclic triple cover in infinitely many characteristics. The exact count is not a random small finite table and identifies a rigid rank-two degeneration forbidden for other ranks in this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
