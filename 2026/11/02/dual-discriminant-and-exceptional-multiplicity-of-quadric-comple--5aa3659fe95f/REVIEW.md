@@ -1,15 +1,21 @@
-# Review of the dual-discriminant theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-The source's unprojection lemma is checked against the full original text (Proposition 2.2, Lemma 2.3). On the smooth source the intersection data \(E^2=1-n\), \(D.E=0\), \(D^2=(n-1)^2 2^n+n-1\) and \(K.D=(n-3)((n-1)2^n+1)\) follow by adjunction. A generic pencil has exactly one parameter through the contracted point, with \(n-1\) ordinary nodes on \(E+R\); locally these arise from simple zeros of the normal derivative. Degree at least two assures second-jet separation away from \(E\), so the other generic singularities are ordinary nodes. Euler-characteristic comparison of the blown-up pencil yields the universal first-jet discriminant count. Subtraction of exactly \(n-1\) gives the dual degree. The checker performs exact-arithmetic cross-checks, but not an infinite proof. No extension to positive characteristic is claimed.
+## correctness
 
-## Originality: PASS with residual historical risk
-The motivating 2026 source explicitly constructs the contraction and studies obstructions on Hilbert schemes; its inspected body does not derive the dual degree or discriminant-cycle decomposition. An earlier 2026 del Pezzo paper covers the \(n=2\) smooth boundary, not the higher-codimension series. Bauer–Catanese cover the standard quintic del Pezzo model but do not provide the stated infinite-series formula in the inspected material. Other searched dual-degree results concern smooth toric surfaces, complete-intersection curves or threefolds, or Euclidean distance degree, and do not imply the exceptional hyperplane multiplicity. The first-jet formula is standard; the original content is its specific geometric correction and resulting infinite-family dual degree. Equivalent results might be implicit in older polar-class or duality literature; no claim of definitive priority is made.
+PASS
 
-## Mathematical value: PASS
-The contracted line introduces a new discriminant component, and its degree-dependent multiplicity is not captured by the smooth-surface dual formula. The calculation quantifies how unprojection alters projective-dual enumerative complexity uniformly across an infinite family, including a nodal K3 model. The explicit exceptional subtraction explains the difference between the total jet-Chern count and the dual degree, a structural distinction rather than a routine isolated coefficient.
+Under n>=3 over C and Nasu’s basepoint-free complete |D| contraction, adjunction gives K_S=(n-3)h, h²=2^n, E²=1-n, D.E=0. One general pencil member containing E decomposes E+R with R.E=n-1 transverse intersections, each an ordinary A1 critical point; local expansion a+zg(t)+O(z²) makes the first-jet incidence branches generically reduced. Away from E, the degree-(n-1) ambient subsystem separates 2-jets and general singular members are nodal; the conormal of Y is generically degree one in characteristic zero. Euler characteristic/jet Chern yields N_D=e(S)+3D²+2K.D=(11n²-31n+24)2^(n-1)+5n-9; subtracting n-1 gives the dual degree. Independent exact coefficient calculations agree for n=3..7, e.g. 124,616,2316. Finite identities do not establish general local geometry.
 
-## Limits
-The formula is for the complete linear series over \(\mathbb C\), not for arbitrary projections or positive-characteristic embeddings. The additional multiplicity is a cycle-theoretic statement. Historical priority and independent mathematical review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge comparison of mathematical statements and known implications: exact assessed full claim not found covered in the cited primary sources or relevant published mathematical findings; specific old ingredients and all access limitations are explicitly credited. A failed search is not a proof of novelty.
+
+## value
+
+PASS
+
+The extra component has geometrically meaningful multiplicity from n-1 transverse intersections with the exceptional curve. Distinguishing total jet discriminant from the projective dual reveals what the contraction changes in dual geometry and yields a closed infinite-series dual-degree invariant with n=3 K3 and higher-genus members.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
