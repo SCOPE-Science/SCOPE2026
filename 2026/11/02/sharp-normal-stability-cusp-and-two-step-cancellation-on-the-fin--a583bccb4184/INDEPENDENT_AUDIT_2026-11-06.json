@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:16:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git exact blob 2026/11/02/sharp-normal-stability-cusp-and-two-step-cancellation-on-the-fin--a583bccb4184/RESULT.md 2487496b6cb5992b5a1cfb5745baecba61c082f5",
+        "Git exact blob 2026/11/02/sharp-normal-stability-cusp-and-two-step-cancellation-on-the-fin--a583bccb4184/check_incoherent.py bc5af0cdf2c3fed6cbf788ecac9975237bd1bfd9",
+        "Independently built symbolic 4-phase Gram matrix for alpha=2pi/3 and K=4 and verified L=[[0,0],[-2sqrt(3),0]], L not zero but L**2 exactly zero. Recomputed normal trace/determinant and strict Jury regions for representative lag and rho values against eigenvalues; analytical proof covers all regular geometries."
+      ],
+      "rationale": "PASS for even N>=4 identical-frequency globally coupled discrete-time Kuramoto–Sakaguchi and regular Z1=0, rho=|Z2|<1. Differentiation at Z1=0 yields J=I+(K/N)Q R_alpha Q^T, with Gram G=N^-1 Q^T Q positive, tr G=1, det G=(1-rho^2)/4. Thus N−2 unit tangent multipliers and normal lambda±=1+(K/2)(cos alpha ± sqrt(rho^2−sin^2 alpha)). The three exact Jury inequalities give strict normal contraction iff cos alpha<0, K>0 and K<K_c; K_c=-4cos alpha/(1−rho^2) below rho=|sin alpha| and 4/(−cos alpha+sqrt(rho^2−sin^2 alpha)) above it. These branches rise/fall, with max 4/(−cos alpha), including the sin alpha=0 endpoint nuance. Every rho<1 is realized by antipodal pairs. At alpha=2pi/3, phases (0,pi/6,pi,7pi/6) and K=4 the normal matrix is exactly [[0,0],[-2sqrt(3),0]], nonzero with square zero; this is derivative-only cancellation, NOT nonlinear finite-time extinction. Independently recomputed exact Gram and Jordan nilpotence. ",
+      "residual_risks": [
+        "Tangent directions have multiplier one: no pointwise asymptotic stability proved. rho=1 is singular and excluded; critical K boundary nonlinear dynamics and heterogenous/network cases unclassified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ashwin–Bick–Burylko full HTML treats continuous-time general coupling, not exact finite-step Jury gain cap",
+          "Resultary SCOPE-sharp-no-slip-locking...2becd3787aa1 concerns unequal clusters at quadrature lag",
+          "Resultary SCOPE-odd-even-relaxation...d8909b4a83b3 concerns repulsive special phase-lag network",
+          "Gade–Gupta 2026 only accessible abstract; full text unavailable"
+        ],
+        "reasoning": "Earlier general dynamical frameworks and special lag results could be related but do not logically entail all-lag sharp finite identical-frequency stability from verified statements. The inaccessible same-model preprint is the central remaining priority risk.",
+        "searches": [
+          "arXiv:2609.22715 discrete-time Kuramoto phase lag linear stability",
+          "Ashwin Bick Burylko 2016 identical phase oscillator networks continuous time",
+          "Resultary discrete repulsive all-to-all parity 2026-10-11"
+        ]
+      },
+      "checked_sources": [
+        "frozen source 2026/11/02/sharp-normal-stability-cusp-and-two-step-cancellation-on-the-fin--a583bccb4184/RESULT.md at 2c8d98134d9930cd11887f086cc209007a54248d",
+        "discrete time finite Kuramoto Sakaguchi incoherent manifold Z2 transverse stability Schur gain cusp",
+        "https://doi.org/10.3389/fams.2016.00007",
+        "https://arxiv.org/abs/2609.22715",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-no-slip-locking-and-logarithmic-relaxation-at-quadrature-p--2becd3787aa1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous-time derivative exponent is distinct from discrete-time multiplier 1+Kmu and its -1 crossing",
+          "The quadrature scalar two-cluster study does not quantify all regular zero-first-harmonic configurations by rho",
+          "The full 2026 target-model paper was not readable, so no assertion it conclusively fails to cover this classification"
+        ],
+        "reasoning": "The rank-two Jacobian is standard mean-field linearization; computing both Schur branches, their cusp and exact L^2=0 selection is a distinct implication not verified in earlier readable theorems. Historical claim remains explicitly conditional on full text access.",
+        "searches": [
+          "Gade Gupta discrete-time Kuramoto 2609.22715 finite stability",
+          "Ashwin Bick Burylko 2016 zero order parameter networks",
+          "published quadrature phase lag no slip 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normal derivative is a rank-two mean-field Jacobian determined by Z2; generic discrete Jury stability is an equivalent formulation of multiplier unit-disk inclusion",
+          "Resultary quadrature locking record SCOPE-sharp-no-slip-locking...2becd3787aa1 treats scalar unequal-two-cluster return map",
+          "Gade–Gupta arXiv:2609.22715 public abstract identifies the same phase-lag family but does not give a complete finite identical-frequency statement"
+        ],
+        "reasoning": "The same claim can be expressed as normal hyperbolicity in a co-rotating frame or a Schur disk of two multipliers; the symbolic two-branch cusp and square-zero exceptional case were not found in the actual inspected comparisons.",
+        "searches": [
+          "discrete time finite Kuramoto Sakaguchi incoherent manifold Z2 transverse stability Schur gain cusp",
+          "discrete-time Kuramoto Sakaguchi Z1=0 Z2 normal Schur Jury multipliers",
+          "Kuramoto order parameter incoherent antipodal manifold transverse eigenvalue lag"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near hits are specialized quadrature and repulsive networks, not a table of all rho,alpha,K",
+          "The statement is an analytic continuum of geometry/gain combinations, not a finite computation table"
+        ],
+        "reasoning": "No searched exact tabulation covers the two analytic branches; absence of a hit does not establish historical novelty.",
+        "searches": [
+          "discrete time finite Kuramoto Sakaguchi incoherent manifold Z2 transverse stability Schur gain cusp",
+          "finite discrete Kuramoto zero first harmonic cusp critical gain rho sin alpha table",
+          "Kuramoto Sakaguchi nilpotent step 4 gain 8 two iteration"
+        ]
+      },
+      "rationale": "PASS with material full-text priority caveat. Continuous-time Ashwin–Bick–Burylko 2016 studies first-harmonic-incoherent families, and published discrete quadrature two-cluster and repulsive network results concern different reductions. The 2026 Gade–Gupta paper studies discrete phase-lag model; accessible abstract emphasizes continuum Lorentzian-frequency stability and numerics, while its full text was not obtainable via OA/arXiv or authorized institutional connection. Therefore no categorical claim it excludes this exact normal classification; residual priority risk retained.",
+      "residual_risks": [
+        "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+        "https://arxiv.org/abs/2609.22715: FULL TEXT UNREAD; PRIORITY RISK"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTINUOUS-TIME RELATED, NOT DISCRETE JURY CAP",
+          "evidence": "Background zero-order-parameter invariance and symmetry; no discrete gain Schur cusp as asserted.",
+          "identifier_or_url": "https://doi.org/10.3389/fams.2016.00007",
+          "material_read": "Full original HTML on zero-first-harmonic configurations, continuous time stability discussion",
+          "method": "Primary full HTML inspected",
+          "title": "Identical Phase Oscillator Networks: Bifurcations, Symmetry and Reversibility for Generalized Coupling",
+          "trigger": "Closest full-text incoherent manifold continuous-time theory"
+        },
+        {
+          "assessment": "FULL TEXT UNREAD; PRIORITY RISK",
+          "evidence": "Abstract emphasizes continuum frequency-distributed threshold/numerical finite behavior; cannot infer whole-document noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22715",
+          "material_read": "Public abstract only; full arXiv text unavailable, institutional access blocked",
+          "method": "ArXiv abstract read; OA/arXiv full text retrieval attempted; institutional result vpn_disconnected",
+          "title": "Discrete-time Kuramoto model with phase lag: Linear stability analysis and onset of synchronization",
+          "trigger": "Same model and potentially covering finite stability"
+        },
+        {
+          "assessment": "SPECIAL TWO-CLUSTER REGIME, NOT GENERAL RHO-CUSP",
+          "evidence": "Scalar unequal-two-cluster locking at quadrature does not cover full Z1=0 regular manifold all lag.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-no-slip-locking-and-logarithmic-relaxation-at-quadrature-p--2becd3787aa1",
+          "material_read": "Full published RESULT.md mathematical model/claim and proof",
+          "method": "GitHub public source text reading and Resultary semantic comparison",
+          "title": "Sharp no-slip locking and logarithmic relaxation at quadrature phase lag",
+          "trigger": "Direct previously published discrete Kuramoto special case"
+        },
+        {
+          "assessment": "SPECIAL REPULSIVE CASE",
+          "evidence": "Discusses parity effects under repulsion and lag pi, not arbitrary-lag optimal gain geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-odd-even-relaxation-dichotomy-for-discrete-repulsive-all-to-all--d8909b4a83b3",
+          "material_read": "Full published RESULT.md and scope",
+          "method": "GitHub public source text reading",
+          "title": "Odd-even relaxation dichotomy for discrete repulsive all-to-all phase networks",
+          "trigger": "May give general finite-N contraction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git source RESULT.md at 2487496b6cb5992b5a1cfb5745baecba61c082f5",
+        "https://doi.org/10.3389/fams.2016.00007",
+        "https://arxiv.org/abs/2609.22715"
+      ],
+      "rationale": "PASS. The second harmonic distinguishes phase geometries with identical vanishing first harmonic, and exact normal stability optimizes allowable discrete gain. The interior cusp and nontrivial square-zero derivative are meaningful structural phenomena specific to the finite discrete-time phase map and do not follow from continuous-time stability slogans.",
+      "residual_risks": [
+        "The two-step zero applies only to first-order normal derivative; higher-order nonlinear perturbations remain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Tangent directions have multiplier one: no pointwise asymptotic stability proved. rho=1 is singular and excluded; critical K boundary nonlinear dynamics and heterogenous/network cases unclassified.",
+    "The two-step zero applies only to first-order normal derivative; higher-order nonlinear perturbations remain.",
+    "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+    "https://arxiv.org/abs/2609.22715: FULL TEXT UNREAD; PRIORITY RISK"
+  ],
+  "schema_version": 1
+}

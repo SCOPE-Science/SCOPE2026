@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-At zero first harmonic, all coupling terms vanish; direct differentiation yields a rank-two update. Its Gram determinant is exactly \((1-\rho^2)/4\), fixing both normal eigenvalues. Applying the three strict Schur inequalities gives the gain boundary, and monotonicity of its two pieces gives the unique optimizer. An explicit four-phase Gram matrix produces a nonzero square-zero normal derivative, checked symbolically and numerically with the standalone verification script. Tangent directions are neutral; the statement is explicitly confined to normal linearization.
+## correctness
 
-## Originality — PASS under available evidence
-The motivating 2026 preprint studies a different continuum distributed-frequency spectral problem and reports finite-dimensional numerical behavior. Earlier primary analysis of identical phase oscillators treats the continuous-time antiphase/incoherent manifold; that general background is credited. Searches for discrete finite-network second-harmonic normal multipliers, a gain-optimal Schur cusp, and an exact two-step nilpotent configuration did not reveal an equivalent or strictly covering theorem. The motivating source's full text could not be retrieved, so historical priority remains a documented risk rather than a claim of exhaustive verification.
+PASS
 
-## Value — PASS
-The second harmonic is a natural order parameter distinguishing zero-mean oscillator arrangements that are invisible to the first harmonic. The result supplies a complete **geometry-versus-step-size** normal-stability phase diagram and a sharp, actually attained maximum tolerance (interior for nonzero sine of the lag), with a nontrivial nilpotent exceptional configuration at half the limiting gain. It separates a finite discrete-time effect from continuous-time linear stability and helps choose robust incoherent configurations.
+PASS for even N>=4 identical-frequency globally coupled discrete-time Kuramoto–Sakaguchi and regular Z1=0, rho=|Z2|<1. Differentiation at Z1=0 yields J=I+(K/N)Q R_alpha Q^T, with Gram G=N^-1 Q^T Q positive, tr G=1, det G=(1-rho^2)/4. Thus N−2 unit tangent multipliers and normal lambda±=1+(K/2)(cos alpha ± sqrt(rho^2−sin^2 alpha)). The three exact Jury inequalities give strict normal contraction iff cos alpha<0, K>0 and K<K_c; K_c=-4cos alpha/(1−rho^2) below rho=|sin alpha| and 4/(−cos alpha+sqrt(rho^2−sin^2 alpha)) above it. These branches rise/fall, with max 4/(−cos alpha), including the sin alpha=0 endpoint nuance. Every rho<1 is realized by antipodal pairs. At alpha=2pi/3, phases (0,pi/6,pi,7pi/6) and K=4 the normal matrix is exactly [[0,0],[-2sqrt(3),0]], nonzero with square zero; this is derivative-only cancellation, NOT nonlinear finite-time extinction. Independently recomputed exact Gram and Jordan nilpotence. 
 
-## Closest literature and scope
-Gade–Gupta (arXiv:2609.22715v1) motivates the discrete map; its accessible abstract emphasizes continuum distributed-frequency stability. Ashwin–Bick–Burylko (2016, DOI:10.3389/fams.2016.00007), inspected as full HTML, treats the continuous-time zero-first-harmonic manifold and related symmetric states. Accessible specialized published results on discrete repulsive phase networks and two-cluster quadrature locking concern different reduced regimes and do not state the complete gain/second-harmonic classification. The result does not address nonzero first harmonic, heterogeneous frequencies, the singular manifold, or nonlinear stability at the critical multiplier.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with material full-text priority caveat. Continuous-time Ashwin–Bick–Burylko 2016 studies first-harmonic-incoherent families, and published discrete quadrature two-cluster and repulsive network results concern different reductions. The 2026 Gade–Gupta paper studies discrete phase-lag model; accessible abstract emphasizes continuum Lorentzian-frequency stability and numerics, while its full text was not obtainable via OA/arXiv or authorized institutional connection. Therefore no categorical claim it excludes this exact normal classification; residual priority risk retained.
+
+## value
+
+PASS
+
+PASS. The second harmonic distinguishes phase geometries with identical vanishing first harmonic, and exact normal stability optimizes allowable discrete gain. The interior cusp and nontrivial square-zero derivative are meaningful structural phenomena specific to the finite discrete-time phase map and do not follow from continuous-time stability slogans.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

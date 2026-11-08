@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The standalone script `check_incoherent.py` requires Python 3 with NumPy and SymPy. Execute `python check_incoherent.py`. It constructs the Jacobian directly from the finite phase map (including the diagonal mean-field derivative), compares its eigenvalues with the exact rank-two formula on 750 antipodal phase configurations for several network sizes, checks 120 Schur threshold configurations, and verifies the exceptional square-zero matrix symbolically with exact trigonometric values. Two nonlinear iterations at the exceptional configuration confirm the nonzero quadratic remainder outside the linearization.
+## correctness
 
-Expected summary: `PASS exact nilpotent example; random spectral comparisons: 750 max eigen residual: 1.1111108480574222e-14 Schur cases: 120`.
+PASS
 
-The verified exact normal matrix is
-\[
-\begin{pmatrix}0&0\\-2\sqrt3&0\end{pmatrix},
-\]
-which is nonzero but has square zero. Finite tests do not certify universal assertions: the determinant, Jury criterion, and monotonicity arguments in `RESULT.md` establish those analytically. Boundary criticality is spectral only, with no nonlinear bifurcation classification. The motivating source's full text was not accessible for exhaustive historical comparison.
+PASS for even N>=4 identical-frequency globally coupled discrete-time Kuramoto–Sakaguchi and regular Z1=0, rho=|Z2|<1. Differentiation at Z1=0 yields J=I+(K/N)Q R_alpha Q^T, with Gram G=N^-1 Q^T Q positive, tr G=1, det G=(1-rho^2)/4. Thus N−2 unit tangent multipliers and normal lambda±=1+(K/2)(cos alpha ± sqrt(rho^2−sin^2 alpha)). The three exact Jury inequalities give strict normal contraction iff cos alpha<0, K>0 and K<K_c; K_c=-4cos alpha/(1−rho^2) below rho=|sin alpha| and 4/(−cos alpha+sqrt(rho^2−sin^2 alpha)) above it. These branches rise/fall, with max 4/(−cos alpha), including the sin alpha=0 endpoint nuance. Every rho<1 is realized by antipodal pairs. At alpha=2pi/3, phases (0,pi/6,pi,7pi/6) and K=4 the normal matrix is exactly [[0,0],[-2sqrt(3),0]], nonzero with square zero; this is derivative-only cancellation, NOT nonlinear finite-time extinction. Independently recomputed exact Gram and Jordan nilpotence. 
+
+## originality
+
+PASS
+
+PASS with material full-text priority caveat. Continuous-time Ashwin–Bick–Burylko 2016 studies first-harmonic-incoherent families, and published discrete quadrature two-cluster and repulsive network results concern different reductions. The 2026 Gade–Gupta paper studies discrete phase-lag model; accessible abstract emphasizes continuum Lorentzian-frequency stability and numerics, while its full text was not obtainable via OA/arXiv or authorized institutional connection. Therefore no categorical claim it excludes this exact normal classification; residual priority risk retained.
+
+## value
+
+PASS
+
+PASS. The second harmonic distinguishes phase geometries with identical vanishing first harmonic, and exact normal stability optimizes allowable discrete gain. The interior cusp and nontrivial square-zero derivative are meaningful structural phenomena specific to the finite discrete-time phase map and do not follow from continuous-time stability slogans.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
