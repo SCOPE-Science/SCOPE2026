@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The polynomial product recurrence and both derivative recurrences are proved by Leibniz differentiation. A complete prime sieve and a=1,...,p-1 enumeration for all 163 odd primes through 971 give 144 roots, exactly 142 below 971 all simple, with exactly two double roots a=194,777 at 971 and second derivative 471 modulo 971. An independently implemented half-field logarithmic derivative calculation yields the same root counts and full prime-by-prime CSV. Direct FiboLaplace recurrence gives e_388 mod 971^2=473848 and e_1554 mod 971^2=468993, each valuation exactly one. The cited source Theorem 4.3 guarantees infinitely continued simple branches at smaller primes; Proposition 3.1 proves the 971 branches terminal. The finite census is exhaustive by explicit bounded loops, not by extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Givens--Moll 2020, Section 4 Theorem 4.12 and final Problem: general sufficient lifting condition, simple branches in cases tabulated below 50.",
+        "Flórez--Higuita-Diaz--Ramírez 2026, Section 3 counterexample at 971; Section 4 derivative criterion applying to any odd prime."
+      ],
+      "reasoning": "A general criterion does imply simplicity for roots with nonvanishing derivative, but neither source establishes that this derivative is nonzero at every internal root for every smaller prime. Their statements do not dominate a verified sharp minimum plus full lower-prime table.",
+      "searches": [
+        "Givens Moll Integrals Fibonacci Polynomials valuations question internal branches 2020",
+        "On p-Adic Valuation Trees Arising from Laplace Transform of Fibonacci Polynomials 971 first nonsimple prime",
+        "FiboLaplace e_n even internal branch earliest non-simple prime 971 minimal counterexample valuation tree polynomial derivative"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37356v1, full open-access article (Sections 1--5)",
+      "Givens and Moll (2020), full open-access PDF (Sections 1 and 4)",
+      "Semantic published-finding searches of source/aliases/first prime/multiple-root profiles, with no exact match",
+      "Earlier accessible related 971 valuation record, compared for endpoint overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited 2026 paper proves a terminal even root at p=971, but does not claim minimality or exclude all odd primes smaller than 971.",
+        "The cited 2020 paper proves a conditional simplicity theorem and asks if it always applies, but only checks the displayed small primes.",
+        "An existing arithmetic record states both terminal 971 residues and an exact 971 valuation profile; it does not assert or prove the least-prime cutoff.",
+        "Two new exact implementations certify 142 simple roots at all smaller odd primes."
+      ],
+      "reasoning": "Published existence at 971 gives only an upper bound on the first-obstruction prime. The new comprehensive lower bound across 162 smaller odd primes is logically necessary to deduce equality. Previous local p971 valuation calculations overlap only the endpoint and are excluded from the novelty claim.",
+      "searches": [
+        "\"FiboLaplace\" \"971\" \"smallest\" prime",
+        "\"first prime\" \"simple\" \"internal\" Fibonacci Laplace 971",
+        "arXiv:2610.37356v1 Section 3 971 Theorem 4.3",
+        "FiboLaplace 971 first odd prime all smaller simple even branches valuation tree double roots 194 777"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flórez--Higuita-Diaz--Ramírez (2026), Theorems 4.2 and 4.3: internal even roots correspond to nonzero roots of P_p; derivative determines simplicity; Theorem 4.6 gives a partial converse under valuation one.",
+        "2026 paper Proposition 3.1: derivative zero and valuation exactly one imply a terminal branch.",
+        "Exact exhaustive 163-prime census finds no repeated root below 971; at 971, a=194,777 are both multiple with valuation one."
+      ],
+      "reasoning": "A least nonsimple even branch is equivalent, in this finite range, to a least repeated nonzero polynomial root with valuation one at its first occurrence; all earlier polynomial roots are simple. The published equivalences transform the branch question to an arithmetic census but do not themselves identify the least prime.",
+      "searches": [
+        "\"FiboLaplace\" \"971\" \"smallest\" prime",
+        "\"first prime\" \"simple\" \"internal\" Fibonacci Laplace 971",
+        "arXiv 2610.37356v1 FiboLaplace even valuation tree non-simple least odd prime 971",
+        "Flórez Higuita Ramírez p-adic valuation tree all odd primes below 971 simple even branches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Givens--Moll 2020, final Section 4 table enumerates roots for primes less than 50, not the 163 primes through 971.",
+        "Flórez--Higuita-Diaz--Ramírez 2026 Section 3 explicitly provides a=194 at p=971, not a complete p<971 root/multiplicity table.",
+        "The attached roots_by_prime.csv has one verified row for each of all 163 odd primes through 971."
+      ],
+      "reasoning": "Existing tables and a single published counterexample do not supply the exact all-prime lower-bound exclusion. The table is used as reproducible supporting evidence, not solely as proof; a complete polynomial recurrence and independent checker certify every entry.",
+      "searches": [
+        "\"P_p\" \"multiple root\" \"971\" Fibonacci valuation tree",
+        "\"971\" \"terminal\" \"FiboLaplace\" first",
+        "Givens Moll Fibonacci valuation trees tables primes below 50",
+        "prime 971 only repeated roots of P_p(x) for all odd primes p<971 exact census"
+      ]
+    },
+    "rationale": "The cited 2026 paper supplies an explicit nonsimple branch at p=971 and the derivative test, not proof of a least prime. The 2020 paper lists branches for p<50 and poses the problem. The genuinely new statement is exclusion of all smaller odd primes and the complete lower-prime root/multiplicity profile, not the already published p971 example or its previously documented second residue.",
+    "residual_risks": [
+      "Source authors describe a computer search for their 971 example; they may have checked lower primes without publishing the negative data, so priority for the first-prime observation is not certain.",
+      "Unindexed computer studies or alternate descriptions of polynomial critical roots might already contain the all-prime lower-bound certification.",
+      "The computational finite theorem still requires inspection or independent validation of exhaustive loop coverage and modular recurrences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS existence of nonsimple 971 branch and general criterion; DOES NOT COVER minimality among all smaller odd primes or exhaustive table.",
+        "evidence": "Section 3.1 names p=971, a=194. Theorems 4.2, 4.3 give derivative criterion. The introduction describes an example, not first/minimal prime; no all-prime table through 971.",
+        "identifier_or_url": "arXiv:2610.37356v1 | https://arxiv.org/html/2610.37356v1",
+        "material_read": "Abstract, Introduction, Section 2 lifting, Section 3 terminal example and Proposition 3.1, Section 4 polynomial definitions/Theorems 4.2, 4.3, 4.6, and Section 5 lifting method.",
+        "method": "Compared hypotheses and conclusions of the relevant theorems and searched full text for first/minimality and enumerated prime tables.",
+        "title": "On p-Adic Valuation Trees Arising from Laplace Transform of Fibonacci Polynomials",
+        "trigger": "Exact same valuation trees and known 971 counterexample, could contain a minimum classification."
+      },
+      {
+        "assessment": "Provides basic FiboLaplace formulas and simplicity criterion but no bound excluding odd primes 50..967; not covering.",
+        "evidence": "Final section includes explicit problem and table for p<50; introduction separately refers to 50,000-prime check of a different distinguished-class congruence, not internal derivative simplicity.",
+        "identifier_or_url": "Givens--Moll, Fibonacci Quarterly 58 (2020), 261--273 | https://www.fq.math.ca/Papers/58-3/moll011720.pdf",
+        "material_read": "Introduction and arithmetic identities, Section 4 lifting theorem, terminal definitions, prime<50 table, and final open Problem; PDF page images inspected.",
+        "method": "Compared original hypotheses, finite table coverage and open problem with sharp least-prime statement.",
+        "title": "Integrals of Fibonacci Polynomials and Their Valuations",
+        "trigger": "Original question and finite tables might contain an earlier or stronger first-obstruction claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5deb2ba-9819-4de4-bd3d-ffe842250f75",
+  "value": {
+    "rationale": "The sharp first counterexample to a recently resolved Givens--Moll problem is a natural mathematical invariant, not an arbitrary slice. Establishing that 971 is minimal, and classifying all 142 smaller-prime roots as simple, materially upgrades an isolated upper-bound example to an exact minimality theorem. The complete 163-prime root/multiplicity census is a reproducible useful boundary dataset. The result is bounded, with no unwarranted extrapolation.",
+    "status": "PASS"
+  }
+}
