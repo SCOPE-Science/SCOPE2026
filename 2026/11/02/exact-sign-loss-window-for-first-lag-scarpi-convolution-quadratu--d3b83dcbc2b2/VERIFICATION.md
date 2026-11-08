@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The file `verify_scarpi.py` requires only the Python 3 standard library and prints `VERIFICATION_OK` on success. Its fixed-seed sweeps compare the analytic first-lag formula against finite-difference derivatives of the published Laplace symbol, factorized stationary-point identity, unique-root brackets, sign changes, critical tangencies, Laplace-domain positive-SOE bound and its nearly attaining family.
+## correctness
 
-The exact domain-wide classification is proved in `RESULT.md` by an algebraic derivative identity and a globally monotone derivative factorization, not by extrapolating the checker. The sharp minimax lower bound is proved using monotonicity and an explicit matching infimizing family. The singular square-root law follows from the positive quadratic Taylor coefficient at the only critical point.
+PASS
 
-Reproduction command: `python3 verify_scarpi.py`.
+Differentiate log Psi(s) including B'(s): Psi'/Psi = -q(s/c)/(c(1+s/c)^2), and omega1=-Psi'(1/h)/h; differentiating q gives q'(x)=(x+1)(ax-b)/x^2 with unique global minimizer x=b/a and q→+infinity at both endpoints. Hence 0/1/2 simple positive roots depending on Theta and precise sign intervals for all h. Strictly increasing Psi on [s_-,s_+] rules out a nonnegative inverse Laplace kernel; positivity of Psi rules out an all-nonpositive kernel under existence/integrability premise from prior Scarpi theory. Any positive SOE transform F(s)=sum p_j/(s+lambda_j) is decreasing, so endpoint triangle inequality gives error >=(Psi(s_+)-Psi(s_-))/2, and F_lambda=M*lambda/(s+lambda) attains the limit. Taylor near the nondegenerate minimum yields square-root opening. Independent high-precision root bracket and derivative/omega probes for a=0.2,b=0.8,c=10 reproduce Theta≈-0.2133276725 and the negative first lag. Correct limits: no assertion about later CQ coefficients, signed SOEs, or the source's discrete block compression.
 
-The example uses `a=0.2`, `b=0.8`, `c=10` with a nonempty negative first-lag step interval, and satisfies the motivating source's sufficient sector condition. Tests use floating-point tolerances; they cannot certify non-asymptotic exact digits, historical novelty, other convolution weights, arbitrary time-domain SOE compression, or independent validation.
+## originality
+
+PASS
+
+Yuan–Zegeling introduced the exact exponential Scarpi symbol, backwards-Euler CQ weights and adaptive history compression. Previous variable-order kernel literature addresses existence/approximation and failure of monotonicity of related derivative kernels. The accessible abstract and mathematical related sources do not identify the explicit Theta phase diagram, unique sign-loss interval and sharp positive-Laplace-SOE minimax floor; main 2026 arXiv preprint full text was inaccessible in this run. An extremely relevant 2026 Scarpi approximated-kernel paper could not be read after lawful OA and authorized institutional attempts (VPN disconnected). Best-of-knowledge pass explicitly qualified by those access risks, no whole-document negative assertions.
+
+## value
+
+PASS
+
+Gives a sharp operational boundary where the actual first CQ history weight becomes negative for a physically natural exponentially transitioning order, proves continuous sign-changing memory and establishes an unavoidable quantified obstruction for a precise useful nonnegative-SOE approximation class. Separating this from signed discrete history compression is mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
