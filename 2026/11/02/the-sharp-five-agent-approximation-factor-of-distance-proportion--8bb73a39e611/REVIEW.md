@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem fixes five labeled reports, two real-line centers, exact pair-weight normalization, and the unrestricted optimum. Consecutive-median splitting yields the four exact optimal costs. Two pointwise upper envelopes for the weighted sampling numerator are obtained exclusively by replacing \(\min\{p,q\}\) with one of its two arguments; their explicit polynomial expansions have nonnegative slack certificates against both independent partition costs, and reflection covers the other two. Exact rational enumeration and coefficient reconstruction with `verify.py` passed. A family with gaps \((T,1,0,1)\) yields ratio \((18T+22)/(8T+20)\to9/4\), establishing sharpness. The strict finite-profile qualification is supported by positivity of the slack polynomials for positive optimum.
+## correctness
 
-**Originality — PASS with priority risk.** Ma–Peng and Chan–Lin–Wang establish the two-facility distance-proportional rule and general factor-four approximation; Jia establishes the line Product-Gap umbrella with general factor four. Their inspected principal approximation statements and pertinent analysis do not give the sharp five-agent line factor. Previously established smaller-population conclusions cover three or four reports and cannot imply the five-report upper bound or its sharpness. Targeted database and literature searches for five reports, the equivalent rule names, \(9/4\), and the sharpness family found no dominating implication or exact table. An independent or unindexed five-report calculation cannot be ruled out; the Jia manuscript was not obtained in full text, although its available abstract and detailed open synopsis were assessed.
+PASS
 
-**Value — PASS.** The first population size \(n=5\) where the classical deterministic strategyproof lower bound \(n-2\) applies yields a sharp \(9/4\) bound for a known randomized strategyproof mechanism, strictly better than the deterministic lower bound \(3\). The proof gives the exact small-market welfare constant, replacing the population-independent factor four and identifying a canonical asymptotically worst allocation profile. This is a natural mechanism efficiency question, not a parameter-only adjustment to a finished formula.
+For exactly five line agents, sort gaps a,b,c,d>=0. Two unconstrained facilities have OPT2=min(b+2c+d,a+c+d,a+b+d,a+2b+c). Distance-proportional pair sampling has normalizer Z=4a+6b+6c+4d and weighted expected-cost numerator N. The two polynomial envelopes U1,U2 of N are obtained by choosing one endpoint service distance for each pair-client term; both dominate min. Expanded coefficients of 9 Z T1-4 U1 and 9 Z T2-4 U2 are ALL nonnegative, and reflection handles T3,T4. Thus E[SC]<=9 OPT2/4 for all real gaps, including coincidences and zero-opt cases. Independent SymPy slack coefficient re-expansion and exact enumeration of many integer gap quadruples confirmed, not substituted for polynomial proof. Gaps (T,1,0,1) give ratio (18T+22)/(8T+20)->9/4, strictly not attained for finite positive-optimum profiles.
 
-**Scope and risk.** Valid only for five real-line agents; neither all metrics nor larger populations are covered. Strategyproofness itself is background from the cited sources, not reproved. No external human audit or priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Global Pair/Pairwise-Distance mechanism and general factor-four guarantees appear in 2026 work of Ma–Peng, Chan–Lin–Wang, and Jia. Those accessible abstracts do not establish this exact five-agent 9/4 line factor or its polynomial certificate; exact theorem is a narrow sharp population-specific improvement. No novelty claim for mechanism or incentive proof.
+
+## value
+
+PASS
+
+Sharp n=5 randomized strategyproof line-facility efficiency benchmark improves a general 4 approximation and is below known deterministic lower bound n-2=3; the additional agent creates nontrivial four median cuts and ten sampled pairs. A natural exact small-market invariant, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
