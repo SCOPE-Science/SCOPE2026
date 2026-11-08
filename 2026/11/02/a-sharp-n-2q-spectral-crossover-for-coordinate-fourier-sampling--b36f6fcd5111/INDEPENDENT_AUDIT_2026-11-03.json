@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:02:08.306849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct uniform first-two-column counting gives rank-one additive Fourier moment -u and rank-two v=u/(q^(n-1)-1) for all prime powers q. The nonzero-coordinate Gram is A I-(u+v)(P tensor J_(q-1))+v J, with rook matrix P, yielding A,R,I and 2x2 block eigenvalues λ± with multiplicities summing to 1+n²(q-1). R>0 follows from a geometric sum and the 2x2 block is positive since zero-entry count of invertible matrices is nonconstant. An exact characteristic-polynomial factor n(q-1)u²(1+t)(2q-n-(q-1)(n-2)t) establishes λmax=I for n<2q and λ+ for n>=2q, while λmin=λ-. Fixed-q root expansion gives κ²=1+2n sqrt(q(q-1))q^-n+O_q(q^-n). Independent complete enumeration/Gram diagonalization for (q,n)=(2,2),(3,2),(2,3) reproduces spectra within 7e-16; these finite cases do not prove the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Hu 2011 Theorem 2.1 evaluates full GL_n Fourier transform at all frequency ranks",
+          "Frequency differences here have rank <=2, fully covered as raw matrix averages"
+        ],
+        "reasoning": "A general transform theorem covers every Gram entry after evaluating difference ranks, but does not state the selected coordinate-band diagonalization or upper-eigenvalue comparison n=2q. The resulting spectrum is a nontrivial spectral consequence, not claimed independent low-rank character sum discovery.",
+        "searches": [
+          "Li Hu Gauss sums over some matrix groups Theorem 2.1 all ranks",
+          "general linear group Fourier Gauss sum low rank coordinate characters"
+        ]
+      },
+      "checked_sources": [
+        "Li–Hu, arXiv:1105.4513, Theorem 2.1 full PDF inspected",
+        "Fickus–Mixon, arXiv:1202.4525 (abstract and introductory scope)",
+        "Resultary published rank-one Fourier spectrum, October 11, 2026",
+        "Resultary published determinant-one 2x2 Fourier frame spectrum, October 11, 2026",
+        "Resultary semantic query on GL_n coordinate Fourier Gram/rank shell spectral transitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For GL_n rank-one and rank-two correlations are -u and v; pairwise rank geometry yields rook matrix P",
+          "Proof character polynomial at I has factor n(q-1)u²(1+t)[2q-n-(q-1)(n-2)t], producing strict 2q switch"
+        ],
+        "reasoning": "Theorem 2.1 makes Gram entries available; deriving the full spectral decomposition and exact sharp-condition boundary requires rook eigenrepresentation and sign analysis. The rank-one shell uses different correlations, so does not imply the GL_n result.",
+        "searches": [
+          "Li Hu Theorem 2.1 matrix group Gauss sums Gram selected frequencies",
+          "rank one matrix shell Fourier spectrum rook block comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary rank-one matrix shell spectrum has rook block but different sampling set and asymptotic",
+          "Published determinant-one 2x2 spectrum intersects only special q=2,n=2 case"
+        ],
+        "reasoning": "Reformulation as additive Fourier restriction/Riesz frame to the full-rank shell was searched. Rank-one and det-one constructions are not equivalent across q,n; overlap is acknowledged.",
+        "searches": [
+          "Resultary GL_n finite field coordinate additive Fourier characters Gram matrix spectrum rook graph invertible matrices dimension 2q crossover",
+          "first Walsh band GL(n,2) conditioning spectrum rook graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published findings for rank-one shell and 2x2 det-one shell contain explicit different spectra",
+          "No published whole GL_n arbitrary n and q spectral table found in returned relevant records"
+        ],
+        "reasoning": "Exact match in binary 2x2 case is prior, excluded from the standalone novelty scope. The full two-parameter GL_n eigenvalue family and boundary were not found in the searched tables.",
+        "searches": [
+          "Resultary complete first-coordinate Fourier spectrum rank-one matrices",
+          "Resultary four-level Fourier frame determinant-one matrices",
+          "GL_n coordinate Fourier Riesz exact n=2q"
+        ]
+      },
+      "rationale": "Li–Hu 2011 provides the general linear-group additive character sums, and related published result records treat rank-one and determinant-one shells. The selected GL_n coordinate band’s full rook tensor eigenspaces, exact upper-sector switch at n=2q, and exponential conditioning rate survive the checked implication comparison; individual rank-one/two averages and q=2,n=2 overlap are explicitly prior. Best-of-knowledge with residual specialist-source risk.",
+      "residual_risks": [
+        "An unindexed finite-group harmonic-analysis treatment could already perform the same coordinate-band diagonalization.",
+        "The q=2,n=2 specialization is covered by earlier determinant-one result; original contribution is the full n,q classification, not that special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rank-one and rank-two input character sums are covered; spectral decomposition of the selected coordinate-frequency Gram is not stated in inspected theorem",
+          "evidence": "Theorem 2.1 on additive Gauss sum across all rank values",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.4513",
+          "material_read": "Primary full-text PDF sections and visual page 4 Theorem 2.1 for general linear group Gauss sums",
+          "method": "Primary PDF textual and theorem/page inspection",
+          "title": "Gauss sums over some matrix groups",
+          "trigger": "All-rank Fourier transforms of GL_n can dominate input character sums"
+        },
+        {
+          "assessment": "Sampling shell consists of rank-exactly-one, disjoint from invertible shell for n>=2; correlations/spectra different",
+          "evidence": "Summary identifies n^3/(2q^2) condition growth",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7",
+          "material_read": "Published Resultary title, full retrieved summary, mathematical object and asymptotic condition number",
+          "method": "Published-finding abstract/result comparison, not complete full-text inspection",
+          "title": "Complete first-coordinate Fourier spectrum on finite-field rank-one matrices",
+          "trigger": "Exact similar rook-block Fourier restriction result could imply GL_n case"
+        },
+        {
+          "assessment": "For q=2 determinant-one equals all invertible 2x2, a previously known special case; no general GL_n crossover",
+          "evidence": "Summary gives 2x2 det-one four eigenvalues and q/(q-1) upper frame level",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-four-level-fourier-frame-spectrum-on-determinant-one-matrices-ov--a9ad8796111d",
+          "material_read": "Published Resultary title and result summary, checking q=2,n=2 overlap",
+          "method": "Published-finding summary and domain comparison",
+          "title": "Four-level Fourier frame spectrum on determinant-one matrices over finite fields",
+          "trigger": "Same frequencies and invertibility in special dimension 2"
+        },
+        {
+          "assessment": "General frame design does not by itself determine exact Gram spectrum for fixed coordinate Fourier band",
+          "evidence": "General erasure robust frame construction",
+          "identifier_or_url": "https://arxiv.org/abs/1202.4525",
+          "material_read": "Primary public abstract and scope describing finite frames/erasure robustness; no complete proof re-read",
+          "method": "Primary abstract and introduction-level scope",
+          "title": "Numerically erasure-robust frames",
+          "trigger": "Broad general frame tightness theorem could cover restriction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete spectrum and precisely located mode switch determine sharp conditioning of a natural first Fourier coordinate band sampled on a large but structured finite-field matrix subset. Near-tightness despite a positive ambient omission fraction and a discrete dimension transition are motivated frame/sampling questions, not just a recomputation of Gauss sums.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Li–Hu, arXiv:1105.4513, Theorem 2.1 full PDF inspected",
+    "Fickus–Mixon, arXiv:1202.4525 (abstract and introductory scope)",
+    "Resultary published rank-one Fourier spectrum, October 11, 2026",
+    "Resultary published determinant-one 2x2 Fourier frame spectrum, October 11, 2026",
+    "Resultary semantic query on GL_n coordinate Fourier Gram/rank shell spectral transitions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only constant plus single-coordinate ambient additive characters on full-rank matrices, any prime power q>=2 and n>=2; no arbitrary Fourier supports or arbitrary erasures.",
+    "Asymptotic condition number is fixed-q; q growing with n is not covered.",
+    "An unindexed finite-group harmonic-analysis treatment could already perform the same coordinate-band diagonalization.",
+    "The q=2,n=2 specialization is covered by earlier determinant-one result; original contribution is the full n,q classification, not that special case."
+  ],
+  "schema_version": 1
+}

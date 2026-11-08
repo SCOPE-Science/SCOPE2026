@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The complete Gram entries follow from exact rank-one and rank-two additive Fourier averages over uniform invertible matrices. The nonzero-frequency Gram block has an exact rook-matrix tensor decomposition, yielding all five spectral sectors with stated multiplicities. The mean block has a positive determinant because the zero-entry count is not constant on invertible matrices. Exact factorization of the characteristic polynomial at the rook interaction eigenvalue proves the strict spectral crossover at \(n=2q\). The asymptotic expansion follows from these exact formulas. The accompanying checker reconstructs the sampling matrices independently, tests seven finite prime or extension-field cases, and tests the crossover sign identity for 138 parameter pairs. Finite tests are corroboration, not a replacement for the arbitrary-field proof.
+## correctness
 
-**Originality: PASS (bounded literature comparison).** Li and Hu's full-text Theorem 2.1 supplies the general matrix-group Gauss sum, hence the low-rank Fourier averages are prior mathematics and are explicitly excluded from the novel part. The inspected first-coordinate rank-one spectrum concerns the singular rank-one shell and cannot specialize to the full-rank shell. The inspected determinant-one \(2\)-by-\(2\) spectrum covers the binary \((q,n)=(2,2)\) instance but not the all-order and all-field invertible-matrix Gram spectrum. Fickus–Mixon treat general numerical conditioning and group frames, not this coordinate restriction. The distinct contribution is the full joint spectral and equality-space classification, exact leading-sector change and high-dimensional near-tightness. An unrecognized earlier frame-theoretic reformulation remains a residual risk.
+PASS
 
-**Mathematical value: PASS.** Uniform invertible matrices are a natural high-density nonlinear sampling set with general additive Fourier moments known for decades. It is not immediate from individual Fourier coefficients which combinations of coordinate harmonics control the optimal reconstruction bound. The theorem explicitly identifies those modes, locates a sharp dimension-to-field-size transition in the worst one, and proves exponentially improving reconstruction conditioning despite deleting a nonvanishing ambient fraction. This is an exact infinite-family classification, not a finite table or arbitrary parameter slice.
+Direct uniform first-two-column counting gives rank-one additive Fourier moment -u and rank-two v=u/(q^(n-1)-1) for all prime powers q. The nonzero-coordinate Gram is A I-(u+v)(P tensor J_(q-1))+v J, with rook matrix P, yielding A,R,I and 2x2 block eigenvalues λ± with multiplicities summing to 1+n²(q-1). R>0 follows from a geometric sum and the 2x2 block is positive since zero-entry count of invertible matrices is nonconstant. An exact characteristic-polynomial factor n(q-1)u²(1+t)(2q-n-(q-1)(n-2)t) establishes λmax=I for n<2q and λ+ for n>=2q, while λmin=λ-. Fixed-q root expansion gives κ²=1+2n sqrt(q(q-1))q^-n+O_q(q^-n). Independent complete enumeration/Gram diagonalization for (q,n)=(2,2),(3,2),(2,3) reproduces spectra within 7e-16; these finite cases do not prove the infinite theorem.
 
-The scope is limited to the full one-coordinate band; arbitrary erasures and higher-coordinate interactions are not included. The spectrum and asymptotics are self-reviewed rather than independently validated. The full available source comparison does not prove historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Hu 2011 provides the general linear-group additive character sums, and related published result records treat rank-one and determinant-one shells. The selected GL_n coordinate band’s full rook tensor eigenspaces, exact upper-sector switch at n=2q, and exponential conditioning rate survive the checked implication comparison; individual rank-one/two averages and q=2,n=2 overlap are explicitly prior. Best-of-knowledge with residual specialist-source risk.
+
+## value
+
+PASS
+
+The complete spectrum and precisely located mode switch determine sharp conditioning of a natural first Fourier coordinate band sampled on a large but structured finite-field matrix subset. Near-tightness despite a positive ambient omission fraction and a discrete dimension transition are motivated frame/sampling questions, not just a recomputation of Gauss sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
