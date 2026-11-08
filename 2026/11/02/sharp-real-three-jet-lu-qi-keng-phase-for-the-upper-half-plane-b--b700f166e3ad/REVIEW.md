@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivative normalization is explicitly reconstructed from the unweighted upper-half-plane Bergman kernel \(K(z,w)=-1/[\pi(z-\overline w)^2]\) for the differential evaluation \(f+af'+(b/2)f''\). The exact auxiliary polynomial is \(1+6(b-a^2)t^2+30b^2t^4\). Setting \(x=t^2\), the discriminant is \(36[(a^2-b)^2-(10/3)b^2]\). For real parameters the negative discriminant branch has exactly two distinct roots in the attainable lower half-plane. The nonnegative branch is equivalent to \(a^2\ge b+\sqrt{10/3}|b|\) and has only real polynomial roots. At equality both are double real boundary roots. The case \(b=0\) is separately covered. A constructive inverse of \(t=(z-\overline w)^{-1}\) proves all counted roots are actually attainable. Symbolic differentiation and 4,313 supplementary checker assertions corroborate the exact normalization and cases; finite checks are not an infinite proof.
+PASS
 
-## Originality — PASS relative to checked literature
+With K(z,w)=-1/[pi(z-conj(w))^2], factorial derivatives in the canonical Riesz family and real coefficient vector (1,a,b) cancel odd powers and give F(t)=1+6(b-a^2)t^2+30b^2t^4. Independently summed all nine factorial terms symbolically and verified equality. Every t with Im(t)<0 occurs as reciprocal of z-conj(w). The quadratic in t² has discriminant 36[(a²-b)²-(10/3)b²]; nonnegative case is equivalent to a²>=b+sqrt(10/3)|b| because the opposite branch is impossible for a²>=0. Real positive t² roots are excluded; nonreal conjugate t² yield exactly two simple attainable lower-half-plane roots. Handles b=0, a=b=0 and equality real double roots; does not count fixed-w-slice zeros.
 
-Gehlawat, Jain and Sarkar, arXiv:2608.13193v1, Theorem 4.1, provide the general auxiliary-polynomial formula, which is acknowledged as a proof ingredient rather than claimed as new. Their Section 4 results on single-supported and factorial sequences do not state the real three-jet phase. The published *Exact two-jet Lu Qi-Keng phase* result treats support \(\{0,1\}\) and explicitly excludes higher support. The published *Parity law for zeros of separated weighted Bergman jet Gram kernels* treats only two nonzero derivative orders \(p<q\), and explicitly excludes the three-jet case. Its order-zero/order-two slice always has zeros, whereas the simultaneous first-derivative term here can remove all zeros. Bao, Guan and Sun's arXiv:2510.13144v2 considers different extremal kernels and no such two-variable Gram zero classification. Searches for the exact normalized threshold, root polynomial and three-jet aliases returned no dominating published claim. This is a novelty assessment from accessible material, not a proof of literature exhaustiveness.
+## originality
 
-## Value — PASS
+PASS
 
-The complete real three-jet classification is a natural first unresolved parameter plane beyond published two-term classifications for the newly introduced canonical positive-definite Gram kernel. It proves a qualitative **zero-removal phenomenon**: the second-derivative term destroys zero-freeness when considered without the first derivative, but a sufficiently large first-derivative coefficient restores it, with different sharp coefficients for positive and negative second derivatives. The complete sharp phase boundary, attained zero-fibre count, and double-root collision specify a mathematical feature not obtained from general kernel formulas or qualitative existence statements. The proof is elementary once the correct canonical kernel is fixed, and its merit is the natural exact phase diagram, not technical complexity.
+The published canonical Gram-kernel derivative representation is acknowledged. Its pure-jet and factorial families, and the related published two-jet or separated-jet results, do not classify the full normalized real three-jet (1,a,b) discriminant and restoration threshold.
 
-## Closest coverage and limitations
+## value
 
-The general formula in arXiv:2608.13193v1 makes this classification approachable, so the original contribution is deliberately limited to the exact root-location theorem. An older unindexed explicit three-jet computation could still coincide with it. The result covers real coefficients only and does not resolve complex three-jet phases, any fixed-point slice count, or longer differential sequences. Independent mathematical auditing has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first fully populated real second-order differential-evaluation family exhibits a sharp positive-definite-kernel zero-freeness transition and restoration by a first derivative. The exact threshold is a natural low-dimensional Lu Qi-Keng classification, beyond merely checking a special numeric coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
