@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For a nonadjacent pair in a 2-plex, every other member must be adjacent to both. Hamming-distance-two pairs have precisely two common neighbors and pairs of greater distance none. This restricts noncliques to a three-vertex path or a four-vertex coordinate square, and larger sets to coordinate-line cliques. The proof independently establishes which pairs, squares and full coordinate lines are inclusion-maximal, then counts all cliques and uniquely completed paths and squares without overlap. Eleven graph products of at most 18 vertices were checked exhaustively against direct membership and maximality, totaling 468037 nonempty subsets; three larger products had generated-family checks only. Computation is not the source of the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai et al., arXiv:2203.10760, sections 1–5, study scalable enumeration algorithms in arbitrary graphs without product-specific closed polynomials.",
+        "Jiddou–Manoussakis, IPEC 2025, DOI 10.4230/LIPIcs.IPEC.2025.22, sections 2–4.5, prove general maximal-2-plex enumeration bounds, not a Hamming-product line/square/distant-pair classification.",
+        "Conte et al., CIKM 2019, DOI 10.1145/3357384.3358083, give generic distributed enumeration rather than this evaluated family."
+      ],
+      "reasoning": "The algorithmic results operate on arbitrary input graphs and can list these sets, but their statements do not subsume the new explicit counting and structural statements. A generic membership algorithm cannot be substituted for the exact polynomial, support, and all-maximal-set theorem.",
+      "searches": [
+        "\"Hamming graphs\" \"k-plex\" maximal",
+        "\"maximal 2-plexes\" \"Cartesian\" \"complete\"",
+        "arxiv:2203.10760",
+        "DOI 10.4230/LIPIcs.IPEC.2025.22"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.10760 (21 March 2022) — exact definition and general k-plex algorithms, full material inspected.",
+      "DOI:10.4230/LIPIcs.IPEC.2025.22 (2025) — general enumeration and maximal-2-plex algorithm, full HTML inspected.",
+      "DOI:10.1007/s10878-010-9313-y (2011) — co-2-plex polynomial recursion and examples, parsed text inspected.",
+      "DOI:10.1145/3357384.3358083 (2019) — generic 2-plex enumeration, available text inspected.",
+      "DOI:10.1002/jgt.20084 (2005) — Hamming subgraph embedding, abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klavžar–Peterin, DOI 10.1002/jgt.20084, characterize graph embeddings into Hamming graphs, not multiplicities of each 2-plex in a fixed Hamming graph (abstract reviewed).",
+        "McClosky–Simms–Hicks DOI 10.1007/s10878-010-9313-y is the closest polynomial framework, but the examined family examples concern other classes.",
+        "The main proof uses the exact count two of common neighbors of a Hamming-distance-two pair to force all nonclique 2-plexes into uniquely completed 4-cycles; this consequence was not claimed in the cited general algorithm papers."
+      ],
+      "reasoning": "The paper on Hamming embeddings gives necessary/sufficient conditions for an induced subgraph to occur, not the number of all occurrences or those maximal by inclusion; it therefore does not directly imply this full enumerator. Known 2-plex algorithms imply computability on any fixed finite graph but not the symbolic general identity. The complement co-2-plex recurrence is a generic identity, not an evaluated stronger result for the complement of every Hamming product.",
+      "searches": [
+        "Hamming graph Cartesian product of complete graphs maximal cliques coordinate lines common neighbors distance two exactly two",
+        "Hamming graph each induced four cycle coordinate directions cartesian product complete graphs",
+        "arxiv:2203.10760",
+        "DOI 10.4230/LIPIcs.IPEC.2025.22"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McClosky–Simms–Hicks, Co-2-plex polynomials, DOI 10.1007/s10878-010-9313-y: a co-2-plex in the complement of G is a 2-plex in G; provides general recurrences and different example families.",
+        "The complement equivalence changes the name of the counted objects but does not itself evaluate the polynomial on Hamming products or classify inclusion-maximal sets.",
+        "Searches for 2-plex, co-2-plex, dissociation and Cartesian-product formulations returned no exact counterpart."
+      ],
+      "reasoning": "A general recurrence on all graphs applies formally to the complement but is not a closed coefficient evaluation or a classification of the maximal configurations in the stated family. The current formulas require the two-common-neighbor geometry of Hamming products. Conversely, a general co-2-plex framework does not logically imply a fixed explicit expression without substantive specialization.",
+      "searches": [
+        "complement of Hamming graphs maximal dissociation sets cardinality polynomial distance at least three pairs",
+        "\"Hamming graphs\" \"k-plex\" maximal",
+        "\"2-plex polynomial\" \"Hamming graph\"",
+        "complement of Hamming graphs maximal dissociation sets cardinality polynomial distance at least three pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Hamming-product table or formula was identified in targeted source-title, phrase, product, 2-plex and complement/dissociation searches.",
+        "Generic search returned nearest results concerning different graph families and invariants, including dissociation polynomials of complete multipartite graphs and windmills; these are not the complement of a general Hamming product."
+      ],
+      "reasoning": "No recovered numeric database enumerates the same two polynomials for all factor sizes. This is a negative search observation, not a proof of novelty; the explicit algebraic and inclusion-maximal implication comparisons supply the substantive part of the assessment.",
+      "searches": [
+        "\"Hamming graph\" \"maximal 2-plex\" enumeration",
+        "\"Hamming graphs\" \"k-plex\" maximal",
+        "\"maximal 2-plex\" hypercube classification counting",
+        "\"2-plex polynomial\" \"Hamming graph\"",
+        "\"Cartesian product of complete graphs\" \"2-plex\"",
+        "\"Hamming graph\" \"dissociation set\" maximal",
+        "\"maximal 2-plexes\" \"Cartesian\" \"complete\"",
+        "Hamming graph Q_d maximal 2-plex sets exact size enumerator long coordinate lines rectangles distant pairs",
+        "complement of Hamming graphs maximal dissociation sets cardinality polynomial distance at least three pairs",
+        "rook graph H(m,n) maximal 2-plex line squares"
+      ]
+    },
+    "rationale": "The exact line–square–distance characterization and both size polynomials for arbitrary mixed-factor Hamming graphs were compared to generic 2-plex algorithms, generic co-2-plex polynomial recurrences on graph complements, Hamming graph embeddings and related enumerations. None of the materially inspected sources states the displayed specialized classification or formulas, nor supplies a single direct graph-family specialization from which they follow without a new coordinate argument. The positive judgment is best-knowledge, not a priority guarantee. A relevant Hamming embedding article was abstract-only and the visual rendering of an older PDF was unavailable.",
+    "residual_risks": [
+      "The 2005 Hamming-embedding paper was not read in full; an unexpected stronger theorem there could change priority.",
+      "The 2011 PDF was available textually but could not be visually inspected after a rendering error; a differently typeset formula elsewhere in that source is a residual risk.",
+      "Literature and mathematical-record searches are not exhaustive, and equivalent differently named results could exist.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the 2-plex definition and broad enumeration algorithms; no closed Hamming graph classification or all-set and maximal-set polynomial found.",
+        "evidence": "Definitions in section 2 and the algorithms/theorems in sections 3–5 count/produce maximal k-plexes of arbitrary graphs under size constraints, without a product formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.10760",
+        "material_read": "Accessible full-text page, definitions, introduction, technical pruning and enumeration results, experimental sections and references.",
+        "method": "Inspected accessible full-text HTML/text, searched for Hamming and Cartesian products, compared algorithmic statements with both exact polynomials.",
+        "title": "Scaling Up Maximal k-Plex Enumeration",
+        "trigger": "The earliest qualifying exact-name maximal-k-plex research anchor (21 March 2022); generic algorithms could cover the claimed family."
+      },
+      {
+        "assessment": "Generic output-sensitive algorithms; no exact Hamming product polynomial or coordinate classification.",
+        "evidence": "Theorem 23 concerns O(n) enumeration at constant degeneracy; Hamming graphs with large alphabet need not have bounded degeneracy.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2025.22",
+        "material_read": "Accessible full HTML covering introduction, prior work, main theorems and section 4.5 on maximal 2-plex enumeration.",
+        "method": "Inspected primary text including the 2-plex special case, searched Hamming and Cartesian terms.",
+        "title": "Efficient Enumeration of k-Plexes and k-Defective Cliques",
+        "trigger": "Modern result explicitly enumerating maximal 2-plexes, potentially stronger scope."
+      },
+      {
+        "assessment": "General co-2-plex enumerator and recurrence are established prior art; no exact Hamming complement evaluation nor maximal 2-plex classification recovered.",
+        "evidence": "Definition of co-2-plex section 1, recurrence Corollary 2.5 and structured examples section 3.",
+        "identifier_or_url": "https://doi.org/10.1007/s10878-010-9313-y",
+        "material_read": "Author-hosted PDF parsed full text sections 1–3: definitions, general recurrences, real-root theorem, examples including complete multipartite graphs. PDF visual screenshot request failed.",
+        "method": "Textual inspection of the source PDF and searches for Hamming and Cartesian terms.",
+        "title": "Co-2-plex polynomials",
+        "trigger": "Exact equivalent polynomial notion after graph complementation."
+      },
+      {
+        "assessment": "Algorithmic conversion only in read material; no identified Hamming graph formulas.",
+        "evidence": "The stated contribution reduces general 2-plex enumeration to clique computation and distributed methods.",
+        "identifier_or_url": "https://doi.org/10.1145/3357384.3358083",
+        "material_read": "Publicly reproduced manuscript text, abstract and beginning of sections 1–2.",
+        "method": "Inspected posted primary manuscript text, including forbidden triples and clique-enumeration reduction.",
+        "title": "Shared-Nothing Distributed Enumeration of 2-Plexes",
+        "trigger": "Exact 2-plex name and generic enumeration potentially including smaller maximal pairs."
+      },
+      {
+        "assessment": "Embedding characterization is not itself a polynomial count; full-text priority risk explicitly retained.",
+        "evidence": "Abstract describes edge-label tests for induced and isometric Hamming subgraph embeddings, not maximal 2-plex enumerators.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20084",
+        "material_read": "Abstract and bibliographic record only; complete paper unavailable in the inspection path.",
+        "method": "Compared the described induced-embedding characterization at abstract level with counting all and inclusion-maximal 2-plex subsets.",
+        "title": "Characterizing subgraphs of Hamming graphs",
+        "trigger": "Potentially dominating exact characterization of induced subgraphs in Hamming graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b790a476-d29c-4c0f-af03-413fa50a7b37",
+  "value": {
+    "rationale": "The theorem treats a standard arbitrary-dimensional family rather than an unmotivated small parameter choice, giving both complete 2-plex and complete maximal-2-plex cardinality polynomials and a natural geometric classification. The size support of maximal solutions is exactly controlled by factor sizes and Hamming diameter; homogeneous H(d,q) for d>=3 and q>=6 has an arbitrary gap of q-5 unavailable sizes. This is an exact structural enumerative fact, not a mere scalar extremal or known-table recomputation.",
+    "status": "PASS"
+  }
+}
