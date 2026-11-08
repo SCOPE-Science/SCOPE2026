@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The declared labeled graph has eighteen edges and twelve vertices, all degree three. Its closed-neighborhood and dominating-complement face predicates agree exhaustively across all \(4096\) subsets, producing \(2416\) nonempty simplices. The explicitly specified successive-toggle matching contains \(1203\) disjoint covering pairs and exactly one critical vertex plus nine critical five-simplices. Complete reversal of matched incidences and exhaustive topological sorting of the \(12216\) covering relations prove acyclicity; Forman's theorem then proves the integral wedge homotopy type. A separate mod-two boundary-rank computation agrees. Exhaustive adjacency-preserving enumeration gives all \(48\) automorphisms. Independent fixed-face and orbit-union Lefschetz calculations agree elementwise, and exact class-character arithmetic verifies the five multiplicities. These are exhaustive finite checks, not an inference from experimental samples. The group splitting is explicitly checked, not assumed.
+
+## Originality — PASS relative to inspected work
+Marietti–Testa arXiv:0705.1461 Section 4.3 classifies forests, excluding the cyclic Franklin graph. Taylan arXiv:1501.06754 classifies the chordal setting, but the Franklin graph is nonchordal. Matsushita–Wakatsuki arXiv:2312.02639 establishes general Alexander duality with the open-neighborhood complex of the complement graph, without identifying the Franklin-specific homotopy or its group character. The closest inspected same-graph result is an ordinary matching-complex sphere wedge on graph **edges**; a separate paired-domination graph invariant is also known. Their conclusions do not imply this dominance-complex topological character. No inspected indexed theorem covers the present statement; equivalent unindexed or implicit results remain a genuine publication-priority risk.
+
+## Mathematical value — PASS
+The Franklin graph is a canonical cubic bipartite twelve-vertex graph with a nontrivial automorphism group with a historically significant non-planar/Klein-bottle embedding. The exact integral dominance-complex homotopy is a natural calculation of an invariant encoding complements of dominating sets, outside the known forest/chordal regimes. The complete rational \(S_4\times C_2\) character and its multiplicity-free decomposition provide information invisible to Betti numbers and distinguish the two central-involution eigenspaces. Both the topological classification and full group action are exact, nontrivial, finite structural information useful for subsequent comparison of graph-complex dualities and equivariant topology.
+
+## Limitations and risk
+No general cubic-graph theorem, integral representation-lattice decomposition, or equivariant homotopy splitting follows. Search results cannot exclude all equivalences in inaccessible or unindexed literature. The character decomposition uses the fully verified but noncanonical \(S_4\) splitting. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
