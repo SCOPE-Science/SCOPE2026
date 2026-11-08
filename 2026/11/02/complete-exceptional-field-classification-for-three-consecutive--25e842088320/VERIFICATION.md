@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible finite computation and proof limits
+# Independent mathematical audit
 
-The attached `verify_ns3.py` is a standalone Python 3 program using only built-in exact arithmetic. Execute `python3 verify_ns3.py`. The observed output was:
+## correctness
 
-```
-VERIFY_OK primes=5037 extensions=77 exceptions=35 limit=105841
-```
+PASS
 
-The code (i) sieves all primes below the analytic threshold; (ii) tests for a length-three NS3 witness for every prime of the required congruence class, exhausting all starts only for exceptions; (iii) independently enumerates all prime powers of the required congruence class below that threshold; (iv) checks each extension-field polynomial's irreducibility by finite-field factor criteria and confirms the listed multiplicative generator is primitive; (v) verifies explicit positive witnesses; and (vi) exhaustively scans negative extension fields using direct power tests. Exact integer field polynomial arithmetic is implemented inside the program. The certificate list and all algorithms are present; no third-party tables or packages need to be downloaded.
+Order-six character indicator I(y)=1/6 sum_{j=0}^5 (-1)^j chi(y)^j on nonzero y; character expansion of 216N(q) with support size 1,2,3 gives Weil bounds 0,sqrt(q),2sqrt(q) and 15,75,125 exponent triples, hence 216N(q)≥q−108−325sqrt(q)>0 for q≥105841. Actual verify_ns3.py file examined, including complete prime-power list, irreducibility, primitive-element checks and exhaustive negative tests. Independently enumerated all 5037 primes p<105841,p≡1 mod6 and reproduced the 28 prime exceptions, with q25,49,121,169 negative and q289 positive. Other extension cases rely on inspectable verified code/table and earlier checker logs, not falsely represented as independently re-enumerated. Finite enumeration only covers q below analytic bound.
 
-This finite program does not prove the infinite tail. That requires the sixth-order character expansion and the stated Weil estimate for complete character sums over finite fields. Conversely, the character estimate alone does not prove the 35 exceptional orders. Both parts are necessary.
+## originality
 
-The precise exception list and logical quantifiers are given in `RESULT.md`. Checks were completed before this package was finalized. This is a self-review only; independent audit has not been performed.
+PASS
+
+Lehmer et al (1962) consider three consecutive cubic residues for prime fields but do not impose nonsquare coset and proper prime powers; Cohen (2026) complete pair classification is weaker than triple. The stronger-looking Zhou–Wu 2026 result proves large-q general nonsquare nonprimitive tuples and limited small-q computations, but its accessible abstract does not establish this exact 35-exception NS3 coset list. Buell–Hudson 1986 power residue sequences is a strong inaccessible possible implication; mark material-read limits and priority risk instead of asserting noncoverage.
+
+## value
+
+PASS
+
+Complete field-order exception list for three consecutive members of a prescribed natural order-six multiplicative coset answers a discrete cyclotomic existence/classification question with an explicit analytic finite cutoff and genuine proper-extension exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

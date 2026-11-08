@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:53:26.780851Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Order-six character indicator I(y)=1/6 sum_{j=0}^5 (-1)^j chi(y)^j on nonzero y; character expansion of 216N(q) with support size 1,2,3 gives Weil bounds 0,sqrt(q),2sqrt(q) and 15,75,125 exponent triples, hence 216N(q)≥q−108−325sqrt(q)>0 for q≥105841. Actual verify_ns3.py file examined, including complete prime-power list, irreducibility, primitive-element checks and exhaustive negative tests. Independently enumerated all 5037 primes p<105841,p≡1 mod6 and reproduced the 28 prime exceptions, with q25,49,121,169 negative and q289 positive. Other extension cases rely on inspectable verified code/table and earlier checker logs, not falsely represented as independently re-enumerated. Finite enumeration only covers q below analytic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cohen pair theorem with six exceptional q is weaker.",
+          "Zhou–Wu abstract proves universal sufficiently-large-q existence for broader NSNP tuples but does not enumerate the exact NS3 exceptional E; their lower cutoff appears larger."
+        ],
+        "reasoning": "A broad large-q existence theorem cannot logically supply the finite exception census absent an explicit exact small-field classification.",
+        "searches": [
+          "Cohen arXiv:2604.21429v2 Oct 2026 Theorem 5.2 Question 7.3",
+          "Zhou and Wu arXiv:2607.17267 Consecutive non-square non-primitive tuples finite fields"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and complete verify_ns3.py",
+        "Cohen arXiv:2604.21429v2 Sections 5/7",
+        "Zhou and Wu arXiv:2607.17267 abstract",
+        "Lehmer et al Math Comp 1962",
+        "Buell Hudson DOI:10.1155/S0161171286000315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A q=31 pair exists although q=31 in claimed triple exception list.",
+          "Cubic residue triple at p=97 is not necessarily a nonsquare cubic triple."
+        ],
+        "reasoning": "Explicit counterexamples show pair/cubic statements fail to imply the stricter exact NS3 classification; sufficient large-field results leave small q open.",
+        "searches": [
+          "Cohen 2026 2604.21429 Section 5 and 7",
+          "Lehmer et al 1962",
+          "Zhou Wu 2607.17267"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "NS3 condition y^{(q−1)/6}=−1 is one coset of sixth powers, not all cubes; q≡7 mod12 negation maps the chosen coset to sixth powers.",
+          "Cohen NS3 pair requirement (two terms) cannot imply a triple."
+        ],
+        "reasoning": "Compared coset translations and inverse powers; older consecutive sixth-power results need careful q mod12 check and remain a risk.",
+        "searches": [
+          "finite fields three consecutive nonsquare cubes sextic character q exceptional orders Resultary search",
+          "Buell Hudson Sequences in power residue classes 1986 sixth-power coset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1962 table concerns cubic residues primes without nonsquare filter; e.g. 97 in current E.",
+          "1986 source abstract read only, not full table."
+        ],
+        "reasoning": "Prior residue tables may encode equivalent answer; no assertion that inaccessible full document is noncovering.",
+        "searches": [
+          "Lehmer Lehmer Mills Selfridge 1962 Machine Proof of a Theorem on Cubic Residues",
+          "Buell Hudson 1986 Sequences in power residue classes",
+          "Zhou Wu 2026 supplementary small fields"
+        ]
+      },
+      "rationale": "Lehmer et al (1962) consider three consecutive cubic residues for prime fields but do not impose nonsquare coset and proper prime powers; Cohen (2026) complete pair classification is weaker than triple. The stronger-looking Zhou–Wu 2026 result proves large-q general nonsquare nonprimitive tuples and limited small-q computations, but its accessible abstract does not establish this exact 35-exception NS3 coset list. Buell–Hudson 1986 power residue sequences is a strong inaccessible possible implication; mark material-read limits and priority risk instead of asserting noncoverage.",
+      "residual_risks": [
+        "Buell–Hudson 1986 full text unavailable; older cyclotomic tables may already give the exact sextic-coset answer.",
+        "Zhou–Wu full tuple paper not read; a corollary/appendix might cover the exact exceptional list.",
+        "Full proper-prime-power verifier was inspected but not independently rerun for all 77 orders in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Exact NS3 pairs, not triples; Section 7 mentions Zhou–Wu tuple work.",
+          "identifier_or_url": "arXiv:2604.21429v2",
+          "material_read": "Complete accessible 13-page PDF including Theorem 5.2 and Section 7 references",
+          "method": "arXiv full PDF text and page screenshots",
+          "title": "Consecutive non-square non-primitive pairs in a finite field",
+          "trigger": "Same sextic coset and consecutive property"
+        },
+        {
+          "assessment": "PRIORITY_RISK",
+          "evidence": "Large-q general NSNP tuple existence; unknown finite exact NS3 coset table.",
+          "identifier_or_url": "arXiv:2607.17267",
+          "material_read": "Accessible abstract and secondary discussion; original PDF not read",
+          "method": "arXiv abstract and search",
+          "title": "Consecutive non-square non-primitive tuples in finite fields",
+          "trigger": "Potential stronger tuple theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Cannot rule out equivalent finite cyclotomic classification.",
+          "identifier_or_url": "DOI:10.1155/S0161171286000315",
+          "material_read": "Abstract-level only, full article not obtained",
+          "method": "Web abstract and lawful OA attempt",
+          "title": "Sequences in power residue classes",
+          "trigger": "Older exact power-residue run studies"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Three cubic residues over primes lack nonsquare restriction.",
+          "identifier_or_url": "Lehmer Lehmer Mills Selfridge Math Comp 16 (1962) 407–415",
+          "material_read": "Published theorem scope and example compared; not full exhaustive appendix",
+          "method": "Bibliographic theorem summary",
+          "title": "Machine Proof of a Theorem on Cubic Residues",
+          "trigger": "Closest historic consecutive cubic residue exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete field-order exception list for three consecutive members of a prescribed natural order-six multiplicative coset answers a discrete cyclotomic existence/classification question with an explicit analytic finite cutoff and genuine proper-extension exceptions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and complete verify_ns3.py",
+    "Cohen arXiv:2604.21429v2 Sections 5/7",
+    "Zhou and Wu arXiv:2607.17267 abstract",
+    "Lehmer et al Math Comp 1962",
+    "Buell Hudson DOI:10.1155/S0161171286000315"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every prime power q≡1(mod6), three consecutive elements in the cube-but-not-square sextic character coset exist precisely outside the explicit 35-element exceptional set E; all q≥105841 admissible by a Weil bound and every smaller q is settled by an exact finite-field verifier.",
+  "limitations": [
+    "q prime power q≡1 mod6; existence only, not counts; 35 exceptions require finite exact code; cutoff is sufficient not minimal."
+  ],
+  "residual_risks": [
+    "Buell–Hudson 1986 full text unavailable; older cyclotomic tables may already give the exact sextic-coset answer.",
+    "Zhou–Wu full tuple paper not read; a corollary/appendix might cover the exact exceptional list.",
+    "Full proper-prime-power verifier was inspected but not independently rerun for all 77 orders in this execution."
+  ],
+  "schema_version": 1
+}
