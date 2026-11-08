@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The six normalized Mallows weights are exact, and the remote pair reversal is \\(\\operatorname{Bin}(n,p)\\). Exact exponential tilting makes each adjacent majority mean 1/2+delta with delta>0, so Hoeffding bounds all adjacent failures inside the rare reversal. The opposite orientation is exponentially smaller by a factored strict polynomial inequality. A Stirling and geometric-ratio calculation proves the full odd-n binomial tail coefficient. The standalone standard-library checker passed 171 finite consistency assertions; it is auxiliary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2505.06028 (Theorems 2 and 9, Mallows named-candidate winner asymptotics)",
+        "https://link.springer.com/article/10.1007/s00355-017-1033-0 (Theorem 16, Mallows single-peakedness lower bound)"
+      ],
+      "reasoning": "The general symbolic-combinatorial method from 2025 is stronger in modeling scope but studies the chance of a named candidate defeating all others. Its described Mallows applications concern last-ranked or first-ranked candidate winning, not the majority three-cycle. The present exact base follows from a specific remote-pair constraint and a nontrivial positive tilted adjacent margin. Broad modeling coverage alone does not imply the stated explicit constant or orientation gap.",
+      "searches": [
+        "three alternative Mallows phi Kendall-tau independent voter majority cycle sharp asymptotic n odd n^-1/2 (2 sqrt(p(1-p)))^n",
+        "large deviation rate of majority intransitivity for independent Mallows ranking model fixed dispersion",
+        "Probability of a Condorcet Winner for Large Electorates Analytic Combinatorics Approach May 2025 intransitivity beyond scope"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1405.7945",
+      "https://link.springer.com/article/10.1007/s00355-017-1033-0",
+      "https://arxiv.org/abs/2006.06875",
+      "https://arxiv.org/abs/2505.06028"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2505.06028 (Related Work explicit scope statement and Theorem 9)",
+        "https://link.springer.com/article/10.1007/s00355-017-1033-0 (Theorem 16 and Corollary 17)",
+        "https://arxiv.org/abs/2006.06875 (abstract; partial inspection)"
+      ],
+      "reasoning": "The 2015 lower probability of single-peakedness bounds the absence of any cycles only one-sidedly and generally at a different exponential scale. The 2025 candidate-specific first/last winner equivalents do not state the exponentially small residual 1 minus the sum over winners, or its single dominant orientation. The 2020 accessible abstract establishes no exact fixed-Mallows constant. Earlier comprehensive print sources remain a residual risk, not a claimed negative inspection.",
+      "searches": [
+        "Condorcet paradox cyclic majority Mallows model forward orientation dominates reverse orientation with exponential gap",
+        "large deviation rate of majority intransitivity for independent Mallows ranking model fixed dispersion",
+        "three candidates Mallows correlated rankings Condorcet paradox probability closed form finite electorate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2505.06028 (Section 1, lines 29–34 on transitivity being beyond its scope)",
+        "https://link.springer.com/article/10.1007/s00355-017-1033-0 (Section 7, Mallows and single-peakedness)"
+      ],
+      "reasoning": "For odd three-candidate elections, intransitivity and lack of a Condorcet winner are equivalent, but neither the inspected independent-culture named-winner asymptotics nor the single-peakedness bounds supply the explicit sharp cycle rate and asymmetric orientation classification. The strongest plausible route through summing three named-winner probabilities requires cancelling nearly unit terms at an exponentially small level; no direct implication at the needed precision was established.",
+      "searches": [
+        "Condorcet paradox cyclic majority Mallows model forward orientation dominates reverse orientation with exponential gap",
+        "three candidate Mallows Condorcet no winner asymptotic binomial tail furthest pair 1 vs 3",
+        "Mallows Condorcet paradox probability three candidates asymptotic Mallows ranking cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2505.06028 (Sections 4 and 7, tables and named-winner calculations)",
+        "https://link.springer.com/article/10.1007/s00355-017-1033-0 (Mallows single-peakedness probability tables)"
+      ],
+      "reasoning": "Inspected tables and calculations address single-peaked profiles or individual Condorcet-winner probabilities, not the same sharp cycle equivalent. Published published-finding corpus nearest results concern five-candidate majority-tournament fibers for three voters, not an asymptotic three-candidate Mallows probability. Lack of an indexed match alone is not taken as proof of novelty.",
+      "searches": [
+        "three alternative Mallows phi Kendall-tau independent voter majority cycle sharp asymptotic n odd n^-1/2 (2 sqrt(p(1-p)))^n",
+        "three candidate Mallows Condorcet no winner asymptotic binomial tail furthest pair 1 vs 3",
+        "Mallows model probability Condorcet cycle three alternatives exact independent voters"
+      ]
+    },
+    "rationale": "Inspected Lackner–Lackner 2015/2017 treats Mallows single-peakedness bounds, while Caizergues et al. 2025 explicitly leaves majority-relation transitivity outside scope and treats named Condorcet winners. published-finding corpus searches returned nearby probabilistic-ranking and deterministic majority results but no same fixed-Mallows sharp cycle equivalent. Historical priority is provisional and may be affected by inaccessible older monographs.",
+    "residual_risks": [
+      "Gehrlein 2006 and pre-digital results on biased voting cultures were not exhaustively examined at full-text level.",
+      "The Xia 2020 source was inspected at abstract level only.",
+      "The 2025 general coefficient framework might yield the formula after additional nontrivial specialization and cancellation, but no explicit equivalent or dominating implication was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Mallows ranking probabilities and single-peakedness bounds, not the sharp majority-cycle event",
+        "evidence": [
+          "Theorem 16 bounds probability of an election being single-peaked, and Definition 8 gives the same Kendall normalization."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00355-017-1033-0",
+        "material_read": "Definition 8; Section 7 Theorem 16 and Corollary 17; Section 9 conclusions; related-work treatment of Condorcet probabilities",
+        "method": "Open-access journal full HTML read and section comparison",
+        "title": "On the likelihood of single-peaked preferences",
+        "trigger": "Same Mallows law and voting aggregation"
+      },
+      {
+        "assessment": "Develops sharp individual-winner asymptotics under Mallows, with transitivity expressly excluded from its scope; no inspected cycle-specific constant or oriented dominance theorem",
+        "evidence": [
+          "Section 1 says the probability the pairwise majority relation is transitive is beyond the paper scope.",
+          "Theorem 2 handles last candidate becoming Condorcet winner; Theorem 9 handles leading candidate being Condorcet winner."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.06028",
+        "material_read": "Introduction and scope; Section 4.2 last-candidate Mallows; Section 7.2 first-candidate Mallows; Section 8 asymptotic expansion; Appendix C proof structure",
+        "method": "Public arXiv HTML full-text examination and mathematical implication comparison",
+        "title": "Probability of a Condorcet Winner for Large Electorates: An Analytic Combinatorics Approach",
+        "trigger": "Most plausible dominating general independent-culture and Mallows asymptotic theory"
+      },
+      {
+        "assessment": "A learning and inference paper, not apparent sharp three-alternative majority-cycle result at abstract level",
+        "evidence": [
+          "Original public record dated 2014-05-30; abstract focuses on Mallows posterior inference and mixtures."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.7945",
+        "material_read": "arXiv abstract and original date; no claim of full-text negative result",
+        "method": "Original arXiv metadata and abstract",
+        "title": "Probabilistic preference learning with the Mallows rank model",
+        "trigger": "First dated archive-eligible source and foundational Mallows ranking model"
+      },
+      {
+        "assessment": "General framework only from accessible material; coverage cannot be excluded on the strength of an abstract",
+        "evidence": [
+          "The abstract discusses smoothed possibility and exponential-frequency regimes, not an explicit cycle asymptotic coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.06875",
+        "material_read": "Public arXiv abstract, not the full manuscript",
+        "method": "Abstract-level topical comparison",
+        "title": "The Smoothed Possibility of Social Choice",
+        "trigger": "General upper and lower smoothed-probability theory potentially relevant to rare cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77d24f0f-63aa-4aa6-bfde-bf5bb9b25365",
+  "value": {
+    "rationale": "Condorcet cycles are a canonical aggregation pathology. The theorem supplies both an exact large-electorate decay rate including \\(n^{-1/2}\\) normalization and a strict directional selection law. The positive tilted-margin lemma makes the three-way event a rare one-pair reversal rather than a naive product of independent pairwise errors; this is a motivated benchmark for probabilistic preference models, not a routine rename or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
