@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:15:56.478916Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D,D_rot>0, any fixed 0<α<1 and uniform heading, the backward generator gives Hβ A=h and (sBβ')'=−(sA)'/2 with Dirichlet conditions. Writing A=(h−wβ)/β, Hβ wβ=0 with wβ boundary h, yields exact Cβ=−(2Lβ)^−1∫wβ. Independent Bessel endpoint asymptotics give Cβ=−S/(2L)β^−3/2+O(β^-2), A'(1)=−h(1)β^-1/2+O(β^-1), and β^{5/2}Bβ(1−y/β)→Sy/(2L)+h(1)y²/4 locally with derivative. Algebra with α=e^-t gives S=(1+α)(sinh(t)−t)/(2t)>0 and h(1)<0; hence strict sign change and simple root y*=−2S/(Lh(1)). One independent two-boundary ODE numerical check was run at α∈{0.25,0.6}, β∈{80,640} using a separate implementation. It corroborates coefficient signs; uniform infinite-β follows from analytic proof, not finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 full-propagator geometry is a disk with one absorbing circle, not a two-absorber annulus.",
+          "The closest annulus source addresses first-order weak activity and numerical MFPT, not asymptotic O(β^-1) susceptibility skin."
+        ],
+        "reasoning": "The prior general PDE methods are stronger as procedures, not as the specific sign or layer theorem; the annular second-order boundary cancellation is not an immediate corollary.",
+        "searches": [
+          "arxiv:2306.12702 disk absorber",
+          "arxiv:2506.15813 annulus backward MFPT",
+          "Resultary active Brownian annulus fast rotation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target query, 10 closest hits (no covering record)",
+        "Iyaniwura–Peng 2025 arxiv:2506.15813 original HTML",
+        "Di Trapani–Franosch–Caraglio 2023 arxiv:2306.12702",
+        "DLMF §10.40"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither prior theorem states outer-wall positive O(p²) correction opposed to negative fixed interior for β→∞; prior source does state linear governing PDE."
+        ],
+        "reasoning": "First-order solve does not logically imply an explicit second-order mean sign or β^-1 layer without further Bessel cancellation and scale analysis.",
+        "searches": [
+          "arxiv:2506.15813 §4.2 annular mean time",
+          "arxiv:2306.12702 disk propagator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iyaniwura–Peng annular treatment provides first-order heading-dependent correction; uniform angular average cancels O(Pe), whereas the claim is signed O(Pe²) in a shrinking fast-rotation layer."
+        ],
+        "reasoning": "The established first-order angular harmonic is an input to but does not give the second-order angular average. Equivalence would require integrating an additional resolvent equation and its two endpoint layers.",
+        "searches": [
+          "Resultary: active Brownian particle annulus absorbing boundaries uniform initial orientation second order weak propulsion correction outer-wall slowdown fast rotational diffusion boundary layer",
+          "arxiv:2506.15813 §4.1–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact sign-transition table or uniform α profile identified in the inspected annular first-order result."
+        ],
+        "reasoning": "This is a continuum all-annulus-ratio asymptotic rather than a finite table; absence from retrieval alone does not establish novelty.",
+        "searches": [
+          "Resultary annular active-particle boundary-layer query",
+          "Iyaniwura–Peng 2025 displayed equations"
+        ]
+      },
+      "rationale": "Qualified originality PASS for the sharp, sign-changing β^-1 outer-wall susceptibility layer in a two-absorber annulus; derived O(Pe²) mean is not supplied by prior O(Pe) annulus result. Earlier work provides the PDE and Bessel tools, so no general first-passage novelty is asserted.",
+      "residual_risks": [
+        "An unindexed second-order annular treatment or supplemental appendix could contain the same singular-layer profile.",
+        "Numerical BVP is finite and cannot certify the all-α and asymptotic statements; proof uses matched Bessel layers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact fast-rotation O(Pe²) sign profile",
+          "evidence": "Source first-order correction has nontrivial angle dependence; uniform heading removes that term.",
+          "identifier_or_url": "https://arxiv.org/html/2506.15813v1",
+          "material_read": "Full open-access HTML relevant model, annulus §4 first-order calculations, surrounding discussion and references",
+          "method": "Read primary HTML and matched the source angular coefficient to the reviewed second-order averaged observable",
+          "title": "Mean first passage time of active Brownian particles in two dimensions",
+          "trigger": "Same annulus, weak-propulsion backward PDE and MFPT"
+        },
+        {
+          "assessment": "DISK_ONLY, not enough to exclude everything in unavailable full text",
+          "evidence": "Absorber is circular disk only; current claim has concentric inner and outer absorbing circles.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.12702",
+          "material_read": "Accessible primary abstract and cited geometry; full text not materially re-read in this cycle",
+          "method": "Compare domain geometry and model claims",
+          "title": "Active Brownian Particles in a Circular Disk with an Absorbing Boundary",
+          "trigger": "Foundational absorbing active particle propagator"
+        },
+        {
+          "assessment": "COVERS supporting Bessel asymptotics, not physical transport conclusion",
+          "evidence": "For κ=√β, each homogeneous boundary mode has decay width κ^-1 and integrated amplitude κ^-1.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.40",
+          "material_read": "Known canonical I1/K1 large-argument formulas and derivative behavior, compared to actual RESULT proof",
+          "method": "Apply asymptotic growth/decay to each boundary-resolvent mode",
+          "title": "DLMF, §10.40 Asymptotic Expansions for Large Argument",
+          "trigger": "Nonstandard endpoint Bessel layer step"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp wall-scale sign reversal is a physically motivated boundary phenomenon: the standard fast-rotation effective diffusion predicts decreased mean exit time at fixed interior points, yet the exact weak-propulsion susceptibility increases arbitrarily close to the outer absorber. Explicit β^-1 scale and local root separate this from the β^-1/2 angular resolvent layer; this is not a mere parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "β→∞ limit applies to coefficient of weak-propulsion expansion only, for fixed annulus ratio.",
+    "Positive near-outer-wall zero is only locally unique.",
+    "Literature search is best-of-knowledge; exact second-order annular appendix elsewhere could overlap."
+  ],
+  "schema_version": 1
+}
