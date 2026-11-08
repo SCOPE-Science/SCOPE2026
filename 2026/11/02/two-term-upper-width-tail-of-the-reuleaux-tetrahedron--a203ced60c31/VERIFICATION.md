@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof uses the classical sharp maximum and maximizing-direction locations; the novel analytic steps are the local support formula and uniform spherical-cap calculation. The executable `verify.py` (Python 3.9+, standard library) enumerates exposed face, arc and vertex candidates for support functions and numerically confirms the local formula. A deterministic 1,400-direction grid tests for possible competing maxima but is **not** an exhaustive proof.
+## correctness
 
-The program then uses 8,192 polar midpoints and 65 bisections per angle to estimate six axial spherical-cap measures at four deficits. It checks the two exact coefficients numerically and prints the scaled third-order residuals. This diagnostic is not independent verification or a certificate of global uniqueness.
+PASS
 
-Command: `python verify.py`. All required code is supplied within this package.
+The frozen RESULT.md fixes tetrahedron centers (±a,±a,±a), a=√2/4, and unit-ball radius. At an axial maximizer, strict active-edge normal-cone coefficients imply the exact two-arc support formula W=-2a√(1-q)+r(√(1-q/2+st)+√(1-q/2-st)), r=√3/2, q=s²+t². Uniform Taylor expansion gives deficit κq−β(φ)q²+O(q³), κ=(√3−√2)/4; radial inversion and six local spherical area integrals give 6/(√3−√2) and 3√3/[2(√3−√2)³]. I independently expanded the formula in SymPy and simplified BOTH coefficients exactly, not from verifier logs. The historical global theorem that only six opposite-edge directions attain W*=√3−1/√2 is expressly a cited external premise; Finch reports this extremum. Numerical angular quadrature is not the global proof. The O(ε³) follows from analytic local formulas and isolated compact maximizers.
+
+## originality
+
+PASS
+
+The exact two-term random-direction near-maximum width distribution is distinguishable from the known maximum and mean; searches and inspected primary sections did not reveal this distribution. Priority remains best-of-knowledge, not guaranteed.
+
+## value
+
+PASS
+
+A geometrically intrinsic upper-tail distribution for a canonical nonconstant-width ball-polyhedron quantifies the angular rarity of almost-extremal caliper directions, with an exact second coefficient; it is neither a mere restatement of the maximum nor an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
