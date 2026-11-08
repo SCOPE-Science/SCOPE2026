@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:14:44.842942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read frozen RESULT.md and its assumptions (unit normalized h1, Plancherel Fourier convention, whole frequency axis, a>0, full L2). For fixed x integrate |V_h f(x,xi)|^2 over all xi by Plancherel to obtain exact H_a=M_{F_a}, F_a(t)=∫_{t-a}^{t+a}2u² e^{-u²}/sqrt(pi) du. Derivative w(t+a)-w(t-a) yields unique outer stationary root b=a coth(ab)>a and, for a>1, inner valley u=a tanh(au); center has F_a(0)=8a(1-a²)e^-a²/sqrt(pi), at a=1 first nonzero quartic positive. The outer-versus-central height difference has strictly positive derivative 2[w(a)-w(a+b)] for a>1 and opposite signs at endpoints, establishing unique sharp global switch. On every open monotonic branch, analytic changes of variables make pushforward spectral measures AC, finite nonzero-level fibers show no point spectrum, inverse-branch counts give 2/4/6 a.e. multiplicities. Explicit independent bisections recovered a*=1.07766362837624 and b*=1.23823662176807; numerical evidence is supplemental to the infinite-a derivative proof. No bounded-frequency rectangle or higher Hermite order is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Large-sieve inequalities provide phase-space density upper bounds on a general region, not equality for S_a and its exact a_* or inverse-level branches.",
+          "Huang–Zhang works with analytic Fock-space and integrable non-radial symbols; S_a has infinite area and h1 is first-Hermite, not Gaussian."
+        ],
+        "reasoning": "General localization/large-sieve norm bounds and quantization machinery do not imply the complete exact multiplier fiber classification in the specified full-frequency strip geometry.",
+        "searches": [
+          "arxiv:1808.02258 (Abreu–Speckbacher) large-sieve Hermite-window localization",
+          "arxiv:2405.11147 Huang–Zhang Toeplitz non-radial symbols"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md Git blob 347db79850fad065774b60b68b7df37449a0bb63",
+        "Keller–Luef arXiv:1905.07741 full-text HTML",
+        "Abreu–Speckbacher arXiv:1808.02258 abstract",
+        "Huang–Zhang arXiv:2405.11147 abstract",
+        "Resultary Hermite strip query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General equivalence H_a=M_{F_a} is elementary from Plancherel; existing Toeplitz calculus does not by itself prove uniqueness of a_* or the six-preimage a.e. range.",
+          "Proved special one-window strip norm and inverse branches need specific derivative/height analysis."
+        ],
+        "reasoning": "The prior operator-theoretic formalism supplies definitions and methods but no identified stronger theorem whose immediate corollary is this exact entire-a phase diagram.",
+        "searches": [
+          "Keller–Luef 2019 arXiv:1905.07741 Sections 3 and 5 and appendix",
+          "Abreu–Speckbacher 2018 arXiv:1808.02258"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keller–Luef establish polyanalytic Toeplitz/Hermite quantization and symbolic calculus, with no stated global maxima or sixfold inverse branch classification for full-frequency first-Hermite strips.",
+          "The exact strip operator is M_{F_a}; comparison must match a-dependent multiplier level distributions, not merely Toeplitz representation."
+        ],
+        "reasoning": "Checked Hermite Toeplitz equivalences do not themselves furnish the sharp a-dependent global peak switch or sixfold spectral fibers, though unrecognized sliding-window formulas could reformulate this result.",
+        "searches": [
+          "Resultary semantic search: first Hermite h1 infinite strip short time Fourier concentration norm local global peaks phase transition spectral multiplicity",
+          "GitHub code search: Hermite strip spectral multiplicity SCOPE-Science/SCOPE2026",
+          "Keller–Luef arXiv:1905.07741"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned other Hermite half-line gaps and finite Fourier problems, not a table indexed by first-Hermite strip a with 2/4/6 spectral multiplicity.",
+          "The claim involves all real a>0 rather than a fixed numerical database row."
+        ],
+        "reasoning": "No exact table found; this negative search is not proof of publication priority; a classical sliding-window mode classification could exist.",
+        "searches": [
+          "Resultary Hermite strip spectral search",
+          "GitHub code search: Hermite strip spectral multiplicity"
+        ]
+      },
+      "rationale": "Best-knowledge: distinct precise final statement not implied by inspected prior work; exact comparisons and known subclaims separated. Inaccessibility of some sources alone not a scientific failure; residual risks stated. Checked Hermite Toeplitz equivalences do not themselves furnish the sharp a-dependent global peak switch or sixfold spectral fibers, though unrecognized sliding-window formulas could reformulate this result. General localization/large-sieve norm bounds and quantization machinery do not imply the complete exact multiplier fiber classification in the specified full-frequency strip geometry.",
+      "residual_risks": [
+        "Older convolution of Hermite window mass may already classify local and global maxima or spectral ranges under an equivalent name.",
+        "Abreu–Speckbacher and Huang–Zhang full texts were not completely read; exact whole-document exclusions are not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General correspondence/quantization is prior; no displayed sharp full-frequency first-Hermite strip phase transition.",
+          "evidence": "Sections on polyanalytic Toeplitz and localization; derived operator is a multiplier, but height and fiber proof absent in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07741",
+          "material_read": "Open-access complete HTML: main operator equivalence and symbolic calculus sections plus appendix; searched strip discussion.",
+          "method": "Read article HTML and searched relevant terms",
+          "title": "Polyanalytic Toeplitz Operators: Isomorphisms, Symbolic Calculus and Approximation of Weyl Operators",
+          "trigger": "First-Hermite localization could be covered through equivalent Toeplitz calculus"
+        },
+        {
+          "assessment": "Relevant general framework; no whole-document NOT_COVERING conclusion; residual full-text gap.",
+          "evidence": "Abstract describes large-sieve/local-density estimates, not specific exact strip thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.02258",
+          "material_read": "Abstract and accessible summary; full primary text not obtained.",
+          "method": "arXiv public metadata/abstract",
+          "title": "Donoho–Logan Large Sieve Principles for Modulation and Polyanalytic Fock Spaces",
+          "trigger": "Same Hermite STFT concentration formalism"
+        },
+        {
+          "assessment": "Analytic Gaussian Fock Toeplitz nonradial integrable symbol setting differs; cannot conclude any inaccessible appendix lacks a specialization.",
+          "evidence": "The full-frequency strip symbol has infinite area and first-Hermite window, unlike the stated analytic integrable setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.11147",
+          "material_read": "Accessible abstract and statement scope only.",
+          "method": "arXiv metadata and abstract",
+          "title": "Norm Bounds for Self-Adjoint Toeplitz Operators with Non-Radial Symbols on the Fock Space",
+          "trigger": "Possible stronger nonradial norm bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete sharp concentration-norm phase transition in a natural first-excited Hermite localization geometry, including a separated local/global bifurcation, nondifferentiability and the entire continuous-spectrum fiber multiplicity. The exact boundary matters beyond routine evaluation of one integral, including operator spectral type and extremizing-location discontinuity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only normalized h1 full-frequency infinite strips on all L2; no nonzero norm-attaining L2 vector.",
+    "Numerical critical widths supplement the complete analytic uniqueness proof, not exhaustive verification."
+  ],
+  "schema_version": 1
+}
