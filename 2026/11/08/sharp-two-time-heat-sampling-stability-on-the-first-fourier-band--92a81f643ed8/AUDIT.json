@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The normalized three-mode Fourier matrix is explicitly given and block-diagonalized by two orthogonal rotations. Its 1x1 and 2x2 spectra, rank boundaries, increasing/decreasing crossing, exact quadratic optimizer, finite-grid rule, and asymptotic leading constants follow by algebra; a saved standalone checker independently passed 10,968 comparisons for finite N and q. No numerical range substitutes for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source provides the general form of the frame matrix but does not optimize its minimum eigenvalue for this cycle band.",
+        "The 2024 work optimizes a distinct trace-inverse objective by approximate algorithms.",
+        "Demixed cycle bounds do not control singular values of the raw observation matrix sharply."
+      ],
+      "reasoning": "A general formula requiring eigenvalue computation does not contain the q-dependent global maximizer or exact finite-grid comparison, and no inspected stronger theorem supplies them as immediate corollaries.",
+      "searches": [
+        "arXiv:2609.25472 section 4 raw analysis matrix and finite graph frame criterion",
+        "arXiv:2411.12670 section 3 noise-aware sensor placement",
+        "published-finding corpus: sharp spectral demixed two-sensor frame bounds on finite cycles"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25472, full relevant original sections 4.1--4.3 plus title/introduction",
+      "arXiv:2411.12670, original introduction and Sections 2--3.1",
+      "2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818, full RESULT.md",
+      "Searches of other relevant mathematical records concerning graph sampling, two-site Fourier frames, and heat evolution"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published demixed-cycle theorem gives time-independent optimal C_s and says raw time-trajectory condition-number optimization is excluded.",
+        "Our raw optimum at q→0 has cosine 1/2 while at q→1 has cosine approaching 1, excluding any q-independent demixed prescription as a solution.",
+        "The 2024 trace-inverse objective is not order equivalent to maximizing a smallest eigenvalue in dimension three."
+      ],
+      "reasoning": "Prior work implies finite-frame observability and ways to form a Gram matrix, but not the new closed eigen-spectrum/strict-unimodality/unique q-dependent optimum. Conversely, the present result does not claim to improve those broader existence criteria.",
+      "searches": [
+        "Full published published-finding corpus demixed-cycle RESULT.md",
+        "Full relevant arXiv:2609.25472 sections 4.1--4.3",
+        "arXiv:2411.12670 sections 2--3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original E-optimal objective equals the smallest eigenvalue of the untreated two-time analysis Gram matrix. The closest demixed result uses a block-output norm and different frame matrix.",
+        "The cycle cosine-sine reduction yields explicitly q-dependent block Gram terms (1+q), (1+q^2), rather than spectral-output orthogonality."
+      ],
+      "reasoning": "A change of basis in the unknown signal cannot turn the demixed outputs into the raw output with a unitary left transformation: spectral demixing uses a q-dependent, generally non-unitary Vandermonde inversion. Thus equal graph and two sites do not make the optimization statements equivalent.",
+      "searches": [
+        "published-finding corpus semantic: cycle graph low pass three dimensional first harmonic heat flow two sensors two times sharp lower frame bound optimal separation",
+        "Web: \"E-optimal\" \"two sensor\" \"cycle\" \"heat\" lowpass graph",
+        "Web: \"minimum eigenvalue\" \"two-time\" \"cycle graph\" sensor placement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest semantic published-finding corpus id: 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818; published theorem explicitly disclaims unweighted time trajectories.",
+        "No exact raw 4-by-3 eigenvalue crossing or c*(q) table was recovered."
+      ],
+      "reasoning": "The full nearest public claim is a different operator-norm geometry; no known table with exact same raw parameters was found. Search failures alone are not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus semantic: two sensor finite cycle heat diffusion two time frame optimal placement eigenvalue constant cosine sine",
+        "published-finding corpus semantic: sharp spectral demixed two-sensor frame bounds on finite cycles",
+        "Web: \"three-mode\" \"two sensor\" \"dynamical sampling\" cycle frame lower"
+      ]
+    },
+    "rationale": "A comparison of full relevant primary material and the closest published finite-cycle result shows that existing graph-frame criteria and spectrally demixed two-sensor bounds do not imply the q-dependent E-optimal raw heat-sampling law. The latter explicitly excludes untreated trajectories; remaining risk is differently indexed experimental-design literature.",
+    "residual_risks": [
+      "A differently indexed E-optimal three-mode cycle design may predate the searched literature.",
+      "The comparison concerns documented primary full sections and nearest mathematical claims, not a global exhaustive literature census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces frame analysis matrix and path numerical studies, but no raw two-time three-mode cycle optimal cosine or quadratic crossing.",
+        "evidence": [
+          "Section 4 frames the problem as singular values of Θ; Section 4.3 models P40 with six active modes; finite-cycle E-optimal placement not stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.25472",
+        "material_read": "Title page, introduction, Section 4.1--4.3 through exact frame-matrix definition and path experiment, pages 1--5 and 19--25.",
+        "method": "PDF text inspected with page screenshots for title and finite-frame definitions; compared statement and quantifiers.",
+        "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+        "trigger": "Direct motivating first-public paper on graph Paley–Wiener frames and sensor placement."
+      },
+      {
+        "assessment": "Uses mean-square-error (trace of inverse Gram) and heuristic optimal selection; not the minimum eigenvalue design for two raw heat times on cycle first modes.",
+        "evidence": [
+          "Section 3.1 equations (3)-(4) optimize trace of inverse information matrix, not the smallest eigenvalue."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.12670",
+        "material_read": "Abstract, introduction, Sections 2 and 3.1 including observability and trace-inverse noise objective, and numerical-placement overview.",
+        "method": "Read original public PDF text, checked title-page screenshot and optimized quantity.",
+        "title": "Reconstructing Graph Signals from Noisy Dynamical Samples",
+        "trigger": "Closest older noise-aware spatiotemporal sensor-placement theory."
+      },
+      {
+        "assessment": "The published output isolates each Laplacian eigenspace separately. It explicitly does not optimize raw time trajectories, and its bounds are independent of q; thus it does not imply the new q-dependent optimum.",
+        "evidence": [
+          "Demixed source: \"The demixed norm uses the individual spectral outputs P_k f and is not the Euclidean norm of untreated time trajectories\"; scope excludes optimal condition number of raw time samples."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+        "material_read": "Complete publicly available RESULT.md (finding, assumptions, proof, comparison, limitations).",
+        "method": "Retrieved full published result, compared measurement operators, norm, parameters, and implications.",
+        "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+        "trigger": "Highest-ranked near-duplicate mathematical record with same graph/Fourier band and two sensors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92a81f64-3ed8-4a1f-af74-09a4ac2b8ec0",
+  "value": {
+    "rationale": "Exact best stability for a first nontrivial graph Paley–Wiener band with a minimal two-sensor two-time budget, including a qualitative heat-time-dependent relocation law and all finite-cycle solutions. This is a natural reconstruction-design invariant beyond routine singular-value computability.",
+    "status": "PASS"
+  }
+}
