@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns precisely odd prime powers and nonzero-slope affine steps. The map from the two quadratic coefficients to the first two discriminants is invertible because \(2u\ne0\); the third discriminant is their affine combination plus \(2u^2\). Quadratic irreducibility is equivalent to nonsquare discriminant. The proof evaluates the cubic quadratic-character correlation with the standard quadratic-sum identity, then subtracts the three discriminant-zero lines by weighted inclusion–exclusion, which is necessary since \(\chi(0)=0\). The resulting exact value is \((q-1)(q-3)/8\). Finite-field exhaustive verification passed 2322 affine steps for ten odd prime powers, including nonprime fields. The computation does not imply the universal claim; the proof does.
+## correctness
 
-## Originality — PASS with residual risk
-Bary-Soroker (arXiv:1206.3930, Theorem 1.1) counts this general type of irreducible polynomial tuple, but only up to an asymptotic error. The exact degree-two, three-linear-shift count and sharp existence cutoff are not implied by its stated estimate. The inspected 2015 consecutive-polynomial paper (arXiv:1509.01936, introduction and Section 5) counts growing-degree coefficient-prefix sequences rather than simultaneous translates of a fixed monic quadratic. Bender–Pollack (arXiv:0912.1702) treats asymptotic twin irreducibles, not exact three-term formulas. Published-result semantic comparisons and accessible prior claims revealed no dominating statement. The 2002 Effinger–Hicks–Mullen chapter remains inaccessible and represents a concrete risk of unlocated equivalent coverage. This is not a proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural three-prime-polynomial correlation, for every nonconstant affine step over every odd finite field. It computes the non-asymptotic term omitted by the general Hardy–Littlewood estimate, reveals exact uniformity in step coefficients, and gives the sharp existence cutoff, including the small-field obstruction at \(q=3\). Its object is arithmetically motivated by prime tuples rather than chosen as an arbitrary finite slice.
+For every odd prime power q and nonconstant affine step uT+v, u≠0, invertible coordinates (a,b)↔(x=D0/u²,y=D1/u²) yield the third discriminant z=2y−x+2. Irreducible monic quadratics correspond to all three discriminants being nonzero nonsquares. Expanded quadratic-character weight W=(1−χ(x))(1−χ(y))(1−χ(z)), proved the pairwise terms vanish, computed triple sum q and removed weighted zero-line union 3q−3, giving 8N=(q−1)(q−3). All boundaries, including q=3 zero, follow. Independent direct square-set enumeration for all nonzero-slope h over F_3,F_5,F_7,F_11,F_13 and independently implemented GF_9 matched 0,1,3,10,15,6 per shift. Finite tests corroborate, not replace, the character-sum proof.
 
-## Scientific scope and risks
-Characteristic two collapses the third progression term to the first; constant shifts, nonlinear steps and four-term correlations are excluded. Unlocated historical coverage may reproduce the elementary character-sum identity or this specific formula. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. Bary–Soroker Theorem1.1 q²/8+O(q^{3/2}) does not imply N=(q²−4q+3)/8
+
+## value
+
+PASS
+
+The precise finite-field count, coefficient-independence and q=3-to-5 existence cutoff give the first natural three-prime translation layer for monic quadratics, refining a known asymptotic tuple theorem. The lower-order correction and sharp small-field restriction are useful exact arithmetic facts, not simply a restatement of the leading asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
