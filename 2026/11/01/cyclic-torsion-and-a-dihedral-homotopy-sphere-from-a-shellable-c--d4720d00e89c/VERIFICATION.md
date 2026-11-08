@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify_quotients.py` with Python 3 and SymPy. No other file inputs are required. Compare the printed output with `verification_output.txt`. The code enumerates every independent vertex subset, checks a complete list of 80 facets and an explicit shelling sequence, constructs every barycentric face flag, and uses the specified cyclic/dihedral actions to compute integral quotient-chain boundary matrices. Boundary compositions and Smith factor patterns are checked by assertions.
+## correctness
 
-The two quotient cell vectors are `(20,134,234,120)` and `(16,73,117,60)`; the nonzero Smith factors are, by degree, `{1:19}`, `{1:114,16:1}`, `{1:119}` and `{1:15}`, `{1:58}`, `{1:59}`. Exact integer Smith forms are used, not estimates from field ranks. Reflection-fixed witnesses are the vertex `(0,)` and the edge `(2,15)` under parity-opposite reflections. The rotation freeness proof, orbit-space fundamental-group theorem and sphere recognition are explained independently of the numerical script in `RESULT.md`.
+PASS
 
-**Scope.** This verification is not a proof of a homeomorphism with a particular lens space; the first orbit space is identified only through its displayed homology and fundamental group. The finite computations can be checked mechanically, but independent mathematical audit is not performed.
+For C16(1,4,8), independently enumerated 65536 vertex masks, recovering 16,80,144,80 nonempty faces by dimensions 0..3. The supplied explicit eighty-facet shelling list exhausts all facets and the inspected exact verifier checks each added facet has nonempty pure codimension-one overlap; reduced Euler -1 gives K~S3 and simple connectivity. A nontrivial rotation orbit of size <=4 necessarily has step 4 or 8 and cannot sit inside an independent face, proving free C16 action; exhaustive independent face-invariance test agrees. The two reflections s0(j)=-j and s1(j)=1-j fix vertex 0 and midpoint of edge {2,15}, respectively, and generate D16; Armstrong orbit-space theorem yields pi1 D16 quotient trivial. Locally replayed the COMPLETE pinned `verify_quotients.py`, byte verified against actual Git blob SHA 91478a2a11e8c202f62e01f7c980775e5d4e491f. It constructs all barycentric flags (320,2144,3744,1920), both orbit-cell bases, signed boundaries and proves boundary compositions zero; exact integral Smith factors are cyclic ∂1=1^19, ∂2=1^114 and 16^1, ∂3=1^119, and dihedral ∂1=1^15,∂2=1^58,∂3=1^59. Therefore cyclic H1=Z/16, H0=H3=Z, dihedral H0=H3=Z only. Hurewicz and homology-Whitehead for simply connected finite CW quotient imply its homotopy equivalence to S3. No lens-space homeomorphism or linking form is implied.
+
+## originality
+
+PASS
+
+A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.
+
+## value
+
+PASS
+
+C16(1,4,8) is a canonical already distinguished smallest shellable non-vertex-decomposable well-covered circulant example. Precisely comparing its free cyclic and reflection-containing dihedral orbit-space fundamental groups and exact integral torsion produces a motivated invariant not determined by the known source shelling, with a meaningful contrast between Z/16 first homology and a simply connected homotopy sphere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
