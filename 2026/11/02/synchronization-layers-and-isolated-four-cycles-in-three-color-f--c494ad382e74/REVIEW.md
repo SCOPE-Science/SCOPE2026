@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update is explicitly fixed to the three-color inhibitory firefly rule. Because the graph is complete bipartite, each shore sees exactly whether the other shore contains the blinking color; the 49-pair support quotient is exact. The disclosed support partition, on which the proof depends, is reproduced by the standalone verifier. The three recurrent support components lift bijectively to exact least periods three or four. All other support pairs lead to uniform synchronization, within the claimed sharp six updates. Surjection-weighting gives the stated layer polynomials, and their sum is the full count of \(3^{a+b}\) labelled states. Direct brute-force simulation checks 174,051 complete configurations. The theorem does not infer an infinite fact merely from finite experiments.
+PASS
 
-## Originality — PASS, bounded to checked literature
+Exact 49-state support-pair quotient follows from the fact that all vertices in a shore share the same blink-neighbor indicator. Independent enumeration of all 7×7 states under q0=(0→1,1→2,2→0), q1=(0→1,1→2,2→2) confirmed the full transition table, recurrent support cycles and maximum transient length six. Recurrent supports yield only synchronized 3-cycle, nonsynchronous 3-cycles at (4,7),(7,4), and nonsynchronous 4-cycles at (5,6),(6,5), with no transient basins. Weighting each support by U_j(m) surjection count proves the exact T0...T6,T∞ formulas for all a,b≥2; independent computations checked (a,b)=(2,2),(2,3),(3,3),(4,5). In particular T∞=u+v+2xy; T2→probability 1 and balanced T∞~2(4/9)^n. Finite 49-support exhaustion is complete because the quotient is exact for all shore sizes.
 
-Lyu 2014 defines this rule and establishes tree and path synchronization conditions, but the inspected full text does not calculate the exact two-shore basin and orbit census; Lyu 2016 studies tree mechanisms and similarly does not enumerate thick bicliques. An accessible star-only census is confined to the excluded boundary \(\min(a,b)=1\). Prior biclique formulas for successor-contact cyclic automata and Greenberg–Hastings excitation concern different local rules. Public indexed parity-automaton censuses operate with linear XOR updates. No inspected source was found to imply the present 49-state, six-layer thick-biclique result; an unindexed equivalent remains possible. A database search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The model is an established finite-state oscillator synchronization system; exact attraction basins, transition cutoffs and coexistence of asynchronous cycles are directly motivated invariants. The new thick-biclique classification reveals the structurally unusual fact that asynchronous periodic orbits have no nonperiodic basin at all, together with genuinely occurring primitive four-cycles and a sharp six-update cutoff. The exact limiting nonsynchronization rate on balanced bipartite graphs is a further quantitative result not obtained from existing qualitative tree criteria. The result is self-contained across an infinite natural graph family, not a table of arbitrary small instances.
+Lyu original 3-color inhibitory rule and tree/path synchronization criteria precede this. Thick bicliques have cycles and are outside the tree theorems; known complete-multipartite binary parity automaton results use a different transition operator. No same-model exact 49-state/layer census found in inspected sources.
 
-## Remaining scientific limits
+## value
 
-The domain excludes one-shore singleton stars, higher-color dynamics, and other graph topologies. The 49-state table is finite and explicitly checked, but historical originality remains subject to unindexed or inaccessible equivalents. No independent mathematical validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete first-synchronization distribution and exact isolated asynchronous cycles for a natural dense graph family exhibit a sharp six-step cutoff and asymptotic rarity of non-synchronizing states; the finite 49-support reduction lifts to an unrestricted two-parameter family, a motivated structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
