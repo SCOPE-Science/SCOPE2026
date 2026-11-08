@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Monomial norms are exactly B(n+2,beta+1); the binomial-series coefficient shift gives K(s)=(beta+1)((1-s)^(-beta-2)-1)/s, with K(0)=(beta+1)(beta+2). On |s|<1 the principal logarithm of 1-s is unique. The numerator zero condition forces |1-s|=1 and argument 2*pi*k/(beta+2); the disk condition yields strict 0<|k|<(beta+2)/6. For fixed |w|=r, |s|<r gives k<(beta+2)asin(r/2)/pi, whence the ceiling formula. Derivative at each nonzero root is nonzero. The r=0, boundary, nonintegral-beta and normalization cases are explicitly handled. Standalone stdlib checker passed 659 finite checks, not used as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1703.05976v1, §3 Theorem 3.3 constructs radial weights with arbitrary prescribed finite counts; Theorem 3.5 establishes general finiteness, not the exact count for the present weight.",
+        "arXiv:2212.08118v1, §1 (1.3) and Theorem 1.1 specialize to finite products of Blaschke-factor powers; this class does not contain the independent boundary factor unless beta=0."
+      ],
+      "reasoning": "The 2017 qualitative radial theorem supplies no numerical count as a function of beta and |w|. The 2022 weight hypothesis is algebraically distinct from the Jacobi boundary factor; its beta=0 overlap is a zero-free special case and does not imply the all-real phase diagram.",
+      "searches": [
+        "Antti Perälä vanishing Bergman kernels disk 2017 ar5iv html full text radial",
+        "Miña-Díaz weighted Bergman kernels 2022 arxiv Blaschke weight paper",
+        "weighted Bergman kernel zeros origin factor r squared and boundary factor (1-r squared)^beta exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1703.05976v1 (primary full relevant sections)",
+      "arXiv:2212.08118v1 (primary relevant theorem and hypotheses)",
+      "Public mathematical-record comparison: radial boundary-distance power kernels, whose weight is (1-|z|)^t",
+      "Prior available fixed-order Jacobi classifications at orders one, two and four (claims used only for overlap exclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Perala: radial kernel sections have finitely many zeros, and other radial weights can have prescribed finite counts; neither theorem specifies beta-dependent counts here.",
+        "Mina-Diaz: Blaschke power weight representation, lacking arbitrary boundary power.",
+        "An available prior classification at fixed boundary order four treats a varying origin exponent; at the single intersection origin exponent one and boundary order four it has boundary zeros, but it does not determine every real boundary exponent or every basepoint.",
+        "A published-record result for Euclidean distance (1-|z|)^t has negative-real scalar roots and a different threshold; its weight differs from |z|^2(1-|z|^2)^beta."
+      ],
+      "reasoning": "The precise current claim is the joint formula Z_beta(r) for every real beta>-1 and 0<=r<1 with all zeros and sharp thresholds. The inspected general finiteness and special-order results do not imply the exact two-variable count. The Euclidean-distance root formula is not a parameter re-labeling because it lacks the factor |z|^2 and uses a different boundary power function.",
+      "searches": [
+        "arXiv:1703.05976v1",
+        "arXiv:2212.08118v1",
+        "Exact Lu Qi Keng zero thresholds for disk weight r squared (1-r squared) to arbitrary real beta, unit circle centered at one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the present family the monomial moments are B(n+2,beta+1), so the kernel is the shifted difference quotient of the standard Jacobi kernel.",
+        "arXiv:1703.05976v1, radial series formula (1.1), does not give its exact zero roots for this weight."
+      ],
+      "reasoning": "The reformulation as a first divided difference of the standard radial kernel was explicitly considered. A published general divided-difference statement would only dominate the new zero-count theorem if it also located every root and handled the section-dependent strict boundary; no such inspected statement was found.",
+      "searches": [
+        "Origin weight factor |z| squared Jacobi Bergman reproducing kernel hypergeometric power difference roots of unity staircase basepoint zero counting",
+        "radial Bergman kernel difference quotient one minus power analytic zero locations origin weight",
+        "Bergman kernel weight norm z f standard Bergman kernel divided by z w zeros"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches identified related radial-kernel zero phenomena and general Bergman-kernel tables but no exact continuous-beta root list or fixed-basepoint count for the stated weight.",
+        "The new symbolic expression yields a whole-parameter count, not a numerical interpolation of a finite table."
+      ],
+      "reasoning": "No exact covering record or table was identified among the searched mathematical records. This is evidence of noncoverage among those records, not a proof that no unindexed theorem or implicit closed formula exists.",
+      "searches": [
+        "Exact Lu Qi Keng zero thresholds for disk weight r squared (1-r squared) to arbitrary real beta, unit circle centered at one",
+        "General radial Bergman kernel with one origin zero factor and arbitrary boundary exponent root locations and zero free cutoff beta=4",
+        "weighted Bergman kernel zeros origin factor r squared and boundary factor (1-r squared)^beta exact"
+      ]
+    },
+    "rationale": "The exact two-variable zero-count staircase for all real beta>-1 is not stated or implied by the inspected relevant theorems: Perala proves radial kernel zeros are finite and constructs other radial weights with prescribed counts; Mina-Diaz treats finite Blaschke-factor weights without an independent Jacobi boundary factor. The closest published-record analogues use genuinely different radial weights. Exact algebraic similarity to a generalized binomial series is acknowledged, and unlocated stronger formulas remain a priority risk.",
+    "residual_risks": [
+      "Historical-priority risk: an unlocated textbook formula for the first divided difference of the standard weighted Bergman kernel may make the root enumeration an implicit corollary.",
+      "Some relevant published records and tables were checked by search summaries or titles rather than by complete primary full text; no claim of exhaustive bibliographic coverage is made.",
+      "No independent mathematical audit; finite numerical checks do not certify the all-parameter statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorems 3.3 and 3.5 assert existence of radial weights with prescribed finite zero counts and finiteness of zeros for any fixed radial section. They do not state the present explicit weight or its exact parameter/basepoint staircase.",
+        "identifier_or_url": "arXiv:1703.05976v1; https://arxiv.org/pdf/1703.05976",
+        "material_read": "Introduction and radial series formula (1.1); Section 3 including Theorems 3.1, 3.3 and 3.5, the proof context and relevant remarks.",
+        "method": "Read open-access PDF sections and page images.",
+        "title": "Vanishing Bergman Kernels on the Disk",
+        "trigger": "Closest broad theorem about zeros of radial weighted Bergman kernels and the first-public focal source."
+      },
+      {
+        "assessment": "NOT_COVERING under stated weight assumptions",
+        "evidence": "The weight is a finite product of powers of Blaschke factors. No independent (1-|z|^2)^beta factor for arbitrary beta is included; the theorem does not assert a root staircase for the current family.",
+        "identifier_or_url": "arXiv:2212.08118v1; https://arxiv.org/pdf/2212.08118",
+        "material_read": "Section 1 definition (1.3) of admissible weights, Theorem 1.1, and subsequent formula comparisons.",
+        "method": "Read open-access PDF theorem, weight assumptions and page images.",
+        "title": "A representation for the reproducing kernel of a weighted Bergman space",
+        "trigger": "Recent explicit weighted Bergman kernel representation potentially dominating a special origin factor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "63b1be0e-1997-453a-980c-972e99b7881a",
+  "value": {
+    "rationale": "The number of zeros of each reproducing-kernel section is a natural Lu Qi-Keng invariant. The result supplies a complete unbounded continuous-parameter classification, including sharp global zero-freeness beta<=4, a six-step series of births of conjugate pairs, all root locations/multiplicities, and precise basepoint-dependent zero-free radii. It is not an arbitrary parameter slice: the single origin factor creates a first divided difference of the classical kernel and a distinct nonreal-root transition. The result is self-contained and exact; no larger downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
