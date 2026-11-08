@@ -1,0 +1,183 @@
+{
+  "correctness": {
+    "rationale": "Every \\(2^k\\)-block agrees with the common length-\\(2^k-1\\) prefix except its final symbol. This proves the entire factor language is the disjoint union of rotations of two blocks. Exactly one is a square of a preceding odd-weight primitive block; the other has odd weight. Rotations of any power-of-two-length odd-weight binary word have pairwise distinct sums of one-positions because an equal first moment would require \\(2^k\\) to divide \\(dm\\), impossible for a nontrivial shift d and odd m. The doubled class inherits separation from the half block. The two branches have distinct weights. Length and number of ones plus the scattered 01 count recover the first moment exactly. Verified exceptions are handled explicitly at \\(2^0\\) and \\(2^1\\). Standalone finite diagnostics reproduce all stated small cases but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tribonacci: global equality of 2-binomial and factor complexity but different ternary word",
+        "2022: Parikh-collinear fixed-point boundedness, inapplicable because vectors of 01 and 00 are linearly independent",
+        "2025: classes with global equality, while period-doubling has a length-five collision",
+        "Richomme, arxiv:2510.07159, §1 and its general 2-binomial class geometry, establishes the moment descriptor but not its injectivity on these dyadic factor sets."
+      ],
+      "reasoning": "Stronger all-lengths results would cover this dyadic claim only if they applied to the same factor language or through an established reduction. Their hypotheses concern other languages or force global equality, contradicted here at length five. No legitimate implication has been identified.",
+      "searches": [
+        "Templates for the k-binomial complexity of the Tribonacci word",
+        "Characterizations of families of morphisms and words via binomial complexities",
+        "New examples of words for which the binomial complexities and the subword complexity coincide",
+        "arxiv:2201.04603",
+        "arxiv:2509.11172"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1812.07330",
+      "orbi:2268/240049",
+      "arxiv:2112.05347",
+      "arxiv:1405.3532",
+      "arxiv:2201.04603",
+      "arxiv:2509.11172",
+      "arxiv:2510.07159"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present morphism is 0->01,1->00; arxiv:1812.07330 uses 0->01,1->10",
+        "For period-doubling, binary 2-abelian equivalence counts contiguous factors, and neither it nor the 2021 generalized-Thue--Morse theorem supplies the scattered moment injection",
+        "The current theorem includes 2-binomial failure at length five, ruling out direct use of global-equality classes",
+        "Richomme, arxiv:2510.07159, §1 and its general 2-binomial class geometry, establishes the moment descriptor but not its injectivity on these dyadic factor sets."
+      ],
+      "reasoning": "None of the compared theorems implies factorwise uniqueness of (weight,first moment) at dyadic lengths of the period-doubling language. Conversely, the present result does not imply any prior global Thue--Morse or Tribonacci theorem.",
+      "searches": [
+        "arxiv:1812.07330 theorem 6",
+        "arxiv:2112.05347 theorem 2 theorem 3",
+        "arxiv:1405.3532 section 5",
+        "arxiv:2201.04603 main results",
+        "arxiv:2509.11172 theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At fixed binary length, the 2-binomial vector is equivalent to (weight, sum of one-positions)",
+        "The arxiv:1812.07330 Thue--Morse theorem concerns a different morphism",
+        "The arxiv:2509.11172 global-collapse theorem has hypotheses violated by this period-doubling word",
+        "Richomme, arxiv:2510.07159, §1 and its general 2-binomial class geometry, establishes the moment descriptor but not its injectivity on these dyadic factor sets."
+      ],
+      "reasoning": "Equivalent presentations via scattered 01 counts, two-binomial profile, first moment and cyclic rotations were compared. The position moment is an exact equivalent reformulation proved in the package. No prior source inspected states that this reformulation is injective on dyadic factors of this fixed point.",
+      "searches": [
+        "\"period doubling\" \"2-binomial\" complexity",
+        "\"period-doubling\" \"binomial complexity\"",
+        "period doubling word 2-binomial dyadic length 2^k factors",
+        "arxiv:1812.07330",
+        "arxiv:2509.11172"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected tables and theorem statements of arxiv:1812.07330 and arxiv:2112.05347 concern Thue--Morse and generalized Thue--Morse",
+        "The same-word 2015 paper tabulates 2-abelian rather than scattered 2-binomial complexity"
+      ],
+      "reasoning": "No inspected exact table provides \\(b_{\\mathbf p,2}(2^k)=3\\cdot2^{k-1}\\). Named sources were compared by sequence definition, integer parameter and equivalence relation, not titles alone.",
+      "searches": [
+        "period-doubling 2-binomial factors power of two counts",
+        "period-doubling sum of one positions circular shifts",
+        "period doubling binomial complexity 2^k 3*2^(k-1)",
+        "arxiv:2112.05347"
+      ]
+    },
+    "rationale": "The closest full-text literature treats global reconstruction for Sturmian/Tribonacci or generalized Thue-Morse languages, and 2-abelian contiguous-factor complexity for the same period-doubling word. No inspected hypothesis or theorem implies exact two-binomial reconstruction at every dyadic length for this word. The stronger-looking 2025 global-classification theorem does not apply: the word has an explicit length-five collision. Semantic mathematical-record searches and the inspected scientific sources disclose no equivalent claim. Residual risk of obscure/unindexed prior work remains.",
+    "residual_risks": [
+      "Unindexed or non-English equivalent results may not be surfaced by searches.",
+      "The structural cyclic-rotation lemma is elementary enough to have been applied elsewhere without binomial-complexity terminology.",
+      "This is not an independently performed scientific audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its Theorem 6 gives eventually bounded k-binomial complexity for the Thue--Morse fixed point of 0->01,1->10, not the period-doubling fixed point of 0->01,1->00.",
+        "evidence": [
+          "Theorem 6 has values 3*2^k-3 or 3*2^k-4 for Thue--Morse at large lengths",
+          "No period-doubling object appears in the inspected relevant sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.07330v1",
+        "material_read": "Full-text HTML Introduction, Section 2.1--2.2, Theorem 6 and corresponding factor-complexity statement; text search for period-doubling",
+        "method": "read relevant theorem and parameter definitions from accessible primary full text",
+        "title": "Computing the k-binomial complexity of the Thue--Morse word",
+        "trigger": "same invariant and binary morphic comparator"
+      },
+      {
+        "assessment": "Global binomial rigidity is proved for the ternary Tribonacci fixed point, not the binary period-doubling word. The latter fails global rigidity at length five.",
+        "evidence": [
+          "Introduction identifies Tribonacci morphism 0->01,1->02,2->0",
+          "Theorem is b_(T,2)(n)=2n+1 for all n",
+          "Different word and distinct parameters; no statement of dyadic factor moments for period-doubling"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/240049/1/tribonacci.pdf",
+        "material_read": "Author-preprint PDF pages 1--3: definitions, introduction and Theorem 4; inspected page images and searched full searchable text for period-doubling",
+        "method": "accessible scholarly author preprint, rendered-page inspection and textual comparison",
+        "title": "Templates for the k-binomial complexity of the Tribonacci word",
+        "trigger": "strongest known comparator with binomial complexity equal to factor complexity"
+      },
+      {
+        "assessment": "Theorem 3 concerns m-letter Parikh-constant generalized Thue-Morse substitutions and gives an ultimately periodic complexity. Period-doubling is a different binary non-Parikh-constant substitution.",
+        "evidence": [
+          "Theorem 2 characterizes equivalence within sigma_m-factor decompositions",
+          "Corollary 1: ultimate period m^2",
+          "sigma_m letters are mapped to cyclic permutations, unlike 0->01,1->00"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.05347",
+        "material_read": "Primary full-text HTML Introduction, Theorems 2 and 3, Corollary 1 and definition of its morphism",
+        "method": "full-text parsed primary preprint, examined definitions and precise stated theorems",
+        "title": "On the 2-binomial complexity of the generalized Thue-Morse words",
+        "trigger": "same binomial order in another uniform automatic family"
+      },
+      {
+        "assessment": "Analyzes 2-abelian (contiguous bigram) complexity of period-doubling; this is a separate equivalence relation, not two-binomial (scattered bigram) complexity.",
+        "evidence": [
+          "Abstract and Section 5 explicitly say 2-abelian",
+          "Definition and proposition involve contiguous 2-block codings and 2-abelian complexity"
+        ],
+        "identifier_or_url": "https://ericrowland.github.io/papers/A_new_approach_to_the_2-regularity_of_the_l-abelian_complexity_of_2-automatic_sequences.pdf",
+        "material_read": "Primary PDF page 1 and Section 5 page 23, including Proposition 34 and its statement, inspected as rendered pages",
+        "method": "author-hosted primary PDF full text with page-image inspection",
+        "title": "A new approach to the 2-regularity of the ell-abelian complexity of 2-automatic sequences",
+        "trigger": "same fixed point and visually similar parameter two"
+      },
+      {
+        "assessment": "Bounded k-binomial conclusions require Parikh-collinearity; images 01 and 00 have independent Parikh vectors. Other theorems concern Sturmian/Thue--Morse-type or global complexity behavior, not these isolated dyadic lengths.",
+        "evidence": [
+          "The introduction states the Parikh-collinear hypothesis and bounded-complexity consequence",
+          "The period-doubling morphism images have distinct non-collinear Parikh vectors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+        "material_read": "Primary full-text HTML Introduction, displayed complexity inequalities, Parikh-collinear characterization and comparison to 2-abelian complexity",
+        "method": "full-text primary preprint section and theorem-coverage comparison",
+        "title": "Characterizations of families of morphisms and words via binomial complexities",
+        "trigger": "general classifications that might subsume the proposed dyadic statement"
+      },
+      {
+        "assessment": "The four global-reconstruction classes do not cover period-doubling: it is not binary 1-balanced (factors 000 and 101), has dyadic factor complexity 3N/2 rather than n+1, and fails global 2-binomial reconstruction at length five.",
+        "evidence": [
+          "Theorem 1 gives global equality for 1-balanced, complexity n+(d-1), billiard and colored-Sturmian classes",
+          "Explicit length-five collision violates the theorem conclusion for period-doubling"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.11172",
+        "material_read": "Primary full-text HTML Introduction and Theorem 1, including all four stated word classes",
+        "method": "inspected exact theorem hypotheses and excluded implications",
+        "title": "New examples of words for which the binomial complexities and the subword complexity coincide",
+        "trigger": "later and potentially stronger class-wide binomial rigidity theorem"
+      },
+      {
+        "assessment": "Provides the general position-sum identity and equivalence-class geometry for arbitrary binary words, credited as known; gives no dyadic period-doubling factor-language classification or corresponding 3N/2 equality.",
+        "evidence": [
+          "Introduction §1 line 58 explicitly attributes position-sum identity to earlier Parikh-matrix work",
+          "§§3–4 address 2-binomial classes of arbitrary binary words, not cyclic rotation orbits of period-doubling factors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "Primary arXiv full HTML Introduction, Sections 2 and 3 overview, and list of specific contributions; abstract and search for period-doubling",
+        "method": "read accessible full-text HTML and compare its class/partition statements with the exact dyadic factor-language claim",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "general structural equivalence and first-moment formula for binary two-binomial classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea4a069f-1a17-4f4f-b89e-c1b31674d05e",
+  "value": {
+    "rationale": "The result answers the natural factor-language reconstruction question posed by binomial complexity at infinitely many substitution scales for the standard period-doubling word. Its nontrivial contrast is sharp: exactly two Abelian signatures distinguish none of the \\(3\\cdot2^{k-1}\\) factors within each weight class, while two-binomial signatures distinguish every one, and the sharpness failure at length five shows a genuine scale phenomenon rather than a generic identity. The all-level cyclic-conjugacy structure and exact factor count are proved, not extrapolated. The invariant is a standard one with direct interpretability for subsequence-count reconstruction.",
+    "status": "PASS"
+  }
+}
