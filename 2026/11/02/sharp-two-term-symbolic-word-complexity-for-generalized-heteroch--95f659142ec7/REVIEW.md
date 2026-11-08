@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every finite itinerary has a unique generic-pop skeleton and prescribed push labels. An unmatched pop carries an independent one-of-\(m\) label only upon reaching a new maximum of the pop-minus-push height. This establishes the exact finite combinatorial count and its random-walk interpretation. The hitting-time generating function, double-pole expansion at \(z=1\), and square-root singularities give the exact generating function and sharp two-term asymptotic, including the error scale. The bundled independent integer enumerations and coefficient computations agree in 61 tested identities.
+PASS
 
-## Originality
+An admissible bracket string corresponds uniquely to a word skeleton of m labeled pushes and unlabeled pops. Free closing labels occur exactly at new maxima of pop-minus-push walk, giving weight m^H. With upward probability 1/(m+1) and downward m/(m+1), first hitting generating function f=pz+qzf² and the tail-sum identity for m^H give U=(1-f)/[(1-z)(1-mf)]. Analytic f at z=1 has f(1)=1/m, f’(1)=(m+1)/(m(m-1)), giving pole coefficients ((m-1)²)/(m(m+1)) double and 4/(m+1) simple. Square-root branch points at modulus (m+1)/(2sqrt(m))>1 give O((2sqrt(m))^n n^-3/2). Independent complete word enumerations for m=2,n≤8; m=3,n≤6; m=4,n≤5 matched independent skeleton sum. Proof covers all m,n; finite count is corroboration.
 
-**PASS within inspected evidence.** The closest original published numerical observation is Saiki–Takahasi–Yorke (arXiv:1811.01009), Appendix B, Figure 9: it suggests but does not establish \(3+3/n\). The Takahasi–Yamamoto Dyck-coding theorem (arXiv:2209.04905) and later review (arXiv:2401.00836) supply the symbolic correspondence and known entropy, not an evaluated language generating function. Older Dyck orbit-counting results (2015 and 2021) count periodic points rather than all admissible words. Semantic research records were compared for aliases, equivalent reductions and broader results. An unindexed prior language enumeration remains a genuine publication-priority risk; failure to find one is not proof of global novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The asymptotic ratio numerically observed for a motivating nonsofic heterochaotic map is proved and sharpened to a complete algebraic ordinary generating function, a universal leading coefficient and a nontrivial exact additive constant. The invariant measures finite symbolic orbit complexity, not just the known exponential topological entropy. These quantitative statements are independently useful for symbolic finite-resolution counts.
+Best-knowledge PASS with substantial caveat: Dyck shift coding and entropy are known; 2018 paper numerically anticipated 3+3/n. Inspected older Dyck orbit-counting primary text explicitly treats periodic points, not finite-language words. A long-established but unindexed formula for Dyck-shift word complexity could cover this claim; further specialized symbolic dynamics review advisable.
 
-## Limitations and closest literature
+## value
 
-The finding is scoped to \(m\ge2\), \(0<a<1/m\), and natural labeled branch itineraries; it does not count geometrically distinct orbits and does not assert previously solved topological-entropy results as novel. The 2018 Appendix B, 2022 Dyck-coding proof, and 2024 review are the closest primary discussions. The 2015 and 2021 Dyck-shift orbit-counting articles concern different enumerands. The finite checker is a cross-check rather than a proof of asymptotic behavior. A later or unindexed exact enumeration may require revising publication priority after independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact full language enumeration rather than periodic orbits or leading entropy is a natural dynamical invariant. The proof replaces previously numerical ratio evidence with a general all-m sharp coefficient and finite-length generating function, useful for symbolic state-count asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
