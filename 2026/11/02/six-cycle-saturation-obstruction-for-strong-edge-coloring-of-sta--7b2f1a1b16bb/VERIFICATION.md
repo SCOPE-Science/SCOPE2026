@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The supplied `verify_star_c6.py` reconstructs the edges and actual endpoint adjacency of each \(K_{1,r}\square C_6\), then checks that no two strongly conflicting edges have the same color. It tests the explicit nine-color seed and each two-color extension for all integers \(2\le r\le30\), checks all \(2r+4\)-edge local cliques for \(2\le r\le7\), and checks the cyclic forbidden-index covering cases in the lower-bound proof.
+# Independent mathematical audit
 
-Command: `python3 verify_star_c6.py`
+## correctness
 
-Observed output: `VERIFY_OK: saturation obstruction; 29 strong colorings (r=2..30); 228114 conflict pairs; 6 clique checks per leaf for r<=7`
+PASS
 
-The checker is a bounded consistency test and does not establish the claim for infinitely many \(r\). The mathematical argument in `RESULT.md` establishes the local obstruction and inductive extension independently of the sample range. Independent audit has not been performed.
+The Q_(i,a) family consists of 2r adjacent spoke-layer edges, three center-cycle edges and one leaf edge, pairwise conflicting: a 2r+4 conflict clique. If 2r+4 colors exist, every such clique is saturated and all leaf edges at same i share color c_i. Counting each color over six cliques gives 2S+3H+E=6; H,E<=2 and repeated C6 edges must be at opposite indices. Any color with E>0 forces (H,E,S)=(1,1,1) or (0,2,2), yet forbidden spoke-layer intervals cover all six indices, contradiction. The explicit r=2 nine-color table is a valid induced-matching coloring in an independent 30-edge/edge-conflict check, and induction copying leaf-cycle colors while using two fresh parity spoke colors gives 2r+5. The star is an edge-subgraph of a graph at maximum degree, yielding universal sharp lower bound. Independent script verified local 8-cliques and seed, not unbounded r; the induction proves that portion.
+
+## originality
+
+PASS
+
+Best-of-knowledge: claim-specific mathematical comparisons of exactly defined source objects against established primary results; no matching stronger implication identified in actual searched and materially read sources. General tree-product bounds and known P3 instance do not determine star products at r≥3, nor a universal lower bound one stronger than 2Δ+4; the clique saturation proves the missing implication.
+
+## value
+
+PASS
+
+A sharp all-star strong-edge-coloring formula at C6 closes the 1- or 2-color gap left by general tree-product bounds and yields a universal best-possible degree lower bound. The six-clique saturation mechanism is structural and reusable; the r=2 case alone was already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

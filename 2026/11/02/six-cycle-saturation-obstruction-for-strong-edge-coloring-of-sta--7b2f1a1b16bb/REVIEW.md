@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is restricted to integer \(r\ge2\); the exceptional \(r=1\) case is not subsumed. Every \(2r+4\)-edge local set is checked to be a clique of the strong edge-conflict graph. Under a hypothetical \((2r+4)\)-coloring the clique saturation forces all leaf-cycle edges at each index to share a color. Counting six local cliques gives \(2S+3H+E=6\) for each color. The possible values \(H,E\le2\), the opposite-index rule for repeated cycle colors and the four-layer forbiddance eliminate every possible color on a leaf-cycle edge. The resulting lower bound is met by a complete nine-color seed and an induction adding a leaf with two new alternating spoke colors. The graph-level checker confirms 29 explicit constructions, including 228114 conflicting pairs, without substituting finite evidence for the infinite proof. Monotonicity under edge-subgraphs proves the general-graph corollary.
+## correctness
 
-**Originality — PASS under accessible evidence, with priority risk.** Dara–Mishra–Narayanan–Tuza (arXiv:2107.00718, *Graphs and Combinatorics* 38 (2022), article 51) give \(2\Delta+4\le\chi'_s(T\square C_6)\le2\Delta+6\) and explicitly identify \(\chi'_s(P_3\square C_6)=9\). The known two-leaf instance is credited. Their relevant complete open-access article was inspected, particularly the six-cycle bounds and examples, and does not state an exact formula for stars with more than two leaves or the general-graph lower bound proved here. Searches for equivalent descriptions via induced-matchings and line-graph-square coloring found no stronger relevant coverage in the material checked. An unindexed or unavailable publication could still preempt the claim; search failure alone is not proof of priority.
+PASS
 
-**Mathematical value — PASS.** The six-cycle is the first even cycle not covered by the published four-divisibility exact theorem. The result closes an existing three-value bound on an entire natural star family and improves the general six-cycle lower bound by a full color for every graph with maximum degree at least two. The six-clique saturation identity explains a structural obstruction and has a concrete exact attainment family, rather than only providing a computation or a change of notation. The exact value for nonstar graphs remains open here.
+The Q_(i,a) family consists of 2r adjacent spoke-layer edges, three center-cycle edges and one leaf edge, pairwise conflicting: a 2r+4 conflict clique. If 2r+4 colors exist, every such clique is saturated and all leaf edges at same i share color c_i. Counting each color over six cliques gives 2S+3H+E=6; H,E<=2 and repeated C6 edges must be at opposite indices. Any color with E>0 forces (H,E,S)=(1,1,1) or (0,2,2), yet forbidden spoke-layer intervals cover all six indices, contradiction. The explicit r=2 nine-color table is a valid induced-matching coloring in an independent 30-edge/edge-conflict check, and induction copying leaf-cycle colors while using two fresh parity spoke colors gives 2r+5. The star is an edge-subgraph of a graph at maximum degree, yielding universal sharp lower bound. Independent script verified local 8-cliques and seed, not unbounded r; the induction proves that portion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: claim-specific mathematical comparisons of exactly defined source objects against established primary results; no matching stronger implication identified in actual searched and materially read sources. General tree-product bounds and known P3 instance do not determine star products at r≥3, nor a universal lower bound one stronger than 2Δ+4; the clique saturation proves the missing implication.
+
+## value
+
+PASS
+
+A sharp all-star strong-edge-coloring formula at C6 closes the 1- or 2-color gap left by general tree-product bounds and yields a universal best-possible degree lower bound. The six-clique saturation mechanism is structural and reusable; the r=2 case alone was already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
