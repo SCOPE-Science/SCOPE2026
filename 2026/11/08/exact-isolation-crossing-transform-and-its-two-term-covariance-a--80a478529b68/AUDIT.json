@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Each isolated chord cuts the circular matching into two independent complete matchings; all circular indices double-count isolated chords, producing the complete polynomial convolution. The four-point formula gives \\(\\mathbb E X_n=n(n-1)/6\\) and every isolated-chord conditional covariance contribution is \\(-(n-1+ab)/3\\). The \\(p_{n,a}\\) ratio and symmetric geometric-tail bounds prove \\(-n/3-1/6+O(n^{-1})\\). The standard-library checker independently enumerated matchings through seven chords and passed 339 exact rational and coefficient assertions; finite enumeration is not used as a proof of the infinite theorem.",
+    "risks": [
+      "Any remaining risk is historical priority, not a gap in the finite combinatorial argument; the asymptotic bound uses uniform tails rather than observed numerical rates."
+    ],
+    "sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/1501.01489"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy (2000), Section 1, presents a component-number generating equation I(z,w)=1+w C(z I(z,w)^2); Section 2 gives the separate Touchard–Riordan crossing polynomial and its marginal moments.",
+        "Acan–Pittel (2014), introduction and Sections 2–4, analyzes sparse-crossing conditioning and giant components; those asymptotics do not provide the unconditional isolation-weighted crossing polynomial.",
+        "The Touchard–Riordan polynomial Q_n(z) determines crossings alone. Recovering the mixed polynomial requires additionally marking all isolated chords and proving the split-arcs convolution."
+      ],
+      "reasoning": "No inspected theorem dominates the new conditional convolution plus strict negative covariance and two-term expansion. The marginal component and crossing distributions do not logically fix their joint dependence, and the sparse-crossing conditional limit cannot directly imply the exact finite unconditioned mixed identity.",
+      "searches": [
+        "uniform random chord diagram matching of 2n points crossing count covariance with numbers of chords of given length, adjacent chords short chords, distance-dependent covariance sign threshold",
+        "crossing number and count of isolated vertices (uncrossed chords) in uniform random chord diagrams: exact bivariate weighted generating function convolution Touchard Riordan polynomial, covariance strictly negative, asymptotic -n/3-1/6",
+        "chord diagram \"components\" \"crossings\" joint generating function bivariate",
+        "\"Analytic Combinatorics of Chord Diagrams\" Flajolet Noy pdf 2000",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/pdf/1406.2867"
+      ]
+    },
+    "checked_sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/1406.2867",
+      "https://arxiv.org/pdf/1501.01489",
+      "https://arxiv.org/pdf/2104.01134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy (2000) specifies the two marginals and asymptotic laws, but the displayed component-generating and crossing-generating functions are separate.",
+        "Acan (2015) Lemma 3.3 concerns the marginal length-chord count; the finite isolated-chord conditioned crossing-polynomial factorization is not stated there.",
+        "Paguyo (2021) obtains marginal approximation bounds for distinct statistics and does not assert their covariance."
+      ],
+      "reasoning": "Known formulas allow a researcher to derive the current theorem, but none inspected implies the precise cross-statistic without the new cut-at-an-isolated-chord argument; there is no asserted independence of the Poisson and Gaussian limits. Historical equivalence remains possible.",
+      "searches": [
+        "random chord diagram uniform matching intersection graph number of isolated chords covariance number of crossings exact formula asymptotic, Poisson Gaussian cross moment",
+        "crossing number and count of isolated vertices (uncrossed chords) in uniform random chord diagrams: exact bivariate weighted generating function convolution Touchard Riordan polynomial, covariance strictly negative, asymptotic -n/3-1/6",
+        "random chord diagram component size one and crossing count mixed factorial moments, covariance of number of isolated chords and total crossing pairs",
+        "https://arxiv.org/pdf/1406.2867",
+        "https://arxiv.org/pdf/1501.01489",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/pdf/2104.01134"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan (2015), Sections 2–3, studies chord degree, chord length and simple-chord Poisson behavior, rather than an exact isolation-weighted crossing polynomial.",
+        "Paguyo (2021), Sections 1–3, establishes separate normal and Poisson approximation rates for crossings and simple chords, not this mixed transform.",
+        "An isolated chord need not be simple: a chord surrounding complete internal matchings can have positive cyclic length and zero crossing degree."
+      ],
+      "reasoning": "Aliases isolated chord, uncrossed chord, degree-zero intersection-graph vertex, and simple chord were compared. The simple-chord variable differs from true isolation. The searched and inspected sources did not supply the same polynomial identity or a coordinate-relabelled equivalent.",
+      "searches": [
+        "random chord diagram uniform matching intersection graph number of isolated chords covariance number of crossings exact formula asymptotic, Poisson Gaussian cross moment",
+        "random chord diagram component size one and crossing count mixed factorial moments, covariance of number of isolated chords and total crossing pairs",
+        "chord diagrams \"isolated chords\" \"crossings\" \"covariance\"",
+        "Touchard Riordan isolated chord count crossings joint",
+        "https://arxiv.org/pdf/1501.01489",
+        "https://arxiv.org/pdf/2104.01134"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published Touchard–Riordan polynomial counts diagrams by crossings without marking isolated components.",
+        "Flajolet–Noy (2000) gives separate component and crossing moment formulas and no identified isolation-by-crossing table in the inspected full text."
+      ],
+      "reasoning": "No exact combined isolation–crossing table, database, or formula was located. The presence of separate marginal formulas is recorded, not misreported as novelty evidence by itself.",
+      "searches": [
+        "Touchard Riordan isolated chord count crossings joint",
+        "crossing number and count of isolated vertices (uncrossed chords) in uniform random chord diagrams: exact bivariate weighted generating function convolution Touchard Riordan polynomial, covariance strictly negative, asymptotic -n/3-1/6",
+        "random chord diagram component size one and crossing count mixed factorial moments, covariance of number of isolated chords and total crossing pairs",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+      ]
+    },
+    "rationale": "Position of the result relative to inspected primary literature: its precise mixed isolation-weighted crossing polynomial and two-term covariance expansion are not stated in the accessible foundational component and crossing papers, where the relevant results concern separate marginals, sparse-crossing conditional components, or simple-chord limits. The public-record semantic searches performed for this question did not identify an equivalent or dominating statement. The existence of an unlocated marked-component or multivariate enumerator remains a real historical-priority risk.",
+    "residual_risks": [
+      "An older or unlocated joint component-by-crossing generating function might implicitly specialize to the displayed convolution.",
+      "The exact expression is derivable using known marginal crossing polynomials and a new isolation marking; priority of that explicit derivation is not independently certified.",
+      "Search recall is not a proof of uniqueness, and absence from inspected passages does not exclude all other published formulations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SEPARATE_MARGINAL_RESULTS_NOT_IDENTICAL",
+        "evidence": "Section 1 marks number of components; Section 2 introduces an unmarked crossing polynomial; neither displayed equation jointly tracks isolated chords and crossings.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Full fourteen-page publicly available INRIA PDF, with focused comparison of component Section 1 (printed pp. 2–5) and crossing Section 2 (printed pp. 6–9), equations (2) and (5), and main theorems",
+        "method": "Read PDF text plus visual pages showing both sections; compared actual generating-variable dependence",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational component and crossing enumerators might dominate a mixed-statistic identity"
+      },
+      {
+        "assessment": "CONDITIONAL_SPARSE_REGIME_INAPPLICABLE_TO_EXACT_UNCONDITIONED_MIXED_MOMENT",
+        "evidence": "The paper conditions on fixed crossing count in sparse regimes and studies largest-component statistics, rather than the unconditional isolated-vertex weighted crossing transform.",
+        "identifier_or_url": "https://arxiv.org/pdf/1406.2867",
+        "material_read": "Introduction, model definitions, statement and proof plan (PDF pages 1–5); targeted analysis of the crossing-conditioned sparse model and main regimes",
+        "method": "Read text and visual page of the theorem context",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Closely related joint geometry of components and crossing counts"
+      },
+      {
+        "assessment": "SAME_MODEL_DISTINCT_STATISTICS",
+        "evidence": "Primary MSC 60C05; Lemma 3.3 gives Poisson limits for fixed chord lengths; no displayed isolation-weighted full crossing polynomial.",
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Abstract and model, Section 2 chord-length conditioned degree calculations (printed pp. 3–5), Section 3 monolithic and simple chord arguments (printed pp. 6–9), overview of other sections",
+        "method": "Read relevant complete paragraphs and inspected visual page containing Lemma 3.3",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same uniform matching model, exact local chord-degree and isolated-components questions"
+      },
+      {
+        "assessment": "SEPARATE_DISTRIBUTIONAL_APPROXIMATIONS",
+        "evidence": "Bounds are for normal approximation of crossing count and Poisson approximation of simple-chord count separately; no displayed isolated-chord/crossing mixed polynomial.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Introduction and theorems (PDF pages 1–3), crossing coupling Section 2 (pages 4–7), simple-chord Section 3 (pages 8–9)",
+        "method": "Read relevant PDF text and visual page of Theorems 1.1–1.3",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Most relevant later article studying both crossing and simple-chord counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80a47852-9b68-4515-8274-ceb037e4e7e7",
+  "value": {
+    "rationale": "Isolated vertices and crossing edges are natural linked graph statistics with previously established Poisson and Gaussian marginal behavior. The single identity gives all first-isolation mixed factorial moments in crossing count and a strict, size-uniform covariance sign plus two asymptotic terms. This addresses meaningful joint finite-size dependence, not an arbitrary numerical slice or a marginal identity.",
+    "risks": [
+      "The theorem does not give the complete joint law or asymptotic independence."
+    ],
+    "sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/2104.01134"
+    ],
+    "status": "PASS"
+  }
+}
