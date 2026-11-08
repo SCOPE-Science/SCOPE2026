@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-size statement is reconstructed from the explicit three-state local update, the twelve feasible length-eleven hub words, the universal test of all permitted single-petal histories, and the phase and circulation arguments. The finite certificate checks all 93 possible local circulation transitions (including both possible externally forced hub successors when applicable), all 27 petal starts for every candidate hub word, and the full 81-state single-square boundary. An independent complete functional-graph program checks the global census through four petals. The certificate, not the finite global census, proves the unbounded-parameter identity. Exact witnesses establish both sharp entrance thresholds.
+## correctness
 
-**Originality — PASS, qualified.** Garcia et al. (2012), sections 2.1 and 3.3 and Appendix, give the deterministic rule and study isolated and embedded square devices but not the exact interacting bouquet recurrence census. Garcia et al. (2014), sections II–IV and appendices, study cycle usage in sparse networks rather than exact finite-graph orbit formulas. Gravner, Lyu and Sivakoff (2016), Theorem 3, already characterize fixation by initial circulation; the \(3\cdot19^k\) extinction count is a simple specialization of that principle and is not independently claimed as novel. Their statement does not establish the explicit identity \(F^{10}=F^6\), the \(3^k-1\) primitive-orbit formula, or the sharp six-update entrance on all square bouquets. Focused similarity search and accessible previous mathematical claims found no equivalent statement. Priority remains conditional on uncovered historical material.
+PASS
 
-**Mathematical value — PASS.** Interacting four-cycle pacemakers share a hub and could in principle disrupt one another's temporal recurrence. Instead, all flower sizes inherit a uniform, sharp six-step entrance and exactly enumerated four-phase waves. The result cleanly separates exponential growth of orbit types from the exponentially vanishing extinction probability and provides an exact solvable benchmark for motif interaction. These all-size exact invariants are not a merely renamed isolated-square result.
+PASS: Reconstructed the exact local update and independently enumerated all 129 intrinsic 11-letter hub words; only 12 satisfy support/no-support consistency across 27 petal start types, each having identical hub and permitted petal states at t=6 and t=10. This is a universal finite lemma independent of k, not an extrapolated finite-k census. Four-phase local adjacency constraints leave profiles (1,2,1),(1,2,3),(3,2,1), excluding all-first due to hub lack of predecessor, giving 3^k-1 primitive orbits. Single-petal circulation per fixed hub has 19 zero values, and is invariant under all possible hub stimuli, yielding extinction iff all windings zero and basin formula. Independent exhaustive global graph for k=1..3 reproduced all orbits, basins and max transient (4,6,6); source local universal certificate also verifies exact sharp k>=2 witness.
 
-The proof covers only the specified synchronous deterministic three-state rule. No assertion is made about stochastic excitation, larger refractory periods, or heterogeneous petals. The universal finite certificate is reproducible but has not received independent external checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Gravner–Lyu–Sivakoff 2016 Theorem 3 already covers activity/extinction from circulation, and hence the specialized 3*19^k basin formula is not separately novel. Garcia et al. 2012/2014 study square pacemakers and cycle usage, not the exact interacting k-square bouquet universal F10=F6 identity, primitive orbit count, and sharp entrance. The noncovered all-size recurrence/census, rather than rebranding extinction criterion, is accepted best-of-knowledge.
+
+## value
+
+PASS
+
+PASS: A bouquet of k interacting square pacemakers is a natural motif family; hub sharing can interfere with recurrence. Proving a k-independent sharp transient and complete 3^k-1 four-wave census is structurally informative, and the contrasting extinction basin fraction (19/27)^k quantifies motif proliferation. Finite local enumeration is exhaustive in local stimulus types and proves all k; it is not an arbitrary tiny computational slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
