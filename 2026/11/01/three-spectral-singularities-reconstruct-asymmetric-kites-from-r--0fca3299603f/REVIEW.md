@@ -1,15 +1,21 @@
-# Scientific review: three singularities in random kite widths
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(r>0\) and \(0<p\le q\), the support-function maximum over four stated vertices gives the exact three-branch width law. The branch-change angles and middle-branch critical angle have the asserted strict inequalities. The density follows by a one-variable change of variables and exact preimage multiplicities; no tail estimates or finite simulation enter the proof. In the ordered triple-peak region, the endpoint branches have one preimage each and the middle interior maximum has two, accounting for the singularity coefficients. Inverting their ordered height values reconstructs all three positive dimensions. The derivative computation also excludes hidden divergent critical points. The included numerical checker supplies independent spot checks of branch formulas, probability normalization, sharp singular limits and inversion.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Akiyama and Kamae's full 2022 preprint introduces width deviation and specifically isolates the asymmetric kite as a numerical candidate for the unsolved four-gon problem; their computations concern width means and second moments rather than the complete width density or the singularity-based inverse. Kim, Yaskin and Zvavitch's accessible 2015 paper establishes projection-distribution tomography and general nonuniqueness, but no determination of the asymmetric kite class. A published tangential centrally symmetric polygon inverse theorem does not apply to a nonsymmetric kite; a separate parallelogram theorem does not apply because the candidate is not a parallelogram; a geometric-dilation theorem uses a different invariant. Relevant semantic and phrase searches found no dominating statement. Broad general-purpose polygon pushforward formulas and unindexed older specializations remain priority risks.
+PASS
 
-## Value — PASS
-The kite class is mathematically singled out by a published unresolved extremal width-variance problem. The result upgrades the two-moment study to a complete, all-parameter width probability density with an exact critical-point phase diagram. More substantially, in an explicitly identified open region containing the published numerical extremal candidate, three observable square-root singularities determine the entire kite even though the projection directions are discarded. The doubled middle singularity distinguishes genuine interior optical criticality from the two axial peaks. This is a motivated restricted geometric-tomography result, not a general solution of the minimum-width-deviation quadrilateral problem.
+For vertices (±r,0),(0,−pr),(0,qr), r>0, 0<p<=q, projection support yields w/r=2cos θ (θ<α=atan(1/q)), cosθ+qsinθ=Rcos(θ−τ) (α<θ<β=atan(1/p)), and (p+q)sinθ (θ>β) under Haar θ∈[0,π/2]. The analytic change of variables supplies exact density f(w)=(2/π)∑ inverse-sqrt branch multiplicities; no atoms. In 1<q<sqrt3 and 0<p<sqrt(1+q²)−q, interior middle maximum exists and three distinct upper-cutoff divergences z1=r(p+q)<z2=r√(1+q²)<z3=2r have multiplicities 1,2,1 and limiting coefficients 2/π,4/π,2/π. Algebraic inverse r=z3/2, q=√((z2/r)²−1),p=z1/r−q is smooth away from boundaries. Independently checked switch ordering, the three singular heights and limiting amplitudes for p=1/4,q=3/2,r=1.7 at two offsets. Numerical checks corroborate but the branchwise proof covers all parameters.
 
-## Closest work and limits
-The phase and density formulas use elementary angular calculus; they do not establish a global inverse theorem for all kites. An exact population distribution, not finite noisy samples, is assumed. The identified singularities merge at phase boundaries. No independent expert review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for full kite forward density/phase diagram and exact inverse reconstruction in ordered three-peak subregion; first-two-moment width optimization and symmetric polygon distribution-inverses cover distinct statements.
+
+## value
+
+PASS
+
+A canonical low-parameter asymmetric convex body is uniquely recoverable from unlabelled projection statistics on an explicit open domain; singular locations identify geometry without directional labels and show precise phase boundaries where identifiability mechanisms fail. Exact law and inverse have direct geometric-statistical meaning beyond a toy evaluation of a known width formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
