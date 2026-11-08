@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed-increment square circulation, integral cochain exactness on the filled prism annulus, and target-parity obstruction together classify the allowed winding invariants. The directed-cycle length inequality proves acyclicity for every nonextreme winding. The explicit order-ideal height argument proves full connectivity within each winding and target-parity class. Fujii et al., arXiv:2408.04802, Theorem 5.1, upgrades these to circles. Rigidity of extremal windings and the standard four-cycle target folding handle all boundaries. The standalone checker confirms component counts for eighteen target/source pairs; it is not used as an infinite proof. Risk: the general component theorem and fold equivalence are adopted from the primary literature; no independent proof of them is claimed.
+## correctness
 
-**Originality — PASS against the inspected literature and accessible research records.** Čukić–Kozlov arXiv:math/0408015 treats cycle-to-cycle source/target pairs. Fujii et al., arXiv:2408.04802, classifies individual component *types* for arbitrary connected sources but does not enumerate the full prism component multiplicities. Matsushita arXiv:2412.19144 gives a broader square-free classification but not this arithmetic prism formula. The prior pentagon-only prism theorem is explicitly subsumed; the new theorem's even-target doubling, odd-triangle target, and square-target exception were not among its claims. Actual research-record searches targeted Hom prisms to every cycle length and winding parity. Residual risk: an unindexed classification, or a deduction of the exact formula elsewhere in the cited full texts, could duplicate these counts.
+PASS
 
-**Value — PASS.** This is a complete, natural two-parameter topological classification rather than a mere numerical instance or a substitution in one known family: it displays the target-parity bifurcation, the singular square-target collapse, and an exact divisibility jump of \(4q\) isolated maps, coherently organizing every prism size and every cycle target. The even-target doubling is a qualitative phenomenon absent from the earlier pentagon-only result. No general downstream theorem or arbitrary graph extension is claimed.
+For q!=4 every oriented edge has a unique ±1 increment. Every prism square has zero signed circulation (absolute <=4 and even; no nonzero multiple of q>=5 or q3), so both rim windings coincide, integral w with qw≡n mod2 and |qw|<=n. For strict winding, a directed cycle would have length |qwm|<n|m|<=length (or zero horizontal winding), contradiction; thus induced orientation is acyclic. Differences of two equal-winding signed cocycles are an integral exact 1-cochain; a height lattice with pointwise minima and legal source-vertex ±2 recoloring is connected. Even-target parity at a vertex splits components; odd targets do not. The inspected primary Fujii et al. Theorem 5.1 maps acyclic orientation components to S1; extreme all-horizontal-sign cases yield precisely 4q isolated vertices. For q=4 twin-vertex folding reduces target to K2 and gives two components for even n. Independently enumerated Hom vertex colorings and 1-skeleton recoloring components for n=3..7, q=3..8, matching all counts and isolated cases, not the circle homotopy (which relies on primary theorem).
 
-**Scientific limitations.** No new classification beyond prism sources and cycle targets; the circle-homotopy step uses a published general criterion. The Python calculation confirms finite component combinatorics only. Bibliographic uniqueness is provisional until independent expert literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+The family of prism-to-cycle Hom complexes is a natural two-parameter graph-topological testing ground. A complete parity- and winding-sensitive circle/isolated-point classification for all targets (including triangle and folded square exceptions) refines the known universal component criterion and a prior pentagon-only special case in a nonroutine way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
