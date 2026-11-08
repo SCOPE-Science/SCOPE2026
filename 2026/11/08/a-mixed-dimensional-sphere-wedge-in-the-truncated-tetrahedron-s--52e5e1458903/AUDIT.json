@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "All 2^12-1=4095 nonempty masks are checked via exact induced graph connectivity. There are 863 nonempty simplices, and the deterministic 428-pair element matching leaves exactly one 0-cell, three 3-cells and three 4-cells. Every one of 3432 oriented face-poset covers is included in a successful acyclicity topological sort. Independent exact signed gradient-path reductions for the three critical 4-cells yield a zero 3x3 integral Morse boundary. Forman discrete Morse gives a homotopy-equivalent CW complex, its 3-skeleton is a wedge of three 3-spheres, and pi_3 of this wedge equals Z^3, so zero boundary entries mean all 4-cell attachments are nullhomotopic. A separately constructed forbidden-triple enumeration and mod-two reduction checks face counts and Betti numbers, but does not replace the integral attaching proof. Scripts and outputs are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deshpande–Singh 2020, arXiv:2001.05448, Theorems 3.5, 3.8 and later sections restrict calculations to complete multipartite, fully whiskered, cycles, and rooted-tree classes.",
+        "Abdelmalek et al. 2021, arXiv:2106.10863, studies chordal graph structure, trees and caterpillars; the truncated tetrahedron contains an induced hexagon and has minimum degree three."
+      ],
+      "reasoning": "T is connected cubic with four triangles and induced hexagons, so is not complete multipartite, not fully whiskered (no pendant vertices), not a cycle, not a tree, and not chordal. A general algorithmic matching-tree existence does not imply the exact critical counts or the integer attaching map.",
+      "searches": [
+        "arXiv:2001.05448 full-text Sections 3-5 complete multipartite, fully whiskered, cycles, perfect m-ary trees",
+        "arXiv:2106.10863 introduction, trees, caterpillar and chordal results",
+        "general theorems for second-independence complexes of clique-truncation graphs or complete-graph blowups"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1501.06754v1 (27 January 2015)",
+      "arXiv:2001.05448 (15 January 2020)",
+      "arXiv:2106.10863 (21 June 2021)",
+      "Forman, Morse Theory for Cell Complexes, doi:10.1006/aima.1997.1650",
+      "published-finding corpus index: truncated-tetrahedral matching complex, id ending f5ae4a359c83",
+      "published-finding corpus index: truncated four/five-simplex ordinary independence, id ending 4f07444cc928",
+      "Earlier exact ordinary independence computation on T4: opaque record 1ca9caa9-0c0c-4bff-8ee0-2115116c25ad"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus record 2026/10/11/SCOPE-edge-orbit-matching-complex-homotopy-of-the-truncated-tetrahedro--f5ae4a359c83 computes an edge-subset matching complex with a wedge of 22 spheres, not the vertex-subset induced-component complex in this theorem.",
+        "published-finding corpus record 2026/10/11/SCOPE-the-independence-complexes-of-the-truncated-four-and-five-simpli--4f07444cc928 concerns the ordinary independence complexes on different truncated-simplex graphs.",
+        "Taylan (2015) and Deshpande–Singh (2020) make class-specific statements that do not include this truncated-tetrahedral graph."
+      ],
+      "reasoning": "No listed source states a covering generalization, reduction, duality, or exact table forcing the new 3+3 mixed-dimensional homotopy calculation. A theorem about matching edge sets does not transfer to induced vertex-subset independence by sharing the base graph. The ordinary Ind(T) differs from Ind_2(T) even as a face collection. The limited public matching-complex summary is not represented as a full-text inspection.",
+      "searches": [
+        "published-finding corpus: second independence (dissociation) complex of truncated tetrahedron graph, twelve vertices, homotopy wedge of spheres",
+        "published-finding corpus: open neighborhood complex of truncated tetrahedron graph, Archimedean solid; integral homotopy type",
+        "published-finding corpus: edge-orbit matching-complex homotopy of the truncated tetrahedron",
+        "arXiv:1501.06754v1 Theorems 3.14 and 5.2",
+        "arXiv:2001.05448 main classification theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Taylan 2015, arXiv:1501.06754v1, defines the P3-devoid complex D(G;P3) and calculates it for forests; the present complex is D(T;P3) because induced connected components of size at most two are exactly subgraph-P3-free.",
+        "The truncated-tetrahedral graph has triangles and chordless six-cycles; it is neither a forest nor a cycle, and no inspected Taylan formula covers it."
+      ],
+      "reasoning": "The induced-component formulation and forbidden 3-vertex path formulation agree on every vertex subset; neither a terminological match nor the same count of sphere summands is a coverage theorem. The relevant P3-devoid primary theorem restricts its graph class, so it cannot be directly applied to T.",
+      "searches": [
+        "second independence complex of truncated tetrahedron; P3-devoid 12-vertex Archimedean graph; wedge three 3-spheres and three 4-spheres",
+        "dissociation complex of truncated simplex graph T4, 2-independent subsets of vertices; face vector 12 66 192 303 228 62",
+        "\"truncated tetrahedron\" \"dissociation complex\" topology",
+        "\"truncated tetrahedron\" \"P3\" \"complex\" homotopy",
+        "arXiv:1501.06754v1 Section 3 Definition 3.8 and Theorem 3.14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus semantic searches for the proposed graph and its P3-devoid/dissociation/ordered-pair aliases returned results on ordinary independence, edge matching, total cut, Čech and Vietoris–Rips complexes, but not a theorem for Ind_2(T).",
+        "The earlier ordinary independence calculation for the same ordered-pair graph has a distinct face condition and homotopy invariant."
+      ],
+      "reasoning": "The observed indexed claims concern distinct underlying simplicial complexes or larger truncated simplices with ordinary independence, not a table giving the exact Ind_2(T) homotopy type. Search failure is insufficient for a universal uniqueness guarantee; residual risks are preserved.",
+      "searches": [
+        "second independence complex of truncated tetrahedron; P3-devoid 12-vertex Archimedean graph; wedge three 3-spheres and three 4-spheres",
+        "dissociation complex of truncated simplex graph T4, 2-independent subsets of vertices; face vector 12 66 192 303 228 62",
+        "Graph vertices are arcs of complete graph K4 (ordered pairs i != j), adjacent if tails coincide or arcs reverse; second independence homotopy",
+        "\"truncated tetrahedron\" \"2-independence\" homotopy",
+        "\"truncated tetrahedron\" \"P3\" \"complex\" homotopy",
+        "Exact integral homotopy type of Ind_2 of truncated tetrahedral graph with 12 vertices and 18 edges, 3 copies of S^3 plus 3 copies of S^4.",
+        "Three-vertex-path-devoid simplicial complex for graph with 4 disjoint triangles joined by reverse-pair matching edges; 863 faces, homotopy three 3-spheres and three 4-spheres."
+      ]
+    },
+    "rationale": "No inspected primary theorem or mathematical-record entry determines the 12-vertex truncated-tetrahedral second independence complex. The direct comparison includes the equivalent P3-devoid formulation, broader higher-independence graph-family theorems, the same graph with ordinary independence, and the same graph with edge-matching or metric-nerve complexes. The exact mixed-dimensional homotopy type and signed zero attaching map are new relative to those inspected statements, with explicit residual publication-priority limits.",
+    "residual_risks": [
+      "Equivalent calculations under alternative dissociation or P3-devoid language may be unindexed.",
+      "One related same-base-graph edge-matching-complex primary document was inaccessible; only its specific indexed scientific statement was compared.",
+      "No independent external publication-priority or proof review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the relevant equivalent complex but explicit homotopy classifications concern forests, paths and cycles; no truncated tetrahedron formula located",
+        "evidence": [
+          "arXiv:1501.06754v1, 27 January 2015, pp. 2, 7-9, 13-17; PDF searched for tetra and the named theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.06754",
+        "material_read": "PDF introduction and theorem statements/arguments in Sections 3 and 5, including Definition 3.8 and Theorems 3.14 and 5.2; PDF pages 2 and 13 visually inspected",
+        "method": "Primary PDF full-text sections and rendered page images",
+        "title": "Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs",
+        "trigger": "Earliest publicly dated P3-devoid framework; possible general coverage by matching-tree methods"
+      },
+      {
+        "assessment": "No covering family includes the graph; relevant results are for structurally distinct graph classes",
+        "evidence": [
+          "arXiv:2001.05448 Sections 3-5, especially Theorems 3.5 and 3.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+        "material_read": "Full-text HTML introduction, main graph-family theorem statements and proof outlines in Sections 3-5; checked references to complete multipartite, whiskered, cycles and perfect trees",
+        "method": "Primary open full text with section and keyword inspection",
+        "title": "Higher Independence Complexes of graphs and their homotopy types",
+        "trigger": "Possible stronger higher-independence theorem that might subsume the finite graph"
+      },
+      {
+        "assessment": "The source concerns trees, caterpillars and chordal structure; the graph in the claim has induced six-cycles",
+        "evidence": [
+          "arXiv:2106.10863, introductory main theorems and Section 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.10863",
+        "material_read": "Open full-text introduction, results summary and graph-hypothesis statements",
+        "method": "Primary open full-text source",
+        "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+        "trigger": "Potential general chordal simplification of higher independence complexes"
+      },
+      {
+        "assessment": "Claim is expressly the matching complex with graph edges as vertices; it is not a homotopy classification of the induced vertex-subset complex, but undiscovered cross-complex links remain a low residual risk",
+        "evidence": [
+          "published-finding corpus indexed scientific summary: ordinary edge matching complex has homotopy type wedge of 22 three-spheres"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-edge-orbit-matching-complex-homotopy-of-the-truncated-tetrahedro--f5ae4a359c83",
+        "material_read": "published-finding corpus indexed title and scientific summary only; repository full text was inaccessible",
+        "method": "Scientific summary and object-level comparison; attempted primary repository inspection",
+        "title": "Edge-orbit matching-complex homotopy of the truncated tetrahedron",
+        "trigger": "Same base graph might conceal an equivalent complex under different ground-set presentation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52e5e145-8903-47e0-b668-0b9ed462a84f",
+  "value": {
+    "rationale": "This is a complete exact integral homotopy classification of a canonical 12-vertex Archimedean polyhedral graph under the natural higher-independence invariant first studied in the cited P3-devoid literature. It exhibits homology in two adjacent dimensions and requires a signed attaching-map calculation, beyond a routine f-vector or known table. Its relation to graph truncation and the first nonchordal/polyhedral cases supplies a credible precise benchmark for broader higher-independence investigations, without claiming a general theorem.",
+    "status": "PASS"
+  }
+}
