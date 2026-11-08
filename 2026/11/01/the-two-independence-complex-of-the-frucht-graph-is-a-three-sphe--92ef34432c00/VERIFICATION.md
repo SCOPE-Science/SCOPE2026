@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational reproduction
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3. It constructs the specified 12-vertex graph, verifies it has 18 edges and all degrees 3, tests all 4095 nonempty vertex masks through two independent characterizations, and enumerates exactly 824 simplices. It independently reconstructs the vertex-toggle matching and confirms 411 pairs with critical masks 512 (degree zero) and 338 (degree three). It explicitly constructs all 3244 oriented Hasse incidences, verifies the matched orientation is acyclic by topological sorting, and computes exact mod-two simplicial boundary ranks 11, 55, 135, 157, 52, 1 in degrees one through six. The resulting only nonzero reduced mod-two Betti number is one in dimension three. The attached recorded output is `verification_output.txt`.
+## correctness
 
-The integral sphere claim follows not from the field calculation but from the fully verified acyclic matching and the discrete Morse theorem: one critical vertex and one critical three-cell form a three-sphere CW complex. No external audit or machine proof of the discrete Morse theorem is claimed.
+PASS
+
+All 2^12-1 nonempty masks were exhaustively checked with the exact 18 listed Frucht edges: the induced-degree-one and component-size-at-most-two criteria agree, yielding 824 faces with vector (12,66,190,293,209,53,1). Reconstructed the 411-pair vertex-toggle matching in the specified order; the only unmatched cells are bitmask 512 (0-cell) and 338 (3-cell). Directed 3244 full Hasse-cover incidences, reversing matched covers, admit a topological order through all 824 face-poset vertices. Forman finite discrete Morse theory therefore gives CW with one 0-cell and one 3-cell, necessarily S3 integrally. An entirely separate fresh Python enumeration/matching/toposort independently reproduced all counts.
+
+## originality
+
+PASS
+
+The same Frucht graph has a published ordinary independence calculation with different face condition, while existing higher-independence family theorems do not encompass this connected nonchordal cubic asymmetric graph. No prior exact Ind_2(Frucht) type found; residual priority risk is identified.
+
+## value
+
+PASS
+
+The Frucht graph is the canonical small cubic graph with trivial automorphism group, and Ind_2(F) is a natural first higher cutoff whose integral type differs sharply from known ordinary Ind(F). An exact S3 recognition supported by a complete finite Morse matching is a worthwhile graph-topological benchmark, not an arbitrary isolated minor numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

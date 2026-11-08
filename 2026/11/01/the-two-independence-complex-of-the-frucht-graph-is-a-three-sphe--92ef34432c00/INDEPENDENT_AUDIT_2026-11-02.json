@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:54:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 24ba3f15ec1cadcf83e0d3cffdc92cdddc295033",
+        "assigned verify.py blob 0d731cb5b088f0826a44bfdd3ab186521e702f55",
+        "independent_checks.py: 824 faces, 411 pairs, 3244 full incidences, 824-node topological sort"
+      ],
+      "rationale": "All 2^12-1 nonempty masks were exhaustively checked with the exact 18 listed Frucht edges: the induced-degree-one and component-size-at-most-two criteria agree, yielding 824 faces with vector (12,66,190,293,209,53,1). Reconstructed the 411-pair vertex-toggle matching in the specified order; the only unmatched cells are bitmask 512 (0-cell) and 338 (3-cell). Directed 3244 full Hasse-cover incidences, reversing matched covers, admit a topological order through all 824 face-poset vertices. Forman finite discrete Morse theory therefore gives CW with one 0-cell and one 3-cell, necessarily S3 integrally. An entirely separate fresh Python enumeration/matching/toposort independently reproduced all counts.",
+      "residual_risks": [
+        "One exact graph at r=2 only, with no implication for other 12-vertex cubic graphs; mod2 homology is not used to infer integral homotopy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5 lists graph families excluding Frucht.",
+          "Resultary 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a, full RESULT.md (blob 37c5d517e9fa8dea48a12688030eb31e74fc1907) is Ind_2 of a different cubic graph (Petersen)."
+        ],
+        "reasoning": "Frucht is connected cubic, nonchordal, contains triangles and no leaves; generic multipartite, whiskered, path, cycle, tree and chordal-only classification assumptions do not apply. The Petersen-specific S3 coincidence does not imply the Frucht result.",
+        "searches": [
+          "Frucht graph 2-independence dissociation complex S3 homotopy",
+          "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5",
+          "Chordal graphs higher independence vertex decomposable arxiv:2106.10863"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)",
+        "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5",
+        "Resultary 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a, full RESULT.md (blob 37c5d517e9fa8dea48a12688030eb31e74fc1907)",
+        "Abdelmalek et al. arXiv:2106.10863 (chordal graph families)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4) gives 3 copies of S2 for Ind(F), not Ind_2(F).",
+          "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5 has no 12-vertex Frucht specialization."
+        ],
+        "reasoning": "There is no direct homotopy implication between Ind_1(F) and Ind_2(F): inclusion can change homology degree and multiplicities. The full new 824-face acyclic matching supplies indispensable input.",
+        "searches": [
+          "Frucht graph 2-independence dissociation complex S3 homotopy",
+          "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5",
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4) proves ordinary Ind_1(F) ~ wedge of three S2, with 168 faces and deletion/link classification.",
+          "The present Ind_2(F) has 824 faces and a single S3."
+        ],
+        "reasoning": "Ordinary Ind(F) and dissociation/2-independence Ind_2(F) are different complexes. Frucht ordinary complex is not an equivalent formulation of the present theorem.",
+        "searches": [
+          "Frucht graph 2-independence dissociation complex S3 homotopy",
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4) same graph but ordinary cut, 168 faces.",
+          "Resultary 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a, full RESULT.md (blob 37c5d517e9fa8dea48a12688030eb31e74fc1907) same higher cutoff but different Petersen graph with 260 faces."
+        ],
+        "reasoning": "No equivalent table in checked indexed sources covers the exact pair (Frucht graph, induced-component cutoff2). Different graph and cutoff parameters cannot be substituted.",
+        "searches": [
+          "Frucht graph 2-independence dissociation complex S3 homotopy",
+          "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)",
+          "Resultary 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a, full RESULT.md (blob 37c5d517e9fa8dea48a12688030eb31e74fc1907)"
+        ]
+      },
+      "rationale": "The same Frucht graph has a published ordinary independence calculation with different face condition, while existing higher-independence family theorems do not encompass this connected nonchordal cubic asymmetric graph. No prior exact Ind_2(Frucht) type found; residual priority risk is identified.",
+      "residual_risks": [
+        "Exact Frucht dissociation computations might occur in an unindexed thesis or database."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CUTOFF",
+          "evidence": "Previous theorem at r=1 gives 3 S2; present r=2 has a different 824-face complex and S3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2",
+          "material_read": "Complete RESULT.md: graph edge list, ordinary Ind face count, Morse theorem, all twelve deletion/link classes, bibliography and limitations",
+          "method": "Full published research record read through Git blob",
+          "title": "The Frucht graph independence complex and its complete vertex-deletion classification",
+          "trigger": "Exact same graph and potential prior cover"
+        },
+        {
+          "assessment": "NOT_COVERING_FRUCHT",
+          "evidence": "Frucht does not satisfy those family hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Accessible full primary text, theorem statements and Sections 3–5 on named graph families",
+          "method": "Primary full text read by family/hypothesis comparison",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Same higher-independence functor and possible classification"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Petersen at r=2 is S3; Frucht requires independent 824-face computation and is not a specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a",
+          "material_read": "Full RESULT.md containing graph, 260-face Morse proof, differential and exact limitations",
+          "method": "Full published record read via Git blob",
+          "title": "The 2-independence complex of the Petersen graph is a 3-sphere",
+          "trigger": "Very similar S3 claim with same cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)",
+        "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5",
+        "assigned full Frucht Ind_2 calculation"
+      ],
+      "rationale": "The Frucht graph is the canonical small cubic graph with trivial automorphism group, and Ind_2(F) is a natural first higher cutoff whose integral type differs sharply from known ordinary Ind(F). An exact S3 recognition supported by a complete finite Morse matching is a worthwhile graph-topological benchmark, not an arbitrary isolated minor numerical gain.",
+      "residual_risks": [
+        "Single finite benchmark; no all-asymmetric-cubic classification or group-action information."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md blob 24ba3f15ec1cadcf83e0d3cffdc92cdddc295033",
+    "assigned verify.py blob 0d731cb5b088f0826a44bfdd3ab186521e702f55",
+    "independent_checks.py: 824 faces, 411 pairs, 3244 full incidences, 824-node topological sort",
+    "Resultary 2026/10/11/SCOPE-the-frucht-graph-independence-complex-and-its-complete-vertex-de--8b7d9b2243c2, full RESULT.md (blob 3176d3e86b0e5233d5518c40459ab36369031cb4)",
+    "P. Deshpande and A. Singh, Higher Independence Complexes of Graphs and Their Homotopy Types, arXiv:2001.05448 (2020/2021), Sections 3–5",
+    "Resultary 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a, full RESULT.md (blob 37c5d517e9fa8dea48a12688030eb31e74fc1907)",
+    "Abdelmalek et al. arXiv:2106.10863 (chordal graph families)",
+    "assigned full Frucht Ind_2 calculation"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only one explicitly labeled Frucht graph at cutoff 2; discrete Morse proof is integral, mod2 ranks only confirm."
+  ]
+}

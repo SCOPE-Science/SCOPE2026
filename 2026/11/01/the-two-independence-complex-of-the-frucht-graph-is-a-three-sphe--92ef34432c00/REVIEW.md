@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite certificate enumerates every vertex subset of the exact labeled Frucht graph, agrees under induced-degree and independent component-exploration predicates, and produces 824 faces. The explicit 411-pair vertex-toggle matching leaves two unmatched masks, a vertex and a three-simplex. Reversing all paired Hasse relations gives an explicitly checked acyclic directed graph on all 824 faces and 3244 cover incidences. Forman's discrete Morse theorem then establishes an integral homotopy equivalence to a three-sphere. A separate exact mod-two boundary reduction corroborates, but does not replace, the homotopy argument.
+PASS
 
-## Originality — PASS against inspected literature
+All 2^12-1 nonempty masks were exhaustively checked with the exact 18 listed Frucht edges: the induced-degree-one and component-size-at-most-two criteria agree, yielding 824 faces with vector (12,66,190,293,209,53,1). Reconstructed the 411-pair vertex-toggle matching in the specified order; the only unmatched cells are bitmask 512 (0-cell) and 338 (3-cell). Directed 3244 full Hasse-cover incidences, reversing matched covers, admit a topological order through all 824 face-poset vertices. Forman finite discrete Morse theory therefore gives CW with one 0-cell and one 3-cell, necessarily S3 integrally. An entirely separate fresh Python enumeration/matching/toposort independently reproduced all counts.
 
-The exact classifications in Deshpande–Singh cover complete multipartite, whiskered, cycle, path and branching-tree graphs; the Frucht graph is none. Their related chordal results do not apply to this nonchordal graph. The closest named mathematical record supplies only the *ordinary* Frucht independence type (three two-spheres) and vertex deletions, without determining the cutoff-two complex. Targeted searches with the aliases `dissociation complex` and `two-independence complex` found no same-claim coverage. This is not a guarantee against unindexed literature; the ordinary-record full text was inaccessible and is a residual source risk.
+## originality
 
-## Value — PASS
+PASS
 
-The smallest cubic asymmetric graph is a canonical structural test case, not an arbitrary graph slice. Its first higher-independence complex has a sharp, exact change of homotopy type from the previously known ordinary complex. A complete integral homotopy classification is substantially stronger than a face count or mod-two Betti computation. The scope is one natural graph at its first nontrivial induced-component cutoff, not an invented infinite-family claim.
+The same Frucht graph has a published ordinary independence calculation with different face condition, while existing higher-independence family theorems do not encompass this connected nonchordal cubic asymmetric graph. No prior exact Ind_2(Frucht) type found; residual priority risk is identified.
 
-## Limits
+## value
 
-The calculation neither classifies all asymmetric cubic graphs nor asserts behavior of higher cutoffs. Scientific originality remains conditional on accessible indexed and primary literature coverage. No external or independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frucht graph is the canonical small cubic graph with trivial automorphism group, and Ind_2(F) is a natural first higher cutoff whose integral type differs sharply from known ordinary Ind(F). An exact S3 recognition supported by a complete finite Morse matching is a worthwhile graph-topological benchmark, not an arbitrary isolated minor numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
