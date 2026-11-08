@@ -1,19 +1,21 @@
-# Scientific review: exact six-term zero sums modulo \(36\)
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two integer-sum classes of the displayed twelve-term witness each total \(36\), proving the lower bound. The six-subset-sum recurrence is an exact Boolean dynamic program: the appended residue either is or is not used, and descending updates prevent reuse. A branch with a forbidden six-sum remains forbidden under all extensions. The generator visits every sorted admissible multiset not pruned by this sound rule, finding exactly 23,970 bad length-twelve cases. For every such case and every admissible thirteenth residue, it verifies the existence of a forbidden six-sum. An independently implemented direct index-combination checker validates the entire emitted table and the extension assertion; thus the universal length-thirteen statement follows. Exact orbit and profile counts are independently checked from the full table. The executable sources and their finite certificate are attached. No inference from sampled inputs is used.
+PASS
 
-## Originality
+For admissible entries x mod 36 with 6∤x, a qualifying six-position sum lies in T={6,12,18,24,30}. A bad 12-list exists with six entries congruent to 1 and six to 2 modulo 6, whose only 6-divisible six-sums equal 36. The exact dynamic program propagates S_j(B+x)=S_j(B)∪(x+S_{j−1}(B)) with j decreasing, prunes only persistent forbidden six-sums, and nondecreasing residue recursion exhausts all multisets. An independent separate C++ recurrence, compiled and executed, reproduced the entire 13-level prefix count vector (1,30,465,4960,40920,278256,1397210,3565140,3172686,1271740,500586,156528,23970); found exactly 23970 bad 12-multisets and none extendible by any of 30 residues; reproduced the 11 residue-profile counts and 361 affine orbits (314×72,33×36,13×12,1×18). Thus s_1(6)=13 and stated complete census, not an extrapolation to other moduli.
 
-**PASS, with priority uncertainty.** Sun's original article [arXiv:2606.18234] gives the definition, lower bound, and the conjectured family \(s_1(n)=2n+1\); it does not supply the exact modulus-six evaluation or the full extremal statistics. Li–Ling–Sun–Zhu [arXiv:2610.19965] treat different rank-two and unrestricted-length results, while Gao and collaborators treat prime moduli. A published exact modulus-four classification does not imply the modulus-six count. Searches for the exact threshold, alternate fixed-length zero-sum descriptions, modulo-36 subset sums, broader implications, and matching tables found no stronger source. Searches alone do not rule out unpublished, implicit, or unindexed coverage; the modulus-four record was accessible only as a published summary.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Modulus six is the first squarefree composite test of an explicitly posed infinite conjecture, where neither a prime-modulus result nor a prime-power computation settles the case. Besides deciding the threshold, the result exhausts its maximal counterexample configurations and reveals a strong residue-class constraint (just eleven patterns, with a 361-orbit symmetry classification). This provides a complete small-composite benchmark for the inverse version of the new zero-sum problem, not a routine restatement of a general bound. It is finite and has no claimed implication for arbitrary moduli.
+Sun defines s_1(n) and conjectures s_1(n)=2n+1, but his inspected Theorem 1.3 does not prove the n=6 case. Li–Ling–Sun–Zhu prove distinct w_r and rank-2 statements, not this fixed-length rank-1 count; Gao et al treat prime moduli; the published s_1(4)=9 classification is for a different modulus. The exact n=6 threshold and 23970-object orbit census survive comparison, with possible unindexed older machine calculations acknowledged.
 
-## Closest literature and limitations
+## value
 
-Zhi-Wei Sun, *On zero-sum problems of two new types* (2026), arXiv:2606.18234; Yang Li, San Ling, Zhonghua Sun, and Shixin Zhu, *Proofs and disproofs of some conjectures on zero-sum problems of new types* (2026), arXiv:2610.19965; Gao et al., *A new problem from zero-sum theory* (2026); published exact modulus-four result. The remaining risk is undetected earlier numerical or theoretical coverage. The standalone certificate proves only its stated finite modulus-six classification. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The n=6 instance is the first squarefree composite modulus in a named conjecture and its sharp finite cutoff is mathematically motivated. A complete extremal multiset census, 11 profiles and affine orbit classification describe all maximal obstructions and could support later structural work; finite exhaustiveness is valid because the domain is explicitly finite and fully traversed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

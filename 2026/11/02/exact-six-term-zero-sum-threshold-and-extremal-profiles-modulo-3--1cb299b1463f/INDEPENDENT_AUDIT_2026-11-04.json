@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:57:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For admissible entries x mod 36 with 6∤x, a qualifying six-position sum lies in T={6,12,18,24,30}. A bad 12-list exists with six entries congruent to 1 and six to 2 modulo 6, whose only 6-divisible six-sums equal 36. The exact dynamic program propagates S_j(B+x)=S_j(B)∪(x+S_{j−1}(B)) with j decreasing, prunes only persistent forbidden six-sums, and nondecreasing residue recursion exhausts all multisets. An independent separate C++ recurrence, compiled and executed, reproduced the entire 13-level prefix count vector (1,30,465,4960,40920,278256,1397210,3565140,3172686,1271740,500586,156528,23970); found exactly 23970 bad 12-multisets and none extendible by any of 30 residues; reproduced the 11 residue-profile counts and 361 affine orbits (314×72,33×36,13×12,1×18). Thus s_1(6)=13 and stated complete census, not an extrapolation to other moduli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun supplies s1(n)≥2n+1 and a larger upper bound, while Li et al focus on different constants; neither proves s1(6)≤13."
+        ],
+        "reasoning": "A general 2n+1 theorem would dominate but appears as a conjecture in the inspected full primary; the specialized finite proof adds the sharp missing case.",
+        "searches": [
+          "Sun Theorem 1.3 Conjecture 1.2",
+          "Li et al arXiv:2610.19965 main theorems"
+        ]
+      },
+      "checked_sources": [
+        "Zhi-Wei Sun, On zero-sum problems of two new types, arXiv:2606.18234v5, Definition 1.3, Theorem 1.3, Conjecture 1.2",
+        "Yang Li, San Ling, Zhonghua Sun, Shixin Zhu, Proofs and disproofs of some conjectures on zero-sum problems of new types, arXiv:2610.19965",
+        "Gao et al, A new problem from zero-sum theory, Acta Arithmetica 224 (2026) 71–79, DOI:10.4064/aa251115-21-1",
+        "Resultary 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original conjecture states s1(6)=13 as unproved special case; the later rank-two and prime-modulus bounds do not directly constrain every mod36 six-position multiset."
+        ],
+        "reasoning": "The full enumerated upper bound and obstruction count are not corollaries of the stated previously known bounds; a separately unknown combinatorial bridge would be needed.",
+        "searches": [
+          "Sun arXiv:2606.18234 theorem/conjecture",
+          "Li et al arXiv:2610.19965 theorem 1.1–1.3",
+          "Gao et al prime modulus article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same invariant requires six selected distinct positions from numbers 6∤x, sum 6|Σ but 36∤Σ; the zero-sum formulations w2 and s2 impose different lengths/ranks."
+        ],
+        "reasoning": "The exact mod36 complement-of-six T formulation is equivalent to s1(6), but not to w2(6) or prime-modulus s1(p).",
+        "searches": [
+          "Sun arXiv:2606.18234v5 s1(n) definition",
+          "Li et al arXiv:2610.19965 w2 versus s1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known s1(4) table has 160 maximal eight-term residue multisets modulo16; the assigned n=6 table has 23970 twelve-term multisets modulo36."
+        ],
+        "reasoning": "These are different domains; no earlier exact n=6 table was identified in actual searches; search failure alone is not a novelty certificate.",
+        "searches": [
+          "Resultary exact evaluation s1(4) extremals",
+          "Sun 2026 mod6 searches"
+        ]
+      },
+      "rationale": "Sun defines s_1(n) and conjectures s_1(n)=2n+1, but his inspected Theorem 1.3 does not prove the n=6 case. Li–Ling–Sun–Zhu prove distinct w_r and rank-2 statements, not this fixed-length rank-1 count; Gao et al treat prime moduli; the published s_1(4)=9 classification is for a different modulus. The exact n=6 threshold and 23970-object orbit census survive comparison, with possible unindexed older machine calculations acknowledged.",
+      "residual_risks": [
+        "Unindexed or historical finite enumerations may duplicate the 23970 table or s1(6) threshold.",
+        "Finite exhaustive verification only pertains to modulus 6, no general n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": "The n=6 equality is conjectural, and general displayed bound is weaker.",
+          "identifier_or_url": "https://arxiv.org/html/2606.18234v5",
+          "material_read": "Full accessible arXiv HTML: Definition 1.3, Theorem 1.3 and Conjecture 1.2 and surrounding proof discussion",
+          "method": "Primary full HTML mathematical inspection",
+          "title": "On zero-sum problems of two new types",
+          "trigger": "Defines precisely s1(6) and conjectures the optimal 2n+1 threshold"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "The proved rank-two/unrestricted-length constants do not imply fixed-length rank-one s1(6) equality.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19965",
+          "material_read": "Accessible arXiv HTML: title, abstract, main numbered theorems, definitions of w_r and s_r and implications",
+          "method": "Primary mathematical statement comparison",
+          "title": "Proofs and disproofs of some conjectures on zero-sum problems of new types",
+          "trigger": "Potential later proof of Sun zero-sum conjectures"
+        },
+        {
+          "assessment": "DIFFERENT_MODULUS",
+          "evidence": "Exact n4 results do not give n6 counts.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+          "material_read": "Published Resultary title and full relevant summary",
+          "method": "Published database semantic comparison",
+          "title": "Exact evaluation of s_1(4) and the eight-term extremals",
+          "trigger": "Closest published exact-modulus computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The n=6 instance is the first squarefree composite modulus in a named conjecture and its sharp finite cutoff is mathematically motivated. A complete extremal multiset census, 11 profiles and affine orbit classification describe all maximal obstructions and could support later structural work; finite exhaustiveness is valid because the domain is explicitly finite and fully traversed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhi-Wei Sun, On zero-sum problems of two new types, arXiv:2606.18234v5, Definition 1.3, Theorem 1.3, Conjecture 1.2",
+    "Yang Li, San Ling, Zhonghua Sun, Shixin Zhu, Proofs and disproofs of some conjectures on zero-sum problems of new types, arXiv:2610.19965",
+    "Gao et al, A new problem from zero-sum theory, Acta Arithmetica 224 (2026) 71–79, DOI:10.4064/aa251115-21-1",
+    "Resultary 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed or historical finite enumerations may duplicate the 23970 table or s1(6) threshold.",
+    "Finite exhaustive verification only pertains to modulus 6, no general n proof."
+  ],
+  "residual_risks": [
+    "Unindexed or historical finite enumerations may duplicate the 23970 table or s1(6) threshold.",
+    "Finite exhaustive verification only pertains to modulus 6, no general n proof."
+  ],
+  "schema_version": 1
+}
