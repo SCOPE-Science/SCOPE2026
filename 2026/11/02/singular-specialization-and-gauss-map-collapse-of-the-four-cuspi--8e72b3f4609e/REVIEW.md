@@ -1,12 +1,21 @@
-# Scientific review: singular specialization of the four-cuspidal quintic
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-five base-point-free parametrization is birational in every characteristic because its image cannot be a line; the defining primitive quintic identity is exact. The differential cross product and local coordinate transformations were checked by the standalone exact program. Coprime local orders give the claimed plane-branch semigroups, and the genus-six delta budget excludes all unlisted singularities or doubled fibers. The reduced Gauss map is explicitly invertible in characteristics other than two and purely inseparable of degree four in characteristic two.
+## correctness
 
-## Originality — PASS
-Koras--Palka's 2019 work gives the complex curve, its equation and the four cusps; these are prior results. The characteristic-three collision and characteristic-two single-cusp and Gauss-line degeneration were compared with semantic research records and targeted literature searches; no equivalent specialization classification was found. The closest research record about this exact curve concerns its complex automorphism group, not reductions. The 2021 literature on strange curves studies different families. Absence from search results is not a uniqueness proof, and an unindexed computation remains possible.
+PASS
 
-## Value — PASS
-Determining bad-characteristic specialization of the unique complex four-cuspidal quintic is natural because both its extremal singularity configuration and tangent geometry can change dramatically in positive characteristic. The exact semigroups and the inseparable Gauss degree show structural changes that are not implied by the complex description. The theorem concerns one specified primitive integral model, not all integral forms or plane quintics.
+For the specified primitive quintic integral equation, the degree-five basepoint-free parametrization is birational by prime-degree image argument. Independently verified polynomial substitution F(P)=0, tangent cross product P×P'=u(u³+2)(4u³-1,2u²,-u⁴), Gauss inverse when p!=2, local odd-characteristic order-7 identity and the char-2 order-13 coordinate. Ramification parameters and local semigroups are (2,7)+3*(2,3) outside 2,3; (2,7)+(3,4) at p=3; (2,13) at p=2. Genus-six delta-budget exhausts all singularities; char-2 reduced Gauss map [1:0:u^4] has line image and purely inseparable degree four, whereas p!=2 Gauss is birational onto quartic. Algebraic checking supports the explicit identities and the geometric argument proves all characteristics; other integral models are excluded.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: Koras–Palka established this quintic model, its complex parametrization and four complex cusps; the all-prime reduction, changed local semigroups in chars 2,3 and inseparable degree-four Gauss map are different claims. General strange curve theory does not imply these explicit local invariants without computation. Unindexed same-model reduction is possible.
+
+## value
+
+PASS
+
+The four-cuspidal quintic is a canonical extremal rational plane curve; its prime-specific cusp coalescence and inseparable tangent map are striking, structurally informative phenomena for arithmetic geometry and strange curves, for one explicitly fixed integral model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
