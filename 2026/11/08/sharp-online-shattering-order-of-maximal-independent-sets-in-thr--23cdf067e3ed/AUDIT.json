@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Every threshold MIS is either the complete set of zero creation vertices or one creation-one plus subsequent zeros. Queries are one-hot or prefix, yielding \\(\\operatorname{VCdim}=1\\) and an exact recurrence. A depth-\\(h\\) tree requires \\(2^h\\) hypotheses and \\(2^{h-1}-1\\) distinct noninitial prefix cuts, establishing \\(n\\ge3\\cdot2^{h-1}-1\\). The unique word \\(01(011)^{2^{h-1}-1}\\) supplies perfectly balanced prefix cuts and final pair splits; equality forces its cut positions. Explicit finite enumeration corroborates independent premises for 2,047 words through eleven vertices, with no claim that finite checks prove all orders.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gurski--Rehs, arXiv:1710.08953, 2017-10-24, PDF pp. 4-5 and 9-10, Observation 8 and Theorem 25: classification/enumeration of maximal independent sets from creation sequences, not their membership-query online rank.",
+        "Alon--Livni--Malliaris--Moran, arXiv:1806.00949, 2018-06-04, HTML sections 1.1, 2, 3.1 and 4: abstract mistake-tree/threshold motivation, not threshold-graph minimal vertex order.",
+        "Previously recorded path MIS and comb maximal-antichain findings address different graph or poset families."
+      ],
+      "reasoning": "The general Littlestone cardinality inequality requires at least \\(2^h\\) concepts, giving only \\(2^h-1\\) one-vertices in a threshold creation word; it does not force the additional \\(2^{h-1}-1\\) zero-vertices. The primary MIS enumeration theorem yields the hypothesis count but not an adaptive-shattering lower bound. Other sharp gap examples for paths and rooted-tree antichains do not impose threshold-graph creation constraints or prove uniqueness here.",
+      "searches": [
+        "Sharp smallest vertex order threshold graph with maximal independent set concept Littlestone dimension d equals 3 times 2^(d-1) minus 1 VC dimension one",
+        "VC dimension one with Littlestone dimension d threshold graph maximal independent sets lower bound vertex order",
+        "\"maximal independent sets\" \"VC dimension\" learning",
+        "\"Littlestone\" \"maximal independent sets\" threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1710.08953; sections 3.2, 3.5.2, Observation 8, Theorem 25",
+      "arXiv:1806.00949; sections 1.1, 2, 3.1",
+      "published-finding corpus searches for exact minimum order, one-hot/prefix aliases, MIS on threshold graphs, and alternate VC/Littlestone titles",
+      "Comparison statements: maximal independent sets of paths, maximal antichains of rooted-tree combs, and ideals of finite ancestor posets; none implies the threshold-graph minimum-order bound."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gurski--Rehs, arXiv:1710.08953, 2017-10-24, PDF pp. 4-5 and 9-10, Observation 8 and Theorem 25: classification/enumeration of maximal independent sets from creation sequences, not their membership-query online rank.",
+        "Alon--Livni--Malliaris--Moran, arXiv:1806.00949, 2018-06-04, HTML sections 1.1, 2, 3.1 and 4: abstract mistake-tree/threshold motivation, not threshold-graph minimal vertex order.",
+        "Current claim: minimal order \\(n_h=3\\cdot 2^{h-1}-1\\) with unique word \\(01(011)^{2^{h-1}-1}\\), and an exact recurrence for every creation word."
+      ],
+      "reasoning": "Prior work supplies (a) the input normal form for hypotheses and (b) online-rank definitions/general examples. These allow a new proof, but do not themselves state or imply without an additional distinct-cut argument the sharp \\(n_h\\) bound, uniqueness, or full interval recurrence. Related threshold-chain phenomena are acknowledged, not claimed novel.",
+      "searches": [
+        "Sharp smallest vertex order threshold graph with maximal independent set concept Littlestone dimension d equals 3 times 2^(d-1) minus 1 VC dimension one",
+        "online shattering threshold graphs maximal stable sets singleton prefix queries optimal graph order",
+        "\"Littlestone dimension\" \"threshold graph\" \"maximal\" \"independent\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gurski--Rehs, arXiv:1710.08953, 2017-10-24, PDF pp. 4-5 and 9-10, Observation 8 and Theorem 25: classification/enumeration of maximal independent sets from creation sequences, not their membership-query online rank.",
+        "Alon--Livni--Malliaris--Moran, arXiv:1806.00949, 2018-06-04, HTML sections 1.1, 2, 3.1 and 4: abstract mistake-tree/threshold motivation, not threshold-graph minimal vertex order.",
+        "The precise claim concerns vertex-membership concept trees, not finding maximal independent sets as a graph algorithm or the worst-case online cost of graph arrival."
+      ],
+      "reasoning": "One-hot vertex queries and nested prefix queries give an equivalent finite concept-class formulation, but a search for that formulation and its Strahler/interval recursion found no earlier result stating the sharp graph-order threshold or uniqueness. A generic finite threshold of length m has online dimension floor(log2 m), yet that does not account for the additional graph vertices needed to realize prefix tests alongside distinct one-hot hypotheses.",
+      "searches": [
+        "Exact Littlestone dimension of maximal independent sets of threshold graphs from creation sequences, interval split Strahler recurrence",
+        "online shattering threshold graphs maximal stable sets singleton prefix queries optimal graph order",
+        "\"maximal independent sets\" \"Littlestone dimension\"",
+        "\"threshold graphs\" \"Littlestone dimension\" maximal independent sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest semantic hits: 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d (random greedy MIS distribution); 2026/10/4/SCOPE-failed-skew-zero-forcing-at-the-false-twin-free-boundary-of-thre--4300fa13ef6a (skew zero forcing); 2026/10/4/SCOPE-locating-dominating-sets-of-threshold-graphs-by-canonical-omissi--db9a27cc7092 (locating domination).",
+        "Gurski--Rehs Table 2 lists small creation sequences and Theorem 25 reports their number of maximal independent sets, not their Littlestone dimensions or minimal orders."
+      ],
+      "reasoning": "Search results contain relevant studies of other invariants on threshold graphs, including greedy MIS laws and domination. The most directly relevant inspected table enumerates creation words, and no retrieved table reports the claimed all-depth minimum \\(3\\cdot2^{h-1}-1\\). Absence from these searches is not a priority proof.",
+      "searches": [
+        "Sharp smallest vertex order threshold graph with maximal independent set concept Littlestone dimension d equals 3 times 2^(d-1) minus 1 VC dimension one",
+        "Exact Littlestone dimension of maximal independent sets of threshold graphs from creation sequences, interval split Strahler recurrence",
+        "\"threshold graph\" \"VC dimension\" \"maximal independent\""
+      ]
+    },
+    "rationale": "Material review of the 2017 threshold-graph MIS enumeration and the 2018 finite/infinite online dimension paper identifies the constituent familiar normal forms but no graph-specific optimal online rank or extremal uniqueness theorem. published-finding corpus and web comparisons tested exact, equivalent, broader, and table coverage; closest work concerns different invariants, and historical priority under alternative terminology remains a documented risk.",
+    "residual_risks": [
+      "An exact equivalent sharp bound may be recorded as a one-hot plus nested-prefix search-tree/Strahler extremum rather than in graph language.",
+      "Source coverage is limited to accessible primary texts, public research-search results, and recoverable comparison statements; absence is not proof of uniqueness in the literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the standard MIS parametrization and count; does not cover the exact online dimension, sharp vertex order, or extremal uniqueness.",
+        "evidence": [
+          "Gurski--Rehs, arXiv:1710.08953, 2017-10-24, PDF pp. 4-5 and 9-10, Observation 8 and Theorem 25: classification/enumeration of maximal independent sets from creation sequences, not their membership-query online rank.",
+          "Theorem 25 counts maximal independent sets as clique number; the manuscript has no matches for Littlestone or VC dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1710.08953",
+        "material_read": "Original PDF abstract/introduction, Section 3.2 creation sequences and Observation 8 (PDF pp.4-5), Section 3.5.2 and Theorem 25 (pp.9-10), with PDF search for Littlestone and VC dimension.",
+        "method": "Readable original full-text PDF inspected in the relevant sections, including a rendered page; textual section/theorem comparison and targeted keyword search.",
+        "title": "Counting and Enumerating Independent Sets with Applications to Knapsack Problems",
+        "trigger": "Exact same objects: maximal independent sets of finite threshold graphs."
+      },
+      {
+        "assessment": "Covers abstract threshold/order and learnability significance, not the finite graph-specific one-hot/prefix resource theorem.",
+        "evidence": [
+          "Alon--Livni--Malliaris--Moran, arXiv:1806.00949, 2018-06-04, HTML sections 1.1, 2, 3.1 and 4: abstract mistake-tree/threshold motivation, not threshold-graph minimal vertex order.",
+          "The paper studies threshold functions and private learnability; threshold graph MIS creation-word optimality is not a theorem of the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1806.00949v3",
+        "material_read": "Original full HTML: introduction and Section 1.1 on thresholds and Littlestone rank, Section 2 statements and Section 3.1 definition; rendered PDF p.2 cross-check.",
+        "method": "Original arXiv HTML and original PDF page, compared mathematical domain and implication direction.",
+        "title": "Private PAC learning implies finite Littlestone dimension",
+        "trigger": "Foundational middle-cohort online-shattering and threshold-classes research."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23cdf067-e3ed-4804-872c-5473758a10ae",
+  "value": {
+    "rationale": "The sharp minimum graph order and unique extremal realization are natural structural invariants of a graph-constrained online membership-learning problem, rather than an arbitrary slice of a numerical table. The distinct-cut argument explains a genuine extra resource beyond the cardinality lower bound; it is quantitative, exact at all depths, and computes exact rank from creation sequences in cubic time. The VC dimension remains one, so it locates the precise onset of each online-shattering rank within a classical hereditary graph class.",
+    "status": "PASS"
+  }
+}
