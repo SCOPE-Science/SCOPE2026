@@ -1,19 +1,21 @@
-# Scientific review: exact finite-block joint two-adic binomial valuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated scope is all integers \(L\geq0\), with uniform sampling on \(0\leq n<2^L\). Legendre's identity makes the first valuation \(s_2(n)\) and the second \(2s_2(n)-s_2(3n)\); the latter counts carries in the addition \(n+2n\). The three states \(t=b_{i-1}+c_i\) and all six bit transitions are explicitly specified. Crucially, the terminal column is weighted by \((1,1,v)^{\mathsf T}\), accounting for the carry beyond the last sampled input digit. Matrix inversion gives the rational length-generating function. Its mixed and second derivatives prove the moment formulas for every length, not just sampled lengths. The displayed nonzero Hankel determinant proves generic linear-representation minimality. Independent exact integer and rational checks on all small dyadic blocks confirm each critical boundary and algebraic calculation. No finite test is treated as a proof for unbounded lengths.
+PASS
 
-## Originality — PASS, with explicit historical-priority uncertainty
+Legendre and Kummer give X_L=s_2(N), Y_L=2s_2(N)-s_2(3N). For binary input bits b_i of N, state t_i=b_{i-1}+carry_i in {0,1,2} has six transitions yielding A(u,v)=[[1,u,0],[1,0,uv],[0,v,uv]], and final carry weight (1,1,v), proving all-L polynomial P_L=2^{-L}e_0^T A^L(1,1,v)^T. Independently multiplied the symbolic inverse (I-z A/2)^{-1} to verify the stated rational generating function and symbolic 3x3 Hankel determinant -u^5 v²(v-1)²(uv²-v²-2v-1), a generic minimality certificate. Direct binary enumeration for L=0..10 agrees with every joint multiplicity and all printed covariance corrections, including (-1)^L/2^L. Formal rational differentiation, not finite checks, establishes all-L mean/variance/covariance statements.
 
-Schmid's 1984 paper and Schmidt's 1983 paper establish general binary-multiple digit-sum theory. The complete primary text of the 1984 article was unavailable; an equivalent finite-length formula may be implicit there. Drmota and Krattenthaler's 2018 paper was inspected and explicitly proves the general asymptotic joint central limit law and covariance, so neither the leading covariance \(5L/12\) nor the Gaussian law is claimed as new. Sun's 2010 paper was inspected for its divisibility results involving the same binomial families; these do not produce finite-block joint frequencies. A prior support-only valuation-pair classification covers which pairs are attainable, not their exact multiplicities on a finite dyadic block. The distinct assertion examined here is the exact rational bivariate finite-block generating law, the generic three-state lower bound and all finite-length covariance corrections. Subject-specific and equivalence searches did not locate the same complete claim. Historical uniqueness remains subject to the inaccessible original Schmid text and possibly other old digit-correlation work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The joint valuation count is a natural refinement of known digit-sum dependence: it determines every simultaneous divisibility frequency for two familiar factorial ratios at every finite dyadic scale. The complete generating function is reusable for arbitrary joint moment or tail calculations. The covariance correction distinguishes even and odd block lengths and contains terms that asymptotic limit laws discard. The nonzero Hankel certificate proves that the three-state structure cannot be compressed further as a generic linear transfer. These are finite-scale arithmetic facts, not a restatement of a Gaussian theorem or a single routine numerical table. No broader infinite-multiplier generalization is claimed.
+Best-of-knowledge PASS restricted to the exact finite dyadic-block joint coefficient law, its generic minimal three-state weighted transfer representation, and complete alternating finite-size moment corrections. Earlier Schmid/Schmidt and Drmota-Krattenthaler address joint digit sums and the asymptotic CLT/leading covariance; leading 5L/12 and Gaussian limit explicitly remain prior. Old Schmid 1984 full text inaccessible despite OA/arXiv attempts and institutional tool returned disconnected VPN; actual plausible earlier finite-block representation is retained as priority risk, not automatic fail.
 
-## Literature and limitations
+## value
 
-Closest archival paper: J. Schmid, *The joint distribution of the binary digits of integer multiples*, Acta Arithmetica 43 (1984), 391–415, DOI 10.4064/aa-43-4-391-415; full text not inspected owing to access. Other comparators: W. M. Schmidt (1983); M. Drmota and C. Krattenthaler, arXiv:1803.02178 (2018); Z.-W. Sun, arXiv:1004.4623 (2010); and J. C. Chen, H.-K. Hwang and V. Zacharovas, arXiv:1212.6697 (2012). The distribution is restricted to the prime two, the two named binomial families and complete dyadic initial intervals. Full historical-priority proof and independent mathematical audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simultaneous dyadic-block distributions of central and shifted central binomial valuations are natural arithmetic statistics. The exact joint generating function recovers every finite multiplicity, while minimal weighted carry complexity and parity-corrected moment identities are genuinely finer than established Gaussian asymptotics; a researcher could use these precise coefficients in congruence counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
