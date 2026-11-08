@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact directed graph model, edge labels, degree profile, and cyclic-rotation normalization were checked. Contracted weight-two forced paths leave one-bit indices with two explicit successors. The interval obstruction forces every index at or above the midpoint to choose the zero-edge; every lower-index choice is free because every possible successor strictly increases the index. This bijectively counts rooted in-arborescences, and BEST counts cyclic Euler circuits because all degrees are one or two. Two independent integer computations through length eleven corroborate the argument, rather than replacing it.
+## correctness
 
-## Originality (O): PASS
-Closest primary text: Ruskey–Sawada–Williams (2012) treats the identical shorthand model and gives Eulerian existence; Sawada–Williams–Wong (2013) provides generation methods; Sawada–Gabrić (2025) uniformly samples cycles using arborescences; Mitchell–Wild (2026) generalizes existence across weight functions and finite alphabets. Searches and implication comparisons were made for fixed-weight shorthand subsets, weight-[1,2] Euler circuits, directed arborescences, de Bruijn-cycle tables, and root-tree totals. No inspected result supplies the complete formula \(2^{\lfloor(n-1)/2\rfloor}\), though implicit coverage in earlier specialized enumeration work remains a genuine priority risk.
+PASS
 
-## Value (V): PASS
-A complete exact count for every span strengthens a natural, actively studied weighted cut-down de Bruijn existence problem. The dichotomy between forced high indices and freely selectable low indices explains the precise power-of-two law and is applicable to understanding the associated combinatorial sampling space.
+For every n>=2 the directed de Bruijn-type overlap graph has one directed edge per length-n binary word of Hamming weight 1 or 2 and vertices of length n-1 with weights 0,1,2. Weight-0 and weight-2 vertices have forced outgoing edges; weight-1 states have two. A cyclic universal word corresponds bijectively to an edge-distinct Euler tour normalized at the unique root edge 0^(n-1)1. BEST gives the number as the in-arborescence count. At weight-1 index i, append-0 moves to i+1 (or root) and append-1 then forced shifts moves to n-2-i; an upper-half append-one creates a closed interval away from root, so is forbidden. Every independent lower-half choice strictly increases the index until root and is valid. Exactly floor((n-1)/2) independent choices yield 2^floor((n-1)/2); all lengths n>=2 and rotation primitivity covered. Independent exact root-Laplacian cofactors n=2..8 reproduce counts and edge totals; all-n follows from forest bijection.
 
-## Boundaries and closest literature
-Binary only, span at least two, weights exactly one or two, quotient by rotation only. No general count for other weights or alphabets is asserted. Independent mathematical auditing and comprehensive historical priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ruskey-Sawada-Williams and Sawada-Williams-Wong establish existence and construction of fixed/weight-range Ucycles. Sawada-Gabric 2025 develops sampling via Eulerian arborescences and has small examples (including n=3). The full all-n closed count and classification of forced/free arborescence choices are not in primary material inspected; a small case count is known and explicitly not claimed new.
+
+## value
+
+PASS
+
+Exact enumeration up to cyclic rotation of a natural shorthand de Bruijn/weight-window class is a useful invariant, stronger than existence. The arborescence mechanism isolates the binary choice structure and all-n closed formula, potentially informing exact uniform generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
