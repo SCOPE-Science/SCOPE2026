@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact three-dimensional reduced matrix follows from the stated two-agent DGT recurrence and initialized tracker identity. Its characteristic polynomial and \(z=\pm1\) evaluations were reconstructed. The cubic invariant \(S=1-b+ac-c^2\) is positive across the entire open domain by concavity in the squared contrast and two explicit positive endpoint decompositions; this excludes any nonreal unit-circle crossing. The real crossing equation has a single root in the allowed step interval and yields the asserted radical threshold. Initial-state excitation is established by an explicit left-eigenvector contradiction. Symbolic algebra and 5,400 exact rational cases are reproducible with `verify.py`.
+## correctness
 
-**Originality — PASS under documented access limits.** The primary 2026 manuscript has been examined in its model section, general convergence certificate, numerical comparison, appendix, and bibliography. Its exact formulas cover complete mixing and homogeneous local curvatures; its heterogeneous analysis is a sufficient spectral-radius certificate. The full closest public published-finding corpus theorem and proof were read; their constant-uniform-curvature assumption does not imply an exact positive-contrast threshold. Tian et al. (arXiv:2607.23601) discuss DIGing/AugDGM worst-case rates, not the fixed two-agent heterogeneous ATC step; its full text could not be retrieved. Searches for equivalent two-agent Jury/Schur classifications and the explicit discriminant did not locate a covering result. The 2023 integral-action paper was seen only at abstract level; residual historical-priority risk is stated in the result.
+PASS
 
-**Mathematical value — PASS.** The smallest connected network with genuine curvature mismatch has an exact, interpretable stability region, a sharp negative-eigenvalue crossing, and an explicit nonuniform slow-mixing sensitivity law. It gives a benchmark for sufficient convergence certificates and rules out inferring the homogeneous two-step ceiling merely from average curvature. The distinction is not a generic restatement of the cubic Schur test: the positive factorization excludes other crossings throughout a two-parameter family and the prescribed initial manifold genuinely excites the unstable mode.
+The tracked consensus/disagreement reduction yields the exact 3×3 M and cubic P(z)=z³+a z²+b z+c; independently reconstructed its determinant and P(1)=β(1−λ)². For contrast u=e², S=1−b+ac−c² is concave in u and both u=0,1 endpoint formulas remain strictly positive for 0<λ<1 and 0<β<2. Therefore a nonreal unit-circle crossing is impossible. P(1)>0 excludes +1, so only P(−1)=−Q(β) permits crossing; Q has a single root B* inside (0,2) if e>0 and none if e=0, giving exact radical formula. At boundary the root −1 is simple; for β>B*, a real eigenvalue is <-1. The explicit admissible-initialization left-eigenvector contradiction ensures the unstable/critical modes are reachable from y0=Hx0. Independent SymPy determinant and 27 sample eigenvalue/frontier classifications corroborated the algebra, not its continuum proof. No negative-λ, >2-agent, or β≥2 extrapolation follows.
 
-The result is exact-arithmetic, two-agent, fixed-stepsize and scalar-quadratic; it is not a theorem about adaptive tracking or numerical roundoff. The closest published historical results have not undergone exhaustive independent priority examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang et al 2026 develops the DGT reduced matrix and general sufficient stability certifications, with exact regimes for homogeneous cost or complete graph. A full inspected published related result treats homogeneous curvatures e=0 only; that parameter restriction cannot imply the strict heterogeneous contrast frontier. A very close Wang primary preprint and Tian alternative full texts were inaccessible, so exact overlap in an appendix cannot be ruled out. Best-of-knowledge PASS with substantial named risk, not proof of priority.
+
+## value
+
+PASS
+
+Curvature mismatch qualitatively reduces the exact safe learning-rate ceiling even for two agents and strictly convex quadratics. The complete radical frontier, flip-eigenmode witness and singular slow-mixing/small-contrast behavior are a motivated, sharp stability classification for this natural minimal heterogeneous network, more informative than a generic conservative sufficient certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
