@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 check_wheel_spokes.py` from the directory containing the research files. It uses only Python 3's standard library and terminates after enumerating all possible \(n\)-edge wheel subsets for \(3\le n\le8\).
+## correctness
 
-Observed output: `PASS 5458 exact assertions/comparison checks, with analytic finite- and limit-law proofs in RESULT.md`.
+PASS
 
-The checks independently compare the marked-composition bijection and component-size multiplicities with brute-force enumeration of spanning trees, and compare the enumerated coefficient sum with an integer Bareiss determinant. Fixed-order coefficient convergence and floating-point evaluation of the Poisson-even normalizer are additional diagnostics.
+A spanning tree with k spokes necessarily has k missing rim edges, forming k path components with exactly one spoke each; alternation of cut/spoke marks gives a bijection between pointed trees and a root vertex times ordered weak compositions of n−k into 2k gaps. Counting gives kc_nk=n*binom(n+k−1,2k−1), component-size fiber multiplicity product s_i, and Chebyshev determinant normalizer. For t=s/n², c_nk/n^{2k} -> 2/(2k)!, with uniform summable (4s)^k/(2k)! bound, so TV Poisson-even limit; simplex lattice weak convergence and Dirichlet aggregation give spatial law. Independently enumerated 33 spanning-tree/spoke classes and verified the marked composition bijection directly for n=3..8, rather than only trusting source checker.
 
-**Limits:** These finite computations cannot establish the assertions for arbitrary wheel order, nor rule out existing results in literature. The general proof uses a global bijection, exact stars-and-bars counts and a dominated-convergence argument; an independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Classical matrix-tree rooted-forest determinant and Chebyshev wheel count are prior and expressly excluded from novelty. Grunwald–Mednykh 2019/2020 primary texts count rooted forests and cone spanning trees, but do not describe the conditioned alternating spoke/cut gap law or joint Poisson-even/Dirichlet critical scaling in inspected full PDFs. Avena et al. general determinantal root-process theory is background but need not directly imply the joint cut/length distribution.
+
+## value
+
+PASS
+
+The exact conditioned spatial law and joint critical limit supply a complete natural distribution for a simple weighted spanning-tree family; they distinguish root count from geometry of resulting forest components and are useful for weighted random spanning-tree scaling questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

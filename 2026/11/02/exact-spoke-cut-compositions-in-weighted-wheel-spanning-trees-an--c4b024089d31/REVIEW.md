@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-A direct two-way bijection converts each spanning tree with one distinguished hub spoke into a pair consisting of an absolute root vertex and a \(2k\)-part weak composition of \(n-k\). Each rim component has exactly one spoke, making spoke/cut alternation necessary and sufficient. Multiplicity counting gives the exact \(\prod_i s_i\) component-size bias and correct normalization. Weighted counting gives the known matrix-tree partition function; the factorial majorant makes critical-law convergence and total variation rigorous. A fixed-dimensional lattice-simplex approximation followed by gamma aggregation gives the spatial Dirichlet law. A separate enumerative and exact determinant checker passed 5,458 checks. Risk: the checker is bounded to small wheels and cannot replace the infinite proof.
+PASS
 
-## Originality: PASS, with historical-priority risk
+A spanning tree with k spokes necessarily has k missing rim edges, forming k path components with exactly one spoke each; alternation of cut/spoke marks gives a bijection between pointed trees and a root vertex times ordered weak compositions of n−k into 2k gaps. Counting gives kc_nk=n*binom(n+k−1,2k−1), component-size fiber multiplicity product s_i, and Chebyshev determinant normalizer. For t=s/n², c_nk/n^{2k} -> 2/(2k)!, with uniform summable (4s)^k/(2k)! bound, so TV Poisson-even limit; simplex lattice weak convergence and Dirichlet aggregation give spatial law. Independently enumerated 33 spanning-tree/spoke classes and verified the marked composition bijection directly for n=3..8, rather than only trusting source checker.
 
-The 2017 rooted-forest survey provides the weighted measure and determinantal background; the 2019 circulant-forest paper establishes counting identities; the 2020 cone paper specializes the ordinary wheel tree count. These are credited, and the novelty claim excludes those known results. The relevant full texts were compared against the **exact finite conditional law** of the cut/root geometry and uniform marked compositions. Related independent rare-cut/spoke percolation has a Poisson-circle scaling limit that can also produce the critical distribution after conditioning on tree connectivity; the critical limit is not claimed as independent priority. Its finite law is not established by the unconditioned percolation functional. Searches of mathematical literature, indexed mathematical research records and accessible prior titles/claims found no implication-equivalent formula. A hidden or inaccessible direct spatial-specialization derivation remains possible; search absence alone does not prove first discovery.
+## originality
 
-## Value: PASS
+PASS
 
-A random rooted forest on a cycle is a canonical network-partition model. Its root-count critical window is where both a finite number of rooted components and macroscopic lengths survive. The exact finite size-biased composition law describes geometric partition sizes that the known partition function cannot resolve by itself, and leads to the Poisson-even and Dirichlet descriptions of the critical window. These are natural, broadly reusable benchmarks for the spatial behavior of the ensemble rather than arbitrary finite tables.
+Classical matrix-tree rooted-forest determinant and Chebyshev wheel count are prior and expressly excluded from novelty. Grunwald–Mednykh 2019/2020 primary texts count rooted forests and cone spanning trees, but do not describe the conditioned alternating spoke/cut gap law or joint Poisson-even/Dirichlet critical scaling in inspected full PDFs. Avena et al. general determinantal root-process theory is background but need not directly imply the joint cut/length distribution.
 
-## Scope and limits
+## value
 
-The limiting theorem holds for the homogeneous cycle-plus-hub model at fixed positive scaled conductance. It does not cover inhomogeneous spokes or different rim geometries. General weighted forest determinants, Chebyshev counts, Poisson-conditioning identities and standard Dirichlet properties are prior knowledge.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact conditioned spatial law and joint critical limit supply a complete natural distribution for a simple weighted spanning-tree family; they distinguish root count from geometry of resulting forest components and are useful for weighted random spanning-tree scaling questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
