@@ -1,19 +1,21 @@
-# Scientific review: paired sketched Rayleigh ranking
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algebraic sign factorization is exact; the \(2\times2\) Gram matrix of the sketched orthonormal eigenvectors has a real Wishart distribution. The trace-normalized disk density is correctly normalized for every integer \(k\ge2\). Conditional beta integration, Tonelli expansion and gamma-function simplification yield the finite-row formula. A separate circle argument handles \(k=1\), and an integration-by-parts argument gives the \(k=2\) elliptic form. Gamma duplication and dominated convergence prove the fixed-overlap asymptotic. The extracted standalone verifier passed 700,113 symbolic, numerical, and sampled checks. These checks corroborate, but do not replace, the proof. The candidate equality endpoint is explicitly excluded.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed from the actual RESULT.md blob: write g=Su,h=Sv, U=||g||²,Z=||h||²,V=g·h. Exact quotient cross-multiplication is (a-b)(c²-s²)[UZ+cs V(U+Z)]; denominator positivity makes inversion equivalent to 1-r²+rho*w<0 on normalized Wishart coordinates. For k>=2, density (k-1)/(2π)(1-r²-w²)^((k-3)/2) integrates to 1; beta conditioning, Tonelli and Gamma simplification yield the displayed 3F2; k=1 needs a circle law, k=2 elliptic E. Gamma duplication plus dominated convergence proves the fixed-rho (rho/2)^k/sqrt(k) asymptotic. Independently evaluated 8 k/rho hypergeometric-vs-beta/elliptic cases, all matched. rho=1 strict-event endpoint is excluded and discontinuous; independent sketches or joint 2D Ritz eigenvalues are not covered.
 
-The closest directly inspected primary references were Nakatsukasa--Tropp, arXiv:2111.00113 (2021), and Balabanov--Grigori, arXiv:2111.14641 (2021). Their relevant full-text sections describe sketched eigenvalue projections, sketched Rayleigh quotients, and embedding-based comparisons, but do not give the exact strict ranking-inversion law for two coupled fixed trial vectors and one common Gaussian sketch. A checked earlier one-quotient spectral-escape result integrates an entirely different event; it does not imply this paired ordering probability. Separate searches for equivalent Wishart-disk and Gaussian-ratio expressions produced no directly covering statement. The Wishart density and special-function identities are recognized as classical. The principal residual risk is an unindexed specialist distribution identity or an uninspected publication that implies the same formula; independent publication priority remains unverified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A sketched quotient can be individually accurate or bounded while a pairwise ranking still fails. The result gives an exact benchmark for that **joint decision**, in terms of sketch dimension and candidate overlap, with a sharp \((\rho/2)^k/\sqrt{k}\) rare-event law rather than a loose generic subspace-embedding guarantee. The eigenvalue-gap cancellation and two-row elliptic expression identify nontrivial structure. This is a motivated exact benchmark for numerical eigenvalue estimation, not a general proof of convergence or preservation of ordering for arbitrary candidate sets.
+Best-knowledge PASS for the exact paired-common-Gaussian-sketch strict reversal probability, not for Wishart statistics or sketched Ritz methodology. The latter are old; precise one-common-sketch joint-event formula and asymptotic constant were not obtained from inspected primary sections.
 
-## Limitations and literature comparison
+## value
 
-The analysis assumes a symmetric matrix, two orthonormal eigenmodes, swapped trial coefficients, and shared real i.i.d. Gaussian sketch rows. It covers two **separate one-dimensional sketched quotients**, not an eigenvalue ordering of one joint projected matrix. At equal candidate vectors, strict inversion is impossible even though the interior probability has a nonzero limiting value. No independent audit or independent publication-priority assessment has been performed. Full-text material inspected: the relevant eigenvalue/symmetry sections of Nakatsukasa--Tropp (https://ar5iv.labs.arxiv.org/html/2111.00113) and the eigenvalue/supplemental-quotient sections of Balabanov--Grigori (https://arxiv.org/pdf/2111.14641). A later Gaussian eigenvalue sketching paper was compared only by abstract and not claimed to be excluded by whole-document inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pairwise ordering is a distinct numerical decision not controlled exactly by an individual quotient error bound. The eigen-gap cancellation, explicit hypergeometric all-row law, singular one-row case, elliptic two-row case and sharp rare-event rate give a nontrivial benchmark for randomized Rayleigh comparisons on a motivated symmetric pair; not a generic algorithmic stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing the packaged files with the Python packages listed in `requirements.txt`. The test does not require network access or external data. The run completed successfully with the message `PASS: 700113 exact/numerical/direct randomized checks`.
+## correctness
 
-The checker verifies the sketched-quotient cross-product factorization by symbolic expansion, evaluates the incomplete-beta integral independently of the hypergeometric series across ten row counts and five overlaps, checks the explicit one- and two-row formulas, compares the large-row normalization, and directly constructs shared Gaussian sketches for 700,000 trials using a fixed random seed. Each randomized comparison checks equality of the numerator sign and observed quotient order, with probability estimates compared to the exact formula using a documented six-standard-error allowance. Additional finite algebraic Gram examples check the sign orientation. Direct Monte Carlo evidence is finite and is not a substitute for the analytic gamma/Wishart and dominated-convergence arguments in `RESULT.md`.
+PASS
 
-The formulas use the modulus convention for the elliptic integral \(E(\rho)\), while SciPy's `ellipe` accepts the parameter \(\rho^2\). Special-function numerical evaluation can underflow for extremely large row counts in ordinary floating point; the verifier's stated finite range is explicitly tested. Independent external audit remains unperformed.
+Reconstructed from the actual RESULT.md blob: write g=Su,h=Sv, U=||g||²,Z=||h||²,V=g·h. Exact quotient cross-multiplication is (a-b)(c²-s²)[UZ+cs V(U+Z)]; denominator positivity makes inversion equivalent to 1-r²+rho*w<0 on normalized Wishart coordinates. For k>=2, density (k-1)/(2π)(1-r²-w²)^((k-3)/2) integrates to 1; beta conditioning, Tonelli and Gamma simplification yield the displayed 3F2; k=1 needs a circle law, k=2 elliptic E. Gamma duplication plus dominated convergence proves the fixed-rho (rho/2)^k/sqrt(k) asymptotic. Independently evaluated 8 k/rho hypergeometric-vs-beta/elliptic cases, all matched. rho=1 strict-event endpoint is excluded and discontinuous; independent sketches or joint 2D Ritz eigenvalues are not covered.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for the exact paired-common-Gaussian-sketch strict reversal probability, not for Wishart statistics or sketched Ritz methodology. The latter are old; precise one-common-sketch joint-event formula and asymptotic constant were not obtained from inspected primary sections.
+
+## value
+
+PASS
+
+Pairwise ordering is a distinct numerical decision not controlled exactly by an individual quotient error bound. The eigen-gap cancellation, explicit hypergeometric all-row law, singular one-row case, elliptic two-row case and sharp rare-event rate give a nontrivial benchmark for randomized Rayleigh comparisons on a motivated symmetric pair; not a generic algorithmic stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:45.879900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed from the actual RESULT.md blob: write g=Su,h=Sv, U=||g||²,Z=||h||²,V=g·h. Exact quotient cross-multiplication is (a-b)(c²-s²)[UZ+cs V(U+Z)]; denominator positivity makes inversion equivalent to 1-r²+rho*w<0 on normalized Wishart coordinates. For k>=2, density (k-1)/(2π)(1-r²-w²)^((k-3)/2) integrates to 1; beta conditioning, Tonelli and Gamma simplification yield the displayed 3F2; k=1 needs a circle law, k=2 elliptic E. Gamma duplication plus dominated convergence proves the fixed-rho (rho/2)^k/sqrt(k) asymptotic. Independently evaluated 8 k/rho hypergeometric-vs-beta/elliptic cases, all matched. rho=1 strict-event endpoint is excluded and discontinuous; independent sketches or joint 2D Ritz eigenvalues are not covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakatsukasa–Tropp arxiv:2111.00113 establishes sketched Rayleigh–Ritz (sections 1.3, 6); Balabanov–Grigori arxiv:2111.14641 gives randomized eigenvalue projection and a sketched quotient discussion."
+        ],
+        "reasoning": "Embedding guarantees and general algorithms apply more broadly to sketching but do not explicitly entail this exact all-k two-trial inversion probability, without separate Wishart event integration.",
+        "searches": [
+          "Exact probability that two sketched one-dimensional Rayleigh Ritz quotients computed from same Gaussian sketch reverse ordering Wishart correlated 3F2",
+          "arxiv:2111.00113 section 6; arxiv:2111.14641 section 4.4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2111.00113 sections 1.3, 6",
+        "arxiv:2111.14641 PDF eigenvalue/supplementary quotient sections",
+        "Resultary query Exact probability that two sketched one-dimensional Rayleigh Ritz quotients computed from same Gaussian sketch reverse ordering Wishart correlated 3F2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-vector spectral escape and standard sketched Ritz approximation control a different event; the present fixed paired trial configurations produce an exact joint crossing."
+        ],
+        "reasoning": "Their conclusions do not logically yield the strict finite-k crossing probability or its sharp rho/2 exponential base. Specialist correlated-ratio identities remain a risk.",
+        "searches": [
+          "Gaussian sketched Rayleigh quotient two candidates pairwise inversion exact probability Wishart",
+          "arxiv:2111.00113 section 6; arxiv:2111.14641 section 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event is equivalent to a trace-normalized real 2x2 Wishart disk inequality 1-r²+rho*w<0, not a conventional single-quotient tail. No matching joint comparison theorem was identified in the inspected sketches or ranked published-record results."
+        ],
+        "reasoning": "Matching the marginal sketch law does not imply two dependent ratios have an exact rank-reversal distribution; common sketch covariance is essential.",
+        "searches": [
+          "Exact probability that two sketched one-dimensional Rayleigh Ritz quotients computed from same Gaussian sketch reverse ordering Wishart correlated 3F2",
+          "Gaussian sketched Rayleigh quotient two candidates pairwise inversion exact probability Wishart"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic lookup retrieved thematically related Gaussian and ranking records, not a known table for this two-candidate 3F2 law; checked primary sRR sources did not supply its exact expression."
+        ],
+        "reasoning": "No-match is search evidence only, not a proof of worldwide novelty.",
+        "searches": [
+          "Exact probability that two sketched one-dimensional Rayleigh Ritz quotients computed from same Gaussian sketch reverse ordering Wishart correlated 3F2",
+          "Gaussian sketched Rayleigh quotient two candidates pairwise inversion exact probability Wishart"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact paired-common-Gaussian-sketch strict reversal probability, not for Wishart statistics or sketched Ritz methodology. The latter are old; precise one-common-sketch joint-event formula and asymptotic constant were not obtained from inspected primary sections.",
+      "residual_risks": [
+        "Joint correlated Wishart ratios may have an older equivalent special-function distribution unindexed by searches.",
+        "Claim does not cover arbitrary trial vectors, independent sketches, or a joint 2D projected eigensystem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method, not exact two-one-dimensional-quotient misordering law",
+          "evidence": [
+            "Sketched RR formulation in section 6 has a projected eigenproblem, not the 2x2 Wishart-event probability."
+          ],
+          "identifier_or_url": "arxiv:2111.00113; https://ar5iv.labs.arxiv.org/html/2111.00113",
+          "material_read": "Original accessible HTML: sections 1.3, 6.1 and formula discussion, including non-symmetry effects",
+          "method": "direct primary full-text relevant-section reading",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Exact shared-sketch Rayleigh/Ritz method"
+        },
+        {
+          "assessment": "No exact paired common-sketch reversal formula in read portions",
+          "evidence": [
+            "Discussion of sketched Galerkin quotient is conditional on numerical approximation, not a joint ranking distribution."
+          ],
+          "identifier_or_url": "arxiv:2111.14641; https://arxiv.org/pdf/2111.14641",
+          "material_read": "Primary PDF: abstract, eigenvalue-algorithm and supplementary quotient passages, plus rendered page",
+          "method": "Primary PDF text and page visual read",
+          "title": "Randomized block Gram-Schmidt process for the solution of linear systems and eigenvalue problems",
+          "trigger": "Closest sketched quotient source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise ordering is a distinct numerical decision not controlled exactly by an individual quotient error bound. The eigen-gap cancellation, explicit hypergeometric all-row law, singular one-row case, elliptic two-row case and sharp rare-event rate give a nontrivial benchmark for randomized Rayleigh comparisons on a motivated symmetric pair; not a generic algorithmic stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes two swapped mixtures of two orthonormal eigenvectors of a symmetric real matrix and one shared iid real Gaussian sketch.",
+    "Theta in (0,pi/4); rho=1 equal-vector endpoint has strict inversion probability zero, despite nonzero interior limit.",
+    "Finite 8-case numerical checks corroborate special functions, not infinite theorem or originality."
+  ],
+  "schema_version": 1
+}
