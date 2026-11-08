@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a finite-dimensional exact equivalence with all quantifiers explicit: open finite chain, \(N\ge2\), all four amplitudes on each diamond nonzero, arbitrary complex phases, Hermitian static dynamics, arbitrary real hub and arm energies. Vanishing hub-to-hub amplitudes for all real time forces the second matrix moment to vanish on each adjacent pair, hence \(w_j^\dagger v_j=0\). The third moment then forces \((u_j-\ell_j)\overline{w_{j,U}}v_{j,U}=0\); nonzero edges imply equal arm energies. Conversely, orthonormalizing the two locally orthogonal arms yields an exact unitary direct sum of \(N\) blocks. Their dimensions sum to \(3N-2\); all-time hub isolation, compact support, and the full spectrum follow. Matrix-exponential expansion proves the distinct quadratic and cubic leakage coefficients. A reproducible independent matrix construction passed 2,970 numerical assertions, with maximum structural/spectral discrepancy \(2.52\times10^{-14}\). This numerical evidence is not used as a proof of the all-size theorem.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+For a finite Hermitian open diamond chain N≥2 with four nonzero hub-arm edges per link and no bypass edges, vanishing all off-diagonal hub amplitudes of exp(-itH) at all real times forces the adjacent-hub second moment (H²)_{j+1,j}=w_j* v_j to vanish. Its third moment then reduces to (u_j-l_j)conj(w_{j,U})v_{j,U}; nonzero edges force equal arm energies. Conversely w_j*v_j=0 and D_j=epsilon_j I make the normalized link vectors V_j,W_j orthogonal, define disjoint H-invariant hub-centered cages of sizes 2,3,...,3,2, and yield an exact direct sum. Taylor expansion gives first nonzero leakage amplitude order t² under nonzero inner product and t³ under pure unequal arm energies; probabilities begin at t⁴/t⁶. Independent exact 7-site matrix/basis calculation confirmed second/third moments and the 2+3+2 decomposition.
 
-The original periodic AB-cage effect is Vidal–Mosseri–Douçot (1998), not new [1]. Local symmetry detangling and arbitrary local angles were already discussed by Flach et al. (2014) [2], and fixed-hopping diamond-chain caging under symmetric on-site potential disorder was already proved through a decoupling transform in Ahmed et al. (2022) [6] and discussed in Ahmed–Roy–Sharma (2023) [7]. The prior generalities and covered special cases were expressly excluded from the originality claim. The inspected materials do not supply the joint iff test for all independent diamond-by-diamond choices of nonzero complex hopping vectors satisfying local cancellation, arbitrary hub energies, the explicit full direct-sum structure, and distinct minimal transition-amplitude leakage orders. Results found by meaning-based database search concern different graph structures or flat-band counts rather than this claim. The possibility that general local unitary constructions or less accessible studies imply exactly this special classification remains a nonzero historical-priority risk; independent literature certification has not been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original physical question is whether designed destructive interference remains **exact** when hopping amplitudes and local potentials are strongly disordered, without Bloch periodicity. The theorem gives a complete local algebraic design/diagnosis rule rather than a numerical localization length or another special homogeneous chain; it identifies what bond and potential perturbations are allowed, demonstrates robust dynamical confinement without macroscopic eigenvalue degeneracy, and distinguishes errors by their first short-time transfer-amplitude order (and corresponding fourth- or sixth-order transfer-probability onset). This is a natural classification of an experimentally motivated spectral/dynamical property, although not a generic disorder-robustness theorem.
+Vidal–Mosseri–Douçot first studied magnetic AB cages; Flach and collaborators give local-unitary flat-band detangling; Ahmed and collaborators studied fixed-hopping symmetry-preserving arm disorder. Those overlap with sufficient special cases, but the checked published statements do not explicitly provide the simultaneous arbitrary-link nonzero-complex-hopping iff test, arbitrary hub energies, and precise second/third-moment leakage boundary.
 
-## Closest literature and limits
+## value
 
-[1] https://arxiv.org/abs/cond-mat/9806068; [2] https://arxiv.org/abs/1311.5689; [3] https://arxiv.org/abs/1407.3486; [4] https://arxiv.org/abs/1407.8345; [5] https://arxiv.org/abs/1909.07055; [6] https://arxiv.org/abs/2205.02859; [7] https://arxiv.org/abs/2303.17633. Full accessible primary text was compared as described in the structured review. Inapplicable domains include additional bypass edges, vanishing individual couplings, non-Hermitian dynamics, nonstationary hopping, and periodic finite rings. The prior-work novelty assessment has not received independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete necessary-and-sufficient local design condition for exact finite-chain confinement with independently disordered complex hopping magnitudes/phases and energies, not simply a periodic flat-band example. It identifies two physically distinct failure modes and their sharp short-time leakage exponents, even when cage eigenvalues differ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
