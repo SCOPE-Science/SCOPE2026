@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source `verify_hamming_fixed.py` uses Python 3 standard library and reconstructs the Hamming graph and its actual total two-cut faces from pairs of words at Hamming distance at least two. The directly enumerated fixed-orbit complex is compared to the exact histogram criterion and to the combinatorial Alexander dual consisting of the \(q\) constant histograms. Test dimensions and alphabet sizes: \((2,2),(3,2),(4,2),(5,2),(6,2),(2,3),(3,3),(4,3),(2,4),(3,4),(2,5)\). There are **1,116,429** face comparisons, plus mod-two boundary-rank checks for the tractable examples and **46** signed Lefschetz trace comparisons across alphabet permutations. All passed, ending with `ALL_OK`.
+# Independent mathematical audit
 
-Run `python3 verify_hamming_fixed.py` from the unpacked package to replay. The infinite-parameter claim rests on the orbit/nonedge equivalence, simplicial join model, suspension argument, and the signed **integral** Alexander-dual cochain isomorphism in `RESULT.md`; finite verification cannot certify an infinite theorem. Integral module correctness is proved by natural integral duality, not by the finite mod-two computations. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For n,q≥2, S_n-word orbits are exactly the weak-composition histograms (T=binom(n+q−1,q−1)). A point of the geometric fixed set has constant barycentric coefficients on each word orbit; this identifies its exact PL orbit-simplex triangulation, not invariants of ambient homology. Every nonconstant histogram orbit contains two words at Hamming distance two (swap unlike coordinates); distinct constant orbits give distance n≥2, while each constant orbit has only one word. Therefore an orbit support is a face exactly when it omits any nonconstant orbit or at least two constant orbits. Its complex is (∂Δ_U*Δ_C)∪(Δ_U*sk_{q−3}Δ_C), with Alexander dual the q isolated constants. Suspension/join plus integral equivariant simplicial Alexander duality gives wedge^(q−1) S^(T−3) and sign of all T histogram vertices tensored with the coaugmentation quotient lattice Z^[q]/Z(1,...,1); using the quotient rather than augmentation kernel matters integrally. A symbol transposition fixes f histograms and swaps (T−f)/2 others, proving the parity twist. The boundary case q=n=2 has S0 and is handled by the model. Independently checked exhaustive omitted nonedge pairs versus orbit-face criterion for (n,q)=(2,2),(3,2),(2,3),(3,3),(2,4), and directly checked transposition histogram parity. These finite instances corroborate; the proof of all n,q rests on the structural duality and orbit argument, not extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
+
+## value
+
+PASS
+
+This is a genuine two-parameter infinite family of geometric fixed-point spaces under full coordinate permutations, giving their exact homotopy type and a nontrivial residual integral alphabet-symmetry lattice. Ambient rank and rational character results do not determine the topology of a geometric fixed locus or its integral coaugmentation action, so the structural equivariant refinement has mathematical use beyond parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
