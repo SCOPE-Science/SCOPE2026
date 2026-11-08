@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:16:00.524184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicitly specified open Michaelis–Menten full LNA and its one-substrate heuristic LNA, drift J=[[-a,v],[h,-v]] with a=u+d+k>0,h=u+d,v=k0e, determinant vk>0; diffusion covariance (c/Ω)[[2(d+k),-(2d+k)],[-(2d+k),2(d+k)]]. Stationary OU PSD via (iωI-J)^-1 D(-iωI-Jᵀ)^-1 yields S_full=(2c/Ω)[(d+k)ω²+k(ha+k(d+k))]/[(vk-ω²)²+(a+v)²ω²], S_heur=(2kc/Ω)/(ω²+(vk/a)²). Their difference has numerator -dω⁴+Bω²+C0 with B,C0>0, verified by independent symbolic resolvent algebra. Thus one ω*>0 crossing if d>0, strict heuristic excess for all finite ω if d=0; high-ω sign reverses only for d>0. Gaussian LNA statement, not exact CME or validated physical high-frequency QSSA.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": "The slow-scale LNA provides a general reduced spectral framework; 2025 source evaluates substrate-product cross-coherence with downstream product decay.",
+        "reasoning": "The general resolvent formalism makes the calculation possible but does not state the exact signed polynomial and its root structure for this pair of scalar spectra.",
+        "searches": [
+          "arxiv:1110.6617",
+          "arxiv:2510.27600",
+          "doi:10.1186/1752-0509-6-39"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1110.6617",
+        "https://arxiv.org/pdf/2510.27600",
+        "https://doi.org/10.1186/1752-0509-6-39",
+        "Git frozen RESULT.md and checks/check_spectrum.py blobs: 2cb3f194278a3cfe6dfe655d5aaaa9238c34cd5b / de5b21194444e61f1f4a8dea922136e29bd92a71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": "Prior mean-square error integrates S(ω); the present polynomial -d x²+B x+C0 and its one-positive-root sign involve specific free-substrate spectral numerators.",
+        "reasoning": "Existing integrated variance/coherence statements cannot by themselves force the detailed single-frequency sign reversal.",
+        "searches": [
+          "Thomas et al 2011 variance error expression",
+          "Marmolejo Lozano et al 2025 coherence equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "The claim is a sign change of the free-substrate two-sided auto-PSD; integrating the PSD yields variance but destroys pointwise sign information.",
+        "reasoning": "A previously known positive variance difference does not imply a unique frequency crossover or d=0 exception.",
+        "searches": [
+          "Michaelis Menten stochastic linear noise approximation full versus heuristic quasi steady-state substrate power spectral density frequency crossing",
+          "Thomas Straube Grima arxiv 1110.6617"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "No matching exact full-vs-heuristic free-substrate PSD sign table returned by Resultary or targeted searches.",
+        "reasoning": "An alternative supplementary formula might algebraically imply it, but an unsuccessful search is not proof of uniqueness.",
+        "searches": [
+          "Michaelis Menten stochastic linear noise approximation full versus heuristic quasi steady-state substrate power spectral density frequency crossing",
+          "full vs hQSSA substrate power spectrum crossover Michaelis Menten LNA"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact sign-frequency classification in the same open enzyme network, not for conventional QSSA, LNA PSD formula or known variance overestimate. Thomas–Straube–Grima gives integrated variance comparisons, and later work applies general spectral/coherence techniques but inspected sections do not state this all-parameter free-substrate auto-spectrum one-crossing theorem. A wider uninspected spectral appendix may entail it.",
+      "residual_risks": [
+        "Literature may contain algebraically equivalent scalar PSD formula not described as unique crossing.",
+        "High-frequency heuristic QSSA outside controlled timescale regime; only LNA identity, not experimentally validated CME."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Integrated substrate variance discrepancy is established, not the exact all-frequency PSD sign crossover in the inspected material.",
+          "evidence": "Variance is 1/(2π) integral of PSD; integration cannot fix unique sign change.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.6617",
+          "material_read": "accessible full primary PDF; examined reaction model, stationary variance formulas and conclusions",
+          "method": "PDF text with screenshot and equation checks",
+          "title": "Limitations of the stochastic quasi-steady-state approximation in open biochemical reaction networks",
+          "trigger": "same open Michaelis–Menten and heuristic stochastic reduction"
+        },
+        {
+          "assessment": "Treats substrate–product coherence with product decay and related spectra; different observable and network, but possible general PSD formulas remain related.",
+          "evidence": "Relevant displayed spectral/coherence equations describe substrate–product information transfer rather than sign of S_heur(substrate)-S_full(substrate).",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.27600",
+          "material_read": "accessible full PDF, examined model diagrams, coherence and spectral-analysis equations and conclusions",
+          "method": "PDF screenshots, keyword search and substantive section reading",
+          "title": "Effects of Model Reduction on Coherence and Information Transfer in Stochastic Biochemical Systems",
+          "trigger": "closest recent full spectral-matrix treatment"
+        },
+        {
+          "assessment": "General ssLNA formalism and model-reduction context, not assessed as whole-document noncoverage.",
+          "evidence": "The claim compares a specific heuristic hQSSA scalar PSD, not an automatically valid reduced ssLNA.",
+          "identifier_or_url": "https://doi.org/10.1186/1752-0509-6-39",
+          "material_read": "citation and description; no assertion complete full-body reading",
+          "method": "search/reference evaluation",
+          "title": "The slow-scale linear noise approximation: an accurate, reduced stochastic description of biochemical networks under timescale separation conditions",
+          "trigger": "prior general stochastic reduction technique"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp parameter-universal frequency-by-frequency reversal and dissociation-free exception distinguish model reduction error from the known integrated-variance excess. It directly informs which time scales differ between a full and heuristic Gaussian noise description, subject to the high-frequency applicability caveat.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1110.6617",
+    "https://arxiv.org/pdf/2510.27600",
+    "https://doi.org/10.1186/1752-0509-6-39",
+    "Git frozen RESULT.md and checks/check_spectrum.py blobs: 2cb3f194278a3cfe6dfe655d5aaaa9238c34cd5b / de5b21194444e61f1f4a8dea922136e29bd92a71"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Literature may contain algebraically equivalent scalar PSD formula not described as unique crossing.",
+    "High-frequency heuristic QSSA outside controlled timescale regime; only LNA identity, not experimentally validated CME."
+  ],
+  "schema_version": 1
+}

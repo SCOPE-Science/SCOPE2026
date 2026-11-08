@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-The complete standalone program is `checks/check_spectrum.py`. It requires Python 3 and NumPy, with no network access or downloaded scientific data. Run `python checks/check_spectrum.py` from the directory containing `checks`.
+## correctness
 
-The program constructs the two-by-two stationary drift and diffusion matrices directly from binding, dissociation, catalysis and substrate-input stoichiometry, and independently inverts the spectral resolvent. Across 1,200 deterministic-seed random draws spanning five decades in rate constants (including the zero-dissociation boundary), it checks the full and heuristic rational spectral formulas, their difference factorization and sign criteria and the zero-frequency identity. It separately constructs 100 positive physical steady states, solves their stationary Lyapunov equation as a four-by-four linear problem, and checks the substrate variance against the source formula. It reports `PASS 5000 independently computed comparisons; max_rel=3.047e-09` when executed with its deterministic inputs. Arithmetic uses standard floating-point precision with stated tolerances; the reported maximum relative discrepancy is not an error bound for arbitrary parameter values.
+PASS
 
-An independent symbolic manipulation verifies that subtracting the two exact rational spectra yields the claimed quadratic polynomial in squared frequency, with symbolic residual exactly zero. The universal theorem is analytically proved by positivity of its coefficients and the elementary root-sign classification; the random numerical checks only test implementation consistency and physical normalization. No external independent audit was performed.
+For the explicitly specified open Michaelis–Menten full LNA and its one-substrate heuristic LNA, drift J=[[-a,v],[h,-v]] with a=u+d+k>0,h=u+d,v=k0e, determinant vk>0; diffusion covariance (c/Ω)[[2(d+k),-(2d+k)],[-(2d+k),2(d+k)]]. Stationary OU PSD via (iωI-J)^-1 D(-iωI-Jᵀ)^-1 yields S_full=(2c/Ω)[(d+k)ω²+k(ha+k(d+k))]/[(vk-ω²)²+(a+v)²ω²], S_heur=(2kc/Ω)/(ω²+(vk/a)²). Their difference has numerator -dω⁴+Bω²+C0 with B,C0>0, verified by independent symbolic resolvent algebra. Thus one ω*>0 crossing if d>0, strict heuristic excess for all finite ω if d=0; high-ω sign reverses only for d>0. Gaussian LNA statement, not exact CME or validated physical high-frequency QSSA.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact sign-frequency classification in the same open enzyme network, not for conventional QSSA, LNA PSD formula or known variance overestimate. Thomas–Straube–Grima gives integrated variance comparisons, and later work applies general spectral/coherence techniques but inspected sections do not state this all-parameter free-substrate auto-spectrum one-crossing theorem. A wider uninspected spectral appendix may entail it.
+
+## value
+
+PASS
+
+A sharp parameter-universal frequency-by-frequency reversal and dissociation-free exception distinguish model reduction error from the known integrated-variance excess. It directly informs which time scales differ between a full and heuristic Gaussian noise description, subject to the high-frequency applicability caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

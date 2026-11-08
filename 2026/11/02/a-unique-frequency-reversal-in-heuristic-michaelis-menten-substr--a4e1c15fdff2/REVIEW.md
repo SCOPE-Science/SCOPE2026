@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact statement applies to two specified stable stationary linear-noise models of the substrate-input Michaelis–Menten reaction. The full drift and diffusion are obtained from the four elementary stoichiometric events, while the heuristic drift and diffusion follow from the reduced saturating propensity. An explicit two-by-two transfer-matrix inversion yields the full power spectrum, and subtracting the heuristic spectrum produces a numerator \(-d\omega^4+B\omega^2+C_0\), where both \(B\) and \(C_0\) are strictly positive for every permitted physical equilibrium. Its unique positive root for \(d>0\) and strict positivity for \(d=0\) establish the result without relying on finite sampling. A separate exact symbolic polynomial check and 5,000 numerical comparisons, including 100 independent Lyapunov covariance cases, substantiate the algebra. The claims concern linear-noise spectra, not the finite-volume chemical master equation.
+PASS
 
-## Originality — PASS on inspected evidence; historical priority provisional
+For the explicitly specified open Michaelis–Menten full LNA and its one-substrate heuristic LNA, drift J=[[-a,v],[h,-v]] with a=u+d+k>0,h=u+d,v=k0e, determinant vk>0; diffusion covariance (c/Ω)[[2(d+k),-(2d+k)],[-(2d+k),2(d+k)]]. Stationary OU PSD via (iωI-J)^-1 D(-iωI-Jᵀ)^-1 yields S_full=(2c/Ω)[(d+k)ω²+k(ha+k(d+k))]/[(vk-ω²)²+(a+v)²ω²], S_heur=(2kc/Ω)/(ω²+(vk/a)²). Their difference has numerator -dω⁴+Bω²+C0 with B,C0>0, verified by independent symbolic resolvent algebra. Thus one ω*>0 crossing if d>0, strict heuristic excess for all finite ω if d=0; high-ω sign reverses only for d>0. Gaussian LNA statement, not exact CME or validated physical high-frequency QSSA.
 
-The strongest exact-model predecessor is Thomas, Straube and Grima (2011), https://arxiv.org/html/1110.6617v1, which proves that the heuristic reduction overstates steady-state substrate *variance*. Because variance is a frequency integral, that finding neither implies nor contradicts the frequency-local reversal; the integral of the signed difference can be positive despite a high-frequency negative tail. The 2012 Thomas–Straube–Grima ssLNA article, https://doi.org/10.1186/1752-0509-6-39, derives general spectral methods but does not give this sharp comparison theorem. The closely relevant 2025 Marmolejo Lozano–Popović–Grima analysis, https://arxiv.org/html/2510.27600v1, studies enzyme **cross-coherence and mutual-information** spectra, not the sign of the *substrate auto-spectrum* difference for this product-untracked model; generic matrix formulas do not by themselves settle the sign or root count. Eilertsen–Srivastava–Schnell (2021), https://arxiv.org/abs/2101.04814, develops geometric model reduction, not this stated comparison. No matching source was found in the examined searches, but absence from a search does not establish priority. The full text of the 2021/2022 geometric treatment was not fully inspected, and broader unlocated spectral comparison results remain a historical risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A previously known integrated-variance overestimate can mask *frequency-local underestimation*. The exact single-crossover classification supplies a falsifiable, parameter-sensitive distinction between slow and fast spectral content: the heuristic hQSSA necessarily reverses its error sign when dissociation is nonzero, with an explicit crossover, while absence of dissociation forbids the reversal. The threshold is robust for all permitted binding, catalysis, enzyme and substrate values; no fine tuning, numerical root search, or assumption of arbitrary time-scale separation is needed. The high-frequency scale can be outside the validity of QSSA, and this caveat is part of the interpretation, not a premise hidden from the proof.
+Best-of-knowledge PASS for exact sign-frequency classification in the same open enzyme network, not for conventional QSSA, LNA PSD formula or known variance overestimate. Thomas–Straube–Grima gives integrated variance comparisons, and later work applies general spectral/coherence techniques but inspected sections do not state this all-parameter free-substrate auto-spectrum one-crossing theorem. A wider uninspected spectral appendix may entail it.
 
-## Closest literature and limitations
+## value
 
-The 2011 full model and the 2025 full/reduced spectral-matrix setting are the closest inspected research. This is a result for a **specified pair of Gaussian LNA spectra**, not a general theorem about all stochastic reduction methods or physical high-frequency simulation accuracy. Independent evaluation of historical novelty and of the full model beyond LNA has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp parameter-universal frequency-by-frequency reversal and dissociation-free exception distinguish model reduction error from the known integrated-variance excess. It directly informs which time scales differ between a full and heuristic Gaussian noise description, subject to the high-frequency applicability caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
