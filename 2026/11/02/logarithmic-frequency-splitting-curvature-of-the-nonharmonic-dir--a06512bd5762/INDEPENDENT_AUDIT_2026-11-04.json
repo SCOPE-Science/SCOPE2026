@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:38:03.128691Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The baseline gauged polynomial is D_N(t)=sin((N+1)t/2)/sin(t/2), with N simple interior zeros t_j=2πj/(N+1) for even N, slopes |D_N'(t_j)|=(N+1)/(2|sin(πj/(N+1))|), and imaginary transverse displacement b_j=t_j cos(Nt_j/2)=(-1)^j t_j cos(πj/(N+1)). For a simple real baseline zero, changing to the real coordinate u=Re G and integrating sqrt(u²+ε²b²)−|u| gives b² ε² log(1/|ε|)/|D'| plus O(ε²). Sum all N zeros; the complement is twice differentiable. The remaining finite sum is a Riemann sum yielding the exact limit. Independently checked formula and centered numerical second differences for N=2,4,6 and the N=1000 convergence. No assertion for odd N or uniform joint N,ε.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General norm inequalities and large-interval nonharmonic Littlewood estimates contain no stated coefficient for the local ε²log singularity on [-π,π]."
+        ],
+        "reasoning": "These theorems bound L¹ norms, not their singular local second variation; no controlling general theorem was found that implies C_N by direct specialization.",
+        "searches": [
+          "arXiv:2303.10919 full paper and Appendix context",
+          "arXiv:2311.17714 survey of trigonometric inequalities"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.10919",
+        "https://arxiv.org/abs/2311.17714",
+        "https://doi.org/10.1007/s00208-023-02692-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 provides quantitative L¹ lower bounds over sufficiently long intervals, and the given integration interval is [-π,π]."
+        ],
+        "reasoning": "A lower bound for P_{N,ε} does not imply an expansion of its L¹ norm, much less the coefficient C_N; transverse imaginary zero motions and local defect integrals are extra analysis.",
+        "searches": [
+          "arXiv:2303.10919 Theorem 1.1",
+          "arXiv:2311.17714"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper estimates L¹ norms of arbitrary real-frequency sums and recovers Littlewood-type lower bounds."
+        ],
+        "reasoning": "A frequency perturbation Hessian/cusp at equally spaced spectrum is not the same statement as a global lower bound at fixed frequency separation.",
+        "searches": [
+          "Jaming–Kellay–Saba arXiv:2303.10919 Theorem 1.1",
+          "Jaming–Saba survey arXiv:2311.17714",
+          "Resultary semantic search: nonharmonic Dirichlet kernel L1 frequency perturbation second derivative epsilon squared log curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical ∫|Dirichlet kernel|~log N is known and credited; tested exact finite-zero C_N coefficient is a different statistic."
+        ],
+        "reasoning": "A table of classical Lebesgue constants does not tabulate second frequency derivatives and no exact C_N list was located.",
+        "searches": [
+          "Jaming–Saba 2023 survey arXiv:2311.17714",
+          "Resultary query nonharmonic Dirichlet kernel curvature"
+        ]
+      },
+      "rationale": "Jaming–Kellay–Saba establish nonharmonic Littlewood-type lower bounds for L¹ norms over sufficiently long intervals and survey Dirichlet-kernel estimates; these results do not calculate the second-order singular response at one endpoint frequency on fixed [-π,π]. The local square-root modulus singularity is classical analysis, but exact assembly of its N Dirichlet-zero weights and the universal large-N coefficient is not identified as a published formula.",
+      "residual_risks": [
+        "A general published theorem on singular second variation of complex modulus integrals might automatically give the local cusp mechanism, though not obviously its complete Dirichlet coefficient.",
+        "Only even N and one displaced endpoint frequency; global optimality and odd N are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad lower L¹ estimates, not the specific fixed-interval local frequency expansion.",
+          "evidence": "Its Theorem 1.1 concerns quantitative bounds for nonintegral frequency sums over sufficiently long intervals, not derivative singularities at integer frequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.10919",
+          "material_read": "Full lawful arXiv preprint, main theorem and assumptions (large enough interval, separated frequencies) and proof context; inspected cited exact scope.",
+          "method": "primary preprint full-text PDF and theorem comparison",
+          "title": "The Littlewood problem and non-harmonic Fourier series",
+          "trigger": "same nonharmonic exponential sums and L¹ norms"
+        },
+        {
+          "assessment": "The survey supplies classical L¹ context; whole-document noncoverage is not claimed.",
+          "evidence": "The indexed themes are classical Dirichlet-kernel and nonharmonic inequalities rather than an explicit ε²log coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.17714",
+          "material_read": "Accessible survey abstract and classical-background description; no complete survey read in this execution.",
+          "method": "arXiv index and publisher/search summaries",
+          "title": "From Ingham to Nazarov’s inequality: a survey on some trigonometric inequalities",
+          "trigger": "possible Dirichlet kernel local variation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The failure of twice differentiability in a natural frequency direction and exact positive logarithmic curvature quantify local sensitivity of the classical Dirichlet sum under nonharmonic frequency perturbations; the sharp complete-zero coefficient and its stable limit are useful for frequency-stability questions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2303.10919",
+    "https://arxiv.org/abs/2311.17714",
+    "https://doi.org/10.1007/s00208-023-02692-w"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each fixed even N≥2, displacing the highest frequency N by ε in ∑_{k=0}^{N−1}e^{ikt}+e^{i(N+ε)t} changes its [-π,π] L¹ norm by A_N ε + C_N ε² log(1/|ε|)+O_N(ε²), with explicit positive Dirichlet-zero coefficient C_N=16π²/(N+1)^3∑_{j=1}^{N/2}j² sin(πj/(N+1))cos²(πj/(N+1)) and limit 32(3π−7)/(27π).",
+  "limitations": {
+    "actual_independent_work": [
+      "Read frozen Git RESULT.md, verification script, METADATA.json, AUDIT.json and SLOGAN.txt; verified source tree object and original blob identities.",
+      "Ran independent bounded computational crosschecks from inspectable self-written script without running repository code."
+    ],
+    "finite_tests_are_not_infinite_proofs": true,
+    "literature_priority_provisional": true,
+    "publication_privacy_clearance": false,
+    "source_program_executed": false
+  },
+  "residual_risks": [
+    "A general published theorem on singular second variation of complex modulus integrals might automatically give the local cusp mechanism, though not obviously its complete Dirichlet coefficient.",
+    "Only even N and one displaced endpoint frequency; global optimality and odd N are not claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes broad lower L¹ estimates, not the specific fixed-interval local frequency expansion.",
+      "evidence": "Its Theorem 1.1 concerns quantitative bounds for nonintegral frequency sums over sufficiently long intervals, not derivative singularities at integer frequencies.",
+      "identifier_or_url": "https://arxiv.org/abs/2303.10919",
+      "material_read": "Full lawful arXiv preprint, main theorem and assumptions (large enough interval, separated frequencies) and proof context; inspected cited exact scope.",
+      "method": "primary preprint full-text PDF and theorem comparison",
+      "title": "The Littlewood problem and non-harmonic Fourier series",
+      "trigger": "same nonharmonic exponential sums and L¹ norms"
+    },
+    {
+      "assessment": "The survey supplies classical L¹ context; whole-document noncoverage is not claimed.",
+      "evidence": "The indexed themes are classical Dirichlet-kernel and nonharmonic inequalities rather than an explicit ε²log coefficient.",
+      "identifier_or_url": "https://arxiv.org/abs/2311.17714",
+      "material_read": "Accessible survey abstract and classical-background description; no complete survey read in this execution.",
+      "method": "arXiv index and publisher/search summaries",
+      "title": "From Ingham to Nazarov’s inequality: a survey on some trigonometric inequalities",
+      "trigger": "possible Dirichlet kernel local variation comparison"
+    }
+  ]
+}

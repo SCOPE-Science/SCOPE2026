@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real-gauged Dirichlet sum has exactly \(N\) simple interior zeros for every even \(N\). Its zero slopes and imaginary frequency velocities are computed explicitly and substituted into a local square-root modulus lemma. The local proof controls the residual quadratic term, not just its leading order, and the coefficient-limit integral is elementary. The standalone checker passed 10 assertions using exact coefficient sums and quadrature-resolved symmetric second differences for degrees 2, 4, 6 and 8; finite tests do not prove the all-degree result.
+PASS
 
-## Originality — PASS, provisionally
+The baseline gauged polynomial is D_N(t)=sin((N+1)t/2)/sin(t/2), with N simple interior zeros t_j=2πj/(N+1) for even N, slopes |D_N'(t_j)|=(N+1)/(2|sin(πj/(N+1))|), and imaginary transverse displacement b_j=t_j cos(Nt_j/2)=(-1)^j t_j cos(πj/(N+1)). For a simple real baseline zero, changing to the real coordinate u=Re G and integrating sqrt(u²+ε²b²)−|u| gives b² ε² log(1/|ε|)/|D'| plus O(ε²). Sum all N zeros; the complement is twice differentiable. The remaining finite sum is a Riemann sum yielding the exact limit. Independently checked formula and centered numerical second differences for N=2,4,6 and the N=1000 convergence. No assertion for odd N or uniform joint N,ε.
 
-Jaming–Kellay–Saba (arXiv:2303.10919) proves nonharmonic \(L^1\) lower bounds; Jaming–Saba (arXiv:2311.17714) reviews the unperturbed Dirichlet \(L^1\) asymptotic and general real-frequency inequalities. Neither inspected result determines the local noninteger endpoint-frequency expansion. Published comparisons concerning finite cyclic Fourier projections or spatial-cutoff logarithmic energy are not dominating statements for this problem. An unindexed earlier perturbation calculation remains a residual priority risk; search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical equally spaced Littlewood sum is a natural baseline for nonharmonic frequency perturbations. The new coefficient quantifies a genuine failure of second differentiability rather than an ordinary Taylor correction and has a nontrivial universal high-degree limit. This gives an exact structural sensitivity invariant for an infinite natural family, without claiming global frequency optimality.
+Jaming–Kellay–Saba establish nonharmonic Littlewood-type lower bounds for L¹ norms over sufficiently long intervals and survey Dirichlet-kernel estimates; these results do not calculate the second-order singular response at one endpoint frequency on fixed [-π,π]. The local square-root modulus singularity is classical analysis, but exact assembly of its N Dirichlet-zero weights and the universal large-N coefficient is not identified as a published formula.
 
-## Limits
+## value
 
-Even degrees and one displaced edge frequency only; no simultaneous high-degree and small-perturbation estimate. Historical priority and independent verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The failure of twice differentiability in a natural frequency direction and exact positive logarithmic curvature quantify local sensitivity of the classical Dirichlet sum under nonharmonic frequency perturbations; the sharp complete-zero coefficient and its stable limit are useful for frequency-stability questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
