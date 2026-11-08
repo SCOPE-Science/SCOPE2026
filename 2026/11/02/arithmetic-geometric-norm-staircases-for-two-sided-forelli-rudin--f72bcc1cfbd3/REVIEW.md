@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(a,b>-1/2\) and \(c>0\), the binomial-series decomposition acts diagonally between two orthonormal radial monomial systems. The beta–gamma cancellation yields the stated singular coefficients with exact unweighted-area normalization. The consecutive-coefficient ratio is exactly \((n+c)/\sqrt{(n+A)(n+B)}\), and its sign crossing is the strictly increasing threshold sequence for \(A\ne B\). The gamma asymptotic proves the compactness and Schatten boundaries. At the asymmetric critical power, all singular coefficients strictly increase to the essential norm, precluding attainment; in the symmetric critical case they are constant. The standalone checker tests the algebra and kernel integral independently on finite instances. No finite calculation is used as a substitute for an infinite proof.
+PASS
 
-## Originality — PASS relative to accessible evidence
+Read RESULT.md and CHECK.py at assigned tree. Angular orthogonality gives two orthonormal monomial families in the stated unweighted radial measure; the binomial coefficient times the square root of two beta integrals simplifies exactly to Gamma(n+c)*sqrt(Gamma(A-1)Gamma(B-1))/(Gamma(c)*sqrt(Gamma(n+A)Gamma(n+B)). The input V_n and output U_n span the operator range/co-range; gamma ratios give exponent c-(A+B)/2 and bounded/compact/Schatten thresholds. The exact consecutive ratio (n+c)/sqrt((n+A)(n+B)) plus strict arithmetic-geometric mean proves ordered transition thresholds, ties and k(c)=(A-B)^2/(8(m-c))+O(1); strict monotone approach to the critical limit yields nonattainment and essential norm. Symmetric critical singular coefficients are all 1/(A-1), giving a scaled orthogonal projection. Independent SymPy algebra and 35-degree threshold scans over three independent weight pairs corroborated normalization and ordering; no finite scan establishes the infinite claim.
 
-Ding (arXiv:2009.09613), inspected in full-text portions on the definition and Theorems 3.1–3.2 with proof, treats the single-weight diagonal Bergman operator. Its disk specialization covers the symmetric slice but does not imply the asymmetric threshold sequence or norm-attainment distinction. The September 2026 Hu–Wang–Zhang–Zhou source treats the same kernel parametrization, but the accessible abstract specifies weak-type regimes \(p>q\), rather than exact Hilbert-space singular values. Bai–Zhu's accessible abstract covers the unweighted special case. Targeted literature and semantic-database queries found no stronger result implying the exact asymmetric staircase. Unread full texts of two plausible sources remain an explicit risk; failed search is not treated as a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem provides an exact, nontrivial three-parameter optimal norm and a natural complete classification of equality inputs for a widely studied integral-kernel family. Its infinite sequence of angular-mode changes, with a sharp arithmetic–geometric transition and a nonattained endpoint, is structural and cannot be recovered from the single-weight Schatten criterion by parameter substitution. It also identifies the full compact-operator ideal boundary, including the weak-Schatten endpoint.
+The asymmetric exact Hilbert singular spectrum, all optimizer transitions and critical nonattainment are the claimed contribution, not generic Forelli--Rudin boundedness or the symmetric Bergman diagonalization. The identical-kernel 2026 Hu--Wang--Zhang--Zhou source focuses p>q weak/restricted weak critical mapping; its accessible mathematical text was compared for implications, not just title. Ding 2020 proves single-weight Schatten statements; specializing a=b cannot give the strict a!=b staircase. The older Bai--Zhu unweighted paper might contain applicable auxiliary norm statements but its entire full text was unavailable. No located stronger source directly implies all asymmetric optimizer assertions. Originality is best-of-knowledge, not exhaustive.
 
-## Limitations and closest sources
+## value
 
-The result is confined to the disk and the Hilbert exponent \(2\), with strict radial integrability and positive kernel exponent. It neither settles general weak-type endpoints nor states results for the absolute kernel. The 2026 primary full text and the Bai–Zhu full text were unavailable from the checked lawful sources; their abstracts were read, not mistaken for full-text inspections. The residual risk is unindexed earlier analysis of the asymmetric operator. No independent audit was carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural full two-sided disk kernel has an exact operator norm, complete singular spectrum, ideal membership cutoff, and a sharp loss-of-compactness and norm-attainment transition. The alternating geometric-versus-arithmetic weight means produce an infinite ladder of genuinely changing extremizing angular modes, absent in the symmetric slice. These exact operator-theoretic invariants can guide related norm estimates and do not amount to an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
