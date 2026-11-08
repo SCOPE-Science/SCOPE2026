@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The finite odd-degree majority energy decreases strictly unless a state two steps apart repeats, giving eventual period at most two. Fixed configurations reduce exactly to two opposite-ring states plus parity-constrained independent edge sets. The time-pair de Bruijn graph traces exactly \\(M^2\\)-fixed configurations for all \\(n\\ge3\\); all 256 states and their 400 transitions, six recurrent components and their exact integer characteristic polynomials are reconstructed from the included standalone code. Algebraic root power sums yield the claimed six-residue formulas. Brute-force profiles \\(3\\le n\\le8\\) and exact transfer traces \\(3\\le n\\le40\\) agree. No inference from partial enumeration to infinity is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2205.08972 Section 1.1 assumes one-dimensional radius-r self-inclusive neighborhoods",
+        "arxiv:2312.13769 Theorem 1 covers finite trees and pure two-cycles",
+        "The classical period-at-most-two theorem gives no counts"
+      ],
+      "reasoning": "General period-two convergence supplies only a universal bound on temporal orbit length. One-dimensional periodicity and tree counting do not give a transfer-polynomial or closed census for \\(C_n\\square K_2\\) under a three-neighbor, self-exclusive rule.",
+      "searches": [
+        "\"majority dynamics\" \"period two\" graph exact census",
+        "\"circular ladder\" \"majority\" absorbing configurations Lucas",
+        "arxiv:2205.08972",
+        "arxiv:2312.13769"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.06760",
+      "https://arxiv.org/abs/2205.08972",
+      "https://arxiv.org/abs/2312.13769",
+      "https://arxiv.org/abs/2101.09103",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=Network+dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Different graph for the source stable-coloring count",
+        "Different topology and pure-cycle restriction for the tree result",
+        "Static NE count does not give all period-dividing-two majority states",
+        "Self-inclusive local rule is not the prism rule"
+      ],
+      "reasoning": "The new statement determines \\(T_n=|\\operatorname{Fix}(M^2)|\\) and \\(P_n\\), with an \\(O(\\varphi^{2n})\\) dominant rate. Source stable-coloring facts determine only a subset \\(\\operatorname{Fix}(M)\\); even an exact formula for \\(\\operatorname{Fix}(M)\\) cannot recover \\(\\operatorname{Fix}(M^2)\\) without additional dynamics. In contrast, the explicit 256-state time-pair transfer and six-block spectral factorization compute the missing part.",
+      "searches": [
+        "arxiv:2302.06760 stable colorings cycle Theorem 2.8",
+        "arxiv:2312.13769 tree pure two-cycle Theorem 1",
+        "arxiv:2101.09103 circular ladder Nash equilibria equation 30",
+        "arxiv:2205.08972 temporal periodicity radius-r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2101.09103 Section 2 and Sections 3.2/4.2: static anti-coordination equilibria on circular ladders",
+        "arxiv:2302.06760 Theorem 2.8: stationary majority configurations on C_n",
+        "No equation for the prism two-time trace found in compared source sections"
+      ],
+      "reasoning": "Examined aliases prism/circular ladder, temporal two-cycle/periodic attractor, majority graph automata and anti-coordination gauge reduction. A bipartite color gauge can identify static majority fixed states with certain anti-coordination configurations at even ring lengths, but a static one-step inequality does not classify pairs satisfying M(x)=y and M(y)=x.",
+      "searches": [
+        "\"majority\" \"prism graph\" \"fixed points\" synchronous",
+        "\"ladder graph\" \"majority dynamics\" \"period two\" configurations",
+        "Exact number of fixed points and strict two-cycles for synchronous majority dynamics on prism graphs C_n Cartesian K_2; Lucas L_{2n} and modulo six corrections",
+        "arxiv:2101.09103"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standalone exact enumeration yields \\(T_3=22\\), \\(T_4=64\\), \\(T_5=124\\), \\(T_6=484\\)",
+        "arxiv:2302.06760 and arxiv:2312.13769 provide different graph families; neither contains these counts"
+      ],
+      "reasoning": "Searched the natural small-value table and full infinite-family keywords. No matching published two-cycle table was identified; this absence is not treated as proof of uniqueness.",
+      "searches": [
+        "prism majority two cycle exact count n=3 n=4 22 64",
+        "circular ladder graph synchronous majority dynamics count periodic attractor states two cycle",
+        "Binary majority cellular automata period-two states on circular ladders, fixed points and two-cycle enumeration; 256-state transfer matrix"
+      ]
+    },
+    "rationale": "The initiating majority-paper theorem handles cycle stable configurations, not prism two-cycle populations. Published tree counting and one-dimensional radius-majority results do not dominate the cubic prism theorem. Circular-ladder anti-coordination counts static Nash equilibria, not the two-step majority trace. Exact semantic and alias searches gave no covering statement; hidden equivalents remain a named publication-priority risk.",
+    "residual_risks": [
+      "An unindexed equivalent prism Boolean-network or transfer-matrix calculation may exist.",
+      "Some even-length fixed-point formulas may be derivable by a color-gauge reduction from static anti-coordination counting; the accepted main contribution is the full two-cycle census.",
+      "No independent external audit or publication-priority review has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated enumerative theorem concerns stable configurations on simple cycles, not the complete fixed/two-cycle spectrum of prisms.",
+        "evidence": [
+          "arxiv:2302.06760, Theorem 2.8: stable colorings on C_n grow as the golden ratio power",
+          "arxiv:2302.06760, Section 5: experiments concern cycles, distance-two cyclic graphs and random augmentations; Section 6 poses graph-family extensions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06760v1",
+        "material_read": "HTML full paper: preliminary definitions, Sections 1–2, stable-coloring theorem 2.8, experiments in Section 5 and conclusions in Section 6",
+        "method": "Read displayed source text and compared graph topology, update semantics, exact versus asymptotic objects, and temporal-cycle statements",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Starting majority-opinion diffusion model and proposed broader graph-family questions"
+      },
+      {
+        "assessment": "Its self-inclusive one-dimensional radius-majority graph differs from the two-layer self-exclusive cubic prism; no exact prism count was identified in examined material.",
+        "evidence": [
+          "arxiv:2205.08972, Section 1.1: r-neighborhood [i-r,i+r] includes the center cell",
+          "arxiv:2205.08972, abstract and Theorem 1 scope: structure of periodic one-dimensional strings, rather than a prism count"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "PDF first four pages including abstract, definitions of one-dimensional radius-r self-inclusive neighborhoods and main temporal-periodicity framework; table of contents examined",
+        "method": "Compared local neighborhoods, state spaces, temporal-period claims and stated main theorem",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Plausible stronger temporal-two-cycle structural theorem"
+      },
+      {
+        "assessment": "Theorems count fixed/pure two-cycles on trees, not all temporal two-cycles on cyclic prisms.",
+        "evidence": [
+          "arxiv:2312.13769, Theorem 1 restricted to trees",
+          "arxiv:2312.13769, Section 3 distinguishes pure two-cycles from other two-cycles"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.13769",
+        "material_read": "PDF introduction, theorem statements, Section 2 state of the art, Section 3 rules and tree characterizations, heading scans for circular/prism",
+        "method": "Compared graph class, distinctions between strict and pure cycles, generality of counting statements",
+        "title": "Counting Problems in Trees, with Applications to Fixed Points of Cellular Automata",
+        "trigger": "Published exact enumeration of fixed points and pure two-cycles under majority rules"
+      },
+      {
+        "assessment": "May imply some fixed-state relations through a gauge transformation for even ring lengths, but the work enumerates static Nash equilibria only and does not state or imply the full two-update periodic-state count.",
+        "evidence": [
+          "arxiv:2101.09103, Section 2 defines anti-coordination payoffs",
+          "arxiv:2101.09103, Sections 3.2 and 4.2 enumerate pure Nash equilibria rather than temporal two-cycles"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.09103",
+        "material_read": "PDF title, game definition Section 2, circular-ladder Sections 3.2 and 4.2, Section 5 discussion, Section 6 future directions, relevant appendix formulas",
+        "method": "Compared anti-coordination Nash equilibrium inequalities versus the two-time majority relation, and tested the possibility of bipartite relabeling",
+        "title": "Nash Equilibria in Certain Two-Choice Multi-Player Games Played on the Ladder Graph",
+        "trigger": "Same prism graph, likely transfer or gauge transformation related to static fixed points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e13081f6-dc88-4665-9e91-bee34d3d6f89",
+  "value": {
+    "rationale": "An exact all-size census of the full terminal orbit structure on the canonical cubic prism social network is a motivated extension of the source’s stable-coloring question beyond cycles. It exhibits a nontrivial spectral separation: fixed configurations grow like \\(\\varphi^n\\), while two-cycle states grow like \\(\\varphi^{2n}\\), and provides exact residue-dependent corrections and orbit counts. This informs persistence of disagreement/blinking patterns, rather than merely recomputing a known static statistic.",
+    "status": "PASS"
+  }
+}
