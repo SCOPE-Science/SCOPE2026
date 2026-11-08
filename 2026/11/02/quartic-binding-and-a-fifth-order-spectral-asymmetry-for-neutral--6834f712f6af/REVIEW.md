@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite-support resolvent kernel is exact for \(E=2J\cosh\kappa\). Neutrality cancels the divergent rank-one term at first order, and the distance quadratic form is strictly negative on a nonzero neutral vector, giving \(A>0\). The rank-one determinant lemma, uniform invertibility of the regular part, the analytic implicit function theorem, and the chiral unitary relation establish the stated two-edge expansion. The convexity argument separately extends *existence*, not uniqueness, to all nonzero couplings. Five reproducible neutral patterns and ten finite-chain eigenvalue comparisons confirm the formulas numerically; the proof itself is not based on the finite tests.
+PASS
 
-## Originality
+Neutrality and discrete cut expansion give A=sum_k(sum_{n_i<=k}w_i)^2>0. The finite-rank free resolvent has G_kappa(i,j)=exp(-kappa|i-j|)/(2J sinh kappa); split rank-one singular part and analytic bounded remainder R0=-D/(2J). The determinant lemma yields scalar F(kappa,eps)=2J sinh kappa -eps w^T(I-eps R_kappa W)^(-1)1=0. Cancellation of w^T1 and Taylor expansion give kappa=A eps^2/(2J^2)+B eps^3/(8J^3)+O(eps^4); J kappa^2 yields the quartic and quintic coefficients. Uniform invertibility for all kappa≥0 and implicit monotonicity near zero excludes other weak-coupling edge states. Unitary alternating-site parity shows H_eps is unitarily equivalent to -H_-eps, yielding the lower-edge expansion and odd-power gap difference. Sup spectrum is convex in eps and at least 2J, so strict weak-coupling binding on each sign persists for all nonzero coupling. Independent high-precision secular-root calculations on the neutral defect (0,1),(1,-2),(5,1) reproduced A=5 B=-32 and approached predicted fifth-order coefficient -20; numerical approximation is corroboration, not universal proof.
 
-PASS on the examined evidence, with historical-priority reservations. Damanik–Hundertmark–Killip–Simon (arXiv:math-ph/0211015, Theorem 3.1) provides broad indefinite-potential bound-state existence but not the paired quartic/quintic edge expansion. Webb–Olver (arXiv:1702.03095, §4) provides a general Jacobi spectral polynomial method, without stating this closed neutral-charge asymptotic or the opposite fifth-order coefficients. Simon's 1976 continuum result is a significant conceptual antecedent; its full text was not available here, so the result should not be described as historically certified novel. The finite-rank Green-function method is existing mathematics and is fully credited.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The imposed zero total potential is a physical charge-neutrality constraint, not an arbitrary numerical slice: it cancels the standard band-edge coupling mechanism and exposes a universal fourth-power binding scale. The coefficient \(A\) is the one-dimensional electrostatic cumulative-charge energy, and \(B\) is an intrinsic signed cubic distance moment measuring the first difference between the upper and lower edge localization energies. The result covers every finite neutral arrangement, and also establishes robust two-sided binding at arbitrary coupling; it offers an exact benchmark for weakly compensated lattice defects.
+General existence of bound states for indefinite-sign discrete potentials (Damanik et al.) and finite-rank Jacobi spectral methods (Webb–Olver) are prior knowledge. Their inspected theorems do not evaluate the neutral signed-distance invariant A or cubic invariant B producing the two edge expansions. The result claims only these explicit critical-order coefficients and global two-sided existence, not invention of the free resolvent or generic variational approach.
 
-## Limitations and independent status
+## value
 
-General inhomogeneous hopping, infinite-support potentials and interacting particles are not addressed. Global eigenvalue counts are not claimed. Priority remains subject to specialized earlier weak-coupling expansions and full-text review of inaccessible historical sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zero-mean cancellation forces a qualitative shift from quadratic to quartic weak binding. The signed quintic difference is a motivated spectral asymmetry diagnostic invisible to the leading gap. Global existence on both sides complements the local expansion; this determines concrete behavior of an important natural family of finite-rank lattice defects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

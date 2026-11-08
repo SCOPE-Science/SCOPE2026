@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:52:46.707890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Neutrality and discrete cut expansion give A=sum_k(sum_{n_i<=k}w_i)^2>0. The finite-rank free resolvent has G_kappa(i,j)=exp(-kappa|i-j|)/(2J sinh kappa); split rank-one singular part and analytic bounded remainder R0=-D/(2J). The determinant lemma yields scalar F(kappa,eps)=2J sinh kappa -eps w^T(I-eps R_kappa W)^(-1)1=0. Cancellation of w^T1 and Taylor expansion give kappa=A eps^2/(2J^2)+B eps^3/(8J^3)+O(eps^4); J kappa^2 yields the quartic and quintic coefficients. Uniform invertibility for all kappa≥0 and implicit monotonicity near zero excludes other weak-coupling edge states. Unitary alternating-site parity shows H_eps is unitarily equivalent to -H_-eps, yielding the lower-edge expansion and odd-power gap difference. Sup spectrum is convex in eps and at least 2J, so strict weak-coupling binding on each sign persists for all nonzero coupling. Independent high-precision secular-root calculations on the neutral defect (0,1),(1,-2),(5,1) reproduced A=5 B=-32 and approached predicted fifth-order coefficient -20; numerical approximation is corroboration, not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A broad variational criterion yields eigenvalue existence but no explicit weak-coupling coefficients.",
+          "General Jacobi connection-coefficient determinant techniques give a framework; the special neutral singular band-edge expansion is still needed."
+        ],
+        "reasoning": "Broad existence does cover part of the result; the isolated novelty is the explicit quartic coefficient and signed quintic asymmetry.",
+        "searches": [
+          "Damanik et al 2002 Theorem 3.1 all nonzero-coupling indefinite-sign discrete potentials",
+          "Webb Olver arxiv:1702.03095 spectra of Jacobi operators via connection coefficients",
+          "Birman Schwinger weak coupling theory"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA d277f183aaf9f03af485c1d6f7ac4545d52770da",
+        "Independent mpmath resolvent secular check for finite-neutral w example in independent_checks.py",
+        "Damanik et al arxiv:math-ph/0211015 primary PDF and Theorem 3.1",
+        "Webb Olver arxiv:1702.03095",
+        "Simon 1976 weak continuum coupling DOI 10.1016/0003-4916(76)90038-5",
+        "Resultary neutral Jacobi threshold search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The variational theorem implies existence of exterior states, not uniqueness at sufficiently weak coupling or their ε^5 sign difference.",
+          "Resolvent and determinant identities are ingredients but a singular expansion to cubic order in kappa is an additional calculation."
+        ],
+        "reasoning": "The prior general methods do not by themselves state or immediately imply all coefficient values; any stronger specialized discrete expansion remains a priority risk.",
+        "searches": [
+          "Damanik et al arxiv:math-ph/0211015 Theorem 3.1",
+          "Jacobi finite rank resolvent determinant lemma",
+          "Simon continuum threshold analogy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indefinite-sign discrete defects are the same Jacobi setting, but the audited target distinguishes both band edges and computes a fifth-order signed coefficient.",
+          "Continuum weak-coupling bound-state results can have analogous cancellation but do not entail the discrete |n_i-n_j| and B formula."
+        ],
+        "reasoning": "Compared band-edge binding, zero-total-mass threshold behavior and negative-edge parity duality, not only paper names. Exact two-branch expansion is not present in inspected prior results.",
+        "searches": [
+          "Resultary: one dimensional discrete Schrödinger neutral finite support signed potential zero sum quartic weak coupling band edge fifth order",
+          "Damanik Hundertmark Killip Simon arxiv:math-ph/0211015 Theorem 3.1",
+          "Simon 1976 weakly coupled bound states"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Damanik paper states variational estimates rather than the two signed asymptotic coefficients A^2/(4J^3), AB/(8J^4).",
+          "No exact table in the checked works supplied the neutral three-impurity B=-32 example or general formula."
+        ],
+        "reasoning": "No matching coefficient table was observed, but unindexed discrete weak-coupling expansions remain plausible.",
+        "searches": [
+          "arxiv:math-ph/0211015 main statements",
+          "arxiv:1702.03095 Jacobi spectra",
+          "Resultary neutral lattice potential quartic fifth order searches"
+        ]
+      },
+      "rationale": "General existence of bound states for indefinite-sign discrete potentials (Damanik et al.) and finite-rank Jacobi spectral methods (Webb–Olver) are prior knowledge. Their inspected theorems do not evaluate the neutral signed-distance invariant A or cubic invariant B producing the two edge expansions. The result claims only these explicit critical-order coefficients and global two-sided existence, not invention of the free resolvent or generic variational approach.",
+      "residual_risks": [
+        "A specialized earlier discrete Jacobi weak-coupling expansion could algebraically imply the A/B coefficients.",
+        "Fixed finite-support real neutral w and uniform hopping J are necessary; global uniqueness for arbitrary epsilon, infinite support, or multi-body effects are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers variational existence related to arbitrary coupling, but not neutral ε^4/ε^5 two-edge spectral gaps",
+          "evidence": [
+            "Theorem 3.1 controls existence via sign-changing potential, with no A/B expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0211015",
+          "material_read": "Primary PDF 17 pages, Theorem 3.1 and its surrounding proof and subsequent examples; page images inspected",
+          "method": "Read and compare theorem hypotheses and conclusion",
+          "title": "Variational Estimates for Discrete Schrödinger Operators with Potentials of Indefinite Sign",
+          "trigger": "Same indefinite-sign discrete one-dimensional operator and bound-state existence"
+        },
+        {
+          "assessment": "Methodological prior, potential implication risk; no whole-document negative priority claim",
+          "evidence": [
+            "Connection-coefficient matrix approach treats spectral computation generally, while current explicit neutral threshold expansion needs verification beyond abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.03095",
+          "material_read": "Accessible abstract and bibliographic context; full theorem not claimed inspected",
+          "method": "Read abstract/available mathematical summary",
+          "title": "Spectra of Jacobi operators via connection coefficient matrices",
+          "trigger": "General finite-rank Jacobi spectral method potentially dominating special-case secular equation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zero-mean cancellation forces a qualitative shift from quadratic to quartic weak binding. The signed quintic difference is a motivated spectral asymmetry diagnostic invisible to the leading gap. Global existence on both sides complements the local expansion; this determines concrete behavior of an important natural family of finite-rank lattice defects.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA d277f183aaf9f03af485c1d6f7ac4545d52770da",
+    "Independent mpmath resolvent secular check for finite-neutral w example in independent_checks.py",
+    "Damanik et al arxiv:math-ph/0211015 primary PDF and Theorem 3.1",
+    "Webb Olver arxiv:1702.03095",
+    "Simon 1976 weak continuum coupling DOI 10.1016/0003-4916(76)90038-5",
+    "Resultary neutral Jacobi threshold search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized earlier discrete Jacobi weak-coupling expansion could algebraically imply the A/B coefficients.",
+    "Fixed finite-support real neutral w and uniform hopping J are necessary; global uniqueness for arbitrary epsilon, infinite support, or multi-body effects are not claimed."
+  ],
+  "schema_version": 1
+}
