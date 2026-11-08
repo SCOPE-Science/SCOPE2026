@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:48:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent checker reconstructed modal DG flux and L_m=F_{i−1}−F_i, L_b=3m_i²+b_i²−3(F_{i−1}+F_i), then all SSPRK3 stages symbolically using exact rationals for N=2,4,6,8,10,12. It matched the explicit six/eight/large-N overshoot polynomials coefficientwise, conservation, stage characteristic-speed bounds via Bernstein conversion, and all final mean-in-[0,1] bounds at N=2,4. Analytically δ_N>s²/4 implies physical overshoot Aδ_N>2; one changed cell dominates exponential entropy loss on N=6,8,10, while radius-three locality bounds at most six perturbed high cells for larger N. At N=2,4 mass conservation plus convex chord inequality proves no global growth. Stencil locality, not grid sampling, extends the finite polynomial cases to every even N. Correctness restricted to stated initial data, fixed alpha and global cell-mean criterion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related source establishes sufficient obstruction at even N≥12 per accessible abstract/package citation, full text inaccessible",
+          "Wei–Shu uses different degree-two DG and L² notion"
+        ],
+        "reasoning": "The larger-mesh example does not imply an exact six-cell minimality theorem, and the distinct L² instability is not a covering special case; full closest paper remains a material priority risk.",
+        "searches": [
+          "Liu Jiang Zhang High-Order Fully Discrete Entropy-Stable DG Methods 2026; Wei Shu 2025 SSPRK3 Burgers L²"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.30535 abstract (full text inaccessible)",
+        "Liu/Jiang/Zhang 2026 related published configuration as quoted in RESULT.md",
+        "Wei–Shu 2025 preprint title and summary",
+        "Resultary query as above",
+        "current RESULT.md and verify.py full inspected; independent symbolic checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known family N≥12 and exponent entropy mechanism already prior",
+          "independently derived N=2,4 Bernstein and N=6 overshoot are additional exact cases"
+        ],
+        "reasoning": "A construction valid for N≥12 does not logically imply that six is minimal. However inaccessible original full text might include lower-N cases, hence priority uncertainty must remain visible.",
+        "searches": [
+          "Liu–Jiang–Zhang arxiv:2610.30535v1 Section 2.3 (not read in full) versus 6-cell sharpened theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Jiang–Zhang arxiv:2610.30535v1 abstract and research package quote Section 2.3",
+          "source polynomial δ_6 and Bernstein m_i in RESULT.md"
+        ],
+        "reasoning": "A smallest stencil-size entropy counterexample is equivalent to first even N with global cell-mean exponential increase on this exact scheme. This is not a general SSP strong-stability cutoff.",
+        "searches": [
+          "SSPRK3 P1 DG Burgers entropy cell mean max principle sharp minimal periodic N; Resultary: SSPRK3 DG Burgers two plateau exponential entropy minimal six cells Lax Friedrichs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact independently regenerated N=2,4 means in [0,1]; N=6 δ_6 polynomial >s²/4",
+          "Resultary nearest results address other SSP positivity and DG instability objects"
+        ],
+        "reasoning": "No database coverage by small-mesh exact cutoffs seen; this negative search cannot prove novelty.",
+        "searches": [
+          "Resultary Search: SSPRK3 DG Burgers two plateau exponential entropy minimal six cells Lax Friedrichs"
+        ]
+      },
+      "rationale": "Liu–Jiang–Zhang (arxiv:2610.30535v1) supply the large even-N≥12 two-plateau entropy obstruction, whereas examined derived finite-grid calculations sharpen to N=6. The closest preprint could not be read in full via arXiv/OA, and an authorized institutional retrieval returned vpn_disconnected. Thus no whole-document NOT_COVERING assertion is made. Best-of-knowledge distinct threshold; substantial explicit primary-source access risk remains, which alone does not fail originality.",
+      "residual_risks": [
+        "Closest exact-setup Liu/Jiang/Zhang full paper could not be read because accessible OA failed and authorized Oxford returned vpn_disconnected; it may cover smaller grids or appendices.",
+        "Sharpness excludes global cell-average entropy growth for N2/N4 on a specified two-plateau family, not universal entropy stability or local entropy flux feasibility.",
+        "Exact symbolic calculation covers N2..12, with all larger even N by radius-three locality; finite runs alone would not prove infinite family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY FULL-TEXT UNAVAILABLE; PRIORITY RISK NOT EXCLUDED",
+          "evidence": "Known previous construction for large even N; cannot use an abstract as whole-document evidence of no 6-cell cutoff",
+          "identifier_or_url": "https://arxiv.org/abs/2610.30535",
+          "material_read": "Arxiv abstract, accessible metadata and the current record’s Section 2.3 excerpt/formula only; full primary text NOT obtained",
+          "method": "tried arXiv and open access; authorized Oxford retrieval after those attempts returned vpn_disconnected",
+          "title": "Y. Liu, Y. Jiang, M. Zhang, High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+          "trigger": "exact same SSPRK3 DG Burgers two plateau exponential entropy configuration"
+        },
+        {
+          "assessment": "DISTINCT SCHEME/ENTROPY, NOT FULL-TEXT EXCLUSION",
+          "evidence": "P² DG, smooth data and quadratic entropy are unlike fixed P¹ two-plateau cell means",
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+          "material_read": "Title/abstract and stated setup only; full proof not read",
+          "method": "primary preprint abstract inspection",
+          "title": "Y. Wei and C.-W. Shu, Counterexample to one-step strong L²-stability of third order RK DG for Burgers",
+          "trigger": "plausible related SSPRK3 instability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum mesh of a canonical published SSPRK3-DG entropy counterexample is a natural sharp finite cutoff, not an arbitrary tiny instance. The two/four-cell universal-convex nonincrease explains a genuine boundary and distinguishes a global mean-entropy obstruction from a universal method stability theorem. Resolving six vs twelve has intrinsic numerical-analysis benchmark value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.30535 abstract (full text inaccessible)",
+    "Liu/Jiang/Zhang 2026 related published configuration as quoted in RESULT.md",
+    "Wei–Shu 2025 preprint title and summary",
+    "Resultary query as above",
+    "current RESULT.md and verify.py full inspected; independent symbolic checker"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the precise periodic even-N Burgers P1 DG, Lax–Friedrichs flux and SSPRK3 two-plateau construction of Liu–Jiang–Zhang with 0<s≤1/4 and A=8/s², N=6 is the minimal even mesh giving global exponential entropy of updated cell averages larger than initially; N=2,4 give global nonincrease for every convex entropy on the fixed initial profile.",
+  "limitations": [
+    "Closest exact-setup Liu/Jiang/Zhang full paper could not be read because accessible OA failed and authorized Oxford returned vpn_disconnected; it may cover smaller grids or appendices.",
+    "Sharpness excludes global cell-average entropy growth for N2/N4 on a specified two-plateau family, not universal entropy stability or local entropy flux feasibility.",
+    "Exact symbolic calculation covers N2..12, with all larger even N by radius-three locality; finite runs alone would not prove infinite family."
+  ],
+  "residual_risks": [
+    "Closest exact-setup Liu/Jiang/Zhang full paper could not be read because accessible OA failed and authorized Oxford returned vpn_disconnected; it may cover smaller grids or appendices.",
+    "Sharpness excludes global cell-average entropy growth for N2/N4 on a specified two-plateau family, not universal entropy stability or local entropy flux feasibility.",
+    "Exact symbolic calculation covers N2..12, with all larger even N by radius-three locality; finite runs alone would not prove infinite family."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIMARY FULL-TEXT UNAVAILABLE; PRIORITY RISK NOT EXCLUDED",
+      "evidence": "Known previous construction for large even N; cannot use an abstract as whole-document evidence of no 6-cell cutoff",
+      "identifier_or_url": "https://arxiv.org/abs/2610.30535",
+      "material_read": "Arxiv abstract, accessible metadata and the current record’s Section 2.3 excerpt/formula only; full primary text NOT obtained",
+      "method": "tried arXiv and open access; authorized Oxford retrieval after those attempts returned vpn_disconnected",
+      "title": "Y. Liu, Y. Jiang, M. Zhang, High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+      "trigger": "exact same SSPRK3 DG Burgers two plateau exponential entropy configuration"
+    },
+    {
+      "assessment": "DISTINCT SCHEME/ENTROPY, NOT FULL-TEXT EXCLUSION",
+      "evidence": "P² DG, smooth data and quadratic entropy are unlike fixed P¹ two-plateau cell means",
+      "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+      "material_read": "Title/abstract and stated setup only; full proof not read",
+      "method": "primary preprint abstract inspection",
+      "title": "Y. Wei and C.-W. Shu, Counterexample to one-step strong L²-stability of third order RK DG for Burgers",
+      "trigger": "plausible related SSPRK3 instability"
+    }
+  ]
+}
