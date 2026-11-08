@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The forbidden pair conditions are necessary by comparability and forced terminal-leaf selection. Sufficiency constructs Q from required positives and parents of negative leaves, proves Q incomparable and disjoint from negative queries, and covers remaining paths with unqueried leaves. Replacing each independent-set leaf by its parent proves the exact VC rank as the width of the internal tree. The comb has \\(m+1\\) explicit frontiers, all adjacent threshold cuts, an adaptive balanced-depth lower bound and a cardinality upper bound. The complete b-ary shattering recursion follows from cross-branch absence of conflicts. The standalone checker passed 6213 finite-tree cases plus regular-tree polynomial and comb online checks. One-vertex exception is excluded explicitly; no finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Paszke–Pilipczuk (MFCS 2020, DOI 10.4230/LIPIcs.MFCS.2020.78) gives VC density results for formula-definable graph families, not this frontier-membership class.",
+        "Misanantenaina–Wagner Theorem 2.8 enumerates maximal antichains by three statistics, while their Theorem 2.11 gives counts of antichains/cutsets; no query-shattering or Littlestone claim is stated."
+      ],
+      "reasoning": "Generic tree-poset antichain enumeration and definability-density theorems do not supply the leaf-sibling pair obstruction, the all-tree VC formula, or a comb online rank. Their generality in the ambient tree parameter does not automatically dominate a different learning-theoretic invariant.",
+      "searches": [
+        "all shattered subsets of maximal antichains of full binary rooted tree and shattered-support polynomial recurrence",
+        "exact shattering complex of maximal antichains of finite rooted trees is flag, determined by incomparable leaves and sibling branches, VC dimension terminal internal nodes",
+        "doi:10.4230/LIPIcs.MFCS.2020.78",
+        "arxiv:1803.09623"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.09623v3 (2018-03-26 first public)",
+      "Darnstädt, Ries, Simon (ALT 2015; TCS 2018) accessible indexed article passages",
+      "Paszke, Pilipczuk MFCS 2020 abstract and scope",
+      "Published mathematical research records on rooted trees, shattering, antichains, and prefix codes",
+      "Previously recorded ancestor-ideal and grid-maximal-antichain findings, for implication and duplicate checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Misanantenaina–Wagner arXiv:1803.09623 full HTML Section 2.2 proves the decomposition into root singleton or unions of branch frontiers, but does not state a characterization of shattered query supports.",
+        "Darnstädt–Ries–Simon (ALT 2015; journal version TCS 716, 2018) use binary-tree maximal antichains as data structures for partitions and empirical-risk algorithms; accessible text shows bounds on representation size and on different geometric concept classes.",
+        "Earlier shattering statements about ancestor-closed ideals of perfect binary trees and about maximal antichains in rectangular-grid posets have distinct hypotheses and query families."
+      ],
+      "reasoning": "The root-or-branch decomposition is a shared premise. It neither implies two-locality of all trace obstructions without additional argument nor computes Littlestone rank of an unbalanced comb. The separate full proof supplied here obtains those consequences using forced-leaf pair comparisons and explicit threshold queries. This is a scientific comparison of claim strength, not a title comparison.",
+      "searches": [
+        "maximal antichains of rooted trees, prefix-free complete codes, shattering of vertex membership queries, forbidden pairs, VC dimension Littlestone dimension",
+        "exact shattering complex of maximal antichains of finite rooted trees is flag, determined by incomparable leaves and sibling branches, VC dimension terminal internal nodes",
+        "doi:10.1016/j.tcs.2017.11.022",
+        "maximal prefix-free codes binary trees shattering complex independent flag complex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Misanantenaina–Wagner arXiv:1803.09623, Sections 1–3, represents a frontier as a maximal antichain or a minimal cutset; it does not formulate all-labelings membership traces.",
+        "The online-threshold behavior of comb frontiers is equivalent to an ordered hypothesis class with exactly one threshold query at every adjacent split, but no retrieved work identified this specific induced class or theorem."
+      ],
+      "reasoning": "The concepts can equivalently be described as complete tree frontiers, maximal prefix-free codes, or root–leaf cutsets. Those aliases were included in searches. A maximal-antichain counting polynomial is not the same as the polynomial of query supports shattered by their incidence vectors: a height-one rooted star already has the latter equal to \\(1+(b+1)z\\), while maximal antichains have sizes one and b. The comb equivalence is proved here, not inferred from a generic threshold title.",
+      "searches": [
+        "maximal antichains of rooted trees, prefix-free complete codes, shattering of vertex membership queries, forbidden pairs, VC dimension Littlestone dimension",
+        "maximal prefix-free codes binary trees shattering complex independent flag complex",
+        "exact shattering complex of maximal antichains of finite rooted trees is flag, determined by incomparable leaves and sibling branches, VC dimension terminal internal nodes",
+        "\"maximal antichains\" \"shattered\" rooted tree vertex",
+        "arxiv:1803.09623"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2018 polynomial counts maximal antichain concepts and structural attributes; no table of shattered query supports was found in the inspected full HTML article.",
+        "The exact small checker coefficients are reproducible directly, but are not used as novelty evidence alone."
+      ],
+      "reasoning": "No matching known table or formula for the all-cardinality shattering polynomial or the complete rooted-tree forbidden-pair graph was located in the actual queried sources. Search incompleteness remains a priority risk; the result does not claim uniqueness from absent search hits.",
+      "searches": [
+        "all shattered subsets of maximal antichains of full binary rooted tree and shattered-support polynomial recurrence",
+        "complete prefix-code frontiers on comb rooted trees have VC dimension one and Littlestone dimension logarithmic",
+        "\"maximal antichains\" \"VC dimension\" rooted tree",
+        "\"Littlestone\" \"maximal antichains\" rooted trees"
+      ]
+    },
+    "rationale": "Accessible primary full text arXiv:1803.09623 supplies frontier counting and decomposition but no shattered-support classification. The other closest learning-algorithm source uses frontiers as partitions, not their own node-membership concept class. Mathematically distinct previous tree-ideal and rectangular-grid antichain learning results do not imply the claim. Semantic literature and targeted external searches using maximal antichain, cutset, prefix code, flag shattering and comb online aliases found no exact stronger coverage; limited-source priority risk remains.",
+    "residual_risks": [
+      "Historical priority under alternative complete-prefix-code or rooted-cutset terminology may exist.",
+      "The 2015/2018 minimum-disagreement paper was not completely retrieved; its available representation-size statements do not appear directly to imply the current claims, but full-text comparison is limited.",
+      "Search and same-model correctness review are not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_INVARIANT: frontiers and cutsets are counted, not their all-labelings shattered membership supports, nor comb Littlestone dimensions.",
+        "evidence": [
+          "Section 2.2, Theorem 2.8 expresses the tree polynomial as a sum over maximal antichains.",
+          "Theorem 2.11 evaluates the number of maximal antichains, all antichains, and cutsets.",
+          "Article MSC: primary 05C31, secondary 05C05/06A07."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.09623v3",
+        "material_read": "Full HTML article opened; introduction, recursion, Section 2.2 Theorem 2.8 and proof, Theorem 2.11, Section 3 extension and later discussion; full-text term matches for shatter and dimension were absent.",
+        "method": "Direct open and section/term inspection of open-access full article",
+        "title": "A polynomial associated with rooted trees and specific posets",
+        "trigger": "Same finite rooted-tree maximal-antichain objects and generating-function enumeration; central potential dominating result"
+      },
+      {
+        "assessment": "PROVISIONALLY_DISTINCT, ACCESS_LIMITED: studies hierarchical partitions and minimum disagreement, rather than membership-query shattering of frontier vertices. Not assigned a whole-document negative coverage judgment.",
+        "evidence": [
+          "Section describing full binary tree B_n and frontier-induced partitions, plus bound s(n,k).",
+          "Publisher DOI page full open failed; 2015 ALT version abstract identified."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2017.11.022",
+        "material_read": "Search-indexed accessible article sections including introduction, the definition of maximal antichain/partition encoding, Lemma 6 representation bounds, and empirical-risk algorithms; complete original full text could not be fetched.",
+        "method": "Indexed publisher passages plus attempted direct full-text open; original ALT 2015 publication identified",
+        "title": "Hierarchical Design of Fast Minimum Disagreement Algorithms",
+        "trigger": "Uses maximal antichains in a full binary tree in a learning-algorithm context"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COMPARABLE: general definable-set VC density, not complete maximal-antichain query traces.",
+        "evidence": [
+          "Abstract claims VC density bound under fixed formula and bounded treewidth."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2020.78",
+        "material_read": "Official conference metadata, abstract, and stated CMSO/treewidth/cliquewidth hypotheses",
+        "method": "Official conference source text inspection",
+        "title": "VC Density of Set Systems Definable in Tree-Like Graphs",
+        "trigger": "Broader VC-theoretic results over tree-like graph structures"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c25578c2-d178-4bfd-a041-c226edc3c877",
+  "value": {
+    "rationale": "The all-tree pair-obstruction theorem proves that an entire natural family of shattering complexes is flag, determines every shattered support and exactly identifies its VC dimension. Its complete-b-ary specialization gives a constructive coefficientwise polynomial recursion and explicit leading coefficient, while the comb family establishes an unbounded logarithmic separation between static and adaptive learnability at fixed VC dimension one. These are structural facts about a motivated prefix-code/frontier concept class, not an isolated small enumeration or unmotivated parameter slice.",
+    "status": "PASS"
+  }
+}
