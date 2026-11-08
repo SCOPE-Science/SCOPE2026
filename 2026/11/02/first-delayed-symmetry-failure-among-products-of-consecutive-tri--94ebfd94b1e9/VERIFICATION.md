@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Exact finite checks
+# Independent mathematical audit
 
-`python3 verify.py` (with `certificates.json` next to it) recomputes the asserted first-occurrence test over all relevant smaller consecutive triples and determines the exact types, genus values, Frobenius numbers, and pseudo-Frobenius sets for the example. It uses unbounded-integer arithmetic.
+## correctness
 
-Each candidate Frobenius cutoff is **certified**, rather than guessed: the proposed largest gap is absent, and every integer in the next full interval of length equal to the smallest generator is present. Closure under addition of that generator then proves no larger gaps exist. Every remaining gap is tested against every generator, so pseudo-Frobenius enumeration is exhaustive. A separately implemented residue-shortest-path method checks the entire explicit Apéry certificate.
+PASS
 
-Observed output:
+Distributivity in the semiring of numerical-semigroup ideals gives all products of three generator types as additive generators H_(m,k), including mixed monomials; these are not Minkowski sums. For each of 14 relevant (m,k) cases, a membership recurrence is proved by strong induction. A verified absent Frobenius f followed by a full block of m^k consecutive present integers proves every larger integer present by closure; checking each remaining gap against every additive generator is an exhaustive PF criterion. A second independently written residue-Dijkstra reconstruction from actual certificates.json confirmed all 14 complete Apery representatives, genus, F and PF sets; m=8 cube PF {4023,4095,5223,5431,5503,5567,5791}. Cases m=2,3,4,5,6,7 exclude every smaller delayed failure, proving least m=8. Type 1 criterion for symmetry was applied with positive genus and exact F. This is finite exhaustion after a mathematically certified conductor, not unbounded extrapolation.
 
-`VERIFY_OK independent_dp=yes independent_dijkstra=yes complete_cases=14 first_delayed_m=8 type_profile=1,1,7 F_profile=31,519,5791 genus_profile=16,260,3072`
+## originality
 
-## Limits
+PASS
 
-These are finite proofs for the explicitly listed semigroups, not empirical extrapolations or a general theorem for all parameters. The mathematical justification of the finite reductions is in `RESULT.md`. The status of independent scientific audit remains not performed.
+Best-of-knowledge original for the precise quantified final claim after comparing same-object and broader primary literature; the prior components/techniques are explicitly credited and residual historical-priority risk is retained.
+
+## value
+
+PASS
+
+A delayed symmetry failure is a natural structural counterexample to persistence suggested by semiring ideal powers: a symmetric initial semigroup and symmetric square can nevertheless have type seven at the cube. The smallest parameter in consecutive triple generators, complete PF witness and Frobenius/genus profiles sharpen the immediate-square counterexamples in the motivating paper; no infinite classification is required for this boundary to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
