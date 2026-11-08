@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For q=3 the all-positive trace bounds one-side tested palette size, mixed supports force a distinct constant tested colour on each side and prohibit simultaneous positive/negative tests on both sides; an explicit construction realizes every remaining trace. Counting disjoint types gives the full generating polynomial, checked for eight parameter pairs through (4,4). The q=3 online upper bound uses the exact number of positively responding concepts, which is below the 2^(max(m,n)+1) leaves required at the root positive child of depth max(m,n)+2; matching VC gives equality. q=2 uses two colourings, and q>=4 has a full-vertex shattered witness and the general all-positive-branch upper bound. The standalone checker exhaustively verifies 8 polynomial cases and 15 exact small online cases; finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A general equality theorem for certain linear zero sets does not establish the hypothesis that all three-colour biclique colourings arise as that linear zero-set class, nor the explicit support polynomial: https://arxiv.org/abs/2109.04805",
+        "Walker (2022) and Ghazi et al. (2021) supply generic tree-shattering or Littlestone-bound frameworks without the exact biclique formula: https://arxiv.org/abs/2203.12211 ; https://proceedings.mlr.press/v132/ghazi21a.html"
+      ],
+      "reasoning": "The final claim is an exact full-support enumeration and fixed-palette threshold. Generic rank inequalities, Sauer-type bounds or shared terminology do not imply its coefficients or the essential combinatorial biclique support criterion.",
+      "searches": [
+        "graph homomorphism K_{m,n} to K_q one-vs-rest shattering dimensions",
+        "coloring concept classes online mistake dimension color indicator bipartite",
+        "Littlestone dimension graph edge incidence regular matchings bipartite perfect matchings",
+        "VC dimension Littlestone dimension finite matroid bases graph colorings cycles and rook graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1708.05118",
+      "https://arxiv.org/abs/2109.04805",
+      "https://arxiv.org/abs/2203.12211",
+      "https://proceedings.mlr.press/v132/ghazi21a.html",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same-object earlier colour-segregation fact is compatible with the proof, but no quoted prior result counts traces of colour-equality queries: https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "The earlier path-colouring classification has three-colour VC deficiency and online gap on paths, whereas the biclique result has equality of both dimensions and a biclique-specific all-degree support polynomial.",
+        "The graph-structure recovery model of Blanca et al. differs from learning the colouring as the hypothesis: https://arxiv.org/abs/1708.05118"
+      ],
+      "reasoning": "Static and adaptive ranks of the biclique concept class are not corollaries of the path/cycle rank formulas, the forcing-assignment enumerator, or generic graph homomorphism counting. Two easy boundary cases (q=2 and q>=4) are included for completeness but not separately claimed novel. The substantive non-covered contribution is the q=3 support classification and polynomial.",
+      "searches": [
+        "shattering families proper graph colorings complete bipartite graph three colors",
+        "complete bipartite proper q-colorings vertex-color membership VC dimension and Littlestone dimension exact palette transition q=2 3 4",
+        "proper three colorings of complete bipartite graphs Kmn VC Littlestone dimensions",
+        "VC dimension and Littlestone dimension of the concept class of proper three-colorings of a path graph queried by vertex-color equality literals; formula n minus floor n/4 versus n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The three-colour support condition (same-side at most two names; on two sides, distinct constant names and a singleton side) is not present in the compared full-text papers.",
+        "Blanca et al. (2017) formulate learning the unknown graph from coloured samples, not the VC/Littlestone shattering of an unknown colouring under vertex-colour equality tests: https://arxiv.org/abs/1708.05118",
+        "Guingona et al. (2021) concern zero loci of independent linear functions, not this binary-valued graph-colouring class: https://arxiv.org/abs/2109.04805"
+      ],
+      "reasoning": "Although both statistical-learning and graph-colouring terminology overlap, the target hypotheses, query domain and universal shattering quantifiers differ. No equivalent formulation was identified in reviewed sources; this is not a proof of absolute novelty.",
+      "searches": [
+        "VC dimension Littlestone proper three-colourings complete bipartite graph K_m_n under vertex color-membership queries",
+        "shattering families proper graph colorings complete bipartite graph three colors",
+        "Littlestone dimension proper colorings complete bipartite graph",
+        "complete bipartite proper q-colorings vertex-color membership VC dimension and Littlestone dimension exact palette transition q=2 3 4",
+        "Web: \"Littlestone dimension\" \"proper colourings\" \"complete bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full read of 'Forced three-colouring polynomial of complete bipartite graphs' gives the polynomial 3(2^m-2)p^m(1-2p)^n + 3(2^n-2)p^n(1-2p)^m+6p^(m+n) for forcing partial colour assignments, not for shattered query supports: https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "The current shattering polynomial has coefficients for all k-element sets on the vertex-colour equality query domain, a different counted object."
+      ],
+      "reasoning": "In forcing enumeration the partial assignment must uniquely determine a complete colouring under a propagation rule. In shattered-support enumeration every Boolean trace must be extendable by some colouring (which may depend on the trace). Neither polynomial computes the other's coefficients; the closest exact table does not cover the assertion.",
+      "searches": [
+        "VC dimension Littlestone proper three-colourings complete bipartite graph K_m_n under vertex color-membership queries",
+        "complete bipartite proper q-colorings vertex-color membership VC dimension and Littlestone dimension exact palette transition q=2 3 4",
+        "published complete bipartite forced three-colouring polynomial shattering query supports",
+        "Web: \"VC dimension\" \"proper colourings\" \"complete bipartite\""
+      ]
+    },
+    "rationale": "Actual semantic searches, review of the full accessible statements/proofs of the closest graph-colouring and linearly independent zero-set sources, and review of the full published biclique forced-colouring result found no implication of the support-by-support characterization or the all-degree three-colour shattering polynomial. The closest same-object result counts forcing assignments, a fundamentally different quantified property. Prior path/cycle shattering claims concern nonisomorphic graph families and do not imply the biclique classification. Historical priority is bounded by accessible sources and remains a risk.",
+    "residual_risks": [
+      "Historical priority cannot be established by negative search results; terminology variants or unindexed prior work could contain the q=3 support criterion.",
+      "Some historical research files from earlier periods were unavailable; accessible claims were compared, without inferring uniqueness from partitioning.",
+      "Only abstract-level coverage screens were available for general tree/closure works; these are not asserted to be whole-document noncoverage proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: unknown graph inferred from samples, not a static or adaptive shattering rank of proper colourings via binary equality queries",
+        "evidence": "Learning target graph contrasts with a fixed K_{m,n} and unknown colouring as concept.",
+        "identifier_or_url": "https://arxiv.org/abs/1708.05118",
+        "material_read": "Full accessible arXiv HTML introduction and formal learning-problem definition; graph-recovery statements",
+        "method": "Read the public mathematical problem definition and compare hypotheses/query semantics",
+        "title": "Structure Learning of H-colorings",
+        "trigger": "Same underlying space of proper graph colourings; potential confusion between learning graph and colouring"
+      },
+      {
+        "assessment": "NOT_COVERING: independent linear-function zero-set classes, without identification of the biclique class or its coefficientwise shattering polynomial",
+        "evidence": "Proof uses linear independence/zero-locus structure absent from the proposed graph-colouring support classification.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Accessible arXiv HTML definitions, theorem 3.10, theorem 5.6 and underlying zero-set hypotheses",
+        "method": "Inspect exact concept-family assumptions and compare with graph-colouring equality literals",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Exact equality of two shattering dimensions could in principle dominate new equality"
+      },
+      {
+        "assessment": "NOT_COVERING: counts forcing partial assignments rather than query supports whose all binary traces are realizable",
+        "evidence": "Forced-colouring expression starts 3(2^m-2)p^m(1-2p)^n, whereas the novel Phi uses 1+3[(1+2z)^m-(1+z)^m+...] plus cross-part support contributions.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "material_read": "Full publicly posted RESULT.md including all formula terms, proof, prior-work discussion and limitations",
+        "method": "Read complete statement and proof; compare counted supports, quantifiers and exact formulas",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Same graph family, same palette, a polynomial involving colour assignments"
+      },
+      {
+        "assessment": "No stated exact q=3 biclique support classification in inspected material; full text not relied on for a definitive noncoverage assertion",
+        "evidence": "Its focus is generalized tree dimension, not finite graph-colouring equality support enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+        "material_read": "Abstract, metadata and context from accessible arXiv record",
+        "method": "Compare abstract theorem scope and terminology",
+        "title": "Tree Dimension and the Sauer--Shelah Dichotomy",
+        "trigger": "Related general tree-shattering bounds"
+      },
+      {
+        "assessment": "No direct exact support polynomial identified in the abstract; full article not exhaustively inspected",
+        "evidence": "The paper concerns closure bounds of dimensions, which do not directly supply a biclique support enumeration.",
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Proceedings abstract and bibliographic page only",
+        "method": "Abstract-level coverage screen; not a full-text noncoverage certification",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potential general online-rank bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69c08503-d33f-4e98-b85e-509f41df299f",
+  "value": {
+    "rationale": "The core statement determines every three-colour shattered query support and every coefficient of a natural shattering polynomial for all complete bipartite graphs, not just a numerical rank. Its structural two-side restriction produces a sharp transition from larger-part-controlled dimension at q=3 to vertex-count dimension at q>=4, and explains equality of static/adaptive ranks despite nearby path and cycle classes separating them. This exact classification is independently mathematically motivated by graph-colouring concept-family complexity; the simple endpoint cases are presented as context, not as isolated discoveries.",
+    "status": "PASS"
+  }
+}
