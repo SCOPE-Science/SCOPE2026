@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:42:26.721371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final theorem is exactly the selected-set size polynomial Q_G(z)=sum_{S subset V(G), forall v outside S: |N(v) cap S| <= 1} z^{|S|} for every finite simple connected cactus, including K1. P3-convexity is equivalent to the exterior at-most-one-selected-neighbor condition because any induced 3-vertex path with selected endpoints forces its middle vertex selected. Reconstructed from RESULT.md rather than accepting its pre-existing review: root the vertex-block incidence tree, use X_v for selected v, Y_v^0 and Y_v^1 for unselected v having respectively 0 or 1 selected descendant neighbors. For each child block B, messages T_B^X,T_B^0,T_B^1 exclude the articulation vertex weight. Then X_v=z prod_B T_B^X, Y_v^0=prod_B T_B^0, Y_v^1=sum_B T_B^1 prod_{C != B} T_C^0. The pair update (p,q)->(pa,qa+pb) evaluates the product and single-chosen-block sum in one pass, with no division or assumptions that factors are invertible. For a bridge v-u, T_X=X_u+Y_u^0, T_0=Y_u^0+Y_u^1, T_1=X_u; these cover all four root/child boundary statuses correctly. For a cycle (v=u0,u1,...,u_{ell-1}) fix root bit c0, sum products of local R_i(c_{i-1},c_i,c_{i+1}); when child c_i=1 the factor is X_i, while for c_i=0 it is Y_i^0+Y_i^1 for 0 selected cycle neighbors, Y_i^0 for 1, and 0 for 2. For unselected root c0=0 restrict c1+c_{ell-1} to 0 or 1, never 2. A two-recent-bit transfer computes this cycle sum in O(ell) ring gates, including the ell=3 boundary case. The local factors impose precisely the as-yet-unchecked constraints of each descendant vertex, and the root check closes the remaining neighbor count; induction on the tree proves no legal subset missed and no illegal subset repeated. At the original root Q_G=X_r+Y_r^0+Y_r^1; for K1 this is 1+z. Every block is an edge or a chordless cycle; sum_B (|B|-1)=|V|-1, hence overall transfer uses O(|V|) polynomial-ring additions/multiplications after standard linear graph decomposition. Substituting z_v instead of z at selected v yields the claimed multivariate weighting, with each selected vertex counted once. Independent separate Python implementation using direct block-bit enumeration rather than the supplied cycle recurrence and a separate 2^n subset enumerator agreed coefficientwise on 468 independently generated cactus instances up to 15 vertices, including K1, C4, C7, C13, triangle chains and mixed bridged cycles. The source verifier and its VERIFY_OK 1211-case log were inspected but not accepted as proof or executed. The induction, not the finite tests, supports the unlimited graph-order claim. One arithmetic operation is a unit-cost operation over Z[z] or Z[z_v]; neither linear bit complexity nor a bound on expanded multivariate output size is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. Theorem 3 treats trees; Theorem 14 treats threshold graphs, neither is the class of all cacti with arbitrary chordless long cycles.",
+          "Cactus graphs have treewidth at most 2 and the exterior neighbor-count condition is MSO-definable. Weighted-MSO evaluation therefore supplies abstract linear ring-operation tractability and coefficients via vertex weights.",
+          "The generic theorem does not display the particular three-message vertex/constant-cycle-width block formula."
+        ],
+        "reasoning": "The stronger metatheorem dominates the existence/complexity part of the result and that portion is expressly prior knowledge. The reviewed claim is restricted to the concrete explicit recurrence and its structural correctness; broad tractability is not counted as novelty. If a prior implementation explicitly spells out the same factorization, O would change.",
+        "searches": [
+          "arXiv:2603.04706v1: Sections 1–4, Theorems 3, 12, 14; full-text cactus/unicyclic searches",
+          "arXiv:1403.2926: Section 2.2, Theorem 2.7, citing Courcelle–Makowsky–Rotics weighted MSO evaluation",
+          "Web: Courcelle Makowsky Rotics evaluating monadic second order properties on bounded treewidth weighted evaluation arithmetic circuit",
+          "Resultary: P3-convex sets in cactus graphs count full generating polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Dourado, Grippo, Lin and Protti, arXiv:2603.04706v1 (primary full PDF)",
+        "Burton and Downey, arXiv:1403.2926, weighted-MSO Theorem 2.7 (primary full PDF)",
+        "Brešar and Valencia-Pabon, On the P3-hull number of Hamming graphs (2019 primary full PDF)",
+        "Gottlob, Pichler and Wei, Monadic Datalog over finite structures of bounded treewidth (arXiv:0809.3140; search/abstract context only, not claimed full text inspection)",
+        "Published Resultary mathematical-record semantic index: six actual topical queries, no direct equivalent found",
+        "Frozen source repository RESULT.md, AUDIT.json and REVIEW.md used only as original claim/evidence, not as independent novelty certification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General weighted bounded-treewidth MSO algorithms imply polynomial weighted count tractability on cacti and so cover any claim merely asserting that existence.",
+          "Tree and threshold classes are not supersets of arbitrary cacti; triangle-only block graphs are proper subclass of all cacti with cycles >=4.",
+          "Specific two-bit cyclical interface with three root messages is a concrete identity absent from inspected general metatheorem and counting article.",
+          "Hamming hull numbers are mathematically different invariants from enumerating all convex subsets of cactus graphs."
+        ],
+        "reasoning": "Prior general theory implies computational feasibility but not these explicit recurrences as stated. Separate the exact explicit 3-state theorem from the already-known complexity implication. A genuinely equivalent local transfer among earlier works would dominate the residual novel portion; no such primary result was verified in this run.",
+        "searches": [
+          "arXiv:2603.04706v1 Theorems 3, 12, 14 and Sections 3–4",
+          "arXiv:1403.2926 Theorem 2.7 weighted MSO evaluation on bounded-treewidth classes",
+          "arXiv:0809.3140 monadic datalog MSO bounded treewidth",
+          "Target self-audit AUDIT.json references prior clique-block result id 473be4ff-33e8-49ef-8d36-309be1ab46fc; GitHub targeted retrieval not located",
+          "2019 Brešar–Valencia-Pabon Theorem 1 (Cartesian products/Hamming graph hull structure)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2603.04706v1 defines P3-convex S by excluding unselected vertices with two selected neighbors; this equals fixed points of threshold-two bootstrap closure.",
+          "RESULT.md gives full Q_G(z) rather than only the scalar number at z=1; cycle factors R_i(a,b,c) account explicitly for the two cycle neighbors.",
+          "None of the materially inspected matching-invariant primary passages stated the same cactus cycle-block formula; result searches were not used as novelty proof."
+        ],
+        "reasoning": "The threshold-two closed-set/zero-temperature local constraint formulation is mathematically equivalent; prior equivalent terminology was searched. The specific three-state cycle factorization was not located in accessible inspected material; unindexed equivalent algorithms remain a real priority risk.",
+        "searches": [
+          "Resultary: Counting P3-convex sets cactus graphs cycle block dynamic programming generating polynomial transfer",
+          "Resultary: P3-convex sets block graphs clique block polynomial counting",
+          "Resultary: threshold two bootstrap stable sets cactus cycle recurrence",
+          "Web: P3 convex set cactus graph counting polynomial cycle transfer dynamic programming",
+          "Web: counting two-neighbor closed subsets graphs cactus algorithm block decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finding is a uniform symbolic algorithm and complete size-generating polynomial, not a finite numerical census or database cell.",
+          "The 2026 primary graph-counting source gives tree/threshold counting but no exact table implying the unrestricted cactus cyclic transfer.",
+          "Finite cycle size tables can be generated as special cases but do not by themselves encode arbitrary cactus articulation interactions."
+        ],
+        "reasoning": "No fixed database/table determines this family-wide recursive identity. The exact-table concern is naturally inapplicable to the uniform theorem, but prior generic algorithms and possible equivalently stated recurrences are explicitly addressed elsewhere.",
+        "searches": [
+          "Resultary: clique block P3 convex subsets size generating polynomial",
+          "Resultary: counting P3 convex subsets block graphs explicit recurrence",
+          "Resultary: P3-convex sets in cactus graphs count full generating polynomial",
+          "Web: cactus graph P3 convex sets counting polynomial exact dynamic programming cycle"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty assessment of the precise final mathematical object, not generic efficient solvability: an explicit three-vertex-state, constant-cycle-width, all-size-coefficients recurrence for every cactus, with arbitrary cycle lengths and articulation patterns. Dourado–Grippo–Lin–Protti (arXiv:2603.04706v1) studies the same P3-convex set invariant and establishes tree and threshold-graph algorithms (Theorems 3 and 14), split-graph #P hardness (Theorem 12), and general exponential algorithms; its inspected relevant 27-page preprint gives no explicit cactus cycle-block polynomial recurrence. A pre-existing claim on clique-block graphs is referenced in the source self-audit but its actual primary package was not independently recovered in this run, so it is a priority risk and not relied on as proof of noncoverage. The generic weighted MSO/Courcelle–Makowsky–Rotics bounded-treewidth theorem already implies existence of a linear arithmetic-operation counting circuit over all cacti (treewidth<=2); therefore neither general tractability nor the mere existence of a linear circuit is original. The asserted narrower novelty is the explicit small-state formulas for the full size distribution, including cyclic root boundary and multivariate weights. The available general metatheorem does not state or imply this particular three-state cyclic factorization as an explicit theorem, and the primary P3 counting paper does not provide it. Brešar–Valencia-Pabon studies structural convexity in Cartesian products, not cactus counting. Six topical published-record semantic searches and multiple bibliographic/primary searches found no displayed equivalent cactus polynomial formula. A standard unindexed treewidth implementation or prior bootstrap-closure/cactus DP could already use equivalent states, so priority remains qualified and the generic tractability overlap is expressly conceded.",
+      "residual_risks": [
+        "Generic Courcelle–Makowsky–Rotics weighted bounded-treewidth theory already implies the existential linear ring-operation count; any interpretation claiming novel generic cactus tractability would be covered and is not endorsed.",
+        "Older explicit small-state dynamic programs for threshold-two bootstrap-closed subsets/cactus graph counting may exist under different terminology or in unindexed algorithms.",
+        "The earlier referenced clique-block counting record (473be4ff-33e8-49ef-8d36-309be1ab46fc) could not be independently retrieved by exact identifier in this execution; no statement about its full content is made.",
+        "Published-record search coverage and keyword hits are not proofs of absence, and bibliographic priority remains best-of-knowledge qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same invariant; does not provide in inspected text an explicit arbitrary-cactus 3-state cycle block generating-function transfer. Strongly motivates counting beyond trees.",
+          "evidence": [
+            "arXiv:2603.04706v1 pp1–20 Theorems 3,12,14 and Sections 2–4; abstract says tree and threshold linear algorithms and split hardness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "Full 27-page arXiv v1 with attention to abstract/definition, Theorem 3 and Algorithm 1 (trees), Theorem 12 (split #P-completeness), Theorem 14 (threshold), Section 4 general methods; internal search for cactus and unicyclic.",
+          "method": "Lawful original arXiv full PDF; text extraction plus rendered PDF screenshots to inspect pertinent pages and theorem contexts.",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same named graph-convexity invariant, counting complexity, and known algorithms on trees."
+        },
+        {
+          "assessment": "Abstract linear arithmetic-operation weighted counting is already available for cacti; does not provide the exact concrete 3-state cactus cycle formula.",
+          "evidence": [
+            "arXiv:1403.2926 Section 2.2 Theorem 2.7, citing Courcelle–Makowsky–Rotics weighted logical counting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2926",
+          "material_read": "Section 2.2, especially Theorem 2.7 about Courcelle–Makowsky–Rotics evaluation of MSO polynomials on bounded treewidth classes; introduction and theorem setting.",
+          "method": "Original open-access arXiv PDF, full-text and page-rendered reading of the relevant theorem, proof context and notation.",
+          "title": "Courcelle’s theorem for triangulations",
+          "trigger": "Potentially dominating bounded-treewidth weighted-MSO metatheorem covering cactus graphs."
+        },
+        {
+          "assessment": "Describes structure/hull numbers of P3-convex sets for Cartesian products, not counting the cactus size distribution.",
+          "evidence": [
+            "Brešar and Valencia-Pabon 2019 Theorem 1/Corollary 2 on Cartesian-product convex subsets."
+          ],
+          "identifier_or_url": "https://lipn.fr/~valencia/papers/P_3-convexity-RV2.pdf",
+          "material_read": "Original PDF pp1–7 with Theorem 1, Corollary 2, and Hamming-product hull discussion.",
+          "method": "Original open full-text PDF, inspected theorem statements and page screenshots.",
+          "title": "On the P3-hull number of Hamming graphs",
+          "trigger": "Plausible broad earlier P3-convexity structural theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicitly specified P3-convex-set size polynomial of the natural infinite cactus class is a meaningful exact counting invariant: it refines cardinality alone, includes every cycle length, and supports arbitrary articulation patterns and individual vertex weights. The same invariant is #P-complete on split graphs in Dourado et al. 2026, while cactus structure retains arbitrary numbers of nontrivial cycles; a concise, fully constructive cycle-block solution is a motivated special-family classification beyond the known tree case. The three-state articulation interface and two-recent-bit cycle transfer concretely explain the interface constraints and yield a useful efficient algorithm with explicit polynomial coefficients in unit-cost ring arithmetic. This is not claimed as a new general tractability theorem: bounded-treewidth MSO weighted counting already gives abstract polynomial evaluation; the value is the small transparent, implementable, exact identity for the natural graph family. It is more than a rename or tiny finite table and does not require a downstream general theorem to have self-contained mathematical use. The bit-complexity and arbitrary 2-connected block limitations prevent overstated performance claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite simple connected undirected cactus graphs including K1; no arbitrary noncycle 2-connected blocks or unbounded treewidth.",
+    "O(n) is in additions/multiplications over polynomial rings at unit arithmetic cost; neither expanded multivariate output nor bit-level integer arithmetic has linear complexity.",
+    "Independent direct enumeration corroborates finite cases but cannot replace induction on the vertex–block tree for unbounded n.",
+    "Originality is best-of-knowledge for the precise explicit transfer: generic weighted bounded-treewidth tractability and its linear algebraic count are prior; priority over an unindexed equivalent small-state recurrence is not guaranteed.",
+    "Earlier unverified clique-block claim source not independently inspected. No external Lean or expert attestation is inferred; independent mathematical audit is not formal certification."
+  ],
+  "schema_version": 1
+}
