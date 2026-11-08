@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all a,b,c>=0, literal palindromic cyclic factors of length <=n=a+b+c+3 partition disjointly by number of ones 0,1,2,3. Exhaustive string templates yield the three-case closed formula, including zero and equal gaps. Distinct-gap optimization forces largest gap c>=ceil(n/3), with all equality triples solved exactly; n>=14 makes the repeated-gap count strictly lower by floor(n/2)-ceil(n/3)-1>=1. Standalone finite checks of 7140 ordered configurations for n<=36 and brute extremizers n=14..24 passed; universal proof does not rely on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simpson (2014) Theorem 7: the maximum for all length-n circular words is strictly less than 5n/3. Lemma 6 gives only a lower construction for n divisible by three. Open question (2) discusses optimality of proposed families.",
+        "Simpson (2014) Proposition 13 bounds the circular palindrome count of palindromic conjugates by ceil((3n-1)/2), but does not cover all three-marker cases or their maximizing triplets.",
+        "Blondin Massé et al. (2011) treat palindromic word equations, local periodicity and tiling rather than the extremal number of distinct cyclic palindromic factors."
+      ],
+      "reasoning": "An unrestricted upper bound is too weak to determine all optimal three-marker instances; e.g., it leaves multiple possible discrete values and contains no characterization of equality within the subfamily. The separate palindrome-conjugacy bound is also insufficient and does not imply the distinct-gap formula.",
+      "searches": [
+        "Palindromes in circular words Simpson 2014 5n/3 Biggles open questions",
+        "Equations on palindromes and circular words 2011 periodicity",
+        "palindromic complexity circular binary words exactly two one letters necklace",
+        "circularly rich three palindromes gap Biggles"
+      ]
+    },
+    "checked_sources": [
+      "Simpson (2014), DOI 10.1016/j.tcs.2014.07.012, published full text with exact construction, bound and open questions",
+      "Blondin Massé, Brlek, Garon and Labbé (2011), DOI 10.1016/j.tcs.2010.07.005, open preprint",
+      "OEIS A247000, public numerical maxima and comments",
+      "Semantic searches of published mathematical claims on three markers, palindromic necklaces and Biggles extremizers",
+      "Accessible own scientific finding claims and metadata in research ledgers, including palindromic absent factors and period-doubling palindrome pairs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simpson's constructed gap triple for n divisible by 3 yields the new optimum as a special lower-bound witness, but does not bound all other triples sharply.",
+        "The new counting proof separates palindromes with exactly 0,1,2,3 markers and distinguishes equal from unequal gaps, establishing the strict repeated-gap deficit at n>=14.",
+        "A numerical table through length 30 cannot entail the unrestricted parameter n>=14 theorem."
+      ],
+      "reasoning": "No inspected prior theorem gives a count for every three-gap circular word or shows that the listed triples are all and only the maximizers. The previously known Biggles family is a proper subset of the new equality classification, and its known lower-bound status does not establish relative optimality.",
+      "searches": [
+        "Simpson Palindromes in circular words 2014 Lemma 6 Theorem 7 Proposition 13",
+        "Biggles words unique optimal among words with exactly three ones cyclic gaps",
+        "published-claim index three-one palindromic complexity complete extrema"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted scientific-record search found no published record describing three-marker palindromic-factor counts or maximizing gap triples. Closest terminological collision was unrelated palindromic-duplication coding and palindrome attractors.",
+        "Simpson (2014) Lemma 6 constructs three-marker Biggles words with consecutive zero-run sizes for lengths divisible by three, not a formula over every three-gap triple.",
+        "OEIS A247000 indexes the unrestricted sequence through length 30, not classifying weight-three gap vectors.",
+        "Exact-formula searches did not identify a matching three-marker classification; closest statements concern unrelated finite Fourier masks and binary closed-rich words."
+      ],
+      "reasoning": "Rotation/reversal and interchange of gap triples were checked as equivalent formulations. The presented theorem resolves optimality within the complete three-marker family, including all equality cases, which is not a restatement of a lower-bound example or a finite numerical maximum.",
+      "searches": [
+        "exact maximal number of distinct palindromic factors of circular binary necklaces with exactly three ones (three b markers), classified by three zero-run gaps, Simpson Biggles extremizer",
+        "three one circular binary word maximize palindromes length exactly three b gaps Simpson Biggles",
+        "Biggles words unique optimum circular palindrome three b class gap 2014 later",
+        "Simpson 2014 circular palindrome maxima aabb two nonzero letters exact sparse classification",
+        "circular binary palindromes exactly three ones cyclic gaps exact formula 2n - maxgap - 2 3k r classifications Simpson 2014 Biggles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A247000 lists unrestricted maxima only for lengths 1..30 and sample words; it has no all-length weight-three gap-classification table.",
+        "The closest published-claim search hits closest to this topic concern independent objects such as binary closed-rich length-25..27 maxima and palindromic-duplication codes."
+      ],
+      "reasoning": "Individual numerical values may coincide with previously tabulated unrestricted optima at small n, but they do not cover the analytic all-parameter formula, the n>=14 weight-three optimum, or its complete list of dihedral maximizing families.",
+      "searches": [
+        "OEIS A247000 maximal number of palindromes in circular binary word of length n",
+        "circular palindrome exact 3 one necklace gap patterns maximum table",
+        "palindromes circular words exact maximum distinct n 14 15 16 2014 conjecture",
+        "published-claim index exact circular palindrome three-marker gap classification"
+      ]
+    },
+    "rationale": "Simpson (2014) obtains unrestricted upper bound <5n/3, provides three-marker lower constructions for multiples of three and proposes extremal families but does not classify all three-marker words or their exact maximizers. The stronger gap-dependent formula and complete dihedral equality classification for every n>=14 do not follow from Simpson's upper/lower bounds, numerical OEIS table, or the distinct periodicity-equation results of Blondin Massé et al. (2011). Search and inspected literature did not show dominating results; unindexed overlap remains a risk.",
+    "residual_risks": [
+      "Historical priority could be affected by unpublished or unindexed three-marker palindromic-count formulas.",
+      "A close source might give an equivalent complete equality classification in a different terminology not found by these targeted searches.",
+      "The theorem optimizes only the sparse three-marker family; extrapolating to the unrestricted maximum would be invalid."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering: bound and examples concern unrestricted problem, not all weight-three gap patterns or equality classifications.",
+        "evidence": [
+          "2014 article available online 2014-07-22; Lemma 6, Theorem 7, Proposition 13 and open question (2)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+        "material_read": "Published full-text extracted sections: definitions and Table 1; Lemma 6 and Biggles construction; Theorem 7; Proposition 13; final open questions and bibliography.",
+        "method": "Read lawful published text made available by institutional open-access page and compared theorem statements and constructions.",
+        "title": "Palindromes in circular words",
+        "trigger": "Directly matching cyclic-palindrome extremal problem and proposed Biggles three-marker constructions."
+      },
+      {
+        "assessment": "Different problem: local periodicity and tiling from palindrome overlap equations, rather than counting distinct cyclic palindromic factors in sparse binary necklaces.",
+        "evidence": [
+          "2010-06-15 preprint version, sections 1–3, equations involving palindromes and circular conjugacy."
+        ],
+        "identifier_or_url": "https://archipel.uqam.ca/8427/1/Blondin-Mass%C3%A9-2011a-preprint.pdf",
+        "material_read": "Author preprint introduction, preliminaries, local-overlap palindrome equations and characterization of periodicity; paper scope reviewed.",
+        "method": "Read open preprint text and inspected its stated problems and theorems on word equations.",
+        "title": "Equations on palindromes and circular words",
+        "trigger": "Closely overlapping words in title and circular-palindrome periodicity background."
+      },
+      {
+        "assessment": "Finite unrestricted maxima, not the infinite three-marker classification.",
+        "evidence": [
+          "OEIS A247000 counts maximum distinct circular binary palindromes and gives table through n=30."
+        ],
+        "identifier_or_url": "https://oeis.org/A247000",
+        "material_read": "Sequence definition, terms n=1..30, examples, conjectured recurrence and program.",
+        "method": "Read publicly indexed sequence entry.",
+        "title": "OEIS A247000",
+        "trigger": "Potential exact table covering the palindrome maxima."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12882b13-30b6-4646-81d6-8ac09316033c",
+  "value": {
+    "rationale": "The original 2014 circular-palindrome extremal program singles out three-marker Biggles words as near-extremizers. This gives a natural complete all-length classification of precisely that candidate family, proves exact optimality within the family and uniqueness/two-type dihedral extremizers, and explains the rigid equal-gap count versus maximum-gap behavior. It provides an analytic obstruction to every alternative sparse three-marker extremizer, not merely finite numerical increments. The boundary to the open unrestricted problem is explicit.",
+    "status": "PASS"
+  }
+}
