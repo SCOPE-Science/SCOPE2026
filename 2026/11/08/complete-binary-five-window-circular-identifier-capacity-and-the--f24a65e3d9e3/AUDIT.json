@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact counting upper bound 32/k; matching explicit cyclic witnesses for every k from five through 32 except seven; for seven a full 20-necklace enumeration yields twelve valid classes and a three-group within-group intersection certificate plus explicit matching triple; k>32 impossible. Both distinct finite-check implementations replayed the included files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grubman et al. Theorem 1 treats k=q^(l-1) and Theorem 5 treats selected divisors of q^l-1; Section 4 studies other combinatorial constructions, but the complete nondivisor profile is not asserted.",
+        "Cameron et al. prove existence of a single fixed-length repeat-free circular sequence.",
+        "Álvarez et al. optimize numbers of cycles of varying lengths, not equal fixed length seven."
+      ],
+      "reasoning": "The cited broader-looking results lack a simultaneous same-length packing statement with all identifiers sharing k; single-cycle existence and unconstrained cycle factors do not entail the exceptional k=7 capacity or the complete k-profile.",
+      "searches": [
+        "Grubman de Bruijn cycle packing q=2 l=5 E(q,k,l) main theorems",
+        "arxiv:2205.02815 cut-down de Bruijn sequences",
+        "arxiv:2308.16257 extremal factors of de Bruijn-like graphs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.02199",
+      "doi:10.1016/j.dam.2016.05.013",
+      "arxiv:2205.02815",
+      "arxiv:2308.16257",
+      "https://debruijnsequence.org/db/cutdown"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The capacity upper bound floor(32/k) is directly prior and is not claimed as new.",
+        "Grubman et al. determine some individual lengths, including k=16 through a general theorem, not the sharp exception at k=7.",
+        "A cut-down de Bruijn word of length seven exists but four pairwise window-disjoint such words do not.",
+        "Extremal unrestricted cycle-factor counts permit mixed cycle lengths and cannot certify an equal-length seven-cycle packing."
+      ],
+      "reasoning": "The new implication is the exact entire binary five-window fixed-length capacity, with one quantified exception and constructive witnesses for every possible k. No inspected prior statement implies E(2,7,5)=3, the only strict deficit.",
+      "searches": [
+        "arxiv:1502.02199 Sections 2, 3.4, 4.4 and 5",
+        "arxiv:2205.02815 introduction and main algorithms",
+        "arxiv:2308.16257 introduction Theorems 1 and 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grubman et al. Proposition 1 equates eBug identifiers with disjoint equal-length directed cycles.",
+        "A code family with disjoint cyclic five-window sets maps bijectively to such a cycle packing."
+      ],
+      "reasoning": "The claimed capacity is invariant under the exact word/graph reformulation, so novelty comparison targets fixed-length seven-cycle packing rather than merely matching word notation.",
+      "searches": [
+        "binary de Bruijn order five vertex-disjoint seven-cycles",
+        "E(2,7,5) robot identification capacity",
+        "arxiv:1502.02199"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit table in the inspected Grubman et al. paper is an unrelated four-symbol interleaved-cycle construction; its binary five-window figure uses k=8.",
+        "published-finding corpus semantic searches for seven-cycle five-window packings returned adjacent coding and graph topics but no exact E(2,7,5) match."
+      ],
+      "reasoning": "No checked exact table or published database entry supplies the full E(2,k,5) function. A failed search is not proof of global novelty; the remaining possibility of unindexed work is acknowledged.",
+      "searches": [
+        "\"E(2,7,5)\" de Bruijn",
+        "maximum disjoint 7 cycles binary de Bruijn graph order 5",
+        "eBug number E(2,k,5) table",
+        "fixed length seven cyclic words five substring windows disjoint maximum three"
+      ]
+    },
+    "rationale": "The inspected Grubman–Şekercioğlu–Wood results define the problem and give partial constructions but do not show the exact full binary five-window profile or the k=7 strict packing obstruction. Existence of one cut-down de Bruijn cycle and unrestricted cycle-factor bounds do not imply the simultaneous fixed-length packing capacity. Database and literature queries did not reveal a prior equivalent/stronger statement; unresolved historical priority remains.",
+    "residual_risks": [
+      "A prior exact small-case computation may be unpublished or absent from inspected text and search indexes.",
+      "Independent historical-priority and specialist scientific audits have not yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general upper bound and constructions; no complete binary five-window profile or the seven-cycle three-clique obstruction in inspected material.",
+        "evidence": [
+          "Problem 1 and Conjecture 1, PDF p3; Proposition 1, PDF p4; Theorem 5, PDF p8; concluding gap discussion, PDF p14."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+        "material_read": "Abstract; Introduction and Problem 1; Section 2 Proposition 1; Section 3.4 and Theorem 5; necklace Sections 4.1 and 4.4; conclusion and discussion of open prime-alphabet / prime-window cases.",
+        "method": "Full-text arXiv PDF with page-image spot checks.",
+        "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles for Robot Identification and Tracking",
+        "trigger": "Same exact capacity definition and binary five-window example."
+      },
+      {
+        "assessment": "One-cycle construction, not simultaneous disjoint-cycle packing or maximum number of identifiers.",
+        "evidence": [
+          "Introduction p2 explicitly states existence of cut-down sequences of any length; main results pp2–3 are construction algorithms for one sequence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.02815",
+        "material_read": "Abstract, introduction pp1–3, related work and main results and their scope.",
+        "method": "Full-text arXiv PDF with page-image checks.",
+        "title": "Cut-Down de Bruijn Sequences",
+        "trigger": "Single cyclic sequence of each length appears to overlap the constructibility component."
+      },
+      {
+        "assessment": "Optimizes numbers of unrestricted cycle lengths in factors; does not imply fixed seven-cycle packing in the 32-vertex graph.",
+        "evidence": [
+          "Abstract p1 and Theorem 1 p3 specify unconstrained cycles and astute-graph factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.16257",
+        "material_read": "Abstract, Introduction and definitions, statements of Theorems 1 and 2.",
+        "method": "Full-text arXiv PDF with page-image checks.",
+        "title": "On extremal factors of de Bruijn-like graphs",
+        "trigger": "Potential stronger general cycle-packing theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f24a65e3-d9e3-44e7-a87f-1e2262607968",
+  "value": {
+    "rationale": "The original robot-identification model makes full five-window binary capacity a natural and operationally meaningful invariant. A complete all-k classification and its unique seven-position obstruction are not a routine substitution: the failure of the naive packing bound is explained by a finite intersection geometry and attained by explicit constructions. The result quantifies simultaneous orientation-identifiable circular labels and separates single-cycle existence from multiple-codeword capacity.",
+    "status": "PASS"
+  }
+}
