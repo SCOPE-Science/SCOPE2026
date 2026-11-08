@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:45:20.167924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real q>=5 the recurrence has a_n+c_n=1, P_n(1)=1 and positive reversible Jacobi weights alpha_n=sqrt(a_(n-1)c_n). Parity reorder yields J=[0 A*;A 0], with A upper bidiagonal beta_0^2=1-q^-1, beta_k^2=(1-q^-2k)(1-q^-(2k+1)), gamma_k=q^-(2k+3/2). The diagonal is uniformly bounded below above the shift norm, hence A invertible; D=I-A*A is positive trace-class. Direct expansion yields D_00=q^-1 and D_kk=(1+q^-1)q^-2k-(q+q^-1)q^-4k (k>=1), whose trace is (q²+q-1)/(q(q²-1)); triangular determinant of A gives prod_(n>=1)(1-q^-n). P_n(±1)=(±1)^n and h(2k)~constant q^k exclude endpoint atoms, while nonzero Jacobi off-diagonals give simplicity and cyclicity. The rescaling D=W^1/2 C W^1/2 with W_kk=q^-2k has C a compact perturbation of a constant tridiagonal with essential spectrum [(1-q^-1/2)^2,(1+q^-1/2)^2]; its kernel is exactly span(q^-k sqrt(h(2k))) and is isolated. Rank-one interlacing bounds positive eigenvalues between constants times q^-2j and yields N_q(epsilon)=log(1/epsilon)/(2log q)+O_q(1). I independently checked exact rational finite traces for q=5,7,11 and finite Fredholm product factors; these support but do not prove the infinite spectral assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Fredholm determinant and trace-class min-max theorems are classical methods.",
+          "Kahler–Obermaier §4 uses compactness of T_1²-id to infer qualitative discrete support."
+        ],
+        "reasoning": "General trace/determinant techniques apply to many operators but do not mechanically state the special Euler q-product, rational trace or q-dependent decay coefficient without the recurrence-specific computation and an isolated rescaled zero mode.",
+        "searches": [
+          "general trace class Jacobi perturbation Fredholm determinant trace identities",
+          "discrete polynomial hypergroup orthogonality spectrum Kahler Obermaier",
+          "Resultary Jacobi spectral edge geometric recurrence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 6d9b20a8cb1ccb607646a8d14d9a3dfc7a3e72a4, CHECK.py 9428fed1cf8e9909b87e162ab89d6d3ab71dff63",
+        "Kahler & Obermaier arXiv:2603.17983v1 full HTML §§2 and 4",
+        "Resultary two semantic geometric hypergroup/spectral searches",
+        "Independent exact Fraction trace and finite Euler product check for q=5,7,11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2603.17983v1 §4 derives compactness and x_j→1 but no rate beyond convergence.",
+          "Kahler–Obermaier §2 geometric s_n=5^-n and §4 support correspond precisely to claimed starting recurrence."
+        ],
+        "reasoning": "Qualitative compactness and discreteness alone do not imply geometric eigenvalue rates or explicit global trace/determinant. A tailored positive rank-one comparison in the proof supplies the new edge rate.",
+        "searches": [
+          "Kahler Obermaier Section 4 compact operator support formula compared to log edge counting",
+          "trace class Jacobi determinant methods and squared gaps",
+          "Mlotkowski Szwarc general discrete-support theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kahler–Obermaier arXiv:2603.17983v1 §2 explicitly lists s_n=5^-n, and §4 gives support {±1} union {±x_n} converging to ±1.",
+          "The source does not state an exact sum/product over positive spectral points or counting asymptotic coefficient."
+        ],
+        "reasoning": "The original recurrence and qualitative spectral support are covered. Trace/determinant and sharp logarithmic counting are new quantitative conclusions relative to that exact source, not new polynomial families.",
+        "searches": [
+          "Kahler Obermaier A new class of orthogonal polynomials 2603.17983 §4 original geometric example",
+          "Mlotkowski Szwarc discrete measures nonnegative linearization support",
+          "Resultary geometric hypergroup orthogonal polynomial spectral Euler product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kahler–Obermaier explicit recurrence and set-valued support in §4.",
+          "No full-spectrum deficit-sum/Euler-product table identified in inspected source."
+        ],
+        "reasoning": "A classical q-Euler product is familiar on its own, but its exact equality to the product over the particular positive orthogonality support is the structural identity being assessed. Failed search is not unconditional novelty proof.",
+        "searches": [
+          "s_n=5^-n Kahler Obermaier spectral table of support zeros",
+          "q Euler product spectral zeros geometric hypergroup",
+          "Resultary q hypergroup spectral trace product"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of precisely the stated additional conclusion, not of its acknowledged classical object or method. Logarithmic spectral edge law and Euler product for a geometric random-walk polynomial hypergroup is not directly implied by the strongest inspected primary theorem; exact comparisons and accessible source passages appear in the four structured checks. Inaccessible sources are identified as residual risks, not counted as negative whole-document evidence.",
+      "residual_risks": [
+        "An older special-function or q-hypergeometric identity might explicitly encode the same support product under an equivalent Jacobi recurrence; bounded literature search is not a priority certificate.",
+        "O_q(1) counting law does not yield a pointwise equivalent delta_j~constant q^-2j; source does not prove that stronger claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precise original recurrence and qualitative discrete spectra are prior; quantitative sum/product and logarithmic edge count absent from inspected conclusions",
+          "evidence": "§2 near Theorem 2.1 includes s_n=5^-n; §4 paragraphs state support {±1} ∪ {±x_n} and compactness of T_1²-id.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17983v1",
+          "material_read": "Full accessible HTML paper consulted: §§1-4, Theorem 2.1 example s_n=5^-n, §4 support description and compactness proof, discussion of Haar weights",
+          "method": "Primary arXiv full text, mathematical theorem and proof comparison",
+          "title": "A new class of orthogonal polynomials",
+          "trigger": "Same exact coefficient sequence and orthogonality measure"
+        },
+        {
+          "assessment": "No negative whole-document inference drawn; retained as residual comparison risk",
+          "evidence": "Earlier qualitative discrete-support setting, distinct from explicit geometric q-product.",
+          "identifier_or_url": "Młotkowski–Szwarc (2001), Section 5",
+          "material_read": "Title and summary in primary source references; not fully read in this execution",
+          "method": "Bibliographic/context only",
+          "title": "Nonnegative Linearization for Polynomials Orthogonal with Respect to Discrete Measures",
+          "trigger": "Broader qualitative discrete-support results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The already-discovered geometric polynomial hypergroup has a natural unresolved quantitative spectral question: how its infinite discrete support accumulates at ±1. An exact edge-count coefficient plus global rational spectral-deficit sum and Euler product are useful precisely stated invariants, not an arbitrary tiny finite calculation. The proof introduces a recurrence-specific rank-one comparison, enabling sharp log-scale spectral information beyond qualitative compactness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Published 2026 source discovers original polynomial family and qualitative discrete support; only the spectral quantitative refinement is assessed as original.",
+    "No individual exact roots, mass weights or uniform-in-q error; standard trace/determinant theorems alone do not establish these q-specific equations."
+  ],
+  "schema_version": 1
+}
