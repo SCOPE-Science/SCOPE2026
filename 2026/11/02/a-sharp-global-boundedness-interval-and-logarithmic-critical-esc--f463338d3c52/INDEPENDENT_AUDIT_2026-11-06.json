@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:07:37.874423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0 and all real b, with f_a(t)=a t(1-t²)e^-t² and F(x,y)=(f_a(x)+b(y-x),f_a(y)+b(x-y)), mean/difference coordinates s=(x+y)/2,d=(x-y)/2 give |s_{n+1}|<=M_a, d_{n+1}=g(s_n,d_n)-2b d_n with |g|<=M_a and g=(f_a(d+s)+f_a(d-s))/2. When |2b|<1 bounded forcing gives common invariant attracting rectangle; for b=-1/2, outside R=M_a+1 the feedback g opposes d and strictly decreases its modulus, and compactness prevents convergence to a nonentering positive threshold, giving eventual absorption. When |2b|>1, outer |d|>M_a/(|2b|-1) diverges geometrically on open set. When b=+1/2, outer d alternates sign while |d| strictly increases to infinity on an open region; every unbounded orbit enters it. There the mean coordinate decays geometrically because f_a’(t)→0; since |d_n|=O(n), d_n s_n→0, giving u_{n+1}-u_n ~a u_n(u_n²-1)e^-u_n² with u=|d|. For r_n=u_n², r_{n+1}-r_n~2a r_n(r_n-1)e^-r_n, and H(r)=e^r/(2a r²) obeys H(r_{n+1})-H(r_n)→1. Hence r_n=log n+2log log n+log(2a)+o(1) for *every* unbounded positive-endpoint orbit. Independent coordinate-step and finite critical ratio calculations corroborated but cannot prove the slow asymptotic. Boundary b=-1/2 included, b=+1/2 excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounded-forcing inequality |d+|<=2|b||d|+M implies strict interior boundedness/exterior escape but is inconclusive at |2b|=1."
+        ],
+        "reasoning": "The elementary broader bounded-input result covers only noncritical subclaims, not asymmetric endpoint sign or universal coefficient 2 log log n.",
+        "searches": [
+          "coupled nonlinear bounded map antisymmetric coupling |2b|=1 escape global threshold",
+          "linear feedback plus bounded forcing marginal drift Gaussian cubic e^-x^2"
+        ]
+      },
+      "checked_sources": [
+        "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps (https://doi.org/10.3390/math11061517)",
+        "Bifurcations and Dynamical Behavior of 2D Coupled Chaotic Sine Maps (https://doi.org/10.11648/j.acm.20221101.12)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 prior gives same original map and bifurcation data; boundedness/escape all data are logically stronger than selected periodic orbit and basin diagrams."
+        ],
+        "reasoning": "Full global all-real-initial-conditions claim and critical asymptotic do not follow from local bifurcation analysis alone.",
+        "searches": [
+          "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps 2023 global attractor escape",
+          "coupled sine maps Soula 2022 boundary basin 1/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact polynomial-Gaussian map agrees with 2023 source; their full main analysis emphasizes fixed points, critical curves, bifurcation pictures and chaotic basins, not the claimed absorbing/escaping all-orbits boundary."
+        ],
+        "reasoning": "Names \"coupled Gaussian map\" and \"symmetrically coupled non-invertible maps\" identify same map; qualitative chaotic basins do not determine the global compact-absorption interval.",
+        "searches": [
+          "coupled Gaussian exponential maps boundedness b=+/-1/2 logarithmic escape [Resultary]",
+          "Soula Jahanshahi Al-Barakati Moroz Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source includes numerical bifurcation/chaotic region figures and critical-line parameters, but no exact global absorption interval and every-escape asymptotic table in inspected sections."
+        ],
+        "reasoning": "A numerical chart or different model cannot imply this all-orbit theorem; other specialized dynamical tables remain potential priority risk.",
+        "searches": [
+          "Soula 2023 coupled maps parameter b 1/2 boundedness boundary table",
+          "Gaussian coupled maps logarithmic escape log n 2 log log n asymptotic"
+        ]
+      },
+      "rationale": "Soula–Jahanshahi–Al-Barakati–Moroz (2023) introduce this exact coupled Gaussian-cubic map and examine local/global bifurcation diagrams, synchronization and numerical basins. The inspected accessible main text does not derive a common compact absorbing set for all initial conditions over a complete coupling interval or the universal b=+1/2 logarithmic escape law. Bounded-forcing comparison yields strict interior/exterior routinely, but asymmetric marginal endpoints and sharp expansion demand further sign/adiabatic analysis.",
+      "residual_risks": [
+        "An unlocated general marginal dynamical-systems result could imply the log n+2loglog n expansion.",
+        "The proof concerns *eventual entrance* in a common compact invariant region, not uniform absorbing time, attractor classification or finite precision.",
+        "Positive endpoint escape is subgeometric and numerical finite runs converge slowly; analytic proof is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same object and reports bifurcation and synchronization phenomena; inspected paper lacks exact absorbing interval or endpoint logarithmic law",
+          "evidence": [
+            "F(x,y)=(f(x)+b(y-x),f(y)+b(x-y)), f_a=a x(1-x²)e^-x²; emphasis on critical curves, local stability, bifurcation diagrams and basins."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061517",
+          "material_read": "Readable full paper/main text through lawful public copy, §§2–4 map formulation, fixed points, local stability, critical curves, numerical basins",
+          "method": "Compared equation defining F_{a,b}, parameter coverage and theorems/figures",
+          "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+          "trigger": "Exact Gaussian-cubic two-dimensional coupled map primary source"
+        },
+        {
+          "assessment": "Different f, not direct implication of specific Gaussian-cubic endpoint coefficient",
+          "evidence": [
+            "Coupled sine map instead of Gaussian-cubic f_a."
+          ],
+          "identifier_or_url": "https://doi.org/10.11648/j.acm.20221101.12",
+          "material_read": "Abstract and bibliographic material, different sine nonlinearity; full text not material to identical-map comparison",
+          "method": "Compared map family",
+          "title": "Bifurcations and Dynamical Behavior of 2D Coupled Chaotic Sine Maps",
+          "trigger": "Related coupled noninvertible maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a global, all-initial-condition threshold complementing local bifurcation studies, with mathematically unusual asymmetric inclusion of b=-1/2 and a universal two-log correction at b=+1/2. The endpoint results, not merely the elementary |b|<1/2 contraction, give substantive value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps (https://doi.org/10.3390/math11061517)",
+    "Bifurcations and Dynamical Behavior of 2D Coupled Chaotic Sine Maps (https://doi.org/10.11648/j.acm.20221101.12)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim for nonautonomous or negative gain a; unbounded orbit asymptotic only at b=+1/2"
+  ],
+  "schema_version": 1
+}
