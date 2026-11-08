@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed parameter class is explicitly defined by three symmetric stochastic edge semigroups with identical \(t>0\). Reconstructed exact matrix products yield the nonstationary quadratic, determinant and factored discriminant. The complex region has modulus \(r^{3/2}\), and the negative-real region has two manifestly strictly decreasing positive contributions to its spectral radius as \(r\) increases; thus the sole boundary point is globally optimal. The antisymmetric-entry identity excludes diagonalizability at the repeated eigenvalue, and the limiting \(r=0\) polynomial gives \(1/8\). Exact-rational independent computations in `verify.py` check finite identities but are not substituted for the polynomial and monotonicity proof. The rate is only per sweep, not per wall-clock or physical diffusion time.
+PASS
 
-## Originality — PASS (qualified)
+For r=e^{-2t} in (0,1), direct product of the exact symmetric three-edge heat matrices has stationary eigenvalue 1, determinant r^3, other-eigenvalue trace tau=-(1+r)(r^2-10r+1)/8 and discriminant (1-r)^4(r^2-14r+1)/64. The unique discriminant root in (0,1) is r*=7-4sqrt(3). For r>r*, conjugate eigenvalues have radius r^(3/2), strictly increasing with r. For 0<r<r*, the negative-real-root maximum is a sum of two positive terms strictly decreasing with r. Thus the unique per-complete-sweep minimizer is t*=log(2+sqrt(3)), radius 26-15sqrt(3)=(2-sqrt(3))^3; limiting full-equilibration rate is 1/8. Nonzero skew entry T_12-T_21=-(1-r)^2(1+r)/8 excludes a scalar diagonalizable double eigenvalue and proves the exceptional-point Jordan defect. This is spectral asymptotic per sweep, not total elapsed diffusion time or fixed-k transient norm.
 
-Backlund et al. (arXiv:1808.09047, abstract and systematic-versus-random scan introductory material), Shimizu--Shiraga (arXiv:2102.08002, introductory/results sections and mixing analysis), and Dyer--Greenhill--Ullrich (arXiv:1301.4055, heat-bath definition, Lemma 1.2 and proof) were inspected at their primary open-access full texts. They establish general algorithm classes, common-invariant-measure bounds, and nonnegative spectra of *mixtures*, respectively; none of those specific results implies the ordered three-edge product's exact discriminant, defective transition or unique sharp tuning. published-finding corpus searches of triangle edge sweeps, stochastic projection products, reversible factors, and relaxation/eigenvalue aliases returned related but not covering findings. General nonreversibility and noncommutativity are acknowledged as known. Specialized cyclic-projection optimal-relaxation literature (Censor et al., DOI 10.1137/050639399) could only be checked through its abstract; priority remains qualified.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical smallest cycle with three reversible, strictly positive-definite local heat semigroups has an exact optimal nonzero damping duration. The proof quantifies a counterintuitive phenomenon: an ordered local diffusion sweep can converge substantially more slowly when its individual edge steps are allowed to fully equilibrate. The defective spectral transition also distinguishes asymptotic tuning from finite-iterate guarantees. This is a natural complete one-parameter optimization relevant to cyclic operator splitting, Markov sweeps, and distributed averaging, not an arbitrary numerical slice.
+The sharp eigenvalue collision, optimal equal heat duration and exact improvement on the triangular ordered sweep were not implied by the inspected general reversible-update and mixture results. Novelty is qualified by incompletely inspected specialist cyclic-projection/relaxation literature; noncommutativity and nonreversibility themselves are established.
 
-## Limitations and closest literature
+## value
 
-No optimality over arbitrary Markov kernels, unequal edge rates, different sweep orders, total physical time or finite-time total variation is asserted. Closest sources: arXiv:1301.4055 for mixtures of heat-bath kernels; arXiv:2102.08002 for dynamic reversible transitions; arXiv:1808.09047 for systematic versus random scan; DOI 10.1137/050639399 for related projection relaxation (abstract only).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact global one-parameter optimization for the smallest cycle with three strictly positive-definite reversible local heat factors. The finite optimal damping and nontrivial defective boundary distinguish per-sweep asymptotics from the intuitive full-equilibration limit and expose a motivated effect for systematic Markov scans and cyclic splitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

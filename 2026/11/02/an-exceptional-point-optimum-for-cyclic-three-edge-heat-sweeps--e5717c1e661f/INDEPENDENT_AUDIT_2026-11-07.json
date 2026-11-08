@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:13:14.161886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r=e^{-2t} in (0,1), direct product of the exact symmetric three-edge heat matrices has stationary eigenvalue 1, determinant r^3, other-eigenvalue trace tau=-(1+r)(r^2-10r+1)/8 and discriminant (1-r)^4(r^2-14r+1)/64. The unique discriminant root in (0,1) is r*=7-4sqrt(3). For r>r*, conjugate eigenvalues have radius r^(3/2), strictly increasing with r. For 0<r<r*, the negative-real-root maximum is a sum of two positive terms strictly decreasing with r. Thus the unique per-complete-sweep minimizer is t*=log(2+sqrt(3)), radius 26-15sqrt(3)=(2-sqrt(3))^3; limiting full-equilibration rate is 1/8. Nonzero skew entry T_12-T_21=-(1-r)^2(1+r)/8 excludes a scalar diagonalizable double eigenvalue and proves the exceptional-point Jordan defect. This is spectral asymptotic per sweep, not total elapsed diffusion time or fixed-k transient norm.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer–Greenhill–Ullrich Lemma 1.2 proves nonnegative spectrum for convex mixtures of idempotent heat-bath updates, not noncommuting ordered products.",
+          "Shimizu–Shiraga treats sequences of reversible walks and mixing bounds; local factors here are reducible and the full ordered product is nonreversible."
+        ],
+        "reasoning": "General mixing and positivity principles do not yield the sharp nonnormal triangle product eigenvalue bifurcation or optimum. Stronger specialist results remain a named risk.",
+        "searches": [
+          "arxiv:1301.4055 Lemma 1.2 spectral positivity of heat-bath Markov chains",
+          "arxiv:2102.08002 reversible random walks on dynamic graphs",
+          "three edge cyclic reversible heat sweep triangle exceptional point spectral radius optimum product stochastic matrices systematic scan"
+        ]
+      },
+      "checked_sources": [
+        "2026-11-02 frozen RESULT.md and verify.py",
+        "arxiv:1301.4055",
+        "arxiv:1808.09047",
+        "arxiv:2102.08002",
+        "doi:10.1137/050639399 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixture theorem has a linear convex combination of edge heat-bath kernels, whereas the claim uses E12(t)E23(t)E31(t).",
+          "Common stationary distribution and general convergence bounds do not specify the exact trace/discriminant or unique minimizer."
+        ],
+        "reasoning": "The general theorems are compatible with the new claim but do not imply its explicit sharp rate. The new statement is strictly about identical-duration three-factor products.",
+        "searches": [
+          "arxiv:1301.4055",
+          "arxiv:1808.09047",
+          "arxiv:2102.08002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Backlund et al. arxiv:1808.09047 discusses hybrid and systematic Gibbs scans, not an exact universal three-edge identical heat-factor discriminant.",
+          "The assigned product has exact nonstationary quadratic z^2-tau(r)z+r^3, with repeated negative root at r*=7-4sqrt(3)."
+        ],
+        "reasoning": "A systematic-scan Markov kernel is an equivalent vocabulary for a product of reversible updates, but the inspected formulations give no explicit sharp equal-time triangle instance. Unindexed projection-relaxation equivalences remain possible.",
+        "searches": [
+          "three edge cyclic reversible heat sweep triangle exceptional point spectral radius optimum product stochastic matrices systematic scan",
+          "systematic Gibbs scan nonreversible products stochastic three projections optimal contraction",
+          "arxiv:1808.09047"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matrix-invariant table containing tau(r), the exceptional point or (2-sqrt3)^3 was identified in the Resultary top matches or checked primary sections."
+        ],
+        "reasoning": "This is a continuous-parameter matrix optimization rather than an integer-sequence lookup. Failed query matches are not proof of originality.",
+        "searches": [
+          "three edge sweep spectral radius 26-15 sqrt3 exception triangle table",
+          "three edge cyclic reversible heat sweep triangle exceptional point spectral radius optimum product stochastic matrices systematic scan"
+        ]
+      },
+      "rationale": "The sharp eigenvalue collision, optimal equal heat duration and exact improvement on the triangular ordered sweep were not implied by the inspected general reversible-update and mixture results. Novelty is qualified by incompletely inspected specialist cyclic-projection/relaxation literature; noncommutativity and nonreversibility themselves are established.",
+      "residual_risks": [
+        "Specialist relaxation literature remains an originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for ordered product theorem; theorem concerns convex mixtures of idempotents.",
+          "evidence": [
+            "Lemma 1.2 shows nonnegative spectra under mixture/idempotence assumptions, not a three-factor product."
+          ],
+          "identifier_or_url": "arxiv:1301.4055",
+          "material_read": "Full primary arXiv text: definition of heat-bath chain and Lemma 1.2 plus proof.",
+          "method": "open-access arXiv PDF and full text",
+          "title": "Structure and eigenvalues of heat-bath Markov chains",
+          "trigger": "Potential covering positive-eigenvalue theorem"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT; no explicit triangle exceptional point in the material inspected.",
+          "evidence": [
+            "Hybrid/systematic scan performance considered on larger sampler framework."
+          ],
+          "identifier_or_url": "arxiv:1808.09047",
+          "material_read": "Primary preprint abstract, introductory/methodological scan discussion.",
+          "method": "arXiv open-access preprint",
+          "title": "A Hybrid Scan Gibbs Sampler for Bayesian Models with Latent Variables",
+          "trigger": "Systematic-scan alias"
+        },
+        {
+          "assessment": "GENERAL_CONTEXT; does not yield explicit scalar optimum.",
+          "evidence": [
+            "Dynamic-graph reversible kernel bounds address different hypotheses."
+          ],
+          "identifier_or_url": "arxiv:2102.08002",
+          "material_read": "Primary arXiv introductory and main-results discussion.",
+          "method": "arXiv open-access preprint",
+          "title": "Reversible Random Walks on Dynamic Graphs",
+          "trigger": "General products of reversible time-varying kernels"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: specialist overlap not ruled out.",
+          "evidence": [
+            "Cyclic projection relaxation may implicitly specialize to the exact three-edge geometry."
+          ],
+          "identifier_or_url": "doi:10.1137/050639399",
+          "material_read": "Abstract and bibliographic description only; full text NOT read.",
+          "method": "publisher abstract / bibliographic search",
+          "title": "On Diagonally Relaxed Orthogonal Projection Methods",
+          "trigger": "Potential stronger cyclic-projection optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact global one-parameter optimization for the smallest cycle with three strictly positive-definite reversible local heat factors. The finite optimal damping and nontrivial defective boundary distinguish per-sweep asymptotics from the intuitive full-equilibration limit and expose a motivated effect for systematic Markov scans and cyclic splitting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixed order and equal t on triangle only; independent steps individually reversible with positive eigenvalues.",
+    "Asymptotic spectral radius per full sweep; no fastest physical-time or finite-time claim.",
+    "Specialist relaxation literature remains an originality risk."
+  ]
+}
