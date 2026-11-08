@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the exact commuting criterion from the established classification of 0-Hecke idempotents and an explicit Bruhat-order obstruction for the product of two proper parabolics on a connected path. This is followed by a maximality argument forcing a unique absent root, a Cartesian-product decomposition on the two remaining intervals, and an inductive binary-tree bijection. The recurrence and minimal-size count follow without unproved asymptotics. Independent finite reconstruction using actual Demazure multiplication and graph clique enumeration agrees through rank seven; all 0-Hecke elements are checked for idempotency through rank five. The finite checks do not substitute for the proof.
+## correctness
 
-**Originality — PASS relative to the specifically inspected sources.** Elias–Ko (2021, arXiv:2105.08563, full PDF, Lemmas 2.2 and 2.9) provides the underlying idempotent and multiplication theory, but not the binary-search-tree classification of maximal commuting families or their cardinality spectrum. X. He (arXiv:0904.1786, Sections 1–2) studies a different commutative submonoid. Denton (arXiv:1108.4379, Chapter 2) treats algebra idempotents and their orthogonality, rather than maximal commuting sets of monoid idempotents. Ganyushkin–Mazorchuk (arXiv:1006.0316, Theorem 1) give Catalan sizes of certain **quotient monoids**, which do not imply a Catalan number of maximal cliques of this graph. Searches using the exact objects, commutation criterion, Catalan, parabolic-longest, idempotent and maximal-clique terminology did not locate the present implication. Residual risk: an unlocated Coxeter-parabolic/nested-set or graph-associahedron result could cover an equivalent formulation; independent priority confirmation is not performed.
+PASS
 
-**Value — PASS.** The 0-Hecke idempotents form the canonical regular/semilattice stratum of a natural transformation monoid. Their compatibility is not determined merely by support inclusion; the maximal commuting subsemilattices have nonuniform sizes. Identifying every maximal family by binary search trees, counting them exactly, and determining the entire size spectrum is a natural structural classification, not a small numerical improvement or a generic reformulation of the previously known count of idempotents.
+The original RESULT.md contains a false numerical inequality 1+ab >= (a+1)+(b+1)-1 for arbitrary a,b (a=b=1 is a counterexample), so it cannot stand unchanged as a valid proof of the minimum. The fully staged replacement RESULT.md repairs the minimum proof: if subtrees have i and m-1-i keys, a>=i+1 and b>=m-i by induction, whence 1+ab>=1+(i+1)(m-i)=m+1+i(m-1-i)>=m+1, with equality exactly at an endpoint root and minimum nonempty subtree (m>=2), giving 2^(m-1) minimizers. The original componentwise commuting criterion, uniqueness of root, and product recursion are structurally checked against Demazure-idempotent classification; independent recursive size arithmetic gives f4(5)=8, f4(6)=2, f4(7)=4. The corrected final claim holds for every m>=1, with finite rank tests as checks not proofs.
 
-**Scientific limitations.** Only finite type A and maximal cliques in the idempotent commutation graph are covered. No classification of arbitrary commutative submonoids or unrelated 0-Hecke algebra idempotents is claimed. Literature priority is provisional; no independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. The corrected classification is distinct from the established general idempotent classification and Kiselman quotient Catalan count.
+
+## value
+
+PASS
+
+Classifying maximal pairwise commuting idempotent sets (not maximal commutative monoid subalgebras) by labeled binary search trees yields a complete natural class of semilattices and a nontrivial full size spectrum. The sharp Catalan count, minimum and recurrence have intrinsic algebraic/combinatorial meaning and are not a mere parameter substitution into the distinct Kiselman quotient result. The corrected minimum proof preserves the same valuable classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

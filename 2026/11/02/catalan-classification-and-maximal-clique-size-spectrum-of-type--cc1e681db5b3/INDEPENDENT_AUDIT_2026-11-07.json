@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:58:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original RESULT.md contains a false numerical inequality 1+ab >= (a+1)+(b+1)-1 for arbitrary a,b (a=b=1 is a counterexample), so it cannot stand unchanged as a valid proof of the minimum. The fully staged replacement RESULT.md repairs the minimum proof: if subtrees have i and m-1-i keys, a>=i+1 and b>=m-i by induction, whence 1+ab>=1+(i+1)(m-i)=m+1+i(m-1-i)>=m+1, with equality exactly at an endpoint root and minimum nonempty subtree (m>=2), giving 2^(m-1) minimizers. The original componentwise commuting criterion, uniqueness of root, and product recursion are structurally checked against Demazure-idempotent classification; independent recursive size arithmetic gives f4(5)=8, f4(6)=2, f4(7)=4. The corrected final claim holds for every m>=1, with finite rank tests as checks not proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elias–Ko and Berenstein–Greenstein–Li establish broad parabolic/idempotent machinery but inspected sections do not classify these maximal cliques by ordered trees.",
+          "General Coxeter combinatorial building-set results could imply a reformulation, but no such explicit implication was identified."
+        ],
+        "reasoning": "The prior general idempotent classification is a premise of, not an implication of, the maximal-clique and size-spectrum theorem.",
+        "searches": [
+          "Berenstein Greenstein Li Hecke monoids homomorphisms parabolicity 2026 idempotents",
+          "Elias Ko singular Coxeter presentation parabolic idempotents commuting"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: 0-Hecke monoid maximal commuting parabolic longest idempotents binary search tree Catalan order ideals clique sizes",
+        "Git RESULT.md original blob 41c508d273cd72e108e5352511c3ec464cb97688",
+        "Git verify.py blob cfe20cfe4abb990f6f7e23b55f5cdb20cdc0ed56",
+        "https://arxiv.org/abs/2105.08563",
+        "https://arxiv.org/abs/2605.09761",
+        "https://arxiv.org/abs/1006.0316"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Idempotent e_I classification gives 2^m vertices, not maximal commuting families or their size distribution.",
+          "Catalan count of Kiselman quotients neither supplies a canonical clique bijection nor a cardinality spectrum in the original monoid."
+        ],
+        "reasoning": "The corrected proof derives the extra commutation criterion and maximality recursion; its minimum proof must use subtree cardinality constraints, not the false original a,b inequality.",
+        "searches": [
+          "Elias Ko Lemma 2.9 idempotents parabolic longest",
+          "Ganyushkin Mazorchuk Kiselman quotients 0-Hecke Theorem 1 Catalan"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monoid idempotents are parabolic longest elements (Demazure product), unlike general linear idempotents in a monoid algebra.",
+          "Kiselman-quotient Catalan counts concern a quotient monoid, not inclusion-maximal mutually commuting original idempotents."
+        ],
+        "reasoning": "Compared actual algebraic structure and maximality conditions rather than the shared Catalan parameter or title.",
+        "searches": [
+          "0-Hecke monoid commuting parabolic longest elements idempotent clique maximal binary search tree Catalan",
+          "0-Hecke algebra idempotent commutation graph Kiselman quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalan sequence counts many objects; a matching number does not establish an exact table of idempotent maximal-clique sizes.",
+          "The new f_m(s) recurrence refines the total Catalan count, e.g. f4(5,6,7)=(8,2,4)."
+        ],
+        "reasoning": "No inspected standalone database table supplied these exact monoid-idempotent clique families; do not interpret lack of search hits as proof of priority.",
+        "searches": [
+          "0-Hecke maximal commuting idempotents Catalan count spectrum f4 5 6 7",
+          "OEIS Catalan 0-Hecke commuting parabolics idempotents"
+        ]
+      },
+      "rationale": "After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. The corrected classification is distinct from the established general idempotent classification and Kiselman quotient Catalan count.",
+      "residual_risks": [
+        "General Coxeter-parabolic compatibility or graph associahedron literature could contain an equivalent maximal-clique description.",
+        "The already known Catalan family in Kiselman quotients creates superficial number overlap; no direct implication was identified.",
+        "Formal checking was not performed for the repaired all-rank proof, although the corrected inductive step and supporting finite calculations were reconstructed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers input idempotent classification, no identified maximal mutually commuting clique-size spectrum",
+          "evidence": [
+            "Elias–Ko Lemmas 2.2 and 2.9"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.08563",
+          "material_read": "Full accessible primary HTML, Demazure product and parabolic-idempotent lemmas, including Lemmas 2.2 and 2.9",
+          "method": "Full-text section and lemma inspection",
+          "title": "A singular Coxeter presentation",
+          "trigger": "Classifies the parabolic idempotents used as vertices"
+        },
+        {
+          "assessment": "Broad idempotent structure; no identified exact binary-search-tree classification of commuting maximal cliques",
+          "evidence": [
+            "Berenstein–Greenstein–Li Section 2.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.09761",
+          "material_read": "Accessible primary HTML, especially Section 2.6 on idempotent elements/parabolicity",
+          "method": "Full-text relevant-section reading",
+          "title": "Hecke monoids, their homomorphisms and parabolicity",
+          "trigger": "Recent potentially stronger general Hecke-monoid paper"
+        },
+        {
+          "assessment": "Studies distinct quotient monoids; does not by title/known theorem directly cover idempotent cliques of original monoid",
+          "evidence": [
+            "Ganyushkin–Mazorchuk 2010, Theorem 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.0316",
+          "material_read": "Abstract and publicly visible statement of quotient-cardinality theorem; full technical text not asserted read",
+          "method": "Statement-level comparison",
+          "title": "On Kiselman quotients of 0-Hecke monoids",
+          "trigger": "Potential misleading Catalan-count match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying maximal pairwise commuting idempotent sets (not maximal commutative monoid subalgebras) by labeled binary search trees yields a complete natural class of semilattices and a nontrivial full size spectrum. The sharp Catalan count, minimum and recurrence have intrinsic algebraic/combinatorial meaning and are not a mere parameter substitution into the distinct Kiselman quotient result. The corrected minimum proof preserves the same valuable classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary search: 0-Hecke monoid maximal commuting parabolic longest idempotents binary search tree Catalan order ideals clique sizes",
+    "Git RESULT.md original blob 41c508d273cd72e108e5352511c3ec464cb97688",
+    "Git verify.py blob cfe20cfe4abb990f6f7e23b55f5cdb20cdc0ed56",
+    "https://arxiv.org/abs/2105.08563",
+    "https://arxiv.org/abs/2605.09761",
+    "https://arxiv.org/abs/1006.0316"
+  ],
+  "disposition": "repaired",
+  "limitations": [
+    "Type-A path Coxeter graphs and monoid idempotents only, not Hecke algebra idempotents or arbitrary commutative subsemigroups.",
+    "Size spectrum counts labeled-key trees, not unlabeled tree shapes."
+  ],
+  "residual_risks": [
+    "General Coxeter-parabolic compatibility or graph associahedron literature could contain an equivalent maximal-clique description.",
+    "The already known Catalan family in Kiselman quotients creates superficial number overlap; no direct implication was identified.",
+    "Formal checking was not performed for the repaired all-rank proof, although the corrected inductive step and supporting finite calculations were reconstructed."
+  ],
+  "schema_version": 1
+}
