@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_two_cluster_variance.py`. The script uses Python standard-library exact rational fractions for the finite four-level and threshold checks. For independent full-polytope vertex enumeration, install `numpy` and `scipy` as specified in `requirements.txt`; otherwise the optional full-vertex test is explicitly skipped. Replaying with both installed must end in `ALL_TWO_CLUSTER_LIPSCHITZ_VARIANCE_TESTS_OK`.
+## correctness
 
-Recorded run from the delivered checker source:
+PASS
 
-```
-EXACT_FOUR_LEVEL_VARIANCE_AND_ROUNDING_OK 600
-EXACT_KINK_AND_DERIVATIVE_JUMP_OK 122
-SHARP_IMBALANCE_TRANSITION_OK 600
-INDEPENDENT_ALL_LIPSCHITZ_POLYTOPE_VERTICES_OK 27
-ALL_TWO_CLUSTER_LIPSCHITZ_VARIANCE_TESTS_OK
-```
+The source proof reduces the strictly convex centered sum of squares on the finite Lipschitz polytope (modulo constants) to vertices with connected tight-pair graph. Every cross-cluster tight pair for 0<s<1 has consistent orientation, forcing values 0,s on one cluster and 1-s,1 on the other. The two-sided exchange gains 2s(1-s), ruling out simultaneous splits; comparison rules out a split confined to the smaller cluster. The remaining exact candidates F_k=L+ks²-(L+ks)²/N are all feasible. Completing the square yields nearest-integer k, global optimizer classification and phase crossings s_j=2L/(N-2j-1) with right-minus-left slope 2L/N. Equilateral s=1 reduces to balanced binary partitions. I independently recomputed 144 rational parameter cases and the completed-square expression; finite checks corroborate but do not prove the all-size statement. Domains: integer m,n>=2, real 0<s<=1, real observables, uniform atoms, counting-variance normalization.
 
-The 600 exact cases iterate cluster sizes from one to ten and rational distances. The 122 cases verify exact crossing and derivative identities. The 27 independent tests enumerate the full Lipschitz-polytope vertex set by halfspace intersection, for selected parameter sizes; their floating comparison uses tolerance `2e-8` and is not a symbolic proof. The main theorem assumes cluster sizes at least two; tests with size one deliberately exercise boundary consistency. The universal proof uses the connected-tight-pair vertex argument and algebraic maximization, not any finite enumeration. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Prior general Lipschitz variance, ultrametric free-space and exact four-point distortion theories do not imply this precise centered Lipschitz-to-Euclidean operator norm or its integer phase staircase, according to the material inspected. Claim is best-of-knowledge: other hierarchical-metric literature might contain an alias.
+
+## value
+
+PASS
+
+The optimal Lipschitz variance/Poincaré constant is a canonical invariant of a natural finite ultrametric family. Its exact arithmetic optimizer and equally sized derivative jumps give a full infinite-family scale/imbalance classification with sharp extremizers, beyond a routine four-point calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
