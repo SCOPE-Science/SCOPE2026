@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-The analytic all-dimension proof is in RESULT.md. Two executable checks use only standard Python 3, exact integer arithmetic and no network access. Run `python verify.py` and `python verify_recursion.py` from this directory.
+## correctness
 
-The first script enumerates every binary upper triangular matrix through size five, constructs the full target-fiber array, computes its independent Walsh–Hadamard transform and the factorized Gauss-sum transform, verifies the full spectrum is nonnegative, identifies exactly two maximal targets, checks that the positive spectrum spans the codimension-one subspace, and confirms the flat Walsh-magnitude lemma for every quadratic Boolean form in at most four variables. It ends in `VERIFY_OK`.
+PASS
 
-The second script compares every direct fiber count to an independently implemented memoized first-pivot recurrence, for every symmetric target in dimensions one through five. It ends in `VERIFY_OK`.
+The fixed-coordinate Walsh character of UᵀU factors as ∏ of suffix quadratic Gauss sums. The radical double-sum identity shows every nonzero quadratic Walsh magnitude is flat; positivity descends from g_n=2, with g_n=0 giving zero transform. Explicit offdiagonal and diagonal-plus-adjacent coordinate witnesses span exactly λ_nn=0. Fourier inversion proves all-target inequality and the two equality cases, including n=1; toggling U_nn pairs fibers. Independent full convolution and maximum check over all 2^{n(n+1)/2} targets for n=1..5 matched 1,2,6,28,192 and nonnegative spectrum. This corroborates rather than proves arbitrary n.
 
-Expected records are in `verification/verify_output.txt` and `verification/recursion_output.txt`. The programs are finite corroborations; the proof covering all \(n\ge1\) uses the explicit quadratic Gauss-sum identity and Fourier inversion. The source literature establishes the zero-target numbers in the expected records, so those numbers are not described as original. No external independent validation is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge qualified: known zero-fiber counts and target-by-target recursions are not new, but the all-dimensional global two-maximizer theorem and Fourier-positive support classification are not stated or implied by inspected Corollary 2. Wu–Zhou full text inaccessible and could contain a stronger consequence.
+
+## value
+
+PASS
+
+Sharp global maximizing-target classification and Fourier-positive harmonic structure are natural properties of triangular Gram fibers and not determined by the established zero-target count. The exact two-target equality set is an independently useful structural invariant in every dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
