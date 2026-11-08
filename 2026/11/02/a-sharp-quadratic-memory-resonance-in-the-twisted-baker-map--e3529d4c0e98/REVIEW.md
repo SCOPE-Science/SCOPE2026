@@ -1,19 +1,21 @@
-# Scientific review of a sharp quadratic-memory resonance in the twisted baker map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under uniform probability on the centered square, each of the two full preimage branches has Jacobian modulus two. This independently yields the exact transfer operator written in `RESULT.md`, its invariant constant, and the closed degree-two polynomial action. The explicit centered eigenfunction \(e=q-10u/11+2v/11\) has eigenvalue \(5/8\), with \(\langle q,e\rangle=8/45\); orthogonality to affine terms proves the **entire infinite covariance series**, not only the checked first 25 values. Direct finite geometric summation yields the variance \(104n/135-128[1-(5/8)^n]/81\) for each integer \(n\ge1\). The bounded polynomial \(h=5q/3-4u/3+2v/3\) solves \((I-\mathcal P)h=\mathcal Pq\), making \(d=q+h-h\circ F\) a reverse martingale difference, whose squared norm is exactly \(104/135\). The cited original paper proves Bernoulli mixing; the standard martingale CLT yields the Gaussian limit. Exact symbolic checks and branchwise integrations were executed. Risk: the Gaussian step uses the standard external martingale theorem, not an independently reproduced general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For Saiki–Takahasi–Yorke two-dimensional twisted baker on centered square with normalized uniform probability, each inverse branch Jacobian is 2; the Perron operator is P f(u,v)=[f((u−1)/2,v)+f((v+1)/2,−u)]/2. Direct expansion gives Pq=(5/8)q−u/4+v/4 for q=u²+v²−2/3 and exact eigenfunction e=q−10u/11+2v/11 with eigenvalue 5/8. Orthogonality to centered affine coordinates and E[q²]=8/45 give all k≥0 covariances 8(5/8)^k/45. Geometric summation proves variance 104n/135−128(1−(5/8)^n)/81 for all n≥1. Polynomial transfer characteristic polynomial is λ²(λ−1)(λ−5/8)(λ²−3λ/4+1/4), so centered degree≤2 decay is sharply 5/8, affine eigenspace modulus 1/2. The bounded polynomial h=5q/3−4u/3+2v/3 solves (I−P)h=Pq; d=q+h−h∘F has Pd=0 and ∫d²=104/135; using the original Bernoulli ergodicity theorem and standard reverse-martingale CLT, coboundary correction O(1) gives N(0,104/135). Independently recomputed exact SymPy transfer, characteristic, branch martingale and integrals.
 
-The complete available 14-page arXiv version of Saiki--Takahasi--Yorke was compared at the mathematical-statement level. Its period-point derivative spectra, Bernoulli isomorphism, mixing and equidistribution do not state the polynomial transfer eigenvalue \(5/8\), complete squared-radius covariance, finite-time variance or this CLT variance. An earlier exact correlation calculation for the **linear first-coordinate observable** has decay governed by affine eigenvalues of modulus \(1/2\); it does not cover the degree-two eigendirection or its strictly slower decay. A periodic-Jacobian-spectrum computation concerns a different derivative cocycle and cannot imply stationary correlations. Standard martingale approximation results provide a method, not these numerical constants. Searches combining the exact model name with quadratic radius, covariance constants, transfer spectra, alternative terminology and broader mixing results did not identify a covering statement. Risk: an unindexed or unpublished exact low-degree calculation may exist; semantic search is not a proof of global publication uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The centered squared radius is a natural geometric energy measuring displacement from the middle of the model's state square, and the original map is motivated by twisted/vortex-like dynamics. A sharply defined distinction between memory of linear coordinates and radial energy is structurally informative even in a Bernoulli system: polynomial degree changes the leading transfer eigenvalue from modulus \(1/2\) to \(5/8\). The exact covariance sequence, exact finite-sample accumulated-energy variance and nondegenerate limiting normal law are natural quantitative dynamical invariants. The result is not merely a change of notation or a standard CLT with guessed variance. It makes no claim of rates for nonpolynomial observables or higher dimensions.
+PASS qualified to quadratic-energy exact stationary correlations/variance/CLT and degree-two versus affine spectral gap; original twisted map, Bernoulli coding, linear correlation and periodic Jacobian real-spectrum are acknowledged previous mathematics.
 
-## Sources, scope, and remaining risks
+## value
 
-Saiki, Takahasi and Yorke, *The twisted baker map*, arXiv:2202.04304, especially Section 1 and Section 3.3 and Remark 3.1, provide the exact map and its Bernoulli theorem. Gordin (1969), and Eagleson (1975), DOI 10.2307/3212425, supply standard martingale CLT context. The exact calculations are self-contained in `RESULT.md` and `verification/check_energy.py`. The published periodic-point and linear-coordinate results are not equivalent to the new squared-radius covariance statement. Independent mathematical audit and comprehensive publication-priority confirmation are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The squared distance from the center of an invariant square is a natural geometric energy observable. Exact all-lag memory and Birkhoff-sum variance together with a sharp contrast between affine and quadratic observables give a meaningful quantitative invariant for the twisted map, not merely an application of the generic CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

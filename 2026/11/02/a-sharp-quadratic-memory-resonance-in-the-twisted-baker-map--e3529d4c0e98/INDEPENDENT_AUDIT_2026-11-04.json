@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:15:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Saiki–Takahasi–Yorke two-dimensional twisted baker on centered square with normalized uniform probability, each inverse branch Jacobian is 2; the Perron operator is P f(u,v)=[f((u−1)/2,v)+f((v+1)/2,−u)]/2. Direct expansion gives Pq=(5/8)q−u/4+v/4 for q=u²+v²−2/3 and exact eigenfunction e=q−10u/11+2v/11 with eigenvalue 5/8. Orthogonality to centered affine coordinates and E[q²]=8/45 give all k≥0 covariances 8(5/8)^k/45. Geometric summation proves variance 104n/135−128(1−(5/8)^n)/81 for all n≥1. Polynomial transfer characteristic polynomial is λ²(λ−1)(λ−5/8)(λ²−3λ/4+1/4), so centered degree≤2 decay is sharply 5/8, affine eigenspace modulus 1/2. The bounded polynomial h=5q/3−4u/3+2v/3 solves (I−P)h=Pq; d=q+h−h∘F has Pd=0 and ∫d²=104/135; using the original Bernoulli ergodicity theorem and standard reverse-martingale CLT, coboundary correction O(1) gives N(0,104/135). Independently recomputed exact SymPy transfer, characteristic, branch martingale and integrals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source establishes invariant Lebesgue measure, Bernoulli property and mixing but supplies no uniform explicit correlation constants for all degree-two polynomials."
+        ],
+        "reasoning": "Bernoulli mixing and a martingale CLT are general methods, but do not imply the exact 5/8 covariance and 104/135 variance without nonstandard finite transfer calculations.",
+        "searches": [
+          "arxiv:2202.04304 Theorems C,D and Sec 3.3",
+          "Resultary semantic query: twisted baker map quadratic squared radius autocorrelation transfer eigenvalue"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2202.04304",
+        "Resultary:2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b",
+        "Resultary semantic query: twisted baker map quadratic squared radius autocorrelation transfer eigenvalue",
+        "Gordin 1969 martingale approximation (standard)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper Bernoulli theorem justifies ergodic martingale CLT, but it does not determine d² integral; resultary real-spectrum count quantifies Jacobian eigenvalues, not stationary covariances."
+        ],
+        "reasoning": "Known ingredients are explicitly used; the new exact quadratic transfer eigendirection is not a stated corollary of the compared results without fresh computation.",
+        "searches": [
+          "arxiv:2202.04304 Sec 3.3",
+          "Resultary:2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear-coordinate correlations decay with modulus 1/2, while the quadratic transfer eigenvalue 5/8 is different; periodic Jacobian spectra concern derivative cocycles."
+        ],
+        "reasoning": "Compared transfer spectra, Perron–Frobenius correlations and periodic Jacobians. Matching map terminology does not identify the same observable or stationary moment; periodic derivative eigenvalues are not a covering theorem.",
+        "searches": [
+          "Resultary semantic query: twisted baker map quadratic squared radius autocorrelation transfer eigenvalue",
+          "arxiv:2202.04304",
+          "Resultary:2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-lag q(u,v) correlation or finite-time variance table located in inspected paper or Resultary."
+        ],
+        "reasoning": "This is an exact infinite temporal sequence and closed polynomial spectrum, not a finite table recomputation.",
+        "searches": [
+          "Resultary semantic query: twisted baker map quadratic squared radius autocorrelation transfer eigenvalue",
+          "arxiv:2202.04304"
+        ]
+      },
+      "rationale": "PASS qualified to quadratic-energy exact stationary correlations/variance/CLT and degree-two versus affine spectral gap; original twisted map, Bernoulli coding, linear correlation and periodic Jacobian real-spectrum are acknowledged previous mathematics.",
+      "residual_risks": [
+        "Unindexed low-degree polynomial transfer calculation may predate this computation.",
+        "Sharp 5/8 rate is only within degree≤2 polynomial space, not global mixing over all observables.",
+        "Gaussian conclusion invokes established martingale CLT rather than a new proof of that general theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS map, invariant area, Bernoulli ergodicity and general mixing, NOT exact squared-radius covariance or degree-two transfer eigenvalue in inspected statements.",
+          "evidence": "Saiki, Takahasi, Yorke 2022, Section 3.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04304",
+          "material_read": "Complete 14-page arXiv PDF accessible; reviewed definitions, Theorems C/D and Bernoulli construction Section 3.3, and the paper mathematics on periodic derivatives; screenshot pages 1 and 5.",
+          "method": "PDF text plus page image inspections; compared statements/quantifiers and exact observable.",
+          "title": "The twisted baker map",
+          "trigger": "Exact same map with published ergodicity/boundary assumptions"
+        },
+        {
+          "assessment": "Different cocycle/moment object; summary supplies no covering stationary covariance theorem.",
+          "evidence": "Resultary search hit id 2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b",
+          "material_read": "Published finding title and full returned summary concerning real eigenvalues of iterated periodic-point Jacobians.",
+          "method": "Resultary semantic result comparison (not a full paper).",
+          "title": "Exact real-spectrum residue law for the twisted baker map",
+          "trigger": "Same map and spectral terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The squared distance from the center of an invariant square is a natural geometric energy observable. Exact all-lag memory and Birkhoff-sum variance together with a sharp contrast between affine and quadratic observables give a meaningful quantitative invariant for the twisted map, not merely an application of the generic CLT.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2202.04304",
+    "Resultary:2026/10/11/SCOPE-exact-real-spectrum-residue-law-for-the-twisted-baker-map--f1bd1c74fb3b",
+    "Resultary semantic query: twisted baker map quadratic squared radius autocorrelation transfer eigenvalue",
+    "Gordin 1969 martingale approximation (standard)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed low-degree polynomial transfer calculation may predate this computation.",
+    "Sharp 5/8 rate is only within degree≤2 polynomial space, not global mixing over all observables.",
+    "Gaussian conclusion invokes established martingale CLT rather than a new proof of that general theorem."
+  ],
+  "residual_risks": [
+    "Unindexed low-degree polynomial transfer calculation may predate this computation.",
+    "Sharp 5/8 rate is only within degree≤2 polynomial space, not global mixing over all observables.",
+    "Gaussian conclusion invokes established martingale CLT rather than a new proof of that general theorem."
+  ],
+  "schema_version": 1
+}
