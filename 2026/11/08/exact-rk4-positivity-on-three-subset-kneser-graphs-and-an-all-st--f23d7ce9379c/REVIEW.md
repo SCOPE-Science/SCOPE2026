@@ -1,0 +1,11 @@
+# Review of the sharp Kneser-graph RK4 positivity law
+
+**Correctness — PASS.** Four intersection-orbit entries are reconstructed from exact walk counts, the disjoint-triple cubic is proved strictly decreasing through a negative derivative discriminant, both nonedge quadratics have strictly negative discriminants, and scalar spectral positivity controls the diagonal. The eleven explicit symbolic shifted-polynomial certificates establish uniform signs for every integer order at least nine; direct adjacency enumerations of 1,845 entries independently test the recurrence. The order-eight counterexample is an exact rational evaluation.
+
+**Originality — PASS on inspected evidence, with residual risk.** Full primary text for Matoušek–Ziegler (Kneser graph structure), Horváth (Runge–Kutta positivity), and Bresten et al. (SSP theory) was checked for the exact Kneser RK4 statement or stronger implications. They provide the underlying methods and graph definition but not the four-orbit cubic classification. Actual searches of mathematical records and accessible own research statements found related Johnson-graph RK4 and different integrators, but no matching disjointness graph result. Unindexed specialized literature may nonetheless contain it; nonappearance is not a mathematical proof of priority.
+
+**Mathematical value — PASS.** The natural disjoint-triple diffusion family has four symmetry orbits, despite graph diameter two, and a sharp nonnegative evolution timestep. The exact proof establishes that nonedge transitions are globally positive at all steps, rather than merely until the first sign failure, with a sharp eight-to-nine boundary; this is a nontrivial structural addition to standard numerical-diffusion positivity bounds. It supplies a reusable benchmark for high-connectivity nonbipartite graph integrators.
+
+**Limitations.** Unit-weight rank-three Kneser graphs only, completed standard RK4 endpoints only; no general graph, variable-step, unequal-weight or stage positivity theorem. The proof is an explicit exact-arithmetic computer-checkable polynomial-sign certificate combined with analytic reductions, not a formally machine-certified mathematical proof.
+
+Self-review: passed. Independent audit: not yet performed.
