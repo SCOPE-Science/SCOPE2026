@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** PASS: Definitions and bidegree convention are those of arXiv:2112.07004. Six explicit facet lists and an exhaustive bistellar-flip closure produce six pairwise nonisomorphic Klein-bottle triangulations. Exact rational chain complexes for every induced subcomplex, alternating restrictions, checked square-zero differentials, and six sets of computed differential ranks reproduce the three claimed profiles. H2 of every induced complex vanishes over Q. The calculation proves a finite six-type classification, not an infinite assertion; integral torsion is not determined.
+## correctness
 
-**Originality — PASS on inspected evidence.** PASS on accessible evidence: The defining arXiv:2112.07004 includes RP2 and other examples but not the six Klein-bottle rational profiles. arXiv:2308.15702 studies rank obstructions and other examples (including a known rank-two non-wedge-decomposable case), not this exact classification; arXiv:2404.06763 concerns facet operation formulas, without implying the computed rank table. Searches in published mathematical findings show the six-type flip graph and separate mod-two homology invariants, not the Hochster differentials or rational HH ranks. Unindexed calculations remain possible.
+PASS
 
-**Value — PASS.** PASS: All six vertex-minimal Klein-bottle triangulations share the same closed nonorientable surface and f-vector (8,24,16), yet the complete rational bigraded double-cohomology table takes three distinct profiles (total ranks 2,4,6). This provides an invariant that separates natural minimal triangulations beyond ordinary topology or face numbers; it fills an explicit finite nonorientable benchmark for an invariant previously studied mainly on other families.
+The exact claim is rational coefficient HH for six combinatorial classes of eight-vertex Klein-bottle triangulations, not integral HH or arbitrary vertex counts. The Hochster bidegree convention (−k,2l), −k=p−l+1, maps p=0,l=2 to (−1,4) and p=1,l=4 to (−2,8), with the empty subset furnishing (0,0). Using all six facet lists, an independently written exact-Q chain computation re-enumerated 255 nonempty induced subcomplexes per class, checked every oriented boundary composition, verified no rational induced H2, computed degree-zero and first-homology restriction maps, checked all Hochster differential squares, and reproduced dimensions and ranks from the claim. All vertex links were cycles, f-vector (8,24,16), beta1(Q)=1. Incidence-graph isomorphism and all 36 legal directed 2-2 flips corroborate six distinct, flip-closed types; completeness among all possible eight-vertex Klein-bottle triangulations additionally uses the known Cervone classification rather than assuming orbit closure is a global census. No floating-point or modular surrogate was used for ranks.
 
-Closest prior work: arXiv:2112.07004 (definition and examples), arXiv:2308.15702 (rank questions), arXiv:2404.06763 (facet operations), and the six-type Klein-bottle flip classification. See AUDIT.json for source-by-source scope, closest indexed findings and outstanding overlap risks.
+## originality
 
-Scientific limitations: the result holds over rational coefficients only; no integral HH torsion theorem or extension beyond vertex-minimal Klein-bottle triangulations is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge PASS: the exact six-object rational Hochster-double-cohomology bidegree table is not a stated or forced consequence of the inspected founding invariant, rank-constraint, facet-operation, triangulated-sphere or tight-manifold literature. The known complete flip graph supplies the underlying combinatorial types, not the exact ranks of all induced cohomology restriction maps. We searched published analogous Klein-bottle invariants; they are mod-two cosystolic or integral homology invariants, not this HH invariant. This is a bounded priority judgment; unindexed calculations remain possible.
+
+## value
+
+PASS
+
+This is a natural, complete, mathematically motivated six-object classification of a nonstandard moment-angle invariant for all vertex-minimal triangulations of one classical nonorientable surface. The exact HH profiles 2,4,6 differ despite identical homeomorphism type and f-vector, establishing that the invariant separates geometry/combinatorics invisible to these cruder invariants. Computing the induced cohomology deletion maps for all six types is not just a routine face-count deduction. The precise finite benchmark can be reused to test structural hypotheses and compare other nonorientable triangulations; no larger general theorem or integral calculation is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
