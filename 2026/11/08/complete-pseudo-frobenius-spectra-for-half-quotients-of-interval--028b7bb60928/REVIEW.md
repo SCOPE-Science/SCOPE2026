@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness (PASS).** The interval decomposition of exact-length sums proves the complete quotient gapset, with exact boundaries and genus. An explicit quotient generating set reduces pseudo-Frobenius membership to finite translates; endpoint identities eliminate all but the final block and one parity-selected singleton. The proof covers \(T=0\), both parities of \(k\), and every \(a\ge5\) odd. The independent Apéry and source-semigroup checks in `artifacts/check.py` passed 5,476 and eight parameter tests respectively; finite tests are corroboration, not proof for all parameters.
+
+**Originality (PASS, best-knowledge).** Full-text comparison of Adeniran et al. (arXiv:1809.09360), Liu's arithmetic-progression quotient work (arXiv:2312.06096) and Liu's quotient-generator work (arXiv:2312.10889) did not identify the entire pseudo-Frobenius spectrum of these half quotients. The first develops genus/Frobenius questions, the second assumes divisibility by the initial generator in its Apéry theorem, and the third gives general generator constructions, not the closed parity-sensitive type formula. Bogart–O'Neill–Woods investigates quotient rank and projections, not these invariants. General Apéry and pseudo-Frobenius techniques are prior art; statements were compared by implication rather than titles. A missed exact formula in unindexed or more recent literature remains a residual risk.
+
+**Mathematical value (PASS).** The result gives an explicit complete structural invariant—every pseudo-Frobenius number and the exact type—on a natural infinite two-parameter family related to a published quotient problem. The penultimate-block singleton has a genuine parity transition and the full spectrum is not implied merely by the previously studied Frobenius number or genus. This does not classify general quotients or extend to arbitrary divisors.
+
+Self-review: passed. Independent audit: not yet performed.
