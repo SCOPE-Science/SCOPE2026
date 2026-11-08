@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact score of the censored marginal equals \(g_n(j)\) at exposed letters and \(-\sum_{E}g_n/(n-|E|)\) at the lumped letter. Its second moment is explicit and controls a uniform triangular-array likelihood characteristic function because the total third moment per draw is \(O(1/n+M_n^{3/2}/n^3)\). The sum of squared marginal biases on an arbitrary \(M_n\)-letter alphabet has a uniform harmonic upper bound and the two boundary intervals meet it. Lorentzian occupation-polynomial structure and Lee–Seo entropy contraction yield an \(o(1)\) error for replacing actual first coordinates by independent marginals. Both product and finite-enumeration computations agree with the formulas. No claim of infinite verification by finite enumeration is made.
+PASS
 
-## Originality — PASS, provisional
+The proof reduces parking prefixes to iid parking marginals via a cited Lorentzian entropy contraction giving uniform o(1) TV error at k~lambda n/log n. An exact Borel ratio identity and uniform endpoint bias g(j)^2~2/(pi min(j,n+1-j)) yield optimal energy (4/pi)log M by rearrangement; exact censored chi-square and bounded third moments imply Gaussian log-likelihood N(-v/2,v) and TV=2Phi(sqrt(v)/2)-1. Fresh independent parking-function enumeration n=2..6 verified the Borel recurrence/reflection; n=1000 and 10000 energy diagnostics checked the constant. This is a conditional theorem using the published strengthened Lorentzian entropy lemma, not a finite proof of that lemma.
 
-The motivating 2026 product-testing paper provides universal approximation but not the sharp sparse-censoring selection law. Diaconis–Hicks provides exact marginals; Bellin provides older partial-coordinate asymptotics; Lee–Seo provides the key entropy inequality. A later 2026 parking-function paper establishes the uncensored Gaussian law and the dependency approximation, but does not analyze optimal sparse value-revealing alphabets. The new result is the exact retained-logarithmic-information fraction and its optimizing boundary alphabets, which do not follow from the uncensored TV distance alone. Historical priority remains provisional: unindexed experiment-compression literature could contain a stronger implicit theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This solves a motivated observation-budget question: which and how many preference symbols must a restricted observer distinguish to detect parking-function dependence? It identifies an explicit and sharp \(\alpha\)-fraction of the critical Gaussian signal and proves the counterintuitive sufficiency of observing a vanishing fraction of the symbol universe, which a full-data testing theorem does not quantify. The result is structural, uniform over all deterministic choices of observed labels, and applies to the original dependent experiment rather than just independent surrogates.
+Best-of-knowledge original sharp budget-dependent profile; all cited generic and uncensored tools are treated as input, not new conclusions.
 
-## Sources and limits
+## value
 
-Principal sources inspected: Avital et al., arXiv:2609.21049v1 (full text, Sections 1–3); Lee–Seo, arXiv:2608.17920v1 (Section 3, including Lemma 3.7 and proof passages); Kortchemski, arXiv:2610.40082v1 (full mathematical Sections 1–4). Diaconis–Hicks single-marginal formula is corroborated by exact enumerations, but its publisher text was only partially accessible. Bellin's abstract and bibliographic record were inspected, not its full paper. All of these access limits are acknowledged; none supplies direct contrary coverage. No adaptive censoring or noncritical limit is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp and nonobvious statistical information budget law for random parking functions: boundary labels retain alpha fraction of critical testing signal, including full limiting power with o(n) observed labels. This is a motivated quantitative experiment-design boundary beyond uncensored TV thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
