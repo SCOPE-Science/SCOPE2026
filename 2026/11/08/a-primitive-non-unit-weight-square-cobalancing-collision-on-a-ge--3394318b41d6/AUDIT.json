@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For P(t)=t(t+1)(2t+1)/6, the definition is equivalent for all positive n,r,a,b to (a+b)P(n)=bP(n+r). With (a,b)=(563,11), gcd(563,11)=1, P(5)=55, P(20)=2870, P(142)=964535, P(532)=50331190; the two equalities 574*55=11*2870=31570 and 574*964535=11*50331190=553643090 prove both n=5,r=15 and n=142,r=390. The exact arbitrary-precision checker uses independent direct sums and closed-form calculations. For the associated projective cubic, the displayed partial derivatives have no common projective zero, showing smoothness, and (11:41:1) is a rational point. No infinite enumeration or completeness claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A374500 explicitly records P(115)=P(11)P(14)=506*1015, which does imply weaker examples with b=1 and one index 1.",
+        "The motivating paper inspects 1<=a,b<=120 empirically and poses the unrestricted existence question; no theorem covering a=563,b=11 appears in relevant sections.",
+        "Closest published-finding corpus hit 2026/10/4/SCOPE-exact-tian-classification-for-fixed-support-2-q--179ef96997ac addresses fixed support divisor constraints, not square-cobalancing."
+      ],
+      "reasoning": "The weaker bare existential question has prior tabulated coverage and is excluded from the originality assertion. The stronger b>1, both n>1 condition with the exact ratio is not a special case of the cited b=1 example.",
+      "searches": [
+        "OEIS:A374500",
+        "arXiv:2212.02639v1 Figure 2 and Section 6",
+        "\"square cobalancing numbers\" \"two\" coefficients",
+        "square cobalancing numbers two indices for coprime (a,b) with b>1 n>1; cube of sums of squares 563/11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.02639v1, Definition 5.2, Figure 2 and Section 6",
+      "OEIS A374500, full public sequence entry and example",
+      "OEIS A000330, full entry and formula",
+      "Axioms 10 (2021), 350, Section 3 (unsquared related family)",
+      "Relevant searchable published-finding corpus record summaries and closest IDs",
+      "Accessible own private prior claims (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary article asks whether any coefficients admit more than one square-cobalancing index, with no positive multi-index examples in its 120-by-120 plot.",
+        "The 2024 OEIS product example entails a simple b=1, n=1 instance, so the unrestricted question is already implied by known tabulated arithmetic.",
+        "The 2021 article concerns un-squared terms in (a,b)-type arithmetic progressions, not the square-weighted equation."
+      ],
+      "reasoning": "The final claim is limited to a primitive b>1 example with both indices strictly greater than one, not to the covered unrestricted existential. No inspected prior theorem has hypotheses or data implying the two stated 574:11 ratio representations.",
+      "searches": [
+        "arXiv:2212.02639v1 Definition 5.2, Figure 2, Section 6",
+        "OEIS:A374500",
+        "Balances in the Set of Arithmetic Progressions (Axioms 2021, 350)",
+        "Cui Davis Durmic 2022 square cobalancing question uniqueness counterexample nonunit coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Square-cobalancing is exactly (a+b)P(n)=bP(n+r); via x=2n+1, y=2(n+r)+1, this is b*y*(y*y-1)=(a+b)*x*(x*x-1).",
+        "For a=563,b=11, (x,y)=(11,41) and (285,1065) satisfy 11*y*(y*y-1)=574*x*(x*x-1).",
+        "Searches returned no indexed equivalent description of these two points or the coefficient pair."
+      ],
+      "reasoning": "Equivalent algebraic forms were compared by exact implication. Ordinary (unsquared) balancing and a product identity yielding b=1 do not state the b=11 two-nontrivial-point claim.",
+      "searches": [
+        "arXiv:2212.02639v1 Definition 5.2",
+        "\"574/11\" \"pyramidal\"",
+        "\"563,11\" \"cobalancing\"",
+        "cubic curve 11*y*(y*y-1)=574*x*(x*x-1) square pyramidal ratios"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000330 is the list and formula P(n)=n(n+1)(2n+1)/6, not a table of repeated ratios.",
+        "OEIS A374500 catalogs square-pyramidal numbers that themselves factor as smaller square-pyramidal products and gives product 506*1015=513590.",
+        "For the new ratio equality P(20)P(142)=P(5)P(532)=2768215450, the common product lies strictly between P(2024)=2765871900 and P(2025)=2769972525, hence is not in the A374500 class."
+      ],
+      "reasoning": "Exact tabular coverage was compared for mathematical implications: the A374500 class cannot directly instantiate this non-pyramidal cross-product. The general P(n) list verifies values but does not enumerate equal ratio pairs.",
+      "searches": [
+        "OEIS:A000330",
+        "OEIS:A374500",
+        "\"55\" \"2870\" \"964535\" \"50331190\" \"ratio\"",
+        "\"2870\" \"50331190\" \"964535\""
+      ]
+    },
+    "rationale": "The claim is deliberately narrower than mere existence of two square-cobalancing indices. An explicitly published 2024 OEIS square-pyramidal product identity already yields examples with right coefficient b=1 and an index n=1; those are recognized as covered and not promoted. The new exact certificate has coprime coefficients (563,11), b>1, and both distinct indices n>1, with a repeated 574:11 square-pyramidal ratio not given or implied by the inspected product-of-pyramidal identities. The initiating paper (2022) asks about multiplicity but does not prove this example; its plotted coefficient range stops at 120. Direct searches of mathematical-records and accessible prior claims did not find the same primitive nondegenerate pair. Novelty remains contingent on unindexed literature.",
+    "residual_risks": [
+      "An equivalent (563,11) repeated square-pyramidal ratio could appear in unindexed or recent publications.",
+      "The original unrestricted existence question has a weaker affirmative answer already implicit in a 2024 OEIS product entry; novelty is confined to nonunit right coefficient and both n>1.",
+      "No completeness of integral-point solutions, coefficient minimality, or infinite parametric family is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING refined b>1 two-nontrivial-index certificate; authors report empirical uniqueness for a,b<=120 and ask if larger multiplicity exists",
+        "evidence": [
+          "Definition 5.2 equation (5.2), page 29",
+          "Figure 2 empirical 120x120 coefficient range, page 30",
+          "Future Work last question, page 31",
+          "Primary MSC 11B39, first page"
+        ],
+        "identifier_or_url": "arXiv:2212.02639v1; https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/SumReciprocalsRecurrences_EurekaUrop20.pdf",
+        "material_read": "Definitions 5.1 and 5.2, Figure 2 discussion, Future Work question, Appendix B and primary MSC on first page",
+        "method": "Author-hosted lawful full-text PDF text and rendered images of pages 30-31; compared exact definitions, scope and implications",
+        "title": "Sums of Reciprocals of Recurrence Relations",
+        "trigger": "Same precise square-cobalancing concept and open uniqueness question"
+      },
+      {
+        "assessment": "COVERS weaker b=1 n=1 examples, NOT_COVERING refined (563,11) instance",
+        "evidence": [
+          "The listed product is itself square-pyramidal, unlike the proposed equal cross-product 2768215450.",
+          "The entry is dated July 9, 2024 and explicitly gives P(11)P(14)=P(115)."
+        ],
+        "identifier_or_url": "https://oeis.org/A374500",
+        "material_read": "Definition, explicit 513590=506*1015 example, cross-references, entry date",
+        "method": "Full public sequence entry with implications compared algebraically",
+        "title": "A374500 — Square pyramidal numbers that are products of smaller square pyramidal numbers",
+        "trigger": "Potential stronger table of identities involving P(n)"
+      },
+      {
+        "assessment": "GENERAL_DEFINITION_ONLY: it supplies the known P(n) sequence but not the two repeated ratios",
+        "evidence": [
+          "P(n)=n(n+1)(2n+1)/6 for n>=0",
+          "The entry does not assert equality of P(20)/P(5) and P(532)/P(142)."
+        ],
+        "identifier_or_url": "https://oeis.org/A000330",
+        "material_read": "Definition, cubic formula, sequence examples and comments",
+        "method": "Public sequence entry inspection and exact table comparison",
+        "title": "A000330 — Square pyramidal numbers",
+        "trigger": "Possible direct table of the four exact sums"
+      },
+      {
+        "assessment": "INAPPLICABLE: arithmetic progression linear sums, not sums of consecutive squares",
+        "evidence": [
+          "Their (a,b)-type cobalancing equation weights terms an+b, unlike a*sum j^2=b*sum j^2."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2075-1680/10/4/350",
+        "material_read": "Introduction and Section 3 (a,b)-type cobalancing definitions and equations",
+        "method": "Lawful open-access publisher HTML text inspection of summand type",
+        "title": "Balances in the Set of Arithmetic Progressions",
+        "trigger": "Nearby 2021 treatment of (a,b)-type cobalancing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3394318b-41d6-4d41-b54e-23696f8af679",
+  "value": {
+    "rationale": "The motivating 2022 paper explicitly asks whether any fixed coprime square-cobalancing weights admit more than one index. Known product-based witnesses with b=1 and n=1 leave the natural nondegenerate case open; the explicit primitive (563,11) certificate proves multiplicity survives even when b>1 and both n>1. That exact boundary matters because it excludes trivial constructions and reveals two positive integral points on an associated smooth genus-one cubic. It is a mathematically motivated counterexample, not an arbitrary numerical slice; no general downstream classification is claimed.",
+    "status": "PASS"
+  }
+}
