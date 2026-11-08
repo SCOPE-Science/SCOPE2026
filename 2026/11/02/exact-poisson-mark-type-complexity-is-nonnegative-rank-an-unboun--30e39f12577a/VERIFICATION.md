@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using the Python 3 standard library. The completed package replay returned:
+## correctness
 
-```
-PASS: 2206 exact finite rational checks
-Infinite nonnegative-rank lower bound and perturbation stability require the written proof.
-```
+PASS
 
-The checker performs exact rational Gaussian elimination for squared-distance kernels at sizes \(3\le n\le13\) and strict-positive rank-\(k\) kernels for \(3\le k\le\min(n,7)\). It verifies symmetry, entrywise positivity and the central-binomial threshold inequalities for sizes up to 1,000, along with explicit independent Poisson emission mean normalization for a rational factorization.
+Independent Poisson splitting/superposition shows exactly that parent-specific latent type rates B and parent-independent mark-emissions Q with row sums one generate the unthinned law iff BQ=ell A. Every nonnegative factorization UV normalizes its factor rows to such a BQ, yielding r_mark(A)=rank_+(A), with induction for all generations. For Q_ij=(i-j)^2, ordinary rank is 3 and diagonal zeros force the support subsets of any nonnegative factorization into an antichain, giving Sperner lower bound R(n). Rank<=r nonnegative factorization sets are closed in fixed dimension after probability-column normalization and boundedness, so small positive perturbations retain rank_+>=R(n). A Vandermonde HCH^T with determinant 2 delta^(k-3) guarantees ordinary rank k, every entry positive, and ell=n^-3 gives expected degree <=1+k/n^2. Independently checked exact rational ordinary ranks of Q and A on 5 n,k samples, including (3,3),(6,4),(7,5),(8,6). The antichain/closedness proofs, not these finite rank checks, establish arbitrary n,k. Caveat: parent-independent emission is essential; parent-dependent emissions permit one channel.
 
-The infinite theorem is proved in `RESULT.md` by Poisson splitting, factorization equivalence, Sperner's antichain bound, normalized-factor compactness, a nonzero Vandermonde coefficient determinant, and an expected-degree bound. These proof steps are not replaceable by finite checks. In particular, the exact threshold \(\delta_{n,k}\) for positivity-preserving nonnegative-rank lower bounds is existential and was not numerically computed.
+## originality
 
-This verifies neither historical priority nor independent mathematical validation. Exact unthinned parent-independent-emission Poisson reproduction is the domain of the result; claims about more general thinned couplings are unproved.
+PASS
+
+The squared-distance nonnegative-rank lower bound, rank-three versus arbitrarily large nonnegative rank, and small-perturbation stability are established literature, not newly attributed to this finding. The asserted advance is the exact minimum latent marked-Poisson channel number as rank_+(A), resolving the stated fixed-ordinary-rank question within the specified parent-independent emission model, plus sparse strictly positive fixed-rank kernels. Stronger random-graph sampling models are expressly excluded.
+
+## value
+
+PASS
+
+Addresses a natural finite-type branching approximation question in sparse random-graph exploration. The precise model boundary and full-support sparse obstruction show why ordinary matrix rank cannot bound exact latent type requirements, beyond the already known pure matrix separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
