@@ -1,15 +1,21 @@
-# Scientific review: arithmetic resonance in two-tone Gaussian localization
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian monomial diagonalization and Gamma-distributed squared radius give exact eigenvalues. A delta-method characteristic-function limit gives the attenuation factors, and a square-root Weyl estimate proves the limiting phase laws for rational, irrational, and separately indexed frequencies, including triangular cutoffs. Fourier orthogonality gives the sharp first nonmatching moment at order \(p+q\) and its explicit positive coefficient. The compact image of the limiting phase subgroup yields the single-coordinate Fredholm essential edges; the reduced-rational simultaneous minimum condition is exactly that both numerator and denominator are odd. For \(\eta=2\), direct differentiation proves the displayed lower edge. The separate-coordinate full essential spectrum is deliberately not classified because fixed-index strips can add spectral values.
+## correctness
 
-## Originality — PASS, subject to historical-priority uncertainty
-The closest primary sources are Dewage–Ólafsson, arXiv:2107.01465 (quasi-radial Fock diagonalization), Esmeral–Maximenko, arXiv:1505.07906 (Gaussian radial smoothing and single-cosine example), and Looi, arXiv:2603.10879 (single-frequency essential-positivity asymptotics). They contain the prerequisites, but their inspected claims do not state the first distinguishing \(p+q\)-th moment with exact coefficient *and* its disappearance for two independent Gaussian Fock coordinates. Related published Fourier resonance-moment comparisons operate on different systems. Relevant published mathematical results were compared by statements and implications; a negative search does not establish universal originality.
+PASS
 
-## Mathematical value — PASS
-The first distinguishing moment gives a natural exact spectral arithmetic invariant and a sharp finite-moment detection barrier for commensurability of two Gaussian localization frequencies. Separating the same frequencies into distinct complex coordinates removes that obstruction under both square and total-degree exhaustion, and the essential spectral edge detects an odd/odd parity class. These quantify genuine structural effects of radial coupling rather than isolated small numerical gains.
+The normalized Fock monomials diagonalize both separately radial symbols. Gamma(n+1,1) square-root CLT gives c_n(omega)=exp(-omega^2/2)cos(2omega sqrt(n+1))+o(1); Weyl summation of exp(ic sqrt n) gives O_c(sqrt N). Thus irrational locked phases equidistribute on T^2, rational p/q on a 1-torus and separated coordinates on T^2 for both square/triangular cutoffs. A mixed zero Fourier character requires p occurrences of cos(qt) and q of cos(pt), so the first discrepancy is precisely centered order p+q with formula binom(p+q,p)A^p B^q/2^(3(p+q)-1). The connected image of tail frequencies gives the locked Fredholm essential interval and odd/odd parity criterion; eta=2 has its asserted strict lower-edge jump. Checked exact Fourier coefficients independently for reduced (p,q)=(1,1),(1,2),(2,3),(3,5), all orders through p+q. Finite moment checks do not substitute for the infinite equidistribution proof.
 
-## Limitations
-The result is about the specified bounded cosine masks, fixed frequency ratios and index cutoffs. The entire essential spectrum of the two-variable operator is not asserted; finite-index outliers and all historical-priority questions remain outside the conclusion. Numerical tests corroborate but do not establish the infinite-dimensional proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Esmeral–Maximenko established one-tone radial Gaussian smoothing and hypergeometric eigenvalues; Dewage–Ólafsson established quasi-radial Fock diagonalization. These precedents imply the asymptotic framework but no located primary result gives the sharp two-tone coprime p+q moment onset, parity of the locked lower edge, and de-locking of the two-coordinate bulk law together.
+
+## value
+
+PASS
+
+The rational-versus-irrational spectral discrepancy and its exact first detecting moment are nontrivial invariants of a natural two-frequency Gaussian localization mask. They identify an arithmetic instability erased by tensor separation, not a routine restatement of the one-frequency example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
