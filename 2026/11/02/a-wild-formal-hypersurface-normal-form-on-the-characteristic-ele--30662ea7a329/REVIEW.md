@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact symbolic computations verify the point, Hessian rank and invertible three-direction minor. The displayed polynomial section annihilates all three transverse derivatives, and direct substitution gives the precise residual \(-3v^5(v-1)^{11}\). The formal implicit-function theorem and the parameter-dependent Morse lemma apply in characteristic eleven because the transverse quadratic block is nondegenerate and two is invertible. The remaining unit is removed by contact equivalence, not by an unjustified right equivalence. The proof is local over the algebraic closure.
+## correctness
 
-**Originality — PASS (qualified).** Gross–Popescu give the complex Klein model; existing computations of its exceptional characteristic-eleven fiber give the singular support, Hessian corank and Tjurina length. Neither numerical local invariant fixes the contact exponent: the formal germs with powers eleven and twelve share both. This result supplies the exact transverse critical section and determines that exponent. Searches of published mathematical records and the relevant original literature did not identify an equivalent full formal normal form. Historical priority is provisional because unindexed sources may exist.
+PASS
 
-**Mathematical value — PASS.** The precise local formal type distinguishes an inseparable characteristic-eleven degeneration from its numerically indistinguishable next-order model. This is a structural singularity classification on an important modular cubic threefold, useful for investigating resolutions and deformations; no such downstream theorem is assumed.
+For the integral cyclic Klein cubic reduced over the algebraic closure of F_11, direct substitution verifies P=(1:3:9:5:4) and vanishing first derivatives. The transverse x2,x3,x4 Hessian minor is 8 mod 11 and full Hessian rank is three. The exact critical section (3v^5,9v^6,5v^4,4v^8) satisfies all transverse equations; restriction gives h(v)=3v^5+8v^16=-3v^5(v-1)^11 modulo 11, with v-1 a valid local parameter. Characteristic 11 is odd; formal implicit and parametric Morse splitting then reduce by contact equivalence to sum of three squares+t^11. The t^12 comparator has the same Tjurina length but different residual order; computed local data, not a finite census, prove exponent eleven. Independent finite-field polynomial/Hessian substitution agreed. A published claim of type A2 for the same point is in direct apparent conflict; its label alone does not refute the demonstrated formal identity, but the discrepancy must be investigated rather than hidden.
 
-**Scope and risks.** No resolution or deformation classification is proved. The analytic contact transformation is formal and over an algebraic closure; its unit rescaling must not be conflated with right equivalence of functions. Independent scientific evaluation remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge evidence: compared exact final statement and implications against Resultary, relevant published records, and original primary sources; previously known ingredients receive no novelty credit. Historical-priority risks remain explicit, particularly the direct Klein cubic type-A2 discrepancy.
+
+## value
+
+PASS
+
+The exact wild formal CONTACT type of a singled-out singular reduction of the classical Klein cubic is a natural local algebraic-geometric invariant. It distinguishes two different residual orders with identical Hessian corank and Tjurina length and provides a reusable formal model beyond simply recomputing a tangent rank. The explicit conflict with an earlier asserted A2 label heightens rather than settles the need for precise type verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
