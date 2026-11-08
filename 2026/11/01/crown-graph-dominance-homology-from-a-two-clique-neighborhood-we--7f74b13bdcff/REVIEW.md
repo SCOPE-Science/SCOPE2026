@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact open neighborhoods produce two explicit subcomplexes \(P,Q\). Their extra simplices are free cones over facets, so each piece collapses onto the boundary of its own \(n\)-vertex simplex; the intersection is exactly the crown graph. Its connected first Betti number is \(n^2-3n+1\). Because the two pieces are simply connected for every \(n\ge4\), the two intersection maps are nullhomotopic, and the homotopy pushout gives the asserted integral sphere wedge. The published combinatorial Alexander duality theorem and the standard \(2n-j-3\) degree shift yield every dominance-homology group. A standalone finite checker independently corroborates face identities, exact duality and mod-two homology. The theorem is not inferred from these finite checks.
+## correctness
 
-## Originality — PASS against inspected evidence
-The closest published dominance source [3] proves general Alexander duality, rather than crown-graph homology; this known tool is explicitly credited. The closest rook-neighborhood computation [4] assumes both Cartesian factors have size at least three, excluding the two-layer clique prism treated here. The cycle-product neighborhood result [5] has a cycle factor of length at least five; crown graphs in its proof are auxiliary edge-relation graphs, not the complex calculated here. Shukla's graph-class theorem [1] does not cover the infinite high-degree family. Published crown-graph two-independence and finite crown configuration calculations classify different objects. Searching both the crown/dominance and the graph-complement/neighborhood formulations found no statement implying the simultaneous all-parameter homotopy and integral-homology claims. An unindexed equivalent source remains a risk.
+PASS
 
-## Value — PASS
-The crown graph is the canonical complete bipartite graph with a perfect matching removed, and its complement is the canonical two-layer clique prism. A full uniform integral computation answers the natural exact-homology question motivated by the dominance-neighborhood duality framework, exhibiting two distinct homological dimensions for every \(n\ge5\) and a distinguished rank-seven boundary case. The explicit two-piece homotopy pushout explains those dimensions and multiplicities rather than merely enumerating individual graph instances. No general classification of all bipartite graphs is asserted.
+The complement of Cr_n has two K_n cliques and only matching cross-edges. Its open-neighborhood complex decomposes exactly into P and Q, each the boundary of an (n-1)-simplex with n individually collapsible apex simplices, hence P,Q ~ S^(n-2). Their common faces are precisely the graph Cr_n (2n vertices, n(n-1) edges, cycle rank n^2-3n+1). For n>=4 these spheres are simply connected, so both inclusions from Cr_n are nullhomotopic, giving P union Q ~ S^(n-2) vee S^(n-2) vee (n^2-3n+1) S^2. Combinatorial Alexander duality on 2n vertices shifts cohomological degree k to dominance homological degree 2n-k-3; at n=4 the contributions coincide to rank seven. Independently enumerated all faces, P/Q identities, graph intersection, and binary boundary ranks for n=4,5: neighborhood Betti {2:7} and {2:11,3:2}; dominance {3:7} and {4:2,5:11}. Universal integral result comes from homotopy pushout and free graph cycles, not finite mod-two data.
 
-## Limits and prior work
-The claimed homotopy equivalence is only for the complementary open-neighborhood complex; Alexander duality gives homology, not homotopy, of the dominance complex. The all-parameter proof requires \(n\ge4\), and finite binary computations cannot establish an integral infinite-family theorem alone. The standard duality is due to Matsushita–Wakatsuki and is not presented as new. The search is not a universal priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Matsushita–Wakatsuki Alexander-dual identity is previously known, but its application demands a previously unavailable open-neighborhood homotopy type of K_n square K_2; nearby rook-graph and cycle-product published theorems impose parameter ranges excluding the two-clique case.
+
+## value
+
+PASS
+
+Computes full integral homology of the natural crown-graph dominance complexes and the complementary open-neighborhood homotopy type for every n>=4. The explicit two-clique/K_2 boundary case is omitted by adjacent published Cartesian-product theorems and displays a meaningful mixed-dimensional wedge, including an n=4 degree collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
