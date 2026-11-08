@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For any admissible symmetric stochastic P, M=P-J/N annihilates 1 and its operator norm is SLEM. For each vertex with r forbidden offdiagonal neighbors, p=Pe_v has r zeros and sum 1, so ||p||^2>=1/(N-r) by Cauchy--Schwarz; ||M(e_v-1/N)||^2>=r/[N(N-r)], yielding mu^2>=r/[(N-1)(N-r)]. If r>=2 this bound strictly exceeds 1/(N-1)^2. If the complement is a matching, Q is its involution and P=(J-Q)/(N-1) is feasible with (P-J/N)^2=(I-J/N)/(N-1)^2, giving exact attainment. All quantifiers N>=3, connected noncomplete undirected simple G, allowed holding, are explicit. Exact standalone fractions checker passed 55 model cases and 3080 local inequalities; finite checks are not used to infer the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0709.0955, Theorem 3.1, solves the edge-transitive graph class; in particular it can recover the fully paired cocktail-party special family",
+        "doi:10.1137/S0036144503423264 §§1,7 gives the SDP and selected graph examples, not an all-graphs exact frontier"
+      ],
+      "reasoning": "The special edge-transitive subclass is acknowledged as prior coverage, rather than counted as novelty. The general SDP is broader in domain but only computational/variational; it does not state the closed-form best-over-support frontier or the extremizing-support characterization. No dominating exact theorem was found in inspected texts.",
+      "searches": [
+        "\"non-complete\" \"second-largest eigenvalue modulus\" \"matching\"",
+        "fastest mixing Markov chain minimum SLEM noncomplete graphs missing edges matching characterization",
+        "Boyd Diaconis Parrilo Xiao fastest mixing graphs with symmetries edge transitive"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264",
+      "Boyd, Diaconis, Parrilo, Xiao (2007 preprint; 2009 paper), arXiv:0709.0955, DOI 10.1137/070689413",
+      "Roch (2005), arXiv:math/0409429 (abstract and scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao (2004), §§1.1,7.1,7.2, doi:10.1137/S0036144503423264",
+        "Boyd--Diaconis--Parrilo--Xiao (2007/2009), §3.1 and Theorem 3.1, arXiv:0709.0955",
+        "Roch (2005), arXiv:math/0409429, gives bounds via mixing-time methods"
+      ],
+      "reasoning": "The 2004 and 2009 formulations define the minimax spectral norm and certify some named graph families, while the new statement minimizes over graph supports as well and determines a necessary-and-sufficient complement structure. The edge-transitive complete-minus-perfect-matching corollary is covered already. The new universal missing-neighbor lower bound and necessity for every nonregular complement are not explicit in those inspected results.",
+      "searches": [
+        "\"fastest mixing Markov chain\" \"1/(n-1)\" \"complete\" matching",
+        "\"second largest eigenvalue modulus\" \"matching\" \"1/(n-1)\"",
+        "fastest mixing Markov chain minimum SLEM noncomplete graphs missing edges matching characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. 2004, doi:10.1137/S0036144503423264, defines the spectral SLEM norm optimization",
+        "Boyd et al. 2007 preprint, arXiv:0709.0955, §1.1, gives the equivalent SDP form"
+      ],
+      "reasoning": "The claim is equivalently the classification of all noncomplete supports permitting ||P-J/N||_2=1/(N-1). Both cited sources establish a framework, but neither inspected relevant statement gives the iff characterization of the graph support.",
+      "searches": [
+        "\"fastest mixing Markov chain\" \"1/(n-1)\" \"complete\" matching",
+        "\"second largest eigenvalue modulus\" \"matching\" \"1/(n-1)\"",
+        "\"fastest mixing\" \"matching\" \"complement\" \"1/(n-1)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected Boyd et al. 2009 §3.1 and §5 special graph examples, doi:10.1137/070689413",
+        "Searches surfaced no classification/table for all connected noncomplete graphs of arbitrary order"
+      ],
+      "reasoning": "The proposed result is not a recomputation of any identified table entry. It classifies all graph supports attaining the universal noncomplete spectral optimum; finite matrix verification samples are not treated as an exhaustive novelty search.",
+      "searches": [
+        "\"fastest mixing\" \"matching\" \"complement\" \"1/(n-1)\"",
+        "\"fastest mixing Markov chain\" \"1/(n-1)\" \"complete\" matching",
+        "\"noncomplete\" \"fastest mixing\" \"lower bound\""
+      ]
+    },
+    "rationale": "Inspected relevant full-text sections of the 2004 FMMC paper and the 2007/2009 symmetry paper. They state general optimization/SDP formulations and exact special edge-transitive graph formulae, which already cover the perfect-matching-deletion special case, but no global noncomplete-graph matching-complement equality classification or local missing-degree quantitative obstruction was identified. Related public index and literature searches identified no direct equivalent statement. Priority outside inspected sources remains uncertain.",
+    "residual_risks": [
+      "The spectral-norm missing-entry argument is elementary and might have appeared implicitly in unindexed optimization or graph-markov literature. Direct published priority is not independently established.",
+      "The exact full-matching-deletion edge-transitive special case is not new; novelty assessment only concerns global noncomplete classification and quantitative missing-neighbor obstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines SLEM optimization and exact complete-bipartite example; no matching-complement global iff statement identified in relevant text",
+        "evidence": [
+          "doi:10.1137/S0036144503423264, pp.667--669,684--686"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full-text searchable PDF material in §§1.1 and 7.1--7.2, including symmetry example and general bounds; title page visually checked",
+        "method": "Read original accessible full text and reviewed relevant results, examples and bounds",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational FMMC formulation may already imply global missing-edge result"
+      },
+      {
+        "assessment": "Covers fully paired cocktail-party special case through edge-transitive theorem, not the universal iff characterization of all graph supports",
+        "evidence": [
+          "arXiv:0709.0955, §§1.1,3.1 and Theorem 3.1; doi:10.1137/070689413"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Preprint full-text §§1.1 and 3.1 (Theorem 3.1) plus relevant §5 graph examples; published full-text PDF title and §1 inspected",
+        "method": "Read indexed original preprint section statements and original PDF searchable text; inspected title page image",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "General edge-transitive theorem potentially covers equality examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b17462c-581d-4c29-800a-c413ecb2c2f1",
+  "value": {
+    "rationale": "Determines the exact lowest possible SLEM among all connected noncomplete graphs on N vertices and identifies precisely all maximizing topologies (complement disjoint matching). The invariance under arbitrarily many disjoint forbidden links and strict quantitative penalty for two incident missing links is a natural global robustness phenomenon for fastest mixing, not a narrow chosen numeric instance. An explicit optimal stochastic matrix makes the structural classification operational.",
+    "status": "PASS"
+  }
+}
