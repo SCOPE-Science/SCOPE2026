@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof scope
+# Independent mathematical audit
 
-For every integer \(m\ge2\) and positive radius tuple, the proof reduces the unique enclosing ellipsoid to a scalar equation with a monotone left side. A direct containment identity characterizes the *whole* tangency ridge. Two explicit positive contact orbits certify global enclosing optimality, and sign symmetry with coordinate widths proves inscribed optimality. The ratio theorem follows from a strictly concave logarithmic scalar objective. These arguments, not a finite enumeration, establish the infinite-parameter statement.
+## correctness
 
-Execute `python verify.py` in the directory containing this report and the standalone verifier. The deterministic standard-library checks covered 330 radius-and-dimension configurations, with maximum reported normalized residual \(6.66\times10^{-16}\). The optional independent SciPy constrained optimizations covered 84 cases, with maximum relative precision-coordinate discrepancy \(8.66\times10^{-7}\). The code samples points of the actual intersection, not points from a different saved run. These are floating-point sanity checks rather than exact computer certificates or an independent proof.
+PASS
 
-The archived primary source arXiv:0709.0707v1 provides general extremal-ellipsoid contact theorems and explicit computations for different cylinder/cone bodies. Classical bicylinder sources concern intersection volume and area. Historical priority is not independently certified. No computational or external independent audit was performed.
+Let m>=2, d=m+1, positive a_i, b=min a_i. Uniqueness of the scalar root t in [1,d/2) follows from strict monotonicity of H(t)=t sum_i b²/(d a_i²-t b²), H(1)<=1 and H(d/2)>1. Coordinate-reflection symmetry and extremal widths give unique John ellipsoid with semiaxes (a_i,b). For Löwner set p_i=1/(d a_i²-t b²), r=1/(t b²), and use sum p_i=r, sum a_i²p_i=1 to prove K is inside L, with equality precisely when all cylinders saturate, the entire contact ridge. A two-orbit signed contact measure with weights (d-t)/d and t/d has zero mean and normalized covariance I/d, proving global Löwner optimality (not merely diagonal). Log-concave scalar product G_c(t) yields exact ratio sqrt(t prod_i(d-t/c_i)), strict aspect monotonicity and sharp [m^(m/2), d^(d/2)/2) range; upper approached only in divergent-radius limit. Independent numeric root/isotropic-moment checks for multiple m and radii corroborate the argument.
+
+## originality
+
+PASS
+
+Güler–Gürtuna (2007) prove general extremal-ellipsoid contact principles and compute for a single cylinder and cone, not the simultaneous m-cylinder intersections here. Classical Steinmetz sources concern body volume and surface geometry rather than exact John/Löwner semiaxes, full tangency ridge and sharp ratio. Resultary ellipsoid searches returned half-cone, halved cube and other convex bodies. A pre-digital bicylinder enclosing-ellipsoid formula remains a possible priority risk.
+
+## value
+
+PASS
+
+The family includes the classical Steinmetz bicylinder and a canonical m-dimensional rectangular-section generalization. The explicit maximal/minimal ellipsoids, continuous contact locus, and sharp all-dimension distortion spectrum provide geometric approximation invariants with a nontrivial isotropic contact certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

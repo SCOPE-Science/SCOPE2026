@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domain is a full-dimensional compact convex intersection of quadratic cylinders for every \(m\ge2\) and all positive radii. Equation (1) has one root in \([1,(m+1)/2)\). Reflection invariance and semiaxis-width constraints identify the unique John ellipsoid. Equation (1) implies the key identity \(r=\sum_i p_i\), giving a global containment inequality and the *exact* full boundary contact ridge. Two sign-symmetric endpoint contact orbits with positive weights satisfy the barycenter and isotropic second-moment identities; the determinant/tracial argument proves absolute (not merely axis-aligned) Löwner optimality. The ratio extrema use a strictly log-concave one-variable objective with sharp limiting values. The packaged verifier passed 330 parameter configurations and 84 independent constrained optimizations. All universal statements are proved analytically.
+PASS
 
-## Originality
+Let m>=2, d=m+1, positive a_i, b=min a_i. Uniqueness of the scalar root t in [1,d/2) follows from strict monotonicity of H(t)=t sum_i b²/(d a_i²-t b²), H(1)<=1 and H(d/2)>1. Coordinate-reflection symmetry and extremal widths give unique John ellipsoid with semiaxes (a_i,b). For Löwner set p_i=1/(d a_i²-t b²), r=1/(t b²), and use sum p_i=r, sum a_i²p_i=1 to prove K is inside L, with equality precisely when all cylinders saturate, the entire contact ridge. A two-orbit signed contact measure with weights (d-t)/d and t/d has zero mean and normalized covariance I/d, proving global Löwner optimality (not merely diagonal). Log-concave scalar product G_c(t) yields exact ratio sqrt(t prod_i(d-t/c_i)), strict aspect monotonicity and sharp [m^(m/2), d^(d/2)/2) range; upper approached only in divergent-radius limit. Independent numeric root/isotropic-moment checks for multiple m and radii corroborate the argument.
 
-PASS subject to independent historical-priority assessment. The closest primary paper, Güler--Gürtuna (arXiv:0709.0707v1), was read in its introduction, general contact theorem and Section 8; that section concerns a truncated cone or a *single* bounded ellipsoidal cylinder, not this simultaneous quadratic-cylinder intersection. It provides an optimality criterion, not the stated explicit radii, full ridge contact locus and sharp all-dimensional ratio. The classical Steinmetz literature (e.g. Hubbell 1965 and Moore 1974 as listed in MathWorld) addresses intersection volume and area. Other searchable mathematical records concern random central-section areas of cylinder intersections or ellipsoids of unrelated bodies. These are distinct conclusions and do not, as inspected, imply the full theorem. Absence of a matching retrieval is not proof of priority; older and unindexed publications remain a risk.
+## originality
 
-## Value
+PASS
 
-PASS. The family contains the classical two-cylinder Steinmetz solid and a natural high-dimensional rectangular-section generalization. The exact enclosing ellipsoid *touches an entire one-dimensional ridge*, a stronger structural statement than a generic finite contact certificate. The unique parameter, all-dimensional closed semiaxes and sharp bounded distortion spectrum provide useful shape descriptors for convex-geometric approximation; the strict aspect-ratio monotonicity is not a mere numeric evaluation or unmotivated parameter slice.
+Güler–Gürtuna (2007) prove general extremal-ellipsoid contact principles and compute for a single cylinder and cone, not the simultaneous m-cylinder intersections here. Classical Steinmetz sources concern body volume and surface geometry rather than exact John/Löwner semiaxes, full tangency ridge and sharp ratio. Resultary ellipsoid searches returned half-cone, halved cube and other convex bodies. A pre-digital bicylinder enclosing-ellipsoid formula remains a possible priority risk.
 
-## Limits and closest literature
+## value
 
-No statement is made about skew or translated cylinders, arbitrary tubular intersections or independent historical priority. John-contact optimality is classical; the asserted contribution is the specialized solved family, its complete contact geometry, and its sharp ratio law. Full predecessor comparisons are documented in the structured audit. Numerical tests do not prove parameter-uniform assertions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family includes the classical Steinmetz bicylinder and a canonical m-dimensional rectangular-section generalization. The explicit maximal/minimal ellipsoids, continuous contact locus, and sharp all-dimension distortion spectrum provide geometric approximation invariants with a nontrivial isotropic contact certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
