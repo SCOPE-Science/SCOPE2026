@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Two-stage vertices correspond bijectively to unordered equipartitions of a single \(rs\)-face; the face condition is equivalent on both sides, with no missing disjointness assumptions. The link formula is verified directly. The integral homotopy formula is the explicitly credited published vertex-inflation splitting, with its connectedness hypothesis retained. A contrasting six-vertex simplex verifies parameter-order noncommutativity; independent exhaustive face tests corroborate finite cases.
+
+**Originality — PASS, subject to literature uncertainty.** The 2025 primary source defines \(D_r\) and proves connectivity and weak Cohen–Macaulay results but does not state a two-stage composition formula in the inspected text. The 2005 source covers the stronger generic inflation splitting; its existence is fully acknowledged and this previously published theorem is not claimed as new. Targeted mathematical-record and archival claim searches found no equivalent partition-inflation composition of the recently introduced operator. An unindexed equivalent may exist, especially in matching-complex or weighted-partition literature.
+
+**Value — PASS.** Iterating a newly introduced topological operation naturally raises whether its parameters multiply or commute. An exact simplicial composition theorem answers both questions, exposes the unordered block-partition multiplicity, and upgrades the iteration to a link-by-link integral homotopy recursion. Even the six-vertex input distinguishes operation order at the level of components; the nine-vertex input yields a sizeable, fully explained integral wedge. This is an all-complex structural identity, not a relabeling of a preselected finite case. The general splitting ingredient is old and is valued here only as a consequential application, not as a new theorem by itself.
+
+Closest literature: Lesh–Schreiner–Wahl, arXiv:2506.10436v1, Definition 2.1 and Sections 2–4; Björner–Wachs–Welker, *Poset fiber theorems*, Section 6. Residual risks: independently unlocated composition theorem; possible implicit appearance of the partition model under other notation; no external independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
