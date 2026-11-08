@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:06:40.161732Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rows (1,0),(1,0),(0,sqrt(2q/(1−q))) and targets (0,d,0), paired affine reflections are exactly three types: horizontal-horizontal with ±d or zero increments, vertical-vertical identity, and mixed pair with probability θ=2q(1−q) resetting X to 0 or d and Y to 0. This Doeblin coalescence yields TV distance ≤(1−θ)^n and a unique invariant geometric lattice law; its generating/characteristic function gives geometric ratio (sqrt(1+q)−sqrt(2q))/(sqrt(1+q)+sqrt(2q)), mean d/2 and variance d²/(4q). Conditional first and squared-error recurrences yield the exact finite-time formulas for arbitrary deterministic Z0; matched single-reflection projection gives floor d²/4. Characteristic-function scaling yields Laplace(0,1/(2sqrt2)). Independent rational enumeration verified all nine ordered pairs and first/second moments for q=1/4,1/2,3/4 and three starting vectors (9 exact cases).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luke 2024/25 supplies general Markov-operator convergence results for randomized partially separable problems; Bauschke–Moursi study deterministic inconsistent DR; Guo et al arxiv:2506.10261 study improved sampling in randomized DR on linear systems."
+        ],
+        "reasoning": "General invariant-existence theory does not give the method-specific geometric masses or exact 1/q inflation. Deterministic inconsistent DR and improved consistent-system samplers are not a dominating theorem for this independently resampled 2-reflection inconsistent system.",
+        "searches": [
+          "randomized Douglas Rachford inconsistent linear equations stochastic resetting stationary Laplace noise floor",
+          "DOI:10.1007/s10107-024-02124-w",
+          "DOI:10.1287/moor.2022.1347",
+          "arxiv:2506.10261"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2207.04291 34-page primary PDF, model and theorem sections",
+        "DOI:10.1007/s10107-024-02124-w open Springer primary",
+        "arxiv:2506.10261 abstract/model",
+        "Resultary semantic q4",
+        "Frozen RESULT.md blob 40eef9efa1fb389a964f6186a03f4087b9695ecc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper explicitly assumes Ax=b consistent at its introduction (arxiv:2207.04291 p.1) and its RrDR formulas are used as the algorithm; Luke establishes distributional regularity generically."
+        ],
+        "reasoning": "Neither implies a nonzero stationary residual for an inconsistent instance, let alone its factor 1/q. The renewal kernel can be analyzed with standard reset-walk tools; that tool itself is not new, but application with exact DR comparison is.",
+        "searches": [
+          "randomized Douglas Rachford inconsistent linear equations stochastic resetting stationary Laplace noise floor",
+          "arxiv:2207.04291 Section 1",
+          "DOI:10.1007/s10107-024-02124-w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Su–Xie arxiv:2207.04291 define the same two-reflection random hyperplane method for consistent Ax=b; Luke arxiv:2310.20397 develops invariant distributions for stochastic blockwise Douglas–Rachford but with a different update operator."
+        ],
+        "reasoning": "The general randomized DR construction and Markov invariant-measure theory are prior. This exact three-row inconsistent algorithm with independent-with-replacement double draws has a different regenerative transition kernel and stationary discrete-Laplace output.",
+        "searches": [
+          "randomized Douglas Rachford inconsistent linear equations stochastic resetting stationary Laplace noise floor",
+          "arxiv:2207.04291",
+          "arxiv:2310.20397"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search found stochastic optimization noise floors but none for the present three-row randomized reflection law; no exact database/table with this invariant profile was found."
+        ],
+        "reasoning": "A natural analytic formula not a table lookup, and nonappearance of a result in searches is not proof of originality.",
+        "searches": [
+          "randomized Douglas Rachford inconsistent linear equations stochastic resetting stationary Laplace noise floor"
+        ]
+      },
+      "rationale": "Best-knowledge originality applies to the precise claimed combination, not generic background results: The general randomized DR construction and Markov invariant-measure theory are prior. This exact three-row inconsistent algorithm with independent-with-replacement double draws has a different regenerative transition kernel and stationary discrete-Laplace output. Neither implies a nonzero stationary residual for an inconsistent instance, let alone its factor 1/q. The renewal kernel can be analyzed with standard reset-walk tools; that tool itself is not new, but application with exact DR comparison is.",
+      "residual_risks": [
+        "A specialized earlier randomized infeasible-hyperplane two-reflection example or general reset-walk equivalence may implicitly recover some distributional formulas.",
+        "The 1/q blow-up is specific to this sampling/geometry and approaches a rank-degenerate q→0 limit; no universal DR failure theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original randomized algorithm and linear convergence for consistent Ax=b, does not cover inconsistent stationary lattice law",
+          "evidence": [
+            "Introduction explicitly assumes Ax=b is consistent; reflected hyperplane formula and r=2 update given."
+          ],
+          "identifier_or_url": "arxiv:2207.04291v4",
+          "material_read": "Full 34-page preprint, model introduction p.1, reflection definition, method and conclusions on consistent systems",
+          "method": "Open arXiv PDF and relevant model pages including screenshot",
+          "title": "Randomized Douglas-Rachford methods for linear systems: Improved accuracy and efficiency",
+          "trigger": "Original algorithm, sampling, relaxation and consistency conditions"
+        },
+        {
+          "assessment": "Framework covers stochastic blockwise DR with different operators; does not state exact three-row discrete-Laplace noise floor",
+          "evidence": [
+            "Blockwise partially separable stochastic iterations, general moment and distribution regularity."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10107-024-02124-w",
+          "material_read": "Open Springer publication abstract, algorithm scope and blockwise Markov operator discussion",
+          "method": "Lawful open-access publisher HTML",
+          "title": "Convergence in distribution of randomized algorithms: the case of partially separable optimization",
+          "trigger": "General randomized DR invariant distribution theory"
+        },
+        {
+          "assessment": "Changes sampling rules, not the fixed independent double-draw inconsistent model",
+          "evidence": [
+            "Focuses improved probabilities and momentum; no exact inconsistent stationary law indicated."
+          ],
+          "identifier_or_url": "arxiv:2506.10261",
+          "material_read": "Accessible full model/abstract description of without-replacement and adaptive sampling",
+          "method": "Primary arXiv preprint model summary",
+          "title": "Enhanced randomized Douglas-Rachford method: Improved probabilities and adaptive momentum",
+          "trigger": "Same randomized DR family and sampling modifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The specific three-row inconsistent linear system is natural as a minimal full-column-rank noise-floor stress test of a genuine randomized splitting algorithm. Its exact stationary law, sharp convergence and arbitrarily bad 1/q error inflation versus Kaczmarz quantify a real algorithmic boundary that convergence theorems for consistent systems do not address; not a generic resetting-random-walk novelty claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized earlier randomized infeasible-hyperplane two-reflection example or general reset-walk equivalence may implicitly recover some distributional formulas.",
+    "The 1/q blow-up is specific to this sampling/geometry and approaches a rank-degenerate q→0 limit; no universal DR failure theorem."
+  ],
+  "schema_version": 1
+}

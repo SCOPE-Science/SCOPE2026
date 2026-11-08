@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim explicitly fixes the sampling with replacement, affine reflections, relaxation, least-squares solution, parameter domain and all initial states. The nine ordered row pairs exhaust the kernel; a mixed pair regenerates the full state, proving unique stationarity and a geometric total-variation rate. The explicit geometric masses satisfy the complete lattice balance equations, and their characteristic function and second moment agree with independent conditional-moment recurrences. The weak Laplace limit follows from the limiting characteristic function, not a simulation. Exact-rational replay independently verified the stage classification and finite-time moment identities. The proof makes no claim that trajectories converge almost surely to the least-squares solution.
+## correctness
 
-**Originality — PASS (qualified).** The motivating 2022 Han–Su–Xie paper assumes consistent systems throughout its convergence theorems and points to inconsistency as future work. Its sampled algorithm is used without modification. Luke's 2023 blockwise random-function theory covers the general subject of invariant measures for inconsistent stochastic fixed-point maps but implements a different blockwise Douglas–Rachford operator and does not give the exact three-row law, the one-versus-two-reflection comparison, or the singular Laplace scaling. General deterministic inconsistent Douglas–Rachford theory and classical stochastic-reset random walks are prior art, not claimed as new. Published mathematical-result searches and locally available prior claims found no matching or dominating statement. A related general stochastic iteration theorem could subsume the existence/convergence aspect; the source-specific distribution and sharp amplification require an additional calculation. Uninspected older specializations remain a real priority risk.
+PASS
 
-**Value — PASS.** Three equations in two unknowns are the smallest overdetermined inconsistent full-rank setting. The natural squared-row-norm sampling parameter produces an exact and arbitrarily large \(1/q\) statistical price for two reflections relative to one, even while the invariant mean is the unique least-squares solution. The full invariant distribution and its rare-reset Laplace limit pinpoint the mechanism. This identifies a mathematically motivated boundary for choosing multi-reflection versus one-reflection solvers on inconsistent data, rather than an arbitrary invariant or a mere finite numerical test.
+For rows (1,0),(1,0),(0,sqrt(2q/(1−q))) and targets (0,d,0), paired affine reflections are exactly three types: horizontal-horizontal with ±d or zero increments, vertical-vertical identity, and mixed pair with probability θ=2q(1−q) resetting X to 0 or d and Y to 0. This Doeblin coalescence yields TV distance ≤(1−θ)^n and a unique invariant geometric lattice law; its generating/characteristic function gives geometric ratio (sqrt(1+q)−sqrt(2q))/(sqrt(1+q)+sqrt(2q)), mean d/2 and variance d²/(4q). Conditional first and squared-error recurrences yield the exact finite-time formulas for arbitrary deterministic Z0; matched single-reflection projection gives floor d²/4. Characteristic-function scaling yields Laplace(0,1/(2sqrt2)). Independent rational enumeration verified all nine ordered pairs and first/second moments for q=1/4,1/2,3/4 and three starting vectors (9 exact cases).
 
-**Closest literature and limits.** Han–Su–Xie, arXiv:2207.04291, Algorithm 1 and Section 6; Luke, arXiv:2310.20397, Sections 1, 2.2, 4–5; Bauschke–Moursi, DOI 10.1287/moor.2022.1347 (metadata and abstract), and Guo et al., arXiv:2506.10261, sampling framework. The source-specific theorem is limited to the displayed two-dimensional inconsistent system with independent with-replacement draws. Some plausible older work may formulate the same Markov kernel under another algorithmic name. Scientific confidence here is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge originality applies to the precise claimed combination, not generic background results: The general randomized DR construction and Markov invariant-measure theory are prior. This exact three-row inconsistent algorithm with independent-with-replacement double draws has a different regenerative transition kernel and stationary discrete-Laplace output. Neither implies a nonzero stationary residual for an inconsistent instance, let alone its factor 1/q. The renewal kernel can be analyzed with standard reset-walk tools; that tool itself is not new, but application with exact DR comparison is.
+
+## value
+
+PASS
+
+The specific three-row inconsistent linear system is natural as a minimal full-column-rank noise-floor stress test of a genuine randomized splitting algorithm. Its exact stationary law, sharp convergence and arbitrarily bad 1/q error inflation versus Kaczmarz quantify a real algorithmic boundary that convergence theorems for consistent systems do not address; not a generic resetting-random-walk novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
