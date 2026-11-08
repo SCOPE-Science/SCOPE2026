@@ -1,15 +1,21 @@
-# Scientific review: Sharp quadratic least-squares stability on complete metric graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-An orthogonal nodal/bubble decomposition gives the inverse mass matrix explicitly. Exactly two reproducing-kernel quadratic types occur at a vertex. Their negative regions and absolute integrals yield the exact \(N_n\). Symbolic differentiation establishes its strict monotonicity, and an explicit shape-function inequality gives the full \(L^\infty\) norm for every \(n\ge6\), with no interior norming point. The positivity defect follows from the fact that constants are reproduced. The independent original-basis checker constructs exact Gram matrices and verifies 83 kernels without relying on the symbolic nodal decomposition. It supports, rather than replaces, the infinite-family argument.
+## correctness
 
-## Originality — PASS (qualified)
-The closest prior mathematical comparison, quadratic-star endpoint sensitivity, concerns pendant edges and does not imply the full dense complete-graph norm. General and complete-multipartite **linear** spline results have a different approximation space. Kayumov's 2004 interval spline discussion covers a different topology; Arioli–Benzi's metric-graph finite-element mass matrices treat piecewise-linear elements; the higher-order stability estimates of Diening–Storn–Tscherpel do not give sharp complete-graph constants. Published mathematical-record searches for the exact constants, Gram matrix, and corresponding kernel found no dominating result. The 2006 Boman manuscript was available only at abstract level, so publication priority is qualified rather than asserted beyond doubt.
+PASS
 
-## Value — PASS
-Sharp amplification governs the maximum possible pointwise error after least-squares reconstruction. The complete graph tests whether increasing connectivity controls amplification when every edge has its own quadratic bubble and no vertex is pendant. The exact norm rises with degree and approaches a nontrivial algebraic constant; the \(5/2\) threshold identifies when vertex bounds control all edge interiors, and the theorem proves the sharp full operator norm on an infinite family, rather than only an evaluation estimate. This is a natural high-connectivity stability classification, not a reparameterized elementary example.
+Rebuilt the edge-bubble/nodal basis h=t(1-t), phi=1-t-(5/2)h, psi=t-(5/2)h. Symbolic integration independently yielded Gram entries 1/30,0,0,1/8,1/8,-1/24; inverse of H=((3n-2)I-J)/24 was independently checked at n=3,4,5,6,8,20. Vertex reproducing kernels on incident/nonincident edges are beta*(5nt^2+(2-7n)t+2n-1) and beta*(1-5t(1-t)); their exact signed intervals give displayed absolute-integral formula. Symbolic differentiation matched the claimed strictly positive derivative for all real n>=3; N5≈2.48558, N6≈2.52508, with displayed limit. For the full norm, |bubble coefficient|<=5 and |phi|+|psi|+2h<=1 strictly for 0<t<1, so n>=6 and N_n>5/2 transfer vertex control to every interior point. Sign of vertex kernel attains N_n; P1=1 yields exact positivity defect. Does not claim full-norm formula for n=3,4,5.
 
-## Scope and risks
-Full operator norms for the smaller complete graphs of orders three, four and five are not established. Input sign extremizers are essentially bounded and need not be continuous. The calculation assumes unit arclength edges, uniform densities, and value-only vertex matching. Older unindexed work and the unavailable full Boman manuscript remain literature-priority risks. No independent scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known L2 projection stability and interval spline theory supply techniques and broad bounds, not the closed junction-coupled K_n operator norm or extremizers; related published exact simplex affine projection computes a different space/geometry. Best-of-knowledge exact-graph specialization with explicit risk of prior equivalent kernel computation.
+
+## value
+
+PASS
+
+Provides exact stability and positivity-loss constants for a natural globally vertex-coupled finite-element projector on K_n, including sharp location of norming points, critical graph size and first asymptotic correction, not just generic boundedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

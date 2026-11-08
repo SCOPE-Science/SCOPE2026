@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:52:19Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "Reconstructed actual frozen Git RESULT.md and source-tree byte identities.",
+        "Independent symbolic, quadrature, finite-spectrum, or exhaustive quality checks in scope_worker07_independent_20261105T0841.py; finite checks are not universal proof."
+      ],
+      "rationale": "Rebuilt the edge-bubble/nodal basis h=t(1-t), phi=1-t-(5/2)h, psi=t-(5/2)h. Symbolic integration independently yielded Gram entries 1/30,0,0,1/8,1/8,-1/24; inverse of H=((3n-2)I-J)/24 was independently checked at n=3,4,5,6,8,20. Vertex reproducing kernels on incident/nonincident edges are beta*(5nt^2+(2-7n)t+2n-1) and beta*(1-5t(1-t)); their exact signed intervals give displayed absolute-integral formula. Symbolic differentiation matched the claimed strictly positive derivative for all real n>=3; N5≈2.48558, N6≈2.52508, with displayed limit. For the full norm, |bubble coefficient|<=5 and |phi|+|psi|+2h<=1 strictly for 0<t<1, so n>=6 and N_n>5/2 transfer vertex control to every interior point. Sign of vertex kernel attains N_n; P1=1 yields exact positivity defect. Does not claim full-norm formula for n=3,4,5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diening–Storn–Tscherpel bound stability for weighted Lp finite element projectors under mesh hypotheses, and Arioli–Benzi study linear elements on quantum graphs; neither gives sharp continuous quadratic K_n constant."
+        ],
+        "reasoning": "A uniform upper bound on a larger class need not imply exact graph-specific N_n, strict no-interior maximizers, or first asymptotic correction.",
+        "searches": [
+          "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint",
+          "arxiv:2008.01801",
+          "doi:10.1093/imanum/drx029"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 452c7277b6c56b9e24959dbb050b14e42f075881",
+        "arxiv:math/0408418",
+        "arxiv:2008.01801",
+        "doi:10.1093/imanum/drx029",
+        "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical L2-projection bounds imply at most qualitative/stability estimates. Here integration of the explicit K_n kernel gives the exact radical formula and sharp n=6 transition."
+        ],
+        "reasoning": "The quoted original papers supply tools rather than the numerical or equality-case conclusion.",
+        "searches": [
+          "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint",
+          "arxiv:2008.01801"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph problem can be recast as a quadratic Lagrange mass-matrix Schur complement and its L∞ Lebesgue constant; exact nodal/edge bubble kernels are crucial."
+        ],
+        "reasoning": "General FE boundedness estimates and interval spline Lebesgue constants do not algebraically identify this complete-graph coupled Schur complement.",
+        "searches": [
+          "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint",
+          "arxiv:math/0408418"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced an exact affine least-squares projector on Euclidean simplices, not quadratic continuous graph K_n. No retrieved exact K_n norm table."
+        ],
+        "reasoning": "Known exact constants for a different domain/polynomial degree cannot be transplanted to coupled graph vertices.",
+        "searches": [
+          "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint",
+          "Resultary: exact positivity defect and max norm of affine least-squares projector on simplex"
+        ]
+      },
+      "rationale": "Known L2 projection stability and interval spline theory supply techniques and broad bounds, not the closed junction-coupled K_n operator norm or extremizers; related published exact simplex affine projection computes a different space/geometry. Best-of-knowledge exact-graph specialization with explicit risk of prior equivalent kernel computation.",
+      "residual_risks": [
+        "An earlier specialized quadratic graph finite-element projector could express the same norm using a different polynomial basis.",
+        "Kayumov and Arioli–Benzi full technical material not exhaustively reread; narrower equivalent computations may be buried."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_DIFFERENT_GEOMETRY",
+          "evidence": [
+            "Hypotheses and conclusions concern Euclidean finite-element meshes and stability constants, not exact edgewise quadratic K_n norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.01801",
+          "material_read": "Open-access preprint introduction and main stability theorem/method; not all appendices inspected.",
+          "method": "Primary PDF examination",
+          "title": "On the Sobolev and Lp-stability of the L2-projection",
+          "trigger": "Potential stronger general L2 projector stability"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_DIFFERENT_DOMAIN",
+          "evidence": [
+            "Interval splines do not directly encode complete-graph common-node coupling; residual historical priority uncertainty."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Public abstract and cited descriptions of interval second-order L-splines; full technical comparison was not completed.",
+          "method": "Arxiv abstract and reference context",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Potential original interval quadratic spline norm"
+        },
+        {
+          "assessment": "LINEAR_FE_DIFFERENT_DEGREE",
+          "evidence": [
+            "No explicit quadratic projection operator norm for K_n in inspected source material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "Available author manuscript abstract/problem setup and linear FE focus; no full technical appendix reinspection.",
+          "method": "Author OA context and abstract",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Close quantum graph FE approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides exact stability and positivity-loss constants for a natural globally vertex-coupled finite-element projector on K_n, including sharp location of norming points, critical graph size and first asymptotic correction, not just generic boundedness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 452c7277b6c56b9e24959dbb050b14e42f075881",
+    "arxiv:math/0408418",
+    "arxiv:2008.01801",
+    "doi:10.1093/imanum/drx029",
+    "Resultary: L2 orthogonal projection continuous piecewise quadratic on complete metric graph uniform L infinity norm endpoint"
+  ],
+  "disposition": "passed",
+  "final_claim": "On unit-edge metric K_n, the continuous edgewise quadratic L2 orthogonal projection has an exact vertex L∞ evaluation norm for n>=3; for n>=6 this equals the full attained operator norm, with no interior norming point, strict growth, 5/2 threshold, exact limit and positivity defect.",
+  "residual_risks": [
+    "An earlier specialized quadratic graph finite-element projector could express the same norm using a different polynomial basis.",
+    "Kayumov and Arioli–Benzi full technical material not exhaustively reread; narrower equivalent computations may be buried."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Global L∞ norm and no-interior-maximizer asserted only n>=6, exact vertex norm n>=3. Unit unweighted complete graph, real L∞ inputs, no derivative matching."
+}
