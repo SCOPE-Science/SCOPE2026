@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.10 or newer. No third-party packages, external downloads, or environment configuration are required. The script constructs Boolean adjacency matrices directly from the specified prism graph, calculates their powers and ranks over \(\mathbb F_2\), and checks the predicted invertibility, fixed-point dimensions, eventual-periodic ranks and nilpotent entry bounds. Every initial state is enumerated on \(G_4\) and \(G_8\), and exact cycle counts are compared to the theorem. Larger values use exact operator identities rather than state-space enumeration.
+## correctness
 
-Successful verified output includes:
+PASS
 
-```
-PASS: invertibility and eventual-periodic ranks, n=3..36 (34 graphs)
-PASS: dyadic fixed-space dimensions and exact global orders, n=4,8,16,32,64
-PASS: exhaustive orbit census, n=4 and 8 {4: {1: 16, 2: 240}, 8: {1: 16, 2: 240, 4: 65280}}
-```
+The four input-count outputs 0,1,0,1 are precisely parity of 3 neighbor bits; no self-input is used. In R=F2[z]/(z^n-1), the two layer block transforms to [[f,1],[0,f]] with f=(z²+z+1)/z. Invertibility iff 3∤n follows from roots of q=z²+z+1 of order 3. For 3|n, CRT q-primary factor q^t has binary dimension 2t, giving two-copy nilpotent index max(2,t), periodic core codimension 4t and attained transient depth. For n=2^k, repeated Frobenius squaring gives M^(2^j)=diag(1+P^(2^j),1+P^(2^j)) for j>=1 and powers of cyclic shift, while fixed points for j=0 have dimension 4; exact order n/2 follows from strict previous fixed-space inclusion. Independent GF2 bit-matrix checks n3..32 and dyadic up to n64 corroborate all formulas; they are not the infinite proof.
 
-These are numbers of *states* with given least period, not numbers of distinct cycles. Divide them by their respective period lengths to obtain the cycle counts. The finite script does not prove the result for unrestricted circumference; the polynomial-ring argument in `RESULT.md` supplies that proof. No independent audit or validation has been performed.
+## originality
+
+PASS
+
+Exact claims were contrasted with primary mathematical results, aliases, stronger scope, and published semantic records; no inspected source logically implies the final exact claim, subject to explicitly logged residual risks.
+
+## value
+
+PASS
+
+This is an exact arithmetic reversibility/attractor classification of a canonical graph family for a specified opinion-dynamics rule; finite size can exhibit arbitrarily long cycles, unlike typical sampled-random-graph short-attractor observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
