@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact finite certificates are reproducible with Python 3 standard library:
+## correctness
 
-```
-python3 verify.py
-```
+PASS
 
-Expected final output is `VERIFIED exact kinetics, graph spectra, both directional instability witnesses`. The program checks exact stationarity, four exact partial derivatives, the determinant and trace of the kinetic Jacobian, each of the two graph characteristic polynomials by power-sum Newton identities, every rational modal determinant at \(q\in\{0,2,3,5,6\}\), and the signs required to reverse the two stability verdicts.
+Direct exact-rational differentiation at (u,v)=(1/10,6/5) yields J=[[31/144,-1/24],[45/16,-15/64]], tr=-11/576, determinant 205/3072. Modal trace stays negative; sign of Delta-(a d2+d d1)q+d1 d2 q^2 is the precise strict-linear-instability criterion. For any q0>0, choose d2/d1 just above r_c=((sqrt(Delta)+sqrt(-bc))/a)^2 and set d1=(a r+d)/(2r q0); the negative determinant interval shrinks continuously to q0. Finite spectrum separation proves iff equality of positive support. Exact rational prism and K3,3 Laplacian spectra and both rate-pair signs independently checked; elementary regular graph classification for n<6 proves minimality. Band endpoints with zero determinant are not unstable, and multiplicities are undetectable.
 
-The arbitrary-graph theorem uses a complete analytical spectral decomposition, an explicit diffusion-ratio formula, and a finite-spectrum separation argument in `RESULT.md`. Finite computations are not a proof of that universal statement and do not test experimental robustness or nonlinear pattern selection.
+## originality
 
-No independent scientific audit or validation has been performed.
+PASS
+
+Standard graph-Laplacian Turing modal dispersion and influence of topology are known. The additional theorem treats the entire yes/no response as inverse spectral data, constructs arbitrarily narrow positive-diffusivity selectors, and proves a sharp bidirectional same-degree graph-order witness. Ye–Zhou 2023 full primary sections on network dispersion and experiments discuss dependence on eigenmodes and average degree but do not state this response equivalence. Hütt–Armbruster–Lesne 2022 remains a related partially inaccessible comparison. Best-of-knowledge PASS with explicit residual risk.
+
+## value
+
+PASS
+
+Recovering spectral support from a binary response is a meaningful inverse problem and sharply identifies what information cannot be recovered (multiplicities). The minimal six-node cubic witness shows identical degree/order does not control which network is unstable, and positive diffusion controls make the spectral selector constructive. This is not a claim about nonlinear pattern persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
