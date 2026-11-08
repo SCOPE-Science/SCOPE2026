@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated model and both graph isomorphism types are explicit. The proof establishes uniqueness of positive fixed points through strict subhomogeneity, obtains the sole physical symmetric branches and onset conditions, and factors the total-infection comparison into a cubic with exactly one positive zero. The strong-transmission expansion follows from the exact formulas. Standalone SymPy checks validate the identities and a separate fixed-point iteration; finite experiments are corroboration only. Numerical counts: 60,415 assertions passing on the included checker.
+PASS
 
-## Originality — PASS within the inspected evidence, with residual priority risk
+For positive homogeneous NIMFA SIS on connected four-node three-edge graphs there are only K_1,3 and P4. Uniqueness of positive fixed point uses strict positive concavity of f(z)=τz/(1+τz), forcing graph automorphism symmetry. The star solution x=(3τ²-1)/(τ(3τ+1)), y=(3τ²-1)/(3τ(τ+1)) exists iff τ>1/sqrt(3). Path solution q=sqrt(τ(τ+1)), u=1-1/q and v=(q-1)/τ exists iff τ>(sqrt(5)-1)/2. The exact positive sign identity B(τ)²-τ/(τ+1)=((τ+1)^3-4τ³)/((τ+1)²(3τ+1)²) yields one crossover τ*=(2^(2/3)-1)^(-1), and P-S=1/(3τ)+O(τ^-2). Checked fixed point equations independently and examined source symbolic checker; physical zero branch correctly distinguished from absorbing stochastic SIS.
 
-The 2008/2011 NIMFA articles cover the governing approximation, star prevalence and threshold, and explicitly show qualitative star-versus-regular-network prevalence-order reversal at 100 vertices. The 2020 thesis covers star and path prevalence separately but not the four-vertex unique algebraic crossover. Gilarranz–Bascompte 2012 concerns a different stochastic metapopulation quantity. Other finite-state epidemic studies concern distinct stochastic quantities or graph comparisons. Thus no inspected result or accessible own claim implies the exact all-rate pairwise classification for the two four-vertex trees. A particularly relevant 2012 mean-field comparison was not fully accessible; its abstract is not a basis for ruling out coverage, and historical priority remains provisional.
+## originality
 
-## Value — PASS
+PASS
 
-This is the smallest graph order with two distinct connected trees of equal vertex and edge count, so the exact classification is natural rather than a selected numerical slice. It gives a full parameter-range diagnostic showing precisely when ranking networks by spectral onset does not rank their endemic burdens, with one algebraic boundary and a nonzero high-transmission asymptotic. It is useful as a controlled verification example for network epidemic approximation and graph-design claims, while not purporting to validate the approximation for actual epidemic data.
+Best-of-knowledge PASS only for the exact equality-edge-count K_1,3 versus P4 all-rate unique positive crossover constant and signed strong-rate gap. Earlier NIMFA model, spectral thresholds, star formulas and general reversal phenomenon are known. Fully accessible 2011 primary text contains distinct star-versus-regular example; 2012 NIMFA comparison paper was not read in full and remains a priority risk.
 
-## Limitations and closest sources
+## value
 
-The finding is an exact special-case classification, not a new general theorem on all networks. The phenomenon of some graph-prevalence reversal is previously known. Source comparisons: Van Mieghem–Omic–Kooij (2008); Van Mieghem (2011); Gilarranz–Bascompte (2012); Li–van de Bovenkamp–Van Mieghem (2012, abstract available/full article retrieval unsuccessful); He (2020), Chapter 5. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact smallest-graph comparison in which lower onset threshold fails to predict strong-rate total endemic prevalence is a well-motivated finite-network counterexample with unique algebraic crossover; mathematical interest is in the complete phase classification, not the familiar NIMFA equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

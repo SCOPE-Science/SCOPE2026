@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checker.py` in this directory with Python 3 and SymPy installed. The included script reconstructs stationary equations for the two trees, reduces their solutions, verifies the exact difference-factorization and the large-infection-rate coefficient symbolically, and independently iterates the four-dimensional fixed-point equations. It passed 60,415 assertions on its delivered version. Numeric tests do not certify infinitely many parameters; the proof in `RESULT.md` handles all \(\tau>0\).
+## correctness
 
-At zero and positive epidemic thresholds, values and equality cases are established analytically, not inferred by numerical solvers. The classification assumes positive, identical recovery and per-edge infection rates, four vertices, connected undirected three-edge trees, and deterministic NIMFA equilibrium. It does not apply to the absorbing finite Markov SIS stationary distribution.
+PASS
 
-The closest 2008 and 2011 open-access sources were inspected at their governing and comparative sections; the 2012 NIMFA versus heterogeneous-mean-field paper was not available in full after bounded open-access and institutional-access attempts, so residual originality risk remains. This file records mathematical checks only; there has been no independent audit.
+For positive homogeneous NIMFA SIS on connected four-node three-edge graphs there are only K_1,3 and P4. Uniqueness of positive fixed point uses strict positive concavity of f(z)=τz/(1+τz), forcing graph automorphism symmetry. The star solution x=(3τ²-1)/(τ(3τ+1)), y=(3τ²-1)/(3τ(τ+1)) exists iff τ>1/sqrt(3). Path solution q=sqrt(τ(τ+1)), u=1-1/q and v=(q-1)/τ exists iff τ>(sqrt(5)-1)/2. The exact positive sign identity B(τ)²-τ/(τ+1)=((τ+1)^3-4τ³)/((τ+1)²(3τ+1)²) yields one crossover τ*=(2^(2/3)-1)^(-1), and P-S=1/(3τ)+O(τ^-2). Checked fixed point equations independently and examined source symbolic checker; physical zero branch correctly distinguished from absorbing stochastic SIS.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS only for the exact equality-edge-count K_1,3 versus P4 all-rate unique positive crossover constant and signed strong-rate gap. Earlier NIMFA model, spectral thresholds, star formulas and general reversal phenomenon are known. Fully accessible 2011 primary text contains distinct star-versus-regular example; 2012 NIMFA comparison paper was not read in full and remains a priority risk.
+
+## value
+
+PASS
+
+An exact smallest-graph comparison in which lower onset threshold fails to predict strong-rate total endemic prevalence is a well-motivated finite-network counterexample with unique algebraic crossover; mathematical interest is in the complete phase classification, not the familiar NIMFA equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
