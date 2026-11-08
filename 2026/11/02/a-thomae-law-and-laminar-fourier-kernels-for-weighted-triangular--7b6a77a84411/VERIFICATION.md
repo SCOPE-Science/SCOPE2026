@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The main result is proved analytically in `RESULT.md` for all odd prime scales and all symmetric positive digit weights. The proof uses normal convergence of the Fourier-mask product, an exact cyclotomic cosine criterion, a p-adic valuation separation, and a uniform density-tail estimate. The count of two residue classes at each cancellation level produces the stated natural density; it does not rely on finite numerical extrapolation.
+## correctness
 
-Run `python3 weighted_triangular_checker.py` to reproduce finite all-residue tests for \((p,k,a)=(3,1,1),(5,1,2),(5,2,7),(5,2,8),(7,1,2)\). The script checks several prime-power levels, first-hit counts, and the equal-conductor disjoint / mixed-conductor containment alternatives; if SymPy is installed, it also verifies the golden-ratio mask identity by exact symbolic simplification. Complex-mask comparisons otherwise use numerical tolerance only; they are not exact exhaustive infinite certificates. For full mathematical verification, independently check each step of the written argument.
+PASS
 
-No independent review or certification has been performed. The full text of the historically relevant Strichartz (1993) Fourier-transform paper was not accessible; originality cannot be guaranteed against that or all unindexed literature. Only the stated odd-prime symmetric-weight and integer-frequency setting is covered.
+For every odd prime p and t∈(0,1/2), self-similar triangular digit mask M=1−2t+t exp(−2πim/p^j)+t exp(−2πin/p^j), and the Fourier product converges normally away from zero factors at integer frequency. A real negative sum of two odd-order unit roots forces conjugate pair u,u¯, hence n≡−m mod p^j and weight τ_{p;k,a}=1/[2(1−cos(2πa/p^k))] with primitive a in (p^k/4,p^k/2). Each frequency vanishes at exactly one j since its p-adic coordinate valuation is j−k. Disjoint cylinder density Σ_{j≥k}2/p^{2j}=2/[p^{2(k−1)}(p²−1)], tail bounded by higher p-divisibility. Congruence reduction yields laminar inclusion iff b≡±a mod p^k; otherwise disjoint, so periodized convolution kernels nested or orthogonal. Conductor escape proves Thomae continuity at nonexceptional weights and discontinuity at countably dense exceptional weights. Independent exact residue enumeration p=5,k=1,a=2 at L=1,2,3 yielded 2,52,1302 matching formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing natural equivalent, broader and table/reduction routes, including inspected primary literature and explicit residual priority risks.
+
+## value
+
+PASS
+
+A natural full classification of integer Fourier zeros for a weighted triangular self-similar measure: countably dense exceptional weights, exact natural densities and nesting/orthogonality of convolution kernels. It identifies nontrivial arithmetic behavior even at an equal-weight comparison, not an arbitrary small parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
