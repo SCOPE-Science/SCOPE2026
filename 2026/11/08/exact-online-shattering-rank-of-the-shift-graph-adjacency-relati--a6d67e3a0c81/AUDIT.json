@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every root query (a,b), the positive surviving centers split into A={(i,a):i<a} and B={(b,j):j>b}. A subsequent query selects only the whole A, whole B, both, neither, or one center; an informative split of A or B always has a branch of size <=1. Thus each positive root fiber has Littlestone dimension <=2, implying an all-order dimension <=3. Cardinalities <=n-2 give sharp small-order upper bounds. Fully specified four- and eight-leaf trees establish ranks 2 at n=4 and 3 at n=6, and embed in all larger orders. One edge establishes n=3, and n=2 has a unique empty hypothesis. Direct adjacency replay of all tree paths passed; the independent exact minimax checker returned ranks 0,1,2,2,3,3,3,3 for n=2..9 (22,917 states), and tested the critical fiber classification for n=2..12. No finite test is treated as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halevi-Kaplan-Shelah, arXiv:2103.13931, abstract, Theorem/Corollary 6.2 and Example 2.3 concern chromatic properties of stable graphs and subgraph containment, not an all-n adaptive shattering bound.",
+        "Wu, Warwick thesis 195162, June 2025, Proposition 3.4 concerns VC dimension 2, with a simultaneous fixed support of size two, not depth-three adaptive labeling."
+      ],
+      "reasoning": "A bound on static VC dimension need not imply a Littlestone dimension of 3 (even an infinite Littlestone dimension can coexist with VC dimension one). A general theorem asserting finite stability of these shift graphs could subsume a qualitative boundedness corollary, but inspected broader sources do not yield the exact values at n=2..6 or the sharp threshold.",
+      "searches": [
+        "stable shift graphs triangle free high chromatic number Littlestone",
+        "shift graphs stable VC",
+        "Finite ordered pair shift graphs shattering tree dimension online learning neighborhoods"
+      ]
+    },
+    "checked_sources": [
+      "Halevi–Kaplan–Shelah, arXiv:2103.13931, v1 dated 2021-03-25, abstract/Example 2.3/Fact 2.4 and targeted term search",
+      "Walker, arXiv:2203.12211, v1 dated 2022-03-23, Definition 1.9 and introductory tree-rank material",
+      "Wu, Warwick thesis 195162, 2025, Section 3.2.1 and Proposition 3.4",
+      "Scientific literature/research-record searches for shift graphs, thicket dimension, stability 2-rank, and adaptive open-neighborhood rank; no equivalent theorem located in examined entries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Halevi-Kaplan-Shelah show high chromatic implications and shift-graph containment; neither imposes an exact Littlestone dimension in the needed finite family.",
+        "Walker provides a general Sauer-Shelah type upper bound parameterized by Littlestone dimension, not the inverse exact value in the shift graph.",
+        "Wu proves a VC bound, and the adaptive decision tree in this package exhibits a larger Littlestone dimension already at n=6."
+      ],
+      "reasoning": "The alleged new theorem requires both a uniform upper bound three and a depth-three adaptive witness whose first occurrence is n=6. None follows from a theorem only bounding VC at two, establishing high chromatic number, or giving general cardinality bounds conditional on an already-known Littlestone dimension.",
+      "searches": [
+        "arxiv:2103.13931 stable graphs with large chromatic number shift graphs Example 2.3",
+        "Warwick thesis 195162 Proposition 3.4 shift graph VC dimension 2",
+        "arxiv:2203.12211 Walker Tree Dimension and Sauer-Shelah Dichotomy",
+        "Shift graph Sh_n adjacency open neighborhood Littlestone dimension exact 3 n=6 threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Walker, arXiv:2203.12211, Definition 1.9 defines Littlestone dimension and thicket terminology; inspected introductory sections do not compute shift-graph ranks.",
+        "Halevi–Kaplan–Shelah, arXiv:2103.13931, Example 2.3 defines the same increasing-pair shift graphs; examined sections do not state a finite Littlestone dimension formula.",
+        "Wu, Warwick thesis 195162 (2025), Proposition 3.4 establishes static VC dimension two for the shift graph; it does not yield the adaptive online rank."
+      ],
+      "reasoning": "Littlestone, thicket, Shelah 2-rank, adaptive membership mistakes, and finite-rank adjacency are equivalent target descriptions. Source comparisons concern the full formula Ldim of the open-neighborhood shift-graph concept family as n varies, rather than mere shared graph terminology.",
+      "searches": [
+        "Shift graph Sh_n adjacency open neighborhood Littlestone dimension exact 3 n=6 threshold",
+        "Shift graph edge relation tree rank 2 rank thicket dimension stability order property ordered pairs",
+        "shift graphs Littlestone dimension mathematics",
+        "shift graphs thicket dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant shift-graph source arXiv:2103.13931 provides graph-theoretic and chromatic results but no numerical online shattering table in examined sections.",
+        "The direct shift-graph VC result, Wu thesis 195162 Proposition 3.4, concerns static shattering rather than adaptive finite-depth binary trees.",
+        "A search under the exact graph name, adjacency/open-neighborhood parameters, thicket/tree-rank synonyms and proposed threshold did not locate a published exact value; negative search is not a uniqueness proof."
+      ],
+      "reasoning": "No exact online shattering dimension table was identified in examined literature. Absence from a bounded set of searches is not evidence that no historical formulation can exist.",
+      "searches": [
+        "Shift graph Sh_n adjacency open neighborhood Littlestone dimension exact 3 n=6 threshold",
+        "Shift graph edge relation tree rank 2 rank thicket dimension stability order property ordered pairs",
+        "shift graph Littlestone dimension graph",
+        "shift graph 2 rank model theory"
+      ]
+    },
+    "rationale": "The nearest primary shift-graph model-theory paper defines the graph and develops large-chromatic stable-graph implications without determining the exact finite Littlestone sequence. The direct shift-graph shattering source proves static VC dimension two, which does not entail the sharp adaptive rank or six-label threshold. General tree-dimension literature supplies definitions and growth bounds, not this exact calculation. Bounded published-literature searches found no equivalent theorem; historical priority remains uncertain.",
+    "residual_risks": [
+      "Exact finite adjacency ranks could be implicit in unindexed stability or online-learning literature under a different name.",
+      "Only specifically relevant sections, searches and accessible primary material were examined; global historical priority and independent audit remain unverified.",
+      "Full first-order-theory stability is intentionally not asserted from the adjacency formula bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the shift-graph setting and its chromatic roles; no exact finite adjacency Littlestone rank found in examined material.",
+        "evidence": "First public arXiv version 25 March 2021; shift graph on increasing tuples and chromatic fact identified in Section 2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2103.13931",
+        "material_read": "Abstract, introduction, preliminaries on stability, Example 2.3 and Fact 2.4 (PDF pages 1-4), plus targeted searches throughout for Littlestone and 2-rank.",
+        "method": "Full-text page inspection, targeted text search and first-page screenshot.",
+        "title": "Infinite Stable Graphs with Large Chromatic Number II",
+        "trigger": "Exact same rank-two shift-graph object and model-theoretic ownership; potential broader stable-graph coverage."
+      },
+      {
+        "assessment": "Static shattering dimension only; no adaptive finite-depth tree calculation in material inspected.",
+        "evidence": "Proposition 3.4 asserts VC dimension two and uses fixed nonadaptive point sets.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/195162/1/WRAP_Theses_Wu_2025.pdf",
+        "material_read": "Section 3.2.1, Definition 3.3, Proposition 3.4 and entire proof on printed pages 23-24; text search for Littlestone returned no hits.",
+        "method": "PDF text inspection and screenshots of printed pages 23-24.",
+        "title": "Investigations of the Chromatic Threshold",
+        "trigger": "Direct shift-graph VC-dimension result could conceivably contain stronger adaptive analysis."
+      },
+      {
+        "assessment": "Provides the invariant and general counting comparisons but no exact shift-graph conclusion.",
+        "evidence": "Definition 1.9 and Corollary 1.10 assume a Littlestone bound rather than compute it for this family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+        "material_read": "Abstract, definitions and corollaries through Section 1.1 (PDF pages 1-4), including Definition 1.9 and Corollary 1.10.",
+        "method": "Full text extraction and a screenshot of page 3.",
+        "title": "Tree Dimension and the Sauer-Shelah Dichotomy",
+        "trigger": "General theorems on Littlestone and thicket dimension might imply the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6d67e3a-0c81-4a8d-9850-b641ec2707a1",
+  "value": {
+    "rationale": "Shift graphs are a canonical, genuinely natural family of triangle-free graphs of unbounded chromatic number and are explicitly central in the 2021 stable-graph literature (03C45). Their adaptive membership complexity is a separate model-theoretic/online-learning invariant not determined by their known static VC bound. The theorem gives the complete all-order online rank, sharp threshold n=6, and explicit worst-case mistake trees, demonstrating uniform adjacency-formula finite rank despite the chromatic growth. This is a structural classification with a motivated exact invariant, not a reparameterized finite computation or a routine corollary of the cited chromatic/VC results.",
+    "status": "PASS"
+  }
+}
