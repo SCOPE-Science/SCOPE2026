@@ -1,25 +1,21 @@
-# Scientific review: exactly seven nonunimodal complete-bipartite general-position polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement covers every positive unordered part-size pair and explicitly includes the single-edge boundary. The proof begins with the original geodesic definition and rederives the previously published cardinality formula; it then establishes log-concavity of the entire auxiliary binomial-row sum via a factored convolution and a justified Toeplitz-minor lemma. This limits any possible coefficient valley to the transition from cardinality two through four. A sharp parameter partition, using inequalities for largest parts at most seven, at least ten, and exhaustive exact integer checks for largest part eight or nine, yields precisely the seven stated exceptions. The \(m\ge10\) argument includes both the \(n\ge9\) inequality and the monotone finite-difference argument for \(n\le8\). The independently programmed graph-distance verifier exhausts 530604 vertex subsets across 36 boards; a separate exact-arithmetic sweep tests 11325 parameter pairs. Both returned `VERIFY_OK`. Finite checks are supplementary, not proof of the infinite statement.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+For K_{m,n} with m≥n≥1, every subset of size ≤2 is GP, and a set of size ≥3 is GP precisely if it lies entirely in one bipartition class, giving coefficients a0=1,a1=m+n,a2=C(m+n,2), a_k=C(m,k)+C(n,k) for k≥3. The tail t_k has generating function (1+z)^n[1+(1+z)^{m−n}]. The second factor has coefficients b0=2,b1=d,b_k=C(d,k), and its only modified log-concavity minor is d²−2C(d,2)=d≥0; binomial first factor is log-concave, and nonnegative convolution of no-gap log-concave sequences is log-concave by TP2 Toeplitz/Cauchy–Binet. Thus only possible full-polynomial valley is a2>a3<a4. For m≤7, C(r,4)≤C(r,3), so no valley. For m≥10, if n≥9 then C(r,3)≥r² for both r≥9, giving a3≥a2; if n≤8, F(m,n)=C(m,3)+C(n,3)−C(m+n,2) is strictly increasing in m≥10 and its m=10 eight values are all >0. Checking m=8,9 gives exactly five (8,4..8) and two (9,6..7) negative F entries, all with a4>a3. The exceptional set was independently checked by exact integer binomial calculations for 1≤n≤m≤100, including tail log-concavity, and the source verifier Git blob f5aeacd501c35e2c106d7f0defdc6e9f04b629f1 was inspected. These finite checks do not replace the all-size inequality proof.
 
-The first primary article [1] already supplies the complete-bipartite coefficient formula and two nonunimodal examples, \(K_{8,4}\) and \(K_{9,7}\). The 2026 multipartite paper [2] rederives the coefficient formula and exhibits \(K_{8,8}\), but does not give the seven-case classification for arbitrary two part sizes. The August 2026 survey [3] describes the examples and balanced-part thresholds without this universal exception list. The actual mathematical addition is an all-parameter *if and only if* statement, supported by a log-concavity reduction and an exact exclusion proof; it is not a claim to the source polynomial formula or the known examples. Searches with complete-bipartite, unimodality, coefficient-valley, and binomial-row synonyms and the accessible mathematical-record summaries did not identify a stronger result implying the classification. A search absence is not a novelty certificate; inaccessible and unindexed writings remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The originating paper singles out complete bipartite counterexamples to unimodality, and later literature adds further examples. The theorem closes the natural question *which complete bipartite graphs exhibit the phenomenon*: only seven isomorphism types, with no others regardless of part size. The proof also identifies an invariant mechanism—log-concavity of the binomial-row tail—that rules out any larger-cardinality valleys and explains why all failure is confined to the degree-three boundary. This is a complete classification with a sharp infinite exclusion argument, not a recomputation of a known coefficient or an arbitrary finite range.
+The final claim is compared by statement and implication, not by title. The previously published formula for ψ(K_m,n) is identical and explicitly credited; the new claim is its all-parameter shape theorem. Individual known examples K8,4, K9,7, K8,8 are subsumed, not touted as original. Earlier complete multipartite polynomial formulas do not include the complete seven-exception boundary in inspected parts. Earlier results cover graphs beyond complete bipartite but are weaker on this specific shape classification. General log-concavity-preserving convolution is textbook; applying it to the special t0=2 coefficient via factorization and coupling to exceptional a2 supplies the nontrivial classification. The complete two-part seven-exception list is not a reference table extracted from Resultary; search returned related graph families (spider, corona, dual general-position, complete-multipartite variants), not a preexisting full K_m,n classification. Absence of matching database entry alone does not prove novelty. From known coefficient formula one must prove global tail log-concavity, show no future valleys, derive a finite bound on m, and check the two transition rows m8,m9. Published example calculations do not imply the iff theorem without these inequalities; a preexisting fully general unimodality theorem covering K_m,n would defeat the claim if identified. Accessible primary texts were materially compared; inaccessible plausible primary texts are named as residual risks rather than treated as disproving novelty.
 
-## Closest sources and limits
+## value
 
-[1] V. Iršič, S. Klavžar, G. Rus, J. Tuite, *General position polynomials*, arXiv:2401.05696v1, Proposition 2.1(v) and Section 4, https://arxiv.org/html/2401.05696v1 (first posted 2024-01-11).
+PASS
 
-[2] B. A. Rather, *Explicit Formulas and Unimodality Phenomena for General Position Polynomials*, arXiv:2603.06930v1, Sections 3–4, https://arxiv.org/abs/2603.06930 (2026-03-06).
+The general-position polynomial of complete bipartite graphs is a natural already-established graph counting invariant, and published papers explicitly raised nonunimodality through isolated examples. The complete all-parameter classification into precisely seven exceptions, with a structural log-concave tail forbidding all later valleys, resolves the natural bipartite shape question. This is not a repetition of the known polynomial formula or three previously listed examples: it supplies a sharp iff theorem and explains why all other part sizes are unimodal.
 
-[3] U. Chandran S. V., S. Klavžar, J. Tuite, *The General Position Problem: A Survey*, arXiv:2501.19385v5, Section 2.3.4, https://arxiv.org/html/2501.19385v5 (2026-08-16 version).
-
-Scope excludes multipartite graphs with three or more parts and excludes full-polynomial log-concavity, which is strictly stronger than unimodality. Full priority determination cannot be guaranteed by the sources inspected. Independent mathematical review has not occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
