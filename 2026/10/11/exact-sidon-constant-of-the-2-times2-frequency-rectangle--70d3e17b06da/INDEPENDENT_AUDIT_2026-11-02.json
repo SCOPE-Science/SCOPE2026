@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T11:08:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 10438de892c39df3c7a07d34c76aec8dd8c3d194",
+        "VERIFICATION.md Git blob 1cc2a17906afbcc842928308e4b5d7cbc7f70c3c",
+        "artifacts/verify.py Git blob 14fd3bcf6cb7db44e1ed2f4770b352504d77123e"
+      ],
+      "rationale": "For arbitrary complex a,b,c,d, multiplication by one phase and independent rotations of z,w reduce nonzero reference terms to A+Bz+Cw+D exp(i phi)zw with A,B,C,D≥0; zero-coefficient cases follow by continuity. For each |z|=1, maximize exactly in w: F(z)=|A+Bz|+|C+D exp(i phi)z|. At z±=±exp(−i phi/2), set X± and Y± to the two moduli. Exact antipodal square identities give X+²+X−²=2(A²+B²), Y+²+Y−²=2(C²+D²). Triangle inequality on the SUM of two complex products gives X+Y+ +X−Y−≥2(AC+BD). Consequently F(z+)²+F(z−)²≥(A+B+C+D)²+(A−B+C−D)² and one sample F≥mass/sqrt2. The witness P*=1+z+w−zw gives F(z)=|1+z|+|1−z|≤2sqrt2 with equality at z=i, so coefficient mass 4 and Sidon quotient sqrt2. The calculation proves the full infinite torus and all complex coefficients without relying on finite sampling. Independent algebraic reconstruction checked phase conventions, triangle signs, sum-of-squares normalization and the endpoint zero-coefficient domain; 25,000 deterministic independent random choices checked the two-point inequality and the witness as corroboration, not proof.",
+      "residual_risks": [
+        "A numerical checker alone cannot prove the universal statement; the independent complete analytic argument supplies that proof.",
+        "Only the four-corner free two-torus support is proved; no arbitrary 4-frequency theorem, other finite-group constant, or full equality-case classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neuwirth, arXiv:2603.28229v1, Proposition 4.1 proves at most sqrt(n-1) for n-character sets in Z; n=4 gives sqrt3 and is restricted to one variable, not a sharp sqrt2 result for the rank-2 free torus rectangle.",
+          "Ortega-Cerdà–Ounaïes–Seip, arXiv:0903.1455v1, Theorem 1 estimates S(m,n) only in the regime n>m²>1, not the present exact 2x2 support.",
+          "General Littlewood 4/3 inequality bounds (sum |aij|^(4/3))^(3/4) by a constant times bilinear sup norm, and its known dimension-free constant together with ell1/ell4/3 comparison cannot produce this sharp sqrt2 directly."
+        ],
+        "reasoning": "The published stronger-looking bounds use other dimensions, a looser constant, different 4/3 coefficient exponents, large homogeneous-degree supports, or a single character group Z. Their quantified conclusions do not imply the present exact four-corner Z² theorem. The relevant phase-order result also explicitly excludes the supremum endpoint.",
+        "searches": [
+          "Sidon constant products of Sidon sets parallelogram Fourier 2x2",
+          "Sidon constant parallelogram exact universal four corner bidisk",
+          "\"Sidon constant\" \"parallelogram\" \"sqrt\" trigonometric polynomials",
+          "Sidon constant four character rectangle torus 2x2 bilinear form coefficient l1 supremum sqrt 2"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git RESULT.md at blob 10438de892c39df3c7a07d34c76aec8dd8c3d194",
+        "arXiv:math/0102145v1",
+        "arXiv:1603.01535v1",
+        "arXiv:0903.1455v1",
+        "arXiv:2603.28229v1",
+        "Resultary 2026/10/11/SCOPE-a-sharp-phase-order-transition-for-the-four-character-fourier-re--b28d10ed4d3f",
+        "Resultary 2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+        "Resultary 2026/10/11/SCOPE-binary-phase-realizability-of-four-element-extreme-sidon-sets--56f8468fafce",
+        "Resultary 2026/10/11/SCOPE-the-golden-ratio-sidon-constant-of-the-symmetric-four-frequency--734af17c7b6e",
+        "Resultary 2026/10/4/SCOPE-exact-sidon-constant-of-three-consecutive-characters-on-even-cyc--b76331aa4281"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary b28d10ed4d3f (read complete RESULT.md): phase order at fixed magnitudes for every finite 0<p<infinity, expressly not the p=infinity endpoint; it has no coefficient ell1 extremal.",
+          "Resultary b51ecb1779fe (read complete RESULT.md): finite cyclic m,n grid, all four entries equal magnitude, and number of Fourier zeros; neither its range nor its invariant is the complex torus Sidon quotient.",
+          "Resultary 56f8468fafce (read complete RESULT.md): binary extreme Sidon measures on order-two rectangle families and finite prototypes; the free two-torus has no order-two generator, and binary flat-transform existence does not bound arbitrary coefficients.",
+          "Neuwirth arXiv:math/0102145v1 (read paper statement and proof): a sharp theorem for three-element subsets of Z, and the value sqrt2 for the three consecutive characters; a coincident numerical constant is not a four-point two-variable implication."
+        ],
+        "reasoning": "No inspected previously published conclusion entails that for EVERY a,b,c,d in C the continuous T² supremum is at least (|a|+|b|+|c|+|d|)/sqrt2; in particular none provides the universal complex four-entry upper inequality together with a sharp witness. The closest same-polynomial finite-p result compares phases at fixed amplitudes and is not a stronger sup-norm coefficient ratio theorem.",
+        "searches": [
+          "Sidon constant four character rectangle torus 2x2 bilinear form coefficient l1 supremum sqrt 2",
+          "Sharp coefficient l1 over sup norm for a bilinear form on complex l_infinity^2 by complex l_infinity^2",
+          "Sidon constant products of Sidon sets parallelogram Fourier 2x2",
+          "\"bilinear forms\" \"sum of absolute values of coefficients\" \"sqrt2\" complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is exactly the coefficient-ell1 to complex injective bilinear norm of a 2x2 coefficient matrix, by identifying u=(1,z), v=(1,w), with independent unimodular input phases.",
+          "Cavalcante–Pellegrino, arXiv:1603.01535, Section 2 Proposition 2.1 covers norm formula for real matrix entries and Section 5 Theorem 5.1 concerns Littlewood 4/3 functional, not arbitrary complex entrywise ell1 sharp bound.",
+          "Resultary 2026/10/11/SCOPE-a-sharp-phase-order-transition-for-the-four-character-fourier-re--b28d10ed4d3f is on exactly a+bz+cw+dzw, but fixes coefficient moduli and finite exponent p, not this p=infinity coefficient mass/sup norm optimal ratio."
+        ],
+        "reasoning": "The complex 2x2 bilinear tensor ratio, the square four-character Sidon constant, and this polynomial inequality are equivalent after independent rotations and a global phase. A real-coefficient norm formula or an inequality in the 4/3 coefficient norm does not itself give the same sharp universal complex ell1 ratio; a finite-p fixed-magnitude phase ordering neither determines it nor supplies the exact numerical extremal. No actually inspected full statement explicitly covers the exact complex problem.",
+        "searches": [
+          "Sidon constant of four characters at corners of a 2x2 rectangle on two torus; universal inequality sum abs(a,b,c,d) <= sqrt 2 sup over |z|=|w|=1 |a+bz+cw+dzw|",
+          "Sharp coefficient l1 over sup norm for a bilinear form on complex l_infinity^2 by complex l_infinity^2",
+          "complex 2x2 matrix entrywise l1 versus bilinear infinity norm sharp sqrt2",
+          "\"Sidon constant\" \"2x2\" bilinear forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact self-match 2026/10/11/SCOPE-exact-sidon-constant-of-the-2-times2-frequency-rectangle--70d3e17b06da was explicitly excluded as circular evidence.",
+          "Closest other Resultary hits: phase-order transition for the same four-character rectangle b28d10ed4d3f; finite product-group Fourier-zero spectrum b51ecb1779fe; one-variable symmetric four-frequency golden-ratio Sidon constant 734af17c7b6e; real four-by-four bilinear norm ratio ceb65eb1d232.",
+          "No retrieved external database/table entry gave the universal 2x2 complex coefficient ell1/sup norm ratio for the free two-torus."
+        ],
+        "reasoning": "Different support, scalar field, group, norm, or objective prevents these indexed numerical constants from covering the claim; the only exact self-hit is not independent priority evidence. No direct complete table of complex 2x2 bilinear coefficient ell1 constants was identified, a residual risk rather than novelty proof.",
+        "searches": [
+          "Sidon constant of four characters at corners of a 2x2 rectangle on two torus; universal inequality sum abs(a,b,c,d) <= sqrt 2 sup over |z|=|w|=1 |a+bz+cw+dzw|",
+          "Sidon constant products of Sidon sets parallelogram Fourier 2x2",
+          "exact complex two by two projective injective tensor norm ratio l1 coefficients square root two",
+          "complex 2x2 matrix entrywise l1 versus bilinear infinity norm sharp sqrt2"
+        ]
+      },
+      "rationale": "Best-of-knowledge independent statement/implication comparison did not identify a covering prior theorem for the sharp four-corner two-torus coefficient-ell1 inequality with ALL complex coefficients. The primary three-character Sidon theorem, 2x2 real-coefficient bilinear extreme-point/Littlewood-4/3 analysis, homogeneous-polynomial asymptotic bounds, and the one-variable four-character discussion have different quantified sets or coefficient functionals. A directly overlapping published four-corner Fourier p-moment phase theorem optimizes finite-p moments at fixed magnitudes and explicitly excludes p=infinity: it does not establish the sharp unconstrained coefficient-mass/sup-norm ratio. Finite cyclic phase-only Fourier-zero and binary flat-spectrum results similarly do not imply this continuous torus constant. An older equivalent complex 2x2 injective/projective tensor norm formula remains a genuine residual bibliographic risk; unsuccessful searches are not proof of novelty.",
+      "residual_risks": [
+        "Older Fourier algebra, complex 2x2 bilinear tensor norm or unconditional basis texts may state the same exact ratio in a terminology not discovered by targeted searches; no exhaustive bibliographic priority claim.",
+        "Related real-matrix formulas may be combined with a further uninspected complex reduction; inspected published statements do not give that implication, and the independent proof remains valid.",
+        "Resultary contains this same claim as an existing record; it was excluded as circular support for originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: theorem quantifies over three-element subsets of Z and one circle; does not determine the free Z² four-corner support.",
+          "evidence": "Abstract specifies exact constant sec(pi/(2n)) for sets {n0,n1,n2}; introduction gives three-term 0,1,2 example and the parallelogram method.",
+          "identifier_or_url": "arXiv:math/0102145v1",
+          "material_read": "Seven-page arXiv PDF: title/abstract, definitions, first-page Newman parallelogram proof, exact three-frequency theorem and surrounding explanations; full document page text available for inspection.",
+          "method": "Lawful public arXiv PDF, page screenshot plus mathematical text.",
+          "title": "The Sidon constant of sets with three elements",
+          "trigger": "Primary theorem on exact sparse Fourier Sidon constants and the sqrt2 value for three consecutive frequencies."
+        },
+        {
+          "assessment": "NOT_COVERING on inspected theorem statements: exact norm formula and extreme-point analysis for real coefficients or coefficient ell4/3 optimization are distinct from arbitrary complex coefficient ell1 extremal theorem.",
+          "evidence": "Introduction states real-bilinear unit-ball/extreme-point focus; Proposition 2.1 assumes a_ij real; Theorem 5.1 assumes real entries and is in the Littlewood 4/3 context; no universal complex four-coefficient ell1 sharp inequality is stated.",
+          "identifier_or_url": "arXiv:1603.01535v1",
+          "material_read": "Public full HTML mathematical text: introduction and problem setup, Section 2 Proposition 2.1 and norm-optimization proof for real entries, and Sections 4–5 Littlewood 4/3 optimization, including Theorem 5.1.",
+          "method": "Lawful public arXiv full HTML.",
+          "title": "Geometry of the closed unit ball of the space of bilinear forms on ell_infinity^2",
+          "trigger": "Exactly matching four coefficient positions as a complex 2x2 bilinear form; high-priority possible implicit coverage."
+        },
+        {
+          "assessment": "NOT_COVERING: asymptotic bound with n>m^2, not the exact four coefficient rectangle constant in two torus variables.",
+          "evidence": "Theorem 1 explicitly assumes n>m^2>1 and bounds S(m,n) by non-sharp C^m factor.",
+          "identifier_or_url": "arXiv:0903.1455v1",
+          "material_read": "Nine-page arXiv public PDF: title/abstract, theorem 1 and its domain n>m^2, definitions and multilinear preliminaries, asymptotic proof scope.",
+          "method": "Lawful public arXiv PDF, page screenshot plus extracted mathematical text.",
+          "title": "The Sidon constant for homogeneous polynomials",
+          "trigger": "Potential general multivariable Sidon inequality that could dominate a four-term rectangular support."
+        },
+        {
+          "assessment": "NOT_COVERING: the support lies in Z on one circle, not the four corners of Z²; the general sqrt(n-1) bound does not yield sharp sqrt2 for four corners.",
+          "evidence": "Proposition 4.1 gives S(Lambda)≤sqrt(card Lambda−1) for finite Lambda subset Z; at four characters this gives sqrt3. Title and discussion restrict to {0,1,2,3}.",
+          "identifier_or_url": "arXiv:2603.28229v1",
+          "material_read": "Public arXiv HTML: introduction, sections 2–4 and Proposition 4.1, precise one-variable support and later four-frequency discussion.",
+          "method": "Lawful public arXiv full HTML.",
+          "title": "On the (Fourier analytic) Sidon constant of {0,1,2,3}",
+          "trigger": "Closest contemporaneous four-frequency Sidon problem and potential general inequality."
+        },
+        {
+          "assessment": "NOT_COVERING: fixes four coefficient magnitudes and compares finite-p moments by cross phase; explicitly does not treat p=∞ or optimize coefficient magnitudes, so cannot imply the sharp Sidon coefficient-ratio theorem.",
+          "evidence": "Statement is for 0<p<infinity and fixed A,B,C,D; limitations exclude p=infinity and unrestricted domination.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-phase-order-transition-for-the-four-character-fourier-re--b28d10ed4d3f",
+          "material_read": "Complete published RESULT.md read from the identified Git repository: statement, mixed-derivative proof, arc rearrangement proof, limitations and citations.",
+          "method": "Read published Resultary Git source document.",
+          "title": "A sharp phase-order transition for the four-character Fourier rectangle",
+          "trigger": "Exactly same a+bz+cw+dzw, highly relevant potential stronger theorem."
+        },
+        {
+          "assessment": "NOT_COVERING: finite cyclic sampling and equal coefficient magnitudes, objective zero count instead of sup norm all complex coefficients.",
+          "evidence": "The main theorem lists zero counts {0,1,m,n,m+n-1} or {0,2,m,n,m+n-1} for Z_m×Z_n, not coefficient ell1 control over continuous T².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-phase-only-fourier-zero-spectrum-of-a-four-point-rectangle-on-cy--b51ecb1779fe",
+          "material_read": "Complete published RESULT.md: theorem, cross-ratio zero classification, finite cyclic argument and limitations.",
+          "method": "Read published Resultary Git source document.",
+          "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+          "trigger": "Same 4 Fourier corners, potential overlap via group reduction."
+        },
+        {
+          "assessment": "NOT_COVERING: classifies binary unimodular flat measures on certain finite/torsion supports; not a Fourier-analytic sup-norm quotient for arbitrary complex coefficients on free Z².",
+          "evidence": "Requires 2x=0 for rectangle family or finite prototype Z7 etc., and proves μ*μtilde=4δ0; no universal free T² bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-binary-phase-realizability-of-four-element-extreme-sidon-sets--56f8468fafce",
+          "material_read": "Complete published RESULT.md: Graham–Ramsey support classification, autocorrelation proof, examples and limitations.",
+          "method": "Read published Resultary Git source document.",
+          "title": "Binary-phase realizability of four-element extreme Sidon sets",
+          "trigger": "Terminological alias: four-point Sidon support and flat signed coefficients."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact four-corner proof and witness",
+        "Neuwirth 2001 three-term and Neuwirth 2026 four-term one-variable Sidon context",
+        "Resultary finite cyclic rectangle zero counts and four-corner p-moment phase theorem"
+      ],
+      "rationale": "The finite four-corner Cartesian support is a canonical non-dissociated Fourier configuration in rank two: its cross phase ad/(bc) is the first genuinely coupled coefficient invariant, so the exact ell1-versus-uniform norm is a natural structural question in Fourier Sidon theory and in 2x2 complex bilinear/tensor norms. Unlike a routine parameter substitution, the proof derives a universal sharp constant for arbitrary complex magnitudes and phases with a new two-antipodal-phase certificate and explicit extremal Hadamard sign pattern. The precise value is independently useful as a small-scale benchmark for sparse harmonic inequalities and comparisons against finite cyclic discretizations and one-dimensional four-frequency families. It is a motivated exact self-contained constant, despite not establishing an overarching n×m theorem or novel equality classification. Correctness or reproduction alone was not treated as value.",
+      "residual_risks": [
+        "The mathematical proof is short and draws on classical parallelogram/triangle methods; the claim is valuable as an exact natural invariant rather than a broad advance.",
+        "If an older identical complex 2x2 norm formula is located, the originality and independent-value novelty assessment must be reconsidered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Conclusion restricted to free two-torus four-corner support and complex scalars, no arbitrary Sidon support or equality classification.",
+    "Literature search not exhaustive: unindexed older complex 2x2 bilinear/tensor ratio might already contain same conclusion; no priority certification.",
+    "Publication unavailable because whole-source public provenance/date metadata were not sanitized; scientific verdict distinct from publication readiness."
+  ],
+  "schema_version": 1
+}
