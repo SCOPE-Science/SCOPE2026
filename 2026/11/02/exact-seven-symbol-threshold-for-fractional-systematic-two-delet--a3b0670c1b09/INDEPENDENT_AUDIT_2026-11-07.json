@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:05:13.609801Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rational polytope has q² prefix-sum equalities for length-five words and unit capacities at each distinct ordered length-three deletion shadow. A complete finite lemma on 52 restricted-growth patterns proves weighted shadow cost >=14 for equal-symbol prefix and >=19 for different-symbol prefix, with weights 14,3,2,5,2 on AAA,AAB,ABA,ABB,ABC. Summing weighted output capacities yields 14q+19q(q-1) <=14q+q(q-1)(2q+6), hence q>=7. For q>=7, assign prefix aa to aaaaa, and split each ab (a!=b) among symbol-permutation orbits abbca with mass 2/5, abbcc with mass 1/5 and abcde with mass 2/5. Each capacity load by equality pattern is exactly (1,1,4/5,1,5/(q-2)), so feasible iff q>=7, with every prefix total one. Independently checked complete 52-pattern min-cost classification and all q=7 output constraints by exact arithmetic; the universal all-q claim follows by orbit counting. Crucially no integral 7-symbol systematic code is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited paper treats genuine systematic codes for sufficiently large alphabets; this theorem is a fractional capacity relaxation at every q>=7",
+          "The necessary 7 barrier known before this result is only a dual inequality and not an LP primal witness"
+        ],
+        "reasoning": "A general integral existence theorem at q=7 would imply fractional feasibility, but the identified source does not establish it. Stronger code constructions for large q do not settle sharp threshold 7.",
+        "searches": [
+          "Resultary: systematic two deletion correcting codes fractional packing prefix two symbols length five alphabet seven output shadows",
+          "web: Grishin Zabokritskiy 2026 systematic codes correcting two deletions with three redundancy symbols"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.38259",
+        "https://arxiv.org/abs/2306.02868",
+        "Git RESULT.md 769b98f8bf4be90e39b316911d83201e218ab865",
+        "Git verification/check_shadow_lp.py 35e17d6c3b1fe8263bf818328759523497a7447e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior converse yields q>=7 necessity; logical necessity does not construct a feasible fractional point",
+          "The q=7 rational orbit construction saturates 4 pattern families and leaves ABA load 4/5"
+        ],
+        "reasoning": "The additional sharp sufficiency establishes precisely the limit of the elementary relaxation; the integral problem remains unresolved and unclaimed.",
+        "searches": [
+          "Resultary: systematic two deletion correcting codes fractional packing prefix two symbols length five alphabet seven output shadows",
+          "web: non binary two deletion correcting codes 2023 systematic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polytope is a fractional packing of five-word deletion shadows indexed by fixed two-symbol systematic prefixes",
+          "Explicit rational load by AAA/AAB/ABA/ABB/ABC is a feasible fractional witness at q>=7"
+        ],
+        "reasoning": "Equivalent language is fractional hypergraph matching with exactly one unit of mass on every two-symbol prefix; no matching exact feasible threshold found in searched published records.",
+        "searches": [
+          "Resultary: systematic two deletion correcting codes fractional packing prefix two symbols length five alphabet seven output shadows",
+          "web: systematic two deletion LP fractional packing set subsequence length 3 q 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 52 shadow equality patterns are generated, not imported from a prior table",
+          "The explicit load vector (1,1,4/5,1,5/(q-2)) is independently counted at q=7"
+        ],
+        "reasoning": "No existing exact LP table was identified; potential unpublished LP computations remain a priority risk.",
+        "searches": [
+          "Resultary: systematic two deletion correcting codes fractional packing prefix two symbols length five alphabet seven output shadows",
+          "web: fractional systematic deletion LP exact q=7"
+        ]
+      },
+      "rationale": "Existing weighted shadow converses already provide necessary q>=7 for the integral length-five systematic code problem; necessity is not novel. Grishin–Zabokritskiy 2026 concern genuine systematic two-deletion codes with three checks over sufficiently large alphabets and a different adjacent-burst relaxation. The present explicit rational primal solution shows the elementary prefix-constrained LP relaxation is feasible for all q>=7; a previously proved integer bound does not imply this. Full text of closest 2026 preprint was not accessible and remains a stated risk.",
+      "residual_risks": [
+        "Closest 2026 systematic two-deletion preprint was only inspected via abstract, so an LP bound or appendix could contain equivalent feasibility.",
+        "No integral systematic q=7 code follows; strengthening LP with extra constraints could change the threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Results concern integral constructions for large alphabets and an adjacent-burst fractional converse; cannot certify whole text NOT_COVERING",
+          "evidence": "Full-text implications remain residual novelty risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.38259",
+          "material_read": "Accessible arXiv abstract and indexed description, NOT entire PDF; full text retrieval unavailable in this run",
+          "method": "arXiv abstract and bibliographic metadata",
+          "title": "Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets",
+          "trigger": "Same systematic channel and 3-symbol redundancy"
+        },
+        {
+          "assessment": "No explicit equal-prefix fractional length-5 q=7 feasibility statement identified in material read",
+          "evidence": "Different code parameters and burst bounds appear in abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.02868",
+          "material_read": "Abstract and publicly indexed synopsis, not full text",
+          "method": "public arXiv metadata",
+          "title": "Non-binary two-deletion correcting codes and burst-deletion correcting codes",
+          "trigger": "Earlier nonbinary deletion lower bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fractional coding shadow packing is a natural relaxation for deletion-code lower bounds. A sharp feasible/infeasible threshold proves that its single-output-capacity inequalities cannot improve the known seven-symbol necessary alphabet barrier, a useful boundary for future stronger LP and integrality approaches.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.38259",
+    "https://arxiv.org/abs/2306.02868",
+    "Git RESULT.md 769b98f8bf4be90e39b316911d83201e218ab865",
+    "Git verification/check_shadow_lp.py 35e17d6c3b1fe8263bf818328759523497a7447e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Closest 2026 systematic two-deletion preprint was only inspected via abstract, so an LP bound or appendix could contain equivalent feasibility.",
+    "No integral systematic q=7 code follows; strengthening LP with extra constraints could change the threshold.",
+    "Finite computations support but do not replace any infinite proof; independent assessment is best-of-knowledge, not a claim of complete historical priority.",
+    "Public-bound files not confidentiality-sanitized and no GitHub changes or publication made."
+  ],
+  "residual_risks": [
+    "Closest 2026 systematic two-deletion preprint was only inspected via abstract, so an LP bound or appendix could contain equivalent feasibility.",
+    "No integral systematic q=7 code follows; strengthening LP with extra constraints could change the threshold."
+  ],
+  "schema_version": 1
+}

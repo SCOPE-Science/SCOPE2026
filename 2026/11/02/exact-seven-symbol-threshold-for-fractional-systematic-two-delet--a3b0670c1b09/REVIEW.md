@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain and quantifiers are exact: integer \(q\ge2\); nonnegative weights on \(\Sigma^5\); every two-letter prefix has mass one; every **distinct** three-letter subsequence has capacity one. Necessity follows by multiplying individual-output inequalities by a nonnegative 5-type weight and checking all \(52\) equality patterns, with exact minima \(14\) or \(19\). The symbolic capacity comparison forces \(q\ge7\). Sufficiency uses an explicit three-orbit mixture over the last three symbols, whose prefix masses are one and whose five orbit loads are exactly \((1,1,4/5,1,5/(q-2))\). The script reconstructs the complete finite lemma and exact q=7,8,9 incidences. Neither numerical LP output nor finite samples are used as the general proof.
+PASS
 
-## Originality — PASS, residual priority risk
+The rational polytope has q² prefix-sum equalities for length-five words and unit capacities at each distinct ordered length-three deletion shadow. A complete finite lemma on 52 restricted-growth patterns proves weighted shadow cost >=14 for equal-symbol prefix and >=19 for different-symbol prefix, with weights 14,3,2,5,2 on AAA,AAB,ABA,ABB,ABC. Summing weighted output capacities yields 14q+19q(q-1) <=14q+q(q-1)(2q+6), hence q>=7. For q>=7, assign prefix aa to aaaaa, and split each ab (a!=b) among symbol-permutation orbits abbca with mass 2/5, abbcc with mass 1/5 and abcde with mass 2/5. Each capacity load by equality pattern is exactly (1,1,4/5,1,5/(q-2)), so feasible iff q>=7, with every prefix total one. Independently checked complete 52-pattern min-cost classification and all q=7 output constraints by exact arithmetic; the universal all-q claim follows by orbit counting. Crucially no integral 7-symbol systematic code is asserted.
 
-The closest motivating preprint (Grishin--Zabokritskiy, arXiv:2609.38259, full accessible HTML sections 1, 2, 8, 10 and 11 inspected) gives systematic constructions for sufficiently large alphabets and a **different adjacent-burst** fractional-cover converse. Its statements do not imply an exact length-five arbitrary-two-deletion fractional threshold at seven. An earlier weighted-shadow calculation already proves the necessary seven-letter bound for integral codes: this review does not count that converse as new. The exact **feasible fractional point at seven and above**, including all output-type loads, was not covered by the accessible comparisons. Related q-ary multi-deletion asymptotic coding constructions and exact one-deletion finite tables change either the block-length regime or deletion radius. Semantically targeted mathematical-record and web searches found no exact equivalent. Risks: an unindexed fractional orbit-LP computation or unpublished table could predate the point; priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The parameter is mathematically motivated by the first full-symbol systematic two-deletion case: two information symbols and the conjecturally minimal three exposed suffix symbols. The result exactly settles a natural complete fractional relaxation at **all** alphabet sizes, rather than recomputing an isolated optimum. More importantly, it demonstrates sharply that single-output deletion-shadow capacity inequalities cannot push the known lower alphabet bound beyond seven; work on the unresolved integral boundary must use stronger collision/integrality information. This distinguishes a genuine methodological limitation from a claim of constructing a real code.
+Existing weighted shadow converses already provide necessary q>=7 for the integral length-five systematic code problem; necessity is not novel. Grishin–Zabokritskiy 2026 concern genuine systematic two-deletion codes with three checks over sufficiently large alphabets and a different adjacent-burst relaxation. The present explicit rational primal solution shows the elementary prefix-constrained LP relaxation is feasible for all q>=7; a previously proved integer bound does not imply this. Full text of closest 2026 preprint was not accessible and remains a stated risk.
 
-## Limitations and closest literature
+## value
 
-No length-five systematic encoder at \(q=7\) is claimed. Full arbitrary-two-deletion fractional packing differs from both genuine integer code existence and adjacent-burst deletion models. The 2026 primary work and a 2023 q-ary long-code paper were inspected for implication; incomplete indexing leaves residual priority uncertainty. Only the present new claim is assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fractional coding shadow packing is a natural relaxation for deletion-code lower bounds. A sharp feasible/infeasible threshold proves that its single-output-capacity inequalities cannot improve the known seven-symbol necessary alphabet barrier, a useful boundary for future stronger LP and integrality approaches.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
