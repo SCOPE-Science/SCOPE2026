@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:54:55.304351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix a marked outneighborhood of size d by exchangeability; the remaining orientation signs are independent symmetric Rademachers. The cyclic-triple indicator is a constant plus quadratic two-edge wedges; Q² survives only matching wedges, Q³ only three-star or triangle edge configurations with opposite signs, QL² only two crosscut edges sharing a vertex. This gives displayed cumulants exactly; differentiating (a+bq)/(v0+q/4)^(3/2) leaves b(m(m-1)/2-q)/8>0 for m≥4. Explicit direct orientation enumeration independently checked all marked degrees n=4..6. Limits n=4,n=5 and symmetry d↔m-d handled.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andersson 1998 DOI article has an abstract describing large-n subgraph-count distributions; full text inaccessible.",
+          "Coregliano--Razborov arXiv:1501.04074 concerns extremal transitive-subtournament densities and quasirandomness."
+        ],
+        "reasoning": "Unconditional asymptotic distribution does not by itself yield an all-n and all-d exact conditional third cumulant. A broad moment expansion might imply it after extra computations; that risk is retained.",
+        "searches": [
+          "Resultary: random tournament cyclic triangle count conditioned on marked vertex score degree third cumulant skewness joint distribution",
+          "Andersson 1998 asymptotic distributions of subgraph counts random tournament"
+        ]
+      },
+      "checked_sources": [
+        "Komarov--Mackey arXiv:1410.6828 full text",
+        "Coregliano--Razborov arXiv:1501.04074 public main results",
+        "Andersson 1998 publisher abstract and DOI",
+        "Exact frozen tournament source RESULT.md / verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Komarov--Mackey's theorem is a deterministic five-cycle edge-score identity; Coregliano--Razborov's main results are extremal transitive densities.",
+          "Independent edge-sign wedge enumeration yields the exact third cumulant with a q=d(m-d) correction."
+        ],
+        "reasoning": "Neither extremal cycle bounds nor unconditional density results directly imply conditional skewness and the derivative monotonicity; the latter comes from classifying triples of quadratic Rademacher monomials and mixed cut wedges.",
+        "searches": [
+          "Resultary: random tournament cyclic triangle count conditioned on marked vertex score degree third cumulant skewness joint distribution",
+          "arxiv:1410.6828 theorem 2.1 cyclic tournament 5 cycles score"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Komarov--Mackey arXiv:1410.6828 concerns deterministic five-cycle counts and known score identities; conditioned third cumulant is not stated in the inspected theorems.",
+          "Same concept also appears as circular triads and conditioned tournament outdegree."
+        ],
+        "reasoning": "A deterministic score-sequence formula may fix the total cyclic triangle count given the whole score sequence, but does not directly determine the third conditional central moment given only one marked vertex's score.",
+        "searches": [
+          "Resultary: random tournament cyclic triangle count conditioned on marked vertex score degree third cumulant skewness joint distribution",
+          "circular triads conditional score degree third moment random tournament"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest indexed five-candidate majority-tournament enumeration concerns three voter profiles, not independently oriented random tournaments conditioned on a score.",
+          "No equivalent conditional third-moment table was located in the checked sources."
+        ],
+        "reasoning": "The formula is a general polynomial in n,d with third-order wedge contributions, rather than a small finite table; absence of a matching table alone is not priority evidence.",
+        "searches": [
+          "Resultary: random tournament cyclic triangle count conditioned on marked vertex score degree third cumulant skewness joint distribution",
+          "cyclic triples tournament third centered moment conditional degree table"
+        ]
+      },
+      "rationale": "Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.",
+      "residual_risks": [
+        "Andersson 1998 complete article unavailable and could contain equivalent finite conditional moment calculations.",
+        "Classical tournament score-sequence moment expansions may implicitly contain the polynomial under different conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic five-cycle and score-count identities; no all-degree conditional third cumulants",
+          "evidence": [
+            "Theorem 2.1 is a five-cycle edge-score count; discussion cites classical cyclic-triangle extremal bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.6828",
+          "material_read": "Full accessible primary 22-page arXiv paper including introduction and Theorem 2.1",
+          "method": "arXiv PDF full text, page-image inspection",
+          "title": "On the number of 5-cycles in a tournament",
+          "trigger": "Cycle counts and score-sequence identities potentially dominate claim"
+        },
+        {
+          "assessment": "Transitive density extremal results do not state conditional skewness",
+          "evidence": [
+            "Main objects are transitive-subtournament density and quasirandomness, not score-conditioned third cumulants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.04074",
+          "material_read": "Accessible abstract and main theorem statements, introductory model",
+          "method": "arXiv primary literature review",
+          "title": "On the Density of Transitive Tournaments",
+          "trigger": "Potential stronger general tournament density result"
+        },
+        {
+          "assessment": "Potential implicit moment machinery; unread text cannot be classified NOT_COVERING",
+          "evidence": [
+            "Abstract states asymptotic tournament subgraph-count distributions; current finite conditional comparison remains open."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4%3C249::AID-RSA4%3E3.0.CO;2-V",
+          "material_read": "Publisher bibliographic abstract only; entire article could not be accessed",
+          "method": "lawful OA and authorized institutional retrieval attempt",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Closest older broad third-moment framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle count is the canonical transitivity defect of a tournament. Exact finite-n score-conditioned third moments and the sharp balanced-degree skewness ordering reveal shape information not recoverable from existing mean/variance or unconditional subgraph-count asymptotics; they can inform finite-sample approximations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Komarov--Mackey arXiv:1410.6828 full text",
+    "Coregliano--Razborov arXiv:1501.04074 public main results",
+    "Andersson 1998 publisher abstract and DOI",
+    "Exact frozen tournament source RESULT.md / verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For independently fair tournaments n≥4, conditional on fixed marked degree d with m=n-1,N=binom(m,3),q=d(m-d): E C=N/4+q/2, Var C=3N/16+q/4, third central moment=3(4-m)N/32-3(m-2)q/16; from n≥6 all are negative and from n≥5 |standardized skewness| rises with q.",
+  "limitations": [
+    "Fair independent edges, predetermined marked vertex, unordered cyclic triples only.",
+    "Not a whole-distribution stochastic ordering; Andersson 1998 full text could not be read."
+  ],
+  "residual_risks": [
+    "Andersson 1998 complete article unavailable and could contain equivalent finite conditional moment calculations.",
+    "Classical tournament score-sequence moment expansions may implicitly contain the polynomial under different conventions."
+  ],
+  "schema_version": 1
+}
