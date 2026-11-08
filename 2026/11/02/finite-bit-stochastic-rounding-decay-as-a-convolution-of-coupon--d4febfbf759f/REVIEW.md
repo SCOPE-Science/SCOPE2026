@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** On the explicitly specified decrement-rounding grid, the transition probability is \(q_j=\lfloor Kj/N\rfloor/K\). Positive holding states have independent geometric durations. Their multiplicities produce exactly a shifted convolution of classical coupon-collector waiting times. The bit-threshold, moments, and limiting laws follow from this identity, the classical Gumbel limit, and a second-moment argument. Exact-rational finite tests support the derivations without replacing the proof.
+## correctness
 
-**Originality — PASS, with publication-priority risk.** El Arar et al. (arXiv:2408.03069, Section 3) establish the biased limited-bit rounding mechanism, but not its exact statewise absorption or coupon-collector convolution. Fitzgibbon and Felix (arXiv:2504.20634) classify one-step few-bit biases and possible corrections but do not give this precision-dependent Euler stopping law. Classical coupon-collector and pure-death results imply the harmonic and Gumbel consequences after the correspondence is known; these classical formulas are credited, not claimed original. The fixed-point scheme is narrower than general floating-point rounding. A specialized prior formulation could still coincide, so priority is qualified.
+PASS
 
-**Value — PASS.** The sharp budget \(r=p\) separates almost-sure arrival at the exact equilibrium from a positive absorbing floor. More than a counterexample, the full finite stopping-time law quantifies the reliability and waiting cost and shows a non-Gumbel/point-mass two-parameter transition. This natural bit-budget question arises directly from the hardware-motivated gap between ideal and limited-bit stochastic rounding, while the exact fixed-point model makes the engineering assumptions transparent.
+For the specified fixed-grid decrement scheme q_j=floor(Kj/N)/K, where N=2^p and K=2^r, independent geometric holding times at successive states give absorption at (N/K−1)/N for r<p and at zero for r≥p. For r≤p, L=N/K, the multiset of holding parameters is q_N=1 plus L copies of l/K (1≤l<K), yielding τ ≡ sum_{a=1}^L C_K^{(a)}−L+1. Sums of geometric means and variances give Eτ=1+NH_{K−1} and Varτ=NKH_{K−1}^{(2)}−NH_{K−1}. For r≥p, q_j=j/N so hitting time is C_N. Classical coupon-collector limit and variance bound prove fixed-deficit average-Gumbel and double-divergence concentration at gamma, respectively. Only exact independent decrement-rounding is asserted.
 
-**Limits and closest sources.** The theorem does not generalize to operation-wise IEEE arithmetic, to rounding the completed update, or to bias-corrected few-bit rounding. Related finite-state birth–death limit theory (Hathcock and Strogatz, arXiv:2103.08522) concerns broader asymptotic mechanisms but does not explicitly state this exact digital coupling. Independent scientific assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General stochastic-rounding bias studies and classical coupon-collector laws do not identify this finite-state dynamics/convolution for a truncated-random-bits Euler decrement. The all-(p,r) exact absorbing plateau and two-parameter fluctuation split are specific, best-of-knowledge results.
+
+## value
+
+PASS
+
+The model isolates a practical and mathematically sharp distinction between state precision and random-bit precision, turning a qualitative rounding-stagnation concern into an exact absorbing state, full hitting-time distribution, and non-Gumbel crossover. The scheme is explicitly bounded and not confused with IEEE or state-rounding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

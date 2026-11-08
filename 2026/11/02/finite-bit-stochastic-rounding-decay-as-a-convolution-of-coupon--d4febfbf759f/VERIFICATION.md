@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3; the script uses standard-library rational arithmetic (`fractions.Fraction`), combinatorics, and no external dependency. The executed result was `PASS 70 rational identities and exact distributions across dyadic grids`.
+## correctness
 
-The independent finite-state Markov recursion was compared coefficientwise with a convolution of coupon-collector probabilities expressed through Stirling numbers of the second kind for all \(1\le r\le p\le4\), up to explicit finite horizons. All exact mean, variance, and absorbing-plateau formulas in these cases were checked, as was exact identity with ideal rounding probabilities for \(1\le p\le6\) and \(r\ge p\) (three tested budgets per precision). The case \((p,r)=(4,2)\) has exact values \(\mathbb E\tau=91/3\) and \(\operatorname{Var}(\tau)=520/9\).
+PASS
 
-The code does not exhaust every possible precision or prove an infinite distributional limit. The analytic proof is by independent holding times, grouping, classical coupon-collector convergence, and variance concentration. The stochastic update convention is an exact mathematical model of fixed-point probability truncation; hardware behavior is not checked.
+For the specified fixed-grid decrement scheme q_j=floor(Kj/N)/K, where N=2^p and K=2^r, independent geometric holding times at successive states give absorption at (N/K−1)/N for r<p and at zero for r≥p. For r≤p, L=N/K, the multiset of holding parameters is q_N=1 plus L copies of l/K (1≤l<K), yielding τ ≡ sum_{a=1}^L C_K^{(a)}−L+1. Sums of geometric means and variances give Eτ=1+NH_{K−1} and Varτ=NKH_{K−1}^{(2)}−NH_{K−1}. For r≥p, q_j=j/N so hitting time is C_N. Classical coupon-collector limit and variance bound prove fixed-deficit average-Gumbel and double-divergence concentration at gamma, respectively. Only exact independent decrement-rounding is asserted.
+
+## originality
+
+PASS
+
+General stochastic-rounding bias studies and classical coupon-collector laws do not identify this finite-state dynamics/convolution for a truncated-random-bits Euler decrement. The all-(p,r) exact absorbing plateau and two-parameter fluctuation split are specific, best-of-knowledge results.
+
+## value
+
+PASS
+
+The model isolates a practical and mathematically sharp distinction between state precision and random-bit precision, turning a qualitative rounding-stagnation concern into an exact absorbing state, full hitting-time distribution, and non-Gumbel crossover. The scheme is explicitly bounded and not confused with IEEE or state-rounding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

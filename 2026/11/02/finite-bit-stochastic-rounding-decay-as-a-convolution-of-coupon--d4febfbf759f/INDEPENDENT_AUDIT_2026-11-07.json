@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:01:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified fixed-grid decrement scheme q_j=floor(Kj/N)/K, where N=2^p and K=2^r, independent geometric holding times at successive states give absorption at (N/K−1)/N for r<p and at zero for r≥p. For r≤p, L=N/K, the multiset of holding parameters is q_N=1 plus L copies of l/K (1≤l<K), yielding τ ≡ sum_{a=1}^L C_K^{(a)}−L+1. Sums of geometric means and variances give Eτ=1+NH_{K−1} and Varτ=NKH_{K−1}^{(2)}−NH_{K−1}. For r≥p, q_j=j/N so hitting time is C_N. Classical coupon-collector limit and variance bound prove fixed-deficit average-Gumbel and double-divergence concentration at gamma, respectively. Only exact independent decrement-rounding is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El Arar et al. arXiv:2408.03069; Fitzgibbon/Felix arXiv:2504.20634"
+        ],
+        "reasoning": "Limited-precision stochastic rounding error-analysis theorems are about one-step bias/error bounds, not the decrement-rounding exact absorption law. Classical birth-death absorption theorems apply abstractly but do not state this exact q_j/plateau/two-regime specialization.",
+        "searches": [
+          "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+          "arXiv:2408.03069 limited precision stochastic rounding bias",
+          "arXiv:2504.20634 stochastic rounding few random bits",
+          "arXiv:2010.16225 stochastic rounding implementation survey"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+        "arXiv:2408.03069 limited precision stochastic rounding bias",
+        "arXiv:2504.20634 stochastic rounding few random bits",
+        "arXiv:2010.16225 stochastic rounding implementation survey"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "El Arar et al. Sections 2–3; current RESULT.md Steps 2–5"
+        ],
+        "reasoning": "One-step stochastic rounding bias in El Arar et al. does not imply the coupon-collector convolution without a Markov holding-time analysis, whereas the new formula itself recovers the ordinary C_N case at r=p.",
+        "searches": [
+          "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+          "arXiv:2408.03069 limited precision stochastic rounding bias",
+          "arXiv:2504.20634 stochastic rounding few random bits",
+          "arXiv:2010.16225 stochastic rounding implementation survey"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source RESULT.md Steps 1–4; Feller coupon collector and arXiv:2103.08522"
+        ],
+        "reasoning": "Holding-time decomposition is classically a generalized pure-death chain; the coupon-collector identity uses grouping L geometric stages and removing L−1 deterministic draws. Classic coupon facts alone require identifying the specific q_j of this rounding process.",
+        "searches": [
+          "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+          "arXiv:2408.03069 limited precision stochastic rounding bias",
+          "arXiv:2504.20634 stochastic rounding few random bits",
+          "arXiv:2010.16225 stochastic rounding implementation survey"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits: balanced nonuniform reset coupon rates; other unrelated urn laws"
+        ],
+        "reasoning": "Resultary semantic query returned other coupon/reset/quantized-dynamics records but no same model/table. There is no evidence of a published exact τ distribution table for the state-bit/random-bit scheme; search absence is not priority proof.",
+        "searches": [
+          "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+          "arXiv:2408.03069 limited precision stochastic rounding bias",
+          "arXiv:2504.20634 stochastic rounding few random bits",
+          "arXiv:2010.16225 stochastic rounding implementation survey"
+        ]
+      },
+      "rationale": "General stochastic-rounding bias studies and classical coupon-collector laws do not identify this finite-state dynamics/convolution for a truncated-random-bits Euler decrement. The all-(p,r) exact absorbing plateau and two-parameter fluctuation split are specific, best-of-knowledge results.",
+      "residual_risks": [
+        "The result is specific to decrement rounding with truncated grid probability, not state rounding or floating-point rounding.",
+        "Unindexed numerical-analysis work might have analyzed this exact Markov model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different focus: stepwise rounding bias, not exact Euler death-chain law",
+          "evidence": [
+            "Defines few-bit rounding and analyzes resulting statistical bias rather than this state-dependent q_j absorption series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.03069",
+          "material_read": "Accessible full preprint, particularly rounding definitions, one-step probability bias and error bound sections",
+          "method": "Primary PDF examined in context and compared model and asserted conclusions",
+          "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+          "trigger": "Same limited-random-bit rounding issue"
+        },
+        {
+          "assessment": "Risk of implicit equivalent special model; no confirmed covering theorem",
+          "evidence": [
+            "Few-bit probability correction and bias analysis are distinct from explicit fixed-step Euler absorption."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+          "material_read": "Accessible abstract/sections and reference context; full-text exclusion not asserted",
+          "method": "Compare probability-truncation implementation and application",
+          "title": "On Stochastic Rounding with Few Random Bits",
+          "trigger": "Few random bit limitation closely related"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model isolates a practical and mathematically sharp distinction between state precision and random-bit precision, turning a qualitative rounding-stagnation concern into an exact absorbing state, full hitting-time distribution, and non-Gumbel crossover. The scheme is explicitly bounded and not confused with IEEE or state-rounding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: stochastic rounding finite random bits Euler decay coupon collector absorption times",
+    "arXiv:2408.03069 limited precision stochastic rounding bias",
+    "arXiv:2504.20634 stochastic rounding few random bits",
+    "arXiv:2010.16225 stochastic rounding implementation survey",
+    "https://arxiv.org/abs/2408.03069",
+    "https://arxiv.org/abs/2504.20634"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result is specific to decrement rounding with truncated grid probability, not state rounding or floating-point rounding.",
+    "Unindexed numerical-analysis work might have analyzed this exact Markov model."
+  ],
+  "residual_risks": [
+    "The result is specific to decrement rounding with truncated grid probability, not state rounding or floating-point rounding.",
+    "Unindexed numerical-analysis work might have analyzed this exact Markov model."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Different focus: stepwise rounding bias, not exact Euler death-chain law",
+      "evidence": [
+        "Defines few-bit rounding and analyzes resulting statistical bias rather than this state-dependent q_j absorption series."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2408.03069",
+      "material_read": "Accessible full preprint, particularly rounding definitions, one-step probability bias and error bound sections",
+      "method": "Primary PDF examined in context and compared model and asserted conclusions",
+      "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+      "trigger": "Same limited-random-bit rounding issue"
+    },
+    {
+      "assessment": "Risk of implicit equivalent special model; no confirmed covering theorem",
+      "evidence": [
+        "Few-bit probability correction and bias analysis are distinct from explicit fixed-step Euler absorption."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+      "material_read": "Accessible abstract/sections and reference context; full-text exclusion not asserted",
+      "method": "Compare probability-truncation implementation and application",
+      "title": "On Stochastic Rounding with Few Random Bits",
+      "trigger": "Few random bit limitation closely related"
+    }
+  ]
+}
