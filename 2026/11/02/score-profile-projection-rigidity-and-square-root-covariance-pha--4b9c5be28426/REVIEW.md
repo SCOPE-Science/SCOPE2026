@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Conditioning on a specified directed cycle fixes exactly one incoming and one outgoing edge at each cycle vertex; an exact shifted-binomial law yields the entire mixed covariance formula. Algebra determines every sign and zero boundary. The cyclic-triangle count is a linear combination of score histogram coordinates, establishing the claimed orthogonal projection by a complete covariance calculation. Exhaustive exact-rational enumeration through six vertices and sign checks through 120 vertices corroborate but do not replace the proof.
+## correctness
 
-## Originality
-PASS under the inspected-source, best-knowledge standard, with historical-priority reservations. Full available texts of Linial–Morgenstern (arXiv:1405.1576) and Kolesnik–Sanchez (arXiv:2009.09322) address deterministic cyclic-triangle/four-cycle inequalities and score-sequence geometry, respectively. Neither gives the exact random mixed cycle/score-class covariance or the entire score-histogram projection. Gao–McKay–Wang (2000) concerns **asymptotic conditional** probabilities given full score sequences, not the exact unconditional covariance claimed here, but the complete paper was unavailable for comparison. Janson (1995) concerns random-tournament Hamilton-cycle normality and may contain relevant projection machinery; only accessible bibliographic material and its abstract were reviewed. The previously known **Walsh** cycle–triangle decomposition can imply the score-histogram projection after adding the star-support observation; this projection is presented as a useful structural interpretation, not the independently new component. The main originality assessment rests on the exact score-class covariance and square-root sign classification. Equivalent broader historical formulations remain possible.
+PASS
 
-## Mathematical value
-PASS. The histogram of tournament scores records wins and losses at all degree levels, while directed-cycle counts record nontransitivity at every size. The exact collapse of a many-coordinate least-squares projection to one canonical statistic is structural. The universal square-root score window and perfect-square arithmetic null classes describe finite-size dependence not captured by asymptotic existence or score-feasibility results. This is an exact joint-dependence statement, not an arbitrary numerical slice.
+For n>=3 uniform independently oriented tournament and directed r-cycle count C_{r,n} modulo cyclic rotation, conditioning on occurrence of any directed r-cycle fixes exactly one incoming and one outgoing incident edge at each of its r vertices. Its score law becomes 1+Bin(n-3,1/2), while all other vertices retain Bin(n-1,1/2). Summing over cycles yields covariance (n)_r/2^r times [Q_{n,k}-B_{n,k}], with Q/B=4k(n-1-k)/((n-1)(n-2)), exactly the asserted square-root sign polynomial [n-1-(2k-(n-1))^2]. Integer zeros iff n-1=s², s>=2, at k=(s²±s)/2. The ratio to the triangle covariance is a_{r,n}=(n-3)_(r-3)/2^(r-3). The deterministic identity T=binom(n,3)-sum_k binom(k,2)N_k proves centered T in the linear score-span, hence residual orthogonality to every N_k identifies the exact L² *linear projection*; it is not full conditional expectation. Independently enumerated all labeled tournaments for n=3..5 (2^3+2^6+2^10=1096 orientations) and checked 26 exact rational covariance pairs; all matched. General proof follows from conditioning, not finite cases. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 49f0c8c021d774e34ca06bd8a2c5fd7cf2b9634e
 
-## Limitations
-Fair independent orientations only. The theorem concerns the linear score-histogram projection, not conditional expectation given the entire histogram. Existence of stronger historical projection formulas has not been conclusively ruled out. No independent audit is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.
+
+## value
+
+PASS
+
+The covariance of directed cycle counts with a natural random-tournament degree-histogram statistic has an exact all-n, all-length arithmetic zero/sign phase, including the square-root thresholds and an exact projection rigidity onto an entire nontrivial linear statistic span. These finite-size identities give finer fluctuation structure than asymptotic Hamilton-cycle normality and are natural mixed combinatorial moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

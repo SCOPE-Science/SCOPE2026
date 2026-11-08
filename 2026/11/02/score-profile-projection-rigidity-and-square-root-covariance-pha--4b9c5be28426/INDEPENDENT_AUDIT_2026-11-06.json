@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 uniform independently oriented tournament and directed r-cycle count C_{r,n} modulo cyclic rotation, conditioning on occurrence of any directed r-cycle fixes exactly one incoming and one outgoing incident edge at each of its r vertices. Its score law becomes 1+Bin(n-3,1/2), while all other vertices retain Bin(n-1,1/2). Summing over cycles yields covariance (n)_r/2^r times [Q_{n,k}-B_{n,k}], with Q/B=4k(n-1-k)/((n-1)(n-2)), exactly the asserted square-root sign polynomial [n-1-(2k-(n-1))^2]. Integer zeros iff n-1=s², s>=2, at k=(s²±s)/2. The ratio to the triangle covariance is a_{r,n}=(n-3)_(r-3)/2^(r-3). The deterministic identity T=binom(n,3)-sum_k binom(k,2)N_k proves centered T in the linear score-span, hence residual orthogonality to every N_k identifies the exact L² *linear projection*; it is not full conditional expectation. Independently enumerated all labeled tournaments for n=3..5 (2^3+2^6+2^10=1096 orientations) and checked 26 exact rational covariance pairs; all matched. General proof follows from conditioning, not finite cases. Evidence: Source text in assigned RESULT.md §§Finding, Assumptions and scope, Proof, Verification, Relationship to prior work; repository Git tree 49f0c8c021d774e34ca06bd8a2c5fd7cf2b9634e",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–McKay–Wang abstracts establish asymptotics under restricted near-regular score sequences; Janson abstract states asymptotic normality for Hamilton cycles; Linial–Morgenstern analyzes extremal cycle densities; Kolesnik–Sanchez investigates score-sequence geometry."
+        ],
+        "reasoning": "These are broader conditional or asymptotic settings but the accessible material does not yield the exact finite-n square-zero identity. Since two most related full texts were inaccessible, no whole-document noncoverage assertion is made.",
+        "searches": [
+          "Gao McKay Wang 2000 Asymptotic enumeration of tournaments with a given score sequence containing specified digraph",
+          "Janson 1995 Hamilton cycles random tournament",
+          "arxiv:1405.1576 deterministic 4-cycles",
+          "arxiv:2009.09322 score sequence polytope"
+        ]
+      },
+      "checked_sources": [
+        "Janson 1995 doi:10.1002/rsa.3240060209 (abstract only; Oxford vpn_disconnected)",
+        "Gao–McKay–Wang 2000 doi:10.1002/(SICI)1098-2418(200001)16:1<47::AID-RSA4>3.0.CO;2-L (abstract only; Oxford vpn_disconnected)",
+        "arxiv:1405.1576 full PDF",
+        "arxiv:2009.09322 full PDF",
+        "Resultary two semantic queries: ['random tournament directed cycle score-class outdegree covariance projection triangle counts', 'tournament cyclic triangles directed r-cycle score class degree covariance exact square root threshold']"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An asymptotic CLT for C_n alone does not supply exact Cov(C_r,N_k). The deterministic triangle identity proves one new source of linear projection but not an independence relation.",
+          "For n=4, full conditional expectation on a particular transitive score histogram cannot equal the proposed linear projection, distinguishing it from stronger nonlinear conditional assertions."
+        ],
+        "reasoning": "The new exact finite-size score-profile sign/zeros and all-r projection are not implied by inspected numerical, asymptotic, or extremal claims. Inaccessible primary full text is flagged rather than pronounced not covering.",
+        "searches": [
+          "Janson 1995 theorem Hamilton cycles in random tournament",
+          "Gao McKay Wang 2000 specified digraph with prescribed score sequence",
+          "arxiv:1405.1576 3- and 4-cycle extremal bounds",
+          "arxiv:2009.09322 score polytope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The formula is equivalent to a size-biased score difference from fixing an oriented cycle, or to a second Krawtchouk-polynomial function of outdegree.",
+          "Earlier random tournament moment/projection methods may encode this polynomial in Walsh/Fourier language."
+        ],
+        "reasoning": "No inspected primary result states this exact mixed score-class covariance across all cycle lengths. Algebraic rephrasing or implicit projection method coverage remains a material risk, and older conditional-score articles were not read in full.",
+        "searches": [
+          "Gao McKay Wang specified digraph score sequence exact covariance",
+          "random tournament directed cycle score-class outdegree covariance projection triangle counts",
+          "tournament cyclic triangles directed r-cycle score class degree covariance exact square root threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits included numerous tournament enumeration/geometry records, but no matching mixed cyclic-r score-histogram covariance or exact square-root sign table.",
+          "Small n tournament tables cannot determine all-n algebraic zero classes."
+        ],
+        "reasoning": "The result is a uniform symbolic formula, not an unmotivated catalog of numerical tournament cases; unlocated generic covariance formulas remain possible.",
+        "searches": [
+          "random tournament directed cycle score-class outdegree covariance projection triangle counts",
+          "tournament cyclic triangles directed r-cycle score class degree covariance exact square root threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the exact final quantitative claim, with classical proof mechanisms and expressly credited subcases excluded. Genuine broad/theorem and full-text comparison risks retained; inaccessible full texts alone do not dictate failure.",
+      "residual_risks": [
+        "Potential exact overlap/covariance identities in the inaccessible full primary texts of Janson (1995) and Gao–McKay–Wang (2000); their abstracts alone cannot justify a NOT_COVERING verdict.",
+        "Projection is orthogonality onto the score-count linear span, not conditioning on all score-histogram information; only independent fair tournaments covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ambiguous full article; abstract supports conditioned asymptotics only; cannot exclude hidden exact-moment corollary",
+          "evidence": "Publisher abstract; Oxford job status vpn_disconnected",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(200001)16:1%3C47::AID-RSA4%3E3.0.CO;2-L",
+          "material_read": "Publisher abstract and bibliographic description; full text NOT read",
+          "method": "publisher abstract and OA-preprint search; Oxford institutional call returned vpn_disconnected",
+          "title": "Asymptotic enumeration of tournaments with a given score sequence containing a specified digraph",
+          "trigger": "Same score-conditioned subgraph setting"
+        },
+        {
+          "assessment": "Establishes asymptotic normality; possible projection overlap unverified",
+          "evidence": "1995 Wiley abstract; authorized full-text access failed",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240060209",
+          "material_read": "Publisher abstract, references and index keywords including projection method; full article NOT read",
+          "method": "publisher page and OA search; Oxford institutional call returned vpn_disconnected",
+          "title": "Hamilton cycles in a random tournament",
+          "trigger": "Same random directed cycle observable"
+        },
+        {
+          "assessment": "Deterministic extremal relation of cycle densities, not random exact score-class covariance",
+          "evidence": "Theorem statements on 3- and 4-cycle densities",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1576",
+          "material_read": "Full accessible PDF introduction and extremal result sections",
+          "method": "public arXiv PDF text and rendered screenshot",
+          "title": "On the number of 4-cycles in a tournament",
+          "trigger": "Closely related cycle-count statistic"
+        },
+        {
+          "assessment": "Score-sequence geometry, not mixed moments of random cycle counts",
+          "evidence": "Sections 1–3 on score zonotopes",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.09322",
+          "material_read": "Full accessible PDF introduction and core score-polytope results",
+          "method": "public arXiv PDF text and screenshot",
+          "title": "The geometry of random tournaments",
+          "trigger": "Score histogram geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance of directed cycle counts with a natural random-tournament degree-histogram statistic has an exact all-n, all-length arithmetic zero/sign phase, including the square-root thresholds and an exact projection rigidity onto an entire nontrivial linear statistic span. These finite-size identities give finer fluctuation structure than asymptotic Hamilton-cycle normality and are natural mixed combinatorial moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Janson 1995 doi:10.1002/rsa.3240060209 (abstract only; Oxford vpn_disconnected)",
+    "Gao–McKay–Wang 2000 doi:10.1002/(SICI)1098-2418(200001)16:1<47::AID-RSA4>3.0.CO;2-L (abstract only; Oxford vpn_disconnected)",
+    "arxiv:1405.1576 full PDF",
+    "arxiv:2009.09322 full PDF",
+    "Resultary two semantic queries: ['random tournament directed cycle score-class outdegree covariance projection triangle counts', 'tournament cyclic triangles directed r-cycle score class degree covariance exact square root threshold']"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential exact overlap/covariance identities in the inaccessible full primary texts of Janson (1995) and Gao–McKay–Wang (2000); their abstracts alone cannot justify a NOT_COVERING verdict.",
+    "Projection is orthogonality onto the score-count linear span, not conditioning on all score-histogram information; only independent fair tournaments covered."
+  ],
+  "residual_risks": [
+    "Potential exact overlap/covariance identities in the inaccessible full primary texts of Janson (1995) and Gao–McKay–Wang (2000); their abstracts alone cannot justify a NOT_COVERING verdict.",
+    "Projection is orthogonality onto the score-count linear span, not conditioning on all score-histogram information; only independent fair tournaments covered."
+  ],
+  "schema_version": 1
+}
