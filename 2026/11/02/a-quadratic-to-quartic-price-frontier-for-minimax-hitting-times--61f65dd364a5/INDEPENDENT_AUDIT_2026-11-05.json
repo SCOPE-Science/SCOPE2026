@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:03:55.638200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Backward-generator recurrences yield H_1n=sum_i M_i/c_i and H_n1=sum_i(1-M_i)/c_i, each other oriented hitting time being a nonnegative subinterval sum. For every lambda, Cauchy–Schwarz plus the linear budget bounds max(H_1n,H_n1) below by S(lambda)^2/B. Strict concavity of S on [0,1] for n>=3 selects unique lambda*: its derivative sets equal endpoint times in the interior and the appropriate worst direction at a boundary. The Cauchy–Schwarz equality conductances attain the bound and use the full budget, giving uniqueness by strict convexity. For uniform masses with surcharge at k>n/2, the exact derivative S’(1) has a unique sign change at Q_c=(1-A_n sqrt(k)/(2k-n))^2; Riemann-sum A_n/n^(3/2)->-2/3 and midpoint scaling yield the quadratic theta and quartic s constants. Independent generator solves for n=3,5,8 and explicit three-state active-set checks corroborated the proof; source verify.py was inspected rather than used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berman abstract establishes generic convex time-versus-cost resource allocation along critical paths; Ghosh–Boyd–Saberi optimize total effective resistance; Aldous–Fill establish commute/hitting theory."
+        ],
+        "reasoning": "A generic convex-PERT framework may include the scalar minimax mechanism, so it is not asserted novel. The exact Markov stationary-mass reduction and spatial one-defect Q_c(n,k) with n^2 versus n^4 scaling are not direct statements inspected; unexamined Berman text is priority risk.",
+        "searches": [
+          "Berman 1964 Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions",
+          "Ghosh Boyd Saberi 2008 SIAM Review 50",
+          "Aldous Fill reversible-chain notes"
+        ]
+      },
+      "checked_sources": [
+        "Minimizing Effective Resistance of a Graph (https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf)",
+        "Hitting Times of Walks on Graphs through Voltages (https://doi.org/10.1155/2014/852481)",
+        "Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions (https://doi.org/10.1287/mnsc.10.4.734)",
+        "Resultary semantic search matched to this theorem; no direct dominating result retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known formula H_uv via electrical potentials is a necessary antecedent; classical total resistance optimization gives a different objective. The new threshold uses S’(1)=0 and k/n geometry; its second n^4 scale is tied to a defect O(1) edges beyond the midpoint."
+        ],
+        "reasoning": "Standard hitting formulas plus convex duality let one derive parts of this theorem, but existing cited statements do not supply the exact asymmetric robust minimax frontier or its two simultaneous scaling laws. Conservative best-of-knowledge PASS with explicit Berman risk.",
+        "searches": [
+          "Ghosh Boyd Saberi 2008 Section on effective resistance optimization",
+          "Palacios Gómez Del Río 2014 formulas",
+          "Berman 1964 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known path voltage identities are exactly the Step 1 premise, but the objective max(H_1n,H_n1) depends on partial stationary masses and is not the unweighted total effective resistance sum."
+        ],
+        "reasoning": "The weighted Cauchy–Schwarz allocation resembles optimal tree conductance formulas; symmetric resistance optimization is not mathematically equivalent to the maximum of two directional hitting times when masses are asymmetric.",
+        "searches": [
+          "Palacios Gómez Del Río 2014 Hitting Times of Walks on Graphs through Voltages",
+          "Ghosh Boyd Saberi 2008 Minimizing Effective Resistance of a Graph",
+          "Resultary search reversible Markov path optimize worst directed hitting times stationary distribution edge conductance prices one-defect threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "The result asserts a formula valid for all n and any positive prices, with explicit asymptotics derived from a singular Riemann sum rather than an external numerical table.",
+        "reasoning": "No graph database or enumerated hitting-time table can subsume this all-n one-parameter analytic phase boundary without an independently proved general theorem.",
+        "searches": [
+          "Resultary: reversible path conductance optimized worst mean hitting time surcharge",
+          "Web search: minimax first passage time path conductance price transition"
+        ]
+      },
+      "rationale": "Existing Markov hitting-time recurrences and electrical network resource allocation are acknowledged. The final claim concerns worst *directed* endpoint hitting times with fixed stationary masses and explicit asymmetric one-edge price frontier, not total symmetric effective resistance. No dominant prior theorem materially read implied the two exact transition exponents.",
+      "residual_risks": [
+        "Abstract addresses convex critical-path resource allocation; full paper might imply scalar minimax principle, not known whether one-surcharge asymptotic is explicit.",
+        "Priority is best-of-knowledge, not an exhaustive all-literature assertion; equivalences in historical specialized results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Total network effective resistance rather than robust directional endpoint hitting; useful non-equivalent predecessor",
+          "evidence": "Symmetric effective resistance lacks the fixed stationary-mass weights M_i and 1-M_i of the two directional hitting sums.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+          "material_read": "Full accessible PDF, objective and tree formulas/optimization sections",
+          "method": "Opened and visually inspected source PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Close tree conductance optimization and square-root allocation"
+        },
+        {
+          "assessment": "Covers the hitting-time evaluation but not optimized price-budget frontier",
+          "evidence": "Path voltage identity is admitted background; asymmetric surcharge bifurcation not stated.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/852481",
+          "material_read": "Accessible published formulations and voltage method discussion",
+          "method": "Read available primary presentation",
+          "title": "Hitting Times of Walks on Graphs through Voltages",
+          "trigger": "Direct source for Markov path hitting-time recurrence"
+        },
+        {
+          "assessment": "General optimization precedent; cannot establish noncoverage from unavailable full text",
+          "evidence": "Abstract addresses convex critical-path resource allocation; full paper might imply scalar minimax principle, not known whether one-surcharge asymptotic is explicit.",
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.10.4.734",
+          "material_read": "Public abstract only; full article not accessible",
+          "method": "Web abstract plus authorized institutional attempted retrieval",
+          "title": "Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions",
+          "trigger": "Potentially dominating general convex resource allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum of directional hitting times is a natural worst-case Markov performance criterion, different from the classical symmetric commute objective. The unique budget-optimal conductance vector and sharp transition from balanced to one-sided travel determine an exact physical-resource phase boundary. The n^2 versus n^4 surcharge scales reveal a nontrivial midpoint spatial dependence that a generic convex optimizer does not display.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite irreducible paths n>=3 with fixed positive stationary masses and continuous-time mean first-hitting objectives.",
+    "One-surcharge formula assumes Q>=1 and k>n/2; reflected variants not individually retested.",
+    "Berman 1964 complete primary article unavailable; generic PERT allocation might imply the dual optimizer, not presently the stated scaling frontier."
+  ],
+  "schema_version": 1
+}

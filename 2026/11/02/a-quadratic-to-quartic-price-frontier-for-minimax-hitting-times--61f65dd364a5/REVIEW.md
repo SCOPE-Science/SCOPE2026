@@ -1,19 +1,21 @@
-# Scientific review: robust directed hitting-time allocation on paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is precise for finite reversible continuous-time paths, fixed positive stationary masses, positive conductances and a linear budget. The backward generator equations give both oriented endpoint hitting-time sums, and strong Markov decomposition proves that their maximum is the global worst hitting time. For each mixing weight the weighted Cauchy–Schwarz inequality gives a sharp budget lower bound; the unique maximizer of a strictly concave scalar sum produces a feasible allocation that attains it. Equality and endpoint derivative signs settle all cases without a minimax interchange assumption. An exact derivative calculation proves the surcharge threshold, and a controlled improper Riemann sum proves the quadratic and quartic laws. The bundled `verify.py` replay passed 19,538 deterministic finite assertions; these tests are supportive, not a substitute for proof.
+PASS
 
-## Originality — PASS on inspected evidence, with residual priority risk
+Backward-generator recurrences yield H_1n=sum_i M_i/c_i and H_n1=sum_i(1-M_i)/c_i, each other oriented hitting time being a nonnegative subinterval sum. For every lambda, Cauchy–Schwarz plus the linear budget bounds max(H_1n,H_n1) below by S(lambda)^2/B. Strict concavity of S on [0,1] for n>=3 selects unique lambda*: its derivative sets equal endpoint times in the interior and the appropriate worst direction at a boundary. The Cauchy–Schwarz equality conductances attain the bound and use the full budget, giving uniqueness by strict convexity. For uniform masses with surcharge at k>n/2, the exact derivative S’(1) has a unique sign change at Q_c=(1-A_n sqrt(k)/(2k-n))^2; Riemann-sum A_n/n^(3/2)->-2/3 and midpoint scaling yield the quadratic theta and quartic s constants. Independent generator solves for n=3,5,8 and explicit three-state active-set checks corroborated the proof; source verify.py was inspected rather than used as an infinite proof.
 
-Palacios–Gómez–Del Río (2014, https://doi.org/10.1155/2014/852481) establish voltage and birth–death hitting-time identities, not an optimization of worst directional first-passage means under a fixed stationary law and individual edge prices. Ghosh–Boyd–Saberi (2006/2008, https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf) optimize total effective resistance and describe maximal *symmetric* resistance as a convex extension; their path square-root allocation weights \(i(n-i)\), whereas the present problem uses a maximum of two distinct cumulative-mass reciprocal sums. On a three-vertex uniformly stationary path with prices \((1,3)\), their max-resistance design and the present worst-directed-hitting design give different conductance ratios. Aldous–Fill's accessible reversible-chain chapters provide mean hitting and commute-time background, not the asserted price phase diagram. Berman (1964, https://doi.org/10.1287/mnsc.10.4.734) supplies a broader PERT-network resource-allocation framework with continuous convex time-cost functions. General minimax duality and convex allocation should therefore be treated as established methodology, not as novel here. The claimed distinct structural contribution is the exact stationary-mass-specific surcharge frontier and its two spatial price scales, neither supplied by the accessible Berman abstract. Searches did not locate an exact predecessor; that is not proof of uniqueness. In particular, specialty literature on optimal birth–death timing or resource allocation may contain an equivalent not found here, and the complete 1964 Berman paper could not be examined (the authorized institutional route was unavailable) and the complete 1993 Fiedler paper was not accessible (secondary abstract indicates a spectral rather than first-passage problem).
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The design objective minimizes the largest expected end-to-end search time in either direction, a natural robust transport criterion rather than a selected numerical instance. The general theorem gives an exact positive and unique optimizer for every fixed stationary law and every positive price vector. In the uniform-mass one-defect model, the exact active-direction transition is a nontrivial structural boundary; the price needed to force one-way dominance scales as \(n^2\) at macroscopic offsets but as \(n^4\) at fixed microscopic offsets. This distinction matters for designing long path networks with differently located expensive links.
+Existing Markov hitting-time recurrences and electrical network resource allocation are acknowledged. The final claim concerns worst *directed* endpoint hitting times with fixed stationary masses and explicit asymmetric one-edge price frontier, not total symmetric effective resistance. No dominant prior theorem materially read implied the two exact transition exponents.
 
-## Limits and closest literature
+## value
 
-The mean, not its variance or tail, is optimized. Stationary probabilities are fixed externally; discrete-time transition normalization is a different design problem. No extension to branched graphs or multiple directed jump mechanisms is claimed. Published formulas for hitting times and general convex resistance design remain part of the prior art; independent specialist novelty and mathematical review are still warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum of directional hitting times is a natural worst-case Markov performance criterion, different from the classical symmetric commute objective. The unique budget-optimal conductance vector and sharp transition from balanced to one-sided travel determine an exact physical-resource phase boundary. The n^2 versus n^4 surcharge scales reveal a nontrivial midpoint spatial dependence that a generic convex optimizer does not display.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
