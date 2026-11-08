@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For all dimensions and positive finite heat-mixture measures with positive-time mass, the one-bit tensor heat kernel gives a convolution squared-kernel W. Its Walsh levels are explicit positive double integrals; the strict gap is the integral of products containing (1-e^-2s)(1-e^-2t)/2, positive on positive-mass time pairs. The Rademacher fourth-moment identity and Parseval yield exact variance and equality only at the unique top-degree character. The proof covers boundary conditions, normalization, and every two-sign assignment. The included stdlib verifier executed 9,685 exact-rational assertions, and finite checks are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frommer et al. arXiv:2308.07722, Section 3.4, gives a priori bounds for fixed distance colorings",
+        "Frommer et al. arXiv:2009.01589, Section 4, bounds deterministic trace probing error for graph colorings",
+        "Stathopoulos et al. arXiv:1302.4018 constructs hierarchical colorings"
+      ],
+      "reasoning": "A broad colored-trace estimator variance identity is prior art, but does not force global minimization for general squared kernels. The new positive-mixture assumption has a special factorization yielding strict Walsh eigenvalue ordering. No inspected earlier general graph-coloring theorem provided the same necessity, sufficiency and quantitative gap, though specialist precedent risk remains.",
+      "searches": [
+        "variance-optimal bipartite graph coloring two-color stochastic probing matrix inverse spectral graph Laplacian arbitrary graphs sign eigenvector",
+        "all connected Cartesian products of two-state graph hypercubes parity checkerboard minimizes trace inverse estimator variance globally",
+        "random sign quadratic form minimization Hadamard square of inverse shifted Laplacian Fourier diagonalization on Boolean group",
+        "stochastic probing colored Hutchinson variance minimum over all colorings Laplacian inverse spectral hypercube"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.07722",
+      "https://arxiv.org/abs/2009.01589",
+      "https://arxiv.org/abs/1302.4018",
+      "https://doi.org/10.1137/18M1176427"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.07722, Theorem 3.3: variance equals twice the squared off-diagonal Frobenius norm in a prescribed block",
+        "arXiv:2009.01589, Theorems 4.22--4.24: prescribed-coloring deterministic error bounds",
+        "arXiv:1302.4018, Section 2: efficient red-black and Hadamard probing constructions"
+      ],
+      "reasoning": "Theorem 3.3 supplies a starting identity and is not independently new. None of the inspected comparisons bounds all alternatives below by parity in a dimension-independent family. The strict eigenvalue inequalities of the entrywise-square kernel, proven here by a positive double integral, are the missing assertion; they imply unique equality and sharp excess formula. No claim that source snippets alone prove absence of stronger specialist results.",
+      "searches": [
+        "Sharp optimal two-color stochastic probing for trace inverse shifted hypercube Laplacian parity bipartition global variance minimum over all sign partitions",
+        "Walsh Fourier eigenvalue monotonicity Hadamard square Green function hypercube resolvent two-color trace probing",
+        "variance-optimal bipartite graph coloring two-color stochastic probing matrix inverse spectral graph Laplacian arbitrary graphs sign eigenvector",
+        "stochastic probing hypercube graph heat kernel optimal 2 partition variance graph coloring checkerboard",
+        "stochastic probing colored Hutchinson variance minimum over all colorings Laplacian inverse spectral hypercube"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stathopoulos et al. arXiv:1302.4018, Sections 2 and 3, give hierarchical/red-black probing constructions",
+        "Frommer et al. arXiv:2308.07722, Theorem 3.3, gives the fixed-partition random-probe variance",
+        "Published even-cycle checkerboard result covers shifted cycle resolvents rather than general hypercube heat mixtures"
+      ],
+      "reasoning": "Equivalent phrasing as optimal coloring, checkerboard probing, Walsh transform of the squared Green function and optimal signed partition was searched. The cited construction and variance statements do not imply the strict top-degree Walsh minimization across every finite positive heat mixture. The earlier even-cycle theorem uses different graph geometry and does not cover dimension three or higher hypercubes.",
+      "searches": [
+        "Sharp optimal two-color stochastic probing for trace inverse shifted hypercube Laplacian parity bipartition global variance minimum over all sign partitions",
+        "Walsh Fourier eigenvalue monotonicity Hadamard square Green function hypercube resolvent two-color trace probing",
+        "Exact hypercube stochastic trace inverse graph coloring checkerboard parity optimal among arbitrary partitions and variance",
+        "stochastic probing hypercube graph heat kernel optimal 2 partition variance graph coloring checkerboard",
+        "variance optimal stochastic probing with two colors hypercube trace estimator parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No cited primary source includes an exact hypercube two-color minimizing-partition table or the rational three-cube benchmark",
+        "An earlier related result gives a shifted even-cycle checkerboard formula, not hypercube values"
+      ],
+      "reasoning": "Queries with exact hypercube, parity and resolvent parameters did not identify a matching table or existing exact spectrum. The three-cube rational example is illustrative only; originality rests on the unrestricted-dimensional theorem, not the absence of a tabulated number.",
+      "searches": [
+        "Sharp optimal two-color stochastic probing for trace inverse shifted hypercube Laplacian parity bipartition global variance minimum over all sign partitions",
+        "Exact hypercube stochastic trace inverse graph coloring checkerboard parity optimal among arbitrary partitions and variance",
+        "parity partition exact minimax variance stochastic probing resolvent inverse hypercube Q_d"
+      ]
+    },
+    "rationale": "The inspected 2023 source gives variance for an arbitrary fixed partition but does not solve its global two-partition minimization; 2020 and 2013 sources give deterministic or hierarchical coloring methods. The new argument diagonalizes the Hadamard square of every positive hypercube heat mixture, establishes strict ordering over all Walsh degrees and obtains a unique global minimum, exact value, and quantitative excess for every sign assignment. The nearest owned prior claim is for shifted even cycles only. Search non-hits are not treated as proof of publication uniqueness, and a not-fully-read related article remains an explicit risk.",
+    "residual_risks": [
+      "The complete text of Laeuchli--Stathopoulos, DOI:10.1137/18M1176427, could not be inspected; this is not treated as a negative whole-document check.",
+      "Unlocated specialist results on graph-Fourier majorization, antiferromagnetic cuts or covariance probing might imply the same spectral ordering.",
+      "Independent literature and proof validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_VARIANCE_ONLY: Theorem 3.3 gives a fixed-partition variance and Proposition 3.9 bounds prescribed distance colorings; neither shows parity globally optimal among all sign assignments or strict Walsh spectral levels",
+        "evidence": [
+          "Theorem 3.3, equation (3.6), Rademacher block variance",
+          "Section 3.4, Proposition 3.9, decay bounds for fixed distance-colorings",
+          "No Boolean-hypercube all-sign-partition optimizer theorem in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.07722",
+        "material_read": "Accessible HTML full text: introduction, Sections 2 and 3, including Theorem 3.3 and Proposition 3.9, and method scope",
+        "method": "Read section and theorem statements/proofs and matched the optimization objective with the new theorem",
+        "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "trigger": "Direct source of the estimator and the exact general Rademacher variance identity"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE: Provides deterministic probing approximation/decay bounds and chosen colorings, not exact all-partition minimization for a random two-probe estimator",
+        "evidence": [
+          "Section 4 gives absolute deterministic trace error bounds for prescribed colorings",
+          "Theorem 4.24 treats lattice distance-coloring bounds, not an optimal random-probe partition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.01589",
+        "material_read": "Accessible HTML full text: abstract, Sections 1 and 2, and Section 4 trace approximation bounds, including Theorems 4.22 and 4.24",
+        "method": "Compared deterministic coloring bounds and the objective of the proposed stochastic variance minimization",
+        "title": "Analysis of probing techniques for sparse approximation and trace estimation of decaying matrix functions",
+        "trigger": "Potential stronger graph-coloring or distance-decay implication"
+      },
+      {
+        "assessment": "CONSTRUCTION_NOT_OPTIMALITY: Red-black and hierarchical probing methods construct useful partitions, but do not prove every alternative two-color stochastic trace estimator has strictly greater variance for every positive heat mixture",
+        "evidence": [
+          "Section 2 describes red-black lattice order and first Hadamard vectors",
+          "Section 3 treats hierarchical refinements and lattice colorings"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.4018",
+        "material_read": "Accessible HTML full text: introduction, Section 2 hierarchical colorings and Hadamard vectors, and Section 3 lattice applications",
+        "method": "Compared explicit red-black design with exact global variance minimization among improper and unbalanced two-partitions",
+        "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+        "trigger": "Hadamard and red-black probing could precede the parity optimizer"
+      },
+      {
+        "assessment": "UNRESOLVED_MATERIAL_RISK: Apparent focus on hierarchical construction, but no whole-document novelty inference is made",
+        "evidence": [
+          "Available abstract describes extended hierarchical probing",
+          "No assertion that its full text excludes the new claim"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1176427",
+        "material_read": "Bibliographic description and abstract only; full text not obtained",
+        "method": "Looked for lawful accessible full text and identified this specific source as incomplete",
+        "title": "Extending hierarchical probing for computing the trace of matrix inverses",
+        "trigger": "A related extension could contain stronger trace-probing conclusions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58c24538-e024-4178-a251-babd578499ea",
+  "value": {
+    "rationale": "Coloring to avoid nearest-neighbor interactions competes with long-range within-color interactions. The exact all-coloring optimality for every positive heat-mixture filter resolves this tradeoff on the hypercube and yields a nonzero quantitative variance gap, a naturally useful guarantee for one-random-probe-per-color trace estimation. The application and object are motivated by the graph-coloring stochastic probing framework rather than an arbitrary low-dimensional slice.",
+    "status": "PASS"
+  }
+}
