@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The root partitions always have sizes ell and n-ell, so depth d implies 2^(d-1)<=w. A cyclic consecutive block of k<=w start positions supports every prefix cut by querying its cut endpoint; selecting 2^floor(log2 w) starts in each root branch gives the matching complete binary tree. The finite shattering and ultraproduct claims follow from the explicit cyclic-gap obstruction, Los transfer of each finite-depth tree sentence, and the cited stable-formula/finite-2-rank theorem. The actual embedded checker independently computed 136 exact finite ranks and checked witnesses and shattering patterns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Filmus et al. 2023 gives optimal prediction principles for arbitrary classes but does not evaluate these cyclic-window ranks. Chase et al. 2024 gives broad query-learning bounds and only a disjoint real-interval example. A general translate-pair theorem subsumes the static pair coefficient, and the known four-point result implies the ell=4 specialization."
+      ],
+      "reasoning": "Generic online-learning theorems do not determine the sharp window-dependent rank. The earlier four-point statement leaves every other window width unclassified; the pair theorem concerns VC traces, not adaptive trees. The proposed main claim excludes the covered static and length-four contributions.",
+      "searches": [
+        "Finite interval translates online learning mistake bound cyclic intervals arcs",
+        "arXiv:2302.13849, Sections 1-2",
+        "arXiv:2310.04812, Sections 2-3",
+        "general finite-group translate pair counts and four-point online classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.06566v1",
+      "arXiv:2302.13849; PMLR 195 (2023)",
+      "arXiv:2310.04812; MFCS 2024 DOI:10.4230/LIPIcs.MFCS.2024.42",
+      "prior four-point finite-translate dimension statement (ell=4 case only)",
+      "prior general finite-abelian-translate shattered-pair identity (covers static quadratic coefficient)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General rank/stability correspondence establishes only the transfer principle; it does not furnish the threshold in w. The four-element translate theorem gives ell=4 for suitable n, while general pair identities already determine n(w-1)."
+      ],
+      "reasoning": "The new implication requires the all-length prefix-cut lemma and tight minority-root branch bound. With those finite results, stability transfer is immediate from general prior literature; without the new rank formula, the cited general results do not imply the exact boundary.",
+      "searches": [
+        "Chase and Freitag 2018 thicket dimension equals 2-rank stable iff finite",
+        "Filmus et al. 2023 online optimal mistake bound",
+        "Chase et al. 2024 disjoint interval example",
+        "existing four-point translate theorem and translate pair identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chase--Freitag 2018 gives the rank/stability equivalence but no length-by-cycle classification; direct fixed-window search terms returned no comparable theorem."
+      ],
+      "reasoning": "An equivalent result would give the same all-length formula or the same finite-width stability criterion, irrespective of whether described as Littlestone dimension, thicket dimension, finite 2-rank, or online mistake complexity. No inspected source states this parameter law.",
+      "searches": [
+        "Exact Littlestone dimension of fixed length cyclic intervals, circular arcs, translates of consecutive blocks in Z/nZ: 1 + floor(log2(min(length,n-length)))",
+        "thicket dimension of translates of arcs on finite cycles",
+        "\"Littlestone\" \"circular arcs\"; \"Littlestone\" \"fixed-length intervals\"; \"thicket dimension\" \"cyclic\" \"interval\"",
+        "Shelah 2-rank of finite cyclic interval incidence formula",
+        "arXiv:1801.06566, Sections 1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-(n,ell) rank table was identified in searched accessible literature or semantic results. Independent recursive ranks were verified for 136 parameter pairs and are not novelty evidence by themselves."
+      ],
+      "reasoning": "A failure to locate an indexed database does not prove absence; specifically, the existing exact special case ell=4 is explicitly not counted as new.",
+      "searches": [
+        "Exact Littlestone dimension of fixed length cyclic intervals, circular arcs, translates of consecutive blocks in Z/nZ: 1 + floor(log2(min(length,n-length)))",
+        "stable formula ultraproduct finite cyclic windows Littlestone Shelah 2 rank exact min window length n minus length",
+        "thicket dimension of translates of arcs on finite cycles",
+        "Littlestone dimension circular-arc fixed width n length table",
+        "arXiv:1801.06566 full-text terms cyclic interval",
+        "arXiv:2302.13849 full-text terms interval cyclic"
+      ]
+    },
+    "rationale": "Exact all-length rank formula and corresponding stable-versus-unstable ultraproduct boundary not located in the inspected primary papers, public search, relevant semantic results, or accessible past claims. The length-four rank case and general static pair count are already covered and are acknowledged as context rather than novelty. Priority under alternative circular-arc terminology remains a residual risk.",
+    "residual_risks": [
+      "Alternative terminology such as circular-arc query ranks or finite thicket ranks may conceal an earlier exact result.",
+      "The general 2018 rank/stability equivalence covers the conceptual transfer but not the new width formula.",
+      "No independent external proof or historical-priority audit has yet occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVIDES_GENERAL_CORRESPONDENCE_NOT_WINDOW_CLASSIFICATION",
+        "evidence": "Pages 2 and 6 state thicket=Littlestone=2-rank and give stability and optimal mistake connections; no finite cyclic-window formula located.",
+        "identifier_or_url": "arXiv:1801.06566v1",
+        "material_read": "Introduction pages 1-3 and Section 4 definitions and Theorem 4.6, pages 5-7; searched full text for cyclic and interval terminology",
+        "method": "Accessible original full-text PDF and page images",
+        "title": "Model Theory and Machine Learning",
+        "trigger": "Direct 2-rank/stability equivalence and classification-theoretic scope"
+      },
+      {
+        "assessment": "GENERAL_PREDICTION_RANKS_NO_SPECIFIC_CYCLIC_WINDOW",
+        "evidence": "Defines Littlestone dimension and relates deterministic bound to optimal prediction; introduces randomized version, not evaluated for fixed-length circle arcs.",
+        "identifier_or_url": "arXiv:2302.13849; https://proceedings.mlr.press/v195/filmus23a.html",
+        "material_read": "Full-text PDF introduction and Sections 2.1-2.2, pages 1-4; full text searched for interval and cyclic",
+        "method": "Authorized open PMLR PDF and page images",
+        "title": "Optimal Prediction Using Expert Advice and Randomized Littlestone Dimension",
+        "trigger": "Possibly stronger universal online rank or derived sharp special class"
+      },
+      {
+        "assessment": "DISJOINT_REAL_INTERVAL_EXAMPLE_NOT_FIXED_CIRCULAR_WINDOW",
+        "evidence": "Section 3 uses pairwise-disjoint intervals of the form (1/(n+1),1/n); not translates of overlapping cyclic windows.",
+        "identifier_or_url": "arXiv:2310.04812; DOI:10.4230/LIPIcs.MFCS.2024.42",
+        "material_read": "10-page open PDF: introduction and Section 2, Section 3 interval example, and Section 4 context; full text searched for cyclic/circle/interval",
+        "method": "Open-access MFCS 2024 full-text PDF and page images",
+        "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+        "trigger": "Related interval example and learning interpretation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "276e78f2-c8f8-4d45-89c3-71a14f389f18",
+  "value": {
+    "rationale": "It completely classifies a canonical two-parameter family of cyclic incidence relations and gives its exact deterministic online mistake bound. The all-width result induces an exact stability/instability transition in ultraproduct model theory; for balanced windows the adaptive dimension grows without bound while static VC remains two, and for bounded minority width online complexity stays bounded even when there are arbitrarily many hypotheses. This is a natural structural classification, not an arbitrary finite coefficient lookup.",
+    "status": "PASS"
+  }
+}
