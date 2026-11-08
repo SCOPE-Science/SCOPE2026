@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The endpoint powered-distance form is decomposed *exactly* by moving the leaf coefficient onto its attachment point and separating the two within-part fluctuation spaces. Its unrestricted radial parameter forces the scalar resonance equation. At resonance, a completed square and the elementary concave-power bound \(\Delta^2/u\leq t^{p_0}\) imply nonpositivity, with a unique core-radial null direction. The resonance equation's derivative is governed by a strictly log-convex Laplace-transform difference, giving a unique positive zero precisely for attachment in the larger class; the square case \(K_{2,2}\) is handled separately. Uniform expansions justify the two stated asymptotic laws. The numerical checker verifies the decomposition, full-matrix inertia, and sample asymptotics, but the finite tests are not asserted to prove the theorem.
+PASS
 
-## Originality — PASS (qualified)
+For the metric retaining every vertex of K_{m,n} plus one t>0 pendant leaf attached to A, the core powered zero-sum distance form splits exactly as [2(2^p-1)-2^p(1/m+1/n)]sigma²-2^p(||a||²+||b||²); its endpoint is p0=log2(2mn/(2mn-m-n)) with one-dimensional radial kernel. Moving the leaf coefficient to its attachment vertex yields the exact extended quadratic form -u(||a||²+||b||²)+2h[sigma F(t)+Delta a0]-2t^{p0}h². If F !=0, unbounded sigma gives a positive form, so endpoint failure. If F=0, concave-power Delta<=min(t^p,u) and completing squares shows strict negativity except along the core radial null line; dimension m+n-1 and inherited strict lower exponents follow. The derivative sign of F is governed by strictly log-convex Laplace transform g(t)=t^{p-1}-(t+1)^{p-1}, proving exactly one positive root if m>n and no root if m<=n apart from (2,2) p=1 identity. The near-balanced t/n limit 2/(k log2) and fixed n singular power limit follow from the stated uniform expansions. Independently numerical-scanned m,n=(3,2),(5,2),(8,7) show one root; (2,5),(7,7) none; K_{2,2} is analytically identity F=0 for all t. Finite scans were not used to prove uniqueness.
 
-Sánchez (arXiv:1108.0451, Theorem 3.1 and its endpoint extremizer) determines the *unmodified* biclique exponent. Li and Weston (arXiv:0901.0695, Theorem 5.4) establish strictness inheritance, but not its value on the one-leaf family. Robertson (arXiv:2309.16070, Theorem 4.3) addresses Hilbert distortion and negative type on the unmodified core. Ferdi and colleagues (arXiv:2512.17258, §§2–5) study a different graph operation, adding attachments at every core vertex, and quadratic embedding constants at exponent one. Their hypotheses do not imply the single-leaf, length-dependent resonance, its exact null line, or either asymptotic scale. Targeted searches found no matched statement, but incomplete indexing and unexamined literature remain risks; a search miss is not a novelty proof. Accessible earlier related work concerned full coronas or altered core edges, not this one-leaf metric.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural asymmetric one-point extension of a classical model with known sharp negative type. The theorem sharply distinguishes attachment to the larger, smaller, or equally sized vertex class and explains a surprising isolated recovery of an otherwise strictly diminished embedding exponent. The endpoint equality kernel yields an exact Euclidean dimension, and the two limiting laws reveal both linear and singular scales for the tuning parameter. These go beyond the known unmodified exponent and are not mechanical substitutions.
+Qualified PASS. Sánchez computes p0 for an unmodified complete bipartite graph; Li–Weston proves general strictness inheritance. The new variable-length pendant perturbation endpoint preservation condition, nullity rigidity, and two asymptotic regimes are not stated in those sources. Robertson studies core distortion and Ferdi et al. multiple-vertex coronas at exponent one. None provides a directly dominating one-leaf variable-exponent theorem in the inspected material.
 
-## Residual limitations
+## value
 
-The exact nonresonant exponent is not calculated. Originality remains subject to independent bibliographic verification, especially around single-vertex grafting and conditional negative definiteness. No arbitrary weighted-core or multiple-pendant extension is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-leaf attachment is the simplest local perturbation of a symmetric graph metric, and supremal negative-type exponent controls Hilbert snowflake embeddings. The asymmetric unique tuning on the larger class vs strict drop on the smaller class is a sharp structural resonance; its two scaling laws describe natural balanced and unbalanced graph-growth limits. It answers a natural preservation problem rather than a random chosen matrix instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

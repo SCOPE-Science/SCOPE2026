@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:12:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the metric retaining every vertex of K_{m,n} plus one t>0 pendant leaf attached to A, the core powered zero-sum distance form splits exactly as [2(2^p-1)-2^p(1/m+1/n)]sigma²-2^p(||a||²+||b||²); its endpoint is p0=log2(2mn/(2mn-m-n)) with one-dimensional radial kernel. Moving the leaf coefficient to its attachment vertex yields the exact extended quadratic form -u(||a||²+||b||²)+2h[sigma F(t)+Delta a0]-2t^{p0}h². If F !=0, unbounded sigma gives a positive form, so endpoint failure. If F=0, concave-power Delta<=min(t^p,u) and completing squares shows strict negativity except along the core radial null line; dimension m+n-1 and inherited strict lower exponents follow. The derivative sign of F is governed by strictly log-convex Laplace transform g(t)=t^{p-1}-(t+1)^{p-1}, proving exactly one positive root if m>n and no root if m<=n apart from (2,2) p=1 identity. The near-balanced t/n limit 2/(k log2) and fixed n singular power limit follow from the stated uniform expansions. Independently numerical-scanned m,n=(3,2),(5,2),(8,7) show one root; (2,5),(7,7) none; K_{2,2} is analytically identity F=0 for all t. Finite scans were not used to prove uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robertson arXiv:2309.16070 concerns complete bipartite metric embeddings.",
+          "Ferdi–Baskoro–Obata–Santika arXiv:2512.17258 concerns uniform coronas and fixed quadratic exponent one."
+        ],
+        "reasoning": "Uniform corona adds leaves at many or all core vertices, changing the metric; it is not a theorem for a single pendant of tunable length. Hilbert distortion bounds do not establish the exact preservation exponent or uniqueness of resonance.",
+        "searches": [
+          "Resultary semantic search: negative type roundness complete bipartite graph one pendant leaf resonance exponent p",
+          "complete bipartite graph corona quadratic embedding constant pendant leaf every vertex",
+          "Hilbert distortion negative type K m n Robertson"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md, SLOGAN.txt, verify_one_leaf_resonance.py, requirements.txt, METADATA.json, AUDIT.json schema, REVIEW.md, VERIFICATION.md; five Git object trees verified",
+        "Resultary semantic query; nearest results about spectra of complete-bipartite symmetric edge polytope (2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02) concern a different invariant/graph construction",
+        "arXiv:0901.0695; arXiv:1108.0451; arXiv:2309.16070; arXiv:2512.17258"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1108.0451 core K_{m,n} endpoint and equality vector; arXiv:0901.0695 lower-p strict inheritance; arXiv:2512.17258 uniform corona setting."
+        ],
+        "reasoning": "Inheriting the core upper bound alone proves wp_extended<=p0, not strict drop or a preserving unique t. The explicit F(t), its strict Laplace-ratio argument, and two limits require analysis outside published core theorem. None of cited old results implies a one-leaf criterion automatically.",
+        "searches": [
+          "Resultary semantic search: negative type roundness complete bipartite graph one pendant leaf resonance exponent p",
+          "Sanchez 2011 p negative type complete bipartite theorem",
+          "Li Weston 2009 strict p negative type corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sánchez arXiv:1108.0451 gives core exponent p0 and null vector.",
+          "Li–Weston arXiv:0901.0695 gives strict lower-p inheritance."
+        ],
+        "reasoning": "Negative type is equivalently conditional negative definiteness of d^p and squared Euclidean embeddability of d^{p/2}. Under this equivalence, existing results determine the unmodified core, not the t-dependent null/radial-coupling of the attached leaf.",
+        "searches": [
+          "Resultary semantic search: negative type roundness complete bipartite graph one pendant leaf resonance exponent p",
+          "Sanchez supremal negative type complete bipartite endpoint extremal vector",
+          "one point metric extension negative type leaf graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sánchez arXiv:1108.0451 provides the unmodified core p0; no inspected data table for one-leaf t-resonance or its asymptotics."
+        ],
+        "reasoning": "An all-m,n exact resonance classification with limits is not an existing numerical table or a small finite slice. The core p0 itself is not newly claimed.",
+        "searches": [
+          "Resultary semantic search: negative type roundness complete bipartite graph one pendant leaf resonance exponent p",
+          "supremal negative type K m n plus leaf pendant length t table"
+        ]
+      },
+      "rationale": "Qualified PASS. Sánchez computes p0 for an unmodified complete bipartite graph; Li–Weston proves general strictness inheritance. The new variable-length pendant perturbation endpoint preservation condition, nullity rigidity, and two asymptotic regimes are not stated in those sources. Robertson studies core distortion and Ferdi et al. multiple-vertex coronas at exponent one. None provides a directly dominating one-leaf variable-exponent theorem in the inspected material.",
+      "residual_risks": [
+        "Equivalent conditional-negative-definite one-point extension criterion in wider metric embedding literature could simplify F(t) or implicitly cover some parameter regimes.",
+        "Exact exponent for nonresonant lengths remains undetermined by this theorem; only strict inequality is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original K_{m,n} exponent but not asymmetrically adding one t-length leaf.",
+          "evidence": "Theorem 3.1 and core extremizer",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Full accessible arXiv primary discussion of complete bipartite graph exponent and endpoint equality condition",
+          "method": "Primary preprint full-text read",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "exact core benchmark"
+        },
+        {
+          "assessment": "Provides a cited standard lemma only; no one-leaf preservation classification.",
+          "evidence": "Strictness inheritance theorem",
+          "identifier_or_url": "https://arxiv.org/abs/0901.0695",
+          "material_read": "Accessible primary theorem and definition of strict negative type, including monotonic inheritance",
+          "method": "Primary preprint theorem read",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "strictness inheritance used at p<p0"
+        },
+        {
+          "assessment": "Uniform per-vertex coronas and p=1 do not give t-variable one-leaf endpoint resonance.",
+          "evidence": "Definition of corona graph and fixed-quadratic embedding constant",
+          "identifier_or_url": "https://arxiv.org/abs/2512.17258",
+          "material_read": "Primary preprint discussion of corona operation and exponent-one quadratic embedding constants as inspected",
+          "method": "Primary preprint relevant method/hypotheses read",
+          "title": "Quadratic Embedding Constants of Corona Graphs",
+          "trigger": "possible stronger graph attachment result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-leaf attachment is the simplest local perturbation of a symmetric graph metric, and supremal negative-type exponent controls Hilbert snowflake embeddings. The asymmetric unique tuning on the larger class vs strict drop on the smaller class is a sharp structural resonance; its two scaling laws describe natural balanced and unbalanced graph-growth limits. It answers a natural preservation problem rather than a random chosen matrix instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md, SLOGAN.txt, verify_one_leaf_resonance.py, requirements.txt, METADATA.json, AUDIT.json schema, REVIEW.md, VERIFICATION.md; five Git object trees verified",
+    "Resultary semantic query; nearest results about spectra of complete-bipartite symmetric edge polytope (2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02) concern a different invariant/graph construction",
+    "arXiv:0901.0695; arXiv:1108.0451; arXiv:2309.16070; arXiv:2512.17258"
+  ],
+  "disposition": "passed",
+  "limitations": "m,n>=2, one leaf with t>0, unit-edge K_{m,n}, every vertex retained. Does not calculate wp away from resonance or handle multiple leaves/general edge weights.",
+  "residual_risks": [
+    "Equivalent conditional-negative-definite one-point extension criterion in wider metric embedding literature could simplify F(t) or implicitly cover some parameter regimes.",
+    "Exact exponent for nonresonant lengths remains undetermined by this theorem; only strict inequality is proved."
+  ],
+  "schema_version": 1
+}
