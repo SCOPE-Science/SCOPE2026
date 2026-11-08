@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The sole external mathematical input is the classical exact translation-parameter plateau formula for contracted rotations, checked in Laurent–Nogueira (2017/2018) and Gaivão–Nogueira (arXiv:2007.08014, Proposition 7). The new derivative proof uses a prefix-dominance lemma derived by pairing terms in a rational derivative, and demonstrates prefix dominance for both the upper mechanical word and its last-bit modification. Strictness follows separately for each curve. Inversion of the two curves gives a complete closed interval. The numerator-independent first-order coefficients follow from a standard coprime floor sum and the inverse-function theorem. All parameter boundaries and the endpoint rotation-number interpretation are stated. Finite exact-arithmetic tests support but do not replace these arguments.
+
+## Originality — PASS on inspected evidence
+The 2020 primary study explicitly identifies missing fixed-translation slope endpoints after its Proposition 7. The 2017 paper supplies the direct plateau formula for varying translation at fixed slope, but not strict inverse-slope monotonicity or the numerator-independent width coefficient. Janson and Öberg (2019) give the complete direct translation-parameter intervals and a worked half-rotation example, but do not assert the global slope inversion or universal opening coefficient. The 2024 five-parameter paper holds other parameters fixed while varying its branch offset, and the 2025 three-interval paper likewise holds the contraction rate fixed. Additional related dynamical results concern different smoothed circle maps or distributional period limits, rather than a fixed-translation inverse-tongue classification. The direct plateau formula itself is treated as prior work rather than novel. Some older mode-locking sources were not individually retrieved in full; an equivalent inverse-slope statement could still exist in another vocabulary.
+
+## Mathematical value — PASS
+This closes a specifically identified parametrization gap for rational rotation windows when experimental or physical systems vary contraction while holding forcing fixed. The result classifies **all** such windows for every reduced rational target, shows their connectedness and unique exact algebraic boundaries, and extracts a non-obvious first-order universality: the opening speed is insensitive to the numerator. The numerator independence is not an immediate substitution of the direct plateau inequality; it relies on a balanced-word first-moment identity and strict monotonicity in the previously inverted parameter. It is a motivated structural fact, not an arbitrary numeric slice.
+
+## Scope and residual risks
+The width asymptotic is for fixed denominator; it is not a uniform large-denominator estimate. Rational period endpoints need not carry ordinary attracting cycles. Relevant older mode-locking papers not inspected in full might contain equivalent inverse-slope descriptions. The proof, the finite verifier, and the prior comparison must be evaluated independently before publication.
+
+Self-review: passed. Independent audit: not yet performed.
