@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:04:06.729811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From A²=(d−mu)I+(lambda−mu)A+mu J the two nonconstant adjacency eigenvalues r≥0 and s<0 are the roots of x²−(lambda−mu)x−(d−mu); the centered two-round Euclidean norm is max(|(1−(d−r)p)(1−(d−r)q)|,|(1−(d−s)p)(1−(d−s)q)|). If lambda≥mu the first product is positive and strictly decreases in both gains; it is sharp at p=q=1/d and dominates the negative-mode product. If lambda<mu,r>0, a positive convex combination of the two products is a bilinear function F(p,q)=R_*+(1−R_*)(1−dp)(1−dq)≥R_*; equality and balancing force unordered {p,q}={1/d,1/(d+mu−lambda)}. At r=0, mu=d and the two spectral roots force the same pair with R_*=0. Direct multiplication and A² relation yield P(q)P(p)=R_*I+(1−R_*)J/N and exclude nonidentity mean-field products lambda>mu. This is an all-parameter analytic certificate; independent Petersen check d=3,lambda=0,mu=1 gives gains 1/3,1/4, both nontrivial products 1/6, and 10x10 kernel I/6+J/12. The eight-graph exact-rational checker was inspected, not treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Apers–Sarlette 2015 covers a broader unconstrained polynomial class, not this constrained global optimum",
+          "Boyd–Diaconis–Xiao 2004 fastest Markov chain is a one-step spatially variable problem."
+        ],
+        "reasoning": "Neither broad feasible-class unconstrained optimum supplies the constrained answer when its optimal coefficient lies outside admissible interval; broader class is not logically a published classification of every restricted optimum.",
+        "searches": [
+          "Apers Sarlette 2015 accelerating consensus by spectral clustering",
+          "strongly regular graphs two round stochastic consensus common neighbor optimal step phase switching"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1503.01269",
+        "Boyd et al SIAM Review (2004)",
+        "arxiv:1211.6324",
+        "Resultary strongly regular two-round search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apers–Sarlette can annihilate multiple eigenmodes with gains violating [0,1/d], while the submitted optimizer is bounded and generally nonzero.",
+          "Hendrickx et al allows graph-supported matrices beyond the scalar Laplacian Markov model."
+        ],
+        "reasoning": "Under the exact separate-round nonnegative homogeneity constraints, the stated bilinear bound and lambda<mu criterion are not immediate from published general filtering formulas.",
+        "searches": [
+          "Boyd Diaconis Xiao 2004 fastest mixing chain",
+          "Apers Sarlette 2015 Theorem 1",
+          "Hendrickx et al 2012 minimum-time consensus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Apers–Sarlette uses two-step spectral polynomial filters and allows intermediate steps not to be stochastic",
+          "Submitted product requires both p,q∈[0,1/d]."
+        ],
+        "reasoning": "Equivalent spectral-polynomial parametrization exists algebraically, but feasible positivity restrictions materially change optimizer and must be preserved in implication checks.",
+        "searches": [
+          "strongly regular graphs two round stochastic consensus common neighbor optimal step phase switching",
+          "Apers Sarlette 2015 spectral clustering polynomial filters two-step positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known SRG parameter identities and particular cycles are prior, but no exact all-parameter phase/gain table found in consulted Resultary records."
+        ],
+        "reasoning": "A table of graph parameters cannot alone imply global two-round minimax over continuous gains; finite examples are special cases, not novelty of universal criterion.",
+        "searches": [
+          "strongly regular graphs two round stochastic consensus common neighbor optimal step phase switching",
+          "strongly regular Petersen Clebsch two step Markov consensus rational gains"
+        ]
+      },
+      "rationale": "The precise constrained minimax among two spatially homogeneous individually nonnegative stochastic Markov rounds on all connected noncomplete strongly regular graphs, with common-neighbor phase boundary and unique gains, is not contained in the inspected general fastest single-round or unconstrained polynomial-filter results. The known spectral factorizations and five-cycle instances are prior art; this is an all-parameter constrained design classification.",
+      "residual_risks": [
+        "Possible older specialist two-round strongly regular / odd-cycle closed form not indexed; best-of-knowledge, not priority guarantee.",
+        "No assertion of optimum for inhomogeneous/negative/nonreversible/larger-step products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader signed/unconstrained polynomial steps, different optimizer; not direct coverage of individually Markov constrained SRG phase boundary",
+          "evidence": [
+            "Theorem 1 and setup permit filters outside stochastic transition interval"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.01269",
+          "material_read": "Mathematical theorem, admissible filter assumptions and discussion of positivity constraints",
+          "method": "lawful arXiv full PDF relevant theorem and method sections inspected",
+          "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+          "trigger": "Closest two-round polynomial acceleration framework"
+        },
+        {
+          "assessment": "Optimizes one transition matrix, not the exact two uniform Markov rounds",
+          "evidence": [
+            "One-round reversible stochastic eigenvalue minimax"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Optimization model and principal spectral-bound statements",
+          "method": "lawful author-hosted primary paper sections inspected",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational stochastic spectral minimax"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal common-neighbor phase transition lambda<mu, unique globally optimal gains, strict improvement over repeated Markov rounds, and exact mean-field matrix identity give a meaningful structural constrained-mixing result for an important graph family. The classification goes beyond running a finite optimizer on examples and quantifies when perfect two-round consensus occurs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1503.01269",
+    "Boyd et al SIAM Review (2004)",
+    "arxiv:1211.6324",
+    "Resultary strongly regular two-round search",
+    "Git frozen source tree: 1acd5a14c3ba9d8ffea7dfe927e5ab31b93d51f3",
+    "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt and checker source inspected (actual tree SHA and blobs)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Connected, simple, noncomplete strongly regular graphs; homogeneous symmetric Markov steps individually 0≤t≤1/d.",
+    "No arbitrary Markov matrices or more than two steps; historical priority remains bounded.",
+    "Publication blocked by private identifiers in original public-bound metadata; this does not affect the completed scientific C/O/V finding."
+  ],
+  "schema_version": 1
+}

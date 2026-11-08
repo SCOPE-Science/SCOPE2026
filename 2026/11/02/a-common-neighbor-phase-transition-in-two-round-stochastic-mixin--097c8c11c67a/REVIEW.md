@@ -1,15 +1,21 @@
-# Scientific review of the two-round strongly regular graph theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope fixes a connected noncomplete simple strongly regular graph and two independent homogeneous gains, each in the exact Markov interval. The common-neighbor identity reduces the centered spectrum to two scalar modes. In the nonaccelerated phase, the positive low-mode product supplies a sharp lower bound. In the accelerated phase, an explicit positive convex combination of the two mode products has a bilinear corner certificate giving a globally sharp lower bound. The boundary case with zero positive adjacency eigenvalue and the equality case are handled separately, and uniqueness follows from the equality conditions. The exact stochastic matrix product is reconstructed from the adjacency identity, not inferred from sampled eigenvalues. The standalone program independently reconstructs eight examples with exact rational products and 20,687 assertions. It cannot establish the infinite-family theorem by itself.
+## correctness
 
-## Originality — PASS, with historical uncertainty
-The main prior frameworks are Boyd–Diaconis–Xiao (2004), Boyd–Diaconis–Parrilo–Xiao (2007), Hendrickx–Jungers–Olshevsky–Vankeerberghen (2012/2014), and Apers–Sarlette (2015). The closest is Apers–Sarlette's exact two-step polynomial filtering, which does not require each intermediate operator to be a nonnegative stochastic kernel; its unconstrained optimum can annihilate both nontrivial eigenvalues using a gain outside the admissible interval. The present theorem instead solves the **individually nonnegative homogeneous two-step** problem for all strongly regular parameters and proves the graph-theoretic phase boundary and mean-field identity. Earlier odd-cycle work covers the five-cycle instance but does not establish the universal strongly regular classification. Searches of published mathematical records returned no directly dominating theorem; specialist historical overlap is still a genuine risk and not ruled out by a failed search.
+PASS
 
-## Value — PASS
-The result turns a genuinely constrained two-variable stochastic design into a closed-form universal solution, identifies when alternating rounds improve upon every repeated gain, and proves a structural local-to-global collapse that makes every off-diagonal two-round transition probability identical. The threshold depends only on the combinatorially meaningful comparison of adjacent and nonadjacent common-neighbor counts. The Petersen and Clebsch examples have nontrivial strict gains, while equal-part multipartite graphs admit exact two-round average consensus. The result does not claim unrestricted Markov design or independent validation.
+From A²=(d−mu)I+(lambda−mu)A+mu J the two nonconstant adjacency eigenvalues r≥0 and s<0 are the roots of x²−(lambda−mu)x−(d−mu); the centered two-round Euclidean norm is max(|(1−(d−r)p)(1−(d−r)q)|,|(1−(d−s)p)(1−(d−s)q)|). If lambda≥mu the first product is positive and strictly decreases in both gains; it is sharp at p=q=1/d and dominates the negative-mode product. If lambda<mu,r>0, a positive convex combination of the two products is a bilinear function F(p,q)=R_*+(1−R_*)(1−dp)(1−dq)≥R_*; equality and balancing force unordered {p,q}={1/d,1/(d+mu−lambda)}. At r=0, mu=d and the two spectral roots force the same pair with R_*=0. Direct multiplication and A² relation yield P(q)P(p)=R_*I+(1−R_*)J/N and exclude nonidentity mean-field products lambda>mu. This is an all-parameter analytic certificate; independent Petersen check d=3,lambda=0,mu=1 gives gains 1/3,1/4, both nontrivial products 1/6, and 10x10 kernel I/6+J/12. The eight-graph exact-rational checker was inspected, not treated as proof.
 
-## Closest literature and limitations
-The published studies above motivate the question and establish relevant but different feasible classes. Material examined includes the relevant PDF theorem and discussion sections of Apers–Sarlette, the graph-supported matrix definition and distance-regular results of Hendrickx and collaborators, and the single-kernel formulation in Boyd and collaborators. The precise stochastic constraints preclude direct implication from their broader unconstrained polynomial formulations. Search indexing may miss earlier equivalent special results. The attached verifier checks finite examples; an independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise constrained minimax among two spatially homogeneous individually nonnegative stochastic Markov rounds on all connected noncomplete strongly regular graphs, with common-neighbor phase boundary and unique gains, is not contained in the inspected general fastest single-round or unconstrained polynomial-filter results. The known spectral factorizations and five-cycle instances are prior art; this is an all-parameter constrained design classification.
+
+## value
+
+PASS
+
+The universal common-neighbor phase transition lambda<mu, unique globally optimal gains, strict improvement over repeated Markov rounds, and exact mean-field matrix identity give a meaningful structural constrained-mixing result for an important graph family. The classification goes beyond running a finite optimizer on examples and quantifies when perfect two-round consensus occurs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
