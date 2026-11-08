@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized beta moments, twice-differentiable Fourier series, conjugate-frequency pairing, and explicit nonnegative second differences yield an exact all-size real Hessian diagonalization. The sharp central frequency follows from strict symmetric discrete convexity. Uniform residue-class tail bounds and Hurwitz-zeta identities supply the two asymptotic coefficients. The standalone program confirms exact algebra and numerical second variations, but is not a substitute for the proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** Corbett's 2026 power-weight result gives global minimization, not the cubic-weight spectral and local conditioning theorem. Abakumov–Borichev–Fedorovskiy prove the pairwise convexity cutoff and global concave-weight results. The nearest published exact Hessian computation applies to the critical first-power weight, whose minimum lies at the opposite end of the frequency spectrum with radically different asymptotic scale. These statements do not imply the new supercritical Fourier spectrum. Unindexed equivalent older calculations remain possible; the full Bezrukov preprint was not inspected, although its available description concerns global minimization.
+PASS
 
-**Value — PASS.** The theorem quantifies the local stability of a classical minimizer in the non-pairwise-convex power-weight regime and exhibits a discrete mode inversion and a two-term least-curvature law. Its precise spectral law is relevant to perturbation geometry and cannot be replaced by qualitative global minimization. No result on arbitrary supercritical exponents or global quadratic stability is asserted.
+PASS: With unnormalized dA and 4/π weight (1−|z|²)^3, orthogonality gives E_N=Σ_{m≥1}w_m|Σ_j exp(imθ_j)|², w_m=24/[m(m+1)(m+2)(m+3)], and a_m=m² w_m. Differentiation termwise valid since Σm²w_m<∞, Parseval yields circulant Hessian λ_k=N(A_{k,N}+A_{N−k,N}−2A_{0,N}), λ_0=0, with correct conjugate frequency pairing. a_m decreasing and discretely convex with exact first/second differences, hence all λ_k>0 and the unique minimizing one or two modes are k=floor(N/2),ceil(N/2). Hurwitz zeta sums give λmin=16π²/N−1728ζ(3)/N²+O(N^-3). Spectral Taylor gives sharp local λmin/2 on mean-zero perturbations, not a global modulus. Independently checked exact rational differences and central eigenmodes N=2..15.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge): Corbett 2026 and Abakumov–Borichev–Fedorovskiy 2020 establish global regular-polygon minimization; the inspected Hessian discussion does not furnish this α=3 full eigenvalue formula and softening expansion. Published Resultary 2026 α=1 Fourier Hessian theorem is a distinct critical-weight regime with first harmonic least curved and order-N eigenvalue, whereas the cubic regime has Nyquist minimum and order N^−1 curvature.
+
+## value
+
+PASS
+
+PASS: The sharp all-N spectrum and high-frequency least-stable mode identify a genuine local stability transition beyond global minimization; explicit asymptotic softening is a natural quantitative invariant for boundary-pole energies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
