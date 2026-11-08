@@ -1,11 +1,21 @@
-# Review: Pappus graph two-independence homotopy
+# Independent mathematical audit
 
-**Correctness — PASS.** The script fixes the graph by a 27-edge list independently matched to the canonical \([5,7,-7,7,-7,-5]^3\) LCF representation. The 20,652 augmented faces are generated incrementally and compared against all 262,144 possible vertex subsets. A deterministic 10,321-pair acyclic matching is verified by topological sorting the complete 120,240-incidence Hasse graph. Exactly nine critical five-cells and one critical six-cell survive. Exact signed Morse gradient projection gives a genuinely zero integer nine-by-one boundary, not merely zero modulo a prime. Passing from the augmented to ordinary Morse matching gives a point, nine five-cells, and one six-cell. Hurewicz identifies the attaching map with its zero integral degree vector, proving the wedge of nine five-spheres and one six-sphere. Independent full unreduced mod-two matrix ranks and Euler characteristic corroborate the calculation.
+## correctness
 
-**Originality — PASS against inspected evidence.** Abdelmalek et al., arXiv:2106.10863, full primary text, treats two-independence in chordal, tree and caterpillar settings; its graph hypotheses exclude the Pappus graph, which has induced six-cycles. Published Pappus ordinary-independence, matching-complex and Vietoris–Rips results concern different simplicial objects and do not imply this exact higher-independence calculation. Nearby indexed two-independence results for Petersen, Heawood, Möbius–Kantor and Clebsch graph complexes cover other graphs. Searches by the exact graph name, incidence-graph alias, dissociation complex and degree-one formulation found no covering work; a genuinely unindexed equivalent remains possible.
+PASS
 
-**Value — PASS.** The Pappus graph is a canonical highly symmetric cubic girth-six graph and Levi graph of the classical Pappus \((9_3)\) configuration. The first higher-independence topology is a natural invariant outside established chordal classes. The exact two-dimensional mixture of five- and six-dimensional sphere summands is invisible to Euler characteristic alone; the zero signed attaching map and absence of torsion strengthen field-homology information. The result has clear finite structural value without requiring a larger family theorem.
+The LCF [5,7,-7,7,-7,-5]^3 yields a cubic Pappus graph with 18 vertices and 27 edges; every vertex subset has induced components of order <=2 iff maximum induced degree <=1. An independently written generic integer Morse checker enumerated all 262144 possible masks, obtaining 20652 augmented faces and the claimed f-vector, reconstructed all 10321 successive toggles, checked all 120240 Hasse incidences with a complete acyclic topological order, and computed the exact signed 9x1 critical C6->C5 boundary as nine zeros. One augmented empty/vertex pair removes as a basepoint pair, leaving one vertex, nine 5-cells, one 6-cell. Since pi5(vee^9 S5)=H5=Z9, the zero integral degree column makes the 6-attachment nullhomotopic. This is a complete finite proof for this labeled graph and not an infinite-family extrapolation.
 
-**Prior-work boundaries.** No novel result is claimed for ordinary independence, matching, or graph-metric complexes. The new claim is solely the exact integral two-independence homotopy type of the Pappus graph. The exact original literature date is 2021-06-21, not the journal revision date. An equivalent unindexed result remains the main bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a natural, fixed higher-independence invariant, not historical priority certainty. Primary higher-independence results require chordality or the listed path/tree/multipartite families, whereas the Pappus graph has induced six-cycles. A full previous Resultary Pappus *matching* RESULT concerns graph-edge matchings, not Pappus Ind_2 vertex subsets. Indexed Pappus Cech, ordinary independence and Petersen Ind_2 also do not imply this homotopy decomposition.
+
+## value
+
+PASS
+
+The Pappus (9_3) Levi graph is a canonical symmetric cubic incidence graph and Ind_2 is the natural dissociation/degree-one induced-subgraph complex. Its mixed 5/6-dimensional integral homotopy type is not supplied by its ordinary matching or independence topology or by an extremal dissociation number. The explicit non-pure, high-dimensional face collapse and zero integral attaching map give an independently reusable exact invariant for work on higher independence complexes of incidence graphs; one finite graph, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
