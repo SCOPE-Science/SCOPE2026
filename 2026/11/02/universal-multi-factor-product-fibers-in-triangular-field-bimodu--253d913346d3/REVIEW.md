@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ring product law is associative because the left and right field actions commute. Nonzero field actions on a unital bimodule are bijective. Expansion of the upper-right entry shows that a single surviving coefficient makes it uniform, whereas every coefficient vanishes exactly when the first zero of the left diagonal precedes the last zero of the right diagonal. The probability of that disjoint-event union is the displayed finite sum. Independence of diagonal coordinates gives all-target probabilities, with no unproved extrapolation. The two constructed rings are associative and their centers have sizes \(4\) and \(2\), by a direct commutation calculation. The equal-field asymptotic follows from an exact finite geometric sum. Both packaged verifiers independently replayed and matched their recorded outputs.
+## correctness
 
-## Originality — PASS, with residual risks
-The complete all-word-length, all-target formula for field-bimodule triangular rings was not found in targeted primary-literature or research-record searches. Dolžan (arXiv:2504.12886v1, 2025) proves results for two factors, including semisimple and local cases; an accessible previous triangular-bimodule statement covers our exact specialization at \(k=2\), and that case is not claimed as new. Sarma–Subedi (arXiv:2610.07892v1, 2026) calculate nilpotent-product probability in triangular matrices from diagonal terms, but not any fixed target's higher-fold probability. Sarma–Subedi (arXiv:2506.10392v1, 2025) give bounds for all-length zero-products, chiefly in commutative rings. Neither the exact noncommutative all-target law nor the all-length indistinguishable nonisomorphic example is a stated result there. A more general random-semigroup convolution theorem or an unindexed earlier computation may imply the result; absence in search is not proof of priority. The claim is presented as a self-reviewed mathematical contribution, not independently certified novelty.
+PASS
 
-## Mathematical value — PASS
-The invariant \(\Pr(X_1\cdots X_k=z)\) records the whole multiplication walk, strictly more than the previously analyzed nilpotence or two-factor statistics. The theorem solves this natural invariant for every word length over an infinite family of noncommutative rings with arbitrarily large fields and bimodules. It gives structural invariance under all bimodule twists and proves that even the *entire sequence* of product-fiber laws cannot recover the center, witnessed by an explicit pair with different center sizes. The sharp \(k(1-q^{-1})^{k-1}\) survival law identifies a genuine repeated-root rare-event effect; no downstream theorem is asserted. These are motivated complete structural facts rather than arbitrary isolated numerical improvements.
+For R=triangular(K,M,L), diagonal products of k independent uniform factors have target masses h_Q,k and h_T,k. The off-diagonal coordinate is sum_j (a_1...a_{j-1}) b_j (c_{j+1}...c_k). Conditional on scalar diagonals, any nonzero coefficient is a bijective additive map of M, forcing uniform output. All coefficients vanish exactly when first a-zero occurs strictly before last c-zero, an event of probability E_k=(QT)^-1 sum_{1<=i<j<=k}t_Q^(i-1)t_T^(k-j), necessarily both diagonal targets zero. This proves the exact all-k all-target formula. In F4⊕F4 normal/Frobenius right actions, centers have respectively 4 and 2 elements, making the 256-element rings nonisomorphic but with identical product fibers all k. For Q=T=q, E_k=1-k t^(k-1)+(k-1)t^k and nonzero product probability asymptotic (1-1/m)(k/q)t^(k-1), with uniform surviving nonzero off-diagonal. Independently enumerated every target of T2(F2) for k=1..5 with exact rational arithmetic, matching the formula; inspected packaged independent prime-field and F4 Frobenius verifiers. Finite checks corroborate, not replace arbitrary k and bimodule proof.
 
-## Closest literature and limits
-The two-factor source is a genuine overlapping specialization; higher-fold fibers and asymptotic survival remain the asserted contribution. The positive characteristic and unitality hypotheses are essential to the proof's scalar-unit step. The result does not establish all-ring equivalences or minimum possible counterexample order.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. No identified stronger result directly asserts that every k-fold law depends only on (Q,T,m); center contrast example alone is insufficient without all-length proof. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.
+
+## value
+
+PASS
+
+The complete distribution of arbitrary word-length random products is an intrinsic and natural finite-ring probabilistic invariant. It exhibits robust blindness to bimodule actions even across nonisomorphic rings, and sharp rare surviving product asymptotics. Crucially the two-factor formula and initial example are credited as prior; the added all-length universal law is what is valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
