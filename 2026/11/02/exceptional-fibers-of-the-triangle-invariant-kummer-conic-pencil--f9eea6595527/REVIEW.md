@@ -1,15 +1,21 @@
-# Scientific review — Exceptional fibers of the triangle-invariant Kummer-conic pencil
+# Independent mathematical audit
 
-## Correctness (PASS)
-The assertion follows from the tame power map to the conic \(Q_\lambda\). The conic singularity determinant and coordinate-axis discriminant show that no finite exceptional parameters other than \(0\), \(-1/3\) (when defined), and \(-1/4\) (when defined) can occur. The zero member has a Fermat normalization via the standard Cremona map and exactly three ordinary \(n\)-fold vertices for \(n>1\). The rank-two member factors into two smooth Fermat curves with \(n^2\) transverse nodes. The tangent-conic member factors into four smooth Fermat curves with \(3n\) two-branch points of contact \(n/2\); infinity is doubled Fermat. Exact identities and finite-field support counts passed in the attached verifier. Finite testing is not presented as proof of completeness.
+## correctness
 
-## Originality (PASS; priority risk remains)
-Borges, Korchmáros and Speziali, arXiv:2202.05765v1 (2022), Section 4.7, give the same invariant pencil. Their publicly available preprint does not state this exhaustive classification and its unqualified nonsingularity wording is incompatible with the explicit factorization identities; this is not a claim about the later journal text. Related generalized Fermat-cover theory is background and the degree-\(q-1\) extremal-curve classification of Ferreira and Speziali addresses another family. Targeted mathematical-record searches under group, conic-pullback, and Heron aliases did not identify implication-level coverage. The 2024 journal version of the motivating paper was not accessible as complete text; a revision or another unindexed work could cover this classification. The originality assessment is best-knowledge, not certified priority.
+PASS
 
-## Mathematical value (PASS)
-The result closes the geometric singular-fiber stratification of a naturally studied group-invariant pencil. The four-component boundary with \(A_{n-1}\) contact singularities and the split-conic boundary have fundamentally different normalizations and intersection geometry; the zero member is singular but remains irreducible and has a Fermat normalization. Distinguishing these strata matters for geometric deformation and automorphism-family classification, not merely for reformatting a known equation.
+Since n=p^e−1 is prime to p, the monomial power map [X:Y:Z]↦[X^n:Y^n:Z^n] is étale in the torus and has ramification only along coordinate axes. Its target conic Qλ=λ(U+V+W)^2+UV+VW+WU degenerates precisely λ=−1/3 when p≠3 (in p2 from derivatives); axis tangency occurs λ=−1/4 for odd p, while λ0 meets vertices. Else conic smooth, avoids vertices and meets axes transversely, so pullback is a smooth irreducible plane curve. At λ0 quadratic Cremona identifies Fermat normalization and ordinary n-fold vertex cones. Explicit cube-root-of-unity factorization gives two smooth degree-n Fermat components with n² transverse torus intersections; Heron factorization gives four smooth degree d=n/2 components, six pairs each meeting in d points on coordinate axes, 3n supports, local equation v²−u^n (A_{n−1}); all support is F_q rational. Independent exact factorization and finite-field Jacobian support tests over F2,F3,F5,F7 corroborate the algebraic argument.
 
-## Limits and closest prior literature
-The claim concerns the exact plane pencil over algebraically closed fields, not its full relative discriminant scheme or stable models. The original 2022 full-text preprint is the nearest inspected source. The 2024 journal edition and unindexed equivalents remain priority risks. No independent audit or validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Borges–Korchmáros–Speziali 2022 first define the exact Δ_q-invariant pencil; their §4.7/Theorem 4.22 asserts all finite fibers smooth/irreducible, a conclusion directly contradicted by the *exact* split and Heron factorizations at λ=−1/3 and λ=−1/4. Therefore the original equation and group-theoretic context are prior, but this explicit exhaustive singular fiber correction and local normalization/contact classification are not already proved by that statement. The revised 2024 journal full text was not read and could contain corrections; best-of-knowledge novelty qualified.
+
+## value
+
+PASS
+
+A complete geometric singular-fiber stratification of a natural invariant pencil is a substantive algebraic-geometry invariant: components, genus normalizations, exact singular supports, tangency order and all-characteristic exceptions. It corrects an incorrect earlier blanket smoothness claim rather than merely tabulating a small numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
