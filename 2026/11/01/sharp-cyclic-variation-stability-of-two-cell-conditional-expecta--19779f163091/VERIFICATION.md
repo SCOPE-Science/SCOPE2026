@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. Its critical equalities can be checked by expanding both class means and applying cyclic summation by parts. Extremizers are proper interval indicators, so no infinite-dimensional limiting or unproved optimization step is used.
+## correctness
 
-Run the standalone checker with `python check.py` using the standard Python 3 library. The checker performs exact-rational comparisons of the prefix-walk norm and the maximum over every proper cyclic-interval indicator for 2010 color/weight instances; it tests balanced-run rigidity, the sharp six-point example, and concentration toward the nonattained upper boundary. A passing finite enumeration is supplementary evidence only.
+PASS
 
-For any integer \(n\ge3\) and positive masses, the general proof depends only on: (i) two class-mean outputs and exactly \(2r\) color-changing edges; (ii) the zero-sum cyclic gradient identity; (iii) the sharp midpoint estimate for the signed prefix-sum pairing; (iv) equality of positive and negative run increments; and (v) continuity in strictly positive masses. Independent audit has not been performed.
+For a finite n>=3 simple cycle, positive vertex masses and exactly two nonempty color classes, P_m outputs the two normalized class means; across the 2r cross-color edges V(P_m x)=2r|ell(x)|. Zero-sum coefficients c_i give ell(x)=-sum S_i(x_{i+1}-x_i), and cyclic gradient zero-sum duality has sharp norm (max S-min S)/2, attained by a proper arc indicator. Thus K=r(max S-min S). Each of r A-run increments and r B-run decrements is <=range, hence K>=1 and equality iff all normalized run masses are exactly 1/r. Positive masses imply K<r for r>=2, while concentration in an adjacent A/B pair tends to r; mass continuity and connectedness achieve every [1,r). r=1 always gives K=1. Independently brute-enumerated 492 labeled/weight instances and all proper arcs using exact fractions; not an all-n enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. An older specialized two-class graph-BV projection theorem could express the same prefix range through flow duality and escape semantic indexing; no priority certainty claimed.
+
+## value
+
+PASS
+
+Supplies an explicit O(n) sharp operator norm, all extremizers, rigidity criterion and full achievable amplification range for a natural idempotent Markov projection that nevertheless need not contract graph total variation. It cleanly separates total edge variation from ordinary oscillation norms, yielding a diagnostic for lossy cyclic averaging and signal processing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Both output values are class means, so the output variation equals twice the number of color runs times their difference. Exact cyclic summation by parts reduces the latter linear functional to a range of normalized prefix sums with a sharp interval-indicator extremizer. The run-mass rigidity and complete attainable amplification range follow without asymptotic assumptions on signal length. Exact-rational tests from the packaged checker corroborate the proof, but do not replace it.
+## correctness
 
-**Originality — PASS (best-knowledge, not uniqueness certification).** A direct statement-and-implication comparison was carried out against available published records and the original papers by Nochetto–Salgado, Sandryhaila–Moura, and Gaubert–Qu. The first treats a periodic finite-element interpolation operator, the second cyclic graph-signal variation and frequency filtering, and the third oscillation-seminorm contraction of Markov operators. None of their materially read theorems gives the sharp cyclic-variation modulus, per-run mass criterion, or the full open upper-endpoint range for arbitrary interlaced two-class partitions. General polyhedral norm duality remains known mathematics; the assessed contribution is the complete concrete classification. Searches are not an exhaustive guarantee, and an older implicit equivalent remains possible.
+PASS
 
-**Value — PASS.** The question is natural for coarse-graining signals while preserving neighboring-sample variation. The answer distinguishes unconditional oscillation contraction from cyclic-gradient amplification, gives an exact linear-time computable invariant, and determines both the exact run-level balance criterion for stability and the full attainable instability spectrum at fixed geometry. It is not merely one numerical instance or a renamed interpolation bound.
+For a finite n>=3 simple cycle, positive vertex masses and exactly two nonempty color classes, P_m outputs the two normalized class means; across the 2r cross-color edges V(P_m x)=2r|ell(x)|. Zero-sum coefficients c_i give ell(x)=-sum S_i(x_{i+1}-x_i), and cyclic gradient zero-sum duality has sharp norm (max S-min S)/2, attained by a proper arc indicator. Thus K=r(max S-min S). Each of r A-run increments and r B-run decrements is <=range, hence K>=1 and equality iff all normalized run masses are exactly 1/r. Positive masses imply K<r for r>=2, while concentration in an adjacent A/B pair tends to r; mass continuity and connectedness achieve every [1,r). r=1 always gives K=1. Independently brute-enumerated 492 labeled/weight instances and all proper arcs using exact fractions; not an all-n enumeration.
 
-**Scientific limitations.** Real finite cyclic signals, exactly two classes, positive masses, and unweighted variation edges only. No claim is made for three-class partitions or arbitrary graphs. Numerical checks are finite and do not certify uniqueness in the literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. An older specialized two-class graph-BV projection theorem could express the same prefix range through flow duality and escape semantic indexing; no priority certainty claimed.
+
+## value
+
+PASS
+
+Supplies an explicit O(n) sharp operator norm, all extremizers, rigidity criterion and full achievable amplification range for a natural idempotent Markov projection that nevertheless need not contract graph total variation. It cleanly separates total edge variation from ordinary oscillation norms, yielding a diagnostic for lossy cyclic averaging and signal processing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

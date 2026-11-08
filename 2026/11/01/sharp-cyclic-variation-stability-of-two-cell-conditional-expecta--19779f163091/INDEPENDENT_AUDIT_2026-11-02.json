@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:58:28.558573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite n>=3 simple cycle, positive vertex masses and exactly two nonempty color classes, P_m outputs the two normalized class means; across the 2r cross-color edges V(P_m x)=2r|ell(x)|. Zero-sum coefficients c_i give ell(x)=-sum S_i(x_{i+1}-x_i), and cyclic gradient zero-sum duality has sharp norm (max S-min S)/2, attained by a proper arc indicator. Thus K=r(max S-min S). Each of r A-run increments and r B-run decrements is <=range, hence K>=1 and equality iff all normalized run masses are exactly 1/r. Positive masses imply K<r for r>=2, while concentration in an adjacent A/B pair tends to r; mass continuity and connectedness achieve every [1,r). r=1 always gives K=1. Independently brute-enumerated 492 labeled/weight instances and all proper arcs using exact fractions; not an all-n enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nochetto–Salgado arXiv:1211.1069 p4 Theorem 3.7",
+          "Sandryhaila–Moura arXiv:1307.0468 Sections II-III",
+          "Gaubert–Qu arXiv:1307.4649 p2 Theorem 1.1"
+        ],
+        "reasoning": "Nochetto–Salgado establish TVD for a periodic finite-element interpolant on Cartesian grids, not arbitrary interlaced nonlocal two-cell conditional expectation. Sandryhaila–Moura develop graph Fourier filters. Gaubert–Qu supply general oscillation contraction but do not control the cyclic edge variation of projections. None of these stronger-appearing concepts implies the class-run exact norm.",
+        "searches": [
+          "cyclic discrete total variation conditional expectation projection binary partition weighted averaging sharp operator norm runs prefix sums",
+          "binary cyclic two-cell conditional expectation total variation run mass balance norm",
+          "rank one idempotent Markov projection graph gradient l1 norm two-color periodic partition",
+          "Nochetto–Salgado arXiv:1211.1069 p4 Theorem 3.7",
+          "Sandryhaila–Moura arXiv:1307.0468 Sections II-III",
+          "Gaubert–Qu arXiv:1307.4649 p2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Nochetto–Salgado, A Total Variation Diminishing Interpolation Operator and Applications, arXiv:1211.1069, original Theorem 3.7",
+        "Sandryhaila–Moura, Discrete Signal Processing on Graphs: Frequency Analysis, arXiv:1307.0468, original Sections II-III",
+        "Gaubert–Qu, Dobrushin’s Ergodicity Coefficient for Markov Operators on Cones, arXiv:1307.4649, Theorem 1.1 and Sections 1-2",
+        "Resultary 2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaubert–Qu original Hopf-oscillation theorem and distinct norm",
+          "Nochetto–Salgado original TVD interpolator",
+          "Six-cycle exact checker witness K=4/3"
+        ],
+        "reasoning": "Since every averaging projection is already oscillation nonexpansive, the Gaubert–Qu theorem holds for all mass patterns while the submitted edge-TV K can exceed 1, e.g. AABABB six-cycle K=4/3; that counterexample precludes deduction by norm substitution. Periodic finite-element TVD theorem applies to distinct local interpolation and cannot impose per-run mass balance.",
+        "searches": [
+          "cyclic discrete total variation conditional expectation projection binary partition weighted averaging sharp operator norm runs prefix sums",
+          "binary cyclic two-cell conditional expectation total variation run mass balance norm",
+          "rank one idempotent Markov projection graph gradient l1 norm two-color periodic partition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaubert–Qu arXiv:1307.4649 Theorem 1.1, Hopf oscillation",
+          "RESULT.md rank-one reduction and signed prefix-sum identity"
+        ],
+        "reasoning": "The edge-TV dual of a signed zero-sum class-average functional is half the oscillation of a discrete antiderivative; taking the rank-one output boundary factor 2r yields r times the prefix range. Published abstract Markov Hopf oscillation concerns max(x_i-x_j) not sum of neighboring |x_i-x_j|, so norm-one in one sense does not imply norm-one here.",
+        "searches": [
+          "cyclic discrete total variation conditional expectation projection binary partition weighted averaging sharp operator norm runs prefix sums",
+          "binary cyclic two-cell conditional expectation total variation run mass balance norm",
+          "rank one idempotent Markov projection graph gradient l1 norm two-color periodic partition",
+          "Gaubert–Qu arXiv:1307.4649 Theorem 1.1, Hopf oscillation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f",
+          "Resultary:2026/9/20/SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1"
+        ],
+        "reasoning": "The complete two-color positive-mass parameter spectrum [1,r) is a continuum rather than a fixed integer table. Resultary closest two-cell operator item is an Lp mixing norm for chains, no cyclic total variation/runs. No exact mass-pattern norm table implying the displayed criterion identified.",
+        "searches": [
+          "cyclic discrete total variation conditional expectation projection binary partition weighted averaging sharp operator norm runs prefix sums",
+          "binary cyclic two-cell conditional expectation total variation run mass balance norm",
+          "rank one idempotent Markov projection graph gradient l1 norm two-color periodic partition",
+          "Resultary:2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f",
+          "Resultary:2026/9/20/SCOPE-weighted-conditional-l1-endpoint-profile--dec63dd1eae1"
+        ]
+      },
+      "rationale": "Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. An older specialized two-class graph-BV projection theorem could express the same prefix range through flow duality and escape semantic indexing; no priority certainty claimed.",
+      "residual_risks": [
+        "An older specialized two-class graph-BV projection theorem could express the same prefix range through flow duality and escape semantic indexing; no priority certainty claimed.",
+        "Assumes exactly two nonempty classes, strictly positive masses and unweighted cyclic-edge variation; no three-cell extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different finite-element interpolant; theorem does not classify arbitrary interlaced class averaging",
+          "evidence": "Theorem 3.7 establishes total-variation diminution for Q_1 grid interpolation, not nonlocal two-class conditional expectation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+          "material_read": "Full accessible preprint: method, local interpolation definition, original Theorem 3.7 and boundary conditions (PDF page 3 screenshot)",
+          "method": "Read arXiv full PDF text and screenshot original theorem page",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "Exact TVD conclusion in periodic setting is possible domination"
+        },
+        {
+          "assessment": "Hopf oscillation/Thompson dual, different from cyclic edge-total-variation seminorm",
+          "evidence": "Theorem 1.1 is explicitly formulated for Hopf oscillation omega(x/e), not sum of adjacent gradient absolute values.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4649",
+          "material_read": "Full accessible article, introduction and Theorem 1.1 (PDF p2 screenshot) and dual norm definitions",
+          "method": "Read original arXiv PDF and checked screenshot of p2",
+          "title": "Dobrushin’s Ergodicity Coefficient for Markov Operators on Cones",
+          "trigger": "Potential general contraction theorem for Markov conditional expectations"
+        },
+        {
+          "assessment": "Spectral graph filtering, no binary mass-class averaging exact norm or run balance found in read relevant sections",
+          "evidence": "Section III defines h(A) graph filters and frequency responses; these are not interlaced conditional expectations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0468",
+          "material_read": "Original article Sections II-III including graph filters, graph Fourier transform and variation definition; PDF p3 screenshot",
+          "method": "Read original arXiv PDF, inspected page 3 graph-filter construction",
+          "title": "Discrete Signal Processing on Graphs: Frequency Analysis",
+          "trigger": "Uses graph signal total variation and operators; plausible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Supplies an explicit O(n) sharp operator norm, all extremizers, rigidity criterion and full achievable amplification range for a natural idempotent Markov projection that nevertheless need not contract graph total variation. It cleanly separates total edge variation from ordinary oscillation norms, yielding a diagnostic for lossy cyclic averaging and signal processing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Nochetto–Salgado, A Total Variation Diminishing Interpolation Operator and Applications, arXiv:1211.1069, original Theorem 3.7",
+    "Sandryhaila–Moura, Discrete Signal Processing on Graphs: Frequency Analysis, arXiv:1307.0468, original Sections II-III",
+    "Gaubert–Qu, Dobrushin’s Ergodicity Coefficient for Markov Operators on Cones, arXiv:1307.4649, Theorem 1.1 and Sections 1-2",
+    "Resultary 2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f"
+  ],
+  "disposition": "passed",
+  "limitations": {
+    "computational_evidence": "Independent exact checks at /mnt/data/audit_5359_independent_checks.py passed; finite computations corroborate rather than establish universal proofs.",
+    "literature_access": "The named source inspections distinguish full paper/sections from abstract only; specific unread sources remain in residual_risks.",
+    "mathematical_scope": "See correctness and value rationale for exact parameter/quantifier restrictions; scope not enlarged beyond frozen final RESULT.md and SLOGAN.txt.",
+    "verification_channels": "Lean formalization and external expert attestation remain not_performed and are not overwritten."
+  },
+  "residual_risks": [
+    "An older specialized two-class graph-BV projection theorem could express the same prefix range through flow duality and escape semantic indexing; no priority certainty claimed.",
+    "Assumes exactly two nonempty classes, strictly positive masses and unweighted cyclic-edge variation; no three-cell extension."
+  ],
+  "schema_version": 1
+}
