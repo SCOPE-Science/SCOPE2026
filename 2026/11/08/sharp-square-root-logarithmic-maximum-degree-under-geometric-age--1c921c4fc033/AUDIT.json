@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Exact normalized geometric age law gives Bernoulli product MGF; a split bound gives quadratic-rate Chernoff tail. Disjoint consecutive full-hit blocks achieve the same exponent and are independent. Upper and lower failures sum over dyadic sizes, Borel–Cantelli and monotonicity establish the a.s. limit. Exact finite tests (61632) check critical algebra but not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aguech–Mahmoud–Mohamed–Yang, Network Science 13 (2025), §3 proves marginal outdegree laws and §4 states maximal degree as a proposed future direction.",
+        "Lodewijks–Ortgiese, arXiv:2007.05438v4, Definition 2.1 specifies iid vertex weights; Theorem 2.9 treats bounded iid weights and logarithmic maximum degree.",
+        "Eslava–Lodewijks–Ortgiese, arXiv:2109.15270, introduction and maximum-degree problem treat bounded iid vertex weights and uniform recursive tree specializations.",
+        "Devroye–Lu (1995) treats uniform recursive trees and DAGs, not the deterministic recency-weighted attachment law."
+      ],
+      "reasoning": "A weight sequence growing as \\(e^{\\beta k}\\) is deterministic, nonstationary and nonidentically distributed. Aguech et al. establish one-vertex laws, not the graph maximum; iid-weight theorems and their logarithmic normalization do not imply the present square-root-logarithmic limit; a general deterministic-weight theory might nevertheless subsume it, which is recorded as a residual risk.",
+      "searches": [
+        "age-dependent attachment weight e^{beta k} maximum degree sqrt(2m log n / beta) asymptotics",
+        "maximum indegree asymptotic sqrt logarithm geometric ageing attachment network model",
+        "age biased recursive tree exponential age weights maximum degree asymptotic sqrt log n",
+        "weighted recursive tree deterministic vertex weights exponential maximum degree sqrt log n",
+        "age dependent preferential attachment exponential aging maximum degree square root logarithm",
+        "https://arxiv.org/html/2007.05438v4"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1017/nws.2025.3",
+      "https://arxiv.org/abs/2607.02916",
+      "https://arxiv.org/html/2611.02329v1",
+      "https://arxiv.org/html/2007.05438v4",
+      "https://arxiv.org/abs/2109.15270",
+      "https://doi.org/10.1002/rsa.3240070102"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aguech–Mahmoud–Mohamed–Yang (2025), Theorem 3.1 and §4: fixed-vertex degree laws and maximal degree left for future research.",
+        "Tang–Wang–Wu July 2026, Theorems 1.1/1.2 establish one topological end and infinitely many random-walk collisions in a bounded-window tree.",
+        "Tang–Wang–Wu Nov 2026, Theorems 1.1/1.2 establish recurrence and infinite collisions for the exponential-age graph; those properties alone do not give a sharp maximum degree.",
+        "Lodewijks–Ortgiese, Theorem 2.9, states logarithmic maximal degree for iid bounded weights under assumptions violated by the deterministic exponential weights here."
+      ],
+      "reasoning": "The new a.s. limit \\(\\sqrt{2m/\\beta}\\sqrt{\\log n}\\) is neither a special case nor an immediate corollary of recurrence/collision statements, bounded-window graph topology, or the iid-weight maximal-degree theorems. It follows instead by a sharp one-vertex tail and disjoint independent witness construction.",
+      "searches": [
+        "arXiv 2611.02329 Random Walk on age-preferential random growth processes growth graph degree maximum limit",
+        "exponentially age-preferential recursive tree random graph maximal indegree sqrt(log n) geometric decay q attachment",
+        "https://doi.org/10.1017/nws.2025.3",
+        "https://arxiv.org/abs/2607.02916",
+        "https://arxiv.org/html/2611.02329v1",
+        "https://arxiv.org/html/2007.05438v4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aguech et al., Network Science 13 (2025), §1.3 defines the exact one-parent law with radix a>1; §4 explicitly leaves maximal degree as future research.",
+        "Tang–Wang–Wu, arXiv:2611.02329v1, Definition 2.1 gives \\(p_{k,t}\\propto e^{\\beta k}\\), exactly the same normalized geometric-age kernel; its Theorems 1.1–1.2 are recurrence and infinite collisions, with no maximum-degree result in inspected main results/outlook.",
+        "Aguech et al. (2025) use the exact m=1 law with radix a>1, equivalent to beta=log(a). Geometrically decreasing age choices are equivalent to deterministic increasing vertex weights \\(W_k=e^{\\beta k}\\), not to iid random vertex weights."
+      ],
+      "reasoning": "Compared the stochastic law, including replacement and parallel edges, rather than relying on titles. The later exponential-age paper supplies the same object but its proved claims do not determine the maximal in-degree. The earlier finite-window paper only yields bounded degree; Aguech et al. explicitly propose the max problem rather than solve it. No equivalent full statement found in searched records; novelty remains historically provisional.",
+      "searches": [
+        "exponentially age-preferential recursive tree random graph maximal indegree sqrt(log n) geometric decay q attachment",
+        "exponentially age-biased attachment random recursive multigraph maximum number of incoming edges",
+        "e^{beta k} newest vertices exponential age preference maximal degree sqrt(log n)",
+        "recursive tree geometric attachment weights q^age maximum indegree extreme degree",
+        "random recursive tree attachment exponentially increasing vertex weights max degree",
+        "\"Exponentially preferential trees\" Aguech Mahmoud Mohamed Yang arxiv first posted",
+        "Aguech Mahmoud Mohamed Yang exponentially preferential trees maximum degree 2025",
+        "Exponentially preferential trees radix a > 1 maximum degree sqrt log n 2025",
+        "https://doi.org/10.1017/nws.2025.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concern covariance in uniform recursive trees or one-variable Poisson-binomial cumulants; no direct extreme-degree parameter \\(\\sqrt{2m/\\beta}\\) appeared.",
+        "Primary graph papers give model definitions and random-walk results, not a graph-degree extreme-value table."
+      ],
+      "reasoning": "There is no established finite table or database identity known from inspected searches that yields the theorem. Search absence does not establish uniqueness; the proof derives a uniform quadratic tail rate and many independent extreme witnesses, not a table lookup.",
+      "searches": [
+        "exponential attachment recent vertices Poisson binomial maximum child count graph",
+        "Poisson binomial geometrically decaying success probabilities max of n correlated occupancy counts",
+        "Tang Wang Wu 2026 Bernoulli sequence recursive tree geometric age attachment maximum degree",
+        "e^{beta k} newest vertices exponential age preference maximal degree sqrt(log n)",
+        "online nearest-age attachment exponential memory graph maximal degree"
+      ]
+    },
+    "rationale": "Aguech et al. (2025) prove fixed-vertex degree laws for the exact exponential tree and explicitly leave maximal degree to future research in §4. Tang et al. (Nov 2026) define the matching multigraph but prove recurrence and collisions only. Iid-weight maximal-degree theorems have violated hypotheses. Actual record and literature searches identified no implication or equivalent statement; deterministic-weight historical-priority risk remains.",
+    "residual_risks": [
+      "The 2025 exponential tree source explicitly leaves maximal degree open; its per-node asymptotics might inform but do not imply the simultaneous maximum.",
+      "General earlier deterministic-weight recursive tree extremal-degree results were not exhaustively ruled out.",
+      "A future or inaccessible primary result might already establish the same coefficient; the finding does not claim global priority certainty.",
+      "The later November 2 model paper describes the exact object but does not contain the inspected extreme-degree limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_m1_NOT_COVERING: deterministic radix a>1 matches exponential-age m=1; Theorem 3.1 gives individual-node laws. §4 explicitly identifies maximal degree as future work; no simultaneous maximum is proved.",
+        "evidence": "Cambridge published online April 14, 2025; definition §1.3; Theorem 3.1 §3; §4 lines 896–905 proposes maximal degree.",
+        "identifier_or_url": "https://doi.org/10.1017/nws.2025.3",
+        "material_read": "Primary full-text HTML: §1.3 construction, §3 single-vertex degree theorem and examples, and §4 concluding remarks",
+        "method": "Compare exact attachment probabilities, theorem quantifiers, and authors’ proposed future direction",
+        "title": "Exponentially preferential trees",
+        "trigger": "Exact earlier one-parent exponential-age model and explicitly proposed extreme-degree direction"
+      },
+      {
+        "assessment": "NOT_COVERING: attachment only to the last two vertices; degree uniformly bounded; proved claims about ends and random-walk collisions.",
+        "evidence": "§1 model at lines 20–25 and Theorems 1.1–1.2 at lines 30–37.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.02916",
+        "material_read": "Accessible primary text with §1 model and Theorems 1.1–1.2, and §§2–3 descriptions",
+        "method": "Primary full-text reading and comparison of edge-selection rule and propositions",
+        "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+        "trigger": "Recent bounded-memory random-recursive-tree model and dated scientific motivation"
+      },
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_CLAIM: Definition 2.1 matches the target law exactly; only recurrence and infinite collision theorems. First public date November 2, 2026 is later than the earlier dated motivating source and is not used as the eligibility source.",
+        "evidence": "Definition 2.1 at lines 105–127; Theorems 1.1–1.2 at lines 85–96; §5 at lines 609–633.",
+        "identifier_or_url": "https://arxiv.org/html/2611.02329v1",
+        "material_read": "Abstract, §1.2 main results, Definition 2.1, explanatory parts of Chapters 3–4 and full §5 summary and outlook",
+        "method": "Direct primary HTML full-text search and section-by-section reading, including matching formulas",
+        "title": "Random Walk on age-preferential random growth processes",
+        "trigger": "Later paper defines exactly the exponential-age graph, crucial same-object overlap challenge"
+      },
+      {
+        "assessment": "NOT_APPLICABLE_DIRECTLY: it assumes iid vertex weights; the exponential deterministic array is not iid and grows without stationary tail.",
+        "evidence": "Definition 2.1 lines 88–103 explicitly iid; Theorem 2.9 lines 278–284 gives logarithmic max for bounded iid weights.",
+        "identifier_or_url": "https://arxiv.org/html/2007.05438v4",
+        "material_read": "§1; Definition 2.1; §2.2, Theorems 2.9/2.11/2.13; statement and assumptions of higher results",
+        "method": "Primary full-text inspection of assumptions, formula and conclusions",
+        "title": "The maximal degree in random recursive graphs with random weights",
+        "trigger": "Plausibly dominating general multigraph maximal-degree theorem"
+      },
+      {
+        "assessment": "NOT_APPLICABLE_DIRECTLY: bounded iid vertex-weight hypotheses; does not provide exponential-age deterministic-weight coefficient.",
+        "evidence": "Intro lines 14–27 explicitly bounded iid weight results and cites deterministic-weight studies of height/profile, not the claimed extreme-degree theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.15270",
+        "material_read": "Introduction, Assumption 2.3, Section 2 maximum-degree theorems and relevant proof discussion",
+        "method": "Direct primary full-text inspection",
+        "title": "Fine asymptotics for the maximum degree in weighted recursive trees with bounded random weights",
+        "trigger": "Possible stronger high-degree theorem"
+      },
+      {
+        "assessment": "The classical uniform attachment model differs from exponential-age weights; its general methods may be adaptable but full-text priority not certified.",
+        "evidence": "1995 published article title, authors, and uniform-recursive graph setting.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240070102",
+        "material_read": "Bibliographic abstract/reference metadata, not complete text",
+        "method": "Abstract-level comparison only; no full-document noncoverage assertion",
+        "title": "The strong convergence of maximal degrees in uniform random recursive trees and dags",
+        "trigger": "Classical almost-sure maximum-degree comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c921c4f-c033-44ef-8849-043652bbf03e",
+  "value": {
+    "rationale": "Resolves the explicitly identified maximal-degree direction in Aguech et al. (2025) for its exponentially weighted tree, supplies exact sqrt(2m/beta) constant for all fixed edge multiplicities, and explains the sharp rare-event mechanism. Simultaneous extreme behavior is not implied by the previous fixed-vertex distribution results or iid-weight theorems.",
+    "status": "PASS"
+  }
+}
