@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory. The program uses Python 3 standard library and enumerates all Bell-number equality patterns of 6, 8 and 10 symbols. It constructs all distinct one- and two-deletion descendants, and checks all admissible pairs. There is no random truncation, external data, optimizer or package dependency.
+## correctness
 
-Expected totals: 203/4140/115975 patterns at lengths 3/4/5, of which 133/3690/113073 are one-deletion distinguishable. The unrestricted maxima are 3/4/6 and the two-symbol maxima are 2/4/4. The only canonical length-five six-maximizer is `(0,1,2,0,1 | 1,0,2,1,0)`. The full length-five intersection histogram is `(87171,20663,4605,541,86,6,1)`.
+PASS
 
-A second direct enumeration over the full sets of alphabet-three, -four and -five length-five words confirms exactly 3, 12, and 30 unordered six-intersection maximizers. The separate witness checks cover the length-four, length-five binary/nonbinary and length-six binary cases. The elementary length-three witnesses can be inspected by hand. The reported final marker is `SHARP_TWO_DELETION_RIGIDITY_VERIFY_OK`.
+For q>=2 and n>=3 with disjoint one-deletion descendant sets, the published Sun–Ge intersection theorem gives universal upper bound six. Every equality pattern among 2n symbols is represented uniquely by a restricted-growth word, so a fully exhausted alphabet-independent finite classification at n=3,4,5 covers all q. Independent rerun found 203,4140,115975 patterns; eligible 133,3690,113073; maxima (q2/q>=3) n3 2/3,n4 4/4,n5 4/6, unique n5 canonical ordered template 01201|10210. Counting letter relabelings and center swap gives q(q-1)(q-2)/2 unordered n5 extremizers. Binary n6 and ternary n5 explicit six-witnesses extend to all n by common-prefix LCS identity. Thus exact eventual six and first attainment lengths proven without inferring infinity from finite enumeration.
 
-The infinite upper bound is inherited from the cited Sun–Ge theorem, while indefinite-length attainment follows from common-prefix extension and the LCS identity; the finite test alone is not a proof at unbounded lengths. The computation is subject to source correctness and runtime integrity.
+## originality
 
-No independent audit has been performed.
+PASS
+
+The universal ceiling six and long-block binary/ternary values are credited prior. The new focused claim is the exact q-dependent earliest saturation block and complete n=5 extremizer template count. Wang–Li–Fu studies q-ary deletion reconstruction for sufficiently large block lengths and other t, but full paper inaccessible. Its potential implicit n=5 specialization remains a named priority risk, not grounds to fabricate FAIL or claim whole-document noncoverage.
+
+## value
+
+PASS
+
+An exact first saturation length and uniqueness count for the natural one-deletion-separated two-deletion channel distinguish binary from nonbinary behavior. The finite complete equality-pattern result is an independently useful extremal decoding invariant despite relying on exhaustive but complete finite enumeration. It is not a claim to improve the known six upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
