@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed population is the cardinality of initial three-colorings that converge to uniform color on the line graph of a connected tree or unicyclic simple graph, not the number of eventual states. The three-color winding criterion [1, Theorem 3] is checked against a direct height-lift argument. A local triangle in the clique of incident edges is non-irrotational exactly when three distinct colors occur. Tree-shaped clique gluing introduces no further constraint; in a unicyclic base graph, precisely one integer cycle-winding condition remains. The root-conditioned counts are \(2^{d_v}-1\) for noncycle vertices and, for the two incident cycle colors, \(2^{r_v+1}-1\) (equal) or \(2^{r_v}\) (distinct). Constant-term extraction imposes zero **integer** winding, not merely modular closure. The strictly decreasing adjacent quotient of \(2^d-1\) proves sharp tree extremizers. Verified separately implemented direct state simulations cover 5,339 labelled trees/unicyclic graphs and 3,048,843 input states through six vertices; another standard-library Python implementation checks 383 graphs and 65,775 states through five vertices. Limits: exhaustive small cases do not replace proof; branch cases with multiple independent cycles are excluded.
+PASS
 
-## Originality — PASS, qualified
+Known finite-graph theorem for three-color successor-contact CCA equates eventual synchronization with vanishing integer winding on every directed cycle; package reconstructs winding preservation and a height-gradient propagation argument. In line graph L(H), each vertex-star clique avoids rainbow 3-color triangles precisely when it admits a height lift. For tree H the local clique lifts glue without global obstruction, and a rooted tree multiplies conditional choices (2^{d_v}-1), with factor three at root. A unicyclic H adds exactly one independent cycle-winding constraint; fixing first edge color and recording steps delta in {-1,0,1} leads to constant Laurent coefficient of product [(2^{r_v+1}-1)+2^{r_v}(z+z^-1)] times off-cycle degree factors. Independently enumerated direct CCA orbits on six representative graphs agreed with both formulas. Log-concavity/degree balancing gives star minimum and path maximum; subdivision off-cycle gives multiplicative factor three and unchanged probability. No claim for graphs of cycle rank>1.
 
-[1] proves the graph-general irrotationality criterion and offers statistical statements about unicyclic graph components, but does not provide the line-graph degree factorization. A prior general cycle-space summation for synchronization of arbitrary finite graphs determines scalar counts in principle, and the simple-cycle central-trinomial specialization is already known; neither is claimed as new. The assessed claim is a closed \(O(|V|+\ell^2)\) exact integer evaluation for a whole graph class, the resulting dependence only on two degree multisets, bridge-subdivision probability invariance, and sharp tree extrema. The closest accessible homomorphism literature [2] uses the Widom–Rowlinson constraint, not this local no-rainbow plus global winding system; the separate unicyclic graph rule in [3] is additive rather than cyclic successor-contact. Targeted mathematical-record and literature searches found no exact covering line-graph evaluation, but unindexed work and inaccessible complete texts remain genuine risks. A failed search is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantity is a natural dynamical invariant: the probability of eventual uniform consensus for three-color excitable dynamics. A single degree-factorized identity applies to every tree, gives exact sharp extremizers at fixed number of dynamical sites, and extends to all unicyclic base graphs through one Laurent variable. The unicyclic count discards graph-shape detail but demonstrably cannot be reduced to the full degree sequence and cycle length alone: two six-vertex unicyclic graphs with the same degree sequence and triangle core yield 357 versus 369 synchronizing colorings. Bridge subdivision does not change synchronization probability, whereas modification of the cycle can. This is more than the bare-cycle central trinomial value or a restatement of the zero-circulation criterion; no broad dynamical classification beyond synchronization is claimed.
+Qualified PASS: Gravner–Lyu–Sivakoff Theorem 3 establishes the irrotationality synchronization criterion for arbitrary connected graphs, and cyclic bare-cycle counts are known. The new contribution is exact degree-factorized enumeration for all line graphs of trees/unicyclic H, quadratic coefficient computation, extremal trees and bridge subdivision invariance. Existing homomorphism enumeration into a looped path and modular All-Colors automata concern different constraints; no exact equivalent factorization found.
 
-## Closest literature and limits
+## value
 
-[1] Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, Theorem 3 and Section 4, gives the shared dynamical criterion. [2] Cutler–Radcliffe, DOI:10.1002/jgt.20530, concerns counts of graph homomorphisms into a reflexive path. [3] *Solutions to All-Colors Problem on Graph Cellular Automata*, DOI:10.1155/2019/3164692, studies modular additive neighbor-sum updates. The explicit general cycle-space population sum precedes the present specialized evaluation. The 2011 article was available here only in abstract and is not certified absent of related specializations. Independent mathematical and bibliographic assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The count of synchronized initial configurations and probability under uniformly random start is a natural dynamic observable. Closed products and the cycle constant term replace exponential search for a structurally broad graph family, yielding sharp extremal morphology and invariance not obvious from the general synchronization criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

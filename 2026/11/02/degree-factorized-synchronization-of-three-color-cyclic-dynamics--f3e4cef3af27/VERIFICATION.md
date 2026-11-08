@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact statement is proved in `RESULT.md`. The computations provide finite cross-checks only.
+# Independent mathematical audit
 
-- `python3 verify/spot_checks.py` (Python 3 standard library): produces `PASS standalone_python labelled_graphs=383 states=65775 n_le_5` by enumerating all connected labelled trees and unicyclic simple graphs on 2–5 vertices and all labelled three-color initial configurations. Its own direct synchronous update, rather than the winding criterion, decides convergence.
-- `c++ -std=c++17 -O2 verify/labelled_graphs.cpp -o /tmp/line_cycle_check && /tmp/line_cycle_check` (C++17): produces `PASS labelled_graphs=5339 unicyclic_graphs=3898 initial_states=3048843 n_le_6` for all such connected labelled graphs on 2–6 vertices. It enumerates all initial configurations and updates directly.
-- The attached output files are `verify/spot_checks_output.txt` and `verify/labelled_graphs_output.txt`. A separate unlabelled-graph-atlas exploration of 78 tree/unicyclic graphs through seven vertices checked 92,838 initial configurations, but that extra calculation is not part of the standalone verification package and is not needed for the proof.
+## correctness
 
-Each program computes the same declared formula and compares it to independently simulated trajectories. The limit on simulation steps exceeds the graph diameter, which suffices for a zero-winding initial state under the cited theorem. Non-synchronizing states may be periodic and need not be assigned an orbit type by these tests. No infinite-case result is inferred from the finite enumeration. These checks were executed against the actual packaged source paths and reported output captured verbatim.
+PASS
+
+Known finite-graph theorem for three-color successor-contact CCA equates eventual synchronization with vanishing integer winding on every directed cycle; package reconstructs winding preservation and a height-gradient propagation argument. In line graph L(H), each vertex-star clique avoids rainbow 3-color triangles precisely when it admits a height lift. For tree H the local clique lifts glue without global obstruction, and a rooted tree multiplies conditional choices (2^{d_v}-1), with factor three at root. A unicyclic H adds exactly one independent cycle-winding constraint; fixing first edge color and recording steps delta in {-1,0,1} leads to constant Laurent coefficient of product [(2^{r_v+1}-1)+2^{r_v}(z+z^-1)] times off-cycle degree factors. Independently enumerated direct CCA orbits on six representative graphs agreed with both formulas. Log-concavity/degree balancing gives star minimum and path maximum; subdivision off-cycle gives multiplicative factor three and unchanged probability. No claim for graphs of cycle rank>1.
+
+## originality
+
+PASS
+
+Qualified PASS: Gravner–Lyu–Sivakoff Theorem 3 establishes the irrotationality synchronization criterion for arbitrary connected graphs, and cyclic bare-cycle counts are known. The new contribution is exact degree-factorized enumeration for all line graphs of trees/unicyclic H, quadratic coefficient computation, extremal trees and bridge subdivision invariance. Existing homomorphism enumeration into a looped path and modular All-Colors automata concern different constraints; no exact equivalent factorization found.
+
+## value
+
+PASS
+
+The count of synchronized initial configurations and probability under uniformly random start is a natural dynamic observable. Closed products and the cycle constant term replace exponential search for a structurally broad graph family, yielding sharp extremal morphology and invariance not obvious from the general synchronization criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
