@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the length-two graph criterion
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 standard library only. The verifier independently enumerates all subsets of \(n\) distinct length-two words drawn from the \(n^2\) possibilities for \(1\le n\le5\). For each, it tests all proper nonempty vertex sets for the induced-edge sparsity and tightness inequalities; this produces rank-preserving image-set counts \(1,6,72,1274,29610\) and irreducible image-set counts \(1,1,8,48,384\).
+## correctness
 
-For \(1\le n\le4\), a second method independently enumerates all generating sets using available single-letter words and target length-two words and agrees on rank preservation and irreducibility. A rational-coefficient EGF routine uses the rooted-tree and unicyclic-component formula and gives the same first five counts. The observed terminal line is `ALL_CHECKS_PASSED`.
+PASS
 
-These are exhaustive **finite** checks at the indicated ranks, not an exhaustive proof over all \(n\). General correctness rests on the generating-rank lemma, composition factorization criterion, and labeled graph decomposition proved in RESULT.md. No independent external validation or audit was performed.
+Reconstructed the exact word-set factor rank as min_B(|B|+|W|-e_W(B)): a length-two target is either itself a generator or concatenation of two length-one generators. Induced sparsity is precisely pseudoforest, and a proper nonempty tight B is equivalent to a nontrivial factorization, so one spanning cycle is precisely irreducibility. Enumerating oriented Hamilton cycles and rooted-tree cycle species yields the EGF exp(-T^2/2)/sqrt(1-2T). Independently enumerated n=1..4 distinct image sets with rank-preserving counts 1,6,72,1274 and irreducible counts 1,1,8,48; checked Stirling asymptotic. n=1 loop and n=2 opposite edge pair handled separately.
+
+## originality
+
+PASS
+
+Bell-Foster-Reidenbach supply the general rank-preserving factor-basis/composition condition, a substantive ancestor, but their read main theorems do not state the exact length-two graph characterization or enumerations. Classical Cayley unicyclic species tools are known and properly credited.
+
+## value
+
+PASS
+
+The natural algebraic irreducibility question receives a complete graph-theoretic characterization with exact all-rank counts and exponential rarity, not merely a routine renaming of the general factor-basis criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
