@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The final claim concerns all finite projective planes of order at least two in the unary-sorted, binary-incidence language. The proof uses a strengthening of the four-pebble invariant by collinearity and concurrence of triples, then proves a uniform fourth-extension lemma for all orders at least three by elementary incidence counts. Separately, an atomic two-survivor invariant gives three-pebble equivalence for all orders at least two. The four-variable separator rebinds a point variable after recording its nonincidences, so it uses exactly four variable names. Verification enumerates enhanced triple/quadruple extension spectra in finite planes of orders two through five. Crucially, the finite enumeration is corroboration, not a substitute for the parameter-uniform proof.
+
+## Originality — PASS, with risks
+Grohe's 1998 finite-variable survey (Proposition 2.1 and Example 6.8) treats three-variable **counting** equivalence of projective planes with the **same** order. That does not imply an order-independent counting-free four-variable theory, nor the order-two separator. Venema's 1999 projective-plane paper proves results for a **two-sorted modal language**, not ordinary fixed-variable first-order logic. Grohe and Otto's 2012 paper gives general pebble-game correspondences, not the exact geometric threshold. Prior work about the pure-graph language of projective-plane Levi graphs treats another signature and does not imply the present sorted-language classification. Source inspections, concrete overlap searches, and remaining priority risks are recorded in AUDIT.json. No claim is made that an exhaustive literature priority audit has occurred.
+
+## Mathematical value — PASS
+This is an exact and sharp variable-width classification for the entire natural family of finite projective planes, including non-Desarguesian planes. It identifies a surprising collapse across all orders at least three, even though structures have different cardinalities, and proves that the Fano plane first becomes visible with four variables by a witness that cannot be reduced to directly counting points on one line. The triple-extension lemma isolates why the collapse is independent of coordinatization. This answers a concrete expressibility question motivated by work on projective-plane modal and finite-variable logics, rather than computing an arbitrary finite table.
+
+## Scientific limitations
+The classification applies to variable widths one through four, counting-free logic, and the indicated point/line-sorted incidence relation. No higher-width or counting-logic classification is claimed. The indexed literature search and material inspections do not establish absolute historical priority, especially for obscure design-theory or finite-model-theory sources. The earlier Grohe survey was available in extracted text at its two directly relevant sections, but a direct page-image request returned access denied; avoid assuming that the entire survey was inspected. Independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
