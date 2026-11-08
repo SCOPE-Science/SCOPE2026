@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "A direct projection proof reconstructs the flexible residual-angle recurrence and telescoping determinant bound; all finite Jacobi sections are positive definite iff the alternating row-sum edge a+b is at most one, with first nonpositive continuant causing an explicit admissible nonzero-residual breakdown otherwise. An invertible rank-one update realizes every finite sharp prefix for A=I. The exact quadratic even-subsequence recurrence establishes all displayed limits, and the two-step case yields both restart branches. The standalone checker returned VERIFY_OK 395 rational identities and 45 sharp FGMRES residual comparisons, including failure examples. All-index claims are proved symbolically; experiments alone are not their justification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel--Nyman prove a sharp fixed-tolerance universal bound with the criterion \\(\\mu\\le1/2\\), plus possible stagnation for mu>1/2. This does not classify alternating a,b allowing a>1/2 but \\(a+b\\le1\\).",
+        "Saad and Simoncini--Szyld establish variable preconditioning and flexible inner-outer methods; available abstracts do not establish the specific alternating-tolerance frontier.",
+        "Frommer--Nobile--Zingler discuss deflation/restarting to improve lattice-QCD solver convergence rather than a universal two-tolerance exact-arithmetic residual phase diagram."
+      ],
+      "reasoning": "The prior fixed-parameter theorem implies a guarantee if max(a,b)<=1/2, strictly weaker than \\(a+b\\le1\\) for unequal tolerances; its variable residual recursion implies finite bounds but does not include the sharp periodic stability equivalence, exact asymptotic constants or sharp restarted phase diagram. Separate restart-plus-deflation results have different hypotheses and mechanisms.",
+      "searches": [
+        "\"restarted FGMRES\" \"inner tolerances\" sharp convergence stagnation",
+        "\"FGMRES(2)\" \"alternating\" preconditioning tolerance",
+        "\"FGMRES\" \"a+b\" \"tolerance\" restarted",
+        "\"GMRES\" \"two-periodic\" residual \"preconditioning\"",
+        "arxiv:2604.27971 Theorem 3.6",
+        "doi:10.1137/0914028",
+        "doi:10.1137/S0036142902401074",
+        "arxiv:1204.5463"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.27971v2 full theorem/proof sections",
+      "doi:10.1137/0914028 public abstract",
+      "doi:10.1137/S0036142902401074 public abstract",
+      "arxiv:1204.5463 abstract",
+      "doi:10.1093/imanum/draf049 Section 5.4",
+      "Published mathematical findings: Sharp energy-norm stability for two-periodic recurrences (2026-10-11); A sharp Euclidean solution-error barrier for symmetric GMRES(1) (2026-09-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (3.3) allows arbitrary observed error magnitudes, hence the residual recursion is prior work and indeed implies the new sufficient finite-step bound after a new determinant computation.",
+        "The original Theorem 4.1 produces equality for a constant tolerance, whereas the present argument enforces a changing schedule and invertible rank-one linear preconditioners.",
+        "The original constant-tolerance sharp breakdown result corresponds to diagonal \\(a=b>1/2\\); it does not by itself imply an unequal-tolerance triangle or the restart wedge."
+      ],
+      "reasoning": "The alternating-bound formula is an extension of a stronger general recursive inequality, not independent of it; novelty is specifically in complete periodic uniform safety versus failure, the positive-Floquet closed forms and the contrasting sharp restarted cycle, with appropriate acknowledgments. Inaccessible historical sources leave qualified residual priority risk.",
+      "searches": [
+        "arxiv:2604.27971 Proposition 3.2 Eq. (3.3)",
+        "arxiv:2604.27971 Theorem 3.6 and Theorem 4.1",
+        "doi:10.1137/S0036142902401074",
+        "\"flexible GMRES\" \"alternating\" \"tolerances\"",
+        "\"restarted FGMRES\" \"inner tolerances\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest antecedent explicitly bounds residual ratios by a nonlinear recurrence in the actual per-step preconditioning errors. Its Section 3 then specializes to a constant upper bound, giving a Chebyshev expression rather than the alternating two-parameter phase diagram.",
+        "The fixed-tolerance equality construction is available in Section 4.1 of the same paper. The present claim supplies a two-parameter triangular boundary, finite equality witnesses with invertible linear maps, and an explicit restart classification."
+      ],
+      "reasoning": "Brown-type FOM/GMRES projection identities and the variable-error recurrence are prior art and not included as a claimed new theorem. Substituting an alternating schedule alone does not establish the necessary-and-sufficient global frontier or restart-rescue wedge: these require the finite periodic-Jacobi spectral criterion and a supercritical admissible breakdown construction.",
+      "searches": [
+        "alternating variable inner residual tolerances flexible GMRES period two restart sharp stagnation frontier a plus b",
+        "two-periodic flexible GMRES preconditioners continuant Jacobi determinant worst-case tolerance sharp boundary versus restarted FGMRES",
+        "\"FGMRES\" \"alternating\" \"preconditioner\" \"tolerance\" convergence",
+        "\"flexible GMRES\" \"variable tolerance\" Jacobi recurrence Chebyshev",
+        "\"FGMRES\" \"periodic\" residual tolerance preconditioner",
+        "arxiv:2604.27971 Section 3 Proposition 3.2, Eq. (3.3)",
+        "arxiv:2604.27971 Theorem 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical records include \"Sharp energy-norm stability for two-periodic recurrences\" (public record, 2026-10-11), dealing with a bilateral scalar recurrence and its norm, not FGMRES residual geometry.",
+        "Retrieved \"A sharp Euclidean solution-error barrier for symmetric GMRES(1)\" (public record, 2026-09-20) concerns one-step Euclidean solution error, not the present alternating inner residual control.",
+        "No reviewed table or accessible exact record provides the two-parameter frontier \\(a+b=1\\) or the two-step restart bound."
+      ],
+      "reasoning": "The closest indexed records are mathematically distinct in operator, recurrence boundary, and target quantity; no recorded exact spectral frontier or table dominates the claimed classification. Search completeness cannot prove uniqueness.",
+      "searches": [
+        "alternating variable inner residual tolerances flexible GMRES period two restart sharp stagnation frontier a plus b",
+        "two-periodic flexible GMRES preconditioners continuant Jacobi determinant worst-case tolerance sharp boundary versus restarted FGMRES",
+        "variable inexact preconditioning tolerance FGMRES sharp residual bound continuant period two",
+        "periodic preconditioner quality loose tight iteration residual FGMRES",
+        "published-finding corpus search: flexible GMRES two-phase convergence inner residual tolerance sharp boundary initial breakdown",
+        "\"flexible GMRES\" \"periodic\" \"tolerance\" \"stagnation\""
+      ]
+    },
+    "rationale": "The named original arXiv paper supplies the flexible Brown identity and variable-error recurrence and fixed-parameter sharpness. These are explicitly excluded from the claimed novelty. The new content is a necessary-and-sufficient periodic safety triangle, periodic explicit profile and sharp restarted versus unrestarted contrast. Targeted published-finding corpus and literature searches disclosed no covering result; older full-text inaccessibility is a genuine priority risk and not treated as proof of absence.",
+    "residual_risks": [
+      "General variable-tolerance recursion in motivating paper already implies a sufficient bound after analysis; novelty must be assessed for sharp periodic classification and restart comparison, not for the recursion.",
+      "Full source texts for older Saad and Simoncini--Szyld works were not available.",
+      "Unindexed prior examples may contain equivalent periodic criteria; database search is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the variable-error recursion and constant-tolerance sharpness; does NOT state/prove the alternating sharp triangular region or two-step restarted phase diagram",
+        "evidence": [
+          "arxiv:2604.27971v2, pp. 5--13, especially Eq. (3.3) p. 6, Theorem 3.6 pp. 7--8, Theorem 4.1 pp. 11--13",
+          "The constant-tolerance threshold and a sharpness construction are expressly acknowledged as prior work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.27971",
+        "material_read": "PDF: introduction, existing-theory discussion, full Sections 3--4, proofs of Propositions 3.1--3.2 and Theorems 3.6, 4.1--4.2; checked full-document text for alternating, periodic, restart",
+        "method": "Open-access arXiv PDF parsed and inspected with page screenshots and targeted searches",
+        "title": "Flexible GMRES converges in two phases",
+        "trigger": "Precisely matching algorithm and preconditioning residual quality; dominant potential antecedent"
+      },
+      {
+        "assessment": "Algorithmic precedent; no verified exact alternating-tolerance theorem from accessible material",
+        "evidence": [
+          "1993 SIAM article; full text access is an unresolved priority limitation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0914028",
+        "material_read": "Bibliographic/abstract-level public description only; full text not accessed",
+        "method": "Search abstract and bibliographic metadata",
+        "title": "A Flexible Inner-Outer Preconditioned GMRES Algorithm",
+        "trigger": "Original flexible GMRES algorithm and possible variable quality analysis"
+      },
+      {
+        "assessment": "General flexible inner-outer analyses; exact periodic sharp frontier unverified due limited access",
+        "evidence": [
+          "SIAM J. Numer. Anal. flexible inner-outer paper; full text not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036142902401074",
+        "material_read": "Public abstract and bibliographic descriptions only; full text not accessed",
+        "method": "Web discovery and abstract comparison",
+        "title": "Flexible Inner-Outer Krylov Subspace Methods",
+        "trigger": "General variable-preconditioner convergence possibly dominating the result"
+      },
+      {
+        "assessment": "Uses deflation with restarted flexible solver for different structural convergence problems; no claim of exact alternating inner-tolerance classification",
+        "evidence": [
+          "arxiv:1204.5463 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1204.5463",
+        "material_read": "ArXiv abstract and public indexing only",
+        "method": "Title, abstract, scope comparison",
+        "title": "Deflation and Flexible SAP-Preconditioning of GMRES in Lattice QCD Simulation",
+        "trigger": "Potential precedent for restarting preventing stagnation"
+      },
+      {
+        "assessment": "Finite precision backward-error and basis conditioning, not the exact-arithmetic alternating inner residual universal frontier",
+        "evidence": [
+          "Section 5.4 FGMRES discusses backward stability under MGS and roundoff assumptions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/draf049",
+        "material_read": "Accessible online Section 5.4 discussion of flexible GMRES",
+        "method": "Web full-text section comparison",
+        "title": "A modular framework for the backward error analysis of GMRES",
+        "trigger": "Recent analysis covers flexible and restarted GMRES"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5371c9e8-bc93-42b6-8f36-4e8d035147cb",
+  "value": {
+    "rationale": "The phase diagram answers an operationally meaningful tolerance-scheduling question with a sharp inequality \\(a+b\\le1\\), strictly more informative than simply forcing both inner solves below one-half. The restart-rescue wedge \\(a+b>1\\) and \\(a^2+b^2<1\\) distinguishes two provable worst-case algorithmic behaviors, and the exact cycle factor provides a quantitative design rule. This classification is neither a mere renaming nor a finite unmotivated exercise.",
+    "status": "PASS"
+  }
+}
