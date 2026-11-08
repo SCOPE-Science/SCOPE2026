@@ -1,15 +1,21 @@
-# Review of the thirteen-ary cyclic-code equivalence classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The source theorem gives an explicit trace generator for every admissible exponent. Coordinate exponent inversion reduces all parameters to the six units modulo \(14\); the field Frobenius gives explicit coordinate-permutation equivalence between each \(r\) and \(-r\). A bijection from all dimension-two subcodes to projective lines establishes the support-size interpretation. The standalone standard-library verifier exhaustively enumerates the unique reduced row-echelon description of each of \(31110\) projective lines, independently compares the \(14028\) secant-pair counts, and verifies the existing five-weight spectrum for all \(28561\) message vectors. The exact code and proof cover all boundaries and all admissible parameters, not merely a sample.
+PASS
 
-## Originality
+All six normalized exponent units modulo 14 reduce to three representatives r=1,3,5 by an explicit F_169 Frobenius coordinate permutation. The columns (x^(12r),x) are distinct PG(3,13) points, and a two-dimensional subcode vanishes exactly on a projective line of generator columns. Complete RREF enumeration totals [4 choose 2]_13 = 31110 lines; an independently coded rank-two/secant pair enumeration yielded exact listed intersection histograms for each r. Histograms distinguish monomial equivalence despite the same known ordinary weight enumerator. This is exhaustive finite mathematics, not sampling.
 
-Hernández--Vega Theorem 6 proves the common weight enumerator but does not state this complete support-size distribution or partition into three equivalence classes. Its later support-containment analysis is a different invariant. Related published line-spectrum and higher-support results concern different linear codes; those statements cannot imply the exact three profiles here. Searches for aliases, the five-weight parameters, projective secants and subcode support spectra yielded no covering theorem. Residual publication-priority risk remains from unindexed calculations and incomplete access to some older related work.
+## originality
 
-## Value
+PASS
 
-A complete equivalence classification is a natural structural problem whenever a single parameterized construction has identical ordinary weight enumerators. The full rank-two subcode support distribution is an invariant not determined by those enumerators and gives a concrete way to distinguish the three classes. Thus this is a classification of the entire admissible parameter set at a natural odd-prime specialization, not an arbitrary extra codeword count. The result does not claim a general odd-alphabet formula or a coding-performance improvement.
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. A weight enumerator or puncturing/shortening theorem does not determine the distribution of support union sizes of all 2D subcodes; pairwise unequal line histograms force three monomial classes.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete classification of a specific naturally defined q=13 five-weight family through a two-dimensional support invariant invisible to the Hamming enumerator is a reusable coding-theoretic distinction; the exact line-support profiles are substantive finite invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in an environment providing Python 3 standard-library arithmetic. Successful execution ends with `VERIFY_OK` and prints exact integer dictionaries for the three representative exponents.
+## correctness
 
-The proof-critical coverage invariant is that the generator `all_rref_lines` traverses each reduced-echelon two-dimensional subspace of \(\mathbb F_{13}^4\) exactly once. For each of the \(31110\) generated subspaces the code tests all \(14\) projective points. The independent secant-pair algorithm enumerates all \(14028\) pairs of distinct columns and deduces line sizes from exact triangular-number inversion; its multisets agree with the direct line census.
+PASS
 
-For each representative the script independently enumerates all \(28561\) four-coordinate messages, confirming the previously published Hamming weight spectrum. It tests projective point distinctness, aggregate incidence identities, and the explicit Frobenius equivalence with the negative-exponent representative. No probabilistic sampling, floating-point arithmetic, external mathematical databases, or conditional unproved search is used.
+All six normalized exponent units modulo 14 reduce to three representatives r=1,3,5 by an explicit F_169 Frobenius coordinate permutation. The columns (x^(12r),x) are distinct PG(3,13) points, and a two-dimensional subcode vanishes exactly on a projective line of generator columns. Complete RREF enumeration totals [4 choose 2]_13 = 31110 lines; an independently coded rank-two/secant pair enumeration yielded exact listed intersection histograms for each r. Histograms distinguish monomial equivalence despite the same known ordinary weight enumerator. This is exhaustive finite mathematics, not sampling.
 
-The completed calculation establishes the three finite \(q=13\) cases and, with the algebraic reductions in the proof, the full parameter classification at this alphabet. It does not establish an asymptotic result for all odd \(q\) or independently certify priority in the literature.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. A weight enumerator or puncturing/shortening theorem does not determine the distribution of support union sizes of all 2D subcodes; pairwise unequal line histograms force three monomial classes.
+
+## value
+
+PASS
+
+A complete classification of a specific naturally defined q=13 five-weight family through a two-dimensional support invariant invisible to the Hamming enumerator is a reusable coding-theoretic distinction; the exact line-support profiles are substantive finite invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
