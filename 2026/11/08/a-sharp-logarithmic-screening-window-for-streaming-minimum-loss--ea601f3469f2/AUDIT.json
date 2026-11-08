@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact unit-step update maps to one of two labels. The probability of the bad transition from clean is exactly beta^k, and escape from bad is alpha^k. For summable entry probabilities, Borel--Cantelli bounds total bad entries; divergent escape probabilities preclude permanent bad residence. When both sums diverge, finite switching would imply an impossible permanent constant state. When both are summable, the expected total number of switches is finite and explicit infinite products give positive wrong-lock-in chance. The marginal recursion u_t=(1-s_t)u_(t-1)+s_t p_t/s_t and alpha>beta prove convergence in probability when escape sum diverges and k tends to infinity. Power-series comparison yields both strict critical constants and their endpoint conventions. The packaged program checks 952 finite rational/numerical identities without claiming to test infinite propositions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Battaglia et al. 2026, https://arxiv.org/abs/2608.27968, introduction and main results: finite-horizon streaming quantile Kaczmarz with logarithmic samples, not minimum-loss selection or a pathwise infinite-horizon trichotomy.",
+        "Haddock et al. 2026, https://arxiv.org/abs/2609.13040, Theorem 2 and Sect. 2: fixed-k finite-sum convergence/error-floor bounds rather than growing independent batches.",
+        "Coppersmith--Wu 2008, https://doi.org/10.1016/j.spl.2008.05.012, general Markov weak-ergodicity criteria (abstract only)."
+      ],
+      "reasoning": "Quantile filtered and finite-horizon robust algorithms do not imply this exact two-state pathwise classification without additional specialization and the dual entry/escape series analysis. General inhomogeneous-chain results can cover separate probability tools, but no inspected primary statement asserts the sharp min-loss logarithmic window.",
+      "searches": [
+        "Quantile randomized Kaczmarz streaming Massart noise batch size growing recovery zero one law",
+        "\"loss filtering\" \"almost surely\" \"batch size\" corruptions",
+        "https://arxiv.org/abs/2608.27968",
+        "https://arxiv.org/abs/2609.13040"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2001.03316 (full relevant primary algorithm/scalar sections)",
+      "https://arxiv.org/abs/2608.27968 (full relevant primary streaming/introduction/results sections)",
+      "https://arxiv.org/abs/2609.13040 (full relevant primary finite-sum/minimum-loss/analysis sections)",
+      "https://doi.org/10.1016/j.spl.2008.05.012 (general Markov weak-ergodicity abstract, not full text)",
+      "https://link.springer.com/article/10.1007/s11009-025-10189-z (partial inhomogeneous-chain exposition)",
+      "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815 (published finding summary only)",
+      "2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878 (published finding summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shah--Wu--Sanghavi (2020), equations and scalar-outlier Sect. 4.2: fixed-size selected-sample distribution is known and increasing k may cause local trapping.",
+        "Battaglia et al. (2026): logarithmic screening uses quantile Kaczmarz and its theorem controls a finite run under a specific random design.",
+        "Haddock--Ma--Rebrova (2026): fixed k and q across a finite sum; sampled subset rather than an independently renewed population.",
+        "Springer 2025 weak/strong ergodicity exposition, https://link.springer.com/article/10.1007/s11009-025-10189-z: generic kernel-product criteria, only the accessible exposition was read."
+      ],
+      "reasoning": "The known fixed-k probability formula gives the one-step kernel but does not, by itself, establish an infinite-horizon three-way classification of time-varying screening schedules. The two 2026 algorithm families have distinct update/selection models and target finite-step or geometric performance rather than eventual exact-label stabilization. Classical probability tools used here are not new. A broad published theorem explicitly specializing the same kernel would dominate the result; none was identified in the inspected material, subject to the residual priority risk.",
+      "searches": [
+        "https://arxiv.org/abs/2001.03316",
+        "https://arxiv.org/abs/2609.13040",
+        "https://arxiv.org/abs/2608.27968",
+        "https://link.springer.com/article/10.1007/s11009-025-10189-z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shah--Wu--Sanghavi 2020, https://arxiv.org/abs/2001.03316, Sect. 4.2: fixed-k scalar quadratic contamination and outlier trapping are explicit prior art.",
+        "Haddock--Ma--Rebrova 2026, https://arxiv.org/abs/2609.13040, Algorithm 1: fixed sample size k and finite-subset sampling, not a growing fresh-stream schedule."
+      ],
+      "reasoning": "An alternate formulation is a nonhomogeneous two-state chain with p_t=beta^k_t and q_t=(1-beta)^k_t. This is exactly equivalent to the specified unit-step quadratic selection, not a second independent discovery. The historical scalar trapping observation for fixed k does not state both series thresholds for k_t growing.",
+      "searches": [
+        "Streaming minimum-loss stochastic gradient descent contradictory two-point quadratic targets increasing minibatch logarithmic schedule Goldilocks almost sure convergence lock-in",
+        "Min-k-loss SGD smallest residual row sampling two-state Markov logarithmic batch cooling phase transition probability versus almost sure robustness",
+        "\"min-k\" \"logarithmic\" \"stochastic gradient\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding titled Finite-time absorption of OSGM-SGD under persistent discrete gradient noise, 2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815 (summary inspected): different adaptive rule and finite-time absorption.",
+        "Published mathematical finding titled Exact Ehrenfest law and linear noise floor for additive-noise signSGD, 2026/10/4/SCOPE-exact-ehrenfest-law-and-linear-noise-floor-for-additive-noise-si--91e3f2750878 (summary inspected): fixed-signSGD invariant law, not min-loss screening."
+      ],
+      "reasoning": "Searches for the two exponents, two-target SGD, logarithmic screening and Markov metastability did not identify an exact published table or claim with both thresholds. The record summaries were not treated as complete-text exclusions or as proof of novelty.",
+      "searches": [
+        "Simulated annealing best of k stochastic gradient descent rare corruption infinite time batch size logarithmic",
+        "\"min-k-loss\" stochastic gradient growing minibatch log batch sample corruption convergence",
+        "\"minimum loss\" filtering SGD \"batch size\" increasing online robustness"
+      ]
+    },
+    "rationale": "The claim is the sharp growing-screening-size, time-inhomogeneous, pathwise three-phase classification for fresh streaming two-center min-loss SGD, not the fixed-k algorithm, its static corrupted local minima, or general Markov/Borel--Cantelli results. Inspected 2020/2026 primary papers and retrieved published mathematical records did not state this combined classification. General time-dependent Markov theory and imperfect historical indexing remain priority risks.",
+    "residual_risks": [
+      "An earlier unstated or poorly indexed two-state nonhomogeneous Markov specialization may establish both batch thresholds, even without minimum-loss terminology.",
+      "Generic inhomogeneous ergodicity and Borel--Cantelli theory supplies several proof components; priority is claimed only for the precise application and sharp phase classification.",
+      "Only identified relevant sections, not every appendix passage or every external citation, were materially inspected; searched metadata records cannot establish a whole-document negative."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-k rule and outlier trapping covered; a growing-k almost-sure logarithmic trichotomy was not in the relevant material inspected.",
+        "evidence": [
+          "Sections 1 and 4.2; equation (3) gives with-replacement selection probability, and text explicitly warns of trapping when k increases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.03316",
+        "material_read": "Accessible full-text HTML format; materially inspected Algorithm 1, introduction, Sections 4.1 and 4.2 including the scalar quadratic outlier discussion and fixed-k distribution.",
+        "method": "Read accessible primary arXiv HTML and compared algorithm, batch-size quantifiers, selected-step law and scalar hypotheses.",
+        "title": "Choosing the Sample with Lowest Loss makes SGD Robust",
+        "trigger": "Identical minimum-loss selection rule and scalar two-center outlier-loss setting."
+      },
+      {
+        "assessment": "Quantile Kaczmarz is not the minimum-loss scalar update and gives a different finite-horizon convergence guarantee.",
+        "evidence": [
+          "First public arXiv timestamp 2026-08-28; Introduction, streaming setting and Theorem overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.27968",
+        "material_read": "Accessible primary HTML; materially inspected abstract, introduction, algorithmic setting and summary of main theorem and comparisons.",
+        "method": "Read arXiv HTML and compared screened update rule, finite-horizon quantifiers, noise model and time-dependent batch schedule.",
+        "title": "Quantile Randomized Kaczmarz for Streaming Linear Systems with Massart Noise",
+        "trigger": "Direct motivation for fresh-batch streaming robustness and logarithmic screening size."
+      },
+      {
+        "assessment": "Finite-sum fixed-size filtering and mean-error bounds, not the increasing-batch fresh-stream pathwise law.",
+        "evidence": [
+          "First public timestamp 2026-09-11; Algorithm 1 fixes k and samples a finite subset, Sect. 2.2 provides an error-floor inequality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.13040",
+        "material_read": "Accessible primary HTML; materially inspected Sections 1 and 2, Algorithm 1, small-sample assumptions, Theorem 2, corollary and discussion of increasing fixed sample size.",
+        "method": "Read arXiv HTML; checked sample-without-replacement specification, fixed-k formulation, and type of convergence claims.",
+        "title": "Quantile-based Loss Filtering for Outlier-Robust Stochastic Gradient Descent",
+        "trigger": "Recent source on minimum-loss sampling as an extreme quantile and on robustness under corruption."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea601f34-69f2-4147-862a-015257850716",
+  "value": {
+    "rationale": "The exact two-critical-value window identifies a nonmonotone tradeoff in how aggressively to increase robustness-screening workload for an actual minimum-loss SGD rule under fresh streaming corruption. It separates a.s. convergence from convergence in probability and establishes irreversible wrong-label freezing under oversized batches. This is a motivated, complete natural two-center classification and a sharp feasibility boundary, not an unmotivated parameter substitution or finite data-table entry. The model restrictions and absence of general algorithmic guarantees are explicitly stated.",
+    "status": "PASS"
+  }
+}
