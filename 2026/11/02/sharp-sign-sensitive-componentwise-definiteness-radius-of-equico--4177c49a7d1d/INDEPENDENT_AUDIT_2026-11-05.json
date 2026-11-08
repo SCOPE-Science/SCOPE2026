@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:06:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 and -1/(n-1)<rho<1, the entrywise independent relative symmetric perturbation set is universally PD exactly when 0<=u<tau_n(rho). For a fixed test x the worst perturbation aligns signs of x, giving G-u S|G|S, so checking all sign vertices is sufficient and necessary. Negative rho is minimized by a coherent sign pattern and the 1-direction eigenvalue, giving tau=(1+(n-1)rho)/(1-(n-1)rho). At rho=0 only diagonal entries vary and tau=1. For positive rho the 2-block eigenspace determinant is positive iff u<(K_r-rho)/(K_r+rho), with K_r^2=rho^2+(1-rho)(1+(n-1)rho)/(r(n-r)); balanced group sizes minimize K_r. The other eigenspaces stay positive. Explicit boundary null vectors and indefinite vertices above threshold show sharpness. Even n gives tau=1/cond_2(G); odd n gives a strictly larger radius with the stated n²/(n²-1) limiting ratio. Fresh independent finite sign-vertex calculations checked dimensions 2..8 and correlations of both signs; they corroborate, not prove, the unrestricted symbolic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roustant–Deville 2017 block-mean PD criteria for fixed compound-symmetry matrices; Rohn 1994 general sign-vertex criterion."
+        ],
+        "reasoning": "General criteria explain the calculation, not an explicit previously established optimized n,rho formula across all sign partitions. No false novelty for known reduction.",
+        "searches": [
+          "exact componentwise positive-definiteness radius symmetric equicorrelation interval matrix relative perturbation parity balanced bipartition Rohn Demmel",
+          "Rohn Positive Definiteness and Stability of Interval Matrices 1994",
+          "Roustant Deville arxiv 1705.09793"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1705.09793",
+        "https://doi.org/10.1137/S0895479891219216",
+        "https://doi.org/10.1137/0613003",
+        "https://doi.org/10.1137/S0895479802405744",
+        "https://arxiv.org/abs/2610.16101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balabanov et al 2026 analyze algorithm-specific error stability; Roustant–Deville provides a 2-block criterion; general interval methods preexist."
+        ],
+        "reasoning": "A bound on actual QR errors or fixed-block correlation PD does not logically compute the worst-case independent-entry adversarial radius and its equality cases. General structured-distance works are residual coverage risks.",
+        "searches": [
+          "exact componentwise positive-definiteness radius symmetric equicorrelation interval matrix relative perturbation parity balanced bipartition Rohn Demmel",
+          "arXiv 1705.09793 block correlation theorem",
+          "arXiv 2610.16101 matrix-free Q-less QR"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rohn 1994 interval PD vertex theorem; Demmel 1992 componentwise distance; the new radius equals loss of positive definiteness for a symmetric componentwise interval."
+        ],
+        "reasoning": "The signed interval/singularity-distance alias reduces to vertex optimization, but the found general tools alone do not display the globally minimized closed form or parity classification; older full text may nevertheless contain it.",
+        "searches": [
+          "exact componentwise positive-definiteness radius symmetric equicorrelation interval matrix relative perturbation parity balanced bipartition Rohn Demmel",
+          "componentwise distance to singularity equicorrelation Rohn Demmel Rump"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include other correlation/conditioning invariants, not the stated n-parity radius."
+        ],
+        "reasoning": "No matching exact table surfaced in the actual queried records; negative retrieval is not proof of historical novelty.",
+        "searches": [
+          "exact componentwise positive-definiteness radius symmetric equicorrelation interval matrix relative perturbation parity balanced bipartition Rohn Demmel",
+          "Resultary semantic query equicorrelation positive-definiteness relative interval parity"
+        ]
+      },
+      "rationale": "Best-of-knowledge original explicit sign-sensitive complete closed-form robustness radius and odd/even parity effect. Rohn interval-matrix vertex theory, Demmel/Rump componentwise distance theory, Roustant–Deville compound-symmetry block methods, and Balabanov–Melnichenko–Mahoney error context are established antecedents rather than new elements. The full texts of some older plausible sources were inaccessible, so precise old-formula coverage cannot be excluded.",
+      "residual_risks": [
+        "Rohn (1994), Demmel (1992), and Rump (2003) older full technical texts were not completely inspected; an equivalent evaluated special case may exist.",
+        "Floating-point errors are not necessarily independently variable, so no implementation-specific guarantee is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed block parameter criteria rather than an optimized arbitrary-sign symmetric-entry interval radius.",
+          "evidence": "Theorem 1 and Corollary 1, block eigenvalue criterion",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09793",
+          "material_read": "Relevant introductory and block-mean theorem/corollary statements and derivations from available OA PDF; inspected PDF page image.",
+          "method": "OA primary preprint PDF and text",
+          "title": "On the Validity of Parametric Block Correlation Matrices with Constant Within and Between Group Correlations",
+          "trigger": "Two-block positive-definiteness reduction used in proof"
+        },
+        {
+          "assessment": "General interval-vertex background; full-text noncoverage not asserted.",
+          "evidence": "SIAM J Matrix Anal Appl 15 (1994) 175-184",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479891219216",
+          "material_read": "Publisher abstract/metadata only; no complete body read",
+          "method": "Publisher abstract; OA/preprint attempted",
+          "title": "Positive Definiteness and Stability of Interval Matrices",
+          "trigger": "Closest exact general interval-matrix theorem"
+        },
+        {
+          "assessment": "Possible hidden explicit equicorrelation example remains priority risk.",
+          "evidence": "SIAM J Matrix Anal Appl 25 (2003) 31-56",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479802405744",
+          "material_read": "Publisher abstract and bibliographic information only",
+          "method": "Publisher abstract; OA search",
+          "title": "Structured Perturbations Part II: Componentwise Distances",
+          "trigger": "Potential stronger direct componentwise radius formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universally sharp componentwise definiteness radius, worst-case perturbations, and dimension-parity loss against condition-number-only estimates are motivated conditioning invariants for a canonical Gram family. Their exact boundary can benchmark relative-entry robustness budgets without claiming applicability to a specific correlated rounding-error model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1705.09793",
+    "https://doi.org/10.1137/S0895479891219216",
+    "https://doi.org/10.1137/0613003",
+    "https://doi.org/10.1137/S0895479802405744",
+    "https://arxiv.org/abs/2610.16101"
+  ],
+  "disposition": "passed",
+  "limitations": "Real symmetric independent relative-entry perturbations only; positive-definite equicorrelation, not arbitrary Gram matrices or nonsymmetric errors.",
+  "residual_risks": [
+    "Rohn (1994), Demmel (1992), and Rump (2003) older full technical texts were not completely inspected; an equivalent evaluated special case may exist.",
+    "Floating-point errors are not necessarily independently variable, so no implementation-specific guarantee is inferred."
+  ],
+  "schema_version": 1
+}
