@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic argument establishes the all-parameter theorem independently of numerical checks: coercive strict convexity, real symmetry, a tangent-half-angle stationary integral with an exact involution, elliptic-integral algebra, and exact Fourier moment constraints for the compressed operator. Every equality needed to prove the bound and equality cases is stated in `RESULT.md`.
+# Independent mathematical audit
 
-`CHECK.py` was executed in the candidate directory using `mpmath>=1.3` and returned `CHECK_OK 70`. It numerically verifies the optimizer for five \(r\) values, the elliptic formula, stationarity, strict local competitors, the inversion identity and the three required operator moments. These are supplementary tests, not an exhaustive check over all real parameters and not a substitute for the proof.
+## correctness
 
-The claimed primary classification is 30H10 because the central new theorem is a sharp Poisson-weighted boundary \(L^1\) approximation associated with Hardy spaces; the truncated Toeplitz operator application uses the standard two-dimensional Hardy model-space correspondence. Earlier unindexed equivalent formulations remain an originality risk. Independent audit has not been performed.
+PASS
+
+For all 0<r<1, positive Poisson-weighted F_r(b)=∫P_r|1+b e^{it}| is coercive and strictly convex in complex b, hence has unique minimizer real by conjugation symmetry. At c=2r/(1+r²), tangent-half-angle derivative transforms into an integrand antisymmetric under u->h²/u with h=(1-r)/(1+r), making b=-c stationary and therefore globally optimal. Elementary rational square-root decomposition gives the stated nonsingular K/Pi elliptic expression. On the 2D Blaschke model space, exact compression moments m_{0},m_{±1} yield the lower dual bound β>=1/M and the explicit continuous symbol -conj(g)/(M|g|) satisfies all moments with equality; nonvanishing g and Hölder equality give uniqueness. Independent scipy bounded optimization at r=.12,.5,.8 located exactly the stated c to numerical tolerance; independent quadrature verified m_{-1}=-1,m_0=m_1=0 with <1e-9 error. The continuous theorem follows from analytic identities, not three examples.
+
+## originality
+
+PASS
+
+The very same quadratic Blaschke theta_r and rank-one R_r appear in Pan Ma (2026), and related weighted polynomial duality appears in Sam Looi (2026). Their accessible abstracts and descriptions establish earlier setup and bounds; full primary texts were inaccessible here, so could already contain or imply the exact minimizer. The specific closed coefficient, elliptic exact norm and unique optimal symbol are not explicit in material actually read. The risk is material; this is a qualified best-of-knowledge PASS rather than a categorical NOT_COVERING claim.
+
+## value
+
+PASS
+
+Identifies a natural least bounded-symbol norm for an explicit finite-dimensional model-space operator that earlier results gave only through two-sided bounds. A unique continuous optimal symbol and algebraic minimizer are exactly the sharp facts useful in benchmarking general bounded-symbol theory, not a renamed constant or a tiny arbitrary calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

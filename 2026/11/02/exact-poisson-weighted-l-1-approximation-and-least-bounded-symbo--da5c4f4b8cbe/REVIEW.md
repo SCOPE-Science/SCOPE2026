@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all real \(0<r<1\), with normalized circle measure and the stated compression convention. Strict convexity and coercivity give a unique complex weighted \(L^1\) minimizer. Evenness restricts it to the real axis. The stationary equation is computed directly and solved by the exact involution \(u\mapsto h^2/u\) at \(c=2r/(1+r^2)\); the elliptic expression follows from a verified algebraic decomposition. The moment calculation reconstructs the full \(2\times 2\) compressed operator, and a matching complex Hölder witness establishes sharpness and uniqueness of the optimal symbol. Supplementary numerical checks: `CHECK_OK 70`. No finite computation is being used as an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The closest 2026 source is Pan Ma, arXiv:2610.28417v1, Section 6, which defines this precise quadratic Blaschke family and target rank-one operator. It proves upper/lower estimates and a boundary-order asymptotic, not the exact finite-parameter norm, algebraic weighted \(L^1\) optimizer, elliptic evaluation or unique optimal symbol. Sam Looi, arXiv:2610.31382, Section 4.3, obtains weighted polynomial duality and degree-two bounds, but those claims do not determine the extremal coefficient. Bellavita–Virtanen, arXiv:2610.26232, Theorem 6.3, compare general and rank-one symbol constants in dimension two, but do not solve the specified exact norm. The 2009–2011 general bounded-symbol literature does not supply an equivalent formula in the inspected material. Public index and primary-literature searches did not find a decisive equivalent; earlier unindexed Poisson-weighted \(L^1\) extremals or notation changes remain a residual risk.
+PASS
 
-## Value — PASS
-An exact full-parameter best-approximation coefficient, closed elliptic norm and unique continuous optimal \(L^\infty\) symbol answer a concrete sharpness question suggested by previously two-sided bounds. The explicit optimizer is useful when comparing finite-dimensional Hardy model-space symbol representations, while the proof's weighted inversion symmetry is a reusable structural device. The result is not a general theorem about arbitrary inner functions or every operator on the same model space.
+For all 0<r<1, positive Poisson-weighted F_r(b)=∫P_r|1+b e^{it}| is coercive and strictly convex in complex b, hence has unique minimizer real by conjugation symmetry. At c=2r/(1+r²), tangent-half-angle derivative transforms into an integrand antisymmetric under u->h²/u with h=(1-r)/(1+r), making b=-c stationary and therefore globally optimal. Elementary rational square-root decomposition gives the stated nonsingular K/Pi elliptic expression. On the 2D Blaschke model space, exact compression moments m_{0},m_{±1} yield the lower dual bound β>=1/M and the explicit continuous symbol -conj(g)/(M|g|) satisfies all moments with equality; nonvanishing g and Hölder equality give uniqueness. Independent scipy bounded optimization at r=.12,.5,.8 located exactly the stated c to numerical tolerance; independent quadrature verified m_{-1}=-1,m_0=m_1=0 with <1e-9 error. The continuous theorem follows from analytic identities, not three examples.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The very same quadratic Blaschke theta_r and rank-one R_r appear in Pan Ma (2026), and related weighted polynomial duality appears in Sam Looi (2026). Their accessible abstracts and descriptions establish earlier setup and bounds; full primary texts were inaccessible here, so could already contain or imply the exact minimizer. The specific closed coefficient, elliptic exact norm and unique optimal symbol are not explicit in material actually read. The risk is material; this is a qualified best-of-knowledge PASS rather than a categorical NOT_COVERING claim.
+
+## value
+
+PASS
+
+Identifies a natural least bounded-symbol norm for an explicit finite-dimensional model-space operator that earlier results gave only through two-sided bounds. A unique continuous optimal symbol and algebraic minimizer are exactly the sharp facts useful in benchmarking general bounded-symbol theory, not a renamed constant or a tiny arbitrary calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
