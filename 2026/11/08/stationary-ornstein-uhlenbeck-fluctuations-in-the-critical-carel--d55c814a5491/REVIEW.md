@@ -1,0 +1,11 @@
+# Scientific review: stationary critical careless-collector fluctuations
+
+**Correctness — PASS.** The post-loss model's transition is conditionally \(\operatorname{Binomial}(k+J,q)\), where \(J\) indicates a new coupon. Exact stationary second moments establish \(\operatorname{Var}(K)/n\to c(c+2)/(2(1+c)^3)\). Its affine regression determines the \(n\)-scale drift and all stationary time-lag covariances. Uniform fourth jump moments, predictable quadratic-variation convergence, a martingale FCLT and a tightness argument yield the stationary OU process. The standalone checker passed 945 independent rational identities for finite state spaces, supporting the algebra rather than replacing the limiting proof.
+
+**Originality — PASS (provisional).** Cruciani–Dudeja (arXiv:2602.20705v1) establish the model, one-coordinate marginal limit and negative association. Long (arXiv:2605.14511v1) establishes fixed-loss stationary high-tail and hitting-time asymptotics. An earlier exact stationary all-present product and fixed-subset inclusion recurrence are explicitly excluded from the novelty claim; they serve as input to the new stationary critical-window OU theorem. Named comparisons, accessible prior claims and published-research searches found no direct equivalent or stronger result for this exact OU covariance. Standard density-dependent diffusion approximation is relevant methodology, not a model-specific covariance calculation. Historical priority is not independently established.
+
+**Mathematical value — PASS.** In the model's natural metastable regime \(p=c/n\), the result determines both the sharp Gaussian occupancy variance and the full stationary time-correlation law. The variance is smaller by \((c+2)/(2(1+c))\) than under an independence heuristic even though first-order densities match. This quantifies correlated occupancy fluctuations and their relaxation, a motivated structural question distinct from rare full-cover times.
+
+**Limitations.** Fixed positive \(c\), stationary initialization and bounded rescaled time horizons only; no nonuniform-erasure or completion-time limit. Finite computations do not certify an infinite theorem, and this self-review is not independent certification.
+
+Self-review: passed. Independent audit: not yet performed.

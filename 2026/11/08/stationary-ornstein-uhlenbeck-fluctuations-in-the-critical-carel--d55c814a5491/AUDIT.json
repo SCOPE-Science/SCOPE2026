@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional binomial transition gives affine regression and conditional variance. Exact stationary first/second moments yield uniform O(n) stationary variance and limit v_c=c(c+2)/(2(1+c)^3). At p=c/n, conditional variance converges to H_c=c(c+2)/(1+c)^2; jumps have uniformly bounded fourth moments via binomial domination. The stationarity moment bound, martingale functional CLT, semimartingale tightness and uniqueness of the stationary OU limit prove the entire functional theorem. The standalone standard-library checker independently passes 945 exact-rational identities across n=2..8 and three rational p values. Mathematical boundaries and unproved cases are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour–Hamza–Kaspi–Klebaner arXiv:1312.5788v1 abstract describes Kurtz-type finite-time diffusion approximations for density-dependent Markov population chains.",
+        "arXiv:2605.14511v1, Section 5 proves fixed-p stationary high-tail asymptotics and stationary-entry flux, not stationary p=c/n functional diffusion.",
+        "The current proof independently verifies compact stationary moment control, conditional diffusion variance, and stationarity of the subsequential OU limit."
+      ],
+      "reasoning": "Classical diffusion approximation theorems supply general methods and plausibly imply finite-time local fluctuation convergence once their hypotheses are checked. Neither a theorem for a general process nor the fixed-p stationary high-tail result states the explicit stationary critical-window covariance and variance for the model. A generic theorem is not treated as an independent novelty proof, and any uninspected broader theorem that directly states these constants remains a historical-priority risk.",
+      "searches": [
+        "published-finding corpus: discrete time post loss coupon collector uniform refreshed single type immigration thinning stationary OU fluctuation process p=c/n",
+        "web: density dependent Markov chains stationary diffusion approximation Ornstein Uhlenbeck Kurtz 1971 equilibrium stationary distribution theorem",
+        "web: stochastic approximation stationary Ornstein Uhlenbeck central limit uniform death immigration process martingale functional central limit",
+        "source: arxiv:1312.5788v1 (density-dependent Markov population diffusion approximation background)",
+        "published-finding corpus: arxiv 2605.14511 careless nonmonotone post loss stationary count Gaussian diffusion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.20705v1, full accessible converted HTML, model/negative association/metastability and relevant theorem statements",
+      "arXiv:2605.14511v1, full accessible converted HTML, Sections 5.1–5.4 plus targeted searches",
+      "Earlier accessible claim 247b3755-9956-49bd-acb8-294ff8cf2826, exact stationary all-present mass and c/n hitting exponent",
+      "published-finding corpus queries listed in the four named comparisons; no direct corresponding match",
+      "arXiv:1312.5788v1 abstract only, as background on density-dependent Markov fluctuations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cruciani–Dudeja Theorems/lemmas establish mean equilibrium fraction, negative association and Chernoff concentration; they do not provide a Gaussian variance coefficient or pathwise stationary diffusion limit.",
+        "Long Section 5.2 treats fixed-p upper stationary tail and Section 5.4 rare hitting law, neither the central c/n Gaussian fluctuations nor two-time stationary covariance.",
+        "Earlier 247b3755-9956-49bd-acb8-294ff8cf2826 gives fixed-subset recurrence and rare-completion exponential rate; these do not assert Gaussian equilibrium fluctuations, although they provide a key moment identity.",
+        "The proved diffusion coefficient H_c=c(c+2)/(1+c)^2 combines binomial erasures and exclusive uniform draws; its value is not recoverable from marginal equilibrium density alone."
+      ],
+      "reasoning": "First-order convergence and negative association do not imply Gaussian process convergence or this non-binomial variance. The stationary product identity determines the stationary law implicitly, but deriving the process limit still needs an exact second-moment asymptotic, martingale predictable-variance convergence, Lindeberg/tightness, and stationary OU identification. This is a new asymptotic claim, not a renaming or parameter substitution of the earlier all-present formula.",
+      "searches": [
+        "source inspection arxiv:2602.20705v1, Sections 2.2–4.3",
+        "source inspection arxiv:2605.14511v1, Sections 5.1–5.4",
+        "accessible prior claim 247b3755-9956-49bd-acb8-294ff8cf2826",
+        "published-finding corpus: post loss coupon collector stationary OU fluctuation process c/n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.20705v1, Sections 2.2 and 3 (one-point marginals, negative association, exponential-time concentration).",
+        "Earlier research item 247b3755-9956-49bd-acb8-294ff8cf2826 already derives the fixed-subset inclusion recurrence and product all-present stationary probability.",
+        "No matched published-finding corpus record or primary-source statement was found for the stationary critical p=c/n functional Ornstein–Uhlenbeck limit with this variance."
+      ],
+      "reasoning": "The prior stationary factorial-moment identity, exact product for full occupancy, marginal relaxation, and negative association are recognized as covered and deliberately excluded from the new finding. Rewriting the proposed theorem as a stationary fluctuation theorem for the occupancy count or as a diffusion limit gives the same specific new claim; it is not a disguised restatement of the stationary product or its first moment.",
+      "searches": [
+        "published-finding corpus: careless coupon collector post loss independent global thinning exact stationary factorial moments joint occupancy negative covariance negative correlations critical p=c/n stationary Gaussian central limit variance",
+        "published-finding corpus: Careless Coupon Collector Cruciani Dudeja metastable phase critical loss p=c/n Ornstein Uhlenbeck stationary diffusion Gaussian fluctuations variance c(c+2)/(2(1+c)^3)",
+        "web: \"careless coupon collector\" \"Ornstein-Uhlenbeck\" OR \"diffusion\" OR \"Gaussian\" \"stationary\" 2026",
+        "published-finding corpus: arxiv 2602.20705 careless coupon collector critical stationary fluctuations Ornstein Uhlenbeck c/n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest own item 247b3755-9956-49bd-acb8-294ff8cf2826: exact all-present stationary probability and mean hitting-time exponential rate for p=c/n; does not assert stationary OU fluctuations.",
+        "Own item fc7f39ea-d192-4129-9c5e-ab99361878d8: two-type heterogeneous-loss stationary mass and hitting-time optimization, not a growing-n functional Gaussian limit.",
+        "published-finding corpus closest published record 0606274d4166 concerns iid occupancy experiments, not stochastic post-loss erasures."
+      ],
+      "reasoning": "The accessible prior claims include precise overlaps (fixed-subset stationary recursion and exact all-present product) which are not accepted as new. No queried table or stored claim specifies the centered stationary occupancy process in the c/n regime and its OU covariance kernel. Lack of a database hit alone does not prove uniqueness.",
+      "searches": [
+        "published-finding corpus: stationary coupon collector with each coupon independently forgotten probability c/n; CLT number present centered normal variance c(c+2)/[2(1+c)^3]",
+        "published-finding corpus: stationary factorial moments careless collector probability all marked coupons present q^r r/(np(1-q^r))",
+        "web: \"careless coupon collector\" stationary variance negative covariance",
+        "accessible prior claim texts: exact keyword searches for careless, post-loss, stationary, Ornstein, thinning, immigration",
+        "published-finding corpus: negative association careless coupon retained count critical loss c/n exact variance stationary time covariance"
+      ]
+    },
+    "rationale": "Relative to the identified 2026 primary sources, published-finding corpus results and all accessible prior claim text, the new claim is the stationary c/n functional OU fluctuation with its model-specific covariance. Exact all-present stationary products and finite fixed-subset recurrences already known are used only as proof inputs, not offered as new. Generic Markov diffusion methods are recognized as possible methodological coverage but do not themselves state this specific limit; priority remains provisionally assessed.",
+    "residual_risks": [
+      "A general diffusion-approximation result or earlier unpublished analysis might already explicitly derive this exact stationary critical-window OU law; no exhaustive historical priority proof is claimed.",
+      "General-purpose density-dependent process central limit methods likely reduce some proof steps, but their application to this stationary count chain and the explicit variance are checked here.",
+      "The background arXiv:1312.5788 manuscript was not read in full; its abstract does not state the same model or variance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model, marginal fixed point, negative association and concentration; does not establish stationary functional Ornstein–Uhlenbeck theorem or its variance",
+        "evidence": "First posted 2026-02-24; Sections 1, 2.2, 3 and 4 of arXiv:2602.20705v1",
+        "identifier_or_url": "https://arxiv.org/abs/2602.20705",
+        "material_read": "Publicly accessible full HTML: formal definition, marginal recurrence, negative association proof, metastability statements and hitting-time sections; targeted text search for stationary variance and diffusion assertions",
+        "method": "Read indexed arXiv HTML and searched Gaussian, stationarity, variance, covariance, metastable",
+        "title": "The Careless Coupon Collector’s Problem",
+        "trigger": "Identical post-loss stochastic dynamics and its critical c/n metastable phase"
+      },
+      {
+        "assessment": "Covers fixed-p stationary high tails and rare-entry flux; does not cover the critical stationary OU process",
+        "evidence": "First posted 2026-05-14; Proposition 5.2 and Theorem 5.10, arXiv:2605.14511v1",
+        "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+        "material_read": "Publicly accessible full HTML, especially Sections 5.1–5.4 on the count transition, high tail, mixing and fixed-p hitting law; searched for central limit, factorial and critical",
+        "method": "Read indexed arXiv HTML sections and searched full document headings and target terms",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Directly studies the stationary count chain of the same careless collector"
+      },
+      {
+        "assessment": "Describes classical finite-time diffusion approximation methods but does not make a model-specific priority claim",
+        "evidence": "arXiv:1312.5788v1, first posted 2013-12-20",
+        "identifier_or_url": "https://arxiv.org/abs/1312.5788",
+        "material_read": "Abstract and publication description only; not the complete paper",
+        "method": "Reviewed arXiv abstract retrieved in web search",
+        "title": "Escape from the boundary in Markov population processes",
+        "trigger": "General density-dependent Markov-process diffusion limits might dominate the functional part"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d55c814a-5491-446a-9dfd-8816a1c6ddcb",
+  "value": {
+    "rationale": "The natural critical loss regime p=c/n is already central to the source model’s metastable behavior. The finding quantifies typical equilibrium fluctuations at the sharp sqrt(n) scale and their n-step correlation time, replacing a misleading independent-coupon variance by the exact reduction factor (c+2)/(2(1+c)). This is a model-specific structural law for cache/sensor freshness despite existing first-order concentration and rare-event hitting results; it does not require a new completion-time theorem to be mathematically useful.",
+    "status": "PASS"
+  }
+}
