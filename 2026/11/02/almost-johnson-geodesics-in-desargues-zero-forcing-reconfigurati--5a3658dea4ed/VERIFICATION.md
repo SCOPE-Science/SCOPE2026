@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-The checker `verify_desargues_metric.cpp` uses a fixed twenty-vertex cubic graph. It enumerates all seven- and eight-subsets by Gosper bit iteration, checks the complete ordinary forcing closure, constructs the exchange graph by exact two-bit changes, and performs breadth-first search from each one of its 13,520 vertices. Assertions cover all 91,388,440 distinct unordered pairs. It uses exact integer operations only, no random choices or timeouts.
+## correctness
 
-Reproduce using `g++ -std=c++17 -O3 verify_desargues_metric.cpp -o verify_desargues_metric && ./verify_desargues_metric`. Expected terminal signature: `DESARGUES_METRIC_EXHAUSTIVE_PASS`; auxiliary lines give 13,520 minimum configurations, 178,560 edges, radius seven, diameter eight, and 47,380 distance-excess-one unordered pairs. The metric histogram includes zero excess greater than one.
+PASS
 
-The second checker `verify_desargues_alternate.py` independently constructs the bipartite-Kneser realization with twenty vertices, uses sequential single-forcing updates, and checks the minimum-set and edge/degree census. It also runs nine complete breadth-first searches from selected sources. Expected signature: `ALTERNATE_KNESER_PASS`. Its coverage is deliberately smaller for pairwise distances; it does not reproduce the C++ all-pairs histogram.
+Minimum ordinary zero forcing sets of the 20-vertex GP(10,3) are exactly the 13,520 eight-vertex masks (none of 77,520 seven-vertex subsets forces). The exact closure algorithm exhausts all C(20,8)=125,970 masks. Exchanging one chosen and one unchosen site builds a simple graph with 178,560 undirected edges. All-source BFS across 13,520 vertices exhaustively visits 91,388,440 unordered pairs, comparing exact d with j=8−|A∩B|: 47,380 have excess1 and none have excess>=2; by j counts 2:16080,3:25080,4:5730,5:360,6:130; radius7 diameter8, eccentricities 7:980 and 8:12540. I inspected the original C++ checker including loop bounds and forcing closure, then independently wrote and executed a separate C++ all-source BFS / mask enumeration reproducing all numbers; finite exhaustive proof, not inference from samples. Strictness witness masks 255 and 999 have j2 but graph distance3.
 
-`certificate.json` contains the claimed exhaustive count arrays and an explicit obstruction path, not a freestanding mathematical proof. Exact proof requires reading and running the included code. No independent external audit has been performed.
+## originality
+
+PASS
+
+Butler–Grout–Hall Z(D)=8 and Geneson–Haas–Hogben general exchange-reconfiguration definitions and algorithms are prior. Inspected full latter paper does not specify the Desargues all-pairs distance-defect histogram/radius. A generic enumerator capable of computing numbers does not already state the exact results. No covering Resultary Desargues metric record identified.
+
+## value
+
+PASS
+
+Desargues GP(10,3) is a canonical symmetric graph; exact near-isometry of its minimum zero-forcing exchange graph within Johnson J(20,8), unique small detours and complete eccentricity census are natural reconfiguration invariants. The finite classification is informative beyond knowing Z(D) or connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

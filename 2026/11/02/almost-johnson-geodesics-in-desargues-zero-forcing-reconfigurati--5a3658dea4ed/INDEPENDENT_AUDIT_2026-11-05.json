@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:50:01.741334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261105T1033Z/independent_desargues.cpp"
+      ],
+      "rationale": "Minimum ordinary zero forcing sets of the 20-vertex GP(10,3) are exactly the 13,520 eight-vertex masks (none of 77,520 seven-vertex subsets forces). The exact closure algorithm exhausts all C(20,8)=125,970 masks. Exchanging one chosen and one unchosen site builds a simple graph with 178,560 undirected edges. All-source BFS across 13,520 vertices exhaustively visits 91,388,440 unordered pairs, comparing exact d with j=8−|A∩B|: 47,380 have excess1 and none have excess>=2; by j counts 2:16080,3:25080,4:5730,5:360,6:130; radius7 diameter8, eccentricities 7:980 and 8:12540. I inspected the original C++ checker including loop bounds and forcing closure, then independently wrote and executed a separate C++ all-source BFS / mask enumeration reproducing all numbers; finite exhaustive proof, not inference from samples. Strictness witness masks 255 and 999 have j2 but graph distance3.",
+      "residual_risks": [
+        "Independent executable exhaustive integer verification is a computer-assisted finite proof, not an independent human formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General reconfiguration algorithm applies to arbitrary graphs; Desargues Z=8 established."
+        ],
+        "reasoning": "Algorithm availability does not imply already established exact eccentricities or near-Johnson bound without carrying out the complete instance computation.",
+        "searches": [
+          "arxiv:2009.00220 general zero forcing reconfig",
+          "arxiv:1211.4618",
+          "Resultary query",
+          "Resultary semantic search: Desargues graph zero forcing reconfiguration 13520 shortest path Johnson exchange metric"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2009.00220",
+        "https://arxiv.org/abs/1211.4618",
+        "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed",
+        "Resultary semantic search: Desargues graph zero forcing reconfiguration 13520 shortest path Johnson exchange metric"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the size of minimum forcing sets and that general exchange graphs can be generated does not entail diameter8 or 47,380 detour pairs."
+        ],
+        "reasoning": "Only complete closure, exchange graph reconstruction and all-source BFS give these exact metrics in the inspected material.",
+        "searches": [
+          "arxiv:2009.00220 general reconfiguration results",
+          "arxiv:1211.4618 Z(D)=8",
+          "Resultary semantic search: Desargues graph zero forcing reconfiguration 13520 shortest path Johnson exchange metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reconfiguration graph can be viewed as induced subgraph of Johnson J(20,8), or token-exchange graph of minimum zero-forcing sets."
+        ],
+        "reasoning": "These equivalent viewpoints were compared; neither inspected source states the complete metric defect distribution.",
+        "searches": [
+          "arxiv:2009.00220",
+          "Desargues GP(10,3)=bipartite Kneser H(5,2)",
+          "Resultary query",
+          "Resultary semantic search: Desargues graph zero forcing reconfiguration 13520 shortest path Johnson exchange metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No covering exact 13,520-state distance table located in inspected sources; checker itself exhaustively reconstructs one."
+        ],
+        "reasoning": "A known table could cover even without words \"near-Johnson\"; residual priority risk retained.",
+        "searches": [
+          "Resultary Desargues/Johnson metric search",
+          "arxiv:2009.00220",
+          "MathWorld Desargues",
+          "Resultary semantic search: Desargues graph zero forcing reconfiguration 13520 shortest path Johnson exchange metric"
+        ]
+      },
+      "rationale": "Butler–Grout–Hall Z(D)=8 and Geneson–Haas–Hogben general exchange-reconfiguration definitions and algorithms are prior. Inspected full latter paper does not specify the Desargues all-pairs distance-defect histogram/radius. A generic enumerator capable of computing numbers does not already state the exact results. No covering Resultary Desargues metric record identified.",
+      "residual_risks": [
+        "Result is specific to this one 20-vertex Desargues graph; no universal Petersen/zero-forcing theorem.",
+        "Another exact distance table for the bipartite Kneser H(5,2) may be indexed under an alias.",
+        "Independent executable exhaustive integer verification is a computer-assisted finite proof, not an independent human formal verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines method, not the exact target instance",
+          "evidence": "The general algorithm makes counts computable but inspected theorems do not state sharp near-Johnson metric and its 47,380 exception distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Full primary 21-page PDF including definitions, general enumeration algorithm and structural results; Desargues mention searched, opening-page screenshot",
+          "method": "Full PDF reading and search",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "same zero-forcing exchange graph definition and computational enumeration"
+        },
+        {
+          "assessment": "Known min forcing size only",
+          "evidence": "Z(D)=8 is prior, but it neither determines all 13,520 min sets nor the exchange distances.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4618",
+          "material_read": "Accessible primary theorem and examples on Desargues number 8",
+          "method": "Primary result inspection",
+          "title": "Zero forcing for inertia sets",
+          "trigger": "established Desargues zero forcing number"
+        },
+        {
+          "assessment": "Alias only",
+          "evidence": "GP(10,3) and H(5,2) are the same graph and both aliases inform literature search.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+          "material_read": "Graph nomenclature and generalized Petersen / bipartite Kneser identifiers",
+          "method": "Reference entry inspection",
+          "title": "Desargues Graph",
+          "trigger": "graph alias and 20-vertex identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2009.00220",
+        "https://arxiv.org/abs/1211.4618",
+        "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed"
+      ],
+      "rationale": "Desargues GP(10,3) is a canonical symmetric graph; exact near-isometry of its minimum zero-forcing exchange graph within Johnson J(20,8), unique small detours and complete eccentricity census are natural reconfiguration invariants. The finite classification is informative beyond knowing Z(D) or connectivity.",
+      "residual_risks": [
+        "Result is specific to this one 20-vertex Desargues graph; no universal Petersen/zero-forcing theorem.",
+        "Another exact distance table for the bipartite Kneser H(5,2) may be indexed under an alias.",
+        "Independent executable exhaustive integer verification is a computer-assisted finite proof, not an independent human formal verification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2009.00220",
+    "https://arxiv.org/abs/1211.4618",
+    "https://mathworld.wolfram.com/DesarguesGraph.html",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Result is specific to this one 20-vertex Desargues graph; no universal Petersen/zero-forcing theorem.",
+    "Another exact distance table for the bipartite Kneser H(5,2) may be indexed under an alias.",
+    "Independent executable exhaustive integer verification is a computer-assisted finite proof, not an independent human formal verification."
+  ],
+  "schema_version": 1
+}

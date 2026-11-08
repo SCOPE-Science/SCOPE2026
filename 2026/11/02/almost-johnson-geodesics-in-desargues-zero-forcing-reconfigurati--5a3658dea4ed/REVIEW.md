@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the completely specified 20-vertex Desargues graph, two independently implemented programs reproduce the \(13{,}520\) minimum forcing configurations, their \(178{,}560\) exchange edges, and the full vertex-degree distribution. The full checker visits all \(77{,}520\) seven-element and \(125{,}970\) eight-element subsets, tests forcing by monotone closure, and runs breadth-first search from every reconfiguration vertex. Every one of the \(91{,}388{,}440\) unordered configuration pairs is compared with its Johnson lower bound: \(91{,}341{,}060\) attain the bound and \(47{,}380\) require exactly one extra exchange. The code checks all degree/metric counts and a concrete obstruction path. This constitutes an exhaustive finite proof conditional on replaying the included code; it is not an infinite-family proof or a sampled-experiment claim.
+PASS
 
-## Originality — PASS, with residual risk
+Minimum ordinary zero forcing sets of the 20-vertex GP(10,3) are exactly the 13,520 eight-vertex masks (none of 77,520 seven-vertex subsets forces). The exact closure algorithm exhausts all C(20,8)=125,970 masks. Exchanging one chosen and one unchosen site builds a simple graph with 178,560 undirected edges. All-source BFS across 13,520 vertices exhaustively visits 91,388,440 unordered pairs, comparing exact d with j=8−|A∩B|: 47,380 have excess1 and none have excess>=2; by j counts 2:16080,3:25080,4:5730,5:360,6:130; radius7 diameter8, eccentricities 7:980 and 8:12540. I inspected the original C++ checker including loop bounds and forcing closure, then independently wrote and executed a separate C++ all-source BFS / mask enumeration reproducing all numbers; finite exhaustive proof, not inference from samples. Strictness witness masks 255 and 999 have j2 but graph distance3.
 
-Butler, Grout and Hall (arXiv:1211.4618, sections 2 and 5 and appendix) cover \(Z(D)=8\) and matrix-inertia applications, not the all-pairs configuration metric. Geneson, Haas and Hogben (arXiv:2009.00220, sections 1–2, 5–6) introduce zero-forcing reconfiguration and an enumeration method; their relevant theorems classify other families and do not furnish this instance's distance-defect histogram. Searches also covered the Desargues graph's bipartite-Kneser and generalized-Petersen aliases and exact candidate counts. Neither a covering table nor a stronger theorem yielding this metric was located. Search absence is not uniqueness proof: unindexed computations remain a possible source of prior coverage.
+## originality
 
-## Value — PASS
+PASS
 
-The refinement is not another proof of the already established forcing number or a graph-connectivity census. The natural Johnson lower bound measures the fewest seed replacements possible if intermediate configurations could ignore the forcing requirement. The result determines exactly how imposing minimum zero forcing affects **every** optimal exchange path: one extra move always suffices, is sometimes necessary, and its precise frequency and locations by Johnson distance are certified. Together with the nontrivial eccentricity split, this is a complete finite metric classification of a canonical symmetric incidence graph and a reproducible benchmark for optimal-set reconfiguration.
+Butler–Grout–Hall Z(D)=8 and Geneson–Haas–Hogben general exchange-reconfiguration definitions and algorithms are prior. Inspected full latter paper does not specify the Desargues all-pairs distance-defect histogram/radius. A generic enumerator capable of computing numbers does not already state the exact results. No covering Resultary Desargues metric record identified.
 
-## Limits and closest literature
+## value
 
-The claim is finite and computational. The general enumeration framework is prior work, the zero-forcing number is prior work, and no theorem about all generalized Petersen graphs is asserted. Exact all-pairs confirmation is concentrated in the C++ checker; the second checker independently verifies the host graph, closure procedure, configurations, adjacency and sampled distances. An equivalent result may be hidden in an unindexed calculation or specialized table.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Desargues GP(10,3) is a canonical symmetric graph; exact near-isometry of its minimum zero-forcing exchange graph within Johnson J(20,8), unique small detours and complete eccentricity census are natural reconfiguration invariants. The finite classification is informative beyond knowing Z(D) or connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
