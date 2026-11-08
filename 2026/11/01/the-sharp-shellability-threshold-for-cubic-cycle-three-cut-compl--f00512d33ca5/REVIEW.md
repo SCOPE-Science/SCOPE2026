@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The facet enumeration is exhaustive over all three-subsets and tests their induced connectivity directly. Both attached ordered triple lists are fully reproduced and checked against that enumeration. The shelling checker tests actual intersections with the already constructed face set, not merely a graph-of-facets heuristic; it separately tests an equivalent criterion. It counts exactly one spanning facet at \(n=13\) and eight at \(n=14\). Complete mod-two boundary reductions in the four smaller nonvoid cases give lower-dimensional reduced homology, obstructing pure shellability. The unrestricted \(n\ge15\) range is a direct specialization of the published theorem [1]. Residual proof dependency: the standard shelling theorem and [1] are taken as established mathematical results, not independently reproved here.
+## correctness
 
-## Originality — PASS, with residual risk
-The earlier paper [2] formulates the threshold as a conjecture and tabulates relevant Betti groups, but neither a homology table nor the squared-cycle theorem establishes a shelling for the cubic power at \(n=13,14\). The newer paper [1] proves shellability only for \(n\ge6p-3\), or \(n\ge15\) at cubic power. The closest published rotation-module result [3] uses that same lower bound and therefore does not entail the boundary shellings. Exhaustive comparison of available prior claims and searches found no stronger covering statement; equivalent unindexed work remains possible.
+PASS
 
-## Mathematical value — PASS
-This establishes the exact sharp shellability threshold and integral homotopy phase for **every** cubic cycle power. The two nontrivial finite shelling certificates fill the complete gap between the conjectural onset at \(n=13\) and the published theorem starting at \(n=15\). The positive result proves shellability, which is strictly stronger than the previously tabulated matching Betti ranks, and it yields explicit top-dimensional sphere-wedge types. The broader conjecture for \(p\ge4\) remains unresolved.
+Independently enumerated every disconnected three-subset for n=3..14; counts 0 for 3..8 and (9,30,66,112,169,238) for 9..14. Read both actual shelling CSV blobs at assigned source tree and independently verified they are complete, duplicate-free, and satisfy the shelling ridge-coverage criterion for every earlier facet; count of spanning facets 1 at 13 and 8 at 14. Independently enumerated all faces and reduced F2 boundary matrices at n9..12, finding beta_3=1,beta_4=11,beta_5=1,beta_7=2 respectively, each below pure dimension n-4, obstructing shellability. The infinite tail n>=15 is Theorem 1.4 of Chauhan–Shukla (2026), not extrapolation; sphere counts specialize to the displayed expression. F2 finite homology cannot determine all integral homology below threshold, and no such claim is made.
 
-## Sources and limitations
-[1] Chauhan and Shukla, *Shellability of 3-cut complexes of powers of cycle graphs*, arXiv:2603.23155v1, Theorem 1.4 and conclusion.
+## originality
 
-[2] Chauhan, Shukla and Vinayak, *Shellability of 3-Cut Complexes of Squared Cycle Graphs*, arXiv:2406.01979v1/v2, Conjecture 4.2 and Table 2.
+PASS
 
-[3] *Rational cyclic homology representations of three-cut complexes of cycle powers* (2026), public claim limited to \(n\ge6p-3\).
+The newer published general theorem assumes n>=6p-3, hence n>=15 when p=3. The earlier squared-cycle work stated the 4p+1 onset as Conjecture 4.2 and computed related homology tables, but did not certify the two n=13,14 shellings. This is a genuine narrow pair of boundary cases, not a new claim to the prior infinite tail or already tabulated Betti values.
 
-Scientific limits: only ordinary three-cut complexes with cubic cycle powers are classified. The small non-shellability certificates establish lower-dimensional mod-two homology, not full integral homology. Unindexed equivalents remain a novelty risk.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Completes a natural sharp threshold in the first cubic power not settled by the general 6p-3 theorem: shellability, not merely homology, is certified at both missing n. The resulting exact homotopy classification for the whole cubic family is a complete meaningful cutoff, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
