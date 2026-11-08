@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The greedy source-run index is derived from first-available subsequence embedding. For a candidate run of length \(t\), exactly \(\lceil t/2\rceil\) source blocks of that symbol are necessary; alternating candidate symbols cross exactly one intervening source block. This proves the embedding index \(\Phi=|u|-e+s\). A deletion in an even run does not change \(\Phi\), excluding such runs from minimal absences. The remaining deletion cases give the exact three conditions. Odd-part composition generating functions include the exceptional one-run first-and-last-long case, and yield the stated \(r\ge2\) spectrum; \(r=1\) is checked directly. The independent enumerator and scanner agree on 412,292 exact finite candidate decisions. Remaining mathematical risk is limited to the usual possibility of an unrecognized proof error, not an unverified computational premise.
+## correctness
 
-## Originality (O) — PASS, with priority uncertainty
-Kosche–Koß–Manea–Siemer, arXiv:2108.13968, Section 3, treat MASs structurally and produce an exponential lower bound for a periodic large-alphabet permutation family. Their \(B_k\) is not a doubled-run binary word, and the claim neither supplies the present exact count nor determines its length layers. Manea–Ringleb–Siemer–Winkler, arXiv:2504.21471v1, Sections 5–6, give enumeration algorithms for general words, not the odd-run classification or the closed form for this specific word family. A published Fibonacci law for *shortest* absent subsequence extremals is a different object and does not imply a count for all minimal absences of this fixed family. A separate known exact family concerns strictly alternating words \((01)^m\), not doubled runs. Database/alias searches found no dominating claim, but failures of search cannot prove absolute novelty; older unindexed formulas and the uninspected full text of Troníček (2023) remain residual risks.
+PASS
 
-## Value (V) — PASS
-The minimal absent subsequence set of a word is its natural obstruction basis for the subsequence order. Complete length-layer enumeration is a motivated output-size benchmark for the 2025 optimal MAS enumeration algorithms. The doubled-run family is a basic symmetric binary periodic family that has additional MAS lengths beyond the shortest layer. Its exact Fibonacci growth coexists with a three-layer width and follows from a reusable greedy run cost, providing an interpretable infinite family result rather than a table or rephrasing of a general counting algorithm.
+Proved the leftmost greedy subsequence embedding criterion Phi(u)=|u|-number_of_even_candidate_runs+indicator(first_letter=1) <=r. Every minimal absent candidate has all odd runs, and if it starts with 0 then its first run has length at least three. Deletion effect and last-run exception yield Phi=r+1, or Phi=r+2 with final run long. Counting all-odd compositions via z/(1-z-z²) yields the three exact Fibonacci layers; r=1 gives {1,000}. An independent exhaustive subsequence algorithm enumerated all binary candidates for each r=1..7, matched exact lengths and counts; this is finite corroboration, with proof for all r from greedy/candidate-run arguments.
 
-## Limits
-No claim is made for unequal run lengths or for arbitrary binary words. Priority has been assessed against the cited sources and available research records, not exhaustively certified by an independent reviewer.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kosche et al characterize generic absent subsequences and construct exponential MAS using larger alphabets, and Manea et al enumerate general MAS; this theorem evaluates the exact length spectrum for a restricted but canonical binary doubled-run input with a structural greedy certificate. The nearby Resultary Fibonacci extremal result counts shortest, not all minimal, absent subsequences of a different family.
+
+## value
+
+PASS
+
+The exact length-resolved enumeration of minimal absent scattered subsequences on a simple periodic binary source is a natural word-combinatorics invariant, showing sharp localization into three adjacent length layers and Fibonacci growth; precise structural words can be needed for MAS automata and complexity benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:52:57.315894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proved the leftmost greedy subsequence embedding criterion Phi(u)=|u|-number_of_even_candidate_runs+indicator(first_letter=1) <=r. Every minimal absent candidate has all odd runs, and if it starts with 0 then its first run has length at least three. Deletion effect and last-run exception yield Phi=r+1, or Phi=r+2 with final run long. Counting all-odd compositions via z/(1-z-z²) yields the three exact Fibonacci layers; r=1 gives {1,000}. An independent exhaustive subsequence algorithm enumerated all binary candidates for each r=1..7, matched exact lengths and counts; this is finite corroboration, with proof for all r from greedy/candidate-run arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General MAS characterization is indeed broader as a definition and framework, but the explicit doubled-run generating function is absent from its inspected application.",
+          "Troníček abstract proposes automaton counting MAS in general; complete text could have evaluated examples but was inaccessible."
+        ],
+        "reasoning": "Generic algorithms for any input do not directly establish the proposed structural classification and exact all-r formula; an exact table in an inaccessible example would be decisive but is only a named risk.",
+        "searches": [
+          "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers",
+          "Kosche et al 2023 full PDF Section 3",
+          "Manea et al 2025 general MAS algorithm",
+          "Troníček 2023 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2108.13968 (full available primary PDF introduction, relevant MAS characterization and Section 3 exponential con)",
+        "https://doi.org/10.1007/978-3-031-49614-1_26 (publisher/research index abstracts only; no full book chapter accessible via arXiv or OA. Oxford ret)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 (Resultary indexed title, summary and formula M_(2m)=F_(m+3), M_(2m+1)=2F_(m+1))",
+        "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic characterization gives recognition rules but not a specific closed form for doubled runs.",
+          "A maximum number of shortest absent words over all binary inputs does not determine the per-input MAS spectrum."
+        ],
+        "reasoning": "The assigned exact binary doubled-run identity is not a corollary of a general existence/enumeration algorithm without carrying out the specialized run analysis; it does not claim general MAS algorithms as new.",
+        "searches": [
+          "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers",
+          "Kosche et al arXiv:2108.13968 generic characterization",
+          "Manea et al 2025 MAS counting",
+          "Resultary shortest absent Fibonacci theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al general MAS examples have periodic increasing permutations over a larger alphabet, not doubled binary runs.",
+          "Manea et al is an enumeration algorithm for arbitrary word input, not an evaluated r-dependent closed-form spectrum in the inspected statements."
+        ],
+        "reasoning": "An arbitrary-word procedure could be applied computationally to each fixed r, but does not mechanically entail the family-wide odd-run classification and Fibonacci length-layer expression without new proof.",
+        "searches": [
+          "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers",
+          "Kosche et al arXiv:2108.13968 Section 3",
+          "Manea et al arXiv:2504.21471",
+          "Troníček DOI:10.1007/978-3-031-49614-1_26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary adjacent Fibonacci law is for shortest absent subsequences, unlike the larger class of minimal absent subsequences.",
+          "Direct finite enumeration through r=7 produces F_(r+2) and exactly the specified three length layers."
+        ],
+        "reasoning": "The distinction shortest vs minimal is substantive: the latter set can occupy three lengths, whereas shortest concerns a single minimum length; no exact predecessor formula found in inspected tables.",
+        "searches": [
+          "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers",
+          "Resultary published SCOPE 2026/10/4/Fibonacci extremals for shortest absent subsequences",
+          "Troníček 2023 MAS count automaton"
+        ]
+      },
+      "rationale": "Kosche et al characterize generic absent subsequences and construct exponential MAS using larger alphabets, and Manea et al enumerate general MAS; this theorem evaluates the exact length spectrum for a restricted but canonical binary doubled-run input with a structural greedy certificate. The nearby Resultary Fibonacci extremal result counts shortest, not all minimal, absent subsequences of a different family.",
+      "residual_risks": [
+        "Troníček 2023 full chapter unavailable through open access and Oxford VPN disconnected; it may contain an exact example of this family.",
+        "The all-run-length-two assumption is essential; no statement for unequal runs or arbitrary alphabets.",
+        "Independent enumeration reaches r=7; the unrestricted proof is the greedy run-decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "established background, not covering binary doubled-run spectrum in inspected family examples",
+          "evidence": "Section 3 constructs repetitions over alphabet size >=4 and derives exponential counts, no r-layer Fibonacci formula for 00 11 alternation",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "full available primary PDF introduction, relevant MAS characterization and Section 3 exponential construction",
+          "method": "read original OA PDF including Section 3 screenshot",
+          "title": "Absent Subsequences in Words",
+          "trigger": "same MAS notion, generic structural theorem"
+        },
+        {
+          "assessment": "uncertain coverage; named residual priority risk, not automatic novelty failure",
+          "evidence": "Abstract describes general absent-subsequence automata and MAS counting algorithm but no inspected exact doubled-run case",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-49614-1_26",
+          "material_read": "publisher/research index abstracts only; no full book chapter accessible via arXiv or OA. Oxford returned vpn_disconnected for same source.",
+          "method": "actual abstract reading, lawful OA search and Oxford authorized request",
+          "title": "On Problems Related to Absent Subsequences",
+          "trigger": "same MAS counting/invariant"
+        },
+        {
+          "assessment": "distinct shortest-AS vs MAS and extremal family, not same claim",
+          "evidence": "The known result optimizes shortest absent count across words, rather than counting all minimal absences for a fixed source word",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Resultary indexed title, summary and formula M_(2m)=F_(m+3), M_(2m+1)=2F_(m+1)",
+          "method": "Resultary semantic record and summary",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Fibonacci-count potential overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact length-resolved enumeration of minimal absent scattered subsequences on a simple periodic binary source is a natural word-combinatorics invariant, showing sharp localization into three adjacent length layers and Fibonacci growth; precise structural words can be needed for MAS automata and complexity benchmarks.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2108.13968 (full available primary PDF introduction, relevant MAS characterization and Section 3 exponential con)",
+    "https://doi.org/10.1007/978-3-031-49614-1_26 (publisher/research index abstracts only; no full book chapter accessible via arXiv or OA. Oxford ret)",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 (Resultary indexed title, summary and formula M_(2m)=F_(m+3), M_(2m+1)=2F_(m+1))",
+    "Resultary semantic search: minimal absent subsequences doubled binary blocks 00110011 Fibonacci three length layers"
+  ],
+  "disposition": "passed",
+  "final_claim": "For w_r consisting of r alternating binary runs each of length two starting 00, the exact minimal absent subsequence length spectrum at r,r+1,r+2 is F_r,2F_(r-1),F_(r-2) for r>=2, and total F_(r+2), with base r=1 handled separately.",
+  "limitations": [
+    "Troníček 2023 full chapter unavailable through open access and Oxford VPN disconnected; it may contain an exact example of this family.",
+    "The all-run-length-two assumption is essential; no statement for unequal runs or arbitrary alphabets.",
+    "Independent enumeration reaches r=7; the unrestricted proof is the greedy run-decomposition."
+  ],
+  "residual_risks": [
+    "Troníček 2023 full chapter unavailable through open access and Oxford VPN disconnected; it may contain an exact example of this family.",
+    "The all-run-length-two assumption is essential; no statement for unequal runs or arbitrary alphabets.",
+    "Independent enumeration reaches r=7; the unrestricted proof is the greedy run-decomposition."
+  ],
+  "schema_version": 1
+}
