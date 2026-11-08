@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The exact domain is all integers \(n=6m\ge12\), symmetric nonnegative stochastic matrices supported on holding and distances one, two, and three. Rotational averaging is valid for the convex centered operator norm, reducing global optimization to a degree-three discrete cosine minimax problem. The two exact factorizations of the proposed spectrum prove the upper envelope on every allowed Fourier node, including both transition boundaries at \(\pm 1/2\). Four alternating nodes give the matching lower bound by Lagrange interpolation, and fix the unique shift-invariant optimum. The spectrum's endpoint bounds and positive, normalized stochastic probabilities are checked explicitly. The attached double-precision diagnostic verifier reproduces 121,600 spectral inequalities, 243,200 factor comparisons and 9,144 finite-matrix/Fourier comparisons, but the universal proof is symbolic and does not depend on sampling.
+
+## Originality — PASS on inspected evidence
+Boyd–Diaconis–Xiao (2004) provides the general fastest-mixing framework and the ordinary-cycle calculation; Boyd–Diaconis–Parrilo–Xiao (2007) gives symmetry reductions. Bénézit (2009), thesis §4.2.3, formulates discrete finite-band circulant minimax design but treats range-three designs by continuous relaxation and near-optimal Remez approximations rather than the exact sixfold discrete four-node solution here. The prior degree-two cycle-power classification is a quadratic three-alternation problem, not an implication of this cubic four-alternation classification. Semantic research-record queries for third-power cycles, three-hop ring mixing and equioscillation yielded no mathematically dominating statement. Residual risk: specialist exact range-three ring designs outside these inspected materials may exist; no independent publication-priority determination is claimed.
+
+## Mathematical value — PASS
+For every natural sixfold cycle length, the result provides an exact global fastest-mixing value and explicit feasible optimizer, reveals the equality of holding and two shorter-hop probabilities, and proves a ninefold improvement of the leading spectral-gap constant over optimized nearest-neighbor mixing. The sixfold constraint is motivated by the exact occurrence of four alternating Fourier modes, not an arbitrary single numerical slice. Non-sixfold lengths and unrestricted optimizer uniqueness remain open here.
+
+Self-review: passed. Independent audit: not yet performed.

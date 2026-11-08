@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Rotation averaging handles every feasible symmetric matrix; exact cubic Fourier factorizations and two trigonometric inequalities bound all Fourier nodes for n=6m>=12. Lagrange interpolation at four alternating nodes proves sharpness and uniqueness within the circulant class. Positivity and row normalization are explicit. The included verifier replays 121600 spectral checks, 243200 factor checks and 9144 matrix comparisons, supplementary to the universal analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2004), SIAM Review, general convex fastest mixing formulation",
+        "Boyd et al. (2007), §3.1.1 automorphism reduction and cycle specialization",
+        "Bénézit (2009), §4.2.3 near-optimal continuous surrogate for banded circulants"
+      ],
+      "reasoning": "The general convex program and universal discrete minimax formulation include the admissible class as an optimization problem, but the inspected solution statements do not evaluate that program or characterize the exact optimizer for third-power sixfold cycles. A solved broader theorem covering these nodes was not identified.",
+      "searches": [
+        "fastest mixing Markov chain on graphs with symmetries complete family of circulant graphs Boyd Parrilo Xiao 2007",
+        "Bénézit distributed average consensus range k finite rings Remez minimax coefficients",
+        "periodic circulant graphs sixfold exact mixing eigenvalues edge-probability optimization"
+      ]
+    },
+    "checked_sources": [
+      "Boyd–Diaconis–Xiao (2004), DOI 10.1137/S0036144503423264",
+      "Boyd–Diaconis–Parrilo–Xiao (2007), arXiv:0709.0955",
+      "Bénézit (2009), EPFL thesis no. 4509, §4.2.3",
+      "Related public mathematical research records for finite circulants, cubic cycle graph topology and spectral optimization; no dominating statement in retrieved summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nearest-neighbor optimal symmetric cycle gap is asymptotic to 2π²/n², not the 18π²/n² value here",
+        "Earlier degree-two cycle-power statement concerns support at distances at most two; allowing distance three changes both feasible set and Fourier degree",
+        "The new four alternating nodes at cos(2π/n), 1/2, -1/2, -1 determine a distinct cubic interpolant"
+      ],
+      "reasoning": "The ordinary cycle and degree-two solutions are special restricted-support optimization problems; their optimal values only provide upper bounds for the larger feasible class, not the exact optimal cubic value or equality of its weights. The new lower bound is supplied independently via four-mode interpolation.",
+      "searches": [
+        "Chebyshev equioscillation k=3 ring graph optimal averaging holding and first two hop transition probabilities equal for cycles divisible by six",
+        "Boyd Diaconis Parrilo Xiao §3.1.1 ordinary cycle",
+        "earlier degree-two cycle-power classification compared as quadratic minimax with three alternating modes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. (2007), arXiv:0709.0955, §3.1.1 treats ordinary cycle mixing",
+        "Bénézit (2009), §4.2.3 formulates finite range-k ring filtering and applies continuous relaxation / Remez rather than this four-alternation discrete formula"
+      ],
+      "reasoning": "Transition probabilities correspond exactly to a degree-three Chebyshev polynomial sampled at cycle Fourier nodes; this was compared against discrete minimax and trigonometric-equioscillation formulations, not only graph names. The inspected antecedents do not state the exact sixfold cubic spectrum, probabilities or four-point discrete certificate.",
+      "searches": [
+        "fastest mixing Markov chain on third power of cycles C_n cubed symmetric nearest second third neighbor jumps exact SLEM three hop circulant graph",
+        "Chebyshev equioscillation k=3 ring graph optimal averaging holding and first two hop transition probabilities equal for cycles divisible by six",
+        "Bénézit thesis §4.2.3 Eq (4.10): discrete cosine minimax, finite range-3 filters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A fixed 29-vertex six-regular circulant spectral classification concerns finite non-sixfold n=29 and graph expansion, not stochastic weight optimization",
+        "The retrieved third-power cycle-neighborhood complex result is topological, not stochastic mixing"
+      ],
+      "reasoning": "No inspected exact table supplies the parametric all-size SLEM or the weights. A database absence is not treated as a proof of novelty.",
+      "searches": [
+        "fastest mixing Markov chain on third power of cycles C_n cubed symmetric nearest second third neighbor jumps exact SLEM three hop circulant graph",
+        "periodic circulant graphs sixfold exact mixing eigenvalues edge-probability optimization",
+        "published-finding corpus semantic mathematical records on three-hop circulants and sixfold ring mixing"
+      ]
+    },
+    "rationale": "Comparisons were by mathematical implication with the full general convex framework, the ordinary cycle, the finite-range circulant discrete minimax formulation and a degree-two cycle-power predecessor. None inspected gives the exact all-size sixfold cubic optimizer, four-alternation certificate, or ninefold gap constant. Specialist priority uncertainty remains.",
+    "residual_risks": [
+      "An unindexed exact three-hop ring-averaging paper could precede this result",
+      "Bénézit thesis pages were read in extracted full text, not an image-rendered version",
+      "A general unpublished degree-three trigonometric discrete-minimax formula could specialize to this result"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex framework, no exact third-power sixfold formula identified",
+        "evidence": "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), 667–689; DOI 10.1137/S0036144503423264.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "abstract; formulation and graph/symmetry and cycle results, with inspected PDF page image",
+        "method": "lawfully available full-text examination and mathematical implication comparison",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "canonical fastest-mixing theorem and ordinary-cycle optimization"
+      },
+      {
+        "assessment": "Contains automorphism reduction and ordinary cycle, not explicit degree-three sixfold optimizer",
+        "evidence": "Boyd, Diaconis, Parrilo, Xiao, arXiv:0709.0955 (2007), §3.1.1.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "general symmetry reduction and §3.1.1 cycle statements, including PDF page image",
+        "method": "open preprint full-text sections and implication comparison",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "graph automorphism and ordinary-cycle formulas might dominate this claim"
+      },
+      {
+        "assessment": "A general finite-ring formulation with relaxed/near-optimal coefficients but not the exact parametric sixfold cubic classification",
+        "evidence": "Bénézit (2009), thesis no. 4509, §4.2.3, Eqs (4.10)–(4.14).",
+        "identifier_or_url": "https://infoscience.epfl.ch/bitstreams/37436696-5172-4327-af58-7251826e769c/download",
+        "material_read": "§4.2.3 including discrete minimax Eq (4.10), relaxation and near-optimal Remez discussion in extracted full-text sections",
+        "method": "full-text section examination, including formulas and described scope; image render unavailable",
+        "title": "Distributed Average Consensus for Wireless Sensor Networks",
+        "trigger": "band-limited circular average consensus is a direct equivalent formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "94a851c3-77c3-43b6-8797-567112ad11b1",
+  "value": {
+    "rationale": "A complete natural infinite congruence family has an explicit nontrivial fastest-mixing optimum, with four-mode lower bound, positive holding and one/two/three-hop weights, and a sharp ninefold leading spectral-gap improvement over optimized nearest-neighbor mixing. Sixfold symmetry is precisely the Fourier resonance producing the four-mode certificate rather than an unmotivated parameter slice.",
+    "status": "PASS"
+  }
+}
