@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The cyclic gap encoding has an inverse and explains each legal slide as local slack transfer. Exact composition counts and gcd(N,3) prove the mod-3 connectivity cases, and degrees/edges follow from explicit moves. The Johnson-triangle dichotomy plus the unique fixed-token packing in an interval of length 3m-5 counts all N triangles and their incidences, with N=8 handled separately. The two independently encoded exhaustive programs passed all tested N=6..74 and N=6..26, respectively; finite tests are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma–Kamiński–Wrochna, arXiv:1403.0359, Theorem 16: polynomial reachability for claw-free graphs.",
+        "Bonamy–Bousquet, arXiv:1605.00442: interval/chordal reachability algorithm."
+      ],
+      "reasoning": "General reachability decidability does not imply numbers of all maximum states, edge and triangle counts, or incidence. Chordal results do not apply to the infinite nonchordal square-cycle orders.",
+      "searches": [
+        "reconfiguration graph fixed-size independent sets for generalized Petersen graphs and cycle powers",
+        "maximum independent sets token-sliding graph of second powers of cycles C_n^2, 3 modular cases, frozen connected cycle 4-regular triangular states",
+        "\"independent set reconfiguration\" \"cycle powers\" maximum token sliding"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.0359v1, 2014-03-03",
+      "arXiv:1605.00442v1, 2016-05-02",
+      "arXiv:2203.16861v1, 2022-03-31",
+      "arXiv:2208.07199v1, 2022-08-15",
+      "Published mathematical research records on graph independence complexes and related packing invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Avis–Hoang, arXiv:2203.16861, Proposition 14 concerns TS_k(C_n), not TS_alpha(C_n^2).",
+        "Bonsma–Kamiński–Wrochna, arXiv:1403.0359, Proposition 1/Thm 16 concerns model equivalence and algorithmic reachability."
+      ],
+      "reasoning": "Replacing the underlying cycle by its square modifies both independent-set families and allowable slides. Existing general algorithms could compute particular cases but do not state or imply the exact three-residue global graph-and-triangle classification.",
+      "searches": [
+        "token sliding reconfiguration maximum independent sets of prism graph C_n Cartesian K_2 and Möbius ladders exact components",
+        "reconfiguration graph fixed-size independent sets for generalized Petersen graphs and cycle powers",
+        "exact graph structure of reconfiguration space independent sets prism ladders token sliding",
+        "\"token sliding\" \"square of a cycle\" maximum independent sets reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonsma et al., arXiv:1403.0359, Proposition 1: TJ and TS coincide for maximum independent sets.",
+        "Hoang, arXiv:2208.07199: distance-three independent sets are graph-distance-three packings but TS moves are edges of the underlying graph."
+      ],
+      "reasoning": "The same maximal packing states can be regarded as distance-three subsets of the bare cycle, and TJ agrees with TS on the squared cycle, but bare-cycle TS excludes length-two slides. No searched equivalent full graph and triangle distribution found.",
+      "searches": [
+        "maximum independent sets token-sliding graph of second powers of cycles C_n^2, 3 modular cases, frozen connected cycle 4-regular triangular states",
+        "distance-three packings on cyclic words reconfiguration graph by sliding 1 or 2 steps and triangle counts",
+        "maximum stable sets square of cycle reconfiguration 4-regular connected N(m+1)/2 states and N triangles",
+        "\"token sliding\" \"square of a cycle\" maximum independent sets reconfiguration",
+        "\"independent set reconfiguration\" \"cycle powers\" maximum token sliding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research record 2026/10/11/SCOPE-first-integral-torsion-in-circulant-independence-complexes-the-f--b675db0611e0 studies different topology of independence complexes.",
+        "Published research record 2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b studies a different graph and dissociation counts."
+      ],
+      "reasoning": "Actual research index searches did not return a state/adjacency table or a count implying this theorem. Found results have different objects or invariants. Search omission is not proof of nonexistence.",
+      "searches": [
+        "maximum independent sets token-sliding graph of second powers of cycles C_n^2, 3 modular cases, frozen connected cycle 4-regular triangular states",
+        "distance-three packings on cyclic words reconfiguration graph by sliding 1 or 2 steps and triangle counts",
+        "maximum stable sets square of cycle reconfiguration 4-regular connected N(m+1)/2 states and N triangles"
+      ]
+    },
+    "rationale": "Six actual semantic research-record queries and two targeted literature searches found no equivalent theorem. Primary results in arXiv:1403.0359v1 (general claw-free reachability), arXiv:2203.16861 (other TS graph classes), arXiv:1605.00442 (chordal/interval algorithms), and arXiv:2208.07199 (different distance-three move rule) were compared by implication. The exact modular solution-graph, number of triangles and incidence stratification are not obtained from those statements. This is qualified best-knowledge originality, not a certification of historical priority.",
+    "residual_risks": [
+      "Unindexed or unpublished case-specific exact enumeration may exist.",
+      "Only relevant passages of two broadly related primary articles were inspected, not all possible works on circular power graph packings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact squared-cycle maximum-state graph; polynomial reachability and TS/TJ equivalence do not provide modular counts or triangle incidence",
+        "evidence": [
+          "arXiv:1403.0359v1, Proposition 1 and Theorem 16; exact 2014-03-03 source date"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.0359",
+        "material_read": "22-page accessible arXiv PDF, particularly definitions in Section 2, Proposition 1 (page 3), Theorem 16 (page 8), and connectedness discussion, with text search of cycle square",
+        "method": "read PDF text sections and visually inspected first PDF page",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "same independent-set token-slide rule and a broad claw-free reachability theorem"
+      },
+      {
+        "assessment": "NOT_COVERING graph \\(C_N^2\\); Proposition 14 and related results concern the unsquared base cycle or realizability questions",
+        "evidence": [
+          "arXiv:2203.16861, Section 5.4 Proposition 14 and Section 6 Proposition 16"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+        "material_read": "accessible full HTML text, Introduction, Sections 4–6, and propositions on cycle girth and structural decompositions",
+        "method": "read relevant primary HTML sections and full-text searches for square, power and cycles",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "structural properties and enumerations of token-sliding solution graphs, including cycles"
+      },
+      {
+        "assessment": "NOT_COVERING the claimed exact graph: squared cycles of sufficiently large order are nonchordal and the theorem concerns exact counts and triangle incidence rather than reachability",
+        "evidence": [
+          "arXiv:1605.00442, abstract and Introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.00442",
+        "material_read": "accessible main abstract and introduction outlining chordal/interval results",
+        "method": "read primary arXiv HTML abstract and introduction",
+        "title": "Token Sliding on Chordal Graphs",
+        "trigger": "broad token-sliding reachability algorithm potentially superseding special cases"
+      },
+      {
+        "assessment": "NOT_COVERING based on compared move definition: distance-three packing on a base cycle slides along single cycle edges, while here slides along the square-cycle edges of length one or two; full claim-specific treatment not found in inspected portion",
+        "evidence": [
+          "arXiv:2208.07199, abstract and Section 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.07199",
+        "material_read": "accessible abstract and introductory description of the distance-d feasible sets and the underlying-edge token-slide rule",
+        "method": "read primary arXiv HTML abstract and introduction",
+        "title": "On the Complexity of Distance-d Independent Set Reconfiguration",
+        "trigger": "same distance-three packing constraint on the underlying ordinary cycle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2bf4fe8-47e2-40f1-95fb-9da60a4e75d8",
+  "value": {
+    "rationale": "Densest distance-three ring packings form a canonical infinite graph family. Their motion space has a sharp, qualitatively distinct 0/1/2-defect trichotomy; the two-defect branch is unexpectedly 4-regular and connected yet non-vertex-transitive with a precise triangle-incidence spectrum. These are natural structural invariants of a full reconfiguration graph, not numerical substitutions into the known independence number.",
+    "status": "PASS"
+  }
+}
