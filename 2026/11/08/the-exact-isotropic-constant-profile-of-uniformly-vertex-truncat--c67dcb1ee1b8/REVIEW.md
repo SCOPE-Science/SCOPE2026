@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For \(0\le t\le1/2\), \(d+1\) open vertex caps of relative volume \(t^d\) are disjoint. Dirichlet simplex moments, cap homotheties, and symmetry give the exact volume, covariance, and isotropic-constant expression. Differentiation reduces the derivative sign to one explicit polynomial. Complete factorizations in dimensions two through four, and the monotone quadratic upper bound in every higher dimension, yield the strict extremal statements with endpoints. Exact-rational independent cell integrations corroborate volumes and moments in three dimensions of the family. The analytic proof, not the finite checks, covers all dimensions.
+
+**Originality — PASS, with historical-priority risk.** The closest primary preprints inspected are Kipp's 2024 study of local isotropic-constant maximizers and Baci et al.'s 2020 laws for untruncated simplex points. Neither supplies the all-depth formula, dimension-dependent monotonicity, or exceptional planar optimizer. An earlier simplicial-maximizer result and the regular-octahedron endpoint do not imply monotonicity for intermediate truncated polytopes. Search comparisons included variants under rectified-simplex, clipped-simplex, and conditional-Dirichlet terminology. This assessment is best knowledge rather than proof of absence across all literature; equivalent earlier formulations may exist.
+
+**Mathematical value — PASS.** The symmetric vertex cut is a canonical polytope deformation from every simplex to its edge-midpoint rectification. The result determines the affine-invariant spread for every intermediate body in all dimensions, and establishes a non-obvious split: the two-dimensional path reverses after producing the regular hexagon, while every higher-dimensional path strictly improves through the endpoint. The exact factorial/exponential asymptotic quantifies the vanishing high-dimensional gain. It is not a restatement of global-maximizer structural criteria.
+
+The proof does not cover truncations past \(t=1/2\), unequal vertex cap depths, or absolute extremality among all convex bodies. Independent novelty assessment remains advisable.
+
+Self-review: passed. Independent audit: not yet performed.
