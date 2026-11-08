@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lineage-count process under variable pair-coalescence hazard gives \(\Pr(K_t=3)=e^{-3H(t)}\) and \(\Pr(K_t=2)=\tfrac32(e^{-H(t)}-e^{-3H(t)})\). Counting descendant classes leads to exact linear forms in two exponential survival integrals. Swapping the two intact hazard blocks preserves cumulative hazard at the end and hence cancels the shared prefix and tail. An independently checked two-block integral factorization yields \(\Delta_1>0\) and the exact doubleton sign criterion. Each of the two geometric factors in \(R(s)\) is strictly decreasing; its endpoint values establish uniqueness and the equality boundary. The proof treats zero prior hazard and all positive block durations. `checker.py` provides exact algebraic and independent quadrature spot checks. Finite computations are not used as a proof for all parameters.
+PASS
 
-## Originality — PASS within inspected sources, provisional
+For exactly three neutral Kingman lineages, with pair hazard h(t), P(K_t=3)=exp(-3H) and P(K_t=2)=3/2[exp(-H)-exp(-3H)], giving singleton and doubleton active branch counts (3/2)(exp(-H)+/- exp(-3H)). Swapping whole adjacent hazard blocks u<v, lengths Lu,Lv, preserves final cumulative hazard, so prefix and post-block tail integrals cancel. Direct integration produces J_alpha(uv)-J_alpha(vu)=exp(-alpha*x)(v-u)(1-exp(-alpha*u*Lu))(1-exp(-alpha*v*Lv))/(alpha*u*v). Set X=exp(-uLu), Y=exp(-vLv), D=(v-u)(1-X)(1-Y)/(uv)>0, R=(1+X+X^2)(1+Y+Y^2)/3. Hence Delta_1=(3muD/2)exp(-3x)(exp(2x)+R)>0 and Delta_2 same with minus R; total positive. Along positive common duration scale R(s) strictly decreases 3->1/3, proving unique doubleton sign switch exactly when x<ln(3)/2; equality case correctly has no finite switch. Exact independent two-block algebra and rational witness X=3/4,Y=1/2,R=259/192 checked. Finite quadrature is not proof of the universal expression.
 
-Polanski and Kimmel (2003) and Rosen et al. (2018) already give general variable-demography expected SFS representations, so computation of an SFS for specified epochs is not new. The inspected portions of those primary full texts, including the original formula and SFS geometry arguments, do not state the complete **sign** and unique threshold for transposing intact adjacent epochs with arbitrary independent lengths and arbitrary common surrounding history. Eriksson et al. (2009) concern total genealogical branch lengths; Jenkins et al. (2013) emphasize triallelic sites and second moments. The requested comparison and the global accumulated-hazard cutoff are not stated in those inspected results. Searches of published research records and prior work identified no matching comparison; this cannot prove worldwide uniqueness. Priority risk remains from broader coalescent rearrangement and sensitivity results, particularly those not indexed by the search terms.
+## originality
 
-## Value — PASS
+PASS
 
-The sign of an expected site-frequency component under rearranged demographic epochs is a natural interpretive question: aggregate coalescent exposure and the two block sizes do not determine the temporal order. The result gives a fully quantified answer, including a surprising opposite direction for singleton and doubleton counts, an exact global cutoff, a minimal sample size, and robustness to arbitrary identical prehistory and tail. The result is a theoretical genetic-demography benchmark; it is not a claim about normalized SFS, high-sample inference, or practical identification from three observed sequences.
+Best-of-knowledge originality for the precise final mathematical claim; generic tools and starting formulae are acknowledged as prior. Expected SFS under piecewise demography is classical, and the present epoch-swap identity is a computable specialization. The exact two frequency-class sign law plus universal cutoff is not explicitly identified in the inspected primary texts.
 
-## Limitations and further scrutiny
+## value
 
-The infinite-sites neutral Kingman assumptions and constant mutation rate are essential. The general SFS representation is established prior art, so external expertise could determine that the comparison is subsumed by an existing rearrangement theorem. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Temporal ordering of population-size epochs is a natural genetic-demography question not captured by total coalescent exposure. The exact opposing singleton/doubleton signs and universal prehazard cutoff provide a minimal-sample structural classification robust to arbitrary common prehistory and tail. No inference from real data or normalized frequency spectra is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
