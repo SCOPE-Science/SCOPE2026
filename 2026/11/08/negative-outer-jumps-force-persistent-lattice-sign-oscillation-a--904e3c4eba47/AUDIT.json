@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The Laurent exponent has an essential singularity at infinity, while its positive-axis value tends to zero because the outermost coefficient is negative. With absolute Laurent convergence this forces infinitely many coefficients of each sign for each positive time. Finite-cycle strict spectral damping implies eventual positivity. The aliasing inequality |W_n-exp(tq(b))| <= 4 exp(alpha t-sn/2), diagonal Fourier lower bound C/sqrt(t), uniform short-time negative outer stencil, and compact-time convergence imply a full no-positivity window of linear size. For the fourth-order five-point stencil exact arithmetic gives q(16)=-2475/1024, alpha<105 and c=1/500; the Fourier tail bound 2 sum_{k>=1} exp(-k^2)<1 gives H_n<=n^2/16. A freshly run standalone verifier passed 3977 assertions; these complement the analytic infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. arXiv:2009.03581, Section IV, spectral/eventual-positivity equivalence for signed Laplacians (qualitative finite dimension).",
+        "Public result Unconditional lattice positivity from backward-Euler-filtered Crank--Nicolson: explicit positive kernel for temporally filtered nearest-neighbor generator, materially distinct from this five-point signed spatial generator.",
+        "Public result Only time zero is positive for a compact-resolvent self-adjoint eventually positive semigroup: nontranslation-invariant infinite-dimensional construction, not a finite-range heat stencil or cycle lower bound."
+      ],
+      "reasoning": "The qualitative part of finite recovery is covered and not counted as novel. Neither a general eventual-positivity theorem without rates nor positivity of a different rational time-discretization implies the quantitative signed spatial-kernel obstruction.",
+      "searches": [
+        "\"eventually positive semigroup\" \"finite difference\" heat",
+        "published-finding corpus: On periodic one-dimensional fourth-order five-point finite difference heat semigroup, the positivity restoration time on n-site cycle is at least linear in n despite each finite n eventually positive; infinite lattice heat kernel has negative coefficients at every positive time",
+        "published-finding corpus: The periodic high-order central finite-difference heat kernel exhibits nonuniform eventual positivity as grid circumference increases; sharp waiting-time bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.07282v3 full HTML",
+      "arXiv:2103.16790 full accessible text",
+      "arXiv:2009.03581 full accessible text",
+      "Public result on backward-Euler-filtered Crank--Nicolson, full scientific text",
+      "Public result on a nowhere-positive compact-resolvent semigroup, full scientific text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hu--Zhang arXiv:2103.16790 studies distinct fully discrete positive finite-difference methods for Fokker--Planck/Keller--Segel, not the exponential of the stated standard five-point generator.",
+        "Cross--Zhang concerns inverse positivity under boundary closure, while the current Q_n is periodic and asks for entrywise exponential signs at every time.",
+        "Chen et al. gives finite eventual positivity without a cycle-size lower bound."
+      ],
+      "reasoning": "The exact new claim does not follow from the inspected implications without the Laurent essential-singularity and weighted-alias arguments; its known finite eventual-positivity portion is properly credited.",
+      "searches": [
+        "\"high-order centered Laplacian\" \"eventual positivity\" semigroup",
+        "published-finding corpus: arXiv:2103.16790 Hu Zhang high order positivity preserving finite difference semigroup infinite lattice signed stencil"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2009.03581 discusses eventual positive exponentials of signed Laplacians, not the all-t coefficient sign oscillation on infinite Z.",
+        "Cross--Zhang arXiv:2010.07282v3 Section 2.2 gives the five-point spatial coefficients but studies inverse positivity of elliptic boundary discretizations."
+      ],
+      "reasoning": "An inverse-positive elliptic resolvent is not an entrywise positive time semigroup, and knowing the eventual positive spectral limit of finite circulants gives no dimension-uniform wait-time lower bound. No inspected equivalence produced the two-sided all-time lattice sign law.",
+      "searches": [
+        "\"fourth-order finite difference\" \"heat kernel\" sign changing",
+        "\"semigroup\" \"five point\" \"negative\" \"second neighbor\"",
+        "published-finding corpus: exp(t(S+S^-1-2 -(S+S^-1-2)^2/12)) negative Fourier Laurent coefficients at arbitrarily large distance for all t>0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of positivity times or exact linear delay for this generator was located in the actual semantic and literature searches.",
+        "The numerical checks are used only to inspect representative finite instances, not to assert database exhaustiveness."
+      ],
+      "reasoning": "This is a general proof, not a finite tabulation. No observed published database contains a stronger parameterized delay law which would subsume it; failure of discovery is not proof of unique priority.",
+      "searches": [
+        "\"fourth order\" \"discrete heat kernel\" negative coefficients periodic",
+        "published-finding corpus: Fourth-order five-point finite difference Laplacian for periodic heat equation: exact eventual nonnegative semigroup time, sign-changing discrete heat kernel, circulant Fourier matrix"
+      ]
+    },
+    "rationale": "Finite eventual positivity of spectrally stable signed Laplacians is already established by Chen et al. and excluded from the new contribution. The combined all-positive-time infinite-lattice sign oscillation and a quantitative linear lower bound on periodic positivity-recovery times are not derived by the inspected primary sources or the closest published mathematical findings. Originality is a best-knowledge conclusion with specialized older literature risk.",
+    "residual_risks": [
+      "Early finite-difference/semigroup literature on signed long-range random-walk kernels and exact Fourier coefficient signs may already contain equivalent results.",
+      "The proven 1/500 and 1/16 constants are not claimed sharp; no exact recovery-time asymptotic is determined.",
+      "The bibliography does not constitute an exhaustive priority search of all historical numerical-analysis literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains identical interior spatial stencil (with opposite elliptic sign) but addresses inverse-positive stationary Dirichlet discretization and not semigroup sign changes or periodic recovery delay",
+        "evidence": [
+          "Section 2.2 displays coefficients 1/12,-4/3,5/2,-4/3,1/12 for negative discrete second derivative."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.07282v3",
+        "material_read": "Full HTML Sections 1.1, 2.2 and scope statements; specifically its Bramble--Hubbard five-point formula",
+        "method": "Primary author-provided arXiv HTML",
+        "title": "On the monotonicity of Q3 spectral element method for Laplacian",
+        "trigger": "Classical fourth-order five-point coefficients and elliptic monotonicity may imply broader positivity"
+      },
+      {
+        "assessment": "Different positivity-preserving fully discrete finite-element-implemented differences with time/mesh conditions, not the signed periodic five-point continuous-time exponential or linear recovery delay",
+        "evidence": [
+          "Abstract specifies the fourth-order scheme has positivity under mild time-step and mesh constraints, with different construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16790",
+        "material_read": "Full accessible arXiv extracted text; introduction, numerical schemes and conditions for fourth-order accuracy and positivity",
+        "method": "ArXiv full-text extraction",
+        "title": "Positivity-preserving and energy-dissipative finite difference schemes for the Fokker--Planck and Keller--Segel equations",
+        "trigger": "High-order positivity-preserving diffusion discretization may dominate a five-point semigroup theorem"
+      },
+      {
+        "assessment": "General spectral criterion covers the qualitative finite eventual-positivity component, but no all-positive-time infinite lattice oscillation nor cycle-length quantitative lower bound",
+        "evidence": [
+          "Section IV relates signed Laplacian simple zero and nonnegative remaining spectrum to eventual exponential positivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.03581",
+        "material_read": "Accessible full arXiv extracted text including finite-dimensional eventual-exponential-positivity spectral criterion in Section IV",
+        "method": "ArXiv full-text extraction",
+        "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+        "trigger": "General eventual-positivity theory might already subsume the finite periodic statement"
+      },
+      {
+        "assessment": "Uses nearest-neighbor Metzler spatial Laplacian and a product of a backward-Euler half-step and Crank--Nicolson map; proves positive kernel of rational maps, unlike the exponential semigroup of a signed five-point spatial operator",
+        "evidence": [
+          "Its result concerns K_s=2(I+sL)^{-2}-(I+sL)^{-1} for standard three-point L."
+        ],
+        "identifier_or_url": "Published mathematical result dated 2026-09-20",
+        "material_read": "Full publicly accessible RESULT.md, including convolution-kernel formula, proof and limitations",
+        "method": "Direct public source full-text inspection",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank--Nicolson",
+        "trigger": "Public record closely matching positivity, periodic lattice, and heat kernel"
+      },
+      {
+        "assessment": "A nontranslation-invariant compact-resolvent rank-one/antisymmetric perturbation on ell2, not a bounded finite-range symmetric convolution with finite cyclic reductions or quantitative linear delay",
+        "evidence": [
+          "The negative-entry witness uses n>=ceil(t+3) on opposite indices of the constructed Hilbert-space operator."
+        ],
+        "identifier_or_url": "Published mathematical result dated 2026-10-11",
+        "material_read": "Full publicly accessible RESULT.md including explicit rank-one operator, coordinates and proof",
+        "method": "Direct public source full-text inspection",
+        "title": "Only time zero is positive for a compact-resolvent self-adjoint eventually positive semigroup",
+        "trigger": "Related semigroup whose every positive time has negative entries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "904e3c4e-ba47-4aff-8ad4-139c57d40597",
+  "value": {
+    "rationale": "A standard fourth-order semidiscrete diffusion stencil is spectrally stable yet its spatial heat kernel has arbitrarily far positive and negative coefficients at each positive time; furthermore finite periodic grids require a dimension-proportional delay before any positivity is possible. This supplies a motivated quantitative obstruction not implied by the known qualitative eventual-positivity criterion, clarifies the inverse-elliptic-vs-semigroup distinction, and offers a directly testable benchmark for high-order positivity-preserving schemes.",
+    "status": "PASS"
+  }
+}
