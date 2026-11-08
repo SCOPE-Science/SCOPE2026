@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Executed checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3, using only the standard library. The verifier generates the graph, forbidden independent quadruples, complete complex, deterministic matching, full Hasse diagram, and all square symmetries. Its required output has three `VERIFY_OK` lines and asserts every count and class character. This is an exhaustive proof certificate for the fixed finite complex, not a sampling-based experiment. The checker was executed before packaging and its decoded embedded bytes are replayed after packaging.
+## correctness
 
-# Limits
+PASS
 
-The code confirms the combinatorial matching certificate and signed Lefschetz computation. The standard discrete-Morse, Hopf-trace and finite group character consequences are mathematical deductions stated in the theorem's proof. No infinite-family classification or independent outside evaluation is claimed.
+Independently enumerated all 405 forbidden independent four-sets, all 4812 augmented allowed faces with f=(16,120,560,1415,1788,912), the 2364 augmented toggle Morse pairs and the full 21992 ordinary Hasse incidences; directed graph is acyclic with exactly 84 critical five-simplices plus basepoint. Independently checked orientation-sensitive Lefschetz traces for all eight dihedral symmetries and obtained irreducible multiplicities (6,16,11,11,20).
+
+## originality
+
+PASS
+
+Independent, best-of-knowledge search and mathematical comparison support a distinct exact claim. Filakovský arXiv:2602.11365v1 establishes k=2,3 grid cases and arbitrary k only for solely edge-glued square sequences; the 4×4 grid requires corner gluings, so those hypotheses do not cover its k=4 case. The published total-three-cut complex on the same grid has parameter three and dimension-ten homology, not this four-robust complex. The exact 84-sphere result plus group character addresses the next natural parameter.
+
+## value
+
+PASS
+
+A natural next robust parameter at the first 4×4 grid where corner gluing prevents known general theorems; the explicit D4 module refines the wedge homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

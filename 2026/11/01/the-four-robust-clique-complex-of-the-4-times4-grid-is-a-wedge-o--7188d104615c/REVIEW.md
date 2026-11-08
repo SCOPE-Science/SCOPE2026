@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph and forbidden-face definition are specified without ambiguity. The complete enumeration yields 405 independent four-sets and 4,811 nonempty faces. The executable certificate regenerates 2,363 ordinary matching pairs, checks all 21,992 codimension-one incidences, and exhaustively topologically sorts the oriented face poset, leaving precisely one critical zero-cell and 84 critical five-cells. Standard finite discrete-Morse theory consequently proves the integral wedge decomposition. Signed Hopf traces for every group element and exact character-table arithmetic establish the claimed rational representation. The code is standalone and was executed from the packaged bytes. No inference from a sampled computation is made.
+## correctness
 
-## Originality — PASS, with residual risk
-Filakovský (arXiv:2602.11365v1), Theorem 1.1 and Corollary 1.3, classify parameter two or three grids and arbitrary-parameter square sequences built only by edge gluings; the 4-by-4 grid needs corner gluings. Conjecture 1.5 explicitly asks for more general corner-gluing homotopy types. The paper's maximal-independence-number example does not apply because the target parameter is four, not eight. Relevant indexed results on the same square grid's total three-cut complex and a general theorem for three-robust bipartite graphs address different parameters. The earlier four-robust three-by-four instance neither implies this new four-row homotopy type nor gives its dihedral character. The same object's Alexander-dual total four-cut formulation was also searched. Remaining risk: an unindexed proof, unpublished exact table, or an unrecognized stronger general consequence.
+PASS
 
-## Mathematical value — PASS
-The object is the smallest square example beyond the previously investigated three-row, parameter-four rectangle for which the corner-gluing obstruction is central. It supplies a complete fixed-graph integral homotopy classification at the first higher parameter treated conjecturally by the foundational paper. The nontrivial 84-dimensional dihedral representation and its five irreducible multiplicities are additional exact invariants beyond an Euler characteristic. This is a motivated and reproducible instance, not an arbitrary induced slice or routine coefficient change.
+Independently enumerated all 405 forbidden independent four-sets, all 4812 augmented allowed faces with f=(16,120,560,1415,1788,912), the 2364 augmented toggle Morse pairs and the full 21992 ordinary Hasse incidences; directed graph is acyclic with exactly 84 critical five-simplices plus basepoint. Independently checked orientation-sensitive Lefschetz traces for all eight dihedral symmetries and obtained irreducible multiplicities (6,16,11,11,20).
 
-## Limits
-The theorem does not solve the higher-parameter all-grid conjecture or classify the integral dihedral module. The novelty search is not a mathematical proof of uniqueness. Independent external review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent, best-of-knowledge search and mathematical comparison support a distinct exact claim. Filakovský arXiv:2602.11365v1 establishes k=2,3 grid cases and arbitrary k only for solely edge-glued square sequences; the 4×4 grid requires corner gluings, so those hypotheses do not cover its k=4 case. The published total-three-cut complex on the same grid has parameter three and dimension-ten homology, not this four-robust complex. The exact 84-sphere result plus group character addresses the next natural parameter.
+
+## value
+
+PASS
+
+A natural next robust parameter at the first 4×4 grid where corner gluing prevents known general theorems; the explicit D4 module refines the wedge homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
