@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python verify.py` in a directory containing `verify.py` and `certificate.json`. `verify_output.txt` contains the recorded output of the included verifier. The verifier reconstructs every binary one-deletion set with **duplicate deletion positions coalesced**; checks each explicit lower-bound code; computes all rational dual objectives via the standard-library fraction implementation; validates every leaf and both branches of every internal proof node; and verifies the short-length VT-class comparison.
+## correctness
 
-The two-list capacity results at lengths \(1\) through \(6\) each have one rational-dual certificate leaf. At length seven the two-list upper-bound tree has 101 nodes and 51 leaves; the independent one-list upper-bound tree has 25 nodes and 13 leaves. Both are checked from the actual included file bytes. The key mathematical inequality and its derivation are in `RESULT.md`.
+PASS
 
-This checks the **finite** assertions for these prescribed blocklengths. No external program has performed a mathematical audit of the theorem, and no assertion about larger lengths is verified or claimed. The verifier is an exact checker of the supplied certificates, not evidence of exhaustive literature priority.
+PASS. For each n=1..7, the exact 0-1 packing rows count distinct one-deletion outputs (not repeated positions) with capacity <=2. Independent BigInt rational-checker reconstructed every incidence, verified feasible witness sizes 2,3,4,7,12,19,33, checked all reported rational upper-leaf equalities, and exhaustively replayed each branch: one-leaf dual at each n=1..6, 101-node 51-leaf proof excluding 34 length-seven words, and separate 25-node 13-leaf capacity-one proof excluding 17. The explicit unique-deletion code reaches 16. Direct syndrome enumeration gives sums of two largest disjoint VT classes 2,3,4,7,12,19,32. For n=7 every union of two uniquely decodable codes has cardinality <=2*16=32<33. For n<=6 the corresponding unions attain M2(n). Exact certificate comparisons use arbitrary-size integers, not lossy floating-point parsing. The theorem is only n<=7.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Lin full 2026 primary paper defines this precise same-channel t-list deletion model and uses VT-class unions to prove asymptotic lower bounds, but does not derive exact n7 capacity 33 or failure of decomposition. No 2019 paper treats t=1 unique-deletion maxima (including the established 16), not list-two 33; Song et al. treat the strictly stronger deletion-plus-substitution channel. Resultary exact length-six single-deletion census concerns unique decoding, not length-seven list-two optimality. Older enumerations may nonetheless cover the same number.
+
+## value
+
+PASS
+
+PASS. At the first natural blocklength n=7, optimal two-list single-deletion packing becomes genuinely stronger than any disjoint union of two ordinary correcting codes. Exact capacity 33 versus decomposition ceiling 32 is a substantive structural threshold and independently checkable benchmark for a natural finite coding model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

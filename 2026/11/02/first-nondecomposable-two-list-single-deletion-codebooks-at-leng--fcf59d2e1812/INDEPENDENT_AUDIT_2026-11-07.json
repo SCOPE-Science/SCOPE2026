@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:08:38.464073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For each n=1..7, the exact 0-1 packing rows count distinct one-deletion outputs (not repeated positions) with capacity <=2. Independent BigInt rational-checker reconstructed every incidence, verified feasible witness sizes 2,3,4,7,12,19,33, checked all reported rational upper-leaf equalities, and exhaustively replayed each branch: one-leaf dual at each n=1..6, 101-node 51-leaf proof excluding 34 length-seven words, and separate 25-node 13-leaf capacity-one proof excluding 17. The explicit unique-deletion code reaches 16. Direct syndrome enumeration gives sums of two largest disjoint VT classes 2,3,4,7,12,19,32. For n=7 every union of two uniquely decodable codes has cardinality <=2*16=32<33. For n<=6 the corresponding unions attain M2(n). Exact certificate comparisons use arbitrary-size integers, not lossy floating-point parsing. The theorem is only n<=7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin Theorem 1.1 and k=1 proof yield asymptotic lower bounds using VT classes; No gives unique list-size-one optimization; Song adds substitution constraints."
+        ],
+        "reasoning": "No inspected general theorem gives the length-seven two-list exact 33 or forces nondecomposability. Stronger channel feasibility is a different direction and does not establish the deletion-only maximum.",
+        "searches": [
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202",
+          "Song, Cai, Nguyen, List-decodable Codes for Single-deletion Single-substitution with List-size Two, arXiv:2201.02013",
+          "Resultary query: binary list two single deletion code length seven maximum 33 VT classes 32"
+        ]
+      },
+      "checked_sources": [
+        "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+        "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202",
+        "Song, Cai, Nguyen, List-decodable Codes for Single-deletion Single-substitution with List-size Two, arXiv:2201.02013",
+        "Resultary, Complete census of maximum binary length-six single-deletion codes, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c",
+        "Resultary query: binary list two single deletion code length seven maximum 33 VT classes 32",
+        "Source RESULT.md, certificate.json and verify.py; independently replayed exact BigInt tree certificates and VT syndrome sizes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M1(7)=16 yields only an upper bound 32 for decomposable codes and does NOT by itself prove existence of a 33-word two-list code or M2(7)<=33; new exact rational certificate supplies both."
+        ],
+        "reasoning": "The theorem is stronger than prior known unique-decoding optimum plus VT lower bound; explicit combinatorial and LP certificate are essential.",
+        "searches": [
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202",
+          "Song, Cai, Nguyen, List-decodable Codes for Single-deletion Single-substitution with List-size Two, arXiv:2201.02013"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin Definition 2.1 requires at most t distinct codeword parents of any length n-k subsequence; at k=1,t=2 this is precisely the source capacity-2 incidence packing.",
+          "A union of two (distinct) single-deletion-correcting codes is 2-colorable in the collision graph; the n7 33-word code forces a nondecomposable optimal construction."
+        ],
+        "reasoning": "Checked list-decoding, bounded 2-packing, union-of-VT-classes, unique deletion codes and collision hypergraph aliases.",
+        "searches": [
+          "Resultary query: binary list two single deletion code length seven maximum 33 VT classes 32",
+          "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+          "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "M1(7)=16 is acknowledged known exact result; source certificate proves M2(7)=33 independently and VT top-two size32."
+        ],
+        "reasoning": "Compared neighboring exact single-deletion optima and lists; no inspected n7 table determined full two-list optimum/decomposition barrier.",
+        "searches": [
+          "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202",
+          "Resultary query: binary list two single deletion code length seven maximum 33 VT classes 32",
+          "Resultary, Complete census of maximum binary length-six single-deletion codes, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Lin full 2026 primary paper defines this precise same-channel t-list deletion model and uses VT-class unions to prove asymptotic lower bounds, but does not derive exact n7 capacity 33 or failure of decomposition. No 2019 paper treats t=1 unique-deletion maxima (including the established 16), not list-two 33; Song et al. treat the strictly stronger deletion-plus-substitution channel. Resultary exact length-six single-deletion census concerns unique decoding, not length-seven list-two optimality. Older enumerations may nonetheless cover the same number.",
+      "residual_risks": [
+        "Unindexed finite two-list deletion code tables could already contain the n7 optimum and structural nondecomposability.",
+        "No statement about n>=8, other alphabets or deletion-plus-substitution channel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact list-two n7 optimum and decomposability threshold",
+          "evidence": "k=1 case establishes general asymptotic lower bound from unions of t VT classes, no M2(7)=33 or certificate.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+          "material_read": "All eight primary text pages, Definition 2.1 and final Theorem 1.1 proof explicitly treating k=1 using VT classes",
+          "method": "Authorized institutional full-text extraction after public arXiv/OA full-text attempts; all scientific sections materially read",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Same channel, especially k=1 proof via disjoint VT classes"
+        },
+        {
+          "assessment": "ONE-LIST ONLY; no whole-document negative claim",
+          "evidence": "Unique one-deletion decoding addresses M1(7)=16, which is needed but does not imply the exact list-two value.",
+          "identifier_or_url": "https://doi.org/10.3390/e21121202",
+          "material_read": "Accessible bibliographic/abstract and indexed statements, not full article (web fetch 429)",
+          "method": "Limited source inspection; no whole-document negative claim",
+          "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+          "trigger": "Closest exact n7 one-list optimum used to rule out decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. At the first natural blocklength n=7, optimal two-list single-deletion packing becomes genuinely stronger than any disjoint union of two ordinary correcting codes. Exact capacity 33 versus decomposition ceiling 32 is a substantive structural threshold and independently checkable benchmark for a natural finite coding model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Andrew D. Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650v1, full eight-page primary text https://arxiv.org/abs/2609.26650",
+    "Albert No, Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming, Entropy 21(12), 1202 (2019), https://doi.org/10.3390/e21121202",
+    "Song, Cai, Nguyen, List-decodable Codes for Single-deletion Single-substitution with List-size Two, arXiv:2201.02013",
+    "Resultary, Complete census of maximum binary length-six single-deletion codes, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c",
+    "Resultary query: binary list two single deletion code length seven maximum 33 VT classes 32",
+    "Source RESULT.md, certificate.json and verify.py; independently replayed exact BigInt tree certificates and VT syndrome sizes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary length<=7, exactly one deletion, list-size two; classification not all n nor asymptotic.",
+    "Publication transport remains not_ready because public operational fields require complete sanitization; a scientific PASS is not a published certificate."
+  ],
+  "residual_risks": [
+    "Unindexed finite two-list deletion code tables could already contain the n7 optimum and structural nondecomposability.",
+    "No statement about n>=8, other alphabets or deletion-plus-substitution channel."
+  ],
+  "schema_version": 1
+}
