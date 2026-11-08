@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness (C) — PASS
+All quantities are defined for even unweighted paths with at least four vertices, normalized adjacency and exactly \(N\) total integer-time observations. Chebyshev propagation reconstructs each graph coordinate using an explicit triangular coefficient row. The two endpoint blocks have disjoint path supports, so their inverse norms are each governed by degree \(m-1\) Chebyshev coefficients; the one-end inverse is governed by degree \(N-1\). The coefficient bounds hold in all degrees and the observation-row norms contribute only polynomial factors. Thus the exact exponential condition-number bases and their quotient are proved, including endpoint normalizations and determinants. The attached standard-library checker completed 2107 finite checks; no infinite conclusion is inferred from experiments.
+
+## Originality (O) — PASS relative to inspected evidence
+The closest primary literature is Bulai et al., arXiv:2609.25472v1, §§4.2–4.3, which studies finite-graph sampling frames and fixed-size low-pass heat-type path experiments, not full-band growing-path normalized-adjacency conditioning constants. A public October 2026 result, *Universal endpoint optimality for dynamical sampling on normalized paths*, proves the one-end information determinant, which is explicitly attributed and does not imply the smallest singular-value rate or the two-end comparison. Classical Chebyshev polynomial basis-conversion coefficient growth is also acknowledged as prior art. Searches of the mathematical-results index for path observability, two endpoints, silver ratio, exact condition numbers, and Chebyshev aliases found no equivalent claim. Older specialized numerical or systems literature could contain an unindexed equivalent derivation; novelty here is assessed for the two graph-design rate comparison rather than the known coefficient exponent alone.
+
+## Value (V) — PASS
+This gives an exact, structurally motivated noise-conditioning comparison of two equal-budget dynamical sampling designs. It establishes that splitting observations across both path endpoints changes the asymptotic conditioning base from \(1+\sqrt2\) to \(\sqrt{1+\sqrt2}\), identifies exact decoding coefficients, and provides the complete finite determinant of the two-end design. This information is neither a determinant-only consequence nor a fixed-size numerical observation.
+
+## Sources and residual limitations
+Bulai et al. (arXiv:2609.25472v1, 2026-09-21) and the October 2026 public normalized-path endpoint-determinant theorem are the principal comparisons; see RESULT.md references and AUDIT.json detailed implication checks. A related 2007 Chebyshev basis-conversion article could only be assessed at description level. The result does not establish optimal sensors among all layouts, nonadjacency evolution filters, arbitrary path sizes, or exact polynomial prefactors. Independent external audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.

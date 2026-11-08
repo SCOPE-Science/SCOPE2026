@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2, induction from the normalized endpoint edge weights proves T_j(S)e_0=e_j/sqrt(2) for 1<=j<=N-2 and T_{N-1}(S)e_0=e_{N-1}. Finite propagation makes the m-time two-end operator a direct sum of two m-by-m triangular blocks, with exact Chebyshev-row inverses and determinant 2^{-(m-1)^2}. The integral/Cauchy coefficient inequalities give (rho^j-rho^{-j})/(2sqrt(j+1)) <= ||coeff(T_j)||_2 <= rho^j, rho=1+sqrt(2). Norms of observation operators lie between 1 and sqrt(N) (resp. sqrt(m)); inverse row-norm lower and Frobenius upper bounds differ only polynomially. Thus Nth-root condition numbers tend to rho and sqrt(rho) for one and balanced two endpoints. Finite standalone checks covered N=4,...,16 and reported 2107 checks, but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.25472v1: §4.3 reports N=40 low-pass six-mode numerical test with heat-type spectral evolution; not a theorem for variable full-band N.",
+        "published-finding corpus:2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f: expressly restricts its sharp objective to information determinants for one sensor and M+1 consecutive times, not frame bounds or several sensors."
+      ],
+      "reasoning": "The preceding results allow one to formulate dynamical sampling and establish endpoint D-optimality, but they do not supply the present smallest-singular-value asymptotics for either equal-budget layout, and neither proves balanced-endpoint rate superiority. No stronger inspected theorem implies the claimed exact exponential rates.",
+      "searches": [
+        "published-finding corpus: two endpoints path graph 2m nodes sampled at times zero through m minus one Chebyshev inverse exact determinant exponential conditioning 1+sqrt2",
+        "published-finding corpus: two-sensor path dynamical sampling full bandwidth balanced endpoints matrix block diagonal Chebyshev",
+        "published-finding corpus: normalized path adjacency 2-endpoint observations sharp exponential noise growth silver ratio",
+        "full text https://arxiv.org/html/2609.25472v1",
+        "full text https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.25472v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+      "https://doi.org/10.1016/j.cam.2006.05.006",
+      "https://arxiv.org/abs/2511.17343"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus:2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f: one-end normalized-path determinant |det(W_N)|=2^{-N(N-2)/2}; explicitly disclaims statements about lower frame bounds and multiple sensors.",
+        "arXiv:2609.25472v1: develops a finite-frame characterization and displays fixed N=40, low-pass examples; no growing-N N-dimensional asymptotic of two-end singular values.",
+        "Chebyshev basis-conversion coefficient growth ρ=1+√2 is classical; neither operator decomposition nor two-end measurement comparison is stated in those coefficient estimates."
+      ],
+      "reasoning": "A determinant constrains only the product of all singular values, not the extreme singular values; therefore the earlier exact determinant alone does not imply either rate. The primary source formulae in principle permit the observation matrices to be formed, but not the rate without additional exact Chebyshev propagation, endpoint support splitting and asymptotic norm estimates. The present result uses and credits these general ingredients rather than claiming them novel.",
+      "searches": [
+        "arXiv:2609.25472v1 (Sections 4.2–4.3)",
+        "published-finding corpus:2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f (Finding/Proof/Limitations)",
+        "published-finding corpus: two-sensor path dynamical sampling full bandwidth balanced endpoints matrix block diagonal Chebyshev"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.25472v1: finite graph sample matrices use iterates of normalized Laplacian / spectral filters; §4.3 performs low-pass path experiments, not full-band adjacency condition-number limits.",
+        "published-finding corpus:2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f: exact one-end information Gramian determinant for all injective spectral evolutions, including adjacency."
+      ],
+      "reasoning": "Changing from normalized adjacency to normalized Laplacian gives S=I-L; translating all powers to binomially related time samples changes measurement-row norms and does not preserve the requested Euclidean condition-number constants. A Chebyshev-to-monomial transform does identify the inverse in the particular path geometry, but the two-sensor halving rate is not separately stated in the inspected primary results.",
+      "searches": [
+        "published-finding corpus: endpoint path normalized adjacency dynamical sampling minimal singular value exponential rate 1+sqrt(2) Chebyshev inverse observability",
+        "published-finding corpus: condition number path graph one vertex repeated time samples Chebyshev polynomials exponential rate",
+        "published-finding corpus: normalized Laplacian path graph endpoint controllability observability matrix determinant power of two conditioning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits were nearest to published one-end determinant, cyclic graph two-sensor frame bounds, and generic Chebyshev basis conversion; no matching pair of path-design bases was returned.",
+        "Finite singular-value tests only corroborate; claimed rates hold for all even sizes and follow from the analytic proof."
+      ],
+      "reasoning": "The constants concern an infinite family of even path lengths and two fixed N-sample designs. The public one-end determinant is an exact finite invariant of a different objective; lookup under basis-change and graph-observability aliases found no table that reports both normalized-adjacency condition-number rates.",
+      "searches": [
+        "published-finding corpus: endpoint path normalized adjacency dynamical sampling minimal singular value exponential rate 1+sqrt(2) Chebyshev inverse observability",
+        "published-finding corpus: two endpoints path graph 2m nodes sampled at times zero through m minus one Chebyshev inverse exact determinant exponential conditioning 1+sqrt2",
+        "published-finding corpus: normalized path adjacency 2-endpoint observations sharp exponential noise growth silver ratio",
+        "web: Chebyshev coefficient norm 1+sqrt2 exponential rate monomial coefficients numerical analysis"
+      ]
+    },
+    "rationale": "The September 2026 primary paper contains finite-path low-pass numerical frame experiments (including a comparison between endpoint sampling schemes), but not the full-band normalized-adjacency Chebyshev inverse or the two exact growing-path singular-value-conditioning bases. The closest public mathematical result establishes the single-end full-time determinant and its vertex D-optimality; its determinant does not determine the smallest singular value or the balanced two-sensor problem. Classical Chebyshev-to-monomial coefficient growth is credited as known. Searches found no equivalent two-design rate theorem; publication priority remains subject to older spectral-control and numerical-analysis sources.",
+    "residual_risks": [
+      "Graph-specific rate might be implicit in an earlier exact matrix-model analysis under observability/control terminology not indexed by the searches.",
+      "Older Chebyshev coefficient-conversion literature contains the silver-ratio exponent; the originality assertion is limited to the exact two graph sampling designs and their comparison.",
+      "Only an indexed description of the 2007 numerical paper was accessible, not its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state full-band even-path normalized-adjacency asymptotic conditioning bases or Chebyshev block inverse",
+        "evidence": "arXiv:2609.25472v1, dated 2026-09-21, Section 4.3 studies 40-node six-mode heat-type experiments and sensor distributions.",
+        "identifier_or_url": "https://arxiv.org/html/2609.25472v1",
+        "material_read": "Full accessible HTML: introduction, finite-graph theory in §4.2, §4.3 including path numerical experiments and frame bounds, and end matter",
+        "method": "Direct full-text HTML inspection and theorem-to-theorem comparison",
+        "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+        "trigger": "Same normalized graph operator, path-sensor experiment, conditioning objective, earliest dated motivating source"
+      },
+      {
+        "assessment": "Covers previously known one-vertex determinant only; no equivalent two-end conditioning base or smallest singular value rate",
+        "evidence": "October 2026 published-finding corpus result gives one-end Gram determinant and states lower frame bound and multi-sensor placement out of scope.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "material_read": "Full RESULT.md, including hypotheses, determinant theorem, proof and limitations",
+        "method": "Public GitHub repository file fetched and read, compared one-vertex determinant objective with two-end extreme-singular-value objective",
+        "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+        "trigger": "Closest public exact normalized-path endpoint observation result"
+      },
+      {
+        "assessment": "Supports attribution of Chebyshev basis conversion as prior art; insufficient to exclude graph-specific material throughout paper",
+        "evidence": "Older numerical-polynomial literature discusses growth near the silver-ratio base in Chebyshev-to-monomial conversions.",
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2006.05.006",
+        "material_read": "Accessible indexed description/excerpt only; not full paper",
+        "method": "Bibliographic query and abstract-level/excerpt comparison",
+        "title": "Numerical experiments on the accuracy of the Chebyshev–Frobenius companion matrix method for finding the zeros of a truncated series of Chebyshev polynomials",
+        "trigger": "Possible classical source of the ρ coefficient growth constant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5753fbc2-41bd-460c-b7a0-19719b2efa58",
+  "value": {
+    "rationale": "The same fixed sample count N can be spent on one endpoint over N times or equally over two endpoints over N/2 times. A sharp exponential distinction in Euclidean noise amplification is a natural quantitative sensor-design invariant: per graph vertex the conditioning base drops from 1+sqrt(2) to its square root. Explicit exact inverse formulas give an operational decoder and show the mechanism is the ability to resolve two halves before propagation overlaps. The result supplies a global growing-path rate absent from fixed-dimensional low-pass experiments; it does not assert unrealistic finite-size optimality or a general sensor design principle.",
+    "status": "PASS"
+  }
+}
