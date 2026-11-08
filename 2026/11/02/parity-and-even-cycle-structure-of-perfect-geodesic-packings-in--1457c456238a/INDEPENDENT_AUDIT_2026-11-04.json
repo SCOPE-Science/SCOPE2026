@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:07:26.153367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All maximal geodesics in H_n=K2 square K2 square Kn (n>=2) have length 3 and four vertices, changing each coordinate once. Perfect n-path packing saturates all 4n vertices. Each column must touch at least 2 paths; total incidences=2n forces exactly 2 per column. Nonoverlapping column footprints partition the square Q2 as two disjoint edges (E) or singleton+3-vertex path (T). Incidence graph is 2-regular; paths join like footprint-types. In E cycles, occupied Q2 edges alternate a/b directions along each path, forcing even cycle length; in T cycles the missing-vertex/singleton labels trace a closed walk in bipartite Q2, forcing even length. Conversely any even cycle multigraph, including doubled edges, has a perfect packing by alternating Q2 edge directions and taking the unique intersection of perpendicular footprints. Odd n cannot be perfect, and pairing n-1 columns attains n-1 paths; even n attains n, so gpack=2 floor(n/2). Labeled-cycle exponential formula: doubled-edge components z²/2 and even simple cycles z^(2j)/(4j) imply exp(z²/4)(1-z²)^(-1/4). Independent direct graph/backtracking enumeration n=2,3,4 found optimum 2,2,4 and perfect packings 12,0,720; n=4 incidence cycle-type counts (2,2):432 paths and (4):288 paths, yielding distinct multigraphs 3+3=6. Source script is a finite check only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Cartesian products of uniform-geodesic graphs imply equal geodesic lengths and the n volume upper bound.",
+          "Later bipartite-prism/hypercube paper addresses vertex 2-packings/open packings, distinct from vertex-disjoint paths."
+        ],
+        "reasoning": "A volume upper bound is not an equality statement and does not characterize which labeled 2-regular multigraphs occur. A different packing invariant cannot imply the claim without a reduction not found in the source.",
+        "searches": [
+          "https://arxiv.org/pdf/2210.15325",
+          "https://arxiv.org/abs/2309.04963"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.15325 (Manuel–Brešar–Klavžar)",
+        "arXiv:2309.04963 (Brešar–Klavžar–Rall)",
+        "Resultary semantic search: geodesic packing K2 square K2 square Kn even column incidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Manuel et al. Lemma 2.3 bounds gpack by floor(|V|/diameter-path-length), which equals n here.",
+          "The claimed gpack=n-1 for odd n is strictly stronger than that bound, and cycle-type realizability is additional."
+        ],
+        "reasoning": "The generic geodesicity result proves an ingredient but neither the obstruction nor converse construction; results about different open/2-packing notions are inapplicable.",
+        "searches": [
+          "https://arxiv.org/pdf/2210.15325",
+          "https://arxiv.org/abs/2309.04963"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A perfect packing is a vertex-disjoint diameter-3 geodesic P4-factor of K2 square K2 square Kn, with a 2-regular multigraph of column incidences.",
+          "The primary geodesic-packing paper defines packing exactly as vertex-disjoint maximal shortest paths."
+        ],
+        "reasoning": "Compared the path-factor/isometric-decomposition formulation as well as the packing-number invariant; the all-even-cycle incidence classification is not in the inspected propositions.",
+        "searches": [
+          "Resultary semantic: geodesic packing perfect paths K2 square K2 square Kn even column incidence cycles",
+          "https://arxiv.org/pdf/2210.15325",
+          "perfect isometric P4 factor three factor Hamming graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed EGF h0=1,h2=1,h4=6,h6=120,h8=5250 is deduced from even-cycle components for every even n.",
+          "Source tables concern rook graphs or strong products rather than this binary-slab Hamming family."
+        ],
+        "reasoning": "No finite table can certify the uniform all-n cycle-type equivalence; searched named graph packing values and compared underlying invariants.",
+        "searches": [
+          "Resultary semantic: geodesic packing perfect paths K2 square K2 square Kn even column incidence cycles",
+          "https://arxiv.org/pdf/2210.15325"
+        ]
+      },
+      "rationale": "Manuel–Brešar–Klavžar established maximal-geodesic packing and uniform-geodesic Cartesian-product facts but the analyzed results give only the generic 4-vertex volume bound n. Their rook/strong-product and general tree results do not force the odd n deficit or full even-incidence structure on K2^2 square Kn. No equivalent result appeared in published Resultary semantic searches; possible older isometric path-factor literature remains a risk.",
+      "residual_risks": [
+        "Unindexed isometric P4-factor or induced-path decomposition literature could give an equivalent parity theorem.",
+        "The EGF counts incidence multigraphs, not geodesic path packings; latter are more numerous."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general volume upper bound and graph-class results, not the 3-factor parity structure",
+          "evidence": [
+            "Lemma 2.3 states volume bound; examples address K_m,n and rook graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15325",
+          "material_read": "Definitions, Lemmas 2.3 and 2.4, Cartesian-product discussion, rook-graph section",
+          "method": "Primary full-text PDF reading and page screenshots",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Introduced exactly the same geodesic packing invariant"
+        },
+        {
+          "assessment": "Different vertex 2-/open-neighborhood packing notion, not geodesic P4-factors",
+          "evidence": [
+            "Paper is not a theorem about vertex-disjoint maximal geodesics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04963",
+          "material_read": "Abstract and invariant definitions",
+          "method": "ArXiv abstract/available section comparison",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Similar product graph and packing terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp parity obstruction for packing diametral paths in a natural infinite Hamming-graph family, together with the exact realizable column-incidence types and EGF, provides a complete structural classification rather than only a small-n count. It distinguishes perfect packability from the volume bound and can serve as a benchmark for geodesic-packing/graph-decomposition problems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2210.15325 (Manuel–Brešar–Klavžar)",
+    "arXiv:2309.04963 (Brešar–Klavžar–Rall)",
+    "Resultary semantic search: geodesic packing K2 square K2 square Kn even column incidence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only K2 square K2 square Kn with n>=2 is classified. Count is for distinct labeled incidence multigraphs, not all path-packings. Finite direct enumeration n<=4 corroborates but cannot prove all n.",
+    "Unindexed isometric P4-factor or induced-path decomposition literature could give an equivalent parity theorem.",
+    "The EGF counts incidence multigraphs, not geodesic path packings; latter are more numerous."
+  ],
+  "schema_version": 1
+}
