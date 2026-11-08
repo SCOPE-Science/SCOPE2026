@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exponential-time Brownian displacement has Laplace density with \\(\\kappa=\\sqrt{r/D}\\); direct integration over all Voronoi cells gives positive opposite-parity transition \\(p(\\kappa)\\) and mean even-site displacement \\(d(\\kappa)\\). Reflection gives minus \\(d(\\kappa)\\) at an odd site. The finite-state embedded parity chain is irreducible, with exponentially integrable displacements and holding times, so its ergodic reward/time strong law gives the physical velocity; Brownian exponential-killing supremum tails control the incomplete interval. The sign follows from strict monotonicity of \\(x\\coth x\\) and the positive stationary reward denominator. The small-rate coefficient follows by expansions to \\(\\kappa^2\\), and large-rate decay is exponentially bounded. A standalone finite checker reproduced all cell integrals and simulated actual holding-time-conditioned Brownian motion; no infinite assertion is inferred solely from experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alston and Bertrand arxiv:2401.12772v1, model and current/diffusion discussion: one constant Poisson rate and diffusion optimization",
+        "Roberts–Sezik–Lardet arxiv:2405.10698, model section: one reset activation rate, asymmetric piecewise-linear potential and stochastic return phase",
+        "Liu et al. doi:10.1002/cphc.202400313, sections 2 and 4: asymmetric ratchet potential and Pareto resetting intervals",
+        "Ghosh et al. arxiv:2307.06202, model and rectification sections: a one-well periodic asymmetric potential, one homogeneous exponential rate, and instantaneous return to well bottom"
+      ],
+      "reasoning": "A general stochastic-process reward law would yield a time-average formula if the two-state transition and reward values were already known, but it does not supply the explicit hyperbolic cell sums nor their global sign. Published ratchet-potential current formulas do not dominate a geometry- and last-site-clock-specific theorem: their generators and symmetry-breaking mechanisms differ. No cited source supplies a universal theorem subsuming this exact sign law.",
+      "searches": [
+        "diffusion local resetting ratchet alternating binding rates asymmetric sites drift velocity",
+        "Alston Bertrand 2024 nearest resetting sites unequal binding rates drift ratchet",
+        "nearest site spatially varying resetting rate Brownian ratchet directed current periodic asymmetry"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2401.12772v1",
+      "https://arxiv.org/abs/2405.10698",
+      "https://doi.org/10.1002/cphc.202400313",
+      "Published mathematical-record similarity searches for nearest-site ratchets, staggered reset rates, and alternating-lattice currents",
+      "https://arxiv.org/abs/2307.06202"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2401.12772v1 studies same geometric projection with uniform event rate but does not compute two-rate drift",
+        "arxiv:2405.10698v1 derives currents driven by an asymmetric resetting potential with finite return-time dynamics",
+        "doi:10.1002/cphc.202400313 derives ratchet-current behavior using asymmetric potentials and fat-tailed intervals",
+        "arxiv:2307.06202 assumes one reset clock and a spatially asymmetric potential; no last-reset-site-dependent kinetic rates are present"
+      ],
+      "reasoning": "The common-rate subfamily here has exactly zero drift, so Alston–Bertrand results do not imply the strictly nonzero current under staggered clocks. A single-site asymmetric barrier model can rectify at equal kinetic rates, unlike the mechanism here; no parameter identification supplies the pair of alternating memory clocks. The distinguishing exact assertion is \\(v=0\\) precisely when the gaps or rates coincide, together with a sharp fixed sign elsewhere and a quadratic low-rate coefficient.",
+      "searches": [
+        "Boosting macroscopic diffusion with local resetting site specific rate",
+        "Ratchet-mediated resetting Current efficiency exact solution state dependent rate",
+        "Ratcheting by Stochastic Resetting With Fat-Tailed Time Distributions alternating sites"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.12772v1 uses the same nearest-site projection vocabulary, but one common rate",
+        "arxiv:2405.10698 studies ratchet potential switching and finite-time returns",
+        "doi:10.1002/cphc.202400313 studies asymmetric substrate and heavy-tailed resets",
+        "arxiv:2307.06202 studies a one-rate periodic ratchet-potential reset mechanism with one well bottom per cell"
+      ],
+      "reasoning": "Equivalent formulations considered include two-state Markov-additive drift, alternating Voronoi projection, Brownian motor with last binding-site kinetic memory, and state-dependent switching. The named source models do not have the last-site label as a two-rate clock with alternating nearest-site projection. A change of notation or reflection does not turn uniform resetting into this model.",
+      "searches": [
+        "nearest site spatially varying resetting rate Brownian ratchet directed current periodic asymmetry",
+        "local resetting ratchet alternating rates Brownian diffusion",
+        "Poisson local resetting nearest site asymmetric alternating lattice state-dependent reset rates rectified ballistic drift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2401.12772v1 has a closed diffusivity formula for a regular array at a single reset rate, rather than a two-rate current table",
+        "arxiv:2307.06202 uses a single Poisson clock and asymmetric ratchet potential, not an alternating reset-clock current lookup"
+      ],
+      "reasoning": "No exact two-sublattice, two-clock current formula or table was returned by the named searches. Lack of an entry is supporting negative search evidence only, not a uniqueness proof.",
+      "searches": [
+        "alternating array nearest site Poisson resetting two period motion exact displacement large deviations",
+        "Brownian lattice periodic asymmetric reset targets two sublattice environment-dependent clock current exact formula",
+        "diffusion with local nearest-site resetting kinetic ratchet directed transport two spacing two rates"
+      ]
+    },
+    "rationale": "An explicit current sign theorem for a last-reset-site-labeled two-rate Brownian nearest-projection model, with exact formula and small-rate coefficient. Alston–Bertrand have one uniform rate and study self-diffusion; the current is forced to vanish for the common-rate specialization of this geometry. Ghosh et al., Liu et al. and Roberts et al. describe asymmetrically biased potentials or finite-time return phases, not a nearest-site Voronoi projector with rate memory. A generic Markov reward theorem alone does not supply the cell sums and strict hyperbolic-ratio monotonicity. Targeted external and searchable mathematical-record checks yielded no directly dominating same-object statement; residual priority risk remains.",
+    "residual_risks": [
+      "Semantic record retrieval returned mostly nonmatching results; unindexed or differently named sources may exist.",
+      "General Markov renewal theory might already have a model-specific specialization not surfaced by the searched literature.",
+      "Comparisons are scientific best-knowledge checks, not independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest same-projector work, but its kinetic clock is one uniform constant rate, and its asserted optimization addresses diffusion rather than our exact two-clock current sign.",
+        "evidence": [
+          "arxiv:2401.12772v1 model: Poisson rate k_r for all sites",
+          "Sections Effective diffusion coefficient and Regular arrays optimize diffusion enhancement give a diffusivity result and no memory-label two-rate speed"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.12772v1",
+        "material_read": "Abstract, model, effective-diffusion and first-passage analysis, regular lattice optimization, and discussion; section text covering nearest-site projection with a fixed common reset rate",
+        "method": "Direct inspection of open-access full HTML sections and equations",
+        "title": "Boosting macroscopic diffusion with local resetting",
+        "trigger": "Same nearest-site Brownian resetting physical mechanism"
+      },
+      {
+        "assessment": "Current is generated by an asymmetric potential in a separate return phase; it is not nearest Voronoi projection with two reset rates conditioned on the previous site.",
+        "evidence": [
+          "arxiv:2405.10698 Sec. II: one Poisson activation rate and potential V(x)",
+          "Sec. III: coupled diffusion and resetting Fokker–Planck currents"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.10698",
+        "material_read": "Full-text arXiv-rendered introduction, model equations and finite-return dynamics, and steady-state/current expressions in the body",
+        "method": "Direct inspection of accessible arXiv text including model and analytical solution sections",
+        "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+        "trigger": "Potentially stronger exact stationary ratchet-current model"
+      },
+      {
+        "assessment": "One asymmetric periodic potential with Pareto waiting times, not a two-site reciprocal Voronoi geometry with last-site rate memory; physical ratcheting motivation acknowledged.",
+        "evidence": [
+          "Liu et al., Sec. 2: reset to asymmetric potential minimum, Pareto reset law",
+          "Sec. 4: sign set by potential profile rather than staggered last-reset clocks"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cphc.202400313",
+        "material_read": "Open-access HTML introduction, model, reset interval distribution, sections 3–4 on stochastic resetting statistics and rectification",
+        "method": "Direct inspection of publisher open-access article body",
+        "title": "Ratcheting by Stochastic Resetting With Fat-Tailed Time Distributions",
+        "trigger": "Broad related published resetting ratchet with current and optimization"
+      },
+      {
+        "assessment": "One well per periodic cell, one homogeneous exponential resetting rate, asymmetric ratchet potential acting continuously between resets; its current need not have the two-gap/two-clock zero and sign rule. It does not imply the present theorem.",
+        "evidence": [
+          "arxiv:2307.06202 lines 17-20: local substrate minima and mirror-asymmetric potential",
+          "lines 24-32: Langevin diffusion in potential and a single rate r",
+          "lines 37-45: nonzero ratchet drift from asymmetric barrier crossing"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06202",
+        "material_read": "Open-access arXiv full-text sections Model, Rectification under SR, Slow SR, Fast SR, and Diffusion under SR, including model Eq. (1)-(2), one fixed rate, and current estimates",
+        "method": "Direct inspection of full arXiv-rendered article text and equations",
+        "title": "Autonomous Ratcheting by Stochastic Resetting",
+        "trigger": "Closest earlier protocol resetting to the bottom of a local well, with directional drift"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6b8c988-14dd-4667-acdd-303bf6f4eba7",
+  "value": {
+    "rationale": "Local resetting to spatial sites models stochastic binding. Allowing binding attempt rates to depend on the last selected sublattice is a physically motivated minimal kinetic asymmetry, distinct from asymmetric potential or biased projection. The exact global zero/positive/negative current classification establishes that geometry and kinetics must both break the relevant symmetry, and excludes scale-driven current reversals. The quadratic rare-reset onset and fast-reset suppression guarantee at least one finite current optimum, providing a nontrivial control-law consequence. This is not merely a generic ergodic theorem or a parameter substitution.",
+    "status": "PASS"
+  }
+}
