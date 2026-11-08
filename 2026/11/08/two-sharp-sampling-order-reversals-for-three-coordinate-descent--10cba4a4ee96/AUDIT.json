@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The exact coordinate update U_i=I-e_i(e_i^T H_rho) has unit coordinate curvature; invariant initial data and Hessian reduce 27 sequences to the four equality-pattern classes. All 27 terminal objective polynomials independently coincide with the formulas derived by direct substitution. The three exact difference factorizations prove the sign and sharp rho=1/2 boundary throughout -1/2<rho<1, while a 3:12:6:6 weighted sum gives the mean and its unique rho=4/5 root. Two-dimensional direct formulas prove minimality within this family. The SymPy verifier is reproduced from artifacts/verify.py, its output is included; finite samples are not substituted for the all-parameter factorization proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lee–Wright (2016), Theorems 2.3 and 2.5, provide expectation recurrences and rates on permutation-invariant quadratics.",
+        "Kim–Lee–Yun (2025) abstract compares RPCD upper rate bounds against RCD lower contraction bounds for permutation-invariant Hessians; full text was not accessible during this inspection."
+      ],
+      "reasoning": "A uniformly better worst-case expected or asymptotic contraction bound need not entail pointwise dominance at a prescribed consensus initialization and equal three-update budget. Even the signed mean can change across rho=4/5 without forcing a global rate ordering. No inspected broader theorem states pathwise 2/9 probability or rules it out. The 2025 abstract-only access is recorded as a residual priority risk.",
+      "searches": [
+        "random reshuffling can be worse than stochastic coordinate selection one epoch consensus eigenvector positive correlated SPD Hessian",
+        "coordinate descent with replacement expected objective can improve over random permutation one epoch equicorrelation",
+        "https://arxiv.org/abs/2505.23152",
+        "https://arxiv.org/abs/1607.08320"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1607.08320",
+      "https://arxiv.org/abs/1803.08200",
+      "https://arxiv.org/abs/2212.12384",
+      "https://arxiv.org/abs/2505.23152",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lee–Wright (2016) expectation and randomized-permutation recurrence may subsume or enable derivation of the mean-comparison identity, which is therefore not claimed separately as an independent novelty.",
+        "Gürbüzbalaban et al. (2018) section 4 analyzes convergence using a diagonally dominant family with its own sign structure; Abbaszadehpeivasti et al. (2022) analyzes cyclic and randomized performance by SDP.",
+        "Kim–Lee–Yun (2025) claims general contraction-bound separation in the abstract, not the fixed-path loss distribution."
+      ],
+      "reasoning": "The actual claimed distribution has positive weight on all-equal, adjacent-equal, alternating-repeat and all-distinct patterns. An expected objective scalar or supremum contraction factor loses the information needed to infer these 3:12:6:6 masses and the sharp rho=1/2 sign change. The rho=4/5 mean threshold is a derived scientific comparison, not relied on alone for originality. There is no contradictory implication from the available results.",
+      "searches": [
+        "random reshuffling versus randomized coordinate descent expected versus pathwise risk separation rho 1/2 4/5",
+        "https://arxiv.org/abs/1607.08320",
+        "https://arxiv.org/abs/1803.08200",
+        "https://arxiv.org/abs/2212.12384",
+        "https://arxiv.org/abs/2505.23152"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "RCD is sampling indices independently; RPCD is a random permutation, as in Lee–Wright section 1 (2016) and Gürbüzbalaban et al. section 1 (2018). The first-epoch law is equivalent to exactly enumerating equality-pattern classes of three ordered coordinate indices. Their inspected analyses center on expected objective or rates."
+      ],
+      "reasoning": "Under permutation invariance, the without-replacement comparator is deterministic at one epoch; first-order stochastic dominance reduces to whether the 27 pathwise losses all exceed it. General objective expectations, algorithm definitions and operator recurrences do not imply whether any 6 of 27 paths fall below it. Equality-pattern alias and first-epoch loss distribution queries found no equivalent explicit statement.",
+      "searches": [
+        "three coordinate exact Gauss Seidel comparison random permutation sampling with replacement high positive equicorrelation initial all ones first epoch stochastic dominance",
+        "randomized coordinate descent three-by-three equicorrelation four atom one-epoch objective distribution 2/9 threshold 1/2 4/5",
+        "coordinate descent random reshuffling stochastic dominance single epoch positive equicorrelation exact loss distribution",
+        "https://arxiv.org/abs/1607.08320",
+        "https://arxiv.org/abs/1803.08200"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public nearest matching prior-result records address optimal iid sampling with inverse-positive Hessians, delayed two-coordinate Gauss–Seidel, and best ordering for the Euclidean norm in two dimensions.",
+        "No matching four-class three-step objective table was found in the searched research records or targeted literature queries."
+      ],
+      "reasoning": "These are not interchangeable invariants: the exact table classifies four outcomes for 27 fixed-initialization paths, rather than sampling probabilities optimizing an expected rate or Euclidean amplification in another dimension. No located database/table explicitly contains the loss table; nonlocation does not establish absolute uniqueness.",
+      "searches": [
+        "randomized coordinate descent three-by-three equicorrelation four atom one-epoch objective distribution 2/9 threshold 1/2 4/5",
+        "random permutation versus with replacement coordinate descent probability three updates repeat first coordinate ABA equicorrelated quadratic",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "rationale": "The new assessed statement is the precise first-epoch distribution and its stochastic-order and 2/9 pathwise reversal, not the known setup or generic expected-objective comparison. Full accessible research passages in Lee–Wright (2016) and Gürbüzbalaban et al. (2018) concern expected contraction or structured convergent families, not the four-atom law. The 2022 SDP work estimates worst-case performance rather than giving this sampling-distribution classification. The 2025 related manuscript is only abstract-inspected, so a specialist priority risk is explicitly retained; abstract rate bounds do not logically imply realized loss probabilities. The public prior-result searches returned adjacent, non-dominating coordinate-sampling and Gauss–Seidel claims and no claim of this distribution. Absence of a search hit is not proof of priority.",
+    "residual_risks": [
+      "Specialist publications not indexed in accessible searches may derive or explicitly tabulate the same 27 path outcomes.",
+      "The closely relevant 2025 manuscript was only available at abstract level; its appendices or examples may contain a more direct comparison not verified here.",
+      "The scalar mean identity could follow from existing expectation recurrences and is not a standalone originality basis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Expected objective treatment; does not explicitly classify the 27 one-epoch loss values and stochastic-order reversal at the fixed consensus initial vector.",
+        "evidence": [
+          "Algorithms defining RCD/RPCD in Introduction; theorem 2.3 expectation covariance recurrence; section 2.4 and theorem 2.7 first-iteration expectation discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.08320",
+        "material_read": "Accessible full-text HTML: introduction and algorithms, section 2.4 including Theorems 2.3 and 2.5 on expected recurrences, discussion of first-epoch reduction.",
+        "method": "Opened and searched author-provided arXiv full HTML with theorem and section text.",
+        "title": "Random Permutations Fix a Worst Case for Cyclic Coordinate Descent",
+        "trigger": "Same equicorrelation Hessian and direct comparison of RCD/RPCD"
+      },
+      {
+        "assessment": "Expected and worst-case rate statements on an analytically different class; does not establish first-epoch four-atom distribution.",
+        "evidence": [
+          "Section 1 defines exact coordinate schemes; Section 4 gives spectral bounds and expected objective reduction, not pathwise outcome masses."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.08200",
+        "material_read": "Accessible full-text HTML: Introduction including algorithms and comparison, sections 4.1 and 4.2 on rate bounds for the structured diagonally dominant problem.",
+        "method": "Opened arXiv full HTML and searched comparative section and proposition.",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "Closest primary comparison between randomized without- and with-replacement exact coordinate descent"
+      },
+      {
+        "assessment": "An optimization-performance-estimation framework, without a stochastic first-epoch order-statistics characterization for the selected equal-correlation three-variable model.",
+        "evidence": [
+          "First public arXiv version dated December 23, 2022; randomized and cyclic coordinate descent convex performance estimates in the abstract and paper sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.12384",
+        "material_read": "Public 2022 manuscript PDF: title and abstract pages visually inspected, introductory problem/algorithm and mathematical performance estimation sections examined in extracted text.",
+        "method": "Open-access PDF text and first two page screenshots; relevant theorem/section text searched.",
+        "title": "Convergence rate analysis of randomized and cyclic coordinate descent for convex optimization through semidefinite programming",
+        "trigger": "Qualifying public 2022 source for middle cohort, and numerical performance-estimation starting point"
+      },
+      {
+        "assessment": "The abstract states a contraction-rate separation; it does not provide 27-path distribution data. The unread full text creates an explicit specialist novelty risk.",
+        "evidence": [
+          "Abstract dated May 29, 2025, describes RPCD upper contraction-rate bound below RCD lower bound for permutation-invariant matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.23152",
+        "material_read": "Title, dated abstract, and search-source summary only. An attempted open-access full-text retrieval did not succeed.",
+        "method": "Public arXiv abstract and unsuccessful HTML/PDF retrieval; do not infer whole-document absence of the claim.",
+        "title": "Provable Benefit of Random Permutations over Uniform Sampling in Stochastic Coordinate Descent",
+        "trigger": "Highly relevant 2025 comparison on permutation-invariant Hessians"
+      },
+      {
+        "assessment": "Optimal sampling probability for a different matrix assumption and expected contraction, not sampled one-epoch distribution.",
+        "evidence": [
+          "Public summary specifies optimal iid sampling proportional to a normalized inverse-Hessian row sum, not a 3-step order comparison."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Public title and result summary, not full manuscript.",
+        "method": "Semantic published-research claim comparison.",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest published semantic search result on optimizing iid coordinate selection"
+      },
+      {
+        "assessment": "Two-coordinate stale-read asymptotic factor, not three-coordinate finite-epoch loss outcomes.",
+        "evidence": [
+          "Public summary gives a delay generating-function root equation for mean-square error."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "material_read": "Public title and result summary, not full manuscript.",
+        "method": "Semantic published-research claim comparison.",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Closest published result on discrete random index path effects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10cba4a4-ee96-4294-b928-45b64ffe04ff",
+  "value": {
+    "rationale": "A natural question in randomized numerical optimization is whether swapping coordinate sampling with replacement for random permutation improves every realized fixed-budget epoch, or merely the expected convergence rate. This complete minimal three-variable symmetric example separates those claims through a sharp 1/2 pathwise frontier, a nonzero fixed 2/9 probability of a better repeated-index outcome, and a distinct mean 4/5 frontier. The classification explains the underlying alternating revisit and supplies a reproducible exact test problem; it has a clear mathematical use beyond mere parameter substitution or a tiny empirical gain. No downstream theorem is asserted.",
+    "status": "PASS"
+  }
+}
