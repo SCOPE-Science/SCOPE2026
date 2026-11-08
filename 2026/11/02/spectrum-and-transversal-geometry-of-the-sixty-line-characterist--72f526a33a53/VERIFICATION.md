@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite geometric certificate
+# Independent mathematical audit
 
-The `verify.py` program is a standalone, ordinary exact-arithmetic Python checker. Run it with `python verify.py` after installing the version-compatible package in `requirements.txt`. Its captured execution is in `verify_output.txt`. The final line in the actual output is `VERIFY_OK`.
+## correctness
 
-The checker reconstructs \(\mathbb F_{16}=\mathbb F_2[a]/(a^4+a+1)\) and verifies the exact parameter and representative line. It enumerates the complete \(S_5\)-orbit and normalizes Plücker coordinates. Each pairwise intersection is decided by all five maximal minors of the \(5\times4\) matrix of line generators. It constructs the integer adjacency matrix, checks its row sums, computes the integer characteristic polynomial exactly via SymPy, and counts all unordered pairs by adjacency and number of common neighbors. It then computes the full \(S_5\)-action on the maximally transversal pairs and the fourth-power Frobenius map; these exhaustive checks establish the three pair-orbit sizes and identify the unique conjugate-pair orbit.
+PASS
 
-An additional independent census enumerates every reduced-row-echelon representative of a projective line in \(\mathbb P^3(\mathbb F_4)\) and \(\mathbb P^3(\mathbb F_{16})\). Each candidate line is tested against the degree-four surface polynomial at five distinct projective points, an exhaustive zero-polynomial test on that line. It finds zero of \(357\) and sixty of \(70161\) ambient lines, respectively.
+Explicit F16 Plücker coordinates reconstruct 60 S5 line translates. Geometric meeting iff rank of their joint 5x4 spanning matrix <=3, computable via exact minors; integer adjacency reconstruction verifies uniform degree 17, characteristic polynomial, every A² pair multiplicity, 240 triangles and diameter 2. Independent F16 arithmetic computed all 60 and characteristic polynomial and Frobenius conjugate profile; actual package verify.py separately computes orbit closure and 357 F4/70161 F16 RREF ambient-line census. Completeness over algebraic closure relies on Rams–Schütt geometry and the nonsupersingular quartic line bound, not on finite-field sampling.
 
-The named characteristic-two quartic's geometric smoothness and rank-\(20\) construction rely on Rams–Schütt; the cited characteristic-two at-most-sixty theorem of Degtyarev supplies geometric completeness. The certificate verifies the claimed *finite* invariants and makes no deduction about arbitrary fields from a finite census. Literature originality remains a historical, non-computational judgment; this verification is not an independent scientific audit.
+## originality
+
+PASS
+
+The underlying 60-line quartic and S5 orbit were constructed by Rams–Schütt, and subsequent large-quartic classifications are antecedents. Neither the inspected Rams–Schütt construction nor the Resultary 64-Schur-line spectrum supplies this exact 60-vertex seven-stratum graph spectrum and Frobenius 30-orbit. This comparison is best of knowledge, not a claim that the global incidence matrix cannot be recovered from old line classification.
+
+## value
+
+PASS
+
+Line-incidence spectrum, exact common-transversal counts, and Frobenius pair orbits are natural global arithmetic/geometric invariants of an extremal quartic configuration; the orbit-identified maximum eight transversals is substantive new geometric detail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
