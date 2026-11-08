@@ -1,19 +1,21 @@
-# Review of the three-site seeding threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** With Poisson mean \(a x_i\) for the first two sites and \(b x_3\) for the third, site-failure probabilities are exactly exponential. Conditional on third-site establishment, the strong-site failure product is fixed under equal-sum allocations while the failure-probability sum is uniquely minimized by balancing. The remaining scalar failure objective has derivative \(u[u(1-v)+(1-2h)v(1-u)]\). Its sign proves the zero-third-site regime, the sharp equality at \(h=1/2\), and the unique strictly interior root when \(h>1/2\). Root logarithms prove the two limits. The embedded checker passed 18,898 assertions. Continuum validity rests on the proof, not the sample checks.
+PASS
 
-## Originality
+Poisson thinning makes independent site-success indicators with failure u_i=exp(−a x_i) for the two strong sites and v=exp(−b x_3). For fixed weak effort x3, total success P=1−(1−r)(u1+u2)+(1−2r)u1u2; u1u2 fixed, strict AM–GM gives unique x1=x2. Set B=aE,h=b/a,z=ax3,u=exp(−(B−z)/2),v=exp(−hz). Failure F=u²+2u(1−u)v has exact derivative u[u(1−v)+(1−2h)v(1−u)]. For h≤1/2 derivative positive interior and zero optimal weak effort; h>1/2 derivative changes uniquely negative to positive because (exp(hz)−1)/(exp((B−z)/2)−1) rises from zero to infinity. Small-budget root ratio gives (2h−1)/(4h−1); large-budget logarithms give z=[B+2log(2h−1)]/(2h+1)+o(1). Independent sympy differentiation returned zero difference and scalar numerical optima at h=.25,.5,.75,1, B=.2,3,30 agreed with regime. Numeric tests not substituted for global continuous proof.
 
-**PASS on accessible scientific evidence, with residual risk.** Comparison of published mathematical records and primary literature did not identify an equivalent three-site unequal-Poisson-efficiency threshold. Derman–Lieberman–Ross (1974) is the closest abstract-level antecedent: it treats general \(k\)-out-of-\(n\) allocation with a common resource-to-reliability function, so its stated hypotheses do not directly supply the heterogeneous efficiency classification. The Derman complete text and a related 1975 chapter were unavailable; they remain named priority risks. The full Eriksson et al. (2014) article concerns rescue and dispersal dynamics, not this constrained two-site establishment probability; the Leung et al. (2004) PDF was accessible only on its first page.
+## originality
 
-## Value
+PASS
 
-**PASS.** A requirement that two geographically distinct introductions establish is a natural minimal redundancy criterion for a conservation-reintroduction program. The exact half-efficiency cutoff is budget-independent, and the weak site's large-budget share differs substantially from its small-budget share. These facts give a checkable allocation benchmark and explicit regime boundaries, without asserting that ecological field systems satisfy the independence assumption.
+Best-of-knowledge novelty is the exact two-strong/one-weak heterogeneous Poisson 2-of-3 establishment optimizer with budget-independent activation h=1/2 and both budget limits. Earlier general k-of-n reliability allocation is acknowledged prior, especially Derman-Lieberman-Ross 1974 with equal component success functions; its full text was inaccessible, so a possible special case in earlier reliability optimization remains an explicit priority risk, not automatic failure.
 
-## Risks and limits
+## value
 
-The biological model is deliberately one-shot; stochastic dispersal, site dependence, Allee barriers beyond one successful founder, and long-term viability are not treated. A general reliability allocation result may already imply this specialized threshold; direct full-text comparison to the most relevant older work was unavailable. No external scientific or historical priority audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly when a lower-efficiency third habitat is worth activating is a motivated probability allocation question. The clean budget-independent half-efficiency threshold, unique optimizer and small/large budget asymptotics are useful benchmarks for 2-of-3 stochastic reliability and constrained conservation seeding, despite the deliberately narrow model. No claims for real-world colonization dynamics or general heterogeneous n-site allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
