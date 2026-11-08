@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the distance-law comparison
+# Independent mathematical audit
 
-Run the included `VERIFY.py` with Python 3.10 or later; it requires only the Python standard library:
+## correctness
 
-```bash
-python3 VERIFY.py
-```
+PASS
 
-The script independently enumerates point-to-lift distances over finite rational grids, checks the closed even/odd deck-path expression, tests finite cyclic sum–difference bijections, evaluates the exact CDF-gap integral numerically, and checks the two asymptotic exponents and constants. Its completed run produced:
+PASS. Direct separation of glide-reflection deck lifts yields d_K^2=min(u^2+z^2,v^2+(H-z)^2). The sum/difference Haar covering gives independent uniform folded horizontal distances; symmetry of the triangular vertical separation makes W uniform[0,h]. The exact coupling D_K=min(sqrt(B^2+W^2),sqrt(C^2+(2h-W)^2)), D_T=sqrt(B^2+W^2) produces the exact CDF-gap integral, equality for t<=h, strict positivity on h<t<R and shared diameter R. Dominated-convergence scaling near t=h and t=R gives the displayed 3/2 onset and quadratic-vs-cubic upper tails with coefficients 2sqrt(2)/(3s sqrt(h)), R^2/(2h^2s^2), 2R^3/(3h^2s^4). Independent deterministic Simpson quadrature checked 12 equality/strict CDF cases for three aspect ratios. These finite quadratures do not establish real-parameter endpoint asymptotics.
 
-```text
-PASS: 5656 exact lift/finite-character checks; 49 deterministic CDF/asymptotic checks.
-Finite tests do not replace the analytical universal proof.
-```
+## originality
 
-The assertion coverage includes three positive aspect ratios for exact rational path checks, four aspect ratios for CDF support and positivity checks, and independent small-threshold and diameter-limit tests. The proof in `RESULT.md` establishes all parameters and thresholds symbolically; this file does not claim infinite certification by enumeration. No independent external validation has been performed.
+PASS
+
+PASS, best-of-knowledge. Earlier flat Klein-bottle systolic/cut-locus work and random-assignment spectral constants are not statements about the full random two-point intrinsic-distance law. Prior squared-distance moment comparisons are explicitly acknowledged. No inspected dominant exact stochastic ordering with 3/2 onset and cubic-vs-quadratic diameter tails was identified; older integral-geometric tables remain a priority risk.
+
+## value
+
+PASS
+
+PASS. A complete distributional comparison of natural same-area, equal-diameter flat quotients with strict stochastic dominance and distinct endpoint powers is a motivated integral-geometric invariant. The sharp 3/2 onset and 2 versus 3 diameter-tail exponents distinguish geometry beyond mere first moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

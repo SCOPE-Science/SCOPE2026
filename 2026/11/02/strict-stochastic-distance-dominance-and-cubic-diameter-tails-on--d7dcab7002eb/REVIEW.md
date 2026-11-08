@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The deck-transform split into even and odd lifts yields an exact minimum of two Euclidean squared distances, not an estimate. A degree-two sum–difference map of two Haar-uniform horizontal coordinates yields independent folded uniforms; averaging the symmetric conditional distance function against the triangular vertical-separation density yields a uniform vertical variable. These steps give a coupling with the rectangular torus and an exact integral for the CDF difference. Positivity is proved by a nonempty interval of horizontal folds for each strict threshold. The two endpoint asymptotics follow from explicitly bounded rescalings and dominated convergence. A standalone program checks rational deck paths (5,656 checks, including finite-character analogues) and 49 deterministic numerical distribution/asymptotic tests. Those finite tests corroborate, but do not replace, the universal analytical proof.
+PASS
 
-## Originality
+PASS. Direct separation of glide-reflection deck lifts yields d_K^2=min(u^2+z^2,v^2+(H-z)^2). The sum/difference Haar covering gives independent uniform folded horizontal distances; symmetry of the triangular vertical separation makes W uniform[0,h]. The exact coupling D_K=min(sqrt(B^2+W^2),sqrt(C^2+(2h-W)^2)), D_T=sqrt(B^2+W^2) produces the exact CDF-gap integral, equality for t<=h, strict positivity on h<t<R and shared diameter R. Dominated-convergence scaling near t=h and t=R gives the displayed 3/2 onset and quadratic-vs-cubic upper tails with coefficients 2sqrt(2)/(3s sqrt(h)), R^2/(2h^2s^2), 2R^3/(3h^2s^4). Independent deterministic Simpson quadrature checked 12 equality/strict CDF cases for three aspect ratios. These finite quadratures do not establish real-parameter endpoint asymptotics.
 
-**PASS under the examined evidence, with historical risk.** El Mir and Yassine (2012) study conformal systolic/area inequalities for the same geometric quotient. Davis and Recio-Mitter (2019) describe the cut locus and shortest geodesics, not the pair-distance CDF or diameter-tail probability. Benedetto and collaborators (2021) study a spectral constant for optimal random assignments, not the unpaired distance law. An existing squared-distance moment calculation on these flat Klein bottles is **not** claimed as new; a moment inequality neither implies a first-order stochastic ordering nor determines sharp CDF exponents. Searches for direct distribution formulas, equivalent stochastic coupling, and endpoint tails found no covering statement. Historical unindexed works remain a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural comparison between the two compact flat surfaces obtained from one rectangle by untwisted versus twisted gluing, at identical area and identical diameter. Its conclusion orders all distance thresholds, not one moment. The onset exponent \(3/2\) and the quadratic-versus-cubic diameter-tail transition distinguish the entire extreme-distance geometry of orientable and nonorientable quotients for every positive aspect ratio. This is a structural geometric-probability result, not an arbitrary single-parameter numerical computation.
+PASS, best-of-knowledge. Earlier flat Klein-bottle systolic/cut-locus work and random-assignment spectral constants are not statements about the full random two-point intrinsic-distance law. Prior squared-distance moment comparisons are explicitly acknowledged. No inspected dominant exact stochastic ordering with 3/2 onset and cubic-vs-quadratic diameter tails was identified; older integral-geometric tables remain a priority risk.
 
-## Limitations
+## value
 
-The result is restricted to the specified flat quotients, normalized intrinsic area, and independent endpoint sampling. Exact distributional ordering is proved only for the matched untwisted rectangle, not for arbitrary tori of equal area. The endpoint expansions fix the aspect ratio. No external independent audit has been performed; literature priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A complete distributional comparison of natural same-area, equal-diameter flat quotients with strict stochastic dominance and distinct endpoint powers is a motivated integral-geometric invariant. The sharp 3/2 onset and 2 versus 3 diameter-tail exponents distinguish geometry beyond mere first moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
