@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:12:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The connected-graph two-step Laplacian kernel forces the consecutive firing indicator vectors of a primitive period-two state to be complementary, and local threshold inequalities yield exactly o_v(f) independently selectable chip values per vertex; dividing oriented phases by two gives N(G)=sum_f prod_v o_v(f)/2. For K_{n,n}, grouping left/right firing counts (i,j) produces q_n(i,j)=Pr[Bin(n,1-j/n)=i]Pr[Bin(n,1-i/n)=j]; the local Gaussian along i+j=n yields sum q_n~sqrt(pi*n)/2 and the normalized Beta(1/2,1/2) marginal; maximal binomial-mass bounds make both tails negligible. For deletion H_n with max degree R fixed, each removed edge has exactly 2/n conditional expected logarithmic cut-weight contribution; bounded-degree fixed-size sampling gives O_R(1/n) variance on each interior strip, hence uniform E[exp(-X)]~exp(-2|E(H_n)|/n). Endpoint domination extends uniformity and log degree product=-2m_n/n+O_R(1/n). Thus N(G_n)/N(K_{n,n})=exp(-2m_n/n)(1+o_R(1)) and N(G_n)~sqrt(pi*n)/4 prod_v degree_G(v) uniformly; the arcsine phase law survives. This proves only primitive period-two configurations, not attraction basins or all possible periods.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1003.0943 gives possible periods on complete bipartite graphs, not all-state asymptotic phase-space census after arbitrary deleted edges.",
+          "arXiv:2408.10508 and arXiv:2608.04153 describe periods for chip-count ranges rather than a global orbit-count factor."
+        ],
+        "reasoning": "Period-existence theorems and exact general-graph formulas are prior ingredients; their statements have no uniform asymptotic concentration of cut correction under adversarial H_n. The restricted period-two claims do not dominate this statement.",
+        "searches": [
+          "parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees",
+          "https://arxiv.org/abs/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508",
+          "https://arxiv.org/abs/2608.04153"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and SLOGAN.txt, VERIFICATION.md, checks/verify_formula.py and checks/verify_independent.cpp; Git source tree 7eb9c2c6f48efedc16975455435b2aa665cb98a5",
+        "T.-Y. Jiang, On the Period Lengths of the Parallel Chip-Firing Game, arXiv:1003.0943 §§2–3",
+        "Jiang–Scully–Zhang, Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game, arXiv:1211.6786 §6–7",
+        "Ji–Li–Wang, Non-Stabilizing Parallel Chip-Firing Games, arXiv:2408.10508 introduction and results",
+        "arXiv:2608.04153 accessible abstract only",
+        "Resultary semantic search parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A known phase-count formula and the K_{n,n} marginal cover the two starting tools; they do not provide E[correction]=exp(-2m/n) for arbitrary graph-dependent edge deletion.",
+          "Source proof equations (7)–(10) establish per-edge expectation 2/n and bounded-degree concentration; both mathematical steps are needed to cross from baseline to this theorem."
+        ],
+        "reasoning": "The submitted result requires new uniform sampling estimates after edge deletion. The strong known starting identity does not imply the additional asymptotic without those estimates.",
+        "searches": [
+          "parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees",
+          "https://arxiv.org/abs/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508",
+          "https://arxiv.org/abs/2608.04153"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general cut-degree identity yields the orbit count as an f-sum but alone not the bounded-degree deletion limit; the K_{n,n} baseline arcsine law is the R=0 special case.",
+          "Jiang arXiv:1003.0943 distinguishes period existence/possibility from enumerating all chip configurations in primitive two-cycles."
+        ],
+        "reasoning": "The claimed exponential factor and degree-product normalization are equivalent for bounded removed degree by an explicit log expansion. The novelty unit is uniform perturbative evaluation of that known exact formula for every irregular H_n, which does not follow by relabelling or by the R=0 result.",
+        "searches": [
+          "parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees",
+          "https://arxiv.org/abs/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508",
+          "https://arxiv.org/abs/2608.04153"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query returned tangential multipartite parity automata and bipartite metric-topology results rather than this parallel chip-count asymptotic.",
+          "Direct crown calculations for n<=5 are finite diagnostics, not general n theorems."
+        ],
+        "reasoning": "The claim is a uniform all-large-n family theorem, not an individual table value. No inspected index entry provides it, but lack of retrieval does not establish historical priority.",
+        "searches": [
+          "parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees",
+          "https://arxiv.org/abs/1003.0943",
+          "https://arxiv.org/abs/1211.6786",
+          "https://arxiv.org/abs/2408.10508",
+          "https://arxiv.org/abs/2608.04153"
+        ]
+      },
+      "rationale": "Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: The submitted result requires new uniform sampling estimates after edge deletion. The strong known starting identity does not imply the additional asymptotic without those estimates. Source access and possible historical equivalents remain listed as residual risks.",
+      "residual_risks": [
+        "The exact cut-degree primitive-two-cycle enumerator and complete-biclique limit, including no-deletion arcsine distribution, are prior work and excluded from the new claim.",
+        "Some older graph-specific exact formulas or a dense-defect asymptotic may be uncatalogued; arXiv:2608.04153 full text not materially inspected and its abstract addresses a different period-two chip-count window."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes period-length tools, not the uniform orbit-count asymptotic under arbitrary bounded-degree deletions",
+          "evidence": "Theorems concern attainable and excluded periods; no source theorem replaces conditional cut-weight concentration.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Primary paper Sections 2–3 and its period-structure statements; a PDF page was visually inspected",
+          "method": "Primary text and PDF page inspection",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Same parallel chip-firing dynamics and balanced bipartite graph classes"
+        },
+        {
+          "assessment": "Firing-pattern results are background, not claimed asymptotic",
+          "evidence": "Pattern restrictions do not count all nonnegative chip configurations in arbitrary near-complete bicliques.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.6786",
+          "material_read": "Primary source sections on admissible firing patterns",
+          "method": "Primary text section comparison",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Firing-vector constraints for primitive two-cycles"
+        },
+        {
+          "assessment": "Concerns non-stabilization and chip-total windows, not full orbit enumeration",
+          "evidence": "No equivalence between a period range and the global primitive-two-cycle census.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.10508",
+          "material_read": "Primary introduction and principal period results",
+          "method": "Primary main-results comparison",
+          "title": "Non-Stabilizing Parallel Chip-Firing Games",
+          "trigger": "Recent relevant period-two theorem in bipartite graphs"
+        },
+        {
+          "assessment": "Cannot exclude hidden stronger statements from unread full text; abstract concerns an interval of total chips",
+          "evidence": "Priority risk retained; NOT used as whole-document NOT_COVERING evidence.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04153",
+          "material_read": "Accessible abstract only, not the full text",
+          "method": "Abstract-level risk identification",
+          "title": "All parallel chip-firing games with a certain chip-count range have period 2",
+          "trigger": "Plausible newer overlapping period-two result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural robustness theorem for exactly solvable parallel chip firing: arbitrary adversarial bounded-degree edge deletions destroy exchangeability, yet the asymptotic orbit census retains a universal edge-number factor and the nonuniform arcsine marginal. It determines asymptotic behavior for infinitely many irregular graph families, not just one small example or a renamed exact counting identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and SLOGAN.txt, VERIFICATION.md, checks/verify_formula.py and checks/verify_independent.cpp; Git source tree 7eb9c2c6f48efedc16975455435b2aa665cb98a5",
+    "T.-Y. Jiang, On the Period Lengths of the Parallel Chip-Firing Game, arXiv:1003.0943 §§2–3",
+    "Jiang–Scully–Zhang, Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game, arXiv:1211.6786 §6–7",
+    "Ji–Li–Wang, Non-Stabilizing Parallel Chip-Firing Games, arXiv:2408.10508 introduction and results",
+    "arXiv:2608.04153 accessible abstract only",
+    "Resultary semantic search parallel chip firing primitive period two orbits complete bipartite graphs edge deletions arcsine law product of degrees"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "R=maxdeg(H_n) fixed independently of n, n>2R; no claim for growing R.",
+    "The asymptotic is uniform over the permitted deletion graphs but has no optimized finite-n rate.",
+    "Counts orbits, not attraction basins or periods other than two."
+  ],
+  "residual_risks": [
+    "The exact cut-degree primitive-two-cycle enumerator and complete-biclique limit, including no-deletion arcsine distribution, are prior work and excluded from the new claim.",
+    "Some older graph-specific exact formulas or a dense-defect asymptotic may be uncatalogued; arXiv:2608.04153 full text not materially inspected and its abstract addresses a different period-two chip-count window."
+  ],
+  "schema_version": 1
+}

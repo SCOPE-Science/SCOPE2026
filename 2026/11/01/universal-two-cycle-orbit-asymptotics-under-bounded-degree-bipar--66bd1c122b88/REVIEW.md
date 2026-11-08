@@ -1,15 +1,21 @@
-# Scientific review: bounded-degree deletion robustness in parallel chip firing
+# Independent mathematical audit
 
-## Correctness — PASS
-For a connected graph the two-step Laplacian identity forces complementary firing patterns in every primitive two-cycle; imposing the two threshold inequalities gives exactly the local cross-cut-degree factor at each vertex. The complete-biclique reference sum is an explicit pair of binomial probabilities. A uniform local central-limit estimate away from the endpoints and a maximal-binomial-mass bound at the endpoints prove both its orbit-count asymptotic and the arcsine density. For a deleted edge the exact expected reciprocal-cut-degree contribution is \(2/n\) regardless of the two firing counts. Bounded degree makes the sum's variance \(O_R(1/n)\) on any interior strip, so its exponential factor converges uniformly; an endpoint bound permits removal of the strip. The degree-product expansion is uniform. The C++ direct simulator independently verifies nontrivial two-cycles and the cut formula for small complete, regular and irregular deletion patterns; the Python checker verifies the exact crown and biclique finite sums. Finite testing does not replace the proof.
+## correctness
 
-## Originality — PASS, with scope and residual risk
-The cut-degree period-two counting identity on arbitrary connected graphs is known. The balanced complete-bipartite orbit count and beta/arcsine marginal are known. These stronger *baseline* facts have been explicitly removed from the novelty claim. The novel unit assessed here is a uniform perturbative asymptotic over all deleted edge sets of fixed bounded maximum degree: its proof needs the exact per-deleted-edge expectation, uniform conditional hypergeometric concentration, and endpoint control. The previously established universal counting identity does not provide this constant or uniformity without the new analysis. Jiang (2010) classifies possible periods on complete bipartite graphs; Jiang–Scully–Zhang (2012/2015) characterize possible firing patterns; Ji–Li–Wang (2024) and the later 2026 period-two theorem address periods in chip-total windows, not the phase-space number of all two-cycles. These primary texts and accessible source statements were compared by implication, not merely title. Unindexed equivalences remain a risk; a later density theorem was only available in abstract form.
+PASS
 
-## Mathematical value — PASS
-This is a natural robustness problem because the complete-bipartite graph is a canonical solvable chip-firing system, but an adversarial bounded-degree edge defect destroys its full permutation symmetry. The theorem shows that the large primitive-two-cycle count loses a precise factor determined only by total deleted edges, independent of their organization, while its nonuniform arcsine firing profile persists. The result is a quantitative universality principle across infinitely many irregular graph families, rather than a special-parameter re-evaluation of the known exact biclique census.
+The connected-graph two-step Laplacian kernel forces the consecutive firing indicator vectors of a primitive period-two state to be complementary, and local threshold inequalities yield exactly o_v(f) independently selectable chip values per vertex; dividing oriented phases by two gives N(G)=sum_f prod_v o_v(f)/2. For K_{n,n}, grouping left/right firing counts (i,j) produces q_n(i,j)=Pr[Bin(n,1-j/n)=i]Pr[Bin(n,1-i/n)=j]; the local Gaussian along i+j=n yields sum q_n~sqrt(pi*n)/2 and the normalized Beta(1/2,1/2) marginal; maximal binomial-mass bounds make both tails negligible. For deletion H_n with max degree R fixed, each removed edge has exactly 2/n conditional expected logarithmic cut-weight contribution; bounded-degree fixed-size sampling gives O_R(1/n) variance on each interior strip, hence uniform E[exp(-X)]~exp(-2|E(H_n)|/n). Endpoint domination extends uniformity and log degree product=-2m_n/n+O_R(1/n). Thus N(G_n)/N(K_{n,n})=exp(-2m_n/n)(1+o_R(1)) and N(G_n)~sqrt(pi*n)/4 prod_v degree_G(v) uniformly; the arcsine phase law survives. This proves only primitive period-two configurations, not attraction basins or all possible periods.
 
-## Closest literature and limitations
-See Jiang (arXiv:1003.0943), Jiang–Scully–Zhang (arXiv:1211.6786; doi:10.1137/130933770), and Ji–Li–Wang (arXiv:2408.10508). The accessible abstract of arXiv:2608.04153 describes a period-two criterion on a chip-total interval, not this orbit-count law, but its full text was inaccessible. The statement assumes \(R\) fixed and addresses primitive period-two orbits rather than global attraction or higher periods.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: The submitted result requires new uniform sampling estimates after edge deletion. The strong known starting identity does not imply the additional asymptotic without those estimates. Source access and possible historical equivalents remain listed as residual risks.
+
+## value
+
+PASS
+
+This is a natural robustness theorem for exactly solvable parallel chip firing: arbitrary adversarial bounded-degree edge deletions destroy exchangeability, yet the asymptotic orbit census retains a universal edge-number factor and the nonuniform arcsine marginal. It determines asymptotic behavior for infinitely many irregular graph families, not just one small example or a renamed exact counting identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
