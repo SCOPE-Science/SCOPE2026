@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniform increasing ordered plane recursive tree has (2n-3)!! equiprobable insertion histories, with the exact EGF differential identity T_z=u+T/(1-T), T(z,1)=1-sqrt(1-2z). Differentiation at u=1 gives U=((1-2z)^(-1/2)-(1-2z))/3. The coefficient [z^{n-1}]T^r and ratio of [z^{n-1}]rT^{r-1}U yield E[L|R=r]=(2m+r)/3-2(r+1)(m-r)/(3(2m-r-1)), m=n-1. Subtract E L=(2m+1)/3 for bias ((r+1)^2-4m)/(3(2m-r-1)); strict increasing difference follows from positive rational expression for r<m, and zero iff m=k²,r=2k-1,k>=2. The disjoint root-gap and leaf-gap insertion events imply covariance recursion c_{t+1}=c_t+(w_{t+1}-w_t)/3, w_t=4^{t-1}/binom(2t-2,t-1), hence Cov(R,L)=(w_n-2)/3. Exact marginal second moments justify correlation ~sqrt(pi/(4-pi))/sqrt(n); all endpoints n>=3 and r=m verified. Independent exact DP through n=24 confirmed every conditional mean and covariance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1993 paper supplies separate root outdegree marginal distribution and leaf marginal and analyzes branch leaf counts conditional on branch size.",
+          "Janson analyzes plateaux, ascents and descents; 2014 work asymptotic covariances of node outdegree class counts."
+        ],
+        "reasoning": "These broadly relevant methods could in principle derive the mixed formula, but the actual read theorems do not state/imply it without a separate new coefficient calculation.",
+        "searches": [
+          "Mahmoud Smythe Szymanski 1993 complete paper Sections 2-8",
+          "Janson 2008 arXiv:0803.1129",
+          "Acan Hitczenko 2014 arXiv:1411.5756"
+        ]
+      },
+      "checked_sources": [
+        "Mahmoud Smythe Szymanski Random Structures Algorithms 4(2) (1993), pp.151-176 full authorized text",
+        "Janson 2008 arXiv:0803.1129 page4 Example1.4",
+        "Acan Hitczenko 2014 arXiv:1411.5756",
+        "Resultary uniform-parent recursive root/leaf covariance 2026/10/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior root marginal and leaf marginal do not algebraically determine joint conditional regression or covariance.",
+          "New all-n E[L|R=r] has sign ((r+1)^2-4(n-1)) and covariance (4^{n-1}/C(2n-2,n-1)-2)/3."
+        ],
+        "reasoning": "The new mixed generating-function calculation supplies information not a logical consequence of separate marginal distributions; an older explicit multivariate result may still dominate, recorded as priority risk.",
+        "searches": [
+          "Mahmoud Smythe Szymanski 1993 Theorem 1 Section 2; sections 3,5,6,8",
+          "Janson 2008 Section 1 Examples",
+          "Acan Hitczenko 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stirling-permutation top-level factor count corresponds to plane tree root outdegree; plateaux correspond to leaves.",
+          "Uniform-parent recursive trees and increasing plane-oriented recursive trees are different measures."
+        ],
+        "reasoning": "The correct dual formulation is conditional plateaux expectation given Stirling top-level factors. No equivalent exact mixed theorem was present in inspected sources; prior uniform-recursive covariance is not applicable.",
+        "searches": [
+          "Resultary: plane oriented recursive tree root outdegree conditional expected number leaves covariance sharp threshold",
+          "Janson 2008 Stirling permutations top-level factors plateaux",
+          "Mahmoud Smythe Szymanski 1993 root outdegree leaves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest entry has bounded covariance (n-2)/(2(n-1)) for uniform-parent recursive trees, while this model gives (w_n-2)/3 asymptotic sqrt(pi*n)/3."
+        ],
+        "reasoning": "The searched comparison concerns a different tree law, not an exact table or all-size theorem covering plane recursive root-conditioned leaf counts.",
+        "searches": [
+          "Resultary plane oriented recursive tree root outdegree conditional expected number leaves covariance sharp threshold",
+          "Resultary 2026/10/4 equal-share covariance of root degree and leaves random recursive tree"
+        ]
+      },
+      "rationale": "Mahmoud–Smythe–Szymański (1993) is extremely relevant: via authorized access its entire 26-page text was inspected. Section 2 gives root outdegree marginal moments and Section 3 gives leaves marginals, while Sections 5–7 analyze branch leaves conditional on branch SIZE, not the whole-tree leaf count conditional on root DEGREE. No same mixed regression, threshold r+1=2sqrt(n-1), or mixed covariance is stated there. Janson (2008) maps leaves to Stirling-permutation plateaux and root to top-level factors, but analyzed other joint triples. Acan–Hitczenko (2014) concerns counts of all nodes with fixed outdegree, not distinguished root degree. Resultary’s closest root-leaf covariance concerns uniform-parent recursive trees with covariance tending 1/2, not plane increasing trees with covariance O(sqrt n). Priority qualified against uninspected multivariate generating function literature.",
+      "residual_risks": [
+        "Full 1993 primary text inspected; a different multivariate PORT generating function theorem could subsume the same mixed regression or covariance.",
+        "The result gives conditional means, not full conditional leaf stochastic ordering, and does not apply to uniform-parent recursive trees."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS marginal models and leaf branches but not stated full-tree leaf conditional on root-degree r or its square-root threshold",
+          "evidence": "Mahmoud Smythe Szymanski 1993 pp.151-176 Sections 2-8, particularly pp.154-160 and 165-175",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240040204",
+          "material_read": "Entire 26-page authorized publisher text scanned; substantive Sections 2-3 on root degree and leaves and Sections 5-8 on branch statistics, urn moments, marginal covariance tables",
+          "method": "authorized institutional full-text PDF extraction in page ranges 1-12,5-16,17-26 after arXiv and lawful OA attempts failed",
+          "title": "On the Structure of Random Plane-oriented Recursive Trees and Their Branches",
+          "trigger": "same exact random tree distribution, root outdegree and leaf counts"
+        },
+        {
+          "assessment": "COVERS Stirling permutation correspondence and leaves but no exact mixed root/outdegree regression in inspected statements",
+          "evidence": "Janson 2008 Example 1.4, 1.5",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.1129",
+          "material_read": "Relevant Section 1, Examples 1.4-1.6, paper’s joint ascent/descents/plateaux distribution; rendered PDF page 4 examined",
+          "method": "arXiv full PDF text + page screenshot",
+          "title": "Plane recursive trees, Stirling permutations and an urn model",
+          "trigger": "direct Stirling permutation duality with leaves and root factors"
+        },
+        {
+          "assessment": "Different joint variables: counts of whole classes rather than distinguished root outdegree",
+          "evidence": "Acan Hitczenko 2014 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5756",
+          "material_read": "Abstract and theorem topic on counts of nodes of each small outdegree",
+          "method": "arXiv preprint abstract/material comparison",
+          "title": "On the covariances of outdegrees in random plane recursive trees",
+          "trigger": "same model with covariance in title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinguished root branching degree and total leaves are canonical observables in preferential attachment plane recursive trees. The sharp square-root conditional sign transition and exact neutral family provide finite-sample conditioning information unattainable from root and leaf marginals alone. Exact covariance and vanishing correlation quantify a nontrivial global-local relationship in a classical random-tree model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform increasing ordered plane recursive trees n>=3, 1<=r<=n-1; n=2 separately deterministic; not arbitrary preferential attachment or full conditional distributions."
+  ]
+}

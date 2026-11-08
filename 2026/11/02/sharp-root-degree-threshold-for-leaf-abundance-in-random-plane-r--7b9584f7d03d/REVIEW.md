@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(n\ge3\) and the full support \(1\le r\le n-1\), the coefficient proof derives the conditional leaf mean from the bivariate increasing-plane-tree EGF and Lagrange inversion. Positivity of every denominator and endpoint \(r=n-1\) are explicit; direct rational differences prove strict regression monotonicity and the perfect-square zero classification. A separate tree-growth conditional covariance recursion telescopes to the exact finite expression. The indicated second moments verify the correlation asymptotic. The packaged standard-library verifier returned 7,374 exact assertions after separate exact small-tree enumeration and full-support dynamic programming to 60 vertices. Enumeration alone is not asserted to prove the infinite statement.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The uniform increasing ordered plane recursive tree has (2n-3)!! equiprobable insertion histories, with the exact EGF differential identity T_z=u+T/(1-T), T(z,1)=1-sqrt(1-2z). Differentiation at u=1 gives U=((1-2z)^(-1/2)-(1-2z))/3. The coefficient [z^{n-1}]T^r and ratio of [z^{n-1}]rT^{r-1}U yield E[L|R=r]=(2m+r)/3-2(r+1)(m-r)/(3(2m-r-1)), m=n-1. Subtract E L=(2m+1)/3 for bias ((r+1)^2-4m)/(3(2m-r-1)); strict increasing difference follows from positive rational expression for r<m, and zero iff m=k²,r=2k-1,k>=2. The disjoint root-gap and leaf-gap insertion events imply covariance recursion c_{t+1}=c_t+(w_{t+1}-w_t)/3, w_t=4^{t-1}/binom(2t-2,t-1), hence Cov(R,L)=(w_n-2)/3. Exact marginal second moments justify correlation ~sqrt(pi/(4-pi))/sqrt(n); all endpoints n>=3 and r=m verified. Independent exact DP through n=24 confirmed every conditional mean and covariance.
 
-The nearest explicitly inspected primary literature is Mahmoud–Smythe–Szymański (1993), whose Sections 2–3 establish marginal root-degree and leaf statistics; Janson (2008) supplies the Stirling-permutation duality (top-level components versus plateaux), but analyzes a different triple of statistics; and Acan–Hitczenko (2014), who analyze asymptotic covariance matrices for counts of outdegree classes. Kuba–Panholzer (2006) give degree-distribution generating functions. None of the examined substantive statements implies the exact mixed conditional regression without further analysis. Searches of the semantic findings database for the conditional law and aliases primarily returned a result for the *uniform-parent* recursive tree, which is a different random model and has a bounded covariance. Existing increasing-tree constructions and marginal moments are credited, not presented as novel. The precise theorem might still follow implicitly from an uninspected multivariate result; a search is not an absolute priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The distinguished root's degree is a natural hub statistic in the plane recursive tree, while leaves measure global branching. The all-size regression identifies which observed root degrees predict an excess or deficit of leaves, with a sharp square-root boundary and exact neutral cases, and relates a growing covariance to a vanishing correlation. Its joint-dependence information is not determined by individual marginals and is useful for finite-sample conditioning in this classical probability model. The finite classification is structural, not an arbitrary computation or tiny numerical refinement.
+Mahmoud–Smythe–Szymański (1993) is extremely relevant: via authorized access its entire 26-page text was inspected. Section 2 gives root outdegree marginal moments and Section 3 gives leaves marginals, while Sections 5–7 analyze branch leaves conditional on branch SIZE, not the whole-tree leaf count conditional on root DEGREE. No same mixed regression, threshold r+1=2sqrt(n-1), or mixed covariance is stated there. Janson (2008) maps leaves to Stirling-permutation plateaux and root to top-level factors, but analyzed other joint triples. Acan–Hitczenko (2014) concerns counts of all nodes with fixed outdegree, not distinguished root degree. Resultary’s closest root-leaf covariance concerns uniform-parent recursive trees with covariance tending 1/2, not plane increasing trees with covariance O(sqrt n). Priority qualified against uninspected multivariate generating function literature.
 
-## Scope, evidence, and limitations
+## value
 
-The tree model, definitions and all integer endpoints are specified in `RESULT.md`; `verify.py` checks the displayed quantities. The included checks are self-contained finite diagnostics but do not constitute an external audit. Relevant implicit historical coverage remains the principal originality uncertainty. No full conditional distribution or theorem for other attachment kernels is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinguished root branching degree and total leaves are canonical observables in preferential attachment plane recursive trees. The sharp square-root conditional sign transition and exact neutral family provide finite-sample conditioning information unattainable from root and leaf marginals alone. Exact covariance and vanishing correlation quantify a nontrivial global-local relationship in a classical random-tree model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
