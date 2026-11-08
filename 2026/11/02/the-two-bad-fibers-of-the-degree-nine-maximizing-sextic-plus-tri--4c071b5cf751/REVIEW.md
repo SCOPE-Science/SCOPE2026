@@ -1,21 +1,21 @@
-# Scientific review of the degree-nine maximizing-curve reduction
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact characteristic-two and characteristic-three equations and their full homogeneous Jacobian ideals are checked by direct integral polynomial arithmetic. The uniqueness and ordinary nature of the characteristic-two cubic node follow from the three explicit first partials and the displayed two-variable quadratic tangent cone; the explicit cubic parameterization is basepoint-free, non-linear, and birational by the degree formula. Pullback of the coordinate equations shows the three order-three contacts. The smooth characteristic-three conic has six transverse intersections with the coordinate triangle. In every characteristic above three, the three displayed derivatives of the sextic exhaust its singular points, while the Hessian determinant \(3888=2^4 3^5\) excludes additional bad primes. Formal coordinates give the six \(E_7\) germs; Bézout establishes irreducibility, and the genus/delta count establishes rationality. The projective Jacobian equalities are ideal equalities, not merely computations of radicals.
+PASS
 
-No assertion of finite-field sampling as an all-primes proof is made. The standalone checker verifies key symbolic identities and several independent small-field consequences. The limitations are the choice of integral equation and the lack of an intrinsic characteristic-positive freeness statement.
+PASS: The primitive polynomial F=XYZ[(X²+Y²+Z²)³-27X²Y²Z²] defines a flat relative Cartier divisor. For char≠2,3 the source derivatives and Hessian determinant 3888=2⁴3⁵ give four off-axis nodes; six axis cusps become E7 after adding their coordinate lines, plus three vertex nodes. Bézout rules out reducibility of the sextic and its delta total 6+4=10 yields geometric genus 0. In char 2 the exact polynomial identity F=XYZ G² with G=(X+Y+Z)³+XYZ gives a nodal irreducible rational cubic, normalized by [s³:t³:(s+t)³], three order-three axis contacts, and a saturated Jacobian scheme V(G²) disjoint from three vertices. In char 3 F=XYZ Q³, Q=X²+Y²+Z² smooth; axes meet it transversely at six points, giving nine reduced-support nodes, and Jacobian scheme V(Q³) plus vertices. Signed labels have collision weights (4,2,2,2,1,1,1) mod 2 and stay distinct mod 3. Independently expanded F and all three partial derivatives modulo 2 and 3 with SymPy; they match the exact nonreduced ideals. Boundary limitation: only the fixed integral equation, not intrinsic stable reduction or positive-characteristic freeness.
 
-## Originality
+## originality
 
-**PASS, subject to historical risk.** Dimca--Ilardi--Pokora--Sticlaru, arXiv:2301.01117v4, Example 6.4, pp. 21--22, is the source of the integral equation and already establishes the characteristic-zero \(6E_7+7A_1\) singularity basket, Tjurina number, and free exponents. These prior results are not claimed here. Berg, *Enumerative Geometry for Plane Cubic Curves in Characteristic 2*, Compositio Math. 111 (1998), Lemma 3.2, treats the classification and duality of nodal cubics in characteristic two, not the relative degree-nine divisor here. The present new assertion is the **complete prime-by-prime special-fiber and Jacobian-scheme classification**, the explicit normalization of its arithmetic characteristic-two component, and the thirteen-point collision table. Direct literature and mathematical research-record searches revealed no result implying that combined claim. As always, an unindexed earlier calculation is a residual risk; absence from searches is not proof of historical uniqueness.
+PASS
 
-## Mathematical value
+PASS (qualified): Dimca–Ilardi–Pokora–Sticlaru Example 6.4 already gives this precise equation, six E7 and seven nodes, Tjurina 49, and free exponents over C. These are not novel. The new prime-by-prime scheme-theoretic factorization, nodal-cubic normalization, conic multiplicity and thirteen labeled section collisions are not implied by the generic complex basket alone; no earlier covering calculation was found.
 
-**PASS.** The degree-nine curve was published as a rare maximal-Tjurina free divisor. The question of which primes preserve its geometric singularity basket is naturally motivated by its extremal property and primitive integral equation. The two exceptional fibers exhibit different codimension-one nilpotent structures: a double rational nodal cubic and a triple smooth conic. The full Jacobian schemes and label collisions explain why a geometric singular-point census alone fails to characterize the reduction. This is a complete, exact bad-reduction classification of a distinguished example, not a numerical micro-improvement or a purely formal relabeling. No general deformation theorem or independent external validation is claimed.
+## value
 
-## Closest literature and residual limits
+PASS
 
-The original Example 6.4 is the closest covering source for the characteristic-zero portions; it does not state the mod-two/mod-three reductions or the projective Jacobian decompositions. Berg's characteristic-two nodal-cubic lemma supplies broader context but does not identify the specific arithmetic fiber. The exact extent of unindexed or unpublished earlier modular computations is unknown. All statements concern the explicitly specified integral model, not an intrinsic family of reduced free curves in small characteristic.
+PASS: This is a complete arithmetic-degeneration and Jacobian-scheme classification of a distinguished maximizing divisor, identifying the exact two bad residue characteristics and differing nonreduced special fibers. The scheme structures and labeled collisions offer reusable exact data beyond the characteristic-zero singularity count.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
