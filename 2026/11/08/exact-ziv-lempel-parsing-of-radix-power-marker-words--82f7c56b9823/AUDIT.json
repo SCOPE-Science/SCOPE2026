@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For all integers b>=3 the marker-gap and first-0^d1 arguments prove each exact shortest new phrase, including shorter-prefix repetition. The b=2 case is proved by aligning the first 1 and distinguishing the second, with initial phases checked separately. Consecutiveness and unbounded endpoints establish the whole parsing; 115 additional finite phrase checks in check.py independently match the formulas for bases 2..12. Finite tests are not used to justify the universal quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Constantinescu–Ilie, SIAM J. Discrete Math. 21 (2007), DOI 10.1137/050646846, accessible abstract says it classifies Theta(1), Theta(log n) and polynomial-root growth orders, not exact phrase positions.",
+        "Jahannia–Stipulanti 2024, PDF pages 5–13, gives an algorithm to check guessed regular formulas for selected words; its Table 1 and theorems do not cover the marker family."
+      ],
+      "reasoning": "The general growth classification is too weak to imply exact starts or the sharp one-versus-two radix level distinction; the Walnut decision predicate in 2024 can test a formula once supplied but does not constitute the claimed uniform family formula. The 2007 full text remains an explicit unresolved bibliographic risk.",
+      "searches": [
+        "\"Lempel–Ziv Complexity of Fixed Points of Morphisms\" pdf",
+        "\"Sorin Constantinescu\" \"Lucian Ilie\" \"Lempel Ziv Complexity of Fixed Points of Morphisms\" filetype:pdf",
+        "arxiv:2403.15215 Sections 2–5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.15215",
+      "https://arxiv.org/pdf/2403.15215",
+      "https://doi.org/10.1137/050646846",
+      "Research-index semantic searches: four queries, most relevant listed IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper specifies explicit pairs (start,length) for different automatic words and a first-order factor-uniqueness test; none of its displayed words is the indicator of {b^j-1}.",
+        "The 2007 abstract specifies growth orders, while the proposed result gives all phrases and exact logarithmic leading constants."
+      ],
+      "reasoning": "An asymptotic growth class Theta(log N) does not determine either exact phrase starts or the coefficients of logarithmic growth. The prior specific examples cannot be translated to the sparse marker word by reversal, coding, radix change, or a stated morphic reduction.",
+      "searches": [
+        "arxiv:2403.15215 Theorems 1–10",
+        "doi:10.1137/050646846 accessible abstract",
+        "incremental Lempel Ziv parsing z-factorization sparse geometric marker word 1 if n+1 is power of b; bases 2 versus 3 versus larger"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jahannia–Stipulanti, arXiv:2403.15215, Section 2, establishes equality of the shortest-new-factor and z-factorization conventions; inspected Theorems 1–10 involve other sequences.",
+        "Closest indexed scientific result, \"Exact greedy string attractor of the period-doubling word\", concerns an attractor rather than shortest-new-factor parsing."
+      ],
+      "reasoning": "Checked direct Ziv–Lempel, z-factorization, sparse-marker, characteristic-of-powers and base-shift descriptions; no same-language same-invariant formula surfaced. Equivalent conventions for LZ77 and LZ78 were explicitly excluded.",
+      "searches": [
+        "Ziv Lempel factorization of indicator of powers of integer base b, binary automatic sequence with ones at b^k-1; exact phrase starting positions and lengths",
+        "incremental Lempel Ziv parsing z-factorization sparse geometric marker word 1 if n+1 is power of b; bases 2 versus 3 versus larger",
+        "Ziv-Lempel factorization of generalized Cantor or powers-of-two indicator automatic word",
+        "\"z-factorization\" \"characteristic sequence\" powers base"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result, \"Sharp logarithmic support envelope for Abelian pattern Sturmian words\", studies the same powers-of-two support but a different Abelian invariant.",
+        "Jahannia–Stipulanti 2024 Table 1 lists initial factors of Fibonacci, Thue–Morse, period doubling, Rudin–Shapiro, paperfolding and Mephisto–Waltz words, not the radix-power marker sequence."
+      ],
+      "reasoning": "No direct exact table or same objects-plus-parsing claim was found; database partition and failed searches do not prove unique discovery.",
+      "searches": [
+        "Exact Ziv-Lempel z-factorization phrase lengths and starts of powers-of-b indicator word zeros except at positions b^k-1, compare first occurrences of zero runs and marker gaps, logarithmic phrase count leading constant",
+        "\"Ziv-Lempel\" \"powers of two\" characteristic word factorization",
+        "\"Ziv-Lempel\" \"powers of b\" characteristic sequence",
+        "\"Lempel Ziv\" \"powers of two\" automatic sequence parsing",
+        "\"z-factorization\" \"powers of two\" binary word",
+        "\"Ziv-Lempel factorization\" \"powers of\" indicator sequence",
+        "\"z-factorization\" \"characteristic sequence\" powers base",
+        "\"Ziv-Lempel\" \"characteristic word\" \"powers\" parsing"
+      ]
+    },
+    "rationale": "Jahannia–Stipulanti (2024) establishes the same z-parsing convention and exact examples for other automatic words, but its inspected Sections 2–5 and table do not give the powers-of-b marker words. Constantinescu–Ilie (2007) gives general complexity-growth classes, not, in accessible material, a uniform all-base exact phrase classification. The online search and semantic research-index results found no equivalent statement; closest sparse-support and attractor claims concern different invariants. The 2007 full article was unavailable, and an unindexed equivalent remains a risk.",
+    "residual_risks": [
+      "The 2007 general morphic-complexity article could not be inspected in full, so a specialized example not present in its abstract cannot be excluded.",
+      "Unindexed work or alternate nomenclature could contain an equivalent exact parsing.",
+      "The result applies to z-factorization, not all algorithms carrying the Lempel–Ziv name."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING specific result, though supplies the technique/convention and other exact sequences",
+        "evidence": [
+          "arXiv first public March 22 2024",
+          "Table 1 names Fibonacci, Thue–Morse, period doubling, Rudin–Shapiro, paperfolding and Mephisto–Waltz",
+          "Section 5 notes that candidate representations generally have to be guessed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.15215",
+        "material_read": "ArXiv HTML and PDF, definition in Section 2, Fibonacci predicates in Section 3, Table 1, Theorems 1–10 in Section 4 and conclusion in Section 5",
+        "method": "Compared theorem objects, precise factor conventions, listed sequences, formula parameters and underlying language, using extracted text and PDF page images",
+        "title": "Exploring the Crochemore and Ziv-Lempel factorizations of some automatic sequences with the software Walnut",
+        "trigger": "Same invariant for automatic sequences and identical parsing convention"
+      },
+      {
+        "assessment": "GENERAL_GROWTH_ORDERS_ONLY_IN_ACCESSIBLE_MATERIAL; residual risk from uninspected full article",
+        "evidence": [
+          "Published 2007, DOI 10.1137/050646846",
+          "Accessible abstract explicitly gives Theta(1), Theta(log n), Theta(n^(1/k)) growth classes."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050646846",
+        "material_read": "Abstract and publication metadata only; full article not available",
+        "method": "Compared the stated Theta-class result to the exact all-phrase and leading-coefficient claim; no full-document exclusion asserted",
+        "title": "The Lempel–Ziv Complexity of Fixed Points of Morphisms",
+        "trigger": "Potentially stronger general class theorem for morphic words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82f7c56b-9823-46ea-9282-cb1280a8acac",
+  "value": {
+    "rationale": "Determines all phrases of a natural infinite base-parametrized automatic family, including exact leading constants and a sharp b=2 versus b>=3 change in a compression-relevant invariant. This is stronger than a general Theta(log N) deduction and applies to every scale and base rather than an isolated finite cutoff.",
+    "status": "PASS"
+  }
+}
