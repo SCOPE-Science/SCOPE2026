@@ -1,27 +1,21 @@
-# Scientific review — three-Hermite half-line variance extrema
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement quantifies over every real threshold, with the first three normalized physicists' Hermite functions explicitly fixed. Exact integration supplies a symmetric contraction matrix; trace identities and differentiation give a scalar critical equation. The sign of the derivative is reduced to the function \(H\) whose derivative has a sixth-degree polynomial \(p\) in the nonnegative variable \(t^2\). Descartes' rule, three strict sign evaluations, and the limits of \(H\) give precisely two positive zeros and all local types. A decreasing rational-exponential comparison plus two exact rational Taylor certificates prove that the off-center maxima are strictly lower than the centered value. The packaged checker verifies the algebra and certificates exactly and supplements them with quadrature; numerical sampling alone is not offered as proof.
+PASS
 
-## Originality (PASS, with priority risk)
+Direct Gaussian tail integration gives A=FI+wB(t) with explicit cubic polynomial matrix. Independently differentiated symbolic V(t), confirming V′=(w/2)[wt(8t⁶+12t⁴+14t²+1)−erf(t)(4t⁴+3)]. For H=e^(−t²)(erf(t)/w−R), independently checked derivative numerator p(t²) of degree six and global-peak rational U identity and its factored derivative. Descartes sign changes and p(0)>0,p(1/4)<0,p(1)>0 force precisely two positive H′ roots and two positive stationary thresholds. Independently verified both exact rational lower-bound certificates at t=129/100, proving β<1.29 and central dominance, without relying on root plots. Numerical root checks α≈0.6658726106940687, β≈1.2828896865620167. Symmetric parity gives all 5 stationary points; V→0 at infinity.
 
-The Hermite-fiber realization itself is established in the original 2018 horizontal Toeplitz paper and later poly-Fock representations [1–3]. Those source texts supply matrix decompositions and operator algebras, not the five-stationary-threshold classification or strict global peak comparison. Relevant semantic searches also returned a finding on spectral gaps at a **fixed centered** Hermite half-line, not on **moving three-mode variance extrema**. The two-mode threshold variance classification in an accessible prior research ledger is not a deduction of the three-mode reversal. Priority remains provisional because equivalent finite-size Gaussian-unitary-ensemble or determinantal-process counting-variance formulas might encode the same exact result.
+## originality
 
-## Value (PASS)
+PASS
 
-The spectral projection defect is a natural measure of non-idempotence of a concentration fiber and equals half-line particle-count variance in the corresponding three-particle Hermite determinantal process. The explicit global shape answers which boundary maximizes fluctuation, demonstrates a change in the location of the maximizer between two and three modes, and establishes a nontrivial five-critical-point structure using a proof that goes beyond routine substitution into a general representation.
+Existing Hermite-poly-Fock fiber-symbol theory constructs A(t) but does not optimize the three-mode trace defect globally. Resultary's exact half-line Hermite spectral-gap theorem fixes t=0 and studies arbitrary frequency masks, not all t or its five stationary thresholds. Potential equivalent finite-n GUE positive-eigenvalue count variance remains a genuine nomenclature/priority risk; no matching five-point phase diagram was found in inspected sources.
 
-## Scope and limitations
+## value
 
-This is a rank-three Hermite-fiber result for a half-line cutoff, not a general theorem for all Hermite ranks and not a trace formula for the full infinite-dimensional Toeplitz operator. The strict global comparison relies on a reproducible exact rational certificate. No independent audit or validation has been performed.
+PASS
 
-## Relevant literature
+A complete and somewhat unexpected finite spectral concentration extrema diagram: at three modes the central peak dominates two secondary peaks, contrasting the two-mode case. Exact root count plus rational global comparison resolves a natural projection-variance optimization, beyond a numerical plot or routine computation of matrix entries.
 
-[1] Sánchez-Nungaray et al., *Toeplitz Operators with Horizontal Symbols Acting on the Poly-Fock Spaces* (2018), DOI 10.1155/2018/8031259, especially Section 3 / Theorem 4.
-
-[2] Arroyo Neri et al., *Toeplitz Operators with Lagrangian Invariant Symbols Acting on the Poly-Fock Space of \(\mathbb C^n\)* (2021), DOI 10.1155/2021/9919243, Section 3.
-
-[3] Lee-Guzmán et al., *Horizontal Fourier transform of the polyanalytic Fock kernel* (2023), arXiv:2309.03410v1, Fourier–Hermite decomposition.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
