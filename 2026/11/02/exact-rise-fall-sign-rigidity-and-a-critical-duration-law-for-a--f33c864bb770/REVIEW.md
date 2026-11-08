@@ -1,15 +1,21 @@
-# Self-review: resonant mixed-tide duration sign
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-simple-extrema lemma follows because simultaneous zeros of the first two derivatives imply \(a^2\ge4\), excluded by \(0<a<2\). The unit-circle stationary polynomial has zero quadratic coefficient and root product \(-1\). Equality of rising and falling durations forces products of alternating zeros to differ by sign, hence an antipodal pair, hence \(\phi\in(\pi/2)\mathbb Z\). The reverse implication comes from time-reflection symmetries. An explicit small-amplitude expansion fixes the sign on each phase interval, and the absence of any other equal-duration phases extends it to all admitted amplitudes. The quadrature-phase arcsine formula is obtained by factoring the stationary equation after a phase shift; the square-root boundary expansion has nonzero coefficient. The cubic derivative moment is an elementary resonant integral and is not a novelty claim. The included Python 3 standard-library checker executed successfully; the continuum proof does not depend on it.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Hoitink et al. (2003) address harmonic tidal interactions, Nidzieko (2010) applies derivative-skewness diagnostics, and Song et al. (2011) give exact harmonic skewness decomposition; the cubic moment is covered there. Guo et al. (2019) note that skewness and actual duration asymmetry can disagree for more general waveforms. Classical astroid theory already covers the fold geometry, so the extrema threshold is not claimed new. The distinctly assessed theorem is the all-amplitude exact sign for true **unweighted** rising duration in the entire two-high-water domain and its explicit phase-locked critical duration law. Comparison of available primary-text material and mathematical research records found no direct equivalent or stronger implication. Woodworth et al. (2005) could be assessed only by abstract, and older two-harmonic tidal analyses could contain an equivalent formula.
+PASS
 
-## Value — PASS
-Actual rise/fall time, as opposed to a signed cubic rate moment, is an ecological and oceanographic asymmetry descriptor used to separate high-water/low-water and flooding/draining behaviors. The universal no-sign-reversal theorem supplies a nontrivial structure theorem for an ideal mixed tide, and the sharp near-fold duration scaling captures loss of one turning-point pair; it is a useful rigorous benchmark precisely because general derivative skewness can disagree with actual durations. The result does not claim direct prediction for noncommensurate natural tides or water currents.
+PASS: For 0<a<2, a double stationary root would require a²=4(1+3cos²2t)>=4; hence four simple alternating roots persist. The derivative's unit-circle quartic P(z)=2z⁴+ae^{iφ}z³-ae^{-iφ}z-2 has vanishing z² coefficient and root product -1. Equating the positive and negative derivative arc-lengths forces the products of alternating roots to have opposite phase and then an antipodal pair, leading algebraically to φ in (π/2)Z. The reverse zero case follows from reflection; implicit differentiation at a=0 yields R-π=(a²/8)sin2φ+O(a⁴). Continuity and absence of any other zero extends the sign to all a in (0,2). Direct integration of the resonant cubic term gives -3a²sin2φ/2. At φ=π/4 the quadratic equation in sin(t+π/4) yields R=2(asin((sqrt(a²+32)-a)/8)+asin((sqrt(a²+32)+a)/8)); expansions as a↑2 yield π/3-(2/√3)√(2-a)+O(2-a). The boundary a=2 is excluded from four-extrema claim. Independent freshly coded root-bracketing plus numeric quadrature checked 28 (a,φ) sign cases and four closed-form phase cases; these finite checks are not the global proof.
 
-## Limits
-The result is restricted to a two-harmonic, fixed-phase, exactly 1:2 commensurate elevation proxy with amplitude ratio strictly between zero and two. It is not an estuary flow model, observational forecast, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The main all-amplitude sign-of-actual-rising-duration theorem and quadrature-phase square-root coefficient require an arc-length/root-geometry implication not supplied by the established derivative-skewness identities or fold loci. The cubic derivative moment and number-of-high-waters threshold are already known background and are explicitly not attributed novel status. Same-parameter Woodworth et al. 2005 full text unavailable; Oxford attempt returned vpn_disconnected. No categorical claim about its full content is made, and original priority is best-of-knowledge only.
+
+## value
+
+PASS
+
+PASS: The exact sign rigidity addresses a meaningful distinction between unweighted rising-water duration and cubic derivative skewness in a standard 1:2 resonant tidal proxy. An all-amplitude invariant and sharp square-root near-fold duration law are not mere rewriting of the moment formula, and pinpoint model boundaries that matter when interpreting tide-asymmetry proxies. Limited to fixed two-term commensurate elevation; not actual currents or sediment transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
