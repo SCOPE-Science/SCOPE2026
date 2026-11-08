@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-The supporting `verify_c8k3.py` is fully self-contained and requires Python 3.10 or newer. Command: `python3 verify_c8k3.py`.
+## correctness
 
-Expected terminal marker: `C8_K3_INTEGRAL_MORSE_AND_96_ACTIONS_OK`.
+PASS
 
-The script enumerates **all** 18,721 nonempty faces, 9,353 distinct elementary Morse matches, and the 15 remaining critical cells. It proves acyclicity of the complete oriented Hasse diagram by processing every node, not sampling. It builds the integral six-by-eight Morse boundary and checks a primitive null row and a determinant-one five-by-five minor, sufficient for the exact Smith factors. It constructs a 66-term closed integral four-cycle and verifies its primitive pairing with an integral cocycle; checks that cocycle against all original five-boundaries; computes induced action on the generator and all 96 group elements; and independently tests each corresponding signed Lefschetz trace against the complete degree-five character formula.
+Read RESULT.md, full verify_c8k3.py, exact frozen Git tree. The deterministic discrete Morse matching on all 18,721 nonempty independent faces is acyclic by topological sorting 18,721 Hasse nodes. It has one critical 0-cell, six 4-cells, eight 5-cells; displayed integral 6×8 Morse boundary has primitive left null row and a rank-five determinant-one minor. Five Smith factors are units, yielding H4=Z, H5=Z^3 with no torsion. Since the 5-cell attachments are in pi4(wedge six S4)=Z^6, unimodular cancellation gives S4 ∨3S5, not mere Betti inference. An explicit closed 66-four-simplex chain pairs -1 with integral cocycle, so symmetry generators act on primitive H4 by r=-1,s=-1,swap=-1,color3=+1. All 96 signed fixed-face Lefschetz traces yield H5 character (-1)^a(sgn(sigma)+fix(sigma)-1), exactly rho⊠(sign⊕U). In separate computation enumerated all 18,721 nonempty faces and independently calculated all 96 signed fixed-face Lefschetz traces, matching formula; finite exhaustive check is exact for this one finite complex, though did not independently rerun the 66-chain algorithm. Group-quotient rational homology is the invariant part after subdivision/averaging.
 
-The homotopy-type inference uses the fact that attaching maps from four-spheres into a wedge of four-spheres are classified by the integral degree vector; the machine checks the underlying integer matrix and full Morse acyclicity. No infinite-family assertion, integral classification of the representation, or integral quotient-homology claim is verified here. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge claim-specific originality after actual Resultary semantic search and primary literature comparisons, rather than title-only matches. One can derive quotient rational Betti numbers from the newly specified modules; they are corollaries and not independent novelty. Published homology of the original complex does not logically fix invariant dimensions under nontrivial actions. Inaccessible/nonexhaustively read sources are not asserted to be whole-document noncoverage; residual risks below.
+
+## value
+
+PASS
+
+A natural small categorical product already identified in the literature carries canonical cycle and color symmetries. Determining the complete rational joint homology representations, integral primitive orientation line, and contrast of two symmetry quotients answers a structural topological question not implied by known Betti numbers; its finite one-case scope is explicit rather than a general classification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of the finite equivariant homology claim
+# Independent mathematical audit
 
-**Correctness — PASS.** The exhaustive oriented simplicial model has 18,721 nonempty faces. Its 9,353 matching pairs induce an acyclic Hasse orientation checked across all faces, with critical counts one in dimension zero, six in dimension four, and eight in dimension five. The explicit integral Morse matrix has a primitive left null relation and a unit rank-five minor; the resulting homotopy wedge follows from the classified attaching maps in degree four. A genuine integral closed 66-simplex four-cycle is paired with a primitive cocycle to determine generator actions. Signed Lefschetz enumeration over all 96 elements independently determines the remaining character. Complete verifier output is reproducible from `verify_c8k3.py`.
+## correctness
 
-**Originality — PASS on the inspected record.** The closest 2023 primary paper provides the nonequivariant two-degree restriction and specifically notes free homology for this same finite graph, but does not state its joint dihedral/color homology modules. The 2025 graph-product paper concerns products with a path factor. Search comparisons distinguish the current representation statement from indexed claims concerning \(C_7\times K_4\), generalized Mycielskians, other graph-symmetry actions, and the original free-homology observation. Unindexed equivariant work or an implicit earlier derivation remains possible.
+PASS
 
-**Value — PASS.** This is a naturally singled-out case of the published cycle-product torsion discussion. The full 96-element character is not implied by its Betti numbers, separates the two nonzero homology degrees as distinct modules, and determines which positive rational homology survives natural symmetry quotients. The result is intentionally finite and does not purport to resolve the infinite-family conjecture.
+Read RESULT.md, full verify_c8k3.py, exact frozen Git tree. The deterministic discrete Morse matching on all 18,721 nonempty independent faces is acyclic by topological sorting 18,721 Hasse nodes. It has one critical 0-cell, six 4-cells, eight 5-cells; displayed integral 6×8 Morse boundary has primitive left null row and a rank-five determinant-one minor. Five Smith factors are units, yielding H4=Z, H5=Z^3 with no torsion. Since the 5-cell attachments are in pi4(wedge six S4)=Z^6, unimodular cancellation gives S4 ∨3S5, not mere Betti inference. An explicit closed 66-four-simplex chain pairs -1 with integral cocycle, so symmetry generators act on primitive H4 by r=-1,s=-1,swap=-1,color3=+1. All 96 signed fixed-face Lefschetz traces yield H5 character (-1)^a(sgn(sigma)+fix(sigma)-1), exactly rho⊠(sign⊕U). In separate computation enumerated all 18,721 nonempty faces and independently calculated all 96 signed fixed-face Lefschetz traces, matching formula; finite exhaustive check is exact for this one finite complex, though did not independently rerun the 66-chain algorithm. Group-quotient rational homology is the invariant part after subdivision/averaging.
 
-**Risk and limits.** No external independent audit was performed. The paper's existing free-homology observation is not novel. The module classification pertains to the natural \(D_8\times S_3\) action; it does not compute integral quotient homology or the full graph automorphism group.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim-specific originality after actual Resultary semantic search and primary literature comparisons, rather than title-only matches. One can derive quotient rational Betti numbers from the newly specified modules; they are corollaries and not independent novelty. Published homology of the original complex does not logically fix invariant dimensions under nontrivial actions. Inaccessible/nonexhaustively read sources are not asserted to be whole-document noncoverage; residual risks below.
+
+## value
+
+PASS
+
+A natural small categorical product already identified in the literature carries canonical cycle and color symmetries. Determining the complete rational joint homology representations, integral primitive orientation line, and contrast of two symmetry quotients answers a structural topological question not implied by known Betti numbers; its finite one-case scope is explicit rather than a general classification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
