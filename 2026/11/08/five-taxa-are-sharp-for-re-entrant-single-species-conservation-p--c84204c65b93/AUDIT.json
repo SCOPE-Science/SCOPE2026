@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The expected-PD protection gain is exactly the sum of ancestral edge lengths times the probability that every descendant initially becomes extinct; the result is q times a path polynomial. All common path terms cancel in a pair comparison. For at most four taxa the only LCA splits are (1,k) (monotone normalized difference) or (2,2) (affine normalized difference), hence no double crossing. For five taxa the sole new split (2,3) leads to the quadratic with strictly positive leading coefficient, and the stated inequalities are equivalent to two distinct roots in (0,1). The rational witness is exact, with two factorized crossings and strict domination of other taxa. An independently formulated exact state-enumeration script verified 54 witness cases and all 100 small-tree pair topology cases; this supplements rather than substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartmann and Steel 2006, doi:10.1080/10635150600873876, equations (1)-(2), Theorem 1 and the discussion of greedy solutions treat budget/subset optimizations for fixed survival inputs.",
+        "Steel, Mimoto and Mooers 2007, Theorem 3.1, is general in arbitrary edge lengths and taxon-specific risks, but gives a formula rather than a sharp crossing-number theorem.",
+        "Faith 2008, expected-PD and prioritization sections, discusses updating priorities when risks vary."
+      ],
+      "reasoning": "Algorithms that calculate optimal single actions for fixed parameters do not state or imply without additional analysis the minimum tree size and necessary/sufficient parameter inequalities for two reversals. Their general formulas are acknowledged as inherited. An accessible equal-unit-edge result has stronger conclusions only in a different, restricted edge-length domain.",
+      "searches": [
+        "Hartmann Steel 2006 maximizing phylogenetic diversity conservation greedy solutions Noah Ark problem pdf full text",
+        "Noah's Ark species conservation ranking priority reversal as survival probability increases two crossings phylogenetic diversity",
+        "doi:10.1080/10635150600873876 full text Theorem 1 scenario 1"
+      ]
+    },
+    "checked_sources": [
+      "Hartmann and Steel 2006 doi:10.1080/10635150600873876 (full author-hosted PDF)",
+      "Steel, Mimoto and Mooers 2007 doi:10.1177/117693430700300024 (full HTML)",
+      "Faith 2008 doi:10.1111/j.1523-1739.2008.01068.x (full HTML)",
+      "Fischer, Francis and Wicke 2021 arXiv:2107.00748 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 paper proves exchange/greedy optimality under specific conservation-cost assumptions, not a transition count as common baseline survival varies.",
+        "The 2007 and 2008 papers provide the direct analytic source identities and conservation interpretation; no inspected theorem addresses the minimum-size double return.",
+        "Fair-proportion rankings under removed taxa concern a different index and intervention, not common independent Bernoulli survival and expected-PD gain.",
+        "An earlier all-unit-edge result applies to unit-length trees and is inapplicable to the unequal-length witness."
+      ],
+      "reasoning": "A corollary or stronger theorem covering this specific event was not located. The new proof specializes known formulas while adding sharp global tree-size and polynomial-root classification; mathematical deducibility from an ancestor identity is disclosed rather than portrayed as source independence.",
+      "searches": [
+        "Hartmann Steel 2006 Theorem 1 complete protection equal cost greedy",
+        "Steel Mimoto Mooers 2007 HED rooted phylogenetic trees proof appendix",
+        "Faith 2008 priority expected phylogenetic diversity changes",
+        "Phylogenetic Diversity Rankings in the Face of Extinctions robustness Fair Proportion Index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Steel, Mimoto and Mooers 2007, doi:10.1177/117693430700300024, Theorem 3.1 and Theorem 4.1 express the same marginal-gain quantity in HED/HEDGE terminology.",
+        "Faith 2008, doi:10.1111/j.1523-1739.2008.01068.x, section Extinction Probabilities and Expected PD, expresses it as expected-PD complementarity."
+      ],
+      "reasoning": "The equivalence is explicit: saving a taxon changes its extinction probability from q to zero, producing q times its HED score; the old expected-PD formulas therefore supply the ingredients but do not assert the five-tip re-entry cutoff or full quadratic phase test.",
+      "searches": [
+        "rooted phylogenetic diversity independent species extinction common survival probability marginal benefit protection one tip rank pair switch twice five taxa 3+2 tree",
+        "marginal expected phylogenetic diversity species ranking multiple crossings extinction probability tree",
+        "Steel Mimoto Mooers 2007 HED HEDGE Theorem 3.1 Theorem 4.1",
+        "Faith 2008 threatened species expected PD change extinction probabilities equation 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact five-tip double-switch table or crossing classification matched the statement.",
+        "The full inspected 2007 HED article provides an example and score calculations, but not a common-risk re-entry table."
+      ],
+      "reasoning": "Searches against relevant literature and mathematical records did not expose an exact database or classified table. Search failure alone does not establish uniqueness; a limited table search remains a historical-priority risk.",
+      "searches": [
+        "phylogenetic diversity conservation species priority ranking switches twice with extinction probability five species rooted binary tree expected PD",
+        "expected phylogenetic diversity Noah's ark 5 species conservation priority rank two crossing reversals in extinction probability",
+        "phylogenetic diversity species prioritization marginal gains polynomial extinction probability pairwise crossing thresholds rooted binary tree"
+      ]
+    },
+    "rationale": "The model, expected-phylogenetic-diversity gain formula, HED/HEDGE complementarity and single-action optimization are known. The inspected Hartmann--Steel, Steel--Mimoto--Mooers and Faith primary studies give formulas, algorithms and examples of updated priorities, but not a sharp minimum of five taxa for a *double re-entrant globally optimal* protection choice under a varying common background probability or an if-and-only-if five-tip two-crossing criterion. A prior result restricted to all-unit branch lengths guarantees a fixed optimal taxon through seven tips, not the variable-length claim. Search limitations and residual historical priority risk are documented.",
+    "residual_risks": [
+      "An earlier theoretical or computational study may have tabulated these small-tree switches under different labels; the surveyed literature is not exhaustive.",
+      "The mathematical formula is established; the claimed new part is only the sharp structural size and phase classification, not a new biodiversity metric.",
+      "No assertion about fairness of costs, empirical species risks or correlated-extinction models follows from the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the expected-PD formula and fixed-parameter action selection; does not state the five-tip double re-entry threshold or parameter phase portrait.",
+        "evidence": [
+          "Hartmann and Steel, Systematic Biology 55(4), 2006, pp.644-647, equations (1)-(2), Theorem 1."
+        ],
+        "identifier_or_url": "https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/noah.pdf",
+        "material_read": "Author-hosted full-text 8-page article: expected-PD equations (1)-(2), Theorem 1, exchange proof, examples of greedy failure, and scope of ultrametric/unequal costs.",
+        "method": "Page image review and text extraction with direct comparison of mathematical objectives and hypotheses.",
+        "title": "Maximizing Phylogenetic Diversity in Biodiversity Conservation: Greedy Solutions to the Noah's Ark Problem",
+        "trigger": "Exact objective and potential stronger greedy theorem for equal-cost conservation"
+      },
+      {
+        "assessment": "Contains the general marginal contribution formula, but does not state the two-crossing classification or five-taxon minimality.",
+        "evidence": [
+          "Steel, Mimoto and Mooers, Evolutionary Bioinformatics 3 (2007), Theorem 3.1, Theorem 4.1 and Appendix proofs."
+        ],
+        "identifier_or_url": "https://journals.sagepub.com/doi/10.1177/117693430700300024",
+        "material_read": "Accessible complete article HTML, Introduction; HED Index; Theorem 3.1 and example; Theorem 3.2; Theorem 4.1; applications; proof appendix.",
+        "method": "Full-text HTML mathematical statement, examples, and proofs inspected.",
+        "title": "Hedging Our Bets: The Expected Contribution of Species to Future Phylogenetic Diversity",
+        "trigger": "Direct HED and HEDGE ancestor identities possibly dominating the new theorem"
+      },
+      {
+        "assessment": "Discusses changes in priorities due to extinction risks, but contains no located two-interior-crossing minimum classification.",
+        "evidence": [
+          "Faith, Conservation Biology 22(6), 2008, section Extinction Probabilities and Expected PD and priority comparison."
+        ],
+        "identifier_or_url": "https://conbio.onlinelibrary.wiley.com/doi/10.1111/j.1523-1739.2008.01068.x",
+        "material_read": "Full accessible HTML from Introduction through priority updates, numerical illustrations, discussions and references; especially expected PD and equations (2)-(3).",
+        "method": "Direct full-text HTML inspection of formulas, examples, section discussions and listed citations.",
+        "title": "Threatened Species and the Potential Loss of Phylogenetic Diversity",
+        "trigger": "Exact single-species expected-PD complementarity and shifts in priority rankings"
+      },
+      {
+        "assessment": "Different score (fair proportion) and removal mechanism; not a direct covering theorem on inspected evidence.",
+        "evidence": [
+          "Fischer, Francis and Wicke, arXiv:2107.00748, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.00748",
+        "material_read": "Search result and abstract only, not full article.",
+        "method": "Abstract-level scope comparison; not used to assert whole-document noncoverage.",
+        "title": "Phylogenetic Diversity Rankings in the Face of Extinctions: The Robustness of the Fair Proportion Index",
+        "trigger": "Potential stronger five-taxon ranking reversals under extinction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c84204c6-5b93-4bf9-9404-75062a83f08e",
+  "value": {
+    "rationale": "A re-entry of the globally best protection choice as background extinction probability changes is decision-relevant and not captured by fixed-risk rankings. Determining that five rooted-binary taxa are exactly necessary and sufficient, plus the complete two-crossing criterion, is a motivated minimal classification rather than an arbitrary numerical slice. The result clarifies why unequal phylogenetic edge weights yield priority sensitivity different from equal-unit models, while limiting implications to a theoretical single-action benchmark.",
+    "status": "PASS"
+  }
+}
