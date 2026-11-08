@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Strict convex inverse-trace optimization proves a unique unrestricted optimizer; the symmetry reduction and connectivity show both positive weights; exact tensor-product eigenvalues yield a scalar objective and uniquely solvable derivative root; roots-of-unity resolvent and uniform asymptotics give the sharp m^(-2/3) ratio and the m^(10/3) correction. Standard-library direct exact inversions agree in 119 reproducibility checks, but finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi full-text pp.37–40 and wheel discussion p.59: convexity, selected analytical families include tree, wheel, barbell, no prism; document text search for prism negative",
+        "Carmona–Encinas–Mitjana 2014 lawful full manuscript: generalized path-based linear chains and Green formulas; searches for optimization, budget, prism found no such discussion",
+        "Cinkir 2017 arXiv HTML: unit conductances and exact prism Kirchhoff formula; no design objective or cost variable"
+      ],
+      "reasoning": "General existence, uniqueness, and numerical optimization under edge budgets is broader in problem class but weaker in explicit conclusions; it does not evaluate the specific optimal ratio or its sharp scaling. Weighted linear chain matrix formulas are not already this restricted two-layer circular spectral-budget optimization. No claimed stronger statement was found.",
+      "searches": [
+        "\"Minimizing Effective Resistance of a Graph\" Ghosh Boyd Saberi full text prism",
+        "\"Effective Resistances for Ladder-Like Chains\" weighted optimal budget circular prism",
+        "\"Effective Resistances and Kirchhoff Index of Prism Graphs\" optimal"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/050645452",
+      "doi:10.1002/qua.24740",
+      "arxiv:1704.03429",
+      "doi:10.1002/qua.21068",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (2008): analytic wheel example and general KKT conditions, not prism evaluation",
+        "Cinkir (2017): exact unweighted prism spectral sum only",
+        "Carmona–Encinas–Mitjana (2014): weighted path-based ladder-like chains, no optimization or closed circular-prism priced design",
+        "Zhang–Yang (2006): circulant spectrum and resistance only"
+      ],
+      "reasoning": "Although the optimization is in the general ERMP class, applying general KKT to this graph requires a new explicit spectral reduction and yields a nontrivial m^(-2/3) scaling. The earlier graph-specific results are fixed-weight computations, or a noncircular chain. No inspected statement subsumes the joint uniqueness, unique scalar root and sharp two-term asymptotic.",
+      "searches": [
+        "\"rung\" \"optimal\" \"Kirchhoff index\" \"prism\"",
+        "\"optimal conductance\" \"circular ladder\" resistance",
+        "\"ladder\" \"minimum effective resistance\" rung rail \"budget\"",
+        "Kirchhoff index optimized edge weights ladder prism rung versus rail conductance, sharp asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh et al. 2008 Eq. (2) and pp.37–40: minimization of sum of effective resistances over conductances",
+        "Cinkir 2017 §3 Eq. (15): spectral trace equivalent to Kirchhoff index for the unweighted prism",
+        "2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c: finite ladder rung edge kernel, different objective"
+      ],
+      "reasoning": "Re-expressing the claim as optimizing 2m tr(L^+) or the trace of the inverse mean-zero Laplacian does not turn the general convex problem or the fixed-weight prism value into the explicit price-dependent optimizer or the asymptotic exponent. The finite ladder spanning-tree edge-process statement does not optimize the prism Kirchhoff index.",
+      "searches": [
+        "prism C_m square K_2 Laplacian pseudoinverse trace optimal edge weights",
+        "Kirchhoff index optimal edge conductance prism graph circular ladder fixed budget rung rail allocation",
+        "optimal resistance minimizing conductances on prism graph circular ladder with rung price, long cycle scaling m to power minus two thirds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cinkir 2017 Theorem 3.1: exact unweighted finite index; table includes 47/5, 58/3, 655/19, 279/5",
+        "Zhang and Yang 2006: cycle and circulant fixed-weight Kirchhoff indices",
+        "No returned published-finding corpus finding states priced circular-ladder Kirchhoff-index optimizer or the derived fractional-power scaling; closest finite ladder record has different graph/objective"
+      ],
+      "reasoning": "Known fixed-weight index evaluations are explicit special cases of the spectral trace but do not determine a cost-minimizing conductance vector. The new claim is not a table recomputation; it optimizes arbitrary edge weights and proves an asymptotic design law.",
+      "searches": [
+        "prism graph Kirchhoff index unit weights 47/5 58/3 655/19",
+        "\"Kirchhoff index\" \"optimal\" \"circular ladder\" weights",
+        "\"rung\" \"m^{-2/3}\" \"resistance\"",
+        "On circular ladder prism graph C_m square K_2, minimize Kirchhoff index under priced conductances on rung and rail edges. Unique optimal rung rail ratio scales (3 sqrt 2 / c)^(2/3) m^(-2/3), minimum m^4/(3B) + (18c)^(1/3) m^(10/3)/(2B)"
+      ]
+    },
+    "rationale": "The exact unrestricted positive-cost prism allocation and m^(-2/3) rung law are not implied by the compared general resistance-design methods, cycle formulas, weighted linear-chain Green formulas, unweighted prism index, or finite-ladder spanning-tree kernels. Public search cannot prove novelty; residual unindexed equivalent publication risk remains.",
+    "residual_risks": [
+      "Possible independently published but unindexed equivalent formula for price-optimized circular ladder; search absence cannot certify uniqueness in the literature.",
+      "The closest public finite ladder kernel result was available as title and summary only, not fully read; it has a different invariant and open boundary.",
+      "The July 2006 conference version of Ghosh–Boyd–Saberi predates the day-verified 2008 journal record, but its exact public-release day was not established. The earliest day-verified source for the spectral ingredient is Zhang–Yang on 2006-09-05."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex program and wheel example; no priced prism solution or fractional-power scaling in inspected content",
+        "evidence": [
+          "pp.37–40 define strict-convex total effective resistance design",
+          "p.59 derives wheel example",
+          "Full-text search found no word prism"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "PDF introduction pp.37–40, analytical graph examples and wheel calculation p.59, graph-family scope and full-text search for prism",
+        "method": "Author-hosted full-text PDF parsed text and rendered screenshots of pp.37,59",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "General edge-weight Kirchhoff-index design could dominate the claim"
+      },
+      {
+        "assessment": "Computes unweighted prism index and exact roots-of-unity identity; does not optimize priced weights",
+        "evidence": [
+          "Theorem 3.1 computes unweighted Kf(Y_n)",
+          "§3 Eq. (15) uses eigenvalues of P_2 square C_n"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.03429",
+        "material_read": "arXiv full HTML, introduction and §§2–4 particularly theorem 3.1 and spectral formulas (13)–(17)",
+        "method": "Lawful open arXiv HTML plus text extraction of open PDF mirror",
+        "title": "Effective Resistances and Kirchhoff Index of Prism Graphs",
+        "trigger": "Same graph and index"
+      },
+      {
+        "assessment": "General weighted linear ladder-like Green/resistance formulas, without a priced circular-prism minimization statement",
+        "evidence": [
+          "Definition of linear chains as perturbed 2m-path and Thm. 1 Green formula",
+          "Text searches for budget/optimal/prism returned no match"
+        ],
+        "identifier_or_url": "https://upcommons.upc.edu/server/api/core/bitstreams/303b177e-4325-4803-8cf5-491df6737da2/content",
+        "material_read": "Lawful OA manuscript opening, definitions, Theorem 1 and nearby path-based special cases; document searches for budget, optimal, optimization, prism",
+        "method": "OA author manuscript extracted text; PDF screenshot access attempted but remote server denied image rendering",
+        "title": "Effective Resistances for Ladder–Like Chains",
+        "trigger": "Weighted ladder formulas might imply stronger optimization"
+      },
+      {
+        "assessment": "Covers known fixed-weight cycles/circulants, not a two-layer rung/rail conductance budget",
+        "evidence": [
+          "Publisher gives 2006-09-05 first online date",
+          "Abstract lists cycles and other unweighted circulants"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+        "material_read": "Publisher abstract and date/history, including scope of special circulant formulas",
+        "method": "Publisher bibliographic and scientific summary",
+        "title": "Resistance distance and Kirchhoff index in circulant graphs",
+        "trigger": "Earliest day-verified literature source of the cycle-spectrum ingredient"
+      },
+      {
+        "assessment": "Finite open-ladder spanning-tree determinantal edge kernel; does not imply optimization of Kirchhoff index on circular prisms; full text not inspected",
+        "evidence": [
+          "Search summary describes rung kernel and endpoint/bulk split rather than priced conductance design"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+        "material_read": "Published title and summary, not the full paper",
+        "method": "Semantic-result metadata search",
+        "title": "Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees",
+        "trigger": "Closest retrieved published ladder-related record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9aa86612-587c-4c32-8f33-2e50388b495e",
+  "value": {
+    "rationale": "Cyclic two-layer networks require both edge classes, so the investment problem has no edge-deletion phase. The theorem identifies the nontrivial fractional-power vanishing of optimal interlayer investment, the sharp cost-dependent constant, an exact finite-size optimizer equation, and a next-order network-coherence cost term. This supplies a concrete design law not available from unit-weight resistance tables.",
+    "status": "PASS"
+  }
+}
