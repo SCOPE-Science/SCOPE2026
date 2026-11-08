@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The standard-library-only script `VERIFY.py` was executed directly for the included package. It reported **688 assertions passed**. It checks exact rational stationary solutions for \(n=1,\ldots,8\) at three rational deletion probabilities, their full-state probabilities, all the subset moment identities, count-distribution inclusion-exclusion, transition row sums and stationary equations, and the known first marginal. It additionally compares finite critical-loss products against the sharp prefactor approximation using composite Simpson quadrature at five fixed \(c\)-values and five increasing \(n\)-values.
+## correctness
 
-Numerical sample: \(I(0.2)\approx0.190988803905\), \(I(1)\approx0.836727862260\), \(I(3)\approx2.114651415653\). The corresponding \(A(c)\) values are approximately \(0.973239499201\), \(0.595917718227\), and \(0.032259161645\), respectively.
+PASS
 
-The finite test domain does **not** certify all integers, all \(p\), or the limiting theorem. Those conclusions are proven by the exact stationary subset recurrence, its positive product solution, uniform smooth Euler–Maclaurin expansion for each fixed \(c\), and a stationary-coupling/mixing sandwich for the mean first hit. The coefficient \(A(c)\) is the stationary-state probability prefactor, *not* a proven hitting-time prefactor. No independent audit or external certification has been performed.
+Stationary exchangeability plus draw-one and independent post-draw losses gives m_k=q^k[(1−k/n)m_k+(k/n)m_{k−1}], hence the stated product. Boolean-lattice inclusion-exclusion gives the entire cardinality law and rho=m_n. For p=c/n, lambda_n=−n log(1−c/n)=c+c²/(2n)+O(n−2), smooth endpoint Euler–Maclaurin gives the stated A(c) factor and rate I(c). Monotone shared-draw/deletion coupling gives ||P_x^t−pi||TV ≤nq^t; lower union bound and upper block-hitting argument sandwich E T between constants times inverse rho up to polynomial n², proving only the exponent. Independent exact rational stationary-cardinality solutions checked n=1..6 at three loss rates, 18 cases, and independently evaluated A(c)e^(−nI(c)) ratios for c=.5,1,2 at n=50,200. No sharp mean prefactor asserted.
 
-Reproduce from the extracted folder by running `python3 VERIFY.py`; no downloaded papers or third-party Python modules are required.
+## originality
+
+PASS
+
+Cruciani–Dudeja study exactly the post-loss process but treat mean-field approximation and metastability, not the full stationary subset product or sharp critical-loss exponent. Long gives exact count-chain structure and fixed-p high-tail/hitting statements; fixed p results cannot be substituted at p=c/n. Attrill–Garoni selected-label refresh is a genuinely different chain. Related global-reset collector Resultary records do not cover independent per-item deletion.
+
+## value
+
+PASS
+
+Full joint stationary law via all-subset inclusion moments and the sharp large-deviation completion exponent close a natural quantitative gap in a recently studied stochastic model; the strict difference from independent-marginal heuristic is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

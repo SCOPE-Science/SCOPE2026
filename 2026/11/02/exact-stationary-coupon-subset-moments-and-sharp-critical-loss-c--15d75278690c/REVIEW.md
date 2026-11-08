@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified post-loss transition is irreducible, aperiodic and permutation-invariant. For every fixed subset of size \(k\), stationary post-draw inclusion and independent survival give a scalar recurrence, solved by an exact positive product. Boolean-lattice inversion recovers the full count distribution. Smoothness of the continuous extension of the logarithmic summand justifies the uniform local Euler–Maclaurin/Taylor remainder at fixed \(c\), including the boundary and the \(p=c/n\) logarithmic correction. A monotone stationary coupling bounds every post-loss hit probability from empty by the full-state invariant mass. A separate label-discrepancy coupling gives uniform mixing error at most \(n(1-p)^t\); polynomial block lengths then show that the reciprocal stationary mass and mean first hit have the same exponential rate. The sign of the strict gap follows from monotonicity of the exponential secant slope. The finite-state verifier reproduced 688 assertions, but infinite claims are not inferred from enumeration.
+PASS
 
-## Originality — PASS, qualified
+Stationary exchangeability plus draw-one and independent post-draw losses gives m_k=q^k[(1−k/n)m_k+(k/n)m_{k−1}], hence the stated product. Boolean-lattice inclusion-exclusion gives the entire cardinality law and rho=m_n. For p=c/n, lambda_n=−n log(1−c/n)=c+c²/(2n)+O(n−2), smooth endpoint Euler–Maclaurin gives the stated A(c) factor and rate I(c). Monotone shared-draw/deletion coupling gives ||P_x^t−pi||TV ≤nq^t; lower union bound and upper block-hitting argument sandwich E T between constants times inverse rho up to polynomial n², proving only the exponent. Independent exact rational stationary-cardinality solutions checked n=1..6 at three loss rates, 18 cases, and independently evaluated A(c)e^(−nI(c)) ratios for c=.5,1,2 at n=50,200. No sharp mean prefactor asserted.
 
-Cruciani–Dudeja (arXiv:2602.20705v1, Sections 2 and 4) specify this chain and provide one-coordinate marginals, metastability, an exact expected-time computation procedure, and broad bounds; they do not provide the displayed all-subset invariant product or sharp rate \(I(c)\). Long (arXiv:2605.14511v1, Section 5) gives the same-chain high-tail and hitting laws for **fixed** loss \(p\); the assumptions are incompatible with \(p=c/n\), and the stated asymptotic constant is not uniform in that regime. Attrill–Garoni (arXiv:2605.14206v1) study selected-label refresh, not independent global deletion. Independent published-record and targeted alternate-formulation searches found no directly dominating theorem. Historical novelty is an evidence-based assessment, not an assertion that all relevant past works were accessible: general immigration–thinning stationary formulas may be related, and a comprehensive independent priority audit remains open.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first motivating paper identifies an exponentially long metastable completion regime under \(p=c/n\) but does not identify its exponent. An exact finite-subset stationary product, a sharp positive prefactor and a corresponding mean first-hit exponent resolve this natural quantitative gap. The strict inequality \(I(c)>\log(1+c)\) shows that an otherwise tempting independent-marginal model is exponentially incorrect, even though its one-point marginal is exact. This changes the principal critical-regime prediction and explains the dependence of rare simultaneous retention events.
+Cruciani–Dudeja study exactly the post-loss process but treat mean-field approximation and metastability, not the full stationary subset product or sharp critical-loss exponent. Long gives exact count-chain structure and fixed-p high-tail/hitting statements; fixed p results cannot be substituted at p=c/n. Attrill–Garoni selected-label refresh is a genuinely different chain. Related global-reset collector Resultary records do not cover independent per-item deletion.
 
-## Scope and independent limitations
+## value
 
-No exact hitting-time prefactor or exponential limiting distribution is claimed. The asymptotics assume fixed positive \(c\); the exact product allows arbitrary finite \(n\) and \(0<p<1\). Readable inspected sources support the quoted comparisons; older unindexed or generic thinning-queue theory could affect priority and has not received independent adjudication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full joint stationary law via all-subset inclusion moments and the sharp large-deviation completion exponent close a natural quantitative gap in a recently studied stochastic model; the strict difference from independent-marginal heuristic is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
