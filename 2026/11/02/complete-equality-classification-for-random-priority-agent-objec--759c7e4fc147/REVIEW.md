@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns a finite domain of exactly \(24^4=331{,}776\) labeled strict rankings with outside options. An auditable C++17 verifier enumerates every profile and all 24 priorities with integer arithmetic, determines all agent and object unassignment marginals, evaluates each acceptable pair, and checks both the exact waste histogram and all six complete symmetry orbits. It also verifies unique maximizing pairs and the six normal forms. An independently implemented Python verifier uses a different simulation representation and an exactly justified sixfold object-label quotient of 55,296 profiles, reproduces the histogram and proves the common priority-by-priority outcome pattern. No extrapolation from a finite sample to a larger domain is made. Critical cases, the empty acceptable set, and the outside-option cutoff are handled explicitly.
+PASS
 
-## Originality — PASS, with publication-priority caveat
+Finite domain exhausts all 24^4=331,776 strict preference profiles of three objects plus outside option, and 24 priority orders per profile. For each profile, u_i and v_x count separate marginal unassignment events, and W=max(min(u_i,v_x))/24 over acceptable pairs, with zero for no such pair. Inspected source C++ and independent Python logic; independently enumerated all labeled profiles and exactly reproduced counts 317664,1728,5040,6912,432 and exactly 432 equality cases. Independent S4×S3 relabeling orbit enumeration found six orbits of size72, and each case has one maximizing pair. The six normal forms are tied by the dependency of b on a and c on b, proving same priority-wise assignment. Complete finite enumeration is proof for this precise fixed-domain claim, not a larger-market theorem.
 
-Basteck and Ehlers (2026), *Strategy-Proof and Minimally Wasteful Random Assignment*, Section 3 and Appendix B, explicitly prove the sharp \(1/6\) RSD bound and show an example with four agents and three objects. Those facts are **known**, not novel. Inspection of their full accessible text found an upper-bound argument and one witness, but not the complete orbit-normal-form classification, the count of equality profiles, the full histogram or the unique extremal pair statement. Searches of related random-assignment work and published mathematical records did not reveal a statement implying this classification. The exact-priority probability enumerations, rather than keyword/title differences, are the basis of the comparison. There remains a risk of unindexed earlier finite calculations or alternate naming.
+## originality
 
-## Value — PASS
+PASS
 
-A sharp worst-case efficiency bound alone leaves open which markets attain it and how robustly. The answer is unusually restrictive here: only six symmetry classes, exactly \(1/768\) of labeled full-domain profiles under impartial culture, a unique triggering pair, and six different rankings sharing exactly the same random assignment lottery even priority by priority. This identifies the entire equality boundary of a natural scarcity-induced efficiency defect rather than producing another instance of the already known worst case. It supplies interpretable representative markets and an exact benchmark for finite random-assignment implementations.
+The sharp W≤1/6 bound and one attainment example are known from Basteck–Ehlers, and explicitly excluded from novelty. Full all-profile equality orbit classification/histogram/unique-witness claim was not observed in accessible abstract or related published mathematical records. Critical primary 2026 source PDF was unavailable on arXiv/OA and authorized Oxford download returned VPN disconnected, so its unseen Appendix B may conceivably contain equivalent classifications; serious residual priority risk.
 
-## Scope and residual scientific risks
+## value
 
-The enumeration is complete only for four agents and three objects; no larger-market conclusion follows. The probability measure \(1/768\) presumes independent uniform strict full-domain rankings. Publication-priority verification cannot exclude an unindexed exact classification. The available text of Martini (2016) was not fully inspected, although the directly relevant recent primary article was read in its definitions, result, and proof sections.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the entire equality structure, not another worst-case example, for the smallest scarcity case: 6 orbits, occurrence frequency 1/768 and exact unique witness, plus behavioral equivalence of distinct rankings under every priority. These are meaningful finite assignment-mechanism invariants useful for empirical benchmarking and understanding sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
