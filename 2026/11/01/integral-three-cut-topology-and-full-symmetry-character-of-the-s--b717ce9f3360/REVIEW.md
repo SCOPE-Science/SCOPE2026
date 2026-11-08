@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed claim has the specified finite graph, cutoff and quantifiers. The dual face vectors are exhaustively enumerated, including independent tests of every vertex subset. The reduced signed integer boundary operators satisfy the chain identity and admit explicit 105 and 60 unit-pivot elimination certificates with no nonzero residual. This yields torsion-free dual homology, and integral Alexander duality plus connectivity, Hurewicz and Whitehead establish the eleven-sphere wedge. All 192 affine automorphisms, their maximality, traces and direct orbit-Lefschetz cross-checks are verified exactly. The checker reproduces each certificate and full output.
+## correctness
 
-## Originality — PASS within the checked literature
-The foundational papers arXiv:2304.13675 and arXiv:2407.08158 were inspected for graph-family, Alexander-dual and stronger-skeleton coverage; the known general rook-three-cut theorem is expressly prior and is not a new assertion. Shrikhande has a noncomplete eleven-skeleton and is not a rook graph, so the identified statements do not imply the Shrikhande classification or its full character. Search aliases included Alexander dual, strongly regular pair, Cayley and cut-complex names. Accessible earlier Shrikhande four-cut, independence and neighborhood claims concern other simplicial complexes. Risk: an unindexed equivalent result cannot be ruled out and the indexed rook record full text was inaccessible.
+PASS
 
-## Value — PASS
-This exact homotopy and symmetry calculation addresses a canonical pair of cospectral, nonisomorphic graphs with equal strongly regular parameters at the natural first nontrivial cut level. The novel Shrikhande classification includes an integral wedge decomposition and complete 192-element character; their quotient has vanishing reduced rational homology. It is not presented as a general theorem or as a newly discovered rook result.
+The pinned Shrikhande graph S on Z4² has 16 vertices, degree six, SRG parameters (16,6,2,2). Direct independent enumeration gives the Alexander dual f-vector [1,16,120,176,60] and 384 disconnected triples. Its integral cellular chains have d2 image equal to the complete-graph one-cycle lattice with 105 integer unit pivots; d3 has 60 unit pivots and no residual, yielding free H2(dual)=Z11, other reduced dual homology zero. Combined with integral Alexander duality (index 16−j−3) this yields H11(Δ3(S))=Z11. Because the dual has no 5-vertex faces, Δ3 contains the full 10-skeleton of the 15-simplex; its 10-connectivity plus Hurewicz and homology Whitehead imply a wedge of eleven 11-spheres, not merely a Betti calculation. Explicit 16 translations and 12 stabilizing linear maps exhaust Aut(S): the neighborhood-induced 6-cycle bounds vertex stabilizer by 12. Independent signed chain trace computations across all 192 maps give histogram of (trace:count) {11:1,3:9,2:32,1:36,0:32,-1:66,-3:4,-5:12}, sum zero, matching the detailed cycle/trace breakdown. Every ambient permutation is even; equivariant Alexander duality preserves sign. Rational transfer gives zero reduced homology of the orbit space (not contractibility). Rook K4□K4 has different rank27 and was not claimed new.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Compared final theorem and implications with full material from the most relevant accessible papers, published mathematical results and indexed semantic searches; the new precise statement is not implied by the checked prior work. This is best-of-knowledge originality with the stated residual risks, not a proof of historical priority.
+
+## value
+
+PASS
+
+The Shrikhande/4×4 rook pair is a canonical nonisomorphic strongly-regular pair with equal parameters. Their sharply different integral three-cut ranks show that the functor distinguishes graphs not separated by the strongly regular parameter tuple, while the complete 192-element character refines the topology. This is a meaningful exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
