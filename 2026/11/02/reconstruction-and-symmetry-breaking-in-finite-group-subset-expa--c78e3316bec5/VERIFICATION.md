@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python standard library. Run `python verify.py`; success prints `VERIFY_OK`. Its independent constructions enumerate the full and pointed semigroups from the multiplication table for six base groups: cyclic orders \(1\), \(2\), \(3\), \(4\), the Klein four-group, and the nonabelian symmetric group \(S_3\). For every group it constructs all standard group automorphisms, all candidate expansion automorphisms, checks that their numbers match the proposed exact formulas, checks their products for **all** pairs of elements, and checks inner-conjugation and pointed-subsemigroup orbit formulas.
+## correctness
 
-When an expansion has at most eight elements, the checker also enumerates every permutation of its underlying set and tests the complete two-variable homomorphism identity, not merely the proposed family. This exhaustive condition applies to the full and pointed expansions of the trivial group, the full and pointed expansions of the order-two cyclic group, and the pointed expansion of the order-three cyclic group. For larger expansions (up to 384 elements in these tests), direct checking covers the explicitly constructed candidates but is not an exhaustive automorphism census. The proof's intrinsic reconstruction establishes exhaustiveness for arbitrary finite groups.
+PASS
 
-The executable is an ordinary computational corroboration, not independent verification and not a formal proof. The proof relies only on the intrinsic definability of units, idempotents, semilattice atoms, inverse-semigroup range idempotents, and the displayed multiplication. The complete 1990 Fountain–Gomes source was not available for a historical priority comparison. Self-review found the mathematical steps internally consistent; independent audit has not been performed.
+PASS: Units of S(G) are exactly (empty,g) and idempotents exactly (A,1), with Boolean union atoms singletons. Thus a semigroup isomorphism gives group isomorphism phi and atom permutation s satisfying s(ga)=phi(g)s(a), whence s(a)=phi(a)t and F(A,g)=(phi(A)t,phi(g)). For the pointed inverse semigroup, minimum idempotent ({1},1), atoms e_g=({1,g},1), and unique nonidempotent with range e_g equal a_g=({1,g},g) recover the multiplication: a_g a_h has range support {1,g,gh}, and its second coordinate distinguishes gh=1. Thus phi is multiplicative. Factorization (A,g)=(A,1)a_g completes all-group reconstruction, including the trivial group. Composition conjugations yield Hol(G), |G| distinct pointed copies, faithful inner unit conjugations. Explicitly inspected standalone checker for C1/C2/C3/C4/V4/S3; finite cases are corroboration, proof uses arbitrary finite G.
+
+## originality
+
+PASS
+
+PASS, best of knowledge and with substantial caveat. The Szendrei/prefix and full subset expansions are established prior objects, and universal-property literature is closely related. The inspected full Lawson–Margolis–Steinberg section on the prefix expansion presents strong factorization/morphism properties but does not give the exact simultaneous isomorphism-group reconstruction and |G|-orbit theorem. Full Gould–Johnson recent paper was inaccessible; priority risk remains serious but no decisive covering theorem was identified.
+
+## value
+
+PASS
+
+PASS: This is a complete isomorphism classification of two canonical finite-group inverse-semigroup constructions and an explicit symmetry-breaking stabilizer/orbit theorem. It answers a natural group-reconstruction question and provides usable intrinsic invariants for future automorphism and representation work, beyond naming the classical holomorph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
