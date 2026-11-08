@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:10:09.720136Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dirichlet monomial moments E prod X_i^{u_i} are gamma-ratios. Differentiation at exponents yields E X_i log X_i X_j^2, with distinct diagonal corrections for i=j. After subtracting EH EQ, exact covariance is -[(A^2-sum alpha_i^2)/(A+1)+2A Cov_w(alpha_i,psi(alpha_i+1))]/[A(A+1)(A+2)]. First numerator part is strictly positive for m>=2 positive alpha, and second nonnegative since digamma is strictly increasing: Cov_w(f,g)=sum_{i<j} w_i w_j (f_i-f_j)(g_i-g_j). Thus universal strict negative sign. For m=2, alpha=(1/2,3/2) weighted digamma covariance=1/8, giving -1/24, compared to -1/36 at (1,1); same A=2. Independent high-precision mixed-moment calculations directly summed derivative terms for five positive vectors including nonsymmetric reals and reproduces exact rational cases. m=1 excluded; no claim about stochastic negative association.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cerquetti applies broad prior models to marginal moments of Tsallis orders, not joint two-order cross moments.",
+          "Wolpert–Wolf Part I includes Shannon entropy moments; Part II uses covariance as function of underlying distribution, not this across-Dirichlet-draw covariance."
+        ],
+        "reasoning": "Broader prior models or a general Dirichlet moment generating identity are tools, not an already-evaluated universal mixed covariance sign formula.",
+        "searches": [
+          "Cerquetti 2014 Gnedin-Pitman Tsallis diversity marginal moments theorem",
+          "Wolpert Wolf 1994 Shannon entropy Dirichlet moments part I II"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1404.3441",
+        "https://arxiv.org/abs/comp-gas/9403001",
+        "https://arxiv.org/abs/comp-gas/9403002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cov_w(alpha,psi(alpha+1)) >=0 and A²-sum alpha²>0 are required for sign across unequal parameters.",
+          "Existing marginal moments of H or order-two Q do not determine Cov(H,Q)."
+        ],
+        "reasoning": "A joint Dirichlet power-sum covariance formula for distinct orders would imply the raw expression after taking a limit, but no inspected primary theorem supplies the claimed sign and counterexample.",
+        "searches": [
+          "arxiv comp-gas/9403001 Shannon Bayesian moments",
+          "arxiv 1404.3441 marginal Tsallis diversity moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shannon H is order-one Tsallis limit and Q is order-two power sum; mixed order derivative of joint power-sum moment gives Cov(H,Q).",
+          "Cerquetti 2014 develops one-index mean/variance, not mixed H versus Q covariance."
+        ],
+        "reasoning": "Individual Shannon and Simpson variance formulas do not fix cross-covariance; monotonicity of digamma plus weighted covariance is a separate universal sign argument.",
+        "searches": [
+          "Resultary: Dirichlet distribution Shannon entropy Simpson concentration covariance negative asymmetric digamma",
+          "joint Shannon Gini Simpson Tsallis Dirichlet alpha asymmetric mixed moment covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found related sample richness/Gini-Simpson covariance in iid multinomial draws, which differs from covariance of two population functionals across Dirichlet draws.",
+          "No exact H-Q Dirichlet mixed-covariance table or published universal sign theorem found."
+        ],
+        "reasoning": "An exact joint-moment source could cover the formula, but semantic nonmatch is not conclusive.",
+        "searches": [
+          "Resultary: Dirichlet distribution Shannon entropy Simpson concentration covariance negative asymmetric digamma",
+          "Shannon Simpson Dirichlet exact covariance digamma table asymmetric concentration"
+        ]
+      },
+      "rationale": "Wolpert–Wolf 1994 derive Bayesian Shannon moments; Cerquetti 2014 derives single-order Tsallis diversity moments and limits, with different entropy/Simpson orders. Their inspected full-text results do not supply mixed Shannon-vs-Simpson covariance for arbitrary asymmetric Dirichlet concentration or its strict sign decomposition. A direct moment-differentiation computation uses standard calculus, but the universal sign and fixed-total counterexample are not found in inspected sources. Best-of-knowledge original, with specialized joint-diversity literature remaining priority risk.",
+      "residual_risks": [
+        "Earlier joint-diversity or cross-order Tsallis-moment literature could contain an equivalent mixed covariance under Dirichlet priors.",
+        "No optimal concentration vector for covariance magnitude at fixed total is established.",
+        "The result concerns random population proportions, not covariance of finite-sample entropy/Simpson estimators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Presents moments separately for each Tsallis order under random partitions; no identified H-Q mixed covariance in inspected statements.",
+          "evidence": "Theorems 1–2 and sections 2–3 give marginal moments, not a cross-order mixed moment theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3441",
+          "material_read": "Full accessible 21-page PDF, inspected the introduction, theorem sections and searches for covariance/joint formulas.",
+          "method": "Full-text PDF including page-image inspection",
+          "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin-Pitman priors",
+          "trigger": "Generalized entropy including Shannon and Simpson marginal moments"
+        },
+        {
+          "assessment": "Supplies entropy marginal tools but not an inspected theorem for cross-order Shannon/Simpson covariance.",
+          "evidence": "Shannon posterior expectation/moments; no Simpson mixed covariance in searched text.",
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9403001",
+          "material_read": "Full accessible 30-page PDF with sections on Bayesian Shannon entropy moments; searched for Simpson terminology.",
+          "method": "Full-text PDF plus rendered-page inspection",
+          "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part I: Bayes Estimators and the Shannon Entropy",
+          "trigger": "Classical Dirichlet Shannon entropy moment formulas"
+        },
+        {
+          "assessment": "Covariance is a statistical functional under posterior estimation; no conclusive whole-text noncoverage judgment.",
+          "evidence": "Title and abstract refer to Bayes estimation of covariance and other statistics, not necessarily covariance among indices.",
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9403002",
+          "material_read": "Abstract and bibliographic statements; complete primary PDF not materially read in this run.",
+          "method": "Source metadata and scope comparison",
+          "title": "Estimating Functions of Distributions from a Finite Set of Samples, Part II",
+          "trigger": "Potential ambiguity in term covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shannon entropy and Simpson concentration are standard diversity/uncertainty measures with different sensitivity. Their joint posterior-prior dependence under asymmetric Dirichlet laws matters when comparing both indices; an exact strictly negative covariance for *all* concentrations is a nontrivial structural sign theorem. The fixed-total asymmetric example disproves a natural symmetry-maximal dependence heuristic. Useful exact invariant beyond a textbook expectation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1404.3441",
+    "https://arxiv.org/abs/comp-gas/9403001",
+    "https://arxiv.org/abs/comp-gas/9403002"
+  ],
+  "disposition": "passed",
+  "limitations": "Earlier joint-diversity or cross-order Tsallis-moment literature could contain an equivalent mixed covariance under Dirichlet priors.; No optimal concentration vector for covariance magnitude at fixed total is established.; The result concerns random population proportions, not covariance of finite-sample entropy/Simpson estimators.",
+  "residual_risks": [
+    "Earlier joint-diversity or cross-order Tsallis-moment literature could contain an equivalent mixed covariance under Dirichlet priors.",
+    "No optimal concentration vector for covariance magnitude at fixed total is established.",
+    "The result concerns random population proportions, not covariance of finite-sample entropy/Simpson estimators."
+  ],
+  "schema_version": 1
+}

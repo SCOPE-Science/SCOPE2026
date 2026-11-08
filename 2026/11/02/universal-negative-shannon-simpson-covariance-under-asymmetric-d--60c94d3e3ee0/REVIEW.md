@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact mixed-moment identity is derived by differentiating Dirichlet monomial moments, including the diagonal \(i=j\) correction. A direct symbolic simplification produces the weighted-digamma covariance. Strict negativity holds for every stated positive parameter vector because \(A^2-\sum_i\alpha_i^2>0\) and the weighted covariance of concentrations with a strictly increasing function is nonnegative. The half-integer example uses a single exact digamma recurrence. The standalone verifier independently checks 3,900 integer-parameter cases and both rational example values; no inference to an infinite parameter space is made from those checks.
+## correctness
 
-## Originality — PASS, residual priority risk
-Published research on Dirichlet entropy moments, Bayesian estimation of distribution functionals, and Tsallis/Simpson marginal moments was compared to the precise joint-covariance inequality. The Wolpert–Wolf papers treat posterior moments of selected individual functionals (and a different use of the word “covariance”); Cerquetti treats marginal moments of individual Tsallis orders, not the mixed Shannon–Simpson law for arbitrary unequal finite parameters. A general integration method is applicable but no inspected theorem directly gives the sign decomposition or the fixed-total asymmetry comparison. Relevant published research records on multinomial richness/Gini–Simpson dependence and Bernoulli collision entropy concern different random objects. Older unlocated mixed-diversity literature remains a real priority risk, not evidence of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Shannon entropy and Simpson concentration are two standard but differently sensitive categorical-diversity measures. A signed cross-moment valid under **arbitrary nonexchangeable Dirichlet priors** is directly useful for joint uncertainty analysis. The decomposition explains why the sign cannot reverse when species prior weights are unequal, and the exact two-category example refutes a plausible fixed-total symmetry-maximization heuristic. The result is not a mere numerical covariance value or a renamed special case.
+Dirichlet monomial moments E prod X_i^{u_i} are gamma-ratios. Differentiation at exponents yields E X_i log X_i X_j^2, with distinct diagonal corrections for i=j. After subtracting EH EQ, exact covariance is -[(A^2-sum alpha_i^2)/(A+1)+2A Cov_w(alpha_i,psi(alpha_i+1))]/[A(A+1)(A+2)]. First numerator part is strictly positive for m>=2 positive alpha, and second nonnegative since digamma is strictly increasing: Cov_w(f,g)=sum_{i<j} w_i w_j (f_i-f_j)(g_i-g_j). Thus universal strict negative sign. For m=2, alpha=(1/2,3/2) weighted digamma covariance=1/8, giving -1/24, compared to -1/36 at (1,1); same A=2. Independent high-precision mixed-moment calculations directly summed derivative terms for five positive vectors including nonsymmetric reals and reproduces exact rational cases. m=1 excluded; no claim about stochastic negative association.
 
-## Scope and limits
-No maximal-covariance extremizer, full conditional law, stochastic order, or infinite-dimensional extension is established. Historical-priority uncertainty remains for unlocated specialized mixed moments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wolpert–Wolf 1994 derive Bayesian Shannon moments; Cerquetti 2014 derives single-order Tsallis diversity moments and limits, with different entropy/Simpson orders. Their inspected full-text results do not supply mixed Shannon-vs-Simpson covariance for arbitrary asymmetric Dirichlet concentration or its strict sign decomposition. A direct moment-differentiation computation uses standard calculus, but the universal sign and fixed-total counterexample are not found in inspected sources. Best-of-knowledge original, with specialized joint-diversity literature remaining priority risk.
+
+## value
+
+PASS
+
+Shannon entropy and Simpson concentration are standard diversity/uncertainty measures with different sensitivity. Their joint posterior-prior dependence under asymmetric Dirichlet laws matters when comparing both indices; an exact strictly negative covariance for *all* concentrations is a nontrivial structural sign theorem. The fixed-total asymmetric example disproves a natural symmetry-maximal dependence heuristic. Useful exact invariant beyond a textbook expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
