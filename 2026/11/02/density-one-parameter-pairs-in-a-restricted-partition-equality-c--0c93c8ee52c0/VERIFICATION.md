@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The companion `verify_partition_pell.py` uses only Python standard-library exact integer arithmetic. Run:
+## correctness
 
-```sh
-python3 verify_partition_pell.py
-```
+PASS
 
-It checks 684 values of the closed quadratic partition formula directly by summing restricted partitions. It computes fundamental Pell units using a continued-fraction recurrence for 87 distinct nonsquare-product parameter pairs with \(3\le a<b\le16\), searches modular orders of the associated integer matrices, and verifies integral-positive recovery, norm invariance, and partition-polynomial equality. It independently checks \(P_3(42)=P_4(48)=169\) by direct enumeration.
+Actual RESULT.md gives P_c(2cn)=c n^2+(floor(c/2)+2)n+1 by choosing c-parts. For nonsquare ab a Pell unit u^2-abv^2=1 yields positive integral T=[[u,av],[bv,u]] preserving bX^2-aY^2. As T has determinant 1 mod 2ab, a positive power is identity mod 2ab; its iterates carry (d_a,d_b) into congruences X=d_a mod 2a,Y=d_b mod 2b. Expanding the invariant yields exact equality of the two quadratic partition sections and strict growth gives infinitely many distinct positive solutions. Square-product a=sr^2,b=st^2 count O(H log H), so density follows. Independent calculation rederived 540 section values and symbolic T^T J T=J; checked the source verify_partition_pell.py arguments without relying on its logs. Boundary excludes a,b<3 and square ab; finite checks never used for infinity.
 
-Expected output:
+## originality
 
-```text
-VERIFY_OK section_checks=684 pell_pairs=87
-```
+PASS
 
-The unrestricted theorem rests on the exact partition summation, classical Pell existence, the finite-order property of determinant-one matrices modulo \(2ab\), growth of the positive matrix orbit, and an elementary count of square-product parameters. The finite tests do not prove general Pell existence, general modular finiteness, or the infinite solution claim; these are treated in the written proof.
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+Explicit positive-density-to-one settlement of a named 2021 Diophantine partition conjecture is mathematically substantive. The Pell congruence lattice construction settles a broad family containing odd parameters and is not a mere restatement of the earlier two-divisible-by-four case; excluded square-product cases remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

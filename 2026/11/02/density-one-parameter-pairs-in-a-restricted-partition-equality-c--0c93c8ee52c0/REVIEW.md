@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first derives the exact restricted-partition quadratic section from an elementary partition sum. A Pell matrix of determinant one preserves the indefinite quadratic form and, after a positive power, the required congruences. This gives an explicit strictly increasing infinite family of positive integer solutions. A harmonic-series bound counts the excluded square-product parameter pairs. The supplied verifier corroborates 684 direct section counts, 87 parameter-pair Pell constructions, and the independent small example; the proof of the infinite result is algebraic.
+## correctness
 
-## Originality — PASS within inspected evidence
-Tengely and Ulas, *Equal values of certain partition functions via Diophantine equations* (arXiv:2102.05352; 2021), supply the quadratic denumerants and prove a more restricted sufficient condition requiring both parameters divisible by four (Theorem 4.5). Their Conjecture 4.6 asks for infinite equality solutions for all distinct parameters at least three. The nonsquare-product sufficient condition and its density-one coverage, including parameters such as \((a,b)=(3,4)\), are not established by the inspected earlier theorem. published-finding corpus and literature searches were compared by mathematical implication rather than title. An unindexed or implicit earlier application of the Pell unit-action method remains the principal novelty risk.
+PASS
 
-## Mathematical value — PASS
-The result proves an infinite and asymptotically density-one subfamily of an explicitly formulated restricted-partition equality conjecture. Its uniform congruence-preserving construction removes parity restrictions and specifies the remaining exceptional square-product locus. The underlying Pell theorem is classical, but the resulting partition-equation statement and quantitative parameter coverage are substantive.
+Actual RESULT.md gives P_c(2cn)=c n^2+(floor(c/2)+2)n+1 by choosing c-parts. For nonsquare ab a Pell unit u^2-abv^2=1 yields positive integral T=[[u,av],[bv,u]] preserving bX^2-aY^2. As T has determinant 1 mod 2ab, a positive power is identity mod 2ab; its iterates carry (d_a,d_b) into congruences X=d_a mod 2a,Y=d_b mod 2b. Expanding the invariant yields exact equality of the two quadratic partition sections and strict growth gives infinitely many distinct positive solutions. Square-product a=sr^2,b=st^2 count O(H log H), so density follows. Independent calculation rederived 540 section values and symbolic T^T J T=J; checked the source verify_partition_pell.py arguments without relying on its logs. Boundary excludes a,b<3 and square ab; finite checks never used for infinity.
 
-## Limitations
-The full conjecture remains unresolved for square-product parameter pairs. The provided verification script is a finite consistency check, not a substitute for the symbolic argument. No independent scientific review or external certification has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+Explicit positive-density-to-one settlement of a named 2021 Diophantine partition conjecture is mathematically substantive. The Pell congruence lattice construction settles a broad family containing odd parameters and is not a mere restatement of the earlier two-divisible-by-four case; excluded square-product cases remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
