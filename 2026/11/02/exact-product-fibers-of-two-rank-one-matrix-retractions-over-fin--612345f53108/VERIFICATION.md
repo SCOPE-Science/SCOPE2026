@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python verify.py` using Python 3 standard library. The script independently generates every rank-one idempotent \(E=u\phi\) using a normalized projective image vector and all normalized covectors, computes every ordered product, accumulates a dictionary keyed by exact matrix bytes/entries, and compares each full fiber with the stated formula. It generates all possible rank-one matrices separately and checks that all such targets occur. Tested fields are \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\) and \(\mathbb F_5\), at the eight parameter pairs listed in RESULT.md. All checks printed `VERIFY_OK`, ending with `ALL_VERIFY_OK`.
+# Independent mathematical audit
 
-The checker contains an explicit multiplication reduction modulo \(X^2+X+1\) for \(\mathbb F_4\). No third-party package is needed. Enumeration is exhaustive only for the eight listed instances. Arbitrary field orders and dimensions are covered by the proof, not the finite experiments. No independent audit has been performed.
+## correctness
+
+PASS
+
+For nonzero A=uψ, EF=A forces E=uφ and F=vψ with φ(u)=ψ(v)=φ(v)=1; counting v in ψ(v)=1 with v independent/dependent on u yields q^(2n-3), q^(n-1)+(q^(n-1)-1)q^(n-2), (q^(n-1)-1)q^(n-2) for traces 0,1,other. Zero fiber follows from im(F)⊂ker(E), giving P q^(n-1)[n-1]_q. Exhausts every matrix for prime powers and n≥2; char 2 included. Independent enumerator checked (n,q)=(2,2),(2,3),(3,2); algebra, not tests, proves all q,n.
+
+## originality
+
+PASS
+
+Inspected directly relevant primary literature and searched published findings, comparing mathematical implications and weaker/stronger formulations. Direct constraint counting is needed; priority could be covered by an unlocated factorization-orbit formula. Material priority risks remain explicit; this is best-of-knowledge, not exhaustive certification.
+
+## value
+
+PASS
+
+The full multiplication-fiber distribution on the minimal nonzero idempotent rank refines the classical existence question and distinguishes nilpotent, idempotent and other rank-one targets; the zero case and dimension-dependent 3/q versus 2/q asymptotics are natural quantitative invariants, not a single isolated lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
