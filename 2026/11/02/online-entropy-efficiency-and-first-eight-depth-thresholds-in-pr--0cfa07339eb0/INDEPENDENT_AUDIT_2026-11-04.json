@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:46:47.112952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed first-zero equivalence and prefix rule: after first zero position i only k ones may remain. Disjoint slices have (n-i choose <=k) concepts. On a depth-d shattered membership tree, a realized path from slice i is injectively coded by the at most k path depths where a queried coordinate >i returns one; queries <i forced 1 and =i forced 0. Distinctness follows by replaying the deterministic query tree, with no query repeated along a shattered path. Thus 2^d <=1+sum_{j<=k}(n-j)C(d,j); binary search on the n+1 prefix concepts gives floor(log2(n+1)). |P(k,n)|=sum_{j=0}^{k+1}C(n,j), yielding the fixed-k limit. The Boolean first-query recurrence is exhaustive on finite version spaces and nested in n; the source checker evaluates 12 threshold-adjacent cases and depth-nine exclusion at 69. Independently reconstructed version spaces through n=12 AND separately replayed the full 12 threshold-adjacent decisions through n=69 and exclusion of depth nine at n=69; all exact tests passed. No all-(k,n) exact formula asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knauer–Trotter gives |P|=sum binom(n,j) and VC=k+1, not an upper bound on online query depth.",
+          "General Sauer–Shelah and thicket bounds do not give the finite k=1 thresholds 4,7,12,21,39,69."
+        ],
+        "reasoning": "A general tree-shattering bound might imply coarser order estimates but does not supply the precise slice coding or finite thresholds as inspected; no stronger covering theorem was found.",
+        "searches": [
+          "Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero",
+          "Sauer maximum families online Littlestone dimension vs VC dimension"
+        ]
+      },
+      "checked_sources": [
+        "Repository RESULT.md and verify_prefix_sparse.py actual assigned blobs",
+        "Knauer–Trotter arXiv:2303.08945",
+        "Walker arXiv:2203.12211",
+        "Bhaskar arXiv:1702.03956",
+        "Resultary semantic query Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knauer–Trotter Theorem 1.5 and Section 8 prove static convex-geometry dimension properties; their ldim is a different invariant.",
+          "The online proof requires pathwise adversarial membership queries and a slice code, not implied by the static VC count."
+        ],
+        "reasoning": "The static formula and generic online learning definitions do not logically force the precise upper fence or finite first-occurrence sequence without an additional proof; those are the assessed contribution.",
+        "searches": [
+          "Knauer Trotter 2303.08945 online tree dimension first zero",
+          "Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knauer and Trotter arXiv:2303.08945, Theorem 1.5 and construction of P(k,n), uses ldim for POSITIVE poset-local dimension.",
+          "Walker arXiv:2203.12211 and Bhaskar arXiv:1702.03956 discuss tree-shattering and thicket dimension."
+        ],
+        "reasoning": "Membership-tree shattering over coordinate queries is Littlestone/thicket dimension; this is not the same as poset local dimension. The forbidden subsequence 0 then k+1 ones is equivalent to the first-zero sparse-tail description, but its online spectrum was not found in these sources.",
+        "searches": [
+          "Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero",
+          "Littlestone dimension first-zero sparse binary subsequence forbidden 0 1^(k+1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary query returned unrelated projection, ellipsoid and threshold findings among the eight closest hits.",
+          "The repository independently enumerates k=1 online recurrence through n=69, not an OEIS or literature table identity."
+        ],
+        "reasoning": "No matching published table observed. This negative search is not itself a novelty proof; an unindexed online-learning table could exist.",
+        "searches": [
+          "Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero",
+          "Littlestone P(1,n) depth 4 7 12 21 39 69 table"
+        ]
+      },
+      "rationale": "Online Littlestone dimension is distinct from poset local dimension denoted ldim in the original convex-geometry paper; earlier Sauer-maximum size/VC facts are background. A first-zero sparse-tail slice bound gives a new comparison of online depth versus static entropy and a finite exact depth spectrum, beyond the inspected statements of Knauer–Trotter; complete priority is not guaranteed.",
+      "residual_risks": [
+        "Upper fence may be nonsharp outside checked cases; no exact general L(k,n) formula.",
+        "The finite exact recurrence is exhaustive only through n=69; no all-n exact k=1 formula is claimed.",
+        "Unindexed equivalent online-dimension computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static size/VC and poset local dimension background, not the coordinate-query Littlestone formula.",
+          "evidence": "Theorem 1.5, Propositions 8.3–8.11; poset local dimension abbreviation differs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08945",
+          "material_read": "Full accessible 22-page primary PDF; Theorem 1.5, P(k,n) construction and Section 8 dimension results inspected, including rendered pages.",
+          "method": "PDF text search and visual page check",
+          "title": "Concepts of Dimension for Convex Geometries",
+          "trigger": "exact same P(k,n) and ambiguous abbreviation ldim"
+        },
+        {
+          "assessment": "General tree-dimension framework, no inspected P(k,n) table.",
+          "evidence": "No exact same-family explicit parameter statement in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "Abstract/accessible statements and relevant theorem descriptions, not full PDF",
+          "method": "Search and abstract comparison",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "broader online tree-dimension theorem"
+        },
+        {
+          "assessment": "Conceptual terminology; no claim of exhaustive full-text exclusion.",
+          "evidence": "Thicket/Littlestone tree-dimension context.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+          "material_read": "Abstract and accessible introductory statements, not full book/paper",
+          "method": "Search/abstract",
+          "title": "Thicket Density",
+          "trigger": "equivalence of online dimension terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First quantitative separation of an explicitly Sauer-maximum convex-geometry class from its online membership-query tree depth, with fixed-k entropy ratio 1/(k+1); exact n<=69 k=1 thresholds supply meaningful initial structural data where the general fence is not asserted sharp. This is a natural online invariant rather than an arbitrary sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Repository RESULT.md and verify_prefix_sparse.py actual assigned blobs",
+    "Knauer–Trotter arXiv:2303.08945",
+    "Walker arXiv:2203.12211",
+    "Bhaskar arXiv:1702.03956",
+    "Resultary semantic query Knauer Trotter prefix-sparse convex geometry P(k,n) Littlestone dimension online tree shattering exact thresholds first-zero"
+  ],
+  "disposition": "passed",
+  "final_claim": "For P(k,n), online Littlestone dimension lies between floor(log2(n+1)) and the slice-encoding upper fence, hence for fixed k the online entropy ratio tends to 1/(k+1); exact k=1 first depth-3..8 thresholds are 4,7,12,21,39,69, with no depth 9 through n=69.",
+  "limitations": [
+    "Fixed-k asymptotic only; depth threshold table k=1 and 3<=n<=69 only.",
+    "Historical priority bounded by available sources."
+  ],
+  "residual_risks": [
+    "Upper fence may be nonsharp outside checked cases; no exact general L(k,n) formula.",
+    "The finite exact recurrence is exhaustive only through n=69; no all-n exact k=1 formula is claimed.",
+    "Unindexed equivalent online-dimension computations remain possible."
+  ],
+  "schema_version": 1
+}

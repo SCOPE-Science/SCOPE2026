@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-First-zero disjoint union, cardinality/VC witnesses, prefix-threshold subtree, and injective path encoding by at most k positive-after-zero query depths are fully proved for all 1≤k≤n−2. Finite online thresholds follow from exact recursive exhaustive feasibility on both sides of each transition plus depth-nine exclusion and nesting, verified by a standalone checker. No finite experiment is used to infer the infinite asymptotic theorem.
+## correctness
 
-## Originality — PASS (accessible comparisons)
-Compared the same mathematical family against Knauer--Trotter original arXiv full HTML, general thicket and tree Sauer sources, multiple published-finding corpus semantic searches for equivalents, and mathematical comparisons of distinct order-ideal concept classes. The foundational static VC/Sauer fact and generic threshold lower bound are credited; the asserted contribution is the explicit slice-encoding upper fence, coefficient-one logarithmic online growth/entropy ratio, and exhaustive first eight-depth spectrum. Historical priority remains a risk under alternative online-learning terminology.
+PASS
 
-The same family is in Knauer--Trotter (arXiv:2303.08945), but its `ldim` denotes poset local dimension, not online Littlestone dimension. Walker (arXiv:2203.12211) and Bhaskar (arXiv:1702.03956) provide general context; no exact domination located. Residual historical priority risk remains.
+Reconstructed first-zero equivalence and prefix rule: after first zero position i only k ones may remain. Disjoint slices have (n-i choose <=k) concepts. On a depth-d shattered membership tree, a realized path from slice i is injectively coded by the at most k path depths where a queried coordinate >i returns one; queries <i forced 1 and =i forced 0. Distinctness follows by replaying the deterministic query tree, with no query repeated along a shattered path. Thus 2^d <=1+sum_{j<=k}(n-j)C(d,j); binary search on the n+1 prefix concepts gives floor(log2(n+1)). |P(k,n)|=sum_{j=0}^{k+1}C(n,j), yielding the fixed-k limit. The Boolean first-query recurrence is exhaustive on finite version spaces and nested in n; the source checker evaluates 12 threshold-adjacent cases and depth-nine exclusion at 69. Independently reconstructed version spaces through n=12 AND separately replayed the full 12 threshold-adjacent decisions through n=69 and exclusion of depth nine at n=69; all exact tests passed. No all-(k,n) exact formula asserted.
 
-## Mathematical value — PASS
-An infinite, previously studied natural convex-geometry family is Sauer-maximum yet has online dimension asymptotically just 1/(k+1) of its log-cardinality (for fixed k), separating extremal static richness from adaptive depth. Exact first eight k=1 depth thresholds identify a nontrivial online growth staircase, not merely a restatement of the concept count.
+## originality
 
-## Limitations
-The universal online upper fence is not an asserted exact formula. The exact depth staircase applies only to \(k=1\) through \(n=69\). Finite computational checks do not establish the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Online Littlestone dimension is distinct from poset local dimension denoted ldim in the original convex-geometry paper; earlier Sauer-maximum size/VC facts are background. A first-zero sparse-tail slice bound gives a new comparison of online depth versus static entropy and a finite exact depth spectrum, beyond the inspected statements of Knauer–Trotter; complete priority is not guaranteed.
+
+## value
+
+PASS
+
+First quantitative separation of an explicitly Sauer-maximum convex-geometry class from its online membership-query tree depth, with fixed-k entropy ratio 1/(k+1); exact n<=69 k=1 thresholds supply meaningful initial structural data where the general fence is not asserted sharp. This is a natural online invariant rather than an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
