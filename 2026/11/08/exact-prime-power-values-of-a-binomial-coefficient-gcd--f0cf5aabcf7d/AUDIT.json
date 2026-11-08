@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each prime dividing k+1 the proof correctly separates the zero branch supplied by Guo et al. from the positive case. The all-q Kummer lower bound counts two disjoint carry ranges, and the explicit admissible q=1+p^a s realizes a−floor(log_p b) via a factorial identity and exactly t carries. No other primes divide the gcd by the cited prime-support lemma. The one-prime-power conclusion follows from divisibility of distinct coprime components. A standalone independent arithmetic checker confirms 98 complete gcds, 528238 carry valuations, and 4084 witnesses without treating finite tests as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chai Wah Wu, arXiv:2606.20940, full available text: fixed upper binomial row mn with lower mk varying.",
+        "Siao Hong (2016), accessible abstract: fixed upper-row gcd of certain binomial coefficients.",
+        "Oestreicher and Steinig (1985), accessible bibliographic description: gcd among consecutive entries of a fixed Pascal row."
+      ],
+      "reasoning": "The compared fixed-upper-row theorems vary lower indices. Here the lower index is fixed and the upper index runs through qk, making a direct implication absent. Historical fixed-row results were not exhaustively inspected for indirect reductions.",
+      "searches": [
+        "Computing the Greatest Common Divisor of Binomial Coefficients Chai Wah Wu 2026 arxiv:2606.20940",
+        "gcd binomial coefficients fixed Pascal row all lower indices m coprime Hong 2016",
+        "greatest common divisor consecutive binomial coefficients row Oestreicher Steinig 1985"
+      ]
+    },
+    "checked_sources": [
+      "Guo–Qiu–Cao–Feng–Gao (2026), arXiv:2606.22997v1: full primary text",
+      "Chai Wah Wu (2026), arXiv:2606.20940: full primary text",
+      "OEIS A080170: sequence page",
+      "Siao Hong (2016): accessible abstract only",
+      "Oestreicher–Steinig (1985): bibliographic description only",
+      "Targeted mathematics research-index queries, including binomial-gcd aliases and exact valuations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source local criterion is p|D(k) if and only if (k+1)/p^a ≤ p^a, for each p^a||(k+1).",
+        "Closest research-indexed findings on small-prime valuations analyze one specially constructed binomial coefficient; a separate result concerns a fixed prime-base congruence, not the gcd over upper indices."
+      ],
+      "reasoning": "The zero/nonzero criterion is strictly weaker than the exact exponent formula: it determines whether a−floor(log_p b) is positive, but does not determine its magnitude. The new explicit upper-bound witness and all-q lower bound supply the additional arithmetic information.",
+      "searches": [
+        "Guo Qiu Cao Feng Gao A Greatest Common Divisor Criterion of Certain Binomial Coefficients exact valuation extension D(k) beyond unity",
+        "binomial gcd criterion prime power divisor p^a n/p^a k+1 full valuation",
+        "exact small-prime valuations deficiency-one construction binomial coefficient",
+        "prime-power towers prime-base binomial congruence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.22997v1, main theorem and Lemmas 4 and 9: divisibility and gcd-equals-one criteria; complete source HTML reviewed.",
+        "The asserted formula gives the numerical gcd, not merely its set of prime divisors."
+      ],
+      "reasoning": "One can calculate the support from the published local criterion, but it does not give the exact p-adic exponent. An equivalent theorem would have to imply the explicit minimum valuation over all upper multipliers; the inspected source does not do so. The single-prime-power support corollary by itself is covered by the older divisibility criterion; the substantive new assertion is the exact valuation exponent.",
+      "searches": [
+        "greatest common divisor gcd binomial coefficients choose qk k for 2≤q≤k+1 prime power factor exact valuation D(k)",
+        "gcd binomial qk k explicit full prime powers p-adic valuation formula for all k, binomial row b-1 witness q=1+p^a s Kummer",
+        "For every k≥2 the gcd of binomial(qk,k) for q from 2 to k+1 is either 1 or a prime power; exact p-adic exponent a-floor(log_p(b)) when k+1=p^a b and b<p^a",
+        "A Greatest Common Divisor Criterion of Certain Binomial Coefficients exact valuation extension D(k) beyond unity",
+        "arxiv:2606.22997v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 identifies the sequence of parameters with D(k)=1; source entry inspected.",
+        "Guo et al. (2026) explicitly connect the gcd-unity criterion to OEIS A080170."
+      ],
+      "reasoning": "A table or sequence enumerating those parameters at which the gcd is 1 does not encode all gcd values or prime-power exponents, nor does it establish an all-parameter formula.",
+      "searches": [
+        "OEIS A080170 binomial gcd equal 1 list of indices criterion",
+        "exact value D(k) gcd_{q=2}^{k+1} binomial(qk,k) OEIS data prime power"
+      ]
+    },
+    "rationale": "The motivating paper studies exactly D(k) but only decides which primes divide it and when it is 1; full-text theorem/lemma examination showed no exact valuation formula or explicit valuation-attaining index. The prime-power-only corollary already follows simply from the published presence criterion, and is not asserted as independent novelty. The leading closely related 2026 fixed-row gcd paper and the OEIS listing do not imply the statement. Multiple targeted mathematical research searches found no equivalent statement. Priority risk from older and incompletely indexed binomial-gcd literature remains acknowledged.",
+    "residual_risks": [
+      "The older Hong (2016), Oestreicher–Steinig (1985), and related fixed-row literature was not universally accessible in full; a stronger historical result might imply the formula by a reduction not identified here.",
+      "Unindexed or unpublished results could establish this formula; database non-retrieval is not proof of uniqueness.",
+      "The proof depends on two published Guo et al. lemmas for prime support and the zero branch."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes D(k)=1 and local prime-divisor criteria, not exact valuations or one-prime-power form.",
+        "evidence": [
+          "Lemma 4 limits support to k+1; Lemma 9 establishes the zero/positive criterion; the main theorem is a gcd-equals-one condition."
+        ],
+        "identifier_or_url": "arxiv:2606.22997v1 | https://arxiv.org/abs/2606.22997",
+        "material_read": "Full public HTML article: introduction, main theorem, prime-support lemma, prime-divisibility lemma, their proofs, and final sections.",
+        "method": "Read statements and full-text arguments and compare prime-divisibility criteria with the proposed exponent minimum.",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Exact same gcd and recent source defining the question."
+      },
+      {
+        "assessment": "Lists unity indices and supporting references, not the unrestricted exact gcd formula.",
+        "evidence": [
+          "Sequence records which k yield gcd one rather than full D(k) values."
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Entry definition, comments, references, and listed sequence content.",
+        "method": "Compared the recorded invariant (positions of gcd=1) to the all-integer gcd-value formula.",
+        "title": "OEIS A080170",
+        "trigger": "Exact integer sequence associated with the original source."
+      },
+      {
+        "assessment": "Studies a fixed upper row with varying lower indices, not a variable-upper fixed-lower gcd.",
+        "evidence": [
+          "The main family has binomial coefficients of the form binom(mn,mk), in contrast with binom(qk,k)."
+        ],
+        "identifier_or_url": "arxiv:2606.20940 | https://arxiv.org/abs/2606.20940",
+        "material_read": "Full publicly available HTML article, including the setup and theorem statements.",
+        "method": "Compared the varying parameters in both binomial gcds.",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Recent primary paper whose title could plausibly imply the desired exact gcd."
+      },
+      {
+        "assessment": "No decisive implication found from abstract, but indirect/full-text coverage not ruled out.",
+        "evidence": [
+          "Described as gcd of coefficients in a fixed row with lower positions meeting coprimality conditions."
+        ],
+        "identifier_or_url": "Siao Hong (2016), bibliographic abstract",
+        "material_read": "Accessible abstract/metadata; full original unavailable during this comparison.",
+        "method": "Compared explicitly stated fixed-row setting and parameters.",
+        "title": "The greatest common divisor of certain binomial coefficients",
+        "trigger": "Earlier potentially broad binomial gcd literature."
+      },
+      {
+        "assessment": "No direct covering result established; historical priority risk retained.",
+        "evidence": [
+          "The described family consists of consecutive entries in one binomial row."
+        ],
+        "identifier_or_url": "Oestreicher and Steinig (1985), bibliographic record",
+        "material_read": "Bibliographic title/description only; full text not inspected.",
+        "method": "Compared stated consecutive fixed-row scope.",
+        "title": "Greatest common divisors of consecutive binomial coefficients",
+        "trigger": "Older paper on gcds of binomial coefficients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0cf5aab-cf7d-4d26-aeb9-622ea519ef58",
+  "value": {
+    "rationale": "The motivating 2026 paper and OEIS classification identify precisely a natural family of binomial gcds and characterize the unit fiber. The new formula determines the full positive integer gcd for every parameter, including arbitrarily large p-adic exponents, supplies an explicit attaining coefficient, and presents the earlier prime-power-support consequence transparently alongside the stronger exact valuations. This is a motivated structural strengthening of a recently studied invariant, not an arbitrary finite slice or unmotivated computation.",
+    "status": "PASS"
+  }
+}
