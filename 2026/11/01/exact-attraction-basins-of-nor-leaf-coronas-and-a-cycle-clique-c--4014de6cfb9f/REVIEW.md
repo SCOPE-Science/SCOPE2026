@@ -1,19 +1,21 @@
-# Scientific assessment: NOR corona attraction and crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a single exact classification: periodic phase pairs for every finite simple base graph, their individual basin weights, and the resulting sharp cycle–clique fixed-basin crossover. The update on base and pendant coordinates is explicit. Cross-nonadjacency is symmetric because the base graph is undirected. Every state maps to a recurrent phase, so the basin of an orbit is exactly the union of the predecessor fibers of its distinct phases; their sizes follow by independently free pendant inputs on the base open neighborhood. This argument avoids an unproved enumeration shortcut. The matrix \(T(z)\) records all cyclic independent binary words, with one local neighborhood-weight factor per vertex. Its characteristic polynomial, initial traces, Lucas orbit formulas and inequality induction were checked algebraically. Two separately implemented exhaustive programs confirmed the phase and basin results on all labelled base graphs up to five vertices (the larger implementation checks 1,065,508 full initial states). Full proofs extend beyond these finite tests.
+PASS
 
-## Originality — PASS, qualified
+For each finite simple loopless undirected G, synchronous open-neighborhood NOR on its single-leaf corona acts on core/leaf subsets by F(A,L)=((V\L)\N_G(A),V\A). Setting B=(V\L)\N_G(A) ensures cross-nonadjacency N(A)∩B=∅ and F(A,L)=q_{B,A}; symmetry yields F(q_{A,B})=q_{B,A}, hence F³=F, all states enter a 1/2-cycle after <=1 step. The phase pairs are independent sets of the bipartite double cover, and fixing one phase q_{A,B} forces the predecessor core B while precisely |N(B)| private-leaf bits are free. This proves each basin weight and its complete partition. On K_n the fixed basin count is 1+n2^(n-1). On C_n direct cyclic 3-state transfer has characteristic t³-t²-2t-2, initial trace 13,25,61 and the stated recurrence. Exact recurrence checks through 19 and a strict induction using b_{n-1}+2b_{n-2}+2b_{n-3}-b_n=(n-9)2^(n-3)+4 for n>=9 prove the unique crossover at 17 for all sizes. These arguments address isolates and n=1, and the special cycle n>=3.
 
-The known identity \(F^3=F\) for symmetric open-neighborhood NOR and classical general period-two restrictions are **not** claimed new. The examined 2015 survey discusses Boolean graph dynamics using self-input local rules and qualitative orbit types, not the particular one-leaf corona with all individual basin weights. The 2020 full-text paper on counting periodic points uses a graph-dependent bipartite domination construction for maxterm systems, not the present independent-set double-cover representation and attraction-basin polynomial. The 2012 original maxterm/minterm paper was only accessible as bibliographic description and abstract, so its unpublished-to-us details remain an overlap risk. The three specific comparisons against the available prior results on NOR graph joins, NOR rook graphs and majority leaf coronas show nonimplication: graph join formulas do not yield the corona predecessor weights; the rook system is a different graph construction; and majority is a different local operator. Targeted semantic record searches using corona, double cover, independent sets, basin weights and the cycle–clique crossover produced no stronger covering statement. The searches cannot prove absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A family-wide exact correspondence with independent sets in the bipartite double cover determines *every recurrent orbit* of a nonlinear network and a closed predecessor-fiber formula determines *every attraction basin*. The fixed-basin weight \(\sum_{S\,\mathrm{independent}}2^{|N_G(S)|}\) is a natural probability observable for arbitrary base graphs, not an arbitrary numeric sample. Its exact transfer recurrence on cycles reveals a sharp finite crossover: among two classical base topologies with the same number of vertices, the clique has more fixed-basin states for all \(4\le n\le16\), but the cycle has more for all \(n\ge17\); their exponential rates differ. This gives a structural, reproducible benchmark for how graph connectivity affects nonlinear fixation versus oscillation. The result does not claim general extremality among all graphs or a paper-sized classification beyond the stated family.
+Qualified PASS for every attractor and precise individual basin weight on one-leaf open-NOR coronas and the exact cycle–clique n=17 reversal; general NOR eventual-period-two facts and independent-set transfer machinery are acknowledged prior.
 
-## Closest literature and limitations
+## value
 
-Aledo, Martínez and Valverde (2015), *Parallel Dynamical Systems over Graphs and Related Topics: A Survey*, https://doi.org/10.1155/2015/594294, was inspected in full HTML, particularly definitions and qualitative Boolean orbit results. Aledo and collaborators (2020), *Counting Periodic Points in Parallel Graph Dynamical Systems*, https://doi.org/10.1155/2020/9708347, was inspected in its HTML sections on bipartite dominating-set reductions and period-two counts. The earlier Aledo et al. 2012 maxterm/minterm article, https://doi.org/10.1016/j.mcm.2011.08.040, was identified through abstract and bibliographic sources only; a complete text comparison was unavailable. This leaves residual historical risk but no identified stronger theorem covering the exact corona-basin and crossover claim. Numerical verification is finite; the unrestricted claims rely on the written proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete, natural graph-family nonlinear-dynamics census, not a disconnected finite simulation. The arbitrary-G orbit/basin bijection and weight polynomial are exact observables; sharp cycle/clique crossover demonstrates nonmonotone topological effects with a provably different exponential fixation rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

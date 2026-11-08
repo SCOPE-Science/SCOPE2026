@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:51:20.286761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each finite simple loopless undirected G, synchronous open-neighborhood NOR on its single-leaf corona acts on core/leaf subsets by F(A,L)=((V\\L)\\N_G(A),V\\A). Setting B=(V\\L)\\N_G(A) ensures cross-nonadjacency N(A)∩B=∅ and F(A,L)=q_{B,A}; symmetry yields F(q_{A,B})=q_{B,A}, hence F³=F, all states enter a 1/2-cycle after <=1 step. The phase pairs are independent sets of the bipartite double cover, and fixing one phase q_{A,B} forces the predecessor core B while precisely |N(B)| private-leaf bits are free. This proves each basin weight and its complete partition. On K_n the fixed basin count is 1+n2^(n-1). On C_n direct cyclic 3-state transfer has characteristic t³-t²-2t-2, initial trace 13,25,61 and the stated recurrence. Exact recurrence checks through 19 and a strict induction using b_{n-1}+2b_{n-2}+2b_{n-3}-b_n=(n-9)2^(n-3)+4 for n>=9 prove the unique crossover at 17 for all sizes. These arguments address isolates and n=1, and the special cycle n>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 survey reviews general orbit periods and qualitative counting, not an explicit one-leaf corona basin formula in inspected sections.",
+          "2020 paper counts periodic states of maxterm/minterm systems using different graph reductions, not attraction-fiber sizes for this open NOR corona."
+        ],
+        "reasoning": "General period<=2 or periodic-state counts fail to imply individual basin sizes and a sharp comparison of fixation populations.",
+        "searches": [
+          "Aledo 2015 Parallel Dynamical Systems over Graphs and Related Topics survey NOR minterm",
+          "Aledo et al 2020 Counting Periodic Points in Parallel Graph Dynamical Systems"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1155/2015/594294 (full HTML, Sections 1–5)",
+        "doi:10.1155/2020/9708347 (HTML theorem/construction sections)",
+        "doi:10.1016/j.mcm.2011.08.040 (abstract/bibliography)",
+        "Resultary semantic NOR-corona/attraction search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period-two conclusion F³=F is structural background.",
+          "The predecessor fiber has 2^|N_G(B)| possibilities, an additional statement not supplied by the known period bound."
+        ],
+        "reasoning": "The independent-set double-cover bijection and weighted fiber formula require special leaf-coordinate dynamics; stronger abstract period bounds alone do not logically imply the numerical basin law.",
+        "searches": [
+          "Parallel Dynamical Systems over Graphs and Related Topics: A Survey 2015 §§2,4,5",
+          "Counting Periodic Points in Parallel Graph Dynamical Systems 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aledo–Martínez–Valverde 2015 survey covers maxterm/minterm graph Boolean updates; its surveyed common local functions include self-input conventions.",
+          "Semantic Resultary hits include unrelated homological neighborhood complexes and other graph dynamics, no same corona per-orbit basin formula."
+        ],
+        "reasoning": "A NOR graph orbit-period theorem is not an equivalence to all phase-pair predecessor-fiber weights or the cycle/clique crossover. Self-inclusive NOR and open-neighborhood NOR differ, so local conventions matter.",
+        "searches": [
+          "synchronous open neighborhood NOR rule graph corona fixed point attraction basin independent set cycle clique",
+          "Resultary: synchronous open neighborhood NOR rule graph corona fixed point attraction basin independent set cycle clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3x3 transfer recurrence for cycle independent sets is computed from the derived weight polynomial, not a preexisting numeric sequence accepted as proof.",
+          "Resultary semantically related hits do not give the exact 13,25,61 cycle sequence and n=17 theorem."
+        ],
+        "reasoning": "Even if individual weighted independent-set counts occur in a sequence table, a table would not automatically supply the all-graph phase/basin classification; absence in search is not novelty proof.",
+        "searches": [
+          "NOR graph corona independent-set double cover fixed basin polynomial weighted neighborhoods",
+          "Resultary NOR cycle clique crossover 17"
+        ]
+      },
+      "rationale": "Qualified PASS for every attractor and precise individual basin weight on one-leaf open-NOR coronas and the exact cycle–clique n=17 reversal; general NOR eventual-period-two facts and independent-set transfer machinery are acknowledged prior.",
+      "residual_risks": [
+        "Inaccessible 2012 minterm/maxterm source may contain a special-phase parametrization.",
+        "The all-graph F³=F is recognized as background, not original.",
+        "No extremal result for all n-vertex graph bases is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: framework and period questions, no specific open-NOR corona basin formula in read sections",
+          "evidence": "Definitions explicitly discuss maxterms/minterms including NOR and qualitative period structures; corona predecessor counts not stated.",
+          "identifier_or_url": "doi:10.1155/2015/594294",
+          "material_read": "Full HTML Sections 1–5 including minterms, maxterms, orbit periods, and orbit-algorithm discussion",
+          "method": "Lawful Wiley full HTML reading",
+          "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+          "trigger": "Same minterm/NOR-type Boolean graph dynamics"
+        },
+        {
+          "assessment": "DISTINCT: periodic point census for different update conventions, not complete corona attraction basins",
+          "evidence": "Periodic points are counted using maxterm/minterm dependency reductions, rather than q_{A,B} predecessor-weight 2^|N(B)|.",
+          "identifier_or_url": "doi:10.1155/2020/9708347",
+          "material_read": "Full accessible HTML discussion of graph-dependent periodic-point counting and domination constructions",
+          "method": "Lawful online full-text reading",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Potential general graph-periodic-state counting dominance"
+        },
+        {
+          "assessment": "ACCESS-LIMITED: relevant potential overlap cannot be excluded from partial material",
+          "evidence": "Cannot claim the whole 2012 paper omits a corona specialization; retained as risk.",
+          "identifier_or_url": "doi:10.1016/j.mcm.2011.08.040",
+          "material_read": "Bibliographic and abstract information only; original full text not accessible",
+          "method": "Citation/abstract inspection",
+          "title": "Parallel discrete dynamical systems on maxterm and minterm Boolean functions",
+          "trigger": "Original foundational NOR/minterm graph dynamics paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete, natural graph-family nonlinear-dynamics census, not a disconnected finite simulation. The arbitrary-G orbit/basin bijection and weight polynomial are exact observables; sharp cycle/clique crossover demonstrates nonmonotone topological effects with a provably different exponential fixation rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Synchronous open-neighborhood NOR; excludes self-inclusive NOR, loops, asynchronous rules and multiple leaves.",
+    "The n=17 crossover is only for compared C_n and K_n families, not all graphs."
+  ],
+  "schema_version": 1
+}
