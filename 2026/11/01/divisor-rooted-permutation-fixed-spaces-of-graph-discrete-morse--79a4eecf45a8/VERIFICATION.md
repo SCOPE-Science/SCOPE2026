@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. Observed output ends with `VERIFY_OK 14 cases`. The program independently enumerates directed-arrow orbits in the original graph for fourteen explicit permutation cycle types, filters the admissible orbits by actual directed-forest acyclicity, compares quotient and original compatibility, computes complete face vectors, and calculates reduced mod-two simplicial homology. It tests non-chain divisibility and genuine higher-dimensional cases. The correctness of the all-parameter classification additionally depends on the written orbit-quotient proof, the published complete-source shellability theorem, the published simplicial expansion theorem, and the directed matrix–forest identity. A finite checker cannot certify those infinite statements or establish literary uniqueness. No independent mathematical audit has been performed.
+## correctness
+
+PASS
+
+A point fixed by sigma in the simplicial realization has weights constant on vertex orbits, so the admissible arrow-orbit barycenters triangulate the actual fixed set. An equivariant arrow orbit from source cycle i to target j exists exactly when len(j)|len(i), with len(j) target choices; within-cycle arrows form forbidden directed cycles. A quotient directed cycle lifts to one after repeating a composite shift, giving an exact forest model. Reversing arrows under the divisor-rooted condition supplies a complete source for the weighted quotient forest digraph; the Kozlov/Jojić complete-source shellability theorem applies, and restoring independent phase labels is a positive-integer simplicial expansion that preserves shellability (Moradi–Khosh-Ahang Theorem 2.12). The all-forest matrix determinant is block triangular by divisor lengths, giving stated Q_sigma. Purity plus shellability gives integral wedge type and B_sigma from reduced Euler. The c=1 empty and S^0 conventions were checked. Independently enumerated fixed quotient forest f-polynomials for cycle types (2,4,6), (2,4,8), (2,2,2,4), yielding B=1,5,125 in dimensions 1,1,2, but they are not used to infer arbitrary parameters.
+
+## originality
+
+PASS
+
+The new assertion is pure shellability and complete geometric integral fixed-space homotopy for divisor-rooted permutations, not the existing all-cycle-type orbit-forest enumerator/determinant. The conclusion synthesizes known complete-source and expansion theorems, with a material risk of being an implicit straightforward corollary.
+
+## value
+
+PASS
+
+A complete integral homotopy type for geometric fixed-point spaces of a canonical complex under a natural infinite family of cyclic vertex actions, including incomparable divisor lengths. The shellability result is a topological strengthening of a previously known Euler character and explains a structural arithmetic boundary; it is not merely a repetition of the face polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
