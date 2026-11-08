@@ -1,19 +1,21 @@
-# Review of Fourteen rank-three theories of finite dihedral quandles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is for the **ternary operation-graph** relational signature, with no function symbol. The proof reduces all triple atomic diagrams to nine explicitly listed linear congruences. At rank three, the corresponding set of two-pebble extension profiles is a complete Ehrenfeucht–Fraïssé invariant. For every modulus at least nine, at most eight third-element residues require separate treatment. Their exact overlap patterns depend only on element order truncated at five, parity, and doubling solvability; the eleven resulting pair-profile sets and the associated divisor-of-24 cutoff are explicit. The six exceptional moduli are covered by complete finite diagrams, not extrapolated experiments. The literal recursive implementation, finite certificate and recorded successful output provide reproducibility. No infinite claim is inferred from the finite range checked.
+PASS
 
-## Originality — PASS, qualified
+Full equality and 27 possible ternary atoms on an ordered triple reduce exactly to nine modular congruence indicators after translating first element to 0; independent direct atomic generation checks these encodings. In the EF three-round back-and-forth recursion, a pair (0,d) is classified by the set of its third-variable diagrams, and the structure by the collection of pair profiles. For n>=9, nontrivial flags require t in {0,d,-d,2d} plus roots of 2t=0,2d,d, giving <=8 exceptional points and at least one generic witness. Coincidence/solvability classification depends only on parity n, min(5,ord d), and 2-divisibility d; eleven pair profiles and allowed patterns depend exactly on 2,3,4,8 divisibility, hence gcd(n,24). The small n=2..8 classes and fourteen pairwise distinct representative profiles were checked against the actual nine-bit certificate. An original separate computation directly enumerated all 27 atomic ternary relations for n=2..120 and recovered exactly fourteen classes. The finite range corroborates the explicit modular overlap argument and does not prove it by itself.
 
-Ho and Nelson (arXiv:math/0412417, full-text sections 1–4 inspected) classify operation matrices up to isomorphism, including small-order tables. Elhamdadi, Macquarrie, and Restrepo (arXiv:1012.5291, full-text theorems and finite-classification sections inspected) determine the affine automorphism group of the same dihedral-quandle family. Neither theorem implies the exact fourteen-class rank-three logical partition or the sharp stable modulus \(24\). Searches for alternate terminology such as Takasaki kei, involutory Alexander quandle, cyclic reflections, relational operation diagrams, and bounded-rank Ehrenfeucht–Fraïssé equivalence did not locate a covering classification. A relevant Bae–Kim Takasaki-quotient paper was available only at abstract level, so no claim is made that its full text excludes the result. Unindexed equivalent work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-A complete shallow first-order invariant for the canonical cyclic reflection-quandle family is a natural model-theoretic classification, not an arbitrary parameter slice. The exact collapse of infinitely many nonisomorphic operation tables into fourteen theories, the modulus-24 law, six finite exceptions, and sharp size-24 representative are structural information not supplied by ordinary automorphism or isomorphism tables. The precise natural invariant can serve as a baseline for higher-rank and other Alexander-quandle analyses, without requiring any such extension for its standalone value.
+Best-of-knowledge, scoped novelty for the exact theorem and parameter regime after checking actual primary results and Resultary; prior methods/ingredients and exact overlaps are acknowledged rather than used as evidence of novelty. No decisive stronger theorem covering this precise claim was identified; remaining priority uncertainty is explicit.
 
-## Scope and limitations
+## value
 
-Ordinary first-order quantifier rank three; equality and ternary operation graph only. The result does not classify functional-signature or full first-order theories and does not assert independent or exhaustive novelty certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantifier-rank-three equivalence of finite quandles is a natural finite-model-theoretic invariant distinct from quandle isomorphism. The complete infinite-family collapse to fourteen theories, explicit exceptions and sharp size-24 representative are nontrivial and potentially useful in finite quandle logic/model checking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
