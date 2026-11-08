@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "From exact row/column constraints every admissible 3x3 zero-diagonal matrix is A_p. First event rate competition gives P(K>=2)=b/(1+b). Given two infectious individuals and one susceptible, exponential memorylessness yields the product of failure probabilities 1/[(1+bp)(1+b(1-p))]. The resulting P(K>=3) increases strictly in p(1-p), proving an entire stochastic-order frontier. Differentiation of b^3/[(1+b)^2(b+2)^2] has one positive zero (3+sqrt33)/2 and zero endpoints, establishing the unique global maximal value. The package CHECKER.py independently derives exact P(K=3) from full CTMC states and verifies identities symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wilkinson, Ball and Sharkey (2017), §2, includes directed transmission contacts and develops message-passing expressions/inequalities; exact solutions for trees do not yield exact general cyclic-network final-size ordering.",
+        "Hall and Siebert (2023), abstract and results describe exact single-seed network SIR on trees and upper bounds on general graphs; no three-node balanced directed extremal statement is presented.",
+        "McCulloch et al. 2016, pp.441–443 studies unweighted undirected graphs, explicitly noting directed analogues as further study."
+      ],
+      "reasoning": "General exact state-recursion principles can compute each fixed 3-node process, but the inspected general frameworks do not assert the equality-in-P(K≥2), the p(1-p) order, or the global sharp risk gap optimized also over b. A general solver is a method, not a published dominating theorem; a stronger unindexed result remains possible.",
+      "searches": [
+        "https://link.springer.com/article/10.1007/s00285-017-1123-8 (full text, §2 and message passing)",
+        "https://link.springer.com/article/10.1007/s00285-022-01854-9 (full text, abstract and methods)",
+        "epidemic outbreak probability three vertices doubly stochastic directed contact triangle mixing p expected size",
+        "three vertex directed triangle epidemic probability full infection maximizing risk at symmetric mixing vs one way cycle, b^3 / ((1+b)^2(2+b)^2)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.13730 (full HTML v2 §§2.1–2.7, §3.3, Appendix S2)",
+      "doi:10.1017/S1446181116000043 (full main PDF incl. Table 2 and Discussion; Appendix B not independently recovered)",
+      "doi:10.1007/s00285-017-1123-8 (accessible full HTML, directed-contact and message-passing scope)",
+      "doi:10.1007/s00285-022-01854-9 (accessible full HTML, exact tree and general bound scope)",
+      "Published mathematical research-record comparisons (actual query text in named originality checks)",
+      "Published research-record summaries concerning household epidemic thresholds and contact-sampling laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ueki et al. (2026) §2.2 defines the next-generation matrix and §3.3 studies outbreak variation across architectures via simulation; Appendix S2 provides approximate complete symmetric-network estimates in large-subpopulation weak-coupling settings.",
+        "McCulloch et al. (2016) Table 2 covers the symmetric undirected triangle but has no weighted directed or balancing parameter and no universal maximum over β/γ.",
+        "No matching statement was found in the inspected primary papers or published mathematical research records."
+      ],
+      "reasoning": "Known next-generation formalism gives ρ(bA)=b, and known undirected triangle calculations cover a single endpoint, but neither yields the comparison of the entire directed-balanced parameter set or the exact universal maximum gap without additional analysis. The claim does not purport to invent CTMC SIR dynamics or undirected triangle final-size calculations.",
+      "searches": [
+        "Exact stochastic SIR final size distribution of a balanced directed triangle at fixed R0, complete outbreak probability maximized by symmetric bidirectional mixing and minimized by one-way 3-cycle",
+        "Markovian SIR directed balanced three node triangle contact matrix A(p) exact final infected size distribution at constant Perron root one, sharp stochastic order p(1-p)",
+        "three vertex directed triangle epidemic probability full infection maximizing risk at symmetric mixing vs one way cycle, b^3 / ((1+b)^2(2+b)^2)",
+        "arxiv:2601.13730 full text §§2.1–2.7, 3.3, Appendix S2",
+        "doi:10.1017/S1446181116000043 full text §§2–5, Table 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McCulloch, Roberts and Laing (2016), Methods pp.432–433 and Table 2 p.441, derive size distributions for unweighted undirected triangle and other simple graphs, with common rate per edge; their discussion p.443 proposes directed small networks as a further direction.",
+        "Ueki, Thompson and Banaji, arxiv:2601.13730v2, §2.1–2.2 gives weighted network SIR generator and next-generation matrix, but its stated results do not provide the directed balanced 3-node final-size law."
+      ],
+      "reasoning": "An undirected triangle with per-edge rate β/2 coincides with our symmetric p=1/2 specialization and is NOT independently novel; the claim is the full continuous balanced directed class, exact stochastic ordering over that class, and maximal fixed-reproduction risk separation. The 2016 result does not imply ordering for directed rate asymmetry. The motivating model permits weighted couplings but does not present this extremal family.",
+      "searches": [
+        "finite directed three vertex SIR exact final size random seed same spectral radius topology outbreak",
+        "Exact stochastic SIR final size distribution of a balanced directed triangle at fixed R0, complete outbreak probability maximized by symmetric bidirectional mixing and minimized by one-way 3-cycle",
+        "Markovian SIR directed balanced three node triangle contact matrix A(p) exact final infected size distribution at constant Perron root one, sharp stochastic order p(1-p)",
+        "https://doi.org/10.1017/S1446181116000043 (full PDF and Table 2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 (McCulloch et al. 2016) gives only the undirected 3-node triangle expected-size expression, equivalent to the p=1/2 endpoint after rate conversion.",
+        "Published-record searches found household reproduction-number ranking and coupled-SEIR threshold comparisons, both involving different epidemic objects and claims; no directed 3-node final-size frontier was identified."
+      ],
+      "reasoning": "The known triangle table is treated as partial prior coverage, not proof of originality or exclusion. No exact p-dependent table or whole-class envelope was identified among inspected primary sources and published records.",
+      "searches": [
+        "vaccination optimal distribution two patch next generation matrix constant infectivity susceptibility fixed sum",
+        "unweighted complete graph triangle SIR final epidemic size McCulloch Roberts Laing vs weighted directed balance",
+        "McCulloch Roberts Laing 2016 Table 2 triangle expected final size",
+        "finite directed three vertex SIR exact final size random seed same spectral radius topology outbreak"
+      ]
+    },
+    "rationale": "Primary full text of Ueki et al. (arxiv:2601.13730v2 §§2,3,S2), McCulloch et al. (2016, unweighted small graphs and triangle Table 2), Wilkinson et al. (2017 directed stochastic SIR method), and Hall–Siebert (2023 tree-exact bounds) inspected for same statement and dominating implications. The 2016 undirected triangle endpoint is explicitly prior-covered. Unlike these, the proposed result gives the entire 3-node directed-balanced class, sharp stochastic order at fixed reproduction spectral radius, and a global exact gap over infection rates. Semantic published-record searches returned scientifically different closest results, none covering the weighted triangle frontier. Unseen equivalent full-text results remain a risk.",
+    "residual_risks": [
+      "The supplementary Appendix B to the 2016 small-network paper was not independently inspected; main text explicitly describes undirected network calculations and mentions directed models as future work.",
+      "An unindexed equivalent computation or general stochastic-order result for weighted three-node directed Markov SIR could subsume the result; finite searches do not prove uniqueness.",
+      "The natural three-person model is a sharp structural demonstration, not a large-population risk prediction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING full directed-balanced 3-vertex exact distribution or sharp envelope; does define compatible stochastic dynamics.",
+        "evidence": [
+          "Eq.(1), Eq.(2), §2.6 coupling construction, §3.3 and Appendix S2 approximate symmetric networks; first posted 2026-01-20 according to arXiv version history"
+        ],
+        "identifier_or_url": "https://arxiv.t3mt.com/html/2601.13730v2",
+        "material_read": "Complete accessible HTML structure: introduction; §2.1 generator and coupling normalization; §2.2 next-generation definition; §§2.4–2.7 approximations and architectures; §3.3 model comparisons; Appendix S2 symmetric estimates",
+        "method": "Read accessible full HTML with targeted section inspection",
+        "title": "Outbreak dynamics and population vulnerability in stochastic epidemic models on networks",
+        "trigger": "Direct source model and matched epidemic-vulnerability question"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: undirected equal-edge triangle endpoint known; no directed weighted balanced optimization in main text; expressly lists small directed networks as possible extension. Appendix B residual access risk.",
+        "evidence": [
+          "2016 paper pp.432–433: common rate per undirected edge; p.441 Table 2 triangle expression; p.443 discussion directed extension"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S1446181116000043",
+        "material_read": "Full 16-page main PDF, figures 1–2, Methods, Table 2, Discussion; referenced supplementary Appendix B not independently retrieved",
+        "method": "Read PDF text and inspected page-image screenshots of pages 1 and 4",
+        "title": "Exact analytical expressions for the final epidemic size of an SIR model on small networks",
+        "trigger": "Closest explicit 3-node triangle final-size exact calculations"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_COVERING: supports directed models but does not give stated p-dependent exact final-size stochastic ordering.",
+        "evidence": [
+          "§2 allows direction-dependent contact times; §2.1 message-passing formulation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-017-1123-8",
+        "material_read": "Accessible full HTML §§1–2, directed-network model and message-passing equations, scope and results",
+        "method": "Read HTML body and inspect directedness discussion",
+        "title": "The relationships between message passing, pairwise, Kermack–McKendrick and stochastic SIR epidemic models",
+        "trigger": "General directed stochastic SIR framework could dominate a special-case formula"
+      },
+      {
+        "assessment": "NOT_COVERING: exactness stated for trees with a single seed, whereas this balanced triangle generally contains cycles and needs exact directed final-size comparison.",
+        "evidence": [
+          "Abstract and theorem scope: exact tree dynamics and bounds for general graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-022-01854-9",
+        "material_read": "Full-text HTML introduction, abstract, theorem scope of exactness on trees and bounds on cyclic graphs",
+        "method": "Read accessible HTML",
+        "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+        "trigger": "Potential general exact network SIR solution covering triangle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e844071-4ae6-40c2-992d-046d674e127a",
+  "value": {
+    "rationale": "Exactly three balanced zero-loop vertices form the smallest complete class in which directed edge-weight asymmetry can vary at fixed Perron reproduction threshold. An exhaustive exact final-size distribution and first-order stochastic ordering distinguish final outbreak vulnerability from threshold data, with sharp extremizers and a nonobvious universal gap maximal at a specific transmission/recovery ratio. This is an interpretable natural complete classification, not an arbitrarily selected invariant or just a recomputation of the known undirected endpoint.",
+    "status": "PASS"
+  }
+}
