@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:03:55.638163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every state h, conditional survival integration yields mean stopped cost c_i(1-exp(-lambda_hi*t_i))/lambda_hi. Subtracting AB and BA factors precisely as (1-u_hA)(1-u_hB)(c_A/lambda_hA-c_B/lambda_hB), and mixing by the occupancy prior gives a single affine crossing iff signs oppose. A no-alarm prefix independently weights each state by S_h; Bayes posterior is the same interchange criterion times a strictly positive reach probability. All zero and boundary D_h cases follow from the exact affine identity. Independent rational substitutions reproduced D0=3/16, D1=-35/512, pi*=96/131, no-alarm posterior 9/13, and prefix interchange difference 69/40960; inspected checker_ordering.py tests direct stopped labor rather than assuming the formula. Domain: two prescribed positive-duration, positive-rate, positive-cost blocks, fixed latent state, immediate alarm stop and no sequence-dependent terminal charges. No general adaptive-policy optimality asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guillera-Arroita et al. optimize survey effort until detection with imperfect detection but not this two-modality false-alarm state-dependent ordering; Duffuaa–Pollock covers broad dependent inspections with fixed action costs; Parmigiani abstract describes broad fallible-inspection scheduling."
+        ],
+        "reasoning": "The two latter general frameworks may imply related sequencing via specialization, but none of the materially inspected results states the model-specific state-conditional Poisson stopped-cost threshold or the explicit no-alarm order reversal. Inaccessible broader details remain a risk.",
+        "searches": [
+          "Guillera-Arroita Hauser McCarthy 2014 doi:10.1002/ece3.1056",
+          "Parmigiani 1996 Optimal Scheduling of Fallible Inspections",
+          "Duffuaa Pollock 1999 Optimal Sequencing of Inspection of Dependent Characteristics"
+        ]
+      },
+      "checked_sources": [
+        "Optimal surveillance strategy for invasive species management when surveys stop after detection (https://doi.org/10.1002/ece3.1056)",
+        "Optimal Sequencing of Inspection of Dependent Characteristics (https://doi.org/10.1023/A:1021731907266)",
+        "Optimal Scheduling of Fallible Inspections (Parmigiani 1996 (abstract from search))",
+        "Resultary semantic search matched to this theorem; no direct dominating result retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known detection-time optimization does not make false alarms in the absent state satisfy the stated pairwise labor difference; fixed per-test expected cost cannot be substituted for the random amount spent inside a stopped block without an additional calculation."
+        ],
+        "reasoning": "A predecessor might derive the new formula as a specialization, but the inspected theorem statements do not logically give the displayed D0,D1 crossing and obligatory-prefix reversal as written. Conservative best-of-knowledge PASS, not certified priority.",
+        "searches": [
+          "Guillera-Arroita et al 2014 survey-stopping model",
+          "Duffuaa Pollock 1999 theorem 4.1",
+          "Parmigiani 1996 abstract fallible inspection scheduling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duffuaa–Pollock studies dependent binary-characteristic inspections and classification errors using fixed per-inspection costs; here incurred cost depends continuously on the first Poisson alarm arrival within a fixed block."
+        ],
+        "reasoning": "Standard adjacent-swap ordering is an alias, but the time-truncated exponential labor c(1-e^{-lambda t})/lambda and Bayesian no-alarm posterior update require different model assumptions. No directly identical formula found in inspected source.",
+        "searches": [
+          "Resultary: Bayesian two state Poisson inspection order stopping at first alarm expected time cost prevalence threshold posterior reversal",
+          "Duffuaa–Pollock 1999 doi:10.1023/A:1021731907266"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": "No claimed novelty concerns a known numerical table; the exact example uses rational exponential survival values calculated directly, not lookup data.",
+        "reasoning": "The claim is an all-positive-parameter analytic identity and a qualitative order-reversal witness, not a finite catalogue or exact database cell.",
+        "searches": [
+          "Resultary semantic search: Poisson survey modality order prevalence threshold posterior reversal",
+          "Web literature search: Poisson first-alarm sequential inspection false positive ordering"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct stopped-time labor interchange and posterior switch, not a new general two-job sequencing principle. Explicit continuous survival weighting and exact informative false-alarm reversal distinguish fixed per-inspection sequencing results. Close older abstract-level general scheduling results remain a genuine risk.",
+      "residual_risks": [
+        "The scheduling model is close enough for explicit residual priority risk.",
+        "Priority is best-of-knowledge, not an exhaustive all-literature assertion; equivalences in historical specialized results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant background; absent-state false-alarm modality order not covered",
+          "evidence": "Survey ends upon detection and chooses effort; no fixed two-modality conditional Poisson cost interchange.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.1056",
+          "material_read": "Full accessible research article, model and optimization discussion",
+          "method": "Read open full text",
+          "title": "Optimal surveillance strategy for invasive species management when surveys stop after detection",
+          "trigger": "Same ecology first-detection stop problem"
+        },
+        {
+          "assessment": "General inspection predecessor, fixed cost per performed inspection; no explicit within-test first-alarm duration threshold",
+          "evidence": "Its structural inspection policy does not display the continuous-time factor (1-u_A)(1-u_B)c/lambda.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1021731907266",
+          "material_read": "Accessible article text including introduction, formulations and theorem 4.1",
+          "method": "Read article text and theorem",
+          "title": "Optimal Sequencing of Inspection of Dependent Characteristics",
+          "trigger": "Very close binary dependent sequential inspection optimization"
+        },
+        {
+          "assessment": "Cannot exclude broader implication",
+          "evidence": "The scheduling model is close enough for explicit residual priority risk.",
+          "identifier_or_url": "Parmigiani 1996 (abstract from search)",
+          "material_read": "Abstract only; full paper not read",
+          "method": "Web search snippet/abstract",
+          "title": "Optimal Scheduling of Fallible Inspections",
+          "trigger": "Possible stronger universal inspection-scheduling optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sharp prevalence threshold and an informative-block posterior reversal produce a reproducible qualitative scheduling boundary: the same two informative sensors reverse order solely after a negative alarm history, while consumed labor is measured continuously. This motivated two-state stochastic inspection specialization is useful for diagnosing why a fixed static sensor order can be suboptimal. It does not claim a new generic adjacent-interchange theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed independent state-conditional first-alarm Poisson hazards; fixed predetermined two-block order, no sensor-selection or adaptive multiblock optimality.",
+    "Terminal charges only if order-invariant given occupancy and final alarm/no-alarm state.",
+    "Broader fallible-inspection scheduling full text may imply the specialization; not an independent historical priority certification."
+  ],
+  "schema_version": 1
+}

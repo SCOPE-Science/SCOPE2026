@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim conditions on fixed occupancy and obtains each block's stopped Poisson labour by integrating the exponential survival function. A two-line pairwise subtraction proves the exact interchange factor; averaging gives an affine function of prevalence. Its sign classification is exhaustive including zeros and equality. A prefix's no-alarm state likelihood multiplies the same factor and Bayes' formula converts it to the updated posterior. The rational example was recalculated directly from the actual standalone package checker: \(D_0=3/16\), \(D_1=-35/512\), \(\pi_*=96/131\), \(\pi'=9/13\), and an unconditional pair-after-prefix difference of \(69/40960\). The optional terminal costs are permitted only if statewise order-invariant. No finite sampling or log-only computation is used as a substitute for the complete proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The two most relevant ecological approaches are the stop-on-detection Poisson survey-allocation model of Guillera-Arroita, Hauser and McCarthy (2014) and the false-positive occupancy framework of Miller et al. (2011). Smart et al. (2016) compare survey modalities by cost but optimize effort allocation, not the stopped within-block order. The 1999 Duffuaa–Pollock primary article is especially close: it has conditional dependence and binary inspection errors, with a dynamic-programming ordering solution for fixed per-inspection costs. Its inspected model does not directly state an exchange identity for time-to-first-alarm labour whose mean depends on the unobserved occupancy state, nor the exact all-prevalence Poisson phase boundary with posterior reversal. These distinctions are substantive but a broader random-inspection-cost theorem could still subsume the result. Research-record searches found no exact match; absence of a match is not proof of historical priority.
+PASS
 
-## Value — PASS
-Ecological methods differ both in probability of producing an alarm and in labour expended before one. With two fixed informative survey modalities, the risk is an unnecessary expenditure from using a prevalence-blind fixed order. The result gives the complete two-method choice for all parameter values, and shows with exact rational witnesses why even an alarm-free earlier observation can change the strict preferred ordering. This is a motivated policy boundary in a standard stopped-surveillance setting, not a parameter-free identity or arbitrary finite census. This does not amount to a general multi-method adaptive scheduling algorithm or to optimizing the scientific accuracy of occupancy inference.
+For every state h, conditional survival integration yields mean stopped cost c_i(1-exp(-lambda_hi*t_i))/lambda_hi. Subtracting AB and BA factors precisely as (1-u_hA)(1-u_hB)(c_A/lambda_hA-c_B/lambda_hB), and mixing by the occupancy prior gives a single affine crossing iff signs oppose. A no-alarm prefix independently weights each state by S_h; Bayes posterior is the same interchange criterion times a strictly positive reach probability. All zero and boundary D_h cases follow from the exact affine identity. Independent rational substitutions reproduced D0=3/16, D1=-35/512, pi*=96/131, no-alarm posterior 9/13, and prefix interchange difference 69/40960; inspected checker_ordering.py tests direct stopped labor rather than assuming the formula. Domain: two prescribed positive-duration, positive-rate, positive-cost blocks, fixed latent state, immediate alarm stop and no sequence-dependent terminal charges. No general adaptive-policy optimality asserted.
 
-## Closest sources and residual limitations
-Full original paper text of Guillera-Arroita et al. (2014) and Smart et al. (2016), and materially relevant sections of the Duffuaa–Pollock (1999) full-text transcription, were read. The accessible Miller et al. (2011) material describes the false-positive occupancy identification problem; not every portion of its paywalled full text was independently inspected. This is a restricted two-block labour objective; switching costs, endogenously chosen block durations, time-dependent occupancy and alarm verification may change the answer. General decision-theoretic sequencing literature might imply this special case; independent review remains warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct stopped-time labor interchange and posterior switch, not a new general two-job sequencing principle. Explicit continuous survival weighting and exact informative false-alarm reversal distinguish fixed per-inspection sequencing results. Close older abstract-level general scheduling results remain a genuine risk.
+
+## value
+
+PASS
+
+The exact sharp prevalence threshold and an informative-block posterior reversal produce a reproducible qualitative scheduling boundary: the same two informative sensors reverse order solely after a negative alarm history, while consumed labor is measured continuously. This motivated two-state stochastic inspection specialization is useful for diagnosing why a fixed static sensor order can be suboptimal. It does not claim a new generic adjacent-interchange theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
