@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact covariance follows by summing same-coordinate and distinct-coordinate exceedance probabilities of a uniform Dirichlet spacing vector. After dividing by a positive factor, the sign is controlled by a function decreasing strictly until the radii sum to one and constant thereafter. Positivity of the same-radius variance and the terminal sign establish the complete three-case classification. The asymptotic covariance and transition follow from a second-order binomial-to-exponential expansion. The accompanying verifier completed 21,421 rational and numerical-asymptotic assertions. Computational tests do not prove any infinite-parameter assertion; the analytical argument supplies that proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The directly inspected full article of Decreusefond and Ferraz (arXiv:1008.5140; DOI:10.1155/2011/350382) concerns a Poisson number of points and one fixed connection radius. Its component distribution and marginal moments do not imply the explicit cross-radius finite-sample phase diagram without additional analysis. Published results on uniform-spacing empirical processes, including Einmahl and van Zuijlen (1992, DOI:10.1016/0167-7152(92)90116-M), create a residual historical-priority risk; only bibliographic and abstract material for that work was accessible, so no claim is made that its entire text lacks equivalent statements. A search of available research records revealed no stronger same mathematical model two-radius sign classification. This supports a qualified original finding, not independent certification of global priority.
+PASS
 
-## Mathematical value — PASS
-The zero and negative-covariance regimes reveal an exact structural distinction in a nested random graph filtration: pointwise monotonicity of components does not imply positive covariance across radii. The finite-size boundary \(r_0(n)\), unique exact crossing \(s_*\), and sparse-limit threshold jointly identify where the effect occurs, rather than merely tabulating a moment. These are natural connectivity statistics and an all-parameter structural classification.
+Uniform order-statistic gaps, including endpoints, form Dirichlet(1,...,1); K_n(t)=1+sum of n−1 internal gap exceedance indicators. One-gap P(D>r)=(1−r)^n and two-distinct-gap joint P(D>r,D>s)=(1−r−s)_+^n give the identity after separate same/distinct covariance. Divide by positive (n−1)(1−s)^n: sign is B=1−(n−1)(1−r)^n+(n−2)[(1−r−s)_+/(1−s)]^n, strictly decreasing on s<1−r and constant afterwards. Variance at s=r positive by configurations with distinct component counts, so exact threshold implies unique root and signs. Sparse limit expands the two-coordinate covariance with cancellation at leading order, yielding −cd e^(−c+d neg) term and stated d_*. Rechecked n=3,r=2/25,s=7/10 gives −17192/1953125, with exact rational grid for n=3..8 and variance positivity. Source typo potential: e^c>1+c² is valid for c>0, so d_*>c.
 
-## Limitations
-A fixed-n interval graph is essential. The Poissonized model, circles, nonuniform densities, and higher dimensions are not covered. Equivalence hidden in historical uniform-spacing literature remains a genuine risk. No independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Decreusefond–Ferraz 2011 treats a Poisson point process at a fixed radius and evaluates its cluster-count distribution, not the fixed-size two-threshold covariance sign law. Classical uniform-spacing empirical processes likely yield sparse-limit covariances but inspected material does not establish the exact all-n sign boundary or rational root. Resultary nearest published component/triangle covariance on independent bond percolation, a different model.
+
+## value
+
+PASS
+
+Shows a counterintuitive negative covariance between nested, pointwise decreasing component counts; gives the unique finite threshold and sparse asymptotic boundary. This is a precise reliability/scale-comparison invariant for a natural fixed-sample random geometric graph, not a routine single-radius moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

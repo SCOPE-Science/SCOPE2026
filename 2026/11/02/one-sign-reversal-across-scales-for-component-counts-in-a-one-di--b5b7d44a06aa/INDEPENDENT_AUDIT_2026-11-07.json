@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:12:25.936235Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/one-sign-reversal-across-scales-for-component-counts-in-a-one-di--b5b7d44a06aa/RESULT.md",
+        "2026/11/02/one-sign-reversal-across-scales-for-component-counts-in-a-one-di--b5b7d44a06aa/verify.py"
+      ],
+      "rationale": "Uniform order-statistic gaps, including endpoints, form Dirichlet(1,...,1); K_n(t)=1+sum of n−1 internal gap exceedance indicators. One-gap P(D>r)=(1−r)^n and two-distinct-gap joint P(D>r,D>s)=(1−r−s)_+^n give the identity after separate same/distinct covariance. Divide by positive (n−1)(1−s)^n: sign is B=1−(n−1)(1−r)^n+(n−2)[(1−r−s)_+/(1−s)]^n, strictly decreasing on s<1−r and constant afterwards. Variance at s=r positive by configurations with distinct component counts, so exact threshold implies unique root and signs. Sparse limit expands the two-coordinate covariance with cancellation at leading order, yielding −cd e^(−c+d neg) term and stated d_*. Rechecked n=3,r=2/25,s=7/10 gives −17192/1953125, with exact rational grid for n=3..8 and variance positivity. Source typo potential: e^c>1+c² is valid for c>0, so d_*>c.",
+      "residual_risks": [
+        "Finite checks only corroborate, not replace the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform-spacing empirical-process CLT may recover sparse-limit kernel, but no cited older result inspected implies the exact all-n boundary s*(n,r). Poisson N differs from fixed N.",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+          "https://arxiv.org/abs/1008.5140"
+        ],
+        "reasoning": "Decreusefond–Ferraz 2011; Einmahl–van Zuijlen 1992 bibliographic search",
+        "searches": [
+          "Resultary query: one dimensional random geometric graph component count covariance two radii Dirichlet spacings negative covariance",
+          "Primary/related search: classical uniform spacing empirical process and Poisson random geometric graph"
+        ]
+      },
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+        "https://arxiv.org/abs/1008.5140",
+        "https://doi.org/10.1016/0167-7152(92)90116-M"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A marginal cluster distribution at one t does not determine Cov(K_n(r),K_n(s)) or negativity, because dependence across radii is missing; fixed-n Dirichlet coupling is essential.",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+          "https://arxiv.org/abs/1008.5140"
+        ],
+        "reasoning": "New finite root s*=1−r/(1−u) with u=[((n−1)(1−r)^n−1)/(n−2)]^(1/n)",
+        "searches": [
+          "Resultary query: one dimensional random geometric graph component count covariance two radii Dirichlet spacings negative covariance",
+          "Primary/related search: Decreusefond Ferraz single threshold Poisson cluster count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_n(t)−1 is the count of n−1 internal uniform gaps exceeding t, so its covariance is a two-threshold uniform-spacings covariance. Existing single-threshold moments alone do not give the sign crossing.",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+          "https://arxiv.org/abs/1008.5140"
+        ],
+        "reasoning": "Dirichlet one- and two-gap probabilities explicitly recorded in proof",
+        "searches": [
+          "Resultary query: one dimensional random geometric graph component count covariance two radii Dirichlet spacings negative covariance",
+          "Primary/related search: number of long uniform spacings at two thresholds, two-radius connected-components empirical tail process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 is bond percolation component–triangle covariance, different random input and statistic; no exact two-scale geometric result found.",
+          "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+          "https://arxiv.org/abs/1008.5140"
+        ],
+        "reasoning": "Resultary ID 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+        "searches": [
+          "Resultary query: one dimensional random geometric graph component count covariance two radii Dirichlet spacings negative covariance",
+          "Primary/related search: published-finding component count covariance percolation, geometric graphs"
+        ]
+      },
+      "rationale": "Decreusefond–Ferraz 2011 treats a Poisson point process at a fixed radius and evaluates its cluster-count distribution, not the fixed-size two-threshold covariance sign law. Classical uniform-spacing empirical processes likely yield sparse-limit covariances but inspected material does not establish the exact all-n sign boundary or rational root. Resultary nearest published component/triangle covariance on independent bond percolation, a different model.",
+      "residual_risks": [
+        "Uniform-spacing process literature may contain an equivalent asymptotic covariance formula or even exact joint moments under alternative terminology.",
+        "No other dimensions, nonuniform densities, Poissonized sample-size covariance or full joint distribution proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poisson N and single-radius distribution as central question, not fixed-n dual-radius covariance and its sign threshold. Strong topical link but distinct parameterization and probability space.",
+          "evidence": "Sections 2–4 Poisson sensor process, distribution at fixed epsilon, circular/incomplete cluster variants",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+          "material_read": "Open access full-text HTML Sections 1–5 including intro, process model, cluster distribution, variants; relevant theorem and scope inspected",
+          "method": "Publisher OA full-text HTML",
+          "title": "Decreusefond–Ferraz, On the One Dimensional Poisson Random Geometric Graph",
+          "trigger": "Same 1D geometric-component statistic"
+        },
+        {
+          "assessment": "Possible asymptotic covariance corollary unexcluded, but exact finite-sample crossing remains unverified as prior coverage",
+          "evidence": "1992 Statistics & Probability Letters 13, 411–419",
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(92)90116-M",
+          "material_read": "Title and bibliographic record, full primary source not accessed",
+          "method": "Bibliographic search only",
+          "title": "Einmahl–van Zuijlen, Glivenko-Cantelli-type theorems for weighted empirical distribution functions based on uniform spacings",
+          "trigger": "Uniform-spacing empirical process might dominate sparse covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1155/2011/350382",
+        "https://arxiv.org/abs/1008.5140"
+      ],
+      "rationale": "Shows a counterintuitive negative covariance between nested, pointwise decreasing component counts; gives the unique finite threshold and sparse asymptotic boundary. This is a precise reliability/scale-comparison invariant for a natural fixed-sample random geometric graph, not a routine single-radius moment.",
+      "residual_risks": [
+        "Uniform-spacing process literature may contain an equivalent asymptotic covariance formula or even exact joint moments under alternative terminology.",
+        "No other dimensions, nonuniform densities, Poissonized sample-size covariance or full joint distribution proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=3 iid uniform points on [0,1], component counts K_n(r),K_n(s) for 0<r<=s<1 have exact two-radius covariance (n−1)(1−s)^n[1−(n−1)(1−r)^n]+(n−1)(n−2)(1−r−s)_+^n. There is exactly one sign crossing in s iff r<1−(n−1)^(−1/n), and sparse-scale covariance/n tends to e^(−d)[1−e^(−c)(1+cd)], changing sign at d=(e^c−1)/c.",
+  "limitations": [
+    "Uniform-spacing process literature may contain an equivalent asymptotic covariance formula or even exact joint moments under alternative terminology.",
+    "No other dimensions, nonuniform densities, Poissonized sample-size covariance or full joint distribution proved.",
+    "Science complete on immutable tree; publication plan not import-ready because operational public metadata identifiers and inherited first-publication dates need complete guarded sanitation. External expert/Lean statuses unchanged."
+  ],
+  "schema_version": 1
+}
