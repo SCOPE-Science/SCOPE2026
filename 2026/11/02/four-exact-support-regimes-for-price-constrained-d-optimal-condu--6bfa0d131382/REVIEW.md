@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted Matrix–Tree determinant is derived by a Schur complement and agrees with independently computed exact-rational examples. Injectivity of the grounded-Laplacian map and strict log-determinant concavity prove uniqueness without assuming edge-class symmetry. This permits averaging over page permutations only after proving uniqueness. The full complementary-slackness system yields the two spoke-deletion faces, the hub-deletion face, and the all-positive interior. The latter two regions meet precisely at the scalar threshold defined by the unique positive quadratic root. All boundary equality cases are assigned to an edge-deleted regime. The standalone verifier independently checks determinants, KKT equations, heterogeneous unconstrained-edge competitors, and the exact rational examples. Finite checks are supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+For m>=3 and positive prices P,Q,R and budget B, any connected feasible edge allocation makes the grounded Laplacian positive definite. The map of individual conductances to this grounded matrix is injective (off-diagonals and recovered ground-edge diagonals); strict concavity of logdet therefore proves unique unrestricted maximum, invariant under permuting pages. Schur complement gives tau=(x+y)^(m−1)[mxy+z(x+y)] with t=x+y>0, D=mxy+zt>0. Euler homogeneity fixes multiplier lambda=(m+1)/B, and the correct reduced cost is m(Px+Qy)+Rz=B. KKT inequalities F_x<=lambda*mP, F_y<=lambda*mQ, F_z<=lambda*R, equalities at positive weights, yield exactly four exclusive solutions: x=0 iff P>=Q+R, y=0 iff Q>=P+R, z=0 if the remaining price range satisfies R>=R_c with unique positive root Pr²−m(Q−P)r−Q=0; otherwise x,y,z>0 with s,t,z displayed in the frozen result. Threshold equality is assigned to the zero-edge regime. Independent KKT/determinant computations at fifteen parameter instances cover all four regimes and corroborate but cannot replace the global convexity and KKT proof. Check equal P=Q=S gives R_c=4S/(m+1), so hub vanishes at equal all-edge prices for m>=3.
 
-Khosoussi et al. (arXiv:1604.01116, primary full text inspected) formulate graph-design spanning-tree maximization with selectable edges and convex relaxations, but do not derive a continuous three-price unrestricted book-network solution in inspected problem formulations, methods, and appendix results. Bailey and Cameron (arXiv:1111.3768, relevant full-text sections inspected) relate statistical D-optimality and spanning trees without an edge-price support phase diagram. Chestnut and Fishkind (arXiv:1208.4125, theorem and unweighted threshold graph enumeration inspected) evaluate unweighted tree counts but not continuous price-budget optimization. Relevant mathematical-record searches did not surface an equivalent four-regime statement or a stronger result that immediately implies it. The closest adjacent weighted two-route theta-network optimization classifies three paths with prices along each whole path, rather than independently priced spokes of an arbitrary \(m\ge3\)-page book; neither directly implies the present four-regime and size-dependent hub-deletion law. This assessment is bounded: uninspected specialized studies might contain equivalent statements.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A book with \(m\ge3\) pages contains many cycles sharing edges. Unlike one-cycle or cactus factorization, these cycles interact in the optimal spanning-tree determinant. The four disjoint parameter regions and their explicit conductances give exact decisions about whether to omit an entire class of costly spokes or the shared hub shortcut. The equal-price law \(R_c=4S/(m+1)\) gives a nontrivial network-size transition: for \(m\ge3\), even an identically priced hub edge receives zero optimal budget. This is a natural exact design classification, not a normalization check or arbitrary finite table.
+Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.
 
-## Remaining limitations
+## value
 
-The result assumes classwise prices and only this book topology. No exhaustive priority claim is made; specialized earlier work could contain equivalent continuous priced-book formulas. Independently reviewing the argument remains useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The book graph provides a natural analytically tractable test for optimizing spanning-tree reliability/D-optimality under genuinely independent edge allocations. A complete price-space phase diagram distinguishing spoke loss, hub loss and full support, including the surprising equal-price missing-hub optimum, is a motivated structural classification useful in network design rather than a relabeling of the general logdet KKT condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

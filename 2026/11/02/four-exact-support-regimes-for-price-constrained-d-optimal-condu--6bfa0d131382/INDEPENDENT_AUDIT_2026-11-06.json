@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:54:51.140248Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=3 and positive prices P,Q,R and budget B, any connected feasible edge allocation makes the grounded Laplacian positive definite. The map of individual conductances to this grounded matrix is injective (off-diagonals and recovered ground-edge diagonals); strict concavity of logdet therefore proves unique unrestricted maximum, invariant under permuting pages. Schur complement gives tau=(x+y)^(m−1)[mxy+z(x+y)] with t=x+y>0, D=mxy+zt>0. Euler homogeneity fixes multiplier lambda=(m+1)/B, and the correct reduced cost is m(Px+Qy)+Rz=B. KKT inequalities F_x<=lambda*mP, F_y<=lambda*mQ, F_z<=lambda*R, equalities at positive weights, yield exactly four exclusive solutions: x=0 iff P>=Q+R, y=0 iff Q>=P+R, z=0 if the remaining price range satisfies R>=R_c with unique positive root Pr²−m(Q−P)r−Q=0; otherwise x,y,z>0 with s,t,z displayed in the frozen result. Threshold equality is assigned to the zero-edge regime. Independent KKT/determinant computations at fifteen parameter instances cover all four regimes and corroborate but cannot replace the global convexity and KKT proof. Check equal P=Q=S gives R_c=4S/(m+1), so hub vanishes at equal all-edge prices for m>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Khosoussi model optimizes near-optimal weighted spanning trees under discrete edge selection/relaxation and supplies general monotonicity/convex techniques.",
+          "No inspected source gives the uniqueness, three classes of prices and universal m>=3 continuous-conductance phase formulas as a theorem."
+        ],
+        "reasoning": "General strict concavity plus KKT methods make the new formula mechanically derivable in principle but do not mathematically imply a tabulated four-regime closed-form result without exact parameter elimination. This natural exact solution remains a substantive application.",
+        "searches": [
+          "Khosoussi Sukhatme Huang Dissanayake 2016 arxiv 1604.01116",
+          "Resultary: book graph K2 join independent m weighted spanning tree price D-optimal support"
+        ]
+      },
+      "checked_sources": [
+        "Khosoussi et al. (2016) arXiv:1604.01116, full text",
+        "Bailey & Cameron (2011) arXiv:1111.3768, framework",
+        "Chestnut & Fishkind (2012) arXiv:1208.4125 abstract",
+        "Independent symbolic/determinant KKT checks and frozen RESULT.md/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matrix–Tree and KKT are background tools; applying them to a book graph yields nontrivial exact root Rc and complete support geometry.",
+          "The threshold-graph spanning-tree enumerator is a fixed-weight combinatorial count rather than optimizer over independently variable weighted edges."
+        ],
+        "reasoning": "Published frameworks logically provide optimization conditions; the assessed exact support-transition solution requires further special-network determinant calculation, positivity inequalities and regime disjointness.",
+        "searches": [
+          "arXiv:1604.01116 Sections 2–4",
+          "arXiv:1111.3768",
+          "arXiv:1208.4125"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khosoussi et al. provide weighted Matrix–Tree logdet and design/selection methods, recovering general optimization framework, not a four-support closed-form book graph calculation.",
+          "Bailey–Cameron describe D-optimal experimental designs through spanning-tree criteria."
+        ],
+        "reasoning": "A logdet experimental-design phrasing is equivalent to the spanning-tree enumerator by the Matrix–Tree theorem. General KKT equations, however, do not directly state the solved all-price book-network active-set boundaries.",
+        "searches": [
+          "arXiv:1604.01116 weighted spanning tree logdet design",
+          "arXiv:1111.3768 using graphs to find best block designs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chestnut–Fishkind give unweighted spanning-tree counts on threshold graphs, not optimal continuous conductance allocations under price constraints.",
+          "Resultary nearby weighted-ladder tree kernels concern different graphs and objectives."
+        ],
+        "reasoning": "No known table of optimal book-graph conductance support regimes with P,Q,R was identified. General unweighted counts do not encode these price-dependent phase boundaries.",
+        "searches": [
+          "arXiv:1208.4125 threshold graph spanning-tree counts",
+          "Resultary: explicit book graph D optimal conductance support regimes price"
+        ]
+      },
+      "rationale": "Best-of-knowledge: compare the exact theorem and quantifiers with inspected primary results and relevant published summaries, rather than matching titles/numbers. Known ingredients are credited, and any plausible inaccessible or broader literature remains a qualified priority risk; no definitive independence or priority certification is claimed.",
+      "residual_risks": [
+        "An optimization design monograph may contain the same book-graph closed-form KKT solution as an exercise or appendix.",
+        "The classification depends on spoke-class shared prices and m>=3; it does not cover heterogeneous page prices.",
+        "General logdet strict concavity is classical and not itself claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_AND_PARTIAL_FRAMEWORK: establishes weighted logdet methods, not exact book graph continuous price regime classification",
+          "evidence": "Khosoussi, Sukhatme, Huang & Dissanayake (2016), arXiv:1604.01116, log weighted spanning-tree count/near-t-optimal edge selection.",
+          "identifier_or_url": "https://arxiv.org/html/1604.01116",
+          "material_read": "Full accessible article including weighted Matrix–Tree representation, edge-selection objectives and convex-relaxation results",
+          "method": "Read main sections and compare feasible set and claimed active-set formulas",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Closest graph logdet objective, possible dominating optimization framework"
+        },
+        {
+          "assessment": "PRIOR_BACKGROUND, not whole-document NOT_COVERING",
+          "evidence": "Chestnut–Fishkind 2012 arXiv:1208.4125: unweighted threshold-graph tree enumerators.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.4125",
+          "material_read": "Indexed abstract and cited unweighted count only; complete full text not verified",
+          "method": "Compare fixed combinatorial enumeration with active budget-constrained weighted optimization",
+          "title": "Counting Spanning Trees of Threshold Graphs",
+          "trigger": "Book graph is a threshold graph and may have known tree count formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The book graph provides a natural analytically tractable test for optimizing spanning-tree reliability/D-optimality under genuinely independent edge allocations. A complete price-space phase diagram distinguishing spoke loss, hub loss and full support, including the surprising equal-price missing-hub optimum, is a motivated structural classification useful in network design rather than a relabeling of the general logdet KKT condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An optimization design monograph may contain the same book-graph closed-form KKT solution as an exercise or appendix.",
+    "The classification depends on spoke-class shared prices and m>=3; it does not cover heterogeneous page prices.",
+    "General logdet strict concavity is classical and not itself claimed as new."
+  ],
+  "schema_version": 1
+}
