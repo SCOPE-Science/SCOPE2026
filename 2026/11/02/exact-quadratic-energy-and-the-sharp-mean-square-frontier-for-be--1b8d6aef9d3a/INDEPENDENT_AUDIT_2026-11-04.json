@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:14:19.353733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual frozen RESULT.md, P=[[1,-qz/(1+qz)],[-qz/(1+qz),qz^2]] is positive definite because det P=qz^2[1-q/(1+qz)^2]>0 for 0<q<1,z>0. Direct independent symbolic multiplication of both companion matrices gives exact E[A_D^T P A_D]-P=delta*diag(1,0), delta=z(qz^2+z-2)/(1+qz). The two-step expected squared-state form x^2+E X_1^2 is positive definite, implying geometric contraction at delta<0 and growth at delta>0; zero drift conserves positive expected energy. Independent centered noise adds sigma^2 to energy, giving the exact stationary variance in the stable region and critical linear energy growth. The separate mean-recursion Jury criteria yield the strict blind-spot interval; at q=1/2,z=3/2 roots have modulus sqrt(3)/2 although delta>0. Independent sympy calculation verified the drift, lifted-moment determinant, stationary MSE exactly. Scope is iid Bernoulli zero/one lag and real scalar convex quadratic, not general async SGD.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mishchenko et al. analyze delay-adaptive asynchronous SGD at arbitrary delay, not this fixed iid {0,1} matrix second-moment necessary-and-sufficient threshold.",
+          "Cong–Doan–Siegmund 2015 main Theorem 9 establishes a multiplicative-ergodic theorem for random-delay difference equations, not an exact mean-square Bernoulli stability frontier or additive-noise stationary variance.",
+          "General switched-system spectral criteria need substantial special algebra to produce the explicitly displayed positive P and exact noise-floor pole."
+        ],
+        "reasoning": "Broader random-delay and general linear-systems theory supplies tools and possibly mathematically dominating criteria; no directly covering explicit Bernoulli frontier and MSE was established from accessible evidence. An unlocated specialized earlier mean-square calculation remains a historical priority risk, not a default failure.",
+        "searches": [
+          "Mishchenko Bach Even Woodworth 2022 arxiv:2206.07638 asynchronous SGD delays",
+          "Cong Doan Siegmund 2015 Lyapunov exponents random delay difference equations DOI 10.3934/dcdsb.2015.20.861",
+          "Shaikhet stochastic difference equations random delays necessary sufficient 1997"
+        ]
+      },
+      "checked_sources": [
+        "assigned frozen RESULT.md sections Finding/Proof/Limits and verify.py symbolic source",
+        "Mishchenko et al. arxiv:2206.07638, accessible summary",
+        "Cong–Doan–Siegmund DOI:10.3934/dcdsb.2015.20.861 full author-uploaded original article, especially Theorem 9",
+        "Resultary query on Bernoulli delayed gradient and published results including constant-template STORM and Bernoulli error feedback",
+        "independent_five_checks.py exact symbolic P and covariance identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic fixed-lag stability region and continuous-time delay approximation are not identical distributions to independent switching at each gradient step.",
+          "The signed-mean Jury conditions are strictly weaker than z+qz^2<2 at q=1/2,z=3/2, so first-moment results do not entail the submitted MSE criterion."
+        ],
+        "reasoning": "No directly inspected prior claim mathematically implies all of the explicit Lyapunov, sharp MSE boundary and stationary pole without a new specialization; general mean-square lift can imply existence tests, not automatically the stated normalized identities.",
+        "searches": [
+          "arxiv:2206.07638 statement vs fixed-step Bernoulli one-lag scalar recursion",
+          "doi:10.3934/dcdsb.2015.20.861 random-delay difference equations Lyapunov exponent",
+          "arxiv:2406.11159 SGD staleness stochastic delay differential equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is a two-state iid random matrix recursion with matrices A0=[[1-z,0],[1,0]], A1=[[1,-z],[1,0]]; the Kronecker/second-moment lift is an equivalent general formulation.",
+          "SCOPE Resultary result \"Sharp mean-square stability loss for Bernoulli error-feedback sparsification\" studies geometric missed-transmission memory, not fresh-versus-one-step-stale gradient with this P."
+        ],
+        "reasoning": "Equivalent covariance-lift formulations may recover the same threshold by solving a 3x3 characteristic polynomial; none of the located published records states this same exact result. Matching a term such as Bernoulli or quadratic is not sufficient to imply the claimed closed-form stochastic-lag energy and pole.",
+        "searches": [
+          "\"Bernoulli one step delayed gradient descent scalar quadratic sharp mean square stability stochastic switched system stationary noise covariance\" Resultary",
+          "\"stochastic linear difference equation random delay\" mean square Lyapunov stability",
+          "\"stale gradient\" \"second moment\" one step Bernoulli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-parameter numerical table or closed-form formula located.",
+          "Resultary published \"Exact stationary covariance and stability factorization for constant-template STORM\" concerns a two-parameter variance-reduced method with a different recursion and factorization."
+        ],
+        "reasoning": "The natural exact invariant is a continuum frontier and covariance expression, not a finite catalogue; a known table implicitly evaluating the same 3x3 random-lag covariance would cover the claim if found. No such source was located.",
+        "searches": [
+          "\"z+qz^2\" \"mean square\" \"delay\" gradient",
+          "\"Bernoulli\" \"stale\" \"noise\" \"1+qz\"",
+          "Resultary published stationary covariance stochastic gradients"
+        ]
+      },
+      "rationale": "The novelty assessed is the explicit all-q sharp Lyapunov frontier, additive-noise pole and strict first-vs-second-moment separation as a package, not the existence of mean-square spectral-radius criteria for switched linear systems. Searches identified asynchronous SGD, deterministic delayed quadratics, random-delay Lyapunov exponents, published covariance results on other algorithms, but no proved coverage of this exact iid Bernoulli scalar model and all formulas. Historical specializations remain a genuine risk.",
+      "residual_risks": [
+        "Other earlier random switched scalar difference-equation mean-square results may give this exact formula on specialization; the Cong–Doan–Siegmund (2015) author-uploaded full text was inspected and does not state it.",
+        "Strictly only iid one-lag gradient selection and independent finite-variance additive noise; not general nonlinear, multidimensional or Markov delay."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different delay model and target guarantee; cannot assert full-text NOT_COVERING",
+          "evidence": "Delay-adaptive asynchronous SGD bounds do not state the explicit iid Bernoulli one-lag covariance identity in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.07638",
+          "material_read": "abstract, stated convergence setting, discussion of adaptive stepsizes; full proof not independently read",
+          "method": "arXiv searchable record and text excerpt",
+          "title": "Asynchronous SGD Beats Minibatch SGD Under Arbitrary Delays",
+          "trigger": "direct delayed-gradient model"
+        },
+        {
+          "assessment": "Main theorem concerns Lyapunov spectrum and count of exponents, not mean-square switched covariance or fixed-step Bernoulli noise pole",
+          "evidence": "Main Theorem 9 is the MET for random-delay equations; Sections 3.4-3.5 give exponents and weight independence, not the sharp displayed second-moment polynomial boundary.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2015.20.861",
+          "material_read": "author-uploaded paper text: abstract, introduction, section roadmap, Theorem 9 and its local explanation; intermediate proofs not read exhaustively",
+          "method": "primary author-uploaded manuscript reproduced as searchable HTML",
+          "title": "On Lyapunov exponents of difference equations with random delay",
+          "trigger": "possibly broader same random-lag recurrence"
+        },
+        {
+          "assessment": "Different geometric-delay error-feedback model, no proven coverage",
+          "evidence": "Reported frontier 0<s<2p/(2-p) belongs to packet omission, not Bernoulli 0/1 gradient stale-read recursion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e",
+          "material_read": "Resultary published scientific summary, not whole publication",
+          "method": "Resultary semantic search",
+          "title": "Sharp mean-square stability loss for Bernoulli error-feedback sparsification",
+          "trigger": "similar stochastic descent title and Bernoulli stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stochastic stale-gradient stability frontier is a natural optimization-design invariant: the exact admissible stepsize and noise amplification distinguish safe mean-square operation from deceptively contracting expected iterates. The explicit positive energy is structural rather than a renamed textbook convergence assertion; the sharp boundary and pole can be used directly by researchers working with bounded random staleness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other earlier random switched scalar difference-equation mean-square results may give this exact formula on specialization; the Cong–Doan–Siegmund (2015) author-uploaded full text was inspected and does not state it.",
+    "Strictly only iid one-lag gradient selection and independent finite-variance additive noise; not general nonlinear, multidimensional or Markov delay."
+  ],
+  "schema_version": 1
+}

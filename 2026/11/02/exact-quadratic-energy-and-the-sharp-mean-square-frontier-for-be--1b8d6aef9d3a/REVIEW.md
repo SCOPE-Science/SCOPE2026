@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated assumptions and stability quantifier cover all deterministic two-state initializations with independent Bernoulli lag choices. Expanding the two companion matrices under the explicit positive-definite quadratic form gives exactly one signed squared-state term. A positive-definite two-step observability expression then establishes geometric mean-square decay below the boundary, exact conserved expected energy on it, and geometric growth above it. The additive-error correction is exactly its variance because the quadratic form has first diagonal coefficient one. An exact symbolic and rational verifier reproduces these identities and the stationary variance. The proof does not infer infinite-dimensional conclusions from finite tests.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected asynchronous-optimization work proves broad convergence using delay-adaptive step sizes rather than the fixed-step Bernoulli zero/one-stale recurrence. The closest stochastic-delay differential model derives continuous-time characteristic-root criteria and does not state the discrete second-moment boundary; randomized Euler analysis of time-irregular delayed equations uses different randomization. No inspected source directly states both the exact positive quadratic energy, its sharp threshold \(z+qz^2=2\), and the stationary variance pole. A generic stochastic switched-system covariance-lift criterion is implicit broader machinery, not the explicit closed-form classification. The random-delay dynamical-systems literature remains a genuine publication-priority risk, particularly sources available only as abstracts; novelty should not be interpreted as a proof of global uniqueness.
+PASS
 
-## Value — PASS
-Stale gradients are a natural model for asynchronous computation. The precise probability/stepsize frontier gives a practical stability budget in the simplest nontrivial random-lag model; the Lyapunov identity establishes both necessity and sufficiency without numerical root finding. The exact stationary noise floor quantifies divergence near the boundary, while the strict gap between first- and second-moment thresholds demonstrates why mean-iterate monitoring can certify a false sense of stochastic stability. This combination supplies a reusable benchmark for numerical stability and variance-aware asynchronous method design, although no general algorithm performance theorem is claimed.
+From the actual frozen RESULT.md, P=[[1,-qz/(1+qz)],[-qz/(1+qz),qz^2]] is positive definite because det P=qz^2[1-q/(1+qz)^2]>0 for 0<q<1,z>0. Direct independent symbolic multiplication of both companion matrices gives exact E[A_D^T P A_D]-P=delta*diag(1,0), delta=z(qz^2+z-2)/(1+qz). The two-step expected squared-state form x^2+E X_1^2 is positive definite, implying geometric contraction at delta<0 and growth at delta>0; zero drift conserves positive expected energy. Independent centered noise adds sigma^2 to energy, giving the exact stationary variance in the stable region and critical linear energy growth. The separate mean-recursion Jury criteria yield the strict blind-spot interval; at q=1/2,z=3/2 roots have modulus sqrt(3)/2 although delta>0. Independent sympy calculation verified the drift, lifted-moment determinant, stationary MSE exactly. Scope is iid Bernoulli zero/one lag and real scalar convex quadratic, not general async SGD.
 
-## Closest literature and limits
-Mishchenko et al., arXiv:2206.07638, Theorem 3 and algorithm; Yu et al., arXiv:2406.11159, Sections III-A and III-C; Przybyłowicz et al., arXiv:2306.08926, Sections 2 and 4; Cong, Doan and Siegmund, DOI:10.3934/dcdsb.2015.20.861, abstract only. The random lags are independent, fixed to zero or one previous iterate, and applied to one scalar quadratic; general random-delay processes, multidimensional couplings, and practical correlated worker-clock delays are outside scope. The last cited historical paper's full text was not resolved for a decisive priority comparison. Al-Lawati and Draper (ICASSP 2022, DOI:10.1109/ICASSP43922.2022.9747271) address renewal-process gradients and expected staleness according to the publisher abstract, but their complete conference text was not inspected and remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty assessed is the explicit all-q sharp Lyapunov frontier, additive-noise pole and strict first-vs-second-moment separation as a package, not the existence of mean-square spectral-radius criteria for switched linear systems. Searches identified asynchronous SGD, deterministic delayed quadratics, random-delay Lyapunov exponents, published covariance results on other algorithms, but no proved coverage of this exact iid Bernoulli scalar model and all formulas. Historical specializations remain a genuine risk.
+
+## value
+
+PASS
+
+A stochastic stale-gradient stability frontier is a natural optimization-design invariant: the exact admissible stepsize and noise amplification distinguish safe mean-square operation from deceptively contracting expected iterates. The explicit positive energy is structural rather than a renamed textbook convergence assertion; the sharp boundary and pole can be used directly by researchers working with bounded random staleness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
