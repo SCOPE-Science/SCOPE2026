@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Exact generator equations on the two symmetry-reduced state families yield \\(D_{k+1}=qD_k\\). Unique normalization from \\(F_0=0\\), \\(G_m=1\\) gives the probability formula. Algebra verifies strict placement gap for \\(m>1\\) and the seed ratio; the \\(q_m\\) asymptotic expansion and uniform Riemann sums give the large-star limit. Full-state rational Markov Dirichlet elimination passed 1092 cases for all transient states with \\(1\\leq m\\leq6\\) and four rate pairs. Finite tests are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2305.07377v2 Theorem 3 and Appendix F give regular-graph fixation as a function of total initial positive count; its Section 5 highlights biased general topologies.",
+        "https://arxiv.org/html/2203.05376v1 treats biased voter mean-field and finite network contexts distinct from the exact star law.",
+        "https://arxiv.org/html/2201.08207v2 uses an alternative stochastic transition mechanism.",
+        "https://arxiv.org/abs/2211.14676 and https://doi.org/10.1155/2012/940465 use (respectively) positional weighted neighbor-choice and fitness-weighted birth-death rather than fixed-rate post-sampling acceptance."
+      ],
+      "reasoning": "An exact regular-graph result cannot imply the biased star result because the star is irregular for \\(m>1\\) and fixations with the same positive count differ depending on hub occupancy. Mean-field/large-random-network analyses and fitness-normalized dynamics do not dominate exact finite-size fixation for this rule.",
+      "searches": [
+        "Becchetti Bonifaci Cruciani Pasquale 2023 context-dependent opinion adoption graph fixation probability regular stars",
+        "Czaplicka Charalambous Toral San Miguel 2022 biased voter complete random networks",
+        "Durocher Karras Pavlogiannis Tkadlec invasion biased voter graph fixation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2305.07377v2",
+      "https://arxiv.org/html/2203.05376v1",
+      "https://arxiv.org/html/2201.08207v2",
+      "https://arxiv.org/abs/2003.05462",
+      "https://arxiv.org/abs/2211.14676",
+      "https://doi.org/10.1155/2012/940465"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Becchetti et al. prove their biased formula on regular graphs; their proof cancels cut-edge cardinality under equal degrees, a cancellation that does not hold for stars.",
+        "The Moran birth-death and invasion models weight reproducer/neighbor selection by fitness and therefore use distinct off-diagonal transition rates on the hub and leaves.",
+        "For \\(m>1\\), the new law distinguishes \\(G_{k-1}\\) from \\(F_k\\) with a strictly positive exact difference; the published regular-graph claim depends on the total positive count alone.",
+        "Zhang et al. 2012 https://doi.org/10.1155/2012/940465: reproduction event is selected proportionally to fitness, unlike the uniform activation and uniform neighbor sample in the star voter theorem."
+      ],
+      "reasoning": "The new all-state star fixation law, strict seeded-hub dominance and finite large-star asymptotics are neither literal statements nor corollaries of the checked regular graph, large random graph, or fitness-weighted star formulas. A general finite Markov absorption algorithm exists but does not itself supply this explicit uniform expression and structural dependence.",
+      "searches": [
+        "https://arxiv.org/html/2305.07377v2 Theorem 3 Appendix F and Section 5",
+        "https://arxiv.org/html/2201.08207v2 star graph invasion process",
+        "https://arxiv.org/abs/2003.05462 star fixation Moran",
+        "published-finding corpus biased star fixation equivalence aliases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 initiating work https://arxiv.org/html/2305.07377v2 Sections 2, 4.1 and Appendix F uses asynchronous neighbor pull with context-dependent acceptance; Appendix F is restricted to regular graphs.",
+        "2022 alternative biased voter https://arxiv.org/html/2201.08207v2 uses death-birth neighbor choice weighted by fitness rather than the uniform neighbor sample then accept/reject."
+      ],
+      "reasoning": "Searched biased voter, asymmetric voter, hub/leaf, star, fixation/hitting, adoption probability and alternative fitness-process names. A transfer from fitness-normalized death-birth to this transition kernel fails at the level of vertex-dependent rates on stars; no matching all-state formula or exact dynamic equivalence was identified.",
+      "searches": [
+        "biased voter model star graph exact fixation probability leaves hub opinion adoption alpha 01 alpha 10",
+        "biased voter model star graph fixation probability exact hub vs leaf two state birth death",
+        "evolutionary dynamics biased voter on star fixation probability finite m hub leaf",
+        "context dependent voter model arbitrary star graph fixation probability Becchetti Cruciani",
+        "\"star\" \"asymmetric voter model\" \"fixation probability\"",
+        "\"biased voter\" \"star graph\" \"fixation\" \"center\"",
+        "Context-dependent opinion adoption biased asynchronous voter model on star graph: exact fixation probabilities hub leaf count, geometric recurrence alpha01/alpha10",
+        "Star graph asymmetric voter copying probability fixation hub initial 1, other leaves 0, nonzero infinite-leaf limit",
+        "Voter process with context dependent acceptance rates on irregular graph exact fixation probabilities regular graph Becchetti Bonifaci Cruciani Pasquale",
+        "positional voter model star graph exact fixation probabilities biased nodes hub exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record dated 2026-10-11 titled \"Exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system\" treats bounded-confidence switching, not fixation in a biased voter chain.",
+        "published-finding corpus record dated 2026-10-04 titled \"Minimum k-conversion sets of complete multipartite graphs are weighted parking profiles\" treats irreversible threshold conversion rather than voter absorption.",
+        "https://arxiv.org/html/2305.07377v2 Appendix F contains regular-graph values but not a star table."
+      ],
+      "reasoning": "Semantic database results and relevant published exact tables found no same-chain fixation numbers for a star, with no claim that incomplete search proves absence. The all-state formula for unbounded m is more than a finite table of examples.",
+      "searches": [
+        "published-finding corpus search: Context-dependent opinion adoption biased asynchronous voter model on star graph: exact fixation probabilities hub leaf count, geometric recurrence alpha01/alpha10",
+        "published-finding corpus search: Star graph asymmetric voter copying probability fixation hub initial 1, other leaves 0, nonzero infinite-leaf limit",
+        "published-finding corpus search: Voter process with context dependent acceptance rates on irregular graph exact fixation probabilities regular graph Becchetti Bonifaci Cruciani Pasquale"
+      ]
+    },
+    "rationale": "The initiating 2023 paper treats the exact biased fixation law on regular graphs, not irregular stars; the closest other biased-voter and Moran papers use different graph classes or update kernels. Comparison by transition rates, assumptions and implication found no covering theorem; unindexed equivalent remains a declared risk.",
+    "residual_risks": [
+      "An unindexed, unpublished, differently titled or differently parameterized prior exact star result could cover the theorem.",
+      "Generic absorbing-Markov-chain formulas can recover fixed-size answers, but none of the checked named sources states an explicit all-m law.",
+      "Relevant non-open sources might contain a previously unrecognized equivalent; no global priority certificate is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering irregular-star closed fixation law; biased Theorem 3 and Appendix F concern regular graphs.",
+        "evidence": [
+          "Theorem 3 & Appendix F https://arxiv.org/html/2305.07377v2",
+          "Section 5 general-topology challenge https://arxiv.org/html/2305.07377v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.07377v2",
+        "material_read": "Full accessible article: model Section 2, main results Sections 3-5, appendix F proof and supplementary results.",
+        "method": "Read public full-text HTML including theorem proofs; compare hypotheses, transition rates and implication.",
+        "title": "On a Voter Model with Context-Dependent Opinion Adoption",
+        "trigger": "Exact same update mechanism and motivating 2023 publication."
+      },
+      {
+        "assessment": "Different network focus; no exact two-family finite-star absorption probabilities found.",
+        "evidence": [
+          "https://arxiv.org/html/2203.05376v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.05376v1",
+        "material_read": "Accessible research manuscript HTML: definitions, considered network classes and analysis.",
+        "method": "Read manuscript sections relevant to the stochastic rule, finite networks and claims.",
+        "title": "Biased-voter model: how persuasive a small group can be?",
+        "trigger": "Same directional persuasion factors in a competing biased-voter formulation."
+      },
+      {
+        "assessment": "Fitness-weighted neighbor-choice model is not the uniform-neighbor acceptance model; star statements cannot transfer without an equivalence.",
+        "evidence": [
+          "https://arxiv.org/html/2201.08207v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.08207v2",
+        "material_read": "Accessible manuscript HTML, model definitions and graph-fixation results.",
+        "method": "Compared update-direction weights and neighbor-selection normalization.",
+        "title": "Invasion Dynamics in the Biased Voter Process",
+        "trigger": "Biased voter fixation on nonregular networks with related terminology."
+      },
+      {
+        "assessment": "BD/DB dynamics use fitness-weighted reproduction/neighbor draws; the all-state context-dependent pull chain is not established as equivalent.",
+        "evidence": [
+          "https://arxiv.org/abs/2003.05462"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.05462",
+        "material_read": "Available paper text and described BD/DB model/rules, formulas and scope.",
+        "method": "Compared source selection and target replacement probabilities to the fixed-rate uniform-neighbor copying chain.",
+        "title": "Exact fixation probabilities for the Birth-Death and Death-Birth frequency-dependent Moran processes on the star graph",
+        "trigger": "Exact-star fixation paper potentially covering via an equivalent chain."
+      },
+      {
+        "assessment": "Positional voter allocates influence bias to the chosen neighbor and studies where to place biases; does not provide this exact hub/leaf state law.",
+        "evidence": [
+          "https://arxiv.org/abs/2211.14676 Sections 2-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.14676",
+        "material_read": "Full arXiv HTML text accessible via abstract-page rendering: introductory statements, process definition, fixation methods and optimization theorems.",
+        "method": "Compared weighted-neighbor sampling for positional bias with fixed-rate uniform-neighbor context adoption and checked exact graph formulas.",
+        "title": "Maximizing the Probability of Fixation in the Positional Voter Model",
+        "trigger": "Related biased voter model on arbitrary graphs that could imply the fixation law."
+      },
+      {
+        "assessment": "Exact star fixation is proved for a birth-death Moran reproduction process, not the current context-dependent pull mechanism; no published transition-kernel reduction was identified.",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/10.1155/2012/940465 Section 1 model and Section 2 star results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2012/940465",
+        "material_read": "Accessible full HTML article: introduction, evolutionary process and complete-star analysis.",
+        "method": "Compared fitness-proportional reproducer selection and edge-weighted birth-death transitions to the present vertex-uniform pull-with-acceptance updates.",
+        "title": "Fixation Probabilities on Complete Star and Bipartite Digraphs",
+        "trigger": "Title promises exact general finite-star fixation law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad1f89da-5394-43cc-97aa-d8e775dfc251",
+  "value": {
+    "rationale": "This is a complete parametric all-state classification of a natural heterogeneous contact network for a recently introduced opinion-adoption model whose biased general-topology analysis was identified as challenging. Exact hub advantage across every seed budget and positive limiting hub success versus order-\\(1/m\\) single-leaf success quantify structural heterogeneity beyond a numerical small-graph example.",
+    "status": "PASS"
+  }
+}
