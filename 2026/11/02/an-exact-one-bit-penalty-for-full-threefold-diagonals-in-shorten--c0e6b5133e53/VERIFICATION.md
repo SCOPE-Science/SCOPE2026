@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite checks and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify_triple.py` with only the Python standard library. It verifies the finite-field multiplication rules, constructs full three-block parity-check matrices for odd \(r\in\{3,5,7,9\}\), checks that the \(2^r-2\) columns are all nonzero and distinct, that the row rank is \(r+1\), and that each basis word \(\iota_3(e_i)\) has zero syndrome. By linearity, these basis checks show full threefold-diagonal inclusion for those constructed instances. For \(r=3\), it also checks every possible six-column, rank-three distinct-nonzero syndrome set has nonzero column sum. A successful run prints `VERIFY_OK` and the tested parameter rows; no external data are needed.
+## correctness
 
-The unbounded proof is in `RESULT.md`: the omitted-vector all-one obstruction and explicit general \(\mathbb F_4\) line selection do not depend on numerical enumeration. Finite outputs are not an exhaustive test of all larger parity-check matrices, all possible binary codes, or literature novelty. The equality-case partial-line-spread argument follows from forced three-column sums and unique nonzero binary columns. No independent audit has occurred.
+PASS
+
+The column-distinctness criterion is equivalent to distance>=3. For n=2^r-2 rank r means all nonzero binary syndrome columns save one, whose XOR is that omitted nonzero vector; the full diagonal forces the all-one word and zero XOR, contradiction. A field-reduced F4-spread in binary dimension r+1 supplies m disjoint three-point lines including coordinate axes, hence a spanning parity check with the required triple dependencies and rank r+1. Conversely each equality parity-check presentation yields disjoint zero-sum triples and hence a spanning partial line spread. Boundary r=3 gives the 2-dimensional diagonal itself; field construction checked independently for r=3,5,7,9.
+
+## originality
+
+PASS
+
+Kim 2026 treats twofold diagonal coherence restricted to the even-weight half, whereas the claimed full threefold diagonal of weight-three generators is incompatible with that hypothesis. The published twofold no-redundancy result and standard shortened-Hamming bound cannot imply the one-bit threefold penalty. Finite spread constructions supply existence but not this specialized constrained extremum. Full primary PDF could not be read due arXiv access failure and institutional VPN disconnection; originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+A natural infinitely many-length coding constraint from a published s-fold generalization question has an exact and sharp one-bit quantitative cost, with a geometric classification of every maximizing parity-check presentation. The value is the new constrained dimension invariant, not the standard finite-field spread construction alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
