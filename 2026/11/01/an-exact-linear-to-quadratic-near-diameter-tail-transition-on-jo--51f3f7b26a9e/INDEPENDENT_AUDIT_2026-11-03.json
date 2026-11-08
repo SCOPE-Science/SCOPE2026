@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:44:51.999632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For J(n,k) with k>=3, n>=2k+1 and unit continuous edges, an edge is encoded by (k-1)-core plus exceptional pair and has unique (k+1)-support, each support equally likely. For distinct edges the continuous distance is the min over four endpoint paths k-|A_i∩B_j|+|x-i|+|y-j|; same-edge pairs cannot reach tail. If n=2k+1, support intersection ≥1 bounds diameter k+1/2; one shared element exceptional in both gives a near-diametric strip of exact area ε, exceptional in exactly one gives triangle area ε², both-core or ≥2 shared elements give zero. Exact counts per fixed edge are 2k and 2k(k-1), yielding 2k/M[ε+(k-1)ε²]. For n>=2k+2, disjoint supports attain diameter k+1 and give diamond area 2ε²; all intersecting supports cannot approach k+1 at ε<1/2. Their probability is C(n-k-1,k+1)/C(n,k+1). Quantifiers and strict 0<ε<1/2 are essential, not all distances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous diameter theorem covers one part of the finding exactly.",
+          "General edge-pair continuous mean-distance integration does not give upper-tail density or transition even when applied to J(n,k)."
+        ],
+        "reasoning": "Broader graph class of mean-distance algorithm is for another functional; the known diameter result is covered and explicitly excluded from originality.",
+        "searches": [
+          "continuous metric Johnson graph unit-edge arclength random points near diameter probability tail critical n=2k+1",
+          "Gromov hyperbolicity of Johnson and Kneser graphs 2024",
+          "Continuous Mean Distance of a Weighted Graph 2023"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00010-024-01076-y Section 3 full OA",
+        "DOI:10.1007/s00025-023-01902-w full OA",
+        "arXiv:1202.3455 abstract",
+        "Resultary query: continuous metric Johnson graph unit-edge arclength random points near diameter probability tail critical n=2k+1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing upper bound diam J(n,k) equals k+1/2 at n=2k+1 and k+1 after, but those scalar values do not fix measure of near-extremal pairs.",
+          "Current proof distinguishes support-intersection patterns producing strip ε, triangle ε², diamond 2ε²."
+        ],
+        "reasoning": "No inspected prior theorem logically entails these exact tail coefficients merely from its statement; older unindexed arclength distance-distribution tables remain residual risk.",
+        "searches": [
+          "continuous metric Johnson graph unit-edge arclength random points near diameter probability tail critical n=2k+1",
+          "DOI:10.1007/s00010-024-01076-y §3 continuous diameters",
+          "DOI:10.1007/s00025-023-01902-w continuous mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson vertex distance k-|A∩B| and preexisting continuous diameters are prior.",
+          "Assigned result integrates random interior edge-point pairs and gives two exact polynomial tails."
+        ],
+        "reasoning": "Graph diameter and mean-distance formulations are not equivalent to upper-tail distribution; neither prior calculation supplies the distribution without additional edge support enumeration.",
+        "searches": [
+          "continuous metric Johnson graph unit-edge arclength random points near diameter probability tail critical n=2k+1",
+          "DOI:10.1007/s00010-024-01076-y section 3",
+          "DOI:10.1007/s00025-023-01902-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent count at n=7,k=3: 6 both-exception and 12 one-exception partner edges per fixed edge; n=9,k=4: 8 and 24; n=8,k=3 has 6 disjoint-support partner edges.",
+          "Earlier selected finite examples of vertex-diameter<=2 do not exhaust k>=3 cases."
+        ],
+        "reasoning": "This is an infinite formula rather than a known exact lookup table; concrete small cases were independently verified. No claim that missing database hits prove novelty.",
+        "searches": [
+          "continuous metric Johnson graph unit-edge arclength random points near diameter probability tail critical n=2k+1",
+          "arXiv:1202.3455 geometric Johnson",
+          "DOI:10.1007/s00025-023-01902-w"
+        ]
+      },
+      "rationale": "Qualified PASS for exact arclength two-point near-diameter probability polynomials and linear-to-quadratic transition in high-diameter Johnson graphs. Méndez–Reyes–Rodríguez–Sigarreta already prove the continuous diameters, so diameter values are not new. Garijo–Márquez–Silveira address continuous mean distance, not upper-tail probabilities; an earlier geometric Johnson paper addresses finite vertex-island geometry. No matching exact high-rank tail table was located in Resultary or relevant primary results.",
+      "residual_risks": [
+        "Potential unindexed specialized continuous Johnson distance-distribution tables or notes.",
+        "Quantified result is restricted to k>=3,n>=2k+1, unit edges and 0<epsilon<1/2; not the entire distribution.",
+        "Earlier published continuous diameter formula must remain acknowledged as covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS diameter only, not near-diametric two-point probability law",
+          "evidence": "Section 3 identifies continuous Johnson diameter values k+1/2 and k+1 in relevant parameter regimes.",
+          "identifier_or_url": "DOI:10.1007/s00010-024-01076-y",
+          "material_read": "Full openly accessible article relevant Section 3, continuous metric treatment and diameter theorems",
+          "method": "Lawful publisher open-access HTML read",
+          "title": "Gromov hyperbolicity of Johnson and Kneser graphs",
+          "trigger": "Direct same Johnson family and continuous diameter"
+        },
+        {
+          "assessment": "DISTINCT FUNCTIONAL: expected random-pair distance instead of full upper tail",
+          "evidence": "Computes continuous mean distance through edge pair integrals; no specific J(n,k) upper-tail probability polynomial.",
+          "identifier_or_url": "DOI:10.1007/s00025-023-01902-w",
+          "material_read": "Open full article mathematical statements and integration methods for mean distance",
+          "method": "Publisher open-access HTML read",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "General continuous edge-pair averaging could dominate distribution"
+        },
+        {
+          "assessment": "DIFFERENT graph model: vertex-induced geometric Johnson subgraphs",
+          "evidence": "Finite vertex-distance/connectivity cannot resolve arclength-uniform edge-interior sample law.",
+          "identifier_or_url": "arXiv:1202.3455; https://arxiv.org/abs/1202.3455",
+          "material_read": "Abstract and context of induced geometric/island Johnson graph; full text not inspected this run",
+          "method": "Abstract/bibliographic comparison",
+          "title": "On the Connectedness and Diameter of a Geometric Johnson Graph",
+          "trigger": "Title and Johnson diameter overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Random pair distance near its extreme is a natural continuous network statistic distinct from the known diameter or mean. The exact ridge-to-isolated-diametral transition, positive nontrivial coefficients and full ε interval across an infinite two-parameter graph family provide a useful sharp metric classification, not an arbitrary finite counting slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for balanced n=2k, k<=2, epsilon>=1/2 or unequal edge lengths.",
+    "Continuous metric on all unit-length edges is not vertex or Euclidean hypersimplex geometry."
+  ],
+  "schema_version": 1
+}

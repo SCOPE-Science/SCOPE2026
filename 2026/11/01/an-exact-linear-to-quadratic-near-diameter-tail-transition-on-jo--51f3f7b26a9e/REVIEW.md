@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** All edge-to-edge distances reduce to four endpoint routes, apart from the same-edge case, which lies below the tail threshold. Exact support cardinalities force the overlap classification. Each nonzero tail region is an explicit polygon of area \(\varepsilon\), \(\varepsilon^2\), or \(2\varepsilon^2\). Exact combinatorial counts complete both formulas for all permitted parameters. A standard-library rational-polygon program separately checks selected instances. The program's finite scope is not treated as an infinite proof.
+## correctness
 
-**Originality (PASS, bounded priority uncertainty).** The 2024 Johnson–Kneser hyperbolicity paper establishes continuous diameters and hence subsumes any claim of novelty for those diameters alone. The 2023 general continuous mean-distance paper gives edge integration, not an upper-tail classification. The 2012 geometric Johnson paper concerns finite vertex-island graphs rather than arclength-uniform interior points. Earlier upper-tail formulas for graphs of vertex diameter at most two apply to lower-rank cases and motivate the restriction \(k\ge3\). The new result is a pair of *exact* near-diametric distribution polynomials and a sharp exponent transition across all high-diameter ranks. No source examined provided those probability statements. Remaining risk: unlocated earlier special-purpose formulas or unpublished equivalent results.
+PASS
 
-**Value (PASS).** Random two-point geodesic distance is a natural measure of transportation dispersion. Even a known diameter does not quantify its near-extremal frequency. The proof identifies a geometric transition from a positive-length ridge of diametral edge pairs at \(n=2k+1\) to isolated midpoint pairs at \(n\ge2k+2\), producing an observable first-order to second-order tail change. The exact coefficients depend on the geometry of set supports and remain valid for all admissible integers; this is not a one-off numerical lookup or a substitution into a known diameter formula.
+For J(n,k) with k>=3, n>=2k+1 and unit continuous edges, an edge is encoded by (k-1)-core plus exceptional pair and has unique (k+1)-support, each support equally likely. For distinct edges the continuous distance is the min over four endpoint paths k-|A_i∩B_j|+|x-i|+|y-j|; same-edge pairs cannot reach tail. If n=2k+1, support intersection ≥1 bounds diameter k+1/2; one shared element exceptional in both gives a near-diametric strip of exact area ε, exceptional in exactly one gives triangle area ε², both-core or ≥2 shared elements give zero. Exact counts per fixed edge are 2k and 2k(k-1), yielding 2k/M[ε+(k-1)ε²]. For n>=2k+2, disjoint supports attain diameter k+1 and give diamond area 2ε²; all intersecting supports cannot approach k+1 at ε<1/2. Their probability is C(n-k-1,k+1)/C(n,k+1). Quantifiers and strict 0<ε<1/2 are essential, not all distances.
 
-**Limitations.** The result does not cover balanced \(n=2k\), variable edge lengths, or the remainder of the distance distribution. Historical priority is based on accessible comparisons, not a comprehensive proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact arclength two-point near-diameter probability polynomials and linear-to-quadratic transition in high-diameter Johnson graphs. Méndez–Reyes–Rodríguez–Sigarreta already prove the continuous diameters, so diameter values are not new. Garijo–Márquez–Silveira address continuous mean distance, not upper-tail probabilities; an earlier geometric Johnson paper addresses finite vertex-island geometry. No matching exact high-rank tail table was located in Resultary or relevant primary results.
+
+## value
+
+PASS
+
+Random pair distance near its extreme is a natural continuous network statistic distinct from the known diameter or mean. The exact ridge-to-isolated-diametral transition, positive nontrivial coefficients and full ε interval across an infinite two-parameter graph family provide a useful sharp metric classification, not an arbitrary finite counting slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
