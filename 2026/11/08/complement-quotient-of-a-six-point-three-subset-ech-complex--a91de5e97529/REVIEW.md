@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For the explicitly defined intrinsic radius-two Čech nerve, the complement action is free: an invariant face would contain a complementary pair, which cannot share any ball center. Six complete symmetry orbits certify the full two-skeleton of a nine-sphere cross-polytope boundary, proving simple connectivity of the covering space. Ordinary covering-space theory then gives integral first homology \(\mathbb Z/2\). Independently reconstructed finite chain complexes have exact rational ranks, verified boundary squares, and quotient Betti numbers six and fifteen in degrees three and four. The involution traces follow from rational transfer. The computational components are finite and exhaustive, and their checker is provided.
+
+**Originality — PASS, subject to residual literature risk.** The nearest motivating primary source, Biswas's September 2026 paper, already lists the unquotiented 11- and 30-sphere counts; these are not new. Its inspected higher-scale discussion does not assert the complement quotient fundamental group, quotient Betti numbers, or involution traces. The prior work on subset Vietoris–Rips complexes describes different complexes and does not imply the quotient calculations. Published mathematical records for Johnson-graph and constant-weight Hamming Rips complexes were also compared by mathematical implications, not title similarity. Targeted searches did not find an equivalent quotient statement. As with any finite-source search, unindexed or implicit equivalent work remains possible.
+
+**Mathematical value — PASS.** The case is the smallest symmetric self-complementary constant-weight-three layer with a nontrivial complement action, and the quotient's integral two-torsion first homology is an informative contrast with the simply connected cover. The exact rational quotient homology and character resolve naturally posed symmetry information not supplied by known ordinary Betti numbers. This is a structural and quotient-topological finding for a canonical finite metric complex, rather than an arbitrary parameter slice.
+
+**Scientific limits.** No claim is made about higher integral torsion, equivariant homotopy type, all self-complementary layers, or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
