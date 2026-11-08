@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:56:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob dacedae189216725a61986de5f2a17cd67c6ca1b",
+        "Git snapshot checker.py blob 5261addb475da53468a85644f18311230abd5e86",
+        "Independently generated all palindromic factors for k<=7, independent_checks.py"
+      ],
+      "rationale": "The iterates are palindromes and their 1 positions are even (base-3 digits in {0,2}); hence a nonzero even palindrome cannot exist, and the maximum zero run is L=3^(k-1). The proof constructs both distinct centered nonzero palindromes at every short odd length and the full C_k center at every long odd length. Together with zero powers, these give exactly 3^k distinct palindromes. The universal theorem that a length-N word has <=N distinct nonempty palindrome factors forces no further factors at any length and proves the explicit classification for all k. Independently written center expansion and canonical comparisons matched all lengths for k=1..7; finite tests are corroboration only.",
+      "residual_risks": [
+        "Publisher text of Lü et al 2016 was partly accessible; an unindexed Sierpinski/Cantor full-text appendix could contain equivalent factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glen et al 0801.1656 analyzes richness and class-P morphisms; no explicit finite length spectrum in the inspected sections.",
+          "Anisiu et al 1002.2723 develops general palindrome-complexity constraints."
+        ],
+        "reasoning": "General richness upper bounds are saturated by the constructed witnesses, but they alone do not determine each factor-length population.",
+        "searches": [
+          "palindromic complexity finite Cantor Sierpinski words exact palindrome factor spectrum iterates 101 000",
+          "https://arxiv.org/abs/0801.1656",
+          "https://arxiv.org/abs/1002.2723",
+          "https://arxiv.org/abs/2201.09556",
+          "https://doi.org/10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob dacedae189216725a61986de5f2a17cd67c6ca1b",
+        "Git snapshot checker.py blob 5261addb475da53468a85644f18311230abd5e86",
+        "Independently generated all palindromic factors for k<=7, independent_checks.py",
+        "Glen et al arxiv:0801.1656, Anisiu et al arxiv:1002.2723, Bulgakova et al arxiv:2201.09556, OEIS A292686, Lü et al 2016 DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lü et al 2016 DOI:10.1016/j.tcs.2015.12.022 derives ordinary factor complexity for infinite Cantor sequence.",
+          "Bulgakova et al 2022 studies prefix palindromic *decomposition* length."
+        ],
+        "reasoning": "Neither ordinary factor number p(n) nor minimal palindrome decomposition implies exactly which distinct palindromic factors appear at each length in each finite iterate.",
+        "searches": [
+          "palindromic complexity finite Cantor Sierpinski words exact palindrome factor spectrum iterates 101 000",
+          "https://arxiv.org/abs/0801.1656",
+          "https://arxiv.org/abs/1002.2723",
+          "https://arxiv.org/abs/2201.09556",
+          "https://doi.org/10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glen et al 0801.1656 Prop 2.10 establishes Cantor richness: total palindromes equals word length.",
+          "Bulgakova et al 2201.09556 defines prefix palindromic length as least number of palindrome blocks in a factorization."
+        ],
+        "reasoning": "The known total count and palindrome-decomposition length are not equivalent to the exact n-by-n factor sets; the new representatives add independent information.",
+        "searches": [
+          "palindromic complexity finite Cantor Sierpinski words exact palindrome factor spectrum iterates 101 000",
+          "https://arxiv.org/abs/0801.1656",
+          "https://arxiv.org/abs/1002.2723",
+          "https://arxiv.org/abs/2201.09556",
+          "https://doi.org/10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A292686 lists finite iterates, not the palindrome factor counts at each length.",
+          "Anisiu et al 1002.2723 tables concern other finite-word examples."
+        ],
+        "reasoning": "Finite word lists permit recomputation but are not an explicit previously available all-depth spectrum; a hidden old table remains possible.",
+        "searches": [
+          "palindromic complexity finite Cantor Sierpinski words exact palindrome factor spectrum iterates 101 000",
+          "https://arxiv.org/abs/0801.1656",
+          "https://arxiv.org/abs/1002.2723",
+          "https://arxiv.org/abs/2201.09556",
+          "https://doi.org/10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "rationale": "Already known: infinite Cantor word is rich and hence |C_k|=3^k palindromes. The original useful assertion is instead the exact length-by-length finite-factor spectrum with explicit representatives and cutoff. General palindromic complexity and palindromic decomposition lengths are not the same statement. Best-of-knowledge PASS; older Sierpinski-word tables could contain an equivalent classification.",
+      "residual_risks": [
+        "Prior Glen et al 2008 result already implies the total 3^k; novelty limited strictly to lengthwise spectrum.",
+        "Publisher text of Lü et al 2016 was partly accessible; an unindexed Sierpinski/Cantor full-text appendix could contain equivalent factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rich Cantor word and prefix total, not the finite per-length representative spectrum",
+          "evidence": [
+            "Proposition 2.10 proves infinite Cantor word rich; each finite C_k has |C_k| palindrome factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.1656",
+          "material_read": "Full PDF introductory upper-bound discussion, Proposition 2.10 and related Cantor/P-morphism section",
+          "method": "Read arXiv PDF text and page screenshot of Proposition 2.10",
+          "title": "Palindromic Richness",
+          "trigger": "Exact Cantor-word richness overlap"
+        },
+        {
+          "assessment": "General complexity framework; no exact Cantor iterate classification found",
+          "evidence": [
+            "Finite-word palette examples concern other words, not all C_k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.2723",
+          "material_read": "Full PDF definitions, central complexity methods, finite examples",
+          "method": "Read arXiv PDF extracted text and inspected page image",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Possible general lengthwise palindrome spectrum"
+        },
+        {
+          "assessment": "Counts least concatenated palindrome blocks, not distinct palindromic substrings by length",
+          "evidence": [
+            "Palindromic length PL(u) is a decomposition length, a mathematically distinct quantity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.09556",
+          "material_read": "PDF introduction/definitions and recurrence sections",
+          "method": "Read lawful arXiv PDF text and inspected first page",
+          "title": "Prefix palindromic length of the Sierpinski word",
+          "trigger": "Exactly same automatic word, palindrome-related invariant"
+        },
+        {
+          "assessment": "Ordinary factor counts cannot certify finite palindrome spectra; unresolved appendix risk",
+          "evidence": [
+            "Remark 5 formula p(n)=2n-1 concerns ordinary infinite factor complexity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Indexed introduction and Remark 5 ordinary factor-complexity statement only; complete publisher full text unavailable",
+          "method": "Reviewed public indexed scholarly extracts; publisher full text not verified",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Same Cantor word and potentially dominating complexity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob dacedae189216725a61986de5f2a17cd67c6ca1b",
+        "Git snapshot checker.py blob 5261addb475da53468a85644f18311230abd5e86",
+        "Independently generated all palindromic factors for k<=7, independent_checks.py",
+        "Glen et al arxiv:0801.1656, Anisiu et al arxiv:1002.2723, Bulgakova et al arxiv:2201.09556, OEIS A292686, Lü et al 2016 DOI"
+      ],
+      "rationale": "Finite Cantor substitution words are a canonical automatic-word family. Knowing total richness does not answer which palindrome lengths, counts and explicit factors occur; the complete every-iterate length spectrum is a motivated reusable structural classification, not a lookup table.",
+      "residual_risks": [
+        "Prior Glen et al 2008 result already implies the total 3^k; novelty limited strictly to lengthwise spectrum.",
+        "Publisher text of Lü et al 2016 was partly accessible; an unindexed Sierpinski/Cantor full-text appendix could contain equivalent factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob dacedae189216725a61986de5f2a17cd67c6ca1b",
+    "Git snapshot checker.py blob 5261addb475da53468a85644f18311230abd5e86",
+    "Independently generated all palindromic factors for k<=7, independent_checks.py",
+    "Glen et al arxiv:0801.1656, Anisiu et al arxiv:1002.2723, Bulgakova et al arxiv:2201.09556, OEIS A292686, Lü et al 2016 DOI"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Prior Glen et al 2008 result already implies the total 3^k; novelty limited strictly to lengthwise spectrum.",
+    "Publisher text of Lü et al 2016 was partly accessible; an unindexed Sierpinski/Cantor full-text appendix could contain equivalent factors."
+  ],
+  "schema_version": 1
+}

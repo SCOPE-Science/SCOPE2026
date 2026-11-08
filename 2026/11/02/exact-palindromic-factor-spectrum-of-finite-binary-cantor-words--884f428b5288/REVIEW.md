@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is all-depth: the Cantor recursion produces palindromes with all ones at even indices, forcing all even-length palindromic factors to be pure zeros. The maximal zero run is exactly \(3^{k-1}\). The explicit centered witnesses \(C_j\) and \(0^{3^{j-1}}C_{j-1}0^{3^{j-1}}\) are proved to occur and differ at every smaller odd length. One centered \(C_k\) witness exists for every larger odd length. These bounds exactly saturate the universal at-most-word-length count of nonempty palindrome factors, so there are no others. A direct palindrome census and representative-set test passed for every length at levels 1–8, through 6561 symbols; the proof does not infer infinity from those tests.
+## correctness
 
-**Originality — PASS, qualified.** Glen et al. (arXiv:0801.1656, Proposition 2.10) **already establishes Cantor-word richness**, including the maximal total nonempty palindrome count for each prefix. This is explicitly excluded from novelty. The present conclusion is the complete finite iterate spectrum \(P_k(n)\), its unique long odd palindrome, and canonical representatives for every admissible length; that specific per-length statement was not supplied by the inspected earlier work. Anisiu et al. (arXiv:1002.2723) treat general finite palindrome-complexity patterns; Lü et al. (DOI:10.1016/j.tcs.2015.12.022) treat ordinary infinite factor complexity; Bulgakova et al. (arXiv:2201.09556) treat the different prefix palindromic decomposition-length invariant. OEIS A292686 lists the actual Cantor iterates but not the claimed factor spectrum. Targeted scholarly and research-record searches found no equivalent or dominating finite classification. Historical priority remains uncertain; full publisher access to the 2016 paper was incomplete.
+PASS
 
-**Value — PASS.** The invariant \(P_k(n)\) is the standard lengthwise palindromic-factor complexity, and the problem is to resolve its complete form for classical finite substitution approximants. The precise jump at the longest zero-run length \(3^{k-1}\), explicit canonical representatives, and one-per-length long-palindrome rigidity are information not specified by the previously known total richness statement. The theorem is all-rank and not an arbitrary finite parameter slice.
+The iterates are palindromes and their 1 positions are even (base-3 digits in {0,2}); hence a nonzero even palindrome cannot exist, and the maximum zero run is L=3^(k-1). The proof constructs both distinct centered nonzero palindromes at every short odd length and the full C_k center at every long odd length. Together with zero powers, these give exactly 3^k distinct palindromes. The universal theorem that a length-N word has <=N distinct nonempty palindrome factors forces no further factors at any length and proves the explicit classification for all k. Independently written center expansion and canonical comparisons matched all lengths for k=1..7; finite tests are corroboration only.
 
-**Limitations.** Complete Cantor iterates only, contiguous factors only; arbitrary prefixes and substitutions are not covered. No independent mathematical or historical-priority audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Already known: infinite Cantor word is rich and hence |C_k|=3^k palindromes. The original useful assertion is instead the exact length-by-length finite-factor spectrum with explicit representatives and cutoff. General palindromic complexity and palindromic decomposition lengths are not the same statement. Best-of-knowledge PASS; older Sierpinski-word tables could contain an equivalent classification.
+
+## value
+
+PASS
+
+Finite Cantor substitution words are a canonical automatic-word family. Knowing total richness does not answer which palindrome lengths, counts and explicit factors occur; the complete every-iterate length spectrum is a motivated reusable structural classification, not a lookup table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
