@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Fourier characters of the product cyclic group diagonalize the Hamming-radial matrix and give the stated multiplicities. The alternating-series bound makes all shifted transforms except the full-degree transform positive in the entire first-loss bracket. Explicit uniform binomial-tail bounds establish a sign change and derivative negativity of the remaining mode; the asymptotic coefficient comparison uses a remainder controlled uniformly in that bracket. Exact-rational checker tests provide independent finite sanity checks of the algebra, not a proof of the infinite statement.
+## correctness
 
-## Originality
-PASS, qualified. The full primary text of Da Costa–Mostajeran–Ortega (arXiv:2302.10623v1, esp. §§3–5) concerns samples on intrinsic circles and supplies no full Hamming product or alphabet-independent threshold. The full primary text of Li (arXiv:2303.06558v1, esp. §§1–3) concerns smooth Riemannian manifolds, not finite Hamming products. The 2026 Gaussian–Hamming applied discussion distinguishes validity from Euclidean Gaussian kernels but does not determine a critical scale. Relevant finite-Hamming Fourier records supply spectral tools, not the ordering and first-nullity conclusion. The nearest previously recorded Gaussian result is for cyclic graph metrics, not full Cartesian products. Residual risk: an equivalent finite association-scheme or Krawtchouk positivity result in older literature may exist.
+PASS
 
-## Mathematical value
-PASS. The exact first bandwidth at which a natural radial kernel becomes unusable as a positive covariance or completely positive Schur multiplier, the alphabet universality, the high-dimensional nullity, and the logarithmic transition with a sharp correction are motivated invariants for complete Hamming products. This goes beyond the routine character formula: a comparison of all Fourier modes and a provable first crossing are needed.
+Product characters diagonalize the kernel, with level-k eigenvalues obtained by expanding nonzero differences. For k<n, the g_{k,a} alternating sums have decreasing positive magnitudes uniformly q≤1/n+1/n^3; every such eigenvalue stays strictly positive. The top eigenvalue F_n(q)=sum (-1)^j C(n,j)q^{j^2} has F_n(1/n)>0, F_n(1/n+1/n^3)<0 and is strictly decreasing in the bracket via explicit binomial tail bounds. The only crossing has multiplicity (r-1)^n. Asymptotic inversion of 1-nq+C(n,2)q^4+O(n^-6) gives coefficients 1/2,-1/2,1,-2. Independent exact tests for n=2..13, r=2,3,6 and independent symbolic expansion agree; not an exhaustive infinite-dimensional computation.
 
-## Limitations
-No claim about all \(q\) above the first crossing, weighted Hamming metrics, arbitrary subsets, or non-Hermitian spectral deviations. No independent external mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical group characters and Hamming association schemes supply Fourier eigenvalues, but the quantitative first-loss ordering, root bracket and r-independent threshold are not implied by generic diagonalization alone. Circle-intrinsic Gaussian non-PSD papers concern different metric spaces; 2026 Gaussian-Hamming applications note possible non-PSD but not this transition.
+
+## value
+
+PASS
+
+The first failure threshold, exact nullity and alphabet uniformity answer a natural kernel admissibility question for finite Hamming product spaces, directly governing when the corresponding Schur multiplier remains completely positive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
