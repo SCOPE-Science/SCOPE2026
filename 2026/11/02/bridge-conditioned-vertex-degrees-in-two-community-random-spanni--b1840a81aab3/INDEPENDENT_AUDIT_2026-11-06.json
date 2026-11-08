@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:54:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md ac60c499a30be45f2b6f55be9159ecc098b1a5f1",
+        "frozen verify.py 383142858cedd2c16677decff96d1be555b52dd2",
+        "independent_checks_output.txt TREES 2x2,2x3,3x2,3x3 full coefficient checks"
+      ],
+      "rationale": "For complete weighted two-community graph (m,n>=2, within alpha>0 and between beta>0), matrix-tree minor after marking v gives zero-sum block eigenvalues U and V and 2x2 determinant beta*z*w*U, leading to Z(w,z)=beta*z*w[alpha(m-1+w)+beta n z]^(m-1)[alpha n+beta z(m-1+w)]^(n-1). Normalized specialization yields shifted independent-binomial laws. Differentiating log Z yields mixed covariance. At fixed cross-edge count K, all tree Gibbs weights equal, so E[D|K] is conductance-independent; coefficient ratio at K=2 vs K=1 has sign m-n, while the maximal K endpoint has difference sign n-m, proving nonmonotonicity when m!=n. Covariance factorization gives unique positive q*= (sqrt((m-1)(n-1))-1)/(m+n-1+sqrt((m-1)(n-1))) and flat zero covariance at m=n without independence. The supplied verify.py was read: independent exact Prüfer enumeration, Laplacian Bareiss determinant, conditional and covariance asserts; a separate checker exhaustively compared weighted joint coefficients in small sizes. No assertion of global interior turning-count classification.",
+      "residual_risks": [
+        "A general matrix-tree/transfer-current generating function may yield an equivalent statement by an unexamined specialization; historical priority not guaranteed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General determinantal and transfer-current formulas for random spanning trees imply that specific joint moments are in principle computable."
+        ],
+        "reasoning": "Those frameworks might imply individual covariance moments after differentiation, but the all-K nonmonotone conditional class and exact one-threshold sign result require this finite-graph factorization and sign argument.",
+        "searches": [
+          "arXiv:2409.13472 §§3-5 Appendix A; arXiv:2312.14992"
+        ]
+      },
+      "checked_sources": [
+        "Expectation and Variance of the Degree of a Node in Random Spanning Trees: https://arxiv.org/html/2409.13472v2",
+        "Correlations in uniform spanning trees: a fermionic approach: https://arxiv.org/html/2312.14992v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General matrix-tree methods provide a recipe; the closed Z(w,z) and strict covariance sign factor appear as new special consequences."
+        ],
+        "reasoning": "A broadly stated exact weighted edge-marking theorem could subsume the bivariate enumerator abstractly but not by itself the claimed nonmonotonicity and universal threshold without actual coefficient analysis.",
+        "searches": [
+          "arXiv:2409.13472 weighted degree generating polynomial and appendix; arXiv:2312.14992 transfer-current laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bivariate weighted tree determinant is also a mixed edge-class-count/marked-degree factorial-moment generating function."
+        ],
+        "reasoning": "Compared joint distribution and covariance derivatives, not only parameter labels; general degree polynomials do not automatically specify bridge-count correlations.",
+        "searches": [
+          "Resultary: weighted spanning tree two communities joint degree bridge edge count conditional nonmonotone covariance sign; arXiv:2409.13472 degree-moment generating functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed tree enumerations concern other families, e.g. Cayley tree endpoint-distance regressions and signed grid center degrees."
+        ],
+        "reasoning": "The claim spans all m,n and positive conductances, so finite tabular coincidences would not imply the full conditional classification.",
+        "searches": [
+          "Resultary: weighted spanning tree two communities joint degree bridge edge count conditional nonmonotone covariance sign; Resultary spanning-tree joint degree bridge count searches"
+        ]
+      },
+      "rationale": "Sanmartín/Schnörr/Hamprecht (2024) establish general weighted random spanning-tree degree distributions and covariance techniques; Rapoport (2023) supplies general correlations. These methods are ingredients, but their inspected statements do not directly provide the joint K vs fixed-vertex degree factorization, K-conditional nonmonotone regression law, or conductance-driven sign reversal for all m,n. The claim is a novel specialization only if an older stronger exact joint-edge-class formula does not subsume it; this is retained as explicit residual priority risk.",
+      "residual_risks": [
+        "A general matrix-tree/transfer-current generating function may yield an equivalent statement by an unexamined specialization; historical priority not guaranteed.",
+        "Applies only to fixed two-community equal within/between conductances and marked v; unknown number of interior conditional turning points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general weighted degree moments and covariance, not stated mixed total cross-community K law and all-size conditional sign reversal",
+          "evidence": "Fita Sanmartín/Schnörr/Hamprecht 2024 sections 3–5, Appendix A",
+          "identifier_or_url": "https://arxiv.org/html/2409.13472v2",
+          "material_read": "Read public full HTML theorem, derivation, §§3-5 and Appendix A",
+          "method": "arXiv full-text HTML",
+          "title": "Expectation and Variance of the Degree of a Node in Random Spanning Trees",
+          "trigger": "Same weighted tree Gibbs model and marked-degree moments"
+        },
+        {
+          "assessment": "General uniform tree correlation framework; no direct all-weights two-block K-conditioned theorem established from inspected text",
+          "evidence": "Rapoport 2023",
+          "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+          "material_read": "Read available abstract and indexed statements, not all proof pages",
+          "method": "arXiv abstract/html query",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "Potentially broader edge-indicator and joint local-degree law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md ac60c499a30be45f2b6f55be9159ecc098b1a5f1"
+      ],
+      "rationale": "The full bivariate finite-graph law and counterintuitive conditional regression, with a unique tunable covariance reversal, characterize a natural community graph Gibbs tree model. The strict sign change is a meaningful new structural dependence fact, not merely a recomputation of a known normalizing determinant.",
+      "residual_risks": [
+        "Applies only to fixed two-community equal within/between conductances and marked v; unknown number of interior conditional turning points."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general matrix-tree/transfer-current generating function may yield an equivalent statement by an unexamined specialization; historical priority not guaranteed.",
+    "Applies only to fixed two-community equal within/between conductances and marked v; unknown number of interior conditional turning points."
+  ],
+  "schema_version": 1
+}

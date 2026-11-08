@@ -1,19 +1,21 @@
-# Scientific review: bridge-conditioned degrees in two-community random spanning trees
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact bivariate generating polynomial follows from a weighted Matrix–Tree Laplacian minor whose two invariant zero-sum subspaces and two-dimensional block-constant space are exhibited in the result. Cross-differentiation of the logarithm gives the covariance and its unique sign-switch threshold. Coefficient comparison at the first two cross-edge counts, followed by the all-cross-edge endpoint, proves that the conditional mean cannot be monotone for any unequal community sizes. The balanced conditional mean follows by transitive symmetry. Every weight and size boundary is stated. A standalone independent Prüfer enumeration and Laplacian determinant checker passed 250 exact assertions, including positive integer conductances and graphs up to seven vertices. The analytic proof, not those finite checks, handles every finite size.
+PASS
 
-## Originality (O): PASS, qualified
+For complete weighted two-community graph (m,n>=2, within alpha>0 and between beta>0), matrix-tree minor after marking v gives zero-sum block eigenvalues U and V and 2x2 determinant beta*z*w*U, leading to Z(w,z)=beta*z*w[alpha(m-1+w)+beta n z]^(m-1)[alpha n+beta z(m-1+w)]^(n-1). Normalized specialization yields shifted independent-binomial laws. Differentiating log Z yields mixed covariance. At fixed cross-edge count K, all tree Gibbs weights equal, so E[D|K] is conductance-independent; coefficient ratio at K=2 vs K=1 has sign m-n, while the maximal K endpoint has difference sign n-m, proving nonmonotonicity when m!=n. Covariance factorization gives unique positive q*= (sqrt((m-1)(n-1))-1)/(m+n-1+sqrt((m-1)(n-1))) and flat zero covariance at m=n without independence. The supplied verify.py was read: independent exact Prüfer enumeration, Laplacian Bareiss determinant, conditional and covariance asserts; a separate checker exhaustively compared weighted joint coefficients in small sizes. No assertion of global interior turning-count classification.
 
-The 2024 work of Fita Sanmartín, Schnörr and Hamprecht already proves a general product-conductance spanning-tree model, a node-degree enumerator and formulas for degree moments/covariances; these are not new here. Rapoport (2023) gives general uniform-spanning-tree local-degree joint statistics and edge-event methods. Those papers were inspected in their available full HTML sections describing definitions, main claims and covariance arguments. Searches for two-block cross-edge/marked-degree bivariate polynomials, conditional bridge-count regression and conductance-reversal thresholds found no implication-equivalent explicit result. Existing general Matrix–Tree/transfer-current theory can be specialized to recover some formulas, so future inspection of older two-type Cayley-tree enumerations is a specific historical-priority risk. No novelty guarantee beyond these comparisons is made.
+## originality
 
-## Value (V): PASS
+PASS
 
-The two observables have a direct structural interpretation: a local hub degree and the count of links joining two network communities. Their conditional association has an unexpected all-order qualitative obstruction: the regression first moves opposite to its total endpoint displacement for every unequal pair of community sizes, even though the global covariance can switch sign with the conductance ratio. The exact joint polynomial makes the effect reproducible and permits complete finite-size distributions, rather than an isolated small counterexample. The balanced exception differentiates covariance zero from independence.
+Sanmartín/Schnörr/Hamprecht (2024) establish general weighted random spanning-tree degree distributions and covariance techniques; Rapoport (2023) supplies general correlations. These methods are ingredients, but their inspected statements do not directly provide the joint K vs fixed-vertex degree factorization, K-conditional nonmonotone regression law, or conductance-driven sign reversal for all m,n. The claim is a novel specialization only if an older stronger exact joint-edge-class formula does not subsume it; this is retained as explicit residual priority risk.
 
-## Limits
+## value
 
-The proof is confined to complete two-block networks with positive constant within/between edge conductances; no claim of a general multi-community or heterogeneous-weight theorem. Only nonmonotonicity, not a count of turning points, is established. Independent external audit and definitive priority assessment have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full bivariate finite-graph law and counterintuitive conditional regression, with a unique tunable covariance reversal, characterize a natural community graph Gibbs tree model. The strict sign change is a meaningful new structural dependence fact, not merely a recomputation of a known normalizing determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
