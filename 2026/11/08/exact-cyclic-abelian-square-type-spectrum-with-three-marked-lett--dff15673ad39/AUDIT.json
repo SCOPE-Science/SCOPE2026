@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For three zeros a square has either zero zeros or one zero in each half. Zero-zero types correspond exactly to all-one runs. For two-zero types, integer-start feasibility for consecutive selected zeros reduces to the explicit lower and upper half-length bounds; all nine endpoint comparisons were reconstructed. After ordering the three gaps, the middle interval lies inside the minimum-gap interval and the largest-gap interval reaches the maximum allowed half-length. Counting its complement against zero-free types yields the closed formula, including the sole missing baseline length when the largest gap is even. Parity forces the smallest-gap interval to compensate before or at this missing length, proving every prefix inequality. The extracted checker directly enumerates 14665 odd words through length 29, compares their type sets to the formula, verifies prefixes, and checks 250 seeded gap triples. Finite experiments corroborate but do not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhattacharjee v2 Theorem 1: \\(D(w)\\ge\\lfloor(n-1)/2\\rfloor\\) counts distinct strings, while \\(N(w)\\le D(w)\\).",
+        "Bhattacharjee v2 Section 5 conjectures \\(N(w)\\ge(n-1)/2\\) and all prefixes, rather than proving the unrestricted assertion.",
+        "Fraenkel–Simpson–Paterson (1997) gives circular \\(N(w)\\ge\\lfloor(n+1)/4\\rfloor\\); this is weaker."
+      ],
+      "reasoning": "An unrestricted lower bound for distinct factor strings cannot imply a lower bound for their equivalence classes. The general 1997 bound is asymptotically half the asserted one. Generic interval combinatorics does not by itself contain a published three-gap classification.",
+      "searches": [
+        "\"odd circular\" \"three\" \"non-equivalent abelian squares\" gap",
+        "\"abelian square\" \"three ones\" cyclic gap",
+        "\"On weak circular squares in binary words\" Fraenkel Paterson Simpson 1997 pdf",
+        "non-equivalent abelian squares circular odd words three sparse letter gap formula",
+        "Bhattacharjee odd circular abelian-square non-equivalent type z_m three singleton zeros cyclic gaps conjecture"
+      ]
+    },
+    "checked_sources": [
+      "https://hexagonmath.org/2610.00473v1 (earliest public date 2026-10-22)",
+      "https://hexagonmath.org/2610.00473v2 (complete main source inspected)",
+      "https://arxiv.org/abs/1802.04481 (substantial accessible excerpt)",
+      "https://doi.org/10.1007/3-540-63220-4_51 (published theorem and abstract; original full text not read)",
+      "https://arxiv.org/abs/2604.23188 (original abstract and citing-paper synopsis)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two-run circular words have a single contiguous block of each letter; three zeros can form three separate runs.",
+        "Prior two-marked-letter circular claim concerns exactly two isolated marked letters and cannot specialize to exactly three.",
+        "2026 linear-word sparse-letter results use a different set of factors; closing words cyclically introduces new boundary-crossing factors."
+      ],
+      "reasoning": "The new hypotheses are disjoint from the two-marker claim, not special cases of it. They are not two-run in general. No consulted theorem dominates either the individual type-spectrum formula or all prefix inequalities under the exact domain assumptions. Possible implicit derivations from unpublished material remain unexcluded.",
+      "searches": [
+        "Bhattacharjee v2 Section 5 Proposition on two runs and Conjecture on odd type counts",
+        "Fraenkel–Simpson–Paterson 1997 weak circular squares theorem",
+        "Fazekas–Mammoliti–Mercaş–Simpson 2026 linear sparse-symbol paper",
+        "three minority symbols 3 zeros circular abelian square types gap lengths half-length prefix inequalities",
+        "Fraenkel Simpson Paterson odd circular non-equivalent abelian squares exact type three zeros"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bhattacharjee v2, Section 5 defines (m,half-Parikh) types and asks z_1+...+z_k >= k, matching the exact invariant; no three-zero formula is stated.",
+        "Simpson (2018) defines equivalent/non-equivalent Abelian squares, including circular counts."
+      ],
+      "reasoning": "Checked both zero/one complementation and alternate weak-square / non-equivalent / Parikh-type names. The three-gap interval formula and all-prefix theorem are not textually or implication-equivalently established in inspected material.",
+      "searches": [
+        "\"non-equivalent abelian squares\" \"three\" circular word zeros",
+        "\"circular\" \"three zeros\" \"abelian squares\" 2026",
+        "\"three occurrences\" \"abelian squares\" \"circular words\"",
+        "circular binary word exactly three occurrences of zero non-equivalent abelian squares type spectrum exact gap formula",
+        "circular abelian squares three marked symbols gap lengths odd necklace min non-equivalent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bhattacharjee v2 says the general prefix conjecture has been checked computationally through odd length 27; its computation is finite and its two-run Proposition is separate.",
+        "The new theorem applies for every positive triple of gaps with odd sum and provides an exact type set and count."
+      ],
+      "reasoning": "Finite published tables and numerical checks do not imply an all-length exact formula or an unbounded prefix theorem. The statement is not a small-size table extension.",
+      "searches": [
+        "\"non-equivalent abelian squares\" \"three\" circular word zeros",
+        "\"circular\" \"three zeros\" \"abelian squares\" 2026",
+        "Fraenkel Simpson Paterson circular abelian square three minority letters"
+      ]
+    },
+    "rationale": "The October 2026 source explicitly conjectures all odd-length prefix inequalities, proves only the two smallest prefix cases and treats the two-run circular class. Neither its distinct-factor lower bound nor the 1997 weaker bound logically entails a non-equivalent type inequality for this three-marker family. The 2026 sparse-letter theorem concerns linear factors. Exact three-gap intervals and the resulting new infinite family of prefix inequalities are not covered by inspected primary material or comparisons with the two-marker statement. Equivalence or overlooked arguments in unindexed literature remain a real priority risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible preprints may contain the equivalent three-gap formula or a dominating sparse-circle theorem.",
+      "Original 1997 seven-page full text and full 2026 linear-word text were not both read; their published claims and inspected summaries do not show coverage.",
+      "Published general interval methods could conceivably supply a shorter derivation; priority is not independently confirmed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated three-gap type formula or every prefix inequality on the three-zero subfamily. Contains explicit open general conjecture; proves \\(k\\le2\\) and two-run cases only.",
+        "evidence": "https://hexagonmath.org/2610.00473v2 ; source Section 5, especially Proposition on two runs and Conjecture on odd-length prefixes.",
+        "identifier_or_url": "https://hexagonmath.org/api/v1/works/2610.00473v2/source?path=SimpsonCircularAbelianSquares_v2-tex/main.tex",
+        "material_read": "Complete available 370-line main TeX file including definitions, theorems, proof sections and the full non-equivalent-types Section 5 (lines 220–285), plus its references and sparse-linear comparison.",
+        "method": "Original accessible source text read and compared by claim hypotheses, exact counting notion and implication strength.",
+        "title": "The minimum number of distinct abelian squares in a binary circular word, expanded v2",
+        "trigger": "Direct motivating 2026 conjecture about odd circular non-equivalent Abelian-square types and possible stronger coverage."
+      },
+      {
+        "assessment": "First public version dates to 2026-10-22. The new non-equivalent-type problem is discussed in v2, not established in v1.",
+        "evidence": "Official version page and v2 introduction note on the version additions.",
+        "identifier_or_url": "https://hexagonmath.org/2610.00473v1",
+        "material_read": "Official version page with October 22, 2026 version history, abstract and linked v2; the v2 source itself notes v1 stopped at the distinct-count theorem.",
+        "method": "Official archival version record and the v2 textual version history.",
+        "title": "The minimum number of distinct abelian squares in a binary circular word, v1",
+        "trigger": "Verify earliest public date independently of v2 date."
+      },
+      {
+        "assessment": "Defines non-equivalent Abelian squares and general extremal problems; no exact three-gap theorem found in inspected portion.",
+        "evidence": "https://www.researchgate.net/publication/323165085_Solved_and_unsolved_problems_about_abelian_squares",
+        "identifier_or_url": "https://arxiv.org/abs/1802.04481",
+        "material_read": "Substantial open full-text excerpt accessed through an author-uploaded 2018 survey copy; introductory definitions and circular non-equivalent results were read, not independently every page.",
+        "method": "Available author-supplied excerpt and referenced theorem statements.",
+        "title": "Solved and unsolved problems about abelian squares",
+        "trigger": "Foundational definitions, type equivalence and historical circular lower-bound conjectures."
+      },
+      {
+        "assessment": "The published extremal length bound gives only \\(N\\ge\\lfloor(n+1)/4\\rfloor\\); does not state a three-marker type classification in available material. Full-text omission is residual priority risk.",
+        "evidence": "https://weizmann.elsevierpure.com/en/publications/on-weak-circular-squares-in-binary-words-2/ and Bhattacharjee v2 Section 5.",
+        "identifier_or_url": "https://doi.org/10.1007/3-540-63220-4_51",
+        "material_read": "Primary bibliographic abstracts and the theorem description in the full accessible 2026 source; 1997 full text was not obtained or asserted to have been read.",
+        "method": "Research-institution bibliographic record and later primary-source theorem comparison.",
+        "title": "On weak circular squares in binary words",
+        "trigger": "The original theorem for exactly the same circular equivalence notion."
+      },
+      {
+        "assessment": "Concerns linear rather than circular factors and a minimum distinct-square bound. Not a direct covering theorem for circular non-equivalent type spectra; fuller inspection is a remaining risk.",
+        "evidence": "https://arxiv.org/abs/2604.23188 ; Bhattacharjee v2 Section 6.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.23188",
+        "material_read": "Primary abstract plus related synopsis in Bhattacharjee v2 Section 6; not the entire original paper.",
+        "method": "Original arXiv abstract and later primary-paper comparison of hypotheses.",
+        "title": "Binary Words Containing Few Abelian Squares",
+        "trigger": "Could potentially cover the sparse-three-letter regime."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dff15673-ad39-453a-bb82-9f0a8117ea10",
+  "value": {
+    "rationale": "The work establishes every prefix inequality in a fresh explicit open problem for an infinite and naturally parameterized three-minority-letter family, not just for short words. An exact O(1) cardinality formula and complete type spectrum from cyclic gaps explain how compensating extra small-length types prevent prefix deficits. This result is a structural tool for exploring higher minority-letter counts and has significance independently of a general unrestricted proof.",
+    "status": "PASS"
+  }
+}
