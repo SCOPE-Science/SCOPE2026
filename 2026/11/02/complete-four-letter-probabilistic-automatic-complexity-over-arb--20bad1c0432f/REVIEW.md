@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For every finite alphabet \(\Sigma\) with \(|\Sigma|\ge2\) and each four-letter word, all fifteen possible equality patterns are exhausted by the fourteen positive cases and the single negative pattern `0100`. Thirteen positive cases have explicit stochastic two-state certificates and rigorously positive gaps, verified by exact rational and independent denominator-cleared integer arithmetic. The constant case has an elementary absorbing-reject-state witness. Convex averaging supplies matrices for any unused alphabet letters while preserving a strict maximum. Restricting an alleged `0100` witness to its two active letters contradicts Gill's binary classification, and Kjos-Hanssen gives the three-state upper bound. There is no inductive inference from finite experiments.
+PASS
 
-## Originality
+For q>=2 unique strict length-four maximum under two-state row-stochastic probabilistic automata exists for each of 13 nonconstant nonexceptional restricted-growth patterns. Independently evaluated all exact rational two-state certificates in CERTIFICATES.json using BigInt denominator-cleared recurrence and all s^4 active-letter competitors for each s<=4; all 13 claimed exact gaps matched, including 0123 margin 35/4096. Constant word has a trivial two-state accepting witness, and one state cannot distinguish words. Gill's binary lower bound for 0100=abaa survives restriction to the two used letters; Kjos-Hanssen's general three-state bound supplies the upper bound. For unused letters take an average of active matrices: any word containing one expands as a strictly suboptimal convex combination, since every active replacement differs from the original target at that position. Exactly q(q-1) exceptional words follow.
 
-PASS, subject to stated priority limitations. Gill's 2024 theorem classifies binary words, not patterns with three or four distinct letters. Kjos-Hanssen's 2026 theorem provides three states for all words but does not give a two-state classification for multiletter words. The seven three-/four-distinct-letter length-four patterns, including `0123`, are not consequences of either result. Checked semantic research-record queries, direct web literature searches, and accessible earlier local claims found no exact alphabet-independent length-four classification. The binary cases are explicitly credited to Gill, not presented as new. Unindexed alternate presentations remain a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. This solves the first length where a binary word demonstrably needs three probabilistic states, while allowing any alphabet cardinality. The unexpectedly simple answer (only the `0100` equality pattern is exceptional) gives the exact \(q(q-1)\) count and demonstrates that two stochastic states suffice even for four pairwise distinct symbols. It fills a concrete classification gap left by the binary-only two-state theorem and all-alphabet three-state bound. This is a complete natural small-length classification, not an arbitrary parameter slice or a restatement of numerical data.
+Gill already classifies binary length-four A_P, including the exceptional 0100 pattern, and gives a mixture extension of binary witnesses to larger alphabets; those binary cases are explicitly credited. For genuinely three- and four-symbol equality patterns, no two-state witnesses are supplied by the inspected binary theorem. Kjos-Hanssen proves the universal three-state upper bound, not this exact arbitrary-alphabet four-letter two-state classification. New explicit rational witnesses and count are not directly implied by those published statements.
 
-## Scope and priority limits
+## value
 
-The finding does not classify longer words, optimize probability margins, or certify that no unindexed earlier source implies the statement. The 2026 primary source was materially inspected for its general definition, principal theorem and construction; its full final sections could not be retrieved in this run. The available abstract and introduction explicitly describe a complete *binary*, not nonbinary, determination. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete length-four classification is the first short-word threshold beyond the known binary-only cases for a natural probabilistic automaton complexity. The nonbinary 0123 witness and convex closure show precisely which equality patterns need a third state, rather than just exhibiting isolated examples; q(q-1) provides the exact alphabet-size dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
