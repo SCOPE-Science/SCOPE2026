@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact cross-bifix-free binary length-10 code of size 17 forces all encoded proper overlaps to be multiples of ten and preserves every overlap and greedy merge. Independently reconstructed 252 distinct length-eight source windows and the 17 codewords, checked each of 251 prescribed merges against the maximum over all live ordered pairs, all 63,252 ordered distinct source/binary input overlaps, the Eulerian 259-symbol optimal superstring, and output 519. Distinct length-80 inputs with max proper overlap 70 have starting positions at least ten apart in any superstring, proving OPT >=80+251*10=2590 and attainable. Greedy length=5190 so ratio 519/259>2. The finite certificate is exhaustive for this explicit instance; it is not a universal greedy approximation theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shibata arXiv:2609.01365 disproves ratio 2 for growing alphabets; Vassilevska 2005 general substitution has length 2(q+1)=36 at q=17, so source 8 becomes width 288."
+        ],
+        "reasoning": "The stronger qualitative factor-two failure and arbitrary-alphabet-to-binary reduction do not dominate a quantitative 80-bit equal-length witness; the precise specialized bound is the remaining claim.",
+        "searches": [
+          "Shibata 2026 greedy superstring conjecture binary alphabet reduction",
+          "Vassilevska 2005 shortest superstring explicit inapproximability binary alphabet"
+        ]
+      },
+      "checked_sources": [
+        "2026 source length-eight paper Theorem 21",
+        "Vassilevska 2005 binary reduction PDF, code construction",
+        "Shibata arXiv:2609.01365",
+        "Resultary semantic query on binary 80-bit shortest superstrings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution width 36 gives 288-bit instantiation; new explicit cross-bifix-free width 10 yields binary 80."
+        ],
+        "reasoning": "The new short code plus actual merged-word overlap preservation is required to deduce the quantitative claim; its numerical ratio is inherited from the earlier source witness, not newly established independently.",
+        "searches": [
+          "Vassilevska 2005 exact binary encoding and Shibata 2026 greedy worst-case",
+          "The greedy superstring ratio at small string lengths Theorem 21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source proof defines strong no proper suffix-prefix overlaps for all 17 length-10 codewords; Vassilevska 2005 binary code length 2(m+1) for m symbols."
+        ],
+        "reasoning": "Compared equivalent prefix-synchronizing and cross-bifix-free alphabet code formulations, and tracked implication to overlap preservation of merged words; generic binary reducibility does not imply this 80-bit bound.",
+        "searches": [
+          "Resultary:binary shortest common superstring greedy factor-two counterexample 80 bits cross-bifix-free code length 10 Vassilevska Shibata",
+          "cross-bifix-free non-overlapping binary code 17 words length 10 shortest superstring binary encoding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 small-length paper Theorem 21 gives source 8-symbol alphabet-word ratio 519/259, but not a table of 80-bit binary worst-case examples."
+        ],
+        "reasoning": "Checked precise finite ratio and source census: matching 519/259 is intentionally prior and does not cover the new bit-length certificate; no known exact binary input-length table was identified.",
+        "searches": [
+          "Resultary:binary shortest common superstring greedy factor-two counterexample 80 bits cross-bifix-free code length 10 Vassilevska Shibata",
+          "greedy superstring ratio at small string lengths rho8 rho9 rho11 252 519 259"
+        ]
+      },
+      "rationale": "The factor-two disproof, 252-word length-eight 17-symbol witness and binary alphabet-reduction principle are prior art, not new claims. Direct scientific contribution is the 10-bit cross-bifix-free 17-symbol code and resulting certified binary length-80 failure. Best-of-knowledge not found covered by the inspected 2026 length-eight source and Vassilevska general 2005 reduction, whose code has width 36 for 17 letters, yielding binary length 288. Exact short-code priority could overlap unpublished or unindexed constructions.",
+      "residual_risks": [
+        "An earlier 17-word length-10 cross-bifix-free code or compiled binary superstring counterexample may independently contain the same 80-bit bound.",
+        "The result concerns worst legal tie-breaking for a single binary set, not an optimal minimal-bit threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS source witness and ratio; not the binary length-80 code",
+          "evidence": [
+            "Theorem 21, 252 words, source length 8, greedy 519, optimum 259"
+          ],
+          "identifier_or_url": "https://ideosphere.ai/papers/greedy-scs-v2.pdf",
+          "material_read": "Accessible full web material covering source construction, Theorem 21 and relevant 8-letter-window comparison",
+          "method": "Read substantive paper passages in accessible web view; inspected the assigned RESULT.md original source attribution",
+          "title": "The greedy superstring ratio at small string lengths",
+          "trigger": "Same original 17-symbol length-8 obstruction and exact 519/259 ratio"
+        },
+        {
+          "assessment": "Qualitative binary overlap reduction known; displayed word length 2(m+1) yields 36 bits per symbol for m=17",
+          "evidence": [
+            "2005 binary replacement code 0^i(01)^(m+1-i)1^i; not length-10 code"
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/afs/cs/Web/People/virgi/MFCS05.pdf",
+          "material_read": "Read primary PDF text and visually inspected PDF page 5 (zero-index page 4), including substitution construction",
+          "method": "Full PDF relevant section and screenshot comparison",
+          "title": "Explicit Inapproximability Bounds for the Shortest Superstring Problem",
+          "trigger": "Prior binary alphabet reduction could dominate present quantitative bound"
+        },
+        {
+          "assessment": "Qualitative disproof acknowledged, not a covering 80-bit quantitative result",
+          "evidence": [
+            "Shibata (2026) disproves factor-two with growing-alphabet instances"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.01365",
+          "material_read": "Accessible abstract/bibliographic statements and source attribution; not full material",
+          "method": "Web abstract plus assigned primary source comparison",
+          "title": "Disproving the Greedy Superstring Conjecture",
+          "trigger": "Original factor-two conjecture disproof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common-length binary shortest-superstring greedy ratio is a natural quantitative benchmark. The full 252-string exact instance cuts binary length from 288 under the cited general 17-letter alphabet reduction to 80, with exact OPT and a reproducible legal adversarial greedy trace. It neither proves that length 80 is minimal nor that all tie-breakings fail. This small but material 3.6-fold reduction in binary benchmark size is useful in algorithm testing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier 17-word length-10 cross-bifix-free code or compiled binary superstring counterexample may independently contain the same 80-bit bound.",
+    "The result concerns worst legal tie-breaking for a single binary set, not an optimal minimal-bit threshold."
+  ],
+  "schema_version": 1
+}

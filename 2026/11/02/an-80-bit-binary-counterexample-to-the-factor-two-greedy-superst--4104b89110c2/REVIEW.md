@@ -1,19 +1,21 @@
-# Review of the binary length-eighty greedy-superstring witness
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The mathematical result is a finite existence statement, not a general all-length conjecture. Seventeen binary codewords have a verifiable common leading marker and no later recurrence, giving exact overlap scaling under substitution. The independently replayed verifier generates all 252 eight-symbol source inputs, checks 251 chosen greedy merges against the true maximum over all ordered live pairs, constructs the Eulerian common superstring, verifies all 63,252 ordered binary input-overlap comparisons, and establishes the optimal binary length by a universal start-spacing lower bound. Thus both 5,190 greedy bits and 2,590 optimal bits are supported by explicit reasoning and exact finite checks. A program execution is not offered as a proof for untested inputs.
+PASS
 
-## Originality (O): PASS, with residual risk
+Exact cross-bifix-free binary length-10 code of size 17 forces all encoded proper overlaps to be multiples of ten and preserves every overlap and greedy merge. Independently reconstructed 252 distinct length-eight source windows and the 17 codewords, checked each of 251 prescribed merges against the maximum over all live ordered pairs, all 63,252 ordered distinct source/binary input overlaps, the Eulerian 259-symbol optimal superstring, and output 519. Distinct length-80 inputs with max proper overlap 70 have starting positions at least ten apart in any superstring, proving OPT >=80+251*10=2590 and attainable. Greedy length=5190 so ratio 519/259>2. The finite certificate is exhaustive for this explicit instance; it is not a universal greedy approximation theorem.
 
-The length-eight large-alphabet source witness, factor-two disproof and binary alphabet-reduction possibility are all prior work. The particular 80-bit bound, length-ten 17-letter synchronized code and complete binary greedy/optimum certificate were not found in the inspected primary literature or the searched accessible indexed claims. Vassilevska's exhibited general reduction yields 288-bit strings for this 17-letter source, so its quantitative conclusion does not imply the 80-bit parameter. The length-ten code is elementary and alternative unpublished short encodings could have been found already; priority is not independently certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-Whether a ubiquitous string-assembly heuristic crosses factor two on binary equal-length inputs is a natural specialized benchmark. A concrete 80-bit witness is substantially smaller than applying the cited general-purpose binary substitution to the currently known 17-letter length-eight obstruction (288-bit inputs). A fully constructive instance with exact optimum, every legal merge checked and no solver dependency makes the failure reproducible and useful for testing implementations. No claim is made that this establishes the sharp smallest length.
+The factor-two disproof, 252-word length-eight 17-symbol witness and binary alphabet-reduction principle are prior art, not new claims. Direct scientific contribution is the 10-bit cross-bifix-free 17-symbol code and resulting certified binary length-80 failure. Best-of-knowledge not found covered by the inspected 2026 length-eight source and Vassilevska general 2005 reduction, whose code has width 36 for 17 letters, yielding binary length 288. Exact short-code priority could overlap unpublished or unindexed constructions.
 
-## Closest literature and scientific limits
+## value
 
-Shibata, arXiv:2609.01365, supplies the original general-alphabet refutation. *The greedy superstring ratio at small string lengths* (2026), Theorem 21, supplies the exact 252-word length-eight source case and 519/259 ratio. Vassilevska (2005), binary-alphabet slides, supplies the prior alphabet-preserving overlap idea. These results motivate the question but none states the specific length-eighty binary certificate. This result depends on a worst-case legal tie-breaking and does not settle the minimum failure length over the binary alphabet.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The common-length binary shortest-superstring greedy ratio is a natural quantitative benchmark. The full 252-string exact instance cuts binary length from 288 under the cited general 17-letter alphabet reduction to 80, with exact OPT and a reproducible legal adversarial greedy trace. It neither proves that length 80 is minimal nor that all tie-breakings fail. This small but material 3.6-fold reduction in binary benchmark size is useful in algorithm testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

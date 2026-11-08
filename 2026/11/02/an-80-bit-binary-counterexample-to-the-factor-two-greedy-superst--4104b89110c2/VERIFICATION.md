@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python3 verify_binary80.py` without external dependencies. The companion `verify_binary80.out` records a successful full run. The code constructs all 252 source inputs, tests distinctness, replays all 251 greedy merges while independently calculating the global live maximum and checking noncontainment after each merge, and independently constructs a 259-character common superstring by an Euler tour. Its cross-bifix-free code test covers all 17-squared codeword pairs and all nine proper overlap lengths. It then checks all 63,252 ordered pairs of distinct binary inputs, each selected encoded merge, all 252 contained binary inputs, both exact output lengths, and the ratio. A direct spacing argument in RESULT.md proves the 2,590 lower bound for every common superstring; the finite checker confirms all premises of that argument.
+## correctness
 
-Independent mathematical review and exhaustive historical priority verification have not been performed. SHA-256 values are reproducibility checks only.
+PASS
+
+Exact cross-bifix-free binary length-10 code of size 17 forces all encoded proper overlaps to be multiples of ten and preserves every overlap and greedy merge. Independently reconstructed 252 distinct length-eight source windows and the 17 codewords, checked each of 251 prescribed merges against the maximum over all live ordered pairs, all 63,252 ordered distinct source/binary input overlaps, the Eulerian 259-symbol optimal superstring, and output 519. Distinct length-80 inputs with max proper overlap 70 have starting positions at least ten apart in any superstring, proving OPT >=80+251*10=2590 and attainable. Greedy length=5190 so ratio 519/259>2. The finite certificate is exhaustive for this explicit instance; it is not a universal greedy approximation theorem.
+
+## originality
+
+PASS
+
+The factor-two disproof, 252-word length-eight 17-symbol witness and binary alphabet-reduction principle are prior art, not new claims. Direct scientific contribution is the 10-bit cross-bifix-free 17-symbol code and resulting certified binary length-80 failure. Best-of-knowledge not found covered by the inspected 2026 length-eight source and Vassilevska general 2005 reduction, whose code has width 36 for 17 letters, yielding binary length 288. Exact short-code priority could overlap unpublished or unindexed constructions.
+
+## value
+
+PASS
+
+The common-length binary shortest-superstring greedy ratio is a natural quantitative benchmark. The full 252-string exact instance cuts binary length from 288 under the cited general 17-letter alphabet reduction to 80, with exact OPT and a reproducible legal adversarial greedy trace. It neither proves that length 80 is minimal nor that all tie-breakings fail. This small but material 3.6-fold reduction in binary benchmark size is useful in algorithm testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
