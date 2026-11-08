@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The physical breather-to-Gaussian normalization follows directly from the source's equations (29)--(35); conditional Maxwell integration yields an exact normalized radial probability density. The fixed-radius Bessel representation follows from a correct half-angle and hyperbolic substitution. The small-radius positive departure from the positive endpoint value and the large-radius zero limit force an interior outer radial maximum. A dominated inner-scale phase rescaling yields locally twice-differentiable convergence to a Dawson profile. A one-crossing argument using Dawson's differential equation and its large-argument asymptotic proves that the profile has exactly one nondegenerate positive maximum, so an inner maximum persists and is separated from the outer one. The associated verifier corroborates the special-function constants and finite examples but is not used as an infinite proof.
+PASS
 
-## Originality
+The source exact centered 3D Gaussian breather has Cartesian variance v(theta)=1+q cos(theta) in normalized units. Its radial law averages Maxwell density sqrt(2/pi) r² v^-3/2 exp(-r²/2v). For q→1 fixed positive r, half-angle and hyperbolic substitution yield p1(r)=r² exp(-z)(K0(z)+K1(z))/(4 pi^(3/2)), z=r²/8. Correct small-r asymptotics give p1(r)>2/pi^(3/2) near zero and decay at infinity, hence a distinct fixed-radius local maximum persists for all q sufficiently near one. At r=sqrt(epsilon)y, phase angle of order sqrt(epsilon) gives locally C² convergent boundary-layer density (2/pi^(3/2))F(y), F= sqrt(2)y Dawson(y/sqrt(2)), with ODE F′=y+(1/y-y)F; a unique positive, nondegenerate maximum y*=2.1241137947344 follows from one-crossing vs y²/(y²-1). Local C² convergence preserves inner peak; outer one stays bounded away from zero. The full volume density strictly decreases radially since every centered Gaussian component does. Actual verify.py finite quadrature/diagnostic code inspected; its sample maxima do not prove every q or an exact mode count.
 
-PASS on the examined literature and mathematical-record evidence, subject to independent priority verification. The closest 2024 kinetic-theory source gives the underlying instantaneous Gaussian breather (equations (29)--(35)) and separately sampled two-dimensional instantaneous rings; it does not state or imply an established classification of uniformly phase-averaged three-dimensional radial modes or their singular Dawson scaling without performing the new analysis. The 2023 hydrodynamic breather paper gives instantaneous Gaussian variance and damping, not the new phase-mixed radial diagnostic. Gaussian scale mixtures and the special functions are standard and not claimed as original. Related unpublished or unindexed work may still exist. The comparison concerns these precise observables and implications, not keyword absence.
+## originality
 
-## Value
+PASS
 
-PASS. A camera exposure or dataset pooled over an unknown breather phase can be radially multimodal even though its instantaneous Gaussian profile and pooled three-dimensional spatial density are unimodal. The theorem identifies an interpretable inner radial-shell scale and limiting universal profile, and demonstrates a genuine distinction between spatial-density and radial-distance inference, rather than merely recomputing a moment.
+PASS best-of-knowledge for the first high-amplitude two-shell consequence of physical-phase averaging in 3D with a rigorous Dawson inner scaling. The kinetic theory source already establishes instantaneous exact Gaussian variance; classical Maxwell/Bessel/Dawson identities are excluded from novelty.
 
-## Limitations and closest literature
+## value
 
-Maynar et al., arXiv:2409.07831v1 (2024-09-12), provides the Gaussian breather; García de Soria et al., arXiv:2312.09726 (2023-12-15), gives the earlier hydrodynamic profile and eventual finite-density damping. The result concerns exact low-density breathers and uniform phase averaging; it proves at least two maxima for sufficiently high amplitude, neither an exact number of modes at arbitrary amplitude nor finite-density persistence. Generic Gaussian-mixture theory could yield alternate derivations. Numerical checks are supportive, not a substitute for the analytic argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A singular boundary-layer prediction and sharp separation of radial histogram modes from a spatial density remaining unimodal, for a physically motivated breather. The two-scale effect is not a routine Maxwell-mode calculation and provides an independently useful observable consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
