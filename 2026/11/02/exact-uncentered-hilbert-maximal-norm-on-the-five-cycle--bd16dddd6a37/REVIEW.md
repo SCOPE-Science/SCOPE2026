@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly five unit-edge cycle vertices, graph-distance balls containing each evaluation point, and counting-measure \(\ell^2\). Each vertex has exactly five distinct eligible averaging sets. Linearization reduces the nonlinear norm to the largest spectral radius among all \(3125\) legal selected-row matrices. The attached exact-integer checker exhaustively verifies that \(3120\) selection matrices have squared norm strictly below \(5/3\). The five remaining rotations have an exactly verified Gram characteristic polynomial with one simple Perron eigenvalue above that threshold. Exact rational interval inequalities show their Perron vector activates its prescribed rows; this proves sharpness and exhaustive equality classification. The finite numerical experiment is not used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+At each vertex of C5 exactly five balls contain it: its singleton, three radius-one centered neighbor/self/neighbor balls, and all vertices. Independent selection of one averaging row per output vertex linearizes ||M f||² as the maximum of ||Aσ f||² over 5^5=3125 nonnegative matrices; a Perron nonnegative top singular vector justifies exchanging maxima. With B=15A, the condition ||A||²<5/3 is exactly positive definiteness of integer 375I−B^TB. I independently implemented Bareiss fraction-free determinant and verified five leading Sylvester minors for each matrix: 3120 strict and precisely five exceptional rotations. For the representative, sympy exactly verified characteristic polynomial u(u−2)(u³−19u²+62u−36) for H=(3A)^T(3A). Its Perron root λ>5/3 is the unique root of 81λ³−171λ²+62λ−4 in (1.670,1.671), with positive eigenvector (a,1,a,c,c), a=(27λ−2)/D and c=(9λ−2)/D. Independent numerical strict checks for all twenty competing averaging rows confirm this matrix is active; packaged interval inequalities provide rational certification of activity. Simplicity and the strict gap exclude all other equality rays, while independent signs on input are irrelevant. This is a genuinely exhaustive *finite* proof of C5, not a claim for other graphs.
 
-The original Soria–Tradacete finite-graph article (arXiv:1410.6204) focuses on centered norms, small exponents and weak estimates, not this uncentered pentagonal strong norm. González-Riquelme–Madrid (arXiv:2005.03146) defines uncentered averaging but computes strong two-norms only in different centered graph families. González-Riquelme–Kovač–Madrid (arXiv:2603.12462) has a finite five-vertex result for centered variation, which neither implies nor tabulates the present strong \(\ell^2\) constant. Previous accessible calculations on a **centered** five-cycle, an **uncentered** four-vertex path, and several unrelated graphs do not dominate the new claim. Targeted research-record and literature searches did not identify an equivalent formula; an unindexed calculation is the residual risk. Searches alone are not claimed to prove absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The five-cycle is the first noncomplete odd cycle, making it a natural minimal model for how unrestricted ball centers change nonlinear averaging constants. The exact cubic strong norm and complete five-ray extremizer classification show a geometrically rigid concentration shape rather than a mere numerical upper bound. This provides a reusable exact benchmark for centered-versus-uncentered comparison on a canonical graph. The result is narrow but identifies a motivated unknown invariant and full equality structure, not a substitution into the existing centered formulas.
+The original Soria–Tradacete graph maximal-operator paper defines the *centered* operator and emphasizes p≤1, star and complete graphs. González-Riquelme–Madrid 2020 introduce uncentered notation but their sharp ℓ² theorems concern centered star/complete graph families; their variation theorems are not this norm. A recent five-vertex census treats centered edge variation, not this uncentered C5 strong ℓ² constant. Hence the full cubic constant and all extremizing rays are not dominated by inspected publications. Earlier unindexed finite graph norm computations remain a priority risk.
 
-## Scientific limitations
+## value
 
-The proof is finite and specific to \(C_5\), graph balls and real \(\ell^2\). It does not establish a family theorem, a longer-cycle formula, or stronger norm comparisons. Independent scientific verification and absolute publication priority remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The five-cycle is a canonical smallest noncomplete odd cycle and a natural test case for unrestricted ball centers. Determining an exact algebraic strong ℓ² constant and the *complete* equality rays is mathematically meaningful: it exposes the rigid optimal concentration pattern and distinguishes uncentered and centered graph maximal operators. A complete five-vertex exhaustive certificate qualifies as an exact natural invariant, not an arbitrary or failed infinite conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
