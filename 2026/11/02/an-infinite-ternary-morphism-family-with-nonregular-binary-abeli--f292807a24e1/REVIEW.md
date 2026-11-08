@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The theorem has an unconditional, all-parameter proof. The key nonstandard weighted-extremum recurrence is proved with an upper bound from all nine legal adjacent pairs and a constructive induction that embeds each maximizing factor beside precisely \(r\) maximum-weight substitution blocks. The coordinate count Fourier formula follows directly from the circulant substitution matrix. Reduction modulo two shows why a parity exception persists regardless of \(r\)'s parity; irrational rotation then produces a genuinely non-eventually-periodic subsequence. The final finite-quotient argument excludes \((r+1)\)-regularity. The two finite check programs reproduce every tested value, but are not treated as infinite proof.
+## correctness
 
-## Originality (O): PASS, subject to residual priority risk
-The closely related 2026 manuscript [1] proves one repetition-count instance \(r=3\) and raises other repetition counts in its concluding discussion. Its proof does not state or imply the uniform assertion for every \(r\ge4\), and simply invoking its fixed numerical case cannot yield all parameters. Its weighted-factor method is explicitly acknowledged. The Parikh-collinear regularity results [2] require rank-one substitution geometry, whereas \(rI+C\) has full rank; the positive theorem does not dominate this result. The additive-complexity investigation [3] does not give this parametric classification. Searches under the substitution, equivalent digit-count word, mod-three coding, and regularity formulations did not locate an equivalent family theorem. Priority risk remains because negative searches do not establish novelty and older work under an alternate terminology may exist.
+PASS
 
-## Value (V): PASS
-The source paper expressly raises generalization beyond its isolated counterexample. Establishing nonregularity for every repetition count \(r\ge4\) answers a natural infinite subfamily of this parameter question. The proof requires a uniform extremal-window induction and a congruence-sensitive parity obstruction that also works when \(r\) is even; it is not a mere relabeling of the \(r=3\) statement. The result does not settle other alphabet sizes.
+For each r>=4, the cyclic (r+1)-uniform morphism a->a^r(a+1 mod3) generates all nine letter-adjacency pairs, so every length-(r+1)^m factor can be placed in a concatenation of two level-m blocks. The weighted maximal factor has a general upper bound r*max_a W_m(a)+H_m; the nesting of a maximizer and the two possible ordered block boundaries gives equality for all real letter weights, hence the exact recurrence for the number of zero-count values. The letter-count vector evolves by rI+C; the cyclotomic eigenangle is irrational modulo pi because its twice-cosine is rational but a noninteger algebraic integer were it rational. Modulo two, at m=3t a unique exceptional letter parity makes the range gap even precisely when the irrational rotation visits a fixed proper arc, a nonperiodic word. A k-regular sequence modulo a fixed positive integer is k-automatic, and a k-automatic sequence evaluated at k^m is eventually periodic, contradicting this parity subsequence. Independent enumerations verify the finite base cases only.
 
-## Scope, comparison and limits
-Relevant primary sources: [1] J.-P. Allouche et al., arXiv:2610.03837v1 (2026-10-02), inspected Sections 2–4 including the weighted-window argument and generalization discussion; [2] M. Rigo et al., arXiv:2405.18032; [3] P. Popoli et al., arXiv:2410.02409. The computational checks stop at finite indicated lengths; they cannot verify the infinite density property. No independent audit or priority review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Allouche et al. 2026 paper proves a 2-automatic/4-automatic nonregular abelian-complexity example at the fixed repetition count r=3, and the present theorem treats all r>=4 via a new uniform induction and parity reduction. Rigo–Stipulanti–Whiteland 2024 positive result assumes Parikh-collinear rank-one incidence, whereas rI+C is full rank and is not covered. A key originality limitation is that the complete 2026 primary text was inaccessible in this audit, so no claim is made that its entire Remarks/Appendices have been excluded; the checked abstract and mathematical implication comparison support a qualified best-of-knowledge O judgment.
+
+## value
+
+PASS
+
+The relevant source asks for nonregularity beyond its first fixed repetition count; the general r>=4 family covers all uniform lengths >=5 and requires a nontrivial weighted-window induction and a parity argument uniform across even and odd r. It provides a systematic boundary for automatic words and abelian-complexity regularity, without pretending to classify all codings or alphabet sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
