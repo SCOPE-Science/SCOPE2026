@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:57:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md source Git blob c897b4ad666a59aa8c917650baa7bb785b6cb964",
+        "Assigned verification code inspected",
+        "Independent bounded mathematical checks"
+      ],
+      "rationale": "The induced return-time model gives the positive pressure root sum_{k>=0}exp(-beta A_k-P(k+1))=1, including the zero-marker fixed measure (pressure 0). With b=exp(-beta c zeta(p)), split the excess over the geometric tail into k=0, k=1, k>=2 and a long tail k>=beta^a with a>1/(p-1). For 1<p<2 the long-tail Mellin sum is c Gamma(2-p)/(p-1)*beta*b^(p-1); the k=1 term is exp(-beta*c*(1+2^-p)). The remaining k>=2, denominator expansion O(R^2+b), and cut-off middle terms are lower order than the smaller competing exponent. For p>=2 the tail is lower order than k=1. Gamma stochastic ordering proves (p-1)zeta(p) strictly increases and meets 1+2^-p once. At equality the beta prefactor determines the winner. Verified numerical critical root p*=1.553201524280211. No uniformity for varying c or p claimed.",
+      "residual_risks": [
+        "No external formal certification; finite checks do not replace general argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang–Li–Sun analyze Dini-potential regularity and low-temperature structural questions; Leplaideur–Mengue give general Lipschitz pressure rates; Cioletti–Lopes study Hofbauer phase transitions."
+        ],
+        "reasoning": "None of the inspected broader theorems evaluates the specific next pressure correction for these non-Lipschitz power-tail run penalties. Broad thermodynamic pressure results do not imply a sharp second coefficient.",
+        "searches": [
+          "arXiv:2610.31327v1 Dini potential pressure freezing",
+          "arXiv:2404.02182 Lipschitz potential exponential pressure-rate",
+          "arXiv:1408.5342 Hofbauer renewal"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md and verification/check_pressure.py at assigned Git tree",
+        "arXiv:1408.5342",
+        "arXiv:2610.31327",
+        "arXiv:2404.02182",
+        "Resultary semantic query: renewal potential Dini power tail low temperature pressure second correction zeta Hofbauer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact pressure root is antecedent; the second relative term requires a competition between exp(-beta A1) and beta exp(-beta (p-1)S).",
+          "Inspected background results give no equality-case beta enhancement or unique transition p*."
+        ],
+        "reasoning": "No inspected prior implication yields the second correction; the known root equation is only the starting identity.",
+        "searches": [
+          "arXiv:1408.5342 pressure equation and Hofbauer phases",
+          "arXiv:2610.31327 Dini pressure",
+          "regularly varying renewal-pressure asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hofbauer renewal identities give leading exact pressure-root machinery; the claimed p-dependent second activation exponent is a further asymptotic evaluation.",
+          "Published Sturmian beta-shift inverse-temperature pressure describes a distinct shift and pressure regime."
+        ],
+        "reasoning": "The renewal equation is classical background, not itself novel; a geometric-return model cannot be substituted for a regularly varying tail whose Mellin sum changes the correction exponent.",
+        "searches": [
+          "renewal potential Dini power tail low temperature pressure second correction zeta Hofbauer [Resultary]",
+          "arXiv:1408.5342 full-text renewal sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published comparison results found concern Sturmian beta-shift or geometrically decaying excursions, not a table of this p*, Gamma coefficient and tie rule."
+        ],
+        "reasoning": "No matched precomputed table was found; this is a bounded coverage check, not an assertion of exhaustive novelty.",
+        "searches": [
+          "renewal potential Dini power tail low temperature pressure second correction zeta Hofbauer [Resultary]",
+          "two-scale low temperature pressure power tail k^(-p) zeta crossover"
+        ]
+      },
+      "rationale": "Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. No inspected prior implication yields the second correction; the known root equation is only the starting identity.",
+      "residual_risks": [
+        "Possible uncatalogued general renewal Tauberian asymptotics already imply the result.",
+        "The finite pressure bracketing test is not formal interval certification; the proof is analytic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides renewal/phase-transition background, not this low-temperature second-correction crossover",
+          "evidence": [
+            "Renewal and Hofbauer phase-transition formulas do not feature the claimed p*-dependent next term."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.5342",
+          "material_read": "Accessible full-text introduction and renewal/phase-transition passages",
+          "method": "Read source full-text mathematical sections and compare formulas",
+          "title": "Phase Transitions in One-dimensional Translation Invariant Systems: a Ruelle Operator Approach",
+          "trigger": "Renewal/Hofbauer potential and pressure root"
+        },
+        {
+          "assessment": "Related low-temperature Dini theory; no statement-level dominance established",
+          "evidence": [
+            "Paper examines generic Dini optimization/freezing, while claim is a quantified fixed renewal pressure asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31327",
+          "material_read": "Accessible abstract and main theorem descriptions; full 57 pages not read",
+          "method": "Abstract and targeted theorem checks",
+          "title": "Typical periodic optimization and freezing phase transition: Dini potentials and beyond",
+          "trigger": "Same Dini regularity and low temperature"
+        },
+        {
+          "assessment": "Lipschitz finite-Aubry type rates do not imply this non-Lipschitz tail second coefficient",
+          "evidence": [
+            "Hypotheses differ and statements give rates rather than next term."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02182",
+          "material_read": "Accessible theorem and introduction, not entire full text",
+          "method": "Targeted primary-source inspection",
+          "title": "On the selection of subaction and measure for perturbed potentials",
+          "trigger": "Pressure-rate bound potentially dominating special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual RESULT.md and verification/check_pressure.py at assigned Git tree",
+        "arXiv:1408.5342",
+        "arXiv:2610.31327"
+      ],
+      "rationale": "The exact second correction and the phase crossover distinguish finite short excursions from the accumulated effects of polynomially many distant return lengths, a natural feature of renewal thermodynamics not determined by the leading Arrhenius pressure scale.",
+      "residual_risks": [
+        "Possible uncatalogued general renewal Tauberian asymptotics already imply the result.",
+        "The finite pressure bracketing test is not formal interval certification; the proof is analytic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible uncatalogued general renewal Tauberian asymptotics already imply the result.",
+    "The finite pressure bracketing test is not formal interval certification; the proof is analytic."
+  ],
+  "schema_version": 1
+}
