@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T15:02:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the homogeneous continuous-time absorbing SIS chain on path P3 with per-vertex recovery 1 and per-edge infection lambda>0, all seven transient states communicate, giving unique positive left-Perron quasi-stationary vector. Endpoint symmetry reduces to five probabilities a,b,c,d,e satisfying 5x5 balance matrix M. Its determinant, adjugate cofactors and two resultants establish a>b>c before lambda=3/4, c>b>a afterward; at 3/4 five labelled configurations tie at 1/6 while d=1/24,e=1/8, and extinction rate is 1/2. A third eliminant F(lambda)=18lambda^5-140lambda^4+77lambda^3+92lambda^2-50lambda+4, Sturm variation counts and Perron range bounds show the only admissible pair/full crossing lambda*=1.0092470826...; d<c globally. Independently evaluated full seven-state QSD at rates on both sides and inspected source exact SymPy verification.py. The theorem concerns asymptotic conditional modes, not finite-time epidemic modes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Economou et al. develop general finite-network QSD algorithms, not the evaluated path P3 symbolic phase diagram.",
+          "Overton et al. approximate aggregate quasi-stationary behavior and prevalence, not exact modes."
+        ],
+        "reasoning": "A general matrix recipe does not imply the exact pairwise comparison inequalities and algebraic 5-way tie without specializing/solving the full Perron system; no stronger theorem covering these precise shifts found.",
+        "searches": [
+          "Economou et al heterogeneous contacts 2015 QSD section 2.3",
+          "Overton et al 2022 approximating network based SIS QSD",
+          "Peterson contact process complete graph random infection rates 2010"
+        ]
+      },
+      "checked_sources": [
+        "A stochastic SIS epidemic model with heterogeneous contacts: https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf",
+        "Approximating quasi-stationary behaviour in network-based SIS dynamics: https://researchonline.ljmu.ac.uk/id/eprint/17176/1/ApproximatingQSDNetworkSIS_finalrevision.pdf",
+        "Resultary semantic query: three vertex path SIS contact process quasi stationary distribution modes phase transitions infection rate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general eigenvector method is prior; exact determinant/cofactor resultants, root exclusions, and comparison of five individual labelled modes are the claimed addition."
+        ],
+        "reasoning": "Earlier QSD recipes permit numerical evaluation but do not logically state the exact all-lambda modal inequalities or five-way tie as immediate corollaries.",
+        "searches": [
+          "Economou et al 2015 primary QSD eigenvectors",
+          "Overton et al 2021/22 QSD approximations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The long-time conditional distribution is the normalized positive left eigenvector of the killed 7-state SIS generator, distinct from stationary law of an immigration model or cardinality-class prevalence.",
+          "Economou et al. supply this general QSD eigenvector construction."
+        ],
+        "reasoning": "Equivalent left-eigenvector and killed-generator descriptions are acknowledged as prior; the claim concerns exact individual labelled-state mode crossings, not QSD existence.",
+        "searches": [
+          "three vertex path SIS contact process quasi stationary distribution modes phase transitions infection rate",
+          "three node path susceptible infected susceptible quasi stationary modal QSD distribution exact",
+          "Economou Gomez Corral Lopez Garcia 2015 SIS QSD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned other epidemic critical thresholds and deterministic stochastic SIRS models, not the P3 QSD modal table.",
+          "The two exact crossings require a quintic eliminant with admissibility/Sturm checks."
+        ],
+        "reasoning": "This tiny but natural model is not an arbitrary parameter slice or known table recomputation in the inspected sources; an unindexed worked example remains plausible.",
+        "searches": [
+          "Resultary semantic query: three vertex path SIS contact process quasi stationary distribution modes phase transitions infection rate",
+          "P3 contact process quasi stationary distribution exact 3/4 1.009247",
+          "three vertex path QSD epidemic state mode table"
+        ]
+      },
+      "rationale": "Comparing mathematical statements rather than titles, full primary text and domain distinctions indicate the exact final all-parameter claim is not covered by the inspected prior theorems. Earlier frameworks explicitly acknowledged; historical priority is best-of-knowledge, not independently certified. Gives general finite-network QSD algorithm, but not analytic modal ordering and five-state tie for homogeneous 3-node path Approximation of aggregate survival/prevalence on graphs, not exact 3-site labelled-configuration mode transitions",
+      "residual_risks": [
+        "A pre-existing exactly computed tiny SIS network QSD might give equivalent mode transitions, perhaps in an example or appendix under different model terminology. Exact symbolic elimination is source-verified, not a formal Lean proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general finite-network QSD algorithm, but not analytic modal ordering and five-state tie for homogeneous 3-node path",
+          "evidence": [
+            "Economou–Gómez-Corral–López García (2015), QSD is normalized positive left eigenvector of transient generator."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf",
+          "material_read": "Accessible complete author manuscript, sections introducing transient generator and quasi-stationary eigenvector method, numerical examples",
+          "method": "Read PDF text including QSD section 2.3 and opening-page rendering",
+          "title": "A stochastic SIS epidemic model with heterogeneous contacts",
+          "trigger": "Same exact finite-state absorbing SIS process and long-time QSD, potentially precomputed small-network modes"
+        },
+        {
+          "assessment": "Approximation of aggregate survival/prevalence on graphs, not exact 3-site labelled-configuration mode transitions",
+          "evidence": [
+            "Overton et al. (2021/22), approximating quasi-stationary expectations, not the exact seven-state mode phase chart."
+          ],
+          "identifier_or_url": "https://researchonline.ljmu.ac.uk/id/eprint/17176/1/ApproximatingQSDNetworkSIS_finalrevision.pdf",
+          "material_read": "Complete primary accessible manuscript, introduction and sections 2–3 on approximate infection statistics",
+          "method": "Read PDF full text and rendered initial page",
+          "title": "Approximating quasi-stationary behaviour in network-based SIS dynamics",
+          "trigger": "Identical QSD observable class might have stronger exact network structure theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-site path is the smallest noncomplete connected network with unequal infection-position roles; exact quasi-stationary labelled-state modes and a five-way tie are a meaningful finite-state benchmark against general approximate epidemic methods, despite no claim of large-network phase transitions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A stochastic SIS epidemic model with heterogeneous contacts: https://eprints.whiterose.ac.uk/id/eprint/90144/1/Economou_et_al_2015.pdf",
+    "Approximating quasi-stationary behaviour in network-based SIS dynamics: https://researchonline.ljmu.ac.uk/id/eprint/17176/1/ApproximatingQSDNetworkSIS_finalrevision.pdf",
+    "Resultary semantic query: three vertex path SIS contact process quasi stationary distribution modes phase transitions infection rate"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Publication not ready because potentially public source JSON fields disclose operational source-run information.",
+    "No expert/Lean verification was performed by this review; independent numerical/symbolic checks are only evidence within their explicitly stated domains.",
+    "Novelty is a qualified best-of-knowledge conclusion, with specific remaining risks listed under originality."
+  ],
+  "residual_risks": [
+    "A pre-existing exactly computed tiny SIS network QSD might give equivalent mode transitions, perhaps in an example or appendix under different model terminology. Exact symbolic elimination is source-verified, not a formal Lean proof."
+  ],
+  "schema_version": 1
+}
