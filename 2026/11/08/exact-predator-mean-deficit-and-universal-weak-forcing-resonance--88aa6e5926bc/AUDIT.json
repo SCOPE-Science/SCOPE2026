@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation yields the exact forced Volterra coboundary; integrated log predator and log prey identities fix mean N and express mean predator deficit as forcing–prey covariance. A periodic average of the Volterra derivative converts covariance into a strictly positive forcing-weighted prey variance for any positive nonconstant forcing. The unforced Jacobian is Hurwitz for all admissible parameters, hence the local period map has a unique attracting analytic fixed point for small harmonic forcing at each fixed positive frequency. Its resolvent gives the quadratic coefficient; a half-period forcing sign-change excludes odd terms, and differentiation with z=omega² gives the unique global coefficient maximum. SymPy verified both key algebraic identities; a separate SciPy shooting/quadrature program tested 16 positive coexistence solutions. Scope explicitly excludes threshold crossings and does not infer universal proof from numerical examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cushing (1977) abstract advertises existence/bifurcation of periodic positive solutions for periodic demographic parameters; it does not supply an implication to the positive covariance identity or optimal mean-loss response.",
+        "Taylor et al. (2013) abstract advertises numerical simulations and multi-year cycles, and full text was inaccessible; this remains a priority risk rather than a negative coverage determination.",
+        "Gao et al. (2026) studies tipping via extrema/crossings; its natural damped frequency differs from the exactly optimized quadratic mean-loss frequency."
+      ],
+      "reasoning": "Classical periodic-system existence, general averaging, frequency-selective amplitude resonance, and predator mean-defect methods were treated as prior techniques. None of the inspected full statements entails both parts of this claim; an inaccessible possibly stronger older source is explicitly acknowledged.",
+      "searches": [
+        "published-finding corpus: periodically forced Rosenzweig MacArthur predator prey mean prey exactly unchanged mean predator declines variance identity",
+        "published-finding corpus: forced Lotka Volterra logistic predator prey periodic coexistence time average predator lower than equilibrium",
+        "Web: \"periodic\" \"predator\" \"growth rate\" \"average\" \"covariance\" \"Lyapunov\" forced",
+        "Cushing, Periodic Time-Dependent Predator-Prey Systems, DOI:10.1137/0132006 (abstract)",
+        "Taylor, Sherratt and White, DOI:10.1007/s00285-012-0612-z (abstract and metadata)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.39113",
+      "https://doi.org/10.1007/s00285-012-0612-z",
+      "https://doi.org/10.1137/0132006",
+      "https://doi.org/10.1086/661902",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-finite-amplitude-mean-and-floquet-laws-in-an-allee-coopera--abc05440e10c",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-delayed-predator-prey-c--c746e7c51108"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gao et al. full text proves autonomous global stability and discusses threshold crossings, but not any all-period positive forcing covariance inequality nor the universal quadratic mean-loss resonance.",
+        "Bai–Zhang delayed additive-predation mean law: predator deficit from reciprocal nonlinear predation; not same forced model, so not a stronger theorem covering it.",
+        "Xue nonlinear Allee–cooperation: predator deficit from reciprocal prey growth and a Floquet simplification, without time-periodic growth rate; neither implies the present forced covariance or frequency optimum.",
+        "Fan–Wolkowicz gestation delay: prey mean is higher than equilibrium, unlike the exact mean locking here; a different delayed state equation."
+      ],
+      "reasoning": "The current two-part result uses known model and known general tools, not novel equations or a novel concept of resonance. The new conclusion is a global positive forced weighted-variance identity plus a sharp, universal mean-loss response peak distinct from damped free frequency. Analogues do not dominate it by parameter inclusion or a direct implication of their proved statements.",
+      "searches": [
+        "arXiv:2610.39113v1 Section 2.2, Methods 4.1 and Appendix C: exact equations/equilibria/Jacobian/autonomous Volterra identity",
+        "published-finding corpus: delayed additive-predation exact phase–yield law, id cc653812d3fd (published full RESULT.md)",
+        "published-finding corpus: Xue nonlinear Allee–cooperation exact means/Floquet, id abc05440e10c (published full RESULT.md)",
+        "published-finding corpus: Fan–Wolkowicz delayed prey variance shell, id c746e7c51108 (published full RESULT.md)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao et al. arXiv:2610.39113v1, Sections 2.1–2.2 and Appendix C, contain the same vector field, autonomous equilibrium, Volterra function and damped free eigenfrequency, but neither the forced period-averaged variance identity nor the optimum of the mean-predator deficit.",
+        "Averaged predator log balance and nonautonomous derivative of the source Volterra function give the exact forced variance identity in RESULT.md; it is not identical to the source’s autonomous negative-definite Volterra derivative.",
+        "Nearest published-finding corpus mean-identity records for Xue and Bai–Zhang use distinct autonomous/delayed predator-prey vector fields (read complete published RESULT.md)."
+      ],
+      "reasoning": "Equivalent renamings, changes from sine to cosine forcing, and mean/covariance/variance formulations were considered. The positive forcing–prey covariance and resonant universal quadratic mean-predator loss require source-specific forced dynamics not present in the checked prior statements.",
+      "searches": [
+        "published-finding corpus: rho(t) N (1-N/K) - a N P, P'=P(baN-m), exact mean predator covariance positive under periodic forcing",
+        "Web: periodic logistic prey predator model growth rate periodic mean predator lower time average exact theorem",
+        "Web: \"predator\" \"forced\" \"mean\" \"variance\" \"prey\" exact",
+        "arXiv:2610.39113v1 full HTML; terms mean prey, mean predator, covariance, linear response, transfer function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gao et al. (2026), Figure 3 reports simulated extrema and the approximate damped natural period; no exact table of period averages, predator mean deficit, or normalized resonant coefficient is presented.",
+        "published-finding corpus returned other predator-prey statistical identities but no same-model forcing/mean-loss calculation; this is limited retrieval evidence, not an exhaustive database uniqueness guarantee."
+      ],
+      "reasoning": "The theorem classifies an all-amplitude sign and a parameter-independent weak-forcing coefficient, rather than interpolating or re-enumerating an existing numerical resonance table.",
+      "searches": [
+        "published-finding corpus: Gao Poloni Wang Lewis frequency induced tipping threshold predator prey stationary positive periodic orbit average predator deficit weighted variance forcing frequency undamped natural frequency",
+        "published-finding corpus: weak forcing predator predator-prey frequency mean loss maximum omega=sqrt(m*r*(1-m/(abK)))",
+        "published-finding corpus: frequency-induced tipping 2026 mean abundance resonance covariance stationary orbit",
+        "Web: \"frequency-induced tipping\" \"predator\" \"mean\" covariance Gao"
+      ]
+    },
+    "rationale": "The whole accessible arXiv HTML of Gao et al. (2026), including the smooth coexistence system, its eigenfrequency, the autonomous Lyapunov function, numerical resonance plots, and Appendix C, was compared at statement level. It does not state the exact forced covariance/weighted-variance mean-predator law or its universal weak-forcing quadratic optimum. The autonomous/delayed exact mean-defect results inspected from published records concern different vector fields and do not imply the forced covariance law or undamped-frequency optimum. The 2013 Taylor–Sherratt–White seasonal forcing paper is a specific genuine historical-priority uncertainty because only an abstract was accessible; search failure is not presented as proof of novelty.",
+    "residual_risks": [
+      "Taylor–Sherratt–White (2013), DOI 10.1007/s00285-012-0612-z: complete paper not read; older specialized seasonal-forcing calculations might cover some or all of the result.",
+      "Cushing (1977) and still older general periodically forced Kolmogorov averaging results could imply part of the mean law; only accessible abstract was inspected.",
+      "The linear-response optimum follows elementary resolvent algebra once the mean-defect observable is identified; undiscovered equivalent formulas may exist under response-theory terminology.",
+      "Priority assessment is only best-knowledge, not a worldwide uniqueness or independent expert certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same equations and autonomous Volterra function are established prior art; exact forced period means and universal weak-forcing optimal predator-mean deficit were not stated in inspected text.",
+        "evidence": "Equation (6) forces prey growth; Eq. (3) gives coexistence equilibrium; Eq. (4) gives damped eigenfrequency; Appendix C gives autonomous stability function; Section 2.2 reports resonance in minima/maxima and tipping.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.39113",
+        "material_read": "Complete accessible 644-line primary arXiv HTML, notably Sections 2.1–2.5, Section 4.1, Appendix C and bibliography, with text searches for means, covariance, linear response and transfer functions.",
+        "method": "Direct full HTML reading, equation-by-equation comparison with exact claim and full symbolic proof.",
+        "title": "Frequency-induced Tipping: Resonance-Driven Tipping in a Threshold Predator-Prey System",
+        "trigger": "Exact model, MSC and earliest date; highest-risk same-equations overlap."
+      },
+      {
+        "assessment": "Potential priority overlap unresolved. Not classified as NOT_COVERING; abstract focuses on simulation and multiyear cycles, with no quoted exact mean or resonance law.",
+        "evidence": "DOI 10.1007/s00285-012-0612-z; journal abstract describes bifurcation and simulation; institutional access required a disconnected VPN.",
+        "identifier_or_url": "https://doi.org/10.1007/s00285-012-0612-z",
+        "material_read": "PubMed and university author-repository abstract, metadata and stated numerical/bifurcation objectives; no full primary article could be acquired.",
+        "method": "arXiv/OA query attempts, publisher/repository search, authorized institutional paper request returned access disconnected.",
+        "title": "Seasonal forcing and multi-year cycles in interacting populations: lessons from a predator-prey model",
+        "trigger": "Potential exact or broader prior on seasonally forced prey growth and predators."
+      },
+      {
+        "assessment": "General existence results are established prior art, and no claim of new existence methodology is made; abstract does not decide priority of exact covariance law.",
+        "evidence": "Cushing (1977), SIAM J. Appl. Math. 32, 82–95, discusses periodic-solution bifurcation with periodic coefficients.",
+        "identifier_or_url": "https://doi.org/10.1137/0132006",
+        "material_read": "Publisher abstract and bibliographic description.",
+        "method": "Article landing page abstract and implication comparison.",
+        "title": "Periodic Time-Dependent Predator-Prey Systems",
+        "trigger": "Early general periodic-system result could subsume local existence."
+      },
+      {
+        "assessment": "Studies stochastic temperature forcing and amplified oscillations, not the deterministic model-specific positive weighted-variance law or universal quadratic predator mean-loss coefficient.",
+        "evidence": "DOI 10.1086/661902; discussion explicitly treats noise and resonant amplitude rather than time-periodic predator mean identities.",
+        "identifier_or_url": "https://doi.org/10.1086/661902",
+        "material_read": "Accessible publisher abstract, introduction and discussion.",
+        "method": "Direct text inspection and observable comparison.",
+        "title": "Resonance of Plankton Communities with Temperature Fluctuations",
+        "trigger": "Plausible general resonance or biomass-response coverage."
+      },
+      {
+        "assessment": "Delayed Bai–Zhang model with nonlinear additive prey predation, not growth-rate forcing; no dominating implication to the current forcing covariance or optimal response.",
+        "evidence": "Published RESULT.md: prey logarithmic average fixes mean, reciprocal predation Jensen defect lowers predator mean and lagged covariance enters the phase–yield law.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-delay-invariant-period-means-and-an-exact-phase-yield-law-under--cc653812d3fd",
+        "material_read": "Complete published RESULT.md including assumptions, full proof and references.",
+        "method": "Read-only source text fetch; compared state equations and logical implications.",
+        "title": "Delay-invariant period means and an exact phase–yield law under additive predation",
+        "trigger": "Closest exact prey-mean/predator-deficit/lagged-covariance theorem in search."
+      },
+      {
+        "assessment": "Different autonomous Xue system; nonlinear Allee reciprocity causes mean loss; no forced covariance or universal weak forcing optimum.",
+        "evidence": "Published RESULT.md: transformed predator logarithm locks prey mean; Jensen reciprocal term causes a strictly positive predator mean defect.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-finite-amplitude-mean-and-floquet-laws-in-an-allee-coopera--abc05440e10c",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Read-only full-text fetch, checked vector field and proof variables.",
+        "title": "Exact finite-amplitude mean and Floquet laws in an Allee–cooperation predator–prey cycle",
+        "trigger": "Another same-direction predator mean deficit from an exact formula."
+      },
+      {
+        "assessment": "Maturation-delay model with shifted reproduction; prey mean increases rather than stays fixed. Does not cover the present forced system.",
+        "evidence": "Published RESULT.md: strict inequality for mean prey above equilibrium and predator below from a different delayed flux.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-finite-amplitude-mean-variance-shell-for-delayed-predator-prey-c--c746e7c51108",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Read-only full-text fetch and comparison of periodic integral equations.",
+        "title": "Finite-amplitude mean–variance shell for delayed predator–prey cycles",
+        "trigger": "Exact variance defect potentially subsuming current statistic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88aa6e59-26bc-49a7-bdae-60812fb6515a",
+  "value": {
+    "rationale": "The motivating threshold-tipping paper studies how forcing frequency changes extinction risk through resonant amplitude; a meaningful complementary observable is chronic predator population mean while the system stays in coexistence. The theorem gives an exact, all-waveform, all-amplitude sign restriction and quantitative variance/covariance identity for every positive locked state, not just a parameter slice. The weak-forcing coefficient supplies a sharp, universal, dimensionless peak magnitude and a unique optimizing frequency distinct from the free damped oscillation frequency. It is directly useful as a benchmark for abundance responses and is neither a mere restatement of the original extrema plots nor a numerically fitted correction. Limits and nonexistence claims are not overstated.",
+    "status": "PASS"
+  }
+}
