@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run `python check.py` using Python 3 (standard library only). The program independently enumerates eight-parameter derivations of the indicated four-dimensional associative algebras over the fields of sizes two and four. It tests squares and pairwise commutators from the full four-by-four matrices, not from a presumed three-by-three classification. The four-element field is represented as binary polynomials modulo the irreducible polynomial \(t^2+t+1\), with addition and multiplication implemented directly. All fields represented here have characteristic two.
+# Independent mathematical audit
 
-The checked results are 22 and 316 square-zero derivations, complete ordered pair totals of 148 and 9136, complete pairwise rank histograms, and 736 ordered commuting triples with a full rank-triple histogram over the field of size two. `check_output.txt` contains the actual run output. Finite enumeration only supports the general theorem: the proof of arbitrary \(q\) and \(m\) is in `RESULT.md`. Independent audit has not been performed.
+## correctness
+
+PASS
+
+In characteristic 2, derivations of k[x,y]/(x^2,y^2) have eight unconstrained generator coefficients. Acting on A/k1 gives a faithful restricted Lie algebra isomorphism with trace-zero 3x3 matrices. Nonzero square-zero 3x3 matrices have rank 1; pairwise commuting rank-one square-zero tuples are exactly unions of common-image-line and common-kernel-plane families. Vector bundle dimensions 2m+2 and their flag incidence intersection m+3 follow for m>=2 (not m=1). Rank(D)=1 iff the distinguished third coordinate line lies in ker M. Counting rational lines, planes and flags with zero tuple removed once yields the displayed all-m multivariate polynomial. Independently enumerated all 512 binary 3x3 matrices and found 22 square-zero trace-zero and 148 commuting ordered pairs; no inference from the finite check to all q.
+
+## originality
+
+PASS
+
+Best-of-knowledge acceptance for the stated narrowly quantified original contribution; known antecedents and overlapping results explicitly excluded. Published mathematical records were queried by equivalent statements; primary literature inspected to the material actually accessible, without implying that lack of a hit guarantees novelty.
+
+## value
+
+PASS
+
+Uniform multivariate rank-pattern census for the natural Klein-four group algebra, not a chosen small-number table. The polynomial resolves prescribed differential ranks (including rank-two acyclic derivations) for every arity and even field; component dimensions alone do not give rank frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

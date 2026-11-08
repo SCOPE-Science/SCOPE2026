@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted generator-image parametrization is forced by the two square-zero relations in characteristic two. Quotienting by the invariant constants gives an injective map onto the trace-zero three-by-three matrices, preserving brackets and the restricted squaring operation. This directly reduces the original differential problem to rank-one square-zero matrix tuples. The commuting dichotomy is proved by comparing the image lines of rank-one products; the all-arity incidence families and flag intersection exhaust the tuples. Each rank polynomial coefficient is counted over rational subspaces. The standalone checker independently reconstructs the original four-by-four matrices and tests the rank enumerator for all two-tuples over fields of sizes two and four and three-tuples over the two-element field.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Levy's arXiv:math/0609180, Proposition 2.3, already proves the two-component geometry for the case of two three-by-three square-zero matrices over an algebraic closure. Ngo's arXiv:1401.6820, Theorem 3.3.3 and Proposition 3.3.4, already prove the relevant dimension for general tuple length. Neither inspected result states a uniform finite-field multivariate *derivation-rank* enumerator; those known geometric results alone do not determine its coefficient arithmetic without the rank-sensitive incidence analysis given here. Related prior matrix-commuting results focus on other invariants. The unresolved risk is that a broader finite-field module or square-zero commuting-tuple census could entail the exact enumerator.
+PASS
 
-## Value — PASS
-The full multivariate rank polynomial simultaneously determines all prescribed patterns of zero, nonacyclic and acyclic square-zero derivations (on the four-dimensional underlying vector space, rank two is acyclic). Unlike an arbitrary finite census, this is a natural invariant for commuting differential structures on the group algebra of the Klein-four group; it holds uniformly for all tuple lengths and even prime powers. The geometry explains the two competing families and their intersection, and the formula distinguishes homological types inaccessible from component dimensions alone.
+In characteristic 2, derivations of k[x,y]/(x^2,y^2) have eight unconstrained generator coefficients. Acting on A/k1 gives a faithful restricted Lie algebra isomorphism with trace-zero 3x3 matrices. Nonzero square-zero 3x3 matrices have rank 1; pairwise commuting rank-one square-zero tuples are exactly unions of common-image-line and common-kernel-plane families. Vector bundle dimensions 2m+2 and their flag incidence intersection m+3 follow for m>=2 (not m=1). Rank(D)=1 iff the distinguished third coordinate line lies in ker M. Counting rational lines, planes and flags with zero tuple removed once yields the displayed all-m multivariate polynomial. Independently enumerated all 512 binary 3x3 matrices and found 22 square-zero trace-zero and 148 commuting ordered pairs; no inference from the finite check to all q.
 
-## Boundaries and source limitations
-The result does not cover characteristics other than two, algebras with more generators or higher truncation, scheme nonreducedness or conjugacy-orbit classification. Earlier geometric coverage is acknowledged and excluded from novel priority. Independence and complete literature-priority verification have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance for the stated narrowly quantified original contribution; known antecedents and overlapping results explicitly excluded. Published mathematical records were queried by equivalent statements; primary literature inspected to the material actually accessible, without implying that lack of a hit guarantees novelty.
+
+## value
+
+PASS
+
+Uniform multivariate rank-pattern census for the natural Klein-four group algebra, not a chosen small-number table. The polynomial resolves prescribed differential ranks (including rank-two acyclic derivations) for every arity and even field; component dimensions alone do not give rank frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
