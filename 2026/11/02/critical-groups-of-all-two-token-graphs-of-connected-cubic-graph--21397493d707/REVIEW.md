@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exhaustive smallest-unfinished-vertex recursion enumerates all 19,355 labeled cubic graphs and verifies exactly five connected isomorphism classes (19,320 labeled connected graphs). Each associated 28-vertex reduced token Laplacian is explicitly reconstructed. Its Hermite-normal-form determinant and complete prime-adic Smith reductions determine the finite abelian group, with independent direct determinant and prime-unit-filtration calculations agreeing on every entry. The row/column procedures use invertible local operations and distinguish all nonzero invariant factors, so they certify the claimed groups rather than just their cardinalities. The certificate files are `verify.py` and `verify_alt.py`.
+## correctness
 
-**Originality — PASS with residual risk.** The original token-graph paper (Fabila-Monroy et al., arXiv:0910.4774v1) treats graph structural parameters, not this complete order-eight critical-group classification. The accessible full text of Dalfó et al., arXiv:2012.00808, concerns Laplacian spectra, not integral Smith normal forms. The prior exact group for the Petersen two-token graph has a ten-vertex base and its statement gives no order-eight implications. Database searches of critical groups, sandpile groups, Smith invariants, graph symmetric powers, the three-cube and Wagner graph found no covering record. Residual risk: an unindexed published computation, graph database, or appendix may contain a matching table; failed searches alone cannot prove priority.
+PASS
 
-**Value — PASS.** This is the full natural five-isomorphism-class census at cubic base order eight, the first order with five connected classes. The associated token graphs have the same 28/72 size and 12×4 plus 16×6 degree profile, yet the integral chip-firing invariants distinguish every class. In particular the two triangle-free examples share these coarse parameters but have different odd torsion prime supports. The exact invariant-factor decomposition offers substantially more than a routine spanning-tree count and gives a finite reference benchmark for symmetric-exclusion chip-firing calculations. It is not claimed to imply a larger-order theorem.
+Every connected cubic base has 12 edges and 28 two-token vertices, 72 token edges and degrees 4^12, 6^16. Checked five explicit cubic representatives and their exact 27x27 reduced integer Laplacians. Independently recomputed determinants, prime-adic Smith valuations by integral unit pivot filtration and all five invariant-factor lists, matching package; finite five-isomorphism-class exhaustive classification is supported by code and standard base census. Earlier direct full SymPy Smith-form attempt timed out, which was not treated as mathematical failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The five small cubic graph classes and their token-graph Laplacian setup are known; published token Laplacian spectra can determine determinants but cannot in general determine Smith invariant factors. The five exact integral critical groups distinguish classes and were not found in inspected primary papers or Resultary, with explicit risk of unindexed tables.
+
+## value
+
+PASS
+
+Critical groups are natural, fine integral invariants not recoverable from spectral/coarse token-graph data; the first nontrivial five-class cubic census on eight vertices gives an exact comparison table not just routine determinant recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

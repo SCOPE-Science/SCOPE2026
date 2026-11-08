@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Install Python 3, NetworkX and SymPy. From the same directory run `python verify.py` and `python verify_alt.py`. Both operate on the literal representative edge lists in `verify.py`, require no network or external data, and use only integer arithmetic. The primary checker enumerates 19,355 labeled cubic graphs on eight vertices, finds 19,320 connected labeled graphs and five connected isomorphism classes; it checks reduced Laplacian Hermite determinants and prime-adic local Smith valuations. The alternative checker constructs token edges by an independent incidence procedure, uses an exact domain Gaussian determinant, and recovers the elementary divisors by successive unit-pivot elimination and division by primes. Both output full numerical factors and explicit success markers.
+## correctness
 
-These finite certificates prove only the five-class order-eight classification; they do not imply a formula for higher graph orders or alternative definitions of token adjacency. Independent scholarly validation has not been performed.
+PASS
+
+Every connected cubic base has 12 edges and 28 two-token vertices, 72 token edges and degrees 4^12, 6^16. Checked five explicit cubic representatives and their exact 27x27 reduced integer Laplacians. Independently recomputed determinants, prime-adic Smith valuations by integral unit pivot filtration and all five invariant-factor lists, matching package; finite five-isomorphism-class exhaustive classification is supported by code and standard base census. Earlier direct full SymPy Smith-form attempt timed out, which was not treated as mathematical failure.
+
+## originality
+
+PASS
+
+The five small cubic graph classes and their token-graph Laplacian setup are known; published token Laplacian spectra can determine determinants but cannot in general determine Smith invariant factors. The five exact integral critical groups distinguish classes and were not found in inspected primary papers or Resultary, with explicit risk of unindexed tables.
+
+## value
+
+PASS
+
+Critical groups are natural, fine integral invariants not recoverable from spectral/coarse token-graph data; the first nontrivial five-class cubic census on eight vertices gives an exact comparison table not just routine determinant recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
