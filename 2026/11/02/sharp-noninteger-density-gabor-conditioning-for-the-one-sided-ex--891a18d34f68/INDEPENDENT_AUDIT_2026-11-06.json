@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:16:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git exact blob 2026/11/02/sharp-noninteger-density-gabor-conditioning-for-the-one-sided-ex--891a18d34f68/RESULT.md 875bf2b71d8f3aa43348f1b8fe010a6ea0e4281b",
+        "Git exact blob 2026/11/02/sharp-noninteger-density-gabor-conditioning-for-the-one-sided-ex--891a18d34f68/check_gabor.py 31fc3c9f172339fc1527ba00bde883b9da5a331f",
+        "Independently evaluated the geometric Fourier series truncated after 80 translation terms for eta≈1.25698128, x=0.113, phase xi=0.239 and matched the analytic two fiber eigenvalues 0.7038665180631581 and 2.6245714052667344. Inspected symbolic critical-polynomial identity in check_gabor.py and analytic argument for essential extrema."
+      ],
+      "rationale": "PASS. Normalize the one-sided exponential sqrt(2gamma) exp(-gamma x) 1_{x>0} and ab=2/3 by unitary dilation, set eta=gamma/b, u=exp(-2eta/3). Rational 3/2 oversampling gives a 2-by-2 fiber from 3 translation residue classes and 2 sequence components. Direct summation of geometric Fourier series gives trace T=sum_{j=0}^5 u^j and determinant u(1+u^2)|1-u^3 z|^2 in the Gram numerator. The eigenvalue extrema occur at phase z=1 and opposite x endpoints by monotonicity in |1-u^3 z|^2 and exp(-2eta x). They yield sharp bounds A=F(u)u(1-sqrt(1-h(u))), B=F(u)(1+sqrt(1-h(u))) with h=4u(1+u^2)(1-u)^2/(1+u^3)^2. The exact palindromic derivative identity gives the only possible stationary u via s=(3+sqrt(65))/2, and K=B/A diverges at both endpoints, proving the unique global optimum at eta=1.25698128176 and K=11.23795167. Independently recomputed an arbitrary fiber by an 80-term Fourier geometric sum and matched the analytic spectrum to floating tolerance; this finite check supports, not proves, global sharpness.",
+      "residual_risks": [
+        "The theorem does not treat any other rational density or window, or noisy frames. Fibers are essential extrema (x endpoints of positive-measure interiors), not attained point spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faulhuber–Shafkulovska arXiv:2204.02917 Theorem 2.6 assumes n positive integer, and section 7 retains integer n",
+          "Janssen 1995 supplies generic rational-fiber reduction but exact optimizer for n=3/2 not verified",
+          "General totally positive Gabor-frame set theorems ensure frame existence for ab<1, not exact A,B, K*"
+        ],
+        "reasoning": "A general existence or matrix-representation theorem is not by itself an explicit 3/2 conditioning law. The plausible 2000 and historical specializations remain priority risks, not conclusive prior coverage.",
+        "searches": [
+          "arXiv:2204.02917 Theorem 2.6 section 7 integer oversampling",
+          "Janssen 1995 On rationally oversampled Weyl Heisenberg frames",
+          "Bölcskei Janssen 2000 Gabor frames unimodularity window decay"
+        ]
+      },
+      "checked_sources": [
+        "frozen source 2026/11/02/sharp-noninteger-density-gabor-conditioning-for-the-one-sided-ex--891a18d34f68/RESULT.md at 2c8d98134d9930cd11887f086cc209007a54248d",
+        "one-sided exponential Gabor frame bounds density 3/2 rational oversampling condition number optimizer",
+        "https://arxiv.org/pdf/2204.02917",
+        "https://nuhagphp.univie.ac.at/janssen/data/p074.pdf",
+        "https://nuhagphp.univie.ac.at/janssen/data/p071.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 paper solves integer n, while 3/2 is not integer",
+          "Janssen 1996 special calculations are at integer oversampling",
+          "Rational Zak theory reduces the question but leaves minimization to a new exact algebraic computation"
+        ],
+        "reasoning": "The precise A*,B*,K* and uniqueness for noninteger 3/2 are not logical consequences of the stated integer-n optimization; universal rational-fiber machinery is enabling rather than a precomputed answer.",
+        "searches": [
+          "Faulhuber Shafkulovska 2022 Theorem 2.6 n natural",
+          "Janssen Some Weyl Heisenberg frame bound calculations 1996 exponential",
+          "On rationally oversampled Weyl Heisenberg frames 1995"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janssen 1995 rational fiber and Zak transform yield an equivalent 2x2 spectral problem",
+          "Resultary sharp Gabor-frame-bound published records concern hat/tent splines, not exponential window at ab=2/3"
+        ],
+        "reasoning": "Sharp fiber eigenvalues, rectangular-lattice frame bounds and the analysis-operator condition number are equivalent under the unitary normalization. The general fiber identity supplies a method but not the explicit optimized spectrum.",
+        "searches": [
+          "one-sided exponential Gabor frame bounds density 3/2 rational oversampling condition number optimizer",
+          "one-sided exponential totally positive Gabor alpha beta 2/3 lower upper frame bounds",
+          "Zibulski Zeevi rational lattice 2x2 fiber exponential window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest hat-spline at ab=1/2 and tent-spline integer density records have different window/density",
+          "The new K* uses a derived palindromic polynomial not a quoted pre-existing table"
+        ],
+        "reasoning": "No actual searched exact table showed the same exponential 3/2 constants. Lack of a result is not historical proof; a hidden worked example in classical frame literature remains possible.",
+        "searches": [
+          "one-sided exponential Gabor frame bounds density 3/2 rational oversampling condition number optimizer",
+          "one sided exponential Gabor 3/2 11.2379516700057 sqrt(65)",
+          "gabor frame bounds exact 2/3 exponential q u polynomial"
+        ]
+      },
+      "rationale": "PASS with explicit priority qualification. The rational Zak/Zibulski–Zeevi reduction is classical, and Janssen’s 1995 general formula could in principle be specialized. Faulhuber–Shafkulovska’s inspected Theorem 2.6 and section 7 assume integer oversampling n∈N, and Janssen 1996 treats integer-oversampled exponentials. They do not themselves give the noninteger density-3/2 sharp constants or unique radical optimizer.",
+      "residual_risks": [
+        "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+        "https://nuhagphp.univie.ac.at/janssen/data/p074.pdf: UNREAD FULL TEXT, PRIORITY RISK",
+        "https://nuhagphp.univie.ac.at/janssen/data/p071.pdf: INACCESSIBLE FULL TEXT, PRIORITY RISK"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTEGER-ONLY, DOES NOT ASSERT 3/2 CASE",
+          "evidence": "Section 7 explicitly requires n∈N; its scalar/integer fiber optimizers are not the coupled 3/2 case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.02917",
+          "material_read": "Theorem 2.6 and Section 7, assumptions and extremal formulas",
+          "method": "Full arXiv primary PDF plus relevant pages",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Closest quantitative optimal-conditioning theorem for same window"
+        },
+        {
+          "assessment": "UNREAD FULL TEXT, PRIORITY RISK",
+          "evidence": "General rational finite-matrix method might contain an equivalent worked 3/2 example; no whole-text noncoverage assertion.",
+          "identifier_or_url": "https://nuhagphp.univie.ac.at/janssen/data/p074.pdf",
+          "material_read": "Bibliographic record and supplied framework reference, no full PDF obtainable",
+          "method": "Author-hosted PDF fetch failed; only accessible descriptions read",
+          "title": "On rationally oversampled Weyl–Heisenberg frames",
+          "trigger": "Foundational rational matrix fiber may dominate specialized claim"
+        },
+        {
+          "assessment": "INACCESSIBLE FULL TEXT, PRIORITY RISK",
+          "evidence": "Earlier formulas may extend or implicitly cover this case; no unsupported negative coverage finding.",
+          "identifier_or_url": "https://nuhagphp.univie.ac.at/janssen/data/p071.pdf",
+          "material_read": "Accessible bibliographic references/abstract, no author PDF text after access failure",
+          "method": "Attempted original PDF and lawful alternatives; full text not accessed",
+          "title": "Some Weyl–Heisenberg frame bound calculations",
+          "trigger": "Same one-sided window and frame-bound topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git source RESULT.md at 875bf2b71d8f3aa43348f1b8fe010a6ea0e4281b",
+        "https://arxiv.org/pdf/2204.02917",
+        "https://nuhagphp.univie.ac.at/janssen/data/p074.pdf"
+      ],
+      "rationale": "PASS. Density 3/2 is the smallest noninteger rational oversampling with a nontrivial coupled matrix fiber, furnishing exact best frame bounds and a uniquely optimal rectangular time/frequency aspect for a classical window. This is a natural conditioning benchmark extending beyond integer lattice formulas.",
+      "residual_risks": [
+        "No general optimizer formula at other rational noninteger densities is claimed; the practical interpretation presumes idealized L2 frame analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem does not treat any other rational density or window, or noisy frames. Fibers are essential extrema (x endpoints of positive-measure interiors), not attained point spectra.",
+    "No general optimizer formula at other rational noninteger densities is claimed; the practical interpretation presumes idealized L2 frame analysis.",
+    "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+    "https://nuhagphp.univie.ac.at/janssen/data/p074.pdf: UNREAD FULL TEXT, PRIORITY RISK",
+    "https://nuhagphp.univie.ac.at/janssen/data/p071.pdf: INACCESSIBLE FULL TEXT, PRIORITY RISK"
+  ],
+  "schema_version": 1
+}
