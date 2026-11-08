@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The checked domain is all finite nonempty concatenations of the four displayed 32-character blocks. The proof has an explicit 32-position symbolic language transfer for each of the four blocks and induction on the number of blocks. `checker.py` recalculates the transfer with the exact shortest-absence recurrence, verifies all four base cases, and independently checks all 84 block concatenations of lengths one to three blocks, plus dyadic paperfolding prefixes through rank 11. These last finite tests are corroboration, not the reason the conclusion extends to arbitrarily many blocks. No independent audit has been performed. Further external mathematical verification and literature-priority checks remain open.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The first-occurrence greedy subsequence embedding establishes an exact recurrence for every shortest absent word. Four explicit 32-bit base cases and four symbolic transfer calculations with a formal residual language R propagate the boundary suffixes m,m,m-1 and 0R,0R,R, proving S(AU)=B S(U) independent of earlier blocks; then induction handles arbitrary q and fixed 12-bit boundaries prove distinctness/cardinality. The paperfolding odd-part residue formula partitions every aligned 32-block into these templates, and its final bit at 2^k is 1. Independent full greedy shortest-language checks covered all 4+16+64 blocks concatenations; a separately coded symbolic reverse transfer checked the 4 all-block identities, not just finite k. Initial k=3,4 exceptions remain outside asserted uniform range.
+
+## originality
+
+PASS
+
+Kosche–Koß–Manea–Siemer develops absent subsequence algorithms and general extremal counts, but inspected theorems are not this exact regular-paperfolding prefix language or a formal four-block concatenation identity. Resultary binary universality distributions and Fibonacci maximal SAS results quantify all binary strings, not these deterministic 32-block languages; string attractors study contiguous factors. Best-of-knowledge PASS with possible specialist automatic-word equivalents.
+
+## value
+
+PASS
+
+An exact entire language of shortest missing scattered subsequences, not only universality order, with independence of all internal block choices except the last bit. This is a natural nontrivial structural block theorem for regular paperfolding prefixes, whose full language cardinality is doubly exponential in dyadic rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
