@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The state space has a bijective partial-permutation representation. Every legal edge slide corresponds to swapping the pivot and one permutation argument, with two legal hole placements. The potential n-c(pi)+2q_H(pi)+2epsilon changes by exactly one in absolute value on every edge, proving a lower bound. A complete four-case descent proves a path of equal length. Counting cycles and maximizing the potential yields the claimed diameter, and vertex transitivity gives the radius. Extracted Python verification exhaustively checks orders 2 through 8; independent edge-subset enumeration checks 2 through 5. Finite checks corroborate but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma et al. (2014), arXiv:1403.0359v1, Theorem 16 and Sections 3-6, give reachability for token sliding in claw-free graphs; Section 7 states a polynomial diameter upper bound, not an exact distance formula for K_{n,n} near-perfect matchings.",
+        "Bousquet et al. (2018), arXiv:1812.05419, introduction lines 17-20 and Appendix B Lemma 5, explicitly use token jumping by default and prove jumping distances are k or k+1 for nonmaximal matchings; sliding is a stricter metric here.",
+        "Yamanaka et al. (2015) MIT repository abstract describes swapping distinct labelled tokens occupying graph vertices, not matchings of graph edges."
+      ],
+      "reasoning": "The closest general results concern reachability, polynomial diameter bounds, or a different allowed move. A coarse polynomial upper bound does not imply the exact linear diameter or all-pairs metric. The k/k+1 jumping theorem does not imply the potentially larger sliding metric.",
+      "searches": [
+        "Web: reconfiguration of matchings token sliding on complete bipartite graph diameter 15 puzzle",
+        "Web: token sliding reconfiguration matchings complete bipartite graph K n n maximum near perfect 2015",
+        "arxiv:1403.0359v1 full HTML sections 1-7 and appendix relevant sections",
+        "arxiv:1812.05419 HTML introduction and Appendix B, Lemma 5"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1403.0359v1",
+      "https://arxiv.org/abs/1812.05419",
+      "https://pure.psu.edu/en/publications/complexity-of-independent-set-reconfigurability-problems/",
+      "https://hdl.handle.net/1721.1/134490",
+      "published-finding corpus actual queries and ranked IDs recorded in the four named check objects",
+      "Accessible own current-week ledger ending in p0001_g000033.jsonl: title/claim IDs used solely for overlap exclusion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonsma et al. (2014) Section 7: polynomial upper bound on diameters for general claw-free token-sliding reconfiguration; this does not specify either the sharp diameter floor(3n/2)-1 or the cycle formula.",
+        "Bousquet et al. (2018), Lemma 5: jumping metric k or k+1 when a source is not maximal; a size-(n-1) matching of K_{n,n} is nonmaximal, but a slide requires the removed and added edges to share an endpoint, so jumping geodesics need not be slides.",
+        "A concrete divergence occurs for n=5 with source diagonal matching and target obtained by two disjoint 2-cycles leaving the source hole untouched: the slide distance is 6 while the jumping result gives 5."
+      ],
+      "reasoning": "The exact distance, cycle surcharge and sharp diameter are not corollaries of the cited reachability/general complexity results. The token-jumping theorem concerns a strictly larger move graph and gives a different number on explicit instances.",
+      "searches": [
+        "arxiv:1403.0359v1 full-text scan for shortest, diameter and K_{n,n}",
+        "arxiv:1812.05419 scan for complete bipartite, Token Sliding and Lemma 5",
+        "Web: token sliding reconfiguration matchings complete bipartite graph K n n maximum near perfect 2015",
+        "Web: matching reconfiguration complete bipartite shortest sliding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The state is a partial permutation with one missing row and one missing column; the legal move swaps the hole argument with a matched argument, with two hole-location choices.",
+        "published-finding corpus nearest returned records include 2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5 on matching-polytopal degree ranks, not adjacent-edge sliding metrics.",
+        "No returned paper or result states the permutation-cycle surcharge n-c(pi)+2q+2epsilon under this move."
+      ],
+      "reasoning": "Alias checks used near-perfect matchings, rook placements, partial permutations, empty row and column, and pivot transpositions. Geometric matching-polytopal results have different vertices/adjacencies; token swapping of labelled vertices does not specify sliding matching-edge states.",
+      "searches": [
+        "published-finding corpus query: shortest token sliding distance near perfect matchings complete bipartite K_{n,n} cycle decomposition median radius diameter",
+        "published-finding corpus query: matching token sliding graph one unmatched vertex each bipartition complete bipartite star transposition pivot full permutation exact diameter",
+        "published-finding corpus query: edge-token slide near-perfect rook placement complete bipartite partial permutation metric",
+        "Web: reconfiguration graph near-perfect matchings complete bipartite token sliding distance matching graph partial permutations",
+        "Web: partial permutation pivot transposition metric hole matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant ranked published-finding corpus hits include 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12 and 2026/10/11/SCOPE-exact-rank-stratified-vertex-degrees-of-rectangular-matching-pol--9771e7447af5; neither gives the token-slide graph metric.",
+        "No exact slide-distance table or enumerative listing for the states of K_{n,n} with n-1 matching edges was found in the actual targeted web queries."
+      ],
+      "reasoning": "The existence of polynomial matching algorithms, or a vertex count for rook placements, does not imply shortest-path distance under this particular restricted move. Negative search evidence alone does not prove priority; see residual risks.",
+      "searches": [
+        "published-finding corpus query: shortest token sliding distance near perfect matchings complete bipartite K_{n,n} cycle decomposition median radius diameter",
+        "published-finding corpus query: matching token sliding graph one unmatched vertex each bipartition complete bipartite star transposition pivot full permutation exact diameter",
+        "published-finding corpus query: edge-token slide near-perfect rook placement complete bipartite partial permutation metric",
+        "Web: shortest sequence matching sliding complete bipartite near perfect matchings diameter",
+        "Web: near-perfect complete bipartite token sliding distance",
+        "Web: matchings complete bipartite token sliding diameter"
+      ]
+    },
+    "rationale": "Actual searches of published-finding corpus, current accessible own-ledger claim titles and relevant papers found no all-pairs exact TS metric for the n-1 matching layer of complete balanced bicliques. Closest primary full texts concern general claw-free reachability or the distinct token-jumping model, whose k/k+1 distances need not equal sliding distance. Novelty is conditional on unindexed equivalent results not found by these searches.",
+    "residual_risks": [
+      "An equivalent edge-slide metric could be published under partial permutation or puzzle terminology and not indexed by targeted queries.",
+      "MIT accepted-version labelled-token-swapping PDF could not be inspected due to HTTP 429; state definitions from the repository indicate a different puzzle.",
+      "Earlier inaccessible own-ledger weeks were not checked and historical partition cannot certify worldwide priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General reachability and polynomial diameter bound; no sharp bipartite near-perfect matching metric or diameter.",
+        "evidence": [
+          "Sections 1-3 distinguish TS from TJ, Theorem 16 described as polynomial reachability, Section 7 reports polynomial diameter bounds; appendix Lemma 17 supplies only a general upper bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+        "material_read": "HTML full-text introduction, preliminaries, sections on sliding/jumping, reachability, cycle resolution, discussion and relevant appendix statements.",
+        "method": "Inspected full-text HTML sections and searched for shortest, diameter, and complete-biclique specialization.",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Line graphs are claw-free; a general theorem could cover the requested edge-token slide metric."
+      },
+      {
+        "assessment": "Token jumping default; nonmaximal matching jumping distances have k/k+1 form; no claimed exact edge-token-slide distance or biclique diameter.",
+        "evidence": [
+          "Introduction explicitly labels TJ as default; Appendix B Lemma 5 derives |M1 triangle M2|/2 or one more for TJ, different from the proposed TS geodesics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+        "material_read": "Full-text HTML introduction, problem definitions, Theorem 1, Lemma 5 statement and full proof in Appendix B, plus relevant main theorem and claims.",
+        "method": "Examined full-text HTML and contrasted move definitions and exact claimed implications.",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "Closest title, directly studies matching distances and a potential dominating general theorem."
+      },
+      {
+        "assessment": "Labelled tokens occupy graph vertices and are swapped across graph edges, whereas the present states are unlabelled matchings and moves slide edge tokens. Does not support direct implication.",
+        "evidence": [
+          "Repository abstract states n different tokens on the n vertices of a graph and an adjacent-vertex token-swap operation; no edge matching state is described."
+        ],
+        "identifier_or_url": "https://hdl.handle.net/1721.1/134490",
+        "material_read": "MIT institutional repository title, author list and abstract only; attempted full-text PDF returned HTTP 429.",
+        "method": "Compared explicit state spaces and legal operations from original repository metadata.",
+        "title": "Swapping labeled tokens on graphs",
+        "trigger": "Abstract reports an exact algorithm on complete bipartite graphs, possibly overlapping in the host graph."
+      },
+      {
+        "assessment": "General reconfiguration complexity and model relations; no exhibited matching-level metric.",
+        "evidence": [
+          "Institutional abstract describes three models and general complexity, not K_{n,n} shortest-slide distances."
+        ],
+        "identifier_or_url": "https://pure.psu.edu/en/publications/complexity-of-independent-set-reconfigurability-problems/",
+        "material_read": "Original institutional record and abstract, plus exact cited theorem discussed in Bonsma et al. 2014.",
+        "method": "Read bibliographic abstract and secondary quotation, not a claim of full-paper review.",
+        "title": "Complexity of independent set reconfigurability problems",
+        "trigger": "Early distinction between sliding and jumping models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df80d3d7-12a4-41f5-bfa3-97a12f5a943b",
+  "value": {
+    "rationale": "For a natural factorial-size matching state space the result gives the exact shortest sliding distance between every pair in O(n) cycle processing, a constructive optimal route and a parity-sensitive sharp linear diameter. It distinguishes constrained edge sliding from the known shorter jumping geodesics, and is not a routine matching count, a single table entry or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
