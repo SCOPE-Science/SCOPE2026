@@ -1,0 +1,11 @@
+# Scientific review: velocity-reset drag fingerprint
+
+**Correctness — PASS.** The claim concerns a fully specified sign-preserving velocity-reset telegraph model. The exact first-reset resolvent retains the active-force sign, unlike full-environment renewal. The linear comparator follows from generator moments. The two fourth/fifth inverse-rate corrections follow from coupling over an exponential reset age, with telegraph flips contributing at one additional inverse rate. The remaining Green–Kubo term is bounded to order six. Independent exact-rational stationary-moment and cubic Poisson-resolvent checks corroborate the sign and coefficient. Boundary cases are explicitly restricted to positive fixed rates and compact reachable velocities.
+
+**Originality — PASS, with residual qualification.** The May 30, 2026, primary paper on nonlinear velocity resetting reports numerical inverse-square scaling, not the signed fifth-order drag correction. The 2024 Olsen–Löwen general renewal formula requires renewal of the environment, whereas the force sign here persists through velocity resets, and it does not supply the stated coefficient. Scientific-topic searches and the inspected preceding claims did not identify implication coverage. A broader, currently unlocated perturbation result could affect publication priority; an unsuccessful search is not a proof of global uniqueness.
+
+**Value — PASS.** The motivating physical study explicitly compares \(\tan\) and \(\tanh\) rheology but finds the same leading high-reset exponent. The exact first rheology-sensitive order is a natural and measurable transport invariant. It resolves whether the apparent universality erases the medium entirely: it does not, and shear-thinning has the higher diffusivity for sufficiently rapid resetting. This coefficient is not a fitted exponent or a routine normalization check.
+
+**Scope and limits.** The result does not supply a finite-rate global ordering, an optimal reset rate, an exact nonlinear stationary density, or uniformity under simultaneous variation of \(\lambda\) and \(r\). The cited literature comparison is qualified; no independent mathematical or priority audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
