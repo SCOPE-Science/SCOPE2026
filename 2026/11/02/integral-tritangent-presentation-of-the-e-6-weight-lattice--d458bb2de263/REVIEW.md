@@ -1,19 +1,21 @@
-# Self-review: integral tritangent presentation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any smooth complex cubic surface, the six-point blowdown yields the \(27\) line classes \(E_i,L_{ij},Q_i\) and the exactly \(45\) mixed/pure tritangent triples. Each column maps to the anticanonical class. The explicit elimination from fifteen forward mixed triples, five reverse triples and one matching triple shows that the quotient of the free line module by the chosen twenty-one vectors is precisely \(\mathbb Z^{7}/\langle3H-\sum E_i\rangle\). All other triple sums vanish in that quotient, and this presentation matches the Picard quotient. The relation vector is primitive, and the Picard/weight identification uses a unimodular Picard pairing and primitive \(E_6\) perpendicular lattice. The standalone exact checker found a \(+1\) minor and verified integral reconstruction of all forty-five columns. This addresses integral saturation, not only rational rank.
+PASS
 
-## Originality — PASS, qualified
+For a smooth cubic surface over an algebraically closed characteristic-zero field, the 27 line classes E_i, L_ij=H−E_i−E_j, Q_i=2H−Σ_{j≠i}E_j and 45 tritangent triples all have sum −K. From 15 T_ij (i<j), five T_j1, and one perfect-matching triple, elementary integral eliminations yield Z[H,E_1,...,E_6]/(3H−ΣE_i), which is torsion-free rank six. Every remaining tritangent becomes zero, so the selected 21 relations span all 45; Pic(S)/Z[-K] identifies with the E6 weight lattice by unimodular intersection pairing and primitive root sublattice. Independent full 27×45 integral matrix construction gives Smith diagonal 1^21,0^6 and selected 21×21 row minor determinant +1, confirming saturation and minimum 21. The W(E6) natural line/triple action is compatible with quotient. This claims neither new cubic surface classification nor arithmetic descent.
 
-Dolgachev–Kapranov (1993) establishes the geometric blowup ingredients; van Geemen (2001) gives the tritangent table and integral root/weight framework; Manivel (2005) gives the weight-zero triple interpretation; Boxer et al. and Ahmed (2026) develop close weight-triple and circuit descriptions. The inspected statements do not establish the stronger assertion that the forty-five triples generate the **entire integer kernel** or that the displayed twenty-one form a basis. Those claims are not implied merely by the known rank-six rational representation. Searches for the exact Smith form, saturated presentation, and explicit unimodular basis returned no identified equivalent result. Residual risk: an older root-system presentation, a hidden appendix, or the general matroid/circuit framework may subsume the narrow observation. Originality is a best-knowledge assessment, not a priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete integral presentation of a canonical \(W(E_6)\)-module attached to cubic surfaces, rather than an isolated arbitrary minor. Minimal twenty-one-tritangent generation and absence of index torsion matter whenever one uses the classical weight configuration over \(\mathbb Z\), for example as input to lattice or descent computations. The precise new fact is integral completeness; the geometry of the twenty-seven lines, rational six-dimensional quotient and existence of tritangent triples are known and are not claimed as contributions. No unproved downstream theorem is asserted.
+Classical papers and recent 27-minuscule E6 studies already identify 27 weights and 45 zero-sum tritangent triples. The precise integer kernel-generation statement, 21 explicit unimodular basis, and no finite-index obstruction are not in the reviewed same-subject statements; however the 2026 Ahmed–Esole 118-page original was not fully accessible, and a classical weight lattice presentation may already imply the result. Best-of-knowledge PASS with prominent priority risk.
 
-## Limits and priority
+## value
 
-The proof requires a smooth complex cubic and uses the standard six-point blowup. The short algebraic argument may be obtainable implicitly from older sources; the targeted comparisons are not exhaustive. The exact checker is a finite arithmetic replay of the stated presentation, not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact integer presentation of a natural E6 minuscule weight configuration is a finite, structurally meaningful lattice invariant; determining saturation and a minimal 21-generator subset is not guaranteed by rational rank or the existence of 45 weight-zero triples. It provides an explicit reusable integral relation basis for line-weight calculations. Its scope is modest, not a new algebraic-geometric theorem about cubic surfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
