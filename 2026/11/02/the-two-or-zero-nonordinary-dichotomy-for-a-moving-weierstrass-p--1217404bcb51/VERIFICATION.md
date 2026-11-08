@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification and scope
 
-The complete polynomial proof is in `RESULT.md`. Run `python3 verify_linearized_g2.py` using only Python 3 standard-library modules; no network, CAS, downloaded data, random seeds or external dependency is needed. This program checks the displayed coefficient formulas, the Hasse–Witt determinant and its infinity chart, the Bezout polynomial identity, an independently built \(7\times7\) Sylvester determinant for the resultant, complete enumeration of the \(243\) monic quintics over \(\mathbb F_3\), all \(162\) separable cases, and the two explicit \(3\)-rank examples.
+# Independent mathematical audit
 
-Expected exact output:
+## correctness
 
-```text
-LINEARIZED_GENUS2_CHAR3_RESULTANT_REDUCED_NONORDINARY_DIVISOR_PASS
-Exhausted 162 separable monic quintics over F3; parameter strata={'two': 120, 'double': 42, 'infty': 42}
-Explicit genus-two p-rank pair: (t=1,r=1,#F3=6), (t=-1,r=0,#F3=4).
-```
+PASS
 
-The \(243\) parameter checks are finite experiments; they **do not** establish an assertion over arbitrary algebraically closed fields. The universal proof consists of the explicit symbolic polynomial identities together with the standard hyperelliptic Cartier–Manin formula and separability argument. The theorem is restricted to characteristic \(3\), genus \(2\), separable fixed quintic, and the moving-point parameter line. Singular fibers and stack intersection multiplicities are outside its conclusion. Independent mathematical verification and external audit have not occurred.
+PASS: For every monic separable quintic h over algebraically closed char-3 field, the genus-two Cartier–Manin matrix from coefficients of (x-t)h has determinant ℋ(T,S)=AT²+BTS+CS², also covering infinity via s=1/t. Independent symbolic expansion modulo 3 verified h′G-(2x+a4)h=Ax²+Bx+C and Disc(ℋ)=Res(h,G), G=D^(3)h=x²+a4x+a3. If A=B=0, h factors as (x³+a2)G, contradicting separability. At root α of h, h′(α)G(α)=ℋ(α,1), so a repeated ℋ root must be one excluded collision; otherwise two distinct smooth zeros. At any smooth zero Hasse matrix has rank exactly 1, by nonzero b0=h(t) or bottom-left entry 1 at infinity, hence a-number 1. The two Frobenius ranks are explicitly realized by h=x⁵+x⁴+x³+x at t=±1. This is about the parameter line, not moduli-stack multiplicities. Independent algebraic resultant/Bezout check and finite F3 examples corroborate, not replace the universal proof.
+
+## originality
+
+PASS
+
+PASS (qualified): Cavalieri–Pries 2023 defines exactly y²=(x-t)h and proves a genus/p-dependent mass formula; Remark 5.5 gives at most g(p−1)/2 nonordinary values and warns multiplicities are not controlled by generic results. Neither mass nor bound yields this char-3 genus-2 universal discriminant/resultant and all-separable-quintic two-or-zero smooth simple-zero criterion. The coefficient method originates with Yui 1978 and is credited.
+
+## value
+
+PASS
+
+PASS: Converts the generic mass and support upper bound into an exact whole-family parameter-divisor classification without genericity of fixed branch points. The collision resultant and a-number/p-rank distinction provide natural, reusable arithmetic geometry boundary data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

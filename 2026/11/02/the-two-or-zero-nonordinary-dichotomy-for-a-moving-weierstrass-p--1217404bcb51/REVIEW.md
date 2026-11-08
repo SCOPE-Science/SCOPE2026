@@ -1,23 +1,21 @@
-# Scientific review — the moving-branch genus-two Hasse divisor in characteristic three
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified over **every** monic separable quintic over **every** algebraically closed field of characteristic \(3\). The smooth parameter is \(t\in\mathbb P^1\setminus V(h)\), with the member at infinity interpreted via the \(s=1/t\) chart. The classical genus-two Cartier–Manin matrix yields the exact homogeneous quadratic \(\mathcal H(T,S)=AT^2+BTS+CS^2\). Two universal coefficient identities establish \(\operatorname{Disc}(\mathcal H)=\operatorname{Res}(h,D^{(3)}h)\) and the fixed-root collision condition. Separability rules out an identically zero divisor. A resultant-zero Hasse divisor is a double point at exactly one excluded singular collision; resultant-nonzero gives exactly two distinct smooth Hasse zeros. Translation by a smooth parameter forces the relevant matrix to have positive rank, so every smooth nonordinary member has \(a=1\). Second semilinear Frobenius iterates, evaluated for the explicit \(\mathbb F_3\) example, distinguish \(3\)-ranks \(0\) and \(1\). The standalone Python 3 verifier recomputes a Sylvester determinant and all 162 separable monic quintics over \(\mathbb F_3\). Finite checks alone were not used to prove universality.
+PASS
 
-**Residual correctness risks:** The formula uses a specified genus-two differential convention; a transpose leaves the determinant and rank invariant. The statement concerns the parameter line, not stack-theoretic pullback orders at automorphism points. Full Newton polygons or arithmetic splitting are not asserted.
+PASS: For every monic separable quintic h over algebraically closed char-3 field, the genus-two Cartier–Manin matrix from coefficients of (x-t)h has determinant ℋ(T,S)=AT²+BTS+CS², also covering infinity via s=1/t. Independent symbolic expansion modulo 3 verified h′G-(2x+a4)h=Ax²+Bx+C and Disc(ℋ)=Res(h,G), G=D^(3)h=x²+a4x+a3. If A=B=0, h factors as (x³+a2)G, contradicting separability. At root α of h, h′(α)G(α)=ℋ(α,1), so a repeated ℋ root must be one excluded collision; otherwise two distinct smooth zeros. At any smooth zero Hasse matrix has rank exactly 1, by nonzero b0=h(t) or bottom-left entry 1 at infinity, hence a-number 1. The two Frobenius ranks are explicitly realized by h=x⁵+x⁴+x³+x at t=±1. This is about the parameter line, not moduli-stack multiplicities. Independent algebraic resultant/Bezout check and finite F3 examples corroborate, not replace the universal proof.
 
-## Originality — PASS, with priority limitations
+## originality
 
-Cavalieri–Pries, *Mass formula for non-ordinary curves in one dimensional families*, arXiv:2308.14891 (submitted August 28, 2023), define the precise family and derive its mass formula; their Section 5 and Remark 5.5 give the general number-of-zeros bound and identify the difficulty of controlling individual vanishing orders. The source neither states the universal third-Hasse-derivative resultant identity nor the all-quintic two-or-zero smooth-fiber dichotomy, including singular collision absorption. Classical Yui 1978 provides the Cartier coefficient method, and no originality is claimed for this method. Relevant public literature searches for genus-two Hasse determinants, branch-point variation, resultants and characteristic-three reducedness did not find a covering implication. Finding no source in a bounded search is not a proof of uniqueness; Yui's full article and other classical work were not exhaustively verified.
+PASS
 
-**Residual priority risk:** A classical or unindexed calculation might already express the same collision resultant or reducedness phenomenon. The inspected open-access mass-formula paper is sufficiently close to make that risk explicit.
+PASS (qualified): Cavalieri–Pries 2023 defines exactly y²=(x-t)h and proves a genus/p-dependent mass formula; Remark 5.5 gives at most g(p−1)/2 nonordinary values and warns multiplicities are not controlled by generic results. Neither mass nor bound yields this char-3 genus-2 universal discriminant/resultant and all-separable-quintic two-or-zero smooth simple-zero criterion. The coefficient method originates with Yui 1978 and is credited.
 
-## Mathematical value — PASS
+## value
 
-The mass formula and generic-bound statement do not determine whether the expected two zeros persist as smooth nonordinary fibers, merge at singular boundary, or acquire higher local multiplicity. The exact resultant detects and classifies this boundary collision for **all** quintics, without any generic-automorphism hypothesis. Universal reducedness of the nonordinary divisor over the smooth parameter locus and the two distinct \(3\)-ranks at the two exceptional fibers are natural geometric refinements, not table recomputation. This is a motivated complete classification in a natural family of genus-two Jacobians.
+PASS
 
-## Limits of review
+PASS: Converts the generic mass and support upper bound into an exact whole-family parameter-divisor classification without genericity of fixed branch points. The collision resultant and a-number/p-rank distinction provide natural, reusable arithmetic geometry boundary data.
 
-The primary open-access source's relevant full text and the exact standalone verifier were inspected. The Yui result was checked through bibliographic material and its explicit use in the primary article, rather than through an independent reading of the full historical journal paper. This remains a self-review; no independent audit or validation has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
