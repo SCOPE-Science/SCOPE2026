@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational checks
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3 and SymPy installed. The script evaluates the neutral theorem's formulas with exact fractions and independently builds all \(2^n\)-state transition matrices of the original stochastic birth–death model for \(n=3,4,5\). It then solves rational absorbing-state linear systems for the fixation probabilities, not merely the reduced expectation chain.
+## correctness
 
-Successful completed check counts: 48 exact rational stationary-vector comparisons, 48 strict ordering and difference identities, 31 independently calculated full-state fixation probabilities, 15 numerical checks of the scaling limit, and 98 exact shortest-block simplifications. The exact full-state tests include \(\tau=1,2,3\) except \(n=5,\tau=3\).
+PASS
 
-The finite tests are not an exhaustive proof for unbounded network size or duration. The analytic derivation in `RESULT.md` establishes those claims. Numeric asymptotic samples are supplementary and use a declared tolerance; no claim of exact numerical certification or external validation is made.
+The neutral expectation update for each active star is the written row-stochastic 3x3 matrix with eigenvalues 1, lambda=1-1/[n(n-1)], mu=(n-2)/[n(n-1)]; tau-th powers are exact spectral-projector combinations. The stationary row of T=M_B^tau M_A^tau is (U,V,(n-2)W)/Z by substitution/tree formula, and coalescence ensures fixation equals limiting expectation. Explicit subtraction yields V-U=(n-1)(n-2)(1-x)(1-y)>0 and W-V=(n-1)(n-2)x(1-y)>0. For tau/n^2->theta, x->exp(-theta), y<=n^(-tau), U~n,W~n^2,Z~n^3 uniformly. Independently built full 2^n state absorbing chain n=3,4,5, tau=1,2 reproduces all three probabilities. No nonneutral or shifted-phase claim.
+
+## originality
+
+PASS
+
+Bhaumik and Masuda already formulate the periodic switching neutral birth-death problem and its 1/n mean under uniformly random initial sites, and dynamic reproductive values are known. The present claim resolves two different alternating stars, site-resolved phase-specific probabilities, strict A<B<leaf and the n^2 transition; neither general recurrence alone nor a different death-birth model supplies the explicit result. Best-of-knowledge PASS subject to equivalent earlier specializations.
+
+## value
+
+PASS
+
+Neutral fixation on temporally varying graphs depends on initial phase and vertex, unlike a simple average. The exact strict hub asymmetry and n^2 switching-duration crossover explain a natural difference between temporal ordering and a static aggregate, with direct use in dynamic evolutionary graph theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

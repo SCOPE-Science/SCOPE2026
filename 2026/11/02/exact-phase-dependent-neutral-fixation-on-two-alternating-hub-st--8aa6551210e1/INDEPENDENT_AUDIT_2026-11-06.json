@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:56:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob bed2b4d3b0ac312cc408f75c0c8a47a7ad09a634",
+        "Git snapshot verify.py blob 22b862b71adc1139bb20e244bf763aeee50a4646",
+        "Independent 2^n neutral absorbing chain for n=3..5 tau=1,2, independent_checks.py"
+      ],
+      "rationale": "The neutral expectation update for each active star is the written row-stochastic 3x3 matrix with eigenvalues 1, lambda=1-1/[n(n-1)], mu=(n-2)/[n(n-1)]; tau-th powers are exact spectral-projector combinations. The stationary row of T=M_B^tau M_A^tau is (U,V,(n-2)W)/Z by substitution/tree formula, and coalescence ensures fixation equals limiting expectation. Explicit subtraction yields V-U=(n-1)(n-2)(1-x)(1-y)>0 and W-V=(n-1)(n-2)x(1-y)>0. For tau/n^2->theta, x->exp(-theta), y<=n^(-tau), U~n,W~n^2,Z~n^3 uniformly. Independently built full 2^n state absorbing chain n=3,4,5, tau=1,2 reproduces all three probabilities. No nonneutral or shifted-phase claim.",
+      "residual_risks": [
+        "No nonneutral, arbitrarily phased or unequal-block switching theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhaumik/Masuda 2023 gives full finite absorbing-state recurrence general enough to calculate any finite graph schedule.",
+          "Its numerical cases are star-complete and star-complete-bipartite switching."
+        ],
+        "reasoning": "The general recurrence is prior art and could be specialized computationally, but does not state an all-n all-tau closed formula, strict ordering and n^2 crossover.",
+        "searches": [
+          "neutral fixation birth death periodic switching two star graphs different hubs site dependent reproductive values",
+          "https://arxiv.org/abs/2304.00170",
+          "https://arxiv.org/abs/2301.11982"
+        ]
+      },
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob bed2b4d3b0ac312cc408f75c0c8a47a7ad09a634",
+        "Git snapshot verify.py blob 22b862b71adc1139bb20e244bf763aeee50a4646",
+        "Independent 2^n neutral absorbing chain for n=3..5 tau=1,2, independent_checks.py",
+        "Bhaumik Masuda arxiv:2304.00170, Su/McAvoy/Plotkin arxiv:2301.11982"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bhaumik/Masuda equal-average theorem requires average over initial site.",
+          "Temporal order distinguishes B and A, while static aggregate equalizes their degrees and reproductive values."
+        ],
+        "reasoning": "Averaging the new pA,pB,(n-2)pL indeed gives one, consistent with prior theorem, but it does not determine the split; dynamics source update order differs from comparison death-birth setting.",
+        "searches": [
+          "neutral fixation birth death periodic switching two star graphs different hubs site dependent reproductive values",
+          "https://arxiv.org/abs/2304.00170",
+          "https://arxiv.org/abs/2301.11982"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhaumik/Masuda arxiv:2304.00170 Theorem 1 uniform single-mutant placement yields 1/n, even for temporal switching.",
+          "Su/McAvoy/Plotkin arxiv:2301.11982 studies dynamic reproductive values under focal-first death-birth."
+        ],
+        "reasoning": "Uniform average and death-birth reproductive value are not the site-specific birth-death probability vector started at a designated phase.",
+        "searches": [
+          "neutral fixation birth death periodic switching two star graphs different hubs site dependent reproductive values",
+          "https://arxiv.org/abs/2304.00170",
+          "https://arxiv.org/abs/2301.11982"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 paper studies star/composite examples and does not report the exact two-center all-parameter table."
+        ],
+        "reasoning": "A finite numerical table would not imply the all-size strict asymmetry theorem; none of inspected tables is the same model configuration.",
+        "searches": [
+          "neutral fixation birth death periodic switching two star graphs different hubs site dependent reproductive values",
+          "https://arxiv.org/abs/2304.00170",
+          "https://arxiv.org/abs/2301.11982"
+        ]
+      },
+      "rationale": "Bhaumik and Masuda already formulate the periodic switching neutral birth-death problem and its 1/n mean under uniformly random initial sites, and dynamic reproductive values are known. The present claim resolves two different alternating stars, site-resolved phase-specific probabilities, strict A<B<leaf and the n^2 transition; neither general recurrence alone nor a different death-birth model supplies the explicit result. Best-of-knowledge PASS subject to equivalent earlier specializations.",
+      "residual_risks": [
+        "An earlier special computation from general periodic reproductive values may imply exact two-star formulas.",
+        "No nonneutral, arbitrarily phased or unequal-block switching theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General neutral 1/n average, no same two distinct switching-star hub closed form in inspected paper",
+          "evidence": [
+            "Theorem 1: uniform initial placement neutral fixation =1/n.",
+            "Examples switch a star against a complete or complete-bipartite graph, unlike the two-center stars."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.00170",
+          "material_read": "Full ~32-page PDF including Theorem 1 and star-complete/star-bipartite example sections",
+          "method": "Read and searched full arXiv PDF text; inspected theorem and model example pages",
+          "title": "Fixation probability in evolutionary dynamics on switching temporal networks",
+          "trigger": "Same exact neutral birth-death switching temporal framework"
+        },
+        {
+          "assessment": "Different focal-first death-birth update; general reproductive-value context is prior",
+          "evidence": [
+            "Current study reproducer-first birth-death changes update matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.11982",
+          "material_read": "Abstract, model definitions and update conventions from accessible text",
+          "method": "Read scholarly arXiv text/sections",
+          "title": "Strategy evolution on dynamic networks",
+          "trigger": "Reproductive values on dynamic networks possibly implying site-specific formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob bed2b4d3b0ac312cc408f75c0c8a47a7ad09a634",
+        "Git snapshot verify.py blob 22b862b71adc1139bb20e244bf763aeee50a4646",
+        "Independent 2^n neutral absorbing chain for n=3..5 tau=1,2, independent_checks.py",
+        "Bhaumik Masuda arxiv:2304.00170, Su/McAvoy/Plotkin arxiv:2301.11982"
+      ],
+      "rationale": "Neutral fixation on temporally varying graphs depends on initial phase and vertex, unlike a simple average. The exact strict hub asymmetry and n^2 switching-duration crossover explain a natural difference between temporal ordering and a static aggregate, with direct use in dynamic evolutionary graph theory.",
+      "residual_risks": [
+        "An earlier special computation from general periodic reproductive values may imply exact two-star formulas.",
+        "No nonneutral, arbitrarily phased or unequal-block switching theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob bed2b4d3b0ac312cc408f75c0c8a47a7ad09a634",
+    "Git snapshot verify.py blob 22b862b71adc1139bb20e244bf763aeee50a4646",
+    "Independent 2^n neutral absorbing chain for n=3..5 tau=1,2, independent_checks.py",
+    "Bhaumik Masuda arxiv:2304.00170, Su/McAvoy/Plotkin arxiv:2301.11982"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier special computation from general periodic reproductive values may imply exact two-star formulas.",
+    "No nonneutral, arbitrarily phased or unequal-block switching theorem."
+  ],
+  "schema_version": 1
+}
