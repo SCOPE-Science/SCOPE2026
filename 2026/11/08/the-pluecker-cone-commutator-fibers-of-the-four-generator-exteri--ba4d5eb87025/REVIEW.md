@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The even-degree subspace commutes with the full exterior algebra, giving an exact \(q^{16}\)-fold multiplicity in each ordered-pair commutator fiber. The proof reduces the odd-coordinate calculation to the wedge pair \(2u\wedge v\) and a top-degree linear functional, using the nondegenerate \(V\times\bigwedge^3V\) wedge pairing. The \(\operatorname{SL}_2(k)\) determinant-one basis count gives \(q(q^2-1)\) vector-pair preimages of each nonzero simple bivector, while the dependent-pair count is \(1+(q^4-1)(q+1)\). This proves all stated fibers over every odd finite field; image size, commuting probability, and the sharp two-commutator width follow. Full verification programs exhaust every possible output fiber over \(\mathbb F_3\), independently enumerate vector wedge fibers over \(\mathbb F_3\) and \(\mathbb F_5\), and directly multiply random sixteen-coordinate exterior elements. Finite checks do not replace the general proof.
+
+## Originality — PASS relative to inspected sources
+The relevant literature distinguishes additive spans and algebra-generated commutator ideals, individual images of polynomial maps, and automorphism-stable Grassmann subspaces. Gardella–Thiel (arXiv:2301.05958) give qualitative/bounded-commutator generation results for other settings, not the exact four-generator finite-field fibers. Brešar (arXiv:2001.10392) concerns general Waring-type images and linear span, not this distribution. Demir–Nazemian (arXiv:2508.16945) characterize invariant subspaces/subalgebras, not the nonlinear image or ordered-pair counts. Kleiner's rank-two multivector work and the Plücker relation supply classical premises explicitly excluded from novelty. Relevant mathematical-record searches found no equivalent or stronger statement, but negative searches are not proof of priority. Residual risk: uncatalogued finite-algebra commutator enumerations or a broader tensor-counting theorem may imply this one.
+
+## Mathematical value — PASS
+The first exterior rank with nonsimple bivectors is four; hence this is the first small Grassmann algebra in which the individual commutator-value set is a proper nonlinear subset of its linear span. The theorem determines every fiber, rather than only counting image points or commuting pairs, exposes different multiplicities on zero and nonzero central-axis values, and gives uniform formulas for all odd prime powers. The sharp width-two statement explains how additive closure restores the missing rank-four bivectors. This provides a natural and complete finite-field invariant at a structural threshold, rather than a selected numerical sample.
+
+## Sources, restrictions and risks
+Primary material inspected: arXiv:2301.05958, arXiv:2001.10392, arXiv:2508.16945, and classical rank-two multivector literature. The formula is not asserted in characteristic two, for other generator ranks, or for all noncommutative algebras. Search completeness and external priority remain uncertain. Independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
