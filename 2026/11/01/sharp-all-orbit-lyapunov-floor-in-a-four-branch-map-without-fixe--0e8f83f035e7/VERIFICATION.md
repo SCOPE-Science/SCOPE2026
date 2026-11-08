@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 with only its standard library. It checks exact rational branch arithmetic at six pairs satisfying the strict chamber; the symmetric eight-cycle's least period, itinerary and multiplier; 150 distinct exact points in the neutral period-eight interval; and the unnormalized orbit for the parameters \(r=4/5,s=5\). It also runs rational orbit probes of the four-outer-run prohibition. The package includes the checker itself and requires no external datasets.
+## correctness
 
-The universal inequality is proved by the outer-magnitude three-step inequality \(g^3(s)<1\), not by the finite probes. The equality witness's branch inequalities are algebraic strict consequences of \(sr^2>1+r+r^2\). The phase boundary and optimal exponent require no approximation. Boundary-hitting orbits are deliberately outside the ordinary derivative quantification. One potentially relevant complete 2021 original publication remained inaccessible; this is a publication-priority limitation, not a gap in the displayed mathematical derivation.
+PASS
+
+In the chamber 0<r<1, H/r²<s<1+H/r³, H=1+r+r², outer magnitudes evolve g(z)=r(z−1). Four successive outer visits would require g³(s)≥1, contradicted by upper chamber inequality. Thus any n=4q+j branch-regular prefix contains at least q inner steps and |(T^n)'|≥(sr³)^q r^j. The explicit positive u=(sr³−rH)/(1+sr³) is in (0,1); strict lower inequality sr²>H ensures the primitive period-eight itinerary IOOOIOOO with T⁴(u)=−u and eight-step multiplier (sr³)². The witness achieves infimum log(sr³)/4 and disproves positive uniform growth when sr³≤1; if >1 choose rho=(sr³)^(1/4), C=(r/rho)^3. Independent exact rational parameters checked orbit formulas and strict itinerary for several chamber points. Boundary-hitting trajectories correctly excluded.
+
+## originality
+
+PASS
+
+2023 complete FPGA article analyzes exactly the canonical map and numerical finite-orbit exponents; the 2021 defining article publicly describes fixed-point-free and Devaney properties and positive Lyapunov examples. Previously known eight-cycle/neutral interval are explicitly not claimed new. The novel candidate is the universal four-block bound plus sharp all-orbit chamber threshold. 2021 full text inaccessible after arxiv/OA and authorized Oxford returned vpn_disconnected; priority remains provisional, but inaccessible literature alone does not negate a reconstructed surviving mathematical result.
+
+## value
+
+PASS
+
+The least Lyapunov exponent over all smooth regular orbits and necessary-sufficient uniform exponential derivative expansion threshold are natural quantitative invariants for the fixed-point-free map family. Finite-trajectory Lyapunov positivity and an isolated eight-cycle do not control all possible itineraries; the structural four-step frequency obstruction closes this gap on an open two-parameter chamber.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
