@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The exact Poisson reweighting is checked algebraically, a spanning-tree incidence minor is unimodular, Fourier inversion proves the uniform margin lattice local limit, dominated convergence gives independent rare Poisson counts in total variation, and a joint Fourier integral gives a Gaussian projection independent of them. The disconnected 2x2 exception has an exact factorial-series proof. The replayable verifier passes 831 finite checks; those do not substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.14616, assumptions of its growing-dimension bridge/CLT: bounded cost and expanding row/column dimensions; here dimension is fixed and diagonal cost grows like log n.",
+        "arxiv:2610.14616 finite-dimension transference concerns global comparison, not the full joint rare-cell Poisson and centered Gaussian factorization.",
+        "arxiv:1710.08903, Section 1 and Section 4: different underlying coupon-allocation law and one-cell asymptotics."
+      ],
+      "reasoning": "The broadest primary comparison establishes a related Gaussian projection for a regular interior bridge, but does not directly entail a mixed Poisson/Gaussian asymptotic with the support graph varying at 1/n scale. A general conditional lattice local-limit theorem might imply our statement if specialized; this remains a priority risk, not a claim of impossibility.",
+      "searches": [
+        "connected bipartite support graph conditional independent Poisson table with fixed row and column sums, rare forbidden edges weight 1/n, joint independent Poisson limit",
+        "boundary of Sinkhorn scaling entropic optimal transport vanishing matrix entries rare Poisson counts fixed finite dimensions",
+        "arxiv:2610.14616 Duan Lyu Powell bounded costs growing dimensions Theorem 2.10 and finite-dimension transference",
+        "fixed size Gibbs contingency tables structural zeros have independent rare-cell Poisson fluctuations versus disconnected support produces Bessel law"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.14616",
+      "https://arxiv.org/html/1710.08903v2",
+      "https://publish.illinois.edu/yuguo/files/2012/12/final.pdf",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE057",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.14616 supplies the weighted conditional-Poisson formalism; the new assertion additionally requires a connected sparse support local limit uniform in rare integer perturbations.",
+        "Chen 2007 studies exactly forbidden entries and sampling, not the 1/n weak-forbidding transition.",
+        "Zhou 2017/2018 treats fixed-margin coupon-allocation tables; its single-cell Poisson theorem lacks the cross-cell independent joint limit and the Gaussian fluctuation covariance in the present model."
+      ],
+      "reasoning": "The theorem concerns jointly rare, asymptotically independently Poisson forbidden cells and their independence from a constrained Gaussian bulk, with the rank/connectivity cutoff. Neither marginal-conditioned occupancy one-cell limits, finite-fiber graph diameters, nor the motivating bounded-cost growing-dimension CLT implies this singular fixed-dimension joint theorem without a new lattice-local analysis. The two-by-two Bessel series is standard noncentral hypergeometric material and is not claimed novel alone.",
+      "searches": [
+        "Poisson contingency table fixed equal margins n by n suppressed diagonal entries strength theta/n as n to infinity: independent Poisson for dimension >=3 and Bessel-distributed coupled counts for 2x2",
+        "connected bipartite support graph conditional independent Poisson table with fixed row and column sums, rare forbidden edges weight 1/n, joint independent Poisson limit",
+        "fixed size Gibbs contingency tables structural zeros have independent rare-cell Poisson fluctuations versus disconnected support produces Bessel law",
+        "arxiv:2610.14616 conditional Poisson Gibbs margin bridge fluctuation",
+        "arxiv:1710.08903 asymptotics multivariate contingency table fixed marginals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1710.08903, introduction and Sections 3-4: an occupancy/coupon-collector table law and cell-level Poisson limits.",
+        "doi:10.1198/106186007X209226, Sections 1, 4, 7 and 9: structural-zero sequential importance sampling and conditional inference.",
+        "Fisher noncentral hypergeometric weight: for 2x2 balanced margins, the single-cell fiber weight has a squared-factorial denominator."
+      ],
+      "reasoning": "Compared the conditional-Poisson/Gibbs interpretation, hypergeometric names, structural zeros, and noncentral Fisher terms. The two-by-two exact law is classical after a parameter change, so novelty is assigned only to the general connected-support joint limit and its contrast with this exception. The occupancy-array studies do not impose the singular Gibbs weights.",
+      "searches": [
+        "Poisson contingency table fixed equal margins n by n suppressed diagonal entries strength theta/n as n to infinity: independent Poisson for dimension >=3 and Bessel-distributed coupled counts for 2x2",
+        "fixed-margin Fisher Yates random table with near structural zero diagonal, independent Poisson diagonal rare counts, bipartite support connected, lattice local CLT",
+        "noncentral Fisher hypergeometric balanced 2x2 Bessel critical rare diagonal limit",
+        "Quan Zhou arxiv:1710.08903 Section 4 coupon collector table cell Poisson limit",
+        "Yuguo Chen 2007 conditional inference tables with structural zeros full paper Sections 1, 7, 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/8/SCOPE057 computes exact small contingency-table fiber diameters under 2x2 moves, not growing-margin Gibbs probabilities.",
+        "published-finding corpus 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 concerns occupied-box covariance and its inverse, not conditioned Gibbs tables.",
+        "verify.py enumerated exact 3x3 and 4x4 margins and checked matching conditional weights; no database fact is claimed as a theorem."
+      ],
+      "reasoning": "Searched rare diagonal probabilities, Gibbs-conditioned tables, finite fibers, Poisson/Gaussian limit, and Bessel aliases. The finite table computations are verification and not a known-tabulation novelty claim.",
+      "searches": [
+        "Poisson contingency table fixed equal margins n by n suppressed diagonal entries strength theta/n as n to infinity: independent Poisson for dimension >=3 and Bessel-distributed coupled counts for 2x2",
+        "noncentral Fisher hypergeometric balanced 2x2 Bessel critical rare diagonal limit",
+        "published-finding corpus 2026/9/8/SCOPE057 small margin 3x3 3x4 table fibers",
+        "published-finding corpus 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166"
+      ]
+    },
+    "rationale": "The closest recent conditional-Poisson paper treats regular bounded-cost growing-dimension regimes; full-text comparison with historical occupancy tables and structural-zero methods did not find this fixed-dimension vanishing-prior joint law. Published-index and independently accessible prior-work searches found no overlapping or dominating claim; publication-priority risk from general conditional lattice CLT remains, especially for implicit reformulations. The classical 2x2 Bessel fact is not individually claimed new.",
+    "residual_risks": [
+      "General lattice-conditioned Poisson local limit or contingency-table small-cell asymptotic literature could contain a theorem that implies the entire present claim with only routine specialization.",
+      "A different parametrization (penalty/log-linear interactions, Bayes factors, strongly conditioned Poisson) may hide equivalent results in older literature.",
+      "Finite title-and-summary matches cannot certify full noncoverage and no exhaustive worldwide priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest motivating framework; bounded-cost growing-dimension CLT and finite-size transference do not state the singular 1/n rare-edge joint law",
+        "evidence": [
+          "arxiv:2610.14616, first version 2026-10-10; sections on conditional-Gibbs table, Schrödinger bridge, and CLT assumptions."
+        ],
+        "identifier_or_url": "arxiv:2610.14616",
+        "material_read": "Full HTML introduction, model, assumptions, main results, and the finite-dimension transference discussion",
+        "method": "arXiv lawful open HTML; inspected relevant statements and their dimension/cost hypotheses",
+        "title": "Poisson contingency tables, Gibbs permutations, and entropic optimal transport",
+        "trigger": "Same conditioned Poisson object and fluctuation claims"
+      },
+      {
+        "assessment": "Its fixed-margin array has a different occupancy-coupon construction and individual cell, not singular prior Gibbs joint rare-edge/Gaussian limit",
+        "evidence": [
+          "https://arxiv.org/html/1710.08903v2, Introduction and Theorems 1-3, Section 4."
+        ],
+        "identifier_or_url": "arxiv:1710.08903",
+        "material_read": "Full HTML abstract, Sections 1-4 including its definition of the coupon-collector table distribution and cell limit theorems",
+        "method": "arXiv public HTML / full primary text",
+        "title": "Asymptotics of multivariate contingency tables with fixed marginals",
+        "trigger": "Plausibly dominating fixed-margin Poisson/Gaussian asymptotics"
+      },
+      {
+        "assessment": "Proposes sequential importance sampling for hard structural zeros; does not assert weakly permitted rare-edge conditional Poisson/Gaussian joint limits",
+        "evidence": [
+          "https://publish.illinois.edu/yuguo/files/2012/12/final.pdf, pp.445-467, especially Sections 1,7,9."
+        ],
+        "identifier_or_url": "doi:10.1198/106186007X209226",
+        "material_read": "Author-hosted complete 23-page PDF; inspected abstract, introduction, structural-zero contingency examples, methodology/conclusion sections and references",
+        "method": "Author-hosted lawful PDF, read extracted primary text and checked rendered pages including front matter/references",
+        "title": "Conditional Inference on Tables With Structural Zeros",
+        "trigger": "Direct overlap: off-diagonal tables and structural zeros"
+      },
+      {
+        "assessment": "Small bounded-margin fiber-graph combinatorics, not Gibbs table asymptotic; cannot be used as whole-file noncoverage evidence",
+        "evidence": [
+          "2026/9/8/SCOPE057 summary finite fiber diameters under 2x2 Markov moves."
+        ],
+        "identifier_or_url": "2026/9/8/SCOPE057",
+        "material_read": "Publicly indexed scientific title, abstract and claim scope; not whole primary file",
+        "method": "Public scientific-index query",
+        "title": "Exact Markov fiber diameters for small-margin 3x3 and 3x4 tables with maximal-fiber witnesses",
+        "trigger": "Closest retrieved published SCOPE table topic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9f41c170-e8e8-4c92-85fa-cef1c709154c",
+  "value": {
+    "rationale": "Connectedness of the ordinary-cell support controls a natural, previously unquantified singular phase: mutually independent rare Poisson counts decouple from the Gaussian row/column-constrained bulk, whereas the smallest disconnected case has locked Bessel counts. This is an explicit structural boundary in conditioned count models and entropic transport, not a textbook isolated arithmetic identity or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
