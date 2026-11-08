@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every length value has an explicit full covering word and an exact half-integral matching-dual lower certificate. The main text reconstructs the signed-incidence reduction and proves why it bounds all linear covering walks, including exceptional endpoints. The standard-library verifier regenerates every reflection orbit and finite alternating-path distance and verifies all potential inequalities and class coverage. No numerical solver status is needed for its proof.
+PASS
 
-## Originality
+The overlap graph has one labeled edge per reversal class, signed types at nonpalindromic endpoint incidences; any covering word induces a compatible alternating-type edge walk. The mandatory graph has odd counts 8,14,16,30 for n=6..9, and the extra alternating trails must meet the deficient types except for two free endpoints. Thus a shortest-type-path perfect-matching relaxation lower-bounds additional traversals. All 4 finite certificates give integer doubled vertex potentials satisfying each pair and terminal dual inequality with total objective precisely 2*(7,14,19,38). I independently reconstructed the signed graphs and BFS transitions, verified all pair inequalities and the explicit binary upper words contain all reversal classes. This is exhaustive finite certification of exactly four n, conditional on the mathematical trail reduction, not a speculative extrapolation.
 
-**PASS, with historical-priority risk.** The 2016 Burris--Motta--Shipman open preprint explicitly develops unoriented de Bruijn graphs, small binary examples at orders four and five, and a general but non-sharp upper bound. The new claim is strictly the sharp binary order-six-to-nine finite table and dual certificates, not those prior constructions. The later cyclic *orientable* sequence problem maximizes no-repetition period and cannot determine minimum repeated coverage of all reflected classes. Targeted exact-value, reversal-class and equivalence searches did not find a covering result. Unindexed older tables remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2016 graph-theoretic framework explicitly leaves optimal Eulerizations beyond its small examples unresolved. Four consecutive sharp finite minima resolve the first untouched binary orders of that natural extremal problem. The certificate also measures the extra cost of typed alternating overlaps over the naive number-of-classes bound and is independently reusable for testing later constructions.
+Burris–Motta–Shipman introduced reversal-class edge graphs, alternating Euler tours, general upper bounds and small-order examples, but the inspected original paper does not give these four exact later shortest linear lengths and matching-dual certificates. Mitchell–Wild treats the opposite maximal cyclic no-repeat orientation problem. Resultary related string results did not provide a dominating exact U(6)..U(9) list. Historical small tables or implicit Chinese-postman computations remain a serious residual risk.
 
-## Limitations
+## value
 
-The claim concerns linear binary coverage through reversal only, exactly the four orders; it does not claim a closed formula for all orders or optimality for other alphabets. Scientific and historical-priority validation remain non-independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining sharp next four natural minimum lengths extends prior n=4,5 illustrations with exact lower certificates in an unoriented de Bruijn covering problem. Each finite endpoint is a meaningful extremum of a canonical string-design invariant, not an arbitrary word example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
