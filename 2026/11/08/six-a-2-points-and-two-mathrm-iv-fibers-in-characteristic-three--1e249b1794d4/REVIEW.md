@@ -1,0 +1,15 @@
+# Evidence assessment: characteristic-three quartics with six \(A_2\) points
+
+## Correctness — PASS
+For the precise nonempty open conditions in `RESULT.md`, differentiating the quartic forces every singular point off the distinguished line to lie over a root of the binary quadratic. There the equation becomes the cube of a line, and the remaining derivative cuts three simple points. The analytic-coordinate argument gives the complete local form \(ts+u^3=0\), so all six points are rational double points of type \(A_2\). Standard rational-double-point resolution then gives a K3 surface. The residual-cubic pencil is checked fiber by fiber: two triple-line fibers with three \(A_2\) chains, each of extended \(E_6\) type, and six ordinary nodal cubics. The Frobenius formula on the distinguished line proves the purely inseparable trisection. A self-contained finite-field witness checks that the hypotheses define a nonempty open set; no extrapolation from finite data is used for the universal statement.
+
+## Originality — PASS, with residual priority risk
+The exact family is in Rams–Schütt (2013), Sect. 7, but their results exclude characteristic \(3\) and describe smooth members with a different fiber pattern. Rams (2002) and Barth–Rams (2001) study complex six-cuspidal quartics and do not derive the characteristic-three fiber decomposition for these equations. Veniani (2021), Lemma 3.17, contains the general local triple-line / \(\mathrm{IV}^{*}\) pattern and therefore that **local pattern alone is prior work**; the specific uniform two-fiber degeneration, six surface \(A_2\) points, remaining six nodal fibers, and purely inseparable trisection are not implied by that local classification. Exact-object searches and mathematical implication comparisons did not find a covering statement. Specialist unindexed treatments and possible equivalent coordinate descriptions remain priority risks.
+
+## Mathematical value — PASS
+This identifies a structurally different, characteristic-dependent boundary of a specific classical, geometrically motivated family: the six reducible fibers of type \(\mathrm I_3\) in the characteristic-different-from-three picture are replaced, on the singular quartic and its K3 resolution, by two triple-line fibers of type \(\mathrm{IV}^{*}\). It explains the six new rational double points and the inseparable degree-three multisection, rather than only reporting a small finite calculation. The open hypotheses and a concrete coefficient witness make the classification reproducible.
+
+## Limits and closest literature
+The result concerns a nonempty open subfamily, not the complete parameter discriminant. The full Néron–Severi lattice and arithmetic of the Jacobian fibration are not determined, and a section is not asserted. The closest primary sources are Rams–Schütt, *On quartics with lines of the second kind*, arXiv:1303.1304 (Sect. 7); Veniani, *Lines on K3 quartic surfaces in characteristic 3*, DOI:10.1007/s00229-021-01284-9 (Sect. 3); and the two complex six-cusp studies listed in `RESULT.md`.
+
+Self-review: passed. Independent audit: not yet performed.
