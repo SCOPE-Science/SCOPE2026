@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:44:40.725734Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For alpha>0 and a nonzero finite positive measure compactly supported in a strict positive w-interval, the Fourier transform of (t-iw)^(-1) and critical-density Zak diagonalization give the multiplier (4pi^2/alpha)|F_u(e^{i theta})|^2, where F_u(z)=integral q_w^(1-u)/(1-q_w z)dnu, q_w=exp(-2pi w/alpha). The exact pair kernel K_{q,r}(x)=[1-(q+r)x+qr]/[D_q(x)D_r(x)] is positive for -1<=x<=1, and its partial-fraction decomposition gives a strictly positive x derivative q(1-q^2)/D_q^2 plus its r analogue. Positivity and strict growth of q^(1-u) in u force essential extrema at (u,x)=(0,-1),(1,1), yielding the claimed A and B with their alpha normalization. B^(1/2)/A^(1/2) is a positive probability average of R(R+1)/(R-1), R=e^(2pi w/alpha)>1; this function has its unique global minimum 3+2sqrt(2) at R=1+sqrt(2). Hence B/A>=17+12sqrt(2) and equality requires only the atom at w*=alpha log(1+sqrt(2))/(2pi). Compact support away from zero ensures nonzero finite bounds. Separate Fraction calculations verified pair-kernel algebra/monotonicity on rational grids; these finite checks are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belov–Kulikov–Lyubarskii, arXiv:2103.08959, Theorem 1.1, frame property for positive Herglotz finite sums at critical and oversampled lattices.",
+          "arXiv:2212.08915, Theorem 1.1 and page 2, optimal single-pole bounds."
+        ],
+        "reasoning": "The general frame-set theorem is broader in lattice density but weaker in exact quantitative mixture constants. It does not automatically supply the best condition number for arbitrary continuous positive measures and a unique optimizer; the extant exact bound is restricted to one pole.",
+        "searches": [
+          "Resultary: critical density Gabor frames Balian Low theorem sharp lower frame bounds universal conditioning finite lattice",
+          "Gabor frames finite positive Cauchy mixture sharp frame bounds 17+12 sqrt2",
+          "arXiv:2103.08959 Theorem 1.1",
+          "arXiv:2212.08915 page 2 exact single-pole critical Zak bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.08915 primary PDF p.2",
+        "arXiv:2103.08959 primary frame-set theorem",
+        "Resultary Gabor query above",
+        "assigned frozen Git RESULT.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2212.08915 p.2 exactly gives A=(4pi^2/alpha)(1/(exp(2pi w/alpha)+1))^2 and B=(4pi^2/alpha)(exp(2pi w/alpha)/(exp(2pi w/alpha)-1))^2 for one pole.",
+          "Assigned proof rewrites the all-mixture root condition ratio as a weighted average of R(R+1)/(R-1)."
+        ],
+        "reasoning": "Prior explicit single-pole constants imply the single-atom specialization, and classical Zak diagonalization implies a computable multiplier; neither listed implication establishes the monotonicity of all positive cross terms or that no nontrivial mixture can improve conditioning.",
+        "searches": [
+          "Resultary: critical density Gabor frames Balian Low theorem sharp lower frame bounds universal conditioning finite lattice",
+          "Gabor frames finite positive Cauchy mixture sharp frame bounds 17+12 sqrt2",
+          "arXiv:2103.08959 Theorem 1.1",
+          "arXiv:2212.08915 page 2 exact single-pole critical Zak bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belov–Kulikov–Lyubarskii, arXiv:2212.08915, p.2: a single Cauchy kernel admits optimal A,B given by one-pole rational expressions.",
+          "Assigned RESULT.md: uniform positive-mixture pair-kernel monotonicity and integral formulas."
+        ],
+        "reasoning": "The one-pole formula matches after nu=c delta_w, but interference cross-terms for general positive measures and the universal minimization over mixtures are not stated by the inspected single-pole result.",
+        "searches": [
+          "Resultary: critical density Gabor frames Balian Low theorem sharp lower frame bounds universal conditioning finite lattice",
+          "Gabor frames finite positive Cauchy mixture sharp frame bounds 17+12 sqrt2",
+          "arXiv:2103.08959 Theorem 1.1",
+          "arXiv:2212.08915 page 2 exact single-pole critical Zak bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby spline Gabor bounds and rational nonframe obstructions; no matching all-positive-Cauchy-mixture sharp constant among the actual search results.",
+          "The target is a continuous measure-dependent variational inequality, not a finite tabular invariant."
+        ],
+        "reasoning": "No discrete database or numerical table could alone determine the universal measure-valued bound. Nonmatching Resultary hits are only context, not positive proof of novelty.",
+        "searches": [
+          "Resultary: critical density Gabor frames Balian Low theorem sharp lower frame bounds universal conditioning finite lattice",
+          "Gabor frames finite positive Cauchy mixture sharp frame bounds 17+12 sqrt2",
+          "arXiv:2103.08959 Theorem 1.1",
+          "arXiv:2212.08915 page 2 exact single-pole critical Zak bounds"
+        ]
+      },
+      "rationale": "The one-pole formula matches after nu=c delta_w, but interference cross-terms for general positive measures and the universal minimization over mixtures are not stated by the inspected single-pole result. The general frame-set theorem is broader in lattice density but weaker in exact quantitative mixture constants. It does not automatically supply the best condition number for arbitrary continuous positive measures and a unique optimizer; the extant exact bound is restricted to one pole. No discrete database or numerical table could alone determine the universal measure-valued bound. Nonmatching Resultary hits are only context, not positive proof of novelty. Prior explicit single-pole constants imply the single-atom specialization, and classical Zak diagonalization implies a computable multiplier; neither listed implication establishes the monotonicity of all positive cross terms or that no nontrivial mixture can improve conditioning. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.",
+      "residual_risks": [
+        "A preexisting general rational Zak expression may make the quantitative calculation implicit; unindexed equivalent positive-mixture bounds remain a priority risk.",
+        "Signed or complex mixture coefficients and other lattices are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exactly the one-pole case and general alpha beta estimates; mixture-wide sharp bound and unique mixing optimum not stated in inspected theorem.",
+          "evidence": "arXiv:2212.08915v1, p.2 displayed formulas; Theorem 1.1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08915",
+          "material_read": "Read introduction, critical Zak transform and displayed one-pole A,B formulas on page 2; inspected page-2 PDF image; checked Theorem 1.1 and subsequent operator discussion.",
+          "method": "Full primary PDF text plus page screenshot",
+          "title": "Gabor frame operator for the Cauchy kernel",
+          "trigger": "Exact same Cauchy window and critical-density optimal bounds"
+        },
+        {
+          "assessment": "Frame existence for finite mixtures is covered; all-mixture sharp optimal constants and global conditioning minimizer not identified as stated.",
+          "evidence": "arXiv:2103.08959, Theorem 1.1 and Zak-type formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08959",
+          "material_read": "Inspected primary theorem on finite-pole frame sets and rational Zak-type representation, with comparison to quantitative extremal result.",
+          "method": "Primary OA preprint/journal text",
+          "title": "Gabor frames for rational functions",
+          "trigger": "Arbitrary positive rational Herglotz mixtures at critical lattice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp frame bounds and the unique best possible conditioning within all positive pole mixtures quantify stability in critical time-frequency reconstruction, and mixing-vs-single-pole optimality is a natural extremal design problem. This is not just known qualitative frame existence or the classical one-pole case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal-prover certification; all continuous-measure quantifiers rely on the inspected analytic monotonicity.",
+    "Positive compactly supported poles away from zero; no general signed mixtures or oversampled-optimality assertion."
+  ],
+  "schema_version": 1
+}
