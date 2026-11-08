@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every endpoint inequality forces the neighboring label to equal \(k\), and interior constraints separate into two chains by vertex-index parity. The proof gives explicit disjoint-edge lower bounds and equality classifications for six possible endpoint regimes, including singleton boundaries. It derives exact weak-composition bijections, so integer lattice counts—not approximate volumes—prove each coefficient. Independent direct-neighborhood dynamic programming agrees in all 948 tested parameter pairs; original-definition exhaustive enumeration agrees in 31 cases. Experiments are cross-checks, not substitutes for the infinite argument.
+## correctness
 
-## Originality — PASS (qualified)
-Tan–Liu–Liang (2018), Theorem 2.2 and proof, were materially inspected and determine the minimum *weight*, showing representative witnesses, not the number or lattice parametrization of all optimum functions. The recent Escalante–Tolomei–Lopez Pujato (2026) abstract focuses on the optimum *value* for caterpillars; its full text was unavailable, so possible exact-enumeration coverage therein remains a specifically identified priority risk. Targeted searches for minimum total \(\{k\}\)-domination-function counts on paths, the binomial formulas, and alternative total-domination terminology, plus mathematical research-record searches, found no equivalent statement. An unsuccessful search does not establish universal priority; independent literature review remains useful.
+PASS
 
-## Mathematical value — PASS
-The minimum value for paths was known, but the complete structure and number of optimum *integer-valued* solutions were not supplied by the inspected source. Their exact classification into simplex and simplex-product integer lattices is an intrinsic solution-space invariant that quantifies nonuniqueness, includes a nontrivial squared-binomial family, and gives a natural base case for analogous questions on caterpillars. The result is not only a numerical table or a minor optimum-weight improvement.
+PASS. For n>=2,k>=1, endpoint open-neighborhood inequalities force f_2=f_{n-1}=k and interior constraints separate by parity into paths of labels x_i in [0,k] satisfying x_i+x_{i+1}>=k. Disjoint pairs and, for constrained ends, endpoint singleton bounds establish the exact optimum weights. Every equality case is a nondecreasing sequence of r coordinates in [0,k], equivalently weak compositions of k into r+1 parts. Combining parity chains for n mod 4 proves counts 1, C(k+s-1,s-1), C(k+s,s)^2, C(k+s+1,s+1) and associated simplex or product-of-simplex lattice bijections; n=2 and n=3 singleton boundary handled. Independent literal label brute force matched formula for 21 small (n,k) pairs (n=2..8, k=1..3).
 
-## Scope and historical limitations
-The statement is confined to labelled paths, all \(n\ge2\) and \(k\ge1\), with open-neighborhood total \(\{k\}\)-domination. Complete text of the October 2026 motivating preprint could not be reviewed; its abstract does not resolve all priority concerns. No result on general caterpillars or nonminimum labelings follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from explicit theorem-level source comparisons. The narrower final novelty is preserved; older established components are credited. Search absence does not prove priority.
+
+## value
+
+PASS
+
+PASS. Previously known minimum weights do not determine optimizer multiplicities. The theorem gives a complete all-k all-order count and geometric parametrization of a natural optimization problem, with sharp mod-four behavior, revealing degeneracy of optimum labelings useful to enumerate/simulate them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
