@@ -1,19 +1,21 @@
-# Review: Universal persistence law for long wet-spell occurrence
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is scoped to a stationary two-state transition matrix with wet marginal \(1/2\), fixed \(k\ge3\), and long observation windows. A positive eigenvector recurrence derives the exact Perron equation. A strictly increasing change of variables transforms minimizing the Perron root into maximizing a scalar function. Its derivative has a strictly decreasing sign bracket, so there is a unique critical point and global optimum. The large-spell limit follows from a compactness argument, exclusion of a zero limit, and uniqueness of the limiting scalar equation. The independent standard-library checker verifies exact rational small cases, rational characteristic identities, finite Perron comparisons and asymptotic numerical instances (387 assertions). These calculations corroborate rather than replace the proof. No empirical or finite-window optimizing assertion is made.
+PASS
 
-## Originality: PASS under the inspected evidence, provisional
+For symmetric stationary two-state transition with 0<q<1, wet marginal 1/2 and k>=3, the k-state killed Markov run-length matrix is primitive and strictly substochastic; hence S_(n,k)^(1/n)->λ=ρ(Q_k(q)). Its positive Perron recurrence gives λ^m(λ-q)=(1-q)^2 Σ_(j=0)^(m-1)q^j λ^(m-1-j), m=k-1. With r=q/λ in (0,1), t=(1-q)/λ=(1-r)/sqrt(1-r^m), the bijection q=r/(r+t) turns minimization of λ into maximization of h(r)=r+t. Derivative sign is m-2r Σ_(j=0)^(m-1)r^j/(1+sqrt(1-r^m)); the second term is strictly increasing 0->2m, so there is a unique interior maximizer. Large m gives m(1-r_m)<=2 and excludes c_m=-m log r_m->0; every positive subsequential limit solves c=2(1-e^-c)/(1+sqrt(1-e^-c)); its RHS/c decreases uniquely from 2 to 0. Thus m(1-q_k)->c/sqrt(1-e^-c)=0.75430126082451 and m(1-λ_k)->c(1/sqrt(1-e^-c)-1)=0.29755327337930. Independent k=2,3,4,6,10 killed-matrix spectral radii matched numerical scalar optima incl k=3 q=.73953495. Long-window limit precedes k->infinity; not fixed-window optimization.
 
-The full publicly available text of Fu, Wang and Lou (2003) establishes an exact longest-run distribution and the associated Perron decay rate with *fixed* transition probabilities; its Sections 2, 4, 5 and 6 were materially compared. The present theorem optimizes that rate over a symmetric equal-marginal transition family, proves a **unique** maximizer for every \(k\ge3\), and obtains two new large-length constants. An earlier two-wet-day theorem gives the \(k=2\) specialization; it does not give the all-length classification. The full text of Sen, Mohan and Agarwal (2013) concerns a different Markov success/failure pattern and does not state the result. Abstracts and bibliographic material of Koutras (1997), Lou (1996), Samarova (1982), Caskey (1963) and Weiss (1964) were checked. Complete full text of Koutras and Samarova was not accessible; earlier equivalent optimization is a remaining priority risk, not silently ruled out. Published transition-matrix distributions alone do not imply the new unique optimum or universal scaling without additional analysis.
+## originality
 
-## Value: PASS
+PASS
 
-Fixing the wet-day marginal isolates serial dependence from frequency. The result solves the exact structural design question: which persistence makes a rare long wet spell emerge at the greatest asymptotic exponential rate? Its sharp all-length answer and large-spell scaling constant are reusable for stress tests of binary rainfall generators and comparisons of spell-risk models; they are not a field forecast or a risk estimate for rainfall volume.
+Fu–Wang–Lou 2003 full longest-run Markov-chain study derives exact survival probabilities and spectral large-deviation rates with *fixed transition parameters*. The present claim optimizes over q in the symmetric equal-wet-marginal subfamily, proves uniqueness for every k>=3, and obtains two nontrivial large-k constants. A previously established k=2 optimization is explicitly excluded as original. Other waiting-time/run-statistics work (Koutras, Samarova, Lou, Caskey, Weiss) may contain a comparable parameter optimization; their incomplete full-text accessibility is documented. Current best-of-knowledge original conditional on that residual risk.
 
-## Limitations and evidence
+## value
 
-The Markov and equal-marginal assumptions are restrictive. The observation-window asymptotic is taken before the wet-run-length asymptotic. One directly relevant 1997 full manuscript and other older manuscripts remain incompletely inspected; no independent audit has taken place. Reproducibility code checks finite examples, and analytic arguments cover infinite quantifiers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a Markov wet/dry generator with fixed marginal wet probability, changing persistence alters the hazard of ever seeing a long spell. The unique optimized long-window exponential rate for each k and universal asymptotic scaling solve a clear natural stochastic design/extreme-run question. It separates wet fraction from serial correlation and provides reusable exact benchmarks; not an empirical weather prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

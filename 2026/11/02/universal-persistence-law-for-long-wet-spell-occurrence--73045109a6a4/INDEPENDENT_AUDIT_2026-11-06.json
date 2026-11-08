@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:10:09.720147Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric stationary two-state transition with 0<q<1, wet marginal 1/2 and k>=3, the k-state killed Markov run-length matrix is primitive and strictly substochastic; hence S_(n,k)^(1/n)->λ=ρ(Q_k(q)). Its positive Perron recurrence gives λ^m(λ-q)=(1-q)^2 Σ_(j=0)^(m-1)q^j λ^(m-1-j), m=k-1. With r=q/λ in (0,1), t=(1-q)/λ=(1-r)/sqrt(1-r^m), the bijection q=r/(r+t) turns minimization of λ into maximization of h(r)=r+t. Derivative sign is m-2r Σ_(j=0)^(m-1)r^j/(1+sqrt(1-r^m)); the second term is strictly increasing 0->2m, so there is a unique interior maximizer. Large m gives m(1-r_m)<=2 and excludes c_m=-m log r_m->0; every positive subsequential limit solves c=2(1-e^-c)/(1+sqrt(1-e^-c)); its RHS/c decreases uniquely from 2 to 0. Thus m(1-q_k)->c/sqrt(1-e^-c)=0.75430126082451 and m(1-λ_k)->c(1/sqrt(1-e^-c)-1)=0.29755327337930. Independent k=2,3,4,6,10 killed-matrix spectral radii matched numerical scalar optima incl k=3 q=.73953495. Long-window limit precedes k->infinity; not fixed-window optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fu–Wang–Lou covers general transition matrices as fixed parameters and computes rates; no examined result quantifies an optimal transition for fixed wet marginal.",
+          "Koutras/Samarova have related run/waiting-time scope; primary full text not accessible in this run."
+        ],
+        "reasoning": "A general distribution or large-deviation theorem alone does not identify the unique optimizer or high-k constants, but older general variational optimization might.",
+        "searches": [
+          "Fu Wang Lou 2003 longest run two state Markov full article Theorem 4.2",
+          "Koutras 1997 waiting time fixed length two-state Markov chains",
+          "Samarova 1982 longest head run Markov asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1239/jap/1053003548",
+        "https://doi.org/10.1023/A:1003118807148",
+        "https://doi.org/10.1137/1126056",
+        "https://doi.org/10.1175/1520-0493(1963)091<0298:AMCMFT>2.3.CO;2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-q transition spectral results determine λ(q) but require a new monotonic scalar reformulation to minimize over q.",
+          "Meteorological model foundations treat data and occurrence probabilities, not this universal optimizer law."
+        ],
+        "reasoning": "The claimed unique scalar root and high-length limiting constants are not algebraic restatements of a single fixed-q probability value or the earlier k=2 special case.",
+        "searches": [
+          "Fu Wang Lou 2003 Markov runs transition probabilities sections 2 4 5",
+          "Caskey 1963 Markov precipitation occurrence and Weiss 1964 wet dry sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral radius of a killed run-length chain is a standard longest-run exponential-avoidance factor.",
+          "Fu–Wang–Lou 2003 gives longest-run large deviations with fixed transition probabilities."
+        ],
+        "reasoning": "The new theorem concerns optimization of this factor as a function of q and uniqueness for all k, not novelty of the characteristic determinant itself.",
+        "searches": [
+          "Resultary: binary Markov wet spell occurrence longest run persistence parameter optimum exponential decay",
+          "Markov chain run of ones survival Perron root optimize stay probability q symmetric two state"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary queries returned related persistence/renewal process findings, not matching q_k values or constants.",
+          "Published k=2 calibration q_2=3/5 is known; not claimed novel."
+        ],
+        "reasoning": "No exact optimizer table for all k>=3 was located in searched sources; failed search does not certify novelty.",
+        "searches": [
+          "Resultary: binary Markov wet spell occurrence longest run persistence parameter optimum exponential decay",
+          "wet spell k3 optimal persistence .73953495433966 .754301 0.297553"
+        ]
+      },
+      "rationale": "Fu–Wang–Lou 2003 full longest-run Markov-chain study derives exact survival probabilities and spectral large-deviation rates with *fixed transition parameters*. The present claim optimizes over q in the symmetric equal-wet-marginal subfamily, proves uniqueness for every k>=3, and obtains two nontrivial large-k constants. A previously established k=2 optimization is explicitly excluded as original. Other waiting-time/run-statistics work (Koutras, Samarova, Lou, Caskey, Weiss) may contain a comparable parameter optimization; their incomplete full-text accessibility is documented. Current best-of-knowledge original conditional on that residual risk.",
+      "residual_risks": [
+        "Koutras (1997) and Samarova (1982) relevant full primary texts were not accessible; an equivalent optimizer may have appeared in older runs literature.",
+        "No statement about optimal q for fixed finite n or general nonstationary rainfall; limits are ordered n->infty then k->infty.",
+        "Simulation/finite scalar optimizer checks do not prove uniqueness or asymptotic constants; analytic Perron and monotone-root argument do."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives fixed-parameter exact and asymptotic longest-run laws; not the optimized symmetric persistence unique root or high-k limits.",
+          "evidence": "Theorem 4.2 treats large deviation for given transition parameters; Table 2 varies fixed illustrative q values but no optimization theorem.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1053003548",
+          "material_read": "Full author-posted text accessed and read (sections 2 and 4–6, theorem 4.2 and numerical cases).",
+          "method": "Lawful author-posted full text, theorem and equations compared",
+          "title": "On exact and large deviation approximation for the distribution of the longest run in a sequence of two-state Markov dependent trials",
+          "trigger": "Exactly same Markov longest-run survival and Perron exponent"
+        },
+        {
+          "assessment": "Plausible older analogous derivation cannot be ruled out; listed as material priority risk.",
+          "evidence": "Title and abstract concern fixed-length waiting-time distributions, not confirmed parameter optimization.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1003118807148",
+          "material_read": "Available abstract and bibliographic data only; no complete manuscript obtained through OA searches.",
+          "method": "Publisher abstract and bibliographic comparison",
+          "title": "Waiting Time Distributions Associated with Runs of Fixed Length in Two-State Markov Chains",
+          "trigger": "Potential same runs model and optimization"
+        },
+        {
+          "assessment": "Cannot exclude earlier exact optimizer; no whole-document noncoverage assertion.",
+          "evidence": "Related longest-run Markov asymptotic theme.",
+          "identifier_or_url": "https://doi.org/10.1137/1126056",
+          "material_read": "Bibliographic/abstract material; complete source not materially read.",
+          "method": "Citation and metadata comparison",
+          "title": "On the Length of the Longest Head-Run for a Markov Chain with Two States",
+          "trigger": "Older longest-run Markov asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a Markov wet/dry generator with fixed marginal wet probability, changing persistence alters the hazard of ever seeing a long spell. The unique optimized long-window exponential rate for each k and universal asymptotic scaling solve a clear natural stochastic design/extreme-run question. It separates wet fraction from serial correlation and provides reusable exact benchmarks; not an empirical weather prediction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1239/jap/1053003548",
+    "https://doi.org/10.1023/A:1003118807148",
+    "https://doi.org/10.1137/1126056",
+    "https://doi.org/10.1175/1520-0493(1963)091<0298:AMCMFT>2.3.CO;2"
+  ],
+  "disposition": "passed",
+  "limitations": "Koutras (1997) and Samarova (1982) relevant full primary texts were not accessible; an equivalent optimizer may have appeared in older runs literature.; No statement about optimal q for fixed finite n or general nonstationary rainfall; limits are ordered n->infty then k->infty.; Simulation/finite scalar optimizer checks do not prove uniqueness or asymptotic constants; analytic Perron and monotone-root argument do.",
+  "residual_risks": [
+    "Koutras (1997) and Samarova (1982) relevant full primary texts were not accessible; an equivalent optimizer may have appeared in older runs literature.",
+    "No statement about optimal q for fixed finite n or general nonstationary rainfall; limits are ordered n->infty then k->infty.",
+    "Simulation/finite scalar optimizer checks do not prove uniqueness or asymptotic constants; analytic Perron and monotone-root argument do."
+  ],
+  "schema_version": 1
+}
