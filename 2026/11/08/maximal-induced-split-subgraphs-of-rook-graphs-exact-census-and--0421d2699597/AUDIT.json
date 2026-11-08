@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "A full row or column plus a maximal nonattacking rook placement is necessary. If the line has at least three cells it forces the clique side of any attempted extension, proving sufficiency; size-two columns and the \\(2\\)-by-\\(2\\) square are separately handled via induced 2K2/C4. Counts and overlap are exhaustive. Fourteen small boards and 1,763,152 candidate subsets independently confirm the coefficients; the proof handles all parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao establishes polynomial-delay enumeration of all maximal induced split subgraphs for arbitrary input graphs.",
+        "Brosse thesis Theorem 3.13 proves that every maximal induced split subgraph can be obtained from a maximal clique of the host plus a maximal independent set in the remainder."
+      ],
+      "reasoning": "This broader prerequisite explains the first structural reduction, but does not give necessary-and-sufficient rook-specific counting without proving that both classes are maximal, identifying the small double-counting boundary, and deriving exact size probabilities. The general enumeration algorithm is not presented as novel.",
+      "searches": [
+        "arxiv:2004.09885 Theorem 1.1 Proposition 5.6",
+        "arxiv:2007.01031 table 1",
+        "Brosse 2023 thesis Theorem 3.13 Section 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2004.09885",
+      "arxiv:2007.01031",
+      "Brosse 2023 doctoral thesis, Section 3.2 Theorem 3.13",
+      "Földes-Hammer 1977 bibliography",
+      "Relevant public mathematical-research record searches; nearest 3-cut complex and own earlier cluster/cograph/forest families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.13 supplies a necessary maximal-line-plus-independent-placement representation after specializing to rook graphs.",
+        "The rook graph is well-covered, so maximal independent placements in any rectangular residual board saturate its smaller side.",
+        "The present proof proves the converse maximality on the original board, excludes duplicate line representations, and establishes the exact two-point distribution and square-root crossover."
+      ],
+      "reasoning": "A general existence/enumeration theorem can generate these sets but does not directly state their labeled counts or asymptotic distribution. As the specialization is short once the prior reduction is available, residual risk is recorded. The claimed advance is exact counting and quantitative phase behavior, not an independently novel general reduction.",
+      "searches": [
+        "Cao arXiv:2004.09885 relevant full text",
+        "Brosse thesis Section 3.2 Theorem 3.13 and Lemma 3.14",
+        "Source searches: rook graph L(K_m,n) complete split induced vertex subsets maximal enumeration falling factorial two cardinalities 2m and m+n-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph is the line graph of a complete bipartite graph and the Cartesian product of complete graphs (standard definition).",
+        "Cao arXiv:2004.09885 and Brosse thesis Section 3.2 use maximal induced split subgraphs/minimal split vertex deletion as equivalent descriptions."
+      ],
+      "reasoning": "Compared labeled selected-cell distributions under rook, lattice, two-dimensional Hamming, Cartesian clique and line-of-biclique descriptions. These changes of names preserve the same induced vertex subsets, so no parameter or problem was evaded. No equivalent closed family census was found.",
+      "searches": [
+        "rook graph L(K_m,n) complete split induced vertex subsets maximal enumeration falling factorial two cardinalities 2m and m+n-1",
+        "split vertex deletion maximal split induced subgraphs Cartesian product K_m square K_n rook line graph of biclique",
+        "maximal induced split subgraphs of rook graphs Cartesian products cliques",
+        "\"rook graph\" \"split induced subgraph\" maximal",
+        "\"K_m\" \"square\" \"K_n\" \"split\" \"vertex deletion\"",
+        "\"line graph\" \"maximal split induced subgraphs\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected paper or indexed result returned the polynomial with the two orientation coefficients.",
+        "Nearest returned mathematical-research record: 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f concerns homology, not split deletion.",
+        "Published maximal induced cluster subgraphs of rook graphs, ID 45629ca1-d9f3-4cd5-832a-d00a6686ff87, concerns an incomparable property: 2K2 is a cluster graph but is not split; P3 is split but not a cluster graph."
+      ],
+      "reasoning": "An exact coefficient table would cover the present claimed formulas, even without split terminology; none was identified. Absence of a search result is not treated as proof of unique publication priority.",
+      "searches": [
+        "rook graph L(K_m,n) complete split induced vertex subsets maximal enumeration falling factorial two cardinalities 2m and m+n-1",
+        "induced split subgraph spectrum cardinality gap in rook graphs independent rooks row clique column clique",
+        "rook graph split deletion square root phase transition maximal split induced families",
+        "Rook graph maximal split polynomial falling factorial exact OEIS indexed sequence search",
+        "split vertex deletion maximal split induced subgraphs Cartesian product K_m square K_n rook line graph of biclique"
+      ]
+    },
+    "rationale": "The exact labeled rook-board census, its special small-square overlap, its two-point cardinality spectrum and the square-root asymptotic probability law were not found in the inspected published primary texts. The general clique-plus-stable-set reduction is expressly prior art and is not claimed. Residual risk remains for a separate unindexed family-specific enumeration.",
+    "residual_risks": [
+      "General thesis Theorem 3.13 is strong prior coverage of the structural reduction; the specialization is elementary after it.",
+      "An unindexed family-specific split vertex-deletion enumeration or OEIS table could already give the exact coefficients.",
+      "A source with equivalent lattice-graph/line-graph language may exist beyond inspected full texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL-ALGORITHM-ONLY: establishes polynomial-delay enumeration on arbitrary hosts but no rook-board formula.",
+        "evidence": [
+          "https://arxiv.org/pdf/2004.09885",
+          "First public post 2020-04-21",
+          "Theorem 1.1 and Proposition 5.6"
+        ],
+        "identifier_or_url": "arxiv:2004.09885",
+        "material_read": "Original PDF introduction and Theorem 1.1 (pp. 1–3), Proposition 5.6 and proof (PDF p. 36); full-text searched for rook and Cartesian.",
+        "method": "Read arXiv PDF text and examined rendered PDF pages 2 and 36.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "Earliest verified 2020 primary source for maximal induced split enumeration"
+      },
+      {
+        "assessment": "DIFFERENT-TARGET: its new split algorithm addresses edge modifications; credits Cao for induced vertex deletion, no rook-board enumeration.",
+        "evidence": [
+          "https://arxiv.org/pdf/2007.01031",
+          "Table 1, Introduction, Section 3"
+        ],
+        "identifier_or_url": "arxiv:2007.01031",
+        "material_read": "Original PDF abstract, introduction and Table 1 (pp. 1–3), discussion distinguishing induced split from edge-deletion split; full-text searched for rook, Cartesian, line graph.",
+        "method": "Read arXiv PDF text and examined rendered PDF p. 3.",
+        "title": "Efficient enumeration of maximal split subgraphs and induced sub-cographs and related classes",
+        "trigger": "Directly overlapping title and graph-class keyword"
+      },
+      {
+        "assessment": "STRONGEST-CLOSEST: Theorem 3.13 yields maximal clique plus maximal independent set. This is acknowledged; rook-specific complete census and crossover not present in inspected thesis.",
+        "evidence": [
+          "2023 thesis, Theorem 3.13 and proof, printed pp. 58–59",
+          "https://www-sop.inria.fr/members/Caroline.Brosse/149582_BROSSE_2023_archivage.pdf"
+        ],
+        "identifier_or_url": "https://www-sop.inria.fr/members/Caroline.Brosse/149582_BROSSE_2023_archivage.pdf",
+        "material_read": "Thesis Section 3.2, Theorem 3.13 and proof, subsequent Lemma 3.14 and Theorem 3.17 (printed pp. 58–62); text searched for rook, Cartesian and lattice.",
+        "method": "Read full material section via PDF text and rendered the page containing Theorem 3.13 aftermath and Lemma 3.14.",
+        "title": "Efficient enumeration algorithms for minimal graph completions and deletions",
+        "trigger": "Highly relevant general necessary structural characterization for maximal induced split graphs"
+      },
+      {
+        "assessment": "STANDARD-TOOL: verification criterion only; original full text not independently inspected.",
+        "evidence": [
+          "S. Földes and P. Hammer, Split graphs, Congressus Numerantium XIX (1977), pp. 311–315."
+        ],
+        "identifier_or_url": "Földes-Hammer-1977-split-graphs",
+        "material_read": "Bibliographic reference and the standard criterion excluding induced 2K2, C4 and C5 from the split-graph encyclopedia entry. Original 1977 full text was not inspected.",
+        "method": "Web bibliographic comparison, not a primary full-text assessment.",
+        "title": "Split graphs",
+        "trigger": "Forbidden-subgraph characterization used in independent verifier"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0421d269-9597-4311-8b9e-126cc4fd8d10",
+  "value": {
+    "rationale": "The natural problem of inclusion-minimal split vertex deletion receives an exact all-solution cardinality distribution on an infinite connected vertex-transitive graph family. The unbounded internal gaps and exact square-root probability crossover expose behavior of typical versus largest maximal solutions beyond scalar extremal values. The result does not rest only on a correct program or an arbitrary small example.",
+    "status": "PASS"
+  }
+}
