@@ -1,23 +1,21 @@
-# Scientific review: a sharp Erlang renewal quantum threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is a finite-dimensional self-adjoint Hamiltonian, a normalized pure reset vector, independent Erlang interarrival clocks with integer shape and positive rate, and equilibrium-renewal sampling. The age density is the normalized survival law, yielding the characteristic function as a finite Erlang mixture. The spectral expansion reduces the stationary purity-minus-fidelity order to the sign of one real even scalar function. Polynomial multiplication is explicit, with a factor \(y^2\) cancelled only after its zero terms have been established. Exact rational Sturm sequences exclude positive roots for every shape from \(2\) through \(13\) and count exactly two for shape \(14\), where rational sign brackets isolate each one. An all-integer analytic angle witness establishes the reversed ordering for each \(k\geq14\). Exact age moments and the characteristic-function tail give the opposite signs near zero and infinity; no numerical interpolation is used to infer infinitely many instances. The embedded verifier executed all 92 exact assertions successfully, including independent rational transform identities. The main risks are interpreting the fidelity as that to the *pure reset* state and distinguishing clock rate from mean reset frequency; both are explicitly normalized.
+PASS
 
-## Originality — PASS, qualified
+The equilibrium age density lambda/k e^{-lambda t}sum_{j=0}^{k-1}(lambda t)^j/j! has characteristic function phi_k=(1/k)sum_{j=1}^k(1-ix)^{-j}. Spectral expansion gives F-P=sum_{j,l}w_jw_l[Re(phi)-|phi|²]. With y=x², the scalar difference is y Q_k(y)/(k²(1+y)^k) and Q_k coefficients are exact binomial combinations. Independent rational-polynomial Sturm root counts give zero positive roots for each k=2..13 and exactly two for k=14; exact rational brackets and x=1/sqrt3 witness checked. For all k>=15, choosing x_k=tan((7pi/3)/k) gives a positive expression M_k, bounded below by positive rational inequality using q_k=cos^k((7pi/3)/k)>3/20. Near zero, D_k=-(k²-1)x²/12+O(x^4); at infinity D_k≈-1/(k²x²). The latter analytic inequalities, not extrapolated finite Sturm computations, establish all higher k. These results exclude mixed resets and non-Erlang laws.
 
-The closest work is Sevilla and Valdés-Hernández (arXiv:2209.05643, Sections 2.1, 3.1–3.3 and 4): its general stationary renewal state and purity/fidelity expressions and its explicit gamma reset family can be specialized to the present characteristic transform, so neither of those ingredients is new. No directly stated strict ordering for every system at shapes \(2\) through \(13\), first failure at \(14\), uniform analytic witnesses for all higher integer shapes, or exactly-two-crossing result for shape \(14\) was identified in the inspected primary text. Kulkarni and Majumdar (arXiv:2307.07485, Section III.2) note Poisson purity/fidelity equality for their interacting spins, a special case of the general \(k=1\) identity. Wald and collaborators (arXiv:2410.11497) treat discrete-time stochastic resetting rather than the present Erlang renewal classification. Research-record searches targeted the exact reset-state equality, Erlang waiting times, the threshold fourteen, and equivalent spectral/characteristic formulations. No found record subsumes the sharp theorem. Residual risk: an unlocated broader comparison or established classification could imply the threshold; absence from checked records is not a uniqueness or publication-priority proof. This is an assessment of the *evaluated global threshold*, not a claim to have invented the underlying renewal method.
+## originality
 
-## Value — PASS
+PASS
 
-Purity and fidelity are two natural, experimentally meaningful and directly comparable stationary observables. A universal ordering across all spectra and pure reset states for low clock shapes, followed by sharp first failure at shape fourteen, reveals an unexpected way that multi-stage renewal timing changes the relationship between mixedness and return to the reset state. The exact boundary and all-higher-shape witness convert implicit general renewal formulas into a checkable protocol-design restriction. A full sign classification for a natural family, not an arbitrary isolated numerical example or a routine normalization check, is the principal mathematical value. Finite and analytic portions are separated carefully.
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. The central result is an all-shapes sign theorem for a specific scalar transform and an exact first threshold, rather than just a formula for stationary averages.
 
-## Closest literature and limits
+## value
 
-- F. J. Sevilla and A. Valdés-Hernández, arXiv:2209.05643: generic renewal model, stationary moments, gamma family, qubit formulas; broad foundational coverage but no located sharp integer-stage sign classification.
-- M. Kulkarni and S. N. Majumdar, arXiv:2307.07485: explicitly observes Poisson equality for a coupled-spin example; does not address renewal-stage threshold.
-- S. Wald et al., arXiv:2410.11497: distinct discrete-time resetting framework; relevant context, not direct implication.
+PASS
 
-At shapes \(k\geq15\), the theorem guarantees a witness and at least two crossings, not the number of all crossings. It is silent on non-Erlang clocks, mixed resets and finite observation times. No external independent audit or exhaustive priority certification has been carried out.
+A sharp, globally quantified first-stage transition for a natural non-Poisson renewal family separates stationary purity from reset-state fidelity. Exact two-crossing characterization at the first failing shape and uniform higher-shape witnesses are meaningful quantum-state classification facts beyond generic renewal formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

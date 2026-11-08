@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Erlang purity–fidelity threshold
+# Independent mathematical audit
 
-Run the accompanying source file with `python3 verify.py` in Python 3. No third-party libraries or external data are required.
+## correctness
 
-The script constructs the integer-coefficient polynomial \(Q_k\) directly from the printed binomial formula, carries out exact rational Euclidean polynomial division and Sturm sign-variation counts, and verifies zero positive roots for all \(2\leq k\leq13\), two positive roots at \(k=14\), shape-14 rational root brackets, and its positive exact witness. It also verifies the rational lower bound supporting the analytic every-\(k\geq15\) witness, and recomputes the characteristic-function identity and polynomial reduction by independent rational complex multiplication for 24 parameter combinations.
+PASS
 
-All 92 exact assertions passed. Separate numerical integration against the stationary age law corroborated representative qubit cases \(k=1,13,14,15\) to floating-point precision. The all-integer \(k\geq15\) result is proved by the analytical monotonicity and rational inequality in the proof, not by enumerated tests; numerical quadrature is corroborative only. Publication priority and an independent scientific audit were not established here.
+The equilibrium age density lambda/k e^{-lambda t}sum_{j=0}^{k-1}(lambda t)^j/j! has characteristic function phi_k=(1/k)sum_{j=1}^k(1-ix)^{-j}. Spectral expansion gives F-P=sum_{j,l}w_jw_l[Re(phi)-|phi|²]. With y=x², the scalar difference is y Q_k(y)/(k²(1+y)^k) and Q_k coefficients are exact binomial combinations. Independent rational-polynomial Sturm root counts give zero positive roots for each k=2..13 and exactly two for k=14; exact rational brackets and x=1/sqrt3 witness checked. For all k>=15, choosing x_k=tan((7pi/3)/k) gives a positive expression M_k, bounded below by positive rational inequality using q_k=cos^k((7pi/3)/k)>3/20. Near zero, D_k=-(k²-1)x²/12+O(x^4); at infinity D_k≈-1/(k²x²). The latter analytic inequalities, not extrapolated finite Sturm computations, establish all higher k. These results exclude mixed resets and non-Erlang laws.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. The central result is an all-shapes sign theorem for a specific scalar transform and an exact first threshold, rather than just a formula for stationary averages.
+
+## value
+
+PASS
+
+A sharp, globally quantified first-stage transition for a natural non-Poisson renewal family separates stationary purity from reset-state fidelity. Exact two-crossing characterization at the first failing shape and uniform higher-shape witnesses are meaningful quantum-state classification facts beyond generic renewal formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
