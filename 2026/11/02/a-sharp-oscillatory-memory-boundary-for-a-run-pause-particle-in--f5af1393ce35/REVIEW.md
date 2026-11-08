@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over every positive trap strength, switching rate and propulsion speed, and every reversal parameter in \([-1,1)\). The four-state generator is irreducible in that range. Its unique stationary position is the stable bounded convolution of stationary active forcing. Exact generator relations on the two-dimensional odd subspace yield the stationary mixed moments and a closed three-dimensional lag-covariance ODE; its explicit solution is reconstructed in RESULT.md. Nonnegative reversal parameter gives a strictly positive force autocovariance and hence a strictly positive convolution for position. Negative parameter produces nonreal internal eigenvalues. The nonzero oscillatory residue dominates for faster traps; the real pole has a strictly positive coefficient for slower traps; equality is resolved by the exact trigonometric factorization rather than omitted as a degenerate case. The first zero and negative interval at equality follow directly. The independently derived matrix-Taylor solution agrees with the spectral solution on 2,970 exact-rational and numerical checks. The checks are finite corroboration and not a substitute for the all-parameter proof.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+For −1≤η<1 and positive b,γ,v the finite internal chain is irreducible with uniform stationarity; odd sector generator is γ[[-1,η],[1,−1]]. Stationary moments kR=v(b+γ)/(2((b+γ)²−γ²η)), kT=γ kR/(b+γ), C0=v kR/b give closed 3×3 lag covariance ODE. If η≥0, force autocovariance is positive and convolution with positive e^(−b|t|)/(2b) stays positive. If η<0, complex roots −γ±iγsqrt(−η) dominate when b>γ, while for b<γ the e^(−bt) residue is strictly positive; at b=γ exact factorization establishes alternating intervals and first zero at π/(γsqrt(−η)). Independent direct matrix exponentiation checked 72 points. The proof establishes infinitely many intervals, not all finite-lag sign changes for b<γ.
 
-Sun–Ye–Chen (2026, arXiv:2610.24961), Sun–Ye–Podgornik (2024, arXiv:2409.00578), and Basu et al. (2019, arXiv:1910.10083) establish the finite-tumble and harmonic-trap setting, stationary distributions, and orientation-renewing statistics. In their randomly reoriented process the two hidden paused labels can be merged, whereas unequal conditional next-run probabilities make that merging invalid here. Those prior results are not claimed as new. Britton et al. (2026, arXiv:2608.23519) consider preferred reorientation with arbitrary turn distributions, but the available abstract describes unconfined field-theoretic spatial observables, not a finite-pause trapped position-autocovariance sign theorem; full-text comparison remains an acknowledged risk. A 2026 harmonic RTP control paper concerns time-varying trap/tumbling rates, not this fixed-parameter reversal-retaining sign boundary. Published research-index searches for the exact source, reversal-biased four-state model, hidden orientation memory, stationary position-autocovariance negative bands and spectral thresholds returned only non-equivalent systems. Accessible prior claims were compared for reduction and none covered this four-state model's sharp critical lag. The priority judgment is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Finite pauses are a standard physical ingredient of run-and-tumble dynamics, and nonuniform reorientation is a motivated extension for microorganisms that reverse after pauses. The result separates ordinary overdamped confinement from effective memory-induced oscillatory position statistics. It gives a complete necessary-and-sufficient parameter boundary for infinitely many alternating lag-sign intervals and a closed-form exceptional boundary profile, including the reversal-delay divergence. This is a sharp, observable structure not furnished by a stationary spatial-density calculation or by the orientation-independent finite-tumble process. Its value is structural, not an assertion that every weak-reversal sign change would be experimentally measurable.
+Best-of-knowledge PASS with qualified coverage. Sun–Ye–Podgornik redraws post-tumble orientation independently and Basu uses a three-state rest variable, whereas this four-state pause retains a sign label and η<0 biases reversal. The sharp overdamped autocovariance sign boundary and critical first zero are extra exact observables. Newer Sun–Ye–Chen and Britton full texts inaccessible; potential stronger matching results remain explicit risk.
 
-## Closest prior literature and limitations
+## value
 
-The closest direct source is Sun–Ye–Chen (2026) and its 2024 finite-tumble predecessor. Basu et al. (2019) treats a three-velocity harmonic model; Britton et al. (2026) treats biased reorientation but was accessible as an abstract only, leaving a possible broader implicit coverage risk. General eigenmode/filtering theory is established mathematics; the new assertion is the model-specific sharp classification and equality formula. No added thermal noise, unequal run/pause switching rates or spatial-density theorem is assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Orientation-retaining pauses and reversal bias are motivated physical extensions of standard run–tumble models. Exact no-inertia sign-oscillation boundary, nonvanishing spectral residue and critical first-zero delay are structural stationary-correlation invariants useful in separating memory from inertia; weak signals may be unobservable but the classification is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

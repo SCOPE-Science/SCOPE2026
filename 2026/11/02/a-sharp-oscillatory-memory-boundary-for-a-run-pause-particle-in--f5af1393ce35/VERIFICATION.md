@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact proof in `RESULT.md` derives four-state generator balance, solves a two-dimensional odd-moment system and a three-dimensional lag covariance system, and checks every spectral boundary, including the nonoscillatory direction-randomization case and the collision of the trap pole with the real parts of the complex pair.
+## correctness
 
-Execute the standalone Python standard-library checker with `python verify.py` in this directory. The recorded replay passed 2,970 assertions. Exact-rational tests check all off-diagonal transition rates, uniform chain stationarity, generator action, moment balances and positive variance across 24 parameter pairs, with 10 choices of stiffness and speed per pair. Independently of the closed spectral formula, a third-order matrix ODE is propagated by a convergent Taylor scheme and compared on a finite grid of times, covering reversal, no reversal, persistent orientation and critical stiffness. Additional finite assertions check the coefficient of the slow real pole and explicitly positive/negative sign witnesses. No external data or random seed is used.
+PASS
 
-Finite tests cannot prove sign changes at infinitely many times, uniqueness in a continuum of parameter values, global publication priority, or bounds for models with thermal noise. Those mathematical quantifiers are established only through the analytic proof, with literature novelty qualified as best-knowledge. No independent mathematical or publication-priority audit has been performed.
+For −1≤η<1 and positive b,γ,v the finite internal chain is irreducible with uniform stationarity; odd sector generator is γ[[-1,η],[1,−1]]. Stationary moments kR=v(b+γ)/(2((b+γ)²−γ²η)), kT=γ kR/(b+γ), C0=v kR/b give closed 3×3 lag covariance ODE. If η≥0, force autocovariance is positive and convolution with positive e^(−b|t|)/(2b) stays positive. If η<0, complex roots −γ±iγsqrt(−η) dominate when b>γ, while for b<γ the e^(−bt) residue is strictly positive; at b=γ exact factorization establishes alternating intervals and first zero at π/(γsqrt(−η)). Independent direct matrix exponentiation checked 72 points. The proof establishes infinitely many intervals, not all finite-lag sign changes for b<γ.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with qualified coverage. Sun–Ye–Podgornik redraws post-tumble orientation independently and Basu uses a three-state rest variable, whereas this four-state pause retains a sign label and η<0 biases reversal. The sharp overdamped autocovariance sign boundary and critical first zero are extra exact observables. Newer Sun–Ye–Chen and Britton full texts inaccessible; potential stronger matching results remain explicit risk.
+
+## value
+
+PASS
+
+Orientation-retaining pauses and reversal bias are motivated physical extensions of standard run–tumble models. Exact no-inertia sign-oscillation boundary, nonvanishing spectral residue and critical first-zero delay are structural stationary-correlation invariants useful in separating memory from inertia; weak signals may be unobservable but the classification is mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
