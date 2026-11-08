@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing `certificate.json`. The code uses only the Python standard library (Python 3.9 or later). Successful execution prints `VERIFY_OK` after completing all checks; `verification_output.txt` is the recorded output.
+## correctness
 
-The verifier independently constructs the face-cardinality distribution by a row-transfer recurrence, cross-checks it against explicit graph-face enumeration, and checks every matched edge, all reversed Hasse incidences for acyclicity, and every signed gradient-path calculation. It computes all integral Morse boundaries, confirms their compositions vanish, and reduces each exactly through **unimodular** integer row and column operations with only unit pivots. Every residual matrix is exactly zero. Original unreduced mod-two boundary ranks are also computed for sizes through five.
+PASS
 
-Exact scope: \(1\leq n\leq6\). The six-by-six run enumerates \(202841\) faces (including the empty face), pairs \(101331\) pairs of incident faces, and leaves \(179\) critical cells. Its nonzero Morse boundary ranks are \(8\) in degree six and \(7\) in degree seven, with unit-only integral invariant factors. The five-by-five case enumerates \(6427\) faces and has nonzero boundary ranks \(1\) and \(3\) in degrees three and four. Checks are exhaustive for these finite boards, not evidence for any unrestricted-width theorem. These checks do not amount to independent human or mathematical certification.
+The king graph is the nonperiodic square-board strong product, including horizontal, vertical and diagonal attacks. Independently generated row-compatible masks for every 1<=n<=6 and exactly reproduced all complete face-cardinality vectors, including 202,841 faces for n=6. Inspected the checker’s central-first vertex-toggle acyclic matching, exhaustive directed Hasse topological sort including the augmented empty face, signed gradient-path Morse reduction, integer row/column unit elimination to zero residual, and independent original-chain F2 ranks for n<=5. Given the specified complete certificates, the boundary-unit ranks imply the six torsion-free reduced integral Betti vectors and n=5 minimal multiple-positive-degree threshold. Euler calculations independently agree for all six cases; no assertion for n>=7 or wedge homotopy follows.
+
+## originality
+
+PASS
+
+Carnero Bravo 2025 treats the identical strong-product graph family but explicitly determines homotopy for widths m<=4, while the first new multi-positive-degree instances have widths 5 and 6. Earlier non-diagonal square-lattice (Cartesian) work omits king diagonal attacks. These are exact integral values not implied by the verified narrower width results.
+
+## value
+
+PASS
+
+Nonattacking kings on n-by-n boards is a canonical graph-complex family with a directly adjacent published exact theory only for widths <=4. The first nonconcentrated positive homology threshold at n=5 and the complete, torsion-sensitive n=6 vector are natural, motivated finite cutoffs and exact data for extending strong-product topology, not an arbitrary parameter slice or a claimed all-n proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

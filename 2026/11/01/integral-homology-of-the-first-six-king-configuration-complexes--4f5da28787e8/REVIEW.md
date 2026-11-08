@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact domain is the independence complex of the unwrapped, nonperiodic \(n\times n\) king graph for each \(1\leq n\leq6\). All independent faces are enumerated and cross-checked by a second row-transfer algorithm. Every edge in a complete face-poset matching is validated, and a topological sort of the entire reversed-incidence graph certifies acyclicity. The signed gradient-path boundary recurrence, full integer Morse matrices, vanishing successive compositions, and a complete unit-pivot unimodular reduction establish the asserted integral homology, not merely its ranks over one field. An independent finite-field computation on unreduced boundaries for sizes at most five supports the chain algebra. No homotopy wedge or all-size theorem is inferred.
+## correctness
 
-**Originality: PASS, with residual risk.** Directly relevant primary full text was inspected. Bousquet-Mélou–Linusson–Nevo (2007) prove results for grid adjacencies lacking the king's diagonal edges. Carnero Bravo (2025), Section 5, Corollary 27 and Theorem 29, addresses the very same strong-product family but its relevant general conclusions stop at width four. The present complete integral homology statements at widths five and six are not consequences of those theorems without additional computations or arguments. Alias searches included king graphs, strong products of paths, Chebyshev attack graphs, and the exact Betti vectors; no identical table or stronger covering statement was located. Other named graph-complex results returned from mathematical-record searches address different graphs or graph functors. The lack of a retrieved match cannot exclude unindexed prior work.
+PASS
 
-**Value: PASS.** This is a natural cutoff on a mathematically motivated family at its first two square sizes beyond the published width-four structural regime. The five-by-five result is the first multiple strictly positive-degree integral-homology case among square boards; six-by-six shows five consecutive nonvanishing degrees. Exact, torsion-sensitive homology distinguishes these from alternating placement counts or bounds on maximum independent sets, and provides reproducible small-width benchmarks for later general graph-product topology.
+The king graph is the nonperiodic square-board strong product, including horizontal, vertical and diagonal attacks. Independently generated row-compatible masks for every 1<=n<=6 and exactly reproduced all complete face-cardinality vectors, including 202,841 faces for n=6. Inspected the checker’s central-first vertex-toggle acyclic matching, exhaustive directed Hasse topological sort including the augmented empty face, signed gradient-path Morse reduction, integer row/column unit elimination to zero residual, and independent original-chain F2 ranks for n<=5. Given the specified complete certificates, the boundary-unit ranks imply the six torsion-free reduced integral Betti vectors and n=5 minimal multiple-positive-degree threshold. Euler calculations independently agree for all six cases; no assertion for n>=7 or wedge homotopy follows.
 
-**Limits and closest literature.** The claim is finite (sizes one through six); it does not determine all homotopy attaching maps or make assertions about larger sizes. Closest references: arXiv:2505.06457, §5, Theorem 29 (width at most four); arXiv:math/0701890, §§1–3 (ordinary square-lattice complexes and matching-tree method). Equivalent unindexed literature or tables remain possible; an independent audit is still necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carnero Bravo 2025 treats the identical strong-product graph family but explicitly determines homotopy for widths m<=4, while the first new multi-positive-degree instances have widths 5 and 6. Earlier non-diagonal square-lattice (Cartesian) work omits king diagonal attacks. These are exact integral values not implied by the verified narrower width results.
+
+## value
+
+PASS
+
+Nonattacking kings on n-by-n boards is a canonical graph-complex family with a directly adjacent published exact theory only for widths <=4. The first nonconcentrated positive homology threshold at n=5 and the complete, torsion-sensitive n=6 vector are natural, motivated finite cutoffs and exact data for extending strong-product topology, not an arbitrary parameter slice or a claimed all-n proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
