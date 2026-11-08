@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact identities for rank-one sweep maps and 2-by-2 transfer matrix; determinant is negative for 0<p<1 and 0<c<1, Perron eigenvectors strictly positive, proving the rate for any nonzero initial error; exact rational exhaustive checks match recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Necoara full text sets out randomized block sampling and Chebyshev rates, not iid permutations of each complete two-row sweep.",
+        "Steinerberger full text discusses residual-weighted individual row selection."
+      ],
+      "reasoning": "The published convergence bounds do not specialize to the exact transfer matrix for a complete two-row random permutation epoch. A theorem for arbitrary independent random matrix products with explicit second moments could cover the result; no such matching theorem was established in checked sources.",
+      "searches": [
+        "random reshuffling Kaczmarz two rows repeated random permutation spectral mean square convergence rate",
+        "two projections random order convergence slower cyclic projection"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1902.09946",
+      "https://arxiv.org/html/2007.02910v3",
+      "https://doi.org/10.1016/j.laa.2018.05.009",
+      "https://www.mdpi.com/2673-9909/2/2/12"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Necoara arXiv:1902.09946, full text: equations (2)-(4) distinguish one-row, block-projection and averaged-block updates.",
+        "Steinerberger arXiv:2007.02910, full text: equation selection is residual-weighted at individual iterations.",
+        "Bai–Wu DOI 10.1016/j.laa.2018.05.009 reports exact mean-square for a separately sampled randomized Kaczmarz setting (abstract only)."
+      ],
+      "reasoning": "An iid row draw can repeat an equation or omit it within two steps; a random permutation cannot. The resulting transfer probabilities and spectra differ, so known iid rates do not directly give this equality. No claim that all other random-product theory was inspected.",
+      "searches": [
+        "randomized Kaczmarz sampling full sweep order permutation exact second moment",
+        "randomized two row cyclic projections mean square convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In Necoara (arXiv:1902.09946), the analyzed random blocks are averaged projections, not independent complete two-order sweeps.",
+        "In Steinerberger (arXiv:2007.02910), rows are sampled individually by residual-weighted probabilities."
+      ],
+      "reasoning": "The relevant equivalent statement would be an exact Perron factor for iid choices between two rank-one complete sweep products, or an exact finite-horizon fair law. Different single-row sampling or block averaging cannot imply it merely by matching projection operators.",
+      "searches": [
+        "two row Kaczmarz iid random forward reverse sweep mean square rate random ordering slowdown c squared exact",
+        "randomizing cyclic projection order two projections slows expected squared norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Index comparisons found two-row overrelaxation, randomized Gauss–Seidel, and row-ordering results on different sampling regimes; no exact two-row independent-complete-sweep table was established."
+      ],
+      "reasoning": "The formula is an analytic all-parameter continuum classification rather than a fixed numerical table. The search did not identify a database with the same mixed-sweep rate. Absence of hits is not proof of precedence.",
+      "searches": [
+        "two-row Kaczmarz iid random forward reverse sweep mean square rate random ordering slowdown c squared exact",
+        "randomized symmetric Kaczmarz 2x2 pair random permutations deterministic cyclic better rate"
+      ]
+    },
+    "rationale": "A complete independent-per-sweep two-row random permutation law is not implied by the distinct independent single-row or block-averaged updates in inspected accessible primary papers. Earlier specialist two-projection/random-order work remains a precedence risk.",
+    "residual_risks": [
+      "Possible unindexed specialist exact random-product formulas for rank-one projections.",
+      "Bai–Wu (2018) full text not retrieved; abstract only supports distinct sampled-row framing.",
+      "Full MDPI row-order paper was rate-limited; only indexed Section 4 excerpt examined.",
+      "A small-state exact calculation can be independently rediscovered; searches are not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different operator; no all-bias two-row random permutation formula in inspected material",
+        "evidence": [
+          "Equations (2), (3), (4) give single-row, block-projection and block-average updates; 2019 arXiv submission."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.09946",
+        "material_read": "Full parsed text, introduction, algorithmic definitions and relevant theorems",
+        "method": "Compared row-block sampling and averaging equations with two ordered full sweeps",
+        "title": "Faster randomized block Kaczmarz algorithms",
+        "trigger": "Same algorithmic family and random block epoch updates"
+      },
+      {
+        "assessment": "Different sampling model; no exact mixed-sweep transfer eigenvalue",
+        "evidence": [
+          "Algorithm chooses one row at each iteration according to current residual; theorem controls expected squared error."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.02910v3",
+        "material_read": "Full HTML, §1–2 and the defining sampling algorithm and theorem",
+        "method": "Checked residual-weighted individual row sampling versus independent complete two-row permutations",
+        "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+        "trigger": "Random-order convergence claims and possible implication"
+      },
+      {
+        "assessment": "Possible broader precedent unresolved; no whole-document exclusion claimed",
+        "evidence": [
+          "Abstract describes exact mean-square randomized Kaczmarz in flat and tall coefficient models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+        "material_read": "Abstract only; full text inaccessible",
+        "method": "Compared abstract stated sampled-row model with full sweep random permutations",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Existing exact mean-square formula potentially stronger"
+      },
+      {
+        "assessment": "Potentially relevant inaccessible literature, retained as risk",
+        "evidence": [
+          "Indexed §4 From Random Shuffles to Optimal Ordering discusses a shuffle as a remedy for poor initial ordering."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2673-9909/2/2/12",
+        "material_read": "Search-indexed Section 4 excerpt only; full text request returned rate-limit",
+        "method": "Compared one-time row shuffling described in excerpt against iid per-sweep order choices",
+        "title": "Kaczmarz Anomaly in Tomography Problems",
+        "trigger": "Explicit row-order shuffling literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7575b954-bf9b-49b1-a9d8-67404d949efc",
+  "value": {
+    "rationale": "The classification covers every mixing probability for the smallest nontrivial full-rank row-reshuffling model and proves strict degradation for any nontrivial mix, exact fair-horizon law, and a sharp worst-bias/high-condition contrast; relevant to iteration-order design, beyond an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
