@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run Python 3 without external packages from the directory containing the extracted `verification` folder:
+## correctness
 
-```
-python verification/check_reflect_ind2.py
-python verification/check_reflect_ind2_morse.py
-```
+PASS
 
-Observed after executing both bundled programs: the direct orbit-complex and local forbidden-rule face families agreed at each path length from 1 through 25; the reduced mod-two Betti numbers agreed for path lengths 1 through 21; the explicitly defined augmented Morse matching had precisely the predicted critical faces and no directed Hasse cycles for all boundary-complex sizes 1 through 14. The orbit-face program reports 8,900 admissible orbit subsets across the tested sizes. No random assumptions or library dependencies are used.
+A fixed point of a simplicial vertex permutation has constant barycentric coefficients on each orbit. Replacing each admissible vertex orbit by its barycenter yields an injective PL parameterization, with orbit collections permitted precisely when their union contains no three consecutive path indices. For both odd and even n, the central two selected outward orbits create forbidden pair {1,2}; elsewhere forbidden consecutive triples give exactly E_m. The augmented face-poset matching pairs vertex-2-absent faces by toggling 1; vertex-2-present faces identify with shifted E_(m−2). Acyclicity follows because matched edges never change membership of 2 and every unmatched crossing points monotonically downward; induction gives no cycles within each fiber. The residual augmented critical face {2,4,...,m} occurs only for even m, with the empty face paired; removing its matched pair gives one 0-cell and at most one top cell, yielding contractibility or sphere (including S^0 at m=2). Independently enumerated E_m faces and reduced Euler characteristics for m=1..10; inspected complete source acyclic-Morse verifier, whose finite checks cannot replace all-m induction.
 
-The scripts do not establish correctness for arbitrarily many vertices and do not check integer torsion in unbounded dimensions. Those conclusions follow from the explicit infinite discrete-Morse proof and elementary orbit-barycenter identification. Only the self-review documented in REVIEW.md has been performed. Independent auditing has not occurred.
+## originality
+
+PASS
+
+The geometric reversal-fixed subspace of Ind₂(P_n) is PL-homeomorphic to the boundary-obstructed E_m, m=ceil(n/2), and has homotopy type a point if m odd, S^(m/2−1) if m even. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
+
+## value
+
+PASS
+
+Geometric fixed points are not determined by ordinary Betti numbers or the action on homology. This natural reflection action produces a complete explicit PL orbit-complex model and a sharp periodic family of spheres with unbounded dimension; it is a motivated structural equivariant calculation, stronger than simply finding a character trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

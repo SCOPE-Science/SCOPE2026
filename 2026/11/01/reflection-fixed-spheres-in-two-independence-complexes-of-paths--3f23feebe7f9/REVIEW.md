@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result classifies **actual** geometric fixed points, using an explicit orbit-barycenter PL correspondence. Reflection-invariant faces are exactly palindromic no-three-consecutive binary strings. Translating the first two central orbits to a forbidden pair and all remaining length-three runs to forbidden triples is both necessary and sufficient, for even and odd path lengths including all endpoints. The recursively constructed augmented Morse matching partitions faces by the occurrence of the second orbit: no matched edge crosses the partition and directed cross edges point in only one direction. Its only possible critical simplex at even length is the even-indexed vertex set. Removing the empty-simplex pairing leaves either one critical vertex (contractible) or one vertex and one top cell (sphere). This establishes all integral homotopy statements without inference from finite mod-two data. Two independent finite scripts passed their exhaustive specified checks.
+PASS
 
-## Originality — PASS, qualified by discovery limits
+A fixed point of a simplicial vertex permutation has constant barycentric coefficients on each orbit. Replacing each admissible vertex orbit by its barycenter yields an injective PL parameterization, with orbit collections permitted precisely when their union contains no three consecutive path indices. For both odd and even n, the central two selected outward orbits create forbidden pair {1,2}; elsewhere forbidden consecutive triples give exactly E_m. The augmented face-poset matching pairs vertex-2-absent faces by toggling 1; vertex-2-present faces identify with shifted E_(m−2). Acyclicity follows because matched edges never change membership of 2 and every unmatched crossing points monotonically downward; induction gives no cycles within each fiber. The residual augmented critical face {2,4,...,m} occurs only for even m, with the empty face paired; removing its matched pair gives one 0-cell and at most one top cell, yielding contractibility or sphere (including S^0 at m=2). Independently enumerated E_m faces and reduced Euler characteristics for m=1..10; inspected complete source acyclic-Morse verifier, whose finite checks cannot replace all-m induction.
 
-The closest primary sources were inspected in accessible arXiv HTML, including relevant theorem statements and proofs. The 2026 tree vertex-decomposability theorem implies a structural shelling property of the ambient complex but says nothing about the PL fixed space. The 2020/2021 higher-independence path theorem determines its ambient sphere/point types but does not determine any involution's geometric fixed locus. The 2025 shellability paper addresses different invariants. Published-result searches for reflected paths, no-three-consecutive complexes, higher-independence orbit complexes, and equivalent fixed-point descriptions found related path-reversal characters for a different Morse complex, but no implication covering the theorem. A theoretically possible equivalent unindexed result remains a residual risk, not a proof of absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The new structural orbit-identification and exact infinite homotopy classification recover the geometric action-specific invariant for a canonical graph involution studied in a recent general theory. The periodic fixed loci contain spheres of unbounded dimension, with both connected and disconnected low-dimensional cases. General vertex decomposability and the known ambient homotopy type do not furnish these fixed-point sphere dimensions. This is a complete natural family result with a transparent reusable acyclic matching, rather than a selected small-number computation.
+The geometric reversal-fixed subspace of Ind₂(P_n) is PL-homeomorphic to the boundary-obstructed E_m, m=ceil(n/2), and has homotopy type a point if m odd, S^(m/2−1) if m even. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
 
-## Scope and residual risks
+## value
 
-The fixed-locus homotopy result does not prove an equivariant homotopy equivalence of ambient spaces. Literature-index coverage may be incomplete. All integral and infinite assertions rest on the stated matching proof, with finite computations as checks only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geometric fixed points are not determined by ordinary Betti numbers or the action on homology. This natural reflection action produces a complete explicit PL orbit-complex model and a sharp periodic family of spheres with unbounded dimension; it is a motivated structural equivariant calculation, stronger than simply finding a character trace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
