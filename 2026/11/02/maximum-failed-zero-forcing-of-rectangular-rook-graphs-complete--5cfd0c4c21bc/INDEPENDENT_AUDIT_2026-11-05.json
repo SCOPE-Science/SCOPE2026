@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:52:37.815618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every external cell (i,j), its number of white neighbors in the rook graph is r_i+c_j. Thus W is a fort iff no external cell has r_i+c_j=1. Classifying whether there are empty rows/columns forces: full row/column transversals for the exceptional 2×2, 2×3 and 3×3 cases; 2×2 rectangles when both sides admit an empty row/column; and 2-whites-in-each-row families when m=2. The n=4 four-cell full-column configurations contribute exactly 8,36,24 exceptional configurations for 2×4, 3×4, 4×4. Choosing 2 rows/columns counts binom(m,2)binom(n,2) rectangles; the thin board has binom(n,2)^2 independent row-pair choices. A maximal-cardinality failed blue set must be stalled, because forcing one more vertex would yield a larger still-failed set; complements of stalled sets are exactly forts. An independent adjacency-defined finite enumerator reproduced the classification on 2≤m≤5,m≤n≤6. No finite test was substituted for the all-m,n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al formulate general product fort bounds; Becker et al enumerate several unrelated minimal-fort families.",
+          "Complete multipartite minimal-fort classifications do not cover a nontrivial Cartesian rook product."
+        ],
+        "reasoning": "General fort theory supplies characterization and bounds, not a theorem that implies all labeled size-minimum rook forts.",
+        "searches": [
+          "arXiv:2310.17904 forts Cartesian products",
+          "arXiv:2404.05963 minimal forts",
+          "Resultary: minimal forts and fractional zero forcing of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at frozen seven-blob Git tree 826841afcb2d987fb4a2ccf389964697d297fa5b",
+        "Fetcie–Jacob–Saavedra (2015), Theorem 4.3, DOI 10.2140/involve.2015.8.99",
+        "Abara–Pelayo arXiv:2202.04997 §3.1",
+        "Cameron et al arXiv:2310.17904",
+        "Becker et al arXiv:2404.05963",
+        "Independent rook white-fort enumerator on indicated finite grids"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar maximum-cardinality theorem is compatible with arbitrarily many minimizers and does not determine their count.",
+          "The fort criterion plus a new empty-row/column case analysis determines multiplicities; no earlier cited implication supplies that analysis."
+        ],
+        "reasoning": "Known scalar extremum and rectangle construction do not mathematically imply uniqueness of extremizers or the stated enumeration.",
+        "searches": [
+          "Fetcie–Jacob–Saavedra 2015 Theorem 4.3",
+          "Abara–Pelayo 2022 §3.1",
+          "Becker et al 2024 minimal forts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graphs are Cartesian products K_m□K_n; maximum failed blue sets correspond bijectively to minimum-cardinality white forts.",
+          "2015 Theorem 4.3 gives maximal failed cardinality and a 2×2 fort witness, not the count of all minimum forts."
+        ],
+        "reasoning": "Compared failed-forcing and fort-complement formulations, including max cardinality versus inclusion-minimal forts. Exact same count/shape criterion not present in inspected primary statements.",
+        "searches": [
+          "Resultary: failed zero forcing maximum cardinality set count minimum forts Cartesian product complete graphs rook graph K_m square K_n",
+          "Fetcie–Jacob–Saavedra 2015 Theorem 4.3",
+          "Abara–Pelayo arXiv:2202.04997 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 2015 work identifies minimum size four for generic rook rectangles, not 44,54,60 exceptional minimum-fort counts or thin-board t-orbits."
+        ],
+        "reasoning": "No table read in accessed sources supplies the complete formula for every m,n; finite tests independently reproduced the small exceptional values.",
+        "searches": [
+          "Fetcie–Jacob–Saavedra Involve 2015 rook graph Theorem 4.3",
+          "Abara–Pelayo arXiv:2202.04997",
+          "Resultary rook graph extremizer count"
+        ]
+      },
+      "rationale": "The previously known scalar extremal failed zero-forcing size and rectangular obstruction are credited to Fetcie–Jacob–Saavedra, while the new final claim concerns complete labeled extremizer multiplicities and exceptional orbit types. Read the relevant prior primary results; no inspected statement implies the full count, subject to unindexed fort- or product-classification risk.",
+      "residual_risks": [
+        "An earlier unindexed all-minimum-fort census or stronger Cartesian-product theorem could imply these counts.",
+        "The classification applies only to ordinary zero forcing on rook graphs; it does not enumerate all inclusion-minimal forts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generic rook graph maximum size and 2×2 rectangle witness but does not enumerate all maximizers",
+          "evidence": [
+            "Theorem 4.3 (Cartesian products of complete graphs), cardinality result; no enumeration of all extremizers."
+          ],
+          "identifier_or_url": "https://msp.org/involve/2015/8-1/involve-v8-n1-p09-s.pdf",
+          "material_read": "Full primary article consulted; Theorem 4.3 and adjacent proof, including PDF page 18 as rendered",
+          "method": "Opened primary PDF and inspected extracted text and page image",
+          "title": "The failed zero forcing number of a graph",
+          "trigger": "Same graph family and maximum failed-set cardinality"
+        },
+        {
+          "assessment": "Maximal-failed-set constructions, not the universal labeled count of maximum-cardinality rook extremizers",
+          "evidence": [
+            "Section 3.1: Cartesian product forcing results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.04997",
+          "material_read": "Accessible full arXiv HTML, section 3.1 on Cartesian products and its relevant theorems",
+          "method": "Primary full-text HTML read",
+          "title": "Maximal failed zero forcing sets for products of two graphs",
+          "trigger": "Close product and maximal-failed formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Forcing-set enumeration on natural Cartesian products is a structural invariant beyond the known maximum cardinality. The complete classification identifies thin-board multiple orbits, all small exceptional shapes, and the stable single rectangular orbit for m≥3,n≥5; this gives usable exact extremizer counts rather than a routine restatement of the scalar number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify.py at frozen seven-blob Git tree 826841afcb2d987fb4a2ccf389964697d297fa5b",
+    "Fetcie–Jacob–Saavedra (2015), Theorem 4.3, DOI 10.2140/involve.2015.8.99",
+    "Abara–Pelayo arXiv:2202.04997 §3.1",
+    "Cameron et al arXiv:2310.17904",
+    "Becker et al arXiv:2404.05963",
+    "Independent rook white-fort enumerator on indicated finite grids"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An earlier unindexed all-minimum-fort census or stronger Cartesian-product theorem could imply these counts.",
+    "The classification applies only to ordinary zero forcing on rook graphs; it does not enumerate all inclusion-minimal forts."
+  ],
+  "schema_version": 1
+}
