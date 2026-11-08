@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A four-step self-contained proof checks the four exponential axioms, proves the fixed-point floor classification using monotonicity and idempotence, derives an if-and-only-if commutation test by common-fixed-point gaps, and counts all ordered pairs by a rational generating function. The independent standard-library checker tested the axioms for all 50,068 unary functions on nilpotent-minimum chains of sizes 2–6, together with all pairs of fixed-point floors for 2–9 ordered idempotents; outputs agree with \(1,4,14,48,164,560,1912,6528\). Finite evidence complements rather than replaces the analytic proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary source, Aglianò–Nedeljkovic (arXiv:2610.16804, initially public October 12, 2026), defines the exponential axioms and studies Girard varieties, but inspected definitions, results, examples and finite-chain discussion do not give an ordered-pair commutation classification or the rational generating function. Kruml–Paseka (2019, DOI:10.2991/eusflat-19.2019.42), sections 3–4, proves general single-conucleus results, notably fixed-point multiplicative closure; these do not imply the explicit interacting-pair count without new comparison and enumeration. Semantic searches of mathematical research records found adjacent results on different modal operators and ordered chains, without a dominating identical claim. Prior combinatorial descriptions of commuting floor maps or another equivalent exponential result cannot be ruled out exhaustively.
+PASS
 
-## Value — PASS
-The theorem resolves interaction of two distinct linear-logic exponentials on an entire natural finite-chain class. The explicit criterion detects when sequential exponentials yield a single legitimate exponential, the generating function counts all ordered commuting/noncommuting modalities, and the six-element nilpotent-minimum example is a sharp boundary. These are structurally motivated facts beyond an arbitrary finite census.
+Axiom !a⊙!b=!(a∧b) and !a<=1 prove monotonicity. Idempotence !!a=!a and !a⊙!a=!a imply fixed images are subunit multiplicative idempotents; !0=0,!1=1. Monotonicity plus deflation shows each ! is uniquely the floor to an endpoint-containing subset S of idempotents E; conversely such floors satisfy all four bang axioms because ordered subunit idempotents multiply as min. Therefore there are 2^r maps for r=|E|-2. For floors f_S,f_T, if they commute their composition is the floor to S∩T; a block between consecutive shared fixed points with S-only and T-only points produces different composition outputs. Absence of both types on each such block gives the converse. Each gap of length l has 2^(l+1)-1 valid status words, and the sequence-of-gaps generating function is 1/(1-4z+2z²), yielding c0=1,c1=4,c_r=4c_{r-1}-2c_{r-2} and closed form. For nilpotent minimum n, E={0} plus upper indices with 2i>n-1, so r=floor(n/2)-1 and earliest noncommuting n=6; its explicit S,T give two failures among sixteen ordered pairs. Independent enumeration of endpoint-fixed floors on idempotent chains up to size 8 gave commuting pair counts 1,4,14,48,164,560,1912, matching recurrence. The general proof is algebraic, not inferred from finite enumeration.
 
-## Unresolved limitations
-The result is limited to finite chains and the specified bang axioms. Historical priority for the commuting-pair recurrence has not been established exhaustively, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary general conucleus literature gives fixed-point closure of single maps, and recent Girard-algebra work gives the four axioms and structural finite examples. Their inspected results do not state the pairwise floor-commutation criterion or recurrence. An older order-theoretic count of commuting interior operators may be equivalent, so originality remains qualified.
+
+## value
+
+PASS
+
+A full two-operator commutation classification, exact recurrence and first nilpotent-minimum noncommutation threshold are natural algebraic properties of finite-chain multiplicative modalities. The result extends a known single-operator fixed-point representation to interacting operators and gives a usable exact census for every chain’s idempotent rank. It does not claim universality for nonchains or additional exponential laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
