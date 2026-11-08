@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The Kakeya property follows from the displayed full family of lines. The discriminant decomposition separates the nonvertical union from the additional vertical points and gives the correct set cardinality. Quadratic Gauss summation yields the full complex transform; the trace-fiber character sums account for every multiplicity. All four levels are positive and distinct when the extension degree is odd and at least three. The accompanying checker independently sums the Fourier series over actual points in several finite fields, including a full field of order 27. These finite tests are not the universal proof.
+
+**Originality: PASS relative to inspected sources.** Fraser's complete paper proves a weighted existence statement for Fourier-decaying probability measures on arbitrary Kakeya sets but does not assert the uniform four-level distribution for the specific quadratic construction. Kopparty–Lev–Saraf–Sudan's complete paper provides quadratic Kakeya point-set constructions and cardinalities but not the distribution of their uniform Fourier transform. Related mathematical-research records on finite-field Fourier sampling and paraboloid geometry did not give a covering assertion. An earlier indexed inadequately or unindexed quadratic-character evaluation could reduce or eliminate the novelty; this is a residual originality risk, not a proof of uniqueness.
+
+**Value: PASS.** Uniform point mass is a more restrictive and more implementable witness than a constructed nonuniform weight on a Kakeya set. The exact sharp constant, distribution across all nonzero frequencies, and nonvanishing statement make this a meaningful structural case study at the sharp planar decay scale. The complete distribution also distinguishes individual strong and weak frequencies instead of providing only an upper bound.
+
+**Scientific limitations.** Only fields of order \(3^m\) with odd \(m\ge3\), the specified quadratic-tangent Kakeya configuration, and uniform point weights are covered. The proof uses classical Gauss sums. The numerical checker is supplementary and does not certify all extension degrees.
+
+Self-review: passed. Independent audit: not yet performed.
