@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — In dimension two, derived exact residual R=A−(Au)(Au)^T/(u^TAu)=det(A)(Ju)(Ju)^T/(u^TAu) and conditional Rademacher quadratic variance 4R_12². Gaussian polar/angular integration gives E[x⁴/(t²x²+y²)²]=(2t+1)/(2t³(t+1)²), E[x²y²/D²]=1/[2t(t+1)²], E[y⁴/D²]=(t+2)/[2(t+1)²], hence displayed Nyström and 2-probe Hutchinson variances. Independently SymPy-factorized exact difference and strict derivative of Q(t); numerical unique root t*=1.752931245525 and exact t=2 θ=π/4 example N=29β²/9 versus H=9β²/2 agree. At t=1 H variance 0, N=β²/2. For all d≥3 positive-definite block diag(A2,δI), residual PSD bounded by A yields dominated convergence of variance as δ→0, preserving strict opposite ordering at different orientations but identical eigenvalues. Two counted matrix-vector products per estimator; mixed Gaussian sketch/Rademacher probe is explicitly NOT original all-Gaussian Nyström++.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Persson et al. full ar5iv Algorithm 5 high-probability large-sample sketch/residual trace bounds",
+          "Gambhir et al. arXiv:1603.05988 abstract and known SVD-deflation variance expressions"
+        ],
+        "reasoning": "Broader probabilistic bounds and SVD deflation are different estimation kernels. General fact that variance can increase under deflation is credited, but does not fix exactly when this randomized two-query construction improves.",
+        "searches": [
+          "Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation",
+          "Gambhir Stathopoulos Orginos deflation variance increase trace estimation 2017"
+        ]
+      },
+      "checked_sources": [
+        "Persson, Cortinovis, Kressner, arXiv:2109.10659, Algorithm 5 and Section 3 full accessible primary text",
+        "Gambhir, Stathopoulos, Orginos arXiv:1603.05988 (abstract inspected)",
+        "Resultary semantic query: Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nyström++ source proves high-probability randomized trace accuracy for a different probe distribution",
+          "Deflation variance harm source does not average the rank-one Gaussian sketch"
+        ],
+        "reasoning": "Distribution choice changes conditional correction variance; existing qualitative harm cannot imply the exact 3.072767951539 spectral threshold or same-spectrum rotation crossing for the specified hybrid estimator without the source's nonstandard integral.",
+        "searches": [
+          "Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation",
+          "arXiv:2109.10659 Algorithm 5 Gaussian probes; arXiv:1603.05988 SVD deflation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Persson–Cortinovis–Kressner 2021/22 arXiv:2109.10659 Algorithm 5 and original Gaussian probes",
+          "Classical conditional Rademacher off-diagonal variance formula"
+        ],
+        "reasoning": "The exact comparison can be reformulated as randomized rank-one residual off-diagonal energy, but Nyström++'s all-Gaussian correction variance is different. The sharp scalar inequality sin²(2θ)>Q(t) is not obtained just by invoking a general Nyström error bound.",
+        "searches": [
+          "Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation",
+          "Nyström Rademacher residual trace estimator exact variance orientation 2x2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent symbolic exact formulas and t*=1.752931245525",
+          "No matching evaluated decision table in the Resultary query hits, which were other spectral-statistic topics"
+        ],
+        "reasoning": "No exact database/table surfaced for this specific hybrid two-query design; the absence does not certify priority. The continuous angular formula is proved independently by integration.",
+        "searches": [
+          "Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation",
+          "two dimensional Gaussian Nystrom randomized trace residual Rademacher angular ratio threshold 3.072767"
+        ]
+      },
+      "rationale": "PASS, qualified — Persson–Cortinovis–Kressner Nyström++ already uses Gaussian sketch and randomized correction with high-probability bounds (Algorithm 5, read in full ar5iv text); it uses all-Gaussian probes, not exact one-Gaussian/one-Rademacher two-query design. Gambhir–Stathopoulos–Orginos show SVD deflation can increase trace-estimator variance; this qualitative orientation harm is prior art. Current exact all-orientation 2x2 crossover and same-spectrum positive-definite higher-dimensional perturbation were not identified as an immediate prior consequence, though the algebra uses classical variance identities.",
+      "residual_risks": [
+        "General low-dimensional randomized trace estimates may contain this exact angular integral in a different notation.",
+        "General deflation harm is already established; must not misattribute qualitative orientation sensitivity or claim Nyström++'s actual all-Gaussian Algorithm 5.",
+        "The comparison excludes optimized deterministic two-query designs, whose 2x2 trace can be exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALL-GAUSSIAN NYSTRÖM++ PRIOR; not an exact hybrid two-query rank-one orientation theorem",
+          "evidence": "Algorithm 5 and Section 3 describe independent Gaussian sketch/residual probes",
+          "identifier_or_url": "https://arxiv.org/html/2109.10659",
+          "material_read": "Read accessible complete ar5iv/full HTML with Algorithm 5, sketch and Gaussian residual probe details, convergence statements and assumptions",
+          "method": "primary full-text ar5iv/HTML",
+          "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+          "trigger": "Direct parent algorithm Nyström++ and trace decomposition"
+        },
+        {
+          "assessment": "DEFLATION HARM KNOWN; exact Gaussian rank-one sketch not established by inspected material",
+          "evidence": "Gambhir, Stathopoulos, Orginos 2016/17",
+          "identifier_or_url": "https://arxiv.org/abs/1603.05988",
+          "material_read": "Accessible abstract and associated research summary; full article not read",
+          "method": "primary arXiv abstract",
+          "title": "Deflation as a method of variance reduction for estimating the trace of a matrix inverse",
+          "trigger": "Relevant strong qualitative variance counterexamples and general orientation formulas"
+        },
+        {
+          "assessment": "No high-similarity record with same estimator and two-query threshold surfaced",
+          "evidence": "Resultary query: Nyström++ Rademacher Hutchinson variance orientation Gaussian sketch trace deflation",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Actual semantic result titles and summaries, not full matched paper",
+          "method": "published research index query",
+          "title": "Resultary trace estimator orientation search",
+          "trigger": "Check publication priority and aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Sharp basis-orientation/condition-number decision boundary between two well-defined scalable stochastic trace estimators at equal query budget, demonstrating spectrum alone cannot rank them, extending as strict reversal to all dimensions via a natural positive tail. It is explicitly not a global optimality result for 2x2 where two deterministic coordinate probes give exact trace; the value is in the randomized-estimator comparison and exact phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General low-dimensional randomized trace estimates may contain this exact angular integral in a different notation.",
+    "General deflation harm is already established; must not misattribute qualitative orientation sensitivity or claim Nyström++'s actual all-Gaussian Algorithm 5.",
+    "The comparison excludes optimized deterministic two-query designs, whose 2x2 trace can be exact."
+  ],
+  "schema_version": 1
+}

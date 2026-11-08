@@ -1,17 +1,21 @@
-# Scientific review: a sharp spectrum-and-orientation crossover for two-query Nyström trace estimation
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact estimator definitions, mutual independence, matrix-vector-product budget, and positive-definite domain are explicit. The two-dimensional residual identity is an elementary symbolic identity. Conditional Rademacher variances are exact. Three Gaussian angular moments, independently derived from a rational trigonometric integral and its derivative, yield the closed Nyström variance. Algebra factors the comparison into one strictly decreasing scalar threshold, with the isotropic endpoint treated separately. A positive-definite high-dimensional persistence statement follows from almost-sure convergence of residual matrices and a uniform trace bound. The independently executed standalone checker confirmed the symbolic identities, exact worked examples and 28 numerical angular quadratures. Numerical checks do not replace the universal proof.
+## correctness
 
-## Originality — PASS (qualified)
-The closest direct source is Persson–Cortinovis–Kressner, arXiv:2109.10659, Algorithm 5, which uses a Gaussian Nyström sketch and **Gaussian** residual probes and proves general approximation/accuracy results. The other close source is Gambhir–Stathopoulos–Orginos, arXiv:1603.05988, Section 2, which already proves that **exact spectral/SVD deflation** can worsen Hutchinson variance. These sources establish the general estimator and the broad negative phenomenon; neither inspected argument gives the exact Gaussian-sketch/Rademacher-probe two-query rotation criterion, its unique anisotropy threshold, or the same-spectrum reversal under positive-definite tail embeddings. Earlier related finite-query Gaussian Hutch++ and Rademacher/XNysTrace computations use different estimators and are not implications of this claim. Multiple searches for aliases, closed variance formulas, exact table coverage and stronger results found no directly covering statement. An undiscovered specialized derivation remains a real priority risk, and this is not independently adjudicated.
+PASS
 
-## Value — PASS
-A matrix-free trace-estimator designer must allocate a limited product budget between probing and low-rank variance reduction. With Rademacher probes, the coordinate representation matters: two matrices with the *same spectrum* can put the very same sketch-and-correction design on opposite sides of the equal-budget variance comparison. The finding supplies a complete exact sharp classification in the minimal nontrivial model, a nontrivial spectral existence threshold, explicit error levels and persistence in strictly positive-definite higher dimensions. This is stronger than the known observation that deflation sometimes harms and different from comparing rotationally invariant Gaussian designs. It does not claim optimality among all two-query procedures; indeed coordinate queries can determine a two-dimensional trace exactly.
+PASS — In dimension two, derived exact residual R=A−(Au)(Au)^T/(u^TAu)=det(A)(Ju)(Ju)^T/(u^TAu) and conditional Rademacher quadratic variance 4R_12². Gaussian polar/angular integration gives E[x⁴/(t²x²+y²)²]=(2t+1)/(2t³(t+1)²), E[x²y²/D²]=1/[2t(t+1)²], E[y⁴/D²]=(t+2)/[2(t+1)²], hence displayed Nyström and 2-probe Hutchinson variances. Independently SymPy-factorized exact difference and strict derivative of Q(t); numerical unique root t*=1.752931245525 and exact t=2 θ=π/4 example N=29β²/9 versus H=9β²/2 agree. At t=1 H variance 0, N=β²/2. For all d≥3 positive-definite block diag(A2,δI), residual PSD bounded by A yields dominated convergence of variance as δ→0, preserving strict opposite ordering at different orientations but identical eigenvalues. Two counted matrix-vector products per estimator; mixed Gaussian sketch/Rademacher probe is explicitly NOT original all-Gaussian Nyström++.
 
-## Closest literature, evidence and limits
-- D. Persson, A. Cortinovis, D. Kressner, *Improved variants of the Hutch++ algorithm for trace estimation*, arXiv:2109.10659, especially the full-text Algorithm 5 and Sections 3–3.1. Original 2021-09-22 public version; the all-Gaussian algorithm and general bounds do not imply the mixed-probe exact classification without additional calculations.
-- A. S. Gambhir, A. Stathopoulos, K. Orginos, *Deflation as a method of variance reduction for estimating the trace of a matrix inverse*, arXiv:1603.05988, especially full-text Section 2 and its SVD-deflation theorem. It covers the *possibility* of increased variance, not the randomized Nyström realization or equal-budget angular phase boundary.
-- The main exact result is two-dimensional, and the higher-dimensional extension is an existence statement for sufficiently small strictly positive tails. The random Nyström sketch is Gaussian but the residual probe is Rademacher; the published all-Gaussian Nyström++ version is not being silently relabelled. Exact arithmetic, independent probes and Euclidean coordinate signs are essential. Independent expert audit and publication-priority review have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified — Persson–Cortinovis–Kressner Nyström++ already uses Gaussian sketch and randomized correction with high-probability bounds (Algorithm 5, read in full ar5iv text); it uses all-Gaussian probes, not exact one-Gaussian/one-Rademacher two-query design. Gambhir–Stathopoulos–Orginos show SVD deflation can increase trace-estimator variance; this qualitative orientation harm is prior art. Current exact all-orientation 2x2 crossover and same-spectrum positive-definite higher-dimensional perturbation were not identified as an immediate prior consequence, though the algebra uses classical variance identities.
+
+## value
+
+PASS
+
+PASS — Sharp basis-orientation/condition-number decision boundary between two well-defined scalable stochastic trace estimators at equal query budget, demonstrating spectrum alone cannot rank them, extending as strict reversal to all dimensions via a natural positive tail. It is explicitly not a global optimality result for 2x2 where two deterministic coordinate probes give exact trace; the value is in the randomized-estimator comparison and exact phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
