@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent uniformly random school-label streams generate the specified uniform independent student rankings. Concatenating precisely the exposed draws of RSD yields the coupon collector stopped at first coverage, and a selected school is unenvied exactly when its coupon is a singleton. The established DA proposal-exposure argument gives the same coupon count. Conditional avoidance of a specified set of earlier RSD schools gives the exact indexed product, and finite telescoping establishes its closed form. Variance and the exponential limit follow through explicit calculations and the classical coupon distribution. Exact independent computations compare three constructions at finite sizes. The argument does not infer universality from finite tests.
+## correctness
 
-**Originality — PASS, with residual risk.** Ortega et al. (2026), Sections 2.1 and 3, prove the DA coupon coupling but report only identical **expectations** under RSD and DA. Myers and Wilf (2003), Section 4, describe the coupon singleton count law; Papanicolaou and Doumas (2020) establish the coupon variance and exponential limit. Neither coupon paper contains the RSD position-indexed probabilities or a matching-mechanism comparison. Relevant mathematical-research records on RSD lotteries, RSD/PS efficiency and small DA comparisons concern different allocation-level statistics. No equivalent all-market count-law identity or indexed RSD joint-probability result was found; unindexed literature and the inaccessible publisher PDF are residual risks.
+PASS
 
-**Value — PASS.** The motivating matching paper flags the equality of harmonic expectations as surprising, but this result identifies an exact distributional invariance: every threshold probability and every moment of the number of unenvied students agrees across two mechanisms with different allocation behavior. The joint RSD formula also describes position-dependent dependence, enabling exact risk calculations. The result therefore resolves a substantive structural question beyond an expectation computation, while correctly attributing all pre-existing coupon mathematics.
+For n>=1, independent iid uniform infinite label streams generate iid uniform strict student rankings by first-appearance order. Exposing each RSD student until the first still-available label implements serial dictatorship; concatenation is exactly an iid coupon stream stopped at first coverage. Earlier students never envy later students, and a later student envies a previous allocation precisely when that previous label recurs in its exposed prefix. Thus unenvied RSD students correspond pathwise to singleton coupons. Ortega et al establish the DA coupon-singleton identification via sequential proposal exposure. For marked positions i_t, each later student must prefer one of the n-k+1 remaining schools to b_k marked prior schools, giving independent conditional factors (n-k+1)/(n-k+1+b_k) telescoping to r!/prod(n-i_t+t). Known coupon singleton distribution, moments and Exp(1) logarithmic limit transfer. Conditions n=1, fixed or random RSD order, unit capacities, independent priorities and strict uniform prefs are explicit.
 
-Scientific scope is limited to independent uniform complete strict preferences, balanced one-to-one markets, and standard DA priorities. No uniqueness or generalization to nonuniform markets is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority judgment after direct mathematical comparison; prior material credited and residual risks recorded. The DA half and coupon probability formula are recognized as prior work. The new asserted equivalence is the RSD construction and mechanism-to-mechanism law; no RSD singleton-coupon identity was identified in the primary text.
+
+## value
+
+PASS
+
+A reported equality of harmonic expected unenvied-agent counts between DA and RSD conceals a much stronger structural invariance: every finite-market count probability, threshold and fluctuation matches, despite different allocation outcomes. The explicit position-indexed RSD joint probabilities additionally determine which picks are dependent. This answers a meaningful matching-market question rather than merely recycling a coupon integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
