@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The theorem is proved by a uniform first-update permutation, a two-group exponential-maximum identity and memorylessness of independent Poisson clocks. The exact computation is an internal arithmetic check and does not certify uniqueness of the research result.
+## correctness
 
-Run `python3 verify.py` with Python 3 and only standard-library dependencies. The program checks all \(1936\) initial producer-count states with \(1\le a,b\le8\), using direct rational first-step recurrences independently of the closed-form harmonic and hypergeometric-suffix expression. It also tests both winning probabilities and total suffix probability. Successful execution prints `PASS: 1936 exact rational states, two independent recurrences; suffix mass checked`.
+PASS
 
-The script does not enumerate every large-network action path or constitute an infinite proof. No stochastic simulation, external verification, or independent audit is claimed.
+On labeled complete bipartite K_{a,b}, a,b>=1, independently uniform with-replacement vertex update (null updates counted), before one side empties all initially active vertices deactivate at first update and inactive vertices remain inactive. Their first-update ordering is a uniformly random permutation. Last survivor side gives P(P_A)=i/(i+j), and exact joint suffix mass wA_k=C(i+j-k-1,j-1)/C(i+j,j) (and symmetric wB). Independent Poisson(1) clocks yield commitment E tau=H_i+H_j-H_{i+j}; memoryless completion adds wA_k H_{a-k}+wB_l H_{b-l}. Multiply time by a+b to get expected discrete tick count. Edge cases i=0 or j=0 and both zero are derived separately. Balanced all-producer asymptotic E S=4m log m+(4gamma-2log2)m+o(m) follows geometric-tail bound on survivor count. Independent exact-rational state recursion checks 400 configurations, not used as infinite proof.
+
+## originality
+
+PASS
+
+Random-order greedy maximal independent sets on chain/complete bipartite graphs already yield the EMPTY-start selection law, in particular a/(a+b); claim credits this prior case. The present random scheduler repeatedly selects with replacement and can start with active agents on both sides. Exact commitment survivor probabilities, full fixation-time expectation and m-log-m correction are not implied by one-pass greedy output laws, general best-response convergence theorems, or earlier simulated annealing procedures.
+
+## value
+
+PASS
+
+Quantitative random best-response equilibrium selection is an essential stochastic-dynamics question even where existence and convergence are known. The explicitly resolved nonzero-start extinction lottery and sharp fixation clock give a reusable exact benchmark for asynchronous network games, not just a rephrasing of two Nash equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
