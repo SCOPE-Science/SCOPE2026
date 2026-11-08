@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, the adjacent XOR map bijects nonconstant binary n-windows modulo complement with nonzero binary (n-1)-windows. The sum of the bits of every punctured cycle is 2^(n-2), even, so it integrates in exactly two globally complementary cyclic words. The missing zero self-loop at state 0^(n-2) is inserted or deleted uniquely in an Euler circuit. In the complete de Bruijn graph on N=2^(n-2) states, A^(n-2)=J implies nonzero Laplacian eigenvalues 2, so the directed tree count is 2^(N-1)/N, and BEST yields exactly that many cycles. Distinct windows give full period and exclude a rotation-complement stabilizer. The exhaustive direct n=3..5 test and independent exact reduced-Laplacian computations at difference orders 2..6 passed; no finite result is substituted for the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Higgins et al. prove existence for two-block partition universal cycles and discuss extension to other numbers of blocks, without a general multiplicity statement.",
+        "Blanca and Godbole 2011 focus on universal cycles for restricted words, subsets, restricted multisets, lattice paths and related structures; the checked abstract does not supply this two-block enumeration.",
+        "The early Chung–Diaconis–Graham work founded the universal-cycle framework, but full-text coverage could not be verified."
+      ],
+      "reasoning": "An existence theorem for a broader family of partition universal cycles does not imply their exact number. An exhaustive counting theorem for a broader family could cover the result, but none was located; a historical source-access caveat is retained.",
+      "searches": [
+        "universal cycles set partitions into two parts 2015 existence exact number",
+        "1992 Chung Diaconis Graham universal cycles for combinatorial structures partitions",
+        "2011 Blanca Godbole universal cycles for new classes combinatorial structures",
+        "Theorem 12 Higgins Kelley Sieben Godbole P(n,2) Eulerian cycles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.04076v1 (first public February 13, 2015)",
+      "doi:10.37236/5051 (journal full text inspected)",
+      "OEIS:A016031 (complete visible entry)",
+      "https://debruijnsequence.org/db/graph (graph counting page)",
+      "doi:10.1137/100805674 (related restricted-word universal cycles abstract)",
+      "doi:10.1016/0012-365X(92)90699-G (bibliographic only; full text not obtained)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 12 in Higgins et al. implies all Eulerian cycles of their partition overlap graph lift to ucycles; it does not count their Euler tours.",
+        "The classical BEST/matrix-tree count of binary de Bruijn Euler tours gives exact multiplicity only after one establishes that the relevant partition cycles and de Bruijn cycles are in bijection.",
+        "The new proof provides both the cyclic parity integration and the unique-loop insertion, and separately proves the exact Laplacian-tree count."
+      ],
+      "reasoning": "The statement is a nontrivial structural bridge between two previously studied collections. It is not an already stated corollary or restricted instance of a prior count over the same partition class. It uses known tools without claiming those tools as new.",
+      "searches": [
+        "Higgins Kelley Sieben Godbole 2015 Theorem 12 full PDF",
+        "binary de Bruijn graph BEST tree count 2^(2^(n-1)-n)",
+        "de Bruijn cycles punctured zero loop adjacent XOR partition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2015 paper states that all Eulerian cycles of the two-block partition transition digraph lift to universal cycles (Theorem 12, journal page 9), but does not identify a de Bruijn bijection or enumerate the cycles.",
+        "A de Bruijn order-(n-1) cycle contains every binary (n-1)-window, including the all-zero one, whereas a bipartition universal cycle has only nonzero adjacent-XOR windows. The correspondence requires deleting the unique all-zero loop and verifying integrability."
+      ],
+      "reasoning": "The expressions count different objects a priori. The new two-stage invertible correspondence, rather than a match of numerical values, connects them; no checked source exhibited this statement verbatim or by an explicit equivalent map.",
+      "searches": [
+        "set partitions universal cycle bipartitions counting complementary binary windows de Bruijn cycles",
+        "\"bipartitions\" \"de Bruijn sequences\" \"cycles\" counting",
+        "Binary universal cycles of two-block set partitions P(n,2) are in bijection with binary de Bruijn necklaces of order n-1, giving exactly 2^(2^(n-2)-n+1) cycles modulo rotation and global letter swap.",
+        "arxiv:1502.04076v1 Section 3 Theorem 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A016031 explicitly tabulates the same integer values and the formula 2^(2^(m-1)-m), but labels them as binary de Bruijn cycle counts. This known database entry is fully acknowledged.",
+        "The tested binary two-block partition counts for n=3,4,5 are 1,2,16, but no checked database described the partition-cycle interpretation."
+      ],
+      "reasoning": "Identical numerical tables are not automatically identical enumerated families. The theorem adds a bijection that explains the coincidence. No novelty is attributed to the integer sequence alone.",
+      "searches": [
+        "OEIS A016031 1 1 2 16 2048 67108864",
+        "\"universal cycles\" \"two blocks\" \"de Bruijn\" number",
+        "Exact enumeration of 2-set partitions universal cyclic binary words up to relabeling, 1 2 16 2048."
+      ]
+    },
+    "rationale": "The closest 2015 complete paper proves existence and liftability of binary two-block partition universal cycles but does not state the exact enumeration or the adjacent-XOR/zero-loop bijection with de Bruijn cycles. The de Bruijn count and the corresponding integer sequence are classical, and the claim is restricted to the new identification and all-order enumeration of the partition-encoding class. Semantic record searches and an actual read of the highly relevant paper found no equivalent statement. Residual historical priority risk remains, including the inaccessible full text of an early foundational paper.",
+    "residual_risks": [
+      "The full 1989/1992 foundational source was not accessible, so an early equivalent interpretation cannot be excluded.",
+      "An unindexed later article or thesis might have identified the same two-block partition and de Bruijn correspondence.",
+      "The count is the classical de Bruijn sequence A016031 under a new interpretation; priority pertains to the explicit correspondence, not the integer values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct prior existence and Euler-tour-lifting coverage, but no explicit all-order cardinality or cyclic-XOR/de Bruijn bijection found in inspected text",
+        "evidence": "Journal pages 9–10: Theorem 12 and Corollary 13 establish universal-cycle existence for k=2; page 14 discusses remaining existence questions, not counts.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p48/pdf/",
+        "material_read": "Journal PDF: Introduction, transition-graph construction and Theorems 10 and 12 in Section 3, Section 4 open questions, and bibliography (pages 2, 6–10, 14–15)",
+        "method": "Full PDF textual extraction and visual page inspection",
+        "title": "Universal and Near-Universal Cycles of Set Partitions",
+        "trigger": "Exactly the same two-block partition universal-cycle objects and primary historical existence theorem"
+      },
+      {
+        "assessment": "Known numerical formula for ordinary binary de Bruijn cycles; the two-block partition correspondence is not given",
+        "evidence": "Entry begins with 1,1,2,16,2048,67108864 and attributes the formula 2^(2^(m-1)-m) to classical de Bruijn enumeration.",
+        "identifier_or_url": "https://oeis.org/A016031",
+        "material_read": "Entire visible OEIS entry, formula, references and interpretations",
+        "method": "Direct HTML text inspection",
+        "title": "De Bruijn's sequence (A016031)",
+        "trigger": "Exact numerical values and formula potentially dominating the proposed cycle count"
+      },
+      {
+        "assessment": "Gives Eulerian overlap graph, matrix-tree/BEST enumeration and binary de Bruijn cycle counts; no correspondence to bipartitions was described",
+        "evidence": "The page states the count (k!)^(k^(m-1))/k^m and explains the Euler-tour representation.",
+        "identifier_or_url": "https://debruijnsequence.org/db/graph",
+        "material_read": "Graph-model and enumeration sections of the public HTML page",
+        "method": "Direct HTML text inspection",
+        "title": "De Bruijn Sequence and Universal Cycle Constructions: graph model",
+        "trigger": "Possible equivalent graph-theoretic and enumeration formulations"
+      },
+      {
+        "assessment": "Historical-priority risk retained; no assertion about absence from unread full text",
+        "evidence": "The catalog identifies report EFS NSF 332, F. Chung, P. Diaconis, R. Graham, dated August 1989.",
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/universal-cycles-combinatorial-structures",
+        "material_read": "Bibliographic record only; linked full-text repository request timed out",
+        "method": "Authoritative Stanford report catalog and attempted repository access",
+        "title": "Universal Cycles for Combinatorial Structures",
+        "trigger": "Foundational 1989 report and 1992 paper may contain an earlier equivalent correspondence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d02b248b-ed21-477e-bca4-58fe17ba8899",
+  "value": {
+    "rationale": "A universal cycle is a compact exhaustive schedule for a natural family of two-block partitions. The exact count for all n quantifies design diversity at double-exponential scale (log2 U_n=2^(n-2)-n+1), while the constructive, reversible difference/loop map permits use of existing de Bruijn-generation and sampling methods. This is a natural all-order invariant, not an arbitrary finite slice, known numerical table repackaging, or a claim of a new construction.",
+    "status": "PASS"
+  }
+}
