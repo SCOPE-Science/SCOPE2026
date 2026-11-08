@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:05:39.251901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write W increments D_i independent N(0,1/n). Constraint W_((i+1)/n)−2W_(i/n)+W_((i−1)/n)=0 is exactly D_(i+1)=D_i; Gaussian conditioning at zero projects each independent block onto its constant-increments one-dimensional subspace. Block endpoint sums have independent N(0,length/n) Brownian increments, grid nodes become affine interpolants I_(F_n)B. Original independent fine-grid Brownian bridges survive constraints, with max tail <=2n exp(−2nu²). For any Hausdorff F_n→F, uniform continuity of affine interpolation for continuous f gives I_(F_n)B→I_F B pathwise and bridges vanish, so Q_n weakly converges. Every closed F containing endpoints is grid-approximable. d_H(F_n,[0,1])=δ_n/2 proves sufficiency; macroscopic surviving gap gives a subsequential law with deterministic affine paths on an interval, unlike Wiener, proving necessity. Any nonempty constraint yields finite-n singularity; covariance is Brownian covariance minus independent gap bridge. Independently checked Gaussian Schur complement conditional covariance for every subset of n−1 adjacent second-difference constraints with n=2..6 and continuous midpoint witnesses; finite tests do not replace the tightness/converse proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raket proves one shrinking observation has vanishing covariance influence; independent overlapping simultaneous observations can constrain a macroscopic interval."
+        ],
+        "reasoning": "A single-observation theorem does not imply arbitrary E_n, and a general conditional Gaussian identity does not establish the sharp cluster threshold without new block analysis.",
+        "searches": [
+          "arXiv:2610.33747v1 Corollary 7.4",
+          "JMLR 20-1260"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33747v1",
+        "JMLR 22(105), 2021, 20-1260"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical projected Gaussian increments yield representation; taking arbitrary Hausdorff subsequences and proving converse with deterministic affine gaps supplies a new sharp claim."
+        ],
+        "reasoning": "Neither prior source inspected states the full arbitrary-block weak-limit family as a theorem, but a more general conditioning theorem might implicitly cover it.",
+        "searches": [
+          "arXiv:2610.33747v1 Corollary 7.4",
+          "Wilson et al JMLR 2021 general pathwise conditioning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Second difference zero equals blockwise equality of adjacent Gaussian increments and an orthogonal projection; Gaussian pathwise conditioning is well-known."
+        ],
+        "reasoning": "Classical Gaussian interpolation is prior. The claim sharpens it to all contiguous constrained blocks, every closed-set subsequential limit and an iff long-run condition.",
+        "searches": [
+          "arXiv:2610.33747v1 Section 7",
+          "JMLR 22(105), 2021",
+          "Resultary: Brownian motion conditioned on grid second differences zero arbitrary blocks Hausdorff closed set Gaussian interpolant weak limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No existing closed-set limit census or δ_n→0 criterion identified in searched records."
+        ],
+        "reasoning": "Not a finite integer table; this check targets known classification theorem and known limit-law catalogue rather than numeric coefficients.",
+        "searches": [
+          "Resultary: Brownian motion conditioned on grid second differences zero arbitrary blocks Hausdorff closed set Gaussian interpolant weak limit",
+          "Web: Brownian conditional second difference closed sets Hausdorff"
+        ]
+      },
+      "rationale": "Raket 2026 Section 7 Corollary 7.4 handles a single shrinking fixed finite-difference observation and vanishing effect; it is not a many-simultaneous-overlapping-observation result. Wilson et al 2021 provides a general pathwise Gaussian conditional representation, not this exact contiguous-block and closed-set Hausdorff subsequence classification in inspected portions. Resultary Brownian searches found separate path-conditioning questions. This is best-of-knowledge novelty for the sharp δ_n iff and complete weak limit family.",
+      "residual_risks": [
+        "More general Gaussian spline/projection results could imply the deterministic closed-set continuity and weak-limit classification.",
+        "General pathwise conditioning paper was examined only in relevant accessible portions, not every appendix; no whole-document exclusion claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corollary 7.4 treats single fixed-order shrinking observation, not arbitrarily many overlapping second differences and exact closed-set limit classification",
+          "evidence": "Single-observation vanishing effect does not yield max contiguous-run length criterion.",
+          "identifier_or_url": "arXiv:2610.33747v1",
+          "material_read": "Primary full HTML read with Sections 6–7 and Corollary 7.4, hypothesis/statement of shrinking single difference",
+          "method": "Read arXiv HTML and relevant formulas",
+          "title": "A Bestiary of Brownian Processes: A Field Guide to Boundary Conditions and Conditioning",
+          "trigger": "Same Brownian finite-difference conditioning and plausible stronger theorem"
+        },
+        {
+          "assessment": "General conditioning framework, not the explicit simultaneous second-difference block spectrum and Hausdorff iff criterion in inspected portions",
+          "evidence": "Classical Gaussian conditional projection is not newly claimed; exact run decomposition and sharp all-subsequence classification are the contribution.",
+          "identifier_or_url": "JMLR 22(105), 2021, 20-1260",
+          "material_read": "Abstract, introduction and relevant conditioning approach, PDF first page screenshot; full 47 pages not asserted checked",
+          "method": "Primary JMLR paper excerpt/PDF",
+          "title": "Pathwise Conditioning of Gaussian Processes",
+          "trigger": "General GP pathwise conditioning could cover process representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp necessary-and-sufficient cluster-size criterion for conditioning infinitely many Brownian second differences and complete closed-set limit classification are natural Gaussian process/weak convergence statements. It highlights finite singularity coexisting with weak Wiener convergence and identifies exact covariance of every possible non-Wiener limit. The result is structural and nontrivial, not a mere one-point conditional covariance example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.33747v1",
+    "JMLR 22(105), 2021, 20-1260"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "More general Gaussian spline/projection results could imply the deterministic closed-set continuity and weak-limit classification.",
+    "General pathwise conditioning paper was examined only in relevant accessible portions, not every appendix; no whole-document exclusion claimed.",
+    "Results hold only under exact hypotheses in the frozen RESULT.md; independent finite checks are corroboration, not infinite proof.",
+    "Publication transport is not_ready pending verified confidentiality sanitization."
+  ],
+  "schema_version": 1
+}

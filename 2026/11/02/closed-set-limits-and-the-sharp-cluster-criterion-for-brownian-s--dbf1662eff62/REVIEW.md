@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The zero second-difference constraints equal adjacent-increment equalities. Orthogonal projection of independent Gaussian increments onto constant-vector blocks gives a common increment with variance \(1/(n\ell)\) on every \(\ell\)-cell block; summed block increments reproduce Brownian values at the breakpoints. Unconditioned independent fine-cell Brownian bridges remain after conditioning. Their maximum vanishes with a quantitative tail bound. A deterministic Hausdorff interpolation lemma, compactness of closed sets, and a positive-length affine gap under any macroscopic connected run prove both directions of the sharp criterion. Exact Schur-complement checks verify the finite covariance identity. This does not rest on numerical convergence evidence.
+## correctness
 
-**Originality (PASS, qualified).** Raket (2026), Corollary 7.4, proves invisibility for one shrinking finite-difference observation, not an arbitrary simultaneous family. Raket (2021), Section 4.3, deals with one boundary increment. General pathwise Gaussian conditioning and standard Brownian bridge projection are foundational antecedents, and an uninspected broad theorem might imply parts of the result. No equivalent exact cluster criterion and full Hausdorff-limit classification was found in the inspected papers, targeted record searches or recoverable previous claims. Historical exclusivity is not established.
+PASS
 
-**Value (PASS).** This is a structural answer to a specific detectability question raised by the motivating work: arbitrarily many individually negligible derivative-surrogate constraints can collectively enforce macroscopic deterministic affine regions. The longest consecutive run, not the total count or density, is necessary and sufficient for Wiener recovery; every closed set has an explicit Gaussian interpolating limit. The opposing density-one/Wiener and full-density/affine examples show the criterion is substantive, while the exact covariance gives usable limit-process descriptions.
+Write W increments D_i independent N(0,1/n). Constraint W_((i+1)/n)−2W_(i/n)+W_((i−1)/n)=0 is exactly D_(i+1)=D_i; Gaussian conditioning at zero projects each independent block onto its constant-increments one-dimensional subspace. Block endpoint sums have independent N(0,length/n) Brownian increments, grid nodes become affine interpolants I_(F_n)B. Original independent fine-grid Brownian bridges survive constraints, with max tail <=2n exp(−2nu²). For any Hausdorff F_n→F, uniform continuity of affine interpolation for continuous f gives I_(F_n)B→I_F B pathwise and bridges vanish, so Q_n weakly converges. Every closed F containing endpoints is grid-approximable. d_H(F_n,[0,1])=δ_n/2 proves sufficiency; macroscopic surviving gap gives a subsequential law with deterministic affine paths on an interval, unlike Wiener, proving necessity. Any nonempty constraint yields finite-n singularity; covariance is Brownian covariance minus independent gap bridge. Independently checked Gaussian Schur complement conditional covariance for every subset of n−1 adjacent second-difference constraints with n=2..6 and continuous midpoint witnesses; finite tests do not replace the tightness/converse proof.
 
-**Closest literature and remaining risks.** Raket (2026), Sections 6–7, provides the exact scalar detectability predecessor. Raket (2021), Section 4.3, gives Gaussian boundary-increment conditioning; Wilson et al. (2021) gives a general pathwise Gaussian framework. A more general classical spline/bridge interpolation theorem might subsume this specialized characterization. This report assesses only the stated standard-Brownian, uniform-grid, noiseless setting.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Raket 2026 Section 7 Corollary 7.4 handles a single shrinking fixed finite-difference observation and vanishing effect; it is not a many-simultaneous-overlapping-observation result. Wilson et al 2021 provides a general pathwise Gaussian conditional representation, not this exact contiguous-block and closed-set Hausdorff subsequence classification in inspected portions. Resultary Brownian searches found separate path-conditioning questions. This is best-of-knowledge novelty for the sharp δ_n iff and complete weak limit family.
+
+## value
+
+PASS
+
+Sharp necessary-and-sufficient cluster-size criterion for conditioning infinitely many Brownian second differences and complete closed-set limit classification are natural Gaussian process/weak convergence statements. It highlights finite singularity coexisting with weak Wiener convergence and identifies exact covariance of every possible non-Wiener limit. The result is structural and nontrivial, not a mere one-point conditional covariance example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
