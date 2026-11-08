@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes both marginal laws and explicitly requires independence across separate cells. For the local polynomial \(z(u)=u(1-u)\), the Fréchet–Hoeffding bound proves the exact global infimum \(\operatorname{Var}[(z(U)+z(V))/2]=1/2880\) over **all** bivariate couplings with uniform marginals, not only deterministic reflections. The half-cell reflection realizes this bound. Uniform \(C^2\) interpolation remainders make the copula comparison stable as mesh size tends to zero. Independence across cells and a Riemann-sum limit prove the sharp \(1/11520\) constant. The comparison constants and quadratic exactness follow directly. Exact-rational verification of multiple mesh sizes and a cubic asymptotic check passed. The calculations do not substitute for the all-coupling proof.
+PASS
 
-## Originality — PASS, qualified
+On each cell the affine interpolation residual has the uniform expansion r_j(u)=-(h²/2) f''(a_j) z(u)+o(h²) with z=u(1-u), uniformly over all cells and u for f∈C². The z(U) distribution has cdf 1-sqrt(1-4t), mean 1/6 and variance 1/180. Fréchet–Hoeffding bound integrated over upper level sets shows the minimum covariance for two z-values with identical marginal law is at opposite quantiles. For U uniform, R=|2U-1| is uniform and the half-cell map T induces R↦1-R, so this optimal coupling is attained without changing either uniform marginal. Direct polynomial integrations give Var((z(U)+z(T(U)))/2)=1/2880, compared 1/360 independent and 1/180 for central U↦1-U. Independent cell pairs turn the leading h^6 cell contribution into global h^5 variance, with sharp limit ∫(f'')²/11520, comparisons /1440 and /720. Uniform interpolation o(h²) controls all coupling sequences. f=x² gives exact rates at every m. Independent rational polynomial checks corroborate these constants.
 
-The half-cell reflection is already a special case of the local dyadic folding transformation studied by Owen (2008); classical countermonotone covariance minimization is also established. Kunsch's (2023) stratified control variates employ independent samples on local interpolant residuals. The assessed claim is restricted to the exact variance-optimal two-sample residual coupling at the same evaluation budget, with all-\(C^2\) leading constants and an exact quadratic witness. The key full-text sections of both papers were read and compared by implication. Accessible prior scientific results concerned other stratified allocation, random trapezoid coupling and graded quadrature objects, not this paired residual copula optimum. Absence of a match does not prove priority. A specialized antithetic or cubature source could still cover these constants.
+## originality
 
-## Value — PASS
+PASS
 
-This settles a concrete local sampling-design question for smooth interpolatory stratified Monte Carlo: the usual global antithetic reflection is worst among the three natural choices at leading order, while a previously known local reflection is optimal against **every** two-uniform-marginal copula inside the independent-cell class. The exact factor-eight and factor-sixteen improvements at equal residual-evaluation cost are potentially useful in variance-sensitive numerical integration and distinguish sampling-dependence design from improved approximation order. The finite quadratic witness and continuum optimality both matter; the finding does not claim a new convergence exponent.
+Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.
 
-## Sources, comparisons and residual risk
+## value
 
-- Kunsch, arXiv:2309.09059, Section 2 and Section 4: stratified polynomial-control-variate method, probabilistic rates and experiments; no paired-copula optimum in those inspected sections.
-- Owen, arXiv:0811.0528, Introduction, Section 3 and Section 6: local dyadic reflection is prior art, but the sharp interpolatory residual variance constants and their unrestricted within-cell coupling optimum are not stated in inspected passages.
-- Classical Fréchet–Hoeffding countermonotone covariance bounds: a proof ingredient, not asserted as new.
+PASS
 
-Limitations are as stated in RESULT.md. The key unresolved risk is unknown specialized prior work deriving the same interpolation-residual constants or an implication stronger than this exact theorem.
+The estimator is a natural interpolatory stratified control variate whose residual is quadratic to first order and nonmonotone across its cell. Optimizing every two-marginal coupling at fixed evaluation cost is a meaningful sharp design problem; one-half/eighth/one-sixteenth variance constants quantitatively distinguish local reflection from central antithetics. Neither the reflection map nor countermonotone coupling theorem is itself claimed new. It does not purport to improve the global convergence order or optimize cross-cell correlations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

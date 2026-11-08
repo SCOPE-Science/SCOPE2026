@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:51:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-sample-variance-law-for-local-reflections-in-interpola--cc73f18777b4/RESULT.md @ cb6a2857fbe2d4c8870cfe9082b50cea49c8fcaa",
+        "Independent check: independent_checks.py, case S4"
+      ],
+      "rationale": "On each cell the affine interpolation residual has the uniform expansion r_j(u)=-(h²/2) f''(a_j) z(u)+o(h²) with z=u(1-u), uniformly over all cells and u for f∈C². The z(U) distribution has cdf 1-sqrt(1-4t), mean 1/6 and variance 1/180. Fréchet–Hoeffding bound integrated over upper level sets shows the minimum covariance for two z-values with identical marginal law is at opposite quantiles. For U uniform, R=|2U-1| is uniform and the half-cell map T induces R↦1-R, so this optimal coupling is attained without changing either uniform marginal. Direct polynomial integrations give Var((z(U)+z(T(U)))/2)=1/2880, compared 1/360 independent and 1/180 for central U↦1-U. Independent cell pairs turn the leading h^6 cell contribution into global h^5 variance, with sharp limit ∫(f'')²/11520, comparisons /1440 and /720. Uniform interpolation o(h²) controls all coupling sequences. f=x² gives exact rates at every m. Independent rational polynomial checks corroborate these constants.",
+      "residual_risks": [
+        "Only C², one dimension, equal cells, independent pairs across cells; uniqueness of an underlying uniform-coordinate copula is not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kunsch 2023 provides interpolatory stratified Monte Carlo control variates with independent residual samples; Owen 2008 studies locally reflected scrambled nets. The broader Monte Carlo constructions do not prove this exact coupling lower bound with factor-eight improvement in the specified estimator."
+        ],
+        "reasoning": "Kunsch 2023 provides interpolatory stratified Monte Carlo control variates with independent residual samples; Owen 2008 studies locally reflected scrambled nets. The broader Monte Carlo constructions do not prove this exact coupling lower bound with factor-eight improvement in the specified estimator.",
+        "searches": [
+          "stratified Monte Carlo linear interpolation residual two samples local half-cell antithetic reflection variance optimal coupling",
+          "https://arxiv.org/pdf/0811.0528",
+          "https://arxiv.org/abs/2309.09059"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0811.0528",
+        "https://arxiv.org/abs/2309.09059",
+        "https://doi.org/10.1016/j.cam.2016.12.032",
+        "https://arxiv.org/pdf/0811.0528",
+        "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Owen’s local reflection realizes an old negative dependence construction, but without the interpolatory residual Taylor expansion and universal copula comparison it does not imply the current full sharp variance law; Kunsch’s independent-residual scheme gives one nonoptimal comparator."
+        ],
+        "reasoning": "Owen’s local reflection realizes an old negative dependence construction, but without the interpolatory residual Taylor expansion and universal copula comparison it does not imply the current full sharp variance law; Kunsch’s independent-residual scheme gives one nonoptimal comparator.",
+        "searches": [
+          "stratified Monte Carlo linear interpolation residual two samples local half-cell antithetic reflection variance optimal coupling",
+          "https://arxiv.org/pdf/0811.0528",
+          "https://arxiv.org/abs/2309.09059",
+          "https://doi.org/10.1016/j.cam.2016.12.032"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The half-cell map is Owen’s local dyadic antithetic reflection; Fréchet–Hoeffding countermonotone coupling is classical. The new claimed invariant is the sharp leading C² variance constant for a specific interpolated residual estimator over all within-cell copulas."
+        ],
+        "reasoning": "The half-cell map is Owen’s local dyadic antithetic reflection; Fréchet–Hoeffding countermonotone coupling is classical. The new claimed invariant is the sharp leading C² variance constant for a specific interpolated residual estimator over all within-cell copulas.",
+        "searches": [
+          "stratified Monte Carlo linear interpolation residual two samples local half-cell antithetic reflection variance optimal coupling",
+          "https://arxiv.org/pdf/0811.0528"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact /11520 constant and comparison factors were independently recomputed from polynomial moments. A targeted search of published Resultary sampling records did not reveal the same estimator/constant; absence alone cannot establish priority."
+        ],
+        "reasoning": "Exact /11520 constant and comparison factors were independently recomputed from polynomial moments. A targeted search of published Resultary sampling records did not reveal the same estimator/constant; absence alone cannot establish priority.",
+        "searches": [
+          "stratified Monte Carlo linear interpolation residual two samples local half-cell antithetic reflection variance optimal coupling",
+          "https://arxiv.org/pdf/0811.0528"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.",
+      "residual_risks": [
+        "A previously published specialized antithetic residual-variance formula could already give the 1/11520 coefficient; narrow application of known countermonotonicity may be judged too elementary by other readers.",
+        "Cross-cell correlations and nonuniform grids can change the optimum, outside this theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "REFLECTION_KNOWN_ESTIMATOR_DIFFERENT",
+          "evidence": "Studies locally reflected randomized digital nets and their rates; does not establish sharp residual-copula C² variance constant for this interpolatory stratification estimator.",
+          "identifier_or_url": "https://arxiv.org/pdf/0811.0528",
+          "material_read": "Full 27-page arXiv primary paper accessible; inspected introduction, local dyadic reflection definition and sections on scrambled-net antithetic sampling (including relevant pages 9–12)",
+          "method": "lawful arXiv PDF full-text page inspection and screenshot",
+          "title": "Local antithetic sampling with scrambled nets",
+          "trigger": "Same half-cell reflection operation and possible broader error analysis"
+        },
+        {
+          "assessment": "PRIOR_ESTIMATOR_INDEPENDENT_SAMPLING",
+          "evidence": "Defines stratified control-variate interpolation and independent residual sampling, but not optimal arbitrary two-sample within-cell coupling constants.",
+          "identifier_or_url": "https://www.researchgate.net/publication/374743038_Linear_Monte_Carlo_quadrature_with_optimal_confidence_intervals",
+          "material_read": "Complete author-uploaded preprint text accessible, inspected definitions and stratified-control-variate section with independent residual draws",
+          "method": "lawful full-text author manuscript and targeted section reading",
+          "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+          "trigger": "Same interpolation-control-variate framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-sample-variance-law-for-local-reflections-in-interpola--cc73f18777b4/RESULT.md @ cb6a2857fbe2d4c8870cfe9082b50cea49c8fcaa",
+        "Independent check: independent_checks.py, case S4",
+        "https://arxiv.org/pdf/0811.0528",
+        "https://arxiv.org/abs/2309.09059"
+      ],
+      "rationale": "The estimator is a natural interpolatory stratified control variate whose residual is quadratic to first order and nonmonotone across its cell. Optimizing every two-marginal coupling at fixed evaluation cost is a meaningful sharp design problem; one-half/eighth/one-sixteenth variance constants quantitatively distinguish local reflection from central antithetics. Neither the reflection map nor countermonotone coupling theorem is itself claimed new. It does not purport to improve the global convergence order or optimize cross-cell correlations.",
+      "residual_risks": [
+        "Only C², one dimension, equal cells, independent pairs across cells; uniqueness of an underlying uniform-coordinate copula is not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A previously published specialized antithetic residual-variance formula could already give the 1/11520 coefficient; narrow application of known countermonotonicity may be judged too elementary by other readers.",
+    "Cross-cell correlations and nonuniform grids can change the optimum, outside this theorem.",
+    "Only C², one dimension, equal cells, independent pairs across cells; uniqueness of an underlying uniform-coordinate copula is not asserted.",
+    "The publication plan is not_ready because source provenance and prior-work date metadata have not been sanitized."
+  ],
+  "schema_version": 1
+}
