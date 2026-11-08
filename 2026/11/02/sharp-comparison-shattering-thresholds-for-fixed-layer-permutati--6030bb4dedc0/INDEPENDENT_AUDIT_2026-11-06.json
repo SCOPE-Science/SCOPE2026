@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:18:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each exactly r+1 decreasing-layer permutation corresponds to an r-element cut set C in [n-1]; inversion query (i,j) is 1 iff C misses interval [i,j-1]. For any t shattered intervals, t private points exist. Interval convexity shows any point lies in at most two intervals when all have distinct private points, hence all-positive pattern needs t<=2r. If t=2r, require 2r private positions, r zero-incidence positions realizing all negatives, and r further double-incidence positions realizing all positives: m>=4r; conversely r disjoint four-point gadgets realize 2r independently, giving iff n>=4r+1. For r=2, necessary witness counts and explicit intervals imply VC=0,1,2,3,4 at successive cut-position thresholds m=2,3,4,6,8. The supplied depth-three tree plus |C(5,2)|=10 establishes Ldim=3 at n=6, while n<=5 has Ldim<=2. Independent separate exhaustive interval-hit VC enumeration reproduced m=2..8 values (0,1,2,2,3,3,4); did not independently replay JSON tree, so online first-gap argument relies on inspected explicit nodes and source-described witness certificate. General online bounds follow independent r-block threshold search and concept count. Finite verification is not the all-r proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former proves VC=Ldim for certain zero sets of independent functions and the latter studies density-maximizing layered permutations; neither stated theorem dominates this shattering formulation."
+        ],
+        "reasoning": "Our exhibited Ldim>VC at n=6 itself rules out direct inclusion in the zero-set equality class, while density maximization concerns a different invariant.",
+        "searches": [
+          "Guingona et al. 2021 zero sets theorem abstract",
+          "Kabela et al. 2021 layered permutation density abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2110.01723",
+        "https://arxiv.org/abs/2109.04805",
+        "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+        "Resultary semantic search: layered permutations interval hit VC Littlestone dimension threshold 4r",
+        "https://arxiv.symmetricfunctions.com/paper/2110.01723v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorems address order-pattern shattering, zero-set function families, or packing density; no identifiable statement implies 4r+1 saturation or the r=2 n=6 gap."
+        ],
+        "reasoning": "A generic VC bound for r-point interval hitting might imply 2r as an upper bound but does not alone force the sharp finite-size threshold or online gap.",
+        "searches": [
+          "Raz 2000 source abstract",
+          "Guingona 2021 source abstract",
+          "Kabela 2021 source abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raz defines shattering via all total orders of a selected vertex subset, whereas here labels are binary pairwise comparisons of positions."
+        ],
+        "reasoning": "The common term permutation VC denotes a non-equivalent concept language, so results for Raz do not establish this binary incidence threshold.",
+        "searches": [
+          "Resultary: layered permutations interval hit VC Littlestone",
+          "Raz 2000 VC-dimension of sets of permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published numerical table for this restricted dual interval-hitting family was identified."
+        ],
+        "reasoning": "All-r saturation and fixed-r online growth are structural infinite families; finite boundary tables only illustrate them. Lack of database hit is not a novelty certificate.",
+        "searches": [
+          "Resultary: layered permutation shattering",
+          "web: interval stabbing r points VC 2r 4r threshold"
+        ]
+      },
+      "rationale": "The fixed-layer permutation family is a natural r-subset interval-hitting concept class. Exact 2r saturation at n=4r+1 and first adaptive/static gap are not covered by the inspected distinct pattern-theoretic permutation VC literature.",
+      "residual_risks": [
+        "Dual interval-hitting range-space literature could have an equivalent exact 4r saturation theorem under different terminology; bounded searches did not settle priority.",
+        "Full primary text of Kabela et al. and Guingona et al. not read, only their abstracts and stated main results; no whole-document not-covering conclusion.",
+        "The all-r exact Littlestone dimension is not claimed; only first r=2 separation, bounds and asymptotic are proved.",
+        "Depth-three witness certificate was described in RESULT and checker source but independent run did not fetch/replay its JSON in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different nonbinary order-pattern shattering definition",
+          "evidence": "Definition: shatter k indices by all k! linear orders",
+          "identifier_or_url": "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+          "material_read": "publisher abstract detailing definition and result",
+          "method": "institutional publication record read",
+          "title": "VC-dimension of sets of permutations",
+          "trigger": "possible same term permutation VC"
+        },
+        {
+          "assessment": "special linear-zero-set class; Ldim=VC, unlike present r=2 example",
+          "evidence": "Main theorem zero sets of nontrivial linear combinations of linearly independent functions have both dimensions d-1",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "arXiv abstract and main theorem statement only",
+          "method": "abstract read",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "possibly broader VC-Ldim equality"
+        },
+        {
+          "assessment": "layered permutation densities; no VC claim from abstract",
+          "evidence": "Focus on packing-density maximizers and number of layers",
+          "identifier_or_url": "https://arxiv.symmetricfunctions.com/paper/2110.01723v4",
+          "material_read": "full public abstract and statement of principal density-maximizer results",
+          "method": "repository abstract read",
+          "title": "Density maximizers of layered permutations",
+          "trigger": "same permutation objects, different statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly r+1 layered permutations form a canonical constrained ranking family. The sharp finite saturation threshold, exact three-layer VC staircase and first adaptive/static gap provide useful combinatorial learning invariants; the unbounded Ldim growth despite bounded VC supplies qualitative structural content, not only tiny-instance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2110.01723",
+    "https://arxiv.org/abs/2109.04805",
+    "https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+    "Resultary semantic search: layered permutations interval hit VC Littlestone dimension threshold 4r",
+    "https://arxiv.symmetricfunctions.com/paper/2110.01723v4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Dual interval-hitting range-space literature could have an equivalent exact 4r saturation theorem under different terminology; bounded searches did not settle priority.",
+    "Full primary text of Kabela et al. and Guingona et al. not read, only their abstracts and stated main results; no whole-document not-covering conclusion.",
+    "The all-r exact Littlestone dimension is not claimed; only first r=2 separation, bounds and asymptotic are proved.",
+    "Depth-three witness certificate was described in RESULT and checker source but independent run did not fetch/replay its JSON in this execution."
+  ],
+  "schema_version": 1
+}
