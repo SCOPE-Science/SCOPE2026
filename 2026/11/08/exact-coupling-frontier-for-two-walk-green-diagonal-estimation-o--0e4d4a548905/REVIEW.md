@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The two-state walk is precisely normalized because the probability of reaching a length-\(\ell\) path and its prescribed Neumann weight are both \(q^\ell\). The load at the starting state is \(1+\lfloor L/2\rfloor\) and its expectation equals the Green diagonal. The layer-cake expansion of \(\mathbb E[K_1K_2]\) and the simultaneous attainment of every Fréchet lower bound by opposite inverse-CDF quantiles give a genuine optimum over *all* couplings. The stagewise joint-survival law follows from independent per-time paired stopping uniforms, and its geometric sum gives a distinct exact formula. The sign comparison at the \((1,1)\) joint-tail event proves strict separation below \(p=1/2\), with equality above. The all-parameter zero-overlap threshold is equivalent to \(2(1-p)^2\le1\). Finally, the rare-stopping limit is obtained by dominated convergence of countermonotone geometric quantiles, not by numerical extrapolation. The extracted standalone verifier passes 1,296 rational and numerical checks.
+
+## Originality — PASS, qualified
+
+Choromanski (2023), arXiv:2305.00156, supplies the graph walk-load method. Reid–Choromanski–Weller (2023), arXiv:2305.12470, supplies the stepwise antithetic termination mechanism. Crucially, Reid–Markou–Choromanski–Turner–Weller (2024), arXiv:2405.16541, *already supplies the global optimal-transport perspective on geometric walk lengths and empirical improvements over stepwise coupling*. Classical Fréchet–Hoeffding bounds and countermonotone quantiles are also previously known. Those discoveries are excluded from the originality claim. The inspected papers optimize a different bilinear graph-feature kernel objective, with approximations and finite matching, rather than compute the exact unrestricted two-walk variance for the unsquared Green diagonal. None of their inspected statements contains the two exact sharp stopping thresholds, the all-parameter closed formulas, the rational example or the \(2-\pi^2/6\) long-walk comparison. Searches for corresponding graph, geometric-tail, quantile and equivalent antithetic formulations found no statement-level duplicate. Residual risk: an equivalent specialized count/OT derivation may exist under different terminology, and the proof necessarily uses standard coupling facts.
+
+## Value — PASS
+
+The canonical two-state Green problem is analytically tractable but still exactly reflects the importance-weighted stopped-walk mechanism of graph inverse estimation. Distinguishing *stagewise* antithetic stopping from *global* inverse-CDF lengths is a substantive design choice: the former is provably suboptimal throughout a full continuous parameter interval and becomes asymptotically ineffective relative to independent sampling, while the latter has a nonzero and sharply quantified variance advantage. The two distinct sharp phase thresholds separate zero co-revisit optimality from local-stage optimality, making the result a reproducible baseline for assessing approximate graph-walk coupling methods. The result is not a claim about general graph kernels, cost-normalized speed or optimality for higher-dimensional feature products.
+
+## Closest sources and residual risk
+
+The closest complete primary text is Reid et al. (2024), Sections 4.1 and Appendices C.2–C.3: it explicitly formulates graph-feature length coupling as OT and admits approximations; this result makes no claim to invent that framework. Reid et al. (2023), Sections 3 and 8.6, treats the stagewise coupling and addresses a distinct bilinear kernel. Choromanski (2023) provides the original importance-loaded walk formulation. An earlier equivalent treatment of the special Green diagonal, or a standard countermonotone-geometric identity cited elsewhere, is a residual priority risk. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every \\(p\\in(0,1)\\), the exact geometric stopping law induces \\(K=\\lfloor L/2\\rfloor\\) with tail \\((1-p)^{2j}\\), and the Green diagonal is its mean plus one. The Fréchet lower bounds for all product-tail events are attained by the same countermonotone inverse-CDF law; hence the finite \\(J(t)\\) formula is globally exact. A direct per-time joint survival computation proves the stagewise \\(r^{2\\min(j,k)}t^{|j-k|}\\) sum; testing the \\(j=k=1\\) event proves strictness for all \\(p<1/2\\). \\(J=0\\) exactly for \\(2t\\le1\\). Dominated convergence of scaled geometric quantiles yields the limit \\(2-\\pi^2/6\\), independently of finite experiments. The rational \\(p=1/3\\) instance and supplemental 1,296 tests match.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.16541 Sec. 4.1 and C.3 defines a more general graph-feature OT formulation, but its cost is an approximated bilinear kernel feature product and its solver restricts to quantile permutations.",
+        "arXiv:2305.12470 establishes a variance advantage for a different 2-regularized Laplacian kernel estimator."
+      ],
+      "reasoning": "The abstract, more general OT framework does not assert or imply the numerical closed form for this differently normalized unsquared Green observable, nor the sharp p-dependent comparison without a new exact calculation. No published stronger theorem in these sources subsumes the whole asserted conjunction.",
+      "searches": [
+        "optimal coupling geometric random walk lengths quantile antithetic termination regularized graph Laplacian kernel variance",
+        "graph random features quasi Monte Carlo antithetic termination countermonotone walk length 2023",
+        "two vertex graph kernel random walks deterministic trajectory variance optimal coupling geometric lengths",
+        "https://arxiv.org/html/2405.16541v2 Sections 4.1 and C.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.00156 (full accessible HTML text, source of walk-load normalization)",
+      "arXiv:2305.12470v1 (full HTML, Section 3 and Appendix 8.3-8.6)",
+      "arXiv:2405.16541v2 (full HTML, Section 4 and Appendices C and E)",
+      "Classical Fréchet–Hoeffding intersection inequality, independently reproved and explicitly acknowledged"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2305.12470v1 Section 3 and Appendix 8.6 concern a bilinear estimator of a squared resolvent, not a single-walk diagonal of the unsquared resolvent.",
+        "arXiv:2405.16541v2 Eq. (51) and (53)-(56) concern nonlinear/approximated graph-feature inner-product objectives; no exact all-p two-edge Green diagonal variance theorem is stated.",
+        "arXiv:2305.00156 introduces the original importance-corrected Neumann random walk setup."
+      ],
+      "reasoning": "The new explicit claim follows from these setups plus standard Frechet coupling and a nontrivial exact calculation of the stepwise geometric joint survival and its rare-stopping comparison; it is not a direct source proposition or a special case of a stronger numerical bound. Its claim is deliberately narrower than a new general coupling algorithm.",
+      "searches": [
+        "same source 2305.00156 2305.12470 2405.16541 countermonotone two vertex two walk",
+        "https://arxiv.org/html/2305.12470v1 Sections 3 and 8.3-8.6",
+        "https://arxiv.org/html/2405.16541v2 Section 4, Appendices C.2-C.3 and E",
+        "https://arxiv.org/abs/2305.00156 graph resolvent walk loads"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.00156 for path importance weights and Neumann resolvents.",
+        "arXiv:2305.12470 Sections 3/8 for stepwise antithetic stopping.",
+        "arXiv:2405.16541 Section 4/Appendix C for geometric-length optimal transport; generic countermonotonicity acknowledged."
+      ],
+      "reasoning": "Compared aliases: two-state Green/inverse Neumann entry, visit-count geometric variance, inverse-CDF antithetic length pairs, and optimal antithetic Monte Carlo. None of the inspected claims gives this exact sharp joint variance and threshold profile; the countermonotone optimization principle itself is known.",
+      "searches": [
+        "two-node resolvent Green diagonal walk visit-count variance Fréchet optimal antithetic termination exact",
+        "geometric stopped walk countermonotone lengths 2 minus pi squared over 6 asymptotic variance ratio",
+        "optimal coupling geometric random walk lengths sharp stopping probability half independent inverse graph diagonal",
+        "https://arxiv.org/html/2405.16541v2 Sections 4 and Appendix C",
+        "https://arxiv.org/html/2305.12470v1 Sections 3 and 8.5-8.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches of geometric-tail countermonotonicity, two-vertex resolvent entry variance, half-shift stopping and the long-walk pi-squared constant retrieved no matching published table or statement.",
+        "A published exact calibration boundary for antithetic Monte Carlo p-values concerns a different statistical functional, and hence does not cover this graph resolvent entry."
+      ],
+      "reasoning": "The exact 2/5, 9/16, 18/25 worked point and 2-pi^2/6 asymptotic could in principle be computed from classical probability identities, but neither an exact table nor its graph-walk stopping-law interpretation was located. Failed search is not originality proof.",
+      "searches": [
+        "sharp geometric walk termination coupling inverse-cdf versus stepwise antithetic sampling variance resolvent diagonal",
+        "two vertex graph resolvent diagonal geometric walk variance optimal countermonotone termination",
+        "anti-quantile coupling floor half geometric waiting times 2-π²/6 variance improvement",
+        "https://arxiv.org/abs/2305.00156"
+      ]
+    },
+    "rationale": "The new object is the exact variance of a one-walk unsquared two-node Green diagonal averaged over two geometrically stopped paths, optimized over the entire space of pair couplings; its explicit stagewise comparison, two phase thresholds, rational example and long-walk constant are not present in the closely inspected full-source statements. The graph-walk framework, stagewise antithetic mechanism, general OT approach, classical countermonotone theorem and exponential antithetic integral are all prior art and not claimed new. Search cannot prove absolute novelty.",
+    "residual_risks": [
+      "A historical specialist work may have independently tabulated the same countermonotone geometric counts under renewal-process or antithetic-variates terminology.",
+      "The all-coupling optimum alone is a standard Fréchet consequence; originality rests on the complete graph-Green variance-vs-stagewise classification and its sharp asymptotic rather than on inventing countermonotonicity.",
+      "The result applies to the one-walk unsquared resolvent and cannot be silently generalized to bilinear graph kernels."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides core stopped-walk load method and a general GRF viewpoint, but no checked exact all-stopping-probability two-walk edge-diagonal coupling frontier.",
+        "evidence": [
+          "arXiv:2305.00156, abstract and early technical discussion of graph random features and reinforced random walks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.00156",
+        "material_read": "Preprint HTML article introduction, mechanism, and graph-feature kernel setup; arXiv submission history April 29, 2023.",
+        "method": "Read source text and compared estimator object, walk normalization, and stated goals.",
+        "title": "Taming graph kernels with random features",
+        "trigger": "Original importance-weighted random-walk Green/resolvent estimator; possible earlier exact variance."
+      },
+      {
+        "assessment": "Antithetic termination and general variance reduction are known; their kernel results do not give the unrestricted exact minimum, two thresholds or long-walk coefficient of the distinct unsquared Green-entry problem.",
+        "evidence": [
+          "arXiv:2305.12470v1, Section 3 and Appendix 8.5-8.6; appendix explicitly discusses diagonal terms for the bilinear feature kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.12470v1",
+        "material_read": "Sections 2-3, the stepwise antithetic construction, Theorems in Section 3, and Appendix Sections 8.3, 8.5 and 8.6 including diagonal caveat.",
+        "method": "Read full HTML treatment of mechanism, conditional survival and diagonal estimators, and compared bilinear squared-resolvent target with this linear single-walk Green diagonal.",
+        "title": "Quasi-Monte Carlo Graph Random Features",
+        "trigger": "Direct predecessor defining antithetic termination and its variance guarantee."
+      },
+      {
+        "assessment": "Explicitly covers the generic OT idea and empirical advantage over stepwise antithetic termination. It uses an analytically intractable bilinear kernel objective and restricted/approximated quantile matching. It does not directly assert the particular exact unrestricted linear Green-diagonal variance formula, both parameter thresholds or the rare-stopping ratio.",
+        "evidence": [
+          "arXiv:2405.16541v2, lines corresponding to Section 4.1 and Appendix C.2-C.3, especially the exact full objective and its successive approximations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.16541v2",
+        "material_read": "Sections 2 and 4, especially Section 4.1, graph random features in Appendix C.1, stagewise rule C.2, full OT objective C.3 and quantile matching C.3.1, and PageRank analogy in Appendix E.",
+        "method": "Read primary HTML formulas for the bilinear GRF estimator, the objective, restricted permutation density classes and approximation; compared with linear Green-diagonal pair average and full-coupling optimum.",
+        "title": "Variance-Reducing Couplings for Random Features",
+        "trigger": "Highly plausible dominating prior: global optimal-transport coupling of geometric graph-walk lengths."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0e4d4a54-8905-46eb-9450-7260b1faf775",
+  "value": {
+    "rationale": "The canonical smallest nontrivial graph isolates global-versus-stepwise stopping dependence while preserving exact marginal walk laws. The two distinct sharp phase thresholds and persistent about 64.5 percent long-walk variance reduction provide a meaningful exact control baseline for cost-equivalent randomized resolvent estimation. The full parameter range and sharp asymptotic contrast are not arbitrary finite computations or a claim of a general optimal-transport invention.",
+    "status": "PASS"
+  }
+}
