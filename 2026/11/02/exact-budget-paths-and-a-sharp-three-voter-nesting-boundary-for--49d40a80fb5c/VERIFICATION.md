@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 verify_mes.py` using Python 3 standard libraries only. The program implements exact budget accounting and determines each candidate's minimum feasible uniform contribution by sorting supporter balances. It then independently predicts the sunflower result from the closed-form floor thresholds and compares the two for 156,245 exact rational instances. It separately replays the three-voter, four-candidate counterexample at both budgets, asserting exact choices and prices. Expected terminal line:
+## correctness
 
-```
-PASS: 156245 exact sunflower formula cases; three-voter nonnesting witness, budgets 3 and 4.
-```
+PASS
 
-The nontrivial symbolic steps needed beyond these tests are: common-core projects cost \(1/n\) per supporter and dominate every private price \(1/n_j\) with \(n_j<n\); once the core is exhausted, group balances remain equal and independent; private purchases occur precisely at the stated aggregate-funding thresholds; and two distinct approval ballots decompose into the common intersection plus disjoint differences. The explicit three-voter trace supplies the constructive sharpness witness.
+For nonnegative real virtual budget B with unit cost, fixed candidate priority, and sunflower approval ballots C∪P_j (disjoint petals), core purchases always have price 1/n, below the private price 1/n_j when there are at least two ballot types. Once u=|C| core projects are purchased, supporter groups decouple and group j funds exactly min(|P_j|,floor(n_j(B-u)/n)) projects in priority order. For B<u the outcome is C^[floor B]. This reconstructs all quantifiers, ties, no-completion rule, and integer threshold boundaries. Two arbitrary distinct ballots always decompose into such a sunflower. For voters {A,B},{A,B,D},{C,D}, exact balance/price calculations give W(3)={A,B,C} and W(4)={A,B,D}: after buying A,B at B=4, D costs price 2/3 versus C's price 1. Hence the minimum number of voters exhibiting nonnesting is three.
 
-Limits: finite checking is not an exhaustive certificate over all voter counts, candidate counts, or real budget values. The claim is restricted to approval utilities, unit costs, fixed cross-budget tie priority and the uncompleted purchase phase. No independent audit has been conducted.
+## originality
+
+PASS
+
+Peters–Skowron's laminar proportionality addresses fixed-size/integral party-list proportionality; the claim gives a path simultaneously for all real budgets and makes private entry thresholds explicit. Lackner–Skowron's book already supplies a four-voter MES monotonicity counterexample, not a three-voter minimum. Kraiczy–Elkind studies a distinct adaptive MES and the motivation of budget changes, not this uncompleted MES parametric theorem.
+
+## value
+
+PASS
+
+Budget sensitivity of the uncompleted Method of Equal Shares is a motivated question because virtual budgets are varied repeatedly in participatory-budget allocation. The theorem provides exact entry events for arbitrarily many voter groups and projects, with nonintegral quotas, rather than only an existence guarantee at a fixed committee size. The three-voter example establishes the sharp structural boundary by number of voters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
