@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies induced rook forests with path forests of K_{m,n}, establishes maximality via all degree-deficient endpoints in both directions, derives the balanced Hamilton-path case and the rectangular degree-two saturation case, and extracts the exact component coefficients from the labeled two-sort exponential formula. The finite direct-graph verifier agrees on 11 boards and an independent recurrence agrees on 1,375 parameter triples. All boundaries m=n and m<n, s ranges and factorial denominators are handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarpour-Golzari 2021 studies maximal induced-forest sizes in general and graph constructions, including a two-clique matching construction.",
+        "Stones 2014 counts ALL spanning forests of K_{m,n} with h edges, not paths with degree at most two nor inclusion-maximal induced rook forests.",
+        "Dong-Ge 2021 counts spanning-tree extensions of prescribed bipartite forests, not maximal path forests."
+      ],
+      "reasoning": "Even a number of unrestricted h-edge spanning forests does not imply a degree-constrained, component-resolved maximal subset enumeration: additional structural constraints and formulas are needed. A two-row well-f-covered boundary in a previous theorem does not dominate the complete higher-row component classification.",
+      "searches": [
+        "full text: Jafarpour-Golzari arXiv:2105.14339v1 Sections 3 and 6 Theorem 6.7",
+        "full text: Stones DOI 10.46298/dmtcs.1248 Sections 1-4",
+        "full text: Jafarpour-Golzari arXiv:2108.09146v1",
+        "full text: Dong-Ge arXiv:2103.05294v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.14339v1",
+      "arXiv:2108.09146v1",
+      "doi:10.46298/dmtcs.1248",
+      "arXiv:2103.05294v1",
+      "arXiv:2102.00268v1",
+      "MathWorld:FeedbackVertexSetNumber",
+      "OEIS:A001044",
+      "published-finding corpus semantic searches 11 actual queries",
+      "Accessible own ledger claims from generation 14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own prior rook graph work concerns maximal induced split subgraphs, a strictly different hereditary property.",
+        "published-finding corpus closest rook graph hits concern topology rather than induced-forest maximality.",
+        "Stones 2014 does not distinguish degree-bounded path forests from general spanning forests."
+      ],
+      "reasoning": "No accessible own prior claim, published-finding corpus hit or inspected primary theorem implies the exact classification and component count. The contrast is between conditions on the selected induced subgraph, not titles. Residual indexing and priority uncertainty are acknowledged.",
+      "searches": [
+        "own accessible ledger: 2026-11_week1 part 1 generation 14, recoverable prior claim IDs 0421d269-9597-4311-8b9e-126cc4fd8d10 and 212d18b4-9a36-461b-a456-a778fc3c9ea6",
+        "published-finding corpus: minimal induced forests rook graphs line graphs of complete bipartite exact maximal enumeration",
+        "published-finding corpus: inclusion-maximal induced forest rook graph K_m square K_n line graph complete bipartite forest spanning paths count",
+        "published-finding corpus: well-f-covered lattice graphs graph Cartesian product complete graphs all maximal induced forests",
+        "published-finding corpus record bd50464fc17f, integral and equivariant homology of three-cut complexes of rook graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph is the line graph of complete bipartite K_{m,n}; minimal feedback vertex sets are complements of maximal induced forests.",
+        "Stones (2014), Lemma 4, explicitly notes rook graph line-graph equivalence, but counts base forests without vertex-degree constraints and induced triangles (https://dmtcs.episciences.org/en/articles/1248/download)."
+      ],
+      "reasoning": "Equivalent formulations were searched including minimum feedback vertex set enumeration and maximal degree-two path-forest edge subsets; the count and component statistics did not appear. This is no proof of unique priority.",
+      "searches": [
+        "web: rook graph minimal feedback vertex sets number count complete bipartite line graph",
+        "published-finding corpus: minimum feedback vertex set number and counting minimum feedback vertex sets in rook graphs K_m square K_n",
+        "published-finding corpus: maximal linear forest edge subsets complete bipartite graph saturated degree two counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld lists a known rook-graph minimum feedback vertex set size; this only gives maximal induced-forest *order*.",
+        "OEIS A001044 tabulates factorial-square counts, covering the square-board Hamilton-path numerical special case.",
+        "Stones 2014 Figure 1 lists unrestricted spanning-forest counts for small complete bipartite graphs."
+      ],
+      "reasoning": "Neither the known scalar invariant, factorial-square special sequence, nor unrestricted forest tables determine the component-resolved counts for all strict rectangles. Those old consequences are not portrayed as new.",
+      "searches": [
+        "Web: MathWorld Feedback Vertex Set Number rook graph",
+        "Web: OEIS A001044 Hamilton paths complete bipartite",
+        "Web: Stones 2014 table of f_{m,n,h}"
+      ]
+    },
+    "rationale": "The inspected primary full texts establish well-f-covered terminology and related classes, unrestricted labeled spanning-forest counts, and spanning-tree extensions, none of which supplies the path-forest saturation criterion or all-parameter labeled component distribution. The known scalar feedback vertex set formula and square Hamilton-path number are excluded from the novelty claim. Actual database and own-ledger searches found no comparable result. Priority risks remain for unindexed equivalent statements.",
+    "residual_risks": [
+      "An unindexed publication may state an equivalent path-forest or feedback-set component census.",
+      "The well-f-covered property alone, and the square factorial-square count, are already known or prior-implied; novelty is confined to the all-parameter structural-and-component enumeration.",
+      "No independent publication-priority audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers well-f-covered property and some constructions; two-clique matching case implies size uniformity for the two-row rook graph, not all-row component-refined labeled counts.",
+        "evidence": [
+          "Definition 3.1 well-f-covered; theorem 6.7 two disjoint cliques joined by matching edges; arXiv posted 2021-05-29"
+        ],
+        "identifier_or_url": "arXiv:2105.14339v1; https://arxiv.org/pdf/2105.14339",
+        "material_read": "Full-text PDF sections 1-6, including Definition 3.1, Theorem 6.7 and source examples",
+        "method": "arXiv open-access PDF, textual inspection and page-image spot checks",
+        "title": "Graphs whose all maximal induced forests are of the same order",
+        "trigger": "Introduces well-f-coveredness and potentially covering maximal induced forests generally"
+      },
+      {
+        "assessment": "Counts all base spanning forests and forbids induced even cycles in rook graph, but allows induced triangles there; it does not count vertex-inclusion-maximal induced acyclic rook subgraphs by component count.",
+        "evidence": [
+          "Lemma 4 identifies unrestricted base forest counts with rook induced subgraphs avoiding induced cycles of length at least 4; triangular rook cycles remain allowed; Figure 1 tabulates unrestricted counts."
+        ],
+        "identifier_or_url": "DOI:10.46298/dmtcs.1248; https://dmtcs.episciences.org/en/articles/1248/download",
+        "material_read": "PDF sections 1-4, Lemmas 3-4, adjacent Figures 1 and discussion of rook graphs, formulas for unrestricted spanning forests",
+        "method": "Publisher lawful open-access PDF text and page-image check of page 4",
+        "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+        "trigger": "Counts forests in complete bipartite base graphs and explicitly mentions rook graph interpretation"
+      },
+      {
+        "assessment": "Lexicographic products, not the Cartesian rook graph product; no all-parameter labeled rook count.",
+        "evidence": [
+          "Abstract says lexicographic products; first arXiv release 2021-08-20."
+        ],
+        "identifier_or_url": "arXiv:2108.09146v1; https://arxiv.org/pdf/2108.09146",
+        "material_read": "Full-text PDF, introduction and product theorems",
+        "method": "arXiv open-access PDF textual and page-image reading",
+        "title": "On well-f-coveredness of lexicographic products of graphs",
+        "trigger": "Possible existing product closure theorem"
+      },
+      {
+        "assessment": "Counts all induced subgraphs satisfying hereditary properties, not only inclusion-maximal ones or the rook component census.",
+        "evidence": [
+          "General induced-forest enumerators are not component-resolved maximal-induced-forest polynomials."
+        ],
+        "identifier_or_url": "arXiv:2102.00268v1; https://arxiv.org/pdf/2102.00268",
+        "material_read": "Full-text PDF portions on hereditary-property induced-subgraph polynomials",
+        "method": "arXiv open-access PDF and targeted page-image inspection",
+        "title": "Almost Unimodal and Real-Rooted Graph Polynomials",
+        "trigger": "Potential general induced forest polynomial coverage"
+      },
+      {
+        "assessment": "Enumerates spanning trees containing specified forests rather than inclusion-maximal degree-two path forests; no implication for desired labeled distribution.",
+        "evidence": [
+          "Theorem 4 depends on sizes of prescribed forest components in bipartition; no maximal path-forest census."
+        ],
+        "identifier_or_url": "arXiv:2103.05294v1; https://arxiv.org/abs/2103.05294",
+        "material_read": "Accessible full arXiv HTML article: introduction, Theorem 4, formula for prescribed-forest spanning-tree extensions",
+        "method": "arXiv full HTML",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Potential dominating formula for forests of complete bipartite base graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2904b01c-071e-4733-90ef-d0e6cdb4537e",
+  "value": {
+    "rationale": "The motivating well-f-covered problem asks whether inclusion-maximal induced forests are of uniform size, and minimal feedback vertex sets ask for the associated extremal transversals. The result classifies every such forest in a canonical product family and gives a new labeled count by number of connected components, distinguishing a sharp rectangular component transition. This is a motivated exact distribution, not merely a known scalar feedback size or factorial-square special case.",
+    "status": "PASS"
+  }
+}
