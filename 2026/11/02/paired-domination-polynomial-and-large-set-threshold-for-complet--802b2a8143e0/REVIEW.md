@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a single exact polynomial classification for paired-dominating vertex subsets of \(K_n\square K_2\) at all integer \(n\ge2\). The induced perfect-matching criterion reduces to an even/even positive layer split or an odd/odd split with an occupied matching column, together with two whole-clique exceptions at even \(n\). Every implication is proved from actual graph adjacencies, and the failure families are disjoint. The odd/odd disjoint obstruction has \(2^{2k-1}\binom n{2k}\) members, while the one-layer obstruction contributes \(2\binom n{2k}\) minus the two exceptional valid full cliques. All boundary degrees, including \(n=2\), are covered. An independent graph-level verifier enumerated every even vertex subset for \(2\le n\le7\), tested domination and induced perfect matchability separately, and reproduced all coefficients. The infinite claim follows from the proof, not from finite tests.
+PASS
 
-## Originality — PASS, with publication-priority uncertainty
+For graph H_n=K_n square K_2, n>=2, label selected vertex sets by layer indices A,B, sizes a,b and intersection r. A paired-dominating set requires a+b even. If both layers selected, layer domination is automatic; even a,b>=2 allows internal clique matching, whereas odd a,b requires at least one vertical matching edge, equivalent to r>=1, then internal matchings cover the remaining even sets. If one layer empty, all n opposite vertices must be selected to dominate and n must be even for internal matching. These cases are necessary and sufficient. At even size s=2k the disjoint invalid kinds are 2*C(n,s) one-clique sets excluding two valid full-clique exceptions when n=s even, and 2^(s-1) C(n,s) disjoint odd/odd index allocations. Subtraction gives p_{n,k}=C(2n,2k)-(2+2^(2k-1))C(n,2k)+2*1_{n even,s=n}. The polynomial follows by even-binomial sums. For s>n the C(n,s) term vanishes, so every even selected set is valid; explicit disjoint odd/odd selections at the largest even <=n show sharpness. At s=2, n>=3 gives n vertical pairs and n2 gives four edges. Independently brute-forced actual graph domination and recursively perfect matched all subsets for n2..5: coefficient vectors [4,1],[3,15,1],[4,62,28,1],[5,160,210,45,1]. This finite check supports but does not prove all n.
 
-The source-first literature study compared definitions and implications with the 2013 Cartesian paired-domination bounds, the 2020 total \(k\)-domination paper for Cartesian complete-graph products, and the 2023 paired-domination stability work for prisms. None of the materially inspected relevant statements determines this complete all-cardinality polynomial or equivalent disjoint-odd matching obstruction. An ordinary or total domination bound is insufficient because pairability adds perfect-matching restrictions. Existing polynomial frameworks do not by themselves imply coefficients for this graph family. A 2016 conference source was accessible only as an abstract, and a 2018 prism paper only through bibliographic abstracts; they are unresolved priority risks, not assumed absent. No independent publication-priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Paired domination combines coverage and matching, making coefficients more informative than the smallest paired-dominating set. The result gives the complete count at every size for a natural infinite family of Cartesian products, a structural characterization of precisely which sets fail, and a sharp, unusually strong statement that every sufficiently large even set works. The two exceptional complete-clique selections at even orders are intrinsic boundary data rather than arbitrary small computations. These results support exact probabilistic counting and provide a baseline for comparing arbitrary graph prisms.
+Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.
 
-## Boundaries and literature
+## value
 
-The classification is specific to two clique layers, not general prisms or counts of perfect matchings. Sources: Carballosa–Wisby (2020), arXiv:2001.07850; Choudhary–Margulies–Hicks (2013), DOI:10.37236/2535; Gorzkowska–Henning–Pilśniak–Tumidajewicz (2023), DOI:10.7151/dmgt.2421. The 2016 polynomial-framework abstract and 2018 prism paper leave residual full-text coverage uncertainties.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Paired-domination number alone loses most structure. The full coefficient polynomial for the canonical two-clique prism, its exact disjoint odd-layer obstruction, all-set threshold above n and sharp boundary are natural independently useful extremal enumeration data for a graph family studied in domination theory; it can serve as an exact baseline for more general prisms. The result is not a textbook substitution into a general exact graph polynomial table found in the comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

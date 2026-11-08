@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:13:29.974826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For graph H_n=K_n square K_2, n>=2, label selected vertex sets by layer indices A,B, sizes a,b and intersection r. A paired-dominating set requires a+b even. If both layers selected, layer domination is automatic; even a,b>=2 allows internal clique matching, whereas odd a,b requires at least one vertical matching edge, equivalent to r>=1, then internal matchings cover the remaining even sets. If one layer empty, all n opposite vertices must be selected to dominate and n must be even for internal matching. These cases are necessary and sufficient. At even size s=2k the disjoint invalid kinds are 2*C(n,s) one-clique sets excluding two valid full-clique exceptions when n=s even, and 2^(s-1) C(n,s) disjoint odd/odd index allocations. Subtraction gives p_{n,k}=C(2n,2k)-(2+2^(2k-1))C(n,2k)+2*1_{n even,s=n}. The polynomial follows by even-binomial sums. For s>n the C(n,s) term vanishes, so every even selected set is valid; explicit disjoint odd/odd selections at the largest even <=n show sharpness. At s=2, n>=3 gives n vertical pairs and n2 gives four edges. Independently brute-forced actual graph domination and recursively perfect matched all subsets for n2..5: coefficient vectors [4,1],[3,15,1],[4,62,28,1],[5,160,210,45,1]. This finite check supports but does not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choudhary et al. 2013 full primary PDF Theorem 3 proves only a bound on minimal paired-domination cardinalities of Cartesian products, not their all-cardinality vertex subset counts.",
+          "Total k-domination and stability under deletion differ from perfect-matchable domination enumeration."
+        ],
+        "reasoning": "Generic lower/upper cardinality bounds do not imply the exact polynomial; a more encompassing exact prism family polynomial could and remains a check target.",
+        "searches": [
+          "paired domination polynomial complete prism K_n Cartesian K_2 vertex subsets",
+          "Choudhary Margulies Hicks 2013 Theorem 3 Cartesian paired domination",
+          "Carballosa Wisby 2020 total k domination Cartesian products of complete graphs",
+          "Gorzkowska Henning Pilsniak Tumidajewicz paired-domination stability prisms 2023"
+        ]
+      },
+      "checked_sources": [
+        "Choudhary Margulies Hicks 2013 full primary PDF Theorem3/proof",
+        "Carballosa Wisby 2020 arXiv:2001.07850 abstract",
+        "Gorzkowska et al 2023 journal abstract",
+        "Puttaswamy et al 2016 abstract",
+        "Resultary query: paired domination polynomial complete prism K_n Cartesian K_2 vertex subsets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 bounds products of paired-domination numbers; it neither classifies inducing perfect matchings nor counts all S of size 2k.",
+          "The parity-and-shared-column obstruction is an actual new enumeration step not obtained from an inequality about the smallest dominating set."
+        ],
+        "reasoning": "A more general coefficient formula for all clique-cartesian products would dominate the claimed family, but no such covering implication appeared in the accessible sources. The source abstracts too weak for a global absence assertion.",
+        "searches": [
+          "Choudhary Margulies Hicks 2013 Thm3",
+          "Gorzkowska et al 2023 prism paired domination stability",
+          "Carballosa Wisby 2020 complete-graph Cartesian k domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choudhary–Margulies–Hicks 2013 defines paired domination as dominating induced subgraph with perfect matching, exactly the current definition.",
+          "Resultary found a complete multipartite paired-domination polynomial theorem, but K_n square K_2 for n>=3 is not complete multipartite (has two cliques and only one-to-one cross edges)."
+        ],
+        "reasoning": "Aliases are paired-domination polynomial, perfect-matchable dominating set size distribution, complete prism/layered cliques. A general matching-polynomial result could specialize, but the found complete multipartite result does not.",
+        "searches": [
+          "paired domination polynomial complete prism K_n Cartesian K_2 vertex subsets",
+          "paired domination polynomial K_n Cartesian K_2 perfect matchable dominating subsets",
+          "paired domination polynomial complete multipartite graphs Resultary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds other paired-domination polynomial families but not this exact K_n square K_2 coefficient vector.",
+          "2016 Puttaswamy–Alwardi–Nayaka conference abstract introduces the invariant but does not specify which graph families its full text enumerates."
+        ],
+        "reasoning": "The 2016 treatment is a genuine unresolved exact-table priority risk; without its full proceedings no whole-document coverage conclusion can be drawn. Current exact finite coefficients are independently recomputed, not borrowed from a known table.",
+        "searches": [
+          "paired domination polynomial complete prism K_n Cartesian K_2 vertex subsets",
+          "2016 Introduction to Paired Domination Polynomial of a Graph complete prism",
+          "Resultary Roman 3 domination complete prisms and paired domination chain graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge accepted: primary comparisons and actual database queries distinguish the final precise invariant from prior definitions, general bounds/algorithms, and related properties; residual literature access and equivalent-formulation risks are recorded explicitly. No absolute historical priority is certified.",
+      "residual_risks": [
+        "2016 paired-domination polynomial conference full text was not available and may contain this complete prism case.",
+        "2018 Goddard–Henning prism paper and broader polynomial families not fully inspected.",
+        "The polynomial counts selected vertex subsets, not perfect matchings themselves or other prisms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "gives multiplicative minimum-size inequality γ_pr on products, not paired-domination generating polynomial",
+          "evidence": "Choudhary–Margulies–Hicks (2013), Theorem 3 and proof, pp2,7",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p25/pdf/",
+          "material_read": "full nine-page authorized OA PDF accessible; relevant Introduction, Theorem 3 and its proof in §§1–2 examined; page images checked",
+          "method": "open journal PDF text and page screenshots",
+          "title": "A Note on Total and Paired Domination of Cartesian Product Graphs",
+          "trigger": "exact Cartesian product property and strongest comparison"
+        },
+        {
+          "assessment": "possible exact specific graph table not ruled out",
+          "evidence": "Puttaswamy et al 2016 conference abstract lacks precise graph-family enumeration",
+          "identifier_or_url": "https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+          "material_read": "conference abstract and index entry only; no verifiable full paper available",
+          "method": "public abstract only",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "direct invariant under same name"
+        },
+        {
+          "assessment": "covers stability under deletion, not known exact count; full-text overlap remains a risk",
+          "evidence": "Gorzkowska et al 2023, Discuss. Math. Graph Theory 43",
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.2421",
+          "material_read": "journal abstract and citation metadata; full text not reviewed",
+          "method": "abstract/bibliographic source",
+          "title": "Total and paired domination stability in prisms",
+          "trigger": "same prism construction and paired invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Paired-domination number alone loses most structure. The full coefficient polynomial for the canonical two-clique prism, its exact disjoint odd-layer obstruction, all-set threshold above n and sharp boundary are natural independently useful extremal enumeration data for a graph family studied in domination theory; it can serve as an exact baseline for more general prisms. The result is not a textbook substitution into a general exact graph polynomial table found in the comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only K_n square K_2, n>=2; vertex-set counts, not matching multiplicities.",
+    "2016 polynomial conference full text and 2018 prism exact specialization remain bibliographic risks.",
+    "2016 paired-domination polynomial conference full text was not available and may contain this complete prism case.",
+    "2018 Goddard–Henning prism paper and broader polynomial families not fully inspected.",
+    "The polynomial counts selected vertex subsets, not perfect matchings themselves or other prisms."
+  ],
+  "schema_version": 1
+}
