@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any finite tree, K equals occupied vertices minus occupied edges; exact incident-support joint-cumulant classification yields the displayed polynomial with coefficients n,m,H,J,P4. All edge configurations of size at most 3 are handled, and higher-vertex counts do not enter. The variance H classification exhausts unlabeled trees on at most six vertices, proving minimality; a direct four-occupied-subset count yields the full witness PGF gap. The independent standard-library checker enumerates all 2..6-vertex tree classes, all survival subsets at four exact rational probabilities, and both witness tables. Infinite assertions rely on the analytic cumulant proof, not these finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tittmann et al. (2008) Q(T;x,y) encodes arbitrary component distributions, a stronger input than three moments.",
+        "Liao–Hou (2014) infer the four-vertex path count from full Q for regular bipartite graphs, not arbitrary trees.",
+        "Gastner et al. (2009) focus on gradient percolation/hull scaling."
+      ],
+      "reasoning": "Full-Q coverage is not equivalent to a closed low-order motif identity and the smallest equal-moment/different-skewness pair; general enumeration can compute answers but does not provide the structural reduction. The cited regular bipartite theorem does not dominate arbitrary tree graphs.",
+      "searches": [
+        "habitat fragmentation occupied cluster number first second moments same degree sequence third central moment distinct six vertices",
+        "number of occupied connected components induced forest third cumulant length three paths assortativity",
+        "percolation cluster count third cumulant motif star path degree assortativity",
+        "Liao–Hou 2014 §3 Thm.3.5",
+        "Gastner et al. 2009 percolation section"
+      ]
+    },
+    "checked_sources": [
+      "Tittmann–Averbouch–Makowsky, arXiv:0812.4147, full PDF Sections 1–3,8 and text searches; direct first-public metadata 2008-12-22.",
+      "Liao–Hou, Electronic Journal of Combinatorics 21(3) #P3.27, full OA PDF Sections 2–4 and Theorem 3.5.",
+      "Gastner–Oborny–Zimmermann–Pruessner, American Naturalist 174 (2009), full OA HTML on random-map occupied-site fragmentation.",
+      "Published research on bond-percolation component–triangle covariance and distinct occupancy statistics, compared by their actual scientific claims."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: Q distribution and component-probability extraction, applicable to every graph.",
+        "New proposition under examination: the third cumulant on every tree depends on P4 after fixing degrees, with explicit all-p collision at the unique six-site pair."
+      ],
+      "reasoning": "A full-Q recurrence or enumeration is sufficient to compute an individual tree value but does not state the structural cancellation, all-tree closed formula, or minimum first collision. They follow after the separate edge-motif cumulant classification and small-tree isomorphism argument given here. The source is acknowledged as mathematically encompassing numerical distribution evaluation, not misrepresented as inapplicable.",
+      "searches": [
+        "vertex induced subgraph component polynomial Tittmann Averbouch Makowsky 2008 third derivative degree degree correlations",
+        "site percolation trees number of connected components third moment degree sequence variance formula tree",
+        "arxiv:0812.4147 §8",
+        "Liao–Hou 2014 Thm.3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A random surviving induced forest can be represented by Q(T;p/(1-p),t)(1-p)^n, already present in Tittmann et al.; its third derivative yields the cumulant but the motif law is not explicitly given there."
+      ],
+      "reasoning": "Equivalent language is site-percolation cluster-count skewness, induced-forest component polynomial third derivative, or third centered moment of occupied-component count. The source provides the distribution-generating function, which computationally determines the statistic; its explicitly stated conclusions do not imply the claimed P4-only dependence for a fixed degree sequence or the minimal order without additional theorem/analysis.",
+      "searches": [
+        "site percolation induced forest connected component count third cumulant four vertex path tree degree sequence",
+        "six-vertex nonisomorphic trees same degree sequence equal component count mean variance different third cumulant independent site percolation",
+        "component count random induced forest mean variance skewness graph site percolation",
+        "arxiv:0812.4147 §§2 and 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tittmann et al. describe the first equal FULL Q-polynomial tree pair at ten vertices, a strictly different equivalence relation from equal first and second cumulants."
+      ],
+      "reasoning": "The six-vertex collision is an exact first moment-equivalence threshold, not a known full-polynomial collision or a recomputation of one published table. All six tree isomorphism classes are independently enumerated in the packaged checker.",
+      "searches": [
+        "cluster-count generating function site percolation nonisomorphic trees six vertices same degree sequence skewness p4(1-p)2",
+        "six-vertex nonisomorphic trees same degree sequence equal component count mean variance different third cumulant independent site percolation",
+        "subgraph component polynomial first trees same degree sequence different 6 vertices",
+        "Tittmann et al. 2008 Prop.2–3"
+      ]
+    },
+    "rationale": "The existing induced-subgraph component polynomial and the ability to derive full component distributions are acknowledged as 2008 prior art. Searches and full-text comparison did not find an all-tree low-order skewness reduction to P4 and the sharp first six-vertex mean/variance collision. This is an originality assessment for that precise structural statement, not for site percolation, Q, differentiation, or motif-count enumerability. Historical priority remains provisional.",
+    "residual_risks": [
+      "The exact statement may appear in a specialized probabilistic graph-invariant treatment not surfaced by semantic/keyword searches, including terminology in reliability/cumulant graph polynomials.",
+      "The 2008 Q polynomial provides the entire underlying distribution and a straightforward general route to computing derivatives; the contribution is only the closed structural and sharp-cutoff theorem, not distribution enumeration.",
+      "Model is an idealized homogeneous independent-site landscape tree, not a measured ecological network; ecological application significance is interpretive.",
+      "No external independent mathematical audit or certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR COVERAGE of the full distribution generating method and its computability, but no structural third-cumulant identity in degree/path counts or six-site moment-identifiability boundary identified in inspected material.",
+        "evidence": [
+          "arxiv:0812.4147 §§2,3,8: Q(G;x,y) counts every induced-subgraph component profile; Section 8 gives P_k(G) from Q; §2 reports uniqueness of full Q for nonisomorphic trees of order <=9."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+        "material_read": "Sections 1–3 and 8, including the definition and component-count probability formula, propositions on tree distinguishability, and references; searched all text for third-moment, degree-sequence and cumulant statements.",
+        "method": "Full arXiv PDF text and rendered page inspection, including section 8 (page 19 of PDF).",
+        "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+        "trigger": "Exact same independently failing vertex-survival component-count distribution; potential blanket prior coverage."
+      },
+      {
+        "assessment": "Related motif extraction in a different graph class from much richer data; not a theorem about arbitrary finite trees, only three cumulants, or the six-patch comparison.",
+        "evidence": [
+          "Liao–Hou (2014) Thm. 3.5: Q for k-regular bipartite graphs determines C4 and P4 counts, using full polynomial coefficients."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i3p27/pdf/",
+        "material_read": "Definitions and Sections 3–4 including Theorem 3.5 and its proof, which determines P4 counts from the full polynomial for regular bipartite graphs.",
+        "method": "Full accessible 13-page journal PDF text, page images and targeted search for P4 and degree sequence.",
+        "title": "Note on the Subgraph Component Polynomial",
+        "trigger": "Four-site path counts from the full component polynomial could dominate the proposed path-sensitive cumulant law."
+      },
+      {
+        "assessment": "Same ecological site-occupancy and connected-patch concepts, but focuses on lattice and gradient scaling, not moment-identifiability or finite-tree skewness.",
+        "evidence": [
+          "Gastner et al. (2009) describe independent occupation random maps and connected occupied habitat patches; central results concern ecotone geometry."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/599292",
+        "material_read": "Abstract and sections on percolation through environmental gradients, random-map independence, connected patches and ecological importance of fragmentation.",
+        "method": "Full publicly accessible article HTML, with direct reading of the percolation model and discussion.",
+        "title": "Transition from Connected to Fragmented Vegetation across an Environmental Gradient: Scaling Laws in Ecotone Geometry",
+        "trigger": "Ecological applicability of independent occupied-site component count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e97748a-a7df-47bc-b148-06729075a19b",
+  "value": {
+    "rationale": "Habitat fragmentation studies count disconnected occupied patches under site survival. The precise question is what structural information enters uncertainty beyond mean/variance; an all-tree formula reveals excess-degree alignment through four-site paths as the first new quantity, while an exact unique six-patch pair proves the smallest genuine identifiability failure of those first two moments. This is a motivated structural boundary and not an arbitrary parameter slice or novelty solely from finite enumeration.",
+    "status": "PASS"
+  }
+}

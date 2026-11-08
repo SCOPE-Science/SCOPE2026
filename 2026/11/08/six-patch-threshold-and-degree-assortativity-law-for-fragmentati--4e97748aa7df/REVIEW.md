@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The claim is restricted to finite tree landscapes with independent equal site survival. Reconstructing \(K=S-B\) and classifying all nonvanishing third-order joint cumulants gives the exact polynomial, including the nontrivial star and three-edge-path contributions. Canonical Prüfer enumeration proves that \(n\le5\) contains no mean-and-variance equivalent nonisomorphic tree pair; the sole first pair at six vertices has distinct \(P_4\) and an explicitly verified component distribution. The independent standard-library checker enumerates all six small classes and tests exact rational moment identities; finite checks are not substituted for the general proof.
+
+**Originality — PASS within inspected evidence, provisional priority.** Tittmann, Averbouch and Makowsky (2008), especially Section 8, already give the full surviving-component distribution through the subgraph component polynomial. Liao and Hou (2014) show that full polynomial coefficients identify length-three paths in *regular bipartite* graphs. Those results are acknowledged; the precise contribution considered here is the closed all-tree cumulant reduction with only \(P_4\) as the fixed-degree topology-dependent term, and the sharp six-site first collision of mean and variance but not skewness. Exact semantic and full-text overlap searches found no decisive published implication establishing this structural statement; a matching historical result under other terminology remains a residual risk.
+
+**Value — PASS.** The induced-component count is a standard idealized model of habitat fragmentation. The new identity identifies when mean and variance entirely overlook network shape while the first asymmetry statistic detects a natural edge-degree correlation, with the smallest possible exact example. It does not assert a new ecological field result or tree-topology uniqueness.
+
+**Scope and limitations.** Only independent homogeneous survival on trees; no general result for networks with cycles, heterogeneous mortality, or spatial correlations. Full moment distribution computation is established prior art, and no independent scientific validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
