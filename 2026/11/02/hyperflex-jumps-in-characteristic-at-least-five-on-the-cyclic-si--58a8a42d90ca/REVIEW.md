@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the smooth genus-three quartic \(X^3Z+Y^4+rY^2Z^2+Z^4=0\), all affine hyperflexes must satisfy \(xy\ne0\). Expanding their tangent restriction and clearing invertible factors yields the necessary and sufficient equations \(E_2(u,r)=E_3(u,r)=0\), where \(u=y^2\). The exact resultant is \(324(r^2-4)^3(11r^4-1080r^2+3888)\); the linear subresultant and its coprimality certificate force a unique value of \(u\) for every exceptional \(r\), and the substitution certificates prove existence. Each such value has two square roots and three cube roots, producing six distinct additional hyperflexes. The line at infinity contributes one for every allowed parameter. The exceptional polynomial is squarefree of degree four except in characteristic eleven, where it is a separable quadratic. The arithmetic and the positive-characteristic exceptional cases were reconstructed and independently checked with the two included scripts.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+For algebraically closed k, p>=5, r not in {0,2,-2}, tangent restriction of x^3+y^4+ry^2+1 gives E2=3(6u+r)(u^2+ru+1)-4u(2u+r)^2 and E3=2u(2u+r)^3-27(u^2+ru+1)^2 with u=y^2. Exact independent resultant is 324(r^2-4)^3(11r^4-1080r^2+3888), and the linear subresultant determines u=N/A; resultant(P,A)=2^34*3^10*11^2 and the special p=11 case A=4 ensure this works uniformly. Substitution numerators vanish modulo P; u and G are nonzero. The two y choices and three x cube roots give exactly six further hyperflexes, alongside [1:0:0]. Exact discriminant 2^32*3^15*11 proves 4 reduced exceptional parameters for p!=11, whereas p=11 gives a separable quadratic r^2=8; geometric isomorphism quotient uses the published r^2-invariant. Independent symbolic arithmetic and modular prime tests corroborate, but no finite prime test proves the all-characteristic case.
 
-Ohashi–Kudo–Harashita (arXiv:2111.09777) established the normal form, smoothness and geometric isomorphism condition, and positive-characteristic Hasse–Witt and \(a\)-number analysis, not the new hyperflex locus. Liang (arXiv:1902.02914) studies bitangents of cyclic-three/six/nine quartics, including the permanently exceptional tangent, but not this parameterwise positive-characteristic stratification. Girard–Kohel (arXiv:math/0603555) examines characteristic-zero seven-hyperflex moduli strata; this result does not claim their geometric classification as new. The present exact polynomial, the characteristic-eleven degree drop and the total geometric hyperflex count are not supplied by their inspected statements. A hidden specialization or earlier unindexed contact computation cannot be definitively excluded without independent priority review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The hyperflex locus is a natural finite-weight Weierstrass degeneracy condition inside a one-dimensional automorphism stratum of the genus-three moduli space. The result classifies **all** hyperflexes in this family for every characteristic at least five, identifies a non-generic collapse in characteristic eleven, and distinguishes raw parameter counts, symmetry orbits, Frobenius orbits and geometric isomorphism classes. It gives an exact geometric discriminant for the appearance of six additional hyperflexes, not an arbitrary numerical slice or a generic quartic exercise.
+PASS best of knowledge for the explicit positive-characteristic hyperflex stratification including the p=11 degree drop; existing normal-form, Hasse-Witt and characteristic-zero bitangent/hyperflex results are distinguished. Earlier unindexed contact-polynomial calculations remain a priority risk.
 
-## Sources and limitations
+## value
 
-Primary sources: R. Ohashi, M. Kudo, S. Harashita, *The a-numbers of non-hyperelliptic curves of genus 3 with cyclic automorphism group of order 6* (arXiv:2111.09777, 2021); D. Liang, *Invariants, Bitangents and Matrix Representations of Plane Quartics with 3-Cyclic Automorphisms* (arXiv:1902.02914, 2019); M. Girard and D. R. Kohel, *Classification of Genus 3 Curves in Special Strata of the Moduli Space* (arXiv:math/0603555, 2006).
+PASS
 
-The result is limited to smooth parameters away from \(r=0,\pm2\), prime characteristic at least five and the stated quartic family. The general prior characteristic-zero classification is not reproved. Independent verification and global priority certification have not been performed.
+The sharp 1-versus-7 jump and exceptional geometric isomorphism classes on a natural cyclic-order-six genus-three family classify a meaningful inflection stratum, including a positive-characteristic degeneration not determined by automorphisms or Hasse-Witt invariants.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
