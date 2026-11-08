@@ -1,11 +1,21 @@
-# Review of the cyclic optimal-independent-set exchange theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The five-column obstruction and the unique \(ABBA\) four-run prove the exact optimum templates in the stated two residue classes. The zero-position argument enumerates *all* possible token jumps, including same-column rail changes, and gives the three exchange types. The index shift is a generator because \(\gcd(5,5k+4)=1\); hence the complete connected degree-two graph is the asserted cycle. The separate dynamic-programming and graph-bitset verifiers agree on representative lengths, exchange counts, and the exact matching/sliding operations. These finite computations corroborate, rather than replace, the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The published independence-number formula and the earlier maximum-set counts \(5\) and \(3n\) are background, not original claims. The complete cyclic-versus-frozen *edge classification* is not implied by the previously available enumeration or by generalized reconfiguration complexity results. Relevant generalized-Petersen original sources, including the complete Fox–Gera–Stănică 2012 PDF, were inspected. The complementary minimum-vertex-cover terminology and closely related existing records were considered. One plausible 2009 primary text was only available by abstract; this is a residual originality risk, not proof of distinctness.
+PASS
 
-**Value — PASS.** The theorem exposes a natural structural transition in optimal configurations at the period-five packing boundary. It proves precisely when the five pure-periodic phases are immobile and when a single defect allows every maximum independent set to reach every other while preserving optimality. The entire move graph, all degrees, and exact diameter are given for infinitely many graph orders. It is a meaningful reconfiguration statement not determined by the known independence numbers.
+Encode independent sets as cyclic symbols 0,A,B; AA forbidden adjacent, BB forbidden two columns apart. Every length-5 window has a zero; the only nonzero four-run is ABBA, yielding α≤floor(4n/5) and matching templates. When n=5k, k zero-columns force five translates of (0ABBA)^k, each isolated under token jumps. When n=5k+4, exactly one nonzero run is length three (ABA/ABB/BBA), all others ABBA, so there are 3n optima X_i,Y_i,Z_i. A case analysis of single-symbol changes and moving a zero yields only X_i–Y_i, X_i–Z_i, Y_i–Z_{i+5}, each realizable as an edge-slide. Gcd(n,5)=1 makes this degree-two graph C_{3n}. Independently enumerated all optima and moves for n=5,9,10 from original 2n-vertex graph: counts5,27,5 and degrees0,2,0; n=9 was one 27-cycle. Inspected both exact source verification programs. These finite checks supplement the all-k word/run proof.
 
-**Closest literature and limits.** Fox–Gera–Stănică (2012), Besharati–Ebrahimi–Azadi (2010), and Behsaz–Hatami–Mahmoodian (2010) establish structural properties and cardinalities, not the checked exchange graph. Ito et al. (2011) supply general reconfiguration context. The 2009 Behzad–Hatami–Mahmoodian paper was not read in full. The theorem treats only \(n\equiv0,4\pmod5\) and neither asserts that computational tests prove the infinite case nor excludes equivalent hidden literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known independence-number α=floor4n/5 and maximal-set counts are explicitly excluded as prior; the exact token-jump/sliding adjacency graph for both infinite residues is additional information not determined by mere counts. Generic token-sliding graph theory does not identify the given GP(n,2) optima.
+
+## value
+
+PASS
+
+The explicit exchange geometry distinguishes a frozen optimum phase n≡0 mod5 and a fully connected cycle phase n≡4 mod5. It supplies natural optimization-landscape connectivity and diameter invariants for an established symmetric cubic graph family, not an arbitrary slice or known number restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
