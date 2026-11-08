@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "All k-monitor layouts on a star reduce by leaf automorphisms to hub-included or leaf-only. A uniform single seed yields exact conditional mixtures of a zero atom, Exp(alpha), Exp(k beta), and independent sums. The exact signed survival difference is ((m-k+1)alpha-k beta)/(m+1) times the strictly positive convolution integral of the two exponential kernels, including equal rates. This establishes all-time strict stochastic dominance or equality of full laws, the exact budget threshold, and all boundary cases m>=1 and 1<=k<=m. The independent full-state CTMC Laplace checker passed 6048 exact and numerical diagnostic assertions; finite checks were not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskovec et al. 2007 Theorem 1 proves submodularity of expected rewards and Theorem 2 concerns approximate greedy optimization, not exact SI stochastic dominance.",
+        "Ciccolini et al. 2014 PNAS pp. 2271-2276 models directed hospital-to-hospital SI movement, with heuristic surveillance optimization over empirical patient-referral networks; its displayed results are simulation and mean-detection performance.",
+        "Colman et al. 2019 PLOS Computational Biology methods and discussion compare hub-based versus distributed monitoring via SIR simulations using infection-burden outcomes, not exact first-detection time on K_{1,m}."
+      ],
+      "reasoning": "The previous frameworks are more general in topology or modeling purpose but lack a theorem from which the exact threshold and distributional equality follow without new derivation. General scenario evaluation and submodularity do not determine a sharp sign for all time thresholds. The 2019 objective is not the same.",
+      "searches": [
+        "finite graph epidemic detection expected first infection monitored vertices optimal placement continuous-time SI graph complete bipartite",
+        "SI epidemic detection sensors star graph optimal hub leaves directed transmission asymmetric edge rates threshold monitoring",
+        "early detection star graph monitoring high degree hub omitted when budget large, equal first detection distributions",
+        "doi:10.1145/1281192.1281239",
+        "doi:10.1073/pnas.1308062111",
+        "doi:10.1371/journal.pcbi.1007517"
+      ]
+    },
+    "checked_sources": [
+      "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+      "https://www.pnas.org/content/pnas/111/6/2271.full.pdf",
+      "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper by Leskovec et al. guarantees an approximation for arbitrary detection-reward functions, not a closed-form global optimal set across every nondecreasing delay loss.",
+        "Ciccolini et al. optimize mean detection time for an empirical directed hospital graph, rather than deriving K_{1,m} exact first-detection laws.",
+        "Colman et al. compute SIR cases before detection and do not imply exact SI detection-time stochastic order.",
+        "The published-finding corpus complete-bipartite exact result concerns random walks and threshold domination, not SI transmission."
+      ],
+      "reasoning": "An arbitrary-network expected-penalty formalism covers the possibility of evaluating this finite case but does not prove the all-time stochastic dominance sign or equality-in-law at k beta=(m-k+1)alpha. The two process types and optimization criteria in the closest mathematical record are non-equivalent; none logically dominates the claimed comparison under the stated hypotheses.",
+      "searches": [
+        "star graph sentinel location with directed transmission rates exponential detection time stochastic dominance critical equality",
+        "outbreak detection on star with different leaf-to-hub hub-to-leaf infection rates sensor sets equal detection distributions",
+        "SI epidemic detection sensors star graph optimal hub leaves directed transmission asymmetric edge rates threshold monitoring",
+        "2014 directed hospital SI sentinel optimal selection Ciccolini",
+        "2019 network sentinel hub versus distributed Colman Holme"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The calculated Laplace-transform difference is s[k beta-(m-k+1)alpha]/((m+1)(s+alpha)(s+k beta)); this would give any equivalent formula by uniqueness of Laplace transforms.",
+        "Leskovec et al. (2007), DOI 10.1145/1281192.1281239, Section 2.2 and Theorem 1, describes scenario-specific detection losses and submodularity, not this star-specific distributional identity.",
+        "Targeted searches of published published-finding corpus findings returned no matching directed-star SI first-detection distribution or equal-law boundary."
+      ],
+      "reasoning": "Alias forms checked include first infection/first passage to monitored set, exponential directed transmission, star hub versus leaves, signed survival curves, Laplace transform equality and all-time stochastic order. No retrieved result covered the identity or an equivalent comparison.",
+      "searches": [
+        "exact stochastic order of first infection time on directed star with k sentinel monitors, hub versus all leaves, uniform random seed exponential transmission",
+        "Laplace transform of SI infection hitting time monitored set star graph two exponential infection rates",
+        "star graph sentinel location with directed transmission rates exponential detection time stochastic dominance critical equality",
+        "stochastic order detection time star graph monitoring infection sensor placements"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus record on complete-bipartite discounted hitting domination, 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d, was read in its public RESULT.md. It studies simple random-walk hitting transforms E_v[lambda^{T_S}] and minimum cardinality subject to vertexwise thresholds, not an SI outbreak with random seed and first sensor infection.",
+        "The inspected named primary papers do not contain star SI rate-by-budget optimizer tables for the claimed objective."
+      ],
+      "reasoning": "The closest exact star-containing database entry is mathematically distinct by its random-walk law, fixed-source support objective and target budget optimization. This does not imply the proposed SI star stochastic-order comparison. No exact table or data record covering the claimed m,k,alpha,beta regimes was identified.",
+      "searches": [
+        "exact stochastic order of first infection time on directed star with k sentinel monitors, hub versus all leaves, uniform random seed exponential transmission",
+        "early detection star graph monitoring high degree hub omitted when budget large, equal first detection distributions",
+        "Laplace transform of SI infection hitting time monitored set star graph two exponential infection rates",
+        "star network epidemic monitoring sensor placement first detection time asymmetric SI infection star",
+        "2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d"
+      ]
+    },
+    "rationale": "No inspected relevant primary text or accessible research-record comparison was found to state or imply the sharp stochastic-order star phase boundary and complete equality-in-law threshold. General submodular sensor optimization (Leskovec 2007), empirical directed hospital-SI surveillance (Ciccolini 2014), and simulation-based SIR heuristic comparison (Colman 2019) do not provide this precise classification. One potentially similar public record concerns discounted random-walk hitting domination, a different stochastic process and uniform support-threshold optimization. Historical priority remains provisional.",
+    "residual_risks": [
+      "The main 2014 article was read, but its online supporting information was not inspected.",
+      "Specialized pre-2007 and unpublished star hitting-time literature may not be indexed in available searches.",
+      "No independent mathematical or historical-priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Submodular expected-reward framework and approximation algorithms; no exact directed-star stochastic-order phase law in inspected material.",
+        "evidence": [
+          "Sections 2.2-2.3 define expected scenario losses and submodularity; Section 3.1 proves greedy approximation, not stochastic-order optimizer classification.",
+          "DOI 10.1145/1281192.1281239."
+        ],
+        "identifier_or_url": "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "material_read": "Full technical-report sections on detection objectives, Theorems 1-2, algorithms, related work, and textual searches for star/directed/appendix.",
+        "method": "Publisher-author technical report PDF text inspection and document search.",
+        "title": "Cost-effective outbreak detection in networks",
+        "trigger": "Foundational exact sensor-placement framework and candidate more general theorem."
+      },
+      {
+        "assessment": "Directed empirical hospital SI surveillance study, but no star graph distributional phase boundary in examined main article.",
+        "evidence": [
+          "Page 2271 and 2272 introduce directed patient-movement SI model and heuristic minimizing detection time; pp. 2272 onward show simulation comparisons.",
+          "PubMed PMID 24469791 records first electronic publication 2014-01-27."
+        ],
+        "identifier_or_url": "https://www.pnas.org/content/pnas/111/6/2271.full.pdf",
+        "material_read": "Main article pages 2271-2276, focus on SI assumptions, empirical network, sentinel optimization methods and results; supporting information not examined.",
+        "method": "Accessible open full-paper PDF rendered text, with publication record cross-check.",
+        "title": "Efficient surveillance for healthcare-associated infections spreading between hospitals",
+        "trigger": "Model-specific directed SI surveillance and one primary 2014 source."
+      },
+      {
+        "assessment": "Simulation comparison of sentinel heuristics under SIR and case counts; no exact SI star first-detection-time law.",
+        "evidence": [
+          "2019 article uses SIR networks and compares global, modular and spatial placement strategies; it measures intervention-related case counts rather than the stated first-detection distribution."
+        ],
+        "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+        "material_read": "Full accessible HTML main article, including methods, objective definition, topology experiments, discussion and references.",
+        "method": "Open-access publisher article full-text inspection with within-text searches for star, hub and stochastic.",
+        "title": "Efficient sentinel surveillance strategies for preventing epidemics on networks",
+        "trigger": "Later source comparing hub-degree heuristics with distributed sentinel sets; potential stronger coverage."
+      },
+      {
+        "assessment": "Different object: simple random walk discounted hitting to a source set and uniform support threshold; not a directed SI infection process.",
+        "evidence": [
+          "Its objective is E_v[lambda^{T_S}] >= tau for every vertex and its optimization minimizes source-set size on K_{m,n}; it covers stars only under random-walk hitting domination."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d/RESULT.md",
+        "material_read": "Complete public RESULT.md including assumptions, formula and references.",
+        "method": "Public source-record content inspection.",
+        "title": "Exact discounted hitting domination of complete bipartite graphs",
+        "trigger": "Highest structurally related star-containing record in a research search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b32779fd-2ae7-4848-ac26-d5e510fdd4ef",
+  "value": {
+    "rationale": "An exact all-time stochastic-order optimum resolves every increasing detection-delay penalty in a natural early-warning network motif, for all finite monitor budgets and all positive oriented transmission rates. The result exposes a hub-exclusion transition as the monitoring budget grows, even with symmetric rates, and a nontrivial equality of entire distributions at the exact threshold. This is a structural complete classification with an operationally interpretable motivation, not an arbitrary isolated numerical fact. Its scope and non-exponential failure boundary are stated explicitly; applicability to real networks is not claimed.",
+    "status": "PASS"
+  }
+}
