@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary process is uniquely defined by Poissonian heading refresh with a positive uniform component and stable harmonic confinement. The co-rotating generator is diagonal on the angular Fourier components and closes at fourth degree. The full second and fourth moment formulas follow by explicitly evaluated recursions; the same fourth active moment follows independently by ordering the four observation times. Gaussian convolution contributes no fourth cumulant, yielding a strictly positive thermal dilution factor. All denominators, parameter boundaries, threshold equivalences and inverse-moment steps have been reconstructed. The included verifier passed 1,532 admissible exact-rational parameter cases. Those finite checks supplement the analytical proof, not replace it.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+For U=Z exp(-i theta), generator gives [kappa(p+q)+alpha(1-m_|p-q|)] M_pq=v(p M_(p-1,q)+q M_(p,q-1)). Recursively compute M_11=v^2/[kappa(kappa+A)] and M_22=2v^4(3kappa+B)/[kappa^2(kappa+A)(2kappa+B)(3kappa+A)]. Independence of isotropic Gaussian thermal noise contributes s_G=2D/kappa, f_G=2s_G^2 and f_X=f_Z+4s_Zs_G+2s_G^2. This yields K=kappa(A-2B-3kappa)/[(2kappa+B)(3kappa+A)](v^2/(v^2+2D(kappa+A)))^2. Positive iff A>2B+3kappa; for Pi_p=p delta_pi+(1-p)Unif, A=alpha(1+p), B=alpha(1-p), giving p>1/3 and alpha>3kappa/(3p-1). Inversion of measured coordinate 2nd/4th moments recovers A,B, and in the mixture alpha,p. Exact independent rational recurrence/Gaussian checks corroborate algebra. Requires even turn law with uniform component and isotropic trap.
 
-The strongest comparator is Britton et al., arXiv:2608.23519: its freely moving nonuniform-orientation model already shows that the fourth spatial moment probes the second angular Fourier mode and supports mode identification. The novelty claim is narrower: an exact stationary **harmonically confined** sign classification, a mixed-turn probability phase boundary, and explicit inverse recovery from the stationary coordinate variance and kurtosis. Guéneau et al., arXiv:2602.08436, cover the exact confined stationary law under complete independent uniform reorientation. Sun et al., arXiv:2409.00578, treat zero-propulsion tumble phases and independent resampling rather than correlated turning increments. Smith et al., arXiv:2207.10445, treat a special ninety-degree turning process. The earlier one-dimensional harmonic moment formalism of Garcia-Millan and Pruessner was also compared. Full accessible research texts were inspected for the first four sources, and a published open-access page was inspected for the fifth. Claim-level research-record and prior-result searches found no documented equivalent or dominating statement, but absence from searches is not proof of priority. Broad generic Markov moment-hierarchy theorems and any inaccessible relevant prior work remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated mathematical consequence of experimentally relevant preferred reorientation, not an arbitrary parameter slice. A complete, exact positive-versus-negative fluctuation phase diagram distinguishes direction-reversing tumbles from fully random tumbles, while isolating which microscopic angular harmonics are responsible. The positivity transition is sharp in a concrete one-parameter physical family, unaffected in sign by any independent thermal diffusivity, and invertible from measurable positional moments. It provides a falsifiable diagnostic of correlated turning in an external trap, independent of the instantaneous heading trajectory. The inverse is mathematically exact but may be numerically ill-conditioned in strongly thermal conditions.
+Guéneau, Majumdar and Schehr (2026) cover harmonically trapped run-and-tumble stationary states for isotropic full independent heading resampling (m1=m2=0); substituting gives negative kurtosis, not the correlated-angle increment phase boundary. Britton et al. (2026) address preferred reorientation and angular Fourier moments in free space; first and second angular harmonics affecting spatial fourth moments is known, but the precise stationary trapped sign boundary and two-coordinate-moment inversion remain plausible new. Complete Britton source was not accessible; priority risk specifically retained rather than claiming whole-document absence.
 
-## Scope and remaining risk
+## value
 
-The model assumes a rotationally symmetric trap and an even jump-angle distribution with a positive uniform component. Chirality, anisotropic confinement and interacting systems are not covered. An exact specialization of an unlocated broad moment theory cannot be ruled out; journal priority and independent mathematical validation have not been performed. The checks establish neither experimental usefulness at finite sample sizes nor the full turning-law distribution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact positive-vs-negative stationary kurtosis transition refines qualitative active-trap statistics, gives a tunable physically natural turn-law example and a closed inverse-identification procedure. It is not merely computing an arbitrary cumulant because it sharply separates two competing distribution shapes and recovers interpretable orientation harmonics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
