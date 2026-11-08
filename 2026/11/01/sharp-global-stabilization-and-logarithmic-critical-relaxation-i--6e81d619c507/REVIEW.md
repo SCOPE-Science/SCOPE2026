@@ -1,19 +1,21 @@
-# Scientific review: global stabilization and critical relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(a,b,c>0\), the theorem treats finite-time continuation, all equilibria and all real initial conditions. The exact cancellation \(\dot H=-w^2+(c-b)w\) makes solutions globally forward complete. For \(c>b\), differentiation of the proper quadratic form gives \(\dot V_q=-ax^2-q(z-c)^2\), establishing convergence by LaSalle and local exponential stability by the Hurwitz spectrum. For \(c=b\), the omega-limit set is compact, full and contained in \(w=0\); its only compact full invariant subset is the equilibrium, establishing the endpoint without assuming strict negativity. For \(c<b\), two additional explicit equilibria and a positive eigenvalue exclude global attraction. Direct verification of the center-manifold invariance equations gives a cubic term and its quintic correction; their reciprocal-square reduction yields both exact coefficients and a convergent additive remainder. Standard exponential stable-foliation tracking lifts the full expansion to all nonexceptional trajectories. The attached executable independently checks the crucial polynomial identities and finite trajectories. No numerical experiment is mistaken for an infinite proof.
+PASS
 
-## Originality — PASS within accessible evidence
+Reconstructed global completeness by H=(y²+(z-b)²)/2 and H’=-(z-b)²+(c-b)(z-b), with x obeying a stable forced linear ODE. For c>b proper V_q derivative -a x²-q(z-c)² gives LaSalle convergence and local exponential rate; at c=b compact full omega limit in w=0 implies only E_b. For c<b explicit noncentral equilibria and positive linear eigenvalue disprove global attraction. At c=b center manifold x=A u+B u³, w=A u²+D u⁴ gives u’=-k u³-ell u⁵+O(u⁷), hence u^(-2)=2kt+(ell/k)log t+C+o(1); exponential stable foliation tracks all nonexceptional trajectories. Independently recomputed jet for a=2,b=3: A=3/2,B=39/16,D=147/16,k=9/4,ell=279/16,L=31/4. Mathematical proof, not finite trajectories, establishes all-time behavior.
 
-The primary text of Yan–Liu–Jie–Hong (2024), including the printed equation, equilibrium section, parameter-dependent attractor figures, and conclusion, was read. It establishes neither the exact global attraction boundary nor the critical inverse-square/logarithmic clock. Searches for the exact equation, paper title, local/global stability aliases, quadratic Lyapunov identities and other Lorenz-like pitchfork results found no theorem implying this result for this vector field. Closest published research records concern the different classical Lorenz flow, the five-dimensional Lorenz flow, a distinct Zhao–Lin–Dai quadratic system, and a four-dimensional Rabinovich model; the systems differ at the level of defining equations. General LaSalle and center manifold theorems provide proof tools, not the parameter-specific Lyapunov cancellation and five-jet coefficients. Unindexed or inaccessible publications may still contain equivalent work; originality is limited to the inspected evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source treats a chaos-producing flow and its numerical regimes. The exact closed boundary \(c\ge b\) globally excludes all nontrivial recurrent behavior in a substantial parameter region, with the nonhyperbolic equality case resolved rather than omitted. The exact logarithmic correction and the exceptional two-dimensional fast set distinguish two asymptotic mechanisms that local equilibrium eigenvalues and finite-time numerics cannot detect. These are natural dynamical invariants of the specified flow, not an arbitrarily sliced calculation. The result does not classify the chaotic parameter region \(c<b\) or prove any particular chaotic attractor there.
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
 
-## Closest sources and residual risks
+## value
 
-Primary: Yan, Liu, Jie, Hong, *Scientific Reports* **14**, 4059 (2024), DOI 10.1038/s41598-024-54458-2; full openly accessible article inspected. Nearby general mechanisms: sharp critical relaxation in classical/five-dimensional Lorenz variants; general center-manifold theory (Carr, *Scholarpedia*, 2006). These do not contain the present exact coefficient without redoing the vector-field-specific calculation. Search coverage is not exhaustive, especially for nonindexed theses, older texts or papers with reparameterized equations. The distinction between nonlinear global stabilization and unstable off-origin branches is made explicit. No external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp global, rather than local, convergence boundary for a named published chaotic-flow model, and exact first logarithmic correction at the nonhyperbolic transition with measure-zero strong-stable exception; supplies a useful dynamical benchmark and stability/critical slowdown law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

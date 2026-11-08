@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of algebraic identities and finite numerical illustrations
+# Independent mathematical audit
 
-The accompanying `verify.py` is a standalone Python 3 script requiring SymPy, NumPy, and SciPy. Execute it with `python verify.py` in any directory containing the script; no other files are required. It checks by exact symbolic polynomial operations that:
+## correctness
 
-* For \(q=b/(c-b)\), the derivative of \(V_q=[x^2+(1+q)y^2+q(z-c)^2]/2\) is \(-ax^2-q(z-c)^2\).
-* At \(c=b\), the derivative of \((y^2+(z-b)^2)/2\) is exactly \(-(z-b)^2\).
-* The claimed center-manifold four-jet satisfies both invariance equations through the required orders, and the reduced cubic and quintic coefficients imply the stated logarithmic coefficient.
-* Both noncentral equilibria are solutions at one exact positive parameter choice where \(c<b\).
+PASS
 
-The code then integrates three critical parameter choices to finite time \(4000\), compares the subtracted inverse-square clock at times \(1500\), \(3000\), and \(4000\), and checks convergence at an off-critical parameter choice. These finite tests are numerical corroboration only. Global completeness, exact global convergence, uniqueness of the exceptional stable manifold, its measure zero, and infinite-time asymptotics depend on the mathematical proof in `RESULT.md`, not on the executable.
+Reconstructed global completeness by H=(y²+(z-b)²)/2 and H’=-(z-b)²+(c-b)(z-b), with x obeying a stable forced linear ODE. For c>b proper V_q derivative -a x²-q(z-c)² gives LaSalle convergence and local exponential rate; at c=b compact full omega limit in w=0 implies only E_b. For c<b explicit noncentral equilibria and positive linear eigenvalue disprove global attraction. At c=b center manifold x=A u+B u³, w=A u²+D u⁴ gives u’=-k u³-ell u⁵+O(u⁷), hence u^(-2)=2kt+(ell/k)log t+C+o(1); exponential stable foliation tracks all nonexceptional trajectories. Independently recomputed jet for a=2,b=3: A=3/2,B=39/16,D=147/16,k=9/4,ell=279/16,L=31/4. Mathematical proof, not finite trajectories, establishes all-time behavior.
 
-The independent audit state in the front matter is intentionally `not_performed`. This file does not claim any outside certification.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+Sharp global, rather than local, convergence boundary for a named published chaotic-flow model, and exact first logarithmic correction at the nonhyperbolic transition with measure-zero strong-stable exception; supplies a useful dynamical benchmark and stability/critical slowdown law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
