@@ -1,0 +1,19 @@
+# Scientific review: Dirichlet law and Gaussian welfare scaling for gap-product facility selection
+
+## Correctness — PASS
+
+The rule selects unordered agent subsets with a product of successive ordered distances. The weighted U-statistic comparison with a weakly convergent empirical measure makes the selected-location density converge conditionally almost surely to a fixed density proportional to the same gap product. A unit-Jacobian transformation converts it to the Dirichlet \((1,2,\ldots,2,1)\) law. Integration over Voronoi cells gives the quadratic spacing cost and uniform Wasserstein control gives empirical costs and the optimum. Dirichlet rising-factorial moments reproduce the exact mean and variance, checked independently with exact rational code. The published worst-case \(2k\) **conditional expected** social-cost bound provides the uniform domination needed for unconditional mean convergence, not a bound on the realized randomized cost. A gamma-variable representation, a two-dimensional central limit theorem, and the delta method give the asserted *iterated* Gaussian limit with variance \(3/4\). All limiting quantifiers and normalization are explicitly given in `RESULT.md`.
+
+## Originality — PASS, with publication-priority limitations
+
+Jia, arXiv:2608.19633 (first posted August 20, 2026), defines precisely the product-gap selection probabilities and analyzes incentives and worst-case approximation. Its complete manuscript was not accessible; the primary abstract and substantial openly accessible synopsis were checked, and this is a residual priority limitation. Chan, Lin, and Wang, arXiv:2608.22484 (August 23, 2026), is a particularly close independent presentation. Its available full manuscript was examined around the mechanism's definition, the weighted cut representation and the \(2k\) approximation theorem (Section 5, Lemma 5), plus its introduction and conclusion. Its results are not probability laws for independently uniform agent populations. Ma and Peng, arXiv:2608.09061 (August 10, 2026), precedes both with the distance-weighted pair version, but the accessible description concerns strategyproof mixtures and worst-case approximation, not the joint limiting spacing law. Comparative searches for Dirichlet spacings, average-case and stochastic-population welfare, equivalent weighted sampling and published research records yielded no directly covering result. This establishes a carefully qualified best-knowledge originality judgment, not a proof of publication priority; unindexed stochastic-location analyses remain a risk.
+
+## Mathematical value — PASS
+
+Worst-case approximation \(2k\) does not describe typical realized allocations. The theorem supplies a tractable exact family of selected spacings, quantifies a persistent randomness of realized performance for fixed \(k\), proves a strict improvement over uniform agent-subset selection, and identifies an unexpected iterated Gaussian transition as the facility count increases. The object is a currently studied facility-selection mechanism, not an arbitrary reparameterization; the expectation, variance and fluctuations have direct operational interpretation. The calculation uses nontrivial weighted empirical-process and gamma-limit arguments and covers every fixed facility count \(k\ge2\). No individual author's prior worst-case mechanism results are claimed as new.
+
+## Scientific limitations and closest coverage
+
+The findings require truthful i.i.d. uniform positions and a fixed facility count before the second limit; neither a nonuniform-position formula nor a simultaneous \(k(n)\) rate is claimed. The main mechanism is not strategyproof for \(k\ge4\); only its truthful-input performance is analyzed there. One relevant earlier full text was inaccessible. No independent check or publication-priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

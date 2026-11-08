@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The weighted U-statistic and product-measure argument proves the selected tuple limit almost surely; simplex substitution gives the claimed Dirichlet parameters; a Voronoi integral and uniform empirical Wasserstein convergence prove normalized cost and optimum; Dirichlet rising-factorial moments yield the exact variance and uniform-sampling gap (checked symbolically and rationally); the published conditional expected-cost <=2k OPT bound yields uniform integrability for expected ratios; gamma CLT/delta method gives asymptotic variance 3/4. All the quantifiers and endpoint cases are treated for k>=2. Standalone verification executed 277 finite checks; it is supplemental, not used as a proof of convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chan, Lin and Wang, arXiv:2608.22484, Lemma 5 proves the worst-case bound E(cost | locations) <= 2k OPT for all deterministic profiles; this upper bound is invoked in our dominated-convergence proof.",
+        "The stochastic exact ratio (3k+1)/(2k+1), a nondegenerate realized limit, and a second-parameter Gaussian limit do not follow by implication from a worst-case 2k bound alone."
+      ],
+      "reasoning": "The strongest matching published general theorem controls an inequality for arbitrary input profiles, not a distribution under i.i.d. location sampling. Its bound helps prove mean convergence but neither implies the Dirichlet law nor the exact moments. Stronger possible unstated consequences in the inaccessible Jia manuscript remain a priority risk.",
+      "searches": [
+        "facility location mechanisms product of consecutive spacings randomly selecting k agents for k median expected welfare under uniform spatial distribution Dirichlet limit Gaussian asymptotic",
+        "gap-product facility location mechanism uniform random agents Dirichlet spacing limiting law average-case welfare",
+        "arxiv:2608.22484",
+        "https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.19633 original abstract (2026-08-20)",
+      "https://www.emergentmind.com/papers/2608.19633",
+      "arxiv:2608.22484 full primary text, Section 5, Lemma 5 (2026-08-23)",
+      "arxiv:2608.09061 original abstract (2026-08-10)",
+      "Published semantic research records queried for mechanism aliases, Dirichlet limits and exact expected-ratio formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.19633 contributes the same mechanism and worst-case results, and its abstract mentions strategyproofness only up to k=3.",
+        "arXiv:2608.22484 Section 5 establishes its equivalence to a weighted random-cut construction and expected cost bound <=2k OPT.",
+        "arXiv:2608.09061 gives the k=2 predecessor as distance-proportional pair selection."
+      ],
+      "reasoning": "We subtract from our claim the known rule, its pair specialization, incentives and all worst-case approximation statements. A weighted-cut representation may simplify future derivations but does not, as an implication of the text inspected, supply the uniform-population Dirichlet law or first two moments, uniform-vs-weighted expected comparison, and iterated CLT. The proof is independently derived from the mechanism definition.",
+      "searches": [
+        "arxiv:2608.19633",
+        "arxiv:2608.22484",
+        "arxiv:2608.09061",
+        "gap-product facility location mechanism uniform random agents Dirichlet spacing limiting law average-case welfare"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The selected k-subset weight is the product of consecutive gaps, exactly as defined in arXiv:2608.19633 and Section 5 of arXiv:2608.22484.",
+        "The paper arXiv:2608.09061 introduces the same k=2 rule under the name Global Pair. None of the inspected accessible statements identifies the resulting Dirichlet(1,2,...,2,1) population law or its high-k CLT."
+      ],
+      "reasoning": "We compared the stochastic limit with all three mechanism aliases (Product-Gap, Gap-Product, Global Pair or Pairwise-Distance), plus weighted sampling, uniform spacings and Dirichlet formulations. Existing descriptions contain worst-case and incentive guarantees, not the asserted conditional spacing limit, moments or Gaussian theorem.",
+      "searches": [
+        "gap-product facility location mechanism uniform random agents Dirichlet spacing limiting law average-case welfare",
+        "Pairwise-Distance facility location expected cost uniform random population limit seven fifths",
+        "arxiv:2608.19633",
+        "arxiv:2608.09061"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned research records included a study of circular gap geometry and another of empirical Wasserstein quantization; neither concerns weighted multi-facility selection and the exact ratio.",
+        "No inspected primary mechanism result or published record tabulated the claimed mean, variance, selected spacing law or Gaussian scaling."
+      ],
+      "reasoning": "The exact fractions and natural finite-parameter family were queried by numerical identifiers, rule names and their structural interpretations; found records involved different objects. This is a negative search result, not proof of uniqueness.",
+      "searches": [
+        "Pairwise-Distance facility location expected cost uniform random population limit seven fifths",
+        "distance weighted k-subset sampling gaps Dirichlet facility location expected total travel cost",
+        "mean 3k+1 2k+1 gap-product mechanism"
+      ]
+    },
+    "rationale": "The defined gap-product rule and worst-case 2k bound are correctly attributed; the examined mechanism papers and recorded comparisons address incentives, worst-case bounds and mixtures rather than the conditional i.i.d.-uniform population Dirichlet law, its exact cost moments or iterated Gaussian limit. No inspected stronger source logically implies the entire new statement as written. Publication priority remains qualified owing to an inaccessible plausible earlier full manuscript and unindexed research.",
+    "residual_risks": [
+      "The complete Jia arXiv paper was not available for a page-level comparison, so inaccessible appendices could contain relevant stochastic calculations.",
+      "Unindexed or differently named probability theory and facility-location analyses might cover some or all of the results.",
+      "No independent mathematical or publication-priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same rule; does not visibly report uniform-population spacing law, moment formulas or iterated Gaussian fluctuations. Complete-text comparison remains unavailable.",
+        "evidence": [
+          "arxiv:2608.19633, original abstract, dated 2026-08-20",
+          "https://www.emergentmind.com/papers/2608.19633"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+        "material_read": "Primary abstract and substantial publicly available descriptive synopsis; not complete original full text",
+        "method": "Read original abstract and substantial secondary synopsis, compared mechanism definition, worst-case guarantee and enumerated topics",
+        "title": "Product Gap Mechanisms for Multi-Facility Location",
+        "trigger": "Original product-of-consecutive-gaps mechanism, first posted 2026-08-20"
+      },
+      {
+        "assessment": "Mechanism exactly matches, and expected approximation <=2k is supplied and cited. The read material does not contain a population Dirichlet law, exact uniform-average ratio or the claimed Gaussian facility-count transition.",
+        "evidence": [
+          "arxiv:2608.22484, Section 5 pp. 22-25, Lemma 5, original full text",
+          "https://arxiv.org/abs/2608.22484"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/413593510_Randomized_Strategyproof_Facility_Location_Two_Facilities_and_Beyond",
+        "material_read": "Public original complete manuscript text, specifically introduction, Section 5 definition and proof of Lemma 5, and conclusion",
+        "method": "Read primary text, traced Section 5 selection weight and normalizer, verified Lemma 5 expected cost bound and inspected claimed scope",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Close independent contemporaneous gap-product mechanism and exact worst-case guarantee"
+      },
+      {
+        "assessment": "Original k=2 rule is covered and excluded from novelty. Published synopsis is directed to worst-case mixture performance, not the all-k stochastic law.",
+        "evidence": [
+          "arxiv:2608.09061, original abstract, dated 2026-08-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.09061",
+        "material_read": "Primary abstract, posted 2026-08-10; complete manuscript not inspected",
+        "method": "Read abstract and compared Global Pair specification against k=2 gap product",
+        "title": "Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location",
+        "trigger": "Earlier distance-proportional unordered-pair rule at k=2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6da954e0-7822-4d8e-8e15-dcdc5e30d8fd",
+  "value": {
+    "rationale": "This is a stochastic evaluation of an actively studied nontrivial mechanism with exact all-k asymptotic mean, full selected-spacing law, nonzero cost variance, strict benchmark comparison, and a Gaussian second-scale result. The quantitative gap between typical performance (near 3/2) and worst-case 2k is meaningful for mechanism assessment. The result is not merely a routine substitution or re-labeling, since it proves conditional random-subset convergence and a distinct high-k fluctuation theorem.",
+    "status": "PASS"
+  }
+}
