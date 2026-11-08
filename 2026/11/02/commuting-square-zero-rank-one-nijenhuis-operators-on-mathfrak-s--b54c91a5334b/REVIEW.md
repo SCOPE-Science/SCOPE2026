@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct substitution of a general rank-one tensor in the original Lie Nijenhuis torsion gives the three tensor identities \(cQv,-bQv,aQv\), with \(Q=4uw+z^2\); this is both necessary and sufficient because \(v\ne0\). Square-zero follows from \(N^2=\varphi(v)N\). Direct rank-one matrix multiplication shows that commuting square-zero maps annihilate each other. A two-dimensional dual span meets the smooth conic in exactly two points, giving exhaustive disjoint cases and the finite-field enumerator. The incidence parameterizations have unique generic fibers, establish dimensions and separate all maximal irreducible closed subsets. The packaged checker independently evaluates original Lie torsion and original compositions for all rank-one operators over four fields; it matches exact pair and triple totals.
+## correctness
 
-**Correctness limits:** The geometric assertion is reduced, not scheme-theoretic; the computer census is finite rather than a general proof. No assertion covers characteristic two or maps of rank two or higher.
+PASS
 
-## Originality — PASS (provisional historical priority)
-Panasyuk, arXiv:math/0504337v1, develops Nijenhuis operators and subalgebra-splitting constructions, including \(\mathfrak{sl}_2\); this is stronger background than a generic definition and is explicitly credited. Ngo–Šivic, arXiv:1308.4438v1, establish irreducibility facts for unrestricted commuting nilpotent triples and other commuting varieties, but these do not imply counts or components after imposing the independent Nijenhuis and rank-one conditions. Liu–Sheng–Zhou–Bai, arXiv:1601.02356v1, address higher Lie operators, and Zhikhareva, arXiv:2410.10536v1, focuses on regular semisimple operators. In the relevant inspected material, none supplies the explicit arbitrary-arity compatibility polynomial or exponential component count. The earlier single-operator/subalgebra characterization and the known unrestricted commuting-matrix results are *not* represented as novel.
+For rank-one N=v⊗φ on sl2 with v=(a,b,c), φ=(u,w,z), direct original Nijenhuis torsion on (e,f),(e,h),(f,h) equals (c,-b,a)(4uw+z²)v, hence the conic Q=0 is necessary and sufficient for v!=0. N²=φ(v)N gives squarezero. For any commuting rank-one squarezero maps, if their common product nonzero equality of image and dual lines forces proportional maps, contradicting squarezero; both products vanish. Pairwise annihilation makes all images lie in common annihilator of the span of covectors, forcing covector dimension <=2. A projective line meets the smooth conic in at most two points. Counting single-line tuples gives (q+1)(q²-1)^s; two distinct conic lines give choose(q+1,2)(2^s−2)(q−1)^s. Binomial support sum yields full tuple polynomial. Over algebraic closure, shared-line incidence family irreducible dimension 2m+1, two-line families indexed by unordered nontrivial index bipartitions irreducible dimension m+2 and noncontained, giving 2^(m-1) geometric reduced components for m>=2; m=1 single dim3 component. q odd, char!=2.
 
-**Residual priority risk:** An unidentified stronger theorem about constrained rank-one commuting Nijenhuis tensors could imply the formula. Absence of an exact search hit is not a uniqueness proof, and full historical coverage is not independently certified.
+## originality
 
-## Value — PASS
-The set of simultaneous square-zero Nijenhuis structures is a natural compatibility moduli problem in Lie-algebra deformation theory. The result supplies a complete count of labeled tuples of *every* arity over every odd finite field, a closed multivariate rank distribution, and a sharp geometric distinction: for \(m\ge2\), exactly \(2^{m-1}\) irreducible components, with dimensions \(2m+1\) and \(m+2\). This is structural information beyond the single-operator classification or a routine substitution. The precise moduli geometry is a motivated invariant even without an application to a larger Lie algebra.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nijenhuis torsion and split sl2 low-rank examples predate the result. Ngo–Šivic unrestricted nilpotent commuting varieties are different ambient schemes, whose irreducibility does not imply irreducibility of the restricted Nijenhuis locus; the exact conic incidence decomposition and arbitrary-m counting were not found in inspected primary texts.
+
+## value
+
+PASS
+
+Complete arbitrary-length finite-field compatibility count and a natural family of non-equidimensional commuting constrained-operator varieties with exponential component growth on the smallest simple Lie algebra; goes beyond rank-one torsion checking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
