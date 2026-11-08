@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:10:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-factor-free-univariate-discriminant-for-the-logarithmic-determ--ae5e37c25912/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-factor-free-univariate-discriminant-for-the-logarithmic-determ--ae5e37c25912/VERIFICATION.md"
+      ],
+      "rationale": "For m≥3 over C and generic nonresonant parameters, the first m critical equations give f=sA(U)/S and t_i=−ν_i A(U)/(S L_i(U)); elimination of the last equation is exactly P_m=(Sb₀U+vA)G−UAΣν_i b_i G_i, degree m+1. Linear unit-coefficient eliminations identify critical schemes on the generic open locus, including degeneracy. The source Goertz–Sturmfels–Telen irreducibility and smooth Segre Hurwitz-degree theorems give primitive Λ_m as a factor of Disc_U(P_m) and bidegree (2m(m+1),2m). The coefficients of P_m have bidegree (m+1,1), so its nonzero discriminant has the same bidegree: ν_i=0 specializes to a product of generically distinct linear factors, proving nonzero. Thus the factor quotient is constant. The independent SymPy m=3 check confirmed degree four, nonzero discriminant and polynomial eliminant with correct endpoints. The proof, not the bounded m=3 arithmetic, establishes all m.",
+      "residual_risks": [
+        "Over C for m≥3; identity only up to nonzero Q scalar.",
+        "No claim on arbitrary p×q Segre with p,q≥3 or degenerate specializations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform smooth Segre Hurwitz degree is an essential premise",
+          "Arrangement result concerns another parameter family"
+        ],
+        "reasoning": "A general formula evaluating all logarithmic Segre discriminants as univariate discriminants could dominate, but the source theorems only imply factor divisibility and degrees. The current construction is a missing nontrivial connection; older likelihood literature remains potential coverage.",
+        "searches": [
+          "Segre P1 times Pm logarithmic A discriminant univariate eliminant factor free",
+          "arxiv:2610.29204v1 Theorems 1.1,1.3,5.2 Corollary 5.6",
+          "arxiv:2410.11675"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.29204v1",
+        "https://arxiv.org/abs/2410.11675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 supplies irreducible Λ and the degree theorem supplies its exact bidegree",
+          "Current P_m is obtained by explicit critical-scheme elimination; its degree matches without extra factor"
+        ],
+        "reasoning": "Existing irreducibility+bidegree alone do not state a candidate eliminant or show its discriminant has no extra factors; the new proof assembles these with an exact construction, yielding a concrete formula. In an unusually broad implicit reading, the identity is readily derivable and historical-priority risk persists.",
+        "searches": [
+          "Segre P1 times Pm logarithmic A discriminant univariate eliminant factor free",
+          "arxiv:2610.29204v1 Theorems 1.1 and 5.2, Corollary 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goertz–Sturmfels–Telen give determinant examples m=1,2 and general degrees, not the specified P_m with arbitrary m",
+          "Resultary search closest concerns different Segre invariants such as hyperdeterminant degrees"
+        ],
+        "reasoning": "Comparing likelihood-elimination, Hurwitz form and classical hyperdeterminant aliases: general degree/irreducibility does not directly assert the factor-free polynomial identity; it becomes derivable after the explicit unit-preserving elimination.",
+        "searches": [
+          "Segre P1 times Pm logarithmic A discriminant univariate eliminant factor free",
+          "arxiv:2610.29204v1 §§1,2,5,6,8",
+          "arxiv:2410.11675"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 2.6 expands 2×3 as a 441-term expression",
+          "Known m=1 and m=2 low cases are not claimed new"
+        ],
+        "reasoning": "The source examples are smaller m, and Resultary hits have other invariants; no all-m univariate identity or table was found. Unsuccessful lookup is not proof of priority.",
+        "searches": [
+          "Segre P1 times Pm logarithmic A discriminant univariate eliminant factor free",
+          "arxiv:2610.29204v1 Example 2.6 and Example 6.9"
+        ]
+      },
+      "rationale": "The recent primary Goertz–Sturmfels–Telen paper establishes a general log A-discriminant, irreducibility and bidegrees, includes tiny 2×2/2×3 instances, and says eliminant discriminants may have extra factors. It does not supply the explicit arbitrary m≥3 factor-free degree-(m+1) eliminant in the read sections. Kayser–Kretschmer–Telen addresses related fixed hyperplane arrangements, with incomplete primary full-text comparison. No exact Resultary match; classical hyperdeterminant/likelihood descriptions could implicitly entail the formula.",
+      "residual_risks": [
+        "General theorem from older likelihood or hyperdeterminant literature may imply this explicit formula.",
+        "The earlier hyperplane-arrangement primary article was not materially read in full.",
+        "Generic critical-scheme recovery excludes divisors; polynomial identity is asserted globally, not pointwise elimination on every specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes general framework and degree, not the stated explicit all-m no-extra-factor eliminant",
+          "evidence": [
+            "Irreducibility theorem 1.1",
+            "Smooth Segre Hurwitz degree formula Corollary 5.6",
+            "§8 mentions possible extra eliminant discriminant factors"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29204v1",
+          "material_read": "Full relevant primary HTML: §§1–2, 5–6 and 8, including Thms 1.1, 1.3, 5.2, Cor.5.6, Examples 2.6/6.9",
+          "method": "Inspected complete relevant sections and compared statement-level polynomial implications",
+          "title": "The Logarithmic A-Discriminant",
+          "trigger": "Same coefficient/exponent Segre configuration and bidegree premises"
+        },
+        {
+          "assessment": "Related but complete source coverage not determined; residual priority risk",
+          "evidence": [
+            "Fixed arrangement logarithmic discriminants distinct from variable-coefficient Segre pencil"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.11675",
+          "material_read": "Abstract and public research overview, NOT complete primary paper",
+          "method": "Targeted abstract/overview and exact object comparison",
+          "title": "Logarithmic discriminants of hyperplane arrangements",
+          "trigger": "Earlier nearby logarithmic-discriminant framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.29204v1",
+        "https://arxiv.org/abs/2410.11675"
+      ],
+      "rationale": "For arbitrary 2×(m+1) Segre format, the result replaces a high-dimensional logarithmic critical discriminant by an explicit one-variable degree-(m+1) discriminant, with a nonextraneous-factor guarantee and uniform proof. This is an actionable symbolic reduction, not merely a known bidegree or a low-dimensional recomputation.",
+      "residual_risks": [
+        "Generic critical-scheme recovery excludes divisors; polynomial identity is asserted globally, not pointwise elimination on every specialization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Over C for m≥3; identity only up to nonzero Q scalar.",
+    "No claim on arbitrary p×q Segre with p,q≥3 or degenerate specializations."
+  ]
+}
