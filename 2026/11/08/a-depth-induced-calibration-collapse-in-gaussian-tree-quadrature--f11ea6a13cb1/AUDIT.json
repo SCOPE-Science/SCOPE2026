@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For any integer h>=0 and v>0 the periodic finite-rank leaf Gaussian process has an exact one-point posterior. With true child prior C=mI_2, Gaussian conditioning yields a rational update factor (1+jv)/(1+(j+1)v) at each level; induction establishes the root variance and estimate. Independent normal coordinates give exact unconditional MSE and Gaussian interval coverage. Proof handles h=0, positive denominators, all finite h; 2268 rational assertions corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weiland–Karvonen–Hennig analyze fixed-tree quadrature convergence, not the exact growing-depth coverage collapse on independent true cells.",
+        "Rullière et al. derive consistency and BLUP properties for an alternate covariance-aware aggregation of expert random predictors.",
+        "The distributed GP paper treats one shared prediction latent and expert products, whereas this example has a prior over independent subintegrals."
+      ],
+      "reasoning": "The closest plausible stronger coverage is nested Gaussian model aggregation or Bayesian double-counting literature; its general statements were compared by mathematical operation and do not imply the present quantitative depth law. An older unindexed direct analogue remains possible.",
+      "searches": [
+        "hierarchical Bayesian quadrature repeated posterior as noisy observation double shrink repeated conditioning variance logarithmic depth",
+        "Bayesian committee machine posterior-as-likelihood duplicate prior precision tree depth inverse variance",
+        "https://arxiv.org/abs/2607.10793",
+        "https://arxiv.org/html/1607.05432v3",
+        "https://arxiv.org/abs/1502.02843"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.10793",
+      "https://proceedings.mlr.press/v337/weiland26a.html",
+      "https://arxiv.org/html/1607.05432v3",
+      "https://arxiv.org/abs/1502.02843"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper supplies the primitive Gaussian merge, not this constructed all-depth counterexample.",
+        "The nested-Kriging model uses estimator covariance rather than noise variances of child posteriors.",
+        "The product-of-experts overconfidence examples are structurally related but do not give this estimator of sums of disjoint integrals."
+      ],
+      "reasoning": "The new claim can be derived by working from the published merge rule plus the constructed, correct GP and independent data. It is not simply a renamed statement of the motivating paper; new all-depth calibration and exact coverage are quantified.",
+      "searches": [
+        "hierarchical Bayesian quadrature repeated posterior as noisy observation double shrink repeated conditioning variance logarithmic depth",
+        "hierarchical Gaussian tree recombination recursively reuse posterior variances as observation noises nonassociativity overconfidence",
+        "Bayesian committee machine posterior-as-likelihood duplicate prior precision tree depth inverse variance",
+        "https://arxiv.org/abs/2607.10793",
+        "https://arxiv.org/html/1607.05432v3",
+        "https://arxiv.org/abs/1502.02843"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source Gaussian pseudo-observation update is algebraically equivalent to repeatedly treating a child posterior mean as a new noisy datum with noise equal to the child posterior variance (Weiland et al., Section 3.2).",
+        "Rullière et al., arXiv:1607.05432, Sections 2–3, define predictor aggregation using actual predictor cross-covariances.",
+        "Deisenroth–Ng, arXiv:1502.02843, discuss distributed GP products and prior double-counting."
+      ],
+      "reasoning": "The already-known general warning that repeated evidence can overstate certainty does not itself give the explicit rooted-tree quadrature recurrence, correct-model Gaussian construction, error/reported-variance ratio, and exact credible-interval coverage law. The nested-Kriging cross-covariance method is not the same pseudo-observation rule.",
+      "searches": [
+        "hierarchical Bayesian quadrature repeated posterior as noisy observation double shrink repeated conditioning variance logarithmic depth",
+        "hierarchical Gaussian tree recombination recursively reuse posterior variances as observation noises nonassociativity overconfidence",
+        "Bayesian committee machine posterior-as-likelihood duplicate prior precision tree depth inverse variance",
+        "https://arxiv.org/abs/2607.10793",
+        "https://arxiv.org/html/1607.05432v3",
+        "https://arxiv.org/abs/1502.02843"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of published mathematical findings returned no exact hierarchical Gaussian quadrature depth/coverage record among the inspected ranked hits; closest IDs are recorded below.",
+        "The manuscript proves a continuous-parameter formula for arbitrary heights, rather than evaluating a known exact numerical table."
+      ],
+      "reasoning": "No exact table or database entry containing the stated variance and coverage law was found. The absence of a ranked hit is not a guarantee of novelty or global uniqueness.",
+      "searches": [
+        "hierarchical Bayesian quadrature repeated posterior as noisy observation double shrink repeated conditioning variance logarithmic depth",
+        "hierarchical Gaussian tree recombination recursively reuse posterior variances as observation noises nonassociativity overconfidence",
+        "Bayesian committee machine posterior-as-likelihood duplicate prior precision tree depth inverse variance",
+        "hierarchical Bayesian quadrature correlated subdomains posterior variance ignored cross-covariances negative correlations sharp error"
+      ]
+    },
+    "rationale": "The exact Gaussian tree-depth calibration and unconditional coverage laws were not found in the motivating paper, three materially inspected primary articles, or published-record overlap searches. The closest theory identifies general prior double-counting in different expert fusion frameworks, which does not entail these quantitative formulas. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "General Bayesian evidence double counting is old; a mathematically equivalent earlier quantification in Gaussian hierarchical quadrature or expert fusion could be unindexed.",
+      "The motivating rule may be implemented with specific fitted stationary parent kernels rather than the oracle independent-cell parent covariance of this construction.",
+      "Search retrieval is not an exhaustive historical proof of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the Gaussian child-pseudo-observation merge but no all-depth Gaussian calibration-collapse formula was found",
+        "evidence": "Its recursive parent uses C and diagonal child reported variances; this theorem fixes C exactly to the independent true child-integral covariance and computes the consequence.",
+        "identifier_or_url": "arXiv:2607.10793; https://arxiv.org/abs/2607.10793",
+        "material_read": "Method Section 3.2 (Gaussian recombination equations 13–17), convergence discussion and experimental appendix on tree recombination",
+        "method": "Examined full accessible arXiv HTML text including algorithmic formulas and theoretical scope",
+        "title": "Hierarchical Bayesian Quadrature",
+        "trigger": "Direct source of the tested recursive Gaussian integral recombination rule"
+      },
+      {
+        "assessment": "Uses covariance of random expert predictors and cross-covariance with target, not diagonal posterior-as-pseudo-observation variance; no direct implication identified",
+        "evidence": "Section 2 equations (3)–(5) use predictor covariance matrix K_M and covariance k_M with the target.",
+        "identifier_or_url": "arXiv:1607.05432; https://arxiv.org/html/1607.05432v3",
+        "material_read": "Full article HTML Sections 2–3, including Definitions, Propositions 1–2 and iterative/nested scheme",
+        "method": "Compared aggregation inputs, true covariance treatment and uncertainty outputs",
+        "title": "Nested Kriging predictions for datasets with large number of observations",
+        "trigger": "Plausible earlier nested Gaussian-expert aggregation and consistent posterior estimates"
+      },
+      {
+        "assessment": "General overconfidence warnings are germane, but not exact HBQ independent-cell tree-depth variance and coverage law",
+        "evidence": "Expert products aggregate distributions of the same prediction latent and sometimes correct prior counts; the present operation acts on independent subintegral sums.",
+        "identifier_or_url": "arXiv:1502.02843; https://arxiv.org/abs/1502.02843",
+        "material_read": "Open-access full text sections on PoE, generalized PoE and Bayesian/robust committee machine fusion",
+        "method": "Compared expert fusion law to direct recursive covariance-of-sums conditioning",
+        "title": "Distributed Gaussian Processes",
+        "trigger": "Earlier GP-expert products known to be overconfident through repeated prior inclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f11ea6a1-3cb1-427e-b658-9043b1f1b9ce",
+  "value": {
+    "rationale": "Posterior variance guides Bayesian quadrature uncertainty and refinement; the exact ratio of actual error to reported variance diverges and the nominal coverage of fixed-normal-quantile intervals vanishes despite correctly specified independent leaf GPs and oracle parent prior covariance. This identifies a structural limit of posterior-as-pseudo-observation recombination; direct summation of correct leaf posteriors remains calibrated in the example.",
+    "status": "PASS"
+  }
+}
