@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:12:12.658960Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any nonsingular real M-matrix A=D-E-F and nonnegative g=D^-1 b, forward SOR from zero has x1=omega*R*g with R=(I-omega L)^-1>=0, and x2=omega*(R+(1-omega)R^2+omega*R U R)*g. Nilpotent L^q=0 gives coefficients (j+2-(j+1)*omega) of (omega L)^j, all >=0 exactly for omega<=1+1/q within 0<omega<2. Since q<=n yields n-universal bound. For symmetric Stieltjes path A=I-epsilon*T_n, response (n,1) is omega^n epsilon^(n-1)*(n+1-n omega)+O(epsilon^(n+1)), negative for all omega>1+1/n sufficiently small epsilon. Independently reconstructed exact rational small-n SOR sweeps and n-dependent boundary/above examples. Limit is two forward sweeps from zero, not all iterates or general convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vigna arXiv:1404.3327 treats norm convergence under M-matrix assumptions; Yun 2005 JCAM 176 pp461-462 weak regularity overrelaxation."
+        ],
+        "reasoning": "Norm convergence and weak regularity address long-run error or splitting matrices, not coordinate sign of precisely second iterate with zero starting vector. They do not yield a stronger covering n-universal positivity theorem.",
+        "searches": [
+          "successive overrelaxation M matrix positive second iteration sharp threshold omega 1+1/n",
+          "Vigna step asynchronous SOR M matrices supremum norm convergence 2014",
+          "Yun SOR splitting M matrix weak regular omega 1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 0400f79cd7896315cfe21a849fcdb39c2e9399dd",
+        "verify.py blob 9993d708e91f100455fab9f90ea9f8522d8ca06f",
+        "https://arxiv.org/abs/1404.3327",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof depends on finite resolvent coefficient j+2-(j+1)omega and order-n lower path leading term, absent from retrieved convergence-focused prior descriptions."
+        ],
+        "reasoning": "Prior bounds do not logically yield finite-sweep sign; prior 2D result does not imply all n. Actual proof identifies new n and q dependency.",
+        "searches": [
+          "https://arxiv.org/abs/1404.3327",
+          "https://doi.org/10.1016/j.cam.2004.07.029",
+          "successive overrelaxation M matrix positive second iteration sharp threshold omega 1+1/n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary 2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea exactly provides the 2x2 SPD Stieltjes threshold omega=3/2."
+        ],
+        "reasoning": "Same two-sweep positivity problem, but only n=2 old statement; it covers that specialization. Higher n coefficient proof and sharp path examples not implied by 2x2 theorem.",
+        "searches": [
+          "successive overrelaxation M matrix positive second iteration sharp threshold omega 1+1/n",
+          "second SOR iterate nonnegative M matrix entrywise finite sweep"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published 2D theorem at its exact matching n=2 frontier; no higher-dimensional/nilpotency-index equivalent among relevant returned records."
+        ],
+        "reasoning": "Published numerical finite dimension result is acknowledged; cannot extrapolate the n-dimensional frontier from that database entry.",
+        "searches": [
+          "successive overrelaxation M matrix positive second iteration sharp threshold omega 1+1/n",
+          "Resultary sharp three halves SOR"
+        ]
+      },
+      "rationale": "Exact n-dimensional two-sweep coordinatewise sign frontier for M-matrices and nilpotency-index refinement are not in the inspected earlier two-dimensional published special case. General SOR norm convergence and splitting regularity are logically weaker/different properties. 2D threshold 3/2 is explicitly known and not represented as new. Best-of-knowledge PASS for n>=3 and general result.",
+      "residual_risks": [
+        "Earlier specialized SOR positivity/monotonicity literature may include equivalent finite-sweep bounds.",
+        "Nilpotency-index bound is only sufficient for a fixed individual matrix; it is sharp only uniformly in dimension by path family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS n=2 only; does not substantiate n>=3",
+          "evidence": "Exact omega=3/2 2D endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea",
+          "material_read": "Published indexed summary describing every 2x2 SPD Stieltjes system, not full source text",
+          "method": "Resultary semantic retrieval",
+          "title": "A sharp three-halves second-iterate positivity frontier for SOR",
+          "trigger": "Closest same-property published finding"
+        },
+        {
+          "assessment": "No decisive covering finite-time positivity theorem established",
+          "evidence": "Paper concerns norm convergence and matrix splitting.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3327",
+          "material_read": "Title and accessible abstract/bibliographic statements; not full text.",
+          "method": "Web scholarly search and paper metadata",
+          "title": "Supremum-Norm Convergence for Step-Asynchronous Successive Overrelaxation on M-matrices",
+          "trigger": "Potential general M-matrix result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp finite-time positivity guarantee for a classical numerical method exposes order-dependent nonnegativity despite eventual convergence. Uniform margin 1/n and nontrivial nilpotency-index refinement inform positivity-sensitive iterations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob 0400f79cd7896315cfe21a849fcdb39c2e9399dd",
+    "verify.py blob 9993d708e91f100455fab9f90ea9f8522d8ca06f",
+    "https://arxiv.org/abs/1404.3327",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier specialized SOR positivity/monotonicity literature may include equivalent finite-sweep bounds.",
+    "Nilpotency-index bound is only sufficient for a fixed individual matrix; it is sharp only uniformly in dimension by path family.",
+    "Scientific acceptance is not publication; current public-bound private-origin metadata prevents safe import without sanitized source bytes."
+  ],
+  "schema_version": 1
+}
