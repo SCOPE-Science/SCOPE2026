@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the normalized weighted Bergman norm the even-monomial kernel is \(\mathcal K_\alpha(t)=\frac12[(1-\sqrt t)^{-\alpha-2}+(1+\sqrt t)^{-\alpha-2}]\), independent of the square-root branch. Taking the right-half-plane Cayley quotient yields all, and only, the negative simple zero parameters \(-\tan^2[(2j+1)\pi/(2(\alpha+2))]\), with \(4j<\alpha\). Division by the Möbius numerator identifies the exact one-dimensional wandering complement; Möbius polynomial density reduces cyclicity to the absence of interior zeros. A geometric-series approximation proves that a boundary zero does not obstruct cyclicity. The complete chain has been reconstructed, including \(\alpha\le0\), \(a=0\), and equality at the first threshold. The bundled checker passed 271 supplementary assertions; no finite experiment substitutes for the exhaustive analytic argument.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The relevant 2026-09-29 weighted Bergman shift preprint establishes a global Beurling-type threshold, not an original-norm quadratic-multiplier phase law. The 2026-10-27 power-shift preprint proves broader qualitative failure and includes a degree-three example, but its inspected relevant full-text sections do not imply this exact real degree-two Möbius family classification; the October 27 text is used only for comparison. The open 2019/2020 study of finite Blaschke multipliers establishes equivalently renormed statements and restricted monomial cases, not this original-norm wandering vector. Two full public mathematical records on related kernel zeros and finite zero-based Bergman subspaces concern different weights or subspaces. Semantic mathematical-record searches and accessible preceding findings reveal no covering equivalent or stronger claim. The September primary paper was not available for full-text inspection; unseen coverage and historically unindexed results remain risks, so no claim of definitive global novelty is made.
+PASS
 
-## Value — PASS
-This is an exact, natural wandering-space stability frontier for a one-parameter degree-two family: one formula controls every real weighted Bergman exponent, detects the first noncyclic phase, retains equality cyclicity, and counts later new obstructions. These sharp features are mathematically useful even without a universal Beurling theorem, since they identify a concrete boundary between cyclic and noncyclic wandering generators rather than just exhibiting a single counterexample.
+The monomial weights are Γ(alpha+2)Γ(2n+1)/Γ(2n+alpha+2). The even binomial expansion gives K_alpha(u)=[(1−sqrt(u))^(−s)+(1+sqrt(u))^(−s)]/2, s=alpha+2. For a zero, the Cayley transform w=(1+sqrt u)/(1−sqrt u) has Re w>0, and s Log w is an odd multiple of pi i; the strip |arg w|<pi/2 gives precisely negative simple roots at tan² angles and strict 4j<alpha boundary. Transfer f(z)=F(z²) to the induced coefficient-weighted space, equivalent as a set to ordinary weighted Bergman, where B_a acts as (w−a)/(1−aw) and the range consists of functions vanishing at a. The orthogonal wandering line is therefore the evaluation kernel K_alpha(aw). Since the disk automorphism is a uniform functional transformation of w and conversely, B_a-cyclicity is multiplication-by-polynomial cyclicity of the wandering vector; any interior zero blocks cyclicity, while zeros only on boundary are cyclic because ||w^N||→0 and a nonzero analytic factor remains invertible. Independent even-binomial evaluations and negative-zero checks corroborate, without replacing the analytic complete zero argument.
 
-## Limits and closest literature
-Only the even-power invariant space, real parameter \(0\le a<1\), and the original weighted Bergman norm are covered. No assertion is made for arbitrary quadratic Blaschke products, every invariant subspace, or general analytic multipliers. Closest primary comparisons: Lin–Xu–Yu, arXiv:2609.36723v1; Xu–Yu, arXiv:2610.37035v1; Gallardo-Gutiérrez–Partington–Seco, arXiv:1904.02974v1. For reproducibility use bundled `CHECK.py`, SymPy and mpmath; exact integral/binomial/Cayley and cyclicity proofs are in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gallardo-Gutiérrez–Partington–Seco prove existence of an *equivalent renorming* making a given finite Blaschke multiplier wandering, with certain special monomial cases in the original norm; renorming does not imply the original-norm sharp family classification. Lin–Xu–Yu and Xu–Yu study global weighted Bergman shift/finite Blaschke wandering existence; their published descriptions do not assert the exact one-parameter degree-two/E2 zero staircase, but relevant 2026 full text was inaccessible here, a material best-of-knowledge risk. The published Resultary Lu Qi-Keng disk kernel concerns a different boundary-distance weight and cannot directly imply this norm-specific criterion.
+
+## value
+
+PASS
+
+The full zero census and exact boundary cyclicity transition for a minimal nontrivial degree-two Blaschke action on a canonical invariant subspace give a natural, exact operator-theoretic phase diagram. This is more informative than a single arbitrary finite zero computation and distinguishes original-norm wandering from the known equivalent-renorming result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
