@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 each row has exactly one missing palette colour, hence at most one rich edge in that row. Total rich-neighbor requires two adjacent rich edges; their unique shared column forces complementary row omissions and a derangement on n-1 remaining colours. This is a bijection giving n(n+1)n(n-1)! D_{n-1}. Automorphisms and colour relabellings act by conjugation and inversion of the derangement, giving cycle types with no 1-cycles. The proper-colouring count is (n+1)!(D_{n+1}+D_n), hence the exact fraction and asymptotic. Direct graph-adjacency enumeration for n=2..8 corroborates every formula; the infinite proof is deductive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kong 2026, Theorem 1.2 covers all complete bipartite *index values*; Section 3.1 constructs examples but provides no all-optima parametrization.",
+        "Kashima et al. 2026, Introduction and Observation 1 provide bounds, not solution counts."
+      ],
+      "reasoning": "A stronger index result for all K_{m,n} does not determine the multiplicity or orbit structure of sharp colourings on K_{2,n}. Such an implication would require a separate rigidity theorem, proved here.",
+      "searches": [
+        "\"rich-neighbor\" \"counting\" \"complete bipartite\"",
+        "\"rich-neighbor\" \"number of optimal\" \"K_{2,n}\"",
+        "rich-neighbor edge-colorings complete bipartite graph count optimal colorings derangements"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.21036v1, exact K_{m,n} index and Section 3.1",
+      "arXiv:2610.16446v1, general bounds and preliminaries",
+      "Discrete Mathematics 347 (2024), article 113803, founding abstract only",
+      "Graphs and Combinatorics 41 (2025), article 89, publisher abstract",
+      "Mathematical-record queries on exact rich-neighbor counts and derangements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kong 2026 gives exact chi and an existence construction; this work supplies an all-optimizers equivalence rather than a new index value.",
+        "Kashima et al. 2026 and Chen-Tan-Zhou 2025 focus on existence or upper bounds; their accessible statements do not enumerate optimizers."
+      ],
+      "reasoning": "The exact result is not an arithmetical special case of a prior count: no earlier count was found. The argument is an additional necessary-and-sufficient classification and orbit analysis. An inaccessible older source remains a priority risk.",
+      "searches": [
+        "\"Linear bounds for rich-neighbor edge-colorings\" \"complete bipartite\"",
+        "\"The rich-neighbor chromatic index is linear in the maximum degree\" \"complete bipartite\"",
+        "\"Proper edge-colorings with a rich neighbor requirement\" 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new edge-colouring assertion translates exactly into one marked column plus a fixed-point-free permutation of the remaining columns; no searched source gave that bijection.",
+        "arXiv:2610.21036v1, Section 3.1 states an index and constructs a colouring, not an enumerator."
+      ],
+      "reasoning": "Strong edge-colouring and ordinary edge-colouring count different sets. Fixed-point-free permutations encode the new exact solution set, but an existing derangement count alone does not establish the graph-colouring bijection.",
+      "searches": [
+        "\"rich-neighbor\" \"derangement\" coloring",
+        "\"rich-neighbor\" \"K_{2,n}\" number colorings",
+        "optimal rich-neighbor chromatic index K_{2,n} number of proper edge-colorings derangement adjacent rich edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite counts from the standalone graph-definition enumerator are 72, 960, 32400 for n=3,4,5.",
+        "Targeted sequence and literature searches returned no exact table explicitly identifying these as rich-neighbor optimum colouring counts."
+      ],
+      "reasoning": "A pre-existing derangement sequence is not a covering graph-colouring table. Non-discovery in a sequence search is evidence of limited reach, not a proof of novelty.",
+      "searches": [
+        "OEIS \"72, 960, 32400\" coloring derangement",
+        "\"rich-neighbor\" \"count\" edge-colorings optimal",
+        "\"rich-neighbor coloring\" \"derangement\" \"enumeration\""
+      ]
+    },
+    "rationale": "Kong determines the optimum palette size for complete bipartite graphs, but the inspected Section 3.1 does not classify all optimum configurations or count them. The necessary-and-sufficient unique-column/derangement theorem, named count, cycle-type orbit count, and density are distinct assertions. Search comparisons found no equivalent statement, with priority risk retained for inaccessible older full text.",
+    "residual_risks": [
+      "The complete 2024 founding paper was not inspected; unexpected enumeration there cannot be definitively excluded.",
+      "Search-index incompleteness and unindexed recent manuscripts may affect priority.",
+      "All review is same-model, without independent scholarly validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes known index and constructive upper bound, not a classification or derangement enumeration of all optimum K_{2,n} colourings.",
+        "evidence": [
+          "Theorem 1.2 states chi for all K_{m,n}.",
+          "Section 3.1 colors a selected large-side star richly and then colors remaining edges using disjoint palettes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21036",
+        "material_read": "HTML abstract, introduction, Theorem 1.2, Section 3.1 on complete bipartite graphs, and relevant optimal-colouring discussion.",
+        "method": "Open-access HTML text; direct examination of theorem, proof and adjacent scope.",
+        "title": "Linear bounds for rich-neighbor edge-colorings",
+        "trigger": "Exactly the same graph family and optimal palette size."
+      },
+      {
+        "assessment": "General linear bounds and existence; no exhaustive optimal-solution count for K_{2,n}.",
+        "evidence": [
+          "General bound at most 6 Delta minus 8.",
+          "An edge xy that is rich forces degree(x)+degree(y)-1 distinct colours for a simple graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.16446",
+        "material_read": "Open-access HTML abstract, introduction, definitions and the first structural rich-edge observations.",
+        "method": "Direct HTML reading.",
+        "title": "The rich-neighbor chromatic index is linear in the maximum degree",
+        "trigger": "Recent same-invariant broad upper bounds and lower bound."
+      },
+      {
+        "assessment": "Known source defining the invariant; no claim of full-document noncoverage is made.",
+        "evidence": [
+          "2024 Discrete Mathematics paper introduces rich-neighbor requirement and concentrates on subcubic graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2023.113803",
+        "material_read": "Bibliographic record and accessible abstract/summaries; complete article unavailable.",
+        "method": "Publisher-index and secondary abstract search, not full-text reading.",
+        "title": "Proper edge-colorings with a rich neighbor requirement",
+        "trigger": "Foundational reference for the exact invariant."
+      },
+      {
+        "assessment": "States a five-colour existence theorem for subcubic graphs without adjacent degree-three vertices; not the family-wide optimum-enumeration claim.",
+        "evidence": [
+          "Published 2025-07-28; the stated theorem concerns subcubic graphs and rich-neighbor five-colourings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-025-02949-y",
+        "material_read": "Publisher abstract and bibliographic details.",
+        "method": "Open publisher abstract.",
+        "title": "On the Rich-Neighbor Edge-Colorings of Subcubic Graphs",
+        "trigger": "Prior bounded-degree results may include small members of K_{2,n}."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5202a43-80b2-45a1-82c9-1f546afed50c",
+  "value": {
+    "rationale": "The question of how many extremal colourings exist is motivated by the sharp 2026 bipartite index theorem. The all-optima rigidity classification gives the exact named count and a complete structural orbit classification by cycle types over an unbounded natural family. The probability among proper minimum-palette colourings is asymptotically 1/n, quantifying rarity. Neither these counts nor optimizer types follow from the value of the optimum index alone.",
+    "status": "PASS"
+  }
+}
