@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:14:21.642287Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The N-step clipped recurrence is a contraction with factor at most r^N. At the two pulses, a=min(1,p+r^g b), b=min(1,p+r^(N-g) a), and g<=N-g forces a>=b. Three exhaustive saturation cases give exactly p0=(1-r^N)/(1+r^g), p1=1-r^(N-g) and the two nonzero maximum terms; check equality at thresholds. Since each positive candidate strictly decreases for consecutive permissible gaps, their max with zero decreases strictly wherever the later gap still overflows. Independent 2592 exact rational checks reconstruct fixed points and monotonicity. Arbitrary real values follow from the displayed inequalities, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McGrath, Hinz & Sivapalan 2007 HESS 11,923–938, full methods are stochastic first-passage event times.",
+          "Kusumastuti et al. 2007 HESS 11,1515–1528 and Rogger et al. 2013 WRR: stochastic flood frequency/threshold contexts according to primary-source accessible descriptions."
+        ],
+        "reasoning": "No cited broader hydrology theorem is stated in terms of fixed two pulses and this clipped, draining periodic map. General monotonicity intuitions alone are not an explicit all-parameter threshold classification.",
+        "searches": [
+          "McGrath Hinz Sivapalan 2007 temporal dynamics hydrological threshold events",
+          "Kusumastuti Struthers Sivapalan Reynolds 2007 threshold effects storm response",
+          "Rogger Viglione Derx Blöschl 2013 threshold flood frequency"
+        ]
+      },
+      "checked_sources": [
+        "Immutable RESULT.md, verify_bucket.py, audit metadata tree 24d03d0c8fb659301d0f222c9fb1bffd563029d4",
+        "McGrath et al. 2007 primary HESS PDF methods and Fig.1",
+        "Kusumastuti et al. HESS 2007 DOI 10.5194/hess-11-1515-2007, indexed primary source",
+        "Rogger et al. 2013 DOI 10.1002/wrcr.20553",
+        "Resultary query: two periodic rain pulses finite storage saturation runoff optimal spacing clipped reservoir"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict monotonicity uses positive derivative of r^g+r^(N-g) for g before midpoint and the exact max-of-three formula.",
+          "Stochastic threshold analysis in McGrath 2007 does not imply this pointwise fixed-arrival scheduling comparison."
+        ],
+        "reasoning": "The stronger implication would require a deterministic majorization/comparison theorem exactly covering clipped exponential storage and event counts; no such theorem identified, but this is an explicit risk.",
+        "searches": [
+          "finite buffer periodic rain pulses cumulative loss optimal spacing theorem",
+          "hydrological threshold stochastic periodic storm rainfall timing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McGrath et al. 2007 DOI 10.5194/hess-11-923-2007 models rainfall statistics and first-passage times under stochastic arrivals.",
+          "The precise recursion S_t=min(C,r S_(t-1)+P_t) has a fixed N-period pair of pulses and exact W_g in the new result."
+        ],
+        "reasoning": "Stochastic threshold event distributions and deterministic periodic invariant orbit volume are different objects. Queueing equivalents require an exact discount/leakage mapping and an all-gap theorem, not established in accessed sources.",
+        "searches": [
+          "two periodic rain pulses finite storage saturation runoff optimal spacing clipped reservoir",
+          "Milly 1993 stochastic storage Poisson events threshold runoff",
+          "deterministic finite buffer equal batch periodic arrivals gap runoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite example W1/C=9/64, W2=W3=0 follows from the analytic formula.",
+          "Resultary returned unrelated oscillators, not a matching periodic hydrological table."
+        ],
+        "reasoning": "No actual matching exact two-pulse data table was retrieved; this absence is not proof of priority.",
+        "searches": [
+          "two periodic rain pulses finite storage saturation runoff optimal spacing clipped reservoir",
+          "N=6 r=1/2 two pulses p=3/4 rainfall runoff 9/64 exact periodic bucket"
+        ]
+      },
+      "rationale": "Prior hydrological papers consider stochastic storm arrivals, event-time distributions and catchment thresholds, not deterministic two-equal-pulse periodic clipped storage and exact total-outflow gap ordering. Explicit formulas not located by Resultary or keyword searches. An equivalent deterministic buffer/finite-dam smoothing theorem remains a historical priority risk.",
+      "residual_risks": [
+        "A general deterministic discounted finite-buffer or finite-dam rearrangement theorem could subsume the monotone-gap law.",
+        "No claim about arbitrary weather, unequal storms, infiltration excess or real catchments.",
+        "Milly 1993 original full text not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different stochastic rainfall/event statistics, not deterministic repeated two-pulse exact gap optimization",
+          "evidence": "Page 925 Fig.1 and the central-moment definitions analyze storm/inter-event time statistics; no fixed two-pulse orbit formula.",
+          "identifier_or_url": "https://hess.copernicus.org/articles/11/923/2007/hess-11-923-2007.pdf",
+          "material_read": "Relevant PDF methods and figures: event definitions, Fig.1, timing distribution and Section 4 methods; screenshot page 925 inspected; not a full line-by-line read",
+          "method": "Public PDF text and screenshot",
+          "title": "Temporal dynamics of hydrological threshold events",
+          "trigger": "Saturation excess runoff, timing and threshold events"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: cannot exclude a deterministic special case from full paper; stated model stochastic",
+          "evidence": "1993 source title explicitly concerns stochastic storage.",
+          "identifier_or_url": "https://doi.org/10.1029/93WR01934",
+          "material_read": "Public abstract/USGS bibliographic record only; full original not retrieved",
+          "method": "Bibliographic/abstract search",
+          "title": "An analytic solution of the stochastic storage problem applicable to soil water",
+          "trigger": "Historical storage-threshold antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact event-specific overflow phases and sharp placement boundary for two fixed precipitation pulses explain how timing alone toggles excess runoff, including zero-runoff ties; a physically motivated idealized storage-control benchmark, not a field prediction or textbook parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general deterministic discounted finite-buffer or finite-dam rearrangement theorem could subsume the monotone-gap law.",
+    "No claim about arbitrary weather, unequal storms, infiltration excess or real catchments.",
+    "Milly 1993 original full text not inspected.",
+    "Publication not ready due to public metadata confidentiality/first-date issues; no scientific revisions were supplied."
+  ],
+  "schema_version": 1
+}

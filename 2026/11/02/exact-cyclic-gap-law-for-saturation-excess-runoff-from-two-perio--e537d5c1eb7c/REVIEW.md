@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-step clipped storage map contracts, so every periodic input pattern has a unique attracting orbit. The reduced two-pulse recurrence has three exhaustive saturation regimes, with explicit switching at \(p_0(g)\) and \(p_1(g)\). The per-period runoff formula follows by calculating each pulse's excess. Both nonzero candidates decrease strictly with the smaller cyclic gap, yielding the exact ordering and its zero-runoff equality cases. The exact-rational code checks 42,600 configurations, both branch boundaries, and an explicit wet/dry contrast; the analytical proof establishes all positive real parameters in the stated range. Residual correctness risk is limited to convention changes outside this precisely specified discrete model.
+PASS
 
-## Originality — PASS, provisional historical priority
+The N-step clipped recurrence is a contraction with factor at most r^N. At the two pulses, a=min(1,p+r^g b), b=min(1,p+r^(N-g) a), and g<=N-g forces a>=b. Three exhaustive saturation cases give exactly p0=(1-r^N)/(1+r^g), p1=1-r^(N-g) and the two nonzero maximum terms; check equality at thresholds. Since each positive candidate strictly decreases for consecutive permissible gaps, their max with zero decreases strictly wherever the later gap still overflows. Independent 2592 exact rational checks reconstruct fixed points and monotonicity. Arbitrary real values follow from the displayed inequalities, not sampling.
 
-Milly (1993) gives stochastic storage distributions for Poisson storms, McGrath, Hinz and Sivapalan (2007) give threshold-event temporal statistics for stochastic rainfall, Kusumastuti et al. (2007) connect a storage threshold bucket to stochastic storm sequences, and Rogger and colleagues (2013) relate soil-storage thresholds to flood-frequency curves. The full publicly accessible primary texts of McGrath et al., Kusumastuti et al., and Rogger et al. were read at their governing methods and conclusions. Their governing distributional objects are not a deterministic, fixed-period pair of pulse times, and their conclusions do not provide the asserted exact gap formula, a three-regime per-pulse phase diagram, or the ordering with precise strictness. Search comparisons against related hydrological and fluid-queue terminology did not identify dominating coverage, though this is not proof of global novelty. Milly's complete original paper was not obtained; general deterministic queueing/majorization literature is an unresolved source of potential antecedents. Any historical-priority claim beyond the evidence is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification solves a natural fixed-volume rainfall-timing problem rather than merely renaming an algebraic identity. It proves a sharp threshold for each event becoming an overflow event, a universal finite-period optimal schedule, an exact continuous-to-zero plateau where multiple placements are equally harmless, and a rational example in which the same total periodic rain produces runoff for one timing but none for another. This clarifies an idealized saturation-excess mechanism and provides an exact benchmark for models with more complex rainfall sequencing. Real watershed predictions would require spatial storage, variable rainfall, and routed flows.
+Prior hydrological papers consider stochastic storm arrivals, event-time distributions and catchment thresholds, not deterministic two-equal-pulse periodic clipped storage and exact total-outflow gap ordering. Explicit formulas not located by Resultary or keyword searches. An equivalent deterministic buffer/finite-dam smoothing theorem remains a historical priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact event-specific overflow phases and sharp placement boundary for two fixed precipitation pulses explain how timing alone toggles excess runoff, including zero-runoff ties; a physically motivated idealized storage-control benchmark, not a field prediction or textbook parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

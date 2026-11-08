@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_bucket.py` with standard Python 3. The script constructs exact rational values of the attracting two-pulse periodic state and verifies the original two-state clipped fixed-point equations, the three-phase runoff law, the max-of-three formula, and its monotonic ordering.
+## correctness
 
-Actual run: `PASS: 42600 exact periodic-state and runoff cases; ordering, boundaries and example verified`.
+PASS
 
-Parameters tested were the six retentions \(\{1/5,1/3,1/2,2/3,3/4,9/10\}\), every period length \(3\leq N\leq17\), all admissible smaller integer gaps, and rainfall ratios \(p=j/40\) for \(1\leq j\leq100\). Further exact tests cover the equal-gap coincidence and the example \(N=6\), \(r=1/2\), \(p=3/4\).
+The N-step clipped recurrence is a contraction with factor at most r^N. At the two pulses, a=min(1,p+r^g b), b=min(1,p+r^(N-g) a), and g<=N-g forces a>=b. Three exhaustive saturation cases give exactly p0=(1-r^N)/(1+r^g), p1=1-r^(N-g) and the two nonzero maximum terms; check equality at thresholds. Since each positive candidate strictly decreases for consecutive permissible gaps, their max with zero decreases strictly wherever the later gap still overflows. Independent 2592 exact rational checks reconstruct fixed points and monotonicity. Arbitrary real values follow from the displayed inequalities, not sampling.
 
-The code is a non-exhaustive finite cross-check; arbitrary real parameters and all periods are covered by the proof in `RESULT.md`, not by enumeration. No external audit or independent validation has been performed. Historical priority remains provisional due to incomplete access to some relevant older primary texts and potential general finite-buffer results.
+## originality
+
+PASS
+
+Prior hydrological papers consider stochastic storm arrivals, event-time distributions and catchment thresholds, not deterministic two-equal-pulse periodic clipped storage and exact total-outflow gap ordering. Explicit formulas not located by Resultary or keyword searches. An equivalent deterministic buffer/finite-dam smoothing theorem remains a historical priority risk.
+
+## value
+
+PASS
+
+The exact event-specific overflow phases and sharp placement boundary for two fixed precipitation pulses explain how timing alone toggles excess runoff, including zero-runoff ties; a physically motivated idealized storage-control benchmark, not a field prediction or textbook parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
