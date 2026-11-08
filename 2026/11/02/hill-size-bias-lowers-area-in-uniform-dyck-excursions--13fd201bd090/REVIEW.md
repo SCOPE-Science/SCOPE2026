@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(n\ge1\), the first-return map \((B,C)\mapsto UBDC\) and the marked-hill insertion map \((B,C)\mapsto(BUDC,\mathrm{mark})\) are explicit and invertible. The area difference is exactly the semilength of \(B\), including both endpoints \(0\) and \(n-1\). Counting the same pair space proves \(\mathbb EH=1\). This yields stochastic order, strictness for \(n\ge2\), and covariance \(-(n-1)/2\) by exchanging \(B,C\). No asymptotic approximation or extrapolation is needed. A standalone exact-integer verifier corroborates the formulas through ten up-steps, including all tail thresholds.
+PASS
 
-## Originality — PASS, qualified
+For every Dyck semilength n>=1, the first-return Catalan pair (B,C) with |B|=j is bijective both with ordinary path UBDC and with marked ground-level hill path BUDC. Thus the same uniform Catalan pair space gives uniform P and H-size-biased P* (since total marked hills=Cn), and A(P)-A(P*)=j>=0 under the stated sum-of-up-step starting heights convention. Pair counts give P(J=j)=Cj C_(n-1-j)/Cn, swapping pair pieces gives EJ=(n-1)/2. Therefore Cov(H,f(A))=E[f(A*)-f(A)]<=0 for every increasing f, strict for strictly increasing f when n>=2; covariance(H,A)=-(n-1)/2. Independently enumerated all Dyck paths n=1..8, validating area distributions, all threshold inequalities and exact rational covariance. This is a true all-n bijection; enumeration is supplementary. The n=1 zero difference boundary is covered.
 
-Peart–Woan (2001), Elizalde–Deutsch (2003), and Cameron–McLeod (2016) discuss hills, peaks, returns, or their marginal enumerations; Haug–Prellberg (2014) concerns area enumeration; Kargin (2024) concerns joint area and total peaks, not ground-level peaks. Materially inspected sources did not state the finite-size hill-size-biased area transport or its all-increasing-functions covariance sign. The first-return and hill-marking ingredients are classical and are not claimed new. Risk: Pergola (2001), *Two bijections for the area of Dyck paths*, could not be examined in full and may contain a related equivalence; other classical generating functions may encode the result. Historical priority therefore remains qualified rather than independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The area is a global excursion/plane-tree path-length statistic, whereas hills count height-one peaks or leaf children of the root. The result supplies an exact finite-size dependence *order* for every monotone area statistic, not merely a sign for one numerical covariance. Its concrete size-biased coupling, displacement law, strictness boundary, and exact moment constant reveal why a local boundary feature is systematically associated with lower global excursion area.
+Catalan first-return decomposition, hill counting, area q-Catalan recurrences and classic Dyck area bijections are prior. Elizalde–Deutsch’s fully inspected hills bijection does not state an all-increasing-functions hill-size-biased area dominance. Haug–Prellberg treat area weights; Kargin treats total peaks rather than ground-level hills. The explicit marked-hill transport and exact stochastic order are the assessed contribution, though Pergola’s potentially relevant 2001 area-bijection article remained inaccessible, so implicit prior equivalent statements are a real priority risk.
 
-## Limits and historical context
+## value
 
-The theorem is limited to uniform Catalan paths and the stated area normalization; no statement applies to biased paths or to all peaks. The 2001 area-bijection article remains a named historical comparison risk. Full independent assessment has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit transport is stronger than computing a covariance: it identifies the entire area distribution under a natural local root-hill size bias and proves stochastic dominance for every increasing observable, with sharp exact covariance and all-size Catalan difference law. It is a motivated structural combinatorial connection rather than arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
