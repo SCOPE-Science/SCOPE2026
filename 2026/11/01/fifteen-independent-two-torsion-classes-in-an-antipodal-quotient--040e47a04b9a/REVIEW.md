@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quotient is defined as the geometric quotient under the free global sign involution and retains distinct quotient cells when their vertex-orbit sets coincide. The full 30-by-360 and 360-by-480 integral cellular boundary operators are reconstructed from all signed matchings. Their chain identity and one-skeleton connectivity are checked. An exact unimodular unit-pivot reduction makes 270 unit pivots, leaves a matrix whose every nonzero entry is exactly ±2, and reduces its half by 15 further unit pivots with no residual nonzero entries. This gives the complete integral Smith factors 1 repeated 270 and 2 repeated 15. The resulting integral homology groups follow from exact ranks and primitivity of the first boundary. The program performs all operations; finite-field experiments have not been treated as integral proof.
+## correctness
 
-## Originality
-PASS with residual risk. The closest general literature establishes the simplicial-double operation and the nonequivariant and equivariant homology decompositions of ordinary vertex inflations. Those results cover the torsion-free homotopy type of the covering complex and are explicitly excluded from the new claim. The quotient has several cells over the same base face and is not an ordinary vertex inflation of the matching complex. Wachs's equivariant homology formula for the cover does not state or directly determine the quotient's integer Smith factors or possible order-four extensions. The generalized inflation theorem requires a flabby-sheaf condition not verified for this quotient; the present claim uses no such assumption. Relevant primary source sections and semantically similar existing mathematical findings were compared; no exact covering result was found, but an unindexed equivalent calculation remains possible.
+PASS
 
-## Mathematical value
-PASS. A natural free symmetry quotient of the newly defined simplicial double develops nontrivial integral torsion even though the covering inflated matching complex is a wedge of 106 circles and 405 two-spheres. The exact fifteen independent two-torsion classes and the complete ranks distinguish the quotient sharply from its cover. This is a concrete obstruction to assuming a nonequivariant inflation sphere-wedge classification descends to a free global sign quotient; the fact is an exact natural integral invariant relevant to studying quotient topology and equivariant constructions, not an arbitrary graph parameter recomputation.
+For n=6, disjoint coordinate matchings with four independent sign choices per matched pair give the exact cover face vector (60,720,960). Global sign reversal fixes no simplex setwise, preserves the pair-index orientation, and produces the quotient Delta-complex with (30,360,480) orbit cells. Independent reconstruction of every boundary incidence verifies ∂1∂2=0, connected quotient 1-skeleton and rank(∂1)=29. An independent sparse integral unimodular ±1-pivot elimination of the 360×480 ∂2 finds 270 unit pivots and a 90×210 residual consisting of exactly 120 entries +2 and 120 entries -2; dividing by 2 permits 15 further unit pivots, leaving a zero 75×195 matrix. Thus Smith factors are 1^270,2^15, with 195 zero columns. Separate modular ranks were 270 over F2 and 285 over F3,F5,F101. Since ker∂1 is primitive, H1=Z^(360−29−285)⊕(Z/2)^15=Z^46⊕(Z/2)^15; H2=Z^(480−285)=Z^195. Euler characteristic 150 agrees. All integer reduction steps are exact, not inference from finite-field ranks. The covering wedge assertion uses Wachs inflation theorem and is distinguished from the newly computed quotient.
 
-## Scope and scientific limits
-The result is one fixed, canonical six-dimensional case. It does not classify all quotients or claim an integral character splitting, homotopy equivalence type or independent external certification. Wachs's general equivariant theorem and the Ayzenberg--Khoroshavkina flabbiness hypothesis were compared explicitly. The executable integer Smith calculation is part of the evidence and is not a substitute for independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact integral quotient homology, notably fifteen independent Z/2 classes, is not stated or mechanically implied by the inspected definitions/connectivity theorem for D2, the ordinary cover wedge decomposition, the equivariant homology module of that cover, or flabby-sheaf-conditional wedge results. These adjacent theorems are credited; no exact signed-orbit Smith table was located. Originality is best-of-knowledge and unindexed equivalent computations remain possible.
+
+## value
+
+PASS
+
+This is a canonical, structurally motivated quotient: doubling the boundary of the six-dimensional cross-polytope and dividing by its global sign symmetry. Dimension six is the first cross-polytope dimension whose double has 2-cells; for dimensions ≤5 the corresponding quotient has dimension ≤1 and cannot acquire first-homology torsion. The exact 15 two-torsion generators therefore exhibit a natural first-dimensional obstruction to naive descent of an inflation wedge theorem and provide a concrete integral invariant for equivariant-topology comparisons. No arbitrary parameter selection, unmotivated tiny slice or general classification is claimed; standalone exact topology is worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
