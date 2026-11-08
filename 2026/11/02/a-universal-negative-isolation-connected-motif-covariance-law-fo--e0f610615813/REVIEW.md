@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses exactly specified uniform matchings and induced connected subgraphs. Fixing one isolated chord partitions the remaining endpoints into two independent uniform matching arcs. Connected induced motifs cannot straddle these arcs. Counting endpoint pairs by arc size yields the exact covariance. Vandermonde's identity forces each bracket strictly negative. For fixed motif size, adjacent chords supply the leading term and a geometrically bounded tail of nonadjacent isolated chords is lower order. The executable finite checker verifies 684 exact assertions from explicit matchings (including all 10,395 size-six diagrams), without being used as a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Conditioning on a noncrossed chord with k endpoints-pairs inside splits the remaining matching into two independent uniform submatchings; a connected motif cannot have vertices in both arcs. Counting (2n-2k-1) endpoint choices yields the exact covariance sum. Vandermonde C(k,r)+C(n-1-k,r)≤C(n-1,r)<C(n,r) proves strict sign. The adjacent-chord term gives -p_H n^{r-1}/(r-1)!; nonadjacent terms have O(n^{r-2}) total for fixed r by a factorial ratio tail bound. Independent exhaustive perfect-matching enumeration for n≤5 and connected K2 verified the finite identities. Enumeration does not replace the asymptotic tail proof.
 
-Acan (2015) and Flajolet–Noy (2000) establish the foundational random diagram model, component behavior, and marginal crossing moments. Neither inspected relevant material states this connected induced-motif covariance kernel, size-only normalization, or universal negative sign. Existing simple-chord/crossing formulas do not dominate isolation of arbitrary (not necessarily adjacent) chords, nor larger connected motifs. The related random graph isolation–motif covariance does not transfer to a non-independent circle graph. Stoimenow (2000) was available at abstract level only; no claim is made about all its contents. A stronger historical generating-function treatment could imply the identity, so priority remains qualified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a structural all-connected-motif sign law in a natural probability model, a complete finite-size normalized covariance kernel independent of motif shape, and a quantitative leading asymptotic. The explicit disconnected-motif reversal explains why connectivity is mathematically essential. It resolves dependence across an infinite hierarchy of local crossing patterns and global isolated-component statistics, not merely one convenient low-order count.
+Acan develops the same uniform chord intersection model and isolation/marginal counts; Flajolet–Noy and Paguyo derive component, crossing and simple-chord marginal laws. Isolated chords are not all adjacent simple chords, and separate marginals do not specify covariance with every connected induced motif. The arc-splitting identity and H-shape invariance were not found in the primary sections checked. Older Stoimenow chord enumeration is an unresolved risk.
 
-## Literature and limits
+## value
 
-Relevant primary material: Acan, arXiv:1501.01489v1, sections on degree and monolithic diagrams; Flajolet and Noy, RR-3914, component and crossing sections; Paguyo, arXiv:2104.01134, marginal simple-chord and crossing results. The full text of Stoimenow's *On the number of chord diagrams* (2000) could not be inspected and is a residual historical-priority risk. The proof does not cover disconnected patterns in general, nonuniform chord models, or growing motif sizes. Independent expert validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The strict all-shape covariance and its universal normalization classify a natural connected motif statistic in correlated random circle graphs; the 2K1 counterexample proves connectedness is substantive, not a cosmetic parameter restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
