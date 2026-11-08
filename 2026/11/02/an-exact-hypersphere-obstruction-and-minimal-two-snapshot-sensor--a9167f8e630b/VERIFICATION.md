@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Gaussian-puff sensor theorem
+# Independent mathematical audit
 
-All general assertions are proved analytically in `RESULT.md`. To reproduce the finite checks, run `python3 checker.py` in this directory; it requires only Python 3 standard-library modules.
+## correctness
 
-The checker verifies with exact rational arithmetic that the illustrative three-point array is cospherical, that the fourth sensor breaks cosphericity, and that the sphere-inversion map rescales *every* squared source-to-sensor distance exactly. It also checks identical log-concentration time profiles, mirrors across a line, and 1,200 deterministic randomized two-snapshot reconstructions of source position, positive diffusivity, release time, and positive mass. All 6,036 assertions passed during preparation. The exact four-sensor design determinant is 8.
+PASS
 
-Finite checks do not prove global identifiability or rule out coverage by previous mathematical literature. These conclusions rest respectively on the written rank-and-inversion proof and the cited comparison, which retains explicit historical-priority risks. There has been no independent audit.
+At each time the log field is an affine quadratic in sensor coordinates. Full column rank recovers w_1,w_2,z,Q and then diffusivity and emission time explicitly; true physical data ensure admissible signs. Rank-deficient null polynomial forces all sensors onto a sphere or affine hyperplane, with exact source reflection in hyperplane or Kelvin-style source/diffusivity/mass inversion for a sphere giving identical full time traces. A single snapshot identifies only kappa*(t1-t0). Independently obtained determinant magnitude 8 of four-sensor planar example and its exact circle inversion.
+
+## originality
+
+PASS
+
+Lu--Dragotti--Vetterli (2011) full author PDF was read: their equations (11)-(15) explicitly include known diffusion coefficient mu and derive d+1 minimum sensors for that different inverse problem. The unknown-coefficient and all-time cospherical obstruction add a new structural classification. Broad inverse-source identifiability results, especially inaccessible Matthes--Groell--Keller 2006, may overlap.
+
+## value
+
+PASS
+
+Minimal design size and exact bad geometries are directly useful natural structural identifiability facts for diffusion sensing; all-time ambiguity gives a stronger obstruction than simple dimension counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

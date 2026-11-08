@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each time the log field is an affine quadratic in sensor coordinates. Full column rank recovers w_1,w_2,z,Q and then diffusivity and emission time explicitly; true physical data ensure admissible signs. Rank-deficient null polynomial forces all sensors onto a sphere or affine hyperplane, with exact source reflection in hyperplane or Kelvin-style source/diffusivity/mass inversion for a sphere giving identical full time traces. A single snapshot identifies only kappa*(t1-t0). Independently obtained determinant magnitude 8 of four-sensor planar example and its exact circle inversion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2011 paper addresses several instantaneous sources and known mu; 2006 abstract treats source tracking with homogeneous wind/advection and minimal placement."
+        ],
+        "reasoning": "Broader source multiplicity with fixed diffusivity does not dominate unknown diffusivity, while broader general inverse theory could conceivably imply the rank criterion.",
+        "searches": [
+          "Lu Dragotti Vetterli 2011 Sections 3.2-3.3",
+          "Matthes Groell Keller 2006 Source localization with minimal number networked sensors"
+        ]
+      },
+      "checked_sources": [
+        "Lu Dragotti Vetterli author manuscript https://www.commsp.ee.ic.ac.uk/~pld/publications/AllertonPaper.pdf sections 2-4",
+        "Matthes Groell Keller IFAC 2006 abstract",
+        "Git RESULT.md blob a2048bb779d0c6867329cbc0a34340bf43163c47",
+        "Git checker.py blob 85f51575466a025f087a1f847e1951290997be4e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 derivation requires calibrated mu and enough temporal samples; new theorem reconstructs mu from two instants with an extra spatial coefficient."
+        ],
+        "reasoning": "Known coefficient cannot imply identifiability under unknown coefficient; all-time nonidentifiability is a separate necessity result.",
+        "searches": [
+          "Lu et al Allerton 2011 equations 11-15",
+          "Matthes et al 2006 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lu et al., eqs. (11)-(15) show 1/(4mu) as a known coefficient in their distance inversion."
+        ],
+        "reasoning": "Known mu collapses one unknown degree of freedom; the full-rank H criterion and sphere inversion are not equivalent to their d+1 algorithm.",
+        "searches": [
+          "Lu Dragotti Vetterli 2011 author PDF",
+          "web unknown diffusivity cospherical sensor source ambiguity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Allerton gives d+1 sensors in known-mu model but no full-rank H table in reviewed pages."
+        ],
+        "reasoning": "No exact unknown-mu sensor-rank classification or all-time hypersphere counterexample found in checked papers.",
+        "searches": [
+          "2011 Allerton paper Table and equations (11)-(15)",
+          "web source minimal sensor d+2 unknown diffusion coefficient"
+        ]
+      },
+      "rationale": "Lu--Dragotti--Vetterli (2011) full author PDF was read: their equations (11)-(15) explicitly include known diffusion coefficient mu and derive d+1 minimum sensors for that different inverse problem. The unknown-coefficient and all-time cospherical obstruction add a new structural classification. Broad inverse-source identifiability results, especially inaccessible Matthes--Groell--Keller 2006, may overlap.",
+      "residual_risks": [
+        "Possible general inverse-source theorem subsuming full-rank H criterion not ruled out; 2006 close source inaccessible.",
+        "No measurement noise, wind, unknown calibration or multiple puff identifiability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING unknown-mu rank classification; COVERS known-mu inverse antecedent",
+          "evidence": "Equation 11 has D_n/(4mu) and eq. 15 recovers positions with N>=d+1 when mu known; their paper does not establish all-time sphere inversion for unknown mu.",
+          "identifier_or_url": "https://www.commsp.ee.ic.ac.uk/~pld/publications/AllertonPaper.pdf",
+          "material_read": "Full accessible 5-page primary author manuscript including Sections 2-4, eqs 11-15; visually examined PDF page 3",
+          "method": "Web PDF lines and screenshot page 2",
+          "title": "Localization of Diffusive Sources Using Spatiotemporal Measurements",
+          "trigger": "Same Gaussian Green function, sparse diffusive sources, minimal sensors"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE",
+          "evidence": "Abstract treats homogeneous wind/diffusion point source and optimized sensor placements; no inference about entire manuscript.",
+          "identifier_or_url": "https://www.researchgate.net/publication/287024602_Source_localization_with_minimal_number_of_networked_sensors",
+          "material_read": "Bibliographic abstract only, source full text unavailable",
+          "method": "Publisher bibliographic and OA lookup",
+          "title": "Source localization with minimal number of networked sensors",
+          "trigger": "Very close earlier minimal sensor placement title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal design size and exact bad geometries are directly useful natural structural identifiability facts for diffusion sensing; all-time ambiguity gives a stronger obstruction than simple dimension counting.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lu Dragotti Vetterli author manuscript https://www.commsp.ee.ic.ac.uk/~pld/publications/AllertonPaper.pdf sections 2-4",
+    "Matthes Groell Keller IFAC 2006 abstract",
+    "Git RESULT.md blob a2048bb779d0c6867329cbc0a34340bf43163c47",
+    "Git checker.py blob 85f51575466a025f087a1f847e1951290997be4e"
+  ],
+  "disposition": "passed",
+  "final_claim": "For noiseless two-time measurements of a single free-space Gaussian diffusion puff with unknown source, mass, diffusivity and emission time, global identifiability for every admissible parameter tuple holds exactly when the N-by-(d+2) lifted sensor matrix [1,s_i,||s_i||^2] has full rank. Every deficient design admits an all-time nonunique pair; d+2 sensors and two instants are sharp.",
+  "limitations": [
+    "Possible general inverse-source theorem subsuming full-rank H criterion not ruled out; 2006 close source inaccessible.",
+    "No measurement noise, wind, unknown calibration or multiple puff identifiability."
+  ],
+  "residual_risks": [
+    "Possible general inverse-source theorem subsuming full-rank H criterion not ruled out; 2006 close source inaccessible.",
+    "No measurement noise, wind, unknown calibration or multiple puff identifiability."
+  ],
+  "schema_version": 1
+}
