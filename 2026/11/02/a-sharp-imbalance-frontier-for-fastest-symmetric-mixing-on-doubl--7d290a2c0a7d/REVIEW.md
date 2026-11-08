@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-cell Laplacian factorization yields one eigenvalue at the leaf-difference level; strict root-interval estimates control the remaining spectral modes. The explicit positive subgradient multipliers supply a global certificate after averaging over leaf permutations. The strict below-threshold direction and monotone real-parameter frontier prove sharpness. The standalone verification program verifies 1518 exact-rational characteristic evaluations, 145 exact positive-multiplier checks, 145 finite spectral checks, 20 locally improving cases, and 1120 feasible comparator examples. Risk: the proof depends on the exact quotient and the positive-interval inequalities; these are spelled out in RESULT.md and checked in reproducibility code.
+## correctness
 
-**Originality — PASS, with risk.** Searches considered exact bistar/double-star Markov mixing, automorphism reductions, fastest-mixing path and clique-barbell results, and mathematical record equivalences. Boyd et al. 2007 solve a two-*clique* bridge model, not this asymmetric two-star regime. Jafarizadeh 2020 / the freely accessible 2025 full-text version addresses bistars but conditions (59)–(60) explicitly exclude the present uniform-stationary model with at least two leaves per hub; its given interior formulas do not imply this boundary optimum. Search noncoverage cannot establish absolute originality. Residual risk: other specialized results or an overlooked implication of broader semidefinite theory.
+PASS
 
-**Value — PASS.** The work identifies a sharp structural boundary of a natural finite-state network-design problem, gives a nontrivial closed form above that boundary, and an explicit global dual certificate valid against all symmetric stochastic transition matrices, not merely graph-invariant candidates. The threshold's large-size ratio and failure below the frontier distinguish a genuinely different regime from previously treated interior solutions. Risk: the complementary parameter regime remains unsolved.
+Convexity of ||P-J/N|| and leaf-class automorphisms reduce global optimum to three symmetric weights a,b,c. At candidate both hub row constraints saturate, quotient 4x4 Laplacian polynomial has factors z(z-c)[z²-(2+a)z+(p+q+2)ab]; leaf differences have eigenvalues a or c. Factor sign bounds place other nonzero eigenvalues inside (c,2-c), hence SLEM=1-c=q²/(q²+q-p). A candidate quotient Rayleigh witness x and the right-leaf difference eigenvalue yield an affine-max lower support F; positive Lagrange multipliers exist iff H_{p,q}>=0, proving global optimum. If H<0, decreasing the bridge weight while preserving hub saturation lowers both active eigenbranches and hence SLEM. H(q) strictly increases with unique zero in (2p,3p), with asymptotic ratio 1+sqrt2. Independent direct symmetric-matrix eigenvalues and local improvements for 6 configurations corroborated certificates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical fastest-mixing SDP and symmetry results motivate the objective, but a highly relevant published bistar theorem assumes mass inequalities violated by these uniform-star hub/leaf configurations (p>=2). Thus its formula cannot simply be specialized; the new imbalance frontier has separate dual analysis.
+
+## value
+
+PASS
+
+Motivated global graph-optimization boundary: exact stochastic mixing optimum, explicit admissible weights, sharp failure on the other side and asymptotic imbalance onset for an unbounded tree family. Fills a concrete excluded case of previously solved conditional bistar formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

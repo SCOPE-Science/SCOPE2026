@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:51:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/verify.py",
+        "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC"
+      ],
+      "rationale": "Convexity of ||P-J/N|| and leaf-class automorphisms reduce global optimum to three symmetric weights a,b,c. At candidate both hub row constraints saturate, quotient 4x4 Laplacian polynomial has factors z(z-c)[z²-(2+a)z+(p+q+2)ab]; leaf differences have eigenvalues a or c. Factor sign bounds place other nonzero eigenvalues inside (c,2-c), hence SLEM=1-c=q²/(q²+q-p). A candidate quotient Rayleigh witness x and the right-leaf difference eigenvalue yield an affine-max lower support F; positive Lagrange multipliers exist iff H_{p,q}>=0, proving global optimum. If H<0, decreasing the bridge weight while preserving hub saturation lowers both active eigenbranches and hence SLEM. H(q) strictly increases with unique zero in (2p,3p), with asymptotic ratio 1+sqrt2. Independent direct symmetric-matrix eigenvalues and local improvements for 6 configurations corroborated certificates.",
+      "residual_risks": [
+        "The exact quotient factorization and dual gradient are the essential nonstandard calculations; finite numerical checks are corroboration, not proof for all integers.",
+        "Claim only classifies global optimum on q>=Q_p; below this it shows candidate strictly suboptimal but not true optimizer; uniqueness only invariant optimizers for q>Q_p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General semidefinite and symmetry reductions cover formulation, not the sharp rational frontier.",
+          "Published bistar result is conditional on distinct constraints failing in the candidate problem."
+        ],
+        "reasoning": "No located stronger theorem supplies this regime; SDP dual-certificate construction and the frontier sign analysis remain substantive.",
+        "searches": [
+          "Boyd Diaconis Xiao 2004 fmmc.pdf",
+          "Boyd Diaconis Parrilo Xiao arxiv:0709.0955",
+          "Jafarizadeh IEEE 2020 Section 6.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: fastest mixing Markov chain bistar double star graph unbalanced optimal symmetric stochastic transition SLEM",
+        "https://arxiv.org/abs/2501.02421",
+        "https://arxiv.org/abs/0709.0955",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jafarizadeh mass condition is false for p>=2 with uniform stationary distribution, so the theorem cannot be invoked with its hypothesis intact.",
+          "Boyd symmetry convexity gives only invariant optimizer existence, not candidate value or necessity of H>=0."
+        ],
+        "reasoning": "The candidate is not a mechanical corollary of the published formulas; nevertheless a different older double-star solution may be relevant.",
+        "searches": [
+          "Jafarizadeh Section 6.7 formulas (59)-(60)",
+          "Boyd et al 2007 symmetric graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jafarizadeh Section 6.7 treats bistar, but conditions (59)-(60) include hub probability square dominating hub×sum leaf probabilities; uniform p>=2 leaves violates it."
+        ],
+        "reasoning": "The object alias bistar was explicitly checked; same graph title does not imply the old result covers this excluded uniform distribution.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain bistar double star graph unbalanced optimal symmetric stochastic transition SLEM",
+          "Jafarizadeh 2020 arxiv:2501.02421 Section 6.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary spider entry analyzes lazy random walk coupling tails rather than optimizing all symmetric stochastic matrices on unbalanced double stars."
+        ],
+        "reasoning": "No exact Q_p frontier database/table was located; cannot infer full originality just from no semantic hit.",
+        "searches": [
+          "Resultary: fastest mixing Markov chain bistar double star graph unbalanced optimal symmetric stochastic transition SLEM",
+          "published Resultary balanced spider random walk entry SCOPE002"
+        ]
+      },
+      "rationale": "The classical fastest-mixing SDP and symmetry results motivate the objective, but a highly relevant published bistar theorem assumes mass inequalities violated by these uniform-star hub/leaf configurations (p>=2). Thus its formula cannot simply be specialized; the new imbalance frontier has separate dual analysis.",
+      "residual_risks": [
+        "Other specialized bistar and tree-fastest-mixing literature may solve the uniform stationary problem with different formula.",
+        "Jafarizadeh preprint posting is later than the original 2020 journal paper; priority comparison is to original result and explicit hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PRIOR_NOT_APPLICABLE",
+          "evidence": "Uniform stationary distribution with >=2 leaves per hub violates required mass inequality.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+          "material_read": "Full available text Section 6.7 and conditions (59)-(60) including stationary-mass restriction",
+          "method": "Read primary full-text bistar derivation and compare hypotheses numerically/symbolically",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Exact bistar (double star) and fastest-mixing objective"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EXACT_FRONTIER",
+          "evidence": "General graph automorphism reduction does not provide this unbalanced tree optimal SLEM.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Primary article symmetry reduction and cited balanced clique-barbell example",
+          "method": "Read relevant statement and compare underlying graph",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General automorphism/spectral reduction and possible explicit barbell"
+        },
+        {
+          "assessment": "KNOWN_FRAMEWORK",
+          "evidence": "General convex optimization method, not this threshold theorem.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Foundational SDP formulation and symmetric stochastic matrix objective",
+          "method": "Inspect primary framework and compare exact graph family",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational SLEM SDP characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/RESULT.md",
+        "https://arxiv.org/abs/2501.02421",
+        "https://arxiv.org/abs/0709.0955",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf"
+      ],
+      "rationale": "Motivated global graph-optimization boundary: exact stochastic mixing optimum, explicit admissible weights, sharp failure on the other side and asymptotic imbalance onset for an unbounded tree family. Fills a concrete excluded case of previously solved conditional bistar formulas.",
+      "residual_risks": [
+        "Future literature may establish stronger or equivalent prior coverage.",
+        "Other specialized bistar and tree-fastest-mixing literature may solve the uniform stationary problem with different formula.",
+        "Jafarizadeh preprint posting is later than the original 2020 journal paper; priority comparison is to original result and explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-imbalance-frontier-for-fastest-symmetric-mixing-on-doubl--7d290a2c0a7d/verify.py",
+    "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC",
+    "https://arxiv.org/abs/2501.02421",
+    "https://arxiv.org/abs/0709.0955",
+    "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Other specialized bistar and tree-fastest-mixing literature may solve the uniform stationary problem with different formula.",
+    "Jafarizadeh preprint posting is later than the original 2020 journal paper; priority comparison is to original result and explicit hypotheses.",
+    "The exact quotient factorization and dual gradient are the essential nonstandard calculations; finite numerical checks are corroboration, not proof for all integers.",
+    "Claim only classifies global optimum on q>=Q_p; below this it shows candidate strictly suboptimal but not true optimizer; uniqueness only invariant optimizers for q>Q_p."
+  ],
+  "schema_version": 1
+}
