@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:44:01.929373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m≥3, two hubwise unit prices p≤q and budget B>0 on K_(2,m), concavity of λ₂ in edge conductances permits averaging over leaf permutations without decreasing the unrestricted optimum. The hub-constant u,v matrix has nonzero eigenvalues s=u+v (mult. m−1) and roots of z²−(m+1)sz+m(m+2)uv. Requiring λ₂≥1 is equivalent to s≥1 and uv≥((m+1)s−1)/(m(m+2)); at fixed s the cheaper allocation uses the minimal admissible expensive-hub weight v=(s−sqrt(D(s)))/2. With D=(s−a)²−b², strict convexity of m[ps+(q−p)v(s)] for p<q yields the exact switch at sqrt(q/p)+sqrt(p/q)=m²−2, both explicit C* branches, positive symmetric optimizers and Fiedler multiplicities m versus 1. The p=q continuum s=1, uv≥1/(m+2) is treated separately. Independent sympy exact spectral factorizations in three dimensions and 70 price/parameter combinations corroborated the analytic optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General spectral SDP/cost design handles the objective numerically and provides averaging tools, but neither source states the analytic price threshold. The interlayer model constrains one-to-one links between fixed connected layers."
+        ],
+        "reasoning": "A general solvability framework does not give the exact closed two-regime cost and optimizer without additional eigenvalue factorization and convex reduction; the specified interlayer graphs do not contain this arbitrary two-hub class.",
+        "searches": [
+          "Ghosh Boyd 2006 Upper bounds on algebraic connectivity via convex optimization",
+          "Shafi Arcak El Ghaoui 2010 Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+          "Shakeri et al arxiv:1510.06785 Maximizing Algebraic Connectivity in Interconnected Networks"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.laa.2006.03.006",
+        "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+        "https://arxiv.org/abs/1510.06785",
+        "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+        "Resultary search query: Algebraic connectivity max weighted complete bipartite K_{2,m} distinct hubwise edge conductance prices budget spectral gap phase transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general variational concavity method proves symmetrization; it does not imply either branch of C*(p,q,m). The interlayer paper has fixed intralayer edges and uniform budget, not independent hub-class prices."
+        ],
+        "reasoning": "The new result is a precise calculation using the classical method, not a claim that optimizing λ₂ is novel; prior optimization schemes do not state the joint price threshold, optimizer positivity and Fiedler multiplicity classification.",
+        "searches": [
+          "Ghosh Boyd 2006 symmetry averaging and example graph families",
+          "Shafi Arcak El Ghaoui 2010 Sections III–V",
+          "Shakeri et al 2015 one-to-one interlayer model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd unpriced block examples and a Resultary record on symmetric-edge-polytope one-skeleton spectra have different graph objectives and variables."
+        ],
+        "reasoning": "An equivalent statement must concern conductance optimization on the original K2m with two per-hub prices, not just an unweighted biclique spectrum or a distinct polytope graph.",
+        "searches": [
+          "weighted algebraic connectivity optimization K2m two hub prices conductance budget",
+          "Resultary: Algebraic connectivity max weighted complete bipartite K_{2,m} distinct hubwise edge conductance prices budget spectral gap phase transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned mathematical record on complete-bipartite symmetric-edge polytopes reports gap of the polytope one-skeleton, not cost-constrained original K2m; the other hits concern different optimizations."
+        ],
+        "reasoning": "No exact matching two-price threshold table identified in bounded searches; a specialist graph-embedding or dual-cost table remains plausible.",
+        "searches": [
+          "\"K_{2,n}\" weighted algebraic connectivity optimal costs price threshold",
+          "Resultary: Algebraic connectivity max weighted complete bipartite K_{2,m} distinct hubwise edge conductance prices budget spectral gap phase transition"
+        ]
+      },
+      "rationale": "Ghosh–Boyd 2006 supplies concavity/symmetrization and generic algebraic-connectivity design, Shafi–Arcak–El Ghaoui 2010 formulates cost-aware spectral SDP constraints, and Shakeri et al. 2015 studies one-to-one multilayer interconnection with an unpriced resource sum. These primary sources describe methods or different graph/price models rather than an explicit two-price all-m K_(2,m) optimum, sharp price-ratio threshold or multiplicity change. A published semantic hit about complete-bipartite symmetric-edge polytopes concerns an entirely different graph, not this priced-Laplacian design. More specialist historical dual formulations remain possible.",
+      "residual_risks": [
+        "A specialist priced-network graph-embedding theorem may already contain this two-regime formula in dual terms.",
+        "Only symmetric optimizer is explicitly classified; no statement about uniqueness of all asymmetric optimizers or discrete-time absolute-gap mixing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Basic averaging is prior, but no distinct two-hub edge-cost formula in inspected examples",
+          "evidence": [
+            "Ghosh–Boyd graph symmetry technique and unpriced examples."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2006.03.006",
+          "material_read": "Open-access full article mathematical framework, relevant sections on symmetry and graph families; compared cost structure",
+          "method": "Primary research exposition and model/theorem comparison",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Foundational concavity/symmetrization method with graph examples"
+        },
+        {
+          "assessment": "General cost-aware semidefinite programs do not state the price-dependent closed K2m optimizer and threshold",
+          "evidence": [
+            "Cost-constrained node and edge spectral feasibility, distinct examples."
+          ],
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+          "material_read": "Eight-page accessible PDF; model, cost-constrained optimization equations and graph examples in Sections III–V; visual first page and relevant proof screenshots were inspected",
+          "method": "PDF text extraction and visual page inspection",
+          "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+          "trigger": "Closest earlier cost-aware Laplacian eigenvalue design"
+        },
+        {
+          "assessment": "Different one-to-one interlayer resource geometry and unpriced interlink budget",
+          "evidence": [
+            "Theorem constraints and underlying graphs differ from a priced K2m design."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+          "material_read": "Original arXiv HTML abstract, constraints and main theorem statements on one-to-one interlayer edges",
+          "method": "Primary network-model and implication comparison",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Related budgeted spectral connectivity phase transition"
+        },
+        {
+          "assessment": "Multilayer budget transition with fixed intralayer graphs; no evidence it supplies the two-price complete-bipartite formula",
+          "evidence": [
+            "The studied interconnection network and price model are not equivalent."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+          "material_read": "Accessible network-model sections and search hits comparing price/graph constraints",
+          "method": "Targeted primary article material and assumption comparison",
+          "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+          "trigger": "Later related layered-network spectral optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result solves a natural cost-asymmetric network-conductance design family in closed form with a sharp price-induced change in the active spectral bottleneck and dimension of Fiedler eigenspace, supplying structural guidance and avoiding a numerical SDP for each budget. The all-m phase boundary is a motivated exact invariant, not merely an unpriced standard spectrum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1016/j.laa.2006.03.006",
+    "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+    "https://arxiv.org/abs/1510.06785",
+    "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+    "Resultary search query: Algebraic connectivity max weighted complete bipartite K_{2,m} distinct hubwise edge conductance prices budget spectral gap phase transition"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact two-regime optimum spectral gap for independently weighted K_(2,m) edges priced by hub under budget B, with sharp price-ratio and Fiedler multiplicity transition.",
+  "limitations": [
+    "K_(2,m) m>=3, unnormalized Laplacian, positive hubwise price classes, freely nonnegative individual conductances and total price budget. Classifies optimal value and orbit-constant solutions, not every asymmetric optimizer."
+  ],
+  "residual_risks": [
+    "A specialist priced-network graph-embedding theorem may already contain this two-regime formula in dual terms.",
+    "Only symmetric optimizer is explicitly classified; no statement about uniqueness of all asymmetric optimizers or discrete-time absolute-gap mixing."
+  ],
+  "schema_version": 1
+}
