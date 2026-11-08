@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The proof first gives necessary and sufficient PL-four conditions using all palindromic prefixes/suffixes of a three-one word; then each four-factor optimum has two positive all-zero end blocks. The central split must allocate the three ones as (1,2) or (2,1), giving the disjoint equations p+q=b or p+q=c, hence exactly b+c+2 cuts. A four-nonnegative-parameter bijection proves H(z,u) and sharp k support; uniform simplex Riemann sums plus exact polynomial integration prove the conditional limiting density and moments. Explicit boundary cases b=0, c=0, a=0 or d=0 are handled. Independent finite dynamic programming of all 12,650 weight-three words through length 24, direct cut enumeration, two counting representations through length 100, and rational moment checks passed. The proof is not replaced by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ravsky treats extrema/average PL in unrestricted binary words; Fici et al. optimize PL algorithmically; Frid et al. analyze infinite-word behavior; Borchert–Rampersad count palindrome-pair factors."
+      ],
+      "reasoning": "A general polynomial-time method for finding the optimum, an unrestricted maximum, or counts of palindrome-pair substrings do not by themselves produce a closed per-word optimum multiplicity, bivariate spectrum, or asymptotic conditioned law.",
+      "searches": [
+        "enumerating shortest palindromic decompositions distinct optimal factorization multiplicity",
+        "all minimum palindrome factorization cuts four pieces weight three gap criterion",
+        "arxiv:1004.1278",
+        "arxiv:1210.6179",
+        "arxiv:1509.05396"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1004.1278",
+      "arxiv:1210.6179",
+      "arxiv:1403.2431",
+      "arxiv:1509.05396",
+      "OEIS:A241211",
+      "https://oeis.org/A241208",
+      "https://oeis.org/A241210",
+      "prior:d1ffbb20-77e9-4221-864f-c5048aecca42",
+      "prior:b1b3dd5b-256d-4ddc-a5b1-225ab02dc4ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier defect theorem fully covers which words have positive palindromic defect and their unweighted counts. The privileged-word theorem covers a different recursive predicate. Frid et al. explicitly exhibit nonunique optimal factorizations only as an introductory illustration."
+      ],
+      "reasoning": "The new claim is not that the PL-four words exist, that they have positive defect, or that their unweighted number is new. For fixed a,b,c,d in that set, the new invariant M(w) counts cut tuples; two words may share the same defect but have different M(w). The explicit (1,2)/(2,1) middle split bijection is required to infer M=b+c+2, and its bivariate and limiting consequences are not statements made by the compared sources.",
+      "searches": [
+        "prior scientific claim ID:d1ffbb20-77e9-4221-864f-c5048aecca42",
+        "prior scientific claim ID:b1b3dd5b-256d-4ddc-a5b1-225ab02dc4ce",
+        "count shortest palindrome factorizations for binary words with three ones bivariate generating function",
+        "arxiv:1210.6179",
+        "OEIS:A241211"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frid–Puzynina–Zamboni give a short nonunique optimal example but focus their theorems on infinite words. Fici et al. give algorithms for palindromic length and one minimum factorization. The earlier three-marker defect result gives an eligibility region but no count of optimum cuts."
+      ],
+      "reasoning": "Equivalent terminology, inversion of factors, or a dynamic-programming recurrence does not assert an all-length explicit count of distinct optimal cut lists. The cut-parameter bijection is additional information unavailable from the optimum value or defect alone.",
+      "searches": [
+        "number of optimal minimum palindromic factorization multiplicity of binary word with exactly three ones",
+        "binary three ones palindromic length four factorizations b+c+2",
+        "shortest palindromic factorization number of optimal partitions fixed weight binary",
+        "arxiv:1210.6179",
+        "arxiv:1403.2431"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A241211 counts unique full factorizations with every block length at least two. A241208 deals with even-length palindrome factors; A241210 concerns existence with minimum block length two. Prior defect enumeration gives the unweighted specialization of H(z,u) at u=1, but not the joint coefficients."
+      ],
+      "reasoning": "These exact database/table objects have different constraints and counts; equality of a one-variable specialization would not imply the nontrivial joint distribution indexed by optimal-cut multiplicity.",
+      "searches": [
+        "Web: site:oeis.org palindromic factorization three ones",
+        "Web: site:oeis.org palindromic length number factorizations exactly four factors",
+        "OEIS:A241211",
+        "OEIS:A241208",
+        "OEIS:A241210",
+        "generating function 2 z^8 y^3 / ((1-z)^2 (1-z^3 y) (1-z^4 y^2))"
+      ]
+    },
+    "rationale": "After excluding the already-known eligibility set and unweighted enumeration, the new theorem counts all optimal palindrome-cut lists for each three-one word in the PL-four region, obtains a bivariate distribution, sharp finite-length multiplicity threshold, and conditional scaling law. These do not follow from prior defect values or known algorithms returning one optimum. Direct searches and primary comparisons did not uncover an equivalent; this remains a qualified best-knowledge assessment.",
+    "residual_risks": [
+      "Searches are not exhaustive priority proofs; unindexed or differently worded equivalent results remain possible.",
+      "The earlier defect theorem covers the eligibility region and unweighted specialization, so neither is claimed new.",
+      "The mathematical self-review and finite checker are not independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unrestricted minimum number of palindrome blocks and its average/extremal values do not count all minimum cut configurations in a fixed-weight family.",
+        "evidence": [
+          "2010-04-08 first arXiv record; main purpose is exact worst-case palindromic length and average over all binary words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.1278",
+        "material_read": "Abstract, definitions, extremal/average statements and related proof passages of accessible article text",
+        "method": "Accessible arXiv-linked article text and source metadata; theorem-level comparison",
+        "title": "On the Palindromic Decomposition of Binary Words",
+        "trigger": "Direct primary source defining palindromic length and its extremal and average behavior"
+      },
+      {
+        "assessment": "The article notes a particular short word with two distinct minimum factorizations, but its theorems address unbounded palindromic length of factors in infinite words. It does not imply the claimed all-length fixed-three-one multiplicities.",
+        "evidence": [
+          "Introductory example 010011 has two distinct optimal 3-block decompositions; Theorem 1 on k-power-free infinite words; later theorems on run conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.6179",
+        "material_read": "Full accessible arXiv text; introduction including a two-cut example, sections 2-4 on power-free words, privileged words and infinite-word conditions",
+        "method": "Read HTML article passages and theorem statements",
+        "title": "On Minimal Factorizations of Words as Products of Palindromes",
+        "trigger": "Highly relevant title plus explicit statement about multiplicity of minimal factorizations"
+      },
+      {
+        "assessment": "Finds the minimum number and a minimum factorization for arbitrary words; the claimed new statistic is the number of all optimal cut lists and its finite-length distribution in the weight-three slice.",
+        "evidence": [
+          "2014-03-10 first arXiv posting; recurrence for minimum PL and chosen factorization, without a fixed-weight bivariate multiplicity theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.2431",
+        "material_read": "Problem formulation, dynamic programming recurrence, algorithmic theorem and complexity sections in accessible original article text",
+        "method": "Compared the problem statement and algorithm output against number of minimizing cut lists",
+        "title": "A Subquadratic Algorithm for Minimum Palindromic Factorization",
+        "trigger": "An algorithm for the same minimum-palindrome-cut optimization problem"
+      },
+      {
+        "assessment": "Counts or classifies length-two-palindrome factor substrings and infinite-word behavior, not the number of shortest four-palindrome factorizations of a fixed sparse word.",
+        "evidence": [
+          "2015-09-17 preprint; distinguishes palindrome pairs and maximal number of distinct palindrome-pair factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+        "material_read": "Abstract, introduction, principal theorems and bounded-factor statement in accessible article text",
+        "method": "Compared unit counted (substring occurrence or distinct factor versus whole-word optimal cut tuple)",
+        "title": "Words with Many Palindrome Pair Factors",
+        "trigger": "Possible stronger counting coverage involving palindrome pairs"
+      },
+      {
+        "assessment": "Records unique factorization into palindromes each of length at least two, without the shortest-block objective, and across all binary words. Does not cover the stated bivariate fixed-three-one statistic.",
+        "evidence": [
+          "A241211 defines uniqueness with factor lengths at least two; A241208 restricts to even-length palindromes; neither counts minimum cut multiplicities."
+        ],
+        "identifier_or_url": "https://oeis.org/A241211",
+        "material_read": "Full sequence title, definition, examples, code, offsets and related records A241208/A241210",
+        "method": "Exact comparison of factor-size constraints and minimum vs nonminimum factorization semantics",
+        "title": "OEIS A241211",
+        "trigger": "Exact-table possibility for palindrome-factorization ambiguity"
+      },
+      {
+        "assessment": "The prior defect formula determines the same four-block eligibility region, and its unweighted count; these are acknowledged as previously covered. It does not provide or logically identify the number of distinct minimum-factor boundaries, a bivariate generating function for that number, or its limiting distribution.",
+        "evidence": [
+          "Prior defect: zero if the inner gaps match, otherwise the positive part of the outer-min minus inner-max gap. Its distribution records defect, not optimal factorization count."
+        ],
+        "identifier_or_url": "d1ffbb20-77e9-4221-864f-c5048aecca42",
+        "material_read": "Recoverable scientific claim and title; earlier work not reassessed",
+        "method": "Statement/implication comparison without modifying or reassessing the earlier result",
+        "title": "Exact palindromic defect and the richness spectrum of binary three-marker words",
+        "trigger": "Nearest accessible prior scientific claim on the exact same gap family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3482a8d3-2acc-4ce4-911a-355d10f5673f",
+  "value": {
+    "rationale": "The number of distinct minimum solutions is a natural ambiguity and stability measure for shortest palindrome decomposition, not a substitute for the minimum objective value. Three-one words form the first sparse binary family with a nontrivial four-factor optimum. The explicit per-word multiplicity, full bivariate enumeration, sharp attainable ranges and nondegenerate limit law supply structurally motivated complete information at every length, not an arbitrary isolated table entry. The exact multiplicity requires a new cut classification beyond the prior defect criterion.",
+    "status": "PASS"
+  }
+}
