@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed graph-state entropy is reduced to the rank of an explicitly constructed cross-cut adjacency matrix. Exactly duplicated columns leave the stack of unsigned Boolean up- and down-incidence operators; the exterior-algebra contraction identity proves injectivity for odd coordinate count and explicitly identifies the common kernel in even count. The standard character-sum partial trace yields all nonzero reduced eigenvalues, not just the rank. All endpoint cases are covered by the binomial convention. An exact, independent enumerator checked 75 full cross-cut ranks and seven direct graph-state partial traces. Risks: finite computations are not a proof of the universal statement, which instead follows from the written linear-algebra argument.
+## correctness
 
-## Originality — PASS on examined evidence
-The graph-state adjacency-rank reduction is established in the 2003 literature and is not claimed as new. The 2007 Boolean inclusion-matrix literature addresses related single incidence operators. A 2021 free-fermion Johnson-network paper uses different physical states and operators. The new evaluated statement is the parity-dependent binary **simultaneous** up/down cut rank for controlled-phase Johnson states and its flat full spectrum. Searches for these equivalent formulations and related finite-field incidence ranks yielded no demonstrated coverage. The most closely related two-coordinate Johnson harmonic concentration result was available only as a summary and concerns characteristic-zero band-limited functions. Linial and Rothschild's modular inclusion-matrix rank paper was examined at abstract level only and may contain a route to the formula. Historical priority has residual uncertainty; this is not a claim of exhaustive literature uniqueness.
+PASS
 
-## Mathematical value — PASS
-The two-coordinate parity cut is invariant under the coordinate-permutation subgroup and is a natural structured bipartition of a highly symmetric quantum-network family. The exact full spectrum is controlled by one binomial formula over every nontrivial Johnson layer. Its even-size deficit reaches an order-one fraction (one quarter in central asymptotics), explaining a structural entanglement parity effect that generic graph-state rank theory does not explicitly evaluate. The result supplies a reproducible qubit graph-state benchmark. Limits: only this one cut and pure qubit states are classified; it is not a physical noise-robustness or preparation-complexity theorem.
+The source identifies the cut cross-matrix with duplicate columns and the simultaneous Boolean-layer operators (U_r,D_r). Over F2 these are wedge-by-u and contraction-by-f, with DU+UD=(n-2 mod 2)I. When n is even u lies in ker f, and splitting ker f=<u>+W yields intersection kernel u wedge Λ^(r-1)W of dimension C(n-4,k-2), including k=1,n-1 by the zero-binomial convention. For odd n the anticommutator is identity and the stack is injective. Graph-state character orthogonality yields 2^rank identical positive eigenvalues. Independently constructed actual Johnson edge cuts for n=4..10, all k (42 cases) agree in GF2 rank. Full arbitrary-n proof is algebraic, not numerical.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS. The general graph-state cut-rank identity and finite-set inclusion Smith/rank formulas are known, but primary inclusion-matrix results inspect a single W_{t,k}, not simultaneous (U_r,D_r) kernels; the distinct two-coordinate Johnson harmonic concentration result acts on rational bandlimited spaces rather than a binary graph state. The inaccessible 1981 Linial–Rothschild full text remains an explicit risk.
+
+## value
+
+PASS
+
+PASS. The parity-sensitive order-one rank deficit is a sharp exact spectral invariant for an all-parameter, automorphism-natural cut of a standard graph-state family; the exterior-algebra proof isolates a genuine simultaneous-incidence phenomenon, not a renaming of one known rank formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
