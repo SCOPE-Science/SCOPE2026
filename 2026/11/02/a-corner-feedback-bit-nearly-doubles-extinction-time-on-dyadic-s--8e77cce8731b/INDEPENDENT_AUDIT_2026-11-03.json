@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T18:19:58.670005Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob cdf886609bc4e09416ab2ab65b6e74e6fe22bfa2; corner_grid_verify.py blob 620be1a2ae4392d3103a304a5bdc637375c2117d",
+        "Independent GF2 grid-neighbor powers and ranks for side 3,7; original script tests side 15,31 and full side3 census"
+      ],
+      "rationale": "Over F2, the one-dimensional path adjacency on 2^a-1 vertices is cyclic nilpotent J_{L-1} by characteristic polynomial recursion. The grid is multiplication by z=x+y on F2[x,y]/(x^{L-1},y^{L-1}); quotienting the truncated free module over F2[z]/(z^L) yields N=J_L(0)^(L-2)+J1(0). Swapping two grid coordinates cancels all positive-length closed corner-return walk counts mod2, so mu_0=1 and mu_j=0 (j>=1). Sherman-Morrison resolvent in char2 gives B^k=N^k+sum_{i+j<=k-1}N^ie e^T N^j; the corner Krylov basis and its annihilator prove ranks (L-2)(L-k)+k through k=L and 2L-k afterwards. Rank-one idempotent B^{2L-1} proves one fixed eigencomponent and reconstructs Jordan blocks J1(1),J1(0),J_(2L-1)(0),J_L(0)^(L-4). Independent bitmatrix ranks at L=4,8 matched all predicted powers; counts follow from kernel dimensions, not trajectory simulation.",
+      "residual_risks": [
+        "No other side lengths, noncorner feedback, or other fields covered; independently checked just L=4,8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier dyadic grid path polynomial and homogeneous Kronecker-sum results determine N, not B=N+ee^T. The rank-one boundary perturbation changes the terminal spectrum to a fixed 1D subspace and lengthens the longest 0-block."
+        ],
+        "reasoning": "A general rank-one perturbation spectral theorem might be used to derive B but no inspected tabulation or special equivalence establishing the precise result was found.",
+        "searches": [
+          "Barua Ramakrishnan sigma game two dimensional additive cellular automata 1996",
+          "arXiv:1609.09572 generalized Jordan Kronecker sum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0804.2346",
+        "arXiv:1609.09572",
+        "doi:10.1016/0304-3975(95)00091-7",
+        "doi:10.1016/j.ins.2003.09.024",
+        "Resultary Binary cellular automata dyadic square grid one corner self feedback Jordan blocks nilpotence extinction time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted B differs at only one boundary vertex from standard N; homogeneous sigma+ uses self-feedback at every site. General null-boundary CA matrix descriptions do not force the precise B ranks without additional local-corner return moment calculation."
+        ],
+        "reasoning": "Known path/Kronecker sum results imply the unperturbed comparison only, not immediately the corner-defect Jordan or half-of-states shell.",
+        "searches": [
+          "Choudhury et al 0804.2346",
+          "Dihidar Choudhury 2004 Information Sciences 165 91-101",
+          "Binary cellular automata dyadic square grid one corner self feedback Jordan blocks nilpotence extinction time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choudhury et al 2008 treat 2D linear cellular automaton rules and matrix models; nonuniform one-corner self-loop with the full all-a Jordan partition was not among inspected statements."
+        ],
+        "reasoning": "The central object might be called a special/hybrid null-boundary rule, not a homogeneous square-grid Kronecker sum; searches included both aliases.",
+        "searches": [
+          "Binary cellular automata dyadic square grid one corner self feedback Jordan blocks nilpotence extinction time",
+          "arXiv:0804.2346",
+          "doi:10.1016/j.ins.2003.09.024"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary mod-four parity automata concern distance-two Boolean-cube graphs rather than this square grid. The 2004 Dihidar–Choudhury abstract calls exceptional 2D rules without exposing their full Jordan partitions."
+        ],
+        "reasoning": "No direct current exact classification table found; abstract-only source cannot justify a claim it is NOT covering.",
+        "searches": [
+          "binary additive cellular automata corner loop extinction time 2L-1",
+          "two-dimensional exceptional rule 2004 matrix algebraic formulae"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact single-corner rank-one feedback block decomposition, sharp doubled transient and all labelled-state entry shells. Existing path/grid nilpotence/Jordan methods are credited. A plausible 2004 exceptional-rule paper was not accessible in full, so its exact overlap remains a residual priority risk rather than an automatic science failure.",
+      "residual_risks": [
+        "Dihidar–Choudhury 2004 full mathematical text could contain this exact special local update; no definitive priority conclusion about that inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No direct all-a single-corner self-feedback Jordan partition in inspected sections",
+          "evidence": [
+            "Generic homogeneous/hybrid update descriptions; compared update support with local corner loop."
+          ],
+          "identifier_or_url": "arXiv:0804.2346",
+          "material_read": "Accessible primary mathematical PDF on matrix models and two-dimensional linear rules, with attention to update matrices",
+          "method": "Primary full text inspected at accessible sections of document; compared theorem statements and mathematical implications",
+          "title": "Theory and Applications of Two-dimensional Null-boundary Nine-Neighborhood Cellular Automata Linear Rules",
+          "trigger": "Null-boundary GF2 grids and hybrid rules"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK; no whole-document noncoverage assertion",
+          "evidence": [
+            "Abstract describes exceptional 2D GF2 null/periodic CA transformations without specifying current local corner-feedback block spectrum."
+          ],
+          "identifier_or_url": "doi:10.1016/j.ins.2003.09.024",
+          "material_read": "Bibliographic record and publisher abstract only; full primary mathematical text not accessible",
+          "method": "Searched for lawful OA/preprint and inspected available abstract and bibliographic record; full primary article not read",
+          "title": "Matrix algebraic formulae concerning some exceptional rules of two-dimensional cellular automata",
+          "trigger": "Plausible same grid family or exceptional rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md complete rank-one resolvent argument",
+        "Barua–Ramakrishnan 1996 unperturbed grid theory"
+      ],
+      "rationale": "Single-vertex defect perturbations of binary cellular automata are natural structural questions. This theorem gives a complete nontrivial infinite dyadic grid family: one corner bit changes pure extinction into two absorbing fixed states, doubles the order of longest transient up to one, and exactly enumerates every initial-state entry shell. The result is not a routine reparametrization of homogeneous grid Jordan theory.",
+      "residual_risks": [
+        "Restricted to dyadic square sizes and corner-loop perturbation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No other side lengths, noncorner feedback, or other fields covered; independently checked just L=4,8.",
+    "Dihidar–Choudhury 2004 full mathematical text could contain this exact special local update; no definitive priority conclusion about that inaccessible source.",
+    "Restricted to dyadic square sizes and corner-loop perturbation."
+  ],
+  "schema_version": 1
+}
