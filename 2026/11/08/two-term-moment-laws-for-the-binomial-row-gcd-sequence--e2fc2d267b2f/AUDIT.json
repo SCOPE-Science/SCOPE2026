@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The finite-difference identity proves D(k) divides k+1; the published p-primary criterion isolates a unique large prime-power component. Prime exponent one gives exactly D=p. Higher exponents contribute a power-saving bound using a count of prime powers; the weighted prime number theorem and summable m powers give the two explicit coefficients for every fixed s>0. Exact-comparison code checks 39 initial GCDs and every row up to one million, but finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo et al. Theorem 1 only characterizes the vanishing of the GCD; primary criterion determines its prime divisors, not its size distribution.",
+        "Hong 2016 DOI 10.1016/j.crma.2016.06.001 formula indexes binomial coefficients by a fixed upper mn and lower k with gcd(k,m)=1, not by upper multiples qk."
+      ],
+      "reasoning": "The known exact valuation formula supplies pointwise arithmetic data, but neither it nor the Guo paper states a positive-moment asymptotic. The current claim combines such data with a separate PNT-based global analysis and a second-order coefficient.",
+      "searches": [
+        "\"A Greatest Common Divisor Criterion of Certain Binomial Coefficients\" full text",
+        "Hong 2016 The greatest common divisor of certain binomial coefficients",
+        "published-finding corpus: large prime factor distribution generalized gcd binomial row average moments exact zeta constant"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22997 (full text via public rendering)",
+      "doi:10.1016/j.crma.2016.06.001 (official abstract and explicit formula)",
+      "published-finding corpus searches named above and their closest indexed hits",
+      "OEIS A080170 context as represented in Guo et al."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. full text primary criterion, Lemma 4 and conclusion (2026).",
+        "S. Hong 2016 abstract, DOI 10.1016/j.crma.2016.06.001."
+      ],
+      "reasoning": "The prior support criterion makes the large-prime contribution identifiable but does not itself contain the weighted prime summation, the power-saving control of repeated prime powers, or any two-term expansion. The result is a new analytical deduction, not a claim to rediscover the underlying support criterion.",
+      "searches": [
+        "published-finding corpus: asy[m]ptotic sum k<=X gcd_{2<=q<=k+1} binomial(qk,k) pi^2/12 X^2 log X",
+        "\"D(k)\" moments gcd binomial",
+        "Guo Qiu Cao Feng Gao 2026 binomial greatest common divisor criterion strengthened to exact gcd values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo et al. 2026, full text sections 1, 2, 4 (ResearchGate licensed display): only Theorem 1 about D(k)=1 and a p-primary criterion; no moment or mean theorem.",
+        "published-finding corpus top match 2026/10/4/SCOPE-exact-euler-factors-for-the-k-variable-gcd-map-density--fe7d873016df concerns a different gcd map."
+      ],
+      "reasoning": "Alternative formulation as weighted largest-prime-factor sum is derived in the proof; this is mathematically implicit in the known GCD support criterion plus analytic prime summation, but its two-term zeta-derivative asymptotic is not stated in the inspected primary work.",
+      "searches": [
+        "\"D(k)\" \"average\" \"gcd\" \"binomial\" Qiu",
+        "\"A080170\" mean value",
+        "published-finding corpus: mean order moments greatest common divisor D(k) gcd binomial(qk,k) zeta(s+1) average value p larger than cofactor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 is the zero-GCD index list in Guo et al.; the 2026 paper explicitly describes the list and a pointwise criterion, with no moment table.",
+        "Finite verifier gives exact moments at 1000, 10000, 100000, 1000000, not asserted as novel tables."
+      ],
+      "reasoning": "An OEIS sequence of indices having D(k)=1 is not an asymptotic for the positive real moments of D(k). No precomputed moment coefficient matching the claimed zeta derivative was found.",
+      "searches": [
+        "arxiv 2606.22997 OEIS A080170 density average moments",
+        "\"asymptotic sum k<=X gcd\" \"binomial\""
+      ]
+    },
+    "rationale": "Full text of Guo et al. arXiv:2606.22997 (2026) was inspected: it proves a zero-versus-positive GCD criterion, not an asymptotic of positive moments. The present fixed-real-s family and the exact second logarithmic term require a weighted prime-summation decomposition and exceptional prime-power control. Hong (2016) studies a distinct fixed-upper-index binomial GCD. Searches found no exact prior mean law. An unindexed prior derivation remains possible.",
+    "residual_risks": [
+      "No independent mathematical audit.",
+      "An unindexed earlier note may already have performed this asymptotic summation.",
+      "The Hong 2016 paper was compared from its published identity but not its complete article; its index family is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the support criterion and points toward D(k) dividing k+1; no quantitative positive-moment asymptotic found.",
+        "evidence": [
+          "2026 preprint arXiv:2606.22997, Theorem 1, primary criterion in Section 3.4, concluding Section 4; searchable full-text rendering"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/407506744_A_Greatest_Common_Divisor_Criterion_of_Certain_Binomial_Coefficients",
+        "material_read": "Public full-text rendering, introduction and Theorem 1, p-primary theorem, Newton finite-difference lemma, final conclusions; approximately 13-page article rendered as text.",
+        "method": "Read accessible full text and searched within document for density, asymptotic, and average.",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Exact same binomial GCD family and direct prior-implication risk"
+      },
+      {
+        "assessment": "Fixed upper mn, lower indices constrained by gcd(k,m)=1; different arithmetic family.",
+        "evidence": [
+          "Official Comptes Rendus math article page, 2016, explicit GCD identity in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.crma.2016.06.001",
+        "material_read": "Publisher abstract and published exact statement, not the publisher full text.",
+        "method": "Read the accessible official journal landing page and compare all indices.",
+        "title": "The greatest common divisor of certain binomial coefficients",
+        "trigger": "Plausible matching title and GCD literature cited by Guo et al."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2fc2d26-7b2f-48a7-bac8-9c6f89d67534",
+  "value": {
+    "rationale": "The recently solved GCD criterion is a pointwise problem; the natural global question is the size distribution of those GCDs. The result supplies every positive real power-moment asymptotic together with a universal zeta-derivative second term. A highly nonuniform rare-large-prime regime dominates all positive moments despite most indices contributing at the unit scale. This is a distinct analytical characterization, not a table recomputation, though it relies on classical PNT tools.",
+    "status": "PASS"
+  }
+}
