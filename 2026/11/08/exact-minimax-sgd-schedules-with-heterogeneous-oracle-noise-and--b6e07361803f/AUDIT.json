@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Source Theorem 1.1/Section 2 interpolation noise term is linear in the per-step conditional second moment, so inserting \\(v_i\\) yields the weighted sharp upper bound. Explicit Huber coordinates attain every term and every noise-sign realization. The risk is a strictly convex coercive perspective functional with interior optimum; its differentiated equations give the positive recurrence, unique scalar root, and sharp if-and-only-if adjacent-step threshold. Exact rational witness and 6248 finite checks supplement analytic steps. Caution: the published interpolation lemma is an external nonstandard input, inspected at its hypotheses and coefficient placement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Grimmer–Shen source proves the sharp uniform-variance interpolation certificate and all-horizon monotone optimizer under the shared variance assumption.",
+        "Attia et al. (2025) address interpolation-regime convergence rates and constant steps, not exact adversarial time-inhomogeneous oracle scheduling."
+      ],
+      "reasoning": "The source proof supplies an adaptable component of the new argument, and is explicitly credited. Its theorem with one common ceiling yields only a max-variance upper bound for heteroscedastic oracles and does not imply the exact weighted risk or the optimizer reversal. Existing general rate results do not supply exact equality or sharp local order criteria.",
+      "searches": [
+        "exact minimax optimal stepsizes known varying stochastic gradient variance schedule batch size smooth convex",
+        "arxiv:2610.42048v1",
+        "arxiv:2507.11274"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.42048",
+      "https://arxiv.org/abs/2608.15035",
+      "https://arxiv.org/abs/2507.11274",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grimmer–Shen (2026), formula (1.4) is a common-variance sharp risk and Corollary 1.2 specifies decreasing optimal steps.",
+        "The weighted recurrence \\(v_{i+1}c_{i+1}=v_ic_i(1+c_i)\\) and exact if-and-only-if \\(v_{i+1}/v_i \\ge 1-c_i-2c_i^2\\) are absent from the source formulations, and yield the explicit short-step increasing example."
+      ],
+      "reasoning": "The shared-variance theorem is the \\(v_i\\) constant specialization, not a statement dominating the entire heteroscedastic classification. Bai–Zhou has a different curvature class and error objective. The new claim deliberately excludes novelty for the Huber construction and the source interpolation certificate.",
+      "searches": [
+        "Grimmer Shen 2026 heteroscedastic time varying variance optimal stepsize SGD",
+        "exact minimax optimal stepsizes known varying stochastic gradient variance schedule batch size smooth convex",
+        "arxiv:2610.42048v1",
+        "arxiv:2608.15035v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grimmer–Shen (2026), Theorem 1.1, eqs. (1.4),(1.8), use the same variance ceiling at all steps; the published optimization recurrence is \\(c_{i+1}=c_i+c_i^2\\).",
+        "Bai–Zhou (2026), Sections 1–2, use two steps, strongly convex objectives and squared-distance terminal error with a common variance ceiling."
+      ],
+      "reasoning": "An equivalent result would need an exact weighted finite-horizon worst-case expression together with the nonuniform optimal schedule and step-order boundary. Neither inspected formulation has step-indexed ceilings or this conclusion; matched terminology alone is insufficient.",
+      "searches": [
+        "Grimmer Shen 2026 heteroscedastic time varying variance optimal stepsize SGD",
+        "heteroscedastic stepsize smooth convex minimax stochastic gradient",
+        "arxiv:2610.42048v1",
+        "arxiv:2608.15035v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for heteroscedastic minimax SGD, time-dependent conditional variances, Huber extremizers and reversal criteria returned stochastic optimizer stability and stationary-noise items rather than the weighted finite-horizon problem.",
+        "The present object is a continuous optimization over every horizon and variance vector, rather than a finite numerical table."
+      ],
+      "reasoning": "No directly matching exact tabulation was located. Search absence is evidence of limited discoverability, not a mathematical uniqueness proof.",
+      "searches": [
+        "nonuniform noise variance optimal short steps smooth convex SGD schedule Huber worst-case construction",
+        "monotonicity reversal nonmonotone optimal stochastic gradient steps when batch sizes or noise variance decrease",
+        "arxiv:2610.42048v1"
+      ]
+    },
+    "rationale": "Compared exact domains and implications: Grimmer–Shen establishes the shared-variance objective and monotone optimum; the new combined statement requires separately bounded per-iteration variances, their distinct optimizer recurrence and a necessary/sufficient step-order transition. Bai–Zhou concerns two-step strongly convex squared-distance risk, not this smooth-convex arbitrary-horizon last-objective minimax criterion. No located published record dominates the new combined claim. Historical unindexed work and the straightforward weighted adaptation of the source certificate remain candid risks.",
+    "residual_risks": [
+      "An older unindexed or unpublished nonuniform-noise refinement of the same Huber certificate could imply parts or all of the classification.",
+      "The weighted risk extension inherits the prior proof strategy; novelty rests on the full variational characterization and exact reversal criterion, not on a new general interpolation principle.",
+      "Access to some broader literature full texts was limited; negative search results are not evidence of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact sharp homogeneous-variance result is credited as antecedent, but no separate \\(v_i\\) or local ordering threshold is stated; the interpolation proof directly supplies the valid weighted upper step.",
+        "evidence": [
+          "Published 2026-10-30, arXiv:2610.42048v1",
+          "Theorem 1.1 and eq. (1.4) common \\(\\\\sigma^2\\)",
+          "Section 2 Lemma 2.2 stepwise second-moment identity",
+          "Section 3 coordinate Huber extremal construction",
+          "Appendix A common-variance recurrence and monotonicity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.42048",
+        "material_read": "HTML full text: abstract, introduction, Theorem 1.1, Sections 2 and 3, optimization appendix",
+        "method": "Inspect objective, noise assumptions, certificate identity, Huber extremal construction, optimizer recurrence and limitations",
+        "title": "Exact Theory and Optimal Stepsizes for Stochastic Gradient Descent in Smooth Convex Minimization",
+        "trigger": "Direct recent precursor on exact fixed-horizon stochastic gradient risk and its monotone stepsize optimization"
+      },
+      {
+        "assessment": "Non-covering for the new all-horizon smooth-convex objective-gap classification: strongly convex squared-distance objective and common variance.",
+        "evidence": [
+          "Published 2026-08-15, arXiv:2608.15035v1",
+          "Section 2 fixes \\(m=1\\) strong convexity and common \\(\\\\sigma^2\\)",
+          "Section 2 optimizes two-step terminal squared distance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.15035",
+        "material_read": "HTML introduction, problem class, main theorem setup and variance/oracle assumptions in Sections 1–2",
+        "method": "Compare terminal observable, strong convexity requirements, step budget and common variance oracle",
+        "title": "Optimal Two-Step Stepsize Schedule for Stochastic Gradient Methods",
+        "trigger": "Other exact stochastic stepsize optimization theorem, plausibly dominating a two-step subcase"
+      },
+      {
+        "assessment": "No evidence of a dominating exact weighted worst-case scheduling result in accessible material; incomplete full-text inspection is a residual limitation.",
+        "evidence": [
+          "First public 2025-07-15",
+          "Abstract discusses interpolation-regime asymptotic rates under constant steps, not the stated finite-horizon PEP"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.11274",
+        "material_read": "ArXiv abstract and available overview, no matching full text inspected",
+        "method": "Compare noise-at-minimum interpolation assumption, step specification and rate instead of exact finite-horizon minimax functional",
+        "title": "Fast Last-Iterate Convergence of SGD in the Smooth Interpolation Regime",
+        "trigger": "General last-iterate smooth-convex stochastic gradient results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b6e07361-803f-4722-9e25-3beb28ce8d30",
+  "value": {
+    "rationale": "The theorem gives constructive exact minimax rates under realistically nonuniform oracle precision and a necessary/sufficient local learning-rate reversal boundary, not just a weighted risk inequality. Its inverse-variance high-noise limit shows arbitrarily many nonmonotone optimal updates and has direct consequences when precision improves later in a run. Limits on short steps, fixed variances and nonadaptive algorithms are explicit.",
+    "status": "PASS"
+  }
+}
