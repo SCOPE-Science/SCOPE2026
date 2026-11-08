@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:14:14.762954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7",
+        "2026/11/01/sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7/RESULT.md @ Git blob 7346d6daf96b7d65df640bcd23d1385ec1ac2326",
+        "2026/11/01/sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7/VERIFICATION.md @ Git blob dfe88112d8963cdda675c287d9152108f4802731",
+        "Pinned Git tree cf32beac44ab7938c62551b42046d8f1fca52586 and all seven blobs inspected, including numerical periodic_mask_checker.py.",
+        "Independent mpmath integration of up to 70 gamma annuli vs 200 odd Fourier harmonics at n=0,1,2,6,12; at n=12 difference 1.24×10^-42, at n=0 finite-harmonic truncation difference 2.53×10^-4 as expected.",
+        "Analytic Fejér interchange, trace absolute convergence, complex pole tail and rational-angle contradiction reconstructed without relying on finite data."
+      ],
+      "rationale": "In the analytic one-variable Bargmann–Fock space e_n=z^n/√n! diagonalizes the indicator of annuli 2j≤|z|²<2j+1, with λ_n=1/n!∫_0∞b(t)e^{-t}t^n dt. For |w|<1 the Laplace transform of the period-two square wave gives Σλ_n w^n=1/[(1-w)(1+exp(w−1))]. Integrating bounded Fejér sine approximants against each gamma density, then summing absolutely over odd harmonics, gives λ_n−1/2=(2/π)Σ_{k odd≥1}(1/k)Im(1−iπk)^{−n−1}. The k=1 term is (2/π)ρ^{n+1}sin((n+1)θ), ρ=(1+π²)^−1/2, θ=arctan π, while k≥3 is O(ρ_3^{n+1}) for ρ_3=(1+9π²)^−1/2<ρ; absolute geometric summability proves T−I/2 is trace class and σess(T)={1/2}. Abel limit from the generating function is Tr(T−I/2)=1/4. If θ/π rational, exp(2iθ) is algebraic so tan θ would be algebraic, contradicting transcendence of π; hence the normalized leading sine is dense through ±1 and the two sharp limsup/liminf are ±2/π, with infinitely many eigenvalues on either side. Independent high-precision mpmath annulus-gamma integrations and Fourier partial sums agreed to ~10^−10 at n=1 and ~10^−42 by n=12 (the n=0 Fourier cutoff retains a ~2.5×10^−4 tail, correctly not mistaken for a failed equality). All asymptotic claims follow from absolute harmonic bounds, not the finite check.",
+      "residual_risks": [
+        "The mask is nonintegrable over the plane and its indicator has jumps, so any source requiring an integrable/smooth symbol is inapplicable.",
+        "The Fourier series is integrated through Fejér regularization, not naively interchanged pointwise at jumps.",
+        "The sharp phase envelope depends on irrationality of arctan π/π; no numerical phase experiment proves that fact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radial Fock operator C*-algebra theorems identify permissible coarse spectra or slow-oscillating eigenvalue classes, not the exact oscillatory coefficient of this period-two mask.",
+          "Galbis's 2021 radial estimates require integrability, whereas the alternating annulus indicator has infinite weighted phase-plane support and infinite planar area."
+        ],
+        "reasoning": "General operator-algebra or diagonalization results are coarser and do not logically produce the precise trace and irrational oscillatory limits without computing the mask's Laplace and Fourier harmonics; the integrability result excludes the target mask.",
+        "searches": [
+          "https://arxiv.org/abs/1505.07906",
+          "https://arxiv.org/abs/2107.01465",
+          "https://arxiv.org/abs/2102.02031"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1505.07906",
+        "https://arxiv.org/abs/2107.01465",
+        "Resultary semantic search results with the actual query strings in the four novelty checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gamma-moment representation already implies basic radial diagonalization but not 1/4 trace excess or the complex Fourier decay scale.",
+          "Strong oscillatory claim requires the first odd harmonic, a strictly smaller third-harmonic tail, and the arithmetic irrationality of arctan π."
+        ],
+        "reasoning": "The known smoothness/classification of eigenvalue sequences cannot furnish a sharp sign-changing coefficient or trace by itself; the evaluated Fourier–Gamma series and Abel summation supply this particular claim.",
+        "searches": [
+          "https://arxiv.org/abs/1505.07906",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary: alternating radial annular indicator squared radius Fock Toeplitz gamma moments trace class half identity sign oscillations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Esmeral–Maximenko and Dewage–Ólafsson establish standard radial/quasi-radial Fock Toeplitz diagonalization and general gamma-moment eigenvalue representation.",
+          "The present Laplace-generating function evaluates a particular infinite periodic indicator with a nontrivial trace and signed complex-pole asymptotic."
+        ],
+        "reasoning": "The existing radial gamma-moment formula covers the representation λ_n=∫bγ_n and is not new. The additional evaluated trace-class residual, exact scalar trace 1/4 and irrational leading mode are not directly stated by the examined background spectral theorems.",
+        "searches": [
+          "https://arxiv.org/abs/1505.07906",
+          "https://arxiv.org/abs/2107.01465",
+          "Resultary: alternating radial annular indicator squared radius Fock Toeplitz gamma moments trace class half identity sign oscillations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked Resultary findings included a smooth radial log-log spectral filter, different from a discontinuous squared-radius-periodic alternating aperture; no exact gamma sequence/traces table for this example was returned."
+        ],
+        "reasoning": "No verified table listing λ_n, trace excess and sign-changing asymptotic for this specific alternating square wave was identified. Unindexed specializations of known radial gamma formulas remain an explicit priority risk.",
+        "searches": [
+          "Resultary: alternating radial annular indicator squared radius Fock Toeplitz gamma moments trace class half identity sign oscillations",
+          "Resultary: Fock Toeplitz checkerboard periodic radial gamma eigenvalues exact trace quarter",
+          "https://arxiv.org/abs/1505.07906"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality judgment for the exact scoped final claim, after mathematical prior-work implication comparison. Standard radial Toeplitz gamma eigenvalue representation is credited; no inspected primary theorem establishes the precise infinite periodic mask trace and signed asymptotic.",
+      "residual_risks": [
+        "An earlier explicit Fourier evaluation of square-wave Fock gamma moments may be unindexed; generic gamma diagonalization is established prior art.",
+        "Primary-source inspection was targeted rather than every appendix of every potentially relevant paper.",
+        "The exact spectral specialization is elementary after Fourier–Gamma transformation; its originality/value is the full trace-ideal and oscillatory classification, not the formula for radial eigenvalues."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known diagonalization and coarse sequence structure, not inspected explicit period-two trace value or oscillation",
+          "evidence": "ArXiv 1505.07906, abstract/intro, radial Toeplitz spectral gamma representation.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.07906",
+          "material_read": "Full PDF initial page and introduction, definitions, standard radial eigenvalue representation; later theorem scope checked from accessible text",
+          "method": "Opened lawful arXiv PDF and inspected screenshot page 1 and accessible textual theorem scope",
+          "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+          "trigger": "Closest background on radial gamma-moment eigenvalues and C*-algebra spectral conditions"
+        },
+        {
+          "assessment": "Broader symbol class but statements inspected did not give exact alternating annuli trace-class bias or signed asymptotic",
+          "evidence": "Quasi-radial spectral representation and commutative operator algebra treatment.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.01465",
+          "material_read": "Full-text PDF page 6 and introductory results on quasi-radial diagonalization and spectral classes",
+          "method": "Opened lawful arXiv PDF and inspected selected page screenshot",
+          "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+          "trigger": "Potential general quasi-radial theorem may imply all radial indicator spectral asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7",
+        "https://arxiv.org/abs/1505.07906",
+        "https://arxiv.org/abs/2107.01465"
+      ],
+      "rationale": "The natural infinite-area checkerboard radial mask oscillates forever at macroscopic phase-space scale, yet its analytic Gaussian Toeplitz localization differs from 1/2I by a trace-class operator with a nonzero exact total trace and sharp alternating spectral deviation. This is a concrete useful model for noncompact periodic localization and high-mode homogenization, not merely a fixed-index numerical calculation.",
+      "residual_risks": [
+        "One specific period-two mask, one complex dimension; no general mask class or inverse spectral theorem.",
+        "The calculation may be viewed as an explicit worked example if related Fourier–Gamma formulae are in older literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The mask is nonintegrable over the plane and its indicator has jumps, so any source requiring an integrable/smooth symbol is inapplicable.",
+    "The Fourier series is integrated through Fejér regularization, not naively interchanged pointwise at jumps.",
+    "The sharp phase envelope depends on irrationality of arctan π/π; no numerical phase experiment proves that fact.",
+    "An earlier explicit Fourier evaluation of square-wave Fock gamma moments may be unindexed; generic gamma diagonalization is established prior art.",
+    "Primary-source inspection was targeted rather than every appendix of every potentially relevant paper.",
+    "The exact spectral specialization is elementary after Fourier–Gamma transformation; its originality/value is the full trace-ideal and oscillatory classification, not the formula for radial eigenvalues.",
+    "One specific period-two mask, one complex dimension; no general mask class or inverse spectral theorem.",
+    "The calculation may be viewed as an explicit worked example if related Fourier–Gamma formulae are in older literature.",
+    "Publication not_ready solely for public-file sanitization/guard verification, not a scientific verdict."
+  ],
+  "schema_version": 1
+}
