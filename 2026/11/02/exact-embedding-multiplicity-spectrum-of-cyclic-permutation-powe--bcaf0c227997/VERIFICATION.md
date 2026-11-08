@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_cyclic_subsequence_multiplicity.py` from the same directory as this document. The script needs Python 3 and no external packages. For each of 16 small hosts it builds embedding counts by processing all host positions with dynamic programming, independently of the block-index proof. It compares literal counts, predicted weak-descent frequencies, and the total \(\binom{qk}{m}\). It also performs 52,318 exact arithmetic coefficient checks for larger parameter ranges.
+## correctness
 
-Observed result from actual execution:
+PASS
 
-```
-VERIFY_OK literal_hosts= 16 distinct_targets= 9287 histogram_bins= 380 absent_degree_checks= 272 formal_positive_coefficients= 52318
-PROFILE 2 3 m=2 {3: 3, 6: 1}
-PROFILE 3 3 m=2 {3: 6, 6: 3}
-PROFILE 4 2 m=2 {1: 10, 3: 6}
-```
+For W_(q,k)=(0..q−1)^k, 1<=m<=qk, an embedding of word u corresponds uniquely to block indices j_i in [0,k−1] with j_(i+1)−j_i>=1 if u_i>=u_(i+1), otherwise >=0. Inserting m+1 nonnegative slack variables summing k−1−d(u) gives E=binom(k+m−1−d(u),m) if d<=k−1, else zero. Cutting words into strictly increasing blocks and a double-counting generating-function transformation gives weak-descent frequency N_q(m,d)=sum_i (−1)^i binom(m+1,i) binom(q(d+1−i),m), generating function ((1+(1−t)x)^q−1)/(1−t(1+(1−t)x)^q). Bounded length-<=q increasing segments construct each d from floor((m−1)/q) to m−1. Strict binomial monotonicity gives all distinct positive multiplicities and their frequencies; normalization sum N_q E=binom(qk,m) follows from counting position subsets. Independent brute enumeration checked 13645 word/multiplicity comparisons over q2..4,k1..3,m<=6, including repeat letters and boundary cases.
 
-All computations use exact integers. These experiments do not certify the unrestricted theorem; its infinite validity follows from the bijective proof in RESULT.md. No external audit or independent formal verification is asserted.
+## originality
+
+PASS
+
+Specific complete all-parameter histogram of positional embedding counts (and uniform deletion-output probabilities) for complete repeated alphabet permutation host; classical generalized-Eulerian numbers used without claiming their individual novelty. Flaxman–Harrow–Sorkin count distinct subsequences only (support), and Kosche et al absent subsequences; neither support result determines multiplicities. Word-binomial and P-partition literature remain real possible hidden prior specializations.
+
+## value
+
+PASS
+
+Full output-probability spectrum under uniform-position deletion from a canonical periodic source is a natural and strictly finer invariant than output support. Complete exact frequencies and feasible range for every (q,k,m) can be used without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

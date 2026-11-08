@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:58:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For W_(q,k)=(0..q−1)^k, 1<=m<=qk, an embedding of word u corresponds uniquely to block indices j_i in [0,k−1] with j_(i+1)−j_i>=1 if u_i>=u_(i+1), otherwise >=0. Inserting m+1 nonnegative slack variables summing k−1−d(u) gives E=binom(k+m−1−d(u),m) if d<=k−1, else zero. Cutting words into strictly increasing blocks and a double-counting generating-function transformation gives weak-descent frequency N_q(m,d)=sum_i (−1)^i binom(m+1,i) binom(q(d+1−i),m), generating function ((1+(1−t)x)^q−1)/(1−t(1+(1−t)x)^q). Bounded length-<=q increasing segments construct each d from floor((m−1)/q) to m−1. Strict binomial monotonicity gives all distinct positive multiplicities and their frequencies; normalization sum N_q E=binom(qk,m) follows from counting position subsets. Independent brute enumeration checked 13645 word/multiplicity comparisons over q2..4,k1..3,m<=6, including repeat letters and boundary cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flaxman–Harrow–Sorkin Theorem 5 computes number of distinct subsequences for alphabet-cycling words, not exact positional multiplicities.",
+          "Kosche–Koß–Manea–Siemer concern absent subsequences and arch factorization."
+        ],
+        "reasoning": "A support set and its cardinality lose how many position embeddings yield each target; none of inspected primary statements forces the full histogram.",
+        "searches": [
+          "subsequence occurrence multiplicity histogram repeated increasing alphabet cyclic permutation words weak descents",
+          "arxiv:2108.13968",
+          "Flaxman Harrow Sorkin 2004 maximally many distinct subsequences"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md Git blob bd4cece266aeb3801ecbc4138ace73f0ab4c7377",
+        "Flaxman–Harrow–Sorkin 2004 primary paper Theorem 5",
+        "Kosche et al. arxiv:2108.13968 available relevant source",
+        "Leroy–Rigo–Stipulanti arxiv:1705.08270 abstract/introduction",
+        "Resultary semantic search for cyclic subsequence histograms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting distinct outputs does not give the multiset of embedding multiplicities.",
+          "Absent-subsequence characterization supplies only which E(u)=0; it does not determine each E(u)>0 or frequency."
+        ],
+        "reasoning": "Positive multiplicity law and frequency composition are strictly finer, while classical Eulerian enumeration on its own does not provide the normalized cyclic-host deletion-channel histogram without block-slack bijection.",
+        "searches": [
+          "subsequence occurrence multiplicity histogram repeated increasing alphabet cyclic permutation words weak descents",
+          "Flaxman Harrow Sorkin 2004 Theorem 5",
+          "arxiv:2108.13968"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leroy–Rigo–Stipulanti define general word-binomial coefficients counting embeddings; the target formula is a specialization but the general definition alone does not produce this explicit full histogram.",
+          "Weak descent is the ordinary descent after weak inequality for repeated letters."
+        ],
+        "reasoning": "Aliases generalized Eulerian distribution, scattered subsequences, P-partitions and deletion-channel output mass were compared; combinatorial statement is per-host and all target words.",
+        "searches": [
+          "subsequence occurrence multiplicity histogram repeated increasing alphabet cyclic permutation words weak descents",
+          "binomial coefficients of words periodic alphabet powers",
+          "arxiv:1705.08270"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned distinct-substring and subsequence-universality records, no histogram for these cyclic hosts.",
+          "The weak-descent frequency formula is classical Eulerian-type and acknowledged as prior combinatorics."
+        ],
+        "reasoning": "No exact deletion probability spectrum table covering all (q,k,m) found; classical counts themselves are not claimed new.",
+        "searches": [
+          "subsequence occurrence multiplicity histogram repeated increasing alphabet cyclic permutation words weak descents",
+          "Resultary periodic subsequence multiplicity semantic search",
+          "classical Eulerian weak descents alphabet q"
+        ]
+      },
+      "rationale": "Specific complete all-parameter histogram of positional embedding counts (and uniform deletion-output probabilities) for complete repeated alphabet permutation host; classical generalized-Eulerian numbers used without claiming their individual novelty. Flaxman–Harrow–Sorkin count distinct subsequences only (support), and Kosche et al absent subsequences; neither support result determines multiplicities. Word-binomial and P-partition literature remain real possible hidden prior specializations.",
+      "residual_risks": [
+        "Only complete strictly ascending permutation cycles and uniform position deletion, not arbitrary repeated/truncated periodic words.",
+        "Potential covering specialization of classical P-partition/word-binomial identities not ruled out by present literature.",
+        "Finite independent enumeration q<=4,k<=3,m<=6 only corroborates bijective all-parameter proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING multiplicity spectrum",
+          "evidence": "The theorem counts distinct subsequences, not the frequency of each target under positional selection.",
+          "identifier_or_url": "Flaxman–Harrow–Sorkin, Electronic Journal of Combinatorics 11 (2004), R8",
+          "material_read": "accessible primary full-text discussion including Theorem 5 and distinct-subsequence count",
+          "method": "web primary full text inspection",
+          "title": "Strings with maximally many distinct subsequences and substrings",
+          "trigger": "same cyclic source and subsequence support"
+        },
+        {
+          "assessment": "No identified implication for positive embedding counts; full exclusion not claimed",
+          "evidence": "Deals with absence and minimal absent subsequences.",
+          "identifier_or_url": "arxiv:2108.13968",
+          "material_read": "abstract and available relevant theorem descriptions",
+          "method": "web literature/primary material",
+          "title": "Absent Subsequences in Words",
+          "trigger": "subsequence universality and arch factorization"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK; complete specialization not confirmed in inspected material",
+          "evidence": "General binomial coefficients of words count embeddings, but no examined all-parameter cyclic-host histogram.",
+          "identifier_or_url": "arxiv:1705.08270",
+          "material_read": "abstract/introduction and cited concept",
+          "method": "web indexed primary material",
+          "title": "Generalized Pascal triangle for binomial coefficients of words",
+          "trigger": "general word-binomial terminology"
+        },
+        {
+          "assessment": "DIFFERENT COUNTING ORIENTATION",
+          "evidence": "Counts hosts having a given target pattern, not the entire target-multiplicity spectrum for a single fixed cycling host.",
+          "identifier_or_url": "arxiv:2306.07870",
+          "material_read": "primary PDF accessible; inspected pertinent definitions and enumeration statements, screenshot used",
+          "method": "web primary PDF and screenshot",
+          "title": "Patterns in words, direct occurrence-count orientation comparison",
+          "trigger": "potential stronger word-occurrence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full output-probability spectrum under uniform-position deletion from a canonical periodic source is a natural and strictly finer invariant than output support. Complete exact frequencies and feasible range for every (q,k,m) can be used without a downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md Git blob bd4cece266aeb3801ecbc4138ace73f0ab4c7377",
+    "Flaxman–Harrow–Sorkin 2004 primary paper Theorem 5",
+    "Kosche et al. arxiv:2108.13968 available relevant source",
+    "Leroy–Rigo–Stipulanti arxiv:1705.08270 abstract/introduction",
+    "Resultary semantic search for cyclic subsequence histograms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only complete strictly ascending permutation cycles and uniform position deletion, not arbitrary repeated/truncated periodic words.",
+    "Potential covering specialization of classical P-partition/word-binomial identities not ruled out by present literature.",
+    "Finite independent enumeration q<=4,k<=3,m<=6 only corroborates bijective all-parameter proof."
+  ],
+  "residual_risks": [
+    "Only complete strictly ascending permutation cycles and uniform position deletion, not arbitrary repeated/truncated periodic words.",
+    "Potential covering specialization of classical P-partition/word-binomial identities not ruled out by present literature.",
+    "Finite independent enumeration q<=4,k<=3,m<=6 only corroborates bijective all-parameter proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING multiplicity spectrum",
+      "evidence": "The theorem counts distinct subsequences, not the frequency of each target under positional selection.",
+      "identifier_or_url": "Flaxman–Harrow–Sorkin, Electronic Journal of Combinatorics 11 (2004), R8",
+      "material_read": "accessible primary full-text discussion including Theorem 5 and distinct-subsequence count",
+      "method": "web primary full text inspection",
+      "title": "Strings with maximally many distinct subsequences and substrings",
+      "trigger": "same cyclic source and subsequence support"
+    },
+    {
+      "assessment": "No identified implication for positive embedding counts; full exclusion not claimed",
+      "evidence": "Deals with absence and minimal absent subsequences.",
+      "identifier_or_url": "arxiv:2108.13968",
+      "material_read": "abstract and available relevant theorem descriptions",
+      "method": "web literature/primary material",
+      "title": "Absent Subsequences in Words",
+      "trigger": "subsequence universality and arch factorization"
+    },
+    {
+      "assessment": "GENERAL FRAMEWORK; complete specialization not confirmed in inspected material",
+      "evidence": "General binomial coefficients of words count embeddings, but no examined all-parameter cyclic-host histogram.",
+      "identifier_or_url": "arxiv:1705.08270",
+      "material_read": "abstract/introduction and cited concept",
+      "method": "web indexed primary material",
+      "title": "Generalized Pascal triangle for binomial coefficients of words",
+      "trigger": "general word-binomial terminology"
+    },
+    {
+      "assessment": "DIFFERENT COUNTING ORIENTATION",
+      "evidence": "Counts hosts having a given target pattern, not the entire target-multiplicity spectrum for a single fixed cycling host.",
+      "identifier_or_url": "arxiv:2306.07870",
+      "material_read": "primary PDF accessible; inspected pertinent definitions and enumeration statements, screenshot used",
+      "method": "web primary PDF and screenshot",
+      "title": "Patterns in words, direct occurrence-count orientation comparison",
+      "trigger": "potential stronger word-occurrence theorem"
+    }
+  ]
+}
