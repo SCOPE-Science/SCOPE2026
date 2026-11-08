@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The piecewise formula matches C^2 at both interfaces; has zero boundary values and the strict sign needed for the rate selector; satisfies the Bellman identity exactly on every region; and an integrable stopped Dynkin argument proves a bound against all predictable rate controls. Equality for the proposed feedback proves global optimality. A separate tridiagonal policy iteration checker confirmed 60 finite-state analogues and 11,260 value comparisons. Finite tests are secondary to the complete analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aspman et al. analyze piecewise prescribed reset rates for potential-driven diffusion and a single target, not arbitrary feedback policies with two absorbing endpoints.",
+        "Pal et al. analyze unconditional and conditional absorption under constant Poisson resetting in a finite interval."
+      ],
+      "reasoning": "The papers provide overlapping models or equations, but their stated hypotheses/conclusions do not optimize over every bounded spatially and history-dependent rate for the two-exit criterion. The present result is not merely a numerical parameter extension of their fixed-policy formulas.",
+      "searches": [
+        "\"optimal\" \"resetting\" \"absorbing boundaries\" \"position-dependent\" diffusion control",
+        "\"resetting\" \"both ends\" \"HJB\" \"interval\" absorbing",
+        "https://arxiv.org/html/2509.11809 (Sections II–V, Appendices A–C)",
+        "https://arxiv.org/pdf/2502.09127 (Section III)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1107.4225",
+      "arxiv:2112.11416",
+      "arxiv:2509.11809",
+      "arxiv:2502.09127",
+      "Phys. Rev. E 114, 024110 (2026), DOI:10.1103/w2yj-91m8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Evans–Majumdar Section 3.2 has an optimal infinite-rate rule in the presence of one known absorbing target and evaluates a symmetric nonresetting window, not the optimal finite-rate two-exit mirror window.",
+        "De Bruyne–Mori prove the general bang-bang control principle but do not solve an exit-time reward for two absorbing boundaries; their Section IV discussion flags first-passage payoffs as further work.",
+        "Aspman et al. fix reset-rate profiles before evaluating first-passage time to one target.",
+        "Pal et al. equation (17) is the finite-interval constant-reset-rate mean; it does not bound variable spatial policies."
+      ],
+      "reasoning": "None of the inspected results has premises and conclusion strong enough to imply the exact two-exit optimal policy and its rate-independent switching points as a stated corollary without solving the new nonlinear boundary-value problem. The generic HJB equation is a method used in the proof and explicitly credited, not an originality assertion.",
+      "searches": [
+        "https://arxiv.org/pdf/1107.4225 (Sections 3.1–3.2)",
+        "https://arxiv.org/pdf/2112.11416 (Sections II–III and Appendices A–B)",
+        "https://arxiv.org/html/2509.11809 (Sections II–V and appendices)",
+        "https://arxiv.org/pdf/2502.09127 (Sections II–III)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans–Majumdar, Section 3.2, gives an immediate-reset half-line control for a known single target and notes a different constrained control remains open.",
+        "De Bruyne–Mori, Appendix B, has finite-interval discounted rewards and instantaneous reinjection at boundaries, not an absorbing two-end first-exit problem."
+      ],
+      "reasoning": "Reflection about the midpoint converts resetting site a to L-a but not the first-exit objective into a one-target half-line problem. The generic Bellman rate comparison identifies the selector given a value function; it does not yield the explicit C^2 solution, its reflected switching coordinates, or its exact mean. Neither alternative statement logically contains the claimed theorem.",
+      "searches": [
+        "bounded state dependent stochastic resetting optimal control Brownian two absorbing boundaries reset location interval",
+        "\"resetting\" \"mirror\" \"absorbing\" \"finite interval\" optimal",
+        "https://arxiv.org/pdf/1107.4225 (Section 3.2)",
+        "https://arxiv.org/pdf/2112.11416 (Appendix B)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-index and general literature searches returned no exact table or precomputed mirror-window classification; the closest indexed resetting entries concerned other objects such as renewal-time envelopes or quantum detection."
+      ],
+      "reasoning": "This is a functional optimal control result, not a known finite-entry numerical table. Nonappearance in searched indexes is weak negative evidence only and cannot prove priority.",
+      "searches": [
+        "bounded state dependent stochastic resetting optimal control Brownian two absorbing boundaries reset location interval",
+        "\"two absorbing boundaries\" \"optimal resetting rate\" space dependent",
+        "\"resetting\" \"mirror\" \"absorbing\" \"finite interval\" optimal",
+        "\"resetting\" \"mirror\" \"absorbing\" \"finite interval\" optimal"
+      ]
+    },
+    "rationale": "The exact mirror-window selector and all-starting-point optimal value solve a two-absorbing-boundary first-exit problem not covered by the checked primary analyses. General position-dependent reset equations and generic Bellman principles are acknowledged as prior and not counted as novel. Priority remains qualified by possible wider literature.",
+    "residual_risks": [
+      "A broader unlocated optimal-boundary-control theorem may contain the same two-exit case; absence from search results is not an exhaustive uniqueness certificate.",
+      "Instantaneous zero-cost resets and perfect state observation limit physical transferability.",
+      "No external independent mathematical or experimental validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single absorbing origin, unbounded spatial line, not two absorbing endpoints; its one-sided infinite-rate rule does not supply finite-rate mirror-window optimum",
+        "evidence": [
+          "arXiv:1107.4225, Section 3.2, equation (36); discussion of the known target direction and nonresetting window"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+        "material_read": "17-page primary PDF: introduction, Sections 2–5, with close reading of Sections 3.1 and 3.2 and formulas for single-target first passage",
+        "method": "Full-text headings, equations and argument-level comparison",
+        "title": "Diffusion with Optimal Resetting",
+        "trigger": "Spatially dependent rates and optimal reset-window claims"
+      },
+      {
+        "assessment": "General Bellman framework strictly precedes this result but specific absorbing first-exit control and mirror-window solution are not in its worked examples",
+        "evidence": [
+          "arXiv:2112.11416, equations (5)–(7), (A2), Appendix B and concluding first-passage extension remark"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.11416",
+        "material_read": "11-page primary PDF: resetting Bellman derivation and selector, finite-interval Appendix B, conclusions, Appendix A",
+        "method": "Full-text mathematical statement and application comparison",
+        "title": "Resetting in Stochastic Optimal Control",
+        "trigger": "Potentially dominating general optimal resetting theory"
+      },
+      {
+        "assessment": "One absorbing target and potential-drift examples with specified, rather than arbitrary optimized, local rate profiles",
+        "evidence": [
+          "arXiv:2509.11809, Sections II, III.1–III.2, V and Appendices A–C; arXiv initial 2025-09-15 submission"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.11809",
+        "material_read": "Open HTML §§II–III and V, the numerical protocol, and Appendix A–C headings and selected formulas were inspected for domain and reset-policy restrictions.",
+        "method": "Original equation (4), prescribed rate definitions, analysis sections and appendices compared with the claimed optimization",
+        "title": "First passage time in space-dependent stochastic resetting",
+        "trigger": "Direct current-era motivating model with piecewise spatial resetting"
+      },
+      {
+        "assessment": "Reset rate r is spatially constant and outcomes are selectively conditioned, so no solution for all bounded feedback rates",
+        "evidence": [
+          "arXiv:2502.09127, Section III equations (17)–(21)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.09127",
+        "material_read": "Primary PDF introduction, general renewal equations, and Section III exact two-boundary constant-rate formula.",
+        "method": "Compared reset control class and mean passage objective to claimed globally minimized time",
+        "title": "Universal criterion for selective outcomes under stochastic resetting",
+        "trigger": "Same two-absorbing-boundary geometry with resetting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9917a8f5-fc1c-4ab9-97e8-ad5fb18bf3b8",
+  "value": {
+    "rationale": "Two endpoints create an authentic geometric tradeoff: resetting near an exit loses nearly completed trajectories, whereas resetting in the interior can accelerate escape to either boundary. The exact all-control solution identifies a universal central resetting region with immovable geometric switch positions despite a variable rate ceiling and diffusivity, plus strict benefit, midpoint boundary and strong-ceiling limiting value. This is a complete motivated classification rather than a routine substitution or a tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
