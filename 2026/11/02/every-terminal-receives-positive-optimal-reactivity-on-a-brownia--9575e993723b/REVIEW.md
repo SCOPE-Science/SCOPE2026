@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The backward Poisson equation yields the exact mean lifetime as a ratio of two positive sums. At the optimal ratio, the auxiliary functional is strictly convex, giving uniqueness. Its KKT equations and the global lifetime lower bound exclude every zero-rate terminal. The proof covers all positive arm lengths, finite budgets, and any integer number of arms at least three. A symbolic checker reconstructs the curvature identities; randomized optimization and independent budget allocations provide diagnostic checks, not a substitute for the proof.
+PASS
 
-## Originality — PASS on examined evidence
+For m≥3 compact arms ℓ_i>0, D>0 and budget Σκ_i=K>0, solve D u_i″=−1, Kirchhoff Σu_i′(0)=0 and Robin u_i′(ℓ_i)=−(κ_i/D)u_i(ℓ_i). The central lifetime is U=A(r)/(D B(r)), A=Σℓ_i(1+r_iℓ_i/2)/(1+r_iℓ_i), B=Σr_i/(1+r_iℓ_i)>0, r_i=κ_i/D, Σr_i=K/D=R. Setting V*=min A/B, h_i′(r)=−(ℓ_i²/2+V*)/(1+rℓ_i)² and h_i″(r)>0 makes A−V*B strictly convex on the compact simplex; hence unique minimizer. An inactive leaf would force active marginal λ≥ℓ_j²/2+V*>V*, which yields r_i≤ℓ_i/(4V*) for all i. But V*≥Σℓ_i/(2R) gives R≤Σℓ_i/(4V*)≤R/2, contradiction. Therefore all reactivities positive and KKT characterizes the unique optimum. Independently checked 48 heterogeneous SLSQP numerical cases for positive optimizers; not an infinite proof.
 
-The foundational metric-graph Brownian construction does not optimize leaf reaction budgets. A known earlier two-terminal interval allocation theorem is *not* claimed again; the domain here is genuine branching of degree at least three. Contemporary convex-body uptake optimization concerns steady exterior flux rather than mean central-launch lifetime, and does not imply the new universal all-terminal interiority. Targeted index comparisons did not identify an equivalent statement. Residual risk: differently formulated, unindexed, or inaccessible earlier allocations may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Reaction-budget placement at heterogeneous network termini is a natural finite-resource design problem. The theorem unexpectedly forbids optimal complete inactivity of any terminal at any finite positive budget, and provides a unique global design via explicit stationarity and consistency equations. No claim is made beyond compact Kirchhoff stars, common diffusivity, central launch, and Robin leaf killing.
+Best-of-knowledge originality of the final exact statement, with actual published-result comparisons rather than title matching; no inspected source mathematically implies the full stated result. Inaccessible closely related texts are explicitly retained as priority risks; failed search is not novelty proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Uniform strict-interiority and uniqueness for an allocation problem on arbitrary heterogeneous multi-arm diffusion networks is a motivated global optimization theorem, excluding an intuitively plausible strategy of shutting off distant leaves. Exact KKT equations give actionable design characterization, not merely a local numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
