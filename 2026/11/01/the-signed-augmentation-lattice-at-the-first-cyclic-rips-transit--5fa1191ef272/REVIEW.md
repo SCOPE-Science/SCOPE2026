@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(k\ge2\), the clique classification is exhaustive: a distance-\(k\) clique in the \(3k\)-cycle either lies in a circular interval of \(k+1\) vertices or is one of exactly \(k\) equilateral triangles. The interval core is the nerve of a good cover of the circle, hence is homotopy equivalent to \(S^1\). The explicit radial map has degree one on the embedded cycle, making its integral first-homology normalization primitive. Each exceptional triangle attaches along that primitive positive circle generator, so the relative integral boundary is the row \((1,\ldots,1)\). Reflection changes the triangle orientation and circle orientation together; rotation permutes the oriented triangles without sign. Equivariance of the integral boundary gives precisely the signed augmentation kernel, not just its rational character. The relative long exact sequence and one degree-one attachment also prove vanishing of the remaining reduced homology and the previously known sphere-wedge type.
+PASS
 
-The separate standalone checker reconstructs all faces for \(2\le k\le8\), compares with exhaustive direct clique enumeration when \(2\le k\le4\), checks the exceptional face boundaries, and verifies complete signed Lefschetz traces of every dihedral element. These computations test rather than replace the infinite-parameter proof. All required calculations use exact integers.
+Reconstructed clique dichotomy: intervals of k successive edges versus exactly k exceptional triangles [a,a+k,a+2k]. Independently exhaustive clique enumeration for k=2,3,4 yields respectively 26,75,196 faces, precisely interval-core faces plus 2,3,4 exceptional triangles. The interval core is a good circular-arc nerve homotopy S1 and its radial map sends the embedded C_{3k} once around; each exceptional triangular boundary has degree +1, giving primitive relative differential (1,...,1):Z^k->Z. Relative long exact sequence gives free H2 kernel, H1=0 and wedge after first disk kills pi1. Rotation cyclically permutes triangle orientations, reflections reverse sign; the quotient target is sign, so integral representation follows, rather than only rational character. Finite tests not used for all k.
 
-## Originality — PASS, with residual risks
+## originality
 
-Adamaszek, *Clique complexes and graph powers* (arXiv:1104.0433, Corollary 6.7), proves the same **nonequivariant** homotopy type. Consequently that sphere-wedge statement is a prior premise and is not asserted to be new. It does not determine integral rotation/reflection matrices, an integral signed lattice, or reflection character values.
+PASS
 
-Adamaszek, Adams, Frick, Peterson, and Previte-Johnson, *Nerve complexes of circular arcs* (arXiv:1410.4336), Proposition 7.2, gives an equivariant result for the circular-arc **nerve** complexes. Its Section 8 identifies cycle-power **clique** complexes with different-order nerves up to nonequivariant homotopy. The change in vertex count prevents direct transport of an action of the same full dihedral group, and the source's stated theorems do not settle the present integral action. The circle Rips paper arXiv:1503.03669 concerns homotopy transitions without this integral reflection action.
+Adamaszek Corollary 6.7 and the later Nerve Complexes Theorem 8.2 cover nonequivariant wedge of k-1 S2. Nerve Complexes Proposition 7.2 provides a dihedral module for N(n,k) on n arcs, but Theorem 8.5 maps clique N(n+k,k) to a nerve on n vertices and is not equivariant under the original full 3k-vertex dihedral action. The coincidence of some rational trace formulas must not be confused with an isomorphism of the exact integral D_{3k} module; no prior theorem with this original group action was found in inspected statements.
 
-Searches for alternate descriptions (cyclic graph powers, inclusive graph-metric Rips, rational/dihedral homology, integral augmentation lattices) found no stronger indexed theorem with the same group and integral statement. An earlier calculation of the **ordinary cyclic orbit space** determines a quotient homotopy type, not the full reflection-sensitive integral homology module. Search-index incompleteness and a possibly unindexed equivalent equivariant treatment remain risks; novelty has not been independently confirmed.
+## value
 
-## Value — PASS
+PASS
 
-The first singular winding ratio \(1/3\) is the natural threshold where the circle-like Rips complex gains the equilateral triangles and its second homology becomes nontrivial. The signed augmentation lattice is intrinsic to these missing circular-arc faces. It determines the complete integral action for an unbounded family, including reflection parity and fixed-submodule ranks, which the previously known sphere multiplicity cannot recover. This is a structural equivariant refinement with applications to invariant homology and coefficient reductions; no unproved broader consequences are asserted.
+At the first winding 1/3 singularity, a circle-like Rips complex gains precisely k two-cells. An exact integral module and reflection-sign control distinguish equivariant behavior invisible in known nonequivariant wedge ranks; natural unbounded k family and fixed-submodule ranks have independent use.
 
-## Scope and limitations
-
-Only the first singular ratio and ordinary integral homology representation are classified, not arbitrary critical ratios, equivariant homotopy type, ordinary orbit-space homology, or adjacent-scale persistence. Finite verification is not a substitute for the all-parameter proof. Publication priority remains uncertain without independent bibliographic and mathematical validation.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The all-parameter proof in `RESULT.md` classifies the cliques, identifies the circular-arc nerve core, and calculates the primitive integral attaching degrees with the exact dihedral orientation signs. This argument establishes the infinite-family theorem without extrapolation from finite data.
+## correctness
 
-Run `python3 verify_cycle_power.py` from the same directory as this file. The script uses only Python's standard library. The output in `verify_cycle_power_output.txt` records the finite checks for every integer \(2\le k\le8\). It constructs the interval-core simplices, checks exceptional triangles and boundaries, calculates their Euler characteristic, and calculates the signed simplicial Lefschetz number for every rotation and reflection at every tested parameter. For \(2\le k\le4\), independent brute-force enumeration of all vertex subsets confirms that the classified faces are exactly the cliques of the corresponding graph power.
+PASS
 
-The exact signed simplicial Lefschetz values agree with the claimed homological character for all tested symmetries. The checks do not prove a universal statement by enumeration; that proof comes from the covering-and-attachment argument. The finite checker does not establish novelty or an equivariant homotopy equivalence. Independent audit: not performed.
+Reconstructed clique dichotomy: intervals of k successive edges versus exactly k exceptional triangles [a,a+k,a+2k]. Independently exhaustive clique enumeration for k=2,3,4 yields respectively 26,75,196 faces, precisely interval-core faces plus 2,3,4 exceptional triangles. The interval core is a good circular-arc nerve homotopy S1 and its radial map sends the embedded C_{3k} once around; each exceptional triangular boundary has degree +1, giving primitive relative differential (1,...,1):Z^k->Z. Relative long exact sequence gives free H2 kernel, H1=0 and wedge after first disk kills pi1. Rotation cyclically permutes triangle orientations, reflections reverse sign; the quotient target is sign, so integral representation follows, rather than only rational character. Finite tests not used for all k.
+
+## originality
+
+PASS
+
+Adamaszek Corollary 6.7 and the later Nerve Complexes Theorem 8.2 cover nonequivariant wedge of k-1 S2. Nerve Complexes Proposition 7.2 provides a dihedral module for N(n,k) on n arcs, but Theorem 8.5 maps clique N(n+k,k) to a nerve on n vertices and is not equivariant under the original full 3k-vertex dihedral action. The coincidence of some rational trace formulas must not be confused with an isomorphism of the exact integral D_{3k} module; no prior theorem with this original group action was found in inspected statements.
+
+## value
+
+PASS
+
+At the first winding 1/3 singularity, a circle-like Rips complex gains precisely k two-cells. An exact integral module and reflection-sign control distinguish equivariant behavior invisible in known nonequivariant wedge ranks; natural unbounded k family and fixed-submodule ranks have independent use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
