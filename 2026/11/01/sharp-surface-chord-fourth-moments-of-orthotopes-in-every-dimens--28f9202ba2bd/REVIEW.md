@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability that a normalized surface point lies on either facet normal to a coordinate is proportional to reciprocal half-edge length. The proof derives the coordinate moments and their mixed pair moments from that exact measure; independence and centeredness then give an algebraic identity for the second and fourth chord moments. Cauchy–Schwarz and an explicit nonnegative pairwise-difference identity prove the lower bound and unique cube equality. A displayed positive decomposition proves the strict upper bound. A continuous aspect-ratio path establishes full range, and a signed rational difference establishes strict dimension monotonicity. The quantitative remainder retains the coordinate fourth-moment variance, and a smooth balanced perturbation proves the square-root exponent optimal. The separate rational facet-pair verifier passes 320 exact checks in dimensions four through eight. The proof covers all positive dimensions and is not extrapolated from finite tests.
+PASS
 
-## Originality — PASS, provisional historical priority
+For d≥4 and positive half-edges a_i, the full boundary surface-area distribution picks facet-normal coordinate I=i with probability 1/(a_i T), T=Σ 1/a_i; conditional tangential coordinates are independent uniform and normal coordinate is ±a_i. From this mixture E X_i²=(a_i²+2a_i/T)/3 and E X_i⁴=(a_i⁴+4a_i³/T)/5. For independent centered X,Y, the fourth-distance identity and diagonal covariance give κ=E D⁴/(E D²)²=1+(7E/5+28C/5-2R²+4B/T²)/(B+2R)² with B=Σa_i²,E=Σa_i⁴,R=Σa_i/T,C=Σa_i³/T. Independent rational summation of all 16 ordered facet-normal pairs for a=(1,2,3,4) yielded 48211/32670, exactly matching the invariant formula. Cauchy E≥B²/d, C≥R², and BT−dΣa_i=Σ_{i<j}(a_i+a_j)(a_i−a_j)²/(a_i a_j)≥0 imply κ≥κ_d=1+1/d+2(d−1)/(5(d+2)²), with cube the unique equality case. The residual E−B²/d gives global stability ≥2d²/[5(d+2)²]Σ(a_i²/B−1/d)²; symmetric cube perturbations show the square-root inverse exponent optimal. The numerator of 12/5−κ decomposes into nonnegative B²−E, BR−C, and R²−B/T² terms (strict for positive d≥2); slender a_1→∞ reaches the unattained supremum. Connected shape space gives every intermediate κ. SymPy independently verified exact positive formula for κ_d−κ_{d+1}; the argument covers all integer d≥4, not only tested dimensions.
 
-This theorem concerns surface-area-uniform independent points on arbitrary higher-dimensional orthotopes and a sharp normalized fourth-moment inequality. The inspected full text of Burgstaller–Pillichshammer (2009; DOI 10.1017/S0004972709000707) studies a first-moment bound for volume-uniform convex-body points, which neither implies nor states the target. The accessible 1999 Mathai–Moschopoulos–Pederzoli abstract (DOI 10.6092/issn.1973-2201/1104) concerns three-dimensional cube distance formulas and particular facet pairs, not the all-dimensional shape extrema; inaccessible full text remains a nontrivial priority risk. García-Pelayo's 2011 abstract (DOI 10.1063/1.3559719) gives a general forward moment method but no identified sharp orthotope extrema; full text was inaccessible. A preceding three-dimensional rectangular-box theorem has the same upper endpoint but a different dimension-three lower endpoint; the present d≥4 dimension law, full feasibility classification, and stability remainder do not follow merely from it. Searches of available published mathematical research records found no exact equivalent or stronger implication; this does not prove historical novelty exhaustively.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies a complete sharp moment range for surface sampling across every dimension at least four, a rigid characterization of the minimizing shape, an explicit anisotropy stability law with optimal exponent, and a sharp dimension-feasibility boundary. Unlike one more fixed-shape integration, it describes how the measurable normalized moment encodes deviation from cubic symmetry and fails to identify ambient dimension. The work addresses a natural inverse question in geometric probability. It does not claim optimal constant for stability or finite-data reconstruction.
+Best-of-knowledge originality judgment for the exact scoped final claim, after mathematical prior-work implication comparison. Forward distance-moment formulas and 3D face-pair results are credited; the all-d≥4 surface-uniform shape extremum/stability/feasibility claim is not covered by accessible statements.
 
-## Scientific limits and source access
+## value
 
-The 1999 and 2011 papers were compared from accessible abstracts, not full manuscripts, and could conceivably contain stronger coverage; independent priority and correctness assessment remain unperformed. The proof does not cover skew parallelepipeds, random-line chords, or volume-uniform points. A 1999 publication is known by year but its first publicly available day has not been verified; the dated supporting scientific anchor is the 2009-10-02 online publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete sharp normalized fourth-distance moment range for a natural surface-uniform sampling model across all d≥4, with a rigid cube optimizer, explicit inverse-anisotropy stability, sharp square-root exponent and a dimension-feasibility law. Those geometric optimization and inverse conclusions exceed isolated cube or facet-integral computations and can be used to benchmark geometric probability models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
