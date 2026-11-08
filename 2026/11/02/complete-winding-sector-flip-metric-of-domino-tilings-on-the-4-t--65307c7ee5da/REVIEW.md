@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every perfect matching of the 24-cell torus and each of the 24 elementary square faces is generated in full by the edge-mask verifier and separately by a bipartite-bijection verifier. Both traverse all flip edges and perform a breadth-first search from each state, yielding exactly 15 flux-distinguished connected components and identical per-component shortest-path distributions. All 163 sector-distance bins, vertex counts, edge counts, radii, diameters and within-component Wiener indices agree. In particular, no sampling, timeout-as-proof, or extrapolation to other dimensions is involved. The implementation-level caveat is the absence of external code review.
+## correctness
 
-**Originality — PASS (residual risk acknowledged).** The 1995 general result on toroidal domino connectivity and pairwise height-based flip distances is prior work and not reclaimed. The 2014 toroidal perfect-matching homology result and 2023 component-bounds paper were inspected in full. None of their reported statements or tables gives the full \(4\times6\) flux-sector distance, degree and eccentricity census. The earlier \(4\times4\) special case and the 16-vertex four-cube perfect-matching switch study concern different numerical objects. The main residual risk is an equivalent finite table in an unindexed appendix, or an unrecognized closed-form specialization of published enumeration machinery. The implication comparisons and source details are in `AUDIT.json`.
+PASS
 
-**Value — PASS.** This exact nontrivial finite benchmark records every reachable reconfiguration-pair distance of a naturally periodic 24-cell dimer system, with four frozen states, four 24-cycles, and sectors of increasing radii/diameters culminating in diameter 20. This is more information than the general existence of an algorithm to compute one distance or a lower bound on component count. The exhaustive metric classification is motivated by toroidal winding/flip dynamics and can test more general transfer-matrix or height-function methods. It is not claimed to be a new general-distance theorem.
+For C4 square C6 with exactly 24 embedded faces (seam faces included), the least-uncovered-vertex matching recursion is exhaustive and injective; face-mask replacement enumerates exactly legal flips. Graph traversal and BFS from every vertex establish distance histograms, eccentricities, radii, diameters and componentwise Wiener sums. Independently reconstructed 3,108 matchings, 9,048 undirected flip edges, 15 flux-separated connected components and all component (size,edge,radius,diameter,Wiener) profiles; in flux (0,0) recovered (1456,4968,12,20,8146752), aggregate Wiener 10795608 and 163 nonzero distance bins. Signed seam flux is invariant; complete finite enumeration shows each nonempty class connected, not a generic toroidal theorem.
 
-**Limits.** Only the standard untwisted \(4\times6\) torus and its 24 elementary embedded-square flips are covered. The underlying graph is disconnected and the total Wiener sum concerns reachable pairs within components only. An equivalent prior finite computation cannot be ruled out conclusively; independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior toroidal height/flip theory provides component criteria and individual shortest-distance methods; the precise full 4-by-6 degree, eccentricity and all-pairs histogram census was not in inspected prior results. This is the original numerical refinement, not a new general height-distance method.
+
+## value
+
+PASS
+
+Exact intrinsic graph-metric census for the first natural anisotropic 24-cell toroidal domino graph is a useful complete benchmark for reconfiguration distance, constrained mixing or enumerative studies. Complete distribution includes distinctions invisible to component counts; it is neither a random slice nor a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
