@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with only the standard library. The program prints `PASS` after its diagnostic sequence. It has been executed successfully from its actual standalone path.
+## correctness
 
-Its most independent test constructs a central section polygon by intersecting all 12 edges of \(\operatorname{conv}\{\pm e_1,\pm e_2,\pm e_3\}\) with each of 500 generic uniformly oriented planes. After circular sorting of the resulting four or six vertices it computes the smallest distance from the origin to a polygon side and compares it directly with the claimed polar expression to within \(5\cdot10^{-13}\). Further checks compare the positive-tail formula with independent Simpson quadrature on the spherical region, verify endpoint probability identities and support, and compare the analytic CDF with 150,000 seeded independent uniform spherical normals at eleven thresholds. The run passed 533 individually counted diagnostics.
+PASS
 
-The Taylor-law coefficient at the interior transition was separately compared at several high-precision offsets with the predicted \(9\sqrt3/8\) spherical-area constant, and the induced \(128\sqrt3/\pi\) radius-squared deficit coefficient was checked numerically. These finite checks are diagnostic and cannot certify the continuum claim: the analytic polarity, spherical-area integral, Gauss–Bonnet, and smooth scaling argument in RESULT.md constitute the proof.
+PASS. For the unit-vertex octahedron O and Haar plane H=u^perp, intrinsic polarity gives (O∩H)^polar,H=P_H([-1,1]^3), so the centered disk inradius obeys R^{-2}=max_{eps∈{±1}³}||P_H eps||²=3-min_eps(eps·u)². Sorting |u| as a>=b>=c reduces the minimal signed sum to |a-b-c|, including the q<0 spherical chamber. Its range [-1/sqrt(3),1] establishes support [1/sqrt(3),1/sqrt(2)]. The q>t event is the 24 sign/order copies of x>y+z+t; direct polar-coordinate spherical area integration reproduces P_+(t). The q<-t event is eight congruent small-circle spherical triangles; Gauss–Bonnet gives P_-(t) with cut-off t_c=1/sqrt(3). The collapsing spherical triangle has area (9sqrt(3)/8)(t_c-t)^2+O((t_c-t)^3); because t(r*)=t_c and t'(r*)=16sqrt(2)/3, the left-minus-right second-derivative jump is -256sqrt(3)/pi, first derivatives matching. Independently evaluated the positive-tail spherical integral at seven thresholds t=0,.2,.4,1/sqrt(3),.65,.9,1 with scipy quadrature against the claimed closed formula (agreement at floating-point rounding), checked endpoint tails sum to one; inspected the distinct vertex/edge geometric section inradius verifier. Continuum differentiability comes from the geometric asymptotics, not these finite checks.
 
-Independent mathematical validation has not been performed. The checker is a standalone reproducibility artifact, not a formal proof assistant or a third-party certificate.
+## originality
+
+PASS
+
+PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: the same octahedron model must be a CENTRAL SECTION inradius, not projection inradius or section diameter; no inspected prior exact statement implies the signed-sum CDF or interior C² transition.
+
+## value
+
+PASS
+
+PASS. The exact CDF and its interior C^1-not-C^2 transition concern the intrinsic inradius of random central octahedron sections, a standard convex geometric probability invariant that differs materially from octahedron projection inradius, width or section diameter. The analytically evaluated spherical triangular transition and the explicit curvature jump resolve a sharp geometric phase boundary; the exact fact is useful independently of a broad random-polytope theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

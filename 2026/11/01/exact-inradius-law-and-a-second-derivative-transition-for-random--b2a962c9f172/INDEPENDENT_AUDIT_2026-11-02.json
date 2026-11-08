@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:02:16.575635Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE assigned RESULT.md at blob 0998ef88a1178e2103176a35abc9dff1296cb3af",
+        "SCOPE assigned verify.py at blob 3bbc7b96c839bc4146e5796573c25c21a8f32656",
+        "Independent integral/quadratic-limit calculations from analytic proof"
+      ],
+      "rationale": "PASS. For the unit-vertex octahedron O and Haar plane H=u^perp, intrinsic polarity gives (O∩H)^polar,H=P_H([-1,1]^3), so the centered disk inradius obeys R^{-2}=max_{eps∈{±1}³}||P_H eps||²=3-min_eps(eps·u)². Sorting |u| as a>=b>=c reduces the minimal signed sum to |a-b-c|, including the q<0 spherical chamber. Its range [-1/sqrt(3),1] establishes support [1/sqrt(3),1/sqrt(2)]. The q>t event is the 24 sign/order copies of x>y+z+t; direct polar-coordinate spherical area integration reproduces P_+(t). The q<-t event is eight congruent small-circle spherical triangles; Gauss–Bonnet gives P_-(t) with cut-off t_c=1/sqrt(3). The collapsing spherical triangle has area (9sqrt(3)/8)(t_c-t)^2+O((t_c-t)^3); because t(r*)=t_c and t'(r*)=16sqrt(2)/3, the left-minus-right second-derivative jump is -256sqrt(3)/pi, first derivatives matching. Independently evaluated the positive-tail spherical integral at seven thresholds t=0,.2,.4,1/sqrt(3),.65,.9,1 with scipy quadrature against the claimed closed formula (agreement at floating-point rounding), checked endpoint tails sum to one; inspected the distinct vertex/edge geometric section inradius verifier. Continuum differentiability comes from the geometric asymptotics, not these finite checks.",
+      "residual_risks": [
+        "The Gaussian/quadric numerical diagnostics cannot certify the full angular integral or every asymptotic error term by themselves.",
+        "No assertion at noncentral planes, other bodies or higher dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brazitikos–Pandis (2026) concerns restricted section volumes; Guédon et al. random diameters address another metric and generally bounds.",
+          "Two relevant published exact Resultary laws of distinct section/projection statistics inspected in full."
+        ],
+        "reasoning": "More general results about random sections and diameters do not imply the exact three-dimensional section-inradius CDF or its one-sided second derivative without additional geometry. No full-text negative claim about an inaccessible specialised source is made.",
+        "searches": [
+          "Exact distribution central sections octahedron inradius sphere Haar section cube projections dual radius smoothness second derivative"
+        ]
+      },
+      "checked_sources": [
+        "Exact inradius law for random planar projections of the regular octahedron — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+        "Exact Haar diameter law for central sections of the regular octahedron — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f",
+        "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex — https://arxiv.org/abs/2606.07163",
+        "Resultary semantic search: Exact distribution central sections octahedron inradius sphere Haar section cube projections dual radius smoothness second derivative",
+        "Resultary targeted search: exact octahedron central plane section inradius distribution differentiability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under identical octahedron normalization, published diameter of O∩H is 2sqrt(a²+c²)/(a+c) for ordered normal magnitudes a<=b<=c, independent of b.",
+          "Present R^{-2}=3-(max-median-min)² depends on all three ordered magnitudes."
+        ],
+        "reasoning": "There are normals with equal extremal-coordinate ratio but different middle coordinate; their inradii differ although their section diameters agree. Projections and sections are not interchangeable, so neither observed prior exact law implies this CDF or C^2 failure.",
+        "searches": [
+          "Exact distribution central sections octahedron inradius sphere Haar section cube projections dual radius smoothness second derivative",
+          "exact octahedron central plane section inradius distribution differentiability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full Resultary/2026 RESULT.md, 2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+          "Full Resultary/2026 RESULT.md, 2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f"
+        ],
+        "reasoning": "Polarity exchanges octahedron section with cube projection, whereas the published projection-inradius law exchanges octahedron projection with cube section; not equivalent by relabeling. The published octahedron-section diameter depends only on min/max normal-coordinate ratio; this inradius also depends on the middle coordinate via a-b-c.",
+        "searches": [
+          "Exact distribution central sections octahedron inradius sphere Haar section cube projections dual radius smoothness second derivative",
+          "exact octahedron central plane section inradius distribution differentiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary octahedron projection inradius RESULT.md gives two-cone CDF of cube SECTION circumradius.",
+          "Resultary octahedron central-section diameter RESULT.md gives one-ratio arctangent CDF."
+        ],
+        "reasoning": "These are exact databases for adjacent objects, not a tabulation of q=a-b-c or an equivalent CDF; matching support endpoints is insufficient for coverage.",
+        "searches": [
+          "exact octahedron central plane section inradius distribution differentiability"
+        ]
+      },
+      "rationale": "PASS. Best-of-knowledge originality after comparing exact mathematical objects and implications, not merely names: the same octahedron model must be a CENTRAL SECTION inradius, not projection inradius or section diameter; no inspected prior exact statement implies the signed-sum CDF or interior C² transition.",
+      "residual_risks": [
+        "Unindexed stereology treatments may have an equivalent Haar section-inradius formula; full text of some specialised sources not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering: orthogonal projection invariant with cube-section polar instead of central-section invariant.",
+          "evidence": "Full RESULT.md explicitly states (P_E O)^polar = [-1,1]^3∩E; present model has (O∩E)^polar=P_E cube.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+          "material_read": "Complete RESULT.md: finding, polar reduction, two regimes/cones and full CDF, limitations and references",
+          "method": "Authorized GitHub source file read at its blob",
+          "title": "Exact inradius law for random planar projections of the regular octahedron",
+          "trigger": "same octahedron, exact inradius, same Haar measure"
+        },
+        {
+          "assessment": "Not covering: diameter is not inradius and middle-coordinate dependence prevents implication.",
+          "evidence": "Full proof derives D=2sqrt(a²+c²)/(a+c), unlike present R^{-2}=3-(a-b-c)².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f",
+          "material_read": "Complete RESULT.md: reduction to radial maximal length, sorted-normal ratio, spherical triangle distribution, limitations",
+          "method": "Authorized GitHub source file read at its blob",
+          "title": "Exact Haar diameter law for central sections of the regular octahedron",
+          "trigger": "identical random octahedron central sections"
+        },
+        {
+          "assessment": "Provides volume extremal context; not relied upon to exclude hidden formulas.",
+          "evidence": "Assigned RESULT.md identifies restricted-volume question; cannot infer whole-document novelty from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.07163",
+          "material_read": "Citation and abstract/description only; full manuscript not verified in this run",
+          "method": "Published bibliographic descriptions and assigned source references",
+          "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+          "trigger": "same polytope family, different invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/exact-inradius-law-and-a-second-derivative-transition-for-random--b2a962c9f172/RESULT.md",
+        "Published same-object and neighboring-object comparisons described in originality"
+      ],
+      "rationale": "PASS. The exact CDF and its interior C^1-not-C^2 transition concern the intrinsic inradius of random central octahedron sections, a standard convex geometric probability invariant that differs materially from octahedron projection inradius, width or section diameter. The analytically evaluated spherical triangular transition and the explicit curvature jump resolve a sharp geometric phase boundary; the exact fact is useful independently of a broad random-polytope theorem.",
+      "residual_risks": [
+        "The special 3D Haar-section model is narrow but mathematically natural; no extension to arbitrary sections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE assigned RESULT.md at blob 0998ef88a1178e2103176a35abc9dff1296cb3af",
+    "SCOPE assigned verify.py at blob 3bbc7b96c839bc4146e5796573c25c21a8f32656",
+    "Independent integral/quadratic-limit calculations from analytic proof",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f",
+    "https://arxiv.org/abs/2606.07163"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Gaussian/quadric numerical diagnostics cannot certify the full angular integral or every asymptotic error term by themselves.",
+    "No assertion at noncentral planes, other bodies or higher dimension.",
+    "The special 3D Haar-section model is narrow but mathematically natural; no extension to arbitrary sections.",
+    "Unindexed stereology treatments may have an equivalent Haar section-inradius formula; full text of some specialised sources not verified."
+  ],
+  "residual_risks": [
+    "The Gaussian/quadric numerical diagnostics cannot certify the full angular integral or every asymptotic error term by themselves.",
+    "No assertion at noncentral planes, other bodies or higher dimension.",
+    "Unindexed stereology treatments may have an equivalent Haar section-inradius formula; full text of some specialised sources not verified.",
+    "The special 3D Haar-section model is narrow but mathematically natural; no extension to arbitrary sections."
+  ],
+  "schema_version": 1
+}
