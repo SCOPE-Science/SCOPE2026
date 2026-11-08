@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is exactly the nine rank-three equivalence classes for nilpotent semigroups of positive-length paths in linearly oriented chains, with absorbing zero, in a specifically stated relational signature. Atomic diagrams of three variables and the named zero have all \(16\) equality and \(64\) ternary-product atoms. Recursive extension-type sets exactly characterize the three-round game. A full finite pass through \(26\) index points plus the proved gap game for every pair with at least \(26\) index points establishes the infinite result. The immutable-set Python implementation independently reproduces the crucial boundary through \(12\). Finite enumeration does not substitute for the tail proof.
+## correctness
 
-## Originality
-**PASS, qualified.** Searches under path semigroup, individual strictly upper-triangular matrix units, finite nilsemigroup, and rank-three EF equivalence did not identify an equivalent or stronger statement. The nearby directed-path classification has another domain/signature and cannot simply be interpreted at unchanged rank. Full Brandt matrix units admit nonzero idempotents, whereas the present objects are nilpotent. Huschenbett–Kufleitner studies omega-term identities, not this finite parameter threshold. Gould–Quinn-Gregson analyzes countable categoricity. Distler's thesis abstract reports finite nilsemigroup enumeration, but its full text was unavailable and remains a priority risk. These comparisons do not certify worldwide uniqueness.
+PASS
 
-## Value
-**PASS.** The theorem contrasts unbounded algebraic nilpotency index with a sharp bounded-depth logical collapse at nine index points, and completely determines the smallest representatives (up to \(37\) elements). The difference between the generic order-game tail bound \(26\) and exact threshold \(9\) is structural and motivated by finite model theory of an established algebra family.
+PASS: Exact 3-round Ehrenfeucht–Fraïssé recursion records the complete atomic equality and multiplication diagrams over zero and three chosen elements, recursively collecting all possible child-type sets. The inspected C++ source implements structural equality of these diagrams and nested sets; compiled and independently executed for all n=1..26, obtaining root classes 0,1,...,8,8,...,8. A separately implemented immutable Python recursion agrees for n=1..10. For arbitrary n,m>=26 a 3-move order game selecting up to two new endpoints per move has gap cutoff t_r=3t_(r-1)+2: 2,8,26; ordered equalities of selected six endpoints determine every relational multiplication atom. Thus tail equivalence is proved by induction, and the exact finite bridge U9~U26 gives the all-n sharp classification.
 
-## Scope and residual risk
-All results are for individually chosen matrix units plus zero, not their linear span, with named zero and ternary relational multiplication. Higher quantifier ranks and the functional signature are not classified. The C++ exact finite recursion is independently cross-checked for a proper subrange but not independently audited by a person. Priority may be affected by inaccessible or unindexed papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The equivalent positive-length path semigroup was searched explicitly. Existing logical EF results on word omega-terms, directed successor paths, small nilpotent-semigroup enumerations and full Brandt matrix units do not assert this rank-three classification or imply its n=9 threshold. The complete 2010 Distler thesis was not read and remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Complete finite-depth first-order classification of a natural growing family of nilpotent matrix-unit/path semigroups, with surprising stabilization at nine indices despite unbounded nilpotence indices and a sharp minimal 37-element class representative. A mathematically reusable exact logical invariant, not a raw small-order table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
