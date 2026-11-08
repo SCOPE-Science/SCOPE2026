@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pairwise agent-level EF1 conditions force all four bundle sizes to differ by at most one. The center-level comparisons reduce exactly to two integer inequalities. Optimizing over the four residue patterns provides necessity, explicit feasible allocations prove sufficiency, and the eight/nine/ten-good transitions follow by substitution. The standalone verifier independently checks direct inequalities over 13,860 rational parameter cases and all labeled assignments at seven, eight, and nine goods for an illustrative ratio. Finite checks support, but do not replace, the proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Theorem 11 of *Delegated Fair Division* (arXiv:2607.27743v1) gives a twelve-good impossibility in this precise one-exceptional-agent family. It does not give the exact four-residue existence conditions or establish both an eight-good first failure and nine-good feasibility. *Multilevel Fair Allocation* (arXiv:2512.24105) studies a different optimistic setting with matroid-rank leaves. Targeted comparisons found no implication or exact table containing the new law. Unindexed or inaccessible equivalent work remains possible.
+PASS
 
-**Value — PASS.** Exact resource-sensitive feasibility is a natural missing invariant for a published impossibility family. The threshold law distinguishes sharp minimal obstruction, nonmonotone recovery under adding a good, and eventual loss of existence as the exceptional value stays fixed; this is more informative than merely reducing the size of a negative example.
+For positive homogeneous valuations of weights (1,1,1,rho), each directed individual inter-EF1 condition is x_i >= x_j−1 because each value per good is a positive constant. Thus all counts differ by at most one: m=4t+r has r large t+1 counts. Item-based realized-center EF1 is exactly a+b>=c+d−1 and c+rho*d>=a+b−1 (including empty centers). Let u be count of large bundles in A: 2u>=r−1, so least u=0 for r0,1 and u=1 for r2,3, which maximizes centre-B realized slack. Assign any large B bundle first to B1 (unit valuer); four extremal vectors r0(t,t,t,t), r1(t,t,t+1,t), r2(t+1,t,t+1,t), r3(t+1,t,t+1,t+1) have centre-B slack respectively 1−t(1−rho), 2−t(1−rho), 1−t(1−rho), 1−t+rho(t+1). These are necessary and sufficient for every m≥1; hence r0,2: t rho≥t−1; r1: t rho≥t−2; r3: (t+1)rho≥t−1. All m<=7 feasible, m8 impossible for rho<1/2, m9 always feasible, m10 again impossible for rho<1/2. Direct exhaustive count-vector enumeration m=1..16 across 60 rational rho settings reproduced the threshold formula; universal claim follows from the integer proof.
 
-**Scientific limitations.** The theorem is restricted to homogeneous goods and one strictly positive exceptional agent value. It does not classify the first failure over all delegated bivalued valuations or prove an efficiency guarantee. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Deligkas et al arXiv:2607.27743 Theorem 11 studies exactly two 2-agent centres with three unit-valuers and one epsilon-valued agent, establishing a 12-good impossibility. That already proves nonexistence in this model, but not first failure at 8, reentrance at 9 or the exact all-m coefficient-residue law. Lucet et al address matroid-rank preferences and a different valuation convention. More general bivalued frameworks might subsume some cases but no directly implying theorem was identified.
+
+## value
+
+PASS
+
+The same natural toy family used for an existing delegated-fairness impossibility theorem has a sharp residue-dependent feasibility classification over every item count and exceptional ratio. The first obstruction at eight and nonmonotonic recovery at nine are mathematically motivated, checkable and strictly more informative than a known twelve-good witness. Value is limited to this specific homogeneous-outlier family, which is stated honestly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

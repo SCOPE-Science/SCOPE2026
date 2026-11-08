@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive homogeneous valuations of weights (1,1,1,rho), each directed individual inter-EF1 condition is x_i >= x_j−1 because each value per good is a positive constant. Thus all counts differ by at most one: m=4t+r has r large t+1 counts. Item-based realized-center EF1 is exactly a+b>=c+d−1 and c+rho*d>=a+b−1 (including empty centers). Let u be count of large bundles in A: 2u>=r−1, so least u=0 for r0,1 and u=1 for r2,3, which maximizes centre-B realized slack. Assign any large B bundle first to B1 (unit valuer); four extremal vectors r0(t,t,t,t), r1(t,t,t+1,t), r2(t+1,t,t+1,t), r3(t+1,t,t+1,t+1) have centre-B slack respectively 1−t(1−rho), 2−t(1−rho), 1−t(1−rho), 1−t+rho(t+1). These are necessary and sufficient for every m≥1; hence r0,2: t rho≥t−1; r1: t rho≥t−2; r3: (t+1)rho≥t−1. All m<=7 feasible, m8 impossible for rho<1/2, m9 always feasible, m10 again impossible for rho<1/2. Direct exhaustive count-vector enumeration m=1..16 across 60 rational rho settings reproduced the threshold formula; universal claim follows from the integer proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 has a 12-good counterexample; Theorem 12 ensures a different item-based potential-valuation guarantee."
+        ],
+        "reasoning": "Theorem 12 changes valuation convention and does not dominate realized-center EF1. Known failure at 12 does not yield all four residue-specific necessary/sufficient inequalities or 8-first/9-reentrance.",
+        "searches": [
+          "delegated fair division center EF1 inter EF1 two centers four agents one low value rho exact minimum goods residues",
+          "arXiv:2607.27743 Theorem 11 and Theorem 12",
+          "arXiv:2512.24105 multilevel fairness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27743, Theorem 11 and Section 4.2",
+        "arXiv:2512.24105 abstract",
+        "Resultary 2026 delegated fair allocation queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Twelve-good impossibility for small epsilon is a special case of the r=0, t=3 condition 3rho>=2, failing when rho<2/3; Theorem 11 gave an even smaller epsilon witness."
+        ],
+        "reasoning": "The claimed result strictly strengthens the earlier example by necessity/sufficiency for all positive rho and all item counts; conversely the earlier counterexample alone cannot imply the new 8-good threshold or 9-good recovery.",
+        "searches": [
+          "delegated fair division center EF1 inter EF1 two centers four agents one low value rho exact minimum goods residues",
+          "arXiv:2607.27743 Theorem 11",
+          "arXiv:2607.27743 Theorem 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 11 uses two centres of two agents, 12 goods, three value 1 and special value epsilon; exactly the same item-based realized convention."
+        ],
+        "reasoning": "Compared bilayer/delegated EF1, inter-EF1 and homogeneous bivalued one-outlier formulation. Same-model instance is known; the new statement is a full parameter m,rho feasibility boundary, not basic existence failure.",
+        "searches": [
+          "delegated fair division center EF1 inter EF1 two centers four agents one low value rho exact minimum goods residues",
+          "arXiv:2607.27743 Theorem 11, Section 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact m mod 4 criterion or eight/nine/ten table in inspected same-model source or semantic returned corpus; the source has explicit m=12 example."
+        ],
+        "reasoning": "Unlike the earlier isolated 12-good counterexample, the full residue classification determines arbitrary m and rho; absence from search not conclusive for global originality.",
+        "searches": [
+          "delegated fair division center EF1 inter EF1 two centers four agents one low value rho exact minimum goods residues",
+          "Resultary delegated fair division 4 agent EF1 search",
+          "arXiv:2607.27743 Section 4.2"
+        ]
+      },
+      "rationale": "PASS qualified: Deligkas et al arXiv:2607.27743 Theorem 11 studies exactly two 2-agent centres with three unit-valuers and one epsilon-valued agent, establishing a 12-good impossibility. That already proves nonexistence in this model, but not first failure at 8, reentrance at 9 or the exact all-m coefficient-residue law. Lucet et al address matroid-rank preferences and a different valuation convention. More general bivalued frameworks might subsume some cases but no directly implying theorem was identified.",
+      "residual_risks": [
+        "A fuller general multi-level fairness theorem under a matching valuation notion could imply part of the residue law, though Theorem 12 in the inspected same-model source uses potential rather than realized comparison.",
+        "Only two centers, two agents each, homogeneous identical goods, one positive exceptional ratio; minimality is not universal over other fair division classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 11 contains the 12-good obstruction in the precise one-outlier family; no all-m if-and-only-if or first-failure/reentrance statement",
+          "evidence": "Theorem 11 proof assigns 12 goods, 3 unit-valuers and one epsilon-valuer; m=12 failure. Theorem 12 concerns potential rather than realized center valuation.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27743",
+          "material_read": "Primary full HTML Section 4.2, Theorem 11 and complete proof at lines 452–469, Theorem 12 distinctions and surrounding definitions",
+          "method": "OA arXiv full-text HTML primary sections read; exact theorem and proof directly compared",
+          "title": "Delegated Fair Division",
+          "trigger": "Closest primary same object, same parameters and same center-valuation convention"
+        },
+        {
+          "assessment": "Different leaf valuation class and optimistic hierarchy; not used to certify whole-document absence",
+          "evidence": "Matroid-rank preference model does not state the realized additive one-outlier all-m EF1 law in accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.24105",
+          "material_read": "Abstract and source-description/statement comparisons for hierarchical matroid-rank preferences",
+          "method": "Accessible metadata and abstract-level comparison only; not a whole-text noncoverage assertion",
+          "title": "Multilevel Fair Allocation",
+          "trigger": "Potential stronger multi-level agent fairness guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same natural toy family used for an existing delegated-fairness impossibility theorem has a sharp residue-dependent feasibility classification over every item count and exceptional ratio. The first obstruction at eight and nonmonotonic recovery at nine are mathematically motivated, checkable and strictly more informative than a known twelve-good witness. Value is limited to this specific homogeneous-outlier family, which is stated honestly.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A fuller general multi-level fairness theorem under a matching valuation notion could imply part of the residue law, though Theorem 12 in the inspected same-model source uses potential rather than realized comparison.",
+    "Only two centers, two agents each, homogeneous identical goods, one positive exceptional ratio; minimality is not universal over other fair division classes."
+  ],
+  "schema_version": 1
+}
