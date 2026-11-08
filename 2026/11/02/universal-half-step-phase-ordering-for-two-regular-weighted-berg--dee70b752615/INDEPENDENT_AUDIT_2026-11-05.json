@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:49:09.494747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/universal-half-step-phase-ordering-for-two-regular-weighted-berg--dee70b752615/RESULT.md",
+        "Git blob 8d17f7e3ade57d7be9a9ce363a6b18c81ff995d7",
+        "independent_checks.py output for this record"
+      ],
+      "rationale": "Discrete Fourier transform splits the 2d normalized kernel Gram matrix into d Hermitian 2x2 blocks with A_k=d r^(2k)F_k(r^(2d)), B_k=d s^(2k)F_k(s^(2d)), mixed modulus |C_k|=d(rs)^k|F_k((rs)^d e^(-id theta))|. Their strictly positive determinants multiply with (1-r²)^(pd)(1-s²)^(pd). The Veronese numerator recurrence gives positive coefficients, correct degree and simple negative real roots by Sturm-style sign interlacing; Jochemko establishes broader real-rootedness prior, so no novelty claimed for it. Numerator |w+a|² increases and |1-w| denominator decreases strictly with u=1+cos(d theta), forcing each block determinant and product to decrease strictly in u including duplicate-point endpoint. Independent direct determinant/phase checks verified 64 cases across p=2..5,d=2..5; proof applies all p,d≥2 and 0<r,s<1.",
+      "residual_risks": [
+        "Fixed 0<r,s<1, p,d positive integers at least two, equal-cardinality regular orbits; optimization only over relative angle, not orbit radii or arbitrary node placements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Veronese real-rootedness supplies a crucial algebraic prerequisite. General Fekete kernel determinant maximization concerns unrestricted designs or Gaussian examples."
+        ],
+        "reasoning": "Negative-real roots alone cannot assert the two-ring determinant ordering until combined with cyclic Fourier blocks and strict modulus monotonicity.",
+        "searches": [
+          "arxiv:1602.09139 Theorem 1.1; arxiv:1912.07316; Resultary query two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d"
+        ]
+      },
+      "checked_sources": [
+        "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (full ar5iv text Theorem 1.1 and proof)",
+        "Karvonen, Särkkä, Tanaka, Kernel-based interpolation at approximate Fekete points, arXiv:1912.07316v3 (full PDF on approximate Fekete sampling)",
+        "Resultary: Sharp determinant stability and conditioning of concentric Szegő orbit frames, 2026/10/11 (summary; distinct one-orbit zeros)",
+        "Marinescu, Xing, Parameter Dependence of Weighted Bergman Kernels Beyond Smoothness, arxiv:2609.24258 (abstract only, different parameter differentiability)",
+        "Resultary search: two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jochemko gives real-rootedness but no reproducing-kernel Gram matrices. Approximate Fekete algorithms do not imply that this constrained two-ring phase maximizer is unique for every radius."
+        ],
+        "reasoning": "The Fourier block decomposition plus strict root-factor monotonicity establish the additional all-phase comparison.",
+        "searches": [
+          "arxiv:1602.09139 Theorem 1.1; arxiv:1912.07316 §2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The determinant maximization is a restricted D-optimal kernel node design or regular two-orbit Fekete problem; indexed Szegő orbit result optimizes Blaschke zero locations within a single orbit."
+        ],
+        "reasoning": "Neither inspected equivalent vocabulary has the exact all-phase cos(d theta) order for two Bergman kernel orbits and p≥2.",
+        "searches": [
+          "arxiv:1912.07316; Resultary query two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A finite-grid staggered-optimal pattern could be observed computationally; no exact product table covering every p,d,r,s was found."
+        ],
+        "reasoning": "The all-integer power formula is symbolic and continuous in radii, not a finite table recomputation.",
+        "searches": [
+          "Resultary query two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d; arxiv:1912.07316"
+        ]
+      },
+      "rationale": "The real-rootedness ingredient is known through Jochemko 2016, and kernel Fekete point optimization has broad prior literature. The inspected exact statements do not prove global pairwise phase ordering of two concentric regular same-cardinality weighted Bergman kernel orbits for all integer powers p≥2 and arbitrary radii, nor the finite optimum determinant product. Similar published Resultary Szegő orbit frames concern one orbit and Blaschke zeros rather than this 2-orbit p≥2 determinant.",
+      "residual_risks": [
+        "A specialized two-ring Bergman Fekete arrangement formula might already establish staggered optimality implicitly.",
+        "Marinescu–Xing 2026 abstract is not a full-text novelty exclusion; its topic differs, but any unseen relevant appendix remains a small risk.",
+        "Only same orbit size, positive integer p≥2 and fixed radii; excludes arbitrary point configurations and p not integral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INGREDIENT_NOT_RESULT",
+          "evidence": "Veronese polynomial real-rootedness is explicitly prior; two-ring Gram determinant ordering not a theorem in inspected content.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.09139",
+          "material_read": "Full lawful HTML/ar5iv Theorem 1.1 and proof, plus PDF opening pages",
+          "method": "Full text and PDF-page inspection",
+          "title": "On the real-rootedness of the Veronese construction for rational formal power series",
+          "trigger": "negative roots of numerator polynomials in exact proof"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION",
+          "evidence": "Approximate Fekete selection and examples, not global exact relative phase for 2d equal-length Bergman orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07316",
+          "material_read": "Full open PDF with kernel design/determinant sections and formulas",
+          "method": "Full PDF reading and page inspection",
+          "title": "Kernel-based interpolation at approximate Fekete points",
+          "trigger": "general kernel determinant maximization could imply restricted Bergman statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (full ar5iv text Theorem 1.1 and proof)",
+        "Karvonen, Särkkä, Tanaka, Kernel-based interpolation at approximate Fekete points, arXiv:1912.07316v3 (full PDF on approximate Fekete sampling)",
+        "Resultary: Sharp determinant stability and conditioning of concentric Szegő orbit frames, 2026/10/11 (summary; distinct one-orbit zeros)",
+        "Marinescu, Xing, Parameter Dependence of Weighted Bergman Kernels Beyond Smoothness, arxiv:2609.24258 (abstract only, different parameter differentiability)",
+        "Resultary search: two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d"
+      ],
+      "rationale": "This gives an all-parameter, unique global staggered optimal relative design and a closed product for a widely used analytic reproducing kernel, with strict comparison of every pair of phases rather than a local extremum. The restriction to two already-regular rings is geometrically motivated, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "A specialized two-ring Bergman Fekete arrangement formula might already establish staggered optimality implicitly.",
+        "Marinescu–Xing 2026 abstract is not a full-text novelty exclusion; its topic differs, but any unseen relevant appendix remains a small risk.",
+        "Only same orbit size, positive integer p≥2 and fixed radii; excludes arbitrary point configurations and p not integral."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jochemko, On the real-rootedness of the Veronese construction for rational formal power series, arXiv:1602.09139v2 (full ar5iv text Theorem 1.1 and proof)",
+    "Karvonen, Särkkä, Tanaka, Kernel-based interpolation at approximate Fekete points, arXiv:1912.07316v3 (full PDF on approximate Fekete sampling)",
+    "Resultary: Sharp determinant stability and conditioning of concentric Szegő orbit frames, 2026/10/11 (summary; distinct one-orbit zeros)",
+    "Marinescu, Xing, Parameter Dependence of Weighted Bergman Kernels Beyond Smoothness, arxiv:2609.24258 (abstract only, different parameter differentiability)",
+    "Resultary search: two concentric regular d-gon weighted Bergman Szego kernel normalized Gram determinant staggered phase pi/d"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized two-ring Bergman Fekete arrangement formula might already establish staggered optimality implicitly.",
+    "Marinescu–Xing 2026 abstract is not a full-text novelty exclusion; its topic differs, but any unseen relevant appendix remains a small risk.",
+    "Only same orbit size, positive integer p≥2 and fixed radii; excludes arbitrary point configurations and p not integral."
+  ],
+  "schema_version": 1
+}

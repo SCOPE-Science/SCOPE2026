@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses are uniform in arbitrary integers \(p,d\ge2\) and radii \(r,s\in(0,1)\). Independent Fourier transforms of the two regular orbits yield exactly \(d\) positive two-by-two Gram blocks; determinant normalization contributes \((1-r^2)^{pd}(1-s^2)^{pd}\). The numerator recurrence follows by differentiation of the coefficient-generating series. The signed-root induction establishes simple negative roots, including degree-zero and degree-change boundaries. As the relative phase runs through a half period, root-factor squared moduli strictly increase and the denominator squared modulus strictly decreases. The Gram blocks remain positive for distinct nodes and the collision endpoint is handled separately. This proves global strict ordering, not merely a local second variation. The exact optimum is the product of the block determinants at half-step rotation. The accompanying self-contained checker passes 7,598 supplementary assertions.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Discrete Fourier transform splits the 2d normalized kernel Gram matrix into d Hermitian 2x2 blocks with A_k=d r^(2k)F_k(r^(2d)), B_k=d s^(2k)F_k(s^(2d)), mixed modulus |C_k|=d(rs)^k|F_k((rs)^d e^(-id theta))|. Their strictly positive determinants multiply with (1-r²)^(pd)(1-s²)^(pd). The Veronese numerator recurrence gives positive coefficients, correct degree and simple negative real roots by Sturm-style sign interlacing; Jochemko establishes broader real-rootedness prior, so no novelty claimed for it. Numerator |w+a|² increases and |1-w| denominator decreases strictly with u=1+cos(d theta), forcing each block determinant and product to decrease strictly in u including duplicate-point endpoint. Independent direct determinant/phase checks verified 64 cases across p=2..5,d=2..5; proof applies all p,d≥2 and 0<r,s<1.
 
-The root-location theorem in Step 2 is a known Veronese phenomenon (Jochemko, 2016); novelty is not asserted for that input. The concrete new conclusion is a universal *strict global angle ordering* and exact optimal determinant across all integer power Bergman kernels and every equal-sized concentric pair. General approximate-Fekete literature (Karvonen–Särkkä–Tanaka, 2019) does not state this all-parameter phase theorem. A related Hardy/Szegő power-one two-orbit determinant formula is not a higher-power consequence, because the Cauchy determinant identity is specific to exponent one. Contemporary weight-parameter work of Marinescu–Xing (2026) concerns kernel regularity and its abstract does not establish a discrete Gram optimization theorem; its full text was inaccessible. Remaining risk is stronger unindexed literature or unseen full-text material.
+## originality
 
-## Value — PASS
+PASS
 
-The relative orientation of two concentric regular interpolation layers is a natural deterministic kernel design problem: its Gram determinant controls aggregate interpolation volume and a product of spectral stability factors. The theorem removes the phase variable *globally* for infinitely many kernels, sizes and radii; establishes strict uniqueness except natural angular periodicity; and supplies exact positive sharp constants. It is not a numerical spot check or a reformulation of a single-radius Hardy case. The result does not claim unrestricted optimal node placement.
+The real-rootedness ingredient is known through Jochemko 2016, and kernel Fekete point optimization has broad prior literature. The inspected exact statements do not prove global pairwise phase ordering of two concentric regular same-cardinality weighted Bergman kernel orbits for all integer powers p≥2 and arbitrary radii, nor the finite optimum determinant product. Similar published Resultary Szegő orbit frames concern one orbit and Blaschke zeros rather than this 2-orbit p≥2 determinant.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This gives an all-parameter, unique global staggered optimal relative design and a closed product for a widely used analytic reproducing kernel, with strict comparison of every pair of phases rather than a local extremum. The restriction to two already-regular rings is geometrically motivated, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
