@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For k>=2, exactly k^2-t feasible edges give the three exact transition weights t(t-1), 2t(k-t), (k-t)^2. The first normalized factorial potential telescopes to an exact nonnegative correction. The second potential has conditional loss eta=2(k+2t-6)/[(k-2)(k^2-t)], bounded by 6/[k(k-1)]; this bounds E V_k between v and v(1-6/k). Comparing the exact correction weight (k+2)/(k^2-t) to 1/k and summing telescoping series yields the explicit error <=36v. All quantifiers include n>=2 and 0<=r<=n; the limit is uniform for 2<=r<=n and is not inferred from computation. Standalone rational checker passed 4937 assertions including independent unmatched-subset recursion n<=6, algebraic moment identities k<=40, and finite bounds n<=30.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti, DOI 10.1287/stsy.2021.0082, Theorems 1 and 2 compare greedy algorithms averaged over random bipartite edge sets.",
+        "Dyer and Frieze (1991), published abstract, discuss worst-case performance and sparse forests.",
+        "Miller and Pritikin (1997), published abstract, discuss general weighted random greedy matching performance bounds."
+      ],
+      "reasoning": "Generic performance comparisons or universal lower bounds apply to the model but do not evaluate the precise partial-forbidden-pair failure probability to second order. The two older full texts were not completely inspected, leaving a substantive priority risk.",
+      "searches": [
+        "Greedy Matching in Bipartite Random Graphs Nick Arnosti Theorem 1 2021",
+        "Dyer Frieze randomized greedy matching 1991 fixed graphs",
+        "Miller Pritikin On randomized greedy matchings 1997 bounds"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1287/stsy.2021.0082",
+      "arXiv:2209.11319",
+      "doi:10.1002/rsa.3240020104",
+      "doi:10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V",
+      "Published mathematical record 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+      "Published mathematical record 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An accessible earlier full-crown result gives p_(n,n)=2/n+O(log n/n^2) together with a (k,t)-chain, but no limiting constant multiplying log n/n^2.",
+        "Arnosti treats average-case algorithm comparisons; Johnston treats matching enumeration."
+      ],
+      "reasoning": "The present theorem gives a 4 times falling-factorial coefficient of the logarithmic correction uniformly for all deletion sizes, including a new sharp coefficient for the crown case. An order bound O(log n/n^2) is insufficient to imply this coefficient. The underlying recurrence itself is credited as known in the full-crown special case.",
+      "searches": [
+        "random greedy maximal matching crown graphs second-order logarithmic failure 4 log n / n^2",
+        "random greedy maximal matching crown graph K_nn minus perfect matching first-order failure",
+        "Arnosti 2021 Theorems 1 2 and Johnston 2022 Theorems 5 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnston et al., arXiv:2209.11319, formulate derangements as perfect matchings avoiding a matching and enumerate these objects; they do not analyze the random feasible-edge greedy output.",
+        "Uniformly choosing a feasible edge at each matching stage is equivalent to processing a uniform original-edge permutation greedily, so both stochastic descriptions were compared."
+      ],
+      "reasoning": "The probability under a uniform perfect-matching measure is not the probability that sequential random-edge greedy selection finishes perfectly. Known first-order crown-graph matching asymptotics omit the sharp second-order coefficient and do not quantify all 0<=r<=n.",
+      "searches": [
+        "random-order greedy matching K_n,n minus r diagonal edges probability imperfect",
+        "sequential derangement greedy matching complete bipartite minus perfect matching 2/n failure",
+        "Johnston Kayll Palmer 2022 arXiv:2209.11319 sections 1-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed published mathematical finding concerns 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb on non-CIS pair enumeration, not random greedy matching.",
+        "An indexed published mathematical finding concerns 2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f on geodesic invariants, not stochastic greedy matching.",
+        "No returned exact formula or numerical table gave the claimed uniform logarithmic coefficient."
+      ],
+      "reasoning": "The close structural titles concern different invariants; a database search failure is not proof that no unindexed published theorem exists. No known exact finite table was found to dominate the analytical result.",
+      "searches": [
+        "partial forbidden matching K_n,n minus r disjoint edges random-edge greedy matching exact probability failure uniform r asymptotic",
+        "random-order greedy bipartite matching near-complete graph n n minus matching size r second order logarithmic correction",
+        "greedy derangement matching random greedy edge ordering matching-deleted biclique failure H_n 4 r(r-1)"
+      ]
+    },
+    "rationale": "The claim is the evaluated uniform second-order logarithmic correction, with an explicit finite-size error bounded by a constant times r(r-1)/[n(n-1)(n+1)(n+2)] for every partial forbidden matching. Arnosti studies averaged random edge sets; Johnston et al. count perfect matchings; known full-crown greedy first-order bounds and recurrences do not imply the sharp uniform logarithmic coefficient or its simultaneous sparse/dense r dependence. The proof uses a second falling-factorial moment potential. Specific unresolved historical priority risks are recorded.",
+    "residual_risks": [
+      "The two older general greedy-matching articles were not inspected in complete full text; their abstract scope suggests general bounds, but unindexed special-case overlap remains possible.",
+      "Published-record semantic search is not an exhaustive mathematical bibliography; additional historical sources may contain equivalent asymptotics.",
+      "The full-crown finite (k,t) recurrence and first-order bound are prior knowledge, not separately novel; the specific higher-order coefficient and uniform partial-deletion coverage are what are assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems compare performance over randomly sampled edge sets and other greedy algorithms, not the deterministic disjoint-forbidden-edge family and uniform second-order correction.",
+        "evidence": [
+          "Arnosti, DOI 10.1287/stsy.2021.0082, author manuscript pp.1-6 and pp.17-18, Theorems 1-2."
+        ],
+        "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+        "material_read": "Full public author manuscript abstract, introduction and algorithm definitions, Theorems 1 and 2, prior-work analysis, conclusions, and descriptions of Appendices A-B; inspected exact text searches for forbidden and perfect matching.",
+        "method": "Read parsed full-text sections and visually inspected PDF page one; cross-checked with publisher abstract and first-public date.",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "The same uniform-edge greedy matching algorithm and risk of a stronger general theorem."
+      },
+      {
+        "assessment": "Its counting of all perfect matchings is under a different measure from random-edge greedy matching, and its main formulas do not settle the latter failure event.",
+        "evidence": [
+          "Johnston, Kayll, Palmer, arXiv:2209.11319, pp.1-3 and principal theorem statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.11319",
+        "material_read": "Full-text abstract, introduction, Section 1 derangement enumeration, theorem sections on multipartite perfect-matching counts; tested the document text for random greedy terminology.",
+        "method": "Inspected arXiv PDF full-text passages and PDF first-page view; inspected associated theorem search hits.",
+        "title": "Deranged matchings: proofs and conjectures",
+        "trigger": "Identical deleted-matching graph in the derangement problem."
+      },
+      {
+        "assessment": "The available abstract focuses on general worst-case examples and forests; exact near-complete bipartite deletion formulas cannot be ruled out by abstract alone.",
+        "evidence": [
+          "Dyer and Frieze (1991), publisher abstract, Random Structures & Algorithms 2, 29–45."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Published abstract and bibliographic publication details only; full text not available from the accessed source.",
+        "method": "Publisher abstract inspection and open-access search.",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational random feasible-edge algorithm."
+      },
+      {
+        "assessment": "The stated general performance bounds do not imply the exact logarithmic coefficient. An uninspected special case could still overlap.",
+        "evidence": [
+          "Miller and Pritikin (1997), publisher abstract, Random Structures & Algorithms 10, 353–383."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V",
+        "material_read": "Published abstract and numerical performance inequalities only; full article inaccessible from available sources.",
+        "method": "Publisher abstract inspection and lawful author/OA search; institutional full-text retrieval was unavailable.",
+        "title": "On randomized greedy matchings",
+        "trigger": "General weighted matching framework could subsume the new formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "689d74f3-5ba9-4061-a04a-6e39f336e2f9",
+  "value": {
+    "rationale": "The precise probability of a rare greedy matching failure in an almost-complete bipartite graph matters for contrasting sequential matching with counting derangements and for benchmarking randomized matching on dense constraints. The theorem classifies the effect of every partial forbidden matching at one sharp logarithmic order, uniformly from r=2 to r=n. The r=1 exact law pinpoints the onset of the second-order pair-interaction term. This simultaneously resolves sparse/dense deletion regimes and sharpens previously available full-crown O(log n/n^2) estimates, rather than substituting a parameter in a routine first-order formula.",
+    "status": "PASS"
+  }
+}
