@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The full-domain proof constructs \(m\) independently supported Laplacian eigenvectors at \(\mu_2\), forcing one input per petal. For the proposed one-hub-neighbor-per-petal placement, the PBH test is proved by separating hub-zero eigenvectors, resonant Dirichlet modes of odd/even index, and off-Dirichlet modes. The off-Dirichlet case is eliminated with the strict spectral gap around \(2m\) established by Cauchy interlacing and a star subgraph. The exact modular Krylov verifier passed \(72\) independent modular full-rank checks on \(36\) graph sizes, and a finite forcing census passed \(776\) trials. The symbolic proof, not the finite runs, supports all parameter values.
+
+**Originality — PASS, with qualification.** The published zero-forcing value \(Z=m+1\) is acknowledged and not claimed as new; the control threshold \(\kappa=m\), all-optimum petal coverage, and the separation of fixed-Laplacian controllability from zero forcing are the assessed contribution. Burgarth and collaborators establish a sufficient zero-forcing criterion; Monshizadeh and collaborators prove a robust qualitative-class characterization; Eroh and collaborators cite the bouquet zero-forcing number; Li, Zhang and Wang analyze the exact graph-family characteristic polynomials; Mousavi and collaborators address cographs, excluding the induced-\(P_4\) windmills of length at least five. These results do not, as inspected, settle the explicit fixed-Laplacian coordinate-placement theorem. An unindexed or differently parametrized treatment remains a publication-priority risk.
+
+**Value — PASS.** This resolves a natural two-parameter cactus-network design invariant with a constructive placement and a necessary localization of every optimal placement. In every graph of the family, the standard zero-forcing certificate requires one extra input and, more strongly, *every* optimally minimal coordinate placement has no initial zero-forcing move. The statement is structural and not merely a finite computation or a narrow numerical improvement.
+
+Independent verification is still open. The result does not address weighted edges, robust controllability for a graph-matrix family, or heterogeneous petal lengths.
+
+Self-review: passed. Independent audit: not yet performed.

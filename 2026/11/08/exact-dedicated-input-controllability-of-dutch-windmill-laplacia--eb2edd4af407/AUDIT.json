@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Block Laplacian proof uses exact Dirichlet eigenbasis; m independent petal-supported mu_2 eigenvectors force m coordinates and one per petal. PBH upper bound covers hub-zero, Dirichlet odd/even resonances, and nonresonant eigenvalues. Interlacing gives lambda_2<4 and star comparison lambda_max>=2m+1, excluding 2m for m>=2. Modular Krylov computation supplies additional finite exact checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1802.03599 Theorem 4 and following discussion require cographs; Dutch windmills with ell>=5 contain an induced P4 and are outside that class.",
+        "doi:10.3934/math.2026685 Theorem 6 factors Laplacian characteristic polynomial for the exact two-parameter family, but addresses spectra and graph energies, not coordinate-control placement.",
+        "The PBH upper bound depends on eigenvector entries, which a characteristic polynomial does not determine."
+      ],
+      "reasoning": "The cograph source potentially covers ell=3 or 4, which are treated as previously accessible special cases; its hypotheses do not encompass the all-length result. The 2026 exact-spectrum source supplies relevant eigenvalue information (and may yield the m lower bound) but does not logically entail the explicit one-neighbor-per-petal observability theorem.",
+      "searches": [
+        "arxiv:1802.03599 cograph controllability Laplacian joins unions",
+        "arxiv:1403.4868 all matrices qualitative graph family",
+        "doi:10.3934/math.2026685 Dutch windmill all p q characteristic polynomials",
+        "Laplacian eigenspace of rose graph C_l wedge m petals and minimum leader number"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.1475 §4",
+      "arxiv:1403.4868 §IV",
+      "arxiv:1802.03599 §III",
+      "arxiv:1207.6127 §§2.2,3.2",
+      "doi:10.3934/math.2026685 §4",
+      "Existing accessible unpublished research claims (only implications compared)",
+      "Semantic literature search results on Dutch windmills, bouquets, cactus Laplacians, leader selection and zero forcing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zero forcing only implies a sufficient upper bound m+1, not m, in the fixed-Laplacian setting.",
+        "Full two-parameter windmill Laplacian characteristic polynomial gives spectral multiplicities, not eigenvector restriction ranks on m explicit vertices.",
+        "Own accessible claims focus on point–line incidence graphs, Cartesian products, and distinct graph families; none is a theorem on equal-cycle vertex bouquets."
+      ],
+      "reasoning": "The new statement is not a corollary of Z=m+1, which gives merely kappa<=m+1. The eigenvalue-multiplicity lower bound <=m is available from spectral data, but attainment on exactly one hub neighbor per petal and the all-optimum impossibility of zero forcing require the new PBH argument. No directly dominating claim was found in accessible historical files or semantic search records; published coverage of the length-three subfamily does not subsume all ell>=5.",
+      "searches": [
+        "arxiv:1111.1475 §4 Theorem 4.1 and Example 4.3",
+        "arxiv:1403.4868 §IV Theorem IV.4",
+        "arxiv:1207.6127 §3.2",
+        "doi:10.3934/math.2026685 Theorem 6",
+        "Existing accessible unpublished research claims compared for theorem-level implication"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 4.1 of arxiv:1111.1475 implies ZF is sufficient and explicitly says converse is false (Example 4.3 on a path).",
+        "arxiv:1403.4868 §IV characterizes leader sets for all matrices in a qualitative class; that quantifier is stronger than a fixed unit-weight Laplacian.",
+        "Exact proposed PBH placement has no initial zero-forcing move, yet is controllable by the independent analytic proof."
+      ],
+      "reasoning": "Synonyms leader selection, dedicated coordinate control, modal observability, PBH, zero forcing, Dutch windmill, bouquet of cycles and rose graph were searched. No identified equivalence establishes the fixed-Laplacian optimum m and the forced one-per-petal arrangement for all m and ell. The known robust zero-forcing theorem is not logically equivalent to fixed-matrix PBH controllability.",
+      "searches": [
+        "For a bouquet of m cycles C_l sharing one common hub, unweighted Laplacian dedicated coordinate actuator controllability minimum m one neighbor per cycle, zero forcing m+1",
+        "\"Dutch windmill graph\" \"Laplacian\" \"controllability\" eigenvector",
+        "\"bouquet of cycles\" \"controllability\" Laplacian",
+        "arxiv:1111.1475 §4",
+        "arxiv:1403.4868 §IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1207.6127 Theorem 3.19 explicitly records Z(B_n)=n+1; Theorem 3.20 concerns zero forcing of the line graph, not fixed-Laplacian coordinate input count.",
+        "doi:10.3934/math.2026685 contains exact spectra/energy but no occurrences of controllability in the full text search.",
+        "Closest published search hits concern unrelated cactus or Laplacian spectra and a known friendship zero-forcing polynomial, not this PBH actuator formula."
+      ],
+      "reasoning": "The known Z table/formula is expressly excluded from novelty; no examined table gives minimum fixed-Laplacian input number m or the necessity that each optimal actuator lie in a separate petal. Absence in search is only partial evidence, not proof of global novelty.",
+      "searches": [
+        "Dutch windmill graph D_p^q equal-length cycle bouquet minimal Laplacian control leader set exact q independent coordinate inputs nonzero at one neighbor each cycle, non-zero-forcing",
+        "For all integers m>=2 l>=3 flower of m l-cycles joined at hub minimal number of Laplacian leader vertices equals m while zero forcing number equals m+1",
+        "arxiv:1207.6127 Theorems 3.19/3.20",
+        "doi:10.3934/math.2026685 §§3-5"
+      ]
+    },
+    "rationale": "Actual semantic literature searches and full-text examination of the closest primary graph-spectral, control and zero-forcing sources found the known Z=m+1 and general modal framework but not the fixed-Laplacian optimum m with necessity and an explicit one-neighbor-per-petal placement for all ell>=3. The 2026 same-graph paper is spectral, not a PBH actuator-location theorem. This is a qualified originality assessment: unindexed relevant literature may exist.",
+    "residual_risks": [
+      "The primary 2026 same-graph spectral paper, though not covering controllability, may enable an unreported standard corollary for some subfamilies.",
+      "An unindexed or differently named minimum-leader-selection result for rose graphs or Dutch windmills may exist.",
+      "The 2011 zero-forcing formula is prior art and is not presented as original.",
+      "The length-three friendship/cograph subfamily may be derivable from general cograph modal-control theorems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficient forcing condition and an explicit nonconverse example, not the windmill optimum",
+        "evidence": [
+          "Theorem 4.1 on PDF p.10",
+          "Example 4.3 on PDF p.11"
+        ],
+        "identifier_or_url": "arxiv:1111.1475",
+        "material_read": "Abstract, introduction, Kalman criterion, §4 Theorem 4.1 and Example 4.3, with PDF page inspection",
+        "method": "arXiv primary PDF text and page screenshot",
+        "title": "Zero forcing, linear and quantum controllability for systems evolving on networks",
+        "trigger": "Foundational zero-forcing-to-control implication"
+      },
+      {
+        "assessment": "Quantifies over the entire qualitative class and is not a fixed unweighted-Laplacian theorem",
+        "evidence": [
+          "§IV p.3 defines all-matrices rank test",
+          "§II definitions of Q(G)"
+        ],
+        "identifier_or_url": "arxiv:1403.4868",
+        "material_read": "Abstract, introduction, problem formulation and §IV qualitative-matrix theorem; PDF p.3 screenshot",
+        "method": "arXiv primary PDF text and page screenshot",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Plausible broader necessary/sufficient forcing/control theorem"
+      },
+      {
+        "assessment": "Cograph scope does not contain Dutch windmills with ell>=5",
+        "evidence": [
+          "Proposition 1 PBH p.4",
+          "Theorem 3 cograph eigenvalues p.4"
+        ],
+        "identifier_or_url": "arxiv:1802.03599",
+        "material_read": "Abstract, introduction, cograph spectral theorem and PBH framework on PDF p.4",
+        "method": "arXiv primary PDF and page screenshot",
+        "title": "Laplacian Dynamics on Cographs: Controllability Analysis through Joins and Unions",
+        "trigger": "Nearer graph-family node-control characterization"
+      },
+      {
+        "assessment": "Establishes prior known Z=m+1 but does not address fixed-Laplacian dedicated control on bouquets",
+        "evidence": [
+          "Theorem 3.19 §3.2",
+          "Theorem 3.20 applies to line graph L(B_n)"
+        ],
+        "identifier_or_url": "arxiv:1207.6127",
+        "material_read": "Abstract, bouquet definition, Theorems 3.19 and 3.20, references; PDF p.6 screenshot",
+        "method": "arXiv primary PDF text and page screenshot",
+        "title": "Metric Dimension and Zero Forcing Number of Two Families of Line Graphs",
+        "trigger": "Exact bouquet and line-graph zero-forcing formulas"
+      },
+      {
+        "assessment": "Provides characteristic polynomials and Laplacian energies; no actuator-location/controllability theorem located. Strong same-graph source but not direct coverage",
+        "evidence": [
+          "Theorem 6 Laplacian polynomial factorization, printed p.16704",
+          "No text occurrence of controllability in publisher PDF"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.2026685",
+        "material_read": "Abstract, introduction, §2 preliminary block lemma, theorem on L-polynomial and surrounding proof, text search across document for controllability",
+        "method": "Publisher open-access primary PDF text and spectral-formula page screenshot",
+        "title": "On the characteristic polynomials of Dutch windmill graphs and their applications",
+        "trigger": "Exact same graph family and Laplacian spectrum: potentially dominating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb2edd4a-f407-4889-8347-806583b40a87",
+  "value": {
+    "rationale": "All Dutch windmills (two unbounded integer parameters) form a natural cactus network design family. The theorem gives a sharp, constructive, topologically necessary coordinate-control allocation; every optimal input set violates zero forcing while the previously known zero-forcing threshold is m+1. This distinguishes fixed graph-Laplacian controllability from robust graph-topological certification without attributing novelty to the known forcing formula.",
+    "status": "PASS"
+  }
+}
