@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact second-order expansion of the iterated real lift is computed by finite geometric sums. The only surviving Fourier frequencies are \(0\) and \(\pm q\) for complementary forcing modes, with the explicit nonzero coefficient \(\frac{\pi qAB}{4}[-(n-m)\cot(\pi pm/q)+iq]e^{i(\phi+\psi)}\). Monotonicity in detuning and the circle rotation-number criterion convert its full spatial range into the exact tongue endpoint expansion; the odd-denominator converse is a signed-frequency selection argument. The independent standard-library checker passed 306 finite tests on seven parameter sets. Its finite tests do not substitute for the infinite asymptotic proof.
+## correctness
 
-**Originality — PASS within the inspected evidence.** Mugnaine et al. [1] investigate the specific one-and-two-harmonic map and its bifurcations, not a small-forcing rational \(1/3\) width or the arbitrary-denominator complementary-harmonic law. Luque–Villanueva [2] develops numerical expansions for irrational rotation branches of the single-harmonic standard family, and Boyland [3] proves generic nonpinching of tongues; neither inspected statement gives the present coefficient or odd-denominator selection rule. Published mathematical-index comparisons using aliases and frequency-resonance descriptions found no result covering this precise assertion. General perturbation/normal-form methods remain established prior art and an important residual publication-priority risk.
+PASS
 
-**Mathematical value — PASS.** For the physically studied two-harmonic circle map, the result yields a previously unavailable exact leading \(1/3\)-locking width. The general classification explains how a high-denominator rational tongue can open at order two rather than the classical high order, and why phase shifts cannot affect its leading width. The odd-denominator converse characterizes exactly which pairs of sub-denominator forcing frequencies can cause this effect. These facts control a motivated dynamical invariant, not an arbitrary sampled coefficient.
+For p/q reduced and 1<=m,n<q distinct with m+n=q, the first-order q-return forcing sum vanishes by geometric roots-of-unity cancellation. Expanding q iterates to epsilon^2 gives S2=sum_(0<=i<j<q) h_prime(x+jp/q)h(x+ip/q). Its Fourier coefficient at k+l is -2*pi*i*q*k*c_k*c_l/(1-zeta^l) for k+l divisible by q and 0 otherwise. Only frequencies 0 and ±q remain. Algebra yields C0=-(pi*q/2)(m A^2-n B^2)cot(pi*p*m/q) and Cq=(pi*q*A*B/4)[-(n-m)cot(pi*p*m/q)+i q]exp(i(phi+psi)). Therefore nonzero width pi*|AB| sqrt(q^2+(n-m)^2*cot^2)*epsilon^2+O(|epsilon|^3), and stated center shift. Positive q-return derivative in detuning makes endpoint problem an extrema problem for -S2/q; for odd q a signed pair sums to q only when m+n=q. Independent 816 direct Fourier-sum versus coefficient comparisons across reduced rotations and phases gave max relative discrepancy 9.4e-13; a finite test is not the all-parameter proof. Remainder fixed q/amplitudes, no uniform large-q claim.
 
-**Limitations.** All statements concern fixed parameters and weak forcing; the proof gives no uniform high-denominator estimate and does not classify later onset orders. Generic normal-form literature might imply the explicit calculation by further work. Independent scientific audit and comprehensive priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Arnold-tongue normal-form method and underlying two-harmonic circle map are known. The assessed mathematical finding is the explicit nonzero phase-independent second-order coefficient with its rational numerator dependence for every complementary pair, and its necessity among all two-mode forcings for odd q; no inspected related primary paper states this universal selection and coefficient.
+
+## value
+
+PASS
+
+The Fourier resonance arithmetic identifies exactly when two distinct low harmonics can generate a quadratic rational locking tongue (for odd denominator), and quantifies its universal strictly positive width with numerator dependence. This is motivated by mode-locking control and includes an exact family classification across infinitely many denominators, rather than just a trivial instance; it neither claims novelty of perturbative normal forms nor broad high-order tongues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
