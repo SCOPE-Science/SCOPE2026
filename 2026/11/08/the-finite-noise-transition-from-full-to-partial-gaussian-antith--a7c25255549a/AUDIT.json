@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Gaussian mixed fourth moments yield exact covariance objective a^2 1^TR1/K^2 +2b^2 tr(R^2)/K^2. For b !=0 this function is strictly convex in feasible R. Averaging R over permutations forces a unique equicorrelation minimizer, whose scalar strictly convex quadratic has unique rho_*=-min(1/(K-1), a^2/(4b^2)). The exact scalar cross-validation expansion supplies positive P,Q; its finite-alpha optimizer follows with ratio P/(2Q). The threshold function is strictly decreasing with the explicit negative derivative, so one crossover exists. A direct rational example and 136111 finite verifier checks agree with the analytic proof; experiments are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.08089 Theorem 3.1 requires the zero-sum endpoint for bounded variance as alpha tends to zero; Theorem 4.1 compares only a specified zero-sum class.",
+        "arXiv:2610.01120 Sections 3–4 optimize couplings of Gaussian particle displacements for indicator-based diffusion estimators using sign-sensitive Fréchet bounds.",
+        "arXiv:2412.14423 Sections 2–3 build the maximally antithetic estimator and its asymptotic regime."
+      ],
+      "reasoning": "The published results have powerful broader-sounding titles but different quantifiers and objective classes: asymptotic small perturbation, minimax over jointly Gaussian zero-sum family, or monotone indicator response couplings. None yields the sharp fixed-alpha interior optimum over all Gaussian correlation matrices or its unique finite-noise threshold.",
+      "searches": [
+        "Gaussian cross-validation normal means affine linear shrinkage finite-alpha optimal equicorrelation interior optimum negative correlation phase boundary",
+        "finite alpha Gaussian randomized cross validation scalar linear shrinkage g(y)=c y optimal equicorrelation rho partial antithetic unique variance minimizer",
+        "finite perturbation prediction error estimate antithetic Gaussian folds exact randomization variance covariance optimum transition full antithetic versus independent",
+        "Gaussian antithetic three-replica coupling optimal equicorrelation Hermite quadratic payoff linear and centered-square minimum variance phase transition"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2412.14423 Sections 2–3 and Theorem 3.3",
+      "arxiv:2608.08089 Sections 2–4, Theorems 3.1 and 4.1, Appendix A.1–A.3",
+      "arxiv:2610.01120 Sections 2–4",
+      "Published record: Exact Gaussian law and fold-monotone variance of balanced K-fold cross-validation",
+      "Published record: Exact Gaussian size law and alignment phase for reduced-adjustment Maxway CRT"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.08089 Section 2 Eq. (3) establishes the same estimator, but Theorem 3.1 compares boundedness as alpha decreases to zero, not exact fixed-alpha variance minima.",
+        "arXiv:2608.08089 Theorem 4.1 is minimax among a class already constrained by sum omega_j=0, which is a strictly smaller feasible set for positive alpha above the new threshold.",
+        "arXiv:2412.14423 Theorem 3.3 establishes small-alpha bounded reducible variance of the zero-sum scheme; it does not exclude smaller variance at finite alpha for a nonzero aggregate Gaussian perturbation.",
+        "arXiv:2610.01120 Section 3 Eq. (3.1) decomposes particle pair variance and uses Bernoulli indicator rearrangement, rather than a quadratic normal response covariance."
+      ],
+      "reasoning": "The new fixed-alpha result is consistent with the asymptotic zero-sum necessity: as alpha falls below the explicit threshold, the optimizer reaches exactly the zero-sum endpoint. Conversely, asymptotic necessity and within-endpoint minimaxity do not imply finite-alpha extremality. The prior particle result applies to different random observables, so its optimal coupling cannot imply the new interior equicorrelation phase.",
+      "searches": [
+        "Gaussian cross-validation normal means affine linear shrinkage finite-alpha optimal equicorrelation interior optimum negative correlation phase boundary",
+        "antithetic Monte Carlo quadratic polynomial optimal Gaussian coupling full versus partial correlation transition",
+        "site:arxiv.org antithetic cross validation finite alpha optimal rho linear shrinkage equicorrelation",
+        "finite perturbation prediction error estimate antithetic Gaussian folds exact randomization variance covariance optimum transition full antithetic versus independent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical Isserlis identity gives Cov(Z_i^2,Z_j^2)=2 R_ij^2, an ingredient but not a cross-validation correlation optimum.",
+        "arXiv:2608.08089 Sections 3–4 and Appendix A.3 explicitly consider antithetic necessity as alpha goes to zero and minimaxity within zero-sum constructions, not fixed-alpha optimization across the Gaussian correlation cone.",
+        "arXiv:2412.14423 Section 3 gives an asymptotic variance formula for an assumed zero-sum design."
+      ],
+      "reasoning": "Linear-plus-quadratic normal responses are a Hermite-chaos representation of the quadratic cross-validation score. Their finite-noise joint-correlation optimizer is not logically obtained from an alpha-downarrow-zero theorem, Gaussian covariance identities alone without solving the constrained optimization, or a result that restricts to zero-sum couplings.",
+      "searches": [
+        "minimum variance average of Gaussian linear-plus-quadratic Hermite transforms correlation matrix equicorrelated optimizer",
+        "antithetic Monte Carlo quadratic polynomial optimal Gaussian coupling full versus partial correlation transition",
+        "optimal negatively correlated Gaussian antithetic variables quadratic integrand variance correlation equicorrelated multiple samples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result Exact Gaussian law and fold-monotone variance of balanced K-fold cross-validation, concerns sampling folds from observed Gaussian data and exact chi-square laws, not correlation design of external Gaussian randomizations.",
+        "Published result Exact Gaussian size law and alignment phase for reduced-adjustment Maxway CRT, concerns conditional randomization test validity under residual correlation, not Gaussian MC variance minimization.",
+        "No matching exact table/formula was identified in the inspected primary source sections or retrieved records."
+      ],
+      "reasoning": "Targeted searches for the exact optimizer, its mixed-Hermite formulation, and its cross-validation specialization did not expose a source with matching hypotheses and conclusion. This is evidence for a best-knowledge originality assessment, never a proof of novelty.",
+      "searches": [
+        "Gaussian cross-validation normal means affine linear shrinkage finite-alpha optimal equicorrelation interior optimum negative correlation phase boundary",
+        "minimum variance average of Gaussian linear-plus-quadratic Hermite transforms correlation matrix equicorrelated optimizer",
+        "antithetic Monte Carlo quadratic polynomial optimal Gaussian coupling full versus partial correlation transition",
+        "coupled bootstrap linear shrinkage Gaussian randomization variance correlation finite alpha",
+        "finite perturbation prediction error estimate antithetic Gaussian folds exact randomization variance covariance optimum transition full antithetic versus independent"
+      ]
+    },
+    "rationale": "The unique full-versus-partial equicorrelation threshold at each finite perturbation is not a corollary of the inspected 2024/2026 asymptotic zero-sum results nor of the numerical particle indicator pairing theorem. Named searches for mixed Hermite quadratic antithetic Monte Carlo and scalar fission finite-alpha correlation optimization yielded no matching direct claim. Existing classical Gaussian covariance identities are credited; unpublished/unindexed equivalent treatments remain a priority risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible historic Gaussian quadratic antithetic variance theorem may already imply the generic mixed-Hermite optimizer, even without using this wording.",
+      "The cross-validation result is restricted to scalar affine shrinkage, known variance, jointly Gaussian noise, and the explicit finite-alpha objective; the general nonlinear case may differ.",
+      "Keyword and semantic search noncoverage does not establish absolute historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_FIXED_ALPHA_OPTIMUM",
+        "evidence": [
+          "Section 2 defines Gaussian fission and zero-sum covariance; Theorem 3.3 states asymptotic bounded reducible variance as alpha tends to zero.",
+          "First submitted December 19, 2024; exact finite-alpha correlation optimization is not stated in material inspected."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.14423",
+        "material_read": "Accessible arXiv full-text rendering: introduction, method and correction in Section 2, bias and variance analysis in Section 3, relevant proof sketch and stated theorem, discussion and references.",
+        "method": "Inspected full-text section headings, theorem statements, exact train/test definitions, asymptotic qualifications, and related references; compared assumptions and implications.",
+        "title": "Cross-Validation with Antithetic Gaussian Randomization",
+        "trigger": "Direct origin of zero-sum Gaussian randomization and the train/test estimator; possible stronger finite-alpha result."
+      },
+      {
+        "assessment": "NOT_COVERING_FINITE_ALPHA_GLOBAL_GAUSSIAN_OPTIMUM",
+        "evidence": [
+          "Eq. (3) exactly matches the adopted CV score; assumption 2.1 includes rho in [-1/(K-1),1].",
+          "Theorem 3.1 is a boundedness criterion as alpha decreases to zero, and Theorem 4.1 restricts to zero-sum schemes.",
+          "Appendix A.3 studies the zero-sum limit of quadratic variance, not the claimed finite-alpha phase boundary.",
+          "Originally submitted August 8, 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.08089",
+        "material_read": "Accessible arXiv full-text rendering: introduction, Sections 2–4, Theorems 3.1 and 4.1, Appendices A.1–A.3 relevant to Gaussian and zero-sum variance, and related references.",
+        "method": "Compared the fixed-rho alpha-downarrow-zero quantifier of Theorem 3.1 and within-zero-sum minimax class of Theorem 4.1 with fixed-positive-alpha optimization over all Gaussian correlations.",
+        "title": "On the Optimality of Antithetic Randomization for Cross-Validation",
+        "trigger": "Most relevant new primary result explicitly claims antithetic optimality."
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE_AND_FEASIBLE_CLASS",
+        "evidence": [
+          "Section 3.1 derives indicator Bernoulli-covariance contributions bounded by Fréchet–Hoeffding extremal coupling.",
+          "No finite-alpha Gaussian fission cross-validation objective or jointly Gaussian equicorrelation optimizer.",
+          "Submitted October 1, 2026, MSC 65C05, 65C35, 65M75."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01120v2",
+        "material_read": "Accessible primary HTML full text, introduction and scope, Section 2 error model, Section 3 pairing and optimality proof setup, Section 4 variance comparisons.",
+        "method": "Compared coupling objective (threshold indicators of Gaussian displacements) and particle matching with sums of linear and quadratic Gaussian responses.",
+        "title": "Sign-switched antithetic coupling in gradient random-walk methods for convection–diffusion equations",
+        "trigger": "Potentially stronger numerical Monte Carlo coupling result with Gaussian marginals and primary MSC 65C05."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7c25255-549a-41a5-9bf0-3752f3e7b506",
+  "value": {
+    "rationale": "Current antithetic Gaussian cross-validation sources establish the small-noise role of full zero-sum correlation, leaving a natural finite-perturbation design question. The exact all-Gaussian-matrix optimizer and unique crossover identify a substantive reversal: with two folds, c=1/2 and alpha=4, zero-sum randomization variance is 8 whereas partial antithetics attain 5167/1024 with unchanged bias. The result supplies a numerically meaningful Monte Carlo design boundary, not an arbitrary slice; it is limited to a sharp scalar benchmark and not claimed to solve general nonlinear CV.",
+    "status": "PASS"
+  }
+}
