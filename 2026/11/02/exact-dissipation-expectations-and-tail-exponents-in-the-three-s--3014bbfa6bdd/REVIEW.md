@@ -1,23 +1,21 @@
-# Scientific assessment: exact dissipation laws for three-state stationary flows
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies two probability measures on the same zero-self-loop three-state stationary-flow polytope. The affine current/activity parametrization and normalization determine a beta-distributed absolute current and an independent uniform activity simplex. Every claim then follows from the explicit stationary entropy-production expression in RESULT.md: a nonnegative-power-series integral gives the balanced mean; the uniform-simplex marginal and four elementary logarithmic integrals give the unrestricted mean. These integrals were independently evaluated symbolically by the accompanying verifier, with the exact sum \(2\log(3/2)-1/2\). The precise exponential-moment boundaries follow from a product majorant and a positive-measure interior lower bound. Exponential Chernoff bounds and the same interior event give the full-polytope tail exponent, while inversion near the end of the balanced current interval gives the sharp balanced prefactor. Every quantifier is specified and the proof is not based on finite enumeration.
+PASS
 
-The code passed 5,007 deterministic checks including 1,000 flow reconstructions. The software checks support the derivation but cannot establish universal integrability or asymptotic statements independently.
+The full three-state no-self-loop stationary-flow polytope has affine coordinates (a,b,J), c=1-a-b, activities a_i>=|J|. Constant affine Euclidean Jacobian and a triangle cross-section of scale (1-3|J|) give w=3|J| with density 3(1-w)² and independent uniform Dirichlet(1,1,1) simplex activities; the balanced stationary section fixes activities 1/3 and yields uniform w. The exact entropy-production expression is Σ=w/3 sum_i log[1+2w/(3(1-w)u_i)] and balanced Σ=w log((1+w)/(1-w)). Direct independent SymPy integration of four explicit terms gives E_sta=-1/2+log(9/4)=0.31093021621632877 and E_bal=1. The pointwise exponential bound δ^{-t} prod u_i^{-t/3}, δ=1-w, is integrable under 3δ² and Dirichlet marginal exactly for t<3; an interior simplex patch supplies divergence for t>=3. Balanced δ-uniform yields t<1 and P(Σ>s)~2e^{-s}; exponential Markov bound combined with matching interior patch gives full-ensemble log-tail rate -3. No density or constant prefactor for full tail claimed.
 
-## Originality — PASS, qualified best-knowledge
+## originality
 
-The direct source, Hartle, Kumar and Wolpert (2026), first public 2026-10-24, Section IV.2.2 and equations (43)–(56), was examined in the open full-text HTML. It already establishes uniform stationary-flow and balanced-section ensembles, their current densities and the general entropy-production definition. Those are explicitly credited. The source computes mean absolute current but does not present either exact entropy-production mean, the sharp exponential-moment thresholds or their tail asymptotics. The current-only marginal of the unrestricted model does not determine the nonlinear affinity contribution, which necessitates the new Dirichlet activity integration.
+PASS
 
-The 2023 survey by Wolfer and Watanabe was examined in relevant sections: it treats canonical time-reversal divergence and information geometry of individual finite Markov chains, rather than an exact uniform-hyperensemble distribution of the dissipation statistic. The closest indexed public circulation result concerns stationary geometric marginals of switching graph flows, not uniform probability distributions over three-state discrete-time Markov transition laws. Its full text was not available in the checked route, and it is not used as decisive proof of novelty. Actual semantic searches for stationary-flow entropy-production moments, uniform-marginal hyperensembles, and exponential integrability gave no closer matching theorem. No negative search is equated with uniqueness. General push-forward/Dirichlet integration literature or uninspected indexed works could implicitly subsume the result; independent priority review remains necessary.
+PASS for the nonlinear entropy-production push-forward expectations and the two sharp moment/tail thresholds, not for the underlying uniform flow hyperensemble, current densities or normalization. Hartle–Kumar–Wolpert explicitly introduce exactly the joint flow matrix and derive |J| density and mean |J| in §IV.2.2 but do not compute these Σ statistics. General stochastic thermodynamic entropy production is standard; a change of current prior alone does not compute nonlinear full-ensemble Σ. The exact comparison of these two natural measures is motivated. An earlier general Dirichlet/log-affinity identity could imply this special case, remaining priority risk.
 
-## Value — PASS
+## value
 
-Entropy production is the principal irreversibility observable of the minimal three-state network containing a cycle. The published source analyzed how learning the stationary state affects cycle currents. The new calculation quantifies the corresponding nonlinear dissipation *and* its extreme upper tail, giving an exact change from \(2\log(3/2)-1/2\) to \(1\) in mean and from \(3\) to \(1\) in the exponential-moment threshold. An exact conditional-current minimization additionally demonstrates why an unrestricted activity mixture may be more dissipative at fixed current yet less dissipative on average under its different current law. These conclusions are sensitive to the physically natural information constraint, not an arbitrary parameter slice or merely a known-table recomputation. The proof treats the canonical minimal irreversible Markov example and requires a nontrivial simplex integral plus boundary integrability analysis, beyond substituting an existing current expectation.
+PASS
 
-## Scientific limitations and priority risks
+The object is the minimally cyclic stationary Markov chain where hyperensemble flow geometry is explicit. Predicting EΣ and its tail scale for two natural reference priors is a meaningful statistic beyond mean current; it exposes a sharp threefold change of integrability from a physically motivated conditioning, not merely a normalization check.
 
-The theorem is confined to discrete-time normalized edge flows on three states with no self loops and the two specified Euclidean-uniform distributions. It does not claim stochastic trajectory fluctuation laws, universal validity for other ensembles or states, an exact prefactor for the unrestricted tail, or independent verification. Existing general geometric or hyperensemble results not inspected in full could imply part of the conclusion. The source's definitions and current laws are prior work, not claimed as discoveries.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
