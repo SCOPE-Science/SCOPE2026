@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The exact-block query definition and all boundary cases n=1 and singleton/full-support are explicit. All-positive labels enforce disjointness; a full cover with a singleton fails a designated negative labeling. The constructive partition realizes every remaining pattern with one unused buffer vertex or no singleton queries. Facets and coefficients follow from disjointness and labeled-block decompositions. Positive branches of any mistake tree reduce to n−|B| free elements, giving the induction Ldim≤n−1; n−1 singleton queries force the matching lower bound. Exhaustive independent trace tests checked 69,363 finite supports and the 1≤n≤4 online recurrences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DePavia et al. derive a noisy partition identification lower bound for any non-adaptive binary oracle, not a characterization of which query supports admit every binary labeling.",
+        "No searched published-finding corpus abstract states a covering general theorem on exact-block queries."
+      ],
+      "reasoning": "A lower bound for partition identification with arbitrary binary tests does not determine the VC face polynomial or adaptive mistake-tree depth of the specific exact-block predicate. Broader learning bounds cannot by themselves produce the asserted equality.",
+      "searches": [
+        "published-finding corpus: finite set partitions as Boolean hypotheses exact block oracle: VC-dimension and Littlestone dimension n-1; shattered partial partitions require a spare element or no singletons",
+        "arxiv:2305.13402 Section 4.4 arbitrary binary oracle query complexity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.13402 (2023-05-22), complete primary text and relevant sections",
+      "https://doi.org/10.1016/j.ic.2026.105424 (2026, abstract/intro, partial inspection)",
+      "published-finding corpus:2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad (summary only)",
+      "Existing private same-slot claims through generation 000099 for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper obtains bounds for queries of types “u,v share a block” and general alternatives; it does not imply the necessary-and-sufficient disjointness/spare-element theorem.",
+        "A previously recorded pairwise partition VC claim relies on an edge-query forest and does not determine these subset queries."
+      ],
+      "reasoning": "A corollary would need a reduction preserving every labeling on arbitrary subset queries; none is provided by the cited pairwise-query or existential-query results. Classical Stirling counts only enter after the new trace criterion and do not imply it.",
+      "searches": [
+        "arxiv:2305.13402 Sections 1,4.2,4.4",
+        "published-finding corpus: exact block membership query to learn partitions versus pairwise same-cluster oracle and any-cluster-contained oracle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The oracle here tests set equality with one whole cluster; pairwise equivalence tests only whether two elements share a cluster.",
+        "The inspected arXiv:2305.13402 Section 4.4 gives existential binary subset oracles but not a single-query exact-block-equality equivalence."
+      ],
+      "reasoning": "An exact-block question on any subset cannot be identified with one pairwise same-cluster query or a single existential-subset answer; hence their hypotheses have a different query domain and trace geometry. An alternative terminology for exact-block membership remains possible.",
+      "searches": [
+        "published-finding corpus: set partition concept class exact block membership queries shattering disjoint clusters singletons uncovered element full shattering polynomial",
+        "web: \"shattering\" \"set partitions\" \"blocks\" \"VC dimension\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest accessible partition-count record treats covariance of block counts, not exact-block trace shattering.",
+        "Own-ledger same-cluster entries use pairwise equality and fixed-size/noncrossing constraints rather than subset-exact-block membership."
+      ],
+      "reasoning": "No same exact table or formula was returned; the coefficient values here were independently derived from the exact shattering criterion. Database noncoverage is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: shattering complex of set partitions, block indicator subsets, Stirling face polynomial, maximal shattered supports and facet polynomials",
+        "published-finding corpus: VC dimension of partitions with tests asking whether an arbitrary subset forms exactly one block; disjoint support characterization"
+      ]
+    },
+    "rationale": "Distinct from pairwise same-cluster and existential subset-oracle query complexity in the inspected 2023 primary paper; database and own-ledger comparisons found no statement that implies the exact-block shattering complex or its online dimension. Historical priority remains a real residual risk, not ruled out by unsuccessful searches.",
+    "residual_risks": [
+      "An older exact-block query result under different terminology or in an unindexed source could cover some or all of the characterization.",
+      "The generic 2026 Littlestone publication was inspected only in abstract/intro, not in its entirety; its exact scope could include unexamined related examples.",
+      "Only cases with up to five partition elements were computationally checked; the infinite statement rests on the written mathematical proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_ORACLE_AND_RESULT",
+        "evidence": "Section 1 defines the same-cluster oracle on pairs. Section 4.4 gives an arbitrary-binary-oracle error-tolerant query-count lower bound; its subset oracles are existential questions. No exact-block shattering support/facet characterization or dimension follows from those claims.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.13402",
+        "material_read": "Introduction, oracle definitions, Sections 4.1–4.4, Theorems 1, 6 and 8, Lemma 11 and related appendix material, original arXiv full HTML and PDF",
+        "method": "Read the primary full-text versions; compared their predicates, domains, information-theoretic lower bounds, and conclusions",
+        "title": "Error-Tolerant Exact Query Learning of Finite Set Partitions with Same-Cluster Oracle",
+        "trigger": "Exact finite-partition learning with general subset oracles, plausible general coverage"
+      },
+      {
+        "assessment": "GENERAL_THEORY_ONLY",
+        "evidence": "Defines the Littlestone binary-tree notion and applications to query learning; no explicit exact-block membership partition class or coefficient formula in the material read. This partial inspection does not rule out all results in its full text.",
+        "identifier_or_url": "https://doi.org/10.1016/j.ic.2026.105424",
+        "material_read": "Abstract, introduction and displayed Littlestone-dimension definition from open-access article",
+        "method": "Compared general online-dimension definitions and applications against the exact finite-partition oracle",
+        "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+        "trigger": "Generic adaptive online dimension may subsume an oracle-specific Ldim claim"
+      },
+      {
+        "assessment": "NOT_A_PLAUSIBLE_COVERING_THEOREM",
+        "evidence": "Concerns covariance between number of blocks and counts of blocks of a specified size; neither binary query traces nor VC/Littlestone capacity.",
+        "identifier_or_url": "published-finding corpus:2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+        "material_read": "Published published-finding corpus abstract/summary only",
+        "method": "Compared its random-partition covariance conclusion with a deterministic shattering-complex characterization",
+        "title": "Block-size counts switch covariance sign at the Lambert-W scale",
+        "trigger": "Database match on block-size enumerators of set partitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5aca048b-c1d6-46dd-ba62-44ab92345122",
+  "value": {
+    "rationale": "Exact-block cluster confirmation is a natural alternative query primitive in partition learning; the result classifies the entire nonpure shattering complex and its maximal faces, with explicit Stirling coefficients and exponential generating functions. The tight online dimension n−1 contrasts with Bell(n) candidate partitions. This resolves full combinatorial capacity, rather than a routine scalar special case. It does not imply optimal identification query counts or error robustness.",
+    "status": "PASS"
+  }
+}
