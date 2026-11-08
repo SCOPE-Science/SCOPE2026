@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion quantifies over all indices and all residue arguments, under the explicit assumptions of odd prime and unit parameter. The companion matrix has invertible determinant and its orbit vector is cyclic, so the period of the scalar sequence equals its matrix order. The finite-field eigenvalue coset calculation forces exactly the prime-to-characteristic exponent; for square parameters a genuine repeated-root Jordan block forces another factor of the characteristic. The binomial matrix lifting bound is sharp: a lifted repeated-root witness has exact order divisible by the full prime power in the square case, while a nonzero derivative at every residue class creates a depth-one obstruction in the nonsquare case. The derivative identity uses distinct roots, a condition ensured by the nonsquare hypothesis. No numerical check is used in place of the unbounded algebraic argument.
+PASS
 
-## Originality — PASS with residual risk
+Let E₀=1, E₁=x, E_(n+2)=xE_(n+1)−aE_n over Z/p^k and C_x=[[x,−a],[1,0]]. The two vectors (x,1) and C_x(x,1) form a basis when a is a unit, so all-index functional periodicity is equivalent to C_x^T=I for every x. Over F_p, eigenvalue orders range over F_p* and the norm-a fiber in F_(p²)*, giving prime-to-p exponent h=p²−1 for nonsquare a and (p²−1)/2 for square a. A repeated-root companion Jordan block adds p in the square field case, and a lifted root at x=2ρ forces exact p^k in every ring. For nonsquare a, no discriminant vanishes and E'_(h−1)(x)=2h/(x²−4a)≠0 mod p; varying a lift x by p ensures some C_x^h differs from I at p², and odd-p binomial lifting gives full p^(k−1) factor. This establishes T=p^(k−1)(p²−1) nonsquare and T=p^k(p²−1)/2 square, for all k≥1. Independent modular matrix arithmetic checked every unit a and all x at p=3,5,7 and k=1,2 and tested the proper prime quotients of the claimed T.
 
-Qu and Ding (2014) study permutation indices over integer rings, not the least period for every input. Wang (2025), Lemma 6, covers the finite-field index-period problem; that part is explicitly prior art. Gültekin and Taşyurdu (2013) study a different coefficient/exponent reduction of Fibonacci polynomials and general matrix-period structure; Henderson (1997) concerns finite-field permutation behavior. The distinguishing sharp theorem concerns every lift to \(p^k\) for \(k\ge2\), including a derivative proof that a potentially shorter lift never occurs for any unit parameter. No equivalent prime-power-ring classification was found in the inspected documents or mathematical-record matches. An unlocated general matrix-order theorem or specialist recurrence note could still imply it; a search is not proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Periods of function-valued recurrence families modulo prime powers are natural invariants. Period lifting can degenerate at special parameters; the nonsquare derivative argument rules out all such degenerate lifts, and square parameters have a structurally distinct Jordan factor. The answer is exact and uniform across every odd prime, every level, and every invertible parameter, and it determines the composite odd-modulus period by CRT. This is a genuine infinite classification, not a small table or renaming of a finite-field formula.
+The recurrence, field eigenvalue framework and finite-field common periods are prior mathematics. Qu–Ding address permutation properties over prime-power rings; Wang's Lemma 6 concerns finite-field index periods, not sharp all-unit lifts in rings. The derivative-based uniform lifting statement was not found among inspected sources. A broad matrix-order theorem over principal local rings may imply it, and cannot be excluded.
 
-## Limits and relevant sources
+## value
 
-The parameter is required to be invertible, the prime odd, and the period pointwise rather than coefficientwise. Relevant primary literature: Qu–Ding, DOI `10.1137/130942589`; Wang, DOI `10.1155/jom/5569145`; Gültekin–Taşyurdu, DOI `10.1155/2013/731482`; Henderson, DOI `10.1017/S0004972700031300`. Finite verification covers small rings only. Historical priority is conditional on available literature and independent scrutiny remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Common index periods of polynomial functions on p-adic residue rings are natural invariants. Prime-power lifts need not follow formally from prime-field periods without ruling out exceptional stabilization; the derivative obstruction and square Jordan witness provide a complete all-prime all-level classification that a future modular-sequence researcher could use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:10:24.027028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let E₀=1, E₁=x, E_(n+2)=xE_(n+1)−aE_n over Z/p^k and C_x=[[x,−a],[1,0]]. The two vectors (x,1) and C_x(x,1) form a basis when a is a unit, so all-index functional periodicity is equivalent to C_x^T=I for every x. Over F_p, eigenvalue orders range over F_p* and the norm-a fiber in F_(p²)*, giving prime-to-p exponent h=p²−1 for nonsquare a and (p²−1)/2 for square a. A repeated-root companion Jordan block adds p in the square field case, and a lifted root at x=2ρ forces exact p^k in every ring. For nonsquare a, no discriminant vanishes and E'_(h−1)(x)=2h/(x²−4a)≠0 mod p; varying a lift x by p ensures some C_x^h differs from I at p², and odd-p binomial lifting gives full p^(k−1) factor. This establishes T=p^(k−1)(p²−1) nonsquare and T=p^k(p²−1)/2 square, for all k≥1. Independent modular matrix arithmetic checked every unit a and all x at p=3,5,7 and k=1,2 and tested the proper prime quotients of the claimed T.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu–Ding concerns permutation behavior over Z_m and gives recurrence properties; not necessarily least simultaneous n-index periods.",
+          "Wang 2025 finite-field Lemma6 does not determine sharp behavior modulo p² or higher powers."
+        ],
+        "reasoning": "An all-local-ring GL2 matrix-exponent theorem could dominate this result but was not demonstrated in checked material; do not equate finite-field coverage with prime-power coverage.",
+        "searches": [
+          "Qu Ding 2014 Dickson Polynomials of Second Kind That Permute Z_m full PDF",
+          "Wang 2025 First and Second Moment Analysis of Dickson Polynomials second kind Lemma 6",
+          "Fibonacci polynomials period mod m companion matrix primitive orders"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/130942589",
+        "https://doi.org/10.1155/jom/5569145",
+        "https://doi.org/10.1155/2013/731482",
+        "Resultary search: Dickson second-kind prime-power common index period"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite field exponent h can admit lifts of order h or h·p^j without a first-order nonzero obstruction.",
+          "The nonsquare derivative and square repeated-Jordan witness prove exact maximal lift factors."
+        ],
+        "reasoning": "Prior finite-field formulas alone cannot entail uniform sharpness for every parameter over Z/p^k; the new lift argument is substantive.",
+        "searches": [
+          "Wang 2025 second kind Dickson finite fields common index period lemma 6",
+          "Qu Ding permutation Dickson polynomial modulo prime power least period"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The index period is equivalent to an lcm of companion-matrix orders because (x,1),C_x(x,1) form a basis of determinant a.",
+          "Qu–Ding 2014 studies permutation-index questions, Wang 2025 Lemma6 field index periods."
+        ],
+        "reasoning": "Matrix lcm is an equivalent formulation of this claim; prior general matrix work might cover it, whereas the two examined named Dickson sources do not state all ring lifts.",
+        "searches": [
+          "second kind Dickson polynomial function index periods modulo odd prime powers square nonsquare parameter",
+          "companion matrix x -a 1 0 universal order modulo p^k Dickson second kind"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact prime-power all-unit period table in Resultary top hits.",
+          "The package explicitly checks all small rings (p=3,5,7; k=1,2) and separates square classes."
+        ],
+        "reasoning": "Search absence does not certify originality; a specialized number-theoretic table could already record the formula.",
+        "searches": [
+          "Dickson E_n(x,a) least T for all x mod p^k period p^(k-1)(p²-1)",
+          "Resultary: second kind Dickson polynomial function index periods modulo odd prime powers square nonsquare parameter"
+        ]
+      },
+      "rationale": "The recurrence, field eigenvalue framework and finite-field common periods are prior mathematics. Qu–Ding address permutation properties over prime-power rings; Wang's Lemma 6 concerns finite-field index periods, not sharp all-unit lifts in rings. The derivative-based uniform lifting statement was not found among inspected sources. A broad matrix-order theorem over principal local rings may imply it, and cannot be excluded.",
+      "residual_risks": [
+        "General unindexed companion-matrix order classification could imply the same formula.",
+        "Odd primes and units only; not p=2, a nonunit or coefficientwise polynomial periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RECURRENCE_DIFFERENT_QUESTION",
+          "evidence": [
+            "Studies permutation indices of the Dickson polynomial maps rather than least simultaneous function-valued index periods."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/130942589",
+          "material_read": "Author-hosted accessible primary PDF sections on permutation criteria, definitions and period-related setup, viewed also as PDF page images",
+          "method": "primary PDF text and screenshot inspection",
+          "title": "Dickson Polynomials of the Second Kind That Permute Z_m",
+          "trigger": "same polynomials and prime power base ring"
+        },
+        {
+          "assessment": "FINITE_FIELD_COVERAGE",
+          "evidence": [
+            "Gives field-period tools over F_p, not an asserted sharp uniform lift to Z/p^k for arbitrary k."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/jom/5569145",
+          "material_read": "Accessible primary journal HTML including Lemma 6 and finite-field hypotheses",
+          "method": "read relevant lemma and its field-level context",
+          "title": "First and Second Moment Analysis of Dickson Polynomials of the Second Kind",
+          "trigger": "same polynomials and common index-period question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Common index periods of polynomial functions on p-adic residue rings are natural invariants. Prime-power lifts need not follow formally from prime-field periods without ruling out exceptional stabilization; the derivative obstruction and square Jordan witness provide a complete all-prime all-level classification that a future modular-sequence researcher could use.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite field and modular ring computations are corroborative, not evidence of all-parameter proof."
+  ],
+  "schema_version": 1
+}
