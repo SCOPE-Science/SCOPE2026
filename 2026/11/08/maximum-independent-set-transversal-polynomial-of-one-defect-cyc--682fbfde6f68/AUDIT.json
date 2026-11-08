@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For any q,k>=2, cyclic spacing q gives alpha=k and a unique longer gap q+1 for each maximum independent set, so exactly n=kq+1 sets I_j. The gcd(q,n)=1 permutes them to all consecutive length-k circular arcs; a transversal has each circular selected gap <=k. A marked-vertex count gives n/t times bounded positive compositions, and deficits for t=q+1 give n/(q+1)*binom(k+q-1,q). An independent original-graph brute-force verifier confirms all cardinality coefficients in 14 small instances, and an independent DP confirms larger composition counts. No finite test is used to infer a universal assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai–Chang–Yan obtain density/connectivity-based bounds and general reductions, without exact sparse-cycle-power enumerators.",
+        "Dong–Luo characterize tight (2,0)-stable graphs at odd orders; the results do not determine all transversal coefficients of C_{kq+1}^{q-1}."
+      ],
+      "reasoning": "The bound h(G)<=n/(2alpha+delta-n) requires a positive denominator and in the relevant family is generally inapplicable or weaker; its statement does not enumerate hitters. The tight-stability theorem is an extremal graph classification and even its odd-cycle case does not determine higher coefficients.",
+      "searches": [
+        "Full-text source arxiv:2608.18963v1; search for cycle, circulant, and power",
+        "Full-text source DOI 10.37236/13791; tight (k,0)-stable odd cycles",
+        "Web search: \"independence stability number\" powers of cycles vertex deletions",
+        "Web search: hitting maximum independent sets powers of cycles exact transversal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.18963v1",
+      "doi:10.37236/13791",
+      "doi:10.37236/264",
+      "Published mathematical records on independence transversals and cyclic intervals"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bohman–Holzman–Natarajan define powers as strong graph products of odd cycles; these are not the distance powers C_n^{q-1} in the claim.",
+        "Bai–Chang–Yan define maximum-independent-set hitting but state general bounds and structural reductions, not this correspondence and counting polynomial."
+      ],
+      "reasoning": "The currently inspected prior statements do not imply the exact coefficients of the target family. The 2009 similarly titled paper concerns a mathematically different power operation; neither its maximum-independent-set classification nor the 2026 bounds cover this polynomial.",
+      "searches": [
+        "Full text arxiv:2608.18963v1; Theorem 1.3, Section 4",
+        "PDF DOI 10.37236/264; strong-product power definition and main classification",
+        "Published record semantic search: For n=kq+1, the hypergraph of maximum independent sets in the distance-(q-1) power of an n-cycle consists of n length-k arcs after the step-q permutation; all hitting sets are cyclic sequences with gaps at most k, minimum q+1, exactly n/(q+1) binom(k+q-1,q)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct correspondence identifies the target with transversals of all circular length-k intervals, rather than vertex covers of the graph itself.",
+        "Semantic search returned unrelated covering/code and independent-set statements; no exact circular-arc-hypergraph transversal polynomial was identified."
+      ],
+      "reasoning": "Aliases include maximum independent set hitting, graph independence blocker, cyclic interval piercing and one-step independence stability. The standard circular-gap count is used as a proof ingredient, but no checked text supplies its identification with the target graph family or the complete labelled graph polynomial.",
+      "searches": [
+        "Published record semantic search: Maximum independent sets of powers of cycles C_{kq+1}^{q-1}, exact transversal or hitting-set polynomial, spacing q and one surplus vertex",
+        "Web search: \"maximum independent sets\" \"cycles\" \"hitting\" \"power\"",
+        "Web search: \"maximum independent set\" \"cyclic intervals\" \"hitting\" counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of indexed mathematical findings returned unrelated cycle and graph invariants, including cover-free-family labeling counts of ordinary cycles, rather than maximum-independent-set hitting transversals.",
+        "The closest published mathematical records discuss different cycle invariants, including cover-free-family numbers for paths and cycles, rather than this full maximum-independent-set transversal polynomial."
+      ],
+      "reasoning": "No exact table or database record was identified for the asserted graph polynomial. A limited semantic search cannot prove that no such published table exists.",
+      "searches": [
+        "Published record semantic search: minimum vertex deletion decreasing independence number of cycle power C_n^r, hitting all maximum independent sets",
+        "Published record semantic search: transversal enumeration of cyclic interval hypergraph arcs of fixed length, gap composition exact number",
+        "Web search: \"transversal\" \"maximum independent sets\" \"cycle power\""
+      ]
+    },
+    "rationale": "The enumerator and complete maximum-set-to-circular-arc isomorphism were compared against the full accessible Bai–Chang–Yan manuscript, published tight stability results, the differently defined strong product powers of cycles, available own claims, and semantic searches in the published mathematical-record index. No source was found to imply the exact polynomial, though priority cannot be certified exhaustively.",
+    "residual_risks": [
+      "General circular-interval piercing enumeration is classical; an unlocated paper could have already applied it to this exact distance-power family.",
+      "Semantic record searches are not a proof of priority; independent literature review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact asserted family; no cycle-power-specific enumeration or graph-hypergraph correspondence found in the examined text",
+        "evidence": [
+          "Theorem 1.3 gives h(G) bounds controlled by alpha, degree and connectivity; Section 4 proves the general bound using maximum-set incidence classes."
+        ],
+        "identifier_or_url": "arxiv:2608.18963v1; https://www.researchgate.net/publication/412828572_Hitting_Maximum_Independent_Sets_in_Dense_and_Highly_Connected_Graphs",
+        "material_read": "Public full-text HTML: abstract, introduction, Theorem 1.3, Section 4 bound and proof, final problems and references; searched full text for cycle/circulant/power mentions.",
+        "method": "Publicly accessible full-text HTML copy, with targeted statement/section inspection",
+        "title": "Hitting Maximum Independent Sets in Dense and Highly Connected Graphs",
+        "trigger": "Defines current hitting parameter and might contain a stronger general theorem"
+      },
+      {
+        "assessment": "NOT_COVERING for complete transversal enumeration; general tight stability concerns different implications",
+        "evidence": [
+          "Theorem 1(c): tight (2,0)-stable odd-order graphs are odd cycles; the paper does not give all cardinality coefficients of maximum-independent-set hitters."
+        ],
+        "identifier_or_url": "doi:10.37236/13791; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v32i4p45/pdf/",
+        "material_read": "PDF first page, Introduction and Theorems 1,3,4; studied the role of odd cycles and stability parameters.",
+        "method": "Open-access PDF with page screenshot and machine-readable text",
+        "title": "Structure of Tight (k,0)-Stable Graphs",
+        "trigger": "Prior vertex deletion stability results might imply a hitting threshold"
+      },
+      {
+        "assessment": "NOT_COVERING: graph power here is strong graph product over multiple coordinates, not distance power of a single cycle",
+        "evidence": [
+          "Introduction defines product power G^d and studies cubical packings in Cartesian-coordinate torus."
+        ],
+        "identifier_or_url": "doi:10.37236/264; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1n26/pdf/",
+        "material_read": "PDF introduction pp.1-3 and main classification statement, with page screenshot.",
+        "method": "Open-access PDF inspected for precise power definition and scope",
+        "title": "Maximum Independent Sets in Certain Powers of Odd Cycles",
+        "trigger": "Title resembles maximum-set classification for graph powers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "682fbfde-6f68-47a7-b67d-638cdce44a57",
+  "value": {
+    "rationale": "The one-defect family n=kq+1 has a canonical first surplus gap. The result exhibits a structural isomorphism of its entire maximum-independent-set hypergraph to the length-k cyclic interval hypergraph and determines every labelled transversal coefficient, the sharp deletion threshold h=q+1, and the exact count n/(q+1)*binom(k+q-1,q) of optimizers for an infinite two-parameter graph family. This answers a natural refinement of the recent hitting-set problem; it is not a numerical table or a mere restatement of a general bound.",
+    "status": "PASS"
+  }
+}
