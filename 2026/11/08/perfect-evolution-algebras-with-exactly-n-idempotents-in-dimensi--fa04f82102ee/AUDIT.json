@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Direct proof: block upper triangular structure matrix has determinant 1/2. The first two idempotent equations have exactly (0,0),(1,1) over each field of characteristic !=2. Subsequent equations have forcing state h=0 or 1/4, with root choices {0,1} before the first nonzero step and unique 1/2 thereafter, giving exactly n explicitly listed points. The standalone standard-library checker tests rational formulas in dimensions 2..12 and all field vectors for p=3,5,7 in dimensions 2..5 (23860 vectors). All checks passed; unbounded validity is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.22248v1 Section 2.3: over real closed fields all counts 2..2^n are realized, while the complex version remains a conjecture; triangular complex constructions described there start at n+1.",
+        "García-Martínez--Pérez-Rodríguez (2026), Section 3.3 Theorem 3.5: existence of at least one nonzero idempotent.",
+        "Hu (2026), Corollary 3: existence of full-support idempotents under sparsity/simplicity assumptions in dimension 3."
+      ],
+      "reasoning": "The real statement does not imply complex distinct point counts: additional complex solutions may appear. Merely guaranteeing a nonzero idempotent or a full-support idempotent does not guarantee exactly n total points. Three-dimensional isomorphism classifications do not imply an arbitrary-dimensional existence theorem without an additional construction.",
+      "searches": [
+        "Kaygorodov Martín González Viruel Conjecture 6 triangular n+1 idempotents",
+        "A note on complete evolution algebras theorem 3.5 nonzero idempotent",
+        "Full-Support Solutions and Rigidity for Three-Dimensional Evolution Algebras theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22248v1 Section 2.3 Conjecture 6",
+      "García-Martínez--Pérez-Rodríguez, A note on complete evolution algebras, Section 3.3 (2026)",
+      "Hu, Full-Support Solutions and Rigidity for Three-Dimensional Evolution Algebras, Corollary 3 (2026)",
+      "published-finding corpus semantic searches for exact cardinality, triangular degeneracy and quadratic fixed points",
+      "2019 three-dimensional evolution algebra classification (metadata/abstract only; not certified noncoverage)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.22248v1 Conjecture 6 asks existence for every 2<=m<=2^n. It specifically remarks that its triangular constructions only yield m>=n+1.",
+        "The symbolic theorem here gives exactly n idempotents for every n>=2 and char !=2 by a two-state recurrence."
+      ],
+      "reasoning": "The conjecture itself is not an established stronger result. Known n=2 examples are a base case, not a proof for n>=3. The present explicit nested double-root construction fills an infinite missing sequence without asserting completion of the full conjecture.",
+      "searches": [
+        "perfect evolution algebra complex exactly n idempotents including zero in dimension n using triangular extension and colliding quadratic roots",
+        "2026 evolution algebras survey Conjecture 6 number of complex idempotents",
+        "2026 evolution algebra idempotents triangular degenerations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.22248v1, Section 2.3 Conjecture 6 explicitly concerns the number of solutions to M^T x^[2]=x.",
+        "The exact-equivalence search found no published claim that every n>=3 admits a perfect n-dimensional evolution algebra with exactly n distinct fixed points of its quadratic evolution map."
+      ],
+      "reasoning": "A perfect structure matrix is invertible; counting idempotents is exactly counting distinct solutions of the diagonal quadratic system. Neither the cited survey nor the inspected nearby work contains the n-for-n existence theorem or an evident equivalent discriminant-chain construction.",
+      "searches": [
+        "perfect evolution algebra complex exactly n idempotents including zero in dimension n using triangular extension and colliding quadratic roots",
+        "three-dimensional perfect evolution algebra exactly three complex idempotents including zero, discriminant collision",
+        "\"evolution algebra\" \"three distinct idempotents\" invertible",
+        "\"evolution algebra\" \"n distinct idempotents\" complex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries of the mathematical findings index yielded related evolution-algebra idempotent results for finite fields and quandle algebras, but not the present cardinality over all characteristic !=2 fields.",
+        "The survey Conjecture 6 provides a current open-count table/range and does not list a construction achieving m=n in dimension n>=3.",
+        "The 2019 three-dimensional classification was identified but its entire tables were not inspected; it is recorded as a residual risk rather than declared negative."
+      ],
+      "reasoning": "No exact table entry or theorem was located supplying the uniform n-for-n count. The three-dimensional classification, even if it contains the n=3 isomorphism type, does not subsume the infinite-dimensional assertion.",
+      "searches": [
+        "perfect evolution algebra complex exactly n idempotents including zero in dimension n using triangular extension and colliding quadratic roots",
+        "three-dimensional perfect evolution algebra exactly three complex idempotents including zero, discriminant collision",
+        "conjecture number of complex idempotents 2 to 2^n evolution algebra 2026 diagonal structure matrix",
+        "\"perfect evolution algebra\" \"exactly 3 idempotents\"",
+        "evolution algebra 3 dimensional three idempotents classification"
+      ]
+    },
+    "rationale": "The exact point count n in every dimension n>=3 over fields of characteristic !=2 is not stated in the inspected 2026 survey, which reports only complex triangular constructions with at least n+1 idempotents and poses the full spectrum as Conjecture 6. The idempotent-existence theorem and full-support classification do not imply the uniform exact count. Dedicated research-index searches and web searches for the count and its discriminant-collision formulation found no matching result. This is qualified originality rather than a proof of world-first priority.",
+    "residual_risks": [
+      "The full historic literature on isolated quadratic fixed-point schemes and 3-dimensional evolution algebra classification was not exhaustively inspected; an implicit equivalent may exist.",
+      "The survey describes a broader open conjecture and evidence, but passing a literature search cannot establish absolute novelty.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OPEN_QUESTION_NOT_COVERING",
+        "evidence": "Conjecture 6 states the proposed spectrum from 2 to 2^n over C, notes n<=2 known and triangular constructions yielding m>=n+1; this is not the n-for-n construction.",
+        "identifier_or_url": "arXiv:2610.22248v1; https://arxiv.org/html/2610.22248",
+        "material_read": "HTML primary text: definitions and perfectness criterion, Section 2.2 on idempotents, Section 2.3 Conjecture 6 and surrounding discussion of previous triangular constructions.",
+        "method": "Opened and read arXiv primary HTML, including text immediately surrounding Conjecture 6.",
+        "title": "Evolution algebras: a survey of results and a list of open problems",
+        "trigger": "Primary motivating conjecture and nearest coverage"
+      },
+      {
+        "assessment": "WEAKER_EXISTENCE",
+        "evidence": "Theorem 3.5 asserts at least one nonzero idempotent over C for regular evolution algebras; no exact n-count across all dimensions.",
+        "identifier_or_url": "https://doi.org/10.1007/s00013-026-02251-0",
+        "material_read": "Publisher primary HTML Section 3.3, idempotent equations, Theorem 3.5 and subsequent conjecture.",
+        "method": "Read online primary full-text section.",
+        "title": "A note on complete evolution algebras",
+        "trigger": "General perfect-algebra idempotent theorem might imply an exact count"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": "Classifies failures of full-support idempotents in dimension three, not cardinality n in all dimensions.",
+        "identifier_or_url": "https://www.preprints.org/manuscript/202610.1039",
+        "material_read": "Preprints.org primary HTML, introduction, statements of Theorem 4/Corollary 3 and structural-matrix material.",
+        "method": "Read primary full-text sections on full support and exceptional locus.",
+        "title": "Full-Support Solutions and Rigidity for Three-Dimensional Evolution Algebras",
+        "trigger": "Close three-dimensional quadratic-system paper might cover n=3 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fa04f821-02ee-400b-a368-624a7b50cf38",
+  "value": {
+    "rationale": "The 2026 survey explicitly asks for all possible counts of idempotents of perfect n-dimensional complex evolution algebras and notes that its triangular complex constructions only give at least n+1 points. The uniform exact n-point construction fills a natural missing value for every n>=3, rather than a random special case. The same explicit matrices work in every field of characteristic different from two, and the double-root propagation mechanism explains the point-count drop. It does not settle the unresolved possibility of exactly two points for n>=3.",
+    "status": "PASS"
+  }
+}
