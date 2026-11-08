@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact proof: positive atomic masses make variance strictly convex modulo constants. Tight-edge graph connectivity gives only six per-pair vertices. Replacing opposite split pairs directly or same-type split pairs by a two-point randomized mixture strictly raises expected variance, eliminating all but one split; the positive gain is (k-1)lambda(1-lambda)/k^2. The exact one-split discrete finite difference (k-2a-lambda-1)/k^2 and comparison with whole-pair cuts yield the stated formula and every equality case. Independent exact tight-tree enumeration for 2 and 3 pairs and 22 six-state checks reproduced it; finite tests are not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Addario-Berry, Janson and McDiarmid (arXiv:0902.1156, full text introduction and section 5) give the complete-graph equilateral spread and random-graph bounds, but no complete metric with a perfectly shortened matching.",
+        "The full https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-euclidean-banach-mazur-distance-of-real-finite-equilateral--1cb03298c970/RESULT.md determines Banach--Mazur distance for the unchanged equilateral Lipschitz-free norm; it does not cover contractions or the specified fixed centered variance objective."
+      ],
+      "reasoning": "The full equilateral model is only the lambda=1 endpoint; the given theorem studies every strict lambda in (0,1) and its new equality geometry. Neither a facet enumeration nor a Banach--Mazur distance formula dominates the present centered embedding norm after contraction.",
+      "searches": [
+        "sharp centered L2 norm of Lipschitz functions finite equilateral metric with disjoint short pairs k even odd matching parity threshold",
+        "spread on 2k point metric each matched pair at lambda others at one: odd k phase transition lambda = 2(k-1)/(2k-1)",
+        "metric Lipschitz variance contracted perfect matching at most one mixed pair extremizer",
+        "\"Lipschitz\" \"matching\" \"variance\" \"equilateral\""
+      ]
+    },
+    "checked_sources": [
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-euclidean-banach-mazur-distance-of-real-finite-equilateral--1cb03298c970/RESULT.md",
+      "https://arxiv.org/html/1608.06848v1",
+      "https://arxiv.org/abs/0902.1156"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 matching facet theorem has the six-state classification (already known); the new proof separately shows that two or more split pairs cannot maximize uniform variance.",
+        "arXiv:1608.06848v1 studies generic metric face enumeration and graph admissibility, not this nongeneric metric concentration optimization.",
+        "The published equilateral Euclidean BM computation uses the ratio of maximal and minimal centered squared norms for the unshortened oscillation norm; it contains no metric contraction parameter."
+      ],
+      "reasoning": "Known face combinatorics implies a finite candidate search but neither the one-split localization nor the rational phase transition by itself. The new parameter-specific variance law is a nontrivial optimization over those vertices. Even so, an unindexed independent derivation cannot be excluded.",
+      "searches": [
+        "sharp centered L2 norm of Lipschitz functions finite equilateral metric with disjoint short pairs k even odd matching parity threshold",
+        "spread on 2k point metric each matched pair at lambda others at one: odd k phase transition lambda = 2(k-1)/(2k-1)",
+        "metric Lipschitz variance contracted perfect matching at most one mixed pair extremizer",
+        "\"spread\" \"matching\" \"metric space\" Lipschitz variance pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest directly matching geometry is the publicly readable full theorem https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744/RESULT.md; its central statement counts and classifies dual extreme Lipschitz potentials, not centered quadratic maxima.",
+        "Gordon and Petrov, arXiv:1608.06848v1 full HTML: studies face combinatorics and admissible tight-edge graphs, not uniform variance (no variance section or formula)."
+      ],
+      "reasoning": "Lipschitz-to-centered-L2 operator norm is a quadratic maximization over the potential polytope, not the number of vertices/facets. Exact vertex sets do not logically imply which vertices are maximizing or the phase threshold without the new elimination and quadratic arguments. No equivalent stated variance theorem was located.",
+      "searches": [
+        "equilateral metric n points pairwise disjoint short edges matching distance lambda sharp variance 1-Lipschitz functions parity transition k odd",
+        "graph spread equilateral matching shortcuts shorter distances moments optimal functions",
+        "finite metrics matching shortened pairs lipschitz polytope variance extremizers threshold 2(k-1)/(2k-1)",
+        "\"spread\" \"shortened matching\" \"equilateral\"",
+        "\"matching\" \"spread\" \"Lipschitz\" metric variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available published matching-family result gives facet count 3^k(2^(n-k)-2) and all dual vertices, not a numerical table of sharp variances.",
+        "Exact enumeration in verify_matching_spread.py was newly performed for the claimed objective, including the critical rational thresholds."
+      ],
+      "reasoning": "A list of possible extreme points is not an exact table of the spread or its optimizer subset. No directly covering exact database value or parameter table was identified in the named searches. Search absence is not a proof of uniqueness.",
+      "searches": [
+        "equilateral metric n points pairwise disjoint short edges matching distance lambda sharp variance 1-Lipschitz functions parity transition k odd",
+        "graph spread equilateral matching shortcuts shorter distances moments optimal functions",
+        "\"parity\" \"shortened pairs\" Lipschitz variance"
+      ]
+    },
+    "rationale": "The closest full-text mathematical result already gives all six-state extreme potentials for shortened matching metrics; that known vertex classification is not claimed original. None of the inspected full texts gives the centered quadratic optimum, strict at-most-one-split variance localization, or exact k-odd phase transition. Generic Lipschitz-polytope and equilateral BM results have distinct conclusions; residual unindexed equivalences remain possible.",
+    "residual_risks": [
+      "An unindexed paper may optimize centered variance for matching-contracted equilateral metrics under different terminology.",
+      "Published six-state facet classification covers the geometric part; novelty is restricted to sharp variance, pairwise elimination and threshold/equality law.",
+      "Metric and atomic uniformity assumptions are essential to the displayed formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Overlaps the complete six-state extremal-potential classification; no quadratic variance optimization, one-defect lemma, parity law or sharp threshold.",
+        "evidence": [
+          "Full proof steps 1–5 establish tight-edge connectivity, global anchors, six states and facet counting, ending with 3^k(2^(n-k)-2)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744/RESULT.md",
+        "material_read": "Full RESULT.md: Finding, Assumptions, all five proof steps, Verification, Relationship to prior work, Limitations, References",
+        "method": "Direct public repository full-file read",
+        "title": "Facet enumeration for equilateral metrics with independently shortened pairs",
+        "trigger": "Exact same metric family and plausible stronger vertex-classification result"
+      },
+      {
+        "assessment": "Exact uncontracted equilateral norm comparison; not the fixed centered variance of shortened matching metrics.",
+        "evidence": [
+          "Proof section 3 optimizes centered sum of squares for the equilateral oscillation norm; section 4 optimizes over all Hilbert forms, without a matching parameter."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-euclidean-banach-mazur-distance-of-real-finite-equilateral--1cb03298c970/RESULT.md",
+        "material_read": "Full RESULT.md: theorem, four proof sections, verification, prior-work comparisons, limitations",
+        "method": "Direct public repository full-file read",
+        "title": "Sharp Euclidean Banach--Mazur distance of real finite equilateral Lipschitz-free spaces",
+        "trigger": "Exact equilateral centered norm benchmark and possible stronger Hilbert result"
+      },
+      {
+        "assessment": "Supports tight-constraint viewpoint; no centered-variance optimization for this metric family.",
+        "evidence": [
+          "Theorem 3 relates facets to admissible tight-edge graphs; later results concern generic metrics and triangulations; no variance statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1608.06848v1",
+        "material_read": "Full HTML paper: theorems on admissible graphs and faces, generic-metric enumeration, references",
+        "method": "arXiv lawful full HTML including theorem and sections",
+        "title": "Combinatorics of the Lipschitz polytope",
+        "trigger": "General polytope theory potentially implying extremizer classification"
+      },
+      {
+        "assessment": "Defines spread and records exact complete graph value; random-graph bounds do not cover the matching-contracted metric.",
+        "evidence": [
+          "Section 1 defines sharp Lipschitz variance; section 5 records complete graph spread 1/4 for even vertex count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "Full HTML version accessible from arXiv abstract page: introduction, spread definitions and large-degree section",
+        "method": "arXiv lawful full HTML text",
+        "title": "On the spread of random graphs",
+        "trigger": "Archival basis for observable graph variance and equilateral complete-graph bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "80d55bf4-fd8e-45f4-a78a-eca62c5755d0",
+  "value": {
+    "rationale": "The exact observable variance of a finite equilateral metric under a perfect-matching contraction is a natural Lipschitz-to-Hilbert embedding norm. A complete parity rigidity law, an explicit rational threshold and a one-pair concentration of all nonbinary maximizing defects explain a metric-perturbation phenomenon for every number of pairs, not merely a finite instance or trivial boundary check.",
+    "status": "PASS"
+  }
+}
