@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The full ordered-threefold-count derivation uses the quadratic trace split criterion with all prohibited u values, the genus-one Artin–Schreier two-simple-pole ramification formula, Hasse point-count bound, and explicit axes/origin. Every computational exception is over a finite q=8 field with exhaustive exact independent enumeration; the checker has also verified q=2,4,16,32.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Forey et al., arxiv:2511.21351, works in arbitrary characteristic but only pseudorandom spectrum, K_{2,3}-exclusion and spectral distribution.",
+        "Brittenham and Pakianathan, arxiv:2401.04814, explicitly assume odd prime powers."
+      ],
+      "reasoning": "Neither inspected source contains the length-three target-count equation or the binary field parity and exceptional small orders. The 2025 spectrum bounds alone yield a weaker uniform positivity estimate at small field orders than the genus-one bound.",
+      "searches": [
+        "\"Spectrally indistinguishable pseudorandom graphs\" hyperbola Theorem 1.1 sections 3 4",
+        "\"Random walks and the Euclidean association scheme in finite vector spaces\" odd prime powers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2511.21351",
+      "https://arxiv.org/abs/1003.3576",
+      "https://arxiv.org/abs/2401.04814",
+      "https://arxiv.org/abs/1303.3449"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known eigenvalue bound 2 sqrt(q) from Forey et al. does not force positive three-step transition weights at q=16 by a direct absolute Fourier error estimate.",
+        "The result uses a separate Artin–Schreier curve with two simple poles and Hasse point-count lower bound q-5-2sqrt(q)."
+      ],
+      "reasoning": "The new claim concerns pointwise lower bounds, exact missing-target sets and sharp diameter. The known absence of K_{2,3} only bounds two-neighbor counts, so it neither implies the third-step positive count nor its parity exceptions.",
+      "searches": [
+        "arxiv:2511.21351 Section 3 Kloosterman characteristic-two spectrum and Section 4 Sidon proof",
+        "arxiv:1003.3576 Section 2",
+        "\"Artin Schreier elliptic curve x+y+z and inverse x inverse y inverse z prescribed trace\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Forey et al. 2025 Theorem 1.1: graph on F_q^2 defined by a sum in the punctured hyperbola; in characteristic two the Cayley sum graph is exactly the additive-difference Cayley graph. Theorem gives spectrum and forbids K_{2,3}, not exact length-three support."
+      ],
+      "reasoning": "The group and step set are exactly equivalent, but the asserted invariant is the set of targets of three ordered increments, not merely a spectral eigenvalue list or a two-neighbor bound. The proof obtains the missing pointwise positivity via genus-one arithmetic.",
+      "searches": [
+        "\"Cayley graph hyperbola over finite fields characteristic 2 Kloosterman eigenvalues mixing\"",
+        "\"binary Kloosterman graphs hyperbola 3-walk counts 3 step common neighbors characteristic two\"",
+        "arxiv:2511.21351 sections 1, 3, 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved similar records concern L^4 Fourier extension on the zero-completed reciprocal graph, not this punctured graph three-step support.",
+        "Checked literature gives Kloosterman eigenvalues and Sidon geometry but not a table of the six generic third-step values in F_8."
+      ],
+      "reasoning": "No located exact three-step table or equivalent classification covers the q=8,16,32 pattern; a failed search is not a uniqueness proof.",
+      "searches": [
+        "\"hyperbola F2^m inverse graph Cayley diameter three four Frobenius support q8 q16 q32\"",
+        "\"finite field hyperbola Cayley graph characteristic two three step walk complete support length three diameter parity elliptic Artin Schreier\"",
+        "\"inverse map graph APN additive 2-sum distribution random walk support TV\""
+      ]
+    },
+    "rationale": "The 2025 hyperbola pseudorandom graph work already supplies full Kloosterman eigenvalues and K_{2,3}-freeness, and neither is claimed as new; the newly proved exact three-step support and sharp diameter across all binary orders require a separate two-pole genus-one point count and explicit small-field exceptions. Checked original paper sections 1, 3 and 4 do not state these consequences. Historical priority remains a bounded risk.",
+    "residual_risks": [
+      "An earlier unindexed exact diameter-three or threefold hyperbola representation theorem could have been missed.",
+      "No independent check of the proposed historical priority has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT; known spectrum and K_{2,3} exclusion, no detected exact threefold reachability classification",
+        "evidence": [
+          "Definition of Gamma_K, lines 22-25; remarks lines 95-109; Fourier and characteristic-two eigenvalues, lines 251-275."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.21351",
+        "material_read": "Abstract, introduction, Theorem 1.1 and graph definition, Section 3 Fourier/Kloosterman proof, Section 4 Sidon discussion, search for three-step and neighbor claims",
+        "method": "Full arXiv rendered text section inspection and in-document searches",
+        "title": "Spectrally indistinguishable pseudorandom graphs",
+        "trigger": "Exact same hyperbola sum graph in characteristic two"
+      },
+      {
+        "assessment": "Foundational additive Sidon framework; no finite-field hyperbola threefold reachability classification in material inspected",
+        "evidence": [
+          "Earliest arXiv version posted 2010-03-18; Section 2 is concerned with Sidon counts and incidence applications."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.3576",
+        "material_read": "Introduction and Section 2 statement and methods",
+        "method": "Author-open preprint text inspected",
+        "title": "Combinatorial problems in finite fields and Sidon sets",
+        "trigger": "Historical source for additive hyperbola/Sidon methods"
+      },
+      {
+        "assessment": "Different odd-characteristic distance walks; odd-prime-power assumption prevents coverage of binary three-step support",
+        "evidence": [
+          "Introduction explicitly takes F_q of odd prime-power order."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.04814",
+        "material_read": "Introduction, scheme assumptions, spectrum and random-walk sections",
+        "method": "Open Cambridge article HTML scientific text inspection",
+        "title": "Random walks and the Euclidean association scheme in finite vector spaces",
+        "trigger": "Kloosterman walks and matrix of intersection numbers potentially dominating claim"
+      },
+      {
+        "assessment": "Multiplicative finite-ring group framework rather than additive hyperbola Cayley graph; no implication established",
+        "evidence": [
+          "Introduction defines the underlying group as multiplicative group of a finite commutative ring."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.3449",
+        "material_read": "Abstract and introduction defining group and generators",
+        "method": "Author-open text inspection",
+        "title": "Algebraic Cayley graphs over finite fields",
+        "trigger": "Algebraic finite-field Cayley diameter possibly dominating the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "54b1d9c6-b69a-4c14-be01-914b0cdc2544",
+  "value": {
+    "rationale": "The precise three-step support of a natural hyperbola-generated Cayley walk, its smallest connected field order, exact diameter, and alternating origin obstruction constitute a complete structural classification not supplied by the established spectral pseudorandomness of the same graph. The elliptic point count is indispensable for uniform positivity from q=16.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,12 @@
+# Scientific review
+
+**Correctness — PASS.** The symmetric-polynomial reduction fixes the ordered representation conventions. The product-one factorization and axis counts follow from the quadratic trace criterion; for other nonzero products, two simple poles yield a smooth genus-one Artin–Schreier curve whose point count differs from the three-step representation count by exactly six. The Hasse bound is strong enough from field order sixteen onward. The small-field exhaustive certificate supplies the exceptional support count; all five tested field orders agree with independent enumerations of triples. The stated lower bound proves all large-field positivity without extrapolating finite samples.
+
+**Originality — PASS (bounded).** Forey–Fresán–Kowalski–Wigderson study precisely the same hyperbola graph and already establish its Kloosterman spectral behavior and absence of the complete bipartite graph with parts of sizes two and three. These prior results are not claimed as new. The inspected theorem and the relevant spectral and Sidon sections do not give the exact three-step support, its elliptic trace parameterization, the characteristic-two low-order exceptions, or the uniform sharp diameter three. Standard spectral bounds do not imply every third-step transition probability is positive at field order sixteen, and a graph's absence of a small biclique does not classify its three-step support. The general odd-characteristic Euclidean association scheme is a different case. An independent historical-priority search remains warranted.
+
+**Mathematical value — PASS.** Reachability in the minimal number of steps is a natural invariant of a structured finite Cayley graph, and classification across all binary extension fields is a complete geometric statement, not an arbitrary parameter table. The parity obstruction to a three-step return, the exceptional field of order eight, and a genus-one positivity mechanism together sharpen the graph's already-known spectral pseudorandomness to exact finite-step reachability.
+
+**Closest literature and limits.** Cilleruelo motivates finite-field algebraic Sidon sets. Forey et al. supply the closest *same graph* comparison and the essential known harmonic context. The proof uses the classical Hasse bound and separate exact arithmetic at the smallest fields. No general mixing theorem or unpublished priority claim is made.
+
+Self-review: passed. Independent audit: not yet performed.
+
