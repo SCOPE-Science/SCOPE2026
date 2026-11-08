@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:05:06.675339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite graph is on all 161280 fully labelled order-five Latin squares; 1344 squares with first row fixed times 5! gives all vertices exactly once. For two rows or columns, a relative derangement is either a five-cycle or disjoint (2,3) cycles, and one legal switch exchanges exactly a single minimal cycle. A distinct independent exhaustive C++ reconstruction enumerated 1344 normalized squares, expanded all 161280, counted 288000/576000/1036800 unique undirected edges at lengths 2/3/5, and computed DSU components (17280 singles plus eight of 18000 for 2; 17280 singles plus two of 72000 for 2,3; six of 2880 plus two of 72000 for 2,3,5); all 17280 cyclic-class squares have zero intercalates and the other 144000 have four. This is exhaustive over a finite, fixed domain, not an extrapolation to higher orders. Independently checked the complete source RESULT.md, both supplied verifier implementations, and actual frozen Git tree/blobs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wanless includes row-cycle and all-cycle graphs of isotopy/main classes for n≤8.",
+          "Aryapoor–Mahmoodian allows improper intermediate squares unlike proper-only switch graph."
+        ],
+        "reasoning": "Neither the class-quotient graph nor enlarged improper-state connectivity entails the full proper labelled-vertex DSU histograms.",
+        "searches": [
+          "Wanless 2004 PDF Sections 2–5",
+          "arxiv:1005.0121 Aryapoor Mahmoodian On Uniformly Generating Latin Squares",
+          "Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless"
+        ]
+      },
+      "checked_sources": [
+        "Independent local latin_check.cpp exhaustive 161280 vertices, all 2/3/5 edges, exact DSU histograms (local verification).",
+        "Wanless 2004 full primary paper DOI 10.1007/s00373-004-0567-7",
+        "Aryapoor–Mahmoodian arxiv:1005.0121",
+        "Resultary semantic query: Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The current {2,3} graph has two 72000 components plus isolates and full {2,3,5} has six 2880 and two 72000.",
+          "Class-level graphs retain two isotopy classes, not these eight labelled chambers."
+        ],
+        "reasoning": "Known class-level nonconnection is a necessary coarsening; it does not imply the exact labelled refinement. A graph with improper intermediates cannot force reachability in the restricted proper graph.",
+        "searches": [
+          "Wanless DOI 10.1007/s00373-004-0567-7",
+          "arxiv:1005.0121",
+          "Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wanless constructs graphs whose vertices are isotopy/main classes, not 161280 fully labelled squares.",
+          "The submitted move is one minimal row/column cycle, not an unrestricted whole row/column swap."
+        ],
+        "reasoning": "Class-level nonconnection does not fix the sizes or number of labelled connected components; quotienting by isotopy removes the multiplicity being enumerated.",
+        "searches": [
+          "Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless",
+          "Wanless 2004 Cycle Switches in Latin Squares DOI 10.1007/s00373-004-0567-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical reduced-square total 56 and labelled total 161280 are earlier census facts.",
+          "Existing intercalate-only components comprise 17280 isolates and 8×18000 and do not include length-three or length-five moves."
+        ],
+        "reasoning": "A table of total/reduced Latin-square counts or the old 2-cycle component census cannot imply exact new multisets without an enumeration or additional theorem.",
+        "searches": [
+          "Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless",
+          "McKay Latin squares enumeration 56 reduced order five",
+          "Resultary query Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless"
+        ]
+      },
+      "rationale": "Wanless 2004 analyzes isotopy/main-class switch graphs, while the inspected submitted result counts connected components among 161280 labelled vertices with exact single-cycle restrictions; the known intercalate-only census is prior baseline and explicitly not claimed. Aryapoor–Mahmoodian permits improper squares, which can connect through states forbidden here. No matching label-level {2,3}/{2,3,5} component histograms located in the checked primary text or Resultary search; best-of-knowledge rather than an absolute novelty claim.",
+      "residual_risks": [
+        "A less-indexed complete order-five labelled switch-graph census could exist despite the primary class-graph comparison.",
+        "No claim is made for order six or higher, graph diameters, or arbitrary Latin trades."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state submitted labelled-component size multisets; focuses on isotopy and main class vertices.",
+          "evidence": [
+            "The paper explicitly defines graph vertices as classes of Latin squares and distinguishes intercalate, row-cycle and all-cycle variants."
+          ],
+          "identifier_or_url": "Ian M. Wanless (2004), DOI:10.1007/s00373-004-0567-7; https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+          "material_read": "Full author-posted PDF, including definitions of switch graphs, order-five class-level discussion and the graph tabulation.",
+          "method": "Primary PDF text with visual page inspection.",
+          "title": "Cycle Switches in Latin Squares",
+          "trigger": "Closest primary with exact same cycle switches and order five."
+        },
+        {
+          "assessment": "Its intermediate state space allows improper Latin squares; not the proper-only cycle graph.",
+          "evidence": [
+            "Improper Latin arrays are explicitly allowed in connectivity construction."
+          ],
+          "identifier_or_url": "Aryapoor and Mahmoodian arxiv:1005.0121",
+          "material_read": "Full available preprint relevant definitions and main connectivity theorem.",
+          "method": "arXiv preprint full-text inspection in earlier research window.",
+          "title": "On Uniformly Generating Latin Squares",
+          "trigger": "Broader connectivity under Latin-square moves."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Switching connectivity for proper Latin squares is a natural finite reconfiguration problem: the addition of length-three moves merges eight previously known 18000-vertex components into two 72000-vertex components, while length-five moves liberate all 17280 isolated cyclic-class squares but retain six small components. Full exact chamber and edge counts are mathematically meaningful beyond the already known two isotopy classes and intercalate-only baseline.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Independent local latin_check.cpp exhaustive 161280 vertices, all 2/3/5 edges, exact DSU histograms (local verification).",
+    "Wanless 2004 full primary paper DOI 10.1007/s00373-004-0567-7",
+    "Aryapoor–Mahmoodian arxiv:1005.0121",
+    "Resultary semantic query: Latin squares order five proper cycle switching row cycle length 2 3 5 labelled connected components isotopy intercalate-free 2880 72000 Wanless"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite, order-five, proper-only, fully labelled graph only; no diameter or mixing-time classification.",
+    "Historical priority not guaranteed; class-level primary full text checked.",
+    "A less-indexed complete order-five labelled switch-graph census could exist despite the primary class-graph comparison.",
+    "No claim is made for order six or higher, graph diameters, or arbitrary Latin trades.",
+    "Public metadata confidentiality guard blocks publication; research text unchanged."
+  ],
+  "schema_version": 1
+}

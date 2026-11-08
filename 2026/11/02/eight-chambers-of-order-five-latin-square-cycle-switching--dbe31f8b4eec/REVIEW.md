@@ -1,11 +1,21 @@
-# Scientific review: order-five Latin-square cycle switching
+# Independent mathematical audit
 
-**Correctness — PASS.** Every fully labelled order-five square is reached by the \(1{,}344\) normalized completions and \(120\) symbol permutations. Two separate C++17 implementations generate all legal single-cycle moves by (i) brute-force legal subsets and minimality checks and (ii) relative permutation-cycle decomposition. They agree on all three unique edge counts, all core connected-component histograms and the intercalate-class totals. The complete finite domain is checked; no claim about higher order or mixing time is made.
+## correctness
 
-**Originality — PASS with a substantial source-access risk.** A prior labelled intercalate-only census established the eight \(18{,}000\)-vertex components and cyclic-class isolates; those facts are explicitly excluded from novelty. The new component mergers under length-three switches and fragmentation under all three allowed cycle lengths do not follow merely from the intercalate graph. Wanless (2004) studies a two-vertex isotopy-class quotient at order five, not the number and sizes of labelled chambers; Aryapoor–Mahmoodian (2010) use a larger space allowing improper squares; Cavenagh–Wanless (2016) study parities and their transformations, not this finite connectivity classification. Scientific-record comparisons and standard literature searches revealed no equal or stronger stated labelled census, but absence of a result in search is not proof of novelty. In particular, the complete 2004 paper could not be inspected and might contain stronger class-lifting observations.
+PASS
 
-**Value — PASS.** Exact reachability on the space of all order-five Latin squares is a natural question in the design of elementary-trade sampling chains. The theorem identifies how three-cell cycles join eight previously separated noncyclic intercalate chambers into two \(72{,}000\)-state components, while full five-cycles mobilize the formerly isolated cyclic-table squares into six additional nontrivial chambers. It demonstrates why local proper-square exchanges are still nonergodic even though an improper-state extension is known to be connected. This is a complete motivated finite obstruction and not merely a rediscovery of the two isotopy classes.
+The finite graph is on all 161280 fully labelled order-five Latin squares; 1344 squares with first row fixed times 5! gives all vertices exactly once. For two rows or columns, a relative derangement is either a five-cycle or disjoint (2,3) cycles, and one legal switch exchanges exactly a single minimal cycle. A distinct independent exhaustive C++ reconstruction enumerated 1344 normalized squares, expanded all 161280, counted 288000/576000/1036800 unique undirected edges at lengths 2/3/5, and computed DSU components (17280 singles plus eight of 18000 for 2; 17280 singles plus two of 72000 for 2,3; six of 2880 plus two of 72000 for 2,3,5); all 17280 cyclic-class squares have zero intercalates and the other 144000 have four. This is exhaustive over a finite, fixed domain, not an extrapolation to higher orders. Independently checked the complete source RESULT.md, both supplied verifier implementations, and actual frozen Git tree/blobs.
 
-**Residual risks.** The primary 2004 class-switch paper was inspected only via publicly accessible abstract and indexed passage; full-text comparison was not possible. An unindexed labelled-state classification or a result in unseen sections could dominate the present statement. No independent outside validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wanless 2004 analyzes isotopy/main-class switch graphs, while the inspected submitted result counts connected components among 161280 labelled vertices with exact single-cycle restrictions; the known intercalate-only census is prior baseline and explicitly not claimed. Aryapoor–Mahmoodian permits improper squares, which can connect through states forbidden here. No matching label-level {2,3}/{2,3,5} component histograms located in the checked primary text or Resultary search; best-of-knowledge rather than an absolute novelty claim.
+
+## value
+
+PASS
+
+Switching connectivity for proper Latin squares is a natural finite reconfiguration problem: the addition of length-three moves merges eight previously known 18000-vertex components into two 72000-vertex components, while length-five moves liberate all 17280 isolated cyclic-class squares but retain six small components. Full exact chamber and edge counts are mathematically meaningful beyond the already known two isotopy classes and intercalate-only baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

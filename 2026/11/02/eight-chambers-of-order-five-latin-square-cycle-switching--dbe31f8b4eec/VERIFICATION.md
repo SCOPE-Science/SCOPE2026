@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The two fully standalone C++17 programs `verify.cpp` and `verify_alt.cpp` were compiled with `g++ -O3 -std=c++17` and executed against the complete order-five Latin-square space. The first enumerates all candidate cell subsets directly and rejects decomposable five-position swaps; the second independently computes relative derangement cycles. Both obtain exactly 161280 squares and edge counts 288000, 576000, 1036800 for lengths 2, 3 and 5, respectively, with component sizes {1:17280,72000:2} for lengths {2,3} and {2880:6,72000:2} for lengths {2,3,5}. Intercalate counts 0:17280 and 4:144000 were checked.
+# Independent mathematical audit
 
-Each generator explicitly normalizes the first row, enumerates all 1344 completions, restores all 120 symbol images, verifies uniqueness and legal moves, and tests union-find component sizes. This is an exhaustive finite certificate, not a general theorem for orders other than five. None of the included programs verifies historical priority or constitutes independent scholarly assessment.
+## correctness
+
+PASS
+
+The finite graph is on all 161280 fully labelled order-five Latin squares; 1344 squares with first row fixed times 5! gives all vertices exactly once. For two rows or columns, a relative derangement is either a five-cycle or disjoint (2,3) cycles, and one legal switch exchanges exactly a single minimal cycle. A distinct independent exhaustive C++ reconstruction enumerated 1344 normalized squares, expanded all 161280, counted 288000/576000/1036800 unique undirected edges at lengths 2/3/5, and computed DSU components (17280 singles plus eight of 18000 for 2; 17280 singles plus two of 72000 for 2,3; six of 2880 plus two of 72000 for 2,3,5); all 17280 cyclic-class squares have zero intercalates and the other 144000 have four. This is exhaustive over a finite, fixed domain, not an extrapolation to higher orders. Independently checked the complete source RESULT.md, both supplied verifier implementations, and actual frozen Git tree/blobs.
+
+## originality
+
+PASS
+
+Wanless 2004 analyzes isotopy/main-class switch graphs, while the inspected submitted result counts connected components among 161280 labelled vertices with exact single-cycle restrictions; the known intercalate-only census is prior baseline and explicitly not claimed. Aryapoor–Mahmoodian permits improper squares, which can connect through states forbidden here. No matching label-level {2,3}/{2,3,5} component histograms located in the checked primary text or Resultary search; best-of-knowledge rather than an absolute novelty claim.
+
+## value
+
+PASS
+
+Switching connectivity for proper Latin squares is a natural finite reconfiguration problem: the addition of length-three moves merges eight previously known 18000-vertex components into two 72000-vertex components, while length-five moves liberate all 17280 isolated cyclic-class squares but retain six small components. Full exact chamber and edge counts are mathematically meaningful beyond the already known two isotopy classes and intercalate-only baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
