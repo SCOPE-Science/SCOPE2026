@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "All seven displayed Lucas representations are canonical for J>=9; exact five-term digit counts reduce to L_J=5 mod12. Recurrence pair returns mod12 after 24 and residue enumeration gives indices 7,13; both neighbors have count 3 and fail mod3. Binet yields the log-count. Independent finite enumeration and greedy generation agree up to L18, with direct theorem checks J=9..300.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lao et al. Theorem 3.4 provides infinitely many individual Lucas–Niven terms in each arithmetic progression; Sections 4 and 5 give consecutive-term theorems only for Zeckendorf–Niven.",
+        "Theorem 3.4 does not give a common five-term block, and its quantifiers allow only one qualifying term at a time."
+      ],
+      "reasoning": "The stronger-sounding source AP ubiquity is logically weaker for simultaneous local runs; its consecutive Zeckendorf claims have a different canonical numeration and cannot imply the stated Lucas condition.",
+      "searches": [
+        "arxiv:2606.24006v1 Section 3 Theorem 3.4 and Sections 4–5",
+        "Lucas-Niven five consecutive terms in arithmetic progression difference two L_(24k+13)+23",
+        "\"Lucas-Niven\" \"arithmetic progression\" \"consecutive terms\" construction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.24006v1, primary full relevant HTML Sections 1,3,4,5",
+      "OEIS:A351716, description/comment/example",
+      "OEIS:A351714, identification",
+      "Grundman 2007, accessible abstract only",
+      "Machina Mathematica indexed Zeckendorf 2-AP result, abstract only",
+      "Published mathematical research-record searches of exact, alias and broader Lucas-Niven formulations (no mathematically covering hit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source establishes canonical Lucas representation and individual AP infinitude, but devotes its five-term AP construction to Zeckendorf representations (different coefficients).",
+        "Direct reduction uses Lucas low offsets 23,25,27,29,31 and period mod 12; those joint conditions are absent from cited primary results."
+      ],
+      "reasoning": "The new statement yields an infinite set of five-tuples, whereas previous Lucas claim guarantees isolated individual values; no implication from the previous assertions to five-tuples exists without new proof. A corresponding Zeckendorf five-run statement uses different recurrence and legal digits.",
+      "searches": [
+        "arxiv:2606.24006v1 full HTML Sections 1,3,4,5",
+        "\"Lucas-Niven\" \"five consecutive\" \"2-AP\"",
+        "Fibonacci Lucas Niven simultaneous arithmetic progression runs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines s_L as canonical Lucas 1-digit count and Lucas–Niven as s_L(n)|n (arxiv:2606.24006v1, Theorem 1.2).",
+        "OEIS A351716 uses runs of three consecutive ordinary integers, whereas the claim uses a step-two progression of five entries."
+      ],
+      "reasoning": "Exact terms, arithmetic-progression indexing, and digit-sum divisibility were compared. No found claim establishes all five simultaneous conditions for the explicit Lucas family; step-one Lucas runs and Zeckendorf runs are not equivalent.",
+      "searches": [
+        "\"Lucas-Niven\" \"five\" \"arithmetic progression\"",
+        "\"Lucas-Niven\" \"5\" \"2-AP\"",
+        "\"Lucas Niven numbers\" \"consecutive\" arithmetic progression difference 2",
+        "Lucas Niven 2-AP five-term runs five consecutive arithmetic progression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A351714 lists individual Lucas–Niven numbers.",
+        "OEIS A351716 explicitly reports three consecutive ordinary integers and conjectural four-term step-one cutoff, not five steps of size two."
+      ],
+      "reasoning": "Even tabulation of Lucas–Niven integers or step-one runs does not provide an all-index iff theorem or maximal five-term step-two construction; no exact covering table was identified.",
+      "searches": [
+        "OEIS A351714 Lucas-Niven numbers",
+        "OEIS A351716 Starts of runs of 3 consecutive Lucas-Niven numbers",
+        "Lucas representation Niven digit sums explicit infinite five consecutive terms in step two"
+      ]
+    },
+    "rationale": "The fully inspected nearest primary paper asserts individual Lucas-Niven AP occurrence, and five-term runs only for Zeckendorf-Niven. An individual-term assertion does not imply simultaneous five Lucas terms. OEIS step-one runs are non-covering; published-finding corpus/web searches found no equivalent claim, but this is not proof of historic uniqueness.",
+    "residual_risks": [
+      "No global priority or exhaustiveness claim follows from failed database search.",
+      "Two secondary plausible related sources were accessible in abstract only; they concern other canonical numerations and thus are lower-risk but not fully cleared.",
+      "published-finding corpus semantic retrieval is not a complete index; unindexed Lucas-Niven constructions might exist.",
+      "Numerical verifier covers finite ranges, whereas the all-index theorem rests on the displayed recurrence and canonical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source covers Lucas individual AP infinitude; consecutive five-run result concerns Zeckendorf, not Lucas, and does not imply the claim.",
+        "evidence": [
+          "Theorem 1.2 states unique Lucas representation and digit restrictions.",
+          "Theorem 3.4 states infinitely many individual Lucas–Niven terms in any AP.",
+          "Section 4 title and proof restrict five-run claims to Zeckendorf–Niven."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.24006v1",
+        "material_read": "Introduction and Theorem 1.2; all relevant Section 3, Theorem 3.4; Sections 4–5 including five-run construction, references",
+        "method": "primary open-access HTML full relevant sections",
+        "title": "On Zeckendorf-Niven Numbers and Arithmetic Progressions",
+        "trigger": "identical Lucas–Niven definition and explicit AP-run question in nearby numeration"
+      },
+      {
+        "assessment": "Describes step-one runs of three ordinary consecutive integers, not step-two five-term runs.",
+        "evidence": [
+          "A351716 description explicitly says runs of 3 consecutive Lucas–Niven numbers; example 6,7,8."
+        ],
+        "identifier_or_url": "https://oeis.org/A351716",
+        "material_read": "Description, comments, definition, examples",
+        "method": "accessible primary sequence entry",
+        "title": "OEIS A351716: starts of runs of 3 consecutive Lucas–Niven numbers",
+        "trigger": "potential exact run database for same digit-sum function"
+      },
+      {
+        "assessment": "Individual-term sequence without any found complete five-term step-two classification.",
+        "evidence": [
+          "A351716 crossreferences A351714 as Lucas–Niven sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A351714",
+        "material_read": "sequence identification and crossreferences",
+        "method": "web index and OEIS linked page",
+        "title": "OEIS A351714: Lucas–Niven numbers",
+        "trigger": "potential table of exact base sequence"
+      },
+      {
+        "assessment": "Studies Zeckendorf and lazy-Fibonacci numerations, not standard Lucas, but complete text could contain additional context.",
+        "evidence": [
+          "Abstract explicitly names Zeckendorf and lazy-Fibonacci variants and runs of consecutive integers."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00150517.2007.12428220",
+        "material_read": "abstract and source bibliographic context; full text not accessible",
+        "method": "secondary bibliographic abstract only",
+        "title": "Consecutive Zeckendorf-Niven and lazy-Fibonacci-Niven numbers",
+        "trigger": "older consecutive-run literature might dominate local-run results"
+      },
+      {
+        "assessment": "Explicitly concerns Zeckendorf–Niven digit sums, not Lucas decomposition; no direct implication established.",
+        "evidence": [
+          "Abstract gives a construction using Fibonacci numbers and Zeckendorf digit sum, not Lucas summands."
+        ],
+        "identifier_or_url": "https://lean.up.railway.app/",
+        "material_read": "search-indexed title and abstract; not full primary document",
+        "method": "public abstract only",
+        "title": "Consecutive Zeckendorf–Niven terms in a 2-AP: a two-parameter family of five-term runs, and six-term runs confined to two Fibonacci shapes",
+        "trigger": "published stronger result covering analogous five-term progression"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c6a3b0c-e84f-47b8-9f61-cd87da0efdfd",
+  "value": {
+    "rationale": "Constructs infinitely many simultaneously Lucas-Niven five-term runs with proven two-sided maximality and a sharp modular iff criterion, plus an asymptotic count within a natural one-high-Lucas-summand family. It answers the structurally motivated step-two Lucas analogue adjacent to the source's Zeckendorf run analysis, not an arbitrary tiny numerical slice; no global optimality asserted.",
+    "status": "PASS"
+  }
+}
