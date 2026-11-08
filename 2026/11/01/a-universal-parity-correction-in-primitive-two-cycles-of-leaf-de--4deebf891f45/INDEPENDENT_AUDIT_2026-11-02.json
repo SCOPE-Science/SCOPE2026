@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:57:03.280584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a connected sink-free graph a period-two return forces the two-step firing-count vector into the Laplacian kernel; primitive period two forces exactly one firing per vertex. For a phase assignment, the admissible chip-height interval at vertex v has exactly k_v=#opposite-phase neighbors integers; the inequalities are necessary and sufficient. On the corona C_n with r>=1 leaves/core vertex, leaf phase is forced opposite core with one height choice, while core contributes r+e_(i-1)+e_i for binary cyclic edge cuts e_i. Closed spin words correspond to even-parity cuts, two spin lifts cancel temporal two-phase division, giving P_{n,r}(z)=1/2[tr(T_r(z)^n)+tr(T_r(-z)^n)]. T_r(1) has trace 2(r+1), determinant -1; T_r(-1) has double eigenvalue -1, so N_{n,r}=1/2[(r+1+sqrt((r+1)^2+1))^n+(r+1-sqrt(...))^n]+(-1)^n. Independent edge-cut enumerations yielded n=3,4,5 at r=1 counts 37,162,681, n=4,r=2 count 722, and n=5,r=3 count 17683. The inspected supplied verifier additionally specifies six microscopic finite checks; that log alone is not infinite proof. A bounded h_v<2d_v enumeration is exhaustive only for primitive two-cycles by the proved intervals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scully, Jiang and Zhang, arXiv:1211.6786, concern firing words and tree-like extensions, not a weighted number of initial chip states realizing every firing pattern.",
+          "A 2026 high-chip-count sufficient condition for eventual period two concerns basin/period behaviour, not enumeration of all primitive period-two orbits with varying total chips."
+        ],
+        "reasoning": "Qualitative generality does not imply the exact per-interface polynomial or its (-1)^n correction; one must count k_v allowed heights at all vertices and impose parity closure.",
+        "searches": [
+          "parallel chip firing primitive period two orbits cycle graph each vertex has r leaves exact count transfer matrix parity correction",
+          "arxiv:1211.6786 motors and impossible firing patterns parallel chip firing trees leaves",
+          "arxiv:1003.0943 equal-firing-count period return",
+          "all parallel chip-firing games with 2|E|-|V|< total chips<2|E| period 2 arxiv:2608.04153"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/cond-mat/0601267",
+        "https://arxiv.org/abs/1003.0943",
+        "https://arxiv.org/abs/1211.6786",
+        "https://dmtcs.episciences.org/articles/2421/download",
+        "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For primitive period two, every connected-graph vertex fires once and admissible chip height count is k_v=#opposite-phase neighbours. For the cycle-corona this is r+e_{i-1}+e_i at each core and 1 at each leaf.",
+          "The even-parity edge-word partition function is 1/2[tr(T(z)^n)+tr(T(-z)^n)]; the signed matrix has characteristic polynomial (lambda+1)^2, explaining leaf-independent (-1)^n."
+        ],
+        "reasoning": "Earlier period/phase return lemmas may provide premises but do not directly calculate the weighted partition function or trace collapse. The unavailable foundational 1992 text cannot be ruled out.",
+        "searches": [
+          "parallel chip firing primitive period two orbits cycle graph each vertex has r leaves exact count transfer matrix parity correction",
+          "chip firing cycle corona leaves periodic two cycles orbit counts Bitar Goles Jiang Scully",
+          "Bitar Goles Parallel chip firing games on graphs 1992 DOI 10.1016/0304-3975(92)90316-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang, arXiv:1003.0943, includes general equal-firing-count lemmas, not an explicit labelled orbit-count interface polynomial.",
+          "The decorated graph is the r-fold cycle corona/generalized sunlet; Dall'Asta arXiv:cond-mat/0601267 studies only degree-two undecorated cycle."
+        ],
+        "reasoning": "Comparisons accounted for graph synonyms and the natural disagreement-edge/cut-word encoding. Neither equal-period criteria nor the r=0 model fixes r-dependent multiplicities of chip-height assignments.",
+        "searches": [
+          "parallel chip firing primitive period two orbits cycle graph each vertex has r leaves exact count transfer matrix parity correction",
+          "chip firing cycle corona leaves periodic two cycles orbit counts Bitar Goles Jiang Scully",
+          "sunlet chip firing primitive two cycles",
+          "cycle corona K1 attached pendant leaves r per vertex parallel chip firing period 2 enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned parity-automata and cyclic-orbit records for different update rules; no matching chip-firing corona count surfaced.",
+          "Exact source-recursive initial values N_{3,1}=37, N_{4,1}=162, N_{5,1}=681 were reproduced by independent boundary-word summation, not located as published table."
+        ],
+        "reasoning": "No exact database/table match found after graph-name and eigenvalue aliases. Negative search remains a limited priority argument.",
+        "searches": [
+          "parallel chip firing primitive period two orbits cycle graph each vertex has r leaves exact count transfer matrix parity correction",
+          "\"2+sqrt(5)\" \"chip firing\" orbits",
+          "\"sunlet graph\" \"firing\" two-cycle orbit enumerator",
+          "Resultary query: parallel chip firing primitive period two orbits cycle each vertex r leaves"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Jiang provides general period return constraints, Dall'Asta treats an undecorated ring, and Scully–Jiang–Zhang classify firing patterns/pendant operations; none of the materially inspected statements provides the labelled microscopic two-cycle generating polynomial for every n,r. The exact transfer-matrix parity correction is not a direct reparameterization of qualitative period bounds. Original 1992 Bitar–Goles full text remains a named historical risk.",
+      "residual_risks": [
+        "Bitar–Goles (1992) full text could not be inspected and might contain equivalent general counting formulas.",
+        "An unpublished or unindexed transfer-matrix census for sunlet/corona parallel chip-firing may precede this one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies phase count return criterion, but not enumeration on r-leaf cycle coronas.",
+          "evidence": "The general Laplacian return fact is credited; counting all height assignments by cut pattern remains additional work.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+          "material_read": "Original preprint Sections 1–2 with Proposition 2.5 return constraints and Section 3 scope for complete multipartite graphs.",
+          "method": "Public arXiv source and previously accessible PDF passages read; mathematical implication comparison",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Broad graph equal-firing-count and period theorem"
+        },
+        {
+          "assessment": "Pattern operations do not enumerate labelled two-cycle chip configurations by core interfaces.",
+          "evidence": "Corollary about leaf patterns has no r-dependent microscopic orbit polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.6786",
+          "material_read": "Accessible original full text sections concerning firing patterns, tree attachments and Corollary 5.2.",
+          "method": "ArXiv open-access source and public full-text DMTCS precursor; relevant sections inspected",
+          "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Potential general leaf-removal / tree-appendage theorem"
+        },
+        {
+          "assessment": "Priority risk expressly retained; no whole-document noncoverage conclusion.",
+          "evidence": "1992 foundational graph dynamics could contain an unlocated exact corona specialization.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+          "material_read": "Bibliographic title, abstract-level scope and indirect primary citations only; full original paper inaccessible.",
+          "method": "Search/metadata; no full-text assertion",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Foundational original period-two return and possible older exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Labelled period-two orbit counts are natural dynamical invariants of a conservative synchronous chip-firing automaton; the uniform-leaf-decorated cycle is a canonical unicyclic family. The polynomial completely resolves the core disagreement interfaces and determines an r-independent parity term despite r-dependent exponential growth, a structural distinction invisible to a general period-return criterion. The all-(n,r) exact enumeration is not an arbitrary small graph table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/cond-mat/0601267",
+    "https://arxiv.org/abs/1003.0943",
+    "https://arxiv.org/abs/1211.6786",
+    "https://dmtcs.episciences.org/articles/2421/download",
+    "https://doi.org/10.1016/0304-3975(92)90316-8",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only primitive period-two labelled-state orbits for n>=3, r>=1, no sink; no claim for basins, other periods or graph-automorphism quotients.",
+    "The 1992 foundational paper was not inspected in full."
+  ],
+  "residual_risks": [
+    "Bitar–Goles (1992) full text could not be inspected and might contain equivalent general counting formulas.",
+    "An unpublished or unindexed transfer-matrix census for sunlet/corona parallel chip-firing may precede this one."
+  ],
+  "schema_version": 1
+}

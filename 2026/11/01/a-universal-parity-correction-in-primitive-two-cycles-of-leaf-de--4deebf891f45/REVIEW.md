@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A two-step return on a connected graph forces equal firing counts at all vertices; least period two forces exactly one firing at each vertex. The two explicit admissible-height intervals are each of length equal to the opposite-firing-neighbor count and are sufficient, not just necessary. Forced opposite firing at every leaf converts the problem to an exact product over core heights. Each even-parity boundary word has exactly two spin lifts and exactly two temporal phases, justifying the normalization. The two-by-two transfer traces and both characteristic polynomials are calculated explicitly. An independent microscopic checker exhausts 1,864,640 bounded states in six small parameter instances; finite checks are not used to infer the infinite theorem.
+PASS
 
-## Originality
+On a connected sink-free graph a period-two return forces the two-step firing-count vector into the Laplacian kernel; primitive period two forces exactly one firing per vertex. For a phase assignment, the admissible chip-height interval at vertex v has exactly k_v=#opposite-phase neighbors integers; the inequalities are necessary and sufficient. On the corona C_n with r>=1 leaves/core vertex, leaf phase is forced opposite core with one height choice, while core contributes r+e_(i-1)+e_i for binary cyclic edge cuts e_i. Closed spin words correspond to even-parity cuts, two spin lifts cancel temporal two-phase division, giving P_{n,r}(z)=1/2[tr(T_r(z)^n)+tr(T_r(-z)^n)]. T_r(1) has trace 2(r+1), determinant -1; T_r(-1) has double eigenvalue -1, so N_{n,r}=1/2[(r+1+sqrt((r+1)^2+1))^n+(r+1-sqrt(...))^n]+(-1)^n. Independent edge-cut enumerations yielded n=3,4,5 at r=1 counts 37,162,681, n=4,r=2 count 722, and n=5,r=3 count 17683. The inspected supplied verifier additionally specifies six microscopic finite checks; that log alone is not infinite proof. A bounded h_v<2d_v enumeration is exhaustive only for primitive two-cycles by the proved intervals.
 
-PASS (with the residual literature uncertainty described below). Dall'Asta (2006, arXiv:cond-mat/0601267) handles the undecorated cyclic dynamics, not uniform pendant multiplicity. Jiang (2010, arXiv:1003.0943, Section 2) provides general period and confinement criteria, not an explicit corona-cycle orbit census. Scully–Jiang–Zhang (2012/2015, arXiv:1211.6786, Sections 3–6) provide a classification of firing words and qualitative tree-like subgraph tools; Corollary 5.2 does not give the enumerating polynomial or the parity-correction formula. No equivalent leaf-decorated-ring formula was identified by searches for sunlet/corona/pendant-ring synonyms and exact transfer/eigenvalue parameters. This search absence is not a proof of global novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A two-cycle count is a natural recurrence invariant for a deterministic fixed-energy system; a ring decorated by identical pendant branches is a canonical unicyclic graph family. The polynomial resolves the interface sizes rather than merely yielding an unweighted total, and the transfer reduction works for every ring length and every positive leaf multiplicity. The exact \((-1)^n\) correction is universal in the leaf parameter, while the leading exponential growth rate changes from the bare ring \(1+\sqrt2\) to \(r+1+\sqrt{(r+1)^2+1}\). This distinguishes firing-word-level information from multiplicity of chip realizations.
+Best-of-knowledge PASS: Jiang provides general period return constraints, Dall'Asta treats an undecorated ring, and Scully–Jiang–Zhang classify firing patterns/pendant operations; none of the materially inspected statements provides the labelled microscopic two-cycle generating polynomial for every n,r. The exact transfer-matrix parity correction is not a direct reparameterization of qualitative period bounds. Original 1992 Bitar–Goles full text remains a named historical risk.
 
-## Closest literature and limitations
+## value
 
-The 1992 Bitar–Goles foundational article could be assessed from its bibliographic record, abstract, and later citations, but its original full text was not available. Consequently an equivalent historical formula cannot be ruled out completely. The 2006 cycle paper, 2010 general-chip-firing paper and 2012/2015 firing-pattern paper were inspected in full text at relevant sections. The claim does not encompass other periods, transients, or graph-automorphism quotients.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Labelled period-two orbit counts are natural dynamical invariants of a conservative synchronous chip-firing automaton; the uniform-leaf-decorated cycle is a canonical unicyclic family. The polynomial completely resolves the core disagreement interfaces and determines an r-independent parity term despite r-dependent exponential growth, a structural distinction invisible to a general period-return criterion. The all-(n,r) exact enumeration is not an arbitrary small graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
