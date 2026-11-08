@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:08:04.050493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pinned RESULT.md defines the ordinary Euclidean cubic Steiner polynomial f_h(z)=Ah/3+S_h z+M_h z^2+(4pi/3)z^3 for every fixed full-dimensional planar convex body and arbitrary horizontal apex displacement. Section 1 gives exact volume and lateral-area integral S_h=A+(P/2)h+O(h^-1); section 2 uses the support function max{h_B(u_perp),h u_3} and Cauchy perimeter identity to prove M_h=pi h+pi P/4+O(h^-1) without smoothness hypotheses. Hence f_h/h converges uniformly on compact z to g(z)=pi z^2+Pz/2+A/3, discriminant P^2(1-4Q/3)/4. Continuity of simple roots gives the Q<3/4 vs >3/4 dichotomy. At Q=3/4, z0=-P/(4pi), k(z0)=P^3(3pi-13)/(192pi^2)<0: f_h(z0)<0, neighboring fixed points have positive f_h, forcing two distinct real bounded roots, and rescaling by h^-1/2 yields the precise +/- sqrt(P^3(13-3pi)/(192pi^3 h))+O(h^-1) splitting. Sum of roots gives far root -3h/4+O(1); coefficient positivity makes all real roots negative. Independent SymPy symbolic reduction of critical k and gap matched, and pinned verify.py was inspected for polyhedral face/dihedral sampling. Numeric polygon examples are supplementary; the infinite convex-body statement follows from analytic area/support estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 3D classification is in terms of V,S,M and requires evaluating those quantities for tall arbitrary-base pyramids; Resultary 2026 right circular cone has Q=1 only."
+        ],
+        "reasoning": "The known cone phase diagram is a special base and does not dominate the Q criterion for all compact convex planar B. Generic intrinsic-volume classification does not state the evaluated limit or critical coefficient.",
+        "searches": [
+          "general 3D Steiner coefficient root-type classification Hernández Cifre Saorín; Henk Hernández Cifre Notes roots",
+          "Resultary cone Steiner phase diagram"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py",
+        "arXiv:math/0703373 (Henk–Hernández Cifre, 2007)",
+        "DOI 10.1515/ADVGEOM.2007.016 (2007 3D roots)",
+        "Resultary 2026 right-cone phase diagram"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2007 root-type inequalities apply generally, but require S_h/M_h expansions and sign of first correction at Q=3/4; those steps are supplied here."
+        ],
+        "reasoning": "The new statement is not a direct numerical restatement of an existing abstract type classification; it evaluates a nontrivial asymptotic family and a singular equality case.",
+        "searches": [
+          "arXiv:math/0703373 Theorems 1.1–1.3 2-tangential and Steiner roots",
+          "published 3D Steiner type classification 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Henk–Hernández Cifre 2007 full-text Sections 1–4 concern general relative Steiner-root bounds and tangential bodies, with a square-base pyramid used in a high-dimensional construction; no fixed planar-base tall-height phase theorem."
+        ],
+        "reasoning": "Looked for discriminant-of-intrinsic-volumes and tall-cone formulations; inspected general bounds give necessary context but not the asymptotic two-root limit plus critical square-root splitting.",
+        "searches": [
+          "Steiner root tall pyramids isoperimetric discriminant; arXiv:math/0703373",
+          "Hernández Cifre Saorín 2007 DOI 10.1515/ADVGEOM.2007.016"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact arbitrary-base tall-pyramid threshold table surfaced; nearest published SCOPE cone record tracks only right circular cones."
+        ],
+        "reasoning": "Continuous convex-body family is not captured by a small finite database; searches for a coefficient/root-phase table had no same-family match.",
+        "searches": [
+          "Steiner polynomial pyramid three real roots threshold 3/4 equality rectangle",
+          "Resultary Steiner root published record semantic search"
+        ]
+      },
+      "rationale": "The all-planar-base asymptotic criterion Q<=3/4 and its critical double-real splitting are not statements of the inspected Henk-Hernández Cifre relative Steiner-root or published circular-cone analyses. The 2007 general 3D coefficient criterion is acknowledged foundation. Best-of-knowledge PASS, not priority certification.",
+      "residual_risks": [
+        "The Hernández Cifre–Saorín 2007 original full text was not independently accessible here; a stronger implication hidden in its examples is a historical priority uncertainty.",
+        "Potential old unindexed tall-pyramid asymptotic roots.",
+        "Finite numerical pyramid checks cannot prove all convex bases, unlike the separately reconstructed support-function estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering exact arbitrary planar-base h-to-infinity threshold",
+          "evidence": "Theorems 1.1–1.3 address 1-/2-tangential bodies, circumradius/negativity bounds, not Q=3/4 classification.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0703373",
+          "material_read": "Full HTML text with introduction, Sections 2–4, theorems, body constructions and references",
+          "method": "read arXiv text, examined pyramid/3D passages",
+          "title": "Notes on the roots of Steiner polynomials",
+          "trigger": "General root bounds and pyramid-related prior coverage"
+        },
+        {
+          "assessment": "plausible broad work; not declared whole-text noncovering",
+          "evidence": "Abstract claims general classification by type; residual possibility of implicit tall-pyramid specialization remains.",
+          "identifier_or_url": "https://doi.org/10.1515/ADVGEOM.2007.016",
+          "material_read": "Published abstract and mathematical role via citations in fully read 2007 Henk–Hernández paper; original 20-page primary text not independently obtained this run",
+          "method": "abstract/cross-reference only",
+          "title": "On the roots of the Steiner polynomial of a 3-dimensional convex body",
+          "trigger": "Primary general 3D root-type classification"
+        },
+        {
+          "assessment": "circular-base Q=1 special case; cannot state arbitrary convex B threshold",
+          "evidence": "Phase diagram for a right circular cone, not arbitrary base nor Q=3/4 equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-two-transition-steiner-root-phase-diagram-for-right-cir--645636c244de",
+          "material_read": "Published Resultary finding summary",
+          "method": "Resultary semantic search",
+          "title": "Complete two-transition Steiner-root phase diagram for right circular cones",
+          "trigger": "Direct published research with same polynomial family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The planar isoperimetric quotient gives an unexpectedly universal sharp real-versus-complex root boundary for a broad geometric family; including the nontrivial Q=3/4 equality behavior and arbitrary oblique apex makes the theorem a motivated stability/phase result, not a routine single-instance computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify.py",
+    "arXiv:math/0703373 (Henk–Hernández Cifre, 2007)",
+    "DOI 10.1515/ADVGEOM.2007.016 (2007 3D roots)",
+    "Resultary 2026 right-cone phase diagram"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Hernández Cifre–Saorín 2007 original full text was not independently accessible here; a stronger implication hidden in its examples is a historical priority uncertainty.",
+    "Potential old unindexed tall-pyramid asymptotic roots.",
+    "Finite numerical pyramid checks cannot prove all convex bases, unlike the separately reconstructed support-function estimates."
+  ],
+  "schema_version": 1
+}

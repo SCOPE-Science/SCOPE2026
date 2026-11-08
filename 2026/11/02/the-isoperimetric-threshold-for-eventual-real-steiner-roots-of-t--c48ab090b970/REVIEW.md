@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is reconstructed from the exact slice formula \(V=Ah/3\), the rectifiable-boundary lateral-area integral \(S=A+Ph/2+O(h^{-1})\), and spherical support-function averaging \(M=\pi h+\pi P/4+O(h^{-1})\). The latter is uniform over a belt of spherical measure \(O(h^{-1})\), so no smoothness or central-apex assumption is needed. These give the quadratic and first correction uniformly on compact sets. For noncritical isoperimetric quotient, root stability decides the conjugation type. At the critical quotient \(3/4\), direct algebra gives the *strictly negative* first correction \(P^3(3\pi-13)/(192\pi^2)\) at the double limit root; hence two distinct real roots occur, with an explicit square-root splitting. The third root is negative with quotient \(-3/4\) after scaling by height. Independent polyhedral face/edge computations, exact symbolic critical identities, and deterministic numerical tests are included in `verify.py` and have passed. Remaining computations are checks, not infinite proofs.
+## correctness
 
-## Originality — PASS with residual historical uncertainty
-A complete 20-page reading of Hernández Cifre--Saorín (2007) confirms that its theorem classifies *arbitrary* convex 3D bodies by their Steiner coefficients; the concrete analyzed examples involve Platonic solids, cap bodies, circular cylinders, and slices, not the tall arbitrary-base pyramid asymptotics. Henk--Hernández Cifre (2007/2008) discusses global root bounds and a separate high-dimensional square-base pyramid construction. Saorín's 2008 thesis and 2009 article explicitly give right-circular-cone formulas, and a later complete phase diagram does so only when the base is a circle. They do not imply the shape-independent \(Q=3/4\) criterion including arbitrary polygonal bases and critical splitting. Katsnelson (2008) and Henk et al. (2011) give broader root-location background without the precise limit. The nearest searchable research records are the circular-cone phase diagram and an unrelated pyramid-width theorem. Search nondetection is not treated as proof of worldwide historical priority. Independent literature discovery could reveal an antecedent under different terminology.
+PASS
 
-## Value — PASS
-The exact eventual root-type classification is a natural, geometrically interpretable invariant of the family of *all* tall pyramids. It converts the three-dimensional root question into a sharp two-dimensional isoperimetric threshold, including a nontrivial equality branch that cannot be decided by the limiting quadratic alone. It yields a memorable regular-triangle versus regular-square-and-higher polygon transition, while preserving a meaningful boundary realized by nonregular rectangles. This is not a renaming or numerical table of known circular-cone roots. Its scope remains eventual in height; finite transition counts and detailed higher corrections are not claimed.
+Pinned RESULT.md defines the ordinary Euclidean cubic Steiner polynomial f_h(z)=Ah/3+S_h z+M_h z^2+(4pi/3)z^3 for every fixed full-dimensional planar convex body and arbitrary horizontal apex displacement. Section 1 gives exact volume and lateral-area integral S_h=A+(P/2)h+O(h^-1); section 2 uses the support function max{h_B(u_perp),h u_3} and Cauchy perimeter identity to prove M_h=pi h+pi P/4+O(h^-1) without smoothness hypotheses. Hence f_h/h converges uniformly on compact z to g(z)=pi z^2+Pz/2+A/3, discriminant P^2(1-4Q/3)/4. Continuity of simple roots gives the Q<3/4 vs >3/4 dichotomy. At Q=3/4, z0=-P/(4pi), k(z0)=P^3(3pi-13)/(192pi^2)<0: f_h(z0)<0, neighboring fixed points have positive f_h, forcing two distinct real bounded roots, and rescaling by h^-1/2 yields the precise +/- sqrt(P^3(13-3pi)/(192pi^3 h))+O(h^-1) splitting. Sum of roots gives far root -3h/4+O(1); coefficient positivity makes all real roots negative. Independent SymPy symbolic reduction of critical k and gap matched, and pinned verify.py was inspected for polyhedral face/dihedral sampling. Numeric polygon examples are supplementary; the infinite convex-body statement follows from analytic area/support estimates.
 
-## Closest literature and limitations
-Hernández Cifre--Saorín, *Adv. Geom.* 7 (2007); Henk--Hernández Cifre, arXiv:math/0703373v1 (2007); Saorín's thesis (2008) and Banach Center paper (2009); Katsnelson, arXiv:0803.2346v1 (2008); the public complete two-transition right-circular-cone record (2026). The prior cylinder and circular-cone statements are acknowledged, not claimed. The independent literature audit has not yet occurred; source-index incompleteness remains a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-planar-base asymptotic criterion Q<=3/4 and its critical double-real splitting are not statements of the inspected Henk-Hernández Cifre relative Steiner-root or published circular-cone analyses. The 2007 general 3D coefficient criterion is acknowledged foundation. Best-of-knowledge PASS, not priority certification.
+
+## value
+
+PASS
+
+The planar isoperimetric quotient gives an unexpectedly universal sharp real-versus-complex root boundary for a broad geometric family; including the nontrivial Q=3/4 equality behavior and arbitrary oblique apex makes the theorem a motivated stability/phase result, not a routine single-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
