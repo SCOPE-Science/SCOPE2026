@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/fixed-content-enumeration-of-binary-words-with-a-distance-two-co--5c7e95d63306/RESULT.md at frozen commit fcc247c8b7eb30c50d03abc79e1b79aab81f6226",
+        "2026/11/02/fixed-content-enumeration-of-binary-words-with-a-distance-two-co--5c7e95d63306/verify.py (where source checker); independently recreated identities in scope_worker01_checks_20261107.py"
+      ],
+      "rationale": "For n>=2, rotation shifts i and n-i have the same Hamming distance. On each of gcd(n,i)=g position cycles of length L=n/g, rotational distance two means exactly one cycle with one contiguous cyclic nonempty run of 1s (two transitions) and other cycles constant, yielding F_i=n(1+y^L)^(g-1) sum_(a=1..L-1)y^a. Gabrić Lemma14 identifies overlap with any smaller positive shift by one-error periodic templates. When i does not divide n, the earlier shift g produces B_i=n(y+y^(L-1))(1+y^L)^(g-1), with no ambiguity since L>=3. When i divides n, nonprimitive length-i templates have Möbius polynomial P_i(x)=-sum_(d|i,d>1)mu(d)(1+x^d)^(i/d); counting one-coordinate flips gives B_i=(n/i)[(y^(L-1)-y^(L+1))P_i'(y^L)+i*y*P_i(y^L)]. At L=2 the proof rules out two nonprimitive backgrounds Hamming distance one; so earliest-shift F_i-B_i are disjoint. Proper powers cannot have positive conjugate distance two, hence each counted necklace has n representatives. For odd prime p, F_i=p sum_(a=1..p-1)y^a and corrections remove endpoints for i>=2, giving p at weights 1,p-1 and p(p-1)/2 at each interior weight 2..p-2. Direct independent enumeration of all 2^n words n=2..14 matched each polynomial and content; no finite test was treated as all-n proof.",
+      "residual_risks": [
+        "Known Gabrić overlap theorem is an imported published lemma, not claimed new.",
+        "Finite direct enumeration only n<=14 in this independent run; all n relies on the written periodic-template and Möbius proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrić provides arbitrary-alphabet h(n) and double-shift structure; Shallit excludes distance one but has no all-binary-composition enumeration in inspected scope."
+        ],
+        "reasoning": "A stronger alphabet-range for unweighted totals does not dominate a fixed-composition binary formula; a general symbolic weighted automaton could but was not evidenced.",
+        "searches": [
+          "arXiv:2110.01120 word almost commute Theorem 17",
+          "Shallit Hamming distance for conjugates arXiv:0710.1234"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 17b983b5691432d4c5043e2ab6ed9765c78c49e1",
+        "verify.py Git blob b63030fd949f1dc3bd89a246b5788b0be022e4df",
+        "https://arxiv.org/pdf/2110.01120",
+        "https://oeis.org/A179674 (cited tabulation; not independently used as proof)",
+        "Resultary query: binary words having conjugate rotation Hamming distance exactly 2 weight enumerator constant composition Gabrić"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gabrić Lemma14 supplies one-error periodicity, while Theorem17 sums all weights; the new B_i weighs asymmetric zero/one flips using derivative P_i."
+        ],
+        "reasoning": "The weighted identity is not a direct stated corollary without the nonprimitive-content Möbius derivative and earliest-shift de-duplication, though based on known structural lemmas.",
+        "searches": [
+          "https://arxiv.org/pdf/2110.01120 Sections 3-5 and 7",
+          "binary words having conjugate rotation Hamming distance exactly 2 weight enumerator constant composition Gabrić"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published H(n) total h(n) and Lyndon/necklace h(n)/n are unweighted, while current claim is the entire coefficient array [y^t]H_n(y)."
+        ],
+        "reasoning": "The all-weight polynomial is an enrichment of the same unweighted sequence, not equivalent to a single h(n), which does not determine coefficients.",
+        "searches": [
+          "binary words having conjugate rotation Hamming distance exactly 2 weight enumerator constant composition Gabrić",
+          "https://arxiv.org/pdf/2110.01120"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A179674 lists scalar totals, whose sample n2..14 agree by direct enumeration; Resultary exact two-multispectrum concerns adjacency-pair multiplicities, not conjugate Hamming distance two."
+        ],
+        "reasoning": "An unweighted sequence and an unrelated code-spectrum table do not give the full indexed H_n coefficient table or per-weight prime necklaces.",
+        "searches": [
+          "binary words having conjugate rotation Hamming distance exactly 2 weight enumerator constant composition Gabrić",
+          "OEIS:A179674 (source identifier in inspected verifier)",
+          "Resultary: exact binary two-multispectrum code size"
+        ]
+      },
+      "rationale": "Gabrić already proves unweighted total and overlap structure for distance-two conjugates; the contribution is an exact all-content coefficient distribution and a prime-weight necklace equidistribution. The original proof depends heavily on cited published Lemma 14; the weight-refined Möbius overlap calculation is not stated in examined Theorems 17/19. O is qualified because an unindexed weighted version might exist.",
+      "residual_risks": [
+        "Binary alphabet only, Hamming distance exactly two, indexed words and rotation-only necklaces.",
+        "Core overlap classification relies on Gabrić Lemma14; novelty restricted to constant-content weighting and prime specialization.",
+        "Possible equivalent composition-refinement in unindexed combinatorics-on-words literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_UNWEIGHTED_NOT_FIXED_CONTENT",
+          "evidence": [
+            "Lemma14 characterizes intersections; Theorem17 gives unweighted total, Theorem19 gives h(n)/n Lyndon count, none gives per-number-of-ones distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.01120",
+          "material_read": "Full accessible 12-page primary PDF, relevant Sections 3-5 and 7 including Lemma 14 and Theorems 17 and 19",
+          "method": "Read exact proofs and formula scopes, inspected PDF page screenshot",
+          "title": "Words that almost commute",
+          "trigger": "Same exact binary words at distance two from a nontrivial rotation"
+        },
+        {
+          "assessment": "OTHER_INVARIANT",
+          "evidence": [
+            "Counts adjacent pair frequency types rather than rotations at distance two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "material_read": "Published Resultary title and summary, not full source",
+          "method": "Semantic Resultary search comparison",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Both classify binary circular-word spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob 17b983b5691432d4c5043e2ab6ed9765c78c49e1",
+        "verify.py Git blob b63030fd949f1dc3bd89a246b5788b0be022e4df",
+        "https://arxiv.org/pdf/2110.01120"
+      ],
+      "rationale": "The exact weight composition of cyclic words with an approximate conjugate is a natural invariant for constrained words, coding and necklaces. The full all-length coefficient polynomial answers questions not determined by published totals; prime length unexpectedly yields equal necklace counts in each interior Hamming weight despite different ambient layer sizes. This is a useful exact compositional classification rather than a renamed unweighted count.",
+      "residual_risks": [
+        "The statement is scoped to the natural object, exact invariant and proved domain; correctness and reproducibility alone were not used as value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Known Gabrić overlap theorem is an imported published lemma, not claimed new.",
+    "Finite direct enumeration only n<=14 in this independent run; all n relies on the written periodic-template and Möbius proof.",
+    "Binary alphabet only, Hamming distance exactly two, indexed words and rotation-only necklaces.",
+    "Core overlap classification relies on Gabrić Lemma14; novelty restricted to constant-content weighting and prime specialization.",
+    "Possible equivalent composition-refinement in unindexed combinatorics-on-words literature."
+  ]
+}
