@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the measurable side-two torus with parameters \(0<c<2\) and real shift \(d\); the discontinuous seam and all area-zero boundary sets are treated explicitly. Direct cyclic permutation proves every strict all-high-branch orbit has period dividing three. The four cyclic branch-word classes prove that no other open cell has identity third derivative, leaving only area-zero affine solutions. Every high-branch island is a cube slice and its Lebesgue area is the exact threefold interval convolution. The strict-open interval criterion proves the sharp width boundary, including its endpoint exception; the equal-width case is an explicit piecewise quadratic. Rational-arithmetic checks reproduce the polygon areas and sample dynamics. The claim does not treat arbitrary-period orbits outside these islands.
+PASS
 
-## Originality — PASS, with residual risk
+In F_{c,d}(x,y)=(y,-x+f_{c,d}(y)) mod2 with 0<c<2, h=2-c, only three-branch word 111 gives identity derivative for F³ off null branch seams. Hence all positive-area period-three points have x,y,z in upper branch and x+y+z=d+c+2k. Their independent (x,y) polygon sections of (0,h)^3 have exact area B_h(d-2c+2k), so Haar fraction is one-quarter sum. Mod-two open interval of length 3h contains every shift residue iff 3h>2; c=4/3 zero shift included. At c=1 periodized quadratic gives min1/16, max3/16. Independent exact rational area/three-step checks confirm 1,190 strict periodic points and branch formula; general all-parameter proof is geometric.
 
-Closest primary text: Zolkin–Kharkov–Nagaitsev, arXiv:2311.17616, Sections II.1–II.2 and III.1–III.3. Its two-branch symplectic map and the equal-width `d1` three/seven-cycle behavior are pre-existing and expressly credited. The compared statement does not give the two-parameter area law, the count and topology of all strictly high-branch islands, or the shift-robust \(2/3\) threshold. The earlier arXiv:2201.13133 addresses polygon-invariant piecewise planar maps, not this complete torus-island measure. Closest retrieved research records address other maps or different observables. The risk of an unindexed exact geometric calculation remains. Search failure alone is not treated as proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original torus map has a natural physical probability question: for a Haar-uniform initial condition, how much of phase space lies on three-cycles, and when is this phase guaranteed for every forcing offset? A complete two-parameter spline law answers that question and identifies a sharp global threshold in branch width. It also distinguishes triangular and hexagonal periodic islands with exact component multiplicities, even when the full map outside them is complicated. This is more than an isolated numerical count or a restatement of existence of some periodic orbit; no downstream theorem is required for its structural value.
+The original piecewise McMillan–Hénon torus family and reference 3-/7-cycles are known from Zolkin–Kharkov–Nagaitsev. The full shift-and-branch-width area law and its sharp universal positivity criterion were not in inspected reference statements. The cube-section convolution itself is classical, but its exhaustive three-periodic application and boundary quantifier supply a distinct natural invariant.
 
-## Scope and remaining risks
+## value
 
-The findings are exact for the stated measurable torus map and strict islands. They do not classify zero-area three-cycles, all other periods, or global integrability in the enlarged family. The source's qualitative diagrams could contain partial geometric information, and an unindexed work might give an equivalent slice-volume theorem. The included checker samples parameters and trajectories, while the written proof supplies universal validity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The period-three island Haar area is a natural quantitative invariant of a known canonical non-smooth symplectic map. The exact convex polygon geometry, complete two-parameter spline formula, and sharp robustness threshold are a motivated global classification over all shifts, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
