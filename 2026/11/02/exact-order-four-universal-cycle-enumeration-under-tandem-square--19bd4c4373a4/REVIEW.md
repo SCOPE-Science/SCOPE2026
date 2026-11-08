@@ -1,23 +1,21 @@
-# Scientific review: tandem-square-avoiding universal cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is a labeled alphabet of size \(q\ge2\), a fixed forbidden motif family \(\{abab:a,b\in\Sigma\}\), and a cyclic universal cycle that lists every admissible length-\(m\) factor once, modulo rotation. The proof accounts for the constant-letter squares as deleted loops and all remaining squares as two-cycles. The order-three de Bruijn adjacency satisfies \(A^3=J\), permitting its exact inverse on the zero-sum subspace. The matrix-tree determinant reduction and the complete-graph incidence spectrum yield the closed formula for all \(q\). The BEST factorial exponents count \(q^2\) reduced-degree triple-states and \(q^3-q^2\) full-degree states. Independently, a single valid \((m-1)\)-vertex with unequal in/outdegrees excludes the higher-order Euler circuits. The finite integer-cofactor, exhaustive binary Euler-circuit, and witness tests in `verify.py` passed. Boundary cases \(q=2\) and \(m=1,2,3\) are explicit.
+PASS
 
-The proof is symbolic for arbitrary alphabet size and order; finite verification is corroboration, not a substitute for it. No independent scientific audit has yet occurred.
+For labeled q>=2, the overlap digraph on triples is balanced after deleting exactly q² four-letter edges. Constant forbidden edges are loops, and nonconstant ones form antiparallel pairs, giving L=qI-A-DD^T. Using A³=J, the zero-sum inverse of qI-A, the K_q incidence Gram eigenvalues q (q-1 times) and 0 (remaining), and directed matrix-tree theorem yields rooted tree number q^(q³-q²+q-4)(q-1)^(2(q-1))(q²-2q+2)^((q-1)(q-2)/2). BEST with q² degree-(q-1) vertices and q³-q² degree-q vertices yields precisely the stated factorial product, cyclic edge-label normalization accounted for. For all m>=5, a prefix of 0100(1100)^∞ gives indegree q-1 and outdegree q, so no Euler tour. Orders <=3 are ordinary de Bruijn; m=4 existence from positive cofactor and balance. Independent SymPy cofactors q=2,3 produced 4 and 10,331,213,040, and exact U2=4 and U3=2708265511157760; not extrapolation.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-Chen, Kitaev and Sun (2019 preprint, 2020 journal) already imply **existence at order four** after deleting binary loops/two-cycles; that part is explicitly not new. Their inspected Theorem 2.1 and binary tables do not contain an all-alphabet count of rotation classes for the specific full tandem-square deletion set, nor the higher-order obstruction for a fixed length-four forbidden family. Alhakim (2022) constructs sequences satisfying *separation* conditions; his “square-free” at separation one forbids adjacent equal symbols and is not equivalent to excluding exactly factors \(abab\). Moreno and Matamala (2004/2007) treat lexicographically minimal universal cycles in general forbidden-factor languages; the available abstract does not settle this closed enumeration, but full-text comparison could not be completed.
+PASS
 
-A previously recovered result on **covering** the excluded squares computes a minimum covering length, not the number of Eulerian cycles on the complementary edge set. Another result on pairwise-distinct four-factors concerns only a strict subset of the permitted language; universal-cycle counts are not additive under taking complements or subsets. Search of published records by both motif and graph-theoretic descriptions did not reveal the stated closed formula. Searches cannot establish uniqueness, so equivalent unindexed formulas remain a residual risk.
+The count and sharp all-orders cutoff are compared with the prior forbidden-substring universal-cycle existence criteria and exact enumeration only in particular deletion families. Fourth-order existence itself is established earlier and is not considered original. The evaluated matrix-tree determinant and BEST all-q count, together with the explicit higher-order balance obstruction, survive best-of-knowledge.
 
-## Mathematical value — PASS
+## value
 
-The restricted factor language is a canonical finite-type constraint in coding and forbidden-substring problems. Its fourth-order graph has a nontrivial rank-\(\binom q2\) deleted-edge correction, and the resulting determinant collapses to two incidence eigenvalues, giving a fully evaluated formula rather than a determinant requiring exponentially growing matrices. The sharp phase change—from Eulerian coverage at order four to a uniform local obstruction at every higher order—describes a structural limitation of exact one-pass constrained universal sequences. Both the enumeration and the order cutoff are complete infinite-parameter statements, not a small-table exercise.
+PASS
 
-## Literature limitations and remaining checks
+The enumerator is a natural and exact universal-cycle invariant of a fixed local forbidden factor family; it resolves how deletion of q² directed edges affects the exponentially large Euler-tour count, not a routine substitution into an already evaluated formula. The order cutoff is structural and sharp.
 
-The priority comparison is strongest against the inspected full arXiv manuscript of Chen, Kitaev and Sun and the relevant sections of Alhakim. An inaccessible full text of Moreno and Matamala and possible specialized results on square-edge deletions remain risks; neither an abstract nor a failed index search constitutes full-document noncoverage. The result does not address avoiding squares of all sizes, arbitrary orientation quotients, or error-correction properties.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

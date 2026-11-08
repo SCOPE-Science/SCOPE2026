@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard library of Python 3. The deterministic checker constructs the exact directed overlap graphs on all length-three vertices over alphabets of sizes two, three and four, and forms the out-Laplacian directly from every admissible four-letter edge.
+## correctness
 
-It checks vertex degrees and the total admissible-edge count, computes exact integer cofactors using fraction-free Bareiss elimination, and compares them to the formula in `RESULT.md`. The rooted in-arborescence counts are \(4\), \(10{,}331{,}213{,}040\), and \(57{,}757{,}330{,}472{,}898{,}702{,}105{,}693{,}539{,}794{,}944{,}000\) for the three alphabets respectively. For two letters it independently enumerates every Euler circuit after fixing the one occurrence of a specified four-letter edge, obtaining exactly four rotation classes. The checker also verifies the higher-order imbalance witness for every vertex length from four through 150.
+PASS
 
-Expected terminating output is `VERIFY_OK`. These are finite exact checks only; the all-alphabet enumeration and infinite-order obstruction are proved by the determinant identities and explicit vertex construction in `RESULT.md`. No independent audit has been conducted.
+For labeled q>=2, the overlap digraph on triples is balanced after deleting exactly q² four-letter edges. Constant forbidden edges are loops, and nonconstant ones form antiparallel pairs, giving L=qI-A-DD^T. Using A³=J, the zero-sum inverse of qI-A, the K_q incidence Gram eigenvalues q (q-1 times) and 0 (remaining), and directed matrix-tree theorem yields rooted tree number q^(q³-q²+q-4)(q-1)^(2(q-1))(q²-2q+2)^((q-1)(q-2)/2). BEST with q² degree-(q-1) vertices and q³-q² degree-q vertices yields precisely the stated factorial product, cyclic edge-label normalization accounted for. For all m>=5, a prefix of 0100(1100)^∞ gives indegree q-1 and outdegree q, so no Euler tour. Orders <=3 are ordinary de Bruijn; m=4 existence from positive cofactor and balance. Independent SymPy cofactors q=2,3 produced 4 and 10,331,213,040, and exact U2=4 and U3=2708265511157760; not extrapolation.
+
+## originality
+
+PASS
+
+The count and sharp all-orders cutoff are compared with the prior forbidden-substring universal-cycle existence criteria and exact enumeration only in particular deletion families. Fourth-order existence itself is established earlier and is not considered original. The evaluated matrix-tree determinant and BEST all-q count, together with the explicit higher-order balance obstruction, survive best-of-knowledge.
+
+## value
+
+PASS
+
+The enumerator is a natural and exact universal-cycle invariant of a fixed local forbidden factor family; it resolves how deletion of q² directed edges affects the exponentially large Euler-tour count, not a routine substitution into an already evaluated formula. The order cutoff is structural and sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
