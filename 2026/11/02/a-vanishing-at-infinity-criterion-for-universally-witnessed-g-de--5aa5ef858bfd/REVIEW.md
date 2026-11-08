@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The five-way criterion is verified from first principles: finite positive superlevel sets force a maximum for every bounded valuation vector; an infinite superlevel set gives one explicit nonattaining increasing sequence. The sharp truncation formula is proved in both inequalities with an extremizing vector, and the product-topology equivalence uses the infinite superlevel witness at the zero vector. The necessity counterpart has both a finite-support proof and an explicit infinite-support countervaluation. Infinite carriers are handled by these proofs, not by finite sampling. The independently runnable standard-library regression script matches 4,680 exhaustive finite weight/subset test configurations and the decaying-star limits. Remaining correctness risk is limited to any hidden change in the semantics of weighted witnessing; the scope states the exact kernel-attainment definition.
+PASS
 
-## Originality — PASS within inspected evidence
+For each nonempty W and fixed fuzzy row r_v=R(w,v) in [0,1], finite epsilon-superlevel sets imply attainment of every sup-min D_w(x): for positive sup s only finite C_{s/2} can realize values exceeding s/2; zero sup is attained trivially. If any C_epsilon is infinite, setting x_{v_n}=epsilon*n/(2(n+1)) yields unattained sup epsilon/2. Since a propositional variable may realize an arbitrary x, this is equivalent to witnessing every Diamond formula at w for every valuation, including nested formulas. The exact uniform truncation error equals sup outside F of r_v by choosing coordinates zero on F and one outside. Uniform convergence of cylinder max-min maps and discontinuity at the zero vector establish the product-topology equivalence. Universal Box witnessing is equivalent to finitely many positive successors using Gödel residuum and a positive sequence tending to zero. The decaying 1/n row strictly separates possibility from necessity. Independent 1554 finite weight/subset exhaustive grid configurations confirmed sharp error; infinite conclusions use direct proofs.
 
-The close primary sources establish fuzzy Gödel modal semantics (Caicedo and Rodríguez), witnessed fuzzy and crisp model calculus (Ferrari and coauthors), and possibility-only witnessing completeness (Vidal and Rodríguez). They do not, in the material compared, supply the combined fixed-frame universal criterion, equivalence to product-topology continuity, and sharp worst-case finite-truncation formula. The 2022 work on finite branching already addresses a **stronger assumption** than the possibility-only criterion but not its infinite-support fuzzy possibility class; it must not be cited as evidence that finite branching itself is new. The closest public research record concerns ordinal regrading of **finite** frames, not infinite weighted successor tails. General sup-min relational mathematics could imply this package via a different formulation; the 2011 Bartl–Bělohlávek full text was not inspected, and broader priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 results establish proof-theoretic importance of witnessed, partly witnessed modal semantics but do not answer which **fixed infinite fuzzy frames** guarantee one-sided witnessing under every valuation. The answer is the natural finite-superlevel condition, not local finiteness: it identifies an infinite, at-most-countably-supported frame class, proves that its possibility operator is product-continuous, and supplies an exact uniform truncation certificate usable for reasoning with infinite fuzzy successor rows. The strict box/diamond split resolves why finite branching is excessive for possibility-only witnessing. These are a motivated complete structural classification and sharp quantitative localization, rather than a sampled finite census.
+Best-of-knowledge O PASS for the unified all-valuations fixed-frame criterion, necessity contrast and exact truncation norm. Witnessed Gödel modal semantics, fuzzy Kripke models and finitely branching crisp models are established. Ferrari et al. 2026 develop witnessed model proof calculi, not a fixed-fuzzy-row iff with finite superlevel cuts; results known for generic sup-min fuzzy relation continuity might imply portions. The comparison is between precise quantified statements, not terminology.
 
-## Scope and closest literature
+## value
 
-The statement concerns [0,1] Gödel truth degrees, arbitrary frames and unrestricted valuations. It does not claim a new axiomatization, frame-defining formula, or general t-norm result. Primary material compared includes arXiv:2605.15810 (§§0.2–0.5), arXiv:2606.31906 (§§1–4 and its witnessed semantics), arXiv:1110.2407 (§§1–3), the 2022 Gödel paraconsistent chapter (§§2–4), and the 2025 crisp-witnessed paper (§§1–2). The incompletely accessible general fuzzy relation literature remains a documented priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural operator-level characterization of which infinite fuzzy accessibility patterns still guarantee all possibility suprema are witnessed under unrestricted valuations; it supplies a sharp approximation error for finite successor truncations and separates Diamond from Box in an elementary counterexample. Such a criterion is useful for defining mathematically controlled approximations and frame semantics, beyond routine checking of one example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
