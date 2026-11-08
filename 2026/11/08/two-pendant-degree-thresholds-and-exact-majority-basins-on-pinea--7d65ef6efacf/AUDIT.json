@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact synchronous vertex updates reduce to (clique mask, hub bit, leaf-one count). All recurrent configurations are classified by the odd-r complementation boundary and the three homogeneous hub-leaf maps. The global sharp bound follows by case splitting; the s>r high-leaf entrance counts use strict binomial-majority tails and exact boundary counts. The standalone direct graph and weighted reduced-state programs passed on their stated domains. No finite trial is used to prove arbitrary r,s.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al. arXiv:1405.2486v1, Introduction Theorem 1.1, Theorems 1-3: general eventual-period bound and results for infinite/random graphs.",
+        "Kaaser et al. arXiv:1508.03519v1, Definition 3 and Section 1.2: upper bounds using graph families/modules, not exact two-parameter attractor counts.",
+        "Goles and Olivos 1980 abstract: period <=2 for symmetric thresholds."
+      ],
+      "reasoning": "These generic results cover only the qualitative eventual period restriction; neither proves exact fixed/two-cycle counts, sharp thresholds in s, or labelled entry distributions. The 1980 full text was not inspected, so an unmentioned special example cannot be definitively excluded.",
+      "searches": [
+        "arxiv:1405.2486v1 majority dynamics unimodular random graphs",
+        "arxiv:1508.03519v1 modules voting time deterministic majority",
+        "Goles Olivos 1980 periodic behaviour of generalized threshold functions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.2486v1 (2014-05-11)",
+      "arXiv:1508.03519v1 (2015-08-14)",
+      "Goles-Olivos (1980), DOI 10.1016/0012-365X(80)90121-1",
+      "Previously established special case s=1",
+      "Exact curvature-distortion number of pineapple graphs (different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 paper guarantees eventual period <=2 for every finite graph (via Goles-Olivos), not the number or geometry of cycles.",
+        "The 2015 paper provides broad upper bounds on voting time and module reduction; no exact counting theorem for this family was found in the relevant text.",
+        "One-leaf results imply a different behavior for r even: no two-cycles at s=1, whereas two occur at s>r."
+      ],
+      "reasoning": "The new statement is not a restatement of a general period<=2 theorem or of the one-leaf result. Its quantitative counts and parameter thresholds require a separate analysis; no implication from an inspected prior theorem was found.",
+      "searches": [
+        "On the Voting Time of the Deterministic Majority Process clique graph modules",
+        "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "majority automata pineapple graphs binomial two-cycle orbit parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same graph is also called a clique with an attached pendant star; the searched 2014 and 2015 majority papers use the same tie-stay open-neighbor rule.",
+        "Graph-object match in the pineapple curvature result has a different invariant (weighted edge curvature)."
+      ],
+      "reasoning": "Searches covered pineapple, clique-plus-star, pendant-leaf, periodic attractor, and period-two descriptions. A graph-theoretic pineapple match alone does not imply a dynamical classification.",
+      "searches": [
+        "pineapple graph synchronous strict-neighbor majority two thresholds leaf count clique size exact recurrent configurations",
+        "exact periodic states of majority voting on a clique with pendant star of s leaves attached to hub",
+        "\"pineapple graphs\" \"majority\" two-cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest same-graph search hit concerns exact Lin-Lu-Yau curvature distortion of pineapple graphs, rather than a synchronous Boolean dynamical table.",
+        "A previously recorded one-leaf special-case classification concerns only s=1 and cannot encode the s=r or s>r thresholds."
+      ],
+      "reasoning": "No searched exact table or database value for the full (r,s) opinion dynamics was identified. The known s=1 case is recovered only on one boundary of this two-parameter family.",
+      "searches": [
+        "pineapple graph majority dynamics vertex leaves tied consensus period two s>r",
+        "\"majority dynamics\" \"pineapple\" graph two cycles",
+        "pineapple graph strict majority update attractor basins"
+      ]
+    },
+    "rationale": "General eventual period <=2 is previously established, and the special case s=1 was previously recorded. Neither implies the two s=r and s=r+1 thresholds or the complete s>r temporal census. The two inspected relevant manuscripts address broad majority convergence and voting-time bounds rather than exact pineapple populations. No covering same-graph, same-rule formula was found; residual historical priority risk remains.",
+    "residual_risks": [
+      "An equivalent pineapple-graph majority classification could occur in unindexed or inaccessible literature.",
+      "The general 1980 threshold-dynamics paper was available as abstract only; a hidden family-specific example is not excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING quantitative pineapple attractor and basin census; DOES_COVER general eventual period <=2.",
+        "evidence": [
+          "arXiv:1405.2486v1, pp. 1-6, especially pp. 2-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "Introduction, definitions, Theorem 1.1, Theorems 1-3, main object classes, and discussion of transient time; PDF page 2 visual inspected.",
+        "method": "Opened OA preprint PDF, examined original full-text theorem statements and screenshot.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Exact tie-stay majority definition and general period-two theorem"
+      },
+      {
+        "assessment": "NOT_COVERING two-threshold attractor census; general time bounds may apply to the graph but do not give the exact (r,s) quantitative result.",
+        "evidence": [
+          "arXiv:1508.03519v1, pp. 1-5, 8-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "Abstract, Introduction, Definition 2, Definition 3, Theorem 1.1, module/family contraction descriptions, and relevant clique examples; PDF page 4 visual inspected.",
+        "method": "Opened OA preprint PDF and inspected relevant original sections and screenshot.",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Potential strong coverage of sharp stabilization time for modular graphs"
+      },
+      {
+        "assessment": "GENERAL_PERIOD_COVERED; full text not inspected, cannot rule out unmentioned examples from snippets.",
+        "evidence": [
+          "Goles and Olivos, Discrete Mathematics 30 (1980), 187-189, DOI 10.1016/0012-365X(80)90121-1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic record and abstract only; publisher manuscript not obtained.",
+        "method": "Checked scholarly institutional abstract and bibliographic record; exact result corroborated through Benjamini et al. manuscript.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original general period <=2 theorem for symmetric threshold maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d65ef6e-facf-4d18-a3d9-6352fb3cf420",
+  "value": {
+    "rationale": "The exact attractor phase diagram resolves two distinct natural pendant-degree thresholds, separates parity-induced mixed oscillations from leaf-induced uniform-core oscillations, and gives a sharp constant voting-time cutoff plus an exact high-leaf entrance distribution. These are robust structural and quantitative results for an infinite two-parameter graph family rather than renamed textbook facts.",
+    "status": "PASS"
+  }
+}
