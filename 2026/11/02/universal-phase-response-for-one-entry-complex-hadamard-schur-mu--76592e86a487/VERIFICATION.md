@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact claimed object is the spectral Schur multiplier induced by a one-entry unit-phase modification of a finite unnormalized complex Hadamard matrix. The proof verifies all-order correctness by trace duality, a matrix fidelity variational identity, simplex stationarity, a two-dimensional singular-value calculation, and a scalar optimizer equation. The derivation of the phase law is independent of the numerical optimizer.
+## correctness
 
-`check.py` runs 30 Fourier-matrix angle/order cases and nine non-real order-four Hadamard-family cases. Each evaluates the analytic formula and numerically maximizes the unrestricted two-probability-vector dual nuclear norm with three starts. The Fourier cases also compare against an independent one-variable scalar optimization. The final replay reported `PASSED_CASES 30` and `ALL_CHECKS_PASS`, with all 39 cases successful.
+PASS
 
-The tests are finite floating-point checks, not exact certificates or a substitute for analytic quantifiers. The PDF literature comparisons are not an independent historical audit. There is no claim of independent validation.
+The spectral/nuclear dual maximum over two probability simplices is exact (extreme nuclear rank-one). Matrix fidelity is jointly concave via an explicit infimum over positive matrices. Dephased complex Hadamard orthogonality makes the identical-weight stationary point global without transitivity assumptions: the nonspecial gradient components coincide and the restricted symmetric derivative vanishes. The 2×2 exceptional compression plus n−2 flat singular values yields F(y)=(a+√(y²+2(d+h)y+1))/(y+d), whose derivative has a unique positive zero for n≥3. Its tangency equation yields the printed radical; n=2 ζ=−1 is handled directly. Differentiating at ζ=1 supplies exact θ² coefficient. Independent unrestricted weight optimizations check 25 finite examples; do not replace uniform analytic argument.
+
+## originality
+
+PASS
+
+Qualified PASS: Holbrook–Johnston–Schoch already cover Hadamard maximal norm and real sign changes; generic duality and fidelity formulas are older. The new all-order unit-complex-phase curve, phase ordering and small-angle coefficient are not implied by any inspected real-sign theorem; disguised diagonal-fidelity formulations remain a historical-priority risk.
+
+## value
+
+PASS
+
+A one-entry unit-modulus deformation is the smallest support perturbation of an extremal complex Hadamard symbol. A full equivalence-class-independent response curve and sharp local stability coefficient resolve a natural perturbation-robustness invariant over all Fourier orders, not a routine real-sign substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the complex Hadamard phase-response theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytic proof reduces the complex spectral Schur-multiplier norm to a two-simplex nuclear-norm maximum, proves the needed matrix-fidelity joint concavity from an explicit minimization identity, and verifies global optimality of a symmetric stationary point without assuming symmetry of the underlying Hadamard equivalence class. The exceptional singular two-by-two sign-flip case is separated. The invariant two-dimensional compression gives a trace-norm radical and a strictly monotone scalar first-order equation, from which the closed formula follows. The phase monotonicity and exact quadratic deficit follow by differentiating the maximized scalar function. The numerical checker independently varies all row and column weights for 39 finite test cases; it does not substitute for the proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The spectral/nuclear dual maximum over two probability simplices is exact (extreme nuclear rank-one). Matrix fidelity is jointly concave via an explicit infimum over positive matrices. Dephased complex Hadamard orthogonality makes the identical-weight stationary point global without transitivity assumptions: the nonspecial gradient components coincide and the restricted symmetric derivative vanishes. The 2×2 exceptional compression plus n−2 flat singular values yields F(y)=(a+√(y²+2(d+h)y+1))/(y+d), whose derivative has a unique positive zero for n≥3. Its tangency equation yields the printed radical; n=2 ζ=−1 is handled directly. Differentiating at ζ=1 supplies exact θ² coefficient. Independent unrestricted weight optimizations check 25 finite examples; do not replace uniform analytic argument.
 
-The previously established real one-sign-flip formula, including its Walsh and order-four specializations, is **prior** and is recovered only as the endpoint \(\zeta=-1\). Holbrook–Johnston–Schoch (arXiv:2206.02863v1) prove the global Hadamard maximum and study real sign patterns. Cowen et al. and Davidson–Donsig provide general trace duality/factorization and group-symmetry techniques; Christensen treats related general Schur norm theory. Inspected primary material and targeted semantic searches did not identify the exact full unit-phase formula, its strict phase ordering, or the local quadratic loss. These assertions are the claimed extension. A prior equivalent treatment framed as matrix fidelity or weighted singular-value optimization remains possible; absence from searches does not certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Complex Hadamard symbols saturate the maximal spectral Schur norm, and changing one entry by a phase is the minimal multiplicative perturbation retaining all entry moduli. A closed class-independent phase-response law and a sharp second-order stability coefficient therefore quantify a natural robustness problem over every Fourier dimension, not an arbitrary numerical slice. The new parameter continuum is not determined by any fixed sign-flip example. The result is limited to one unimodular entry change and the spectral operator norm.
+Qualified PASS: Holbrook–Johnston–Schoch already cover Hadamard maximal norm and real sign changes; generic duality and fidelity formulas are older. The new all-order unit-complex-phase curve, phase ordering and small-angle coefficient are not implied by any inspected real-sign theorem; disguised diagonal-fidelity formulations remain a historical-priority risk.
 
-## Proof and computational boundaries
+## value
 
-All stated identities are finite-dimensional exact algebra; the central concavity lemma is proved by a positive-matrix variational formula, not inferred from optimization logs. The checker uses unrestricted probability weights and numerical optimizers, so it cannot establish infinite-dimensional or all-order results by itself. The sign-flip endpoint is acknowledged as earlier work. Independent historical and mathematical validation have not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-entry unit-modulus deformation is the smallest support perturbation of an extremal complex Hadamard symbol. A full equivalence-class-independent response curve and sharp local stability coefficient resolve a natural perturbation-robustness invariant over all Fourier orders, not a routine real-sign substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
