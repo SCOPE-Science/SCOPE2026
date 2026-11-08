@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was executed using Python 3 from the directory containing the packaged script. It constructed the actual orbit-conflict graphs, checked exact finite graph isomorphisms for all \(800\) symmetry elements at widths \(5\le n\le20\), and independently reduced exact augmented simplicial boundary matrices over \(\mathbb F_2\) for open ladders, Möbius ladders, and circular ladders at the stated small sizes.
+# Independent mathematical audit
 
-Actual completion marker:
+## correctness
 
-```text
-VERIFY_OK: orbit_isomorphisms=800, ladder_mod2=6, mobius_mod2=5, circular_mod2=4
-```
+PASS
 
-These checks are finite. The general theorem relies on the proved orbit-conflict PL-homeomorphism, case-by-case quotient-graph identification, the proved open-ladder fold recurrence, and the cited established homotopy classifications of circular and Möbius ladders. No independent audit, external certification, or formal proof has been performed.
+Barycentric orbit-conflict lemma gives an actual PL homeomorphism for graph independence complexes under cyclic action, not a character calculation. Pure rotation r^a has orbit quotient C_gcd(n,a) square K2 for d>=2, with d=1 excluded by internal edges. For r^a t, odd orbit length entails a forbidden rung, and even orbit length produces exactly a twisted M_(2d) seam, including d=1 (K2) and d=2 (K4). Reflective generators reduce by column-orbit incidence to open ladders with widths m, m+1, m-2, m-1 or m by odd/even axis and layer toggle; one can check each endpoint pair directly. Open ladder Ind(L_k) folds twice to K2 join Ind(L_(k-2)) and is S^(ceil(k/2)-1) including k=1,2. For the circular and Möbius ordinary types the precise cited main results of Agarwal--Basak arXiv:2608.30601v2 (Theorems 12 and 15) are necessary inputs. Independently constructed orbit-conflict graphs for all 272 elements (widths 5..12) and used an independent exact graph-isomorphism test against asserted quotient types; no infinite theorem was inferred from finite checks.
+
+## originality
+
+PASS
+
+The published complete rational symmetry representation computes traces and an open-ladder reflection orbit quotient, which is prior coverage and credited. Full all-elements PL fixed-locus homotopy table, including mixed reflection/layer exchange and the width-12 S^3 versus S^1 distinction invisible to trace, is not entailed by it or ordinary ladder homotopy statements. Residual priority risk for unindexed equivariant treatments.
+
+## value
+
+PASS
+
+A natural infinite-family complete fixed-point problem for every group element is resolved with actual topological types, not only Euler/character data; the two n=12 reflections demonstrate essential extra information. Mixed layer/reflection orbit geometry and sharp sphere dimensions supply a structurally useful equivariant refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

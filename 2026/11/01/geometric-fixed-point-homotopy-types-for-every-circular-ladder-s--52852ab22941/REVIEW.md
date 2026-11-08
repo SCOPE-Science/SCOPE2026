@@ -1,15 +1,21 @@
-# Scientific review of geometric fixed-point spaces of circular ladders
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain is every circular ladder \(C_n\square K_2\) for \(n\ge5\) and every element \(r^as^bt^c\) of its natural action. The orbit-conflict identification is a PL homeomorphism of *actual geometric fixed points*, not merely an Euler-characteristic identity. Internal graph edges eliminate inadmissible orbit vertices. Pure rotations, mixed rotations, and the five reflection conjugacy cases are reduced explicitly to circular ladders, Möbius ladders, open ladders, or the empty graph. The open-ladder fold lemma proves the sphere dimension for all widths; the non-equivariant Möbius and circular ladder homotopy conclusions are invoked from the explicitly cited primary full text. Exact finite graph-isomorphism checks cover \(800\) cases at widths 5--20, with separate exact small homology checks. The finite checks do not prove the infinite statement. Boundary cases of orbit order one, quotient width one/two, and empty fixed spaces are handled.
+## correctness
 
-## Originality
-**PASS, with priority risk.** Agarwal--Basak establish the ambient nonequivariant types, not the geometric fixed loci. A separate published rational representation study of circular ladders uses fixed-orbit enumeration and identifies a layer-preserving reflection's ladder quotient, so that special-case combinatorial reduction is covered. Its complete character does not determine the fixed-space homotopy types. The present all-elements PL fixed-space classification contains mixed reflection/layer-swap cases and distinguishes \(S^3\) from \(S^1\) fixed spaces at width twelve despite equal Lefschetz numbers. A related published Möbius-ladder rational representation theorem treats a different object. No directly dominating geometric fixed-locus classification was located; an unindexed equivalent remains possible. All sources and residual risks are recorded in the structured review file.
+PASS
 
-## Value
-**PASS.** The natural complete fixed-point problem for an infinite dihedrally symmetric family is motivated by the recent nonequivariant homotopy and rational symmetry classifications. The result provides every geometric fixed-locus homotopy type, including all mixed layer/reflection symmetries, and gives an explicit example where rational character data are insufficient. This is more than a single small computation or Betti-number restatement. Its significance is confined to this named graph family and natural symmetry group; it does not claim a new general theorem about all independence complexes.
+Barycentric orbit-conflict lemma gives an actual PL homeomorphism for graph independence complexes under cyclic action, not a character calculation. Pure rotation r^a has orbit quotient C_gcd(n,a) square K2 for d>=2, with d=1 excluded by internal edges. For r^a t, odd orbit length entails a forbidden rung, and even orbit length produces exactly a twisted M_(2d) seam, including d=1 (K2) and d=2 (K4). Reflective generators reduce by column-orbit incidence to open ladders with widths m, m+1, m-2, m-1 or m by odd/even axis and layer toggle; one can check each endpoint pair directly. Open ladder Ind(L_k) folds twice to K2 join Ind(L_(k-2)) and is S^(ceil(k/2)-1) including k=1,2. For the circular and Möbius ordinary types the precise cited main results of Agarwal--Basak arXiv:2608.30601v2 (Theorems 12 and 15) are necessary inputs. Independently constructed orbit-conflict graphs for all 272 elements (widths 5..12) and used an independent exact graph-isomorphism test against asserted quotient types; no infinite theorem was inferred from finite checks.
 
-## Limits and comparison
-The fixed-locus reductions are new calculations, while the ambient ladder homotopy formulas are cited established inputs. Independent validation has not been performed. Originality is qualified by possible unindexed equivalent work and by the already published reflection orbit-count calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published complete rational symmetry representation computes traces and an open-ladder reflection orbit quotient, which is prior coverage and credited. Full all-elements PL fixed-locus homotopy table, including mixed reflection/layer exchange and the width-12 S^3 versus S^1 distinction invisible to trace, is not entailed by it or ordinary ladder homotopy statements. Residual priority risk for unindexed equivariant treatments.
+
+## value
+
+PASS
+
+A natural infinite-family complete fixed-point problem for every group element is resolved with actual topological types, not only Euler/character data; the two n=12 reflections demonstrate essential extra information. Mixed layer/reflection orbit geometry and sharp sphere dimensions supply a structurally useful equivariant refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
