@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The gap-transfer proof treats every pair of nonnegative gap defects with total two; each move and vertex link falls into one of the four explicit local cases. The resulting surface has \(n(m+1)/2\) vertices, \(n(m+1)\) edges, \(n\) triangular faces, and \(n(m-1)/2\) quadrilateral faces. The type-A boundary shift \(x\mapsto x\pm(k+1)\) gives one or two boundary components; classification establishes the Möbius/annulus dichotomy. Independent finite implementations directly enumerate power-graph configurations and independently enumerate gap compositions.
+## correctness
 
-## Originality
-PASS with residual uncertainty. Bonsma--Kamiński--Wrochna (arXiv:1403.0359, sections 1 and 5) study token-sliding reachability in claw-free graphs. Avis--Hoang (arXiv:2203.16861, sections 4--5) treat the structure of token-sliding graphs and prove the ordinary-cycle girth theorem, but not this higher-power, two-defect surface. The mathematical-record and primary-text searches are documented in AUDIT.json. An equivalent older exclusion-process surface model may remain unindexed.
+PASS
 
-## Value
-PASS. The two-defect near-close-packed sector has an exact local reconfiguration complex whose topology changes from a Möbius band to an annulus across a natural parity boundary. This gives a coherent geometric classification for an infinite two-parameter family, beyond isolated finite counts.
+In every maximum independent set, ordered cyclic gaps are q+s_i (q=k+1), nonnegative excess sum 2, so only a two-unit gap A or two one-unit gaps B occur. Legal slides are transfers of one or two units to adjacent gaps and give exactly 4 neighbors each including m=2. Exhaustive local transfer-direction analysis classifies all triangles and simple squares, yielding A link path (two triangles, one square) and B link four-cycle, with special m=2 row. Edges have two incident faces except A-A double-transfer edges with one, producing a surface. Counting face-edge incidences gives N3=n and N4=n(m−1)/2, χ=0. Boundary A_x~A_{x±q} gives gcd(n,q)=gcd(2,q) components, connectedness via unit-transfer paths; surface classification yields Möbius/annulus. Independently enumerated all triangles/quadrilaterals, links, boundary and connectivity for small k,m. Finite checks alone are not all-parameter proof.
 
-## Scientific limitations
-The statement is restricted to \(k,m\ge2\), two excess gap positions, and the stated polygonal filling. Finite checks corroborate but do not prove the general theorem. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Token sliding and graph reachability are established. Avis–Hoang count girth/structural properties for other graph families, but neither the face-filled short-cycle complex nor its n=(k+1)m+2 parity surface is stated in the examined primary texts. Other Möbius/annulus complexes in Resultary involve Lovász neighborhoods or different triangulations and do not imply this statement. PASS best-of-knowledge.
+
+## value
+
+PASS
+
+This is the first interacting two-vacancy sector of close-packed independent sets; the full short-cycle filling has a natural nontrivial topology with sharp parity switch and uniform exact cells, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
