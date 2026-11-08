@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The arrow-cycle exclusion gives an if-and-only-if cut characterization: the only valid edge-choice strings are a block of left arrows followed by a block of right arrows. The rank-two cost is exactly a constant plus a simple symmetric random walk. The first-minimum count factors into independently reflected strict/weak positive ballot paths, including all \(n\ge1\) and the endpoint cases. An exact reflection identity and binomial expectation establish the mean-cost formula. Donsker's theorem, almost-sure uniqueness of a Brownian minimum, the continuous mapping theorem, and Lévy's classical arcsine law justify the arbitrary-tie-break limit. The BFD median tie is resolved by the immediate edge rank, including the odd-size correction. The included standalone checker exhaustively tests 65,534 finite rankings and independently traces 4,096 branching/profile pairs; finite computation is corroboration, not a proof of the infinite statement.
+PASS
 
-## Originality
+In the two-terminal path with independent fair rankings, an interior directed left/right edge selection has no directed 2-cycle iff it consists of L^kR^{n-k}, so all feasible branchings are cuts k=0,...,n. For X_i=+1 if right preferred, cost of cut minus n is (#left-preferring voters)+S_k, S_k sum X_i, hence optimum is exactly the set of simple symmetric random-walk minima. Reflection counting splits an earliest minimum at k into a strictly-positive reversed prefix and a weakly nonnegative suffix, giving the stated exact product ballot probability including endpoints k=0,n. Donsker invariance and the almost-sure uniqueness of the Brownian minimum imply all profile-dependent optimal tie rules have the arcsine Beta(1/2,1/2) weak limit. The 3/4 representation event has limiting probability 2/3, whereas BFD splits almost evenly. Reflection for maximum of simple walk plus exact E|S_n| yields optimal expected second-choice cost n/2-n*2^(1-n)*C(n-1,floor((n-1)/2))+(1-p_n)/2 and asymptotic n/2-sqrt(2n/pi)+1/2+O(n^-1/2). Independent direct rank-profile enumeration n=1..10 matched both expectation and earliest-minimum probabilities; the limiting claim relies on standard functional CLT, not finite tests.
 
-PASS under inspected-evidence priority. The 2022 initiating paper defines minimum-cost BordaBranching and observes an empirical rank-versus-weight tension but does not state the two-guru path's optimal-cut correspondence or any random-preference arcsine law. The closely relevant 2023 successor studies random walks and **uniform mixtures over optimal branchings for a fixed preference graph**, which is mathematically different from random independently assigned preference ranks and the resulting distribution of a deterministic optimizing cut. The standard random-walk arcsine theorem itself is not new, but neither paper supplies the application, the exact finite first-minimum formula, or the comparison with BFD. Search for aliases and equivalent minimum-cost rooted forests did not reveal a dominating prior theorem. Residual risk: specialist literature on random optimal-rooted forests and image-segmentation watersheds may contain a related law not captured by the reviewed sources.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Minimum local-rank cost and balanced representation are competing social-choice objectives identified by the primary paper. Here a natural, parameter-free path family exhibits a sharp and unexpected effect: although global optimization saves only order \(\sqrt n\) second-choice assignments in expectation, the resulting guru representation can be unbalanced on order \(n\) with a precisely quantified probability \(2/3\). The full finite distribution, exact expected cost, and tie-break-independent limiting concentration law make the tradeoff reproducible and robust within the specified model; it is more than a one-off negative example or a restatement of the arcsine law.
+Brill, Delemazure, George, Lackner and Schmidt-Kraepelin (2022) introduced BordaBranching and documented the tradeoff between preferred ranks and voting-weight concentration, but their investigated instances/algorithms do not state a random independent-preference path law. Utke and Schmidt-Kraepelin (2023) analyze fixed-profile randomized mixed optimal branchings; a mixture across optimal branchings for a fixed ranking is different from iid random ranking preferences followed by any optimal tie-break. The reflection principle and Brownian arcsine distribution are classical; the substantive incremental result is the exact reduction of a delegation optimization to walk minima and hence an explicit sharp concentration-versus-cost tradeoff for an important mechanism. An unlocated specialized random-path delegation paper could already make this reduction.
 
-## Sources and residual scope
+## value
 
-Primary literature: Brill et al., *Liquid Democracy with Ranked Delegations*, arXiv:2112.07509v1, AAAI 2022 §§2, 3.3, 5, 6; Utke and Schmidt-Kraepelin, *Anonymous and Copy-Robust Delegations for Liquid Democracy*, arXiv:2307.01174, NeurIPS 2023 §§1–6. Classical: Feller's reflection and fluctuation identities; Lévy/Doney on the arcsine law. Other related research on popular branchings was compared at abstract level, not asserted to have been completely ruled out. The claim is only for fair, independent local rankings on a two-guru path, with finite exact law for the earliest minimizer. No independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Concentration of guru voting weights is a central problem in liquid democracy. The natural minimal two-guru path cleanly isolates global preference-rank optimization versus balanced shortest-path routing, with a nonvanishing 2/3 chance of a three-quarter guru while achieving only order sqrt(n) expected rank-cost savings. It is an interpretable sharp failure mode, with exact finite cost and tie-rule-invariant macroscopic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

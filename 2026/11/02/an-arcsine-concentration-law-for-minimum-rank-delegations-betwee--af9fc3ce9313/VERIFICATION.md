@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedures
+# Independent mathematical audit
 
-Run `python3 verify_branching.py`. No non-standard packages, input files, or network access are required.
+## correctness
 
-The program enumerates all \(65{,}534\) ranked-preference sequences for \(1\le n\le15\). For each sequence it determines the costs of all feasible cut choices directly and independently finds the earliest partial-sum minimum. It aggregates exact integer frequencies and rational means to check the closed combinatorial distribution, minimum Borda excess, and BFD expectation including the middle-agent distance tie. For \(1\le n\le8\), it additionally enumerates all directed edge-choice vectors, follows edges to detect cycles without assuming the cut theorem, and checks the minimum cost over all valid branchings, making \(4{,}096\) independent feasible-branching/profile comparisons.
+PASS
 
-The program returned three `PASS` lines with the expected counts. The all-size proof uses a cut characterization and the reflection principle. The universal tie-break limiting law uses the standard Donsker invariance principle and Brownian uniqueness/arcsine theorems; finite checking does not establish them, so the proof explicitly invokes those classical results. The phrase *first public date* refers to the archived 2021-12-14 release of the initiating paper and not its 2022 proceedings date. No external or independent audit has been performed.
+In the two-terminal path with independent fair rankings, an interior directed left/right edge selection has no directed 2-cycle iff it consists of L^kR^{n-k}, so all feasible branchings are cuts k=0,...,n. For X_i=+1 if right preferred, cost of cut minus n is (#left-preferring voters)+S_k, S_k sum X_i, hence optimum is exactly the set of simple symmetric random-walk minima. Reflection counting splits an earliest minimum at k into a strictly-positive reversed prefix and a weakly nonnegative suffix, giving the stated exact product ballot probability including endpoints k=0,n. Donsker invariance and the almost-sure uniqueness of the Brownian minimum imply all profile-dependent optimal tie rules have the arcsine Beta(1/2,1/2) weak limit. The 3/4 representation event has limiting probability 2/3, whereas BFD splits almost evenly. Reflection for maximum of simple walk plus exact E|S_n| yields optimal expected second-choice cost n/2-n*2^(1-n)*C(n-1,floor((n-1)/2))+(1-p_n)/2 and asymptotic n/2-sqrt(2n/pi)+1/2+O(n^-1/2). Independent direct rank-profile enumeration n=1..10 matched both expectation and earliest-minimum probabilities; the limiting claim relies on standard functional CLT, not finite tests.
+
+## originality
+
+PASS
+
+Brill, Delemazure, George, Lackner and Schmidt-Kraepelin (2022) introduced BordaBranching and documented the tradeoff between preferred ranks and voting-weight concentration, but their investigated instances/algorithms do not state a random independent-preference path law. Utke and Schmidt-Kraepelin (2023) analyze fixed-profile randomized mixed optimal branchings; a mixture across optimal branchings for a fixed ranking is different from iid random ranking preferences followed by any optimal tie-break. The reflection principle and Brownian arcsine distribution are classical; the substantive incremental result is the exact reduction of a delegation optimization to walk minima and hence an explicit sharp concentration-versus-cost tradeoff for an important mechanism. An unlocated specialized random-path delegation paper could already make this reduction.
+
+## value
+
+PASS
+
+Concentration of guru voting weights is a central problem in liquid democracy. The natural minimal two-guru path cleanly isolates global preference-rank optimization versus balanced shortest-path routing, with a nonvanishing 2/3 chance of a three-quarter guru while achieving only order sqrt(n) expected rank-cost savings. It is an interpretable sharp failure mode, with exact finite cost and tie-rule-invariant macroscopic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
