@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The branch polynomial is squarefree exactly for the stated smooth domain, hence defines genus five. The standard hyperelliptic Hasse--Witt coefficient formula gives the displayed sparse matrix. A symbolic multiplication of \(F(z)^6\) establishes all eigenvalue factors, whose constant prime-field eigenvectors also diagonalize the semilinear Frobenius iterates; this last point is required to identify \(p\)-rank, not just Cartier rank. The two cubic zero sets are reduced, disjoint and avoid the excluded parameters. The stand-alone program checks the complete polynomial and determinant identities plus all smooth parameters over \(\mathbb F_{169}\). Critical limitation: neither arithmetic samples nor code alone prove the full geometric assertion; the symbolic proof does.
+## correctness
 
-## Originality — PASS (provisional priority)
-Ohashi--Kudo, arXiv:2603.21569, Section 4.2 and Proposition 4.6, explicitly give the same geometric family and its elliptic isogeny decomposition, but not the closed nonordinary divisor or \(p\)-rank/\(a\)-number dichotomy. Their superspecial count is not a count of ordinary versus \(p\)-rank-three members. The general formula of Yui computes a matrix from coefficients without specializing the factors. The 2025 hyperelliptic-moduli p-rank study addresses global loci and sampling, not this exact family. A calculation for the distinct pencil \(y^2=x^{12}+Ax^6+1\) does not imply the new parameter formulas. Searches using the equation, coordinate-equivalent model, exceptional polynomial, characteristic, genus, and p-rank did not identify an equal or stronger statement. A possible unpublished/poorly indexed equivalent calculation is residual priority risk.
+PASS
 
-## Value — PASS
-The pencil is a canonical one-dimensional large-automorphism hyperelliptic locus singled out by the 2026 classification. The complete geometric nonordinary locus and its two distinct mechanisms for a rank-two drop are natural fine Jacobian data not fixed by the known automorphism or isogeny statements. The reduced degree-six divisor (with double Hasse--Witt determinant zeros), its exact rationality over \(\mathbb F_{169}\), and exclusion of intermediate \(p\)-ranks provide a concrete benchmark for how p-rank strata intersect automorphism loci. No general theorem for all characteristics is asserted.
+For y²=(x⁴−1)(x⁸+t x⁴+1), t≠±2 over char13, the coefficients of F(z)^6, F(z)=(z−1)(z²+tz+1), give sparse Hasse–Witt matrix whose prime-field basis diagonalizes all Frobenius twists. Eigenvalue factors involve P=(t−6)(t²+3t+6) with multiplicity two and Q=(t+6)(t²+5t−4) with multiplicity two. The coprime squarefree cubics have six roots, two F13-rational, all F169-rational. Their zeros force stable p-rank3, a-number2; other smooth t give p-rank5,a0; determinant 8(t+2)^12 P²Q² has double zeros at all six exceptional smooth parameters. Recomputed F(z)^6 by exact polynomial convolution and independently verified coefficient identities and 5x5 determinant factorization modulo13; independently evaluated rational zero sets P:{6}, Q:{7}. These identities hold over algebraic closure via polynomial algebra, not just a finite cutoff.
 
-## Closest literature and limits
-The main prior structural result is Proposition 4.6 of Ohashi--Kudo; its explicit five-elliptic decomposition offers a route to recomputing the rank but does not state the six parameters. Bouchet et al. (2025) formulate broader expectations about p-rank strata. The computation is limited to characteristic thirteen; no moduli-isomorphism enumeration or Newton polygon classification is claimed. The review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: Ohashi--Kudo arXiv:2603.21569 section 4.2 studies an isomorphic marked genus-five family with degree-power-two isogeny to elliptic factors; Proposition 4.6 and Corollary 4.7 do not in inspected text state the char13 p-rank3 roots P,Q. Bouchet et al. arXiv:2506.06457 concern broader hyperelliptic p-rank moduli and sampling, not an identified exact determinant for this pencil. Classical Yui Hasse–Witt coefficient matrix formula provides an essential known computation tool, not the particular factorized six-root divisor. Exact claimed additions have not been shown covered by the inspected published results; residual priority risks remain explicit.
+
+## value
+
+PASS
+
+A fully explicit nonordinary divisor, multiplicities and paired p-rank jump in a natural genus-five one-parameter hyperelliptic family; it refines a previously known isogeny/superspecial framework by exact geometric parameter equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
