@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:43:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The source RESULT.md explicitly defines the affine-normalized d-dimensional circular frustum, positive radii, center/axis normalization and both endpoint regimes. For an axis-aligned ellipsoid, conical-side containment is the support-function inequality As*m+sqrt(q+A^2 s^2 p)<=A, plus the two end-plane bounds. Direct substitution gives equality at the lateral side in both regimes; the end constraints and positive transverse radius hold, including s=0 and s=1/d. In the first regime the normalized latitude at s plus the upper/lower poles have weights w=(d-1)/(d(1-s^2)) and w_±=(1-w∓ws)/2; these are nonnegative precisely for s<=1/d and have mean zero and covariance I_d/d. In the second regime the touching latitude is 1/d and weights are d/(d+1) for the latitude and 1/(d+1) for the lower pole; their first and second moments again satisfy John's criterion. Rotational averaging (not an assumption of optimality) supplies valid contact measures, so the global John theorem gives maximal volume and uniqueness among all ellipsoids. Independent symbolic equations and 95 numerical regimes were checked with the saved independent_checks.py; those samples do not prove the all-d statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "John's contact theorem establishes general optimality given a positive isotropic contact measure.",
+          "Resultary published half-cone theorem concerns a retained half-cone sharpness object, not the entire two-positive-radius frustum family."
+        ],
+        "reasoning": "The general contact theorem does not explicitly compute the ratio-dependent center/axes or the switch of active caps; the half-cone has a different limiting body and geometry.",
+        "searches": [
+          "John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional",
+          "Resultary: Exact John ellipsoid of the Khachiyan half-cone"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0709.0707",
+        "https://arxiv.org/abs/1207.7246",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+        "Resultary query: John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor expressly states: We do not solve the inscribed ellipsoid problem for the second class of convex bodies.",
+          "Current claim gives an explicit valid normalized isotropic contact measure in both regimes."
+        ],
+        "reasoning": "The earlier outer minimization cannot logically force the different inner optimum on a nonsymmetric cone truncation; this result fills the explicitly identified complementary instance.",
+        "searches": [
+          "John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional",
+          "arxiv:0709.0707 Section 8 Theorem 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güler–Gürtuna arXiv:0709.0707 §8 defines truncated second-order cones affine-equivalent to right circular frusta.",
+          "Their CE(Q_{alpha,beta}) is an outer ellipsoid, not the IE under review."
+        ],
+        "reasoning": "Conical frusta can be reparameterized as truncated circular cones. Equality of the bodies does not identify inscribed versus enclosing optimization, and no previously inspected inner-contact transition is exhibited.",
+        "searches": [
+          "John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional",
+          "\"John ellipsoid\" \"frustum\" cone contact",
+          "\"maximum volume inscribed ellipsoid\" truncated second order cone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Güler–Gürtuna §8 Theorem 8.1 is an exact outer-ellipsoid table.",
+          "No inner-ellipsoid radius-ratio table located among the primary text and returned published research records."
+        ],
+        "reasoning": "The existing exact table does not imply the requested inner data. Lack of further hits is not independent novelty proof.",
+        "searches": [
+          "John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional",
+          "\"John ellipsoid\" \"truncated cone\" radii table"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: Güler and Gürtuna (arXiv:0709.0707) work with exactly the affine-equivalent truncated second-order cones, but Theorem 8.1 solves the minimum-volume enclosing ellipsoid, and their introduction expressly leaves the inscribed ellipsoid of this class untreated. John contact conditions are a general criterion, not a radius-ratio classification. The two-regime contact transition and saturation are not implied by those checked results or the different fixed half-cone family. Subsequent implicit prior derivations remain a priority risk.",
+      "residual_risks": [
+        "The direct 2007 source covers the same bodies but has not ruled out later unindexed inscribed-ellipsoid papers.",
+        "The published half-cone item was assessed only by title and summary, not full mathematical proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the enclosing ellipsoid and expressly declines the inscribed calculation for the same body",
+          "evidence": [
+            "§8 Theorem 8.1 CE(Q_{α,β}), not IE; introduction explicitly describes omission of IE."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+          "material_read": "Accessible complete HTML transcription: introduction discussing Section 8, full Section 8 including Theorem 8.1 and proof, and optimality terminology",
+          "method": "Read complete article transcription and checked the primal/dual ellipsoid labels",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Identical truncated second-order-cone geometry in title and Section 8"
+        },
+        {
+          "assessment": "Foundational optimum criterion, no circular-frustum classification",
+          "evidence": [
+            "General isotropic contact criterion and uniqueness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.7246",
+          "material_read": "Abstract and bibliographic statement of general John criterion, not full article",
+          "method": "Read arXiv abstract and theorem overview",
+          "title": "An arithmetic proof of John's ellipsoid theorem",
+          "trigger": "General contact certificate used as the crucial proof mechanism"
+        },
+        {
+          "assessment": "Different retained half-cone object; cannot assert full text not covering",
+          "evidence": [
+            "Published summary restricts itself to Khachiyan sharpness half-cone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+          "material_read": "Published title and summary only, not full mathematical package",
+          "method": "Resultary semantic search",
+          "title": "Exact John ellipsoid of the Khachiyan half-cone",
+          "trigger": "Published related inner ellipsoid on conical family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Right circular frusta are a natural continuous family of truncated second-order cones; the closest primary paper explicitly identifies the missing inscribed problem. A dimension-sharp cap-contact threshold and saturation of the transverse semiaxis constitute a useful structural classification, not a one-off numerical constant or a restatement of the general contact theorem. The exact boundary s=1/d and every d>=2 are included.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0709.0707",
+    "https://arxiv.org/abs/1207.7246",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+    "Resultary query: John maximum volume inscribed ellipsoid circular frustum truncated second order cone radii transition contact d-dimensional"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every d>=2 and R>=r>0, the unique John ellipsoid of the right circular frustum has m=0,p=1,q=Rr if s=(R-r)/(R+r)<=1/d, and m=(1-ds)/(s(d+1)), p=(1+m)^2, q=(d-1)R^2/(d+1) otherwise. The cap-contact transition is r/R=(d-1)/(d+1).",
+  "limitations": [
+    "Only positive smaller end radii, right circular frusta, and affine height changes; not arbitrary oblique frusta.",
+    "Numerical checks do not replace the d-uniform John-contact argument.",
+    "This is best-of-knowledge historical originality, not a certification of absolute priority."
+  ],
+  "residual_risks": [
+    "The direct 2007 source covers the same bodies but has not ruled out later unindexed inscribed-ellipsoid papers.",
+    "The published half-cone item was assessed only by title and summary, not full mathematical proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers the enclosing ellipsoid and expressly declines the inscribed calculation for the same body",
+      "evidence": [
+        "§8 Theorem 8.1 CE(Q_{α,β}), not IE; introduction explicitly describes omission of IE."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/0709.0707",
+      "material_read": "Accessible complete HTML transcription: introduction discussing Section 8, full Section 8 including Theorem 8.1 and proof, and optimality terminology",
+      "method": "Read complete article transcription and checked the primal/dual ellipsoid labels",
+      "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+      "trigger": "Identical truncated second-order-cone geometry in title and Section 8"
+    },
+    {
+      "assessment": "Foundational optimum criterion, no circular-frustum classification",
+      "evidence": [
+        "General isotropic contact criterion and uniqueness."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1207.7246",
+      "material_read": "Abstract and bibliographic statement of general John criterion, not full article",
+      "method": "Read arXiv abstract and theorem overview",
+      "title": "An arithmetic proof of John's ellipsoid theorem",
+      "trigger": "General contact certificate used as the crucial proof mechanism"
+    },
+    {
+      "assessment": "Different retained half-cone object; cannot assert full text not covering",
+      "evidence": [
+        "Published summary restricts itself to Khachiyan sharpness half-cone."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-john-ellipsoid-of-the-khachiyan-half-cone--12746f7a27eb",
+      "material_read": "Published title and summary only, not full mathematical package",
+      "method": "Resultary semantic search",
+      "title": "Exact John ellipsoid of the Khachiyan half-cone",
+      "trigger": "Published related inner ellipsoid on conical family"
+    }
+  ]
+}
