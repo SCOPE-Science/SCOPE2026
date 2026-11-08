@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For independent Brownian explorations of exponential duration and strictly positive iid frozen periods with finite fourth moment, the cycle endpoint recursion is contractive. The complete cycle's integrated reward has an exact martingale–coboundary decomposition. The stationary martingale second moment is calculated from independent Brownian/exponential moments; cycle-time renewal limit and fourth-moment boundary estimates give the physical-time central limit theorem and variance rate. A separate exponential-pause Markov-Poisson calculation gives the same expression, and a physical-time path-integral simulation independently checks it. The theorem is not extrapolated from finite experiments.
+## correctness
 
-**Originality — PASS, with residual publication-priority risk.** The identical model and its stationary one-time positional law are established in Olsen and Löwen, arXiv:2406.10039v1, equations (30)–(33) and (46)–(49), and are explicitly credited. Their time-dependent one-time distributions do not directly determine covariance of an integrated trajectory. The new observation functional, strict linear dependence on the refractory **variance**, attainable half-line of rates, and inverse clock-variance identification were checked against the primary text, relevant partial-reset and complete-reset/refractory literature, and comparable mathematical records; no explicit covering theorem was found. Broader unpublished or implicit Markov-renewal work could potentially subsume the derivation; semantic database nonmatches are not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** An experimentally natural distinction emerges: all fixed-mean refractory clocks look identical in stationary position snapshots, yet their low-frequency position fluctuations differ by an exact, directly invertible positive multiple of clock variance. This solves a nontrivial temporal identification and clock-design problem, with a unique deterministic optimum and no finite maximum. The result is structural, not a parameter-tuned exercise.
+Read complete frozen RESULT.md (blob 0e30e90...). Reconstructed cycle Y_(i+1)=a(Y_i+B_i), stationary V=2Da²/[r(1-a²)], exact cycle reward (E+aR)Y+J+aRB, and martingale correction M=I+c(Y_(i+1)-Y_i)/(1-a), c=1/r+ah. The conditional mean vanishes; E[J²]=4D/r³ and E[JB]=2D/r². Dividing the resulting E[M²] by E[C]=1/r+h reproduces the asserted affine v coefficient, its positive sign, and the deterministic/exponential benchmark (31/3,32/3) at a=1/2,D=r=h=1. Finite fourth moment controls physical-time renewal stopping/terminal reward; the stationary martingale CLT proves the normal limit rather than simulations.
 
-**Closest literature and scope.** Olsen–Löwen (2024) provides the one-time model solution; Di Bello et al. (2023) treat partial resets without pauses; García-Valladares et al. (2023) treat complete resets with pauses and first passage. The 2023 García-Valladares source was accessible only in part as web text; its stated complete-reset model does not establish the strict positive partial-reset variance term. Olsen–Löwen (arXiv:2401.12685) treat a distinct reset mechanism (hidden velocity resets, observed position unchanged), whose effective diffusion is a different observable. General Markov-additive limit theory may cover the abstract martingale CLT, but the exact coefficient and identifiability comparison have not been found in the examined sources. The theorem uses finite fourth moments, independent clocks, and immobile pauses; it does not recover the entire refractory law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact path-integral variance and variance-to-clock inversion against same-model stationary propagators: Olsen–Löwen derives snapshot distribution, not this integrated fluctuation observable. Complete-reset and velocity-reset settings change relevant reset dynamics. General martingale/renewal-reward CLTs supply methods but not the specific explicit coefficient.
+
+## value
+
+PASS
+
+Refractory durations are experimentally invisible to stationary snapshot shape beyond their mean but their variance is identified exactly by a natural integrated-path observable; the sharp deterministic optimizer and attainable half-line give a substantive inverse problem in partial resetting rather than routine algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

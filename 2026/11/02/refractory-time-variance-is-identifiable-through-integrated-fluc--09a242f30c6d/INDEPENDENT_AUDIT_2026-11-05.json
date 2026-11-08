@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T02:59:29.220476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read complete frozen RESULT.md (blob 0e30e90...). Reconstructed cycle Y_(i+1)=a(Y_i+B_i), stationary V=2Da²/[r(1-a²)], exact cycle reward (E+aR)Y+J+aRB, and martingale correction M=I+c(Y_(i+1)-Y_i)/(1-a), c=1/r+ah. The conditional mean vanishes; E[J²]=4D/r³ and E[JB]=2D/r². Dividing the resulting E[M²] by E[C]=1/r+h reproduces the asserted affine v coefficient, its positive sign, and the deterministic/exponential benchmark (31/3,32/3) at a=1/2,D=r=h=1. Finite fourth moment controls physical-time renewal stopping/terminal reward; the stationary martingale CLT proves the normal limit rather than simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original paper provides exactly the same frozen-partial-reset model and stationary marginals, not a path-integral variance formula.",
+          "Complete resetting with refractory intervals has a=0, where clock-variance coefficient vanishes."
+        ],
+        "reasoning": "Broad renewal-reward CLT abstractly implies existence under conditions but not the explicit variance/inversion theorem without the cycle-reward covariance reconstruction.",
+        "searches": [
+          "arXiv:2406.10039v1",
+          "arXiv:2310.19913",
+          "general renewal-reward martingale additive functionals"
+        ]
+      },
+      "checked_sources": [
+        "Olsen–Löwen arXiv:2406.10039v1 full PDF, eqs (30)–(33)",
+        "Di Bello et al arXiv:2305.13722 abstracts/description",
+        "García-Valladares et al arXiv:2310.19913 abstracts/description",
+        "Resultary semantic search query partially reset Brownian motion frozen refractory periods integrated position variance clock variance stationary time correlations partial resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary one-time laws at fixed h are insensitive to v; they therefore cannot determine ∫X_t dt variance.",
+          "At a=0 the v-derivative is identically zero; strict positivity requires 0<a<1."
+        ],
+        "reasoning": "The claimed strict clock identifiability is not a corollary of prior snapshot invariance and is false at the boundary model a=0.",
+        "searches": [
+          "arXiv:2406.10039v1 eqs. (30)-(33)",
+          "arXiv:2310.19913",
+          "arXiv:2401.12685"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen–Löwen stationary subpopulation transforms depend on mean refractory time; its observed object is one-time position, not ∫X_t dt.",
+          "Velocity-reset model resets a hidden speed and not this position coordinate."
+        ],
+        "reasoning": "Partial-position versus velocity resetting and one-time versus integrated observables are not equivalent formulations; in this model the integrated variance can distinguish equal-mean clocks.",
+        "searches": [
+          "Resultary semantic: partially reset Brownian motion frozen refractory periods integrated position variance clock variance stationary time correlations partial resetting",
+          "arXiv:2406.10039v1, stationary Eqs. (30)-(33)",
+          "arXiv:2401.12685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact integrated-position coefficient or fixed-mean clock-variance optimizer found in the searched indexed records or inspected original paper."
+        ],
+        "reasoning": "Not an exact integer/table database problem; checked same-model published formulae for potential algebraic tabulation, and absence from search is not proof of novelty.",
+        "searches": [
+          "Resultary semantic: partially reset Brownian motion frozen refractory periods integrated position variance clock variance stationary time correlations partial resetting",
+          "arXiv:2406.10039v1 stationary plots and formulae"
+        ]
+      },
+      "rationale": "Compared exact path-integral variance and variance-to-clock inversion against same-model stationary propagators: Olsen–Löwen derives snapshot distribution, not this integrated fluctuation observable. Complete-reset and velocity-reset settings change relevant reset dynamics. General martingale/renewal-reward CLTs supply methods but not the specific explicit coefficient.",
+      "residual_risks": [
+        "Unindexed or general Markov-additive temporal-correlation theorem might subsume coefficient after a nontrivial specialization.",
+        "Finite numerical simulations alone are not a proof of physical-time CLT; analytic terminal-cycle argument used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stationary one-time spatial law and mean clock, not supplied long-time integrated-position variance",
+          "evidence": [
+            "arXiv:2406.10039v1 equations (30)-(33)",
+            "web PDF turn808533view0; screenshot page 8 turn815255view2"
+          ],
+          "identifier_or_url": "arXiv:2406.10039v1",
+          "material_read": "Full lawful PDF, with stationary subpopulation characteristic function equations (30)–(33), discussion and conclusion; page image inspected",
+          "method": "Authorized web PDF text and page screenshot",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "Exact same Brownian partial-reset and frozen refractory model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Refractory durations are experimentally invisible to stationary snapshot shape beyond their mean but their variance is identified exactly by a natural integrated-path observable; the sharp deterministic optimizer and attainable half-line give a substantive inverse problem in partial resetting rather than routine algebra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Olsen–Löwen arXiv:2406.10039v1 full PDF, eqs (30)–(33)",
+    "Di Bello et al arXiv:2305.13722 abstracts/description",
+    "García-Valladares et al arXiv:2310.19913 abstracts/description",
+    "Resultary semantic search query partially reset Brownian motion frozen refractory periods integrated position variance clock variance stationary time correlations partial resetting"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed or general Markov-additive temporal-correlation theorem might subsume coefficient after a nontrivial specialization.",
+    "Finite numerical simulations alone are not a proof of physical-time CLT; analytic terminal-cycle argument used."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "0<a<1; exponential iid exploration, iid strictly positive frozen refractory clock finite 4th moment; only clock variance identified, not entire law."
+  ]
+}

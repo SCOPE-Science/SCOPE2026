@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limitations
+# Independent mathematical audit
 
-The bundled `verify.py` is standalone source, reproducible using Python 3 with NumPy and SymPy; Numba enables additional direct physical-time Monte Carlo checks. Its symbolic stage computes the stationary embedded-chain variance and the full martingale second moment, simplifies the analytic expression to the stated closed form, verifies the strictly positive coefficient of refractory-time variance and the complete-reset boundary, and independently compares an exponential-refractory two-state Markov-Poisson calculation.
+## correctness
 
-Nine sampled cycle-martingale comparisons use three parameter sets crossed with deterministic, exponential, and two-point refractory clocks (650,000 samples per comparison); all relative errors were below \(0.7\%\). An independent path-integral simulator computes the actual \(\int_0^T X_t\,dt\) over a finite time horizon of \(T=4000\) with incomplete final cycles included, across 2,400 replicas per refractory clock type; its variance-rate estimates differed from predictions by \(1.21\%\), \(1.04\%\), and \(0.56\%\), respectively.
+PASS
 
-Run `python verify.py` in an environment supporting the documented Python dependencies. The exact theorem is proved analytically by a stationary cycle-martingale decomposition, ergodic renewal-time change and finite-moment boundary estimates; sampling checks do **not** prove its infinite-time or all-distributions statement. The paper's original exact stationary one-time law is credited as prior work. No independent scientific audit or independent validation has been performed.
+Read complete frozen RESULT.md (blob 0e30e90...). Reconstructed cycle Y_(i+1)=a(Y_i+B_i), stationary V=2Da²/[r(1-a²)], exact cycle reward (E+aR)Y+J+aRB, and martingale correction M=I+c(Y_(i+1)-Y_i)/(1-a), c=1/r+ah. The conditional mean vanishes; E[J²]=4D/r³ and E[JB]=2D/r². Dividing the resulting E[M²] by E[C]=1/r+h reproduces the asserted affine v coefficient, its positive sign, and the deterministic/exponential benchmark (31/3,32/3) at a=1/2,D=r=h=1. Finite fourth moment controls physical-time renewal stopping/terminal reward; the stationary martingale CLT proves the normal limit rather than simulations.
+
+## originality
+
+PASS
+
+Compared exact path-integral variance and variance-to-clock inversion against same-model stationary propagators: Olsen–Löwen derives snapshot distribution, not this integrated fluctuation observable. Complete-reset and velocity-reset settings change relevant reset dynamics. General martingale/renewal-reward CLTs supply methods but not the specific explicit coefficient.
+
+## value
+
+PASS
+
+Refractory durations are experimentally invisible to stationary snapshot shape beyond their mean but their variance is identified exactly by a natural integrated-path observable; the sharp deterministic optimizer and attainable half-line give a substantive inverse problem in partial resetting rather than routine algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
