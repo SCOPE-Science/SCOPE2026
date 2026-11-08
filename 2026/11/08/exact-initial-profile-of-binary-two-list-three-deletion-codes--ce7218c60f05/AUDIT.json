@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each n=3,...,10 the independent check.py reconstructs the complete 2^n-by-2^(n-3) distinct-subsequence incidence, checks all witness codewords against every output (list count at most 2), and evaluates every rational dual inequality. With weights w_y>=0 and s_x=max(0,1-sum_{y subseq x} w_y), the inequality |C|<=2 sum_y w_y + sum_x s_x follows for all feasible codes. The eight exact upper bounds 2,3,4,4,4,22/3,659/60,2693/180 have integer floors equal to the eight supplied feasible sizes 2,3,4,4,4,7,10,14. This is an exhaustive finite proof in the specified range, not a claim based on floating-point solver success.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650 (2026-09-22), full eight-page text pp.1–8; Theorem 1.1 and Definition 2.1.",
+        "Guruswami and Håstad, Explicit Two-Deletion Codes with Redundancy Matching the Existential Bound, arXiv:2007.10592, 2020 (abstract).",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d, two-word common-subsequence multiplicity rather than the t=2 list-code packing problem."
+      ],
+      "reasoning": "Asymptotic existence and upper bounds do not determine fixed length optimal values. The 2021 construction handles k=2, not k=3. The reconstruction-ambiguity maximum governs pairs and common received strings, not the largest subset with no output in three codewords. No inspected result has stronger coverage sufficient to imply the eight optima.",
+      "searches": [
+        "Web: Lower Bounds for all List-Decodable Deletion Codes Lin 2609.26650",
+        "Web: Guruswami Hastad explicit two deletion codes list decodable two deletions 2021 pdf",
+        "published-finding corpus: high deletion k=n-2 binary list decoding exact optimal size for all n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.26650",
+      "https://arxiv.org/abs/2007.10592",
+      "https://arxiv.org/abs/2209.11882",
+      "2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+      "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650 (2026-09-22), full eight-page text pp.1–8; Theorem 1.1 and Definition 2.1.",
+        "Guruswami and Håstad, Explicit Two-Deletion Codes with Redundancy Matching the Existential Bound, arXiv:2007.10592, 2020 (abstract).",
+        "Published exact k=2,t=2 n=6 code maximum=7; new theorem gives k=3,t=2 n=6 maximum=4.",
+        "Published N(n,3,3) reconstruction ambiguity values measure a maximum pairwise intersection, not a packing optimum."
+      ],
+      "reasoning": "The new statement fixes deletion count three and list size two and gives eight precise finite maxima. Neither a global asymptotic lower bound, k=2 finite optimum, nor a pairwise ambiguity maximum supplies both code constructions and exclusion of larger 3-deletion/two-list codes at each length. The exact rational dual certificates supply the missing upper implications.",
+      "searches": [
+        "published-finding corpus: two-list 3-deletion binary code n=7 n=8 exact size",
+        "published-finding corpus: exact maximum binary length 10 list size two 3-deletion code 14",
+        "Web: lower bounds all list-decodable deletion codes 2026 Andrew Lin exact finite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin, Lower Bounds for all List-Decodable Deletion Codes, arXiv:2609.26650 (2026-09-22), full eight-page text pp.1–8; Theorem 1.1 and Definition 2.1.",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814, a k=2,t=2 statement at n=6."
+      ],
+      "reasoning": "The equivalent formulation is the maximum cardinality of an independent set in the (k=3,t=2)-deletion 3-uniform hypergraph on binary n-words. Lin defines this hypergraph but supplies asymptotic lower bounds, not the finite exact values. A k=2 two-list optimum is not equivalent: the output length differs, and although k=3 imposes stronger constraints, the k=2 bound alone cannot yield the stated matching bounds.",
+      "searches": [
+        "published-finding corpus: list decodable binary three deletion code maximum finite n L=2 exact",
+        "published-finding corpus: finite binary 3 deletions 2 list sizes 4 5 6 7 8 9 10 profile 3 4 4 4 7 10 14",
+        "Web: \"three-deletion\" \"two-list\" \"length\" exact finite code 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The eight-page Lin preprint contains theorems on general asymptotic bounds and supersequence counts, not finite tables for k=3,t=2.",
+        "Closest indexed exact finite list code: 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814, k=2 only."
+      ],
+      "reasoning": "No inspected source presented an exact table for n=3 to10 with k=3,t=2 or matching witness and rational duals. Search failure does not prove worldwide novelty; an unindexed finite computation is a residual risk.",
+      "searches": [
+        "published-finding corpus: exact maximum binary length 10 list size two 3-deletion code 14",
+        "published-finding corpus: optimal list-decodable deletion codes length 10 three deletions 14 exact upper certificate",
+        "Web: \"list-decodable deletion codes\" \"finite length\" \"table\" binary",
+        "Web: \"k-deletion\" \"t-list\" exact small n optimum"
+      ]
+    },
+    "rationale": "Complete text of the directly relevant 2026 Lin paper was inspected: the general list-deletion hypergraph definition and asymptotic existence arguments do not give any of these exact finite k=3,t=2 optima. The earlier two-deletion list-decoding construction and the closest indexed exact two-deletion/two-list and three-deletion reconstruction results concern non-equivalent predicates and do not imply the new profile. Direct published literature, published-finding corpus and accessible historical records were searched by statements and numerical parameters. Historical priority remains non-final because unindexed finite tables are possible.",
+    "residual_risks": [
+      "Other unindexed finite code tables for these exact parameters might predate this result.",
+      "The complete primary full text of the 2020/2021 two-deletion precursor was not inspected, but its k=2 scope is different.",
+      "The result is finite and does not imply any asymptotic lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same list-deletion constraint and gives asymptotic general bounds, but does not state this small-length exact profile",
+        "evidence": [
+          "Definition 2.1 p.3",
+          "Theorem 1.1 pp.2–3",
+          "Proof of Theorem 1.1 pp.5–6",
+          "References pp.7–8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+        "material_read": "Complete eight-page manuscript: abstract, introduction, Definitions 2.1–2.3, Theorems 1.1 and 1.4, proofs and references",
+        "method": "Full-text scholarly reading (eight-page extracted author preprint)",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Same list-deletion model, general theorem potentially encompassing the finite parameters"
+      },
+      {
+        "assessment": "Addresses two-deletion codes, including two-list decoding, asymptotically; not a source for fixed three-deletion integer optima",
+        "evidence": [
+          "Abstract states two-deletion list size two lower construction Ω(2^n/n^(3+o(1)))"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.10592",
+        "material_read": "Published abstract and bibliographic record; full primary text not inspected",
+        "method": "Public abstract and publication metadata review",
+        "title": "Explicit Two-Deletion Codes with Redundancy Matching the Existential Bound",
+        "trigger": "Relevant predecessor for list size two"
+      },
+      {
+        "assessment": "k=2 differs from k=3; cannot imply the new exact profile",
+        "evidence": [
+          "Reports size seven at n=6 for two deletions and list size two"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "material_read": "Published title and result summary; full package not inspected",
+        "method": "Claim-level statement implication comparison",
+        "title": "Exact length-six binary two-list two-deletion code size",
+        "trigger": "Closest indexed exact finite two-list code"
+      },
+      {
+        "assessment": "Pairwise common-output multiplicity is not a code-size maximum with output list bound two",
+        "evidence": [
+          "Reports maximal pairwise ambiguity at k=3, not k=3,t=2 packing maxima"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+        "material_read": "Published title and result summary; full package not inspected",
+        "method": "Parameter-and-quantifier implication comparison",
+        "title": "Exact preasymptotic profile for N(n,n-3,3) in binary deletion reconstruction",
+        "trigger": "Same deletion count, different multiple-read combinatorial objective"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce7218c6-0f05-47d6-878e-78c7babd9e1a",
+  "value": {
+    "rationale": "The first eight lengths in the new k=3,t=2 deletion-hypergraph packing problem form a natural finite benchmark for a model recently studied asymptotically. The exact plateau at size four through n=7 and first jump to seven at n=8 cannot be read off from asymptotic existence bounds; rational dual witnesses make the results checkable independent of optimization software. This is a mathematically motivated exact short-blocklength profile with matching nontrivial certificates, not merely a generic formula substitution or unverified solver table.",
+    "status": "PASS"
+  }
+}
