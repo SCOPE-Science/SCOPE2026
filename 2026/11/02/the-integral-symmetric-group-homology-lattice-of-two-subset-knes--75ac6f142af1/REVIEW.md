@@ -1,19 +1,21 @@
-# Review: symmetric-group homology of two-subset Kneser independence complexes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof classifies all maximal faces as star simplices and exceptional triangles. It uses the natural two-term Mayer–Vietoris complex of the star cover to identify the integral first-homology lattice of that subcomplex, then computes the *actual equivariant attaching map* of each exceptional triangle. The resulting map is exterior contraction by the augmentation, which is integrally surjective and has kernel exactly the third exterior power of the augmentation lattice. Its short exact sequences justify the rational group-quotient formulas. All 120, 720 and 5040 permutations for label sizes five, six and seven were checked independently against signed Lefschetz traces; finite computations are secondary verification, not the infinite proof.
+PASS
 
-## Originality — PASS against inspected literature
+For m>=5, maximal faces of pairwise-intersecting two-subsets are the m star simplices and exceptional triangles. The star union has H1 integrally the cycle lattice of K_m, identified equivariantly with wedge^2 ker(epsilon:Z^m->Z); every exceptional oriented triangle attaches by contraction delta:wedge^3 Z^m -> wedge^2 U. Splitting by a vector of augmentation 1 shows delta surjective, ker delta=wedge^3 U integrally and naturally, without using a non-equivariant contraction. Exterior-character determinant gives [t^3] prod(1-(-t)^lambda)/(1+t). Finite invariants are exact over Q so rational quotient H2 is C_m-averaged character; independently computed cyclic dimensions for all 5<=m<=29. Entire source verifier calculates mod2 homology and signed permutation traces up through m8; finite cases only corroborate the unrestricted topological proof.
 
-Barmak's Theorem 4.11 (arXiv:1007.0418) contains the nonequivariant sphere-wedge classification but chooses a distinguished label and does not state the integral \(S_m\)-module or cyclic quotient formula. Feng–Nukala (arXiv:2302.14664) give the full constant-weight scale-two homotopy result, but do not determine the action of coordinate permutations; Feng–Wang (arXiv:2404.10566) study larger Kneser subset sizes rather than these symmetry representations. The 2018 Kneser *neighborhood* complex theorem concerns a different simplicial construction. The later 2026 paper on Kneser triples was inspected for possible stronger coverage; its results are rational Betti numbers for triples, not this two-subset integral module. Relevant indexed work on stable Kneser graphs and on Kneser neighborhood complexes also has different objects. No inspected full-text result or indexed claim covers the precise integral representation or the quotient computation. A nonindexed equivalent statement remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a natural integral representation-theoretic refinement for an entire classical Kneser/Rips family and an explicit contrast between full symmetric and cyclic quotient topology. The hook module is not recoverable from the known Betti number: many inequivalent symmetric-group modules have that dimension, while integral lattices contain still finer information. The cyclic orbit formula demonstrates a concrete topological consequence and gives nonzero quotient classes already at six labels. The result does not claim the old homotopy type as new or equate finite tests with an unrestricted proof.
+Barmak Theorem4.11 already gives nonequivariant wedge of C(m-1,3) S^2; Feng–Nukala likewise study Vietoris–Rips scale2 of two-subsets. The symmetric-group integral lattice, character and resulting cyclic quotient dimensions are not determined by the mere nonequivariant Betti count or a star-collapse based on one preferred label. Published equivariant Kneser results from search concerned the distinct neighborhood-complex functor.
 
-## Scientific limits
+## value
 
-This does not determine an equivariant homotopy type or the integral homology of singular quotients. The orientation and relative attaching calculation is the critical step; the accompanying checker validates its character-level consequences only at finite sizes. Relevant historic literature is cited as prior art and not independently re-reviewed. The risk of equivalent unindexed literature is not eliminated by any finite search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Upgrades a familiar nonequivariant homotopy count to a canonical integral permutation representation for an infinite natural Kneser family and explicit group-quotient invariants; useful distinction of symmetry structure invisible to Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

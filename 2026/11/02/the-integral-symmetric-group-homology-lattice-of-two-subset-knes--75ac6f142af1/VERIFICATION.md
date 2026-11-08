@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone Python standard-library program `kg2_symmetry_check.py` constructs all simplices directly as subsets of common-label stars and exceptional three-edge triangles. For every \(m\) from five through eight it forms all simplicial boundary columns and computes exact ranks over \(\mathbb F_2\) using binary elimination. The output gives face counts \(75,191,455,1044\), and reduced Betti ranks \(4,10,20,35\), each in degree two only.
+## correctness
 
-It calculates the reduced signed Lefschetz number on the actual simplicial chain complex for every permutation in \(S_5\), \(S_6\), and \(S_7\), respectively \(120\), \(720\), and \(5040\) group elements. Every calculated trace agrees with the degree-three exterior-power coefficient computed from cycle lengths. The eight-label case checks all eight rotations, along with the full mod-two simplicial complex. Averaging rotation traces returns quotient second Betti ranks \(0,2,2,4\) for \(m=5,6,7,8\).
+PASS
 
-Execution: `python3 kg2_symmetry_check.py`. The observed final marker was `KG2_FULL_CHAIN_AND_CHARACTER_CHECKS_OK`.
+For m>=5, maximal faces of pairwise-intersecting two-subsets are the m star simplices and exceptional triangles. The star union has H1 integrally the cycle lattice of K_m, identified equivariantly with wedge^2 ker(epsilon:Z^m->Z); every exceptional oriented triangle attaches by contraction delta:wedge^3 Z^m -> wedge^2 U. Splitting by a vector of augmentation 1 shows delta surjective, ker delta=wedge^3 U integrally and naturally, without using a non-equivariant contraction. Exterior-character determinant gives [t^3] prod(1-(-t)^lambda)/(1+t). Finite invariants are exact over Q so rational quotient H2 is C_m-averaged character; independently computed cyclic dimensions for all 5<=m<=29. Entire source verifier calculates mod2 homology and signed permutation traces up through m8; finite cases only corroborate the unrestricted topological proof.
 
-The calculation is finite, and the mod-two ranks alone do not establish integral torsion-freeness or prove claims for every label size. Those stronger conclusions follow from the separate integral relative-homology and exterior-contraction proof in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+Barmak Theorem4.11 already gives nonequivariant wedge of C(m-1,3) S^2; Feng–Nukala likewise study Vietoris–Rips scale2 of two-subsets. The symmetric-group integral lattice, character and resulting cyclic quotient dimensions are not determined by the mere nonequivariant Betti count or a star-collapse based on one preferred label. Published equivariant Kneser results from search concerned the distinct neighborhood-complex functor.
+
+## value
+
+PASS
+
+Upgrades a familiar nonequivariant homotopy count to a canonical integral permutation representation for an infinite natural Kneser family and explicit group-quotient invariants; useful distinction of symmetry structure invisible to Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
