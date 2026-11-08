@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:52:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Angular generator L=d∂θ²+ω∂θ+r(f(0)−f) has invariant moments m_k=r/(r+k²d−ikω); first-harmonic conditional relaxation at rate r+d, rotation ω yields the integrable velocity covariance e^{−(r+d)t}R(ωt)S. Symmetric Green–Kubo with 1/(2t) covariance normalization gives Z=v²(m₂−m₁²)/(r+d−iω). Independent SymPy expansion exactly reproduces the stated rational numerator, denominator and two partial derivatives −16v²/(243d²), −16iv²/(243d²) at r=d/2,ω=0. The imaginary numerator −2dω forces ω=0; the remaining d²−2dr forces r=d/2. Ambient D I is isotropic. Local O(h²+ω²) remainder uses analytic denominator. All positive r,d,v, real ω and D≥0 are covered; zero/reset-limit claims are not made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen/Löwen full HTML studies relative-angle tumbling and rotation-covariant transport, not resetting each heading to absolute laboratory zero",
+          "Chaki et al. is passive shaped-particle anisotropic mobility; Ghosh/Mandal is shaped active but not the specified intrinsic angular drift"
+        ],
+        "reasoning": "A relative reorientation leaves no unique laboratory direction and its scalar transport cannot imply the full anisotropic laboratory tensor; shape anisotropy has different mechanism. No stronger theorem with same fixed heading + chiral drift is established by inspected materials.",
+        "searches": [
+          "Optimal diffusion of chiral active particles with strategic reorientations arXiv:2405.14326",
+          "Anisotropic Brownian particles under resetting arXiv:2406.17550",
+          "Anisotropic active Brownian particle under stochastic resetting arXiv:2501.05149"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and checker.py at source snapshot",
+        "https://arxiv.org/html/2405.06769v1",
+        "https://arxiv.org/html/2405.14326v1",
+        "https://arxiv.org/abs/2406.17550",
+        "https://arxiv.org/abs/2501.05149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform absolute-heading reset introduces fixed frame; adding angular drift to relative-tumble theory changes the Markov generator and stationary first two harmonics"
+        ],
+        "reasoning": "The nonzero-ω condition cannot be deduced from the published ω=0 formula without new generator/Green–Kubo computation, and the relative-reset model cannot be used as an equivalent formulation.",
+        "searches": [
+          "arXiv:2405.06769 sections on spreading",
+          "arXiv:2405.14326 theory sections relative tumbles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baouche et al. full arXiv HTML derives orientational-only resetting, with ω=0 achiral longitudinal/transverse coefficients and their crossing"
+        ],
+        "reasoning": "The known ω=0 crossing is a boundary already established by earlier work; the theorem’s nonzero-drift complex traceless tensor and avoided crossing are not another notation for that boundary.",
+        "searches": [
+          "Active Brownian particle under stochastic orientational resetting arXiv:2405.06769",
+          "Resultary semantic: active Brownian particle with chiral angular drift fixed orientation resetting long-time diffusion tensor isotropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Achiral diffusivity equality at r=d/2 is a prior exact special case; independent source-code algebra reproduces the chiral extension"
+        ],
+        "reasoning": "The claim is an all-real-parameter rational tensor formula rather than a small finite table. A list of achiral diffusion values does not determine the ω-dependent complex cross-covariance.",
+        "searches": [
+          "arXiv:2405.06769 effective D∥ and D⊥ formulas",
+          "Resultary and SCOPE related transport semantic queries"
+        ]
+      },
+      "rationale": "Statement/implication comparisons against published Resultary and primary literature, with genuine full-text material where accessible: no decisive earlier theorem implying the full assigned final claim was found. The exact overlapping special cases are credited; the listed inaccessible sources remain substantive priority risks, not automatic failures.",
+      "residual_risks": [
+        "A general resetting-kernel Fourier-harmonic formula might implicitly specialize to this tensor, although no explicit implication was identified.",
+        "Anisotropic-particle sources beyond inspected sections are not asserted to be entirely noncovering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS achiral ω=0 only; no intrinsic-drift nonzero ω avoided-crossing theorem",
+          "evidence": "Source exact orientation reset model lacks angular drift and has separate axes coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2405.06769v1",
+          "material_read": "Full arXiv HTML paper, model definition and longitudinal/transverse effective-spreading results in Section III",
+          "method": "lawful arXiv primary full HTML read",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Exact stationary orientation reset reference"
+        },
+        {
+          "assessment": "DIFFERENT MODEL: relative-angle tumbles rather than absolute fixed-heading resetting",
+          "evidence": "Rotational covariance and scalar-diffusion quantities do not imply the anisotropic tensor of the fixed-heading model.",
+          "identifier_or_url": "https://arxiv.org/html/2405.14326v1",
+          "material_read": "Full original arXiv HTML model equations, relative-angle tumble rule and transport results",
+          "method": "lawful arXiv primary full HTML read",
+          "title": "Optimal diffusion of chiral active particles with strategic reorientations",
+          "trigger": "Closest chiral transport reference"
+        },
+        {
+          "assessment": "Potentially related model; cannot assert full-document noncoverage",
+          "evidence": "Source describes shape-anisotropic active motion and orientation resetting without the same angular drift.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.05149",
+          "material_read": "Abstract and source summary; complete text not verified in this audit",
+          "method": "public abstract/source comparison",
+          "title": "Anisotropic active Brownian particle in two dimensions under stochastic resetting",
+          "trigger": "Potential dominating anisotropic-swimmer literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The achiral effective diffusivities coincide at an exact r/d ratio, but a nonzero chiral drift changes this from a simple shift of the crossing to strict avoided degeneracy, with an explicit near-critical eigenvalue splitting and principal-axis rotation. This exact anisotropy criterion is a physically natural spectral observable for orientational-reset transport.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and checker.py at source snapshot",
+    "https://arxiv.org/html/2405.06769v1",
+    "https://arxiv.org/html/2405.14326v1",
+    "https://arxiv.org/abs/2406.17550",
+    "https://arxiv.org/abs/2501.05149"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A general resetting-kernel Fourier-harmonic formula might implicitly specialize to this tensor, although no explicit implication was identified.",
+    "Anisotropic-particle sources beyond inspected sections are not asserted to be entirely noncovering."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Requires d,r,v>0 and fixed absolute reset heading; no claim at r=0 or over arbitrary reset distributions.",
+    "The near-critical splitting is local, not a statement of globally optimized reset rate."
+  ]
+}
