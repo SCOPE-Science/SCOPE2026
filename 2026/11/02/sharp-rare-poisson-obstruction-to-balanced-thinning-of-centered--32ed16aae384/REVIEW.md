@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** Directly verified the independent Bernoulli thinning model, joint Poisson/selector limits, finite second-moment uniform integrability, exact Poisson absolute-deviation mass identity, continuity across its moving modes, interval-wise log convexity, Robbins factorial bounds, separate even/odd integer reductions, and the global uniqueness at intensity \(\lambda=1\). The exact-rational and independent numerical tests passed 2,210 assertions, but the infinite parameter and sample-size results rely on the full proof rather than the tests. No all-laws sharp constant is asserted.
+## correctness
 
-**Originality (PASS, qualified).** The motivating primary paper's Theorem 2.3 gives a non-sharp universal \(40\sqrt q\) upper bound; its Sections 11 and 13 do not state this exact rare-Poisson optimized lower-bound obstruction. The mean absolute deviation identity and Robbins bounds themselves are standard, so they are not claimed. Targeted mathematical-record and web queries found no matching optimized expression or a prior stronger statement directly implying this family-specific theorem. A comprehensive historical review of sharp thinning constants was not possible, so independent priority verification remains necessary.
+PASS
 
-**Value (PASS).** The thinning exponent is important for convex-order homogenization arguments. This computes an exact extreme ratio for the natural Poisson small-jump regime and forces a numerical lower bound \(\sqrt{e/2}\) on the universal constant, separating rare-spike amplification from the high-intensity Gaussian ratio \(1/\sqrt2\). The uniquely optimal unit-intensity regime is a meaningful boundary, not an arbitrary parameter slice. The result deliberately does not solve the unrestricted sharp-constant problem.
+For ξ_i∼Bern(λ/n), B_i∼Bern(1/2), the unthinned centered row converges to Pois(λ)−λ and the selected row to Pois(λ/2)−λ/2, with uniform integrability from bounded second moments. Telescoping yields E|Pois(t)−t|=2t P(Pois(t)=floor t). On each integer interval d² log R/dλ²=(floor λ−floor(λ/2))/λ²≥0, hence maxima at integers. Robbins Stirling inequalities strictly bound all even integers and odd ≥5 below R(1)=√e/2; λ=3 is checked explicitly. Thus λ=1 uniquely maximizes over all λ>0; λ→0 gives 1/2 and λ→∞ gives 1/√2. For universal C√q centered thinning, the example enforces C≥√(e/2), with no assertion of attaining the universal constant. Independently tested 4800 Poisson ratios/interval samples.
 
-**Closest literature and limits.** Kontorovich (2026), Theorem 2.3 and its full proof, is the direct broader theorem; Robbins (1955) supplies a classical factorial estimate; standard Poisson theory supplies the absolute-deviation formula. No full proof of historical uniqueness is asserted, and the result does not extend here to unequal selector probabilities, heterogeneous coordinates, or other convex losses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Poisson mean absolute deviation and Robbins bounds are classical; the sharp optimization of the ratio of two centered Poisson deviations at half intensity, uniqueness at λ=1, and the resulting necessary C≥√(e/2) are not asserted by the inspected 40√q universal theorem. Published broad theorem is credited, not contradicted.
+
+## value
+
+PASS
+
+Supremum √e/2 uniquely at intensity one is a sharp, motivated extremal barrier to improving any universal C√q inequality, already informative without determining the unrestricted optimal constant. Sparse rare-event and Gaussian limits give contrasting regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

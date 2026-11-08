@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 0e8844406af54c91827029f7de744aa5ae826fd7, Steps 1–5",
+        "verification/poisson_thinning_verify.py nested tree blob 0b0d6d12e3c9bbcf8cf559635a2142adec073a9d",
+        "independent_checks.py: poisson_samples=4800, corroboration only",
+        "Kontorovich arXiv:2610.31164 section 11 for parent inequality"
+      ],
+      "rationale": "For ξ_i∼Bern(λ/n), B_i∼Bern(1/2), the unthinned centered row converges to Pois(λ)−λ and the selected row to Pois(λ/2)−λ/2, with uniform integrability from bounded second moments. Telescoping yields E|Pois(t)−t|=2t P(Pois(t)=floor t). On each integer interval d² log R/dλ²=(floor λ−floor(λ/2))/λ²≥0, hence maxima at integers. Robbins Stirling inequalities strictly bound all even integers and odd ≥5 below R(1)=√e/2; λ=3 is checked explicitly. Thus λ=1 uniquely maximizes over all λ>0; λ→0 gives 1/2 and λ→∞ gives 1/√2. For universal C√q centered thinning, the example enforces C≥√(e/2), with no assertion of attaining the universal constant. Independently tested 4800 Poisson ratios/interval samples.",
+      "residual_risks": [
+        "No uniform-in-λ finite-n convergence claimed; restriction q=1/2 and iid sparse bounded centered examples is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kontorovich proves general convex/thinning upper coefficient 40√q, but does not compute a best necessary constant from this family.",
+          "The class of independent centered summands is strictly broader than the chosen sparse iid family; a broad upper bound cannot imply the exact sharp lower obstruction."
+        ],
+        "reasoning": "The inspected broader theorem gives context, not domination of the exact λ optimization.",
+        "searches": [
+          "Kontorovich arXiv:2610.31164 theorem 2.3 and section 11",
+          "rare Bernoulli Poisson limit thinning local-to-global convex bounds"
+        ]
+      },
+      "checked_sources": [
+        "Kontorovich arXiv:2610.31164v1, Theorem 2.3, Section 11",
+        "Robbins (1955) factorial bounds",
+        "Resultary 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The universal 40√q sufficiency gives no lower bound better than 0 and cannot force C≥√(e/2).",
+          "Robbins factorial inequalities require the new ratio reduction and integer/interval analysis to prove λ=1."
+        ],
+        "reasoning": "The result is a distinct sharp witness inside a known general principle; classical ingredients are not themselves new.",
+        "searches": [
+          "Kontorovich 2610.31164 Section 11 convex thinning inequality",
+          "Robbins A Remark on Stirling Formula 1955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R(λ) equals half the ratio of central Poisson mode masses p_{λ/2}(floor λ/2)/p_λ(floor λ).",
+          "A sparse centered Bernoulli triangular array converges to this Poisson ratio by uniform integrability."
+        ],
+        "reasoning": "Checked both thinning and central Poisson mass-ratio aliases; known MAD identity itself does not provide the cross-intensity sharp optimizer.",
+        "searches": [
+          "Poisson centered absolute mean deviation ratio t/2 over t maximizer sqrt e",
+          "Resultary Poisson mean absolute deviation ratio thinning half lambda square root e maximizer centered Bernoulli lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Poisson central mass tables encode each R(λ), but do not supply its uniquely optimized continuous-intensity ratio as an asserted theorem.",
+          "The related pairwise-independence record concerns dependent rare rows and attainable laws rather than half-thinning absolute deviations."
+        ],
+        "reasoning": "No exact prior ratio/supremum table found; failed search is not a proof of novelty.",
+        "searches": [
+          "Poisson mean absolute deviation mode table central mass",
+          "Resultary weak-limit classification rare pairwise independent Bernoulli sums 2026/9/20/...81d03613e25b"
+        ]
+      },
+      "rationale": "The Poisson mean absolute deviation and Robbins bounds are classical; the sharp optimization of the ratio of two centered Poisson deviations at half intensity, uniqueness at λ=1, and the resulting necessary C≥√(e/2) are not asserted by the inspected 40√q universal theorem. Published broad theorem is credited, not contradicted.",
+      "residual_risks": [
+        "Classical Poisson MAD-ratio inequalities may encode the same unique half-thinning extremum under another name; not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "broader universal bound known, no exact Poisson half-ratio extremum identified",
+          "evidence": [
+            "Theorem 2.3/Section 11 coefficient 40√q, not claimed best."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31164v1",
+          "material_read": "available main text Theorem 2.3 and Section 11, including 40√q convex thinning inequality",
+          "method": "public HTML full-text sections read and compared",
+          "title": "A local-to-global principle for f-divergence homogenization",
+          "trigger": "the motivating theorem and same centered Bernoulli thinning framework"
+        },
+        {
+          "assessment": "classical estimates needed to make endpoint strict inequalities uniform",
+          "evidence": [
+            "n! bounds imply p_j(j)<(2πj)^{-1/2} and p_m(m)>e^{-1/(12m)}(2πm)^{-1/2}."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2024/02/Stirling-Robbins.pdf",
+          "material_read": "Robbins Stirling inequality as quoted in mathematical proof; whole historical note not re-read in this run",
+          "method": "comparison of explicit upper/lower factorial bounds",
+          "title": "A Remark on Stirling’s Formula",
+          "trigger": "integer endpoint bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md and inspected actual proof",
+        "Relevant primary theorem/specialized mathematical context",
+        "Kontorovich arXiv:2610.31164v1, Theorem 2.3, Section 11",
+        "Robbins (1955) factorial bounds",
+        "Resultary 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b"
+      ],
+      "rationale": "Supremum √e/2 uniquely at intensity one is a sharp, motivated extremal barrier to improving any universal C√q inequality, already informative without determining the unrestricted optimal constant. Sparse rare-event and Gaussian limits give contrasting regimes.",
+      "residual_risks": [
+        "The exact result is only for q=1/2 and sparse iid centered Bernoulli rows; not a full universal constant determination."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniform-in-λ finite-n convergence claimed; restriction q=1/2 and iid sparse bounded centered examples is essential.",
+    "Classical Poisson MAD-ratio inequalities may encode the same unique half-thinning extremum under another name; not exhaustively ruled out.",
+    "The exact result is only for q=1/2 and sparse iid centered Bernoulli rows; not a full universal constant determination."
+  ],
+  "schema_version": 1
+}
