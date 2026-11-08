@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof partitions all possible trajectories by whether they encounter the left half-plane, derives the exact right-branch double iterate and induced four-step section map, and verifies the special switching cases. This yields the global period-and-attraction census for all positive real \(d\). It further pulls back exact intervals to prove the geometric first-escape law. The bundled rational checker corroborates algebra and critical endpoints; the all-parameter proof is analytic, not experimental.
+
+**Originality — PASS within inspected evidence.** Simpson (arXiv:2408.04790) establishes the general normal form and fixed-point stability; Simpson (arXiv:2606.08901) establishes the general return-map framework when the right focus is repelling. Its Lemma 2.4 subsumes the *method* for obtaining a section map and could recover the scalar branch by specializing parameters, so that algebra alone is not asserted to be original. The inspected texts do not present the entire cross-threshold global census, period-four square, finite-time full-measure capture and sharp conditional geometric residence distribution as a theorem. The earlier polygon-mode-locking study is relevant but does not cover the new global statement in the portions inspected. The possibility of an unindexed equivalent result or trivialization by later derivations remains a priority risk.
+
+**Mathematical value — PASS.** At the natural unit determinant the system changes from a globally attracting focus to a continuum of primitive four-cycles, then to a superstable four-cycle with a saddle exceptional set. The explicit geometric waiting law gives a quantitative slowdown at the transition, linking basin classification with exact residence statistics. The fact is specific to the trace-free slice and does not establish generic structural stability.
+
+**Limitations.** Global capture is finite time only for \(d>1\) off the null saddle preimage set; below the threshold convergence need not occur in finite time. The waiting-time law conditions on uniform one-dimensional section length, not on a planar invariant probability. No independent mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
