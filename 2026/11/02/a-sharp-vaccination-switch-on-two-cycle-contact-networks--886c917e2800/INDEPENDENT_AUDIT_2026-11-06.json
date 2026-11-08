@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:36.994331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 1a3d37e1ac1cbb84c9f0282398ce39059abe52ef, RESULT.md blob 946a3b31a4bce07a22d18e18d8786b232de29932",
+        "Nested verification/check.py blob e952e79142b11e6d6bdee23c0bdfb48a6b4ce9b9; independent CASE4_OK"
+      ],
+      "rationale": "Deferred-decision independent-bond percolation represents each eventual infected component exactly, so expected infected from a uniform seed equals 1+S_v/r with S_v=sum over unordered connected-pair probabilities. For an r-cycle C_r=rΣ_(1≤j<r)q^j−binom(r,2)q^r, a residual path P_(r−1)=Σ_(1≤j≤r−2)(r−1−j)q^j, and one portal-root connectivity R_r=1+2Σ_(1≤j<r)q^j−(r−1)q^r. Hence S_h=2C_r and S_a=P_(r−1)+C_r+qR_r, giving D_r(q)=−q−Σ_(2≤j<r)(j−1)q^j+(binom(r,2)+2)q^r−(r−1)q^(r+1). Deleting a nonportal cycle vertex yields a residual graph isomorphic to deleting a portal plus an extra bridge edge, strictly increasing some pair connection for every q>0. D_r/q has sign changes −,+,− and hence at most two positive roots; D_r(0+) negative, D_r(1)=1, and D_r(∞)<0 show exactly one root in (0,1). D_r′(1)=r(r²−3r+8)/6 and D_r″=O(r⁴) imply D_r(1−c/r³)=1−c/6+O_c(1/r), proving the sharp scaling. Direct independent exhaustive bond-mask counts for r=3,4,5 and q∈{1/3,1/2,3/4,1} corroborated all candidate scores and strict inequalities (CASE4_OK). No heterogeneous transmission/other seeding result claimed.",
+      "residual_risks": [
+        "The endpoint q=0 excluded: all vaccinations tie there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becchetti et al analyze independent-bond percolation for small-world random graphs and motivate SIR correspondence; the deterministic two-cycle network and single-vaccination optimum are not supplied in the inspected paper. Li–Zhao–Zhang publisher shows a site–bond vaccination model but full article is unavailable."
+        ],
+        "reasoning": "General epidemic-percolation equivalence is used, not new; it does not mechanically imply a particular all-r switch without computing pairwise connection sums. Full Li–Zhao–Zhang implications remain a priority risk.",
+        "searches": [
+          "Li–Zhao–Zhang DOI 10.1007/s00285-022-01816-1",
+          "Resultary semantic query: optimal vaccination dumbbell two cycles bridge path Reed Frost percolation epidemic threshold transmission switch",
+          "Becchetti et al arxiv:2205.08774"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 1a3d37e1ac1cbb84c9f0282398ce39059abe52ef, RESULT.md blob 946a3b31a4bce07a22d18e18d8786b232de29932",
+        "Nested verification/check.py blob e952e79142b11e6d6bdee23c0bdfb48a6b4ce9b9; independent CASE4_OK",
+        "Becchetti et al arxiv:2205.08774 primary full text",
+        "Li Zhao Zhang DOI 10.1007/s00285-022-01816-1 primary abstract/preview",
+        "Chatterjee Zehmakan arxiv:2305.16458 model comparison",
+        "Resultary vaccination-percolation semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Percolation two-point connectivities yield the objective but neither the stochastic small-world estimates nor a degree-normalized vaccination heuristic imply the displayed exact double-cycle polynomial D_r."
+        ],
+        "reasoning": "The graph family and transmissibility/seeding rules are materially different; only the coupling is prior theory, and a direct exact double-cycle coverage comparison awaits inaccessible full text.",
+        "searches": [
+          "arxiv:2205.08774",
+          "arxiv:2305.16458",
+          "DOI 10.1007/s00285-022-01816-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The uniform-seed expectation is exactly a sum of percolation two-point connectivities, not a generic reproduction number or susceptible equilibrium."
+        ],
+        "reasoning": "Compared Reed–Frost independent-cascade, bond percolation, expected outbreak size, stochastic connectivity/vitality, and vertex-deletion percolation influence.",
+        "searches": [
+          "Resultary semantic query: optimal vaccination dumbbell two cycles bridge path Reed Frost percolation epidemic threshold transmission switch",
+          "Becchetti et al arxiv:2205.08774 full PDF",
+          "Kenah–Robins DOI 10.1103/PhysRevE.76.036113"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small complete finite scores reproduce D_r(q) but the result quantifies all r and a single real q_r; no known table with that all-size polynomial threshold appeared in these searches."
+        ],
+        "reasoning": "Finite graph enumerations corroborate formula, not exhaustive novelty. The infinite classification rests on polynomial proof.",
+        "searches": [
+          "Resultary semantic query: optimal vaccination dumbbell two cycles bridge path Reed Frost percolation epidemic threshold transmission switch",
+          "Exact independent bond-mask enumeration r=3,4,5"
+        ]
+      },
+      "rationale": "The standard Reed–Frost and independent-bond percolation coupling is prior (Becchetti et al. and Kenah–Robins). Li–Zhao–Zhang (2022) study vaccination and site-bond percolation in complex networks; only their full abstract/preview was accessible, so possible finite deterministic network optimization in the unread portions remains a documented risk. Chatterjee–Zehmakan uses a different degree-normalized epidemic law. None of the material actually read established the precise q_r switch, its uniqueness, or cubic approach. This is a best-of-knowledge priority judgment, not abstract-based full-paper noncoverage.",
+      "residual_risks": [
+        "The plausible Li–Zhao–Zhang 2022 full primary article was inaccessible; exact double-cycle coverage in a hidden appendix cannot be ruled out from abstract alone.",
+        "Conclusions hold only for a single uniformly chosen unvaccinated seed, perfect single vaccine, independent homogeneous bond events on two equal cycles.",
+        "The endpoint q=0 excluded: all vaccinations tie there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes standard coupling and studies random small-world graphs, not this deterministic two-cycle exact vaccination minimizer.",
+          "evidence": [
+            "Becchetti et al (2022), Section 1 and Appendix A"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08774",
+          "material_read": "Full 23-page lawful arXiv PDF inspected including opening definitions, percolation theorem statements and Appendix A correspondence",
+          "method": "Full primary PDF reading and screenshot",
+          "title": "Bond Percolation in Small-World Graphs with Power-Law Distribution",
+          "trigger": "Full primary Reed–Frost/bond-percolation correspondence and potentially stronger network theorem"
+        },
+        {
+          "assessment": "Related generalized site-bond vaccination model; no claim of full-document NOT_COVERING. An exact finite-graph theorem hidden in full text remains a material priority risk.",
+          "evidence": [
+            "Li, Zhao and Zhang, Journal of Mathematical Biology 85, 49 (2022), DOI 10.1007/s00285-022-01816-1"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-022-01816-1",
+          "material_read": "Publisher abstract and bibliographic preview; full-text unavailable in obtained page; do not claim read full paper",
+          "method": "Springer primary abstract and DOI inspection",
+          "title": "Site-bond percolation model of epidemic spreading with vaccination in complex networks",
+          "trigger": "Identical broad vaccination objective and plausible covering special example"
+        },
+        {
+          "assessment": "Degree-normalized infection transmission law is not the homogeneous per-edge Reed–Frost q law, so direct implication is unsupported.",
+          "evidence": [
+            "Chatterjee–Zehmakan (2023) arxiv:2305.16458"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.16458",
+          "material_read": "Published abstract and mathematical model definitions as cited in the candidate; full text not materially re-read",
+          "method": "Primary arXiv abstract and model comparison",
+          "title": "Effective Vaccination Strategies in Network-based SIR Model",
+          "trigger": "Potential broader vaccination-optimization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git tree 1a3d37e1ac1cbb84c9f0282398ce39059abe52ef, RESULT.md blob 946a3b31a4bce07a22d18e18d8786b232de29932",
+        "Nested verification/check.py blob e952e79142b11e6d6bdee23c0bdfb48a6b4ce9b9; independent CASE4_OK",
+        "Becchetti et al arxiv:2205.08774 primary full text",
+        "Li Zhao Zhang DOI 10.1007/s00285-022-01816-1 primary abstract/preview",
+        "Chatterjee Zehmakan arxiv:2305.16458 model comparison",
+        "Resultary vaccination-percolation semantic search"
+      ],
+      "rationale": "Network vertex vaccination optimization is a motivated graph-percolation statistic; the two-cycle-with-intermediary family makes a natural bridge-versus-portal choice where optimal strategy flips from degree-three portals to degree-two intermediary near q=1 with sharp r^-3 scaling. Exact all-r classification and a unique crossover are substantive rather than a tiny unmotivated graph computation. It does not claim empirical public-health strategy.",
+      "residual_risks": [
+        "The plausible Li–Zhao–Zhang 2022 full primary article was inaccessible; exact double-cycle coverage in a hidden appendix cannot be ruled out from abstract alone.",
+        "Conclusions hold only for a single uniformly chosen unvaccinated seed, perfect single vaccine, independent homogeneous bond events on two equal cycles.",
+        "The endpoint q=0 excluded: all vaccinations tie there."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 1a3d37e1ac1cbb84c9f0282398ce39059abe52ef, RESULT.md blob 946a3b31a4bce07a22d18e18d8786b232de29932",
+    "Nested verification/check.py blob e952e79142b11e6d6bdee23c0bdfb48a6b4ce9b9; independent CASE4_OK",
+    "Becchetti et al arxiv:2205.08774 primary full text",
+    "Li Zhao Zhang DOI 10.1007/s00285-022-01816-1 primary abstract/preview",
+    "Chatterjee Zehmakan arxiv:2305.16458 model comparison",
+    "Resultary vaccination-percolation semantic search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The plausible Li–Zhao–Zhang 2022 full primary article was inaccessible; exact double-cycle coverage in a hidden appendix cannot be ruled out from abstract alone.",
+    "Conclusions hold only for a single uniformly chosen unvaccinated seed, perfect single vaccine, independent homogeneous bond events on two equal cycles.",
+    "The endpoint q=0 excluded: all vaccinations tie there."
+  ],
+  "schema_version": 1
+}

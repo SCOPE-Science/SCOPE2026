@@ -1,19 +1,21 @@
-# Scientific review: A sharp vaccination switch on two-cycle contact networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In the specified one-seed Reed–Frost/independent-bond process, the expected final infected count is \(1+S_v(q)/r\), where \(S_v\) sums unordered residual-graph pair-connectivity probabilities. The two arc events of each cycle are independent; they yield the displayed exact cycle, path and rooted-connection polynomials. Deleting the intermediary or a portal gives precisely the two closed forms; nonportal deletions contain the portal-deletion graph as a proper spanning subgraph and increase the objective strictly. The score difference \(D_r(q)\) has one physical zero: Descartes' bound of at most two positive roots is exhausted by sign changes in \((0,1)\) and \((1,\infty)\). The derivative at one and the uniform second-derivative estimate give the sharp \(r^3(1-q_r)\to6\) boundary. An independent exact-rational finite-state program corroborated 231 checks, but is not substituted for the general proof.
+PASS
 
-## Originality — PASS, with residual uncertainty
+Deferred-decision independent-bond percolation represents each eventual infected component exactly, so expected infected from a uniform seed equals 1+S_v/r with S_v=sum over unordered connected-pair probabilities. For an r-cycle C_r=rΣ_(1≤j<r)q^j−binom(r,2)q^r, a residual path P_(r−1)=Σ_(1≤j≤r−2)(r−1−j)q^j, and one portal-root connectivity R_r=1+2Σ_(1≤j<r)q^j−(r−1)q^r. Hence S_h=2C_r and S_a=P_(r−1)+C_r+qR_r, giving D_r(q)=−q−Σ_(2≤j<r)(j−1)q^j+(binom(r,2)+2)q^r−(r−1)q^(r+1). Deleting a nonportal cycle vertex yields a residual graph isomorphic to deleting a portal plus an extra bridge edge, strictly increasing some pair connection for every q>0. D_r/q has sign changes −,+,− and hence at most two positive roots; D_r(0+) negative, D_r(1)=1, and D_r(∞)<0 show exactly one root in (0,1). D_r′(1)=r(r²−3r+8)/6 and D_r″=O(r⁴) imply D_r(1−c/r³)=1−c/6+O_c(1/r), proving the sharp scaling. Direct independent exhaustive bond-mask counts for r=3,4,5 and q∈{1/3,1/2,3/4,1} corroborated all candidate scores and strict inequalities (CASE4_OK). No heterogeneous transmission/other seeding result claimed.
 
-The closest epidemiological motivation is Li, Zhao and Zhang, *Site-bond percolation model of epidemic spreading with vaccination in complex networks* (2022), DOI:10.1007/s00285-022-01816-1. Its accessible abstract and first-page preview use generating functions for vaccination probabilities and epidemic thresholds on random network ensembles. Its full text could not be obtained, so this is a meaningful residual priority risk rather than a certified whole-document exclusion. Becchetti et al. (arXiv:2205.08774), full text inspected in its model and appendix, prove related independent-bond epidemic methods on small-world random graphs but do not imply the exact optimal vertex and switching root on two fixed cycles. Chatterjee and Zehmakan (arXiv:2305.16458), full text inspected in its vaccination/model sections, treat degree-normalized epidemic dynamics, not this homogeneous independent-edge law. Published mathematical-record searches for two-cycle vaccination crossover, bridge-versus-portal optimization, and percolation containment revealed no result implying this stated classification and cubic threshold. Failed search is not proof of novelty, and a specialist unindexed result remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A decision-maker vaccinating one person faces a genuine exact intervention reversal as transmission changes: a degree-three portal is best at low transmission but a degree-two intermediary is best at high transmission. The graph motif is a natural two-community contact network, the switch occurs for every cycle length, and the sharp window \(1-q_r\asymp r^{-3}\) quantifies the asymptotic scale at which this reversal is confined. The theorem is an explicit complete classification rather than a generic monotonicity or a trivial single-parameter substitution. Its small full-transmission benefit \(1/r\) is also quantified.
+The standard Reed–Frost and independent-bond percolation coupling is prior (Becchetti et al. and Kenah–Robins). Li–Zhao–Zhang (2022) study vaccination and site-bond percolation in complex networks; only their full abstract/preview was accessible, so possible finite deterministic network optimization in the unread portions remains a documented risk. Chatterjee–Zehmakan uses a different degree-normalized epidemic law. None of the material actually read established the precise q_r switch, its uniqueness, or cubic approach. This is a best-of-knowledge priority judgment, not abstract-based full-paper noncoverage.
 
-## Closest literature and limitations
+## value
 
-Primary references: Li–Zhao–Zhang (2022), DOI:10.1007/s00285-022-01816-1; Becchetti et al. (2022), arXiv:2205.08774; Chatterjee–Zehmakan (2023), arXiv:2305.16458; Kenah–Robins (2007), DOI:10.1103/PhysRevE.76.036113. The homogeneous independent-bond model must not be silently extended to general SIR processes with shared infectious-period randomness. Source inspection uncertainty is recorded in AUDIT.json. Independent external validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Network vertex vaccination optimization is a motivated graph-percolation statistic; the two-cycle-with-intermediary family makes a natural bridge-versus-portal choice where optimal strategy flips from degree-three portals to degree-two intermediary near q=1 with sharp r^-3 scaling. Exact all-r classification and a unique crossover are substantive rather than a tiny unmotivated graph computation. It does not claim empirical public-health strategy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
