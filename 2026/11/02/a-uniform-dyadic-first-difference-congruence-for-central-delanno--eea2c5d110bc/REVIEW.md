@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Generalized Vandermonde gives an exact division-by-increment formula. For every term of index at least five, the weighted quotient is divisible by eight; the first four terms have polynomial coefficients of valuation at least minus two, ensuring the Taylor remainder is divisible by eight for increments in \(32\mathbb Z_2\). The two last derivative terms vanish modulo eight, leaving a fully explicit cubic polynomial. Its residues at \(1,2\pmod4\) yield the exact nonzero valuation. The finite verifier reproduces the low-degree arithmetic and tests both infinite-variable claims on nontrivial finite grids, but is not substituted for the proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Lengyel 2021, Conjecture 4, explicitly proposes the exact dyadic difference valuation; the present result proves its complete first shift stratum with a uniform threshold and stronger first-order congruence. Lengyel's preceding theorem and related Delannoy single-term valuation results are not a formula for the cancellation in dyadic successive differences. The inspected subsequent work of Mikić and of Jia–Huang addresses different congruences and does not give the first-difference congruence. Searches of semantically related mathematical records and prior research claims found no covering result. Residual possibility of unindexed equivalent results remains.
+PASS
 
-**Mathematical value — PASS.** The two congruence classes are not arbitrary choices: they constitute exactly the minimal nonzero value \(\nu_2(b(b+1))=1\) in a named, natural unsolved Delannoy valuation conjecture, an infinite half of all shift residues. The global polynomial first-order congruence isolates their common arithmetic mechanism and provides an explicit onset for every odd multiplier.
+Uniform 2-adic convergence of 2^k binom(x,k)^2 follows binom(x,k)∈Z_2. Vandermonde gives (B_k(x+h)−B_k(x))/h=Σ_{j=1}^k B_{k−j}(x)binom(h−1,j−1)/j, whose valuation is ≥−floor(log₂k), uniformly in h≠0. Thus k≥5 contributes 2^{k−floor(log₂k)}≥8 to the difference quotient, permitting termwise passage. For k≤4 coefficients of P_k=2^kB_k² have 2-adic denominators at worst 4, so for h∈32Z_2 finite differences agree with derivatives modulo8. Derivative integrality bound for k=3,4 puts them in 8Z_2; k=1,2 yield 4x+2x(x−1)(2x−1). Reducing at b≡1,2 mod4 gives exactly 4 mod8, and comparing increments 2h and h proves r+2 valuation. Independent Delannoy recurrence checked 60 valuations with b in both classes and 96 modular slopes; noninteger ordinary division for h with odd factors was properly treated by division in Z_2 (invert the odd factor mod8).
 
-**Limits.** Other shift residues and optimal threshold are not settled; independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment: the exact new claim was compared by implications with same-object primary results; known definitions/source results are credited, and no directly covering proved theorem was identified in the inspected material. This is not exhaustive priority certification. A uniform dyadic first-difference congruence for central Delannoy numbers. The proof uses uniform binomial derivative congruences to establish a genuinely new implication beyond the cited prior theorems, restricted to the first stratum.
+
+## value
+
+PASS
+
+Resolves the full first nonzero valuation stratum of Lengyel’s explicitly published dyadic-difference conjecture with a universal threshold r≥5 and stronger interpolation congruence. The result measures cancellation between Delannoy values not determined by known one-term valuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
