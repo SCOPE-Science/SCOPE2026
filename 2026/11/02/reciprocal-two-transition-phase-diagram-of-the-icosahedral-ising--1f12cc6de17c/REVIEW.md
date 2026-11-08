@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. An antipodal-pair decomposition reduces the two graph-distance bond sums to a six-pair signed quadratic form, with explicit \(6\times6\) integer matrix. Complete sign-extremum enumeration proves the four sharp supporting inequalities and all equality cases, which imply the three analytic ground-energy branches for every positive real coupling ratio. The independent 4096-state checker confirms the exact profiles and phase boundaries with integer/rational arithmetic, including the transition degeneracies.
+PASS
 
-## Originality
+For the 12-vertex icosahedron, the distance shells have 30,30,6 unordered pairs at distances 1,2,3. Six antipodal pairs give S1=T²−p+2C and S2=T²−p−2C, where a complete six-variable signed extremum table gives S1≥−10, S2≥−10, 3S1+S2≥−24 and S1+3S2≥−24 with sharp equality families. Their nonnegative linear combinations give the exact lower envelope on all r>0; equality counts are 60,80,20,80,60 and all minimizers have zero magnetization. Independently reconstructed all 30 edges, graph distances and all 2^12=4096 spin states; rational r in all five regimes reproduced energies, degeneracies and magnetization exactly. Since this enumerates the whole finite Ising state space and supporting inequalities hold for all real positive r, it is exhaustive for the stated finite system.
 
-PASS on examined evidence, with historical priority provisional. The nearest-neighbor Ising degeneracy 72 and its 60+12 geometric split are known from Jeon–Lee (arXiv:2306.07434); the zero-distance-two endpoint is not claimed. The nearest-neighbor quantum Heisenberg and classical icosahedral studies of Konstantinidis (cond-mat/0503658 and arXiv:1410.3444) do not prove the complete graph-distance-two Ising ground-state phase diagram. The latter's next-neighbor triangle-strip *labeling* is not the second distance shell of the full icosahedron. Related finite-cluster results concern distinct dodecahedral and icosidodecahedral graphs, neither implying the classification on the twelve-vertex icosahedron. Residual risk: an unindexed or inaccessible classical-spin classification might contain an equivalent result.
+## originality
 
-## Value
+PASS
 
-PASS. Competing exchange through the second geometric neighbor shell is a natural physical perturbation of the well-studied frustrated icosahedron. The exact diagram gives two sharp zero-temperature rearrangements with a nontrivial antipodal-pair phase, a complete degeneracy census including coexistence, and a structural explanation for selecting 60 of the known 72 states at infinitesimal positive \(J_2\). This is a complete natural finite-cluster classification, not an arbitrary parameter slice or a trivial numerical substitution.
+Best-of-knowledge original for homogeneous distance-two antiferromagnetic exchange on the single icosahedral graph. Nearest-neighbor 72-fold Ising degeneracy and icosahedral Heisenberg results are clearly established prior art and not claimed as discoveries.
 
-## Limits
+## value
 
-Ising spins, homogeneous exchanges, finite 12-vertex graph, zero field and temperature; no claims about infinite-volume transitions, quantum spins, disorder or experimental exchange constants. Independent priority and scientific validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The isolated finite cluster is a canonical frustrated spin system. An exact two-interaction phase diagram, critical degeneracies and correlation cusps are nontrivial exact finite invariants that distinguish competing antipodal arrangements and can benchmark physical or combinatorial models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
