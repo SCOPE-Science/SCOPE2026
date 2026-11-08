@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T12:52:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76/RESULT.md blob c90c23730b5553b4eb335fc83c7fdaaa04131542",
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76/verify.py blob b2b99d43dbd9430d8747165adca58713e8bb4b24",
+        "/mnt/data/scope_worker03_20261106T1238Z/independent_checks.py"
+      ],
+      "rationale": "The Gaussian propagated noise is omega sum_{j=0}^{K-1}(I-omega B)^j A^T xi, whose covariance equals sigma² B^-1[I-(I-omega B)^K]^2. On 0<t<1 its derivative has sign of H_K(1-t)=2K(1-t)^(K-1)-(2K-1)(1-t)^K-1: H has one positive interior maximum, H(0)=-1,H(1)=0, yielding exactly one t_K and strict increasing then decreasing f_K. This proves sharp safe ordering for all spectra below t_K; select t_K<a<b<min(s,1) for any s>t_K to reverse ranking. Asymptotics follow the pointwise rescaling t=c/K and unique positive root e^c=1+2c. For even K, at t=2-epsilon the covariance weight is O(epsilon²), whereas f_K(t_K)>0; the Hadamard eigenbasis gives exact rank-one residuals and the four Rademacher outcomes give variance gamma²/(4N). The proof does not claim these ratios for whole confidence pipelines. Independent matrix spectral calculations and exact arithmetic corroborate displayed formulas.",
+      "residual_risks": [
+        "Finite independent calculations do not replace the analytic and infinite-quantifier parts of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abhishek–Holman study propagated Landweber uncertainty and randomized normal-operator approximation.",
+          "Celisse–Wahl study spectral filter stopping; Ito–Jin regularized randomized SVD."
+        ],
+        "reasoning": "These broader algorithms do not imply that high normal eigenvalue modes always dominate propagated covariance; in fact a two-mode counterexample proves otherwise. No uninspected source claimed noncoverage.",
+        "searches": [
+          "arxiv:2610.00882",
+          "JMLR 22(76) 2021",
+          "arxiv:1909.01947"
+        ]
+      },
+      "checked_sources": [
+        "Abhishek & Holman, arxiv:2610.00882v1, Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "Celisse & Wahl, JMLR 22(76) (2021), spectral filter and discrepancy principle",
+        "Ito & Jin, arxiv:1909.01947, regularized linear inversion with randomized SVD"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiation f_K(t) establishes a unique maximum at t_K; the f_K(2-epsilon)~K²epsilon²/2 family is a reverse ranking regime.",
+          "Generic Eckart–Young and diagonal-probe identities are prior tools, but alone do not give sharp t_K or epsilon^-4 variance ratio."
+        ],
+        "reasoning": "The new implication connects finite-step filter nonmonotonicity to optimal rank subspace and sampling cost; not a restatement of the propagator. Focal full text inaccessible.",
+        "searches": [
+          "arxiv:2610.00882",
+          "JMLR 22(76) 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known Landweber spectral filter gives covariance eigenweight f_K(t).",
+          "Ordering f_K(t) versus ordering t is a different quantified problem from applying the filter to each normal eigenvalue."
+        ],
+        "reasoning": "The filter formula is fully acknowledged as prior. Safe-ranking t_K and explicit residual-probe variance separation require a new optimization and counterexample analysis; inaccessible full focal paper leaves priority risk.",
+        "searches": [
+          "Landweber noise covariance eigenvalues low rank spectral ordering threshold",
+          "Landweber filter covariance singular values noise amplification SVD",
+          "arxiv:2610.00882"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned neighboring spectral-rank studies without the Landweber finite-iteration filter order frontier."
+        ],
+        "reasoning": "The result is a uniform all-K condition and unbounded two-mode family, rather than a lookup table; failed searches do not certify priority.",
+        "searches": [
+          "Landweber noise covariance eigenvalues low rank spectral ordering threshold",
+          "Landweber tK epsilon negative covariance rank reorder critical threshold"
+        ]
+      },
+      "rationale": "Abhishek & Holman supply the Landweber uncertainty propagation and randomized normal-operator approximation; those are prior, not claimed. Celisse–Wahl supply the spectral filtering method and Ito–Jin randomized SVD. The new theorem optimizes spectral ranking of the finite-step covariance over all admissible normal operators, identifies its sharp uniform ceiling and quantifies residual diagonal-probe mismatch. Closest 2026 motivating paper could not be fully read here and may contain more detailed ranking analysis.",
+      "residual_risks": [
+        "The complete 2026 Abhishek–Holman preprint was inaccessible; its abstract and indexed account are insufficient to rule out an unreported rank-order lemma.",
+        "Even-K unbounded examples use omega*lambda_max near 2; these are stable but close to the upper stability boundary.",
+        "White Gaussian noise, exact eigen-subspace truncation, and standard independent Rademacher probes only; no full randomized UQ failure theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS LIMITED; abstract supports prior covariance/SVD construction, possible rank-frontier coverage remains unresolved priority risk",
+          "evidence": "Claim does not take novelty credit for Gaussian propagated-covariance formula or randomized normal-operator approximation.",
+          "identifier_or_url": "arxiv:2610.00882v1",
+          "material_read": "Indexed arXiv abstract/metadata and related mathematical background; full preprint HTML/PDF not available through lawful sources in this run",
+          "method": "arXiv abstract + OA attempts; institutional source returned vpn_disconnected",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+          "trigger": "Exact same estimator/covariance and proposed normal-operator truncation"
+        },
+        {
+          "assessment": "General filter theory does not state the claimed optimized covariance eigenvalue ranking",
+          "evidence": "Prior scalar filter is used, but a condition for all normal eigenvectors to sort identically is additional.",
+          "identifier_or_url": "JMLR 22(76) (2021), https://jmlr.org/papers/volume22/20-358/20-358.pdf",
+          "material_read": "Published JMLR article description of Landweber spectral filters, regularization and stopping; not independently inspected all appendix text",
+          "method": "JMLR paper abstract/theorem descriptions",
+          "title": "Analyzing the discrepancy principle for kernelized spectral filter learning algorithms",
+          "trigger": "Broader regularization and Landweber spectral filter"
+        },
+        {
+          "assessment": "ACCESS LIMITED; broader randomized inverse reconstruction does not itself imply exact finite-Landweber covariance threshold",
+          "evidence": "Concern is randomized SVD of regularized inverse reconstruction, not the explicit rank/probe variance frontier.",
+          "identifier_or_url": "arxiv:1909.01947",
+          "material_read": "Open bibliographic and abstract-level information; full mathematical source not read here",
+          "method": "arXiv/OA source discovery",
+          "title": "Regularized Linear Inversion with Randomized Singular Value Decomposition",
+          "trigger": "Potentially stronger SVD approximation framework"
+        }
+      ],
+      "source_searches": [
+        "Landweber noise covariance eigenvalues low rank spectral ordering threshold"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-sharp-covariance-rank-frontier-for-finite-step-landweber-itera--f4e7bf8f5d76/RESULT.md blob c90c23730b5553b4eb335fc83c7fdaaa04131542",
+        "Abhishek & Holman, arxiv:2610.00882v1, Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "Celisse & Wahl, JMLR 22(76) (2021), spectral filter and discrepancy principle"
+      ],
+      "rationale": "For inverse-problem UQ, retaining highest normal singular values need not retain highest propagated covariance variance directions; an exact all-K safe frontier and unbounded residual probing mismatch are mathematically motivated diagnostics. This is a meaningful algorithmic spectral-order effect, not a claim of incorrect confidence intervals.",
+      "residual_risks": [
+        "White Gaussian noise, exact eigen-subspace truncation, and standard independent Rademacher probes only; no full randomized UQ failure theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Abhishek & Holman, arxiv:2610.00882v1, Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+    "Celisse & Wahl, JMLR 22(76) (2021), spectral filter and discrepancy principle",
+    "Ito & Jin, arxiv:1909.01947, regularized linear inversion with randomized SVD"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The complete 2026 Abhishek–Holman preprint was inaccessible; its abstract and indexed account are insufficient to rule out an unreported rank-order lemma.",
+    "Even-K unbounded examples use omega*lambda_max near 2; these are stable but close to the upper stability boundary.",
+    "White Gaussian noise, exact eigen-subspace truncation, and standard independent Rademacher probes only; no full randomized UQ failure theorem."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete 2026 Abhishek–Holman preprint was inaccessible; its abstract and indexed account are insufficient to rule out an unreported rank-order lemma.",
+    "Even-K unbounded examples use omega*lambda_max near 2; these are stable but close to the upper stability boundary.",
+    "White Gaussian noise, exact eigen-subspace truncation, and standard independent Rademacher probes only; no full randomized UQ failure theorem."
+  ]
+}

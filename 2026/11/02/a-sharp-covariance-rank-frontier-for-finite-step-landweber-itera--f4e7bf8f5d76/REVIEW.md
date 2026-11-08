@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins from the exact Gaussian iteration and obtains the covariance functional calculus. An explicit one-variable derivative sign computation proves the unique interior threshold and its sharp universal spectral ceiling, without finite enumeration. The same spectral calculation gives the asymptotic threshold and explicit stable even-step rank-one counterexamples. Complete four-outcome Rademacher enumeration proves the exact residual-diagonal probe variance ratio. The standalone standard-library verifier passed 4,997 supplementary checks; it is corroboration rather than proof of infinitely many parameters.
+## correctness
 
-## Originality — PASS, with historical-priority limitations
-Abhishek and Holman (arXiv:2610.00882v1) already derive the noise-propagation covariance and use randomized normal-operator truncation, which are credited. Celisse and Wahl (JMLR 22(76), 2021) already give the Landweber spectral filter for discrepancy analysis. In the inspected primary mathematical content, neither states the sharp covariance versus normal-rank ceiling, its large-iteration law, or the exact unbounded Rademacher residual-probe variance ratio. Searches for equivalent noise-filter and covariance-eigenvalue formulations and published mathematical records found no covering statement. The full 2019 Ito–Jin randomized-SVD manuscript concerns regularized inverse solutions instead of this finite-step Landweber covariance-rank boundary. An older equivalent specialized result remains possible.
+PASS
 
-## Mathematical value — PASS
-The boundary resolves when a natural dominant-normal-eigenvector approximation also selects dominant propagated uncertainty. The rank inversion occurs even with a nonovershooting two-step, while the stable near-upper-step counterexample shows arbitrarily unfavorable residual-probe cost. The theorem provides a rigorous benchmark for rank selection and sampling-effort allocation, not a guarantee about the complete confidence-interval procedure.
+The Gaussian propagated noise is omega sum_{j=0}^{K-1}(I-omega B)^j A^T xi, whose covariance equals sigma² B^-1[I-(I-omega B)^K]^2. On 0<t<1 its derivative has sign of H_K(1-t)=2K(1-t)^(K-1)-(2K-1)(1-t)^K-1: H has one positive interior maximum, H(0)=-1,H(1)=0, yielding exactly one t_K and strict increasing then decreasing f_K. This proves sharp safe ordering for all spectra below t_K; select t_K<a<b<min(s,1) for any s>t_K to reverse ranking. Asymptotics follow the pointwise rescaling t=c/K and unique positive root e^c=1+2c. For even K, at t=2-epsilon the covariance weight is O(epsilon²), whereas f_K(t_K)>0; the Hadamard eigenbasis gives exact rank-one residuals and the four Rademacher outcomes give variance gamma²/(4N). The proof does not claim these ratios for whole confidence pipelines. Independent matrix spectral calculations and exact arithmetic corroborate displayed formulas.
 
-## Scope and limits
-The proof concerns full-column-rank finite-dimensional white-noise Landweber iteration, exact eigen-subspace truncation, and standard independent Rademacher probes. The divergent effect requires even iteration counts; the uniform safe-ranking threshold does not. The result does not certify bias, statistical coverage, random eigensolver error or nonlinear reconstruction. Independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abhishek & Holman supply the Landweber uncertainty propagation and randomized normal-operator approximation; those are prior, not claimed. Celisse–Wahl supply the spectral filtering method and Ito–Jin randomized SVD. The new theorem optimizes spectral ranking of the finite-step covariance over all admissible normal operators, identifies its sharp uniform ceiling and quantifies residual diagonal-probe mismatch. Closest 2026 motivating paper could not be fully read here and may contain more detailed ranking analysis.
+
+## value
+
+PASS
+
+For inverse-problem UQ, retaining highest normal singular values need not retain highest propagated covariance variance directions; an exact all-K safe frontier and unbounded residual probing mismatch are mathematically motivated diagnostics. This is a meaningful algorithmic spectral-order effect, not a claim of incorrect confidence intervals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
