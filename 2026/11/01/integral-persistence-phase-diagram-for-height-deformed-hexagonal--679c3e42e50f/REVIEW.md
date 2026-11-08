@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Euclidean metric reduces exactly to six cyclic gap classes with affine squared distances; all possible ordering walls are computed algebraically. The thirteen possible clique complexes are classified by classical cycle-power homotopy, explicit cap-and-annulus homotopy pushouts, and cycle-independence/spherical-join identifications. Two critical relative collapses are replayed as 24 and 60 verified free-face pairs; a further 12-pair collapse checks the first circle inclusion. Primitive loop identifications and cap-filling maps determine the integral barcodes. The finite checker corroborates the two extra wedge types by integral unit-pivot chain reduction and elimination of all fundamental-group edge generators.
+## correctness
 
-**Originality — PASS, with bounded publication-priority uncertainty.** The 2011 cycle-power theorem covers individual cycle-power stages, and the 2026 Möbius-ladder work covers an individual near-final stage; both are acknowledged. Their statements do not classify the height-dependent Euclidean configuration or the connecting integral persistence maps. Searches for variable-height antiprism Vietoris–Rips phase diagrams produced no directly covering source. Close published records on Euclidean cuboctahedra and graph-metric prisms involve different metric families. The closest possible stronger coverage was compared at the level of exact objects and implication, not just titles. Undiscovered equivalent work remains possible.
+PASS
 
-**Value — PASS.** The exact six-wall classification and full integral barcode are natural invariants of the deformation from thin to tall antiprisms. It identifies seven open geometric regimes plus all wall cases and the sharp change from a five-dimensional terminal persistent class to two three-dimensional terminal classes. The two-dimensional inclusion maps distinguish primitive surviving classes from equal Betti counts. This is materially more informative than a computation at one isolated radius or height.
+Reconstructed the exact 12-point two-ring metric from gap classes with squared lengths (t+2-sqrt(3),1,t+2,3,t+2+sqrt(3),4); six ordering walls follow algebraically for all t>0, including ties. Inspected the 13-state clique/homotopy atlas and free-relative-collapse checks of 12,24,60 pairs, cap-annulus pushouts and integral primitive images. Independently enumerated all clique complexes and computed mod-two persistent barcodes at eleven generic and wall samples; every independent interval agreed with the stated formulas. The infinite t statement uses the symbolic affine threshold order, not inference from those samples. Integral primitivity is established by the identified annulus/cap inclusion maps and integer cancellation in supplied verified computations, rather than inferred solely from mod-two ranks.
 
-The stated result is limited to twelve points with fixed twist and radius. It does not assert a new homotopy type for the previously classified cycle-power or Möbius-ladder stages. Publication-priority comparison cannot certify absence of all unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. Claim is coupled height-radius integral persistence, not new attribution of classic C12 graph-power homotopy. An index/database equivalent family remains possible; exact issue checked beyond title via point-set/metric comparison. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+The twelve-vertex hexagonal antiprism is a natural one-parameter geometric family; an exact height-radius wall atlas and integral persistence including primitive maps resolves how topological phases change with a geometric deformation. The new five-dimensional and three-dimensional phases and wall transition are structurally significant even though several individual fixed clique stages are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

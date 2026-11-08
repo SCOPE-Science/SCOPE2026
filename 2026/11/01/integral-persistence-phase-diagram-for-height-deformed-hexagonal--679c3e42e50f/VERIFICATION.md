@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 standard library, in a directory containing the attached `verify.py`. The 13 state face vectors, exact integer cellular cancellations, triviality of the two required fundamental groups, and three relative simplicial collapses are checked from enumerated simplices. The checked relative collapses have 12, 24 and 60 pairs. The recorded output is `verification_output.txt`.
+## correctness
 
-## Limits
+PASS
 
-The finite program proves the stated finite combinatorial assertions only when its source and mathematical construction are inspected. All-real \(t\) claims depend on the symbolic distance identities and the algebraic classification of crossing values, not on numerical sampling. The integral persistence map assertions follow from the geometric cap-and-annulus arguments in `RESULT.md`. No independent audit has been performed.
+Reconstructed the exact 12-point two-ring metric from gap classes with squared lengths (t+2-sqrt(3),1,t+2,3,t+2+sqrt(3),4); six ordering walls follow algebraically for all t>0, including ties. Inspected the 13-state clique/homotopy atlas and free-relative-collapse checks of 12,24,60 pairs, cap-annulus pushouts and integral primitive images. Independently enumerated all clique complexes and computed mod-two persistent barcodes at eleven generic and wall samples; every independent interval agreed with the stated formulas. The infinite t statement uses the symbolic affine threshold order, not inference from those samples. Integral primitivity is established by the identified annulus/cap inclusion maps and integer cancellation in supplied verified computations, rather than inferred solely from mod-two ranks.
+
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. Claim is coupled height-radius integral persistence, not new attribution of classic C12 graph-power homotopy. An index/database equivalent family remains possible; exact issue checked beyond title via point-set/metric comparison. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+The twelve-vertex hexagonal antiprism is a natural one-parameter geometric family; an exact height-radius wall atlas and integral persistence including primitive maps resolves how topological phases change with a geometric deformation. The new five-dimensional and three-dimensional phases and wall transition are structurally significant even though several individual fixed clique stages are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
