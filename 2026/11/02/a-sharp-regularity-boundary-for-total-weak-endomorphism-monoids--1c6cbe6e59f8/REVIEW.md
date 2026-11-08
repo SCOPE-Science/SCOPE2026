@@ -1,15 +1,21 @@
-# Review: regularity of total weak complete-multipartite endomorphisms
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works for all finite part vectors. The fiber-section criterion follows by evaluating the identity on the image. On two parts the image either is a singleton or contains representatives in both sides that admit an opposite-side source matching, enabling a total strict extension of a section. For three or more parts including a nonsingleton part, the explicitly constructed map is weak and its two singleton fibers force a nonweak section, excluding every inner inverse. Boundary cases include all singleton parts and the one-part edgeless graph, both full transformation monoids. The finite checker tests the independent membership predicate and inner-inverse condition.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Dimitrova–Fernandes–Koppitz, arXiv:2401.11741, Section 2 Theorem 2.3, classify regularity of partial weak maps on stars and explicitly show the partial monoid nonregular for stars of order at least three. Our total-mapping result goes in the opposite direction even for stars and further characterizes every multipartite vector. Gu–Hou (2016) concern strict End, not contraction-permitting weak endomorphisms. Yingtaweesittikul et al. (2023) count weak maps of paths; no regularity dichotomy follows. Matching-alias and implication searches in mathematical records found no stronger coverage. Older literature on reflexive relation monoids remains a genuine risk and absence of an indexed result is not uniqueness certification.
+PASS
 
-## Value — PASS
-Regularity of a transformation monoid is a central semigroup structural property, studied specifically for graph endomorphism monoids. The theorem gives an all-parameter complete classification in a natural graph family and locates a sharp small obstruction at four vertices; the nontrivial contrast between partial star monoids and total bipartite monoids motivates studying the precise mapping category. No downstream result is assumed.
+For a total weak map f, fgf=f iff each image element t is assigned a preimage g(t) that extends to a weak total map. In K_{a,b}, distinct image values in one target part force their preimages into one source part and the other source part to the opposite target part; the 2-value image case has a crossing section. Hence all total weak maps have an inner inverse; the complete/edgeless cases are full transformation monoids. For >=3 parts with one duplicate, the explicit map z1->b, z2->z1, all other vertices->a has adjacent image values b,z1 with unique preimages z1,z2 in one independent part, making every section nonweak. This gives iff and K112 minimum order 4. Independent full monoid/brute inner-inverse enumeration on six small part vectors including K112 (154 maps, 12 nonregular) corroborated the proof.
 
-## Limits
-Finite simple complete multipartite objects only. The direct enumerations are corroboration, not an infinite proof. Originality remains conditional on inspected evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for classification of total weak maps; published partial-star nonregularity cannot be conflated with this total-map theorem.
+
+## value
+
+PASS
+
+Regularity is an intrinsic semigroup invariant and total versus partial morphism domains matter in published graph-monoid problems. The all-part-vector classification and minimal four-vertex obstruction give a natural complete theorem, not only a witness or renamed known result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

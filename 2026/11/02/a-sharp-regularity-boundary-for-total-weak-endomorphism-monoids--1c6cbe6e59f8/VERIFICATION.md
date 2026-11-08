@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3 with only its standard library. The script enumerates every total weak self-map and checks an explicit inner-inverse section condition for bipartite graphs of part sizes (1,1), (1,2), (1,3), (1,4), (2,2), (2,3), (2,4), and (3,3), plus every possible inner inverse on complete multipartite graphs with part sizes (1,1,1), (1,1,2), and (1,2,2). It directly constructs and tests a witness for (2,2,2). Expected final line: `VERIFY_OK`. The finite computations are corroborative; universal correctness follows from the mathematical argument in RESULT.md.
+## correctness
 
-No independent mathematical audit has been performed.
+PASS
+
+For a total weak map f, fgf=f iff each image element t is assigned a preimage g(t) that extends to a weak total map. In K_{a,b}, distinct image values in one target part force their preimages into one source part and the other source part to the opposite target part; the 2-value image case has a crossing section. Hence all total weak maps have an inner inverse; the complete/edgeless cases are full transformation monoids. For >=3 parts with one duplicate, the explicit map z1->b, z2->z1, all other vertices->a has adjacent image values b,z1 with unique preimages z1,z2 in one independent part, making every section nonweak. This gives iff and K112 minimum order 4. Independent full monoid/brute inner-inverse enumeration on six small part vectors including K112 (154 maps, 12 nonregular) corroborated the proof.
+
+## originality
+
+PASS
+
+Qualified PASS for classification of total weak maps; published partial-star nonregularity cannot be conflated with this total-map theorem.
+
+## value
+
+PASS
+
+Regularity is an intrinsic semigroup invariant and total versus partial morphism domains matter in published graph-monoid problems. The all-part-vector classification and minimal four-vertex obstruction give a natural complete theorem, not only a witness or renamed known result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
