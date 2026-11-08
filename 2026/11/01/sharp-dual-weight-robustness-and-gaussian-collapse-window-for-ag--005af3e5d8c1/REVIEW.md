@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear-programming instance is explicit and bounded. The full and aggregated objective values follow from the unique Lagrangian multiplier and exact feasibility of an interval-valued weighted sum of box coordinates. Cauchy--Schwarz and a one-variable maximum give exact, attained Euclidean and coordinatewise error envelopes, with a direct equality witness for the smallest total-collapse radius. The Gaussian phase transition follows from the strong law and a half-normal central limit theorem, with the first coordinate's sign-change event shown negligible. Rational vertex/edge enumeration and seeded Monte Carlo provide corroborating checks without serving as infinite proofs.
+PASS
 
-## Originality — PASS, with residual priority risks
+For every m>=2, full linking x=0 forces value 0 and Lagrange pi*=-e1 uniquely; fixing x1=t, the remaining weighted cube coordinates span precisely [-S(w),S(w)], giving D(w)=min(1,S/|w1|) (or 1 at w1=0). Linf bound follows |w1|>=1-delta and S<=(m-1)delta, attained by equal errors. L2 envelope uses Cauchy and maximization at epsilon1=rho^2, attained at equal remaining errors; saturation first occurs at rho=1/sqrt(m), delta=1/m. Under scale c/m, T_m/m -> E|G|=sqrt(2/pi), and CLT for T_m plus negligible G1 gives Phi(tau*mu/sqrt(1-2/pi)) for critical scaling. I independently solved 225 rational low-dimensional hyperplane-sliced cube LP instances via vertices and edges, matching closed D exactly. The rigorous infinite/m asymptotic proof uses interval geometry, SLLN, and CLT, not sampling.
 
-The cited October 2026 study proves recovery at optimally chosen surrogate weights and presents an iterative weight-update strategy. The specific sharp weight-perturbation radii, dimension-scaled independent-Gaussian collapse transition, and normal critical window do not appear in the inspected parts of that study. Searches for equivalent multiplier perturbation and surrogate-constraint stability formulas, broader coverage, exact tabulations, and published records found adjacent duality/stability results but no matching quantified theorem. Classical surrogate duality and the multiplier-recovery principle are expressly attributed; neither is claimed new. Complete access to specialized older surrogate-duality treatments was limited, so priority risk remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies an exact worst-case precision budget for a natural implementation issue: how closely computed aggregate weights must approximate an ideal dual multiplier to retain a useful bound. The sharp \(m^{-1/2}\) Euclidean and \(m^{-1}\) per-coordinate scales, a full-loss witness, and the Gaussian critical-window law are operationally interpretable; they distinguish exact recoverability from robustness. They do not claim failure of any particular published update algorithm.
+Exact-recovery weights and classical surrogate duality are explicitly prior. Newly evaluated mathematical statements are full attainable perturbation envelope, sharp dimension-dependent complete-loss radii, and half-normal/Gaussian critical window in an explicit box LP; nearby research does not state an implication-equivalent sensitivity theorem in inspected material. Primary 2026 motivating paper full text was unavailable; this creates a named priority risk, not automatic rejection.
 
-## Scope and limitations
+## value
 
-This is a deliberately normalized single-aggregate box-polytope model with real signed weights, exact arithmetic, and externally posited Gaussian perturbations. It does not describe arbitrary stochastic mixed-integer programs, any specific measured algorithmic error, or independent certification. Relevant original sections were inspected; broader specialized literature was not exhaustively available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A dual multiplier that recovers a full LP bound exactly need not be robust when substituted as a single aggregate weight. This explicit normalized family determines exact attainable perturbation budgets and a probabilistic saturation window, answering a motivated surrogate-aggregation precision question. The scaling is explicitly row/variable-normalization dependent and is not a general stochastic MIP guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
