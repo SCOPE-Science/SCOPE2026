@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The frequency reduction to a scalar Riccati-like equation follows by exact differentiation. Its unique nullcline decreases strictly with susceptible depletion, and the crossing derivative is strictly positive; this proves one maximum at most, not merely a numerical pattern. Positivity, integration of prevalence, residual susceptibility and scalar comparison justify the long-time limit. The constructive example uses exact rational data and a concavity inequality to force reversal. The standalone checker checks the identities algebraically and numerically illustrates the trajectory. Remaining boundary: the proof does not apply to zero initial infected masses or asymmetric mutation.
+
+**Originality — PASS (qualified).** The motivating 2026 article contains a more general replicator–mutator epidemic system and an average-trait identity, but its inspected main text and supplement do not give the global two-strain one-turning classification or construction. The 2025 genotype-network model has endemic reinfection, so its different dynamic outcomes cannot imply a one-peak theorem for a closed SIR system. Searches for two-strain mutation mean-trait unimodality and moving-nullcline equivalents, including research-record comparisons, found no covering statement. This is not a proof that an unindexed dynamical-systems theorem or textbook specialization does not already contain the result. The elementary scalar comparison lemma itself is not represented as new.
+
+**Mathematical value — PASS.** The observable is the mean infection transmissibility, a quantity central to interpreting evolution within epidemic curves. The result provides a complete temporal turning-point classification and a nontrivial rigorous reversal counterexample to extending early-time monotonicity to the full outbreak. The explicit structural condition (symmetric two-type mutation against decreasing susceptible-driven selection) identifies when a simple law survives; it is not a parameter-only substitution or a simulation report.
+
+Scientific limits: the two-type reflecting mutation assumption is essential; no claim for multi-type, finite-population, or continuous-trait models. Independent equivalence assessment remains useful.
+
+Self-review: passed. Independent audit: not yet performed.
