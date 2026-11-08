@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=3 and distinct complex centers, Bézout with the common line yields sum_i m_i<=d and with each connecting line yields m_i+m_star<=d for every irreducible image curve outside the identified lines. Hence C.C>=m_star(d-m_star)>=0. These inequalities exhaust negative curves. Their intersection pairing shows (-1)-curve supports must be pairwise disjoint; when the common-line (-[n-1])-curve is present, its Schur complement is -(n-1)+k, giving k<=n-2. The four exhaustive support types produce the stated polynomial, total 2*3^n+2*2^n-3*n-2, and top coefficient 2^n-n. The standalone exact Bareiss/Sylvester checker independently examines all 2^(2n+2) subsets for n=3,4,5 and reproduces the formula; checks for larger n verify only the polynomial arithmetic, not the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1204.4373, main theorem treats Segre–Schur quartic line supports and gives a general algorithm but no almost-collinear classification.",
+        "Accessible record f0b6eae4-d972-43c9-a5be-7edaa996f8c4 covers all points on a smooth conic; a smooth conic cannot contain three collinear points.",
+        "Accessible records f1c5e139-263b-4490-9e0e-4132ca4842da and 52ded6f9-0efd-4e15-8d09-b2f05f6ffcc7 concern distinct six-point special configurations."
+      ],
+      "reasoning": "General algorithms apply once the relevant entire negative-curve intersection graph is independently supplied, but contain no formula for this graph. The existing special-position cases do not contain all but one of arbitrarily many centers on one line; in particular their geometric hypotheses exclude the n>=3 family here.",
+      "searches": [
+        "published-finding corpus: number of Zariski chambers 2*3^n+2*2^n-3*n-2 for almost collinear blowup of P2",
+        "web: Zariski chamber plane blowup points all except one collinear 3^n",
+        "web: Zariski chambers of blow-ups of projective plane near collinear points negative curves"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0912.0958",
+      "arxiv:1204.4373",
+      "arxiv:1411.2431",
+      "arxiv:1910.05038 (limited relevant sections)",
+      "accessible own-ledger claims: 1f0a3fdf-26b3-4605-938e-55a375331a6a; f0b6eae4-d972-43c9-a5be-7edaa996f8c4; f1c5e139-263b-4490-9e0e-4132ca4842da; 52ded6f9-0efd-4e15-8d09-b2f05f6ffcc7",
+      "published-finding corpus semantic searches of exact formulas, aliases, sources and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "BFN supplies general correspondence but not the exhaustion of all negative curves in the specified special position.",
+        "BPS Example 3.4 proves the all-collinear exhaustion (exceptionals plus one line), whereas adding the off-line point creates n additional negative lines and changes both intersection graph and support count.",
+        "BS discusses a high-Picard quartic and determinant algorithms, not this family."
+      ],
+      "reasoning": "The stated source results imply only the counting procedure, not this exact result without additional geometric classification. The added curves and their incidence graph are essential premises separately derived here. The earlier smooth-conic and one-/two-triple-line computations are neither equivalent nor covering by their stated geometric constraints.",
+      "searches": [
+        "arxiv:0912.0958 Proposition 1.1 and Section 3, read HTML",
+        "arxiv:1204.4373 introduction and Section 1, read HTML",
+        "arxiv:1411.2431 Examples 3.4–3.5, read HTML",
+        "published-finding corpus: negative curves E_i, H-E_i-E_star, H-sum E_i; count negative-definite subsets star graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0912.0958, Proposition 1.1, identifies chambers with negative-definite support; its stated enumeration is for general-position Del Pezzo blow-ups, not n collinear points plus one off-line.",
+        "Accessible earlier record 1f0a3fdf-26b3-4605-938e-55a375331a6a counts all-collinear blow-ups, with 2^(n+1)-n-1 chambers and a different negative-curve list."
+      ],
+      "reasoning": "An equivalent formulation would count the same support subsets for the same blow-up, including the off-line point. The nearest all-collinear family omits the new connecting-line (-1)-curves and has a different support graph, so its result does not imply the present count.",
+      "searches": [
+        "published-finding corpus: Zariski chamber support polynomial blow-up projective plane n collinear points and one off-line point P_n(t)=(1+2t)^n+t(1+t)^n",
+        "web: Zariski chambers blow-up n collinear points one general point counts 3^n 2^n negative curves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:0912.0958, Theorem and Section 3 table only concern general-position del Pezzo surfaces with at most eight centers.",
+        "Direct exact checks produce first examples 59, 180, 533; no matching published table located in searches."
+      ],
+      "reasoning": "The finite initial values were searched together with the defining point configuration and asymptotic formula. No database or published table yielding the exact entire family was identified. Absence of hits is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Zariski chamber 59 180 533 blow-up points one off common line",
+        "web: Zariski chambers del Pezzo surfaces of degree 5 with singularities nodal root A1 count",
+        "web: count zariski chambers blow-up projective plane many points on a line and one off 3^n 2^n"
+      ]
+    },
+    "rationale": "No equivalent or dominating statement was located after comparing the full geometry and count with related classic chamber counting and collinear/conic blow-up cases. The general negative-definite-support correspondence is expressly prior work and not claimed new. The new conclusion is the closed infinite-family support polynomial derived from a separately proved complete negative-curve classification; historical priority remains conditional on unindexed specialized literature.",
+    "residual_risks": [
+      "No exhaustive global literature search is possible; specialized older blow-up/chamber formulas not indexed by the searched records might exist.",
+      "Later Weyl/Zariski paper was inspected only in relevant introductory material rather than completely; it did not provide a decisive conflicting formulation.",
+      "published-finding corpus ranking gave mainly unrelated hits for exact specialized queries; this is not uniqueness evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general support method and general-position del Pezzo counts; does not give this almost-collinear support spectrum.",
+        "evidence": [
+          "Theorem restricts its table to r<=8 general points; Proposition 1.1 is the reused negative-definite-support criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0912.0958",
+        "material_read": "HTML introduction, Proposition 1.1/1.5, Section 3 on del Pezzo negative curves and numerical algorithm",
+        "method": "web open and find on arXiv HTML",
+        "title": "Counting Zariski chambers on Del Pezzo surfaces",
+        "trigger": "Foundational chamber correspondence and possible prior enumeration"
+      },
+      {
+        "assessment": "Develops algorithm and treats 64 lines of Segre–Schur quartic; no matching point configuration or formula in examined sections.",
+        "evidence": [
+          "The introduction identifies the main application as Segre–Schur quartic line supports."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1204.4373",
+        "material_read": "HTML introduction, Proposition 1.1/1.2 and Section 1 algorithm and main example",
+        "method": "web open/find on arXiv HTML",
+        "title": "Zariski chambers on surfaces of high Picard number",
+        "trigger": "Possible high-Picard-number general enumeration"
+      },
+      {
+        "assessment": "Its all-collinear case and two-lines case do not include a single off-line point with all other points on one line; it addresses denominators, not this support polynomial.",
+        "evidence": [
+          "Example 3.4 lists only E_i and strict transform of the line as negative curves in all-collinear configuration.",
+          "Example 3.5 considers two groups exclusively on two lines."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.2431",
+        "material_read": "HTML Section 3 Examples 3.3, 3.4, 3.5 and introductory theorem statements",
+        "method": "web open/find on arXiv HTML",
+        "title": "On the boundedness of the denominators in the Zariski decomposition on surfaces",
+        "trigger": "Potential coverage by all-collinear blow-up analysis"
+      },
+      {
+        "assessment": "The inspected material studies Weyl/Zariski comparisons; no explicit almost-collinear family identified. Later literature not claimed fully excluded.",
+        "evidence": [
+          "The listed focus is containments between Weyl and Zariski chambers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.05038",
+        "material_read": "HTML abstract, introduction and citations concerning generalized chamber decompositions",
+        "method": "web open on arXiv HTML",
+        "title": "Weyl and Zariski chambers on projective surfaces",
+        "trigger": "Later possible stronger broad coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb42aeff-9871-468c-b92b-d3d95320ca74",
+  "value": {
+    "rationale": "A complete exact chamber-size polynomial for an infinite family with unbounded Picard rank, not an arbitrarily selected finite slice. The family is geometrically natural: a common line and one off-line point produce exactly n new connecting lines, and the resulting incidence structure admits an explicit Schur-bound classification. This yields z(X_n)=2*3^n+2*2^n-3n-2 and sharp maximal-support multiplicity 2^n-n, giving a positive family beyond the del Pezzo range where general-position high-point blowups have infinite chamber counts. Stable-base-locus geometry motivates the invariant independent of computation.",
+    "status": "PASS"
+  }
+}
