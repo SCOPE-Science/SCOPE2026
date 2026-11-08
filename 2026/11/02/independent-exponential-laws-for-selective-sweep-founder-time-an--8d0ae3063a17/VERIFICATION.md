@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and proof limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the standalone files. The program uses only Python's standard library; it tests exact geometric probability-generating-function iterations, exact lower-tail inequalities for scaled geometric variables, and finite triangular exceedance intensity trends. Its authentic output is recorded in `verify_output.txt`.
+## correctness
 
-These tests do not verify convergence of a Poisson point process, independence of the two limit coordinates, or limiting laws for all sample sizes. Those conclusions follow from the proof in `RESULT.md`: independent rare-event Laplace transforms and extreme-point truncations, marking/mapping of the limiting Poisson process, uniform geometric-family log-size bounds, and the deterministic runner-up versus aggregate minority-mass inequality. The Poisson top-gap transformation is an analytic calculation, not asserted to be established by finite arithmetic checks.
+PASS
 
-Source comparison: arXiv:2610.29759v1 supplies the original geometric branching model and qualitative one-genotype dominance, but the specific joint rate law is assessed separately in `REVIEW.md` and `AUDIT.json`. External, independent mathematical and historical-priority audits have not been performed.
+The exact k-fold geometric offspring pgf has parameter p_i^(n-i). Conditional qG has Pr(qG<r)<=r and Pr(qG>R)<=1/R, producing uniform log population-to-score error O_P(log n)=o_P(n) by union bound. With b_n exp(b_n)=n the rare-score marked process at (b_n i/n,(n-i)(-log p_i)/n-b_n) converges to Poisson intensity exp(-x-z)dx dz; exponential late-index and upper-score tail bounds make top-two extraction legitimate. A unit-rate PPP in u=exp(-z) has top spacing -log(U)~Exp(1); independently marking x~Exp(1) proves joint independence. A positive normalized top-two score gap identifies the true founder despite geometric family noise, and 0 <= |log(B1/B2)+log(1-P_n)| <= 2log n transfers to minority mass. Independent bounded simulations at n=500,3000,10000 checked plausible joint behavior but do NOT establish the infinite limit; checked exact geometric pgf and proof inequalities analytically.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: distinguishes the joint random residual-mass exponential rate and founder-time independence from prior qualitative dominance/Poisson leader theory. The underlying Poisson mapping and top-spacing laws are classical and not claimed novel; the application to aggregate nonleader family mass and true stochastic sizes is new within inspected primary coverage.
+
+## value
+
+PASS
+
+The founder index and *rate* of aggregate minority extinction are intrinsic, separate observables of a selective sweep. Their nontrivial joint independence law sharply quantifies fixation beyond existing qualitative dominance, with exact stochastic scaling, and is a useful natural distributional invariant rather than a routine restatement of the top Gumbel law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

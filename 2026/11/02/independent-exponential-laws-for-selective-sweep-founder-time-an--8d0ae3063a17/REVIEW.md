@@ -1,19 +1,21 @@
-# Review of the founder-time and minority-mass joint limit
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional geometric-family law is derived by PGF composition and is explicitly stated with its offspring support. Conditional geometric scaling yields the two-sided bound on each centered log-size, followed by a union bound over all founders; this provides the key simultaneous exponential accuracy and not merely a typical-family approximation. A triangular-array Laplace-functional calculation gives the two-dimensional extremal Poisson intensity. Early-index and high-score truncation control escape of the two highest points. Exponential marking and the transformation to a unit-rate Poisson process then give independent exponential limit laws for the founder-time mark and the top-two score gap. A strict limiting gap ensures stability of the maximizing index under branching noise. The top-two-size-to-minority-mass deterministic comparison differs by at most twice the logarithm of the number of families, negligible on the population-time scale. All quantifiers and endpoint conditions are specified in RESULT.md. Exact-rational and finite numerical checks pass; they are not substituted for infinite-limit arguments.
+PASS
 
-## Originality — PASS (best-knowledge; historical priority qualified)
+The exact k-fold geometric offspring pgf has parameter p_i^(n-i). Conditional qG has Pr(qG<r)<=r and Pr(qG>R)<=1/R, producing uniform log population-to-score error O_P(log n)=o_P(n) by union bound. With b_n exp(b_n)=n the rare-score marked process at (b_n i/n,(n-i)(-log p_i)/n-b_n) converges to Poisson intensity exp(-x-z)dx dz; exponential late-index and upper-score tail bounds make top-two extraction legitimate. A unit-rate PPP in u=exp(-z) has top spacing -log(U)~Exp(1); independently marking x~Exp(1) proves joint independence. A positive normalized top-two score gap identifies the true founder despite geometric family noise, and 0 <= |log(B1/B2)+log(1-P_n)| <= 2log n transfers to minority mass. Independent bounded simulations at n=500,3000,10000 checked plausible joint behavior but do NOT establish the infinite limit; checked exact geometric pgf and proof inequalities analytically.
 
-The main primary source, Fontes and Schinazi, *A branching model for selective sweeps* (arXiv:2610.29759v1), was examined through its model, Theorem 1, Proposition 2, Lemma 4, and Section 3. It establishes qualitative dominance, a Gumbel score maximum, a positive growth-score gap on a weaker scale, and a Poisson leader process. It does not state the joint independent exponential law for founder time and the normalized negative logarithm of the **total minority fraction**. The present proof supplements the known Poisson structure with a two-top-score gap, simultaneous logarithmic size control, and an exact deterministic comparison to aggregate minority mass. A related earlier fixed-population mutation model is structurally different; only its abstract-level material was accessible and this is recorded as a comparison limitation. Searches for equivalent formulations and stronger implications among available mathematical records and previous same-topic findings found no decisive coverage. Standard Poisson spacing and marking facts, taken alone, are not claimed as new. An unindexed or more general competing-population theorem could subsume the statement; no historical uniqueness is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating dominance theorem says that one genotype asymptotically occupies almost all the population but leaves the *rate and randomness* of the residual mass unspecified. The exact, nondegenerate rate-one exponential law quantifies population concentration on the natural generation-time exponent, and its asymptotic independence from the founder's emergence-time scale separates two natural observables of selective sweeps. This is a motivated distributional invariant for a concrete branching model, not a parameter renaming, a finite enumeration, or an arbitrary narrow slice. It does not give almost-sure rates, finite-size error control, or universality outside independent geometric families with uniform fitness.
+PASS best-of-knowledge: distinguishes the joint random residual-mass exponential rate and founder-time independence from prior qualitative dominance/Poisson leader theory. The underlying Poisson mapping and top-spacing laws are classical and not claimed novel; the application to aggregate nonleader family mass and true stochastic sizes is new within inspected primary coverage.
 
-## Closest literature and remaining risks
+## value
 
-Fontes and Schinazi (2026) supplies the most important prerequisite point-process analysis, but a point-process convergence alone does not identify the residual family mass without a simultaneous branching-noise bound and a runner-up-versus-sum argument. Udomchatpitak and Schweinsberg (2024/2025) concern competing beneficial mutations at fixed population size. Classical exponential Poisson-spacing results are explicitly credited. A general theorem for independent branching-family competition could imply the conclusion; complete external historical coverage and independent review remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The founder index and *rate* of aggregate minority extinction are intrinsic, separate observables of a selective sweep. Their nontrivial joint independence law sharply quantifies fixation beyond existing qualitative dominance, with exact stochastic scaling, and is a useful natural distributional invariant rather than a routine restatement of the top Gumbel law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
