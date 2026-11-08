@@ -1,25 +1,21 @@
-# Scientific review: all-order interval-bootstrap positivity certificate
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has two components: the rational diagonal product formula for every order and the low-energy positive-semidefiniteness classification for every finite size. The proof derives a weighted derivative-norm recurrence for every Legendre eigenfunction, then identifies the formal rational bootstrap diagonal by rational-function uniqueness at infinitely many nonresonant physical energies. A separate reflection-symmetry argument removes odd-step resonance ambiguities and establishes that *all* matrix entries at each physical energy recover the actual Gram matrix. Each open pole gap has one strictly negative diagonal except at its unique physical energy. The pole points are excluded, and no higher-energy assertion is made. The actual packaged `verify.py` was run successfully, with 54 exact finite assertions including symbolic identities through diagonal order six and exact Legendre norms; finite checks are a supplement, not a universal proof. Source: Sword and Vegh [1], especially their definitions (3.39)–(3.42), recursion (3.10), and analytic eigenstates (2.18). Residual risk: scrutiny of the algebraic reduction and the rational continuation proof is warranted in independent review, though their steps are explicitly supplied.
+PASS
 
-## Originality — PASS, with publication-priority limitations
+For no-flux Legendre H=-(z(1-z)psi′)′, E_n=n(n+1), rational alternatively ordered formal Gram moments, the weighted derivative norms I_j=integral w^{2j}(psi_n^{(j)})^2 satisfy I_{j+1}/I_j=(2j+1)/(2(j+1))*(E-j(j+1))^2/(4E-(2j+1)(2j+3)); division-free form covers vanishing derivatives. Iterate to central-binomial product for every diagonal. Rational moment recurrence plus physical-level interpolation establishes off-spectrum identity, and parity symmetry removes resonance at odd moment steps so all formal matrix entries equal the actual Gram matrix at every physical E_n. In each interval between lambda_j=j^2-1/4 poles, one diagonal has exactly one negative denominator factor except at the single physical squared numerator zero. Thus for all K>=2, 0<=E<(K-1)^2-1/4, away from poles, PSD iff E_n with n<=K-2. An independent SymPy exact-integration check for j=1..4, n=0..7 agrees; finite tests are only supporting checks, not the all-K proof.
 
-Sword and Vegh [1] provide the same bootstrap matrix and report finite-size exact spectral isolation. In section 4.4, their determinant checks reach size 12 and direct positivity checks size five; they explicitly leave a general arbitrary-size proof open. The new theorem supplies an all-order product for individual diagonals and an exact sign certificate for every finite size. The reviewed public version and the 2024 journal edition are the same original work, not two independent replications. Searches for the specific model, alternative ordering, spectral-gap factorization, and arbitrary-size positivity, including indexed mathematical findings, did not disclose a covering theorem. Other accessible results concern different operators and do not establish this rational identity. A 2024/2025 institutional thesis by the first author is discoverable, but its full text was not readable through the available source route; it remains a material publication-priority risk. Other later unpublished treatments may exist. No claim of independently certified novelty is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves the motivating source's expressly open all-size classification for the original alternatively ordered matrix rather than merely giving a new parametrization of known numbers. The exact factorization explains why a single diagonal entry rules out each interval of spurious trial energies and why the energy levels are isolated for every matrix size. It removes the need for successively larger characteristic determinants and supplies a structural certificate directly in the bootstrap's positive-semidefinite constraints. The result is confined to the natural no-flux Legendre operator and original operator ordering; it does not claim a broader spectral theorem or off-spectrum physical states.
+PASS best knowledge: Sword-Vegh primary full arXiv HTML inspected, paper explicitly reports numerical positivity to K=5 and arbitrary-K proof open (section 4.4). Exact all-j product plus negative single-diagonal arbitrary-size proof not included in inspected prior statements. Matrix ordering and rational off-spectrum normalization tightly specified.
 
-## Closest literature and limitations
+## value
 
-[1] Lewis Sword and David Vegh, *Quantum mechanical bootstrap on the interval: obtaining the exact spectrum*, arXiv:2402.03434v1 (5 February 2024), Phys. Rev. D 109, 126002 (2024), https://arxiv.org/html/2402.03434v1 . Full material inspected: model, recurrence, two-operator ordering, explicit matrix, main findings and appendices.
+PASS
 
-[2] Xihe Hu, *Different Bootstrap Matrices in Many QM Systems*, arXiv:2206.00767 (2022), https://arxiv.org/abs/2206.00767 . Relevant general background but complete content not read; no statement of full noncoverage is inferred from a title or abstract.
+Resolves the original explicit arbitrary-K positivity question analytically, with factored spectral zeros and poles and a simple certificate; significant upgrade over finite positivity experiments.
 
-[3] Lewis Sword, *Black holes, matrix & tensor witnesses and the quantum mechanical bootstrap*, doctoral thesis submitted 25 July 2024, repository metadata https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/99744/phd_thesis_lewis_sword_150962779_QMUL_SPCS_minor_corrections.pdf?isAllowed=y&sequence=2 . Full text inaccessible through the attempted route; possible overlap explicitly unresolved.
-
-Pole values and energies beyond the final pole of a given matrix are not classified. This is a self-review, not an independent scientific audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

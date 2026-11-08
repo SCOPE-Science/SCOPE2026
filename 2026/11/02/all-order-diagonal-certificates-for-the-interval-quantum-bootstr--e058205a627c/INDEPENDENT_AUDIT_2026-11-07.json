@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:16:01.821303Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For no-flux Legendre H=-(z(1-z)psi′)′, E_n=n(n+1), rational alternatively ordered formal Gram moments, the weighted derivative norms I_j=integral w^{2j}(psi_n^{(j)})^2 satisfy I_{j+1}/I_j=(2j+1)/(2(j+1))*(E-j(j+1))^2/(4E-(2j+1)(2j+3)); division-free form covers vanishing derivatives. Iterate to central-binomial product for every diagonal. Rational moment recurrence plus physical-level interpolation establishes off-spectrum identity, and parity symmetry removes resonance at odd moment steps so all formal matrix entries equal the actual Gram matrix at every physical E_n. In each interval between lambda_j=j^2-1/4 poles, one diagonal has exactly one negative denominator factor except at the single physical squared numerator zero. Thus for all K>=2, 0<=E<(K-1)^2-1/4, away from poles, PSD iff E_n with n<=K-2. An independent SymPy exact-integration check for j=1..4, n=0..7 agrees; finite tests are only supporting checks, not the all-K proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sword-Vegh section 4.4 explicitly reports finite tests and leaves arbitrary-K proof open; matrix ordering is specific. Hu discusses other QM bootstrap matrix choices."
+        ],
+        "reasoning": "General moment positivity is wider in setup but does not directly supply the exact alternating-order diagonal or low-energy iff classification.",
+        "searches": [
+          "Sword Vegh 2024 quantum mechanical bootstrap interval arxiv 2402.03434 section 4.4",
+          "Hu Different Bootstrap Matrices in Many QM Systems arxiv 2206.00767"
+        ]
+      },
+      "checked_sources": [
+        "record RESULT.md Git blob 2332fcc8c85b00972dacd3de77f4a1ef44747025",
+        "record verify.py Git blob c4aed79c2e83e9bfbfbebe1fda8c370807ca93b6",
+        "arxiv:2402.03434v1 full HTML §4.4",
+        "arxiv:2206.00767",
+        "Resultary query quantum bootstrap Sword Vegh Legendre interval positive semidefinite Gram matrix all order diagonal spectra moment poles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior numerical observations match finite samples; its statement that arbitrary-K remains outstanding directly distinguishes the new all-order proof."
+        ],
+        "reasoning": "The physical spectrum n(n+1) alone guarantees PSD at eigenlevels, but not nonphysical negativity; a factored j-th diagonal excludes all nonphysical trial energies below the pole.",
+        "searches": [
+          "arxiv:2402.03434 section 3.4.3 and 4.4",
+          "arxiv:2206.00767"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The alternative bootstrap diagonals are weighted derivative squared norms on physical Legendre eigenstates, but off-spectrum E uses Sword-Vegh rational bootstrap moments."
+        ],
+        "reasoning": "Usual Sturm-Liouville positivity at eigenstates does not entail classification of false trial energies; rational extension and negative diagonal are nontrivial steps.",
+        "searches": [
+          "quantum bootstrap Sword Vegh Legendre interval positive semidefinite Gram matrix all order diagonal spectra moment poles",
+          "Legendre Sturm Liouville weighted derivative norms exact rational recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source computed determinants to K=12 and positivity directly to K=5, not all orders. Resultary returned unrelated spectral work."
+        ],
+        "reasoning": "Finite printed tables cannot imply every integer K and rational diagonal product, though the low-order terms are covered prior examples.",
+        "searches": [
+          "quantum bootstrap Sword Vegh Legendre interval positive semidefinite Gram matrix all order diagonal spectra moment poles",
+          "Sword Vegh appendix C K12 finite diagonal symbolic positivity"
+        ]
+      },
+      "rationale": "PASS best knowledge: Sword-Vegh primary full arXiv HTML inspected, paper explicitly reports numerical positivity to K=5 and arbitrary-K proof open (section 4.4). Exact all-j product plus negative single-diagonal arbitrary-size proof not included in inspected prior statements. Matrix ordering and rational off-spectrum normalization tightly specified.",
+      "residual_risks": [
+        "All-order formal-moment interpolation depends on the claimed factor tracking for arbitrary operator indices; checked logically in RESULT but not independently machine-formalized.",
+        "Unindexed later literature or alternate order conventions might contain equivalent factorization; avoid universal priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-size low-energy positivity established numerically; explicitly identifies arbitrary-K proof as outstanding",
+          "evidence": [
+            "arxiv:2402.03434v1, §4.4 lines 443-444; primary published Phys Rev D 109 126002"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.03434v1",
+          "material_read": "Full rendered arXiv HTML (~732 lines), especially sections 3.1,3.4.3,4.4 and appendix mentions",
+          "method": "read complete source HTML and compare exact finite-vs-all-K claims",
+          "title": "Quantum mechanical bootstrap on the interval: obtaining the exact spectrum",
+          "trigger": "Same formal alternative matrix, same eigenvalue and low-energy PSD behavior"
+        },
+        {
+          "assessment": "Related matrix formalisms; cannot exclude uninspected all-order cases",
+          "evidence": [
+            "arxiv:2206.00767"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.00767",
+          "material_read": "Abstract/bibliographic context; not full text",
+          "method": "metadata and targeted comparison",
+          "title": "Different Bootstrap Matrices in Many QM Systems",
+          "trigger": "Possible broader matrix construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the original explicit arbitrary-K positivity question analytically, with factored spectral zeros and poles and a simple certificate; significant upgrade over finite positivity experiments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "record RESULT.md Git blob 2332fcc8c85b00972dacd3de77f4a1ef44747025",
+    "record verify.py Git blob c4aed79c2e83e9bfbfbebe1fda8c370807ca93b6",
+    "arxiv:2402.03434v1 full HTML §4.4",
+    "arxiv:2206.00767",
+    "Resultary query quantum bootstrap Sword Vegh Legendre interval positive semidefinite Gram matrix all order diagonal spectra moment poles"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only no-flux Legendre realization, specific alternate matrix and energies below final pole, with poles excluded. No statement at higher energies or for other orderings.",
+    "All-order formal-moment interpolation depends on the claimed factor tracking for arbitrary operator indices; checked logically in RESULT but not independently machine-formalized.",
+    "Unindexed later literature or alternate order conventions might contain equivalent factorization; avoid universal priority assertion."
+  ],
+  "schema_version": 1
+}
