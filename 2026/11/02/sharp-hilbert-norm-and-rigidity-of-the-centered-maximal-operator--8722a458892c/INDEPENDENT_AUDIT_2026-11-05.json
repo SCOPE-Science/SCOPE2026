@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:58:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the counting-mass Petersen graph KG(5,2), M is a pointwise maximum of three nonnegative ball averaging matrices. Thus ||M||_2^2=max over 3^10=59049 radius assignments of lambda_max(A_rho^T A_rho). I independently constructed all 120 S5 automorphisms and 792 selection orbits; computed eigenvalues and exact integer Sylvester/Bareiss positive-definite certificates for 791 nonwinning orbit representatives for 2964I-5(20A)^T(20A)>0. The sole winning orbit has 20 assignments and top squared norm 1.4841784035296353; next largest orbit max 1.4794072003558165<1.482. Independent symbolic 3x3 compressed eigenvalue calculation yields exactly (200 lambda^3-355 lambda^2+87lambda-1)/200, with positive Perron eigenvector H=1,T=(49lambda-1)/D,S=(24lambda+3)/D and l2 norm 1.21826860894042. Read source petersen_verifier.py; its exact rational activation inequalities ensure all winning prescribed radii strictly active, and distinct ordered pairs give 20 rays. Finite enumeration is genuinely exhaustive here because there are exactly 59049 cases and orbit partition was checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greenblatt Theorem 1.4.1/Corollary 1.4.2 concern Cartesian powers and spherical averages",
+          "Petersen result uses centered balls sizes 1,4,10 and exact one-graph l2 norm"
+        ],
+        "reasoning": "A Cartesian-power spherical maximal asymptotic bound is not a dominating result for the sharp centered ball maximal norm and extremizers at one base copy.",
+        "searches": [
+          "Resultary semantic query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity",
+          "Greenblatt 2016 doctoral thesis section 1.4",
+          "arXiv:2011.02630"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md proof/cubic/certificate blob 13a3b37983e09e77fe89b94f3c76c650fd6a11d9",
+        "petersen_verifier.py exact Bareiss and activations, blob 1ab5e31266323712f88726314a2dfe9d62ec6c63",
+        "Independent full enumeration /mnt/data/petersen_independent.py (private), 59049 cases, 792 orbits, 791 exact positive-definite certificates",
+        "Independent Sympy exact cubic characteristic",
+        "Greenblatt 2016 dissertation section 1.4",
+        "arXiv:1410.6204 and 2011.02630",
+        "Resultary query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greenblatt uses spherical averages on Cartesian powers, not Petersen ball averaging as an operator",
+          "Finite matrix reduction is generic and credited, the nontrivial 59,049-case exact certificate and equality description are not"
+        ],
+        "reasoning": "A general reduction to a finite matrix optimization problem does not itself imply which of its 792 symmetry-orbit matrices is optimal or give the cubic and rigidity.",
+        "searches": [
+          "Resultary semantic query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity",
+          "https://escholarship.org/uc/item/16k3f6p1",
+          "https://arxiv.org/abs/1410.6204"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition of centered metric-ball averages in Soria–Tradacete aligns with the claim",
+          "Previously studied sharp families are complete graphs/stars, not KG(5,2)"
+        ],
+        "reasoning": "Same maximal-operator notion, different explicit graph families; the claimed cubic and equality classification do not follow merely from the general formulation.",
+        "searches": [
+          "Resultary semantic query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity",
+          "arXiv:1410.6204",
+          "arXiv:2005.03146",
+          "arXiv:2011.02630"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact exhaustive radius-assignment orbits 792 with unique exceptional orbit 20 and cubic characteristic polynomial",
+          "No identical Petersen exact l2 norm table in the inspected primary material"
+        ],
+        "reasoning": "This exact finite object was exhaustively recomputed with independent Sylvester certificates rather than a lookup of a known graph data table.",
+        "searches": [
+          "Resultary semantic query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity",
+          "Resultary query: Centered Hardy Littlewood maximal operator on finite graphs Hilbert l2 norm Petersen graph equality rigidity",
+          "Greenblatt thesis tables/theorem 1.4"
+        ]
+      },
+      "rationale": "Soria-Tradacete founded maximal norms on finite graphs, González-Riquelme/Madrid establish sharp values for complete graphs and stars, and Greenblatt 2016 thesis treats spherical maximal operators on CARTESIAN POWERS of Petersen. The inspected full thesis subsection 1.4 addresses asymptotics for powers, not this one-graph ball maximal l2 cubic/equality classification. The exact coefficient polynomial and twenty-rigid rays are not inferred from the published generic finite-graph reduction. Unindexed prior equality computations remain a real priority risk.",
+      "residual_risks": [
+        "An unindexed earlier Petersen-graph exact calculation may exist; the natural small graph could have appeared in older tables.",
+        "The certificate proves only this fixed unweighted Petersen graph l2 operator, not higher Kneser graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different radius family and asymptotic Cartesian powers; no inspected exact 10-vertex centered-ball cubic",
+          "evidence": "Chapter 1.4 Theorem 1.4.1 and Corollary 1.4.2 use Cartesian products, not this exact 59049-selector test",
+          "identifier_or_url": "https://escholarship.org/uc/item/16k3f6p1",
+          "material_read": "Full PDF inspected, especially chapter/section 1.4 and its theorem/corollary on Cartesian powers and spherical averaging, with title/contents cross-check",
+          "method": "Lawful full-text PDF and rendered-page inspection",
+          "title": "Dimensional Asymptotics for Norms of Maximal Averaging Operators on Cartesian Powers of Finite Graphs",
+          "trigger": "Petersen graph explicitly appears in title-relevant thesis"
+        },
+        {
+          "assessment": "General setup and low-p inequalities, not inspected exact Petersen norm result",
+          "evidence": "2014 founding paper finite graph metric balls",
+          "identifier_or_url": "arXiv:1410.6204",
+          "material_read": "Primary abstract/description and stated finite graph setup; no full proof reading in this run",
+          "method": "ArXiv abstract and source overview",
+          "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+          "trigger": "Same nonlinear maximal operator on finite graphs"
+        },
+        {
+          "assessment": "Prior complete graphs/stars are different graph family",
+          "evidence": "2020 sharp known family results",
+          "identifier_or_url": "arXiv:2011.02630",
+          "material_read": "Primary description/abstract of graph cases; no full text read",
+          "method": "ArXiv record and paper metadata",
+          "title": "Sharp inequalities for maximal operators on finite graphs II",
+          "trigger": "Earlier sharp strong l2 finite graph norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a standard small vertex-transitive cubic graph, and the complete strong l2 norm plus all equality cases is a natural exact benchmark for nonlinear graph maximal operators. Exhaustive finite certification is the appropriate complete proof for this fixed graph, and the rigidity pattern is independently meaningful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only centered counting-mass l2 on unweighted Petersen graph, not other maximal radii, graph products or exponents.",
+    "Finite proof is exhaustive as formulated; does not generalize automatically.",
+    "An unindexed earlier Petersen-graph exact calculation may exist; the natural small graph could have appeared in older tables.",
+    "The certificate proves only this fixed unweighted Petersen graph l2 operator, not higher Kneser graphs."
+  ],
+  "schema_version": 1
+}
