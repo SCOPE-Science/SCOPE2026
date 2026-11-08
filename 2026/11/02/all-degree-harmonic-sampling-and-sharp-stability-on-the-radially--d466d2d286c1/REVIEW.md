@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The addition theorem gives the Gram/evaluation rank correspondence with antipodal parity. The explicit corner/axis decomposition is derived directly from the seven representative coordinates, with separate even and odd Legendre sectors. Every low-degree rank and the strict competing condition-number inequalities for degrees below 120 use exact rational recurrences and exact arithmetic in the supplied standalone checker. The unique degree-seven maximum is supported by explicit algebraic eigenvalues and integer isolating bounds. The infinite tail is covered independently by the published Bernstein inequality and Gershgorin diagonal dominance. The finite geometry cross-check constructs the original seven-by-seven matrix from coordinates. Scientific risk: the 120-degree finite certificate is computational and should be replayed; the proof does not assert that finite testing alone proves an infinite statement.
+PASS
 
-## Originality — PASS under bounded comparison
+The spherical addition theorem makes the seven-antipodal-representative Legendre Gram matrix a positive scalar multiple of exact-degree evaluation Gram. Its 7x7 spectrum decomposes by the corner Fourier characters: even k has scalar branches 1-P_k(1/3) (triple), 1-P_k(0) (double), plus a 2x2 block; odd k has 1-3P_k(1/3) and three repeated 2x2 blocks. Independent rational recurrence evaluated k=0..120 and reproduced ranks (1,3,5,4,6,6,6,7,6,7,6,7,7,7,6), full rank for 15..120, and exact rational enclosures proving each other full-rank degree 8..119 has condition ratio <11/2. k=7 eigenvalues give unique ratio (1337+sqrt889441)/(1337-sqrt889441)=5.78855598. For all k>=120 Bernstein bound |P_k(z)|<1/12 off diagonal and Gershgorin guarantee eigenvalues in (1/2,3/2), hence full rank and cond<3. Finite and infinite scopes distinguished.
 
-Compared direct statements and implications for spherical-harmonic interpolation, harmonic-index designs, the exact rhombic-dodecahedron point set, and related spherical grids. Marzo (arXiv:math/0611503) treats increasing-degree, growing-node sampling and interpolation densities; Bannai–Okuda–Tagami (arXiv:1308.5101v1) treat vanishing unweighted harmonic moments and design bounds; neither inspected source supplies the complete seven-point Gram spectrum or the unique degree-seven global condition number. A polyhedral-grid paper names the same underlying polyhedron but its accessible abstract concerns PDE grids, and its inaccessible full text remains an explicit residual risk. Searches of related published mathematical records did not show a covering theorem. Residual risks: an older octahedral association-scheme, spherical-cubature, or representation-theory treatment could provide equivalent results; search absence is not novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-radius fourteen-vertex rhombic dodecahedron is a classical non-vertex-transitive configuration whose radial projection leads to a natural finite harmonic sampling problem. Determining its exact-degree interpolation threshold and the isolated rank losses at degrees eight, ten, and fourteen resolves the full infinite-degree rank question, while the unique global worst condition number supplies sharp quantitative interpolation stability beyond a rank computation. The strict competing-degree bound identifies a meaningful stability gap. The exact results are specific to this canonical configuration, not arbitrary slices of a parameter table.
+Marzo covers asymptotic density/cumulative-degree spherical sampling and Bannai–Okuda–Tagami harmonic-index designs via a scalar Gegenbauer sum, not the exact-degree seven-node rank anomalies or global sharp condition number at this rhombic-dodecahedral configuration. Best-of-knowledge PASS, older polyhedral design/grid tables remain priority risk.
 
-## Closest work and scientific limitations
+## value
 
-J. Marzo (2006), *Marcinkiewicz–Zygmund inequalities and interpolation by spherical harmonics*; E. Bannai, T. Okuda, and M. Tagami (2013), *Spherical designs of harmonic index t*; W. Gautschi and C. Giordano (2008), Bernstein's inequality in equation (56); D. Oldham, J. Davies, and T. Phillips (2012), polyhedral spherical grids (abstract only). The supplied exact checker is a necessary part of the finite proof, with all higher degrees handled analytically. No independent review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nodes are a canonical antipodal polyhedral configuration. Nonmonotone rank in exact degree (failures at 8,10,14), permanence after 15, and a sharp exceptional conditioning maximum at 7 are natural, useful interpolation/stability invariants, with an unbounded-degree proof not merely finite table lookups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

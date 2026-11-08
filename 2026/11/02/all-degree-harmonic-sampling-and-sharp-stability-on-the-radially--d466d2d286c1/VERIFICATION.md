@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-The standard-library `rhombic_dodecahedron_exact_check.py` constructs exact Legendre recurrences at rational arguments and their quadratic irrational counterpart. It checks spectral ranks for all degrees \(0\le k<120\), exact expressions for the degree-seven extremum, and exact rational envelopes proving every other nonsingular finite-range condition number less than \(11/2\). Its expected success message begins `RHOMBIC_DODECAHEDRON_EXACT_CERTIFICATE_OK`.
+## correctness
 
-The supplementary SymPy script `rhombic_geometry_crosscheck.py` constructs the complete seven-point Legendre Gram matrix directly from coordinates and checks the characteristic-polynomial identity for eighteen degrees. Its expected success prefix is `RHOMBIC_DODECAHEDRON_GEOMETRY_CROSSCHECK_OK`.
+PASS
 
-These scripts are finite checks only. The distinct proof of the unbounded range uses Bernstein's Legendre inequality \(|P_k(\cos\theta)|<\sqrt{2/(\pi k\sin\theta)}\), equation (56) of Gautschi–Giordano (2008), together with a six-off-diagonal Gershgorin estimate for all \(k\ge120\). The remaining scholarly uncertainty is whether an equivalent theorem has appeared in older cubature or harmonic-representation literature. No external independent audit or validation has been performed.
+The spherical addition theorem makes the seven-antipodal-representative Legendre Gram matrix a positive scalar multiple of exact-degree evaluation Gram. Its 7x7 spectrum decomposes by the corner Fourier characters: even k has scalar branches 1-P_k(1/3) (triple), 1-P_k(0) (double), plus a 2x2 block; odd k has 1-3P_k(1/3) and three repeated 2x2 blocks. Independent rational recurrence evaluated k=0..120 and reproduced ranks (1,3,5,4,6,6,6,7,6,7,6,7,7,7,6), full rank for 15..120, and exact rational enclosures proving each other full-rank degree 8..119 has condition ratio <11/2. k=7 eigenvalues give unique ratio (1337+sqrt889441)/(1337-sqrt889441)=5.78855598. For all k>=120 Bernstein bound |P_k(z)|<1/12 off diagonal and Gershgorin guarantee eigenvalues in (1/2,3/2), hence full rank and cond<3. Finite and infinite scopes distinguished.
+
+## originality
+
+PASS
+
+Marzo covers asymptotic density/cumulative-degree spherical sampling and Bannai–Okuda–Tagami harmonic-index designs via a scalar Gegenbauer sum, not the exact-degree seven-node rank anomalies or global sharp condition number at this rhombic-dodecahedral configuration. Best-of-knowledge PASS, older polyhedral design/grid tables remain priority risk.
+
+## value
+
+PASS
+
+The nodes are a canonical antipodal polyhedral configuration. Nonmonotone rank in exact degree (failures at 8,10,14), permanence after 15, and a sharp exceptional conditioning maximum at 7 are natural, useful interpolation/stability invariants, with an unbounded-degree proof not merely finite table lookups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
