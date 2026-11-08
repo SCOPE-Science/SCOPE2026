@@ -1,19 +1,21 @@
-# Scientific review of rectangular-box surface chord dispersion
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact statement concerns two independent points sampled with normalized **surface area** from all six faces of a full-dimensional rectangular box in three-dimensional Euclidean space. The conditional face law has probabilities \(p_i=abc/(a_i(ab+bc+ca))\), and yields the second and fourth mixed coordinate moments used in the proof. The fourth chord-moment identity follows from independence and central symmetry without assuming independence of coordinates in the unconditional surface law.
+## correctness
 
-The two final inequalities are reduced to homogeneous polynomial identities with positive integer coefficients. The upper certificate has 15 positive monomials. For the lower certificate the ordered half-length substitution \(a=w+v+u,b=w+v,c=w\) has 39 nonzero, all-positive monomials, and equality requires \(u=v=0\). The singular-limit leading terms and a continuity argument establish exact sharpness and full attainability. The verifier regenerated these identities exactly; five rational face-pair integrals separately checked the moment formulas. Its seeded simulations are only auxiliary.
+PASS
 
-## Originality — PASS, provisional historical priority
-The 1999 Mathai–Moschopoulos–Pederzoli article treats cube distances and selected face-pair schemes, not an explicit all-aspect-ratio sharp optimization according to its accessible publisher abstract. Its complete text could not be accessed, leaving an acknowledged historical-priority risk. The dated 2013 Tong–Ahmadi–Pan preprint treats **planar polygon-interior** sampling and transformations from line chords to point distances; accessible substantive sections use a different probability space. Fixed-cube face-to-face calculations on MathWorld are also distinguished from normalized moments for the full boundary of an arbitrary cuboid.
+PASS for independent X,Y uniformly sampled by two-dimensional area on all six faces of a positive rectangular box. The joint two-face sampling assigns total weight p_i=abc/(a_i(ab+bc+ca)) to the opposing pair perpendicular to axis i. Conditional even moments yield Q=(a^2+b^2+c^2)(ab+bc+ca)+2abc(a+b+c), W as explicit homogeneous expression, E[D^2]=2Q/(3H), E[D^4]=2(5Q^2+W)/(45H^2), K=(5Q^2+W)/(10Q^2). Direct exact integer polynomial expansion of (19Q^2−W)/4 confirms 15 positive monomials, hence strict K<12/5. Sorting a>=b>=c and substituting a=w+v+u,b=w+v,c=w makes (75W−649Q^2)/4 consist of 39 nonnegative monomials with a positive w^6(u^2+uv+v^2) term for noncube, hence unique min K=512/375 at cube. Leading Q=2t^3,W=76t^6 for (t,1,1) proves sharp unattained 12/5; IVT gives every intermediate value. Independently regenerated both full positive polynomials without relying on a numerical Monte Carlo estimate.
 
-The closest identified published geometric comparison concerns the fourth-moment ratio for **planar parallelogram boundaries**; its one-dimensional boundary measure and its fourth-moment amplification comparison do not cover three-dimensional cuboid surfaces. General convex-body interior pair-distance inequalities and directional orthotope-shadow moment formulas also use different sampling models/observables. Searches used box/cuboid/orthotope, surface/boundary/faces, chord/line picking, normalized fourth moment and coefficient-of-variation variants; no inspected claim implies both present sharp constants and the cube equality rigidity. This is a best-knowledge originality assessment, not an independent historical certification.
+## originality
 
-## Mathematical value — PASS
-The ratio \(\mathbb E[D^4]/(\mathbb E[D^2])^2\) measures dispersion of squared distances and is insensitive to scale. Unlike evaluation of one fixed-cube moment, the theorem completely determines its shape range over every positive rectangular-box aspect ratio, proves a unique minimizer, and gives a geometrically interpretable unattained extremum in a rod-like degeneration. The exact coefficients require a genuine global positivity argument, not just differentiating along one aspect-ratio line. This supplies a sharp benchmark for surface-sampled spatial distances.
+PASS
 
-## Limitations and closest literature
-The finding does not recover the three half-lengths from one statistic, estimate finite-sample errors, address nonrectangular parallelepipeds, or extend the statement to arbitrary dimension. Full-text access to the 1999 cube-distance article was unavailable; hidden stronger results remain a residual priority risk. This same review verifies mathematical details and accessible overlap evidence only, not independent publication priority.
+PASS as a best-of-knowledge all-aspect-ratio surface-box sharp inequality, qualified because Mathai–Moschopoulos–Pederzoli 1999 entire manuscript was inaccessible. Its publisher abstract concerns distances within cubes/fixed face schemes, not a verified theorem optimizing all positive rectangular-box ratios. Planar parallelogram chord-moment results use different dimensional boundary measure; triangle interior and MathWorld cube fixed-face entries likewise do not imply the sharp cuboid surface interval.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. The scale-invariant fourth-to-squared-second chord moment measures dispersion of squared distances between two surface-uniform points on a natural orthotope family. Its globally sharp range, rigid cube minimizer, degenerate-rod extremal limit and full attainability are nontrivial geometric inequalities, not a fixed-cube table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

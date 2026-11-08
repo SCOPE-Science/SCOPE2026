@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:16:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git exact blob 2026/11/02/sharp-normalized-fourth-moment-bounds-for-chords-of-rectangular--cfdb9b94a146/RESULT.md ce9ec5c9f062c1ec974a730f40750d7f38d53f2f",
+        "Git exact blob 2026/11/02/sharp-normalized-fourth-moment-bounds-for-chords-of-rectangular--cfdb9b94a146/verify.py 22498ab2f936ee6c2c939cd402a38fc2e1f6f481",
+        "Independently expanded positive upper/lower polynomial certificates as exact integer polynomial dictionaries, confirming 15 upper and 39 lower strictly positive monomials, plus K=512/375 at a=b=c=1. Separately inspected package verify.py face-pair rational check formula; simulations are supplementary only."
+      ],
+      "rationale": "PASS for independent X,Y uniformly sampled by two-dimensional area on all six faces of a positive rectangular box. The joint two-face sampling assigns total weight p_i=abc/(a_i(ab+bc+ca)) to the opposing pair perpendicular to axis i. Conditional even moments yield Q=(a^2+b^2+c^2)(ab+bc+ca)+2abc(a+b+c), W as explicit homogeneous expression, E[D^2]=2Q/(3H), E[D^4]=2(5Q^2+W)/(45H^2), K=(5Q^2+W)/(10Q^2). Direct exact integer polynomial expansion of (19Q^2−W)/4 confirms 15 positive monomials, hence strict K<12/5. Sorting a>=b>=c and substituting a=w+v+u,b=w+v,c=w makes (75W−649Q^2)/4 consist of 39 nonnegative monomials with a positive w^6(u^2+uv+v^2) term for noncube, hence unique min K=512/375 at cube. Leading Q=2t^3,W=76t^6 for (t,1,1) proves sharp unattained 12/5; IVT gives every intermediate value. Independently regenerated both full positive polynomials without relying on a numerical Monte Carlo estimate.",
+      "residual_risks": [
+        "Sampling is full surface-area, not volume-uniform or fixed opposite-face or intrinsic-geodesic chords. Strict positivity of all half-lengths matters for the unattained upper endpoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mathai et al publisher abstract available but full paper inaccessible; appears fixed cube/faces not all cuboid aspect ratios",
+          "Tong–Ahmadi–Pan arXiv:1312.2498 treats planar triangle-interior sampling, not three-space cuboid surface",
+          "Resultary 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e7 concerns planar parallelogram arclength/area, not 2D surface on 3D box"
+        ],
+        "reasoning": "General distance-distribution calculation for fixed objects or interior-sampling convex bodies cannot logically imply this global surface-area cuboid optimization without a shape-comparison theorem. Possible older full paper remains unexcluded.",
+        "searches": [
+          "Mathai Moschopoulos Pederzoli 1999 distance between random points cube",
+          "Tong Ahmadi Pan 2013 random distances arbitrary triangles",
+          "convex body mean distance sharp inequality interior vs surface",
+          "Resultary fourth chord moment amplification parallelogram"
+        ]
+      },
+      "checked_sources": [
+        "frozen source 2026/11/02/sharp-normalized-fourth-moment-bounds-for-chords-of-rectangular--cfdb9b94a146/RESULT.md at 2c8d98134d9930cd11887f086cc209007a54248d",
+        "surface uniform rectangular cuboid box random chord fourth moment kurtosis sharp cube upper",
+        "https://rivista-statistica.unibo.it/article/view/1104",
+        "https://arxiv.org/abs/1312.2498",
+        "https://mathworld.wolfram.com/CubeLinePickingFaceandFace.html",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1999 abstract supplies no explicit variable-box global inequality; full text was not read so stronger hidden result remains possible",
+          "Planar polygon interior results assume a different sampling space",
+          "Planar parallelogram boundary theorem does not encompass 3D box surface under a direct specialization"
+        ],
+        "reasoning": "Prior formulae for a fixed cube or other dimensional measures are not demonstrably stronger in the required hypotheses. The 15/39 coefficient extremality certificate is specific to changing three side-length ratios; full text historical priority still qualified.",
+        "searches": [
+          "Mathai 1999 distance between random points cube full faces",
+          "Tong Ahmadi Pan 1312.2498 triangle random points",
+          "published planar parallelogram fourth moment chord variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized fourth moment K is exactly one plus the squared coefficient of variation of D^2",
+          "MathWorld Cube Line Picking Face and Face is for particular cube face pairs, not all cuboid surfaces",
+          "Resultary planar parallelogram fourth-moment ratio studies arclength boundary sampling"
+        ],
+        "reasoning": "The coefficient-of-variation identity is a true reformulation of the target invariant, included in searches; distinct fixed-face or 2D line picking statistics use different sampling and are not equivalent.",
+        "searches": [
+          "surface uniform rectangular cuboid box random chord fourth moment kurtosis sharp cube upper",
+          "rectangular box surface area line picking fourth central moment coefficient of variation squared distance",
+          "cube rectangular prism surface chord kurtosis shape inequality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld lists fixed-cube face-to-face distance calculations",
+          "The full positive-orthotope sharp inequality has unique cube minimizer and rod-limit supremum independent of any fixed-cube statistic"
+        ],
+        "reasoning": "Known exact cube moments may verify one endpoint but do not determine optimality, rigid equality and all intermediate cuboid shapes; no searched table supplies the theorem.",
+        "searches": [
+          "surface uniform rectangular cuboid box random chord fourth moment kurtosis sharp cube upper",
+          "cube line picking face face fourth moment table rectangular cuboid surface",
+          "MathWorld cube line picking face and face moments"
+        ]
+      },
+      "rationale": "PASS as a best-of-knowledge all-aspect-ratio surface-box sharp inequality, qualified because Mathai–Moschopoulos–Pederzoli 1999 entire manuscript was inaccessible. Its publisher abstract concerns distances within cubes/fixed face schemes, not a verified theorem optimizing all positive rectangular-box ratios. Planar parallelogram chord-moment results use different dimensional boundary measure; triangle interior and MathWorld cube fixed-face entries likewise do not imply the sharp cuboid surface interval.",
+      "residual_risks": [
+        "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+        "https://rivista-statistica.unibo.it/article/view/1104: POSSIBLE PARTIAL OVERLAP; WHOLE TEXT UNREAD"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSSIBLE PARTIAL OVERLAP; WHOLE TEXT UNREAD",
+          "evidence": "May contain exact cube or face-pair moments; not legitimate to assert full paper has no cuboid aspect-ratio inequality.",
+          "identifier_or_url": "https://rivista-statistica.unibo.it/article/view/1104",
+          "material_read": "Publisher abstract and article record, no complete full text available",
+          "method": "Publisher web record inspected; arXiv/OA searched, Oxford authorized access returned vpn_disconnected",
+          "title": "Distance between random points in a cube",
+          "trigger": "Same shape at a=b=c and possibly same chord sampling"
+        },
+        {
+          "assessment": "DIFFERENT 2D INTERIOR SAMPLING",
+          "evidence": "Triangle area-uniform points differ from 3D box boundary surface-uniform pair distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2498",
+          "material_read": "Primary abstract and manuscript sampling assumptions and derivation sections",
+          "method": "Accessible original preprint rendered content",
+          "title": "Random Distances Associated with Arbitrary Triangles: A Systematic Approach between Two Random Points",
+          "trigger": "General chord-distance moment calculus"
+        },
+        {
+          "assessment": "FIXED-CUBE FACE-CONDITIONAL ONLY",
+          "evidence": "Reference does not state variable cuboid all-face normalization or shape minimization.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CubeLinePickingFaceandFace.html",
+          "material_read": "Full entry and fixed opposite/adjacent cube-face definitions",
+          "method": "Full MathWorld entry read",
+          "title": "Cube Line Picking—Face and Face",
+          "trigger": "Potential exact table of endpoint fourth moment"
+        },
+        {
+          "assessment": "PLANAR ANALOGUE, NOT COVERING 3D SURFACE",
+          "evidence": "One-dimensional perimeter measure and two-dimensional parallelogram distances have different distributions and extremal bounds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e7",
+          "material_read": "Published result summary and mathematical scope from semantic search",
+          "method": "Resultary published-record semantic result inspected",
+          "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+          "trigger": "Closest published normalized fourth moment shape optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git source RESULT.md at ce9ec5c9f062c1ec974a730f40750d7f38d53f2f",
+        "https://rivista-statistica.unibo.it/article/view/1104",
+        "https://arxiv.org/abs/1312.2498"
+      ],
+      "rationale": "PASS. The scale-invariant fourth-to-squared-second chord moment measures dispersion of squared distances between two surface-uniform points on a natural orthotope family. Its globally sharp range, rigid cube minimizer, degenerate-rod extremal limit and full attainability are nontrivial geometric inequalities, not a fixed-cube table recomputation.",
+      "residual_risks": [
+        "Result is three-dimensional rectangular boxes with Euclidean ambient chord distance, not nonorthogonal parallelepipeds or higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Sampling is full surface-area, not volume-uniform or fixed opposite-face or intrinsic-geodesic chords. Strict positivity of all half-lengths matters for the unattained upper endpoint.",
+    "Result is three-dimensional rectangular boxes with Euclidean ambient chord distance, not nonorthogonal parallelepipeds or higher dimensions.",
+    "Semantic searching and unavailable earlier literature cannot prove full historical priority; qualified best-of-knowledge comparison only.",
+    "https://rivista-statistica.unibo.it/article/view/1104: POSSIBLE PARTIAL OVERLAP; WHOLE TEXT UNREAD"
+  ],
+  "schema_version": 1
+}
