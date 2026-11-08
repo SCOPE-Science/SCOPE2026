@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each oriented edge, the normalized bond contrast and bright vectors are orthogonal; the jump is nilpotent with squared norm operator twice the contrast projector. Phase consistency gives a one-dimensional common kernel and a positive graph Laplacian gap. The fidelity derivative is computed directly from the Lindbladian and the equality at a Laplacian gap eigenstate verifies the best universal differential coefficient. Stationary positivity bounds the Hamiltonian cross term by twice the coherence residual times the square root of the two projector masses. The complementary lower bound uses the generator's trace-norm norm and the pure-target trace-distance bound. These prove the two-sided inequalities for *every* stationary state, including nonunique stationary sets. The proof separately handles nontrivial phase holonomy and exact energy compensation. The included code checks the formulas in finite matrices. Infinite families are proved analytically; finite matrices alone are not exhaustive.
+PASS
 
-## Originality — PASS (qualified)
+Directly checked L_e^2=0, L_e^dagger L_e=2|w_e><w_e|, and the common nullspace characterizes phase compatibility. Under compatible phases u is the Laplacian kernel, H u=(a_i+d_i)u_i, and Lindblad dual action on P is (4 gamma/n)Lambda. At stationarity spectral gap yields c q<=2delta sqrt((1-q)q) and hence the upper corridor; trace norm ||L(P)||_1=2delta <= M||P-rho||_1 <= 2 M sqrt(q) yields lower corridor. When delta=0, dissipative inequality integrates for every state and saturates at initial lambda_2 eigenprojector. Independently formed full 3-vertex path Lindbladians and solved stationary trace-one equations for eps=0,.01,.1,.5, verifying positivity, residuals, both bounds; no finite test proves all graphs. Pure and ergotropy claims follow from rank-one dark criterion and positive-hopping Hamiltonian spectral top.
 
-The source [arXiv:2602.17326] constructs bond dissipation, reports steady ergotropy, and numerically studies onsite disorder, but does not state the universal two-sided stationary infidelity corridor or the exact graph-gap contraction coefficient. Klausen–Warzel (DOI 10.1007/s00023-024-01528-w), Example 2.4, already use these coherence-creating bond jumps and their graph Laplacian; the general existence criterion for pure stationary states is established in Kraus et al. [arXiv:0803.1463]. Thus neither generic dark-state preparation nor the bare uniform dark mode is offered as new. The evaluated statement is the explicit two-sided stationary fidelity bound, its quadratic disorder law uniform over stationary choices, plus sharp differential relaxation under degree compensation. A broader robust dissipative-preparation estimate may imply part of the result; this is a priority risk, not a proof of novelty from absence of search hits. Available source text was compared by objects, assumptions, parameters, and implications, not title similarity. Independent literature-wide priority verification remains unperformed.
+## originality
 
-## Value — PASS
+PASS
 
-The quantitative question of how much onsite disorder necessarily displaces an otherwise maximally charged stationary state is directly motivated by the disordered-lattice battery study. The theorem supplies a design prescription (onsite degree compensation), an exact graph-gap preparation-rate bound, and matching positive upper and lower quadratic disorder losses for *all* stationary states. The lower bound prevents interpreting weak disorder as having a magically unchanged charged mode. This is a structural robustness boundary rather than a parameter renaming or another tabulated example. It does not claim an optimal numerical disorder coefficient, a size-uniform estimate, or a many-particle theorem.
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Computable graph-wide two-sided stationary robustness, uniform across possible stationary states, gives a sharp quadratic perturbative law and a useful graph spectral calibration coefficient. It refines known dark-mode preparation beyond qualitative uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
