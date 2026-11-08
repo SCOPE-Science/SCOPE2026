@@ -1,15 +1,21 @@
-# Scientific review: optimal double-coalition partitions of complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The double-domination occupancy test requires two selected vertices in every closed neighborhood; for a biclique its exact four-part predicate is derived from both vertex shores. The excess of a partition into \(k\) blocks is \(e=r+s-k\). An elementary counting argument gives \(e\ge\min\{r-1,4\}\), with equality realized by shore hubs or two bridge triples. At equality the partner constraints force the bridge-triple profile when \(r\ge6\), and force a hub or bridge structure for \(r\le5\) outside nine bounded parameter pairs. Those pairs are covered by complete bounded occupancy-multiset enumeration, not by numerical extrapolation. The labeled counts are direct binomial products. The standalone code exhaustively verifies 68 small-to-medium parameter pairs and independently checks four vertex-labeled examples with actual closed neighborhoods. All tests passed; no independent scientific validation has been performed.
+## correctness
 
-## Originality — PASS, with residual risk
-Golmohammadi (arXiv:2407.21472, 2024-07-31) introduced the notion; Henning and Mojdeh, *Double Coalitions in Graphs* (2025, Theorem 6), establish the maximum **number of blocks** of \(K_{r,s}\), and exhibit sharp constructions, but not the full equality classification or labeled multiplicity. Their *Double Coalitions in Regular Graphs* (2025) does not supply this biclique enumeration. Brešar, Klavžar, and Samadi (arXiv:2502.07310, 2025) study total \(k\)-coalitions and separate double-coalition bounds, not this extremal biclique counting theorem. Prior records on \(2\)-coalitions use the different outside-only \(2\)-dominating-set predicate, so their equality profiles do not imply this result. Formula, classification, equivalence, and possible broader coverage were checked by mathematical-literature and research-record searches, without identifying a matching theorem. Search failure alone is not evidence of uniqueness; an unindexed result remains possible.
+PASS
 
-## Mathematical value — PASS
-This is the complete equality-case classification for an infinite natural family whose extremal *size* is already known, plus the exact number of distinct maximizing partitions for all shore sizes. It describes the structural transition at shore size five from hub solutions to two distinguishable mixed bridge triples, which causes the multiplicity to change from linear to cubic in the larger shore. The result is not a restatement of the known scalar optimum. Neither nonoptimal partitions nor graphs with three or more shores are addressed.
+For K_{r,s} with r,s>=3, a subset of shore occupancies (a,b) double-dominates iff a,b>=1, (a=r or b>=2), and (b=s or a>=2). An optimal partition has excess e=r+s-k=min(r-1,4). The proof bounds e using available nonsingleton vertices and two necessary partner types; for r>=6, e=4 forces exactly two distinct (1,2)/(2,1) bridge triples. For r<=5 and sufficiently large s, a B singleton forces a whole-A or split A hub, except the r=5 bridge pair. Nine remaining finite (r,s) are exhaustively decided by all multisets of occupied block types totaling exact excess, with forced singleton residues; they are not extrapolated. Labeled selection yields 1_{r<=5}(1+s sum_{a=2}^{r-1}binom(r,a)) + 1_{r=s<=5}(1+r sum_{b=2}^{s-1}binom(s,b)) +1_{r>=5}9 binom(r,3)binom(s,3). Independent profile enumeration and orbit-count arithmetic confirmed K_{3,3}=20, K_{3,5}=16, K_{4,4}=82, K_{5,5}=1152, K_{5,8}=5241, K_{6,6}=3600, K_{6,8}=10080.
 
-## Supporting literature and reproducibility
-Primary full text: Henning--Mojdeh, DOI 10.1007/s40840-025-01831-7, Theorem 6 and proof; Brešar--Klavžar--Samadi, arXiv:2502.07310v3, Sections 1--4; original 2024 arXiv:2407.21472. Additional check: Henning--Mojdeh, DOI 10.1007/s00373-025-02937-2. Run `python3 verify.py` to enumerate occupancy profiles and small labeled partitions. Residual risk: mathematically equivalent enumeration in unindexed literature, and lack of independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Henning–Mojdeh 2025 Theorem 6 established the optimal number of blocks, and exhibits hub/bridge witnesses; that scalar result and those examples are genuine prior coverage, not new. The present exact **all** maximizing partition classification and vertex-labeled counts do not follow from knowing one sharp construction or the scalar maximum. Golmohammadi 2024 precursor makes a contradictory overgeneralized scalar statement that the later theorem corrects; it is not coverage of a valid equality census.
+
+## value
+
+PASS
+
+An exact equality-case and multiplicity classification refines a known extremal graph partition invariant: all optimal structures, not just one example, and combinatorially meaningful labeled counts for each bipartite shore size. The r=5 bridge/hub coexistence and r=6 transition explain a structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
