@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The specialized implicit update is solved as an exact orthogonal Cayley rotation of a full momentum kick. Independent Gaussian kicks give an explicit rank-one conjugation sum, which is evaluated using double angles and a finite geometric series. The traceless eigenvalue splitting proves the complete isotropy classification for every integer N and all h>0. The exact stochastic convolution determines C(T). Expanding the modified rotation frequency and right-endpoint quadrature proves the O(h) coefficient; when omega*T is an integer multiple of pi, the first two quadrature boundary differences vanish and the frequency shift gives the nonzero sigma² omega² T/24 diagonal tensor. The mean differs by O(h²), yielding weak O(h²) for polynomial degree <=2. The fixed-N large-h limit follows by R_theta -> -I and oscillatory exact covariance averaging. The included exact-rational checker tests 1042 finite assertions and approximate limiting witnesses; analyticity, not finite enumeration, establishes the universal claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. give general nonlinear weak O(h) but no sharp first-order coefficient or exceptional half-period O(h²) theorem.",
+        "Senosiain–Tocino appendix explicitly treats partitioned Euler--Maruyama and the energy trace, rather than the Cayley covariance tensor."
+      ],
+      "reasoning": "A bound O(h) can hold when a special endpoint has O(h²), so it does not imply a nonzero second-order limit or an iff classification. Generic matrix-recurrence identities or results on another scheme do not directly dominate the claimed spectral and terminal-phase formulas.",
+      "searches": [
+        "exact covariance isotropy stochastic harmonic oscillator discrete sine trigonometric sum stroboscopic second order",
+        "2019 drift preserving stochastic Hamiltonian Chen Cohen D'Ambrosio Lang weak order quadratic oscillators",
+        "Senosiain–Tocino 2014/2015 general oscillator numerical method matrix recursion",
+        "Strømmen Melbø–Higham 2004 oscillator long-time moment growth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.08804 (complete public arXiv manuscript and journal PDF)",
+      "https://strathprints.strath.ac.uk/164/ (accessible manuscript)",
+      "https://link.springer.com/article/10.1007/s10543-014-0507-z (abstract and public appendix)",
+      "https://www.researchgate.net/publication/265336686_Midpoint_Rule_for_a_Linear_Stochastic_Oscillator_with_Additive_Noise (abstract only)",
+      "Scientific searches of published mathematical-record summaries using the query texts above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 implies trace(C_N)=sigma²Nh, not the traceless sine-series term.",
+        "The original T=1 weak first-order numerical experiment is consistent with the new coefficient because sin(omega T) is generically nonzero.",
+        "Earlier PEM trigonometric sums use a different update and do not imply numerical isotropy at h=(2/omega)tan(m pi/(2N)) or half-period weak order two for the present scheme."
+      ],
+      "reasoning": "The exact old energy theorem follows from the new formula by taking trace, not conversely. General weak O(h) does not imply sharp O(h²) on an exceptional terminal-time set. New claim is therefore not a corollary of the inspected original statements; precedence uncertainty of uninspected older texts is retained.",
+      "searches": [
+        "arXiv:1907.08804 Theorem 3 and Section 5.1",
+        "Senosiain–Tocino 2014 Appendix (7.1)–(7.4)",
+        "stochastic symplectic midpoint Gaussian oscillator terminal covariance half-period resonance weak superconvergence",
+        "exact covariance isotropy stochastic harmonic oscillator discrete sine trigonometric sum stroboscopic second order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published scheme gives a kick before a Cayley rotation on the quadratic oscillator; classical stochastic midpoint and partitioned Euler have different noise injection/moment-transfer forms.",
+        "The new spectral sum is the equivalent full tensor representation; original trace law is only the sum of its two diagonal entries."
+      ],
+      "reasoning": "Matched the numerical updates and Gaussian covariance rather than matching paper titles. The existing energy trace is weaker than the spectrum or isotropy, and standard midpoint exact moment-growth claims are not automatically equivalent to the present noise-then-rotation covariance. The inaccessible midpoint paper prevents a definitive absence statement.",
+      "searches": [
+        "Chen Cohen D'Ambrosio Lang drift-preserving integrator harmonic oscillator Cayley transform stochastic moment covariance isotropy phase locking",
+        "stochastic symplectic midpoint Gaussian oscillator terminal covariance half-period resonance weak superconvergence",
+        "arXiv:1907.08804 equations (3) and (4)",
+        "Hong–Scherer–Wang 2006 stochastic midpoint numerical oscillator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "In the inspected original source, numeric plots at T=1 concern first/second weak errors, not a tabulation of resonant stepsizes or physical half-periods.",
+        "The inspected review appendix contains trigonometric sums for a distinct partitioned Euler method."
+      ],
+      "reasoning": "No inspected table or record gave the formula for all N and omega or the limiting covariance tensors. A missing search hit is not itself proof of absence, and inaccessible documents remain noted.",
+      "searches": [
+        "\"stochastic oscillator\" \"midpoint\" \"sin\" \"weak\" \"covariance\"",
+        "\"stochastic harmonic oscillator\" \"half period\" \"weak\" numerical method",
+        "\"midpoint rule for a linear stochastic oscillator with additive noise\" pdf",
+        "exact covariance isotropy stochastic harmonic oscillator discrete sine trigonometric sum stroboscopic second order"
+      ]
+    },
+    "rationale": "The original 2019/2020 paper introduces the exact underlying method and proves only the energy trace and generic weak order one, including second-moment experiments at T=1. The new finite-step covariance eigenvalue formula, complete numerical isotropy classification, iff half-period first-order cancellation, nonzero second-order tensor, and maximal large-step normalized anisotropy were compared as mathematical implications rather than title keywords. Earlier published results concern partitioned Euler or other midpoint variants and scalar trace/oscillation, which do not directly imply the full new claim. Relevant historical midpoint and review full texts were unavailable, explicitly qualifying but not establishing coverage. Publication novelty remains provisional and requires independent specialist scrutiny.",
+    "residual_risks": [
+      "The complete Hong–Scherer–Wang (2006) midpoint manuscript could not be inspected; its abstract does not decide detailed covariance precedence.",
+      "The subscription-only main body of Senosiain–Tocino (2014/2015) could not be inspected, although the accessible appendix was read.",
+      "Nearby geometric numerical integration and stochastic superconvergence literature may contain equivalent implications not indexed under the searched vocabulary.",
+      "No independent literature auditor has reviewed novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the numerical scheme and exact expected-energy trace and observes order one in second moments at terminal time T=1; does not state the finite-N isotropy list, iff half-period covariance error transition, second-order tensor coefficient or fixed-N large-step anisotropy.",
+        "evidence": [
+          "arXiv:1907.08804 equation (3), Theorem 3, Section 4, Section 5.1 Figure 3",
+          "First public arXiv date 2019-07-20"
+        ],
+        "identifier_or_url": "arXiv:1907.08804; https://arxiv.org/abs/1907.08804; https://doi.org/10.1007/s10444-020-09771-5",
+        "material_read": "Public full text sections 1–5, with close reading of method (3), Theorem 3, weak-error discussion and section 5.1 (linear oscillator); open-access journal PDF visually inspected.",
+        "method": "Read full arXiv HTML and public journal version; compared the exact assertions and scheme with the current covariance and stroboscopic statements.",
+        "title": "Drift-preserving numerical integrators for stochastic Hamiltonian systems",
+        "trigger": "Original method and nearest possible dominating statement: exact energy drift and claimed weak order."
+      },
+      {
+        "assessment": "Energy-growth and oscillation claims concern other update matrices and do not themselves imply the present method-specific covariance phase-locking and weak-order coefficient.",
+        "evidence": [
+          "Strømmen Melbø and Higham, Applied Numerical Mathematics 51 (2004), 89–99; manuscript and abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.02.003; https://strathprints.strath.ac.uk/164/",
+        "material_read": "Accessible accepted manuscript material and its discussion of numerical second-moment growth and oscillation; relevant figure/page inspected.",
+        "method": "Read open-access accepted manuscript and compare properties of partitioned Euler and related methods.",
+        "title": "Numerical simulation of a linear stochastic oscillator with additive noise",
+        "trigger": "Earlier strong claim about exact energy-growth properties for the same oscillator but a different discretization."
+      },
+      {
+        "assessment": "The appendix explicitly studies partitioned Euler--Maruyama and a scalar energy/second-moment expression, not this drift-preserving scheme’s full covariance spectrum, exact numerical isotropy list or half-period order transition. The inaccessible body leaves residual specialist risk.",
+        "evidence": [
+          "Senosiain–Tocino (online 2014; print 2015), abstract and Appendix formulas (7.1)–(7.4)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-014-0507-z; https://link.springer.com/article/10.1007/s10543-014-0507-z",
+        "material_read": "Accessible abstract, references and entire public appendix (including formulas (7.1) and ensuing trigonometric sums); subscription-only main body was not accessible.",
+        "method": "Read publicly presented appendix and compare the represented partitioned Euler--Maruyama matrix with the present orthogonal Cayley update.",
+        "title": "A review on numerical schemes for solving a linear stochastic oscillator",
+        "trigger": "Potentially broader classification of stochastic-oscillator moment recurrence and trigonometric identities."
+      },
+      {
+        "assessment": "Abstract establishes preservation of linear second-moment growth and oscillation for midpoint, but gives no basis for adjudicating detailed covariance phase-locking or stroboscopic-order claims; this is the principal unresolved precedence risk.",
+        "evidence": [
+          "Hong–Scherer–Wang (2006), publicly indexed abstract; full text unavailable"
+        ],
+        "identifier_or_url": "Hong, Scherer, Wang, Neural Parallel and Scientific Computations 14 (2006), 1–12; https://www.researchgate.net/publication/265336686_Midpoint_Rule_for_a_Linear_Stochastic_Oscillator_with_Additive_Noise",
+        "material_read": "Abstract and bibliographic details only; complete primary manuscript was not obtained.",
+        "method": "Read the publicly indexed abstract and attempted publicly linked manuscript sources; the complete primary text was not accessible.",
+        "title": "Midpoint Rule for a Linear Stochastic Oscillator with Additive Noise",
+        "trigger": "Same oscillator and implicit midpoint family; plausible detailed earlier matrix/covariance results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "847a2e89-62db-4e8b-baac-17310b282a98",
+  "value": {
+    "rationale": "A published energy-drift-preserving integrator is a natural benchmark in stochastic Hamiltonian numerical analysis. Exact energy preservation only controls covariance trace and misses substantial directional miscalibration. The theorem determines the complete phase-locked finite-step isotropy set, identifies precisely the terminal times for a genuine weak-order recovery and its sharp coefficient, and quantifies the extreme-stepsize anisotropy by a normalized norm limit of 1/2. These are structurally motivated accuracy boundaries, not arbitrary table entries or a routine renaming. Scope remains a single harmonic mode and quadratic observables, with no claim of a generally improved integrator.",
+    "status": "PASS"
+  }
+}
