@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS (self-review).** The claim follows from a complete holomorphic differential basis and three character blocks of the Cartier operator. The one-dimensional block vanishes at precisely the explicitly defined hypergeometric polynomial roots, the two-dimensional block loses one rank at exactly the same roots, and the three-dimensional component is multiplicative by the height-equals-dimension argument. The square-freeness and reciprocal pairing are proved, not inferred from samples. The standard-library checker reproduces the formulas for five prime characteristics. Limits: it does not compute all Newton slopes or cover other residue classes of primes.
+## correctness
 
-**Originality: PASS, qualified (self-review).** Ohashi's 2026 Section 3.2 and Proposition 3.5 concern superspeciality and do not give the full geometric \(p\)-rank stratification. Elkin's 2007 bounds for cyclic-cover Cartier ranks do not determine the specific exceptional polynomial or its exact simple-root count. Bouw's 2001 generic-cover abstract concerns generic rank, not the complete one-dimensional locus. Searches of published research records, recent algebraic-geometry literature and accessible previous claim titles/parameters found no equal or stronger statement for this family. Residual priority risk remains from unpublished, alternative-model and uninspected generic-cover full texts.
+PASS
 
-**Mathematical value: PASS (self-review).** The statement resolves the entire ordinary versus nonordinary stratum for a distinguished genus-six large-automorphism family in infinitely many characteristics. It proves that rank drops must occur in paired increments and determines a reduced exceptional divisor and geometric moduli-class count. These are natural exact invariants for the family, not arbitrary numerical samples.
+PASS. For p=10n+1>13 and lambda outside {0,1} the five-branch degree-5 Kummer cover has genus six, with explicit holomorphic basis x^(h-1)dx/y^i (i=2,3,4;1<=h<i). Character preservation for p=1 mod 5 reduces Cartier to blocks of sizes 1,2,3. B2 is nonzero lambda^n multiple of Q_n, B3 diagonal with factors lambda^(4n)(1-lambda)^(2n) and (1-lambda)^(2n)Q_n; the height=dimension=3 character p-divisible component is multiplicative, making B4 invertible. The coefficient-ratio/Gauss-Euler transformation is degree-controlled (5n<p), not numerical extrapolation. Nonzero semilinear blocks stay invertible, so stable Cartier rank is 6 or 4 and a-number 0 or 2. Q_n has 3n simple roots away from 0,1 by a regular-singular differential equation of degree 3n<p. Reciprocal roots pair under lambda~lambda^-1, omitting lambda=-1 when n odd and ordinary Fermat special parameters. Derived floor(3n/2) eligible geometric classes; not rational forms or Newton slopes. Independently computed Q_n degree, reciprocity and nonvanishing at 1 for p=31,41,61. Inspected finite checker and coefficient-selection logic; it is corroboration only.
 
-Ohashi's family and its exceptional automorphism parameters are independently justified in the source's original Section 3.2. The source is not being attributed the new formula. Independent validation and definitive historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge with stated priority limits. The original Kummer family and superspecial/nonexistence results are Ohashi 2026, not discoveries here. Ohashi Section 3.2, Proposition 3.5 computes superspeciality and isomorphism relations; in p=1 mod5 it excludes the extreme a=6 case, but does not logically determine whether rank is six, four, two or zero on every parameter, let alone the Q_n divisor. The present rank/strata/squarefree/class theorem needs additional Cartier block computations and p-divisible decomposition. General cyclic-cover rank bounds of Elkin and generic p-rank results of Bouw do not supply this exact all-parameter equation. A stronger as-yet-unindexed parameter-specialized theorem remains possible.
+
+## value
+
+PASS
+
+PASS. The ordinary/nonordinary p-rank strata and a-number are intrinsic arithmetic-geometric invariants of a natural genus-six family with large automorphism group. A reduced exceptional divisor of degree 3n, paired 2-step rank fall and exact geometric class count are structural all-characteristic conclusions, not a genericity claim or routine table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
