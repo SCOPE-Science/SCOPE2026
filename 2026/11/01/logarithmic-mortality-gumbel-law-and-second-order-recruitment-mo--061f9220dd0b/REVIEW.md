@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The survival identity is taken from the cited primary work rather than independently claimed. Equations (3)–(4) are exact substitution identities, the endpoint estimates are uniform for fixed positive mortality-coefficient compact sets, and the normalizing exponent in the Poisson survival tends to the standard Gumbel intensity. Explicit lower and upper survival bounds justify convergence of centered moments and the second-order mean calculation. The restricted coefficient optimization follows from strict convexity; it is not extrapolated to the unrestricted optimizer. The accompanying executable directly tests the integral identities, limiting profile and finite-ratio design behavior.
+## correctness
 
-**Originality (PASS, qualified best-knowledge).** The primary heterogeneous-diffusion paper states exact full-process survival and numerical mortality optimization, and the 2026 dynamic-redundancy and synthesis–degradation papers provide further general survival, mean and tail-rate identities. Tung and Lawley explicitly treat fast immigration with a fixed single-searcher first-passage law and Gumbel limits; the law here depends on the immigration ratio through a mortality rate of logarithmic size. The assessed theorem specifies the joint-limit centering, the \(\frac32\log\log\rho\) correction, and a second-order comparison that selects the coefficient four. Its proof is not a mere reparameterization of a cited fixed-parameter asymptotic. Independent full-literature priority review remains outstanding, and general extreme-value techniques may admit other derivations.
+PASS
 
-**Value (PASS).** The fixed-ratio mortality optimization in the motivating paper is a concrete unresolved quantitative design question at very high recruitment. The result identifies the correct reciprocal-time fluctuation law and a non-obvious distinction between first-order mean optimality (all fixed coefficients tied) and second-order mortality tuning. It also separates the optimal mean-time logarithmic scale from the known fixed long-time exponential-rate optimum; this is relevant to stochastic search design within the model assumptions.
+From a standard one-dimensional Brownian hitting density f(s)=e^{-1/(4s)}/(2√πs^(3/2)), independent exponential mortality and Poisson recruitment give exact P(τ>t0s)=(1−F_m(s))e^(−ρmJ_m(s)) with m=x logρ. A reciprocal-endpoint substitution w=1/(4s) gives F_m~e^(−w−m/(4w))/√(πw), J_m~e^(−w−m/(4w))/(4√π w^(5/2)) uniformly w=L+O(logL), x bounded away from zero and infinity. With centering C_L=L−1.5logL+log(x/(4√π))−x/4, ρmJ_m→e^(−z), producing standard Gumbel. Analytical tail bounds at w≈L/2 and dominated kernels control all fixed integer moments, permit E[1/(4(C_L+G_L))] expansion and the displayed second-order mean term; x/4−log x has unique fixed-positive-x minimum at x=4. Independently checked the endpoint intensity at L=50 and L=150 for x=1,4,8 and z=−1,0,1; errors decrease but finite convergence is slow. No finite-ρ global minimizer claimed.
 
-**Limitations.** The result is local in fixed positive coefficient \(x\) and does not prove any global finite-ratio optimizer, finite-ratio monotonicity, nor universality for other lifetime or recruitment laws. Its published-source overlap assessment is a documented best-knowledge analysis, not independent publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The survival and mean integral identities are explicitly prior art (Gutiérrez et al, Linn–Kumar, Mercado-Vásquez–Boyer). Tung–Lawley proves fast-immigration Gumbel for a fixed single-searcher law, unlike this triangular array with mortality changing as logρ. The explicit moving-centering and second-order fixed-coefficient design have not been located in primary sources read, with caveat of incomplete latest Gutiérrez full text.
+
+## value
+
+PASS
+
+Natural independently-recruited mortal Brownian search provides a sharp rare-fast-arrival Gumbel limit in a joint changing-parameter regime, including second-order optimal mortality coefficient within a stated asymptotic design class. This goes beyond mean-only fixed-ratio optimization and is directly interpretable for search process design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

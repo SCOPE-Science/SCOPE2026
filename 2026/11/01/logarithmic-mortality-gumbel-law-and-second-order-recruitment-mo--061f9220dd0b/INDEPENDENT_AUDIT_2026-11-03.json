@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:10:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From a standard one-dimensional Brownian hitting density f(s)=e^{-1/(4s)}/(2√πs^(3/2)), independent exponential mortality and Poisson recruitment give exact P(τ>t0s)=(1−F_m(s))e^(−ρmJ_m(s)) with m=x logρ. A reciprocal-endpoint substitution w=1/(4s) gives F_m~e^(−w−m/(4w))/√(πw), J_m~e^(−w−m/(4w))/(4√π w^(5/2)) uniformly w=L+O(logL), x bounded away from zero and infinity. With centering C_L=L−1.5logL+log(x/(4√π))−x/4, ρmJ_m→e^(−z), producing standard Gumbel. Analytical tail bounds at w≈L/2 and dominated kernels control all fixed integer moments, permit E[1/(4(C_L+G_L))] expansion and the displayed second-order mean term; x/4−log x has unique fixed-positive-x minimum at x=4. Independently checked the endpoint intensity at L=50 and L=150 for x=1,4,8 and z=−1,0,1; errors decrease but finite convergence is slow. No finite-ρ global minimizer claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tung–Lawley fixed-law theorem is broad but lacks uniformity for μt0=xlogρ.",
+          "Linn–Kumar fixed-ratio turnover results and Mercado–Boyer exact mean formulas do not display this joint limit in inspected sections.",
+          "Gutiérrez latest source abstract reports numeric optimization and diffusion transform, not a proven moving Gumbel law."
+        ],
+        "reasoning": "Existing general exact formula contains the model, but no inspected stronger asymptotic theorem immediately implies this explicit joint centering/second-order design.",
+        "searches": [
+          "Tung Lawley arxiv:2502.10915 Theorem2 fast immigration",
+          "Linn Kumar arxiv:2601.07096 joint mortality recruitment",
+          "Mercado Vasquez Boyer arxiv:2602.11095 Eq10",
+          "Gutierrez arxiv:2610.08022"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 795598a9327199b485106779fc2bf6b2a10c6117 and verify.py source",
+        "Independent endpoint asymptotic numerical checks L=50,150 x=1,4,8 z=−1,0,1",
+        "Tung–Lawley arXiv:2502.10915 full PDF Theorem2",
+        "Linn–Kumar arXiv:2601.07096 page4",
+        "Mercado–Vásquez–Boyer arXiv:2602.11095 Eq10 and page3",
+        "Gutiérrez et al arXiv:2610.08022 abstract",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mercado–Boyer Eq10 yields exact expectation integral and a numerical optimum in a different fixed-rate slice, whereas x=4 here minimizes only the second-order term for μt0=x logρ.",
+          "A fixed-law Gumbel limit cannot be applied verbatim because μ changes with L, so new endpoint asymptotics are mathematically needed."
+        ],
+        "reasoning": "Existing exact inputs plus new uniform endpoint and tail analysis produce the specified result; not a direct prior corollary without derivation.",
+        "searches": [
+          "Mercado Boyer mean identity Eq 10 optimum 4D/d²",
+          "Tung Lawley Gumbel Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tung–Lawley fixed F(t) first-passage law and rapidly increasing immigration has a Gumbel centering, but the present single searcher F_m varies jointly with ρ.",
+          "The log mortality coefficient x=4 is a second-order mean optimum within m=xlogρ, not the fixed-rate tail spectral optimum of prior work."
+        ],
+        "reasoning": "Substituting a ρ-dependent F_m into a fixed-law theorem is not automatically uniform; proof requires a moving-endpoint triangular-array analysis.",
+        "searches": [
+          "Poisson recruitment mortality Brownian first passage log mortality Gumbel distribution optimal turnover second order",
+          "fast immigration extreme value Gumbel Brownian first passage mortality increasing with logarithmic arrival rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits concern generic extreme-value laws, Poisson geometry or renewal bounds, not the same joint mortal recruitment model.",
+          "Numerical tested centering errors at L=50,150 shrink but are not exact tables or novelty proof."
+        ],
+        "reasoning": "No exact source containing C_L(x) and its mean second-order coefficient found.",
+        "searches": [
+          "Poisson recruitment mortality Brownian first passage log mortality Gumbel distribution optimal turnover second order",
+          "Resultary mortality Gumbel immigration second order log rho",
+          "Poisson mortality optimal x=4 Gumbel"
+        ]
+      },
+      "rationale": "The survival and mean integral identities are explicitly prior art (Gutiérrez et al, Linn–Kumar, Mercado-Vásquez–Boyer). Tung–Lawley proves fast-immigration Gumbel for a fixed single-searcher law, unlike this triangular array with mortality changing as logρ. The explicit moving-centering and second-order fixed-coefficient design have not been located in primary sources read, with caveat of incomplete latest Gutiérrez full text.",
+      "residual_risks": [
+        "Full latest primary Gutiérrez et al (arXiv:2610.08022) was not accessible; a stronger result in its body or appendices is possible.",
+        "Independent finite endpoint checks validate trend not uniform tails or all moments; analytic bounds carry that burden.",
+        "Optimization only over fixed x>0 logarithmic-mortality class, not all mortality scalings or global finite-ρ optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "assumes fixed underlying FPT law, so not directly a uniform triangular-array theorem",
+          "evidence": "Theorem2 scaling of immigration with fixed FPT distribution",
+          "identifier_or_url": "arXiv:2502.10915, Tung–Lawley",
+          "material_read": "Full accessible PDF, Theorem2 and initial model assumptions, page image",
+          "method": "open PDF and screenshot",
+          "title": "First passage times with fast immigration",
+          "trigger": "Strongest possible broader Gumbel theorem"
+        },
+        {
+          "assessment": "addresses fixed-ratio turnover and mean bounds; no moving Gumbel result in inspected sections",
+          "evidence": "Page4 Figure3 and discussion fixed-ratio asymptotics",
+          "identifier_or_url": "arXiv:2601.07096, Linn–Kumar",
+          "material_read": "Full accessible PDF, high-/low-turnover and fixed ratio sections; page4 screenshot",
+          "method": "open PDF and screenshot",
+          "title": "Dynamic redundancy and mortality in stochastic search",
+          "trigger": "Exact same recruitment/mortality model"
+        },
+        {
+          "assessment": "Eq10 prior mean integral; x=4 numerical value belongs to different optimization setting",
+          "evidence": "Equation10 and page3 Brownian optimization discussion",
+          "identifier_or_url": "arXiv:2602.11095, Mercado-Vásquez–Boyer",
+          "material_read": "Full accessible PDF, Eq10 and Brownian example on page3 screenshot",
+          "method": "open PDF and screenshot",
+          "title": "Stochastic synthesis-degradation processes: first-passage properties and connections with resetting",
+          "trigger": "Identical exact mean and alternative design"
+        },
+        {
+          "assessment": "possible hidden stronger asymptotic statement cannot be excluded from abstract",
+          "evidence": "Source abstract mentioning diffusion transform/recruitment mortality",
+          "identifier_or_url": "arXiv:2610.08022, Gutiérrez et al",
+          "material_read": "Open abstract only; PDF not fully retrieved this run",
+          "method": "arXiv abstract and cross-check in frozen source",
+          "title": "Heterogeneous diffusion with recruitment and mortality",
+          "trigger": "Closest newest source: same model transform"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural independently-recruited mortal Brownian search provides a sharp rare-fast-arrival Gumbel limit in a joint changing-parameter regime, including second-order optimal mortality coefficient within a stated asymptotic design class. This goes beyond mean-only fixed-ratio optimization and is directly interpretable for search process design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md 795598a9327199b485106779fc2bf6b2a10c6117 and verify.py source",
+    "Independent endpoint asymptotic numerical checks L=50,150 x=1,4,8 z=−1,0,1",
+    "Tung–Lawley arXiv:2502.10915 full PDF Theorem2",
+    "Linn–Kumar arXiv:2601.07096 page4",
+    "Mercado–Vásquez–Boyer arXiv:2602.11095 Eq10 and page3",
+    "Gutiérrez et al arXiv:2610.08022 abstract",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Brownian equivalent 1D independent Poisson recruitment and exponential mortality; asymptotic rho→∞ at fixed x>0, locally uniform x; no global finite-rho minimizer."
+  ],
+  "schema_version": 1
+}
