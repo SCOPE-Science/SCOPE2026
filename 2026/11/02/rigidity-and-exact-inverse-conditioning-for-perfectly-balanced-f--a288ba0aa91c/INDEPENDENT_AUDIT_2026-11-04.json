@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:39:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Off-diagonal Gram entries vanish iff first k-1 normalized Fourier moments vanish. Endpoint integration identifies differences of k endpoint power sums; Newton identities show r<k would force identical start/end endpoint multisets. For r=k, self-inversive coefficients of unit-circle-root polynomials with equal nonconstant terms and different constants imply all intermediate coefficients vanish; both endpoint sets are regular k-gons, cyclic alternation then imposes equal arcs length 2pi rho/k. Differentiated moments yield delta c_m=(sqrt(k)/(2pi))e^(-im phi)(e^(-im ell) vhat_m-uhat_m). Conjugate real Fourier blocks and even-k Nyquist case give exactly the two squared singular levels with k-1 multiplicities; rho strictly between 0 and 1 gives positive inverse. Analytic Taylor remainder justifies sharp first-order local inverse but not global inversion. Independently assembled 40 real Jacobian matrices and compared full spectra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courtney Theorem 1 uses k Fourier moments and mean for reconstruction of at most k arcs.",
+          "Batenkov-Yomdin confluent Prony systems establish local conditioning frameworks for general systems."
+        ],
+        "reasoning": "Full k-moment reconstruction is more observational data than the k-1 exact-zero/isometry pattern; general conditioning results do not directly give these two real spectral levels or multiplicities.",
+        "searches": [
+          "arxiv:1002.0639",
+          "arxiv:1106.1137",
+          "arxiv:1301.1187"
+        ]
+      },
+      "checked_sources": [
+        "Courtney 2010 New York J Math 16 pp235-243 Theorem 1 Section 4",
+        "Batenkov and Yomdin arxiv:1106.1137; arxiv:1301.1187",
+        "Resultary mathematical Fourier sampling search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Courtney reconstructs individual arc endpoints from sufficiently many moments by a Blaschke/Toeplitz method.",
+          "Neither inspected reconstruction theorem includes explicit singular values k(1±|cos(pi rho)|)/(4pi²)."
+        ],
+        "reasoning": "Reconstruction uniqueness alone does not determine a sharp inverse condition number; basic endpoint polynomial algebra is credited and exact spectrum remains a distinct conclusion.",
+        "searches": [
+          "Courtney NYJM 16 (2010) Theorem 1 Section 4",
+          "Batenkov Yomdin arxiv:1106.1137"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier Gram isometry is equivalent to vanishing moments c_1,...,c_(k-1).",
+          "Endpoint derivative is a conjugate-paired real Prony map after quotienting fixed area and rotation."
+        ],
+        "reasoning": "Compared isometric Fourier restriction, finite Fourier moment inversion and Prony-node Jacobian language; full exact real singular spectrum remains more specialized.",
+        "searches": [
+          "union k equal circular arcs Fourier moment inverse conditioning singular values local Jacobian",
+          "Courtney Unions of arcs from Fourier partial sums 2010",
+          "Batenkov Yomdin Prony local Jacobian arc endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results on harmonic Radon/Hamming-shell spectra concern finite groups and different data/maps, not the real arc-endpoint Jacobian.",
+          "No inspected exact table of the fixed-area k-arc singular spectrum."
+        ],
+        "reasoning": "A table from a finite Fourier design would require same operator and real quotient normalization, which those hits lack.",
+        "searches": [
+          "Resultary query: union k equal circular arcs Fourier moment inverse conditioning singular values local Jacobian",
+          "Courtney finite arc Fourier reconstruction examples"
+        ]
+      },
+      "rationale": "Endpoint reconstruction and general Prony conditioning are established. Courtney gives recovery using mean plus Fourier moments THROUGH k, whereas zero moments THROUGH k-1 and a fixed-area tangent Jacobian on balanced k arcs constitute a narrower inverse-geometry question. The exact real two-level singular spectrum and k-independent condition number are not found in inspected primary results; the basic rigidity via Newton/self-inversive identities should not be overclaimed as independently deep.",
+      "residual_risks": [
+        "Other inverse Prony results may contain a specialized balanced-arc Jacobian formula under an equivalent normalization.",
+        "The local condition number is coordinate- and normalization-dependent, and not a global robust recovery guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains global recovery from an extra moment; no fixed-area real Jacobian spectrum",
+          "evidence": [
+            "Theorem 1 mean plus coefficients to order k; Section 4 method via finite Blaschke polynomials"
+          ],
+          "identifier_or_url": "https://nyjm.albany.edu/j/2010/16-11v.pdf; arxiv:1002.0639",
+          "material_read": "Original nine-page PDF including opening theorem, page 1 theorem and Section 4 reconstruction; PDF pages 0 and 6 were visually inspected",
+          "method": "Primary full text/PDF text and page screenshots",
+          "title": "Unions of arcs from Fourier partial sums",
+          "trigger": "Same objects (circle arc unions) and Fourier moment recovery"
+        },
+        {
+          "assessment": "Broader Prony stability context, no inspected fixed-area two-level spectrum",
+          "evidence": [
+            "General Prony local parameter accuracy bounds; models are wider than balanced equal arcs"
+          ],
+          "identifier_or_url": "arxiv:1106.1137",
+          "material_read": "Abstract and available technical results on conditioning/Jacobian of general confluent Prony systems",
+          "method": "Primary arXiv summary and targeted theorem comparison; not a claim to have read full text",
+          "title": "On the accuracy of solving confluent Prony systems",
+          "trigger": "Possible broader theorem for endpoint inverse stability"
+        },
+        {
+          "assessment": "Priority risk for specialized corollaries, but no established direct implication to this exact singular spectrum",
+          "evidence": [
+            "Broad inverse Prony geometry and endpoint reconstruction problem"
+          ],
+          "identifier_or_url": "arxiv:1301.1187",
+          "material_read": "Public abstract and available source descriptions of general Prony geometry",
+          "method": "Targeted literature search and abstract reading; no unsupported whole-paper noncoverage assertion",
+          "title": "Local and global geometry of Prony systems and Fourier reconstruction of piecewise-smooth functions",
+          "trigger": "Same inverse Fourier/Prony alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determines the minimal number and geometric rigidity of perfectly conditioned sampling windows and supplies the sharp infinitesimal inverse error amplification for the natural endpoint coordinates. The occupancy-only condition number and optimal half-occupancy value address a real inverse sampling problem beyond standard reconstruction existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Courtney 2010 New York J Math 16 pp235-243 Theorem 1 Section 4",
+    "Batenkov and Yomdin arxiv:1106.1137; arxiv:1301.1187",
+    "Resultary mathematical Fourier sampling search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For k>=2 analytic consecutive Fourier modes and a measurable union of r nondegenerate separated arcs of normalized measure rho in (0,1), isometric restriction requires r>=k; at r=k all solutions are rotated equispaced equal arcs. On the fixed-area, rotation-quotiented endpoint tangent space the first k-1 Fourier moments have real squared singular values k(1 +/- |cos(pi rho)|)/(4pi^2), each k-1 times.",
+  "limitations": [
+    "Other inverse Prony results may contain a specialized balanced-arc Jacobian formula under an equivalent normalization.",
+    "The local condition number is coordinate- and normalization-dependent, and not a global robust recovery guarantee.",
+    "Independent computations are finite and do not certify unbounded parameter statements; arguments in RESULT.md assessed as mathematical proof.",
+    "Scientific PASS does not imply ready-to-publish transport; public operational metadata requires sanitization."
+  ],
+  "residual_risks": [
+    "Other inverse Prony results may contain a specialized balanced-arc Jacobian formula under an equivalent normalization.",
+    "The local condition number is coordinate- and normalization-dependent, and not a global robust recovery guarantee."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Contains global recovery from an extra moment; no fixed-area real Jacobian spectrum",
+      "evidence": [
+        "Theorem 1 mean plus coefficients to order k; Section 4 method via finite Blaschke polynomials"
+      ],
+      "identifier_or_url": "https://nyjm.albany.edu/j/2010/16-11v.pdf; arxiv:1002.0639",
+      "material_read": "Original nine-page PDF including opening theorem, page 1 theorem and Section 4 reconstruction; PDF pages 0 and 6 were visually inspected",
+      "method": "Primary full text/PDF text and page screenshots",
+      "title": "Unions of arcs from Fourier partial sums",
+      "trigger": "Same objects (circle arc unions) and Fourier moment recovery"
+    },
+    {
+      "assessment": "Broader Prony stability context, no inspected fixed-area two-level spectrum",
+      "evidence": [
+        "General Prony local parameter accuracy bounds; models are wider than balanced equal arcs"
+      ],
+      "identifier_or_url": "arxiv:1106.1137",
+      "material_read": "Abstract and available technical results on conditioning/Jacobian of general confluent Prony systems",
+      "method": "Primary arXiv summary and targeted theorem comparison; not a claim to have read full text",
+      "title": "On the accuracy of solving confluent Prony systems",
+      "trigger": "Possible broader theorem for endpoint inverse stability"
+    },
+    {
+      "assessment": "Priority risk for specialized corollaries, but no established direct implication to this exact singular spectrum",
+      "evidence": [
+        "Broad inverse Prony geometry and endpoint reconstruction problem"
+      ],
+      "identifier_or_url": "arxiv:1301.1187",
+      "material_read": "Public abstract and available source descriptions of general Prony geometry",
+      "method": "Targeted literature search and abstract reading; no unsupported whole-paper noncoverage assertion",
+      "title": "Local and global geometry of Prony systems and Fourier reconstruction of piecewise-smooth functions",
+      "trigger": "Same inverse Fourier/Prony alias"
+    }
+  ]
+}

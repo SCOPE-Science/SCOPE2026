@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof normalizes the circle Fourier coefficients, proves the component threshold through endpoint power sums, classifies the equal-component solutions through self-inversive endpoint polynomials, and fully computes the real Jacobian spectrum on the area-fixed rotation quotient by pairing Fourier frequencies. The Nyquist sector is treated separately when the number of arcs is even. All singular values are positive for occupancies strictly between zero and one; the inverse-function and local sharpness claims follow. The standalone checker passed 144 deterministic singular-spectrum and finite-difference tests. Numerical checks are not the basis for the universal proof.
+PASS
 
-## Originality — PASS, with historical-priority limitation
+Off-diagonal Gram entries vanish iff first k-1 normalized Fourier moments vanish. Endpoint integration identifies differences of k endpoint power sums; Newton identities show r<k would force identical start/end endpoint multisets. For r=k, self-inversive coefficients of unit-circle-root polynomials with equal nonconstant terms and different constants imply all intermediate coefficients vanish; both endpoint sets are regular k-gons, cyclic alternation then imposes equal arcs length 2pi rho/k. Differentiated moments yield delta c_m=(sqrt(k)/(2pi))e^(-im phi)(e^(-im ell) vhat_m-uhat_m). Conjugate real Fourier blocks and even-k Nyquist case give exactly the two squared singular levels with k-1 multiplicities; rho strictly between 0 and 1 gives positive inverse. Analytic Taylor remainder justifies sharp first-order local inverse but not global inversion. Independently assembled 40 real Jacobian matrices and compared full spectra.
 
-Courtney's full 2010 article gives a recovery theorem for at most \(k\) arcs using the Fourier moments through order \(k\), and a Blaschke-product endpoint algorithm. The geometric minimal-component assertion is close in spirit and its simplest cases should not be treated as the decisive novelty. Huang's 2024 paper recovers arc measures through infinite Fourier-series limits; Batenkov and Yomdin's 2011/2013 Prony work provides general inverse-local-stability theory without the specific fixed-occupancy, real-conjugate-pair spectrum. Neither inspected text reports the exact, multiplicity-resolved real singular spectrum of the first \(k-1\) moments on the fixed-area rotation-quotient at the equal-arc design. Targeted literature and claim-level comparisons found no dominating statement. An uninspected Prony or harmonic-analysis source could still establish the same formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Balanced restriction of consecutive Fourier modes and stable reconstruction of a binary arc mask are natural coupled sampling-design problems. The exact threshold at \(k\) components, rigidity of the optimizer, and dimension-free inverse condition number together identify an interpretable design: half occupancy is uniquely isotropic in endpoint coordinates. This is an all-rank sharp local stability theorem, not an isolated computed instance.
+Endpoint reconstruction and general Prony conditioning are established. Courtney gives recovery using mean plus Fourier moments THROUGH k, whereas zero moments THROUGH k-1 and a fixed-area tangent Jacobian on balanced k arcs constitute a narrower inverse-geometry question. The exact real two-level singular spectrum and k-independent condition number are not found in inspected primary results; the basic rigidity via Newton/self-inversive identities should not be overclaimed as independently deep.
 
-## Limits
+## value
 
-Only smooth small deformations with fixed area and an orthogonal rotation gauge are covered by the quantitative inverse result. No global noise amplification, large-arc-count optimizer classification, or independent review is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the minimal number and geometric rigidity of perfectly conditioned sampling windows and supplies the sharp infinitesimal inverse error amplification for the natural endpoint coordinates. The occupancy-only condition number and optimal half-occupancy value address a real inverse sampling problem beyond standard reconstruction existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
