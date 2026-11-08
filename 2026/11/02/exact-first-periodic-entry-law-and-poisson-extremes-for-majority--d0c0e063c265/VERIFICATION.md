@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` in a directory containing the two provided files `verify.py` and `verification_output.txt`. Python 3.9+ and only the standard library are required.
+# Independent mathematical audit
 
-A completed execution of `verify.py` checks all \(65{,}528\) labelled spin configurations on sizes \(3\) through \(15\) against direct synchronous majority dynamics and the independent alternating-run prediction, including their eventual periods. For each size it then verifies the full cumulative distribution from integer matrix powers. It evaluates the finite-size CDF at selected sizes from \(256\) through \(2048\) and compares it numerically with the stated Poisson approximation.
+## correctness
 
-The successful recorded output ends with `MAJORITY232_TRANSIENT_VERIFY_OK`. The direct simulation is finite and does **not** establish the infinite-window Poisson theorem or expectation estimate; those follow from the edge-erosion and factorial-moment proofs. Independent audit has not been performed.
+PASS
+
+Boolean majority changes x_i iff both adjacent disagreement edges are one; hence the exact edge update is y_i→y_i(1 XOR y_{i−1} XOR y_{i+1}). Zeros never become ones, and bounded runs of disagreement ones erode at both ends each step while an isolated one stays. Thus first periodic-entry time equals floor(max-run-length/2) unless every edge disagrees (even checkerboard two-cycle at time zero). The edge-parity constraint is enforced exactly by tr(M_q(1)^n)+tr(M_q(−1)^n) plus checkerboards. For a uniform random spin start, any fewer than n edge bits are iid fair; disjoint rare long-run starts have joint products and nearby starts are incompatible. Fixed factorial moments give the subsequential Poisson law; geometric tails give half-log expected time. Independent microscopic simulation of all 2^n starts for n3..12 checked the T formula; source verifier n3..15 and integer trace recurrence inspected. These finite counts do not prove the asymptotic result.
+
+## originality
+
+PASS
+
+Structural majority-automaton studies describe fixed/periodic attractors and empirical convergence, but do not give the parity-projected full first-entry-time CDF and lattice Poisson extreme-value limit for synchronous nearest-three binary majority on a ring. Lemoy–Mozeika–Seki study thermal noise (different stochastic system), Nakar–Ron study periodic configurations for broader radii; Resultary nearest finite-volume rule-128 paper is a different update rule.
+
+## value
+
+PASS
+
+Exact deterministic transient length and iid-start convergence-time distribution are natural cellular-automaton dynamical observables. The parity-projected transfer trace and Poisson extreme window resolve precise finite-size and logarithmic convergence scales, distinguishing true periodic entry from only fixation; they are meaningful statistical limit laws rather than routine simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

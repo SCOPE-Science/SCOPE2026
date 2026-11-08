@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T10:05:21.635105Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Boolean majority changes x_i iff both adjacent disagreement edges are one; hence the exact edge update is y_i→y_i(1 XOR y_{i−1} XOR y_{i+1}). Zeros never become ones, and bounded runs of disagreement ones erode at both ends each step while an isolated one stays. Thus first periodic-entry time equals floor(max-run-length/2) unless every edge disagrees (even checkerboard two-cycle at time zero). The edge-parity constraint is enforced exactly by tr(M_q(1)^n)+tr(M_q(−1)^n) plus checkerboards. For a uniform random spin start, any fewer than n edge bits are iid fair; disjoint rare long-run starts have joint products and nearby starts are incompatible. Fixed factorial moments give the subsequential Poisson law; geometric tails give half-log expected time. Independent microscopic simulation of all 2^n starts for n3..12 checked the T formula; source verifier n3..15 and integer trace recurrence inspected. These finite counts do not prove the asymptotic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader-radius periodicity bounds describe recurrence classes, not initial transient length probabilities.",
+          "Thermal-noise transfer matrices use a random evolution and do not imply deterministic first-hit CDF."
+        ],
+        "reasoning": "Published higher-radius/cellular noise frameworks do not dominate the exact zero-noise synchronous ring iid-start extreme law.",
+        "searches": [
+          "arXiv:2205.08972 broader-radius majority periodicity",
+          "Tosic Raju CSC 2011 On Convergence Properties of One-Dimensional Cellular Automata",
+          "arXiv:1311.4388 transfer matrix majority thermal noise"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 45bcdf3e25a9d46c680e4d00f42f1190b3c60ddd, RESULT.md 63d7e03cdaa1e1118f5e4279b4b76398643f13f6, verify.py ac7400db2311e50d355cda5651b6fd8f96601ffa",
+        "arXiv:2205.08972 primary structural majority CA article",
+        "Tosic–Raju CSC 2011 author-shared text of empirical convergence",
+        "arXiv:1311.4388 thermal-noise model",
+        "Tosic–Agha ACRI 2004 configuration-space work",
+        "Resultary rule128/ternary CA search with distinct-update comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior empirically reports convergence trends and describes stable/oscillating configurations.",
+          "Exact random-start exceedance parameter n*2^{−(2t+3)}, parity-conditioned transfer trace and Poisson moments are not supplied."
+        ],
+        "reasoning": "Even a known recurrent set does not determine first periodic-entry distributions; the new erosion length and probabilistic run-census analysis is not logically contained in the inspected statements.",
+        "searches": [
+          "Tosic Raju CSC 2011 convergence rates",
+          "Nakar Ron arXiv:2205.08972 periodic structure",
+          "Lemoy Mozeika Seki arXiv:1311.4388 thermal noise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 232 on a labelled ring is synchronous three-site binary majority; its disagreement bonds are 1-runs separated by persistent 0-edges.",
+          "Nakar–Ron discuss persistent patterns/periodicity but not the distribution of first entry under iid fair spins."
+        ],
+        "reasoning": "The current result is equivalent to an exact cyclic longest-alternating-run law with global even-parity condition. Prior structural CA classifications cannot supply its probability distribution without the run-census work.",
+        "searches": [
+          "majority rule radius one binary synchronous cellular automata distribution of convergence time 2011 Tosic Raju",
+          "one dimensional majority-three cellular automaton transient length alternating edges runs Poisson extreme law cyclic",
+          "arXiv:2205.08972 majority CA periodicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary rule-128 transients are for different radius-one Boolean rule, not the majority-of-three rule 232.",
+          "Primary CA papers did not include the stated parity-trace formula for each n,t."
+        ],
+        "reasoning": "No identical exact CDF table found; a finite-state transfer technique alone is not a table of these values, and negative search is not absolute novelty proof.",
+        "searches": [
+          "Resultary: one dimensional majority-three cellular automaton transient length alternating edges runs Poisson extreme law cyclic",
+          "2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+        ]
+      },
+      "rationale": "Structural majority-automaton studies describe fixed/periodic attractors and empirical convergence, but do not give the parity-projected full first-entry-time CDF and lattice Poisson extreme-value limit for synchronous nearest-three binary majority on a ring. Lemoy–Mozeika–Seki study thermal noise (different stochastic system), Nakar–Ron study periodic configurations for broader radii; Resultary nearest finite-volume rule-128 paper is a different update rule.",
+      "residual_risks": [
+        "An older unindexed 1D majority consensus-time paper may contain the same alternating-run erosion law or equivalent Poisson extremal argument.",
+        "Only iid fair initial spins and deterministic synchronous nearest-three ring; Poisson convergence is subsequence/lattice, not full continuous Gumbel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural periodicity does not provide exact iid first-entry law, parity trace or Poisson scaling.",
+          "evidence": [
+            "Main periodicity/configuration classification; no random-start exact time law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "HTML main statements, introduction, periodicity and related-work sections",
+          "method": "ArXiv primary article sections read",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Same 1D majority CA, plausible stronger general-radius result"
+        },
+        {
+          "assessment": "Empirical convergence data do not imply exact all-n distribution or lattice Poisson limit.",
+          "evidence": [
+            "2011 reported parallel majority convergence experiments, not an exact closed CDF."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/258511570_On_Convergence_Properties_of_One-Dimensional_Cellular_Automata_with_Majority_Cell_Update_Rule",
+          "material_read": "Author-shared article text describing experiments and convergence versus ring size, including numerical sizes up to approximately 1000",
+          "method": "Read available full article transcription / numerical analysis portions",
+          "title": "On Convergence Properties of One-Dimensional Cellular Automata with Majority Cell Update Rule",
+          "trigger": "Directly about majority convergence speed"
+        },
+        {
+          "assessment": "Thermal-noise majority model is distinct from deterministic first periodic entry.",
+          "evidence": [
+            "Noise-dependent transfer matrices do not count the deterministic edge-run transient shell."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.4388",
+          "material_read": "Abstract, stochastic update definition and principal transfer-matrix objective",
+          "method": "ArXiv primary preprint portions read",
+          "title": "Transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+          "trigger": "Same term majority and transfer matrices, possible equivalence"
+        },
+        {
+          "assessment": "Provides background stable-state structures, no matching finite ring iid first-entry distribution.",
+          "evidence": [
+            "Threshold CA configuration/attractor scope distinct from exact entry-time CDF."
+          ],
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Publication and configuration-space/stability sections as available",
+          "method": "Open primary PDF/context consulted, not full independent proof audit",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Early threshold-CA configuration classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact deterministic transient length and iid-start convergence-time distribution are natural cellular-automaton dynamical observables. The parity-projected transfer trace and Poisson extreme window resolve precise finite-size and logarithmic convergence scales, distinguishing true periodic entry from only fixation; they are meaningful statistical limit laws rather than routine simulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 45bcdf3e25a9d46c680e4d00f42f1190b3c60ddd, RESULT.md 63d7e03cdaa1e1118f5e4279b4b76398643f13f6, verify.py ac7400db2311e50d355cda5651b6fd8f96601ffa",
+    "arXiv:2205.08972 primary structural majority CA article",
+    "Tosic–Raju CSC 2011 author-shared text of empirical convergence",
+    "arXiv:1311.4388 thermal-noise model",
+    "Tosic–Agha ACRI 2004 configuration-space work",
+    "Resultary rule128/ternary CA search with distinct-update comparisons"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only n>=3, deterministic synchronous nearest-neighbor majority; no asynchronous/noisy extension.",
+    "Poisson limit requires subsequence n*2^{−(2t+3)}→lambda>0, does not assert ordinary centered Gumbel limit.",
+    "Full probabilistic theorem uses analytic factorial moments and tail bounds, not finite simulation."
+  ],
+  "schema_version": 1
+}

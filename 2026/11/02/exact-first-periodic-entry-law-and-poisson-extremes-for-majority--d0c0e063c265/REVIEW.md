@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Boolean identity \(F(x)_i=x_i\oplus y_{i-1}y_i\) implies monotone erosion of maximal runs of edge disagreements, proving the exact first-entry identity and ruling out hidden transient cycles. The transfer matrix has a one-to-one closed-walk encoding for each cyclic edge word containing a zero; parity projection and the two checkerboards account for all configurations. The Poisson law follows from explicit factorial moments of incompatible and independent rare run-start events. Geometric upper and lower tails yield the mean estimate. Direct exhaustive dynamics and independent matrix census checks in `verification_output.txt` match the theorem. **Risk:** an error in an untested finite case is possible, but is not used to infer any infinite result; every limiting assertion rests on stated symbolic arguments.
+PASS
 
-## Originality — PASS, qualified
+Boolean majority changes x_i iff both adjacent disagreement edges are one; hence the exact edge update is y_i→y_i(1 XOR y_{i−1} XOR y_{i+1}). Zeros never become ones, and bounded runs of disagreement ones erode at both ends each step while an isolated one stays. Thus first periodic-entry time equals floor(max-run-length/2) unless every edge disagrees (even checkerboard two-cycle at time zero). The edge-parity constraint is enforced exactly by tr(M_q(1)^n)+tr(M_q(−1)^n) plus checkerboards. For a uniform random spin start, any fewer than n edge bits are iid fair; disjoint rare long-run starts have joint products and nearby starts are incompatible. Fixed factorial moments give the subsequential Poisson law; geometric tails give half-log expected time. Independent microscopic simulation of all 2^n starts for n3..12 checked the T formula; source verifier n3..15 and integer trace recurrence inspected. These finite counts do not prove the asymptotic result.
 
-Tosic–Raju (2011) empirically discusses majority-automaton convergence rates but provides no exact first-periodic-entry distribution for radius-one synchronous cyclic majority. Tosic–Agha (2004) addresses stable configuration structure; Lemoy–Mozeika–Seki (2013) addresses thermally perturbed equilibrium; Nakar–Ron (2022) provides a general stability/periodicity classification without deriving the present finite entry-time census or its Poisson limit. Related results concern distinct rules or weaker conclusions and do not imply the claimed exact count and scaling. Targeted searches for the longest alternating run, rule 232 convergence time and Poisson statistics found no covering claim. **Risk:** older unindexed analyses could independently contain these formulas; current novelty is supported by the inspected material and not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Convergence-time statistics of the classical majority rule are a natural invariant not determined by merely classifying eventual fixed points or two-cycles. The exact all-size CDF directly resolves the distribution rather than just a worst-case bound; the logarithmic law and lattice Poisson window identify the typical rate behind previously reported empirical convergence curves. This is not a trivial reparametrization: a parity constraint, a two-cycle exceptional class and an extreme-value argument are all required.
+Structural majority-automaton studies describe fixed/periodic attractors and empirical convergence, but do not give the parity-projected full first-entry-time CDF and lattice Poisson extreme-value limit for synchronous nearest-three binary majority on a ring. Lemoy–Mozeika–Seki study thermal noise (different stochastic system), Nakar–Ron study periodic configurations for broader radii; Resultary nearest finite-volume rule-128 paper is a different update rule.
 
-## Scope and comparison
+## value
 
-Only binary nearest-neighbor *synchronous* cyclic majority is covered. The limiting law is stated along integer thresholds with convergent intensity; an unconditional centered continuous Gumbel statement is deliberately not made. The four closest source families, precise domains and residual historical-equivalence risk appear in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact deterministic transient length and iid-start convergence-time distribution are natural cellular-automaton dynamical observables. The parity-projected transfer trace and Poisson extreme window resolve precise finite-size and logarithmic convergence scales, distinguishing true periodic entry from only fixation; they are meaningful statistical limit laws rather than routine simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
