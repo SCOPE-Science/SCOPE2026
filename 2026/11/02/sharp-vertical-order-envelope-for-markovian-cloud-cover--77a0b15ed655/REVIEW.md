@@ -1,11 +1,21 @@
-# Review of the sharp cloud-order envelope
+# Independent mathematical audit
 
-**Correctness — PASS.** The stipulated pairwise overlap is a convex combination of valid Bernoulli couplings. Explicit clear-clear transitions produce equation (1). A path-degree constraint bounds how often its smallest vertex odds can occur as an edge minimum, while the induced-subpath forest constraint bounds how few such minima can occur. Both coordinatewise extremal sequences are realized by explicit permutations; nonnegative elementary-symmetric coefficients prove monotonic growth in ordering uncertainty. The independent exact-rational checker completed 369,986 assertions across exhaustive permutations through eight layers, repeated fractions, and endpoint weights. The finite checks are not the infinite proof.
+## correctness
 
-**Originality — PASS within inspected literature, not independent priority certification.** Bergman and Rasch (2002, equations 8–13 and Fig. 3 discussion) give the Markov cloud-overlap model and vary fractions in a resolution-convergence test, but do not supply the all-permutation exact extremal order. Lebrun, Dufresne and Villefranque (2023, Section 2) directly give a cloud-free product and investigate numerical cloud representation; that product is a premise and is not presented as new. The newly assessed statement is the two exact order-statistic envelopes, constructive sharpness for every layer count, and parameter-monotone uncertainty gap. Searches for cloud ordering and adjacent-minimum permutation theorems revealed no direct covering result; this absence is evidence-limited. Barker (2008), Sections 1, 4 and 6 of the openly accessible full article, is concerned with observed pair overlap and decorrelation-length estimation, not global permutation extrema. Earlier combinatorial or meteorological equivalent results remain the main residual risk.
+PASS
 
-**Value — PASS.** Cloud overlap materially affects total cover and radiative applications, as documented in the primary literature. If coarse diagnostics retain only a multiset of level cloud fractions rather than their order, the theorem gives the exact smallest and largest model-consistent projected cloud cover without any enumeration or parameter search, uniformly over all allowed levels and overlap strengths. The worst-case gap can be 5.7 percentage points for a four-level rational example. This is an uncertainty/sensitivity benchmark, not an empirical forecast; it does not infer flux, nor require that physical levels can be arbitrarily permuted.
+From a two-Bernoulli coupling, the clear-clear probability is (1-u)(1-v)(1+α min(r_u,r_v)), so the all-clear Markov path product is B times the factors indexed by adjacent edge minima. For edge-minimum order statistics b_j, path degree <=2 implies b_j>=r_{ceil(j/2)}; the induced subgraph on ranks >k is a forest implying b_k<=r_k. Coordinatewise product comparison gives both bounds, realized by explicit alternating large-small and monotone or single-peaked paths. Coefficientwise monotonicity of elementary symmetric polynomials gives nonnegative coefficients of the width in α, strictly increasing for distinct n>=3. Independent rational Markov recursion checked 23648 permutations through n=7 and all α in {0,1/4,1/2,1}, including the exact four-level bounds 454/625 and 3917/5000. These finite tests are not the arbitrary-n proof.
 
-**Scope and risk.** The result does not extend by assumption to unequal gap weights, non-Markov dependency, optical depths, clouds with geometry beyond projected occurrence, or measured radiative forcing. All three relevant primary articles were inspected in substantive full-text sections, although earlier literature cannot be exhaustively excluded. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bergman–Rasch 2002 and Lebrun–Dufresne–Villefranque 2023 establish the maximum/random overlap interpolation, Markov construction and clear-column probability product; those are fully acknowledged premises. The inspected model papers do not state or prove the *sharp all-permutation order-statistics envelope* or its α-monotone width. An earlier general adjacent-minimum rearrangement theorem could yield the claim as a special case, and absence from inspected literature is not proof of absolute priority.
+
+## value
+
+PASS
+
+For coarse cloud diagnostics retaining only an unordered multiset of layer fractions, this provides tight attainable coverage uncertainty with no factorial order search, for any layer count and uniform physical overlap scale. The exact width and its growth with α quantify uncertainty amplification; the 5.7-percentage-point rational four-layer example is illustrative, not the entire contribution. It is an exact natural cloud-coverage functional, without claiming radiative flux prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
