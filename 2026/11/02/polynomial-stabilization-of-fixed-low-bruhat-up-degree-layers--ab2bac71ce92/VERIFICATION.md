@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and its standard library. The checker computes the upward-cover statistic two independent ways (literal interval-triple test and an extremal-record test), verifies that cover-graph connectivity agrees with skew indecomposability, and enumerates all permutations through order nine. It constructs coefficient counts from skew-indecomposable blocks and checks the rational-coefficient extraction through \(r=5\), including the closed formulas for \(r=2,3\). The expected terminal line is `VERIFY_OK`; intermediate checks identify 409,113 explicitly enumerated permutations.
+## correctness
 
-These checks are finite and cannot independently certify the all-r theorem. The independent infinite argument in RESULT.md uses the interval-component lemma, the additive skew decomposition, the lower bound of \(s-1\) covers in an indecomposable block, and the formal generating-function extraction. No external independent audit is claimed.
+PASS
+
+The graph joining ascent pairs has position-interval connected components, because each intermediate vertex connects to an endpoint; each ascent splits recursively along a point of intermediate value into cover pairs, so the cover graph has the same components. Those components exactly match unique skew-indecomposable factors. Any nonsingleton skew block of size s has a connected cover graph and at least s-1 counted upward covers, with no cross-block edges. Therefore the full skew-factor series is 1/(1-x-sum_{s>=2}x^s C_s(q)). At fixed q-degree r, only factors of sizes <=r+1 and at most r nonsingletons contribute, giving the finite coefficient formula with P_r in Z[x], degree <=2r. At x=1 only r copies of size2 q^1 factors survive, so P_r(1)=1. The coefficient expansion for n>=2r is exactly polynomial degree r leading 1/r!; C_3(q)=3q^2 determines second coefficient and eventual initial strict increase. Independently enumerated all n<=8 permutations using literal three-index cover definition, obtaining low-r counts matching displayed formulas.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the all-fixed-r rational generating functions, eventual exact polynomiality and initial-coefficient growth; known graph connectedness and finite distributions are prior results; recently inspected mesh equivalences remain a priority risk.
+
+## value
+
+PASS
+
+Exact distributional information for the upward strong Bruhat cover statistic is a natural enumerative gap raised in recent boxed-mesh literature. The universal stabilization for every fixed edge degree turns finitely many skew-indecomposable blocks into explicit, reusable coefficient formulas and yields a rigorous eventually increasing initial segment; it is stronger than known initial tables and different from global unimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

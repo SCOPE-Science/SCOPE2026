@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The skew-component lemma proves that every connected nonsingleton permutation factor of size \(s\) contains at least \(s-1\) upward Bruhat covers, and that cover counts are additive across skew factors. This justifies the exact truncation and rational formula in the result. The degree bound and normalization \(P_r(1)=1\) are established by explicit term analysis. The extraction proof gives the exact eventual polynomial and two leading coefficients. The standalone verifier independently checked 409,113 permutations and the fixed-degree identities through degree five in lengths up to nine. Its finite experiments support, but do not establish, the infinite statement.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Kitaev--Qiu--Xu (2026, arXiv:2609.13764, Section 8) establish the boxed-12 identification, insertion identity, moments/extrema and a small-length table, not the all-fixed-degree rationality. Bousquet-Mélou--Butler (2006, arXiv:math/0603617) study the same graph in the different forest-like/tree-like regime; Adin--Roichman (2005, arXiv:math/0505020) establish earlier graph properties, which are credited. Actual mathematical-record searches of fixed cover number, equivalent mesh and Hasse formulations found no implication-dominating theorem. Full text of a plausible 2026 mesh classification, arXiv:2605.19429, was unavailable; only its abstract was compared, and historical priority remains provisional.
+PASS
 
-**Mathematical value — PASS.** This supplies the complete infinite fixed-low-degree stabilization, its denominator and numerator bound, a finite-r algorithm, and sharp leading asymptotics for an active conjectured-unimodal distribution. It proves an eventual increasing initial window for every fixed width without claiming global unimodality. The combinatorial bound on skew factors explains why a nontrivial finite reduction exists.
+The graph joining ascent pairs has position-interval connected components, because each intermediate vertex connects to an endpoint; each ascent splits recursively along a point of intermediate value into cover pairs, so the cover graph has the same components. Those components exactly match unique skew-indecomposable factors. Any nonsingleton skew block of size s has a connected cover graph and at least s-1 counted upward covers, with no cross-block edges. Therefore the full skew-factor series is 1/(1-x-sum_{s>=2}x^s C_s(q)). At fixed q-degree r, only factors of sizes <=r+1 and at most r nonsingletons contribute, giving the finite coefficient formula with P_r in Z[x], degree <=2r. At x=1 only r copies of size2 q^1 factors survive, so P_r(1)=1. The coefficient expansion for n>=2r is exactly polynomial degree r leading 1/r!; C_3(q)=3q^2 determines second coefficient and eventual initial strict increase. Independently enumerated all n<=8 permutations using literal three-index cover definition, obtaining low-r counts matching displayed formulas.
 
-**Limits.** The result is fixed-degree and does not solve global unimodality; older equivalent formulations could exist. The computational evidence is finite. No independent scientific evaluation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the all-fixed-r rational generating functions, eventual exact polynomiality and initial-coefficient growth; known graph connectedness and finite distributions are prior results; recently inspected mesh equivalences remain a priority risk.
+
+## value
+
+PASS
+
+Exact distributional information for the upward strong Bruhat cover statistic is a natural enumerative gap raised in recent boxed-mesh literature. The universal stabilization for every fixed edge degree turns finitely many skew-indecomposable blocks into explicit, reusable coefficient formulas and yields a rigorous eventually increasing initial segment; it is stronger than known initial tables and different from global unimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
