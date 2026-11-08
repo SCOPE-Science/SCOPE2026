@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact quadratic-form identity is derived in RESULT.md. The crucial estimate (1) compares a weighted lattice edge midpoint sum to the continuum exponential potential with uniform quadratic-in-spacing form error. The sharp constant follows by the positive Dirichlet Bessel resonance and a ground-state transform. The spectral limit is justified using compactness of interpolated negative-energy vectors; ordinary finite truncation is never used as a proof of the infinite claim.
+# Independent mathematical audit
 
-Run `python check.py` with numpy and scipy to reproduce positive-weight Jacobi threshold-root computations at four mesh sizes and the finite-section spectral comparisons at two couplings. The recurrence computation truncates only after the coefficients have decayed exponentially, and numerical root accuracy does not certify an infinite-dimensional threshold. The Bessel order is found by a numerical root finder. For \(\lambda\) exactly at the limiting threshold no yes/no assertion is made for each fixed small mesh.
+## correctness
+
+PASS
+
+Diagonal phase unitary makes numerical radius the upper Jacobi edge and leaves essential spectrum at 1. The exact discrete Dirichlet identity and piecewise-linear interpolation shift edge coefficients by 3h/2, with midpoint quadrature error bounded by O(h^2) times energy. The sharp exponential Hardy inequality is obtained using the positive zero-energy Dirichlet resonance J0(j_{0,1}e^{-x/2}) and a ground-state transform; a long-tail cutoff and H1 interpolation give matching variational sharpness. Compactness of negative-energy states and convergence of quadratic forms yield fixed supercritical eigenvalue and Bessel profile. Independent zero-energy recurrence diagnostics found thresholds 1.0854286 at h=.2, 1.2485792 at h=.1 and 1.3424522 at h=.05, consistent with a quadratic first-correction error. Finite truncations cannot certify the infinite threshold.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-level comparison supports new combined conclusion within the precise scope; not merely lack of search hits. The positive geometric unilateral shift with w_j=sqrt(1+lambda*h^2 exp(-jh)) has the numerical-radius threshold lambda_h=(j_{0,1}^2/4) exp(-3h/2)+O(h^2); for fixed supercritical lambda excess radius equals kappa^2 h^2/2+o(h^2) with kappa selected by first Bessel order zero, and interpolated positive eigenvector converges to the half-line Bessel ground state. Historical priority remains qualified.
+
+## value
+
+PASS
+
+A sharp first lattice correction to a Bessel zero-energy resonance is a quantitative transition for a natural and previously defined weighted-shift family, beyond its leading continuum limit; numerical radius and eigenprofile have operator-theoretic meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
