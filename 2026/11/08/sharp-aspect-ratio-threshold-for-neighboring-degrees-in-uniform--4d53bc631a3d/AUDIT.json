@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The Moore–Penrose Green kernel is reconstructed directly from the three orthogonal spectral subspaces of K_m square K_n. The finite transfer-current identity supplies each edge covariance and requires the common edge variance as a separate positive contribution. A complete mutually exclusive table of incident edge-pair currents gives the claimed rational cubic numerator. Descartes’ rule, exact values at m=2 and at consecutive integers n(n+1)/2-1 and n(n+1)/2, and the n=2 factorization prove all integer signs. An independent standard-library exact-rational checker compared the full transfer-current double sum to the rational formula for 2<=m,n<=12, tested thresholds, and independently enumerated small spanning trees; 313 assertions passed. Finite checks are not used as proof for unbounded m,n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hladký–Nachmias–Tran (2017), Theorem 1.1, arxiv:1711.09788, describes local limits in dense graphs, which may include certain fixed-factor product subfamilies.",
+        "Rapoport (2025), Theorem 3.7/4.2 and Section 3.2, derives general joint degree formulas for finite graphs and illustrates complete graph/lattices rather than the rectangular rook-graph threshold.",
+        "Burton–Pemantle transfer current theorem is the general tool used to derive the new specific exact formula."
+      ],
+      "reasoning": "The strong general formulas cover the probability model and can in principle produce a finite covariance when specialized. The precise integer aspect-ratio threshold is not a mere restatement of their formula; it requires explicit evaluation and a cubic-root sign argument. Dense-graph limits do not imply exact finite signs.",
+      "searches": [
+        "uniform spanning tree Cartesian product cliques degree covariance adjacent vertices positive negative",
+        "Correlations in Uniform Spanning Trees a Fermionic Approach degree of the Uniform Spanning Tree",
+        "The local limit of the uniform spanning tree on dense graphs arxiv:1711.09788",
+        "Burton Pemantle transfer impedance theorem uniform spanning tree degree marginal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1711.09788",
+      "arxiv:1806.02675",
+      "arxiv:math/0404048",
+      "doi:10.1007/s10955-025-03510-0",
+      "uknowledge:math_etds/104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huh–Schröter–Wang (2018) proves negative correlations for distinct edges but adjacent vertex degrees share one edge, contributing a positive variance term.",
+        "Hladký–Nachmias–Tran (2017) concerns single-root local limits and universal leaf proportions, not finite adjacent two-root covariance signs.",
+        "Rapoport (2025) gives exact general finite-graph joint degree prescriptions, hence a broad computability reduction, but no identified rook-graph triangular-number boundary."
+      ],
+      "reasoning": "Negative edge correlation does not imply negative covariance between sums when the underlying sets overlap. The crucial positive shared-edge term can dominate only at a sufficiently anisotropic dimension ratio. The sharp threshold is not logically implied by one-vertex limiting distributions; general Green-kernel formulas need the explicit product-spectrum reduction and sign proof supplied here.",
+      "searches": [
+        "arxiv:1806.02675 correlation bounds for fields and matroids",
+        "arxiv:1711.09788 local limit uniform spanning tree dense graphs",
+        "doi:10.1007/s10955-025-03510-0 correlations in uniform spanning trees fermionic approach",
+        "random spanning tree rectangular Hamming graph adjacent vertex degree correlations transfer-current"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Transfer-current: Burton and Pemantle, Theorem 1.1/4.2 (general edge inclusion determinants), https://www2.math.upenn.edu/~pemantle/papers/burton.pdf",
+        "Rapoport (2025), Section 3.2 and Section 4, https://doi.org/10.1007/s10955-025-03510-0 (general degree-field distribution using transfer currents)"
+      ],
+      "reasoning": "The vertex degree is the sum of incident edge indicators; thus a general transfer-current determinant or joint-degree field formula computes its covariance indirectly. These frameworks are mathematically broader but do not state the evaluated rational function or determine its sharp triangular-number sign threshold as an explicit consequence. No equivalent finite rook-graph sign statement was located in inspected material.",
+      "searches": [
+        "\"rook graph\" \"spanning tree\" \"covariance\" degrees",
+        "\"K_m\" \"K_n\" \"spanning tree\" \"degree covariance\" cartesian",
+        "uniform spanning tree degree covariance for adjacent vertices on rook graph Cartesian product complete graphs K_m square K_n sign threshold",
+        "random spanning tree rectangular Hamming graph adjacent vertex degree correlations transfer-current"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published calculation of a center-degree binomial law for a different Cartesian grid concerns another graph and parameter.",
+        "A published calculation of a center-degree binomial law for a different Cartesian grid concerns another graph and parameter.",
+        "Related own-record ID 9c7d6986-7c06-4995-965a-f2610f4cd249 concerns adjacent degrees of hypercube uniform spanning trees, not K_m square K_n for general factors."
+      ],
+      "reasoning": "Absence in searched tables is not proof of uniqueness; closest available titles/claims have different underlying graphs or invariants. Explicit numerical finite values are independently reproducible from the included checker.",
+      "searches": [
+        "\"spanning trees\" \"rook graphs\" \"degree correlation\"",
+        "\"rook graph\" \"spanning tree\" \"covariance\" degrees",
+        "spanning tree Hamming graphs positive degree correlations graph square complete graphs sharp aspect ratio binomial threshold",
+        "uniform spanning tree degree covariance for adjacent vertices on rook graph Cartesian product complete graphs K_m square K_n sign threshold"
+      ]
+    },
+    "rationale": "The precise claim is a rational finite-parameter covariance with an integer-sign phase boundary at the triangular number m=n(n+1)/2 for ambient-adjacent vertex degrees of a uniform spanning tree on K_m square K_n. The Burton–Pemantle determinantal framework and Rapoport’s general degree-field formalism imply an algorithm for such covariances but do not supply this evaluated two-factor formula or exact sign phase diagram in inspected statements. Hladký–Nachmias–Tran provide one-root asymptotic results for dense graph sequences, not this sharp finite two-root boundary. Huh–Schröter–Wang establish edge-level negative correlations, which cannot settle the adjacent vertex-degree sign because of the shared edge. Rook-graph gonality is a different invariant. Other accessible research claims and indexed public mathematics records showed related but not implicationally stronger statements. Historical priority and possible unpublished rook-graph specializations remain risks.",
+    "residual_risks": [
+      "A general determinant formula is pre-existing and may have been explicitly specialized elsewhere to rook graphs without being indexed by searched vocabulary.",
+      "Rapoport (2025) supplies a general joint degree distribution, reducing the scope of novelty to the explicit covariance and exact sharp sign phase diagram.",
+      "The rook-graph gonality thesis was checked at abstract level only, though it addresses a different invariant.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general method used, not an identified explicit rectangular rook-graph covariance/threshold",
+        "evidence": [
+          "PDF Section 4, Theorem 4.2",
+          "PDF p.15 (printed), transfer-impedance determinant",
+          "Introduction, finite graph statement"
+        ],
+        "identifier_or_url": "https://www2.math.upenn.edu/~pemantle/papers/burton.pdf",
+        "material_read": "Abstract, introductory Theorem 1.1 and Section 4 transfer-impedance theorem and proof outline, with finite graph appendix discussion; PDF first and transfer-theorem pages inspected visually",
+        "method": "Full-text search for theorem and explicit related graph family; examined actual theorem, not just abstract",
+        "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+        "trigger": "Foundational exact finite spanning-tree edge determinant and degree correlations"
+      },
+      {
+        "assessment": "One-root dense-graph local limits, not the asserted finite two-root aspect-ratio threshold",
+        "evidence": [
+          "2017-11-27 original preprint date",
+          "Theorem 1.1 states graphon-local-root limiting tree ball frequencies"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.09788",
+        "material_read": "Full-text HTML introductory overview, Theorem 1.1, assumptions and local limit interpretation, with in-document searches for Cartesian/covariance",
+        "method": "Read online full-text HTML and checked thematic matches",
+        "title": "The local limit of the uniform spanning tree on dense graphs",
+        "trigger": "2017 probability paper motivating finite versus limiting degree correlations"
+      },
+      {
+        "assessment": "Shows distinct-edge negative correlation and matroid extensions; does not determine overlapping star-degree covariance sign",
+        "evidence": [
+          "Introduction pp.1–3",
+          "arXiv first public date 2018-06-07"
+        ],
+        "identifier_or_url": "https://web.math.princeton.edu/~huh/CorrelationBound.pdf",
+        "material_read": "Introduction and main correlation inequality, definitions and sample matroid exceptions; PDF p.1 visual inspection; searched Cartesian",
+        "method": "Read full-text excerpts and introductory claims",
+        "title": "Correlation bounds for fields and matroids",
+        "trigger": "Potential broader negative-correlation result"
+      },
+      {
+        "assessment": "General exact joint-degree formalism includes this setting in principle; no identified explicit rational rook-graph sign boundary, priority remains a risk",
+        "evidence": [
+          "Published 2025-10-18",
+          "Section 3.2 Degree of the Uniform Spanning Tree",
+          "Section 4 joint-moment transfer-current results"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10955-025-03510-0",
+        "material_read": "Full-text HTML abstract, introduction, degree field Section 3.2 and transfer current formulation; in-document search for rook, Cartesian, covariance, Hamming",
+        "method": "Inspected relevant published open-access sections, theorem statements and exact scope",
+        "title": "Correlations in Uniform Spanning Trees: a Fermionic Approach",
+        "trigger": "Plausible direct dominating general degree-correlation result"
+      },
+      {
+        "assessment": "Different graph invariant; full text not inspected so no whole-document exclusion claimed",
+        "evidence": [
+          "2023-07-27 available date",
+          "Abstract focuses on chip-firing gonality rather than UST degree distribution"
+        ],
+        "identifier_or_url": "https://uknowledge.uky.edu/math_etds/104/",
+        "material_read": "Thesis landing abstract specifying two-dimensional rook-graph gonality and bibliographic context; no complete dissertation comparison",
+        "method": "Abstract/metadata read only",
+        "title": "Methods of Computing Graph Gonalities",
+        "trigger": "Exact same rook-graph family in 2023 thesis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d53bc63-1a3d-4c9f-922b-38b4cb1e1f52",
+  "value": {
+    "rationale": "The sharp triangular-number aspect-ratio boundary is a natural, all-parameter sign classification for the joint degrees of adjacent vertices on the rectangular rook graph. Edge indicators are negatively associated, so the positive region reveals the nontrivial competition between a shared-edge variance and negative cross-edge terms. The critical ratio m/n^2 -> 1/2 and its exact finite cutoff are structural features not obtained from a one-vertex local limit or an unevaluated general transfer-current determinant. The formula applies to every integer pair and can guide other product-graph correlation problems; no arbitrary fixed finite slice is used.",
+    "status": "PASS"
+  }
+}
