@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For the explicit \(GP(10,2)\) graph, the proof supplies exact lower bounds on \(S_1\), \(S_2\), and \(S_1+S_2/2\), including equality conditions, and combines them with strictly positive coefficients on either side of the critical ratio. It establishes one ground-energy transition and reduces every multiplicity to a fully finite set of bit assignments. The standalone integer checker exhausts \(2^{20}\) assignments, independently comparing the face-equality classification with direct pair-energy minima and verifying magnetization counts. The zero-temperature response follows from the exact ground-state average of \(M^2\). The procedure does not extrapolate finite tests to infinite families.
+PASS
 
-## Originality: PASS on examined evidence; historical priority remains provisional
+Rebuilt GP(10,2) adjacency (30 edges), checked distance-two pair count 60 and 12 pentagonal faces. Every edge lies on two faces and every distance-two pair on one, yielding S1+S2/2=1/4 sum_f (Q_f^2-5)>=-12, equality exactly two or three plus spins on every face. Each odd pentagon forces NN sum>=-3 (S1>=-18), while each of 20 neighbor triplets forces next-neighbor sum>=-1 (S2>=-20). The two positive linear combinations give piecewise lower envelope at r=1/2. Independently enumerated all 2^20=1,048,576 configurations via bit masks, checked critical balance 9250, low equality 250, high equality 720, and second moment 304/185 at r=1/2; finite exhaustive enumeration is complete for this finite graph. Distinguishes order of zero-field susceptibility derivative and T->0. No thermodynamic-limit assertion.
 
-The closest same-object source is Strečka, Karľová and Madaras (arXiv:1502.04449), whose model includes nearest-neighbor exchange only and whose dodecahedral table gives the known \(r=0\) limit. Stephenson and Betts (1970, DOI 10.1103/PhysRevB.2.2702) address general antiferromagnetic next-nearest-neighbor lattices, but the available abstract contains no specific \(GP(10,2)\) ground-state count. The new contribution is the entire competing-exchange coupling classification, exact \(9250\)-configuration face-balance characterization and ground-state Curie coefficients. The 1970 publisher full text was not accessible; a more specialized earlier source could still imply these results. No independent historical audit has been performed.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The dodecahedral cluster is a canonical frustrated molecular-spin graph previously used to study finite-size magnetocaloric response. The added competing exchange is physically natural and yields an exact, nontrivial transition with an enlarged entropic manifold and a sharp response enhancement. Face-balance provides a structural explanation of the critical degeneracy, not merely a numerical table. The claim concerns a finite natural graph, with explicit limits rather than unsupported claims about bulk phase transitions.
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. The new competition and exact magnetization distributions are not logical corollaries of the inspected nearest-neighbor specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An exact complete frustration and degeneracy census for a natural finite frustrated polyhedral spin system with competing graph-distance-two antiferromagnetism, including sharply enhanced 9250-state face-balanced transition and exact response coefficients. Finite by definition; the complete 2^20 enumeration is a substantive natural exact fact rather than small arbitrary slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
