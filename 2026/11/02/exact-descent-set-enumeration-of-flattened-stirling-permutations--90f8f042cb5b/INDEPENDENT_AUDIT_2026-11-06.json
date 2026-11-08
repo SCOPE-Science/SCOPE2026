@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:42:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/exact-descent-set-enumeration-of-flattened-stirling-permutations--90f8f042cb5b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/exact-descent-set-enumeration-of-flattened-stirling-permutations--90f8f042cb5b/VERIFICATION.md",
+        "/mnt/data/scope_worker-06_20261106T1529Z/local_checks.log"
+      ],
+      "rationale": "Uses the explicitly credited type-B signed set-partition bijection of Buck et al. The zero block containing 1 has size b and contributes the first descent at 2b−1 if b≥2; each subsequent block with s_i positive/negative choices and q_i negative elements contributes descents at p+2q_i (if q_i>0) and at p+2s_i−1 (if s_i−q_i≥2). Choosing the remaining zero-block labels and each ordinary block from the smallest unused label yields precisely binom(n−1,b−1)∏ binom(n−a_{i−1}−1,s_i−1)binom(s_i−1,q_i); grouping by the stated Delta gives the exact N_n(T) for all n and T. A run composition corresponds bijectively to the set of cumulative descent positions. A memoized suffix DP over remaining labels, with O(r²) block choices per r, uses O(n³) arithmetic operations. Independent direct generation of all Stirling words by insertion of next adjacent maximum, testing original flattened condition, matched a separately computed signed-block formula for n=1..6 with totals 1,2,6,24,116,648 and 1,2,4,9,19,41 different descent profiles.",
+      "residual_risks": [
+        "Direct finite computations independently checked specific cases only; infinite assertions are supported by the reconstructed analytic proof, not computer output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buck et al. Open Problem 3 asks for equal-length-run enumeration beyond restricted cases; their paper also treats two equal-length runs.",
+          "Shankar (2023) treats flattened k-Stirling permutations for multiplicities beyond two, but records total descents rather than multivariate positions."
+        ],
+        "reasoning": "Higher multiplicity scope does not automatically dominate a finer position statistic for multiplicity two. Equal two-run results and general univariate counts are credited, while the all-d prescribed-descent positive formula is not stated in those sources.",
+        "searches": [
+          "flattened Stirling permutations exact descent set distribution equal length runs type B set partitions",
+          "Buck flattened Stirling equal run length Open Problem 3 Shankar 2023"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2306.13034",
+        "https://arxiv.org/abs/2307.07730",
+        "https://doi.org/10.1007/s00010-026-01275-9",
+        "Resultary semantic search query 4: flattened Stirling permutations exact descent set distribution equal length runs type B set partitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing N_n(T) over subsets of cardinality k gives the known kth descent-number coefficient; the inverse map is many-to-one and loses run-composition data.",
+          "Buck type-B bijection plus the explicit sequence of local g/f fragments does imply the presented binomial formula after a nontrivial positional analysis, so the bijection itself is not presented as new."
+        ],
+        "reasoning": "Neither a univariate Eulerian GF nor a known total count forces the individual N_n(T). Any earlier explicitly multivariate refinement would cover the claim and remains a residual priority risk.",
+        "searches": [
+          "flattened Stirling permutations exact descent set distribution equal length runs type B set partitions",
+          "descent position set vs Eulerian number of descents flattened Stirling permutation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buck et al. arXiv:2306.13034 Theorem 3.9 gives the canonical type-B signed-partition bijection; Lemma 4.1 analyzes runs.",
+          "Shankar arXiv:2307.07730 Theorem 8 gives a univariate Eulerian generating function in the number of descents, not the full position set."
+        ],
+        "reasoning": "The known bijection supplies a parametrization but not explicitly the position-resolved N_n(T) without deriving local descents and signed-block choice multiplicities. Summing current coefficients by |T| recovers previously known statistics, not vice versa.",
+        "searches": [
+          "flattened Stirling permutations exact descent set distribution equal length runs type B set partitions",
+          "flattened Stirling permutations full descent set position composition distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Buck et al. 2023 Table 1 provides the run-number distribution through n=10, used by package as independent consistency data.",
+          "The new computed examples E_{6,3}=8, E_{9,3}=243, E_{12,3}=5576 refine the table by ordered run lengths, which are not determined by run totals."
+        ],
+        "reasoning": "Existing univariate table is not the claimed exact-descent-set table; no matching complete multivariate table was located. These examples alone would not justify O or V, but the all-n formula does.",
+        "searches": [
+          "flattened Stirling permutations exact descent set distribution equal length runs type B set partitions",
+          "OEIS flattened Stirling equal length run counts 8 243 5576",
+          "flattened Stirling permutation descent set coefficient table"
+        ]
+      },
+      "rationale": "The type-B set-partition bijection and total run counts are explicitly due to Buck et al. (2023), and Shankar (2023) already gives the univariate descent-count generating function; neither exact position set nor arbitrary ordered run lengths appears as such in their inspected relevant theorems. Buck et al. list a related equal-run-length Open Problem 3 and solve some low-run cases, so those special cases are not asserted novel. A hidden multivariate refinement could still cover the formula.",
+      "residual_risks": [
+        "Any overlooked multivariate descent-set theorem for the same signed-partition encoding could imply this positive formula; searches cannot prove priority.",
+        "The previously known type-B bijection and two-equal-run counts must remain credited and are not new results.",
+        "The independent direct enumeration checked only n≤6, not all n; the general proof needs the published bijection and exact local descent positions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bijection and existing low-run statements are prior; exact all-position N_n(T) not a stated theorem in inspected source.",
+          "evidence": "Theorem 3.9 canonical signed set-partition bijection; Open Problem 3 equal-run lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13034",
+          "material_read": "Entire accessible 17-page paper relevant Theorem 3.9 bijection, Lemma 4.1 run structure, Table 1 and Open Problem 3; direct PDF screenshot of theorem",
+          "method": "primary arXiv PDF section reading and screenshots",
+          "title": "Flattened Stirling Permutations",
+          "trigger": "exact same combinatorial objects and named open equal-run problem"
+        },
+        {
+          "assessment": "Computes marginal number of descents, not the exact vector of descent positions or all ordered run compositions.",
+          "evidence": "Theorem 8 generating function for total descents, not per-position T.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.07730",
+          "material_read": "Primary text Theorem 8 univariate descent enumerator, Lemma 35 signed-block descent counts, Section 5",
+          "method": "arXiv full-text targeted reading and PDF screenshot",
+          "title": "Enumeration of flattened k-Stirling permutations with respect to descents",
+          "trigger": "same flattened Stirling family and possible stronger descents theorem"
+        },
+        {
+          "assessment": "Different object by abstract; the complete article not inspected and its exact coverage is left qualified.",
+          "evidence": "Baril–Ramírez 2026 studies distributions on increasing and flattened (ordinary) permutations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-026-01275-9",
+          "material_read": "Accessible publisher abstract of March 2026 open-access paper identifies ordinary increasing and flattened permutations, not Stirling permutations",
+          "method": "publisher abstract only",
+          "title": "Some distributions on increasing and flattened permutations",
+          "trigger": "2026 potentially stronger flattened enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2306.13034",
+        "https://arxiv.org/abs/2307.07730",
+        "https://doi.org/10.1007/s00010-026-01275-9",
+        "Resultary semantic search query 4: flattened Stirling permutations exact descent set distribution equal length runs type B set partitions"
+      ],
+      "rationale": "An exact positive position-resolved descent distribution and efficient prescribed-composition count is a natural, nontrivial refinement of the familiar univariate number-of-runs statistic for flattened Stirling permutations; it answers the all-equal-run problem for arbitrary d when d divides 2n, not solely a small numerical case. The known signed-partition bijection requires additional blockwise descent-location and multiplicity analysis; this is a usable enumerative formula of a canonical combinatorial family.",
+      "residual_risks": [
+        "Natural exact result judged worthwhile independently of reproducibility or novelty alone; downstream generalization not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Any overlooked multivariate descent-set theorem for the same signed-partition encoding could imply this positive formula; searches cannot prove priority.",
+    "The previously known type-B bijection and two-equal-run counts must remain credited and are not new results.",
+    "The independent direct enumeration checked only n≤6, not all n; the general proof needs the published bijection and exact local descent positions."
+  ],
+  "schema_version": 1
+}
