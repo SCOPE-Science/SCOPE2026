@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cycle utility specialization and equilibrium criterion are reconstructed directly. Exact extremizers establish both endpoint values, and marked-run compositions with inclusion-exclusion establish every coefficient of the equilibrium welfare generating polynomial. The standalone standard-library enumerator independently checks every coloring for small sizes, including actual player-pair profitable swaps; it is evidence in addition to, not instead of, the analytical argument.
+## correctness
 
-**Originality — PASS, with residual risk.** The original 2022 study already proves the necessary segregated-color restriction and constructs cycle families with the price of anarchy approaching two. The 2025 equivalent binary-utility model already proves the balanced asymptotic ratio of four-thirds. The present finite arbitrary-imbalance formula and all-coefficient equilibrium census are not stated by either inspected full primary text and do not follow as bare specializations of those asymptotic statements. They are the narrowly delimited contribution; an unindexed equivalent enumeration remains possible.
+PASS
 
-**Mathematical value — PASS.** The object is a natural fully occupied two-color cycle swap game. The exact formula yields population-dependent welfare loss, sharp finite corrections, the minority-share transition, and the complete multiplicities of stable welfare levels, strengthening prior asymptotic efficiency bounds. This offers a structural benchmark relevant to diversity-seeking network games.
+Under binary utility a mutually improving swap requires both agents initially segregated, of opposite type, hence equilibrium iff no segregated vertices of both colors. In a cycle this is exactly one color with no run length≥3. Each minority blue contributes at most two integrated majority reds: upper bound min(n,3b), attained by constructed runs; composition lower bound b+ceil(b/2)+1 attained by one long red run. Marked run-start compositions and inclusion-exclusion give E_b,r(z). Direct swap-test enumeration for all 3≤n≤11 and every minority b agrees coefficientwise and on extrema.
 
-**Scientific limitations.** Exactly two types, full occupation, nonlocal bilateral swaps, binary integration utility or equivalent peak \(\Lambda=1/2\), and labeled cycle positions. The result does not classify convergence time, equilibria modulo rotations, other peaks, or graphs beyond cycles. The finite checker cannot replace infinite proof, and no global bibliographic uniqueness is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact arbitrary-imbalance minimum/maximum and coefficientwise equilibrium census are not contained in the prior equitable-population cycle PoA results; the equilibrium run criterion and limiting balanced 4/3 are explicitly prior.
+
+## value
+
+PASS
+
+An exact full equilibrium welfare generating function quantifies all stability outcomes of a standard spatial game for every minority/majority imbalance, not merely an asymptotic worst-case ratio. The 1/3 minority threshold and finite price gap are interpretable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
