@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For p>=11 the degree-(p+1) polynomial is squarefree exactly at a²≠4, hence has genus (p-1)/2. The standard Cartier coefficient rule gives an exact symmetric antidiagonal matrix with entries b_(2i-1). Reciprocal symmetry makes the twisted square diagonal with nonzero entries precisely where b_(2i-1) is nonzero, proving stable p-rank equals Cartier rank. The first and last antidiagonal entries equal ((p-1)/2)a, proving uniqueness of the rank-zero parameter and absence of rank one. Exact formal leading coefficients prove generic ordinarity. Source code independently checks coefficient expansion and ranks for prime fields p=11,...,43; no finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borges–Gonçalves arXiv:2212.03987 §§1,3,5 states a general Fermat-type two-monomial formula, not this parameter deformation.",
+        "Kudo–Nakagawa–Takagi arXiv:2210.14822 §3 treats hyperelliptic y²=x¹⁰+x⁷+a x⁴+b x."
+      ],
+      "reasoning": "General classical coefficient rules could derive the array once applied, but the inspected results did not state, specialize to, or imply its anti-diagonal stable-rank formula for all p>=11. A broader old dihedral treatment could still dominate; this is residual risk.",
+      "searches": [
+        "\"x^{2g+2}\" \"x^{g+1}\" a-number superspecial",
+        "general dihedral hyperelliptic p rank and a-number",
+        "On the Jacobian varieties of hyperelliptic curves over fields characteristic p Yui 1978"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2210.14822",
+      "https://arxiv.org/abs/2212.03987",
+      "https://wiki.sagemath.org/days26/Pries%20Project"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2212.03987 provides p-rank formulas for y^m=x^n+1, thus directly covers only a=0.",
+        "arXiv:2210.14822 provides genus-four algorithms and a known superspecial seed, but its equation is not this variable-genus pencil.",
+        "A published genus-three dihedral family gives a low-degree analogue, intentionally excluded here by requiring p>=11."
+      ],
+      "reasoning": "Neither reviewed theorem entails the coefficients b_(2i-1)(a), the equality of stable and instantaneous Cartier rank, or the rank gap for every prime p>=11. Existing proof techniques motivate but do not constitute explicit statement coverage.",
+      "searches": [
+        "arXiv:2212.03987 p rank Fermat type Theorem 1.1 §5",
+        "arXiv:2210.14822 characteristic automorphism family §3",
+        "prime-linked hyperelliptic deformation p rank at least two odd Cartier coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borges–Gonçalves, arXiv:2212.03987, §5 treats y²=x^n+1.",
+        "Kudo–Nakagawa–Takagi, arXiv:2210.14822, §§2–3 concerns a different genus-four family."
+      ],
+      "reasoning": "The two-term Fermat fiber is a special member and does not imply the ranks on the full three-term deformation. The examined families have different degrees and matrix patterns for varying prime-linked genus.",
+      "searches": [
+        "\"x^(p+1) + a x^((p+1)/2) + 1\" hyperelliptic p-rank",
+        "\"x^{p+1}+a x^{(p+1)/2}+1\" Cartier",
+        "hyperelliptic p-rank dihedral anti-diagonal Hasse-Witt coefficient rigidity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Online search yielded no matching family coefficient table; candidate genus-three predecessor applies only to fixed degree eight.",
+        "Mathematical-record searches for rank-gap and prime-linked deformation returned unrelated records."
+      ],
+      "reasoning": "A table for a single characteristic or for binomial a=0 does not imply the simultaneous infinite-prime structural statement. No exact covering table was identified; absence is not a proof of priority.",
+      "searches": [
+        "\"x^6+a x^3+1\" p-rank superspecial",
+        "\"x^{2g+2}+lambda x^{g+1}+1\" Hasse Witt p-rank",
+        "genus six curve y²=x^14+a x^7+1 characteristic thirteen superspecial p rank"
+      ]
+    },
+    "rationale": "The assessed theorem is the all-prime p>=11 geometric family stratification and equality of stable p-rank with instantaneous Cartier rank, not the known Fermat seed or previously considered genus-three diagonal pencil. Borges-Gonçalves address binomial Fermat-type curves, and Kudo-Nakagawa-Takagi address a distinct genus-four C6 family. Full text/major portions were inspected, and targeted scientific and mathematical-record queries found no implication covering the variable-genus three-term family. Priority risk remains for old hyperelliptic/dihedral matrix formulae.",
+    "residual_risks": [
+      "A historical dihedral hyperelliptic Hasse–Witt theorem might already encode this statement in equivalent language.",
+      "Root counts of all intermediate parameter strata are not provided; only exact coefficient tests are proved.",
+      "Isomorphism-class identifications among distinct a-parameters are not determined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers binomial Fermat curves, not full three-term deformation",
+        "evidence": "ArXiv title, §1 Theorem 1.1 and §5 equations y²=x^n+1.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.03987",
+        "material_read": "Open full article HTML, introduction, Theorems 1.1 and 2.7, §§3 and 5, and relevant tables; viewed PDF page for structure",
+        "method": "Direct text inspection and equation/section comparison",
+        "title": "The p-rank of curves of Fermat type",
+        "trigger": "Nearest primary source to undeformed Fermat seed and p-rank question"
+      },
+      {
+        "assessment": "Different fixed genus-four family and algorithm; no matching prime-linked family classification",
+        "evidence": "§3.1 explicitly considers y²=x¹⁰+x⁷+a x⁴+b x; §3.2 gives sparse but different matrix.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.14822",
+        "material_read": "Open-access full journal HTML including §2 hyperelliptic normal forms and §3.1–3.2 Cartier matrices",
+        "method": "Direct equation and proposition/lemma comparison",
+        "title": "Efficient search for superspecial hyperelliptic curves of genus four with automorphism group containing Z6",
+        "trigger": "Closest general Hasse–Witt calculation and automorphism-based superspecial framework"
+      },
+      {
+        "assessment": "Methodological background; not a specialized family theorem",
+        "evidence": "Standard formula M_(ij)=c_(pi-j) and stable twisted-product p-rank.",
+        "identifier_or_url": "https://wiki.sagemath.org/days26/Pries%20Project",
+        "material_read": "Pointwise notes on Cartier coefficient matrices, iterated twisted products, p-rank and a-number",
+        "method": "Direct mathematical-notes inspection",
+        "title": "Pries Project: Hasse–Witt matrices for hyperelliptic curves",
+        "trigger": "Standard rank formula and p-rank vs a-number distinction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "29c4b243-f183-4d39-b6b2-a1f6128283fa",
+  "value": {
+    "rationale": "The family deforms a classical superspecial Fermat curve while genus grows with p. The uniform phenomenon that stable p-rank equals Cartier rank at every geometric parameter is a structural restriction on all positive-characteristic Jacobians in this pencil; the exact coefficient-stratum formula determines the invariants at every parameter, shows the superspecial point is isolated, excludes p-rank-one deformations for all p>=11, and gives a parity constraint in one congruence class. This is a natural full-family stratification beyond recomputing a single table or the known undeformed seed; no claim about Newton polygons or isomorphism census.",
+    "status": "PASS"
+  }
+}
