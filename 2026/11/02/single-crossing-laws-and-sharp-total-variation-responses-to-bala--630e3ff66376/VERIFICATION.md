@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Use Python 3 to execute `python verify_mapping.py` from the directory containing that file. The checker has no nonstandard dependencies. It computes rational law and comparison identities exactly, enumerates every mapping on \(n=2,\ldots,7\), checks the induced conditional cyclic-vertex and component-count distributions by full in-degree vector, and explores all integer-partition degree representatives through \(n=11\). It covers the claimed balancing-transfer tails, mass-sign crossing, exact total variation, profile envelope and the length-five likelihood-ratio obstruction. The observed output was:
+## correctness
 
-```
-PASS exact_assertions=91476 enumerated_mappings=873611 distinct_labeled_indegrees=2352 elementary_transfers=2438 exhaustive_mapping_n=2..7 transfer_partitions_n=2..11 LR_first_counterexample_n=5
-```
+PASS
 
-The verifier does not enumerate arbitrary sizes. The analytical proof instead uses a previously established prescribed-degree cyclic-set count, an exact symmetric-polynomial perturbation, normalized Newton inequalities and total positivity of the Stirling cycle kernel. These non-computational ingredients and the support boundaries are spelled out in `RESULT.md`. No independent audit has been performed.
+Using Hansen–Jaworski prescribed-degree cyclic-set counting, the tail P(C≥k) is e_k(d)/C(n,k), with k=n treated separately. Factoring ∏(1+d_i z) shows e_k(d′)−e_k(d)=(a−b−1)e_{k−2}(q). Newton inequalities for nonnegative residual q make A_j=e_j(q)/C(n,j+2) strictly log-concave on positive support, so its adjacent differences change sign once; TV is their largest cumulative shift. The cycle-count kernel K(k,l)=unsigned Stirling(k,l)/k! is TP2 through log-concavity of permutation cycle polynomials and its birth recurrence; it preserves one-crossing signed measures and contracts TV. For integer units, e_j(q)≤C(t,j), equality for all 0/1 residual profiles, and adjacent binomial ratio determines optimizer. Independent exhaustive mapping enumeration n=2..5 verified prescribed-degree tails and exact n=5 likelihood-ratio failure.
+
+## originality
+
+PASS
+
+The base conditional cyclic law and Stirling transform are explicitly PRIOR Hansen–Jaworski results. Exact one-unit degree balancing tail response plus strict single crossing, sharp TV and integer-profile envelope were not found in their inspected work or Resultary. The statement is not merely the known Schur-concavity of elementary symmetric functions, since it identifies the signed mass pattern and optimal distance. Prior general total-positivity or majorization inequalities might imply much of it, a residual priority risk.
+
+## value
+
+PASS
+
+Prescribed indegrees model functional digraphs and random maps, and the effect of a single balancing move is a canonical sensitivity question. The exact TV and one-crossing results quantify the entire cyclic-core law, not just a monotone statistic, and give a sharp optimizer and boundary to likelihood-ratio strengthening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

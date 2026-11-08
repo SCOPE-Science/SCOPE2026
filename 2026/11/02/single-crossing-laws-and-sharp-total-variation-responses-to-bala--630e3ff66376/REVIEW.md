@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cyclic tail is derived from the published prescribed-in-degree cyclic-set count, not inferred from an averaged exchangeable degree model. The balancing-transfer identity follows by factoring two linear terms in an elementary-symmetric generating polynomial. Normalized Newton inequalities give a strict log-concavity ratio, which proves single crossing and the exact total-variation identity; the index optimizer follows from an explicit ratio. The component extension uses the log-concave Stirling cycle-count kernel, proves its order-two total positivity, and applies the ordered-support decomposition to the signed measure. Its strict sign and contraction conclusions require no asymptotic approximation. Exact rational enumeration passed 91,476 assertions (including all mappings through seven vertices), serving as finite corroboration of the all-size proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Hansen–Jaworski's 2006 preprint and 2008 journal article establish the prescribed-in-degree model, exact cyclic-point law, and the cycle-count transform; those baseline statements are explicitly attributed and excluded from the novel part. Their 2014 structural-transition study addresses bounded-degree ensembles and asymptotics, not the deterministic unit-transfer comparison. Searches for in-degree majorization, cyclic core stochastic ordering, symmetric-function transfer responses, and exact total-variation/single-crossing characterizations did not identify a prior statement that directly dominates the full result. Since classical Newton and total-positivity tools are powerful enough to yield the result once the known base law is recognized, an implicit formulation in earlier literature remains a credible priority risk. No uniqueness claim follows from search nonmatches.
+PASS
 
-## Mathematical value — PASS
-A degree-prescribed mapping is a natural finite model for directed networks with one outgoing edge per vertex. The theorem answers a concrete stability question: exactly how strongly does a one-unit degree balancing change the complete cyclic-core distribution? Its sharp total-variation identity and profile extremizer quantify the effect, and the single-crossing property is a strict structural improvement on stochastic monotonicity while the minimal counterexample identifies a real boundary to likelihood-ratio strengthening. The component-count lift extends the same structural behavior to the number of weak components. These are interpretable finite-sample conclusions, not arbitrary numerical table entries.
+Using Hansen–Jaworski prescribed-degree cyclic-set counting, the tail P(C≥k) is e_k(d)/C(n,k), with k=n treated separately. Factoring ∏(1+d_i z) shows e_k(d′)−e_k(d)=(a−b−1)e_{k−2}(q). Newton inequalities for nonnegative residual q make A_j=e_j(q)/C(n,j+2) strictly log-concave on positive support, so its adjacent differences change sign once; TV is their largest cumulative shift. The cycle-count kernel K(k,l)=unsigned Stirling(k,l)/k! is TP2 through log-concavity of permutation cycle polynomials and its birth recurrence; it preserves one-crossing signed measures and contracts TV. For integer units, e_j(q)≤C(t,j), equality for all 0/1 residual profiles, and adjacent binomial ratio determines optimizer. Independent exhaustive mapping enumeration n=2..5 verified prescribed-degree tails and exact n=5 likelihood-ratio failure.
 
-## Closest sources and limitations
-Hansen and Jaworski (2006/2008), arXiv:math/0603529 and DOI 10.1002/rsa.20187: full primary material examined, including Theorem 1, the cyclic-set encoding, and the cycle-count corollary. Hansen and Jaworski (2014), DOI 10.37236/3572: primary 27-page PDF examined in its introduction and main finite-distribution/structural-transition sections; Theorem 1, Proposition 3 and Corollary 4 concern a degree-restricted ensemble rather than one-unit changes of a fixed degree vector. Priority uncertainty persists for older implicit majorization/total-positivity formulations; independent assessment is not yet available. Exact enumeration is finite and does not certify the general proof by itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The base conditional cyclic law and Stirling transform are explicitly PRIOR Hansen–Jaworski results. Exact one-unit degree balancing tail response plus strict single crossing, sharp TV and integer-profile envelope were not found in their inspected work or Resultary. The statement is not merely the known Schur-concavity of elementary symmetric functions, since it identifies the signed mass pattern and optimal distance. Prior general total-positivity or majorization inequalities might imply much of it, a residual priority risk.
+
+## value
+
+PASS
+
+Prescribed indegrees model functional digraphs and random maps, and the effect of a single balancing move is a canonical sensitivity question. The exact TV and one-crossing results quantify the entire cyclic-core law, not just a monotone statistic, and give a sharp optimizer and boundary to likelihood-ratio strengthening.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

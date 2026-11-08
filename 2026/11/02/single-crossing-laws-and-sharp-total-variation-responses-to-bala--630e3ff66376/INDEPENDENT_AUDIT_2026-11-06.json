@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:48:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using Hansen–Jaworski prescribed-degree cyclic-set counting, the tail P(C≥k) is e_k(d)/C(n,k), with k=n treated separately. Factoring ∏(1+d_i z) shows e_k(d′)−e_k(d)=(a−b−1)e_{k−2}(q). Newton inequalities for nonnegative residual q make A_j=e_j(q)/C(n,j+2) strictly log-concave on positive support, so its adjacent differences change sign once; TV is their largest cumulative shift. The cycle-count kernel K(k,l)=unsigned Stirling(k,l)/k! is TP2 through log-concavity of permutation cycle polynomials and its birth recurrence; it preserves one-crossing signed measures and contracts TV. For integer units, e_j(q)≤C(t,j), equality for all 0/1 residual profiles, and adjacent binomial ratio determines optimizer. Independent exhaustive mapping enumeration n=2..5 verified prescribed-degree tails and exact n=5 likelihood-ratio failure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2006/2008 give base cyclic-set and permutation-kernel laws",
+          "2014 restricted indegree cap ensembles rather than each labeled a,b transfer"
+        ],
+        "reasoning": "These publications cover the input distribution and component transform, not the derived transfer-wise exact variation and extremal envelope.",
+        "searches": [
+          "Hansen Jaworski 2006, 2008, 2014 prescribed indegree random mapping structural transition"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0603529 Theorem 1 and Corollary 1",
+        "DOI:10.1002/rsa.20187",
+        "DOI:10.37236/3572 abstract",
+        "Resultary query as above",
+        "actual RESULT.md and verify_mapping.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P(C≥k)=e_k(d)/C(n,k) is prior",
+          "new adjacent TV identity h max e_j(q)/C(n,j+2) requires strict logconcavity and binomial optimizer"
+        ],
+        "reasoning": "The old tail formula makes the perturbation algebraically accessible but does not itself assert the strict mass crossing, cycle-component TP2 implication or optimal residual profile. Distinguish derivable consequences from literally prior classification.",
+        "searches": [
+          "Hansen–Jaworski arxiv:math/0603529 Theorem 1 Corollary 1 with degree vectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hansen–Jaworski 2006 Theorem 1, Corollary 1",
+          "source RESULT.md elementary symmetric polynomial transfer factorization"
+        ],
+        "reasoning": "The standard symmetric-function identity can be phrased as Schur-concavity of tails, but the one-crossing and exact sharp TV are stronger than mere stochastic order.",
+        "searches": [
+          "random mappings fixed indegree e_k cyclic points majorization Schur concavity total variation; Resultary: prescribed indegree random mappings cyclic points Schur convexity total variation single crossing balancing majorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest records concern random grid collapse and functional digraphs with differing parameters",
+          "source n=5 exact fractions (2/5,3/5,0)→(3/10,2/5,3/10) give explicit LR failure"
+        ],
+        "reasoning": "No covering exact table was identified; a small-table example is a boundary witness, not a novelty certificate.",
+        "searches": [
+          "Resultary Search: prescribed indegree random mappings cyclic points Schur convexity total variation single crossing balancing majorization"
+        ]
+      },
+      "rationale": "The base conditional cyclic law and Stirling transform are explicitly PRIOR Hansen–Jaworski results. Exact one-unit degree balancing tail response plus strict single crossing, sharp TV and integer-profile envelope were not found in their inspected work or Resultary. The statement is not merely the known Schur-concavity of elementary symmetric functions, since it identifies the signed mass pattern and optimal distance. Prior general total-positivity or majorization inequalities might imply much of it, a residual priority risk.",
+      "residual_risks": [
+        "A general TP2-transform and majorization theorem might give a corollary equivalent to the sharp single-crossing claim even without matching random-mapping terminology.",
+        "2014 journal article not fully read; abstract alone cannot exclude coverage.",
+        "Independent exhaustive mappings n≤5; general all-n follows from cited cyclic law, Newton inequalities, and Stirling kernel proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS baseline; NOT_COVERING specific transfer conclusions in inspected text",
+          "evidence": "Fixed-degree cyclic law and permutation Stirling factor are known and explicitly excluded from new claim",
+          "identifier_or_url": "https://arxiv.org/abs/math/0603529",
+          "material_read": "Arxiv full primary text, including model, Theorem 1 cyclic-set counts, Corollary 1 and cycle-count permutation transform",
+          "method": "read accessible full original arXiv text and relevant proof",
+          "title": "J. C. Hansen and J. Jaworski, A new random mapping model",
+          "trigger": "exact same conditioned indegree model"
+        },
+        {
+          "assessment": "INCOMPLETE PRIMARY INSPECTION; priority risk",
+          "evidence": "Restricted indegree families and structural transitions differ from deterministic elementary balancing",
+          "identifier_or_url": "https://doi.org/10.37236/3572",
+          "material_read": "Journal metadata/abstract and theorem scope, not complete article",
+          "method": "abstract and publication metadata",
+          "title": "J. C. Hansen and J. Jaworski, Structural Transition in Random Mappings",
+          "trigger": "related restricted-indegree mapping classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prescribed indegrees model functional digraphs and random maps, and the effect of a single balancing move is a canonical sensitivity question. The exact TV and one-crossing results quantify the entire cyclic-core law, not just a monotone statistic, and give a sharp optimizer and boundary to likelihood-ratio strengthening.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0603529 Theorem 1 and Corollary 1",
+    "DOI:10.1002/rsa.20187",
+    "DOI:10.37236/3572 abstract",
+    "Resultary query as above",
+    "actual RESULT.md and verify_mapping.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform random mappings conditional on a fixed labeled indegree sequence, a balancing transfer a,b→a−1,b+1 yields exact cyclic-count tail shift h e_{k−2}(q)/C(n,k), a single negative-to-positive mass crossing for cyclic vertices and components, exact cyclic TV h max e_j(q)/C(n,j+2), and a sharp binary residual-profile envelope.",
+  "limitations": [
+    "A general TP2-transform and majorization theorem might give a corollary equivalent to the sharp single-crossing claim even without matching random-mapping terminology.",
+    "2014 journal article not fully read; abstract alone cannot exclude coverage.",
+    "Independent exhaustive mappings n≤5; general all-n follows from cited cyclic law, Newton inequalities, and Stirling kernel proof."
+  ],
+  "residual_risks": [
+    "A general TP2-transform and majorization theorem might give a corollary equivalent to the sharp single-crossing claim even without matching random-mapping terminology.",
+    "2014 journal article not fully read; abstract alone cannot exclude coverage.",
+    "Independent exhaustive mappings n≤5; general all-n follows from cited cyclic law, Newton inequalities, and Stirling kernel proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS baseline; NOT_COVERING specific transfer conclusions in inspected text",
+      "evidence": "Fixed-degree cyclic law and permutation Stirling factor are known and explicitly excluded from new claim",
+      "identifier_or_url": "https://arxiv.org/abs/math/0603529",
+      "material_read": "Arxiv full primary text, including model, Theorem 1 cyclic-set counts, Corollary 1 and cycle-count permutation transform",
+      "method": "read accessible full original arXiv text and relevant proof",
+      "title": "J. C. Hansen and J. Jaworski, A new random mapping model",
+      "trigger": "exact same conditioned indegree model"
+    },
+    {
+      "assessment": "INCOMPLETE PRIMARY INSPECTION; priority risk",
+      "evidence": "Restricted indegree families and structural transitions differ from deterministic elementary balancing",
+      "identifier_or_url": "https://doi.org/10.37236/3572",
+      "material_read": "Journal metadata/abstract and theorem scope, not complete article",
+      "method": "abstract and publication metadata",
+      "title": "J. C. Hansen and J. Jaworski, Structural Transition in Random Mappings",
+      "trigger": "related restricted-indegree mapping classes"
+    }
+  ]
+}
