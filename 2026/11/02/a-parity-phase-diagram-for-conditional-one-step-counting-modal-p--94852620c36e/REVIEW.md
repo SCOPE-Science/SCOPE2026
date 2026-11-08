@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim fixes a single uniform random-tree model, a fixed pair of depth-one formulas and all domain quantifiers. An exact binomial mass-ratio identity bounds every conditional excess weight by a summable geometric sequence, establishes the total-variation limit, and accounts explicitly for the parity shift. Classical center-mass and law-of-large-numbers bounds separately cover the unbiased and supercritical cases. The concrete \(1/9,1/3\) example follows from \(p=1/4\) and \(h=3\). The attached independent-code-path finite checks agree with exact formulas; no finite computation is treated as an infinite proof.
+PASS
 
-## Originality (O): PASS under inspected sources
+For fixed k, chi true on a of 2^k atom assignments, X_n~Bin(n,p) exactly. Conditioning Psi_0 is X_n>=ceil(n/2); w_n(j)=rho^j product_{ell<=j}(n-b_n-ell+1)/(b_n+ell), bounded by rho^j for p<1/2 and converging pointwise to rho^j. Dominated normalization gives total variation geometric excess with parameter rho; 2X_n-n=2J_n+(n mod2) gives even rho^ceil(h/2) versus odd rho^ceil((h-1)/2), distinct exactly for odd h. At p=1/2 central-binomial bound gives ratio->1, and p>1/2 follows from LLN. Independent exact rational binomial tail calculations through n=201 and h=1..6 checked the parity direction; sample p=1/4,h=3 trends toward 1/9 and 1/3. Does not assert arbitrary modal formulas.
 
-The closest motivating publication is Ghosh–Schwarzentruber, arXiv:2610.26187 (19 October 2026), whose counting-modal tree model and explicit open question on conditional proportions motivate the statement. The inspected definitions, tree-model proportions, unconditional convergence examples, and open-question section do not state or immediately imply the conditional phase diagram. Unconditional modal-depth-three periodicity is a different mathematical assertion; no public source or priority claim is inferred from prior research claim-level comparisons. A published exact binomial-tail phase diagram about decision utility has related probabilistic techniques but not these modal conditional formulas. Classical conditional binomial tail asymptotics could imply the geometric part; this is acknowledged as a real residual priority risk, so no new probability-tail theorem is claimed independent of the logical application.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The motivating work explicitly asks how to compute conditional formula proportions. This theorem identifies a natural fixed-depth family in which the denominator becomes exponentially rare and conditioning produces a **sharp parity obstruction to convergence** already at the first counting step, with a complete threshold criterion and a total-variation limit law. It thus distinguishes conditional convergence from the unconditional counting examples with a reproducible, parameterized boundary rather than an isolated numerical instance.
+Best-of-knowledge the exact modal fixed-formula parity phase diagram and conditional excess law were not present in the inspected prior descriptions. Conditional upper-binomial tails are classical; the geometric overshoot is not asserted as independently novel probability theory. A specialized older theorem on binomial boundary tilting could imply the probabilistic statement immediately, and a highly relevant modal preprint was inaccessible in full.
 
-## Scope and residual risks
+## value
 
-Only uniform independently labelled complete branching trees and fixed integer excess thresholds are covered. The result does not solve conditional model counting on arbitrary graphs. A broader older theorem on rare binomial conditional overshoots may subsume its probability calculation; the literature comparison concerns the stated logical classification and cannot prove uniqueness. Independent historical-priority and mathematical audits remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a fixed depth-one expressible example where both unconditional model proportions vanish but conditional model proportion has two different subsequential limits, resolves a naturally posed extension of finite-model counting logic, and classifies the even/odd threshold boundary; a meaningful logical phenomenon rather than arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
