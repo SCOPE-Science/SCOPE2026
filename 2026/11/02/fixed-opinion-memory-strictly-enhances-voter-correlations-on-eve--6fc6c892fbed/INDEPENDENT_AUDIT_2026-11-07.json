@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:17:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/fixed-opinion-memory-strictly-enhances-voter-correlations-on-eve--6fc6c892fbed/RESULT.md at frozen commit fcc247c8b7eb30c50d03abc79e1b79aab81f6226",
+        "2026/11/02/fixed-opinion-memory-strictly-enhances-voter-correlations-on-eve--6fc6c892fbed/voter_ring_verifier.py (where source checker); independently recreated identities in scope_worker01_checks_20261107.py"
+      ],
+      "rationale": "For symmetric nearest-neighbor voter copying rate1 on each ring N>=3, and independent rate r>0 resets to original frozen iid fair xi (M) or fresh fair spins (F), the stationary annealed cross moment H_n=E[S_i xi_(i+n)] solves L_r H=r delta_0 for L_r=(1+r)I-(T+T^-1)/2. The positive discrete Green inverse G gives H=rG, F_n=(G*G)_n=-partial_r G_n, C^F_n=G_n/G_0 and C^M_n=r^2F_n+(1-r^2F_0)G_n/G_0 for n!=0, normalized C_0=1. Therefore C^M_n-C^F_n=-r^2G_n partial_r log(G_n/G_0)>0, since G_n/G_0=cosh(a(h-min(n,N-n)))/cosh(ah), cosh a=1+r, h=N/2 and t->t*tanh(at) strictly increases for t>=0. The proof handles odd N (half-integer h), N=3 and all r>0. At r= lambda/N^2 the exact a expansion gives same leading continuum profile, positive O(1/N) macroscopic memory correction and strictly positive limit N^2(rho_F-rho_M)=(lambda/4)(1+2s/sinh(2s)), s=sqrt(lambda/2). Independently checked normalized finite-cycle resolvents/convolutions, strict signs in 18 N/r choices, and exact moment recurrence form; symbolic asymptotic expansions, not finite samples, prove N->infty.",
+      "residual_risks": [
+        "Fixed lambda>0 diffusive limit, not uniform in lambda.",
+        "Independent local numerical checks were finite, and formula relies on exact generator derivation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange solves original-opinion resetting for infinite lattice; Pymar–Rivera gives fresh noise asymptotic distribution/variance and cycle scaling, but neither displays both stationary kernels and their positive difference on all rings."
+        ],
+        "reasoning": "General resolvent and dual-walk frameworks could recover the special case after additional calculation; no accessible theorem of stronger form was found that directly implies the exact formula.",
+        "searches": [
+          "voter model fixed original opinion resetting versus fresh noise correlations finite ring diffusive limit",
+          "arXiv:2207.08590 Grange Eq (50) to (61)",
+          "arXiv:2112.01478 Pymar Rivera finite graphs cycles Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md Git blob 301a788f14de15d7e647ce08d61fb668b8787ee1",
+        "voter_ring_verifier.py Git blob 9df53a53877831b336ab6cec2d64c2a0c39b1ac5",
+        "https://arxiv.org/pdf/2207.08590",
+        "https://arxiv.org/pdf/2112.01478",
+        "Resultary query: voter model fixed original opinion resetting versus fresh noise correlations finite ring diffusive limit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known memory model supplies H and two-point source in infinite lattice; known noisy voter supplies fresh cycle scaling, but their conjunction does not evaluate -r²G_n ∂r log(G_n/G0) or its wall boundary-layer coefficient."
+        ],
+        "reasoning": "A new finite-cycle resolvent derivative and strict t tanh(at) monotonicity are needed; therefore no direct prior implication shown in inspected sources.",
+        "searches": [
+          "https://arxiv.org/pdf/2207.08590 section 2.3 equations 50-61",
+          "https://arxiv.org/pdf/2112.01478 cycle proof and Proposition 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Infinite lattice memory reset and finite-graph fresh-reset noisy voter are the exact alias dynamical models; original calculation compares matched rates for both protocols in one finite ring."
+        ],
+        "reasoning": "Neither separately studied same-process correlation is equivalent to a strict cross-protocol ordering and subleading coefficient without a comparison computation.",
+        "searches": [
+          "voter model fixed original opinion resetting versus fresh noise correlations finite ring diffusive limit",
+          "https://arxiv.org/pdf/2207.08590",
+          "https://arxiv.org/pdf/2112.01478"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary hits are unrelated confidence/consensus dynamical systems, not the two annealed voter-reset protocols."
+        ],
+        "reasoning": "There is no matching exact finite-ring correlation-difference table among inspected indices; unsuccessful search is not historical proof.",
+        "searches": [
+          "voter model fixed original opinion resetting versus fresh noise correlations finite ring diffusive limit",
+          "Resultary: exact logarithmic switching lifetime near a nonfreezing confidence system",
+          "Resultary: sharp gain optimization for consensus with exponential fading memory"
+        ]
+      },
+      "rationale": "Grange provides original-opinion stochastic resetting and infinite lattice two-point equations. Pymar–Rivera treat fresh-noisy voter finite graphs and cycle transition. The all-N all-r strict comparison of these different matched protocols and exact finite-size subleading wall coefficient are not stated in inspected primary statements; O PASS best-of-knowledge with a real risk that a broader killed-walk comparison implies it.",
+      "residual_risks": [
+        "Stationary *annealed* correlations only; no quenched-by-initial-environment inequality.",
+        "Symmetric nearest-neighbor copying, iid fair initial state and homogeneous independent reset rates only.",
+        "An equivalent finite killed-walk identity or broader published memory-noise comparison may imply the same inequality; no global historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INFINITE_LATTICE_FOUNDATIONAL",
+          "evidence": [
+            "Eq50 includes H history source, Eq52+ shows H equation; treats infinite lattice and not matched fresh reset comparison on finite rings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.08590",
+          "material_read": "Accessible 46-page primary PDF: Section 2.3.1-2.3.3, equations 46-61, two-time H and stationary wall density; relevant pages inspected",
+          "method": "Read relevant primary text/equations and PDF screenshot",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Precisely original/fixed-opinion memory resetting mechanism"
+        },
+        {
+          "assessment": "FINITE_FRESH_DYNAMICS_NOT_MATCHED_COMPARISON",
+          "evidence": [
+            "Cycle noisy-voter transition scale appears; no direct all-r strict comparison with original memory and no exact N^-2 wall correction in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01478",
+          "material_read": "Accessible 41-page primary PDF, early main propositions and cycle section/variance proof and scaling",
+          "method": "Read relevant theorem/section passages and PDF screenshot",
+          "title": "Asymptotic behaviour of the noisy voter model density process",
+          "trigger": "Fresh fair reset/noisy voter on finite graphs, especially cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob 301a788f14de15d7e647ce08d61fb668b8787ee1",
+        "voter_ring_verifier.py Git blob 9df53a53877831b336ab6cec2d64c2a0c39b1ac5",
+        "https://arxiv.org/pdf/2207.08590"
+      ],
+      "rationale": "Keeping original opinions versus refreshing independent fair opinions are meaningful competing stochastic interventions with matched clocks. Showing a strict sign for every finite size, positive rate and pair separation and calculating the first observable N^-2 domain-wall separation after the leading continuum profiles coincide is a natural exact finite-volume comparison and sharp correction, not just an algebraic relabeling.",
+      "residual_risks": [
+        "The statement is scoped to the natural object, exact invariant and proved domain; correctness and reproducibility alone were not used as value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixed lambda>0 diffusive limit, not uniform in lambda.",
+    "Independent local numerical checks were finite, and formula relies on exact generator derivation.",
+    "Stationary *annealed* correlations only; no quenched-by-initial-environment inequality.",
+    "Symmetric nearest-neighbor copying, iid fair initial state and homogeneous independent reset rates only.",
+    "An equivalent finite killed-walk identity or broader published memory-noise comparison may imply the same inequality; no global historical priority certificate."
+  ]
+}
