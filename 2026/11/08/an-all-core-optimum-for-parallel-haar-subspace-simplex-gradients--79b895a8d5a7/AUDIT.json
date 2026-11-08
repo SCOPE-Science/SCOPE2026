@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The Gamma-ratio recurrence B(s+2)=(s+1)B(s)/s and digamma integral yield strict derivative negativity of H_c(s)=B(s)/(s+c) for all s>=c+2; H_c(c+2)=H_c(c). Consequently every completed or incomplete parallel evaluation batch is bounded by the c-dimensional score; equality is exactly c=2,p=4, with p=1 and c=1 handled separately using explicit Gamma values. All dimensions, integers, and endpoint cases are addressed analytically. The standalone standard-library verifier passed 460267 supplemental parameter comparisons; the finite checks are not claimed as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roberts–Royer arXiv:2204.01275 analyzes random direct-search complexity, not this two-stage model-based parallel dimension rule.",
+        "Kozak–Becker–Doostan–Tenorio arXiv:2003.02684 analyzes convergence with random subspace projected directional derivatives, not this precise local-decrease/cost ratio.",
+        "published-finding corpus 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 concerns sparse stochastic subspace descent bounds."
+      ],
+      "reasoning": "A broad guarantee on random-subspace convergence or stationarity does not automatically compare the exact source Gamma ratio for all integer subspace sizes under ceil(p/c)+1 stages; no stronger theorem implying this argmax was identified in the inspected materials.",
+      "searches": [
+        "published-finding corpus: Hare Roberts Royer Expected decrease derivative free algorithms random subspaces parallel c cores prove optimal p=c simplex gradient gamma ratio all c",
+        "published-finding corpus: parallel randomized subspace dimension optimal number of cores per oracle round model based 2023 gamma",
+        "Web: random subspace model based derivative free parallel function evaluations optimal dimension number of processors 2023",
+        "Primary: arxiv:2204.01275",
+        "Primary: arxiv:2003.02684"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2308.04734 (sections 2, 4 and 4.2)",
+      "https://optimization-online.org/wp-content/uploads/2023/08/Low_versus_high_dimension_subspace_decomposition_in_Direct_Search.pdf (section 4.2)",
+      "https://arxiv.org/pdf/2204.01275 (intro and core random-subspace theory)",
+      "https://arxiv.org/pdf/2003.02684 (intro and directional derivative method)",
+      "https://doi.org/10.1090/mcom/4011 (journal bibliographic record, complete text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hare–Roberts–Royer Theorem 4.2 gives expected-score formula; Theorem 4.5 proves serial p>=2 comparison only.",
+        "The same work explicitly says Theorem 4.5 does not directly cover parallel work and uses numerical scanning.",
+        "published-finding corpus 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 concerns coordinate-sampling rates on inverse-positive quadratics, not a parallel simplex gradient cost."
+      ],
+      "reasoning": "The source formula and tie are prerequisites, not novelty. Its proven serial monotonicity of B(p)/(p+1) does not imply monotonicity under ceil(p/c)+1 for arbitrary c; the all-core optimality, all partial batches, and uniqueness require the new Gamma bound and recurrence. No alternate inspected primary theorem entails the classification.",
+      "searches": [
+        "published-finding corpus: Complete proof for all integers that the model-based Haar randomized derivative-free simplex gradient method under c parallel evaluation workers has maximum E_mb(p,d)/(ceil(p/c)+1) at p=min(c,d), unique except c=2,p=4 equality; gamma function ratio analytic bound",
+        "Primary: arxiv:2308.04734 Theorem 4.2, Theorem 4.5, and Section 4.2",
+        "Web: Expected decrease derivative free algorithms random subspaces parallel proof optimal subspace dimension processors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hare–Roberts–Royer arXiv:2308.04734 Section 4.2 writes the same score for p divisible by c; it identifies the rule using a finite scan, not proof.",
+        "published-finding corpus closest ranked entry 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 optimizes stationarity using Haar second moments instead of model-based simplex-gradient round costs."
+      ],
+      "reasoning": "Equivalent form is maximizing B(p)/(ceil(p/c)+1) with B(p)=Gamma((p+1)/2)/Gamma(p/2), and p=1 cost 3/2. Although the source defines that exact optimization and conjectures the argmax from numeric tests, its inspected text contains no analytic all-integer resolution. The named published-finding corpus near neighbor has a different objective and does not imply this score optimum.",
+      "searches": [
+        "published-finding corpus: Complete proof for all integers that the model-based Haar randomized derivative-free simplex gradient method under c parallel evaluation workers has maximum E_mb(p,d)/(ceil(p/c)+1) at p=min(c,d), unique except c=2,p=4 equality; gamma function ratio analytic bound",
+        "Web: expected decrease for derivative-free p=c optimal parallel proof",
+        "Primary: arxiv:2308.04734 sections 4.1-4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary paper states numerical inspection c in 1..256, p in {c,2c,...,100c}, plus p=2,p=4 equality at c=2.",
+        "published-finding corpus 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 concerns integer-rounded stratification, not parallel random-subspace design."
+      ],
+      "reasoning": "The known finite numerical scan and reported exceptional tie are covered; the new result proves the exact all-integer set of maximizers, including nonmultiples of c and dimension-capped sizes. The evidence does not treat a finite table as an infinite proof.",
+      "searches": [
+        "published-finding corpus: gamma ratio Γ((p+1)/2)/Γ(p/2) divided by ceil(p/c)+1 parallel randomized model-based direct search optimal cores",
+        "Web: expected decrease for derivative-free numerical inspection parallel p=c",
+        "Primary: arxiv:2308.04734 Section 4.2"
+      ]
+    },
+    "rationale": "The prior exact Haar Gamma quotient and two-core tie are acknowledged and excluded; the 2023 primary text only asserts bounded numerical evidence for p=c and does not prove all integer c,d or arbitrary partial batches. The new strict Gamma-derivative bound and exact recurrence close that specific natural remaining comparison. Targeted semantic published-finding corpus searches returned no equivalent or stronger published all-parameter parallel simplex-gradient theorem among ranked results; nearest hits concern different sampling, optimization, and Haar-moment criteria. The 2024 journal text could not be read and priority is consequently qualified, not independently established.",
+    "residual_risks": [
+      "The publisher-hosted complete 2024 journal revision (DOI 10.1090/mcom/4011) was inaccessible in this run; an unseen revision or appendix could already prove the all-parameter statement.",
+      "Classical Gamma-ratio monotonicity inequalities might implicitly recover the result, though none of the checked domain-specific works states this parallel scheduling classification.",
+      "published-finding corpus is similarity ranked; its returned selection is not an exhaustive mathematical literature search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The Gamma-quotient and the exception at c=2 are prior; paragraph after Theorem 4.5 calls the p=c rule a numerical observation for c<=256 and multiples p<=100c, not an all-integer theorem.",
+        "evidence": [
+          "Theorem 4.2 formula E_mb[p,d]=Gamma(d/2)Gamma(p/2+1/2)/(Gamma(d/2+1/2)Gamma(p/2))",
+          "Section 4.2 states parallel cost ceil(p/c)+1 and finite numerical scan; identifies p=2 and p=4 tie at c=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.04734",
+        "material_read": "Full-text sections 2.2, 4.1, 4.2 (pages 4-5 and 16-22), including Theorems 4.2 and 4.5 and the cost paragraph and numerical optimality claim on page 22.",
+        "method": "Text extraction with visual examination of the first page and pages 21-22",
+        "title": "Expected decrease for derivative-free algorithms using random subspaces",
+        "trigger": "Exact Haar model-based expected-decrease formula and explicitly finite parallel dimension scan"
+      },
+      {
+        "assessment": "Consistent with arXiv preprint: the parallel allocation optimum is numerically observed, not proved for all parameters.",
+        "evidence": [
+          "Section 4.2 states finite ranges c=1,...,256 and p=c,2c,...,100c and explicitly notes the p=2,4 tie."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2023/08/Low_versus_high_dimension_subspace_decomposition_in_Direct_Search.pdf",
+        "material_read": "Section 4.2, page 22 and surrounding exact model-based formula; cover date 2023-08-09.",
+        "method": "Full-text search and visual examination of page 22",
+        "title": "Expected decrease for derivative-free algorithms using random subspaces (public manuscript mirror)",
+        "trigger": "Check alternate preprint wording for an already-proved parallel optimization theorem"
+      },
+      {
+        "assessment": "Establishes complexity guarantees for randomized direct search, not the Haar model-based simplex-gradient expected-score Gamma quotient divided by the parallel cost model.",
+        "evidence": [
+          "Introduces probabilistic descent for random subspaces and unbounded Gaussian polling directions rather than the parallel model-based score objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.01275",
+        "material_read": "Abstract and Sections 1-3 on probabilistic descent, sampling matrices, and algorithm guarantees; main theorem context.",
+        "method": "Full-text inspection and first-page visual examination",
+        "title": "Direct search based on probabilistic descent in reduced spaces",
+        "trigger": "Earlier randomized subspace theory could potentially establish dimension-optimal polling"
+      },
+      {
+        "assessment": "Optimizes stochastic descent using directional derivatives and proves convergence; the reported objective does not optimize the two-stage simplex-gradient parallel-round expected-decrease score.",
+        "evidence": [
+          "Algorithm uses projected directional derivatives P P^T gradient; not the Haar sphere projection magnitude over ceil(p/c)+1 rounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.02684",
+        "material_read": "Abstract, Section 1, algorithm (2), and Section 1.1 on finite differences and subspace sampling.",
+        "method": "Full-text inspection and first-page visual examination",
+        "title": "A stochastic subspace approach to gradient-free optimization in high dimensions",
+        "trigger": "Older random-subspace directional-derivative scheme might dominate the new parallel dimension statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79b895a8-d5a7-4557-a3c9-f0846ad7ce57",
+  "value": {
+    "rationale": "The source explicitly left its parallel-design rule as finite numerical evidence, even though the dimension of the random subspace directly determines computational work. Proving an unrestricted, sharp resource-allocation law, including incomplete parallel batches and the unique two-core tie, replaces a finite parameter scan by a complete classification with a useful exact scheduling guarantee for the stated local expected-descent metric. This is a motivated missing structural inequality rather than a parameter substitution; the narrow idealized scope and absence of full runtime guarantees are disclosed.",
+    "status": "PASS"
+  }
+}
