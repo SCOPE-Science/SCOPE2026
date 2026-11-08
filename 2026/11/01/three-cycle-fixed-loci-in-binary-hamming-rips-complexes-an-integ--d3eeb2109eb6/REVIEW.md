@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses the actual geometric realization fixed set, not merely fixed simplicial vertices. The four orbit types are exhausted by Hamming weights zero through three, and the cross-distance conditions follow by checking all pairs of three-bit orbit representatives. The relative elementary-collapse pairing is valid for every number of free coordinates because each radius-one binary ball spans a simplex at threshold two, while peripheral orbit vertices never share simplices. The final model consists of two connected ordinary cube Rips cores linked by the stated number of paths. The known Adamaszek–Adams theorem determines the cores' integral sphere wedges. The first-homology augmentation module follows naturally from the relative boundary of those paths. The finite checker independently reproduced all orbit edges, free-face collapses, and mod-two Betti vectors for four new parameters. Main risk: the standard cube theorem is imported rather than reproved, but its precise theorem and scope were checked.
+PASS
 
-## Originality — PASS (best-knowledge literature comparison)
+The fixed-point simplicial subdivision is built from barycenters of admissible orbits, with constant barycentric coefficients per orbit, not from only pointwise-fixed vertices. Cyclic orbit sets of 3-bit strings are A={000},B={111},C=weight-one triple,D=weight-two triple, exactly also the S3 orbit sets; therefore geometric C3 and S3 fixed loci coincide at every scale. The maximum cross-distance table at threshold 2 admits core A_z,A_y and B_z,B_y for d(z,y)≤2, peripheral C_z linked to A_{N[z]} and B_z, and D_z linked to B_{N[z]} and A_z, no other edges. Each peripheral simplex cone collapses by descending neighbor-subset free-face pairs; no simplex contains two peripheral vertices. Residual topology is two connected K_m cores connected by exactly 2^{m+1} separate two-edge paths, so homotopy is K_m∨K_m∨∨^{2^{m+1}−1}S1. Adamaszek–Adams Theorem 1 provides the K_m small-scale sphere counts. The relative boundary sends every oriented path to [B]−[A], giving the exact integral path-augmentation lattice, with moving-bit complement reversing orientation. Independent orbit distance enumerations m=1,2,3 yielded 8,16,32 admissible orbit vertices and exact expected orbit-edge sets.
 
-The closest primary works by Adamaszek–Adams and Bendersky–Elia–Grbić concern ordinary cube Rips homotopy and cohomology; Galetto–Montaño–Wellner determine rational ambient group representations. None of the materially inspected sources provides the subgroup's geometric fixed-space splitting or its integral fundamental-group augmentation module. Earlier calculations with at least four moved coordinates or with coordinate transpositions do not imply the three-cycle boundary: the missing three-coordinate case is connected with large free \(H_1\), unlike the larger-cycle result. Indexed searches by the precise claim, orbit-barycenter model, group action, and both sphere multiplicities found no covering statement. Residual risk: the full text of the 2026 rational-representation preprint could not be retrieved, and an equivalent unindexed theorem could exist. Absence of a hit is not treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete infinite-parameter homotopy classification for a natural finite-order action on the widely studied Hamming Rips complex. It exhibits a sharp transition at cycle length three and a free fundamental group of exponentially increasing rank inside a simply connected ambient sphere wedge. The integral augmentation module identifies the natural symmetry on the new first-homology classes. The result does not merely recompute the known ambient three-sphere multiplicity: the two-core-plus-bridge splitting and its integral symmetry action are the new structural content.
+PASS best of knowledge: the geometric fixed-locus topology and integral H1 module are distinct from known ambient Rips homology, rational group characters and the small-cube nonequivariant theorem; full text of one highly relevant 2026 preprint was inaccessible, explicitly retained as risk.
 
-## Closest sources, limitations, and remaining risks
+## value
 
-Theorem 1 of Adamaszek–Adams (arXiv:2103.01040) supplies the small-cube homotopy formula. Sections 1–5 of the accessible Bendersky–Elia–Grbić article (arXiv:2605.00705; online 2026-10-22) treat ambient connectivity and cohomology, not subgroup fixed spaces. Galetto–Montaño–Wellner (arXiv:2606.20784v1; 2026-06-18) concerns rational homology representations; its full text remained inaccessible for direct comparison. The present theorem does not classify higher thresholds or all integral representations. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed locus of a coordinate three-cycle is a natural symmetry subspace of an important standard Rips filtration. Its free π1 of rank 2^{m+1}−1 contrasts sharply with the simply connected ambient small-scale cube Rips complex, while the exact integral augmentation lattice resolves how hyperoctahedral symmetry acts. The all-m path splitting identifies a reusable geometric fixed-point mechanism not implied by ambient homology characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

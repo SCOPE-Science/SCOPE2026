@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer; no third-party packages are required. The script reconstructs the original binary Hamming vertices, computes their actual order-three orbits, verifies that the three-bit transposition preserves those orbits, and constructs the complete fixed orbit graph using original pairwise distances. It checks every edge against the claimed six orbit-type adjacency cases.
+## correctness
 
-For each \(m=0,1,2,3,4\), the script enumerates the complete flag complex, performs the exact proposed elementary free-face collapses, compares all remaining simplices against the two-cube-core-plus-bridge model, and independently computes mod-two reduced homology by exact bitset boundary reduction. The \(m=0\) case is only a boundary control; the theorem starts at \(m=1\).
+PASS
 
-The recorded successful output was:
+The fixed-point simplicial subdivision is built from barycenters of admissible orbits, with constant barycentric coefficients per orbit, not from only pointwise-fixed vertices. Cyclic orbit sets of 3-bit strings are A={000},B={111},C=weight-one triple,D=weight-two triple, exactly also the S3 orbit sets; therefore geometric C3 and S3 fixed loci coincide at every scale. The maximum cross-distance table at threshold 2 admits core A_z,A_y and B_z,B_y for d(z,y)≤2, peripheral C_z linked to A_{N[z]} and B_z, and D_z linked to B_{N[z]} and A_z, no other edges. Each peripheral simplex cone collapses by descending neighbor-subset free-face pairs; no simplex contains two peripheral vertices. Residual topology is two connected K_m cores connected by exactly 2^{m+1} separate two-edge paths, so homotopy is K_m∨K_m∨∨^{2^{m+1}−1}S1. Adamaszek–Adams Theorem 1 provides the K_m small-scale sphere counts. The relative boundary sends every oriented path to [B]−[A], giving the exact integral path-augmentation lattice, with moving-bit complement reversing orientation. Independent orbit distance enumerations m=1,2,3 yielded 8,16,32 admissible orbit vertices and exact expected orbit-edge sets.
 
-```text
-m=0 orbit_vertices=4 fvector=[4, 4] collapse_pairs=0 reduced_F2_Betti=[0, 1]
-m=1 orbit_vertices=8 fvector=[8, 14, 4] collapse_pairs=4 reduced_F2_Betti=[0, 3, 0]
-m=2 orbit_vertices=16 fvector=[16, 44, 32, 10] collapse_pairs=24 reduced_F2_Betti=[0, 7, 0, 0]
-m=3 orbit_vertices=32 fvector=[32, 128, 160, 96, 16] collapse_pairs=112 reduced_F2_Betti=[0, 15, 0, 2, 0]
-m=4 orbit_vertices=64 fvector=[64, 352, 640, 560, 192, 32] collapse_pairs=480 reduced_F2_Betti=[0, 31, 0, 18, 0, 0]
-VERIFY_OK
-```
+## originality
 
-The unrestricted homotopy splitting is proved in `RESULT.md` using an explicit all-parameter collapse. Finite computations do not establish arbitrary-parameter validity or integral torsion-freeness; those conclusions follow from the structural proof and the published ordinary cube Rips theorem. The complete full text of one recent relevant group-action preprint was inaccessible at review, and independent validation has not been performed.
+PASS
+
+PASS best of knowledge: the geometric fixed-locus topology and integral H1 module are distinct from known ambient Rips homology, rational group characters and the small-cube nonequivariant theorem; full text of one highly relevant 2026 preprint was inaccessible, explicitly retained as risk.
+
+## value
+
+PASS
+
+The fixed locus of a coordinate three-cycle is a natural symmetry subspace of an important standard Rips filtration. Its free π1 of rank 2^{m+1}−1 contrasts sharply with the simply connected ambient small-scale cube Rips complex, while the exact integral augmentation lattice resolves how hyperoctahedral symmetry acts. The all-m path splitting identifies a reusable geometric fixed-point mechanism not implied by ambient homology characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
