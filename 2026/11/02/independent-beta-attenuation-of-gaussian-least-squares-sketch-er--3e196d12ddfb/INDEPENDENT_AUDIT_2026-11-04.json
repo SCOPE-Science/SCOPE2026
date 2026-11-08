@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:43:38.578985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rank-one SVD A=σu vᵀ reduces the pseudoinverse error to v/σ times e=(uᵀ ΩΩᵀR)/(uᵀΩΩᵀu), with Δ=||e||². For Gaussian Ω, conditioning on its first row gives e_G=(ZᵀR)/sqrt(X), X~χ²_ell, Z standard in u⊥ independent. Haar projection P gives T=uᵀPu~Beta(ell/2,(n−ell)/2), orthogonal projection length sqrt(T(1−T)), independent uniform sphere direction S; hence e_H=sqrt(Y/X)SᵀR with Y~χ²_{n−ell}. Beta–gamma factorization B||Z||²~χ²_{n−ell} and rotation invariance identify the entire joint row-vector law, not merely coordinate marginals. B strictly (0,1) implies all-threshold error stochastic dominance when R≠0. Chi-square small-ball and dominated convergence give exact t^(−ell/2) constants and moment cutoff; rank-deficient d and multiple outputs are handled. Independent beta moment check at n=10,ell=4 gives E B=2/3 and E B²=16/33, matching tail constant 2/11 vs 3/8. No numerical experiment substitutes for distributional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly–Webber gives minimax expected squared errors, Gaussian work supplies conditional estimator distributions"
+        ],
+        "reasoning": "Expected error bounds cannot imply stochastic dominance or exact tail coefficients: distinct laws can have same means. Full Epperly paper may contain distributional computations not visible in abstract.",
+        "searches": [
+          "Epperly and Webber 2026 Sharp analysis of sketched least squares",
+          "Bartan and Pilanci arXiv:2002.06538",
+          "Sridhar, Pilanci, Özgür arXiv:2006.08160"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.19096",
+        "https://arxiv.org/abs/2002.06538",
+        "https://arxiv.org/abs/2006.08160"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier studies establish estimator averages, Gaussian conditional distributions and minimaxity; no accessible stronger theorem explicitly compares the complete Haar and Gaussian laws"
+        ],
+        "reasoning": "The result follows mathematically from classical distribution identities plus rank-one geometry, but the key cross-sketch coupling is not a formal corollary of mean-error theorems alone; if original methods already state identical distributional result, originality would fail.",
+        "searches": [
+          "Epperly–Webber arXiv:2605.19096",
+          "Sridhar/Pilanci/Özgür arXiv:2006.08160",
+          "Bartan/Pilanci arXiv:2002.06538"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known Gaussian chi-square/Student-ratio and Haar beta leverage distributions separately; this theorem explicitly couples full row error with an independent additional beta factor"
+        ],
+        "reasoning": "A generic beta–gamma identity is prior probability theory but its deployment to compare both sketch laws for every deterministic residual block is the final claim; a prior derivation in the inaccessible full original is a priority risk.",
+        "searches": [
+          "Resultary: Gaussian versus Haar least squares sketch rank one independent beta multiplicative stochastic dominance",
+          "Epperly–Webber arXiv:2605.19096 Theorem 2.1 Proposition 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Haar moments for sparse subspace descent is different method; source mean factor (n−ell)/(n−1) is known, but tail ratio 16/33 at n=10 ell=4 is not merely the mean ratio 2/3"
+        ],
+        "reasoning": "A known first-moment table cannot serve as the exact beta-scaling and tail law; unknown specialized statistical reference remains possible.",
+        "searches": [
+          "Resultary semantic query Gaussian versus Haar least squares sketch rank one independent beta multiplicative stochastic dominance",
+          "Published Epperly–Webber finite-sample expectation factor"
+        ]
+      },
+      "rationale": "Epperly–Webber 2026 establish optimal orthonormal sketch mean residual error via matrix-beta moments, and Gaussian-sketch distribution identities are classical. The all-output finite-sample independent beta scaling, strict every-threshold dominance and explicit catastrophic-tail coefficient go beyond the accessible abstract/summaries, but the very relevant original full paper was inaccessible, so a specialized distributional formula may already occur in it or older matrix-variate theory.",
+      "residual_risks": [
+        "Fixed real rank-one A and exact-arithmetic sketch-and-solve, 2≤ell<n; not general rank, structured embeddings or numerical stability.",
+        "Strict ordering requires R≠0; ell=1 and ell=n are excluded boundary cases, with separate behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact expected MSE factors and minimax comparison clearly prior; complete beta distributional identity not settled from material read",
+          "evidence": "Theorem 2.1 and Proposition 5.7 as cited in frozen package concern expected errors; cannot claim full-article NOT_COVERING.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.19096",
+          "material_read": "arXiv abstract and accessible detailed public analytical synopsis; full original article inaccessible through attempted arXiv/OA; authorized institutional retrieval returned vpn_disconnected",
+          "method": "arXiv abstract/OA searches; authorized paper request",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "same original algorithm, rank-one design and Haar/Gaussian comparison"
+        },
+        {
+          "assessment": "Mean-error/conditional Gaussian formulas known; no assessed Haar coupling",
+          "evidence": "Covers Gaussian sketched least squares in different distributed setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.06538",
+          "material_read": "abstract and Gaussian-sketch scope statements",
+          "method": "public arXiv abstract/related text",
+          "title": "Distributed Sketching Methods for Privacy Preserving Regression",
+          "trigger": "Gaussian sketch error calculations"
+        },
+        {
+          "assessment": "Prior rank-one Gaussian ratio is not new; does not itself supply Haar law",
+          "evidence": "Gaussian conditional distribution may be used in Step 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.08160",
+          "material_read": "abstract and Section 2.1 contextual description from primary record",
+          "method": "public abstract and section summary",
+          "title": "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections",
+          "trigger": "Gaussian conditional estimator laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact every-threshold reliability and heavy-tail coefficient answer a practical mathematical question not settled by average-error minimax analysis; the independence coupling gives a natural complete rank-one law and improves understanding even when mean errors diverge (ell=2).",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.19096",
+    "https://arxiv.org/abs/2002.06538",
+    "https://arxiv.org/abs/2006.08160"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any fixed real rank-one least-squares design, 2≤ell<n, arbitrary right-hand sides and an independent Haar n×ell orthonormal or standard Gaussian sketch, the full coefficient-error row satisfies e_H ≍ sqrt(B)e_G for B~Beta((n−ell)/2,(ell−1)/2) independent of e_G. Thus excess errors satisfy Δ_H ≍ BΔ_G, strict tail dominance for nonzero residual, full moment thresholds s<ell/2 and sharp t^(−ell/2) tail constants.",
+  "limitations": {
+    "actual_independent_work": [
+      "Verified Git tree 820cec... and RESULT.md blob 096131..., inspected source NumPy/SciPy script ef7024...",
+      "Independently reconstructed Gaussian chi-square and Haar beta geometry, independent beta–gamma factorization, all-output row-vector distribution and tail cutoff.",
+      "Independently evaluated at n=10 ell=4: E B≈2/3 and E B²=16/33; source 845-check program inspected but not executed."
+    ],
+    "finite_tests_are_not_infinite_proofs": true,
+    "source_program_executed": false
+  },
+  "residual_risks": [
+    "Fixed real rank-one A and exact-arithmetic sketch-and-solve, 2≤ell<n; not general rank, structured embeddings or numerical stability.",
+    "Strict ordering requires R≠0; ell=1 and ell=n are excluded boundary cases, with separate behavior."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact expected MSE factors and minimax comparison clearly prior; complete beta distributional identity not settled from material read",
+      "evidence": "Theorem 2.1 and Proposition 5.7 as cited in frozen package concern expected errors; cannot claim full-article NOT_COVERING.",
+      "identifier_or_url": "https://arxiv.org/abs/2605.19096",
+      "material_read": "arXiv abstract and accessible detailed public analytical synopsis; full original article inaccessible through attempted arXiv/OA; authorized institutional retrieval returned vpn_disconnected",
+      "method": "arXiv abstract/OA searches; authorized paper request",
+      "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+      "trigger": "same original algorithm, rank-one design and Haar/Gaussian comparison"
+    },
+    {
+      "assessment": "Mean-error/conditional Gaussian formulas known; no assessed Haar coupling",
+      "evidence": "Covers Gaussian sketched least squares in different distributed setting.",
+      "identifier_or_url": "https://arxiv.org/abs/2002.06538",
+      "material_read": "abstract and Gaussian-sketch scope statements",
+      "method": "public arXiv abstract/related text",
+      "title": "Distributed Sketching Methods for Privacy Preserving Regression",
+      "trigger": "Gaussian sketch error calculations"
+    },
+    {
+      "assessment": "Prior rank-one Gaussian ratio is not new; does not itself supply Haar law",
+      "evidence": "Gaussian conditional distribution may be used in Step 2.",
+      "identifier_or_url": "https://arxiv.org/abs/2006.08160",
+      "material_read": "abstract and Section 2.1 contextual description from primary record",
+      "method": "public abstract and section summary",
+      "title": "Lower Bounds and a Near-Optimal Shrinkage Estimator for Least Squares using Random Projections",
+      "trigger": "Gaussian conditional estimator laws"
+    }
+  ]
+}
