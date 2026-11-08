@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact stationary-root factorization establishes the unique symmetric and two potential asymmetric equilibria, with a strict existence interval \(\(3/4<a<1\)\). The Jacobian trace/determinant and symmetry eigenspaces establish their types. Logistic upper and lower comparisons supply compact interior omega limits; a strict Dulac divergence excludes periodic or connecting cycles, permitting global basin partition. At criticality the center-manifold invariance equation yields \(-3/8\) as both mean curvature and imbalance cubic coefficient, producing the stated asymptotic constants. The included exact symbolic checker passed. A finite checker is not used as proof of convergence.
+## correctness
 
-## Originality — PASS, qualified
-The 2024 Cui--Zhao--Zhang--Jardon-Kojakhmetov--Cao source treats general polynomial competitive systems but states sufficient uniqueness/global-attraction criteria, not this symmetry-breaking basin classification or critical relaxation. Crucially, Vet et al. (2018) *already describe two stable positive equilibria* in a broader microbial mutualism-plus-competition model; therefore the existence phenomenon alone is explicitly not claimed new. Their model includes linear mutualism and quadratic competition and their treatment does not imply this precise pure-competition threshold, invariant basin boundary and asymptotic constants. Published 2019 ecological mechanisms and 2025 classical competition analyses do not supply this conjunction either. Semantic research-record searches yielded other systems, not a mathematical implication covering the exact theorem. Residual risk is that a generalized two-competitor pitchfork theorem may imply parts, or an unindexed source has the same canonical cubic example.
+PASS
 
-## Value — PASS
-The simplest exchange-symmetric cubic cross-inhibition with normalized logistic self-limitation gives an exact controlled setting in which positive mutual invasion fails to select a unique long-term coexistence abundance. The global separatrix is completely explicit and the marginal exponent/amplitude quantify critical ecological memory; these are meaningful ecological and dynamical distinctions beyond a local Jacobian calculation. The single parameter follows naturally from symmetry and normalization, not an arbitrary finite slice.
+PASS. Exact equilibria: diagonal r+a r²=1 and off-diagonal x+y=1/a, xy=(1-a)/a², giving x,y=(1/2±sqrt(a-3/4))/a and existence precisely 3/4<a<1. The positive equilibrium Jacobian has off-diagonal -2axy, negative trace and det=(1-a)(4a-3)/a² at asymmetric branches; diagonal antisymmetric eigenvalue crosses 0 at a=3/4. Since a<1, each per-capita growth is uniformly positive at sufficiently small abundance after bounding the other species by 1+epsilon; logistic comparisons give compact interior omega limits. Dulac multiplier 1/(xy) yields negative divergence -1/x-1/y, excluding periodic/homoclinic cycles; together with finite equilibrium structure this enforces global convergence. The difference sign is invariant and the diagonal is precisely the saddle stable manifold. For a=3/4 with s=(x+y)/2,d=(x-y)/2, independent SymPy algebra gives s=2/3-(3/8)d²+O(d⁴) center branch, d’=-(3/8)d³+O(d⁵), so t d²→4/3, and the stated limits follow. Strictly diagonal data converge exponentially, an explicit exception. Checked a=13/16 sink coordinates (12/13,4/13) and reverse.
 
-## Closest literature and limitations
-Cui et al., arXiv:2405.18333; Vet et al., doi:10.1371/journal.pone.0197462; Letten--Stouffer, doi:10.1111/ele.13211; Taylor--O'Dwyer, doi:10.1007/s12080-025-00627-6. The pure two-species normalized family does not represent full multispecies higher-order interactions; no claim is made for random disturbance, spatial coupling, or nonsymmetric coefficients. Related unindexed exact examples remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Nonlinear two-species coexistence bistability is already explicitly demonstrated by Vet et al. 2018 with mutualism plus competition, hence that generic phenomenon is NOT new. Cui et al 2024 gives a general higher-order Lotka–Volterra analysis with sufficient global/uniqueness results. Neither inspected relevant result implies the precise pure quadratic cross-inhibition normal form with sharp a=3/4, complete diagonal basin partition, and physical-time critical amplitudes. Literature on generic supercritical pitchforks explains the local exponent abstractly but not automatically these coefficients/global basins. A canonical normal-form equivalent in older ODE literature remains possible.
+
+## value
+
+PASS
+
+PASS. The model is a natural exchange-symmetric minimal two-competitor extension of logistic interaction by a quadratic competitor-density term; mutual invasion need not imply one unique coexistence state. A globally exact basin boundary, a sharp phase diagram, and the t^-1/2 relaxation coefficient at a degenerate threshold are specific useful dynamical quantities beyond routine linearization or a generic pitchfork label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
