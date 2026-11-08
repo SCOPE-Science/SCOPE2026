@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact signed-trace criterion follows by contracting required-equality edges, properly coloring the quotient negative graph and splitting color classes to exactly q. Forest necessity follows from a cycle label contradiction; global cardinality necessity follows from the all-positive labeling. For forests of at most n-q edges every contracted negative graph is a forest, hence 2-colorable with at least q contracted vertices, giving sufficiency. Graphic-matroid truncation and Tutte forest expansion give exact VC rank/polynomial; Cayley and exponential formula count facets on K_n. For q=3, all-negative traces encode ordinary 3-colorability; NP membership is immediate. All hypotheses and q=1,q=n boundaries were checked. The provided verifier completed 9916 support/q cases plus trace and exchange checks; finite checks are corroborative, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ailon--Bhattacharya--Jaiswal (2017) studies same-cluster oracle approximation and conditional query lower bounds for correlation clustering, not universal shattering.",
+        "A related earlier theorem concerns blocks of size <= r and a component-size bound; a separate example concerns a single fixed (3,6)-size bipartition of nine vertices; another prior classification assumes noncrossing partitions.",
+        "The standard graphic-matroid theorem identifies forest independence but does not by itself impose the exact-q cluster-count bound."
+      ],
+      "reasoning": "A related bounded-block theorem excludes forests containing a component larger than r, whereas the present exactly-q theorem excludes large-total-edge forests even when all components are small. Neither family contains the other for general parameters, and neither claimed formula implies this theorem without an additional global cluster-count argument. A fixed block-size bipartition is a strict subclass and only has an n=9 result. Related algorithmic source theorems have different hypotheses and conclusions.",
+      "searches": [
+        "all surjective colorings up to permutation q equivalence relation classes shattering pairs cycle forest",
+        "fixed-block correlation clustering edge same-cluster query class VC-dimension n-k forests acyclic constraints",
+        "all equivalence relations with exactly k classes, shattering supports on graph edge queries, graphic matroid independent",
+        "arxiv:1712.06865v1 §1–3 and §4",
+        "arxiv:1810.04361v1 §5.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1712.06865v1 (2017-12-19)",
+      "arxiv:1810.04361v1 (2018-10-10)",
+      "doi:10.4230/LIPIcs.ESA.2019.81 (2019-09-06)",
+      "Related theorem: pairwise equivalence shattering with upper bounds on block sizes; distinct global constraint.",
+      "Related example: a prescribed (3,6)-size two-block partition of nine vertices; distinct restrictions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 18 of Kushagra--Ben-David--Ilyas bounds VC dimension for finite families in terms of their cardinality and Bell numbers; it does not identify forests or provide the sharp graph-restricted VC rank n-q.",
+        "Ailon et al. and Saha--Subramanian derive query and approximation bounds under distinct learning tasks.",
+        "The classical three-coloring NP-completeness and forest/truncation results are used as inputs, not claimed as discoveries."
+      ],
+      "reasoning": "The prior algorithmic query bounds neither imply nor are contradicted by the present universal shattering statement. The new trace feasibility criterion is the exact graph-coloring reduction of an arbitrary signed support; the shattering criterion additionally quantifies over all labelings and collapses to a forest and cardinality condition. No cited stronger theorem has been found that directly covers both. Historical priority cannot be ruled out by these comparisons.",
+      "searches": [
+        "pairwise co-clustering equality same-block queries partition [n] into exactly k nonempty blocks VC shattered supports forests truncated graphic matroid",
+        "fixed-block correlation clustering edge same-cluster query class VC-dimension n-k forests acyclic constraints",
+        "rank-truncated cycle matroid from partition consistency must-link cannot-link labelings",
+        "arxiv:1810.04361v1 Theorem 18",
+        "arxiv:1712.06865v1 Theorems 2–5",
+        "doi:10.4230/LIPIcs.ESA.2019.81 Theorems 3.1,4.1,5.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kushagra--Ben-David--Ilyas (2018) §2 models clusterings as binary pair classifiers and §5.1/Theorem 18 gives a general family-size VC upper bound, not the exact all-support criterion for the unrestricted exactly-q-block family.",
+        "Semantic literature searches on the exact statement and alias `equivalence relation` returned no direct equivalent among top hits."
+      ],
+      "reasoning": "The proposed class is equivalent to the fixed-number-of-classes family of equivalence relations, restricted to a graph of observed pair coordinates. The literature cited considers this binary evaluation setting but the inspected main statements and appendix do not contain the truncated graphic-matroid criterion or arbitrary-trace chromatic criterion. A null search is not proof of novelty; the proof compares mathematical statements.",
+      "searches": [
+        "pairwise co-clustering equality same-block queries partition [n] into exactly k nonempty blocks VC shattered supports forests truncated graphic matroid",
+        "VC dimension Littlestone dimension partitions into exactly q blocks pairwise same cluster membership",
+        "shattering complex of set partitions into k nonempty blocks viewed as binary equality on edges, graphic matroid truncated at n-k",
+        "arxiv:1810.04361v1 §2, §5.1, Appendix C.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearby scientific results on spanning-forest ratios and binary similarity fitting have different objects and do not imply this pair-trace theorem.",
+        "The related mathematical results on equivalence relations concern bounded block sizes, interval blocks, noncrossing blocks, and a fixed (3,6) bipartition, not exactly q unrestricted blocks."
+      ],
+      "reasoning": "No table or specific earlier database entry with the exact all-face enumeration or fixed-q matroid truncation was located. The forest counts and Tutte transformation themselves are known combinatorics, and the new claim does not assert originality for these classical numbers. Search incompleteness and historical naming variations remain risks.",
+      "searches": [
+        "pairwise co-clustering equality same-block queries partition [n] into exactly k nonempty blocks VC shattered supports forests truncated graphic matroid",
+        "shattering complex of set partitions into k nonempty blocks viewed as binary equality on edges, graphic matroid truncated at n-k",
+        "all equivalence relations with exactly k classes, shattering supports on graph edge queries, graphic matroid independent",
+        "rank-truncated cycle matroid from partition consistency must-link cannot-link labelings",
+        "fixed-block, bounded-block and noncrossing equivalence-relation shattering comparisons"
+      ]
+    },
+    "rationale": "The closest full-text 2018 paper uses precisely the binary pairwise clustering concept but gives only broader class-size/hierarchy VC bounds; its results do not imply the fixed-q all-support matroid criterion. The 2017 and 2019 query-complexity papers treat different learning objectives. The related mathematical work uses different restrictions (max block size, fixed block sizes, noncrossing and interval partitions), not the present exactly-q unrestricted family. Classical matroid, forest counting, and graph coloring facts are acknowledged as existing. Prior art under another name remains a genuine residual risk.",
+    "residual_risks": [
+      "A prior theorem under equivalence-closure, clustering shattering, or graph-coloring terminology may imply the result despite absent matches in the inspected corpus.",
+      "Semantic search ranking and negative hits do not establish uniqueness.",
+      "The theorem is structurally elementary after the exact trace reduction, so unlocated classical treatment of fixed-count equivalence constraints is plausible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_ON_READ_MATERIAL",
+        "evidence": "§2 defines C(x,y)=1 for same cluster; §5.1 Theorem 18 gives a generic finite-family upper bound and Theorem 20 considers hierarchical clustering; no exact fixed-q forest shattering theorem in inspected statements.",
+        "identifier_or_url": "https://arxiv.org/pdf/1810.04361",
+        "material_read": "Abstract, introductory problem formulation, Section 2 pair-query definition, Section 5.1 and Appendix C.1 VC statements/proofs, and conclusion.",
+        "method": "Opened PDF parsed sections; inspected PDF page 2 and page 9 visually.",
+        "title": "Semi-supervised clustering for de-duplication",
+        "trigger": "Identical binary pairwise clustering representation and direct VC-dimension bounds"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_ON_READ_MATERIAL",
+        "evidence": "Study of oracle approximation algorithms and conditional ETH query lower bounds for MinDisAgree[k]; no fixed-partition-class VC characterization in inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/1712.06865",
+        "material_read": "Abstract, introduction and central theorem statements (Theorems 2–5), selected query-algorithm description, and conclusion.",
+        "method": "Opened arXiv PDF and inspected page 1 screenshot and parsed theorem sections.",
+        "title": "Approximate Correlation Clustering Using Same-Cluster Queries",
+        "trigger": "Earliest dated relevant same-cluster-query foundational paper"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_ON_READ_MATERIAL",
+        "evidence": "Theorems 3.1, 4.1 and 5.3 bound approximation-query complexity; VC dimension in related work describes input/hypothesis size from another setting, not an exact classification of all exactly-q partitions.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol144-esa2019/LIPIcs.ESA.2019.81/LIPIcs.ESA.2019.81.pdf",
+        "material_read": "Abstract, introduction/related work, and theorem statements in Sections 3–5; not every proof or experimental appendix.",
+        "method": "Opened open-access conference PDF; visually inspected page 0; parsed Sections 2–5 theorem text.",
+        "title": "Correlation Clustering with Same-Cluster Queries Bounded by Optimal Cost",
+        "trigger": "Same-cluster oracle bounds with a mention of VC dimensions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "68a815f9-8440-444d-8bfb-bc7380c5eb75",
+  "value": {
+    "rationale": "Exact number of nonempty blocks is a natural fixed-k clustering constraint in same-cluster learning. The result identifies *every* shattered query support on *any* available query graph as a graphic-matroid truncation, giving a linear-time recognition algorithm, sharp VC dimension, a Tutte-based all-face polynomial, and pure facets. The full signed-trace theorem simultaneously exposes a sharp structural contrast: individual trace feasibility for three blocks is NP-complete, while universal shattering is linear-time. These are natural global and graph-restricted invariants not supplied by a simple cardinality bound, and the theorem has potential use in hypothesis-capacity estimates.",
+    "status": "PASS"
+  }
+}
