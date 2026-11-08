@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof first proves iff LD-set/complement-transversal using bipartite false twins and domination, then proves k<=4 and excludes k=4 for N>=5 by a three-singleton contradiction. For k=3, each coalition edge corresponds exactly to the third class being transversal, so admissibility is exactly two transversal classes plus no LD class. It counts three unique disjoint families when N>=7 and all finite N=4,5,6 profiles analytically; k=2 follows by excluding proper LD blocks, with no double counting for N>=5. Code independently enumerated all unordered partitions, using direct open-neighborhood LD tests, for all 2<=m<=n with m+n<=10, including triangle graph classification, and directly checked the constructed families in five larger cases. The finite replay corroborates the algebraic proof and does not replace it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chellali et al., arXiv:2602.18760, Proposition 2.8: C_L(G) <= |V(G)| - gamma_L(G) + 2, giving only the upper bound four on K_{m,n}.",
+        "Chellali et al., Proposition 4.1: K_{2,2} = C_4 belongs to the previously known four-vertex equality cases; this is explicitly acknowledged as pre-existing.",
+        "Chellali et al., Propositions 3.7 and 3.9: scalar results for cycles and paths, not the K_{m,n} all-partition count.",
+        "The all-partition polynomial and the six exceptional triangle-coalition configurations are not consequences of the cited scalar bound or small-graph extremal classification."
+      ],
+      "reasoning": "The primary work is broader by graph class for certain bounds, but its general upper bound C_L<=4 does not imply the exact C_L=3 for all larger complete bipartite graphs, let alone every coefficient and exact optimizer structure. Earlier known K_{2,2} extremality is not presented as novel. No stronger general partition-enumeration theorem implying the formula was identified.",
+      "searches": [
+        "arXiv:2602.18760 full PDF Sections 2–6",
+        "arXiv:2506.12933 full PDF Abstract, Introduction, Section 2",
+        "locating dominating coalition complete bipartite complete multipartite",
+        "locating dominating coalition number K_{m,n} complete bipartite graph count all locating-dominating coalition partitions exactly three blocks"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.18760 original preprint and 2026 revised full PDF",
+      "arXiv:2506.12933 relevant introduction and definitions",
+      "Semantic mathematical-record searches for locating-dominating coalitions, K_{m,n} and partition census",
+      "Public targeted searches for complete-bipartite LDC, alternative nomenclature and sequence tables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full 2026 initiating study supplies the definition and a general upper bound, and identifies C_4 as extremal; it does not state a formula for coefficients of a partition polynomial of nontrivial bicliques.",
+        "The 2025 LD-partition paper assumes each block is itself LD; the new LDC condition forbids that, preventing direct implication.",
+        "Other published coalition variants (ordinary, total, connected, global) impose different domination predicates; no implication was found from their scalar results."
+      ],
+      "reasoning": "The new claim is the exact distribution of all unordered LDC partitions over every K_{m,n}, including classification of all maximum partitions and six K_3 coalition graphs at each of K_{2,3},K_{3,3}. It is not deducible from a bound on C_L, a definition, or an enumeration of individually LD sets alone without new classification and counting arguments.",
+      "searches": [
+        "arXiv:2602.18760 Proposition 2.8 and Proposition 4.1",
+        "arXiv:2506.12933 LD-partition definition",
+        "locating dominating coalition number K_{m,n} complete bipartite graph count all locating-dominating coalition partitions exactly three blocks",
+        "locating-dominating coalitions false twins complete bipartite unlabeled block partitions three classes two three partition polynomial",
+        "locating coalition partition polynomial enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.18760, Definitions 1.1–1.2: two non-LD classes form a coalition if their union is LD; its locating coalition graph is on partition classes.",
+        "arXiv:2506.12933, Introduction: an LD-partition requires two disjoint classes that are individually LD, the opposite condition from an LDC-partition.",
+        "The bipartite false-twin lemma independently identifies LD-set complements with transversals; no equivalent unrestricted partition enumerator was located."
+      ],
+      "reasoning": "Alternative phrases locating-domination coalition, LD-coalition, coalition graph and locating-domatic/LD-partition were compared at the level of definitions. Locating-domatic partitions require LD blocks, not non-LD blocks acquiring LD status upon union. The current all-partition polynomial is not an alternate statement of those theorems.",
+      "searches": [
+        "locating-dominating coalition partition maximum number paths cycles complete bipartite trees exact counts optimal partitions",
+        "locating dominating coalitions graphs 2602.18760 exact partition enumeration structures",
+        "locating-dominating coalitions false twins complete bipartite unlabeled block partitions three classes two three partition polynomial",
+        "locating coalition number complete bipartite 2026",
+        "locating dominating coalition complete bipartite complete multipartite",
+        "arXiv:2602.18760",
+        "arXiv:2506.12933"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical-record searches returned related but noncovering graph domination and unrelated partition enumerations, rather than a record for all LDC partitions on K_{m,n}.",
+        "The public sequence-table searches produced no exact coalition-partition table supporting an all-parameter formula.",
+        "Exhaustive independent enumeration checked the claimed values for every 2<=m<=n with m+n<=10; these computations are independent of, but not evidence for, historical novelty."
+      ],
+      "reasoning": "An exact table could cover finite cases, but none found states the all-parameter polynomial, its necessary-and-sufficient three-class classification, or the exceptional triangle-coalition multiplicities. Search nonappearance does not establish priority; an unindexed table remains a residual risk.",
+      "searches": [
+        "exact census of locating-dominating coalition partitions complete bipartite bipartition classes transversal complement",
+        "locating domination coalition K_{2,3} K_{3,3} triangle coalition graph exact count",
+        "site:oeis.org \"48, 180, 420\" coalition partitions",
+        "\"48\" \"180\" \"420\" \"locating\" coalition bipartite",
+        "\"locating-dominating coalition\" count optimal partitions complete bipartite"
+      ]
+    },
+    "rationale": "The full relevant text of the 2026 originating paper introduces LDC, gives a general upper bound, and determines C_L for paths, cycles and selected small-order graphs; it does not give the complete K_{m,n} partition polynomial. Its already known C_L(C_4)=4 is explicitly acknowledged. The 2025 LD-partition manuscript concerns individually LD blocks and does not cover coalitions. Actual semantic mathematical-record and public literature searches for aliases, part sizes, max partitions and finite tables returned no dominating claim. This is provisional best-knowledge originality, not priority certification.",
+    "residual_risks": [
+      "A different terminology or an unindexed preprint could contain an equivalent all-partition census; searches do not establish absolute priority.",
+      "The initiating manuscript has updates after its first public date; checked scientific comparisons relied on the available 2026 full text rather than a claim of exhaustive future publication coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces coalition notion and establishes scalar bounds, paths/cycles and small-order extremal cases; gives no complete bipartite all-partition enumeration. K_{2,2} extremality previously known.",
+        "evidence": "Definitions 1.1–1.2; Proposition 2.8; Propositions 3.7, 3.9, 4.1; Section 6 open problems.",
+        "identifier_or_url": "arXiv:2602.18760 (https://arxiv.org/pdf/2602.18760)",
+        "material_read": "Twenty-three-page PDF available. Inspected abstract/introduction and definitions, general bounds in Section 2, path and cycle classification in Section 3, small-order cases in Section 4, complexity discussion in Section 5, and conclusions and references.",
+        "method": "Read searchable PDF text with page-aligned visual inspection of the title/definition material and checked relevant theorem and proof passages.",
+        "title": "Locating-dominating coalitions in graphs",
+        "trigger": "Exact newly introduced invariant; possible definitions, graph families, general and extremal results could subsume the claim."
+      },
+      {
+        "assessment": "A location-domatic type partition requires each block itself to be LD and is not an LDC-partition; the graph classes and conclusion do not cover the claim.",
+        "evidence": "Introduction and Section 2, especially definition of LD-partition and Theorem 2.1.",
+        "identifier_or_url": "arXiv:2506.12933 (https://arxiv.org/pdf/2506.12933)",
+        "material_read": "Abstract and introductory definitions, discussion of twin-freeness, statement of the distance-hereditary partition result and stated classes.",
+        "method": "Read page-aligned searchable PDF with a visual check of the title page.",
+        "title": "Locating-dominating partitions for some classes of graphs",
+        "trigger": "Plausible title and shared locating domination language; might describe structurally equivalent partitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c0cffbf8-07e6-4357-8f29-d714f803a95f",
+  "value": {
+    "rationale": "The theorem fully enumerates all allowable unordered class partitions for a natural infinite two-parameter graph family, classifies every maximum partition as one of three concrete transversal patterns, and determines exceptional triangular coalition graphs. This is stronger than the scalar coalition maximum or textbook LD-set minimum: for N>=7 it simultaneously quantifies an exponential two-block count and a polynomial-size optimal three-block family. The exact structure is independently motivated by enumeration of the newly introduced coalition invariant and is mathematically useful without a downstream general theorem.",
+    "status": "PASS"
+  }
+}
