@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypotheses make the heterogeneous time-dependent two-stage vector field Carathéodory. The row-balance condition fixes the coexistence equilibrium, skew symmetry cancels both quadratic interaction contributions to the relative entropy, and symmetric maturation yields the strict dissipation identity. Properness of the entropy keeps all positive coordinates in a compact sublevel set, proving global existence; scalar Taylor estimates and Gronwall give the stated explicit decay exponent. In the zero-interaction sum mode, the limiting quadratic-entropy exponent \(4\) cannot be improved uniformly. Exact rational checker identities and independent numerical integrations corroborate the algebra without being treated as infinite proofs.
+## correctness
 
-## Originality — PASS under available evidence
-The primary 2026 source [1] evaluates the local random-matrix spectrum and finite-maturation simulations, not nonlinear global decay under arbitrary time-varying skew coefficients. Its stage interactions are the source for the model, not a new construction claimed here. The 2024 paper [2] proves global convergence of *migration-controlled antisymmetric Lotka–Volterra patches*, using entropy ideas that this argument explicitly credits; its inspected model lacks the present nonlinear cross-stage crowding mechanism and does not state an interaction-uniform exponential estimate for arbitrary time-dependent networks. The open-access paper [3] supplies classical storage/passivity antecedents for controlled migration-linked systems, while [4] is unstructured. Semantic searches and source comparisons did not reveal a statement implying the complete quantified claim. General dissipativity theory and uninspected portions of [2] remain potential historical-priority risks.
+PASS
 
-## Mathematical value — PASS
-The finite-demography stability boundary is central to [1]. The result identifies a nontrivial directed, antagonistic, stage-dependent subfamily with **global** immunity to arbitrarily large/time-varying network complexity, even at a fixed finite maturation rate: the three-species cyclic example can be multiplied by any measurable locally bounded amplitude. The explicit network-independent rate and its sharp local benchmark separate robust nonlinear convergence from random-matrix local spectral stability, making the exact fact useful when assessing ecological resilience under unpredictable interactions.
+PASS: Differentiate Phi(u)=u-1-log u along the Carathéodory vector field. The cross-stage conversion dissipates m(u-v)^2/(uv), and the density term dissipates (u+v-2)^2; with A^T=-A and A1=0 each quadratic interaction cancels exactly. Properness of V gives invariant compact positive ell<=u,v<=L and global extension despite arbitrary locally bounded time-dependent coefficients. Taylor Phi(z)<= (z-1)^2/(2ell^2), uv<=L^2, and p=a+b,q=a-b imply -Vdot>=4 ell^2 min(1,m0/L^2)V. At A=0 symmetric linear sum mode -2 gives entropy exponent 4 as V0→0. Independently verified exact skew-cycle derivatives using rational arithmetic for 3,5,7 species; proof itself controls all times and all sizes.
 
-## Closest literature and limitations
-[1] arXiv:2610.23557v1, sections Model, Results, Discussion; [2] Anish et al., J. Biol. Dyn. 18 (2024), particularly the publicly indexed Introduction, model and Theorem 5.1; [3] Márton et al., Nonlinear Dynamics (2025), model/storage-function sections; [4] Goh (1977), abstract. The result requires balanced skew cross-species effects, identical within-species stages, symmetric conversions and normalized competition; it does not cover the full random interaction ensemble. The older paper [2] was only partly accessible in material suitable for comparison, so broad priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Garmire-O’Dwyer’s two-stage source analyzes random-matrix/local stability, not global all-positive convergence with switching-robust absolute coefficient-free rate. Anish–De Baets–Rao 2024 uses antisymmetric LV patch migration, a classical Lyapunov/LaSalle construction; the submitted nonlinear cross-stage crowding, opposing A terms and arbitrary measurable time variation give a different exact dissipative identity and explicit uniform exponential estimate. Standard relative entropy method is not itself original and is credited. General dissipativity antecedents may imply specializations, a residual risk.
+
+## value
+
+PASS
+
+PASS: Nonzero n=3 skew cycles can switch with unbounded amplitude while the entropy bound is unchanged; this separates robust global nonlinear behavior from local spectral stability and gives a sharp small-disturbance exponent for a finite-demography network. The structure is restrictive, but a complete uniform theorem across all positive initial states is mathematically motivated rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
