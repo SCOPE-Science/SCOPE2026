@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "W1 common-uniform contraction supplies unique invariant measure; stationarity gives exact mean and variance identity; closed positive two-state class is exact; negative fractional phase converges using a uniform bound on (1-r)^2 second moment; martingale-difference coupling to iid Bernoulli noises yields vanishing normalized L2 error and Lindeberg Gaussian limit. Exact rational Markov checks and independent fixed-seed simulations passed, while infinite proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "El Arar et al. 2022 provide finite-algorithm variance bounds, not stationary weak-contraction asymptotics",
+        "Weiß–Zhu 2024 (3.7) covers conditional variance decomposition, but not the stationary sign pair and Gaussian scaling"
+      ],
+      "reasoning": "General martingale variance identities are acknowledged as premises. They do not themselves assert or establish the nondegenerate Gaussian limit when the conditional noise depends on a near-unit negative autoregressive state.",
+      "searches": [
+        "stochastic rounding negative linear contraction stationary variance divergence near -1 lattice unbiased rounding affine iteration",
+        "arXiv:2207.10321",
+        "arXiv:2202.12276",
+        "arXiv:2402.15772"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2402.15772",
+      "https://arxiv.org/abs/2207.10321",
+      "https://arxiv.org/abs/2207.03837",
+      "https://arxiv.org/abs/2202.12276",
+      "https://doi.org/10.1111/j.1467-9892.2010.00710.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The shared conditional variance identity v(y)={y}(1-{y}) and mean-preserving property are known",
+        "Published ARMA results have general moment equations, but no derived near-minus-one Gaussian stationary limit"
+      ],
+      "reasoning": "The new claim is not mere renaming: positive and negative signs share exact means and deterministic rates yet have different stationary scales, and the weak limit needs coupling dependent rounding errors to independent Bernoulli innovations and a triangular-array Gaussian argument.",
+      "searches": [
+        "arXiv:2402.15772",
+        "arXiv:2207.10321",
+        "arXiv:2207.03837",
+        "arXiv:2202.12276"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weiß–Zhu 2024 (2.1) uses the identical random rounding operator; its (3.1) includes a separate integer innovation; stationary near-minus-one Gaussian convergence is absent in examined full text"
+      ],
+      "reasoning": "The closest operator equivalence does not make its time-series theorem a theorem for a noninteger intercept inside rounding; the new Gaussian limit requires an adapted-innovation triangular-array argument.",
+      "searches": [
+        "Near-unit negative contraction unbiased stochastic rounding integer lattice stationary scaled Gaussian central limit theorem variance geometric ±rho fixed point iteration",
+        "stochastic-rounding affine recursion negative slope stationary invariant Bernoulli positive slope sharp variance sign reversal Gaussian limit",
+        "arXiv:2402.15772"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Weiß–Zhu 2024 figs. 2-3 show numerical stationary distributions and variances for several coefficient choices, with Skellam innovations",
+        "No matching exact near-unit distribution table in inspected articles"
+      ],
+      "reasoning": "The displayed stationary moments and fixed-parameter plots use different innovation placement and parameters and do not give the stated universal asymptotic constant or normal law.",
+      "searches": [
+        "quantized AR(1) with Bernoulli stochastic rounding near -1 central limit stationary weak contractivity",
+        "arXiv:2402.15772"
+      ]
+    },
+    "rationale": "Distinct sharp sign-reversal stationary law and nondegenerate near-minus-one Gaussian limit for fixed-grid unbiased rounding. The same quantizer, conditional variance, and general AR moments are acknowledged as prior. Open-access primary article comparisons did not show the combined limit or imply it as a stated specialization; specialist precedence risk remains.",
+    "residual_risks": [
+      "Older specialist stochastic-rounding or rounded-autoregression literature may contain an equivalent near-unit limit; some older sources were only abstract-accessible.",
+      "Numerical checks do not certify the infinite stationary Gaussian limit; its validation is the written proof and same-model reasoning.",
+      "Fixed lattice spacing differs from practical floating-point grids, so transferring this limit requires further analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related quantizer and conditional variance are prior; its additive integer innovation outside rounding and general moment bounds do not state the noninteger-intercept sign-reversal and Gaussian near-minus-one law",
+        "evidence": [
+          "Equation (2.1) defines the same quantizer; (2.4) gives its conditional variance; (3.1) puts integer innovation outside rounding; (3.7) gives variance decomposition; Appendix A compares different operator placements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.15772",
+        "material_read": "Sections 2 and 3 (including equations (2.1)-(2.7), (3.1)-(3.9), numerical examples), Section 6 and Appendix A",
+        "method": "Full structured open-access article text and equation-level comparison",
+        "title": "Mean-preserving rounding integer-valued ARMA models",
+        "trigger": "Exactly matching adjacent-integer mean-preserving random rounding; negative autoregressive coefficients and stationary laws"
+      },
+      {
+        "assessment": "Gives general bounded variance/martingale methods for finite algorithms such as inner products and Horner; does not state fixed-lattice affine invariant law or near-critical Gaussian limit",
+        "evidence": [
+          "Sections 3 and 5 derive variance upper bounds and polynomial error estimates; no stationary recursion or sign-reversal theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.10321",
+        "material_read": "Full available structured text, §§1-5 and numerical example overview in §6",
+        "method": "Open-access arXiv structured full text",
+        "title": "Stochastic rounding variance and probabilistic bounds: A new approach",
+        "trigger": "Variance of unbiased stochastic roundoff errors, potentially a stronger general theorem"
+      },
+      {
+        "assessment": "Analyzes stochastic-rounding modes, finite-time Euler accumulation and Horner bounds, not the stationary affine sign reversal",
+        "evidence": [
+          "Introduction states the two rounding modes and Euler constant-function study; Section 3 studies accumulated bias"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.03837",
+        "material_read": "Full available structured text, §§1-4 and paper overview",
+        "method": "Open-access arXiv structured full text",
+        "title": "The Positive Effects of Stochastic Rounding in Numerical Algorithms",
+        "trigger": "Unbiased stochastic rounding in iterative numerical integration"
+      },
+      {
+        "assessment": "Convergence and bias/error analysis for gradient computation and storage, not fixed-grid stationary variance divergence or a Gaussian weak-contraction limit",
+        "evidence": [
+          "Sections 3-4 develop rounding-error monotonicity/convergence; §5.1 uses quadratic test problems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.12276",
+        "material_read": "Full available structured text, §§1-4 and §5.1 quadratic optimization experiments",
+        "method": "Open-access arXiv structured full text",
+        "title": "On the influence of stochastic roundoff errors and their bias on the convergence of gradient descent with low-precision floating-point computation",
+        "trigger": "Fixed-step gradient descent with unbiased SR and positive/negative contraction factors"
+      },
+      {
+        "assessment": "Relevant to rounding impact and AR inference, but abstract insufficient for a full no-coverage claim; possible specialist precedence risk",
+        "evidence": [
+          "Abstract describes rounded AR inference and statistical estimation, without explicit near-minus-one Gaussian law"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.2010.00710.x",
+        "material_read": "Bibliographic record and abstract only",
+        "method": "Publisher metadata and abstract",
+        "title": "Analysis of accumulated rounding errors in autoregressive processes",
+        "trigger": "Prior autoregressive recursion with rounding and accumulated errors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bd484d7-7163-4c20-b101-9d21a358b059",
+  "value": {
+    "rationale": "A natural sign change of one scalar contraction factor, with identical unrounded fixed point and magnitude, changes invariant error from bounded Bernoulli to diverging Gaussian-scaled fluctuations. The exact constant and weak limit quantify a severe roundoff stability blind spot not visible to mean or deterministic contraction rates, useful as a benchmark for low-precision fixed-point and overrelaxed iterative solvers.",
+    "status": "PASS"
+  }
+}
