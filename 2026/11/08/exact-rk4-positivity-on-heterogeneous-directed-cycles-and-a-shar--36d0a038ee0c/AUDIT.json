@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For all n>=5, no cycle wrap occurs in powers through degree four. Exact path enumeration gives five polynomial entry types. A negative discriminant proves two-jump positivity, the one-jump derivative has negative discriminant and negative leading coefficient, diagonal truncations are strictly positive, and distance-three signs are linear. The four-maximum-rate plateau and alpha bound are deduced algebraically from F(2/(a+b))=1/3 and row-stochastic diagonal control; one-defect phase and limiting alpha follow from a cubic identity and continuous root limits. Exact rational replay: 14,200 full matrix entries, 1,800 row sums, six phase identities; finite test limits separately stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Song–Terlaky (2015), Section 3.1 and Corollary 1, gives a valid (sufficient) threshold from roots of finitely many general Taylor polynomials; its formula is not an exact directed-cycle specialization.",
+        "Horváth (2005) discusses strict positivity thresholds for whole IVP classes and discrete invariant cones, not arbitrary vertex-rate directed-cycle RK4 equality."
+      ],
+      "reasoning": "These foundational methods cover general settings at an algorithmic or sufficient-condition level. They do not state the five entry polynomials, establish that no two-jump sign failure is possible, or imply the exact plateau equivalence and sharp gain without additional graph-specific proof; thus no identified statement dominates the new parametric classification.",
+      "searches": [
+        "web: Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron (2015)",
+        "web: Horvath positivity step size threshold 2005 pdf",
+        "unidirectional cycle inhomogeneous CTMC Runge-Kutta positivity single defect threshold"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb–Shu–Tadmor (2001), https://doi.org/10.1137/S003614450036757X",
+      "Horváth (2005), https://doi.org/10.1016/j.apnum.2004.08.026",
+      "Horváth–Song–Terlaky (2015), https://doi.org/10.3934/dcds.2015.35.2997",
+      "Blanes–Iserles–Macnamara (2021), https://arxiv.org/abs/2102.08242",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2001 linear SSP coefficient one ensures positivity at the forward-Euler scale; the new proof identifies strictly larger timesteps except for four-rate maximum plateaus.",
+        "The general 2015 Taylor-root construction does not exclude reentry or classify the rate-defect phase boundary."
+      ],
+      "reasoning": "An SSP sufficient bound is weaker than the exact threshold; a generic root-search recipe does not by itself assert which roots control or the all-positive-rate sharp factor. The derived local-cubic uniqueness, no two-jump obstruction, strict-improvement equivalence, and sharp limiting contrast supply additional mathematical statements beyond these antecedents.",
+      "searches": [
+        "classical explicit RK4 positivity in directed one-way ring Markov chain with heterogeneous positive jump rates; exact step threshold",
+        "sharp RK4 forward Euler CFL improvement factor 2.785293563 directed one-way Markov cycles positive rates plateau of four maximal rates",
+        "Gottlieb–Shu–Tadmor (2001) §3 linear SSP",
+        "Horváth–Song–Terlaky (2015) §3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor Section 3 derives general linear SSP polynomials; Horváth (2005) §2–4 concerns general problem classes, not inhomogeneous one-way Markov cycles.",
+        "No sampled published-finding corpus title or summary returned a directed-cycle RK4 threshold with two local obstruction types."
+      ],
+      "reasoning": "The polynomial here is the classical RK4 fourth Taylor polynomial of a nonsymmetric rate-dependent cycle generator. Generic linear SSP statements do not reduce to an explicit exact threshold because the one- and three-jump entrywise signs require separate rate-sensitive arguments. Neither reversed cycle orientation nor transposition changes the mathematical meaning; no equivalent directed model was found in examined sources.",
+      "searches": [
+        "classical explicit RK4 positivity in directed one-way ring Markov chain with heterogeneous positive jump rates; exact step threshold",
+        "RK4 fourth order polynomial of directed birth process cycles positivity boundary complete homogeneous symmetric rate polynomials",
+        "nonuniform unidirectional directed cycle Runge Kutta fourth order entrywise nonnegative exact threshold via adjacent rate cubic and four rate sum",
+        "web: \"directed cycle\" \"Runge Kutta\" \"positivity\" fourth order",
+        "web: \"one-way\" \"RK4\" positivity cycle Markov chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published published-finding corpus entries involve Padé/Gauss–Legendre, Crank–Nicolson, SSP-SDIRK2 or RKF error estimators, not the classical RK4 directed-cycle generator.",
+        "Available prior local claims include regular undirected graph RK4 and directed-cycle other integrators; neither provides the stated rate-vector formula."
+      ],
+      "reasoning": "No exact table, finite census, or published local-rate formula for this problem was recovered. Searching cannot exclude an unindexed formula, so this is supporting evidence, not a uniqueness proof.",
+      "searches": [
+        "sharp RK4 forward Euler CFL improvement factor 2.785293563 directed one-way Markov cycles positive rates plateau of four maximal rates",
+        "exact positivity of fourth order Taylor polynomial nonreversible Markov chain localized rate defect phase transition",
+        "own available prior findings: fourth-order RK4 regular undirected graph, directed cycle Crank–Nicolson, and related RK4 graph diffusion"
+      ]
+    },
+    "rationale": "No inspected original source or public research result implies the all-positive-rate, all-cycle-length exact RK4 threshold together with its four-maximum-rate strict-improvement criterion, sharp universal gain, or one-defect phase boundary. The broad 2015 Taylor-polynomial method provides generic sufficient thresholds by root finding, not the present sharp structured classification. Bounded searching cannot certify exhaustive priority.",
+    "residual_risks": [
+      "Unindexed or differently named specialized directed-transport numerical literature could preempt the explicit threshold or phase-switch result.",
+      "The polynomial-root approach of Horváth–Song–Terlaky is general and closely related; the claim of originality rests on the additional sharp closed all-rate classification and structural conclusions, not on the existence of root-computation algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_NOT_EXACT_CLASSIFICATION",
+        "evidence": "Proposition 3.2 constructs linear m-stage SSP RK methods with CFL coefficient one; no vertex-dependent one-way-cycle class or sharp 2.785 gain.",
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "24-page lawful PDF; title/date, abstract, introduction, §2.2 and §3 linear SSP analysis; pages 1 and 7 viewed in PDF screenshots",
+        "method": "Primary PDF text and selected page-image inspection",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Primary SSP linear Runge–Kutta antecedent"
+      },
+      {
+        "assessment": "GENERAL_THRESHOLDS_NO_SPECIFIC_CYCLE_CLAIM",
+        "evidence": "Studies positivity thresholds over general positive IVP classes and cone-restricted invariance; its examples are linear small-dimensional matrices and diffusion, without the directed-cycle local-window formula.",
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "16-page authorized full-text extraction, specifically title/abstract, §§2–3 threshold definitions and cases, §4 invariant cones and examples; targeted text of pages 1–3, 6–7, 10–15",
+        "method": "Full journal-article text inspection of definitions, theorems, and examples",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Directly relevant study of strict positivity thresholds"
+      },
+      {
+        "assessment": "BROADER_ALGORITHM_NOT_EXACT_SPECIALIZED_RESULT",
+        "evidence": "Theorem 3.3 establishes a valid sufficient threshold for Taylor-approximation invariance; Corollary 1 reduces its computation to polynomial roots but does not identify the exact directed-cycle threshold or strict gain.",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2016/07/5534.pdf",
+        "material_read": "Primary lawful PDF §1 and §3.1–3.2, including Lemma 3.2, Theorem 3.3, Corollary 1 and illustrative context; page images 5 and 7 viewed",
+        "method": "Public PDF text and visual source inspection",
+        "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+        "trigger": "Possible dominating general Taylor-polynomial threshold theorem"
+      },
+      {
+        "assessment": "CONTEXT_NOT_COVERING",
+        "evidence": "Discusses positivity and mass preservation, order barriers and new exponential/Patankar methods; no explicit exact RK4 heterogeneous cyclic-rate threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "arXiv full HTML, §1 graph generators, §3 alternative integrators, and numerical comparisons to RK4",
+        "method": "Public arXiv full-text inspection",
+        "title": "Positivity-preserving methods for population models",
+        "trigger": "Non-symmetric graph-Laplacian positivity and RK4 antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36d0a038-ee0c-451f-b837-218d4d2f9338",
+  "value": {
+    "rationale": "A sharp O(n) local formula works for arbitrarily heterogeneous directed Markov cycles, replaces a global matrix positivity test and identifies when and by how much a conventional Euler positivity bound may be exceeded. The maximum-rate plateau iff criterion and exact defect-contrast failure-mode switch are structural, motivated timestep-design facts; neither is a mere isolated arithmetic example.",
+    "status": "PASS"
+  }
+}
