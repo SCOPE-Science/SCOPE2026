@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The exact geometric-Laplace stationary representation yields the product M_h. Euler--Maclaurin, with uniform first two derivatives for saddle t in compact (0,1), gives K_h=Li_2(t²)/h-log(1-t²)/2+O(h). Positive curvature gives a unique saddle. The product modulus bound (1+e^-1 s²)^-floor(1/h) proves an integrable tilted Fourier majorant, a local Gaussian density and a global O(sqrt(h)) density bound. Exact exponential tilting and dominated convergence yield the entire sharp probability and endpoint factor, uniform on fixed compact y ranges. 48 standalone deterministic checks passed. The numerical checks are non-proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vysotsky, ALEA 18 (2021), theorem 6.1, states a kernel-weighted large deviation principle at logarithmic order; no probability prefactor in that theorem.",
+        "Saulis and Deltuvienė (2008), theorem 2, estimates normalized geometric weighted sums in a moderate-deviation regime; its displayed range is not the fixed-positive tail scale here.",
+        "Aurzada, arXiv:1907.07386, theorem on nonnegative stretched-exponential summands with exponent strictly below one; not directly applicable to two-sided exponential Laplace increments."
+      ],
+      "reasoning": "Broad LDP results may imply the rate component (which is not claimed as separately original). The contribution is the model-specific sharp constant and factor, proved with Fourier inversion beyond their stated logarithmic/moderate regimes. A yet-unidentified sharp triangular-array theorem remains a priority risk.",
+      "searches": [
+        "sharp large deviations for sums of kernel-weighted random variables Vysotsky theorem 6.1",
+        "discounted local limit theorems geometric weighted sums Saulis Deltuviene 2008",
+        "asymptotic geometric sums Laplace random variables exact large deviations saddlepoint prefactor"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2205.03363, stationary distribution and Gaussian crossover",
+      "Vysotsky (2021), ALEA 18 theorem 6.1",
+      "Saulis--Deltuvienė (2008), theorem 2",
+      "arxiv:1907.07386, main theorem assumptions",
+      "Meylahn et al. (2015), publisher abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2205.03363: exact transform and Gaussian stationary-shape limit already imply premises, not the displayed tail asymptotic without additional saddlepoint analysis.",
+        "Vysotsky (2021): gives the logarithmic large-deviation rate for applicable kernels, not a sharp endpoint multiplier.",
+        "Saulis--Deltuvienė (2008): same discounts but a narrower moderate regime than the event at order inverse contraction."
+      ],
+      "reasoning": "The claimed probability asymptotic is strictly stronger than a logarithmic LDP because it determines a relative error 1+o(1) and a constant. It is not a routine restatement of the known central limit, though derivation from the known mgf by saddlepoint methods is possible; no inspected stronger published theorem implies it directly.",
+      "searches": [
+        "Diffusion with Partial Resetting Tal-Friedman Roichman Reuveni 2205.03363",
+        "Contraction principle for trajectories of random walks and Cramér theorem for kernel-weighted sums",
+        "The discounted local limit theorems for large deviations Saulis Deltuviene"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tal-Friedman--Roichman--Reuveni arXiv:2205.03363 equations (5)-(8): stationary geometric symmetric-Laplace series and characteristic product; no sharp stationary rare-tail theorem located in inspected article sections.",
+        "Saulis--Deltuvienė 2008, theorem 2: same geometric-discounted sum representation but a normal/moderate asymptotic regime, not the fixed-positive large-deviation distance."
+      ],
+      "reasoning": "The exact weighted-Laplace stationary series and its moment-generating product are equivalent descriptions and fully covered by 2022 prior work. The new statement requires the exponent at displacement proportional to inverse contraction, the explicit square-root prefactor and compact-uniform relative asymptotics. Neither inspected equivalent form states that combined theorem.",
+      "searches": [
+        "\"Diffusion with Partial Resetting\" large deviation tail dilogarithm",
+        "asymptotic geometric sums Laplace random variables exact large deviations saddlepoint prefactor",
+        "partial stochastic resetting Brownian stationary position extreme tail sharp prefactor dilogarithm geometric Laplace series near contraction one large deviations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original stationary moments and kurtosis in arXiv:2205.03363 do not tabulate rare-tail rates or the full prefactor.",
+        "Search results for sharp geometric random sums concern random summation counts or central Laplace-law convergence, not this infinite weighted series."
+      ],
+      "reasoning": "No exact table or previously published theorem with both the dilogarithmic rate and prefactor was identified; negative search results alone do not certify novelty.",
+      "searches": [
+        "partial resetting Brownian large deviations exponential tail small partial resetting",
+        "dilogarithm saddlepoint tail of geometric sum of independent Laplace variables",
+        "\"Diffusion with Partial Resetting\" large deviation tail dilogarithm"
+      ]
+    },
+    "rationale": "The 2022 model, stationary geometric-Laplace representation, its transform and Gaussian limit are credited to their source. Vysotsky 2021 covers LDP rate-level information, while Saulis--Deltuvienė 2008 covers moderate deviations for the same geometric discounts. The new assessed theorem is the model-specific explicit dilogarithmic rate WITH its uniform sharp relative tail and square-root prefactor. No inspected publication supplies this complete claim; unidentified general sharp triangular-array results remain a publication-priority risk.",
+    "residual_risks": [
+      "General strong/saddlepoint large-deviation theorems for weighted triangular arrays could implicitly encompass the sharp prefactor.",
+      "A precise dedicated stationary partial-reset tail asymptotic in an unlocated follow-up publication may exist.",
+      "Priority and correctness have not undergone independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the model, transform, Gaussian crossover and stationary moments, not the stated fixed-positive-displacement sharp tail with endpoint multiplier",
+        "evidence": "arXiv:2205.03363, stationary independent Laplace series equations (5)-(8), variance and kurtosis equations (9)-(11), Gaussian limiting discussion equations (12)-(13).",
+        "identifier_or_url": "https://arxiv.org/pdf/2205.03363",
+        "material_read": "Primary full-text equations (5)--(13), central stationary distribution discussion, Gaussian limiting crossover and supplemental result sections",
+        "method": "Read open-access preprint PDF and page images; compared stationary tail observables and scales",
+        "title": "Diffusion with Partial Resetting",
+        "trigger": "Exact same Poisson contraction Brownian model and stationary geometric-Laplace law"
+      },
+      {
+        "assessment": "Provides exponential/logarithmic large-deviation results, not the relative sharp probability tail constant for the infinite geometric array",
+        "evidence": "Vysotsky (2021), ALEA 18, theorem 6.1, section 6.",
+        "identifier_or_url": "https://alea.impa.br/articles/v18/18-42.pdf",
+        "material_read": "Theorem 6.1 and assumptions on the weighting kernel and corresponding rate statement",
+        "method": "Read open-access PDF text and inspected theorem page image",
+        "title": "Contraction principle for trajectories of random walks and Cramér’s theorem for kernel-weighted sums",
+        "trigger": "Generic LDP for deterministic kernel-weighted sums could dominate the rate component"
+      },
+      {
+        "assessment": "Same weighted-sum object in broader class, but displayed normal/moderate asymptotic does not imply the present full strong-deviation prefactor",
+        "evidence": "Saulis and Deltuvienė (2008), theorem 2: discounted Gaussian/moderate zone.",
+        "identifier_or_url": "https://journals.vu.lt/LMR/en/article/download/18152/17326/30771",
+        "material_read": "All five PDF pages including definitions of geometric weighted sums and theorem 2 with deviation range",
+        "method": "Read open-access PDF and inspected theorem page image",
+        "title": "The discounted local limit theorems for large deviations",
+        "trigger": "Prior work uses exactly geometric-discounted independent summands"
+      },
+      {
+        "assessment": "Nonnegative stretched-exponential summands with tail exponent below one: hypotheses exclude two-sided exact exponential Laplace summands",
+        "evidence": "Aurzada (2019), arXiv:1907.07386, main theorem assumptions.",
+        "identifier_or_url": "https://arxiv.org/pdf/1907.07386",
+        "material_read": "Theorem statement and main assumptions from preprint introduction",
+        "method": "Read open-access preprint PDF and theorem page image",
+        "title": "Large deviations for infinite weighted sums of stretched exponential random variables",
+        "trigger": "Infinite weighted sum large-deviation theorem with possible dominance"
+      },
+      {
+        "assessment": "Addresses long-time additive observables, not the stationary weak-contraction position tail; no directly deciding comparison",
+        "evidence": "Meylahn, Sabhapandit and Touchette (2015), abstract.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.062148",
+        "material_read": "Abstract and publication description",
+        "method": "Reviewed publisher abstract only; full text not asserted inspected",
+        "title": "Large deviations for Markov processes with resetting",
+        "trigger": "Potential broader stochastic resetting large-deviation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a74f479-0e0e-4b42-ad9e-0992f0718e73",
+  "value": {
+    "rationale": "The known central Gaussian crossover says little about stationary displacements of order 1/h. The exact rate interpolates between quadratic and linear regimes and the sharp sqrt(h) multiplier quantifies rare-displacement probability with relative, not logarithmic, accuracy. The result is a motivated physical extreme-statistics law, not a renaming or finite recomputation.",
+    "status": "PASS"
+  }
+}
