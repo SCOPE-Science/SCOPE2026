@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. It uses only the standard library and takes a few seconds on an ordinary machine. It independently builds the facet list from all vertex triples, computes 20,000 direct planar convex hulls, checks the analytic sign regime on all directions, compares the exact probabilities with separate angular quadrature, and compares the mean with the edge-by-edge exterior dihedral-angle identity.
+## correctness
 
-The successful run produced probability values \(0.356758138764323\), \(0.600915394900956\), \(0.011795388796147\), and \(0.030531077538575\) for five through eight vertices. The absolute difference between exact formulas and numerical angular quadrature was below \(8\times 10^{-11}\), and the independent mean and four-outcome mean matched to displayed precision.
+PASS
 
-# Proof boundary
+The equal-edge coordinates and explicit ten outward facet normals induce all silhouette vertices by mixed signs among incident faces for generic directions. Four sign thresholds in the 0<φ<π/4 sector yield the five w-intervals with 6,5,6,7,8 vertices. Spherical area integration using F(w)=w/sqrt(1+w²) and G gives all four formulas, total one; the independent exterior dihedral-angle mean agrees. A separately written projected-hull test agreed with facet-regime classification on 2500 uniformly generated directions and direct quadrature reproduces the four decimals. Exceptional normals are measure-zero and numerical tests are supplementary only.
 
-The universal result is established by the exact facet normal table, exhaustive sign regime division and elementary spherical integration in `RESULT.md`. The program is finite diagnostic verification, not a substitute for these steps or a certification of historical novelty. Independent audit: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+The uniform square antiprism is a canonical Archimedean solid. Its exact *joint* four-outcome silhouette law, including the rare positive heptagon probability, is a natural benchmark not determined by the classical first-moment exterior-angle formula. Fixed edge-uniform geometry is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
