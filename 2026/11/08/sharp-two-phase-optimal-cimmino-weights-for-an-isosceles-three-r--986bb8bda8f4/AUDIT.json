@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The positive Gram determinant and signed eigenvalue region were checked. Convexity under orthogonal swapping yields global symmetry reduction, and the exact 2+1 eigenvalues give a scalar ratio minimization. The 2x2 condition number has unique minimum \\(q=1+d\\); the other eigenmode is fixed at 1-d. Their unique crossing produces the stated threshold, and common scaling realizes the bound. Boundary agreement and 24,005 independent finite numerical comparisons were checked; numerical checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu et al arXiv:2209.00809 Sections 1-4 derives generic quasi-convex/SDP formulations and algorithms.",
+        "Sharma arXiv:2605.24692 Theorem 5 yields best common multiplier only, not best ratio among three weights.",
+        "Demmel doi:10.1137/22M1504901 abstract addresses block-Jacobi near-optimal scaling."
+      ],
+      "reasoning": "Generic algorithms have broader domains but require solving a matrix-specific numerical optimization problem. They do not state the closed algebraic optimum and switching threshold for the current symmetric three-row family; the claimed new information is that closed classification rather than existence of an optimizer.",
+      "searches": [
+        "Optimal diagonal scaling 3x3 positive definite correlation matrix equicorrelated two entries equal c, one d, condition number equalize eigenvalues; closed form c squared = 2 d squared/(1+d)",
+        "optimal diagonal preconditioning positive definite matrices minimum spectral condition number 3x3 correlation matrix symmetrization",
+        "\"three by three\" \"optimal diagonal scaling\" spectral condition number explicit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.24692 (full open text)",
+      "arxiv:2209.00809 (full open text)",
+      "doi:10.1137/22M1504901 (abstract/reference list)",
+      "doi:10.1137/0722005 (abstract/reference list)",
+      "doi:10.1016/S0024-3795(01)00412-8 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharma arXiv:2605.24692 eqs. (3)-(12) provide the common-scale formula, but q remains free for n=3.",
+        "Qu et al arXiv:2209.00809 develops optimal diagonal preconditioning via SDP without family-specific analytic evaluation.",
+        "Shapiro doi:10.1137/0722005 abstract mentions closed-form solutions for some special cases without identifying the current family."
+      ],
+      "reasoning": "Neither fixed-ray minimization nor a general SDP algorithm alone contains the explicit crossing \\(q=d(1-d)/(d-c^2)\\) and threshold \\(c^2=2d^2/(1+d)\\); the new proof supplies a nontrivial active-eigenmode comparison. A classical special-case theorem with full coverage could still subsume the result, hence historical risk is explicit.",
+      "searches": [
+        "Weighted reflection Cimmino overrelaxation 3 equations global minimum spectral radius diagonal positive weights; two-fold symmetric row normals",
+        "\"Optimal Block Diagonal l_2-Scaling of Matrices\" pdf Shapiro 1985",
+        "Cimmino method optimum relaxation weights three equations spectral radius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharma arXiv:2605.24692 Theorems 2, 3 and 5 treat two-row optimum and general-ray scaling, not three-row ratio optimization.",
+        "A 3x3 positive definite diagonal congruence scaling is the precise equivalent matrix formulation; Qu et al arXiv:2209.00809 treats generic SDP solution, not the explicit family."
+      ],
+      "reasoning": "The output is a formula for the exact optimizer for every parameter in a geometric 2-parameter family. The equivalent matrix-scaling task occurs in generic prior numerical methods, but no reviewed source states or immediately yields its specific two-phase analytic optimizer.",
+      "searches": [
+        "Three-row Cimmino simultaneous projection method exact optimal positive weights for isosceles Gram matrix pairwise correlations c,c,d; two-phase spectral active-set transition",
+        "Weighted reflection Cimmino overrelaxation 3 equations global minimum spectral radius diagonal positive weights; two-fold symmetric row normals",
+        "\"Cimmino\" \"three\" \"optimal weights\" convergence",
+        "\"isosceles\" \"optimal diagonal scaling\" \"condition number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record query returned related but materially different weight optimization, e.g. SCOPE-exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7, involving cyclic shifts and numerical radius, not Cimmino projections.",
+        "Accessible local earlier-claim identifiers and statements were scanned for Cimmino, isosceles, weighted reflection and three-row spectral scaling; no matching prior theorem was found."
+      ],
+      "reasoning": "Exact parameter search and semantic similarity of the published record found no matching mathematical object with the same optimization and two regimes. The database partition is not a uniqueness proof.",
+      "searches": [
+        "Three-row Cimmino simultaneous projection method exact optimal positive weights for isosceles Gram matrix pairwise correlations c,c,d; two-phase spectral active-set transition",
+        "Optimal diagonal scaling 3x3 positive definite correlation matrix equicorrelated two entries equal c, one d, condition number equalize eigenvalues; closed form c squared = 2 d squared/(1+d)",
+        "\"Sharma\" \"Cimmino\" \"n=3\" \"weights\""
+      ]
+    },
+    "rationale": "The explicit three-row, two-branch global weight-ratio optimizer and its sharp spectral-mode switch are not present in the fully inspected recent Cimmino source, whose general-n theorem optimizes only a fixed weight ray. General prior diagonal preconditioning algorithms do not state the closed form. Classical optimal-scaling special cases, especially older inaccessible full texts, remain a residual historical priority risk; this is best-knowledge originality, not proven uniqueness.",
+    "residual_risks": [
+      "Shapiro (1985) expressly discusses closed-form optimal symmetric scaling special cases, but its full text could not be inspected; an equivalent statement or a dominating special-case theorem may exist.",
+      "Kolotilina (2002) characterizes best conditioned block matrices, but only abstract material was accessible.",
+      "Indexed and semantic searches cannot rule out all older books, unnamed matrix inequalities or unindexed equivalent formulations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING explicit 3x3 two-phase weight-ratio optimization",
+        "evidence": "Theorems 2-3 treat n=2; Theorem 5 optimizes a scalar multiple of a fixed weight vector in any n.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.24692",
+        "material_read": "Full accessible paper: sections 1-5, theorems 1-5, eqs (3)-(12), references",
+        "method": "Full open-access HTML text",
+        "title": "Sharp Convergence Rates and Optimal Weights for Cimmino's Reflection Algorithm",
+        "trigger": "Direct recent originating paper on weighted Cimmino contraction"
+      },
+      {
+        "assessment": "NOT_COVERING stated closed-form isosceles three-row switch; algorithmic scope is broader",
+        "evidence": "Sections 1-4 and Theorems describe generic quasi-convex/SDP computational methods, not explicit parameter formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Full accessible preprint: introduction, formulations, principal results, numerical examples, proof sections",
+        "method": "Full open-access HTML text",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Same spectral condition optimization via diagonal congruence"
+      },
+      {
+        "assessment": "No three-row closed formula in inspected material; cannot assert full-text noncoverage",
+        "evidence": "Abstract describes a norm-dependent approximation bound and block-Jacobi generalization.",
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Public abstract, metadata and bibliography; full text restricted",
+        "method": "Publisher abstract and reference comparison",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "General best diagonal/block condition-number bounds"
+      },
+      {
+        "assessment": "UNRESOLVED plausible source; older closed-form special cases may overlap",
+        "evidence": "Abstract explicitly mentions some closed-form special-case solutions but does not specify present Gram family.",
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Public abstract, metadata, references; the paper itself inaccessible",
+        "method": "Abstract + bibliographic record; institutional access attempted but not available",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Plausible older theorem with closed-form optimal scalings in special cases"
+      },
+      {
+        "assessment": "UNRESOLVED possible general optimality characterization; no exact family evaluated in inspected text",
+        "evidence": "Abstract concerns characterization of optimally conditioned Hermitian positive-definite block matrices.",
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Public abstract and bibliographic entries only",
+        "method": "Publisher-indexed abstract and related reference inspection",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "Plausible general characterization of best-conditioned block matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "986bb8bd-a8f4-4eb6-b864-45572585e09a",
+  "value": {
+    "rationale": "This is the first twofold-symmetric three-row extension beyond the recently solved two-row weight problem. It gives globally optimal constructive positive weights, a sharp and interpretable active-eigenmode transition, and a real convergence-factor improvement (\\(15/29\\) instead of \\((1+\\sqrt 3)/4\\) for an explicit rational example). The geometry is natural and the phase is nontrivial; no larger-dimensional or practical speedup is claimed.",
+    "status": "PASS"
+  }
+}

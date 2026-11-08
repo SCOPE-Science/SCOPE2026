@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** A symmetry-preserving orthogonal transposition and convexity reduce all positive triples to a symmetric representative. Exact diagonalization then reduces the objective to a one-variable condition-number problem whose monotonicity and mode-crossing threshold are proved explicitly. The unique positive symmetric ratio and optimal scale attain the global lower bound. A standard-library verifier executed 24,005 random/threshold comparisons, including the rational witness, but is not used in place of the analytic proof.
+
+**Originality — PASS, qualified.** Sharma (arXiv:2605.24692, full open text, Theorems 1–5) optimizes two-row weights and arbitrary-dimensional common scaling, not the additional ratio of weights for the three-row symmetric geometry. Qu et al. (arXiv:2209.00809, full open text) provide general optimization methods but not this explicit phase law. Published related scaling results by Demmel, Shapiro and Kolotilina were compared where accessible. No identical threshold or closed-form three-row statement was identified in targeted published and mathematical-record searches. The full text of Shapiro's 1985 special-case results and Kolotilina's 2002 work was not obtained; equivalence to an older optimal-scaling case is a residual priority risk and no absolute novelty guarantee is asserted.
+
+**Value — PASS.** The first dimension beyond the fully solved two-row case exhibits a genuine switch between two distinct spectral constraints, giving explicit globally best weights and a sharp factor for a canonical twofold-symmetric overlap family. This is a directly usable convergence diagnostic, not merely an example of applying a generic optimizer. For \((d,c)=(1/2,1/4)\), exact optimization improves the factor from \((1+\sqrt3)/4\) to \(15/29\). Extension to arbitrary nonsymmetric Gram matrices remains open here.
+
+Self-review: passed. Independent audit: not yet performed.
