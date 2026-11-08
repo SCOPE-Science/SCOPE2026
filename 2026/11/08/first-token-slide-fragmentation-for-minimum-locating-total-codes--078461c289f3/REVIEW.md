@@ -1,0 +1,15 @@
+# Scientific comparison and review
+
+## Correctness (C): PASS
+The finite theorem is exhaustive, with exact vertex indexing, the open-neighborhood total-domination condition, and distinctness required only among unselected vertices. For the two specified cases, the candidate universe has \(2^9=512\) and \(2^{12}=4096\) subsets; the routines test each cardinality until minimality. The Python implementation gives 81 and 120 minima, respectively; a separate C++ implementation reproduces these numbers and the edge/component tallies. A complete coordinate map of all 120 minima checks the disjoint model graphs \(4(C_3\square C_6)\sqcup6C_8\), not merely their orders. Direct breadth-first searches establish connectivity and diameters. The result is finite, not a claim for every toroidal grid.
+
+## Originality (O): PASS, with historical priority uncertainty
+The 2014 Xing–Sohn paper directly treats \(C_3\square C_n\), and its cardinality theorem already gives the two scalar minima; neither scalar is claimed new. Its Theorem 2.2 explicitly constructs small locating-total dominating sets, and its Theorem 3.2 gives the exact minimum size. The inspected substantive portions do not provide the precise 120-state slide graph, its decomposition into four products and six cycles, or the contrasting token-jump connectivity. This assessment is limited by an unavailable intermediate page; it is not a purported whole-document noncoverage certificate. Mynhardt–Teshima (2017), Section 3, defines locating-total minimum-set reconfiguration and shows universal realizability by constructing other host graphs. A realizability theorem does not imply the stated isomorphism type for this specific host. Search comparisons considered token-sliding, minimum-code exchange, locating-total and identifying-code aliases and published research records. No exact or stronger implication was found in accessible sources; search absence cannot rule out unindexed finite enumerations.
+
+## Value (V): PASS
+The first two cases are a natural sharp small-order boundary, not an arbitrary set of parameters: \(C_3\square C_3\) is the initial member, and \(C_3\square C_4\) is the first nonsquare toroidal member. Their known equal-type minimum-location problem differs substantially in optimal reconfiguration: sliding changes from connected to ten components, while arbitrary one-monitor replacement remains connected. Identifying those components as four Cartesian products and six cycles gives a structural invariant rather than a raw cardinality. Such exact first-boundary behavior informs the study of local mobility obstructions for identifying/monitoring configurations in larger toroidal networks. The result does not claim a general classification.
+
+## Risks and limitations
+The finite proof depends on ordinary executable programs and a deterministic finite coordinate certificate; no independent scholarly audit has been performed. One intermediate page of the 2014 article was inaccessible during review; wider indexing and unpublished computations may alter priority. The present claim applies only to \(n=3,4\).
+
+Self-review: passed. Independent audit: not yet performed.
