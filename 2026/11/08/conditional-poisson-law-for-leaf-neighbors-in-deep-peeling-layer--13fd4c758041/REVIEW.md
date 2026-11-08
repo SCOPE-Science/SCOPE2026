@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Yule fringe construction, independent thinning of child branches into leaf and deep-height categories (which are disjoint for layer thresholds at least two), and the exponentially stopped first-born path yield the explicit conditional probability mass function and the quantitative total-variation bound. A bounded-differences truncation and root-boundary comparison give almost-sure empirical convergence. The finite standalone checker passed 53,374 assertions, including exhaustive trees up to eight vertices, numeric calibration and reproducible simulation. Experiments alone are not used as proofs of asymptotic limits.
+
+**Originality — PASS, subject to historical-priority risk.** The 2026 Stepanyants–Krapivsky–Hartle–Krioukov article gives separate marginal rank and peeling-layer laws, not the new full conditional leaf-child-count mixture or its high-layer Poisson limit in the inspected sections. The older Devroye–Janson paper establishes the Yule fringe model and standalone protected-node calculations but not the layer-conditioned distribution. Search comparisons also found no directly subsuming statement. Generic fringe-tree convergence by itself does not imply the displayed quantitative high-layer bound without the joint thinning and age-concentration argument. Broader literature could contain an equivalent; novelty cannot be absolutely certified by absence from search results.
+
+**Mathematical value — PASS.** The relation of leaf distance (rank) to iterative leaf stripping (layer) is a natural structural question arising from two previously studied marginal statistics. The conditional law gives the full local leaf-count distribution, not only a trivial recombination of means; the striking limiting rank-one frequency of \(1-e^{-1}\) in deep layers contrasts with the known unconditional \(e^{-1}\). The explicit uniform-in-layer bound quantifies this structural change.
+
+**Sources and boundaries.** 2026 primary: arXiv:2608.04303 (rank, layer and recurrence). 2013 primary: arXiv:1310.0665 (Yule fringe limit, protected-node constructions). The theorem concerns a sequential double limit, not simultaneous growth of layer with tree size. No independent audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.

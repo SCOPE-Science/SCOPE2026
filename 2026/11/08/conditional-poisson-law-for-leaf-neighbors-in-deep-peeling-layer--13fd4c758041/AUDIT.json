@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Almost-sure empirical convergence follows from fixed-size fringe truncation, bounded differences, and root-boundary negligibility; conditional Yule Poisson thinning gives the exact joint formula; a gamma first-born path and expected generation counts give the explicit total-variation bound. 53,374 finite checks passed but were not substituted for infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Devroye–Janson: Yule random-recursive-tree fringe limit and protected-node / leaf-child laws",
+        "Stepanyants et al.: separate rank and layer marginals; relevant sections read"
+      ],
+      "reasoning": "General fringe convergence implies existence of finite-depth joint limits after a derived functional, but not the stated Poisson thinning formula conditioned on arbitrary layer h or the explicit uniform high-h TV inequality without an additional argument. Neither inspected source is shown to subsume the complete claim.",
+      "searches": [
+        "random recursive tree joint rank nearest leaf and leaf-peeling layer onion depth at same vertex, rank one among deep layers asymptotic one minus e inverse",
+        "random recursive tree probability rank 1 and layer at least k, Poisson Yule fringe tree leaf child independent of tall descendants",
+        "joint rank and layer distributions of random recursive tree vertices, conditional core periphery closest leaf vs onion layer",
+        "arxiv:1310.0665v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.04303v2 sections on definitions, rank/layer recurrence, leaf peeling",
+      "arxiv:1310.0665v1 sections on fringe Yule tree and protected nodes",
+      "published-finding corpus records 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "published-finding corpus records 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 paper derives layer-tail recursion, not complete joint Poisson-thinning conditional laws",
+        "2013 paper derives Yule embedding and marginal protected-node calculations",
+        "Exact high-layer total-variation rate uses an additional first-born-path lower bound and Markov generation upper bound"
+      ],
+      "reasoning": "Existing statements give necessary mechanisms/marginals, but a marginal law cannot determine the joint distribution. The new claim is not merely a numerical corollary or renaming; deriving it requires independence of disjoint Poisson-thinned categories and a nontrivial conditional age concentration bound.",
+      "searches": [
+        "Yule process stopped exponential fringe height child leaf presence joint distribution",
+        "random recursive tree joint rank nearest leaf and leaf-peeling layer onion depth at same vertex, rank one among deep layers asymptotic one minus e inverse",
+        "random recursive tree probability rank 1 and layer at least k, Poisson Yule fringe tree leaf child independent of tall descendants",
+        "joint rank and layer distributions of random recursive tree vertices, conditional core periphery closest leaf vs onion layer",
+        "random recursive tree fringe tree height leaf children Poisson Yule process exponential stopping time",
+        "arxiv:2608.04303v2",
+        "arxiv:1310.0665v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rank one is the event of at least one original leaf child outside negligible root exceptions",
+        "Layer at least h agrees with rooted-fringe height at least h away from a negligible root neighborhood"
+      ],
+      "reasoning": "Compared nearest-leaf rank, rooted-fringe height, onion-shell leaf stripping and marked-Yule formulations rather than only matching the terms rank/layer. Found close earlier marginal theorems, not the full conditional child-count PMF and quantitative high-layer limit.",
+      "searches": [
+        "random recursive tree joint rank-one leaf-neighbor onion peeling layer at least h exact Yule thinning formula",
+        "random recursive tree joint leaf distance onion depth conditional high-layer 1-exp(-1) probability",
+        "Yule process stopped exponential fringe height child leaf presence joint distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published primary paper gives marginal rank and layer quantities; computed h=2 joint scalar is consistent with combinations of known margins",
+        "No matching complete conditional Poisson-mixture table was recovered by the recorded searches"
+      ],
+      "reasoning": "The scalar h=2 joint rank-one probability is not claimed as independent novelty; the accepted claim is the complete h-parameter conditional count law and explicit deep-layer total-variation convergence. No exact tabulation covering it was found.",
+      "searches": [
+        "random recursive tree joint rank-one leaf-neighbor onion peeling layer at least h exact Yule thinning formula",
+        "random recursive tree joint leaf distance onion depth conditional high-layer 1-exp(-1) probability",
+        "arxiv:2608.04303v2"
+      ]
+    },
+    "rationale": "Relevant original full-text sections inspected: recent rank/layer paper gives marginal distributions; 2013 protected-node paper gives Yule fringe law and separate leaf-child calculations, not layer-conditioned complete PMF or high-layer TV estimate. published-finding corpus searches on aliases/equivalences found nearby but non-dominating records. Residual historical-priority uncertainty is explicitly retained.",
+    "residual_risks": [
+      "An unindexed or not-yet-located result on jointly marked fringe height and leaf-neighbor count might subsume the conditional Poisson formula.",
+      "A general fringe-tree theorem could provide an abstract expectation formula, but the explicit conditional distribution and uniform deep-layer bound were not located.",
+      "Search coverage is not exhaustive; priority is provisional pending independent expert literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Separate marginal rank and layer distributions established; joint conditional leaf-child PMF and high-layer unit-Poisson TV estimate not identified in inspected material",
+        "evidence": [
+          "arxiv:2608.04303v2, introduction and layer/rank derivation; arXiv entry first posted 2026-08-05",
+          "The new statement additionally conditions a complete Poisson leaf-child count distribution on high layer survival"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.04303",
+        "material_read": "Abstract, definitions, layer and rank recurrence statements and relevant derivation sections, with PDF page images checked",
+        "method": "Open primary arXiv PDF; compare marginal recursion against conditional leaf-neighbor count and layer survival",
+        "title": "The rank and layer distributions in random recursive trees",
+        "trigger": "Same recursive-tree object and both rank/layer parameters; plausible coverage of joint question"
+      },
+      {
+        "assessment": "Provides the fringe Yule mechanism and leaf-child Poisson law, not conditional distribution at peeling threshold h≥2 or quantitative h→∞ comparison",
+        "evidence": [
+          "arxiv:1310.0665v1, random recursive tree and protected-node sections",
+          "Older joint-child-category framework supports premises, not the exact claimed conditional/high-layer conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.0665",
+        "material_read": "Fringe-tree theorem and the recursive-tree protected-node/Poisson-child computation section, including relevant PDF page images",
+        "method": "Read arXiv preprint text and compare conditional event and asymptotic h family",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Yule fringe framework and root-leaf-child Poisson intensities could be stronger background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13fd4c75-8041-46f8-9981-42899c763824",
+  "value": {
+    "rationale": "Full local leaf-child distribution conditional on a natural peeling-layer statistic, a sharp contrasting limiting rank-one probability and explicit high-layer TV rate are structurally informative where only separate marginals were previously studied. This is not merely a recomputation of the known one-step incidence probability.",
+    "status": "PASS"
+  }
+}
