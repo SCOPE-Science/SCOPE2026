@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `checker.py` reconstructs all possible selection families for Boolean algebras on one, two, or three atoms, using only the logically forced principal-filter values and free subsets. Every one of the 4,096 three-atom possibilities is checked independently against both the strong-density criterion and direct evaluations of the eight defining identities and inclusions. It verifies the total count, the distribution of 64 reduced combinatorial weights, the functional/nonfunctional split, the fixed-point counts for all six atom permutations, and the number of isomorphism classes. The completed local execution returned `ALL_CHECKS_OK ranks=(1,2,3) candidates=4101 accepted=1235 functional=283 nonfunctional=952 orbits=227`.
+# Independent mathematical audit
 
-The theoretical proof that the candidate family is exhaustive uses the unique principal-filter representation of each consequent-meet-preserving map and the exact equivalence of the fifth preconditional axiom with strong density. The code does not prove this representation lemma; it independently tests the finite instances and the derived numerical counts. Historical priority remains open to further specialist literature review. Independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+The RESULT.md proof identifies the unique principal-filter generator R_A(x) from consequent-meet preservation and Id, and obtains R_A(x) subseteq A; for x in A, P2 and MP force R_A(x)={x}, while R_empty(x)=empty. P5 is equivalent to R_D(x) subseteq union_{y in R_A(x)}R_D(y) for D subseteq A. At three atoms exactly six singleton free bits and three two-element fibers range over 4096 assignments, a complete finite search by this proved parametrization. Independently re-enumerated all configurations from the defining axioms/strong density and obtained exactly 1235 accepted operations, 283 with all fibers of cardinality <=1, 952 others, 35 fixed per transposition and 11 per 3-cycle; Burnside gives 227 isomorphism classes. One- and two-atom exhaustive instances gave 1 and 4 operations and no multivalued free fiber. This is exhaustive for n<=3 only, not a statement for all Boolean algebras.
+
+## originality
+
+PASS
+
+Holliday establishes general preconditional/frame laws, and Chen general finite preconditional logic; neither inspected primary portion enumerates the particular three-atom, Id+MP+N class. A published Resultary finite-chain normal form concerns linearly ordered carriers and does not imply this Boolean census. The operation/fiber enumeration and first multivalued size are assessed original best-of-knowledge, not the strong-density representation itself.
+
+## value
+
+PASS
+
+The exact smallest finite Boolean carrier that forces genuinely set-valued selectors under this natural normality/modus-ponens variety is a structurally motivated threshold. Complete labelled, isomorphism and functional splits discriminate distinct algebraic representations. This is more than a random tiny table: the carrier is the first where a fiber can contain two distinct chosen atoms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
