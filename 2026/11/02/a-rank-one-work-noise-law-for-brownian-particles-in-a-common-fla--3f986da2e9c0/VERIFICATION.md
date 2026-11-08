@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The work-noise identities were checked by substitution into the two-state generator and by independently computing the predictable martingale bracket. Under stationary initialization, the corrected martingale covariance is exactly linear in observation time; a separate covariance-limit argument transfers the rate to physical work. The long-time vector normal limit is derived from ergodic bracket convergence, bounded switching jumps, and square-integrable boundary corrections.
+## correctness
 
-Run `python checker.py` in the same directory to verify the exact generator–corrector and jump cancellation identities, the second-moment equations, all entries of the heterogenous-particle covariance matrix with rational parameters, the identical-particle aggregation algebra, and seeded direct trajectory simulation using exact Gaussian segment transitions. The numerical check uses 18,000 sample paths over time 350 with three unequal particles and switching rate 1.5; its tolerance is a statistical diagnostic only.
+PASS
 
-No numerical sample can certify the infinite-time theorem. Publication-priority review remains non-exhaustive; no independent validation is claimed. The stated Gaussian central limit theorem requires ergodicity and finite stationary fourth moments, supplied by the on/off random affine cycle contraction argument in `RESULT.md`.
+The stationary generator equations for f=X_i² and f=S X_i² give m_{i,1}=D_i/κ_i, m_{i,0}=D_i/κ_i+D_i/q. Predictable jump compensator yields μ_i=κ_iD_i/2. The explicit corrector h_i(0,x)=κ_i x_i²/2, h_i(1,x)=-κ_iD_i/(2q) obeys Lh_i=μ_i-g_i in each state and turns both signed work jumps into the same constant-magnitude q-independent c_i=κ_iD_i/(2q). Thus M_i=W_i-μ_iT+h_i(end)-h_i(start) is a martingale; its continuous quadratic covariation is diagonal (independent Brownian B_i), while shared q-Poisson jumps produce q c_i c_j T deterministically. Stationary isometry gives exact Cov M=T Sigma. Square-integrable stationary boundary corrections are O(1), giving physical-work covariance-rate limit. Ergodic bracket plus bounded jumps gives multivariate martingale CLT. Identical-particle sum yields 2NκD²+κ²D²N(N+8)/(4q). Independently tested nine exact rational generator, moment and bracket identities in three parameter settings; not a substitute for the ergodic limit proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge published-result and primary-literature implication comparison; concrete matching/overlap and residual risks stated, not a novelty certification.
+
+## value
+
+PASS
+
+Shared environmental switching creates strictly positive rank-one cross-work fluctuations despite independent thermal drivers, establishing quantitatively how collective work fails self-averaging and how one can identify a hidden common rate from ideal population moments. This is distinct from stationary position correlation and one-particle mean dissipation, while no finite-sample estimator theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
