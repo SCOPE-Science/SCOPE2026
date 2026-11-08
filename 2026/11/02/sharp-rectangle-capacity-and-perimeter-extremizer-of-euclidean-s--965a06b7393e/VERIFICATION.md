@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The analytic geometric proof in `RESULT.md` establishes the global orientation reduction, uniqueness, and all extremal and monotonicity assertions without reliance on finite computation.
+# Independent mathematical audit
 
-Run `python -m pip install -r requirements.txt` followed by `python checker.py` from a directory containing both files. During preparation the checker printed:
+## correctness
 
-```
-EXACT_PROFILE_DERIVATIVES_AND_SHARP_CONSTANT_PASSED
-INDEPENDENT_FEASIBLE_ROTATED_RECTANGLE_SAMPLING_PASSED
-ALL_CHECKS_PASSED
-```
+PASS
 
-Symbolic checks verify derivative identities and the exact perimeter constant. The independent numerical layer samples 27,000 centered rectangles across six positive aspect ratios and uses stadium membership to rescale them to feasibility. This finite sample is a regression check, not an exhaustive search or independent proof. The analytic proof supplies the universal quantifiers; independent mathematical audit has not been performed.
+Center any contained rectangle by convex symmetric averaging. For centered rectangles, opposite vertex pairs on a radius-rho circle are allowed in two symmetric arcs of half-angle theta(rho), decreasing in rho. Square sector theta>=pi/4 is bounded by the critical axis-aligned square, and theta<pi/4 has unique maximal angular separation at axis-parallel corners. Optimize f(u)=4(a+u)sqrt(r²-u²) with critical 2u²+au=r² and prove uniqueness by strict circular-cap boundary curvature. Substitute s=1/t-2t into J=M/P²; independent symbolic differentiation verified derivative sign switches only at t=2/pi and constant 1/(8sqrt(pi²-4)); the filling-fraction derivative is strictly negative in t, hence increasing in s. Includes a>0 uniqueness and a=0 rotated-square boundary.
+
+## originality
+
+PASS
+
+Generic largest-inscribed-rectangle centering for centrally symmetric convex bodies is established. Polygon algorithms and regular-polygon/rhombus exact findings address geometrically different families, not a stadium with curved caps and its exact sharp global perimeter ratio.
+
+## value
+
+PASS
+
+The stadium is a canonical convex capsule in shape optimization, and unrestricted orientation rigidity plus a sharp scale-free perimeter extremizer and invertible occupied-area fraction are concrete natural exact invariants, rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

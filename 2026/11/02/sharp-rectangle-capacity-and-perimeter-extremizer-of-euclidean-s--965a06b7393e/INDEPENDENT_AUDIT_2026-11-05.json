@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:17:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Center any contained rectangle by convex symmetric averaging. For centered rectangles, opposite vertex pairs on a radius-rho circle are allowed in two symmetric arcs of half-angle theta(rho), decreasing in rho. Square sector theta>=pi/4 is bounded by the critical axis-aligned square, and theta<pi/4 has unique maximal angular separation at axis-parallel corners. Optimize f(u)=4(a+u)sqrt(r²-u²) with critical 2u²+au=r² and prove uniqueness by strict circular-cap boundary curvature. Substitute s=1/t-2t into J=M/P²; independent symbolic differentiation verified derivative sign switches only at t=2/pi and constant 1/(8sqrt(pi²-4)); the filling-fraction derivative is strictly negative in t, hence increasing in s. Includes a>0 uniqueness and a=0 rotated-square boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behroozi Theorem 7 supplies a general centering property; Choi–Lee–Ahn solve rectangle optimization algorithmically for polygons."
+        ],
+        "reasoning": "Those results cover the centering step or different bodies, not the analytic a/r-dependent maximizer/perimeter-normalized sharp constant for a curved stadium.",
+        "searches": [
+          "Resultary: largest area rectangle inscribed stadium perimeter normalized shape optimization uniqueness",
+          "arXiv:1905.13246",
+          "DOI:10.1016/j.comgeo.2020.101710"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.13246 (primary full text)",
+        "DOI:10.1016/j.comgeo.2020.101710 (bibliographic abstract)",
+        "arXiv:1405.1223 (polygon algorithm summary)",
+        "Resultary analogous polygon/rhombus findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Centering of maximizers follows from Behroozi, but the angular-arc bound and calculus optimization specific to stadiums are independent steps."
+        ],
+        "reasoning": "Prior convex-body centering does not imply the stated exact perimeter optimum without further stadium-specific mathematics.",
+        "searches": [
+          "Resultary: largest area rectangle inscribed stadium perimeter normalized shape optimization uniqueness",
+          "arXiv:1905.13246",
+          "arXiv:1405.1223"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General rectangle-in-convex-body and polygon algorithms share an extremal-object vocabulary; stadium Minkowski-sum caps are not polygons and the optimal orientation/shape ratio is a separate analytic assertion."
+        ],
+        "reasoning": "Theorems about arbitrary convex sets give centering or algorithms but do not state the closed stadium capacity formula.",
+        "searches": [
+          "Resultary: largest area rectangle inscribed stadium perimeter normalized shape optimization uniqueness",
+          "arXiv:1905.13246",
+          "arXiv:1405.1223"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed exact maximum-rectangle results concern regular polygons or rhombi, not stadiums."
+        ],
+        "reasoning": "No matching stadium table found; lack of a match does not prove novelty.",
+        "searches": [
+          "Resultary: largest area rectangle inscribed stadium perimeter normalized shape optimization uniqueness",
+          "Resultary: 2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427",
+          "Resultary: 2026/10/11/SCOPE-sharp-two-regime-maximum-area-rectangle-classification-for-rhomb--a38c0b6eabe3"
+        ]
+      },
+      "rationale": "Generic largest-inscribed-rectangle centering for centrally symmetric convex bodies is established. Polygon algorithms and regular-polygon/rhombus exact findings address geometrically different families, not a stadium with curved caps and its exact sharp global perimeter ratio.",
+      "residual_risks": [
+        "Possible earlier specialized stadium/capsule analytic optimization not discovered.",
+        "Numerical rotation sampling is not a proof of orientation optimality; relies on the angular-arc bound and curvature argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General centering used as prior art; no stadium-wide sharp formula found",
+          "evidence": "Theorem 7 centeredness in centrally symmetric convex bodies.",
+          "identifier_or_url": "arXiv:1905.13246",
+          "material_read": "Full preprint including Theorem 7 and discussion of centered maximal rectangles",
+          "method": "Full PDF text/page inspection",
+          "title": "Largest Inscribed Rectangles in Geometric Convex Sets",
+          "trigger": "central symmetry of the same optimization"
+        },
+        {
+          "assessment": "Polygon algorithm, curved stadium not directly covered",
+          "evidence": "Geometric input is polygonal.",
+          "identifier_or_url": "DOI:10.1016/j.comgeo.2020.101710",
+          "material_read": "Published title and abstract/scope, not full paper",
+          "method": "Bibliographic/abstract inspection",
+          "title": "Maximum-area and maximum-perimeter rectangles in polygons",
+          "trigger": "possible stronger exact rectangle algorithm"
+        },
+        {
+          "assessment": "Regular polygon exact value, not stadium",
+          "evidence": "Polygon family area formula.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-maximum-area-rectangles-in-every-regular-even-polygon--10bad5e59427",
+          "material_read": "Published finding title and exact summary",
+          "method": "Resultary indexed search",
+          "title": "Exact maximum-area rectangles in every regular even polygon",
+          "trigger": "Resultary thematic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1905.13246 (primary full text)",
+        "DOI:10.1016/j.comgeo.2020.101710 (bibliographic abstract)",
+        "arXiv:1405.1223 (polygon algorithm summary)",
+        "Resultary analogous polygon/rhombus findings"
+      ],
+      "rationale": "The stadium is a canonical convex capsule in shape optimization, and unrestricted orientation rigidity plus a sharp scale-free perimeter extremizer and invertible occupied-area fraction are concrete natural exact invariants, rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "Possible earlier specialized stadium/capsule analytic optimization not discovered.",
+        "Numerical rotation sampling is not a proof of orientation optimality; relies on the angular-arc bound and curvature argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible earlier specialized stadium/capsule analytic optimization not discovered.",
+    "Numerical rotation sampling is not a proof of orientation optimality; relies on the angular-arc bound and curvature argument.",
+    "Exact source tree was read via Git tree API and matched assignment SHA; all direct files were identified by Git blobs. Finite independent tests cannot replace infinite arguments."
+  ],
+  "schema_version": 1
+}

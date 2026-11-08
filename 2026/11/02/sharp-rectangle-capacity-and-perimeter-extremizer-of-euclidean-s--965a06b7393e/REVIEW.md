@@ -1,14 +1,21 @@
-# Review of the stadium rectangle-capacity theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every nondegenerate rectangle is reduced without area loss to a centered congruent rectangle by central symmetry. The equal-radius diagonal representation parameterizes all centered rectangle orientations, and the two-arc structure on concentric circles bounds all rotations by axis-parallel candidates. One strictly unimodal scalar function then yields the unique maximum-area rectangle, including off-center rigidity from strict curvature at all contact corners. Exact symbolic derivatives prove the sharp fixed-perimeter inequality and the strictly increasing filling fraction. The standalone checker verifies the required symbolic identities and independently tests feasible rotated rectangles. The simulation does not establish a theorem on its own.
+## correctness
 
-## Originality
-**PASS, provisionally.** The closest full-text source, Behroozi (arXiv:1905.13246, Sections 3.2–3.3), already proves the centeredness theorem and discusses general optimization models; this is explicitly credited. The tested statements of Choi–Lee–Ahn (2021) and Cabello et al. (arXiv:1405.1223) concern polygon algorithms rather than an unrestricted analytic stadium shape theorem. Searches using stadium, discorectangle, obround, capsule, sausage body, rotated inscribed rectangle, aspect-ratio inversion, and the exact perimeter constant did not reveal the present complete profile or sharp inequality. This is not a proof that no earlier equivalent special-case treatment exists.
+PASS
 
-## Mathematical value
-**PASS.** The container is a natural planar Minkowski sum (a segment plus a disk); optimizing the largest inner rectangle is a standard geometric approximation objective. The result goes beyond finding a rectangle in one fixed example: it proves global orientation and center rigidity, determines the whole positive-aspect family, identifies a unique *noncircular* fixed-perimeter optimum with an exact constant, and shows that a measurable shape-occupancy ratio uniquely encodes the aspect ratio. These features are motivated sharp geometric invariants, not a substitution into an existing general formula.
+Center any contained rectangle by convex symmetric averaging. For centered rectangles, opposite vertex pairs on a radius-rho circle are allowed in two symmetric arcs of half-angle theta(rho), decreasing in rho. Square sector theta>=pi/4 is bounded by the critical axis-aligned square, and theta<pi/4 has unique maximal angular separation at axis-parallel corners. Optimize f(u)=4(a+u)sqrt(r²-u²) with critical 2u²+au=r² and prove uniqueness by strict circular-cap boundary curvature. Substitute s=1/t-2t into J=M/P²; independent symbolic differentiation verified derivative sign switches only at t=2/pi and constant 1/(8sqrt(pi²-4)); the filling-fraction derivative is strictly negative in t, hence increasing in s. Includes a>0 uniqueness and a=0 rotated-square boundary.
 
-The theorem does not cover general rounded rectangles, noisy inversion, or arbitrarily asymmetric convex containers. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic largest-inscribed-rectangle centering for centrally symmetric convex bodies is established. Polygon algorithms and regular-polygon/rhombus exact findings address geometrically different families, not a stadium with curved caps and its exact sharp global perimeter ratio.
+
+## value
+
+PASS
+
+The stadium is a canonical convex capsule in shape optimization, and unrestricted orientation rigidity plus a sharp scale-free perimeter extremizer and invertible occupied-area fraction are concrete natural exact invariants, rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
