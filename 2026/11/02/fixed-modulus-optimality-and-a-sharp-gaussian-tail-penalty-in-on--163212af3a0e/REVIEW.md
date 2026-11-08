@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Statement reviewed:** Fixed-modulus optimality and a sharp Gaussian tail penalty in one-vector range finding. The sole accepted claim comprises the all-dimensional aligned one-vector iid fixed-magnitude optimality identity with equality cases, together with its exact one-spike Gaussian-versus-sign power-iteration asymptotics. Source window is anchored by Saibaba–Międlar's arXiv first posting on 2023-08-10.
+## correctness
 
-## Correctness: PASS
+PASS
 
-The proof specifies \(m\ge d\ge3\), \(q\ge0\), positive singular squares, and nonzero iid centered unit-variance real probes. Projector algebra gives a bounded quotient of weighted squared probe entries. Exchangeability produces the exact pairwise positive gap, including strictness. Independent Gaussian chi-squares yield the beta representation on the spike; an explicit integrable envelope justifies the large-power limit with its exact Gamma constant. A dependency-free Python checker passes 621 exact and numerical test groups. No finite test is treated as an infinite proof.
+For A=U diag(sqrt(a_i)) with right singular vectors coordinate-aligned, a_i>0, d≥3, q≥0, one iid nonzero centered unit-variance real probe, the one-column projection residual is ∑a_i−∑a_i b_iW_i/∑b_iW_i, b_i=a_i^(2q+1). Swap-symmetrization of exchangeable positive W_i shows α_j−α_i=(b_i−b_j)E[(W_i−W_j)^2/(2SS_swap)], giving the claimed sum of nonnegative pair terms and strict equality cases. Finiteness requires only E W_i=1 and S>0, not 4th moments. In spike family H=L^(2q+1), sign excess=(L−1)(d−1)/(H+d−1), Gaussian excess=(L−1)E[(1−T)/(1+(H−1)T)] with T~Beta(1/2,(d−1)/2). Dominated convergence under u=Ht yields sharp H^(−1/2) constant. Independently enumerated 18 positive finite-law products with exact fractions and checked pairwise identity.
 
-## Originality: PASS, with priority risk
+## originality
 
-Saibaba–Międlar (arXiv:2308.05814v1) introduce the relevant beyond-Gaussian randomized low-rank setting, derive broader bounds, and examine sign probes but do not derive the claimed all-iid exact signed-magnitude comparison and power-exponent separation in the inspected full text. Diouane et al. (arXiv:2206.08793v2) provide Gaussian mean/covariance error bounds. Epperly–Webber (arXiv:2605.19096v2) prove sharp rotation-invariant minimax statements over adversarial matrices, not pointwise optimal iid magnitudes on a fixed aligned matrix; their relevant sharp minimax bound moreover excludes a one-column sketch. Related earlier two-dimensional no-power facts are not claimed as new. Exact ratios of exchangeable normalized weights may exist under different terminology; no publication-priority certification is asserted, and a relevant 2018 canonical-angle text was only partly accessible.
+PASS
 
-## Value: PASS
+Exact distribution-free one-column aligned iid sign-optimality and Gaussian one-spike excess exponent are not the same as high-probability error bounds for general sketches or rotation-invariant adversarial minimax bounds. The inspected full Saibaba–Międlar analysis covers bounded/subGaussian probes and oversampled methods, not this complete fixed-matrix optimality identity; priority of an earlier exchangeability inequality remains qualified.
 
-This gives a reproducible, dimension-uniform design principle for the most basic nontrivial randomized range-finding step, quantifies all competing iid probe laws with one nonnegative certificate, and exhibits an explicit near-gap convergence-exponent difference between signs and Gaussian probes after power iteration. The result cannot be extrapolated to arbitrary singular-vector orientations or multi-column sketches; these restrictions appear in the scientific statement and proof.
+## value
 
-## Scope and reproducibility
+PASS
 
-Reproduce using `python3 verify.py` from the complete package. The exact finite enumeration checks the swap identity and equality cases; sampled Gaussian comparisons and numerical integrals are diagnostics only. The proof establishes all unbounded dimensions, positive singular spectra and power indices. Literature overlap remains a qualified risk; no independent review was undertaken.
+A genuine design rule for the simplest randomized subspace-iteration building block: constant-magnitude sign probes minimize expected squared error for fixed aligned spectra, with quantified excess of all competing iid magnitudes and a sharp Gaussian power-iteration decay penalty. The alignment and one-column restrictions are explicit mathematical boundaries.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
