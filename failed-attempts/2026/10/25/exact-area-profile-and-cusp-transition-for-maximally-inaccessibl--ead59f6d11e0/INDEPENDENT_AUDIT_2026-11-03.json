@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T06:14:44.195389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md git blob 34f2a6766d13bb5565bd781b5a0fdc2c6f1efc55",
+        "Assigned rectangle_chord_profile_check.py git blob 004653b20a7c6734653459b4129c2d829fad7f09",
+        "Independent quadrature and asymptotic check using SciPy (2026-11-03 UTC)"
+      ],
+      "rationale": "At Q_h=(0,h)x(0,1), vertical chords show r<=1. Every chord of length <1 must join adjacent sides because opposite-side chords have length >=1. Minimizing u²+v² for x/u+y/v=1 yields (x^(2/3)+y^(2/3))^3 and intercepts u=(x^(2/3)+y^(2/3))x^(1/3), v=...y^(1/3); if the minimum is <1, the intercepts fit the rectangle. The four-corner criterion, reflection, cutoff a, and integral follow. Substituting x=cos³t yields H(t)=3∫_0^t sin⁴s cos²s ds. Differentiating A and comparing a strictly increasing integrand proves (A/h)′>0; H~3t^5/5 and t~sqrt((2−h)/3) give the stated 4/(15sqrt3) coefficient and C² but not C³ regularity. Fresh independently written SciPy quadrature at h=1,1.25,1.5,1.9,1.99,2,2.1,3,20 agrees with H-formula within 3.3e−12, and ε=.1,.01,.001 scaled cusp quotients converge to 0.1539600718. These checks do not prove the infinite claim; the analytic reasoning does.",
+      "residual_risks": [
+        "The self-supplied angular-grid and Monte Carlo experiment are bounded corroboration only; not used as proof.",
+        "Boundary r(p) values are not assumed: area is computed on interior and closing the locus changes no measure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "M. Calvo and V. Muñoz, The most inaccessible point of a convex domain, arXiv:1009.2948v1 (2010), Lemma 6.1, Corollary 6.2 and Fig. 5, pages 10–12, https://arxiv.org/pdf/1009.2948",
+          "Corollary 6.2 treats all convex polygons, specializing exactly to rectangles; the rectangle passage states shorter-side maximum and transition at aspect ratio 2."
+        ],
+        "reasoning": "The established broader bow-region theorem fixes the complete rectangle locus at every aspect ratio, from which the submitted area function and endpoint behavior follow by one-dimensional quadrature and Taylor expansion. The prior article does not print the closed area or 5/2 coefficient, so the exact numerical expression is not copied, but the mathematical structure and transition are direct elementary consequences.",
+        "searches": [
+          "arXiv:1009.2948v1, Proposition 3.3, Lemma 6.1, Corollary 6.2, rectangle passage after Fig. 5",
+          "Resultary: Calvo Munoz inaccessible points in rectangles exact formula for area of I_D"
+        ]
+      },
+      "checked_sources": [
+        "M. Calvo and V. Muñoz, The most inaccessible point of a convex domain, arXiv:1009.2948v1 (2010), Lemma 6.1, Corollary 6.2 and Fig. 5, pages 10–12, https://arxiv.org/pdf/1009.2948",
+        "Resultary published-finding similarity search, three targeted searches (2026-11-03 UTC)",
+        "Targeted web queries for maximal shortest-chord rectangle area, no independent exact table found"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M. Calvo and V. Muñoz, The most inaccessible point of a convex domain, arXiv:1009.2948v1 (2010), Lemma 6.1, Corollary 6.2 and Fig. 5, pages 10–12, https://arxiv.org/pdf/1009.2948",
+          "For a rectangle Q_h, the prior bow leads to A(h)=4∫_a^{min(h/2,1)}(1/2−(1−x^(2/3))^(3/2))dx+(h−2)_+, where a=(1−2^(−2/3))^(3/2). The claimed H primitive is elementary. At h↑2, H(t)~3t^5/5 and t~sqrt((2−h)/3)."
+        ],
+        "reasoning": "The same full geometric locus and h=2 contact event were established in 2010; the proposed formula, normalized monotonicity and 5/2 cusp are then direct elementary integration, a monotone-integrand inequality, and the first nonzero Taylor term at a known contact. Under the requirement to recognize corollaries of stronger earlier work even without matching final numbers or wording, this does not establish an independent original theorem.",
+        "searches": [
+          "Read arXiv:1009.2948v1 complete §6 including right-angle bow formula, Cor. 6.2 and rectangle contact discussion",
+          "Resultary: Area of maximal inaccessibility locus I_D in rectangle for minimum full boundary chord, astroid bows; exact area vs width height and 5/2 cusp",
+          "Resultary: Shorter side chord minimal length rectangle astroid intersection area as aspect ratio h changes at 2",
+          "Resultary: Calvo Munoz inaccessible points in rectangles exact formula for area of I_D",
+          "web: inaccessibility rectangle area Calvo Muñoz 2010 exact formula",
+          "web: most inaccessible point rectangle area formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M. Calvo and V. Muñoz, The most inaccessible point of a convex domain, arXiv:1009.2948v1 (2010), Lemma 6.1, Corollary 6.2 and Fig. 5, pages 10–12, https://arxiv.org/pdf/1009.2948",
+          "New RESULT.md reduces the maximal-inaccessibility region to an intersection of four astroid branches x^(2/3)+y^(2/3)>=1; the 2010 paper already characterizes that very region by the same right-angle bow and identifies its rectangle geometry."
+        ],
+        "reasoning": "The normalized area is precisely the probability that a uniform point of a rectangle lies in the previously determined maximal-inaccessibility locus. Its boundary is the right-angle astroid bow of the 2010 result, not a newly identified geometric locus. Taking the area is a direct integration of that explicit boundary.",
+        "searches": [
+          "Resultary: Area of maximal inaccessibility locus I_D in rectangle for minimum full boundary chord, astroid bows; exact area vs width height and 5/2 cusp",
+          "Resultary: Shorter side chord minimal length rectangle astroid intersection area as aspect ratio h changes at 2",
+          "arXiv:1009.2948v1, §6, explicit zero-angle bow"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ranked SCOPE-exact-area-profile-of-the-square-separation-body--8376167378fb and SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e; their objects are separation bodies and two-point chord moments, not the maximum-shortest-chord locus.",
+          "M. Calvo and V. Muñoz, The most inaccessible point of a convex domain, arXiv:1009.2948v1 (2010), Lemma 6.1, Corollary 6.2 and Fig. 5, pages 10–12, https://arxiv.org/pdf/1009.2948"
+        ],
+        "reasoning": "No identical prior numeric table was located; this negative search result does not establish novelty. The decisive prior evidence is the exact region construction, making an additional lookup of the final number unnecessary to assess elementary corollary coverage.",
+        "searches": [
+          "Resultary: Area of maximal inaccessibility locus I_D in rectangle for minimum full boundary chord, astroid bows; exact area vs width height and 5/2 cusp",
+          "Resultary: Shorter side chord minimal length rectangle astroid intersection area as aspect ratio h changes at 2",
+          "Resultary: Calvo Munoz inaccessible points in rectangles exact formula for area of I_D",
+          "web: inaccessibility rectangle area Calvo Muñoz 2010 exact formula",
+          "web: most inaccessible point rectangle area formula"
+        ]
+      },
+      "rationale": "The decisive full-text comparison is the explicit right-angle bow and rectangle maximizer locus of Calvo–Muñoz (2010, Lemma 6.1, Cor. 6.2 and Fig. 5). The later claim is an elementary area integration of that already-determined exact region, with monotonicity from the increasing slice length and 5/2 regularity from the first nonzero Taylor term at the already-identified aspect-two contact. The earlier paper did not print the evaluated constant or exponent; nevertheless the package offers only a routine quantitative corollary of stronger established geometry rather than an independent original finding. Search absence alone did not determine FAIL.",
+      "residual_risks": [
+        "An unpublished explicit evaluation of this area may still exist; not needed for the negative verdict because the complete locus is already established.",
+        "The distinction between an unpublished elementary corollary and a separate original research contribution is judgment-sensitive; here the submitted proof uses no novel geometric structural lemma beyond the known bow boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already characterizes the exact maximizer set as the intersection of explicit bows, and states rectangle threshold h=2. Does not literally evaluate the area integral or its Taylor coefficient; those arise by elementary quadrature of its explicit geometry.",
+          "evidence": [
+            "arXiv:1009.2948v1 Lemma 6.1 (right-angle lambda=0 bow), Corollary 6.2 (all polygon bows), Figure 5 and paragraph below (rectangular locus and aspect=2 boundary contact)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1009.2948 (arXiv:1009.2948v1)",
+          "material_read": "Primary PDF: introductory definition and access function (§2), convex-domain locus (§3), polygon bow construction (Lemma 6.1, Corollary 6.2), complete rectangle example and Figure 5 on pages 10–12; PDF images of pages 11–12 checked. Relevant portions were materially read, not inferred from abstract.",
+          "method": "Open-access arXiv primary PDF textual extraction with visual screenshot verification of the rectangle figure, Corollary 6.2, and aspect-two statement.",
+          "title": "The most inaccessible point of a convex domain",
+          "trigger": "Same functional r(p), exact maximizer locus for rectangles, right-angle bow and aspect-two boundary-contact transition."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Calvo–Muñoz 2010 §6 right-angle bow and rectangle locus",
+        "Current RESULT.md area quadrature and elementary Taylor expansion"
+      ],
+      "rationale": "The quantity is naturally motivated (area fraction of points requiring a full shortest-side chord), and the numerical formula and cusp can be useful. However the complete set and aspect-two geometry are already known, and the new work is a single elementary antiderivative, monotone-slice inequality and endpoint Taylor expansion, without an independent structural theorem or nonroutine quantitative obstacle. Under the standard rejecting routine textbook deductions and invariants mechanically implied by known results, the exact area expression does not establish sufficient independent scientific value.",
+      "residual_risks": [
+        "Some users may value an explicit numerical profile as a useful reference formula despite its elementary derivation; this does not make it a new substantive theorem under the specified standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection concerns originality and independent value, not falsity of the closed area formula; correctness passed.",
+    "The historical 05:04 UTC batch lacks a delivered ledger; this new batch does not repair or silently certify it."
+  ],
+  "schema_version": 1
+}
