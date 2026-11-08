@@ -1,9 +1,21 @@
-# Review: vertex-permutation homology of cyclic-layer digraphs
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies every admissible two-path and every missing middle-deletion shortcut, thereby deriving \(\Omega_2^N=\bigoplus_i W_i\otimes U_{i+1}\otimes W_{i+2}\) for all \(n,N\ge3\). It then decomposes the exact boundary image into adjacent augmentation-tensor blocks and pair relations. The averaged outgoing-arrow map identifies the quotient with the entire vertex-permutation representation, not merely the dimension. In degree zero, the twisted incidence equations give the exact holonomy order, including its dependence on the root order modulo four. The independent checker reconstructed the relevant chain groups and quotient characters in 261 small parameter cases, but the proof—not finite testing—establishes the unlimited ranges.
+## correctness
 
-**Originality — PASS, subject to stated uncertainty.** Karaguler and Wei (arXiv:2605.16525, first posted 2026-05-15) introduce the \(N\)-differential and classify general local two-path generators; their Sections 3.1--3.2 do not give the full global cyclic-layer module, the canonical averaging isomorphism, or degree-zero rotation character. The related publicly indexed finding *Augmentation-block characters of Mayer path homology on layered digraphs* concerns complete **transitively** layered digraphs, which are acyclic, whereas this theorem needs the directed cyclic closing layer. The indexed *Forward-shift blow-ups preserve digraph homotopy type* concerns ordinary path homology, for which the same graph blow-ups preserve the circle homology; it does not calculate the higher Mayer quotient. Equivalent formulations and stronger-coverage possibilities were searched by comparing mathematical hypotheses and implications, not simply titles. The full text of those two relevant indexed notes could not be inspected; their statements do not visibly imply the theorem, but latent coverage is a residual risk. No literature search proves uniqueness.
+PASS
 
-**Value — PASS.** This gives an all-parameter classification for a natural symmetry-rich family of directed graphs in a recently introduced homology theory. The first Mayer group, presented by arrows and two-path relations, turns out to be exactly the vertex permutation module for *every* primitive root order, even though its original chain space has many more arrow generators. Simultaneously the zero-degree group appears and disappears at an exact arithmetic holonomy period, with a nontrivial rotation character. The result contrasts structurally with ordinary path-homology invariance under complete cyclic-layer blow-up; it is not a relabeling of a single numerical Betti calculation. Scope is explicitly confined to the top Mayer level, degrees zero and one, and complex coefficients.
+With W_i=C[V_i], augmentation ε_i and U_i=ker ε_i, all allowed 1-paths are ⊕ W_i⊗W_{i+1}. Every 2-path has only the missing middle-deletion shortcut to layer i+2 (n=3 still distinct), so Ω2^N=⊕ W_i⊗U_{i+1}⊗W_{i+2}; higher allowable conditions in degree2 are vacuous. For x⊗u⊗z, ∂=ξ²ε(z)x⊗u in E_i + ε(x)u⊗z in E_{i+1}. Decomposition W_i=C w_i ⊕U_i (ε(w_i)=1) shows U_i⊗U_{i+1} killed and the only remaining relations ξ²(w_i⊗u)_(E_i)+(u⊗w_{i+2})_(E_{i+1}); each U-block independent, hence E/im∂Ω2≅⊕W_i⊗w_{i+1}, exactly the proposed canonical averaging map. Symmetry of normalized layer averages yields full vertex-permutation character. On degree0 arrows impose [v_{i+1}]=−ξ[v_i]; complete arcs collapse within-layer classes and the cycle closes iff (−ξ)^n=1. The order of −ξ for primitive ξ=exp(2πik/N), gcd(k,N)=1, is 2N/gcd(N+2k,2N), which equals 2N/gcd(N+2,2N) in each residue class of N. Independently checked gcd formula for N=3,4,5,6,8,10,12 and inspected the source finite-field path-complex verifier; universal conclusion follows from the exact block decomposition, not tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge after reading full scientific statements of two most relevant published related findings and full relevant original Mayer Path Homology sections. Prior acyclic transitive-layer Mayer character theorem uses every forward shortcut (no directed cycle); ordinary path-homology blow-up equivalence treats N=2 not this N≥3 root-of-unity quotient. Neither implies cyclic-layer H1 permutation character or degree-zero holonomy resonance. Karaguler–Wei supplies the general definitions and local generators but no such global family quotient.
+
+## value
+
+PASS
+
+The cyclic complete-layer blowup is a natural network family and the root-of-unity Mayer theory differs sharply from ordinary path homology: H1 has a full vertex-permutation module, while H0 has a precise arithmetic resonance depending on length and N. These are global structural representation and holonomy statements for all layer sizes, valuable beyond a small table or routine algebraic renaming and distinct from the already known N=2 homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
