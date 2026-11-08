@@ -1,20 +1,21 @@
-# Scientific review of the asymmetric exponential Gabor theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement covers exactly \(a,b>0\), \(a\ne b\), and integer \(q\ge3\), with standard unnormalized frame coefficients. The proof first establishes the exact scalar Zak multiplier from root-of-unity orthogonality and two geometric tails. Its explicit polyphase numerator has nonnegative coefficients, making the frequency ordering strict. Positivity and strict convexity at frequency zero give the upper bound. At the opposite phase the derivative reduces to a quadratic with one positive root; equality of the two Zak boundary values forces that root strictly inside the period. Strict Cauchy–Schwarz gives a positive lower bound. Every step is analytical for all parameters. Separately implemented direct-Zak and exact-rational checks are supplied in `CHECK.py`; finite runs do not replace the proof.
+PASS
 
-## Originality — PASS relative to inspected work
+For all a,b>0 distinct and integer q>=3 at lattice translation 1, modulation 1/q, exact q-residue Zak grouping gives a q-fold sum of |P_j(x,z)|^2 with positive affine numerator and denominator factors decreasing in Re(z), so min frequency z=-1 and max z=1. At z=1 spatial positive-exponential sums have strictly convex squares and periodic equal endpoint values, maximizing at integer x. At z=-1 differentiating the quadratic in e^{(a+b)x} gives b V t^2+(a-b)W t-a U=0, exactly one positive root interior, yielding A. Nonproportional u,v ensure UV>W² and A>0. Numerical checks independently summed bilateral Zak series for four slope/redundancy parameter sets, comparing exact A/B and checking a 9x9 phase grid; equal-rate case also tested only as a consistency check. These checks are not a proof for all a,b,q.
 
-The 2026 complete frame-set theorem establishes existence, not sharp constants. The 2013 Kloos–Stöckler paper treats Zak zeros and symmetric exponential estimates. The 2022 Faulhuber–Shafkulovska full text gives exact *symmetric* two-sided-exponential constants, a genuinely different parameter domain. The redundancy-two parameter domain is explicitly excluded from the novelty claim; the present claim is the complete higher-redundancy family. No inspected statement implies the all-\(q\ge3\) skew-dependent minimizer and sharp constants. Janssen's 1996 calculation paper is a material but not decisive residual priority risk because its full text could not be retrieved; no absence of overlap is asserted on the strength of its abstract alone.
+## originality
 
-## Value — PASS
+PASS
 
-Both exact extremal frame constants quantify stable reconstruction, not just qualitative spanning. The theorem solves the natural unsolved quantitative specialization of the recent total-positivity frame-set theorem for every integer oversampling level beyond the already covered first one. The non-even window has a nontrivially displaced minimum and a fully explicit condition number; the answer covers an infinite family, not an arbitrary single numerical case.
+Best-of-knowledge PASS. Classical integer Zak multiplier and prior symmetric two-sided exponential sharp formulas are known. The evaluated asymmetric two-rate sharp A/B and minimizing fiber for all integer q>=3 were not found in accessible inspected primary statements. Janssen 1996 treats exact frame bounds for several windows at integer density but is a plausible still unread priority source; institutional access reported VPN disconnected.
 
-## Closest literature and limits
+## value
 
-Kloos–Stöckler, arXiv:1311.7359; Faulhuber–Shafkulovska, arXiv:2204.02917; de Dios Pont et al., arXiv:2608.04992; Janssen (1996), DOI:10.1016/0019-3577(96)85088-9. The proof is confined to the specified integer lattice; noninteger density, noise stability, and lattice optimization remain open here. Historical related work at redundancy two is credited, not included in the novelty scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact optimal frame bounds and unique phase-space minimizer are central quantitative stability invariants for time-frequency analysis. The unequal-rate two-sided exponential family is a natural asymmetric window, and the skew-driven lower-bound fiber shift is not supplied by equal-rate theory. Finite closed formulas for every integer redundancy q>=3 are reusable beyond frame existence.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.
