@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The cubical model satisfies the established subdivision conditions. Exact rational cellular elimination gives boundary ranks 27 and 40. Two primitive integral top cycles span the complete integer kernel by their coordinate projection and exact rational kernel dimension. All sixteen signed cellular automorphisms commute with both boundaries and transport the top cycles as stated. Exact invariant-chain elimination gives the three quotient rational Betti triples. The natural equivariant inclusion passes the homology module to the continuous configuration space.
+## correctness
 
-**Originality: PASS against inspected sources.** The An--Knudsen theorem is limited to planar graphs and does not imply the nonplanar Wagner lattice. Prue--Scrimshaw establish modeling, not homology. An--Maciazek concern graph braid presentations, not this lattice. Close mathematical-index hits on the same graph calculate matching, cut, or discrete-Morse complexes, whose cells and invariants differ; the closest two-particle Petersen result treats a different graph. Searches for the same graph, lattice, equivariant characters, subgroup quotients, and aliases uncovered no result whose statement implies this one.
+PASS
 
-**Value: PASS.** The named canonical small nonplanar graph supports a nontrivial integral lattice extension invisible in both Betti numbers and the split rational representation. The computation also distinguishes robot-configuration symmetry quotients at the level of rational homology and supplies a complete, independently replayable finite certificate. It is not an arbitrary parameter slice: the Wagner graph is the smallest nontrivial eight-vertex Möbius ladder, with a full dihedral action.
+The Wagner graph contains eight vertices, twelve edges and girth 4. The unordered 2-particle cubical complex has 28 zero-, 72 one- and 42 two-cells with the stated signed boundaries; independent exact Q-ranks 27 and 40 yield (b0,b1,b2)=(1,5,2). The two rational top cycles can be normalized to unit coordinates on cells 40 and 41; all coordinates then are integers, so projection supplies a primitive complete integer kernel basis and H2=Z². Signed edge-oriented transport of rotation r(i)=i+1 and reflection s(i)=-i yields r=-swap and s=swap; the rational character lines z0±z1 span an index-2 sublattice and cannot split over Z. Exact rational invariant-chain ranks give quotient Betti triples (1,0,0), (1,1,1), (1,2,1). Prue–Scrimshaw subdivision hypotheses hold for two particles because distinct essential vertices are separated by at least one edge and cycles have length >=4; the inclusion of the cubical model is natural equivariant, transporting the integral action. No contractibility or integral quotient-torsion result is claimed.
 
-**Scientific limits and remaining originality risk.** The claim does not classify general Möbius ladders or integral quotient torsion. An equivalent unpublished or unindexed computation might exist. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Prue–Scrimshaw model theorem supplies the cubical homotopy equivalence but neither Wagner homology nor its symmetry module. An–Knudsen 2022 addresses planar graph braid groups; Wagner is nonplanar. Farber–Hanbury 2010 is an important broader study of ordered two-particle graph configuration homology and may imply some nonequivariant Betti ranks by its general methods, but it does not state this specific ordinary unordered integral dihedral lattice or the three subgroup quotient Betti triples. Resultary retrieves same-graph matching/Morse complexes and other-graph two-particle character calculations; neither is this functor and graph simultaneously. The novel claim is the complete integral nonsplit D8 representation and named quotient data, not the general model or generic Betti-rank computation.
+
+## value
+
+PASS
+
+The Wagner graph is a canonical small nonplanar Möbius ladder with a natural full dihedral symmetry. Its complete integral top-homology module and index-two nonsplit character lattice are invisible to ordinary Betti numbers and rational character splitting; the three symmetry-quotient Betti triples add a motivated exact classification. A finite named-graph structural calculation is mathematically meaningful without extending to all Möbius ladders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
