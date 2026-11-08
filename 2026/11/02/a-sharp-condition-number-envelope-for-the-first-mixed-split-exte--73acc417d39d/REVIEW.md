@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The candidate vectors agree with the two original inverse-leading algorithms through the third step. The exact relation \(Av_2=(v_1-mAv_1)/\nu\) gives the local indicator ratio without approximation. A spectral-moment identity reduces the universal claim to a variational optimization over probability measures supported on the spectral interval. The first variation of the complementary moment functional is strictly concave in the spectral variable and consequently forces endpoint support. A one-variable polynomial with exactly one positive root, established by a one-sign-change coefficient argument, completes the sharp global optimization. Three-eigenvalue perturbations prove the sharp infimum while keeping the third step nonbreaking. The decoded exact-rational verifier reports 4,692 checks in four groups; finite computations support the algebra but do not prove the infinite result.
+PASS
 
-## Originality (O): PASS, subject to historical-priority risk
+From v2=(A^−1−mI)v1/nu, exactly Av2=(v1−m Av1)/nu. Orthogonal projection residuals onto span{v1,v2} are proportional, so squared local mixed/split indicator ratio =m² s/(1−2mt+m²s), where m=E λ^−1, t=E λ, s=E λ² of the unit spectral measure. Define T=(2mt−1)/(m²s). Variation under a point mass uses φ(λ)=T_m/λ+T_t λ+T_s λ²; T_m≤0,T_s<0 make φ strictly concave, forcing a global minimizing measure for T to the spectral endpoints of [1,κ]. For endpoint weight p, γ^−2=Qκ(p), with unique maximum at positive cubic root by Descartes. Two-point maximizer breaks the third step; three-active-eigenvalue measures approach the infimum strictly. Checked exact symbolic derivative ∂p Q=Pκ(p)*κ(κ−1)²/[(1+(κ−1)p)^3(κ²−(κ²−1)p)^2], transformed positive cubic, and numerical Γ2=2.8835477563561254, Γ10=1.1597773406453498; all agree. Domain n≥3 SPD with at least three active distinct eigenvalues, cond≤κ and k=3 only. Neither actual floating point error nor later steps are bounded.
 
-Lund and Schweitzer, arXiv:2610.21603v1, prove only the strict mixed-channel ordering of local indicators on positive-definite matrices; the analyzed Algorithms 1–2, Theorem 8 and Appendix A do not state this sharp condition-number envelope or its cubic spectral extremizer. Jagels–Reichel (2009) develops orthogonal Laurent recurrences, not the mixed/split local candidate normalization ratio. Rinelli–Vandebril (2026) gives broader spectral-measure machinery for block Krylov spaces, but does not imply the numerical sharp bound without additional optimization. A related accessible earlier claim concerns *indefinite* third-step breakdown and is not a positive-definite condition-only inequality. Published mathematical-record searches for equivalent language, formulas and variants yielded no directly covering record. Classical extremal moment inequalities and incomplete indexing create a genuine, explicitly retained priority risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The 2026 algorithm analysis establishes a qualitative local stability ordering. The new exact best condition-dependent guarantee quantifies how strongly the local predictors can separate, and shows an unexpectedly unbounded separation in the well-conditioned limit. Its structural endpoint law and cubic optimum identify the worst spectral profiles and clarify why a nonbreaking instance never attains equality. This is directly relevant to choosing an extended-Krylov basis construction, but it is not a prediction of actual rounding error or overall convergence. The result is restricted to the third candidate step and real SPD matrices.
+Qualified PASS for the sharp best-possible condition-dependent infimum on the local third-step mixed/split indicator and its endpoint/cubic extremizer, distinguishing it from Lund–Schweitzer 2026 qualitative positive-definite strict inequality. Spectral endpoint moment techniques are classical and credited.
 
-## Closest literature and limitations
+## value
 
-The principal source is Lund–Schweitzer (2026), particularly Algorithm 1, Algorithm 2, Theorem 8 and Appendix A. Jagels–Reichel (2009), Rinelli–Vandebril (2026), and Simoncini–Wang (2025) provide related recurrence, spectral, or orthogonalization context. The theorem does not extend its local guarantee to subsequent steps, inexact inverses, indefinite matrices, or global approximation accuracy. Historical uniqueness is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: sharp condition-dependent separation improves an existing qualitative stability indicator for two practically studied extended-Krylov bases, identifies the limiting worst spectral geometry and reveals diverging ratio as the matrix approaches a scalar. This structural exact bound is motivated by real algorithm choice and does not overclaim floating point accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

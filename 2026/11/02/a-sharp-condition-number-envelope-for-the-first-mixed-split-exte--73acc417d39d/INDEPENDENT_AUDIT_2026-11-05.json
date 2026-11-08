@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:16:20.964273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From v2=(A^−1−mI)v1/nu, exactly Av2=(v1−m Av1)/nu. Orthogonal projection residuals onto span{v1,v2} are proportional, so squared local mixed/split indicator ratio =m² s/(1−2mt+m²s), where m=E λ^−1, t=E λ, s=E λ² of the unit spectral measure. Define T=(2mt−1)/(m²s). Variation under a point mass uses φ(λ)=T_m/λ+T_t λ+T_s λ²; T_m≤0,T_s<0 make φ strictly concave, forcing a global minimizing measure for T to the spectral endpoints of [1,κ]. For endpoint weight p, γ^−2=Qκ(p), with unique maximum at positive cubic root by Descartes. Two-point maximizer breaks the third step; three-active-eigenvalue measures approach the infimum strictly. Checked exact symbolic derivative ∂p Q=Pκ(p)*κ(κ−1)²/[(1+(κ−1)p)^3(κ²−(κ²−1)p)^2], transformed positive cubic, and numerical Γ2=2.8835477563561254, Γ10=1.1597773406453498; all agree. Domain n≥3 SPD with at least three active distinct eigenvalues, cond≤κ and k=3 only. Neither actual floating point error nor later steps are bounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original 2026 primary Theorem8 states strict comparison under SPD, no κ-only sharp lower envelope.",
+          "General moment problem and recurrence machinery is broader than this specialized optimization, yet does not supply the exact third-step value without the variational proof."
+        ],
+        "reasoning": "More general recurrences cover construction but not the optimized quantitative comparison; broad theorem domains do not automatically imply extremal constants.",
+        "searches": [
+          "Lund Schweitzer 2026 On the stability of basis construction in extended Krylov subspace methods Theorem8",
+          "Jagels Reichel 2009 extended Krylov orthogonal Laurent polynomials",
+          "Rinelli Vandebril 2026 block Krylov spectral correspondence"
+        ]
+      },
+      "checked_sources": [
+        "Lund and Schweitzer arxiv:2610.21603v1 complete rendered article",
+        "Jagels Reichel 2009 author PDF citation and selected indexed context",
+        "Rinelli Vandebril arxiv:2605.16954v1 indexed abstract",
+        "Resultary semantic extended Krylov stability search",
+        "Independent Sympy exact derivative/critical cubic and numeric checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem8 gives γ3>1 at SPD matrices; any κ-conditioned Γ(κ)>1 and unattained sharp infimum requires additional endpoint-support extremality and cubic optimization.",
+          "Prior orthogonal Laurent structures provide tools, not the specific local indicator optimum."
+        ],
+        "reasoning": "The source does not logically force this exact bound from its qualitative strictness alone; independent variational proof fills that quantitative gap.",
+        "searches": [
+          "Lund Schweitzer arxiv:2610.21603v1 Theorem8 AppendixA",
+          "Jagels Reichel extended Krylov orthogonal Laurent polynomials",
+          "spectral moment endpoints Krein Markov principal representations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lund–Schweitzer arxiv:2610.21603v1 original algorithms use mixed/split channels, local indicators and qualitative strict SPD ordering.",
+          "This theorem adds sharp Γ(κ) from a spectral-measure moment optimization, not present in inspected Theorem 8 and Appendix A."
+        ],
+        "reasoning": "Equivalence under normalizations, Laurent polynomial basis and local indicator ratios was checked; the source qualitative inequality cannot imply the unique sharp cubic envelope.",
+        "searches": [
+          "\"mixed channel\" \"split channel\" \"condition number\" orthogonalization",
+          "\"rho_3\" \"kappa\" Lund Schweitzer cubic bound",
+          "Resultary semantic extended Krylov basis mixed split inverse-leading orthogonalization ratio sharp condition number envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary entry with same cubic or endpoint weight identified; nearest hits concern different Krylov numerical methods and norm bounds.",
+          "Own independent symbolic quotient-rule derivation confirmed polynomial root and Γ2, Γ10, not a pre-existing table."
+        ],
+        "reasoning": "Specific unknown sharp numerical invariant tied to a motivated existing algorithmic distinction, not arbitrary recomputation; prior classical moment tables remain possible.",
+        "searches": [
+          "\"2.8835477563\" Krylov",
+          "\"kappa-1\" \"mixed\" \"split\" orthogonalization",
+          "Resultary sharp extended Krylov condition number envelope"
+        ]
+      },
+      "rationale": "Qualified PASS for the sharp best-possible condition-dependent infimum on the local third-step mixed/split indicator and its endpoint/cubic extremizer, distinguishing it from Lund–Schweitzer 2026 qualitative positive-definite strict inequality. Spectral endpoint moment techniques are classical and credited.",
+      "residual_risks": [
+        "Sharp spectral moment bounds may have an implicit equivalent in classical extremal-inequality literature.",
+        "The result bounds a third-step local ratio only, not achieved roundoff orthogonality or later Krylov iterations.",
+        "The formal equality occurs for a two-eigenvalue spectral measure where the third step breaks down, hence only an unattained infimum in eligible cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS qualitative strict inequality, not found sharp κ envelope or cubic extremizer in principal theorem/appendix.",
+          "evidence": "arxiv:2610.21603v1 Algorithms1,2, Theorem8 and Appendix A.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21603v1",
+          "material_read": "Full online primary text, especially Algorithms 1–2, Theorem 8 and Appendix A; compared local ρ definitions and positive-definite proof.",
+          "method": "Public arxiv rendered full text, section-by-section text comparison",
+          "title": "On the stability of basis construction in extended Krylov subspace methods",
+          "trigger": "Precisely defines mixed/split channels and qualitative theorem"
+        },
+        {
+          "assessment": "Structural prior only; full-text novelty assessment limited.",
+          "evidence": "Jagels and Reichel, Linear Algebra Appl 431 (2009) 441–458.",
+          "identifier_or_url": "https://www.math.kent.edu/~reichel/publications/ext.pdf",
+          "material_read": "Article sections on orthogonal Laurent recurrences described in literature comparison; did not directly inspect complete PDF this run.",
+          "method": "Citation metadata and indexed summaries",
+          "title": "The extended Krylov subspace method and orthogonal Laurent polynomials",
+          "trigger": "Possible general spectral moment representation and recurrence dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: sharp condition-dependent separation improves an existing qualitative stability indicator for two practically studied extended-Krylov bases, identifies the limiting worst spectral geometry and reveals diverging ratio as the matrix approaches a scalar. This structural exact bound is motivated by real algorithm choice and does not overclaim floating point accuracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "SPD and inverse-leading third candidate step only, at least 3 distinct active eigenvalues.",
+    "Nonbreaking inequality strict; equality spectral measure breaks the Krylov third step.",
+    "Not an actual floating-point error guarantee, and classical moment bounds may imply variants."
+  ],
+  "schema_version": 1
+}
