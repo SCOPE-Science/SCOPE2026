@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Independent row choices give iid signs and exact binomial rho. Direct 2x2 Gram computation proves the coefficient formula; the denominator is nonzero almost surely even in collision cases. Gaussian polar coordinates give conditional CDF and bounded support for |rho|<1. At |rho|=1 independent Gaussian sum and difference give an exact standard Cauchy ratio, with event mass 2^(1-m). Remaining finite binomial components are bounded. The far-tail and iff p<1 moment statements follow exactly for all finite m. The packaged script performs arithmetic and quadrature checks on these identities only, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Price--Song--Woodruff 2017 studies the standard sign-diagonal SRHT with high-probability direction bounds and sparse-sketch counterexamples, not the Gaussian-diagonal row-sampling distribution.",
+        "Song--Ye--Yin--Zhang 2023 defines a Rademacher sign-diagonal Hadamard transform, not the shared Gaussian diagonal.",
+        "Song--Zhang 2026 distinguishes Gaussian diagonal in the ordinary sketch (Section 3) from its balanced Gaussian-pooling construction (Section 4)."
+      ],
+      "reasoning": "Neither earlier sign-diagonal theorem implies the Gaussian-diagonal estimator distribution. The 2026 high-probability failure result is narrower in tail-moment quantifiers: no finite-m exact tail, coefficient, or full moment cutoff is established there.",
+      "searches": [
+        "arxiv:1705.10723 Section 1 and main SRHT theorem",
+        "arxiv:2302.00248v1 Sections 2--3 SRHT definitions and embedding estimates",
+        "arxiv:2608.26552 Sections 2--4 Gaussian-diagonal counterexample and balanced pooling",
+        "\"SRHT Gaussian diagonal counterexample random sampling constant probability singular inverse-Gram\"",
+        "\"Hadamard Gaussian diagonal least squares an exact Cauchy distribution component from repeated sampled rows; no finite expected absolute or squared regression error\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.26552, primary HTML manuscript",
+      "arxiv:2302.00248v1, primary HTML manuscript",
+      "arxiv:1705.10723, primary HTML manuscript",
+      "Published mathematical-claim semantic searches listed in the four named checks",
+      "Recoverable previous result statements on continuous Gaussian/Haar sketched regression and harmonic Ritz ratios"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Song--Zhang 2026 provides the exact ratio but uses Gaussian imbalance under |rho|<=1/2 to obtain a nonvanishing failure probability.",
+        "The present heavy tail comes only from |rho|=1, which has probability 2^(1-m), and all remaining rho values have bounded conditional support for each finite m.",
+        "Neither 2017 nor 2023 considers the same Gaussian diagonal; their high-probability claims cannot give the unbounded-moment law for this distinct sketch."
+      ],
+      "reasoning": "The prior coefficient identity and classical normal-ratio formula jointly make the result derivable, but the published comparison does not state its conditional collision case or the exact far-tail and p-moment consequences. The final contribution is an explicit structural classification rather than a claim that the ratio or Cauchy identity is new.",
+      "searches": [
+        "Song--Zhang 2026 Eq. (3), Hoeffding and Gaussian-ratio argument",
+        "Price--Song--Woodruff 2017 original SRHT main theorem",
+        "Song--Ye--Yin--Zhang 2023 original sign-diagonal sketch definition",
+        "\"Hadamard Flattening and Gaussian Pooling Sketch for Least Squares with Coordinate-wise Guarantee 2608.26552 Gaussian diagonal rank-deficient Cauchy moments\"",
+        "\"Gaussian diagonal Hadamard least squares sampled rows two columns Cauchy tail infinite mean\"",
+        "\"Gaussian diagonal sketch 2-column ratio of quadratic forms Gaussian Cauchy contamination probability 2^(1-m)\"",
+        "\"SRHT Gaussian diagonal counterexample random sampling constant probability singular inverse-Gram\"",
+        "\"Hadamard Gaussian diagonal least squares an exact Cauchy distribution component from repeated sampled rows; no finite expected absolute or squared regression error\"",
+        "\"two distinct Hadamard columns Gaussian weights Rademacher row collision gives t inverse tail exact probability 2^(1-m)\"",
+        "\"sketch and solve Gaussian inverse Gram rare Cauchy component for any finite sketch size m\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Song--Zhang Section 3 Equation (3) is exactly the rational Gaussian quadratic form used here. It explicitly states the Gaussian ratio is Cauchy, but the studied event is |rho|<=1/2 and an imbalance event, not the rho=+-1 collision tail.",
+        "At rho=+-1 the ratio algebraically reduces to an independent standard-Gaussian quotient; the binomial probability of this event is an independent discrete random-sketch ingredient."
+      ],
+      "reasoning": "Gaussian quotient is a classical equivalent formulation of the endpoint conditional law, not a prior statement of the unconditional Hadamard collision mixture or its exact finite-m support cutoff. The 2026 paper already has the obstruction, but not the present quantitative all-m tail and integrability classification.",
+      "searches": [
+        "\"Hadamard Flattening and Gaussian Pooling Sketch for Least Squares with Coordinate-wise Guarantee 2608.26552 Gaussian diagonal rank-deficient Cauchy moments\"",
+        "\"Gaussian diagonal Hadamard least squares sampled rows two columns Cauchy tail infinite mean\"",
+        "\"Gaussian diagonal sketch 2-column ratio of quadratic forms Gaussian Cauchy contamination probability 2^(1-m)\"",
+        "arxiv:2608.26552 Section 3 equation (3)",
+        "arxiv:2302.00248v1 Section 2 definition SRHT"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published published-finding corpus findings concern Gaussian heavy-tail phenomena in optimizer conditioning and statistical tests; their estimators and parameters differ from the Hadamard-diagonal row-collision ratio.",
+        "A relevant earlier rank-one regression claim treats a fully Gaussian or Haar-orthogonal sketch, with its moment threshold controlled by sketch dimension. That continuous sketch law does not yield an exponentially small fixed Cauchy mixture for the present shared-diagonal sampled-Hadamard construction.",
+        "A separate earlier harmonic Ritz claim gives an infinite-mean inverse projection and a reciprocal-Student tail, but not the present least-squares scalar coefficient or its binomial collision probability."
+      ],
+      "reasoning": "No relevant exact database/table of the binomial mixture or the finite-m tail coefficient was located. Similar generic Gaussian-ratio phenomena do not supply the discrete Hadamard row-collision weights; absence of a database hit is not proof of uniqueness.",
+      "searches": [
+        "\"Gaussian diagonal Hadamard least squares sampled rows two columns Cauchy tail infinite mean\"",
+        "\"Gaussian diagonal sketch 2-column ratio of quadratic forms Gaussian Cauchy contamination probability 2^(1-m)\"",
+        "\"SRHT Gaussian diagonal counterexample random sampling constant probability singular inverse-Gram\"",
+        "\"two distinct Hadamard columns Gaussian weights Rademacher row collision gives t inverse tail exact probability 2^(1-m)\"",
+        "\"sketch and solve Gaussian inverse Gram rare Cauchy component for any finite sketch size m\""
+      ]
+    },
+    "rationale": "The exact coefficient identity and the Cauchy ratio observation were already published in Song--Zhang 2026; they are not claimed new. Its inspected Section 3 proves a nonvanishing high-probability obstruction, whereas the final claim is the exact finite-m binomial mixture, the collision-only Cauchy mass 2^(1-m), the sharp tail beyond a finite support cutoff, and the iff p<1 moment law. Full accessible primary texts of both earlier sign-diagonal SRHT papers concern different sketch distributions; published-finding corpus semantic queries and recoverable own ledger claims showed no implication covering this exact law. The comparison remains best-knowledge and is not an independent priority certificate.",
+    "residual_risks": [
+      "Classical ratios of Gaussian quadratic forms and heavy-tailed randomized linear algebra are broad fields; equivalent folklore about this specific sketch may predate the surveyed literature.",
+      "The starting rational expression and standard-Gaussian ratio are already explicit in the motivating paper, so novelty is confined to its exact rare-event mixture, tail coefficient and all-finite-m moment classification.",
+      "No claim is made that semantic search exhausts unavailable papers or unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the starting rational expression and a constant-probability failure, but not the finite-m Cauchy mass, support cutoff, exact tail, or p-moment classification.",
+        "evidence": [
+          "Section 3 formula (3); Section 3  Hoeffding bound and Gaussian ratio observation; Section 4 Definition 4.1 balanced pooling distinction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.26552",
+        "material_read": "Full accessible HTML manuscript, especially Introduction and Sections 2--4, including Section 3 equations and proof and the distinct pooled method definition.",
+        "method": "Primary HTML full-text reading, with targeted searches for Cauchy and moments.",
+        "title": "Hadamard Flattening and Gaussian Pooling Sketch for Least Squares with Coordinate-wise Guarantee",
+        "trigger": "Original work defines and analyses exactly the shared Gaussian-diagonal sketch tested here."
+      },
+      {
+        "assessment": "Sign-diagonal SRHT high-probability analysis; does not instantiate shared Gaussian-diagonal ratio or an unconditional Cauchy mixture.",
+        "evidence": [
+          "Definition 2.6 specifies Rademacher, not Gaussian, diagonal; Section 3 controls inner products and high probability events."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.00248v1",
+        "material_read": "Accessible full HTML, especially introduction, SRHT definition 2.6 and Section 3 embeddings, with targeted Gaussian/Cauchy searches.",
+        "method": "Primary full-text reading and targeted exact term inspection.",
+        "title": "A Nearly-Optimal Bound for Fast Regression with ell-infinity Guarantee",
+        "trigger": "Earlier coordinate-wise fast regression claim discussed critically by the 2026 paper."
+      },
+      {
+        "assessment": "Analyzes standard sign-diagonal Hadamard sketches and other sketch failures; no exact Gaussian-diagonal row-collision tail statement.",
+        "evidence": [
+          "Section 1.1 Theorem 1 concerns standard SRHT high-probability regression; discussion of Gaussian sketch is separate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.10723",
+        "material_read": "Accessible full-text HTML, Introduction, Section 1.1 theorem and sketching distribution descriptions; targeted Cauchy search.",
+        "method": "Primary full-text reading and targeted exact term inspection.",
+        "title": "Fast Regression with an ell-infinity Guarantee",
+        "trigger": "Foundational rigorous high-probability SRHT regression analysis and counterexamples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4ff61777-26e5-4a73-9853-2d47ab3a3e52",
+  "value": {
+    "rationale": "The source identifies the Gaussian-diagonal sketch as a natural but failing attempt to obtain robust coordinate-wise regression. Quantifying its exact finite-sample risk is a motivated missing guarantee: every finite sketch size has infinite expected absolute and squared coefficient error due to exponentially rare row-sign collisions, even when the original design is full-rank unit norm and the estimator is a.s. unique. The exact tail threshold and collision probability distinguish high-probability from integrated error criteria and guide whether row-sampling or resampling modifications can remove this obstruction. It is not a routine restatement of the source's constant-probability lower bound.",
+    "status": "PASS"
+  }
+}
