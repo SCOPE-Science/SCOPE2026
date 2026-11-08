@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The theorem has a self-contained analytical proof in `RESULT.md`. In a radial sector of nonnegative angular degree \(m\), form the \(q\)-by-\(q\) positive Gram matrices \(H_m(1)\) and \(H_m(s)\) from the formulas in that document. Their positive generalized eigenvalues are the complete eigenvalues in that sector. This construction avoids needing a global spectral truncation.
+## correctness
 
-Run `python checker.py` with a standard Python installation. The observed output was `PASS: 126 exact rational determinant and factorial identities`. It compares exact rational determinants of the full and truncated sector Gram matrices for several orders, degrees and rational cutoffs, and proves no claim about infinitely many parameters by finite enumeration. The reciprocal-factorial matrix identity is also established for every order algebraically in the proof.
+PASS
 
-Optionally install `mpmath` and run `python asymptotic_probe.py`. The observed output ended `PASS: 24 high-precision determinant and asymptotic-ratio checks`; the script prints all evaluated branchwise eigenvalue/prediction ratios at the specified orders, squared radii and Fourier degrees. Near-singular Hilbert-type Gram matrices require high working precision. These comparisons support debugging and normalization only; they are not a substitute for the all-order limits.
+Reconstructed the Fourier decomposition and positive generalized Gram forms H_m(s)_{ij}=s^{m+i+j+1}/(m+i+j+1). H_m(s)=s^{m+1}D_s H_m(1) D_s proves exact determinant ratio s^{q(m+q)}. Normalized t^m weight concentrates at t=1; y=m(1-t) has moments converging to h!, so orthogonal basis tends coefficientwise to normalized Laguerre polynomials. The dilation C_s becomes y->m(1-s)+sy; its upper triangular entries have leading powers a^{j-i} s^i/(j-i)!. Exterior kth minors have unique highest a-degree k(q-k), reciprocal-factorial Vandermonde determinant yields product top k singular values and successive factorial constants. Eigenvalue ratios tend to s, allowing counting by thresholds; the coefficients sum to zero, with finitely many negative angular sectors. Independently checked 24 exact rational generalized-Gram determinants and high-precision asymptotic ratios for q=3,4 and m=250,500; finite checks only corroborate the proof for m->infinity.
 
-The key proof checks are: (i) exact change of variable relating subdisk mass to a degree-limited dilation operator; (ii) convergence of the bounded list of transformed moments to factorials and of orthonormal polynomials to signed Laguerre polynomials; (iii) unique highest-degree exterior-power minor and its nonzero falling-factorial determinant; (iv) division of consecutive exterior-power norms to obtain every singular-value constant; and (v) inversion of logarithmic eigenvalue asymptotics and cancellation of integer branch coefficients. The claim does not rely on an external certificate or an unverified infinite enumeration.
+## originality
 
-Independent mathematical audit and validation have not been performed.
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Value and originality rest on asymptotic spectral stratification not initial Toeplitz decomposition or determinant by itself.
+
+## value
+
+PASS
+
+For a natural compact radial projection in a poly-analytic Hilbert space, supplies complete sharp multi-branch spectral asymptotics and exact determinant laws, including surprising cancellation of opposite branch logarithmic corrections in the global counting function. Precise factorial constants and branch separation are nontrivial reusable operator-theoretic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

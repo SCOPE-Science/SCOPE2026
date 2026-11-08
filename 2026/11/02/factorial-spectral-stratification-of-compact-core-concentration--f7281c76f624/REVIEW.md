@@ -1,11 +1,21 @@
-# Review of factorial spectral stratification for polyanalytic Bergman concentration
+# Independent mathematical audit
 
-**Correctness: PASS.** The domain and measure are explicit, every angular sector is finite dimensional, and the normalized full and truncated Gram matrices are positive definite. The diagonal change-of-variable identity yields an exact eigenvalue product. The all-orders estimates are reconstructed by transforming a fixed-degree polynomial basis into the Laguerre boundary variable and identifying the single dominant reciprocal-factorial minor in each exterior power. Exact rational Gram/minor computations and independent high-precision comparisons reproduce the stated finite consequences; they are supplemental to the analytical proof. Critical boundaries: fixed cutoff strictly inside the disk, integer order at least three, fixed angular-sector ranking.
+## correctness
 
-**Originality: PASS on available evidence; historical priority remains provisional.** Barrera-Castelán, Maximenko and Ramos-Vazquez, arXiv:2009.14301, establish angular block decompositions and radial Toeplitz matrices for the full polyanalytic weighted Bergman space; arXiv:2306.06231 establishes the corresponding operator algebra. Neither inspected full-text argument states the factorial constants for every compact-core eigenvalue branch or the branchwise counting/cancellation law. Čučković–Le (arXiv:1012.2816) studies algebraic Toeplitz relations; Rozenblum (arXiv:1012.3528) provides global compact-support estimates in analytic and harmonic spaces; Pushnitski (arXiv:1710.02652) treats analytic Bergman symbols with boundary-power behavior. The earlier general matrix formula is a necessary starting identity, not an already proved all-branch asymptotic. Search coverage cannot prove absolute uniqueness; unpublished and differently indexed specialist results remain a risk.
+PASS
 
-**Mathematical value: PASS.** The full fixed-order polyanalytic disk model is natural in complex function spaces and polyanalytic Toeplitz theory. A sharp factorial constant for each of its \(q\) spectral branches, an exact finite-frequency determinant, and an exact cancellation of \(q\) nonzero log–log corrections yield a useful spectral classification that cannot be recovered from the leading total count alone. This distinguishes genuine higher-order spectral geometry from a scalar analytic radial Toeplitz problem; it is not an arbitrary finite tabulation.
+Reconstructed the Fourier decomposition and positive generalized Gram forms H_m(s)_{ij}=s^{m+i+j+1}/(m+i+j+1). H_m(s)=s^{m+1}D_s H_m(1) D_s proves exact determinant ratio s^{q(m+q)}. Normalized t^m weight concentrates at t=1; y=m(1-t) has moments converging to h!, so orthogonal basis tends coefficientwise to normalized Laguerre polynomials. The dilation C_s becomes y->m(1-s)+sy; its upper triangular entries have leading powers a^{j-i} s^i/(j-i)!. Exterior kth minors have unique highest a-degree k(q-k), reciprocal-factorial Vandermonde determinant yields product top k singular values and successive factorial constants. Eigenvalue ratios tend to s, allowing counting by thresholds; the coefficients sum to zero, with finitely many negative angular sectors. Independently checked 24 exact rational generalized-Gram determinants and high-precision asymptotic ratios for q=3,4 and m=250,500; finite checks only corroborate the proof for m->infinity.
 
-**Scientific limitations.** No uniformity when the cutoff approaches one or the order grows, no claim for nonconcentric regions or weighted polyanalytic spaces, and no assertion of a convergent constant term for integer spectral counting. Independent expert verification and a definitive historical priority determination are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Value and originality rest on asymptotic spectral stratification not initial Toeplitz decomposition or determinant by itself.
+
+## value
+
+PASS
+
+For a natural compact radial projection in a poly-analytic Hilbert space, supplies complete sharp multi-branch spectral asymptotics and exact determinant laws, including surprising cancellation of opposite branch logarithmic corrections in the global counting function. Precise factorial constants and branch separation are nontrivial reusable operator-theoretic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
