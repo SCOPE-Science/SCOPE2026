@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The projective sign alphabet has exactly four equiprobable directions; any three distinct ones have determinant magnitude four. Exact occupancy counts enumerate the deficient-rank cases. Direct projector identities give all rank-one and rank-two squared residuals. The two finite tight frames and Cauchy--Schwarz yield the claimed sharp minimax bound. The singleton equality conditions prove uniqueness of the scalar Gram shape. An executable exact-rational exhaustive checker independently recomputes the projector residuals on six invertible matrices and five sketch lengths. A finite checker is not substituted for the universal proof.
+PASS
 
-## Originality
+The eight 3D sign columns form exactly four equally probable projective lines; every three distinct lines span R^3. Rank-one words number four, rank-two words 6(2^ell-2), hence rank deficiency 6/2^ell-8/4^ell for all positive ell. Direct orthogonal projectors give exact singleton losses T-u^T G^2 u/(u^T G u) and pair-plane losses 2/(v^T G^-1 v) over six normal directions. Both direction sets are tight frames with summed outer products 4I. Two Cauchy-Schwarz bounds yield normalized expected loss <=(2^(ell+1)-4/3)/4^ell, equality for G=A^T A scalar. Positive-probability singleton events force all four nonorthogonal sign lines to be G-eigenvectors at equality, implying scalar G uniquely. An independent rational SymPy calculation exhausted 4^ell projective words for ell=1..5 on a nonscalar diagonal Gram input, confirming the exact formula and bound; proof covers all ell and invertible real A.
 
-PASS, subject to priority limits. The closest motivating full text (Lynch-Davies--Webb, arXiv:2610.31333v1, especially Sections 1, 3 and 4) develops general sub-Gaussian sketching and numerical Rademacher comparisons rather than this exact fixed-dimension risk. Saibaba--Międlar (arXiv:2308.05814v1, Sections 2--4) provides general non-Gaussian concentration bounds, not an exact all-width \(3\times3\) occupancy-weighted residual and uniquely sharp Gram extremizer. Previous related finite-sketch claims concern a \(2\times3\) rank-two row map with orientation-dependent rank failure or a \(2\times2\) single-column sketch; neither implies the full-rank three-dimensional all-width minimax theorem. Search results from published mathematical records and literature were compared by statements and reductions, not titles alone. Unlocated older exact finite Bernoulli projection formulae remain a residual priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a complete finite-sample calibration for the first square dimension where four sign-line directions have nontrivial three-way span geometry. It supplies the sharp worst-case expected squared range-finder loss for every oversampling width, identifies the unique hardest matrices, and quantifies the exact-rank recovery obstruction despite having more columns than rows. The error concerns full range projection, not truncated low-rank SVD, and the result makes no claim for dimensions greater than three.
+Qualified best-of-knowledge originality: standard random range finding and sub-Gaussian sketch theorems provide expected/high-probability bounds but were not seen to give this dimension-three exact discrete occupancy law plus a sharp unique worst-case Gram characterization. The sign rank distribution itself is elementary and not claimed independently novel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Finite-alphabet sketches have a persistent exact-rank recovery obstruction even when oversampled beyond dimension, unlike continuous Gaussian sketches. The exact mean loss and sharp minimax extremizer capture a concrete failure probability and geometric sensitivity useful in randomized linear algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

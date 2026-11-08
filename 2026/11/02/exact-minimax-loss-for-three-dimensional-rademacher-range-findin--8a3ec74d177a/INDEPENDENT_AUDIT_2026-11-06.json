@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:50:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-minimax-loss-for-three-dimensional-rademacher-range-findin--8a3ec74d177a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-minimax-loss-for-three-dimensional-rademacher-range-findin--8a3ec74d177a/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-minimax-loss-for-three-dimensional-rademacher-range-findin--8a3ec74d177a/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261106T1743/independent_math_checks.py"
+      ],
+      "rationale": "The eight 3D sign columns form exactly four equally probable projective lines; every three distinct lines span R^3. Rank-one words number four, rank-two words 6(2^ell-2), hence rank deficiency 6/2^ell-8/4^ell for all positive ell. Direct orthogonal projectors give exact singleton losses T-u^T G^2 u/(u^T G u) and pair-plane losses 2/(v^T G^-1 v) over six normal directions. Both direction sets are tight frames with summed outer products 4I. Two Cauchy-Schwarz bounds yield normalized expected loss <=(2^(ell+1)-4/3)/4^ell, equality for G=A^T A scalar. Positive-probability singleton events force all four nonorthogonal sign lines to be G-eigenvectors at equality, implying scalar G uniquely. An independent rational SymPy calculation exhausted 4^ell projective words for ell=1..5 on a nonscalar diagonal Gram input, confirming the exact formula and bound; proof covers all ell and invertible real A.",
+      "residual_risks": [
+        "Independent bounded calculations corroborate but do not prove infinite quantifiers; the reviewed mathematical proof is the universal argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halko–Martinsson–Tropp (SIAM Review 2011) and Saibaba–Międlar (2025) provide general stochastic approximation estimates, but no obtained bound was seen to fix the exact 3x3 mean and its equality cases. A general theorem with sharp constants could cover the special case even without formula; none was found in inspected sources."
+        ],
+        "reasoning": "Checked whether a stronger theorem or parameter coverage entails the final statement, rather than requiring the same wording. Qualified best-of-knowledge originality: standard random range finding and sub-Gaussian sketch theorems provide expected/high-probability bounds but were not seen to give this dimension-three exact discrete occupancy law plus a sharp unique worst-case Gram characterization. The sign rank distribution itself is elementary and not claimed independently novel.",
+        "searches": [
+          "Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability",
+          "non-Gaussian randomized range finder exact Bernoulli matrix 3xell squared Frobenius residual minimax",
+          "Resultary_Search semantic query: Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2308.05814v1",
+        "https://arxiv.org/abs/2610.31333",
+        "Resultary_Search semantic query: Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank occupancy follows standard singularity events and is not a novel theorem by itself. The normalized matrix-specific expected projected residual and unique scalar-Gram minimax equality require the two-frame/Cauchy–Schwarz proof beyond a crude rank-deficiency probability."
+        ],
+        "reasoning": "Explicitly separated known premises or special cases from the final theorem and checked whether identified prior results logically entail all asserted conclusions.",
+        "searches": [
+          "Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability",
+          "non-Gaussian randomized range finder exact Bernoulli matrix 3xell squared Frobenius residual minimax",
+          "Resultary_Search semantic query: Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saibaba–Międlar, Randomized low-rank approximations beyond Gaussian random matrices, arXiv:2308.05814, surveys sub-Gaussian sketch bounds; no stated exact four-line occupancy distribution and Gram-specific expectation in the primary sections inspected."
+        ],
+        "reasoning": "Compared exact claimed objects, normalization, constraints, and implications, not title/parameter similarity. Qualified best-of-knowledge originality: standard random range finding and sub-Gaussian sketch theorems provide expected/high-probability bounds but were not seen to give this dimension-three exact discrete occupancy law plus a sharp unique worst-case Gram characterization. The sign rank distribution itself is elementary and not claimed independently novel.",
+        "searches": [
+          "Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability",
+          "non-Gaussian randomized range finder exact Bernoulli matrix 3xell squared Frobenius residual minimax",
+          "Resultary_Search semantic query: Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary three-dimensional Bernoulli/range-finding query produced unrelated rank-distribution records, e.g. 2026/10/4/SCOPE-exact-binary-rank-distribution-in-the-first-odd-generalized-comm--060eea525277; not the same sign-sketch rank/error table."
+        ],
+        "reasoning": "Searched exact table/database and alternate channel/graph/operator names; no equivalent count found in inspected evidence. Failed search is not novelty proof.",
+        "searches": [
+          "Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability",
+          "non-Gaussian randomized range finder exact Bernoulli matrix 3xell squared Frobenius residual minimax",
+          "Resultary_Search semantic query: Rademacher Bernoulli sketch 3x3 exact range finder expected Frobenius error rank probability"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: standard random range finding and sub-Gaussian sketch theorems provide expected/high-probability bounds but were not seen to give this dimension-three exact discrete occupancy law plus a sharp unique worst-case Gram characterization. The sign rank distribution itself is elementary and not claimed independently novel.",
+      "residual_risks": [
+        "A specialist exact Bernoulli random-sketch theorem may have calculated the same three-dimensional expectation.",
+        "The newly issued 2026 Lynch-Davies–Webb paper was not materially read in full; priority risk remains.",
+        "Exact arithmetic model omits finite precision and truncation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_DIM3",
+          "evidence": "The inspected bounds are general distribution-dependent estimates, without the exact projective four-line mixture or sharp equality classification.",
+          "identifier_or_url": "https://arxiv.org/html/2308.05814v1",
+          "material_read": "Accessible primary HTML: principal theorem statements, non-Gaussian random matrix classes, theorem on independent sub-Gaussian entries and related approximation estimates",
+          "method": "Read primary HTML through web",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "Same sub-Gaussian sketch family and loss metric"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PRIORITY_RISK",
+          "evidence": "Full contents not inspected, so no whole-document noncoverage assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31333",
+          "material_read": "Publication abstract/metadata only; full text was not available during this run",
+          "method": "Web metadata only",
+          "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+          "trigger": "Contemporary Rademacher/sketch analysis potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-minimax-loss-for-three-dimensional-rademacher-range-findin--8a3ec74d177a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/2bb782affdbe2b67a814464c5845d5160c81cfac/2026/11/02/exact-minimax-loss-for-three-dimensional-rademacher-range-findin--8a3ec74d177a/REVIEW.md",
+        "https://arxiv.org/html/2308.05814v1",
+        "https://arxiv.org/abs/2610.31333"
+      ],
+      "rationale": "Finite-alphabet sketches have a persistent exact-rank recovery obstruction even when oversampled beyond dimension, unlike continuous Gaussian sketches. The exact mean loss and sharp minimax extremizer capture a concrete failure probability and geometric sensitivity useful in randomized linear algebra.",
+      "residual_risks": [
+        "Value depends on the exact new invariant not being subsumed by a previously unread stronger classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialist exact Bernoulli random-sketch theorem may have calculated the same three-dimensional expectation.",
+    "The newly issued 2026 Lynch-Davies–Webb paper was not materially read in full; priority risk remains.",
+    "Exact arithmetic model omits finite precision and truncation.",
+    "No external expert or Lean certification is claimed; 2 relevant full-text sources remain partially uninspected as specifically noted in source_inspections.",
+    "Public package sanitation incomplete; publication is withheld; this does not change scientific PASS."
+  ],
+  "schema_version": 1
+}
