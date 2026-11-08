@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The ridge minimizer gamma=-WT/(T²+lambda) follows by differentiating a strictly convex quadratic, yielding E=theta+W(dT-lambda)/(T²+lambda) with independent normal T and W. Tail limits follow by conditional shrinking intervals at T=0 and Gaussian domination. The square-root risk singularity is the local density contribution d² E[T²/(T²+lambda)²]~pi d² p(0)/(2 sqrt(lambda)); cross and linear terms vanish after multiplying sqrt(lambda). For lambda=c sigma², Gaussian heat-kernel expansion away from the exponentially rare T=0 region gives A and Q(c), verified symbolically. Q''(c)=2r²theta²/[d⁴(1-r)⁴]>0 when theta≠0. The standalone checker passed 155 assertions. Infinite moment assertions rest on the full proof, not finite computations; global lambda optimality is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scieur et al. provide general regularized extrapolation with noise-dependent bounds, not the exact one-step fixed-site distribution.",
+        "Wei et al. give stochastic mixing convergence for different adaptive optimizers.",
+        "Pollock and Rebholz control rank/conditioning through filtering, not the probability-law expansion."
+      ],
+      "reasoning": "Generic stability estimates do not determine the exact moment threshold, leading constant, or first correction and its unique minimizer. This claim does not rebrand a stronger known theorem as a new special case.",
+      "searches": [
+        "arxiv:1706.07270",
+        "arxiv:2110.01543",
+        "arxiv:2211.12953",
+        "small noise optimal ridge regularization Tikhonov Anderson mixing Gaussian secant extrapolation fourth order optimal penalty"
+      ]
+    },
+    "checked_sources": [
+      "Scieur, d'Aspremont and Bach, arxiv:1706.07270 (2017)",
+      "Toth et al., doi:10.1137/16M1080677; public manuscript OSTI 1408509 (2017)",
+      "Wei, Bao and Liu, arxiv:2110.01543 (2021)",
+      "Pollock and Rebholz, arxiv:2211.12953 (2022)",
+      "published-finding corpus 2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source ridge estimator is materially the same after reparameterization; this is explicitly credited.",
+        "The available local inaccurate-evaluation bounds impose bounded coefficient controls not met automatically by the unregularized Gaussian ratio.",
+        "The displayed Q(c) is an exact fourth-order expansion for fixed c>0 and nonzero midpoint offset, not a generic stochastic convergence bound."
+      ],
+      "reasoning": "The most relevant prior establishes the algorithmic recipe but does not imply the exact law or its sharp small-noise coefficient by logical specialization. Claim is restricted to independently noisy deterministic sites and does not assert global optimality.",
+      "searches": [
+        "arxiv:1706.07270",
+        "doi:10.1137/16M1080677",
+        "arxiv:2110.01543",
+        "arxiv:2211.12953",
+        "noisy Aitken Steffensen Anderson depth 1 Gaussian ratio Cauchy tail ridge regularization square root divergence coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The normal-ratio representation E0=theta+d W/T corresponds to noisy secant, scalar Aitken and depth-one residual mixing after affine changes.",
+        "Scieur et al. (2017) already cover the symmetric ridge mixing coefficients; known algorithm, different exact distributional question.",
+        "published-finding corpus scalar Aitken-Steffensen 6741f4b1d748 is a deterministic q-contraction worst-case guarantee."
+      ],
+      "reasoning": "Compared the Gaussian-ratio and Anderson-depth-one equivalences, not only titles. The standard heavy-tail phenomenon and regularization are not asserted new. None of the inspected source claims the coupled finite-sigma risk identity and fourth-order optimal c* in this model.",
+      "searches": [
+        "scalar Anderson acceleration Gaussian noisy fixed point two evaluations infinite moments ratio residual difference Tikhonov regularization lambda inverse square root mean squared error",
+        "noisy Aitken Steffensen Anderson depth 1 Gaussian ratio Cauchy tail ridge regularization square root divergence coefficient",
+        "arxiv:1706.07270",
+        "doi:10.1137/16M1080677"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned published-finding corpus records include deterministic scalar Aitken robustness and stochastic-optimization noise floors, but no returned coefficient formula Q(c) or exact one-step Gaussian Anderson mixing table."
+      ],
+      "reasoning": "The claim is an analytic probability theorem, not a tabulated finite invariant; database queries checked the closest alias families. An unindexed exact Gaussian-ratio formula remains a residual risk.",
+      "searches": [
+        "scalar Anderson acceleration Gaussian noisy fixed point two evaluations infinite moments ratio residual difference Tikhonov regularization lambda inverse square root mean squared error",
+        "noisy Aitken Steffensen Anderson depth 1 Gaussian ratio Cauchy tail ridge regularization square root divergence coefficient",
+        "small noise optimal ridge regularization Tikhonov Anderson mixing Gaussian secant extrapolation fourth order optimal penalty",
+        "published-finding corpus 2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748"
+      ]
+    },
+    "rationale": "The exact scalar two-site Gaussian Anderson error law, the explicit 1/sqrt(lambda) risk coefficient, and especially the unique fourth-order optimal calibration c* in a nonzero-offset small-noise regime are not entailed by the inspected stochastic-acceleration bounds or available prior summaries. Scieur et al. already introduce minimum-norm regularized extrapolation: no algorithmic priority is claimed. Normal-ratio heavy tails are also classical. Relevant unindexed specialist precedents remain possible.",
+    "residual_risks": [
+      "General one-dimensional normal-ratio risk theory may contain an equivalent exact expansion under different names; the claim's novelty is the explicit Anderson-specific risk and ridge coefficient.",
+      "Unindexed or inaccessible specialist literature on noisy secant and regularized Anderson mixing could imply some formulas.",
+      "Finite-sigma optimality beyond fixed c on the sigma^2 scale is not assessed or claimed.",
+      "Only two fixed deterministic evaluation sites and independent normal noise are covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The two-coefficient ridge method is known; the inspected analysis does not give the exact fixed-evaluation Gaussian risk, heavy-tail constant, singular risk coefficient, or small-noise fourth-order tuning law.",
+        "evidence": [
+          "arxiv:1706.07270",
+          "https://arxiv.org/abs/1706.07270"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.07270",
+        "material_read": "Author manuscript sections describing the regularized extrapolation objective, algorithm, and noise/stability results, including formulas for coefficient regularization",
+        "method": "Primary manuscript open full-text extraction; compare objective after w0=1/2+gamma and w1=1/2-gamma",
+        "title": "Nonlinear Acceleration of Stochastic Algorithms",
+        "trigger": "Same residual-mixture ridge objective and first accessible 2017 source"
+      },
+      {
+        "assessment": "Finite-horizon or local control under bounded-coefficient conditions does not settle the unbounded raw Gaussian ratio nor the exact regularized one-step risk.",
+        "evidence": [
+          "https://www.osti.gov/servlets/purl/1408509",
+          "doi:10.1137/16M1080677"
+        ],
+        "identifier_or_url": "https://www.osti.gov/servlets/purl/1408509",
+        "material_read": "Accessible full-text manuscript including inaccurate-evaluation assumptions, statements of bounded-coefficient control, and local probabilistic arguments",
+        "method": "Open public manuscript and inspect primary statements and assumptions; visual PDF screenshot unavailable after failed fetch, textual extraction read",
+        "title": "Local Improvement Results for Anderson Acceleration with Inaccurate Function Evaluations",
+        "trigger": "Directly concerned with noisy Anderson residual evaluations"
+      },
+      {
+        "assessment": "Related regularization and control are prior; no inspected exact Gaussian fourth-order coefficient or risk singularity.",
+        "evidence": [
+          "arxiv:2110.01543"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.01543",
+        "material_read": "Full-text introduction, algorithm and convergence statements, together with damping/regularization analysis",
+        "method": "Open primary arXiv text and compare algorithm's adaptively chosen trajectories and guarantees with fixed two-site scalar Gaussian update",
+        "title": "Stochastic Anderson Mixing for Nonconvex Stochastic Optimization",
+        "trigger": "Stochastic Anderson mixing with regularization"
+      },
+      {
+        "assessment": "Filtering bounds coefficient conditioning, a different mathematical result from exact Gaussian ridge-risk asymptotics.",
+        "evidence": [
+          "arxiv:2211.12953"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.12953",
+        "material_read": "Available arXiv full-text abstract, filter construction and conditioning results",
+        "method": "Read relevant primary material and compare conditioning controls to distributional Gaussian ridge-risk formula",
+        "title": "Filtering for Anderson Acceleration",
+        "trigger": "Conditioning and regularization of Anderson least-squares coefficients"
+      },
+      {
+        "assessment": "Deterministic worst-case over q-contractions neither implies nor is implied by an exact Gaussian two-sample distributional ridge risk.",
+        "evidence": [
+          "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+        "material_read": "Published title and returned scientific summary; not claimed full primary proof inspection",
+        "method": "Compare reported deterministic contraction minimax factor with noisy fixed-site Gaussian-risk formula",
+        "title": "Sharp black-box robustness frontier for scalar Aitken-Steffensen acceleration",
+        "trigger": "Closest known published scalar acceleration finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a3edc5d-ee7a-4a82-aa08-9529d3aea7e1",
+  "value": {
+    "rationale": "The method under study is the elementary two-residual Anderson extrapolation used in numerical fixed-point solving. The finding identifies a mathematically consequential robustness failure: arbitrarily small Gaussian evaluation error yields infinite mean-square output error without coefficient control. It quantifies the exact regularization risk blow-up and gives a concrete asymptotic parameter-calibration principle at the first order where the ridge influences risk. The distinction between analytical exact risk and generic stability bounds is useful for tuning and interpreting stochastic acceleration, without asserting a general algorithm theorem.",
+    "status": "PASS"
+  }
+}
