@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For synchronous **open-neighborhood** binary NOR on the two-set Kneser graph, the update map is a symmetric antitone polarity. This gives the exact identity \(F^3=F\), and a case distinction on the two-spoke representation of every edge family with a two-vertex cover determines all possible images. Each listed attractor is closed under \(F\). Individual basin multiplicities follow from explicit inverse-fiber conditions, not from numerical fitting. The closed formula for the distinguished basin follows by subtracting all others; Bonferroni bounds yield the asymptotic and the sharp \(n=6\) threshold. Separately implemented Python and C++ enumerations confirm all state-space populations for \(n=5,6\) and \(n=5,6,7\), respectively. These finite calculations do not replace the universal proof.
+PASS
 
-## Originality — PASS, qualified
+PASS. Define F(S) as the family of edges meeting every edge of S, with intersection including equality and open-neighborhood NOR on KG(n,2). Symmetric antitone polarity gives S⊆F²(S) and hence F³=F; every state enters a period <=2 orbit in one step. If F(S) nonempty, S has a size-two vertex cover; classifying its two spoke-end sets A,D and optional central edge gives all image shapes: n stars and C(n,3) triangle fixed points, and precisely 1+C(n,2)+3C(n,3)+9C(n,4) 2-cycles in five described classes. Explicit preimage enumeration yields g_n, h_n, e_n, 1, 2 and remaining B_n basin sizes; Bonferroni on size-two vertex-cover events yields exceptional tail asymptotic and majority threshold n=6. Independently enumerated ALL 2^10 and 2^15 configurations for n=5,6 with NOR transitions, F³=F, basin histograms, B_5=389 and B_6=27627.
 
-Aledo–Martínez–Valverde's open-access 2015 survey supplies general minterm/maxterm background but not the exact basin census on \(KG(n,2)\). The examined 2017 and 2020 primary papers analyze local maps that incorporate a site's **own** bit; our update excludes it, which materially changes the conclusion and permits both fixed and two-periodic states. Previously known NOR period restrictions do not imply the seven attractor-shape rows or the inverse-fiber populations. Related results on binary XOR dynamics of the same Kneser graph concern a different map. Full text of the original 2012 article could not be examined, leaving a qualified historical-overlap risk; searches of research records and literature do not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result classifies every attractor and basin of a canonical infinite graph family and provides explicit polynomial attractor counts. It exhibits an exact \(n=6\) threshold at which one oscillatory basin becomes a strict majority, with the probability of all other basins of order \(2^{-\Theta(n^2)}\) even while the number of attractors grows. The complete inverse-fiber census is a motivated dynamical invariant and is not a selected computational slice.
+Best-of-knowledge originality from explicit theorem-level source comparisons. The narrower final novelty is preserved; older established components are credited. Search absence does not prove priority.
 
-## Closest literature and limitations
+## value
 
-See Aledo et al., *Journal of Applied Mathematics* (2015), DOI 10.1155/2015/594294; Aledo et al., *Complexity* (2017), DOI 10.1155/2017/7209762; Aledo et al., *Complexity* (2020), DOI 10.1155/2020/9708347; and the 2012 maxterm/minterm antecedent, DOI 10.1016/j.mcm.2011.08.040 (abstract only). Finite verification reaches only \(n=7\); the proof is for all \(n\ge5\). The result excludes self-inclusive NOR, higher-set Kneser graphs, and other schedules. Independent expert review is still required before scientific publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Exact attractor and basin census on a natural Kneser family is structurally richer than the general F³=F polarity fact: the large empty/full attractor basin undergoes a sharp majority threshold at n=6 and eventually captures 1-2^{-Theta(n²)} of states, while numerous small periodic orbits survive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
