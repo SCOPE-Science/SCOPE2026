@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The product-face coefficient of codimension two is derived directly from face enumeration. The only inputs are the published two-dimensional volume and surface lower bounds, Jensen's elementary sharp tangent-triangle perimeter inequality, and coefficientwise positivity. The triangular deficit is compensated whenever the total product dimension is at least three, and the equality and sharpness examples are explicit. The runnable verification file passed 884 representative products. The finite checks are not used in place of the general proof.
+## correctness
 
-**Originality — PASS, best-knowledge with residual uncertainty.** The source's Conjecture 5.2 is unresolved in general, Proposition 5.3 treats orthotopes and a centered tangential class, and its Cartesian-product face polynomial is used for higher-codimension counterexamples, not to establish the ridge conjecture for arbitrary products of asymmetric planar polygons. The source credits the three-dimensional general edge-length theorem, whose inequality is not claimed as new. Searches of semantic published mathematical records for the ridge conjecture, polygon-product tensorization, and face-polynomial deficit yielded no statement implying the general planar-product theorem together with the triangular factorwise gap. Earlier unindexed results might overlap.
+PASS
 
-**Value — PASS.** This is an exact affirmative case of a published higher-dimensional ridge-skeleton conjecture on a broad family that includes arbitrarily many asymmetric triangular and polygonal factors. It resolves the nontrivial obstruction from the locally insufficient vertex count of a triangle, gives a dimension-free sharp triangular penalty, and characterizes every equality case. The result does not purport to settle the general conjecture.
+PASS. Each factor polygon satisfies A>=4 and L>=8 under the published planar face-distance estimates; every interval length>=2. Inradius-one triangle has perimeter L>=6sqrt(3) by tangent-plane tightening and convexity of tan in three exterior normal gaps, equality for equilateral tangent triangle. Multiplicative codimension face polynomial C_P(z)=prod(A_i+L_i z+v_i z²)prod(s_j+2z) counts orthogonal product face measures exactly. Taking z² coefficient and only lowering nonnegative A_i and s_j gives Φ_{n-2}/2^n -binom(n,2)≥sum(v_i/4-1)+2(n-2)sum(L_i/8-1)+4sum_{i<j}(L_i/8-1)(L_j/8-1). Nontriangles give nonnegative terms, while triangle contributes -1/4 offset by n>=3 perimeter excess >=(3sqrt3-4)/4, yielding (6sqrt3-9)/4 per triangle. Equality in total ridge bound requires no triangles and tangent squares/perimeter8 plus length-two intervals, hence precisely centered cube. In n=3 triangle×[-1,1] reaches the triangle-deficit coefficient; its vertices satisfy distance≥sqrt2. Independent product-polynomial checks m<=3, ell<=5 with triangles/squares and intervals passed; uniform theorem is by coefficientwise proof, not finite checking.
 
-Closest literature: Zwierzyński (2026), Theorem 1.1 and Section 5, including Proposition 5.3 and the face-polynomial construction; Karasev's Vaaler-volume theorem; Besicovitch–Eggleston's 1957 theorem in dimension three. The general independent priority remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge with visible prior dependence. Zwierzyński 2026 announces ridge conjecture and partial cases, the known surface/volume factor bounds, and a face-product polynomial for other codimensions. The stated arbitrary products of possibly asymmetric planar polygons and sharp triangular compensation are not established by the prior orthotope or tangential symmetric cases on the evidence read. The general 3D ridge inequality is credited as old; the dimension-general product theorem and quantitative remainder survive.
+
+## value
+
+PASS
+
+PASS. A sharp, dimension-independent positive resolution on a broad family of a named higher-dimensional ridge-skeleton conjecture is motivated by factor geometry and the difficult local triangle-vertex deficit. The factorwise quantified sharp gap and all equality cases extend beyond orthotopes and familiar three-dimensional general edge bounds; no claim to settle indecomposable polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
