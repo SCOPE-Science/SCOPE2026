@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `verify.py` uses exact arithmetic in ten finite fields, including quadratic extension fields. It enumerates all \(a,b\) for each selected \(c,d\), forms both monic quartics, and checks irreducibility by the independent Frobenius-polynomial gcd criterion. It also enumerates elliptic points directly and checks all formula branches and Hasse's bound.
+## correctness
 
-Recorded command: `python verify.py`
+PASS
 
-Recorded result: `VERIFY_OK fields=10 cases=74 direct_quartic_tests=65828`
+For −c nonsquare take α²=−c in F_(q²). By tower irreducibility, (A²+c) is irreducible over Fq iff A−α is irreducible over the extension; its discriminant x+4α for x=a²−4b has quadratic character of norm x²+16c. Each a gives a bijection b↔x. The constant-branch sum χ(x²+16c)=−1; the joint indicator gives q/4(q+2+S). Squaring-map weighting 1+χ(t) turns S into −1 plus the cubic trace ∑χ(X(X+c)(X+d)), hence q#E/4. Distinct 0,−c,−d give a nonsingular curve with all rational 2-torsion. Independent direct quartic factor checks for every (c,d) over F3,F5,F7,F11 match this formula, but only the field-tower argument covers arbitrary odd prime powers.
 
-An exhaustive calculation within each selected field and parameter pair is not an exhaustive check over all odd prime powers. The infinite theorem rests on the field-degree, character-sum, and elliptic-curve argument in `RESULT.md`. Independent audit and independent validation are not performed.
+## originality
+
+PASS
+
+Qualified PASS for fixed-q exact two-parameter compositional quartic count. Classic Capelli, quadratic-character and elliptic-curve trace machinery are standard, and the motivating broad twin-prime polynomial works give asymptotics for different populations; the inspected primary material does not present the full exact degeneracy-and-elliptic formula. Equivalent specialized old exercise or code table is possible.
+
+## value
+
+PASS
+
+A natural simultaneous-irreducibility question for two constant shifts of quadratic compositions is completely resolved in every odd finite field, including precise Hasse fluctuations and zero/equality branches. The elliptic curve controls correlations not visible from independent single-polynomial densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
