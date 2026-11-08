@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The barycentric Gram inverse gives the vertex kernel; orthogonal decomposition of constants and factorwise centered affine functions excludes inadvertent bi-affine terms. Convexity of absolute kernel row integrals reduces maximization to vertices. The negative-part identity yields both the exact norm and positivity defect; polynomial density expansion and shifted-quadrant inclusion-exclusion prove the rational sum. Beta-to-exponential convergence with a bounded hinge and strict convexity establish the unique balanced asymptotic minimizer. Independent exact-rational and numerical calculations reproduce finite values and asymptotic behavior. Risk: finite computation cannot certify universal claims, which instead rest on the complete analytical argument.
+## correctness
 
-## Originality — PASS (best knowledge, with residual risk)
-The closest accessible statement is the exact affine-projector norm on one simplex; it supplies neither the independent two-factor beta convolution nor the strict balanced-splitting asymptotic law. Hangelbroek et al., arXiv:1005.2424, derive norm estimates for localized kernel spaces rather than a sharp dimension-dependent product-simplex constant. Chernov's simplex trace-approximation paper concerns different estimates. The older-product-domain literature and full text of one plausible comparison source were not exhaustively accessible, so equivalent implicit coverage remains possible. Source statements and implications, not title similarity, were compared.
+PASS
 
-## Mathematical value — PASS
-Products of simplices are natural polyhedral cells for approximation and finite-element constructions. A sharp essential-supremum amplification norm and positivity defect quantify stability of continuous affine least squares on these domains. The exact rational formula is constructive for every pair of dimensions; the balanced-dimension phase law changes the leading constant from \(2e^{-1}\) for a single simplex to \(4e^{-2}\) for a balanced two-factor product. That strict geometric effect is not a routine finite-table increment.
+PASS: Uniform barycentric Gram matrix has diagonal two and off-diagonal one divided by (d+1)(d+2), yielding vertex affine kernel K_d=(d+1)(d+2)U-(d+1). Globally affine product space decomposes orthogonally as constants and centered factorwise affine spaces, so K=AU+BV-(d+e+3), mean one. Convexity of integrated |K| in evaluation point forces a vertex maximum; sign(K) attains it and indicator of K<0 attains negative defect B=E[(C-AU-BV)_+]. Independent beta densities give exact inclusion-exclusion rational double hinge sum. dU and eV converge independently to Exp(1), bounded normalized hinge leads to 2b(theta). Pointwise hinge convexity plus positive probability of a kink-crossing yields strict convexity, symmetric minimum 1/2 with b=2e^-2 and endpoints e^-1. Independent exact rational symmetry/hinge checks on 36 (d,e) pairs, plus square integral and examples 233/108, 11/4, 1027567/311040 support finite values, not entire proof.
 
-## Scope and verification limits
-The classification is restricted to normalized product volume and globally affine projection, with two factors of positive dimension. Finite optimal splitting is not claimed. The self-review is not an independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): the published exact one-simplex affine projection norm supplies a baseline and much of the Gram identity, and general projection-stability literature concerns other kernels/domains. The two-factor globally affine kernel, exact rational hinge convolution and strictly optimized balanced split law do not follow from those narrower statements without further computation and limiting argument.
+
+## value
+
+PASS
+
+PASS: Sharp stability and positivity defect of an actual globally affine least-squares projector on the product of canonical polytopes is a natural numerical-analysis invariant. The exact finite rational constants and optimal asymptotic balance distinguish two-factor geometry from a single simplex and are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
