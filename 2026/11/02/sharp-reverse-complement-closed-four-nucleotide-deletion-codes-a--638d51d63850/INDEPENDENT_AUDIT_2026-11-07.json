@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:15:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For length four DNA words, Watson–Crick reverse complement is an involution with 16 fixed words and 120 two-word orbits. Every orbit is internally deletion-shadow compatible. The 136-vertex weighted compatibility graph has disjoint-shadow edges, vertex weights 1 or 2; its cliques correspond bijectively to all strand-closed one-deletion codes. The weighted independent-coloring prefix bound used for branch-and-bound is valid for every residual clique; the recursive traversal checks all include/exclude branches, with pruning by a rigorous upper bound. An independent implementation from all 256 DNA words reproduced weight maximum 24 and exactly 160 optimizers; removing fixed-word vertices gave maximum 22 and 44 optimizers. It also reproduced exact fixed-word distribution (2:4,4:44,6:76,8:36) and the published 136 orbit vertex counts. The stated 28 symmetry orbits follow from action of eight complement-preserving relabelings; this orbit count was examined against source algorithm, though an independent second census of the symmetry classes was not separately run. No larger-blocklength conclusion is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sloane surveys deletion codes mostly binary, without forced RC closure.",
+          "King considers Hamming reverse-complement distance, not deletion shadows and closure.",
+          "Chee–Ge–Ling perfect code spectra use different n/deletion radius; Cai concerns constructions/indel channels rather than a full four-letter optimizer census."
+        ],
+        "reasoning": "No inspected general code upper bound or structural theorem implies the optimizer count 160 or 22/44 restriction. Full hidden historical computational coverage is not excluded.",
+        "searches": [
+          "Sloane math/0207197",
+          "King math/0306197",
+          "Chee Ge Ling arXiv:1008.1343",
+          "Cai et al arXiv:1910.06501"
+        ]
+      },
+      "checked_sources": [
+        "Sloane 2002 arXiv:math/0207197",
+        "King 2003 arXiv:math/0306197",
+        "Chee Ge Ling 2010 arXiv:1008.1343",
+        "Cai et al 2019 arXiv:1910.06501",
+        "García-Claro 2025 arXiv:2506.19170",
+        "Resultary exact short deletion code queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier literature supplies channel definition and coding constructions, not all 136 orbit compatibility weights.",
+          "This theorem certifies max weight 24, equality census 160, symmetry classes 28, and no-self max 22."
+        ],
+        "reasoning": "Known generic deletion correction is necessary background but is not a proof of the imposed RC-closed finite optimum or extremizer distribution.",
+        "searches": [
+          "Sloane 2002 deletion code shadow separation",
+          "King 2003 reverse complement Hamming constraint",
+          "Cai et al 2019 DNA single-indel constructions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compatibility = pairwise disjoint distinct length-three deletion descendant sets.",
+          "Strand closure = inclusion of complete orbits of Watson–Crick reverse complement, NOT merely reverse complement Hamming distance."
+        ],
+        "reasoning": "The graph formulation is exactly equivalent to the original combinatorial code condition, so classification must count weighted orbit cliques, not arbitrary q-ary one-deletion cliques.",
+        "searches": [
+          "Resultary: reverse complement closed DNA length four single deletion correcting code 24 size exact enumeration",
+          "Sloane math/0207197 single-deletion descendants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known ternary n=4 optimum 11 and quinary n=4 optimum 42 have different alphabets and no RC orbit closure.",
+          "The actual package contains complete TSV lists of 160 and 44, independently recomputed from first principles."
+        ],
+        "reasoning": "The relevant exact classification is this 4-letter involution-constrained database, not inferred from matching unrelated q-ary tables; older unindexed databases remain possible.",
+        "searches": [
+          "Resultary: reverse complement closed DNA length four single deletion correcting code 24 size exact enumeration",
+          "published Resultary exact ternary length-four single-deletion; exact quinary length-four"
+        ]
+      },
+      "rationale": "Known single-deletion shadow-disjointness and DNA reverse-complement Hamming separation are different from the simultaneous closure-plus-deletion restriction. Other primary literature studies binary deletion codes, different q/n deletion spectra, and quaternary single-indel constructions without this complete nonlinear fixed-length RC-closed code census. Resultary yielded ternary/quinary length-four deletion optima but no 24/160/22/44 strand-closed quadrinary match. A hidden small-code table or equivalent orbit-census publication remains an unexcluded priority risk.",
+      "residual_risks": [
+        "Older unindexed short DNA code catalogs could already include equivalent 24/160 extremizer results.",
+        "Symmetry count verified from proof and source group-action classification; independent code independently recomputed the maximum and fixed-word distributions, not a separate full symmetry orbit enumeration.",
+        "Finite blocklength-four abstract codes do not establish in vivo DNA applicability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS definition/channel mechanism, not RC-closed quaternary n=4 full optimum",
+          "evidence": "Sloane 2002",
+          "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+          "material_read": "Core definition and surveyed single deletion code families",
+          "method": "arXiv primary source mathematical comparison; primarily binary channel results",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "direct predecessor on deletion-shadow disjointness"
+        },
+        {
+          "assessment": "Different metric and complement constraint; does not imply deletion-correcting RC-closure census",
+          "evidence": "King 2003",
+          "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+          "material_read": "DNA-code Hamming-distance, GC-content and reverse-complement separation assumptions",
+          "method": "arXiv primary source comparison",
+          "title": "Bounds for DNA codes with constant GC-content",
+          "trigger": "same nucleotides and reverse complement relation"
+        },
+        {
+          "assessment": "Different construction/length scope; no full labelled RC-invariant four-letter equality census shown in inspected material",
+          "evidence": "Cai et al 2019 notation table and single-indel construction",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.06501",
+          "material_read": "Paper definitions, code construction summaries, notation table and channel distinctions including page 3",
+          "method": "arXiv open PDF text and rendered PDF page inspection",
+          "title": "Optimal Codes Correcting a Single Indel/Edit for DNA-Based Data Storage",
+          "trigger": "quaternary DNA single-indel construction potentially stronger"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four-letter DNA words are a canonical finite coding benchmark. Exact sharp capacity, complete labeled optimizer inventory, symmetry collapse to 28 types and the two-codeword penalty for excluding self-reverse-complement strands are natural boundary facts for combining strand symmetry and one-deletion correction. No biological stability or general asymptotic capacity is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly four labeled bases, exactly one deletion and inclusion under RC; no substitution, insertion, GC balance or larger-n theorem."
+  ]
+}
