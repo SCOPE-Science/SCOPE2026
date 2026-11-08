@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** The orthogonal projector decomposition gives exact formulas for all three matrix entry types. Positivity of even Taylor polynomials and strict convexity establish the all-even graph-independent bound; a positive-kernel interpolation identity and monotone odd Taylor polynomials prove uniqueness and permanence of every odd-order obstruction. The third-order threshold reduction is proved by an exact cubic factorization and the inequality \(F_3(3/2)=1/16>0\). The standalone exact-arithmetic verifier reproduced 430,180 independent matrix-entry and cubic-identity comparisons. Finite checks are not presented as an infinite proof.
+
+**Originality: PASS, on inspected evidence with publication-priority risks.** A general 2001 SSP linear-method bound does not entail the exact graph-specific end-step horizon. The 2014/2015 polyhedral Taylor-threshold framework supplies generic computable sufficient thresholds, not this universal all-even necessary-and-sufficient rule or odd-order unique-sign-crossing and third-order partition classification. A previously established regular-bipartite RK4 theorem covers the balanced bipartite special case and that subcase is explicitly excluded from any priority claim. The specialist Horváth 2005 full text was inaccessible; relevant unindexed work may exist.
+
+**Mathematical value: PASS.** A natural infinite family of Markov generators admits a complete parity-dependent positivity law for arbitrarily high Taylor orders. Nonuniform degrees disappear from every even-order sharp bound yet control odd-order thresholds through part-size and singleton obstructions. The result gives exact admissible steps without graph-matrix construction and a sharply motivated comparison for numerical heat propagation, not an arbitrary sample or solely an algorithm for generic root finding.
+
+Limitations: endpoint-only positivity; unit edges; linear autonomous graph heat equation; no assertions of SSP-stage positivity, weighted-graph generality, nonlinear invariance, or independent certification. The publication-priority conclusion is conditional on the material inspected.
+
+Self-review: passed. Independent audit: not yet performed.
