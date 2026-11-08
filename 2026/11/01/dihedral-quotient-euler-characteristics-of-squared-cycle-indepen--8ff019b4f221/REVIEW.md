@@ -1,15 +1,21 @@
-# Scientific review: dihedral quotient Euler characteristics of squared cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is every ordinary simple squared cycle of length at least six, with the geometric dihedral quotient, and the claim concerns rational alternating Lefschetz traces and the resulting integral Euler characteristic. The fixed-orbit weight \((-1)^{u-1}\) includes the empty simplex and the orientation sign of the permutation. For rotations, congruence-class orbits yield either no admissible orbit or another squared cycle. For each reflection parity, admissible orbit graphs are explicitly described as path squares with zero, one, or two endpoint pendants. Their independence polynomial evaluations are proved by vertex deletion and the fully specified three-state transfer matrix. Barycentric subdivision and rational averaging justify the quotient formula. Root dominance and rotation recurrence justify unboundedness along an infinite subsequence. Direct complete action checks for lengths 6–22 and arithmetic checks for lengths 6–500 passed using the standalone verifier. These finite tests corroborate, rather than replace, the unrestricted proof. Residual scientific risks: possibility of an overlooked small-length orbit exception; the written boundary cases were explicitly included and enumerated.
+## correctness
 
-## Originality — PASS, with residual risk
-Adamaszek's 2011 cycle-power homotopy splitting addresses nonequivariant topology but gives neither an all-length dihedral Lefschetz formula nor Euler characteristics of ordinary topological orbit spaces. Rinaldo and Romeo's later ordinary reduced-Euler calculations for circulant graphs concern the unquotiented complexes. Published dihedral cycle-matching calculations concern \(\operatorname{Ind}(C_n)\), while the full strong Morse-cycle calculation concerns a different face relation. A published bounded-independence sphere result concerns the complex of subsets whose induced graphs have independence number strictly below a bound, which is not \(\operatorname{Ind}(C_n^2)\). The statements and natural symmetry actions were compared, not just the titles. Targeted published-finding corpus and primary literature searches found no theorem implying the exact quotient formula. Unindexed equivalent work remains a genuine risk; a negative search does not prove unique discovery.
+PASS
 
-## Value — PASS
-The ordinary squared-cycle independence complexes form a classical infinite family where nonequivariant homotopy is already understood by recurrence. Identifying the topology after dihedral symmetry reduction is a distinct natural question: quotient Euler characteristic depends on signed fixed simplices and cannot be inferred from ordinary Betti ranks. The new formulas provide a uniform all-length arithmetic algorithm with explicit reflection corrections, and the spectral corollary proves that rational homology of the symmetry quotient is nontrivial for infinitely many lengths. This is a structural infinite-family classification of a natural topological invariant, not a one-off numerical recomputation or an arbitrary parameter slice.
+For n≥6, every invariant independent set in Ind(C_n²) is a union of g-orbits, so the reduced signed Lefschetz trace is −I(B_g,−1) with the empty face and simplex orientation correctly counted. Rotations reduce to squared cycles of length gcd(n,a), or empty admissible orbit for d=1,2. A three-state transfer with characteristic x³−x²+1 gives recurrence W_d=W_{d−1}−W_{d−3}. Odd reflections yield a path square with one endpoint pendant, even reflections yield either a path with two pendants or a plain path square, giving stated A recurrences including n=6,7,8. Rational averaging after equivariant subdivision computes actual topological orbit quotient reduced Euler characteristic; χ is integer. The cubic characteristic polynomial has a negative real root of modulus <1 and conjugate pair modulus ρ>1. Infinitely many n have cos(nθ)≥1/2, so W_n dominates proper-divisor and reflection corrections O(n²ρ^{n/2}), proving absolute quotient Euler unbounded and infinitely many rationally non-acyclic quotients. Rebuilt orbit-subset sums for all dihedral elements n=6…18; every formula matched, finite corroboration only.
 
-## Literature and limits
-M. Adamaszek, *Splittings of independence complexes and the powers of cycles*, arXiv:1106.6250, Section 6 (first public 2011-06-30). G. Rinaldo and F. Romeo, *On the reduced Euler characteristic of independence complexes of circulant graphs*, arXiv:1706.00863, Sections 1–2 (2017 preprint). Related publicly available records: *Dihedral homology characters and quotient congruences for cycle matching complexes*; *Dihedral Euler characters of full strong Morse complexes of cycles*; *Dihedral orientation characters of bounded-independence spheres on cycles*. No claim is made to classify integral quotient homology or individual Betti numbers. An independently audited mathematical proof has not been provided.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared the underlying squared-cycle independence complex to nonequivariant splittings, ordinary circulant Euler tables, and published equivariant studies of ordinary cycle matching, full strong Morse, and circular arc nerves/clique complexes. Different face conditions and dihedral actions prevent direct implication; no precise orbit-space formula found in inspected primary texts.
+
+## value
+
+PASS
+
+The squared-cycle independence complexes form a classical all-order topological family, but the dihedral orbit-space alternating homology invariant is not derivable from unquotiented Betti numbers. Complete reflection-corrected arithmetic formulas and the unbounded/non-acyclic quotient consequence are nontrivial uniform structural information rather than a small fixed computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
