@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 verify_support.py` and `g++ -O2 -std=c++17 verify_direct.cpp -o verify_direct && ./verify_direct` in the directory containing the source files. The support checker enumerates every nonempty clique/independent color-support mask pair, executes the real update rule on one representative of each present color, checks the 49-cell table, and uses a formal monomial coefficient representation to verify the first-entry census. This is exhaustive for the entire infinite graph family **because** equal-colored vertices in each part have identical futures, a reduction established in the proof.
+# Independent mathematical audit
 
-The separately implemented direct checker enumerates all labelled initial three-colorings for 39 size pairs with at most eleven vertices and verifies both first synchronization times and the recurrent non-synchronizing structure. Its successful run checked 923463 labelled initial configurations. The logs `support_output.txt` and `direct_output.txt` record actual successful executions from these packaged sources. This computation is reproducibility evidence and does not constitute independent external validation.
+## correctness
 
-All theoretical limits are explicit: the theorem addresses synchronous three-color inhibitory dynamics on complete joins only, with any positive class sizes and the new classification emphasized for clique sizes at least two. The uniform-random asymptotics refer only to initial product measure and are proved algebraically from the exact counts.
+PASS
+
+The 49 nonempty support pairs for clique and independent vertices are an exact quotient: same-color vertices within either graph class have identical futures; a clique vertex at 2 is inhibited iff any other vertex currently blinks at 1, and independent class vertex at 2 iff any clique vertex blinks. Directly iterating the simultaneous three-color rule gives the complete 7x7 first-synchrony-time table, with the sole non-sync mask (4,7) a genuine primitive 3-cycle from time zero. Multiplying each mask by onto-coloring weights 1,2^k−2,3^k−3·2^k+3 gives the stated seven exact counts, summing to 3^{m+n}, the period census, bound 6 sharp n≥2 and bound 3 when n=1. Independent direct Python 49-support re-derivation and small m,n labelled enumeration agreed, not an extrapolation; the support quotient proves all sizes. Asymptotic distributions follow by normalized powers of 2/3.
+
+## originality
+
+PASS
+
+Lyu studies this identical inhibitory firefly update largely on paths and trees, where graph structure differs; no inspected theorem implies exact complete split graph support census, hitting-time distribution, and clique-size uniform time-two concentration. The known general star and bipartite phenomena are special/different adjacency cases; searches do not establish global priority.
+
+## value
+
+PASS
+
+The complete split graph is a natural dense/nonregular network extending the star. Exact size-independent 49-class reduction yields an all-size first-hitting-time distribution, sharp transients and recurrent-orbit classification; these are useful precise dynamical invariants, not routine small-case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
