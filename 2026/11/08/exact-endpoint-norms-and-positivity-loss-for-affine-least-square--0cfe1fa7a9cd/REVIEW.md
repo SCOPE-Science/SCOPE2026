@@ -1,0 +1,11 @@
+# Supported scientific review
+
+**Correctness — PASS.** The unit-ball covariance fixes the reproducing kernel exactly. Rotational symmetry, convexity of the absolute evaluation kernel and its strict radial increase give all norming locations. One-dimensional slice integration supplies the displayed incomplete-beta constant and sign-indicator equality cases. A Gaussian spherical representation and uniform integrability prove the asymptotic. The embedded `verify.py` was executed on the actual package source path, independently matching the integral and beta expression in a bounded collection of dimensions; sampling is not used as a universal proof.
+
+**Originality — PASS, qualified.** Targeted semantic comparisons were made against the published research index, accessible historical claim summaries, and the full text of Wade's arXiv:1209.4328v2. That paper concerns cubature-based hyperinterpolation and degree growth, not this exact continuous affine endpoint constant. The separately published simplex result was read in full and determines a different beta/Dirichlet geometry with different dimensional scaling. The related pre-existing radial-measure envelope optimizes *over* measures and cannot determine the value for the particular uniform ball. A broad prior literature on classical reproducing-kernel integrals remains a realistic residual priority risk; the search is not a proof of uniqueness.
+
+**Value — PASS.** The exact negative excursion of nonnegative data is a natural quantitative stability/positivity invariant for a canonical least-squares approximation operator. The result holds in every dimension, gives complete norming geometry and sign extremizers, and identifies a square-root dimension law, sharply different from the known simplex case's linear growth. The precise norm is not just a computation at an arbitrarily selected dimension.
+
+**Scientific limitations.** Only uniform-volume balls (and their affine ellipsoid images), real degree-one projections, and endpoint norms are addressed. No higher-degree, arbitrary-domain, or independent verification result is claimed. Prior unindexed equivalent expressions remain possible.
+
+Self-review: passed. Independent audit: not yet performed.
