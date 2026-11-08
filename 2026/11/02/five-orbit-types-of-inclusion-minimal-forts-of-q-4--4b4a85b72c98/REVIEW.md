@@ -1,15 +1,21 @@
-# Scientific review: five orbit types of inclusion-minimal forts of \(Q_4\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The inclusion-minimal fort predicate was reconstructed from the exact neighbor-count condition. The subfort recurrence certifies that no proper nonempty subfort was overlooked even though being a fort is not monotone under deletions. Two independent fort predicates and two independent inclusion-minimality algorithms agree for the complete \(2^{16}\)-mask range. Each of the \(384\) coordinate-translation/permutation automorphisms is explicitly generated and is distinct; the five certified orbits are disjoint, consist entirely of inclusion-minimal forts, and exhaust all \(348\). The standalone verifier is self-contained and its successful replay is reported. Limitation: this is a finite exhaustive proof only for dimension four.
+## correctness
 
-## Originality — PASS (qualified)
-Brimkov–Cameron–Grubbs, arXiv:2507.10826v1 (2025-07-14), already give the two orbit types of **minimum-cardinality** forts and explicitly report the **aggregate total 348** inclusion-minimal forts. The source's Section 5 and conclusion state that a complete characterization of inclusion-minimal forts is unavailable; the present result gives all five orbits and the full size distribution, not merely the known aggregate. The earlier broad enumeration paper arXiv:2404.05963 does not furnish this exact classification in inspected sections. Mathematical-record and related-results searches using the terms hypercube, four-cube, inclusion-minimal fort, 348, orbit, and symmetry found no equivalent classification. Residual priority risk: alternative names for zero-forcing obstruction supports or as-yet-unindexed enumerations.
+PASS
 
-## Mathematical value — PASS
-The source explicitly identifies characterizing all minimal forts as a mathematical gap. A complete orbit classification condenses \(348\) labelled obstructions into five structural shapes, including the previously uncategorized size-six and size-eight types, and determines the full enumerator \(28z^4+32z^6+288z^8\). Minimal forts are canonical hitting constraints in zero-forcing set-cover formulations, so their five representative symmetries are directly usable in reduced obstruction analysis. This is not offered as a general-dimensional formula and does not present the already-known 348 count as a discovery.
+The mask predicate tests each outside vertex for 0 or at least 2 neighbours; the subfort-existence recurrence is nonmonotonic-safe and yields minimality exactly. Independently enumerated all 2^16 vertex masks, obtaining 348 forts with sizes {4:28,6:32,8:288}; generated all 384 affine cube automorphisms and partitioned the set into exactly five disjoint orbits (12,16,32,96,192) with the displayed canonical masks. This exhausts the finite claim; no higher-dimensional implication is inferred.
 
-## Evidence and limits
-Full text of the 2025 primary paper, especially its Proposition 3.9, Section 5, and conclusion, was examined through its authorized open HTML version. Primary 2024 minimal-fort enumeration work was compared. Related published literature and accessible mathematical claims were compared; no equivalent was identified. The attached standalone checker supplies exact computational evidence, with a second direct enumeration. Comprehensive independent historical review and independent mathematical audit remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 348 total and two size-four orbit types are prior art, but the complete five-type orbit partition and size histogram fill an explicit gap noted by Brimkov–Cameron–Grubbs.
+
+## value
+
+PASS
+
+The primary source explicitly asks for a full Q4 minimal-fort classification. The five shapes reduce 348 labelled zero-forcing obstructions to structural representatives, with a full size enumerator usable in fort-hitting/zero-forcing formulations; this is a motivated finite classification, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

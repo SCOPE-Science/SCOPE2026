@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and validation
 
-Run `python3 verify.py` with Python 3.10 or newer. It requires no third-party packages. The expected successful output is:
+# Independent mathematical audit
 
-`VERIFY_OK Q4_minimal_forts=348 sizes=4:28,6:32,8:288 aut_group=384 orbits=12,16,32,96,192 distinct_predicates_and_minimality_algorithms=agree`
+## correctness
 
-Two mathematically equivalent yet independently implemented fort predicates compare graph-neighbor loops with bitset-neighbor intersections. Inclusion-minimality is evaluated both by a recurrence that searches all subforts and by directly iterating every proper nonempty submask. All subsets of the sixteen vertices are inspected, including the empty mask (excluded as a fort), and all \(384\) automorphisms are generated as distinct maps. All five representative sets are checked to be genuine inclusion-minimal forts; their pairwise disjoint orbits exhaust the full enumerated collection. The calculation tests the claimed finite graph exhaustively; it does not prove statements about other dimensions. The published aggregate total \(348\) is treated as prior knowledge, not an original result.
+PASS
+
+The mask predicate tests each outside vertex for 0 or at least 2 neighbours; the subfort-existence recurrence is nonmonotonic-safe and yields minimality exactly. Independently enumerated all 2^16 vertex masks, obtaining 348 forts with sizes {4:28,6:32,8:288}; generated all 384 affine cube automorphisms and partitioned the set into exactly five disjoint orbits (12,16,32,96,192) with the displayed canonical masks. This exhausts the finite claim; no higher-dimensional implication is inferred.
+
+## originality
+
+PASS
+
+The 348 total and two size-four orbit types are prior art, but the complete five-type orbit partition and size histogram fill an explicit gap noted by Brimkov–Cameron–Grubbs.
+
+## value
+
+PASS
+
+The primary source explicitly asks for a full Q4 minimal-fort classification. The five shapes reduce 348 labelled zero-forcing obstructions to structural representatives, with a full size enumerator usable in fort-hitting/zero-forcing formulations; this is a motivated finite classification, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
