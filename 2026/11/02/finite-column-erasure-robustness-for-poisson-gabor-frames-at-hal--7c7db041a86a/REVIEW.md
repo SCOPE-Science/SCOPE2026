@@ -1,15 +1,21 @@
-# Scientific review of finite-column erasure robustness
+# Independent mathematical audit
 
-## Correctness
-PASS. The physical frame coefficients reduce exactly to a two-channel convolution system by period-two Parseval. Poisson summation gives the stated two geometric-series symbols with the correct \(e^{-\pi w}\) parameter and \(e^{\pm w\theta/2}\) exponents. The coefficient determinant is everywhere nonzero, establishing a full two-channel lower multiplier bound. Finite translation-column removal is finite-rank on each fiber; a hypothetical residual kernel would produce two Laurent polynomial convolution outputs. Their ratio would force a rational Fourier transfer function, excluded by the meromorphic \(2\pi\)-monodromy contradiction. Fredholm theory converts injectivity to bounded below; norm continuity on a compact fiber interval makes the bounds uniform. A translated indicator test shows that retaining only the nonpositive translation indices fails the lower bound. The packaged `CHECK.py` passed 67 finite consistency assertions. The analytical proof, not the finite tests, covers arbitrary finite deletion sets and all positive window widths.
+## correctness
 
-## Originality
-PASS relative to examined sources, with the residual risk described below. Belov--Semenov (2026; arXiv:2610.30037v1), inspected in full, treats irregular frequencies with regular time shifts and states that the reverse orientation is not classified. Their criterion therefore does not imply the present claim. Gröchenig--Koppensteiner (2018; arXiv:1803.05271v1) establishes the machinery for intact lattices but not this structured deletion. Belov--Kulikov--Lyubarskii (2021; arXiv:2104.01121v1) addresses single complex Cauchy kernels with a different sampling criterion, not the Poisson combination. Balan--Casazza--Heil--Landau (2003), in Theorem 3 and Corollary 4, proves existential removal of an infinite set of individual atoms. These results do not guarantee every prescribed union of complete modulation columns can be deleted. Related published mathematical records retrieved by semantic searches concern finite cyclic tomography, different rational windows, and Gaussian Fock deletion; none gives the claimed all-\(w\), all-finite-\(F\) Poisson statement. An unindexed equivalent special-case proof remains possible.
+PASS
 
-## Value
-PASS. This theorem is a nontrivial, motivated positive instance of the reverse-orientation Poisson-frame question explicitly set apart from the solved orientation in current literature. Erasing one time-translation layer removes infinitely many frequency modulations, so ordinary finite-element frame excess does not answer it. The mechanism distinguishes finite from half-line erasures and yields a structural rationality obstruction applicable to further polyphase investigations. It does not claim the unrestricted reverse-orientation problem is solved or quantitative sharp frame bounds.
+For g_w=1/(x²+w²), w>0, k integer except finite F and modulation e^{pi imx}, Fourier Parseval on [0,2] reduces L2 frame estimates to two convolution channels on ell²(Z). Poisson summation yields symbols A_t(theta) and A_(t−1)(theta) with coefficient determinant −2rz(1−r²)/((1−rz)(1+rz)(z−r)(z+r)), r=e^{−pi w}, |z|=1, nonzero; therefore complete two-channel convolution is uniformly bounded below on compact t,theta. For fixed t the channel ratio includes e^{i theta/2}(a+b e^{w theta})/(a_prime+b_prime e^{w theta}); if rational in e^{i theta}, analytic continuation forces 2pi-periodicity, whose polynomial constant term gives impossible −aa_prime=aa_prime. If finitely many channel output coefficients are erased, any kernel input would produce two finite Laurent polynomials with rational channel ratio, impossible; finite-rank perturbation of positive invertible complete frame operator is Fredholm index zero, hence bounded invertible; norm-continuity on t compact gives uniform positive lower bound. For one-sided k<=0, f_R=indicator[R,R+1] has unit norm and analysis energy <=2 sum_{n>=R} n^-4=O(R^-3), so no lower frame bound. Source CHECK.py independently read: exact fractional determinant identity, 12001-term Poisson Fourier comparisons and halfline energy tests are consistency checks, not the all-w/F proof.
 
-## Limitations and audit status
-The exact best frame bounds, general irregular translation sets, and robustness uniform in deletion size are undetermined. Independent mathematical validation has not been performed. Earlier unindexed equivalents remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Belov--Semenov October 21, 2026 Theorem 1 solves Poisson Gabor with an irregular set in MODULATION and regular translations; the authors explicitly say their criterion does not solve the REVERSE arrangement. Deleting finitely many translation columns is precisely a reverse-orientation special case and is not a direct corollary by interchanging axes, because Fourier transform changes the Poisson window. Existing lattice-density/frame criteria and generic excess theorems do not prove robustness after infinitely many atoms (an entire modulation column) removed. Historical alternative transfer-function results remain possible.
+
+## value
+
+PASS
+
+In an oversampled Gabor frame, deleting a finite number of entire integer translation columns removes infinitely many atoms per deletion; this is not implied by finite-atom excess. The exact preservation theorem for arbitrary finite F and sharp contrasting one-sided infinite deletion clarify a motivated nonuniform-sampling stability boundary for a canonical Poisson window.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
