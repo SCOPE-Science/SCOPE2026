@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:09:48.143950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim is finite and exactly quantified for binary words, 1<=k<=9 nonempty ordered square factors. A binary word contains an overlap axaxa of period p iff the two length-p+1 substrings starting p apart agree; when adding a letter to a previously overlap-free word, a new overlap must end at the new letter. Inductively this append-one-letter test enumerates every overlap-free word of each length through 48, not just a sample. The DP F_k(w) counts all k-square decompositions by their final square cut and is exact. An independently written implementation enumerated all overlap-free binary words through 48 (416 at length 48), independently checked square-cuts and found 122 square words <=48. It reproduced (m_1..m_9)=(2,4,6,8,14,16,18,24,48), (c_1..c_9)=(2,2,2,2,6,4,2,8,2), with total cut counts equal to minimizer counts at each k. At k=9, only 001001101001011010011001011001101001011010011011 and its bitwise complement qualify, each with exactly one nine-square decomposition. The included verifier uses an additional independent complete square-block breadth-first check; it was read, not treated as an unexplained log. The exhaustive length<=48 reduction plus a known length-48 witness proves each finite minimum; nothing beyond length 48 or more than 9 squares is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit arXiv:2605.28570v1, Lemma 7/Table 1 and Theorem 8"
+        ],
+        "reasoning": "Shallit’s theorem forbidding ten squares is stronger for maximum possible k but does not imply m_9>=48. His four-block-table lower bounds are restricted to that alphabet and cannot establish global unrestricted minima. Restivo–Salemi gives structural overlap-free facts but no inspected exact minimum-length table.",
+        "searches": [
+          "Resultary: Minimum length overlap-free binary word product nine squares unique factorization Shallit",
+          "Primary full-text: arXiv:2605.28570v1"
+        ]
+      },
+      "checked_sources": [
+        "Shallit, Ten Squares Force an Overlap, arXiv:2605.28570v1, full paper",
+        "Resultary semantic search for overlap-free nine-square minimum length and unique decomposition",
+        "Restivo–Salemi cited in source as background only, not independently read full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shallit final displayed witness and Theorem 1",
+          "Independent all-word exhaustion / dynamic-program factor counts"
+        ],
+        "reasoning": "A length-48 witness gives only m_9<=48; the no-ten-square theorem gives k<=9. Neither implies an all-words length-47 exclusion, the exact two complementary minimizers, nor uniqueness of each factorization. Those require the separately proved exhaustive search.",
+        "searches": [
+          "Resultary: Minimum length overlap-free binary word product nine squares unique factorization Shallit",
+          "Primary full-text: arXiv:2605.28570v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shallit arXiv:2605.28570v1 Theorem 1, Lemma 7, final witness",
+          "Resultary non-overlapping-code minimum searches"
+        ],
+        "reasoning": "Shallit’s at-most-nine-square theorem addresses maximal factor count, whereas the present statement determines minimum total length, minimum-word counts and unique square cut lists for every k<=9. Related non-overlapping-codebook results concern a different cross-bifix-free condition.",
+        "searches": [
+          "Resultary: Minimum length overlap-free binary word product nine squares unique factorization Shallit",
+          "Primary full-text: arXiv:2605.28570v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shallit Lemma 7/Table 1 restricted block alphabet",
+          "Current exhaustive 416 length-48 words and all-square DP"
+        ],
+        "reasoning": "The published Table 1 considers four preselected square blocks, not all 122 overlap-free binary squares through length 48. The complete 1..9 minimum-length and word-count vectors have not been located in the checked primary or published records; this absence is qualified.",
+        "searches": [
+          "Resultary: Minimum length overlap-free binary word product nine squares unique factorization Shallit",
+          "Primary full-text: arXiv:2605.28570v1"
+        ]
+      },
+      "rationale": "Shallit, Ten Squares Force an Overlap (2026), already proves that ten binary squares force an overlap and exhibits precisely the displayed 48-character nine-square witness. These are expressly prior art. His finite Lemma 7 search restricts factors to a four-block alphabet, so does not prove that no unrestricted nine-square product is shorter, that there are exactly two minimum products, unique cuts, or the full k<=9 table. Full original paper comparison and Resultary queries found no matching unrestricted enumeration, with residual risk from unindexed tables.",
+      "residual_risks": [
+        "A previously unpublished or unindexed finite table may determine the same minima and unique factorizations.",
+        "Restivo–Salemi full text was not separately inspected; no priority inference drawn from nonaccess."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: maximal number of factors and a length-48 witness known; unrestricted exact minimum-length spectrum and cut uniqueness not stated",
+          "evidence": [
+            "Lemma 7 searches a restricted four-square-block alphabet; final proof gives a single nine-square witness."
+          ],
+          "identifier_or_url": "arXiv:2605.28570v1",
+          "material_read": "Complete eight-page original manuscript including Theorem 1, Lemma 7 and Table 1, Theorem 8, final square decomposition and references",
+          "method": "Accessible full arXiv preprint, including key displayed witness",
+          "title": "Ten Squares Force an Overlap",
+          "trigger": "Same overlap-free binary concatenated nonempty squares, exact existing 48-letter example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum total word length at the maximal feasible nine-square count, and the exact number and rigidity of minimizers, are natural structural extremal invariants at the sharp nine-versus-ten transition. An exhaustive finite cutoff can be worthwhile here: it answers a precise open numerical extremal question not implied by the published existence witness or ten-square impossibility theorem. The five preceding minima are included as a coherent full spectrum rather than arbitrary slices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Shallit, Ten Squares Force an Overlap, arXiv:2605.28570v1, full paper",
+    "Resultary semantic search for overlap-free nine-square minimum length and unique decomposition",
+    "Restivo–Salemi cited in source as background only, not independently read full text"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite binary words and exactly 1<=k<=9 nonempty square factors.",
+    "No claimed classification of nonminimal longer products or larger alphabets; finite exhaustive proof depends on correctness of openly inspected programs and completeness argument."
+  ],
+  "schema_version": 1
+}
