@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "DFT orthogonality for N>=6 exactly extracts C0, C1 and C2 at each window position. Equality of C2 forces the ratio g/f to alternate only two unit phases because the step-two parity cycles have odd order. Equality of C1 either identifies these phases or imposes unimodular successive correlation ratios, hence a two-periodic a_t, constant f_{t+2}/f_t, and an mth-root multiplier. The relative parity phase is uniquely solved. Conversely direct autocorrelation substitution proves that this phase produces identical measurements. The proof covers all allowed N and all complex nowhere-zero f; integer and numerical tests are supplemental and were run from the supplied source file.",
+    "status": "PASS",
+    "unproved_limits": [
+      "The theorem does not treat N divisible by four, vanishing f entries, or unequal tap amplitudes."
+    ]
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bendory–Cheng–Edidin, arXiv:2112.02836, Theorem 2.1 and the related proof, gives generic signal recovery with a known generic window; the current window has special equal entries and the claim is for every nowhere-zero signal.",
+        "A published endpoint-lag recovery result requires an odd cyclic dimension with coprime endpoint lag, unlike N even and lag two here.",
+        "Published exact even two-point window fibers concern only a length-two window; they do not recover the length-three lag-one sum and its phase constraint."
+      ],
+      "reasoning": "Theorems with generic windows or generic signals do not dominate an all-signal result for a nongeneric fixed three-tap window. The endpoint-lag theorem fails its coprimality and odd-order hypotheses here. Two-tap data cannot be substituted for three-tap data, because the lag-one correlation becomes a sum of two products.",
+      "searches": [
+        "short time Fourier phase retrieval three-point window even odd cyclic uniqueness condition",
+        "phase retrieval three consecutive sample window nonvanishing even N discrete Fourier spectra",
+        "finite cyclic Gabor phase retrieval short-time Fourier transform window zeros connected ambiguity"
+      ]
+    },
+    "checked_sources": [
+      "Bendory–Cheng–Edidin, arXiv:2112.02836 (2021, inspected main theorem/proof).",
+      "Jaganathan–Eldar–Hassibi, arXiv:1508.02820 (2015, inspected uniqueness theorem/proof).",
+      "Bartusel, arXiv:2206.06729 (2022, inspected short-window theorems).",
+      "Li–Wang–Han, arXiv:2205.07445 (2022, inspected analytic-signal results).",
+      "Closest public mathematical findings on even two-tap STFT fibers, endpoint-lag reconstruction, short-window boxcar operator rank and three-sparse ambiguity supports (statement-level comparisons)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jaganathan–Eldar–Hassibi 2015 provides an almost-all uniqueness statement; the current exceptional set has lower real dimension and is consistent with that theorem.",
+        "Bartusel 2023 §4.2 concerns L-separated and (L+1)-separated signal classes; the current f has no zero.",
+        "Bendory–Cheng–Edidin 2021 known-window recovery statements use genericity and do not list all exceptional projective fibers."
+      ],
+      "reasoning": "Neither theorem entails a bound of two on every nonvanishing fiber, the exact two-interlaced-geometric-progression exceptional set, nor the explicit unique partner phase. The present result is compatible with, but not a stated corollary of, the closest primary results.",
+      "searches": [
+        "three tap rectangular cyclic STFT window phase retrieval full support even dimension all lags exact ambiguity",
+        "short time Fourier phase retrieval three-point window even odd cyclic uniqueness condition",
+        "phase retrieval three consecutive sample window nonvanishing even N discrete Fourier spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a three-point window the cyclic Fourier intensities are exactly the full STFT magnitudes up to rowwise unit scalars; their Fourier coefficients recover all lag-zero, lag-one and lag-two local autocorrelations.",
+        "Jaganathan–Eldar–Hassibi, arXiv:1508.02820, Theorem III.1, concerns almost-all uniqueness rather than exact fibers for the fixed equal-tap window.",
+        "Bartusel, arXiv:2206.06729, §4.2, Theorems 4.2.6 and 4.2.8, assumes explicitly separated zeros."
+      ],
+      "reasoning": "Equivalent terminology includes local phaseless length-three Fourier measurements, equal-tap STFT, and cyclic Gabor magnitude with rectangular window. A complete projective fiber classification cannot be inferred from either generic uniqueness or separated-support equivalences.",
+      "searches": [
+        "three tap rectangular cyclic STFT window phase retrieval full support even dimension all lags exact ambiguity",
+        "three-point window Gabor ambiguity zeros phase retrieval for full support signals",
+        "three-term sliding Fourier intensity exact full support fiber for cyclic length six mod four",
+        "finite cyclic Gabor phase retrieval short-time Fourier transform window zeros connected ambiguity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact classified fiber for the fixed equal three-tap window and odd half-length was identified in the examined relevant public research records.",
+        "Nearby indexed records concern an even two-point window, a three-sparse signal ambiguity-support spectrum, and the arithmetic operator rank for a boxcar window."
+      ],
+      "reasoning": "The neighboring claims involve different measurement or signal objects. This is a comparison of actual scientific statements, not a uniqueness inference from partitions or failed searches. An unindexed equivalent table or calculation remains an explicit residual risk.",
+      "searches": [
+        "three tap rectangular cyclic STFT window phase retrieval full support even dimension all lags exact ambiguity",
+        "three-term sliding Fourier intensity exact full support fiber for cyclic length six mod four",
+        "three-tap rectangular sliding DFT intensity ambiguity two interlaced geometric progressions",
+        "phase retrieval three consecutive sample window nonvanishing even N discrete Fourier spectra"
+      ]
+    },
+    "rationale": "The statement classifies the full projective measurement fiber for every nowhere-zero complex signal at a fixed equal three-point cyclic STFT window in all cyclic dimensions congruent to two modulo four. The original generic recovery results do not determine exceptional fibers, and the 2023 separated-signal theorem does not apply to nowhere-zero signals. Explicit comparison with the closest two-tap and endpoint-lag recovery claims shows neither logically dominates the three-tap even-order classification. Absence of indexed equivalent sources is not proof of novelty; unindexed specialized calculations remain a risk.",
+    "residual_risks": [
+      "An earlier specialist treatment might classify the same three-tap exceptional fibers under another vocabulary.",
+      "Full comparisons were possible for the listed primary sources, but not for every older niche signal-processing note.",
+      "No independent specialist priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic identifiability is compatible with, but does not cover, the exact exceptional family or its maximum two-element fiber.",
+        "evidence": [
+          "The paper explicitly establishes near-optimal generic recovery from periodic phaseless STFT measurements; it does not assert an all-input two-point fiber for a fixed three-tap equal window."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.02836",
+        "material_read": "Full accessible HTML: definitions, introduction, Theorem 2.1 and its proof sections on generic identifiability.",
+        "method": "Compared known-window and generic-signal hypotheses and conclusions to exact fixed-window full-support fiber quantifiers.",
+        "title": "Near-optimal bounds for signal recovery from blind phaseless periodic short-time Fourier transform",
+        "trigger": "Focal known-window periodic phase retrieval reference, potentially encompassing the same data map."
+      },
+      {
+        "assessment": "Does not characterize the two exceptional projective classes or the explicit bad locus.",
+        "evidence": [
+          "Theorem III.1 establishes phase retrieval for almost all nonzero signals; an explicit thin bad locus remains possible."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.02820",
+        "material_read": "Accessible arXiv mathematical text: Theorem III.1, summary table, and corresponding proof sections.",
+        "method": "Compared almost-all uniqueness to exceptional-set characterization and identified fixed-window hypotheses.",
+        "title": "STFT Phase Retrieval: Uniqueness Guarantees and Recovery Algorithms",
+        "trigger": "Foundational short rectangular-window theorem for nonvanishing signals."
+      },
+      {
+        "assessment": "Its main short-window equivalences require L-separated or (L+1)-separated signals and thus exclude the proposed full-support signal class.",
+        "evidence": [
+          "Section 4.2 explicitly requires consecutive zero sites in its exact separated-signal retrieval theorems."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.06729",
+        "material_read": "Full open-access HTML: §4.2 definitions, remarks, Theorems 4.2.6 and 4.2.8, their proofs and concluding remarks.",
+        "method": "Checked required signal separateness and support topology against the everywhere-nonzero hypothesis.",
+        "title": "Injectivity conditions for STFT phase retrieval on Z, Z_d and R^d",
+        "trigger": "General injectivity conditions for short windows might dominate the new full-support classification."
+      },
+      {
+        "assessment": "Does not classify arbitrary nowhere-zero complex vectors under the fixed three-point window.",
+        "evidence": [
+          "The paper imposes analytic or bandlimited hypotheses distinct from the current fixed-window full complex-signal problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.07445",
+        "material_read": "Accessible arXiv HTML: introduction, analytic-signal assumptions and main uniqueness theorems.",
+        "method": "Compared restricted analytic-signal and bandlimited-window settings to a full complex signal with flat time-support-three window.",
+        "title": "Phase retrieval of analytic signals from short-time Fourier transform measurements",
+        "trigger": "Potentially stronger specific finite STFT uniqueness result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e11288f3-e49b-4cec-b794-0db548570227",
+  "value": {
+    "rationale": "The simplest equal three-tap overlapping Fourier measurement has a generic uniqueness theorem but its exact nowhere-zero exceptional fibers matter for deterministic reliability. This result identifies every failure, bounds fiber size sharply by two independent of length, shows a concrete nonunique pair for every N congruent to two modulo four, and explains why the odd parity-cycle arithmetic collapses the amplitude freedom. The result is a natural complete classification, not an arbitrary isolated finite case.",
+    "status": "PASS"
+  }
+}
