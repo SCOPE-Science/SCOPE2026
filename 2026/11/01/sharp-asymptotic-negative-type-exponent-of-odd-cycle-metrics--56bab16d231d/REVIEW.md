@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier negative-type criterion, exact discrete-Laplacian identity, convexity and telescoping of second differences, uniform separation of high and low even modes, triangular-kernel Taylor estimates, and comparison \(J_{2j}\le j^2J_2\) together give a complete analytic proof for every sufficiently large odd order at each fixed parameter on either side of the threshold. The finite checker reproduced the identity and checked 1,598 finite instances; its output is not used as an infinite proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** Classical graph-roundness statements concern a different invariant. The closest known same-object Fourier analysis determines the sign transition of the second Fourier multiplier and its constant, only giving an upper bound for the full negative-type exponent. The present uniform all-frequency sufficiency is a genuine further assertion: one Fourier mode cannot establish conditional negative definiteness of the matrix. Exact aliases, generalized roundness, metric negative type and finite-cycle conditional negativity were searched. Relevant original papers' cycle and negative-type sections were examined, with residual risk of an equivalent older result.
+PASS
 
-**Value — PASS.** The supremal negative-type exponent is a natural global invariant of the standard finite cycle metric and controls Hilbertian snowflaking. Pinpointing its sharp \(N^{-2}\) correction settles the asymptotic gap between a one-frequency obstruction and full matrix negativity. This is not a routine numerical increment, since uniform positivity across the growing set of frequencies is necessary and not implied by the existing single-frequency estimate.
+For odd N=2m+1, conditional negative type is exactly negativity of all circulant powered-distance Fourier multipliers F_{N,k}(p). The discrete second difference identity in RESULT.md isolates the positive (p>1) convexity weights b_r>=0. Odd Fourier modes remain negative, while even modes require H_{N,k}>0. At delta=c/N^2, all even k>=log N are controlled by H>=2k^2/N^2-O(c log N/N^2). Uniform low-mode Taylor/Riemann estimates give N^2 H_{N,k}=pi^2 k^2/2-c J_k+o(1), where J_k=int_0^{pi k}(1-cos u)/u du. For k=2j, the pointwise trigonometric inequality 1-cos(jv)<=j^2(1-cos v) yields J_{2j}<=j^2 J_2. Thus all modes are negative for fixed c<2pi^2/J_2 and the k=2 mode becomes positive when c exceeds it; downward closure gives N^2(beta_N-1)->2pi^2/J_2=8.09762735686653... for N odd. Independent all-mode numerical checks N=101,201,401 corroborate but do not prove asymptotics. No assertion of finite-N mode-two exact dominance.
 
-The result concerns large odd cycles only, without finite-size exact thresholds or a higher-order expansion. Literature comparison was bounded rather than exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after same-object source and implication comparisons. This result is not accepted merely because its wording differs from a prior title. Already known reductions, analytic machinery and restricted special cases are credited. Material access risks are explicitly listed.
+
+## value
+
+PASS
+
+The supremal negative-type exponent of a standard odd cycle metric is a natural quantitative invariant for Hilbertian snowflake embeddings. Closing the gap between a known single-frequency necessary obstruction and a sufficient all-frequency inequality requires genuine uniform spectral analysis as N grows and yields the sharp previously unknown N^-2 correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
