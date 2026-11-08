@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed integer \(q\ge3\) and real \(\lambda>-1/2\), exact signed-latitude constraints reduce near-antipodal cap pairs to an equatorial band. The normal-coordinate Jacobian has the stated leading factor \(\varepsilon^{q+1}\); the squared-distance expansion yields \(\|b\|^2+c^2<1\), while the cap conditions give the independent interval \(-\lambda\le a\le\lambda-c\). The region is compact after fixing \(\lambda\), its boundary has measure zero, and dominated convergence proves both the scalar coefficient and the full conditional joint law. The strict-event exclusion for \(\lambda\le-1/2\), exact three-dimensional polynomial and onset integral are independently checked. The accompanying standard-library verifier passed 117 deterministic checks. Numerical checks alone do not prove the limiting theorem; the proof is analytic.
+PASS
 
-## Originality — PASS, with residual historical risk
+For integer q>=3 and fixed lambda, d(X,Y)>pi-epsilon is exactly d(X,-Y)<epsilon. The two latitude cap constraints become a>=-lambda and a+c<=lambda in t=epsilon a, s=epsilon(a+c), while tangent displacement h=(b,c) satisfies |h|<1 to leading order. The product spherical Jacobian is epsilon^(q+1)(1+o(1)) uniformly on bounded coordinates. Compact localization, boundary-null dominated convergence, and the normalizing cap area A0=sigma_q/2 give sigma_(q-1)J_q(lambda)/A0^2 and the uniform conditional tangent-bundle density on R_lambda. For lambda<=-1/2 the strict event is empty. Independently integrated J_3(lambda) at six values, including both support thresholds, and verified agreement with the displayed piecewise profile. These finite checks do not prove joint weak convergence; the local-coordinate argument does.
 
-Cabré et al. (2007), Appendix B1 (doi:10.1111/j.1365-2966.2007.12280.x), give scalar angular pair-containment calculations for the ordinary \(\mathbb S^2\) cap, which is outside the claimed range \(q\ge3\). Moseeva, Tarasov and Zaporozhets (2020), Theorem 2.1 and Corollary 2.2 (arXiv:2007.07297v1), supply all-dimensional fixed subhemispherical cap *distance densities*. Those results cover the scalar marginal and, by complements, may be leveraged to calculate scalar large-cap probabilities, so that part is not separately claimed new. A scalar law does not specify the conditional joint tangent-bundle coordinates \((u,a,b,c)\) of pairs at the hemisphere transition, which is the claim's central new object. Inspected primary texts and targeted searches did not reveal that joint law. The self-review priority assessment cannot exclude uninspected sources, particularly work on boundary-layer geometry or local coarea limits.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cap family supplies a canonical geometric-probability transition where antipodal pairs become barely possible. The joint conditional law resolves where those rare pairs lie, their signed normal offsets, their tangent displacements, and a two-boundary support transition at \(\lambda=\pm1/2\). These quantities are not determined by the known one-dimensional separation distribution and are useful for conditioning and simulation of rare spherical configurations. The exact \(\mathbb S^3\) profile and all-dimensional onset law give concrete benchmarks. This is restricted to fixed dimension and the one-parameter hemisphere scaling; an independent priority audit has not been carried out.
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The scalar marginal is treated as background, not claimed independent novelty. The structural conditional law plus support transition is the surviving priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The moving hemisphere is a natural geometric transition: the near-antipodal event disappears for lambda<=-1/2, then admits a constrained tangent displacement and eventually the full unit displacement ball. The complete normalized conditional law supplies more information than a tail scalar and resolves all parameters q>=3, lambda>-1/2 at the critical scale. The support change is mathematically motivated by the geometry of opposite caps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

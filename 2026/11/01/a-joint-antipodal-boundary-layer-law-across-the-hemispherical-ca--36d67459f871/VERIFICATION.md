@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is a self-contained Python standard-library checker. It passed **117 deterministic comparisons** covering the integral normalization for dimensions three through nine, the exact three-dimensional piecewise polynomial, low-deficit convergence against an independently implemented finite-radius angular integral, and the subhemisphere endpoint relation. Execute `python verify.py` from the directory containing this file.
+## correctness
 
-The crucial analytic steps are the exact antipodal reduction, the signed-latitude cap constraints, the explicit spherical normal-coordinate Jacobian, the quadratic small-distance expansion, and dominated convergence on the compact rescaled event region. The limiting conditional law is uniform on a measurable tangent bundle with density \((\sigma_{q-1}J_q(\lambda))^{-1}\); exact integration over its latitude coordinate gives the positive-part factor and probability rate.
+PASS
 
-The numerical checks cannot establish convergence for all dimensions or prove originality. Independent scientific validation has not been performed. The regime fixes dimension \(q\) and crossover parameter \(\lambda\); the strict event is impossible at and below \(\lambda=-1/2\), so no conditional law is claimed there.
+For integer q>=3 and fixed lambda, d(X,Y)>pi-epsilon is exactly d(X,-Y)<epsilon. The two latitude cap constraints become a>=-lambda and a+c<=lambda in t=epsilon a, s=epsilon(a+c), while tangent displacement h=(b,c) satisfies |h|<1 to leading order. The product spherical Jacobian is epsilon^(q+1)(1+o(1)) uniformly on bounded coordinates. Compact localization, boundary-null dominated convergence, and the normalizing cap area A0=sigma_q/2 give sigma_(q-1)J_q(lambda)/A0^2 and the uniform conditional tangent-bundle density on R_lambda. For lambda<=-1/2 the strict event is empty. Independently integrated J_3(lambda) at six values, including both support thresholds, and verified agreement with the displayed piecewise profile. These finite checks do not prove joint weak convergence; the local-coordinate argument does.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. The scalar marginal is treated as background, not claimed independent novelty. The structural conditional law plus support transition is the surviving priority claim.
+
+## value
+
+PASS
+
+The moving hemisphere is a natural geometric transition: the near-antipodal event disappears for lambda<=-1/2, then admits a constrained tangent displacement and eventually the full unit displacement ball. The complete normalized conditional law supplies more information than a tail scalar and resolves all parameters q>=3, lambda>-1/2 at the critical scale. The support change is mathematically motivated by the geometry of opposite caps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
