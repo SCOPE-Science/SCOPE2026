@@ -1,0 +1,11 @@
+# Scientific review: periodic Rhaly Gram averaging
+
+**Correctness — PASS.** In the full periodic complex-coefficient range, the Gram entries are exact weighted-zeta tails. Their bounded-periodic partial sums imply second-order decay and the explicitly displayed nuclear decomposition; the trace identity follows with a vanishing tail. An explicit Hilbert–Schmidt discretization and logarithmic convolution supply the essential spectrum, while the published Rhaly criterion supplies the algebra membership comparison. Zero coefficients, nonminimal periods, and constant-modulus phases are included. The checker reports 14,447 finite assertions, not an infinite proof.
+
+**Originality — PASS, qualified.** Sang (arXiv:2608.25740) already gives the Rhaly membership criterion and the Cesàro commutator-ideal inclusion; those are credited as inputs, not advertised as new. Gallardo-Gutiérrez–Partington (arXiv:2408.03182) investigate Rhaly spectra and invariant subspaces. The new point is an all-period trace-class **Gram** cancellation, its exact conditional trace sum, and a full essential modulus spectral interval. Closest mathematical-index records on Rhaly trace-class membership, generalized Cesàro self-commutators, and oscillatory Hardy commutators do not imply this Gram result. Some wider averaging literature could contain an equivalent special case; this is a genuine residual publication-priority risk.
+
+**Mathematical value — PASS.** The trace-class cancellation is stronger than essential spectral stability and gives a measurable arithmetic defect. The same-modulus but different Toeplitz-membership example demonstrates that the full noncommutative algebraic membership cannot be recovered from the positive modulus, even exactly. These are structural operator-theoretic phenomena across a natural family rather than an isolated numerical computation.
+
+**Limits.** The theorem addresses periodic modulation on complex \(\ell^2\), not arbitrary almost-periodic or unbounded coefficients. The theorem concerns the Gram difference, not trace-classness of the difference of square roots. An independent mathematical and publication-priority audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
