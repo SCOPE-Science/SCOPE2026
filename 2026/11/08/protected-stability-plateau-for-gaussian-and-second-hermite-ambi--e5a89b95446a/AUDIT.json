@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For all real \\(T>0\\) and \\(w\\in[0,1]\\), the normalized Hermite ambiguity gain equals \\(e^{-s}[(1-w)+w(1-2s+s^2/2)^2]\\). The exact Laguerre factorization and derivative establish all stationary signs. The cubic at \\(w=1/4\\) has one real root in \\((6,7)\\), proving a protected minimum at \\(s=4\\) up to the unique exit \\(T_*\\). For \\(T>T_*\\), the active interior branch decreases strictly with \\(w\\) whereas the outer endpoint increases strictly, giving a unique intersection. All boundary regimes \\(T=2,4,T_*\\), weights zero and one, and the large-radius asymptotics are proved analytically. An independent standard-library checker verifies exact polynomial identities and numerical Hermite ambiguity integrals; finite tests are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bertolini et al. arxiv:2605.20527, Theorems 1.3–1.5, prove local L2 phase-retrieval stability about selected signals, with constants depending on signal/window; they do not optimize an ambiguity-domain precision split.",
+        "Alaifari–Yang arxiv:2410.05486, Algorithm 2, allocates spatial annuli to individual windows by a tolerance, rather than a fixed total squared-channel budget with an optimal convex weight."
+      ],
+      "reasoning": "The published local stability theorem concerns nonlinear signal-space distances and neither includes nor quantitatively dominates this sharp, normalized pointwise linear-inversion objective. A multiwindow qualitative coverage theorem likewise does not determine the exact min-max function or its plateau.",
+      "searches": [
+        "multiwindow STFT ambiguity optimal Gaussian second Hermite window disk inverse conditioning",
+        "Multi-window Approaches Direct Stable STFT Phase Retrieval Alaifari Yang Hermite windows 2024 2025 weighted least squares",
+        "arxiv:2605.20527, introduction and Theorems 1.3-1.5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.05486 (first public October 7, 2024, inspected primary full text)",
+      "arxiv:2605.20527 (first public May 19, 2026, inspected primary full text sections)",
+      "Relevant published mathematical-record summaries concerning optimal cyclic STFT weighting, Hermite frame conditions and Gabor tomography (different objects and parameters)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known Gaussian/first-Hermite design uses \\(L_1(s)=1-s\\) and has a different threshold geometry; it does not contain the second-Hermite level \\(L_2(s)=1-2s+s^2/2\\).",
+        "Alaifari–Yang give the function being optimized and a qualitative multi-window strategy, but no optimization theorem or plateau.",
+        "Bertolini et al. give local L2 phase-retrieval stability for Hermite windows, not budgeted ambiguity-domain inversion margins."
+      ],
+      "reasoning": "The result is not a routine change of an index in the first-order calculation: the second Laguerre polynomial has two positive roots, the polynomial square has a zero at \\(s=2\\) relative to the Gaussian gain, and the optimum is exactly flat across a nontrivial interval before a distinct equalized-contact branch starts. Neither prior statement logically yields the displayed piecewise formula without a new global sign analysis.",
+      "searches": [
+        "Exact optimal allocation Gaussian and first Hermite short time Fourier phase retrieval squared ambiguity inversion disk radius transition T=2",
+        "arxiv:2410.05486, Eq. (8) and Algorithm 2",
+        "arxiv:2605.20527, Theorems 1.3-1.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alaifari–Yang arxiv:2410.05486 §2.2, Eq. (8), states \\(\\mathcal A(h_n)=e^{-s/2}L_n(s)\\) and describes thresholded annular coverage, not exact allocations or equalized minimax radii.",
+        "The precise second-order factor \\(L_2(s)^2-1=s(s-4)(s-2)^2/4\\) creates a protected minimum at \\(s=4\\) and a later return at \\(T_*=8.8327\\ldots\\); the inspected earlier statement lacks this phenomenon."
+      ],
+      "reasoning": "Equivalent STFT/ambiguity/weighted least-squares formulations were compared, including the radial Laguerre representation. The known multiplier formula and qualitative coverage do not imply optimizing the minimum of the weighted squared multipliers over all radii and allocations.",
+      "searches": [
+        "second Hermite window L_2(t) 1-2t+t^2/2 Laguerre Gaussian weighted squared ambiguity flat plateau 4 radius 8.8327",
+        "Gaussian-Laguerre ambiguity two channel optimal weight coverage s radial",
+        "arxiv:2410.05486, Hermite-window §2.2 and stability §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched public table or quoted numerical record was found giving the exact transcendental endpoint \\(T_*=8.8327355186\\ldots\\), the unique optimum \\(w=1/4\\) for \\(4<T\\le T_*\\), or the equalized outer/interior branch.",
+        "Nearby semantic records on Hermite Gabor frame asymptotics and cyclic spectrogram conditioning address distinct frame/bound problems."
+      ],
+      "reasoning": "A finite table would not imply the proof for every T. Search absence alone is not proof of novelty; the inspected primary mathematical statements do not give the same table or formulas.",
+      "searches": [
+        "second Hermite window L_2(t) 1-2t+t^2/2 Laguerre Gaussian weighted squared ambiguity flat plateau 4 radius 8.8327",
+        "8.832735 Hermite ambiguity frame",
+        "sharp two window Gaussian second Hermite ambiguity minimax disk weight optimal first Hermite second order Laguerre"
+      ]
+    },
+    "rationale": "Primary papers arXiv:2410.05486 and arXiv:2605.20527 establish Hermite-Laguerre ambiguity factors, multiwindow coverage, and local signal-space stability, but the inspected relevant text does not contain the sharp fixed-budget Gaussian/second-Hermite disk minimax, its protected plateau ending at \\(T_*=8.8327355\\ldots\\), or its \\(T^4e^{-T}/4\\) asymptotics. The earlier Gaussian/first-Hermite optimal allocation does not imply this second-order case: its Laguerre polynomial \\(L_1(s)=1-s\\) has a different zero geometry. Actual semantic searches of mathematical records returned related cyclic Gabor tomography and finite-window conditioning, but no logically dominating claim.",
+    "residual_risks": [
+      "Earlier signal-processing literature could contain an equivalent two-window weighted minimax in different terminology.",
+      "Source comparison and mathematical review are same-model only; no independent publication-priority or correctness assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the formula and qualitative annular window selection, but not the exact fixed-budget 0/2 optimal weighting, protected plateau, or asymptotic law.",
+        "evidence": [
+          "Eq. (8): centered normalized Hermite ambiguity \\(e^{-s/2}L_n(s)\\).",
+          "Algorithm 2: each window assigned an annulus via epsilon-thresholding."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.05486",
+        "material_read": "Full accessible arXiv text: introduction including spectrogram-ambiguity identity, §2.2 including Eq. (8), Algorithm 2 and discussion of stability regions, and §3 stability setting.",
+        "method": "Inspected rendered primary text and compared its formulas and optimization target against the exact weighted min-max objective.",
+        "title": "Multi-Window Approaches for Direct and Stable STFT Phase Retrieval",
+        "trigger": "Original Hermite-Laguerre ambiguity formula and potential broad multiwindow coverage theorem"
+      },
+      {
+        "assessment": "Proves distinct local stability statements with no two-channel weighting minimax or protected radial plateau.",
+        "evidence": [
+          "Theorem 1.5: L2 local phase retrieval for each fixed Hermite window in finite canonical span.",
+          "Introduction gives the spectrogram-ambiguity identity and notes zero circles for Hermite windows."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.20527v1",
+        "material_read": "Primary HTML abstract, introduction §1.1 and main results §1.2, including Theorems 1.3, 1.4, 1.5 and their hypotheses.",
+        "method": "Compared the quantified signal-space L2 inequalities against fixed-budget pointwise ambiguity conditioning.",
+        "title": "L2-Stability for STFT phase retrieval",
+        "trigger": "Recent source discussing Hermite-window phase retrieval and possible stronger stability implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5a89b95-446a-4d9a-835a-03817f6f97bf",
+  "value": {
+    "rationale": "The weighted squared Gaussian/second-Hermite ambiguity multiplier is the exact pointwise least-squares inversion denominator under a fixed channel-precision budget. A sharp and motivated design transition occurs: the precise quarter-weighted design protects the worst-case squared margin \\(e^{-4}\\) as the dimensionless disk radius expands from \\(T=4\\) to \\(T_*=8.8327355\\ldots\\). After this plateau, a unique interior/endpoint contact determines the allocation and leads to the sharp large-radius law \\(\\Gamma(T)\\sim T^4e^{-T}/4\\). These are meaningful nontrivial decisions for window budgeting rather than a repackaging of the known Hermite ambiguity formula.",
+    "status": "PASS"
+  }
+}
