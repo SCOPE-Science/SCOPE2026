@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For each selected bipartite edge the induced rook-graph degree equals d(u)+d(v)-2, so feasibility means a vertex-disjoint union of K2 and P3. The component factorial sum counts each labelled choice exactly once. Three explicit upper bounds and a residue-class construction reach min{2m,2n,floor(2(m+n)/3)} for all positive m,n. Distinct-algorithm brute enumeration of eleven small rook graphs and construction checks on dimensions 1..39 replayed successfully; the unrestricted proof does not rely on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2011 paper gives maximum dissociation size for line graphs of graphs admitting a Hamiltonian path; this covers near-balanced complete bipartite hosts, and is conceded as covering that special-case scalar value.",
+        "Yuan et al. (arXiv:2412.17095) optimize total dissociation counts across connected graphs of fixed order, rather than provide a rectangular rook-graph coefficient enumerator.",
+        "PUMaC 2010 Combinatorics B, Problem 7, solves exactly the same rook constraint for a 6-by-6 board, finding maximum 8 and 8100 optimal arrangements; the present polynomial matches that known coefficient."
+      ],
+      "reasoning": "A general extremal theorem on the largest dissociation set or extremal total counts does not determine the labelled distribution d_mn(k). Even with max size previously known in a subfamily, intermediate coefficients are mathematically independent data. No searched broader theorem supplied all of them. The specific 6-by-6 optimal coefficient is covered by PUMaC 2010. The full two-parameter, all-cardinality expression is not stated in that finite exercise.",
+      "searches": [
+        "published-finding corpus: rook graphs dissociation number min 2m floor 2(m+n)/3 and polynomial component enumeration",
+        "web: The complexity of dissociation set problems in graphs line graphs Hamiltonian path Theorem 7 2011",
+        "web: The number of dissociation sets in connected graphs arXiv 2412.17095",
+        "web: rooks at most one other rook number of ways 6 x 6 board PUMaC 2010 Combinatorics B Solutions Problem 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25128",
+      "doi:10.1016/j.dam.2011.04.023",
+      "arXiv:2401.00716",
+      "arXiv:2412.17095",
+      "published-finding corpus:2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+      "published-finding corpus:2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+      "published-finding corpus:2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+      "PUMaC2010:CombinatoricsB:Problem7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sahbi and later coauthors establish a general lower bound from 2-independence and treat Cartesian grids with path factors and hypercubes; the claim here is Cartesian rook graphs with clique factors.",
+        "The 2011 Hamiltonian-path theorem implies the maximum-cardinality answer for near-balanced host graphs; it does not imply the complete polynomial.",
+        "Mertens studies row/column domination conditions, rather than a bound on attacks *among* selected rooks.",
+        "The final targeted published-finding corpus search returned windmills and complete multipartite dissociation polynomials as its strongest hits; a rook three-cut homology record concerns the same graph but not dissociation enumeration."
+      ],
+      "reasoning": "Our full enumerator implies a degree formula, but known scalar maximum formulas do not imply the whole enumerator. Explicit coverage of near-balanced degree is acknowledged. The graph classes and subset conditions in the cited primary works are materially different, not mere renamed versions of the same theorem. Another targeted query phrased as constrained rook placements likewise found rook topology and general multipartite domination, not the claimed all-coefficient polynomial.",
+      "searches": [
+        "published-finding corpus: Sub-quorum colorings of graphs Sahbi 2026 dissociation bound for Cartesian product complete graphs line graphs",
+        "web: Sub-quorum colorings of graphs arXiv 2609.25128",
+        "web: arXiv 2401.00716 HTML full text",
+        "published-finding corpus: The complete dissociation polynomial of rook graphs K_m square K_n enumerates placements of rooks where each attacks at most one other: sum over vertex-disjoint P3 and K2 in K_m,n, maximum min(2m,2n,floor(2(m+n)/3)), PUMaC 2010 6x6 8100"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph is the line graph of the complete bipartite graph, so general line-graph dissociation results must be considered.",
+        "The 2011 Orlovich–Dolgui–Finke–Gordon–Werner line-graph paper concerns maxima and complexity rather than all rook-board dissociation coefficients."
+      ],
+      "reasoning": "The exact translated predicate is that every selected edge uv has degree sum d_H(u)+d_H(v) at most three. This is equivalent to a vertex-disjoint P3/K2 packing; published extremal statements about maximum size on Hamiltonian hosts are strictly weaker than the all-coefficient polynomial.",
+      "searches": [
+        "published-finding corpus: exact dissociation polynomial 2-independent sets rook graphs Cartesian product of cliques K_m square K_n line graph of K_m,n enumerator of P3 and K2 bipartite packings",
+        "web: dissociation polynomial rook graph line graph complete bipartite graph maximum dissociation set enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b concerns a complete multipartite graph rather than a Cartesian product of cliques.",
+        "published-finding corpus hit 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f concerns topology of the same rook graph, not dissociation counts.",
+        "Mertens arXiv:2401.00716 Theorem 4 explicitly gives a domination polynomial for sets that cover unselected squares, not the induced-degree-one polynomial."
+      ],
+      "reasoning": "The rook domination polynomial has different coefficient support and counts a different property: on a 2-by-2 board it counts dominating subsets of size 2 or greater, whereas the dissociation polynomial includes the empty and singleton sets and excludes larger dense arrangements. No matching whole-table recurrence or formula was found.",
+      "searches": [
+        "published-finding corpus: exact dissociation polynomial 2-independent sets rook graphs Cartesian product of cliques",
+        "published-finding corpus: rook graphs dissociation number min 2m floor 2(m+n)/3 and polynomial component enumeration",
+        "web: Domination Polynomial of the Rook Graph arXiv 2401.00716"
+      ]
+    },
+    "rationale": "The all-coefficient formula on arbitrary rectangular rook graphs was not found in searched primary works, published-finding corpus, or accessible prior claim ledgers. The 2011 Hamiltonian-host line-graph theorem already implies the balanced-family maximum-size corollary, which is explicitly excluded from the novelty claim; 2024 rook domination polynomial and recent path-grid dissociation results address different subset predicates or host classes. A 2010 PUMaC problem proves the 6-by-6 maximum 8 and optimal count 8100, explicitly credited as an already-covered finite coefficient.",
+    "residual_risks": [
+      "Unidentified classical rook-placement enumerations under alternative names could coincide with this full coefficient polynomial.",
+      "A full inspection of all older dissociation-count papers including arXiv:2412.17095 was not possible; its abstract is not a whole-document negative coverage finding.",
+      "Some previously established maximum-size subcases are not novel and are expressly credited.",
+      "A previously known explicit 6-by-6 maximum and optimum count is correctly credited and excluded as new; other contest-problem generalizations may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state an all-coefficient dissociation polynomial for K_m square K_n; supports the motivation and only a general sub-quorum lower bound",
+        "evidence": [
+          "Initial 2026-09-20 version by Sahbi; later versions by Ma, Sahbi, Zhang treat P_m square P_n and Q_n and relate psi_sq to beta_2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.25128",
+        "material_read": "Full searchable manuscript sections on 2-independence, classical families, rectangular path grids, hypercubes and conjectures",
+        "method": "Lawful arXiv HTML text inspection and abstracts of distinct versions",
+        "title": "Sub-quorum colorings of graphs",
+        "trigger": "Earliest 2026 motivation for dissociation/2-independence on Cartesian products"
+      },
+      {
+        "assessment": "Partial prior implication: exact maximum size for Hamiltonian-host line graphs, applicable on near-balanced complete bipartite hosts; no all-cardinality rook-board enumeration observed",
+        "evidence": [
+          "The 2011 line-graph Hamiltonian-path result gives floor(2|V(H)|/3) maximum size for appropriate H; it is not a coefficient enumerator."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+        "material_read": "Primary article introduction, algorithmic tractable families and Hamiltonian-path line-graph result, and conclusion",
+        "method": "Searchable published full-text HTML, with limited repeated access",
+        "title": "The complexity of dissociation set problems in graphs",
+        "trigger": "Line-graph equivalence yields a plausible dominating earlier result"
+      },
+      {
+        "assessment": "Not covering: domination set polynomial counts sets covering all unselected positions; induced max-degree-one constraint is different",
+        "evidence": [
+          "Its Theorem 4 is a domination polynomial and Theorem 1 counts dominating placements, with no degree-one induced-subgraph restriction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.00716v2",
+        "material_read": "Sections 1–4 and Theorems 1–4 with row-column domination recurrences and complete polynomial",
+        "method": "Full lawful arXiv HTML primary text inspection",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same rook graphs and generating-polynomial terminology"
+      },
+      {
+        "assessment": "No exact rook-board polynomial in accessible portion; inaccessible full text is a residual priority risk, not asserted NOT_COVERING from a snippet",
+        "evidence": [
+          "Abstract discusses maximum total count among all connected graphs of given order and extremal trees/unicyclic graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.17095",
+        "material_read": "Public abstract and scope statement; full-text material not obtained",
+        "method": "Open-access metadata and scholarly abstract search",
+        "title": "The number of dissociation sets in connected graphs",
+        "trigger": "Might imply a stronger enumerator for connected graph families"
+      },
+      {
+        "assessment": "Covers the special case of maximum eight rooks and 8100 optimal sets for a 6-by-6 board, but not arbitrary m-by-n boards or all cardinalities",
+        "evidence": [
+          "The Problem 7 answer is 8100, and its proof gives maximum eight chosen rooks under the at-most-one-attack restriction."
+        ],
+        "identifier_or_url": "https://static1.squarespace.com/static/570450471d07c094a39efaed/t/58b09455893fc05441866dbd/1487967317870/PUMaC2010_CombinatoricsBSol.pdf",
+        "material_read": "Problem 7, pages 4–5, including full counting argument",
+        "method": "Text extracted from original contest solutions PDF and direct page-image inspection",
+        "title": "PUMaC 2010 Combinatorics B Solutions, Problem 7",
+        "trigger": "Directly matching rook-placement condition and known finite exact optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c17c229-c0af-4448-90e5-ef08b40928a3",
+  "value": {
+    "rationale": "The all-cardinality two-parameter distribution of 2-independent sets in K_m square K_n answers a natural graph invariant and exact constrained-rook-placement counting question. It strictly refines ordinary nonattacking rooks and maximum dissociation size, detects the dimensional phase transition n=2m, and supplies exact 2-independence lower bounds for newly studied sub-quorum colouring. Its intermediate coefficients are not implied by previous extremal scalar results.",
+    "status": "PASS"
+  }
+}
