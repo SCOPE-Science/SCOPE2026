@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces the precise associative Nijenhuis identity under idempotence to the ordered image/kernel subalgebra decomposition, with no characteristic restrictions. It then classifies the dimensions one, two and three of actual subalgebras of the four-dimensional matrix algebra, including the field-extension and nilpotent cases. The rectangular rank-two count splits into two independently obtained contributions, \(4q^2(q+1)\) and \(2q(q+1)\). RREF enumeration independently reproduces all coefficients over five fields; direct evaluation of all \(65536\) binary linear endomorphisms separately verifies the original equation. Risk: exhaustive finite checks alone do not certify all prime powers; correctness rests on the stated structural proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The decomposition-to-Nijenhuis operator construction is published by Cariñena–Grabowski–Marmo (2006), and the splitting Rota--Baxter correspondence is explicitly established by Benito–Gubarev–Pozhidaev (2018); neither is asserted as original. Goncharov–Gubarev (2019) and Gubarev (2023) make clear that the complex two-by-two decomposition classification is already known. The assessed statement is the *full finite-field rank polynomial of actual operators* with all characteristics and arithmetic subalgebra types. Full mathematical comparisons of the relevant accessible articles and searched records did not identify this count or a stronger count implying it. The chief residual risk is an unlocated general formula for finite-field splitting operators or subalgebra complement pairs; a negative search does not establish priority.
+PASS
 
-## Value — PASS
-The rank-distribution polynomial is a complete, natural enumerative invariant for compatible multiplicative projections on a central-simple algebra, not an arbitrary table of individual cases. The proof shows exactly how field, split and dual-number subalgebras contribute, and separates identity-containing from entirely nonidentity-containing splittings. The same polynomial works in even and odd characteristics despite these competing rational subalgebra types. It provides usable finite-field base data for structural studies of Rota--Baxter splittings and associative Nijenhuis operator families.
+Using idempotent P, the Nijenhuis identity is equivalent to multiplication-closed image and kernel; ordered direct-sum subalgebra pairs count ranks. All three 2D unital types plus two singular rulings and q+1 Borel 3-spaces give rank counts and no characteristic division. Independently enumerated matrix subspaces over F2 and F3 and their complementary products: rank histograms (1,12,60,12,1) and (1,36,168,36,1). The all-q proof is the algebraic classification, not these tests.
 
-## Scope and evidentiary limits
-The results concern actual linear operators, not conjugacy classes. Preexisting complex classifications and the subalgebra equivalence are prior art. Higher matrix dimensions and arbitrary nonidempotent operators are outside scope. Independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known correspondence between splitting Nijenhuis/Rota–Baxter projections and subalgebra direct sums is explicitly credited; the mathematical difference is the complete rank-weighted raw count across every Fq including characteristic two, with extension-field subalgebra types. No reviewed theorem yields this finite-field polynomial. Real priority risk: unindexed arithmetic count from splitting classifications.
+
+## value
+
+PASS
+
+The complete rank-sensitive finite-field census is a natural enumerative invariant of the smallest noncommutative full matrix algebra and distinguishes field, split, nilpotent subalgebras and nonunital complements; not simply renaming the splitting correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

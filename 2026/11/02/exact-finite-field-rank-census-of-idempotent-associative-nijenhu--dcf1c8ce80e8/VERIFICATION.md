@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact finite-field rank census
+# Independent mathematical audit
 
-Run `python3 check_nijenhuis.py` with a standard Python 3 interpreter. The bundled `checker_output.txt` records the exact output. The verifier uses no external packages, constructs the matrix algebra product from the four matrix-unit coordinates, enumerates subspaces in reduced row echelon form and tests multiplication closure. It then tests direct-complement dimension and reports the rank histogram in the fields of orders \(2,3,4,5,8\). The two nonprime fields use genuine extension-field polynomial multiplication, not residue arithmetic modulo four or eight.
+## correctness
 
-For the smallest field, the program independently examines all \(65536\) linear endomorphisms of the four-dimensional vector space, filters idempotents by direct composition, and checks the associative Nijenhuis identity on every ordered pair of matrix units. The result is exactly \((1,12,60,12,1)\) across ranks zero through four, agreeing with the independently constructed subalgebra census.
+PASS
 
-The other verified rank histograms are \(q=3:\ (1,36,168,36,1)\), \(q=4:\ (1,80,360,80,1)\), \(q=5:\ (1,150,660,150,1)\), \(q=8:\ (1,576,2448,576,1)\). The program prints `M2_ASSOCIATIVE_NIJENHUIS_ALL_CHECKS_OK` only if every field case matches the closed formulas. Exhaustion was carried out within these five fields only. The general assertion for every prime power depends on the symbolic subalgebra classification and complement counts in the proof, not extrapolation from these checks.
+Using idempotent P, the Nijenhuis identity is equivalent to multiplication-closed image and kernel; ordered direct-sum subalgebra pairs count ranks. All three 2D unital types plus two singular rulings and q+1 Borel 3-spaces give rank counts and no characteristic division. Independently enumerated matrix subspaces over F2 and F3 and their complementary products: rank histograms (1,12,60,12,1) and (1,36,168,36,1). The all-q proof is the algebraic classification, not these tests.
+
+## originality
+
+PASS
+
+Known correspondence between splitting Nijenhuis/Rota–Baxter projections and subalgebra direct sums is explicitly credited; the mathematical difference is the complete rank-weighted raw count across every Fq including characteristic two, with extension-field subalgebra types. No reviewed theorem yields this finite-field polynomial. Real priority risk: unindexed arithmetic count from splitting classifications.
+
+## value
+
+PASS
+
+The complete rank-sensitive finite-field census is a natural enumerative invariant of the smallest noncommutative full matrix algebra and distinguishes field, split, nilpotent subalgebras and nonunital complements; not simply renaming the splitting correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
