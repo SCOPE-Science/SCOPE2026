@@ -1,19 +1,21 @@
-# Scientific review: circular Fock interpolation asymptotics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely about the squared spectral condition number of the normalized kernel Gram matrix at \(N\) roots of unity scaled to squared radius \(\rho N\), for each fixed \(\rho>0\). The Fourier–Poisson residue identity is exact; it is not asserted as new. Uniform Poisson-mode estimates prove the largest-eigenvalue normalization. The subcritical proof compares the first \(N\) Poisson masses using unimodality and the exact ratio at \(N-1\), and correctly retains the critical value \(\rho=e^{-1}\). The supercritical proof establishes a unique rate-balancing point, an all-residue localization estimate, uniformly controlled two-term Stirling asymptotics, and the finite shifted-integer minimum. It treats both potential discrete minimizers without claiming uniqueness. Bounds on the positive phase factor justify division and the relative error estimate. The standalone finite checker passed 85 assertions, but universal claims depend on the proof, not those tests.
+PASS
 
-## Originality — PASS with stated access risks
+For unit Fock kernels at z_j=√(ρN)exp(2πij/N), direct Fourier transform of their normalized circulant Gram gives exactly λ_{N,k}=N P(Poisson(ρN)≡k mod N), which is positive. The maximum is √(N/(2πρ))(1+O_ρ(1/N)) by Poisson local Stirling and exponential separation. For 0<ρ≤e^-1, unimodality and endpoint ratio p_0/p_{N−1}∼ρ√(2πN)exp[N(−1−logρ)] show unique minimizing Fourier residue N−1 even at threshold, giving λ_min=√N/(ρ√(2π)) exp(−N(ρ−1−logρ))(1+O_ρ(1/N)). For ρ>e^-1, the strictly increasing φ(u)=(u+1)log(u+1)−u logu gives unique u>0 satisfying φ(u)=1+logρ, so I_ρ(u)=I_ρ(u+1)=H>0, u<ρ<u+1. Convexity localizes globally least residues to integers Nu+O_ρ(1); two Poisson aliases at Nu+δ and N(u+1)+δ have prefactor a^δ/√u + b^δ/√(u+1), δ∈Z−{Nu}; strict convexity reduces D_N minimization to two nearby integers. Uniform Stirling and remote-alias exponential gaps yield stated O_ρ(1/N) and squared κ. Independent log-sum-exp Poisson-residue comparisons for N=80,160,320 and ρ∈{0.2,e^-1,0.45,1,2} gave log-asymptotic discrepancies ≤0.0042. Finite checks corroborate, do not prove all N.
 
-The closest **stronger-looking** baseline is Horoshko–De Bièvre–Kolobov–Patera, arXiv:1602.07852, Eq. (9), which already states the exact Poisson residue spectrum. The new claim does not repackage that identity as a discovery. Its work is the sharp, joint large-\(N\) optimization of all residues in the regime where the squared radius is proportional to \(N\). Neither the complete 2016 article nor the full 2026 Fock representer-theorem article identifies the \(e^{-1}\) worst-residue phase boundary, critical mode or phase-modulated prefactor. The 2024 study *Optimal circular states* addresses photon-number optimization; its accessible preview does not permit a conclusive full-text comparison. The 1993 circular-state paper was accessible as an abstract only. These last two are residual originality risks, not asserted noncoverage proofs. Exact spectra imply all derived asymptotics **in principle**, but the new statements require a nontrivial rate-envelope optimization and a two-saddle discrete local calculation absent from the inspected primary text.
+## originality
 
-## Value — PASS
+PASS
 
-Optimal kernel interpolation stability is a natural quantitative invariant in complex reproducing-kernel approximation. The scaling \(|z_j|^2=\rho N\) compares the number of sampling sites with photon number/intensity; this is not an arbitrary finite slice. A sharp transition from a one-tail Poisson obstruction to a balanced two-alias obstruction, together with its oscillating exact prefactor, distinguishes stability mechanisms that the already known exact spectrum alone does not articulate. It gives an explicit exponential cost for worst-case interpolation and a precise input for the conditioning of numerical kernel solvers. No generalization to arbitrary sampling patterns is claimed.
+Horoshko–De Bièvre–Kolobov–Patera (2016) already establishes the exact Poisson-residue spectrum and this is NOT claimed as new. The distinctive result is sharp joint-N all-residue minimization with pinned critical N−1 mode and oscillatory two-alias prefactor. Reviewed prior sections focus on circular coherent-state entanglement and average photon number rather than this interpolation-conditioning asymptotic. Luo–Tang–Zhang 2024 full text unavailable after OA attempt and Oxford VPN block; residual risk documented.
 
-## Closest sources, limits and verification status
+## value
 
-Relevant full primary text: N. Alpay, A. De Martino, K. Diki, arXiv:2604.22165v1, specifically Section 4; D. B. Horoshko, S. De Bièvre, M. I. Kolobov, G. Patera, arXiv:1602.07852v1, especially equations (5)–(9), (22)–(25), Sections IV–V. Partial related literature: S. Luo, S. Tang, Y. Zhang, DOI:10.1088/1751-8121/ad8792, publisher preview only; J. Janszky, P. Domokos, P. Adam, DOI:10.1103/PhysRevA.48.2213, abstract only. Results are fixed-\(\rho\), not uniform at the transition; no claim about perturbed polygons or a finite-index supercritical optimizer. There is no external independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ratio of eigenvalues of a normalized kernel Gram is canonical interpolation stability; scaling squared radius ρN balances node count and physical occupation number naturally. Identifying one-tail versus two-alias worst-mode mechanisms, sharp ρ=e^-1 boundary and fractional-part-dependent leading amplitude provides nontrivial precise guidance beyond an already known exact but infinite series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
