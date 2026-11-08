@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Explicit exhaustive face enumeration agrees between two algorithms. The 4080-pair discrete-Morse matching is acyclic on every one of the 8246 nonempty faces and 40014 incidences. The \(4\times81\) exact signed boundary has a globally checked integral row relation and a rank-three minor equal to \(-1\), giving the integral wedge decomposition by standard simply connected three-dimensional CW attachments. A second simplicial-chain computation confirms the mod-two Betti groups. All 171 affine elements have directly computed signed simplicial Lefschetz numbers; character averaging gives the claimed invariant ranks.
+## correctness
 
-**Originality — PASS to the inspected evidence.** The foundational work defines the out-neighborhood complex and gives structural results but not this Paley-19 computation. A published Paley-19 *directed flag* homotopy calculation does not cover the different common-out-neighbor simplicial condition. The Paley-11 out-neighborhood result does not imply the 19-vertex case. Actual searches of synonyms, design descriptions, numerical signatures and related Hom terminology did not locate equivalent coverage. An unindexed prior computation is a remaining risk, not proof of uniqueness.
+PASS
 
-**Value — PASS.** This computes the integral homotopy and a nontrivial complete rational affine homology representation for the canonical nineteen-vertex doubly regular tournament. The distinction between the fixed second-homology class and the zero-invariant rank-78 third-homology representation provides information absent from Betti numbers alone and motivates equivariant comparisons across symmetric tournament constructions.
+For the specified quadratic-residue tournament, all faces are subsets of the 19 translates v+Q. Independently enumerated all 2^19 masks and recovered exactly 8,247 faces and the dimension vector (19,171,969,2223,2394,1596,684,171,19), Euler consistent with S2 wedge 78 S3. Inspected the verifier’s complete matching (4,080 pairs; 8,246 nonempty faces; 40,014 incidences) and exact 4-by-81 signed Morse 3-to-2 matrix. Its all-column relation c0-2c1-c2+c3=0 bounds rank by three and a specified determinant -1 maximal minor makes rank three primitive, so the critical (one 0-cell, four 2-cells, 81 3-cells) CW complex reduces by integral cellular slides to S2 wedge 78 S3. The odd-order affine group forces the one-dimensional rational H2 representation trivial; independently recomputed all 171 group actions and complete signed fixed-simplex Lefschetz traces, exactly obtaining H3 character histogram {-3:38,0:114,2:18,78:1}, whose average is zero.
 
-The proof uses an exhaustive, finite, locally replayable integer certificate, but no independent scientific audit has been performed. It does not establish an equivariant wedge splitting, nor a result for larger Paley tournaments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dochtermann–Singh introduces precisely the directed out-neighborhood construction, but its inspected homotopy results do not give Paley-19 integral wedge and affine traces. A published Resultary Paley-19 theorem has the same tournament and the same affine group but acts on the different directed FLAG complex of transitive subtournaments; that theorem has 154 S3 plus S4 and a different character, and cannot entail the out-neighborhood data without a missing comparison.
+
+## value
+
+PASS
+
+The 19-vertex Paley tournament is a canonical doubly regular oriented graph; exact geometric out-neighborhood homotopy and the 171-element affine homology character refine directed-graph neighborhood theory and distinguish it from the different directed flag topology already calculated on the same tournament. The integral wedge with a mixed dimension and nontrivial affine H3 character is substantive finite structural information, rather than cheap normalization or a tiny negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
