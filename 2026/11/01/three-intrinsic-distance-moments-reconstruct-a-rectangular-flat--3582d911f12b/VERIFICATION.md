@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical boundaries
+# Independent mathematical audit
 
-Run `python3 check.py` from this directory, using only the Python standard library. The completed run reported `EXACT_CUMULANTS_NEWTON_CUBIC_AND_DISCRIMINANT_PASSED`, `TWO_MOMENT_NONUNIQUENESS_AND_OPTIMAL_ONE_THIRD_EXPONENT_PASSED`, `INDEPENDENT_HAAR_POINT_PAIR_SAMPLING_PASSED`, and `ALL_CHECKS_PASSED`. The independent Monte Carlo method sampled two points on each product circle and directly computed the least wraparound distance, rather than sampling the moment-law variables; all first three raw moments agreed within the specified numerical tolerance.
+## correctness
 
-The exact rational tests cover five chosen triples, including the cube and a repeated-axis case; they are not an exhaustive parameter enumeration. The inverse cubic formula, positivity/discriminant equivalence, two-moment classification, and Rouché root-stability estimate are proved symbolically for all positive periods in RESULT.md. Independent expert review, finite-sample stability, and an exhaustive historical-priority review have not been performed.
+PASS
+
+For Haar-independent points on an orthogonal flat three-torus, coordinate-wise shortest difference is uniform in [−a_i/2,a_i/2]. Thus D² has law ∑x_i U_i², x_i=a_i²/4. Independent exact rational cumulants of U² are 1/3,4/45,16/945; m1,m2,m3 determine power sums p1..p3 and Newton cubic with the three positive roots x_i. The discriminant Δ≥0 and e1,e2,e3>0 are necessary and sufficient even with repeated roots. Two moments fix plane-sphere intersection, a circle except at x1=x2=x3. The bounded-coefficient perturbation/Rouché argument matches three sorted roots within O(epsilon^(1/3)); an explicit near-cubic two-family collision has exact identical p1,p2 and p3 difference 2t³/√3, so any larger uniform exponent fails. Independently verified cumulant fractions and collision identities using exact rationals/symbolic algebra; the root-matching theorem is the genuine infinite analytic argument, not a finite sample.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the explicit exact three-moment inverse, feasible data criterion, two-moment obstruction and optimal cubic-root exponent on rectangular 3-tori; broad earlier inverse-histogram literature inaccessible in full is expressly retained as residual risk.
+
+## value
+
+PASS
+
+Finite low-order intrinsic distance data determining an entire natural Riemannian isometry class, with a complete feasible-moment region and a sharp near-degenerate stability exponent, is a natural metric-measure inverse problem. The cubic collision demonstrates necessity and quantifies instability, not merely an algebraic restatement of all moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
