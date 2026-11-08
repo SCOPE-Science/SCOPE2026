@@ -1,0 +1,15 @@
+# Review of sharp arithmetic determinant gap for three-coset Fourier bases
+
+## Correctness
+PASS. The integer-multitile fiberization gives the fixed \(3\times3\) Fourier–Vandermonde matrix without a missing normalization. The chord-product formula and equilateral upper bound are exact. A uniform quadratic expansion near the two isolated equilateral configurations, together with a matching explicit trial shift, reduces the global asymptotic to a bounded discrete alias parameter. The least alias modulus is \(1/3\), yielding the coefficient \(6\pi^2\). Strict concavity between determinant zeros establishes eventual uniqueness in each reflected class. `CHECK.py` reproduces 4,274 finite numerical test assertions but is not used as proof of the asymptotic theorem.
+
+## Originality
+PASS relative to the inspected sources and claim-level searches. Frederick–Okoudjou prove the multi-tile construction and explicitly leave quantitative optimization of shifts outside their general treatment; Frederick–Djima present concrete two-interval and higher-dimensional examples, not the sharp arithmetic three-coset determinant gap. Zhou's October 2026 spectrality result addresses orthogonal spectra, not this restricted nonorthogonal determinant design. Related results on two interval/two coset sharp Riesz bounds and a three-equally-spaced-interval, fractional-shift determinant design do not imply the \(m\to\infty\) arithmetic defect on \([0,1)\cup[m,m+2)\) with \(m\ge3\). Nearest finite cyclic three-row determinant and full-spark results concern different discrete design variables and are not stronger than this continuum statement. No search exhausts the literature; a restricted-Vandermonde calculation under another name remains a risk.
+
+## Value
+PASS. The problem directly quantifies the determinant/stability obstruction caused by arithmetic alias coupling when a three-fold integer multi-tile cannot form equilateral Fourier fibers with an equally spaced spectrum. The exact equality congruence, universal sharp \(m^{-2}\) deficit, and residue-dependent optimizer drift form a structural asymptotic classification. The objective and frequency restriction are natural in the multi-tile synthesis design, not post-hoc parameter slices.
+
+## Scope and closest literature
+The determinant is a squared-volume invariant, not a condition number. The theorem gives eventual uniqueness and a two-term expansion, not exact finite-gap optimizing roots for every \(m\). Closest sources: C. Frederick and K. A. Okoudjou, *Finding duality for Riesz bases of exponentials on multi-tiles* (2021), DOI 10.1016/j.acha.2020.10.006; C. Frederick and K. Yacoubou Djima, *Examples of Riesz Bases of Exponentials for Multi-tiling Domains and Their Duals* (2024), DOI 10.1007/s44007-023-00078-7; T. Zhou, *Spectrality of convolution and product measures: a block decomposition approach* (2026), arXiv:2610.33987. Zhou's complete manuscript was not materially accessible for direct full-text comparison; the publicly accessible abstract was inspected and a potential undiscovered quantitative appendix is a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
