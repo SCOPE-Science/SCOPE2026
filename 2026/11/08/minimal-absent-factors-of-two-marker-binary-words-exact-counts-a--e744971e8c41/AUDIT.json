@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every absent word is classified by 0,1,2,3 or more ones, with complete prefix/suffix occurrence criteria. The exact counts add without overlap. Uniform integer compositions tend to Dirichlet(1,1,1); integrating its simplex density yields the stated CDF and moments. Direct exhaustive and sample factor-set computations corroborate but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akagi et al. 2022, general RLE-MAW taxonomy (five classes) and output-sensitive enumeration, not a distribution",
+        "Almirantis et al. 2017, general upper bounds and selected sparse extremal words",
+        "Aurell et al. 2015 arXiv:1509.05188v1 Section 1 random model for length histogram in i.i.d. four-letter genomic strings, not conditional fixed-two-ones total count"
+      ],
+      "reasoning": "Run-length representation and generic asymptotic O(n) bounds apply to every member but do not specify the exact count as a function of three gaps or the Dirichlet pushforward law. The new expression is not a stated corollary of an explicit stronger formula in these sources.",
+      "searches": [
+        "\"minimal absent words\" \"runs\" \"expected\" uniform random weight",
+        "minimal absent words binary words bounded runs maximal absent factor enumeration",
+        "\"minimal absent words\" \"sparse\" \"expectation\" binary"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.6341",
+      "https://doi.org/10.4230/LIPIcs.CPM.2022.27",
+      "https://doi.org/10.1186/s13015-017-0094-z",
+      "https://arxiv.org/html/1509.05188v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barton et al. 2014 provides a linear-time general-purpose computation",
+        "Akagi et al. 2022 proves an RLE type partition and bounds, not fixed-Hamming-weight random moments",
+        "Almirantis et al. 2017 discusses a selected two-marker extremal example, not all gap choices",
+        "Aurell et al. 2015 Section 1 computes a length-frequency model for minimal absent words of genome-like i.i.d. strings, which cannot supply the fixed-weight conditional count law"
+      ],
+      "reasoning": "The prior general procedures could compute any one finite instance, but a per-instance algorithm or an O(n) bound does not logically yield this exact finite formula, limit CDF or sharp variance. Stronger published-statistics coverage was not identified in inspected material.",
+      "searches": [
+        "number of minimal absent factors random binary word conditional Hamming weight two limit law CDF mean variance",
+        "minimum absent contiguous substrings two rare markers limit distribution",
+        "minimal absent words sparse binary strings Hamming weight two exact count gap positions limiting distribution Dirichlet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barton et al. 2014, arXiv:1406.6341, full BMC Bioinformatics text, algorithm theorem only",
+        "Akagi et al. 2022, DOI 10.4230/LIPIcs.CPM.2022.27, type partition and bounds, pp. 3-14"
+      ],
+      "reasoning": "A general reporting algorithm accepts the same instances but does not provide the claimed closed symbolic count or limiting CDF. Searches using minimum forbidden factor / missing substring aliases revealed no exact equivalent; an absent search hit alone is not a proof of novelty.",
+      "searches": [
+        "\"minimal absent words\" \"two ones\" binary",
+        "\"minimal absent words\" \"weight two\" binary",
+        "minimal absent words sparse binary strings Hamming weight two exact count gap positions limiting distribution Dirichlet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched records include sparse-word subsequence extremals and generic substring-complexity results, but no table or explicit enumeration of this MAF statistic",
+        "Independent finite enumeration verified the parameterwise expression, without relying on a known table"
+      ],
+      "reasoning": "No exact reference table or closed expression for all nonadjacent two-marker words was found. Search completeness is limited; no conclusion of exhaustive nonexistence is drawn.",
+      "searches": [
+        "minimal absent words with exactly 3 runs binary word gap sizes",
+        "minimal absent factors sparse marker binary words length spectrum classification",
+        "\"minimal absent words\" \"two ones\" binary"
+      ]
+    },
+    "rationale": "Full-text comparison: the 2014 Barton et al. method enumerates MAFs but does not imply the explicit two-marker formula or asymptotic conditional distribution; the 2022 Akagi et al. taxonomy and compressed reporting bounds do not compute either invariant; the 2017 Almirantis et al. extremal example does not determine a general sparse-word distribution. No match in actual database searches; historical priority remains qualified. Aurell et al. 2015 treats distributions by absent-word length under dense i.i.d. sampling, not conditional sparse total counts.",
+    "residual_risks": [
+      "An unindexed or non-English older work may already contain a gap formula or its probabilistic consequence.",
+      "The general compressed-string type decomposition is conceptually close and could permit a relatively short derived proof; the priority claim concerns the specific explicit count and limit law, not invention of MAF enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithmic computation of the complete MAF set, not the two-marker symbolic count or probabilistic law",
+        "evidence": "arXiv v1 2014-06-24 19:24:53 UTC; BMC Bioinformatics 15:388 (2014), Theorem 1 on algorithm complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.6341",
+        "material_read": "Full open-access journal article: background, algorithm description, theorem, results and conclusions; arXiv submission history",
+        "method": "Read HTML text and verified arXiv v1 timestamp",
+        "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+        "trigger": "Foundational definition and same observable: minimal absent contiguous words"
+      },
+      {
+        "assessment": "Five general type classes and compressed output bounds, not exact two-marker gaps or conditional law",
+        "evidence": "Definition and abstract p.1; five-type partition pp.3-4; bounds pp.4-7; examples/lower bounds pp.7-9; conclusion p.14.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.27",
+        "material_read": "Full 17-page lawful open-access paper, including abstract, Section 2 type partition, Section 3 bounds, Section 4 examples and conclusion",
+        "method": "Read full PDF with inspected page images and searchable text",
+        "title": "Minimal Absent Words on Run-Length Encoded Strings",
+        "trigger": "Highly relevant stronger-looking coverage for sparse/few-run strings"
+      },
+      {
+        "assessment": "General upper bounds and a linear sparse extremal example, not a complete formula or random gap distribution",
+        "evidence": "Algorithms for Molecular Biology 12:5 (2017), Lemmas 1-3.",
+        "identifier_or_url": "https://doi.org/10.1186/s13015-017-0094-z",
+        "material_read": "Open-access HTML main text, Lemma 1 and Lemma 2 and avoided-word connection",
+        "method": "Compared the actual extremal construction and mathematical statements",
+        "title": "On avoided words, absent words, and their application to biological sequence analysis",
+        "trigger": "Sparse marker examples and asymptotic absent-word counts"
+      },
+      {
+        "assessment": "Distribution by lengths of MAWs in dense i.i.d. four-letter genomic strings; does not derive the count of MAFs in uniform binary two-marker words",
+        "evidence": "arXiv:1509.05188v1, 2015-09-17; Section 1 samples each position independently, and studies expected MAW counts as function of individual forbidden-word length.",
+        "identifier_or_url": "https://arxiv.org/html/1509.05188v1",
+        "material_read": "Full open HTML text: introductory problem definitions, Section 1 random i.i.d. genome model and conclusion",
+        "method": "Inspected definition and random model; compared observable, source law, sample space and asymptotic regime",
+        "title": "The Bulk and The Tail of Minimal Absent Words in Genome Sequences",
+        "trigger": "Potential prior probabilistic distribution theorem about the same absent-word notion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e744971e-8c41-4378-85c2-a79bfe97076c",
+  "value": {
+    "rationale": "Natural and mathematically motivated sparse fixed-weight binary family: a full exact gap-dependent MAF count and sharp nondegenerate limiting distribution/moments reveal dependence on marker spacing. General algorithmic computation, isolated special cases and O(n) bounds do not provide the requested invariant, and no general unrestricted-string claim is made.",
+    "status": "PASS"
+  }
+}
