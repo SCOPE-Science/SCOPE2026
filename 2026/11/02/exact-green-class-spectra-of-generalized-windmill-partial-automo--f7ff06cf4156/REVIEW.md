@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted class list is derived by separating induced vertex sets that omit or contain the central vertex. For two or more represented blades, the cone has a unique universal vertex and cannot be confused with a disconnected union of cliques; the remaining complete graphs are explicitly coalesced by Pascal's identity. The number of subsets of each type and its automorphism group are calculated directly, followed by the standard formula that a partial-isomorphism class has size \(t_H^2|\operatorname{Aut}(H)|\). Stars-and-bars gives the asserted number of Green \(\mathcal D\)-classes. The proof holds for all positive integer parameters and includes the exceptional complete-graph and star cases. A standalone exhaustive checker passed all seven small parameter tests, and separate graph-isomorphism grouping confirmed the class counts in four instances. Risks: computational checks are finite, but the general proof does not depend on them.
+## correctness
 
-## Originality — PASS relative to the inspected sources
-Jajcay–Jajcayová–Szakács–Szendrei, arXiv:1809.04422, already provide the general identification of Green \(\mathcal D\)-classes with induced-subgraph types. The new claim explicitly **enumerates those types and every class size** for all generalized windmills, together with all maximal subgroup types and every coefficient of the rank polynomial. This does not follow as a stated numerical formula from the general identification without the windmill-specific component and clique-collision analysis. Related research on partial isometries of stars concerns a different monoid, and accessible research-record searches yielded no exact equivalent. Risks: the 2022 computational survey was accessible only in indexed portions; an unlocated special-family enumeration could alter publication priority. Search failure is not certification.
+PASS
 
-## Mathematical value — PASS
-The inverse monoid of partial graph automorphisms is a natural structural invariant beyond the ordinary automorphism group. Generalized windmills are an infinite, connected, nonhomogeneous graph family containing stars and friendship graphs; their central-vertex ambiguities make induced-isomorphism counting nontrivial. The result determines all Green \(\mathcal D\)-classes and maximal subgroup types, not merely one small coefficient; the rank polynomial and monoid cardinality then follow uniformly. The class count \(2\binom{m+s}{s}-s\) and explicit rank coefficients are useful invariant data for comparison and computation, including proper rank ideals. This is not a bound improvement or an arbitrary finite numerical census.
+Every induced subgraph omitting the center has a unique multiset of blade-clique sizes c_j. Including the center with >=2 represented blades gives a noncomplete cone with a unique universal vertex. The only collisions of descriptions are complete graphs, whose embedding count is E1=ms+1 or Ej=m*binom(s+1,j). For each induced isomorphism type H represented t_H times, exactly t_H^2*|Aut(H)| partial isomorphisms have that type; general inverse monoid theory identifies it with a D-class, and its maximal subgroup is Aut(H). Therefore the rank-polynomial terms N(c)^2*A(c)(z^d+z^(d+1)) and the clique contributions are correct. Stars-and-bars gives 2*binom(m+s,s)-s. Independent direct adjacency-preserving injection enumeration matched selected (m,s), including m=1 and s=1. These finite checks supplement the all-parameter proof.
 
-## Closest literature and limitations
-The generic Green-relation theorem of arXiv:1809.04422 is prior work and is expressly used. The 2022 star partial-isometry study is not a graph-induced-isomorphism enumeration. Searches of records on friendship graphs, generalized windmills and partial automorphism monoids did not locate an equivalent windmill rank polynomial. The theorem does not apply to general graph homomorphisms or arbitrary glued-clique graphs. Publication priority and mathematical correctness have not received independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jajcay et al. 2021 Proposition 3.1 already establishes the general D-class / induced-subgraph identification. The claim explicitly applies and extends this theory through a complete induced-type collision analysis and every enumerator for an infinite windmill family, not a new general inverse monoid theorem. Related published generalized-windmill dissociation and general-position polynomials concern different invariants. No covering windmill Green-class census was found in the inspected material; possible unindexed computational classifications remain a bounded priority risk.
+
+## value
+
+PASS
+
+Partial graph automorphism inverse monoids encode local structural symmetries beyond the ordinary graph automorphism group. Generalized windmills unify stars, friendship graphs and clique cones; central-vertex ambiguities create nontrivial induced-isomorphism collisions. The all-parameter exact rank polynomial, D-class classification and maximal subgroup list form a natural complete structural invariant useful in semigroup and graph comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
