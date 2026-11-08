@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:38:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the explicitly unweighted companion the Krylov space spans e0..e_(m-1); the (m+1)-by-m lower-bidiagonal residual matrix has rank m and null-left vector w=(1,1/s,(1+as)/s^2,...,(1+as)/s^m). Orthogonal projection yields lifted R_m^2=1/||w||^2 and r=w/||w||^2. First two residual equations and L0 inverse row (1,-a,0...) give signed physical 1-(1+as)x=(1-a/s)/||w||^2. No positive W_m can vanish. Rational matrix least squares independently checked m=1..7 and representative a,s; geometric series proves all regimes, while finite tests do not prove m->infinity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gao–Jiang 2026 gives companion and lifted norm lower floor; Jarlebring–Correnty 2021 supplies general infinite GMRES convergence."
+        ],
+        "reasoning": "General companion/recovery formulas do not by themselves state a positive-lifted-residual/zero-physical-error resonance at arbitrary m, though it might be a specialization of the original unread full text.",
+        "searches": [
+          "Toeplitz Infinite GMRES for Parameterized Linear Systems physical residual lower bound",
+          "infinite GMRES physical residual stopping criteria general bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01740",
+        "https://www.alphaxiv.org/cs/abs/2610.01740",
+        "https://arxiv.org/abs/2102.04082"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gao–Jiang lower bound is on lifted norm, not on first-coordinate physical norm."
+        ],
+        "reasoning": "The bound R_infinity>0 is compatible with E_m=0 at s=a; the two prior claims are not contradictory and do not directly imply the exact scalar formula.",
+        "searches": [
+          "Toeplitz Infinite GMRES for Parameterized Linear Systems physical residual lower bound",
+          "Toeplitz infinite GMRES lifted lower bound physical reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lifted residual is Euclidean on companion and physical residual is scalar original equation; distinct norms."
+        ],
+        "reasoning": "The all-m identity translates lifted residual squares into recovered physical error; it is not synonymous with the lifted nonconvergence result.",
+        "searches": [
+          "Toeplitz infinite GMRES scalar affine parameter exact physical residual resonance",
+          "physical error vs lifted residual infinite GMRES scalar affine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Accessible original abstracts discuss algorithm complexity and scaling, not tabulated all-m scalar exact residual values."
+        ],
+        "reasoning": "No exact benchmark table for this scalar case was identified; absence of search hits alone is not novelty proof.",
+        "searches": [
+          "Toeplitz infinite GMRES scalar affine parameter exact physical residual resonance",
+          "GMRES benchmark scalar affine resonance example"
+        ]
+      },
+      "rationale": "Gao–Jiang 2026 furnish the right-preconditioned companion, general recovery formula and lower bounds for the lifted residual outside the unit disk, not a universal lower bound for the physical residual. The all-m affine scalar resonance E_m=|1-a/s|R_m^2 is not a direct statement of the accessible original abstract or checked related GMRES literature, though it is an exact specialization of basic least-squares algebra; unexplored full Gao–Jiang text may contain an implication. Original full text was unavailable on arXiv/mirrors and Oxford VPN disconnected.",
+      "residual_risks": [
+        "Full Gao–Jiang original article not readable through lawful sources; its general recovery relations might entail the scalar identity.",
+        "Scalar/diagonal examples do not establish generic finite-precision behavior or matrix-level exactness.",
+        "Source tree not independently enumerated; public operational identifiers require sanitization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General companion and lifted floor definitely prior; exact all-m scalar physical identity not verified absent from full source.",
+          "evidence": [
+            "arXiv:2610.01740 abstract; scalar source cites Sections 2–3,5 as relevant",
+            "https://www.alphaxiv.org/cs/abs/2610.01740"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01740",
+          "material_read": "Primary abstract, version history (v1 October 1, v2 October 26, 2026), accessible discussion of Arnoldi and lifted residual floor; no full primary sections retrieved.",
+          "method": "arXiv abstract/alphaXiv summary; arXiv HTML/PDF and lawful OA alternatives inaccessible; Oxford returned vpn_disconnected",
+          "title": "Toeplitz Infinite GMRES for Parameterized Linear Systems",
+          "trigger": "Identical right-preconditioned companion and physical recovery, strongest direct comparison"
+        },
+        {
+          "assessment": "Foundational algorithmic idea prior; no verified scalar-affine resonance coverage.",
+          "evidence": [
+            "Jarlebring and Correnty, arXiv:2102.04082"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.04082",
+          "material_read": "Accessible abstract and bibliographic metadata, not full primary text.",
+          "method": "arXiv search",
+          "title": "Infinite GMRES for parameterized linear systems",
+          "trigger": "Earlier broad infinite-GMRES analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar resonant witness distinguishes an algorithmic lifted residual floor from accuracy of the recovered physical solution even for s>1, while the full m-dependent formulas identify exponential/polynomial/nonzero-floor transitions. As a tightly motivated counterexample to an extrapolation of residual bounds it has standalone numerical-analysis significance, though it does not address generic matrices.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.01740",
+    "https://www.alphaxiv.org/cs/abs/2610.01740",
+    "https://arxiv.org/abs/2102.04082"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the specified exact right-preconditioned scalar affine Toeplitz infinite-GMRES companion, all m>=1 have lifted residual squared 1/W_m and physical residual |1-a/s|/W_m, with physical exactness at every iteration iff s=a despite positive lifted residual and a three-regime asymptotic classification.",
+  "limitations": [
+    "Finite bounded computational checks do not establish a universal theorem; correctness is based on the reconstructed analytical proof.",
+    "Mathematical priority assessed on a best-of-knowledge basis with specific inaccessible-literature qualifications.",
+    "No external expert/Lean validation was performed or inferred.",
+    "Full Gao–Jiang original article not readable through lawful sources; its general recovery relations might entail the scalar identity.",
+    "Scalar/diagonal examples do not establish generic finite-precision behavior or matrix-level exactness.",
+    "Source tree not independently enumerated; public operational identifiers require sanitization."
+  ],
+  "residual_risks": [
+    "Full Gao–Jiang original article not readable through lawful sources; its general recovery relations might entail the scalar identity.",
+    "Scalar/diagonal examples do not establish generic finite-precision behavior or matrix-level exactness.",
+    "Source tree not independently enumerated; public operational identifiers require sanitization."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General companion and lifted floor definitely prior; exact all-m scalar physical identity not verified absent from full source.",
+      "evidence": [
+        "arXiv:2610.01740 abstract; scalar source cites Sections 2–3,5 as relevant",
+        "https://www.alphaxiv.org/cs/abs/2610.01740"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.01740",
+      "material_read": "Primary abstract, version history (v1 October 1, v2 October 26, 2026), accessible discussion of Arnoldi and lifted residual floor; no full primary sections retrieved.",
+      "method": "arXiv abstract/alphaXiv summary; arXiv HTML/PDF and lawful OA alternatives inaccessible; Oxford returned vpn_disconnected",
+      "title": "Toeplitz Infinite GMRES for Parameterized Linear Systems",
+      "trigger": "Identical right-preconditioned companion and physical recovery, strongest direct comparison"
+    },
+    {
+      "assessment": "Foundational algorithmic idea prior; no verified scalar-affine resonance coverage.",
+      "evidence": [
+        "Jarlebring and Correnty, arXiv:2102.04082"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2102.04082",
+      "material_read": "Accessible abstract and bibliographic metadata, not full primary text.",
+      "method": "arXiv search",
+      "title": "Infinite GMRES for parameterized linear systems",
+      "trigger": "Earlier broad infinite-GMRES analysis"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof derives the rectangular lifted GMRES least-squares matrix directly from \(B=L_1L_0^{-1}\), constructs its one-dimensional orthogonal residual subspace, computes the exact physical recovery functional, and evaluates the geometric-series limits. The full proof is in `RESULT.md`.
+## correctness
 
-`verify.py` uses the Python standard library's `fractions.Fraction` and rational Gaussian elimination on normal equations, without assuming the claimed least-squares solution coefficients. Execution returned `PASS: 288 exact-rational independent normal-equation and recovery checks` for eight iteration counts and all 36 combinations of the listed positive rational parameters and coefficients. It tests both exactness resonance and nonresonance, and parameter values below, at, and above one.
+PASS
 
-The finite test cannot certify arbitrary parameter values, an unbounded number of iterations or the asymptotic limits; these follow analytically from the projection argument and geometric series. Physical and lifted residuals are distinguished throughout. No floating-point error bounds, generic higher-dimensional guarantees, or external independent validation are asserted.
+Under the explicitly unweighted companion the Krylov space spans e0..e_(m-1); the (m+1)-by-m lower-bidiagonal residual matrix has rank m and null-left vector w=(1,1/s,(1+as)/s^2,...,(1+as)/s^m). Orthogonal projection yields lifted R_m^2=1/||w||^2 and r=w/||w||^2. First two residual equations and L0 inverse row (1,-a,0...) give signed physical 1-(1+as)x=(1-a/s)/||w||^2. No positive W_m can vanish. Rational matrix least squares independently checked m=1..7 and representative a,s; geometric series proves all regimes, while finite tests do not prove m->infinity.
+
+## originality
+
+PASS
+
+Gao–Jiang 2026 furnish the right-preconditioned companion, general recovery formula and lower bounds for the lifted residual outside the unit disk, not a universal lower bound for the physical residual. The all-m affine scalar resonance E_m=|1-a/s|R_m^2 is not a direct statement of the accessible original abstract or checked related GMRES literature, though it is an exact specialization of basic least-squares algebra; unexplored full Gao–Jiang text may contain an implication. Original full text was unavailable on arXiv/mirrors and Oxford VPN disconnected.
+
+## value
+
+PASS
+
+The scalar resonant witness distinguishes an algorithmic lifted residual floor from accuracy of the recovered physical solution even for s>1, while the full m-dependent formulas identify exponential/polynomial/nonzero-floor transitions. As a tightly motivated counterexample to an extrapolation of residual bounds it has standalone numerical-analysis significance, though it does not address generic matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
