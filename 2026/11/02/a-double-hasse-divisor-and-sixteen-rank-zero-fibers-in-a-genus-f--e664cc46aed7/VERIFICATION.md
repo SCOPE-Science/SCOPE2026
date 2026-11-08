@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
-The symbolic certificate is `verify_symbolic.py`, executable with Python 3 and SymPy. It expands both relevant powers of the branch polynomial, reconstructs the complete Cartier coefficient blocks, computes the discriminant and Hasse determinant identity, checks the matrix restricted to the Hasse conic, computes the gcd of *all* two-by-two minors of the second Frobenius iterate, checks squarefreeness and the irreducible factor degrees, and verifies the third Frobenius iterate vanishes in the polynomial quotient by \(S(u)\). Expected marker: `SYMBOLIC_DIVISOR_AND_STABLE_RANK_OK`.
+# Independent mathematical audit
 
-The independent point counter is `verify_point_counts.py`, executable with the Python 3 standard library. Its elementary arithmetic in fields of orders \(7\), \(49\), \(343\), and \(2401\) counts points on four marked smooth curves and reconstructs the first four Weil coefficients. Expected marker: `INDEPENDENT_POINT_COUNTS_OK`. The checked parameter pairs and geometric ranks are \((0,0):0\), \((6,3):0\), \((2,5):2\), and \((2,0):4\).
+## correctness
 
-Proof limits: the symbolic quotient-ring identity, not the sampled point counts, establishes the theorem for all algebraically closed characteristic-seven parameters. No Newton-polygon, supersingularity, or geometric isomorphism-class claim is made. A priority comparison with one relevant later genus-four superelliptic article remains limited because its full text was unavailable. Independent validation has not been performed.
+PASS
+
+For smooth y³=x⁵+u x³+v x+1 in characteristic seven, genus=(3-1)(5-1)/2=4 and Cartier splits into [H=u²+2v] and 3×3 B. Independently recomputed the f²/f⁴ differential coefficients and exact identities det(B)=H·Delta and Delta(u,3u²)=3(u^5-1)². On H=0, v=3u² and u^5 !=1 (smooth), M(u) has rank exactly two. Exact polynomial two-iterate minors gcd is u(u^5-1)^9(u^5+1)(u^10+1); third semilinear Frobenius product vanishes modulo the squarefree S=u(u^5+1)(u^10+1). Therefore rank two except at the 16 distinct roots of S, where stable rank is zero; a-number two on H and zero off. Factor degrees of S are (1,1,2,4,4,4). Re-read the actual symbolic polynomial verifier and finite-point-count program; independent symbolic reconstruction matches the reported factorization and quotient-ring certificate. Bounded point checks do not prove whole-field result; exact polynomial identities do.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for complete marked Hasse double divisor, sixteen zero-rank fibers and no intermediate rank-one/three fibers. General superelliptic algorithms and nearby a-number classifications are acknowledged but do not themselves specify the stable 7-rank locus. The directly relevant 2025 Sohn full text was inaccessible under authorized VPN and remains an explicit priority risk.
+
+## value
+
+PASS
+
+Nontrivial exact Frobenius semilinear rank stratification and reduced exceptional parameter scheme for a natural genus-four trigonal family. The double divisor plus sixteen-point lower-rank locus is a precise reusable arithmetic-geometric classification, beyond merely running a general algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
