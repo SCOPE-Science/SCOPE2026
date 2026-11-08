@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The universal inequality follows analytically from \(d=\|su-v\|\ge s\), \(d\ge |s-1|\), the triangle inequality, and the exact polynomial factorization \((2s-3)^2(8s-3)\ge0\). The extremal example is an explicit norm-one pair in real \(\ell_\infty^2\), and the lower equality is verified on Hilbert spaces. These checks cover all \(s>0\) and all real Banach spaces of dimension at least two by proof, not by sampling.
+# Independent mathematical audit
 
-The separate standalone checker `check.py` uses only Python's standard-library exact rational arithmetic and passes 3,510 assertions (envelope identities, piecewise inequalities, square-plane Birkhoff witnesses, and rational-grid norm comparisons). It cannot prove an assertion quantified over uncountably many vectors or scales.
+## correctness
 
-Primary source material inspected: Du–Hu–Zhang–Liu, arXiv:2609.27754v1, pp. 5–7 and 16–17, including the source's exact scale identity and its asserted sharp upper bound. The full 23-page 2024 Fu–Li comparison article was also inspected and does not impose the ordered Birkhoff constraint. Further source comparisons and remaining limits are documented in `REVIEW.md` and `AUDIT.json`. No independent mathematical audit has been performed, and publication priority is not certified.
+PASS
+
+Write x=au,y=bv with unit u perpendicular_B v and s=(a/b)^2. The ratio is sqrt(s)||u-v||/||su-v||; Birkhoff orthogonality gives denominator>=s. For s<=1, triangle bounds combined with ||su-v||>=|s-1| and s yield <=sqrt2. For s>=1, triangle bound yields <=(2s-1)/s^(3/2), and exact polynomial (2s-3)^2(8s-3)>=0 gives <=4sqrt6/9<sqrt2. The l_infty² vectors u=(1,1),v=(1,0),s=1/2 attain sqrt2. Independent symbolic factorization and numerical witness rechecked.
+
+## originality
+
+PASS
+
+At current evidence the exact all-space bound with square-plane extremality appears a significant strengthening, but priority against same-invariant paper is weakly verified.
+
+## value
+
+PASS
+
+Sharp universal inequality for a recently introduced directional Banach-space invariant, with explicit extremizing polyhedral spaces and correction of an allegedly loose bound. Potentially important for understanding supporting-function geometry, and not a routine renaming of unrestricted constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
