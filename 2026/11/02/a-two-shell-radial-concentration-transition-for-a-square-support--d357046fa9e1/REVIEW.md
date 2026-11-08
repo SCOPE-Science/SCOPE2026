@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The published independent-coordinate stationary beta law was reconstructed at the correct rates and normalizations. Two explicit radial convolution formulas agree analytically. The exterior beta-deficit transformation produces a positive-coefficient Gaussian hypergeometric series, and the logarithmic-derivative comparison is the variance of its exponential tilt: a strict proof of uniqueness rather than finite sampling. Beta endpoint integrals and the critical logarithmic asymptotic establish the full boundaries. Direct quadrature and special-function calculations produced 120 passing finite corroboration checks. Remaining mathematical scope is explicitly limited to the asserted radial regions.
+## correctness
 
-## Originality — PASS, qualified
-The 2022 primary full text gives the exact square-supported planar density and angular marginal, and its formula is acknowledged. The resulting sharp radial two-shell geometry, unique valley theorem, and critical scaling are not established there. The 2026 radial RTP study instead redraws orientations isotropically and has a circular turning radius; it cannot cover square-corner shell behavior. Six targeted searches of mathematical research records found unrelated closest claims, not a proof of priority. A general beta-convolution study could still contain the same theorem.
+PASS
 
-## Value — PASS
-The Euclidean radius is a canonical confinement observable. The result proves the precise persistence ratio where two concentration shells, corresponding to different geometric distances in a square support, coexist and shows that exactly one minimum separates them. This is qualitatively stronger than simply knowing the planar beta-product density or the Cartesian marginal modes.
+PASS: In the stated four-orientation quarter-turn harmonic model, the published stationary rotated coordinates U,V are independent with density (1-z²)^{β-1}/B(1/2,β) on (-1,1). Then S=ρ²=U²+V² is the sum of independent Beta(1/2,β) variables; p(ρ)=2ρ g(ρ²), so the radial Jacobian is correct. Direct beta convolution for 1<s<2 with t=2-s gives p(sqrt(2-t))=4 B(β,β)t^{2β-1} Hβ(t/(2-t))/[B(1/2,β)^2 sqrt(2-t)], Hβ(w)=2F1(1/2,1/2;β+1/2;w²). Its positive-power-series tilted mean Q=wH'/H has dQ/dlog w=Var(2n)>0. Thus eta=t dlog p/dt=2β-1+t/[2(2-t)]+2Q/(2-t) strictly increases; it starts negative iff β<1/2 and diverges at t->1 for β<1/2, giving one outer valley and two integrable shell peaks. For β>=1/2 eta>0, hence monotone radial decrease for 1<ρ<sqrt2; for β<=1 inner radial density is strictly increasing. Independent scipy evaluations at β=.25,.4,.49,.5,.75,1.3 confirm monotone eta and β=.25 valley t=0.6353250926701738; they are corroboration of the analytic argument. At β=.5 logarithmic singularity at ρ=1 and outer limit 2sqrt2/pi; near threshold tβ=4(1-2β)+O((1-2β)^2). Precise β>1 inner mode classification is not claimed.
 
-## Limitations
-Only the athermal four-direction symmetric quarter-turn harmonic model is treated. Nothing is asserted about other orientation redraw kernels, thermal noise, finite-time behavior, or all critical points for \(\beta>1\) on the inner radial interval. Publication priority and independent validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Smith et al (2022) already derive the exact two-dimensional stationary product-beta law and its angular/planar features; those are not new. The independently audited additional statement is a sharp radial *two-shell* phase classification with uniqueness of the separating minimum. The 2026 isotropic-redraw paper has a different orientation law and circular rather than square support. Best-of-knowledge PASS on the radial classification, with possible broader analytic-hypergeometric prior coverage.
+
+## value
+
+PASS
+
+PASS: Two distinct integrable radial concentration shells separated by exactly one minimum mark a sharp morphology change in an established physically motivated square-supported stationary model. The analytic critical beta=1/2 boundary and rigorous uniqueness, not merely computing an already-known marginal, give a natural useful structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
