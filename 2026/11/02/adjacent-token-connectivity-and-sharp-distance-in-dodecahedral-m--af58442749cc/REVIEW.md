@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact cubic edge-count argument forbids feedback vertex sets of size five or less. A complete \(\binom{20}{6}=38760\) mask enumeration identifies every optimal set and tests induced-forest acyclicity. Every possible adjacent selected–unselected exchange is evaluated. Complete component searches and breadth-first searches from all \(2520\) states prove the asserted \(8880\) edges, connectedness, radius eight, diameter ten, and three eccentricity multiplicities. A separately built second graph and leaf-pruning checker independently reproduce the full-graph edge counts and all-source distances by pairwise mask differences; the first checker also verifies connectedness within each stratum. These are complete finite proofs, not samples.
+## correctness
 
-**Originality — PASS, with specified residual risk.** Earlier finite work determines the minimum set count, its two strata, and the **unrestricted** token-jumping graph; none of these known outcomes is asserted new here. The claim is the dodecahedron's adjacency-restricted exchange relation, internal stratum connectivity, and exact radius, diameter, and eccentricity spectrum. The 2016 papers of Kelly–Liu address induced-forest bounds, not optimal-set token sliding. The 2023 general planar subcubic reconfiguration result treats arbitrary one-vertex exchanges, so its connectivity does not imply adjacency-constrained mobility or the present distances. Targeted exact-parameter, alternate-name and dominance searches found no covering classification. The 2023 complete text and possibly unindexed sources remain access/priority risks; there is no claim of guaranteed historical uniqueness.
+PASS
 
-**Value — PASS.** Minimum feedback vertex sets model removal of a smallest set of vertices to destroy every cycle, and the planar cubic dodecahedron is a classical girth-five extremal case. Local edge-constrained replacements are a natural stricter model of changes to an optimum solution. A nontrivial connection emerges: all minima remain mutually reachable even with local moves, but the optimal worst-case distance increases from six unrestricted exchanges to ten adjacent slides. The complete metric and connectivity of the two natural optimum strata give an informative finite benchmark beyond an enumeration of optimal sets.
+For the 20-vertex cubic GP(10,2), after deleting k vertices with e(S) internal edges the 20−k complement has 30−3k+e(S) edges. Forest inequality <=19−k implies 11+e(S)<=2k, so every FVS has k>=6. Exact enumeration of all C(20,6)=38,760 six-subsets finds 2,520 valid minima, with 660 e(S)=0 and 1,860 e(S)=1. For each state, the complete token-slide adjacency list is obtained by exchanging a selected vertex for an adjacent unselected vertex and retaining the move exactly when the new mask is in the enumerated optimal set. A fully independent Python reconstruction performed the complete search (not a sample) and all 2,520 BFS distance sweeps: one connected graph, 8,880 edges, stratum edges 1,620/4,140 and crossing 3,120, eccentricities exactly 120 at distance 8, 2,340 at 9, 60 at 10. Therefore radius 8 and sharp diameter 10; stratum connectivity follows the supplied component search. The original two independent programs use DSU vs leaf-pruning and transition detection by moves vs pairwise symmetric differences. Such a complete finite exhaust does prove this one finite statement, but not a general graph-family theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known 2,520-state dodecahedral minimum FVS census and unrestricted token-jump graph (23,940 edges, diameter six) are prior information and explicitly excluded from novelty. The locally adjacent token-slide relation is strictly more restrictive; unrestricted FVS reconfiguration results for planar subcubic graphs do not imply its connectivity or its diameter ten. The exact slide graph profile is qualified as original for this single natural graph.
+
+## value
+
+PASS
+
+The dodecahedron is a canonical cubic large-girth object and the minimum-feedback-set space is a natural optimization landscape. Connectivity and sharp distances under physically local token slides are mathematically different from known arbitrary-jump connectivity; the full radius/eccentricity/stratum profile is a complete motivated finite classification, not an arbitrary isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:46:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the 20-vertex cubic GP(10,2), after deleting k vertices with e(S) internal edges the 20−k complement has 30−3k+e(S) edges. Forest inequality <=19−k implies 11+e(S)<=2k, so every FVS has k>=6. Exact enumeration of all C(20,6)=38,760 six-subsets finds 2,520 valid minima, with 660 e(S)=0 and 1,860 e(S)=1. For each state, the complete token-slide adjacency list is obtained by exchanging a selected vertex for an adjacent unselected vertex and retaining the move exactly when the new mask is in the enumerated optimal set. A fully independent Python reconstruction performed the complete search (not a sample) and all 2,520 BFS distance sweeps: one connected graph, 8,880 edges, stratum edges 1,620/4,140 and crossing 3,120, eccentricities exactly 120 at distance 8, 2,340 at 9, 60 at 10. Therefore radius 8 and sharp diameter 10; stratum connectivity follows the supplied component search. The original two independent programs use DSU vs leaf-pruning and transition detection by moves vs pairwise symmetric differences. Such a complete finite exhaust does prove this one finite statement, but not a general graph-family theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet–Hommelsheim–Kobayashi–Mühlenthaler–Suzuki discuss planar degree-three FVS reconfiguration using unrestricted exchanges.",
+          "Kelly–Liu results concern optimum induced-forest or feedback-set sizes in large-girth/subcubic graphs."
+        ],
+        "reasoning": "Neither size bounds nor a stronger graph-class connectivity theorem under the *different TJ adjacency* bounds connected components or distances of the strict TS subgraph. A local slide theorem specific to dodecahedron could cover, but was not found.",
+        "searches": [
+          "doi:10.1016/j.tcs.2023.114188",
+          "arXiv:1603.03855",
+          "arXiv:1603.04559",
+          "dodecahedron minimum feedback vertex set token sliding reconfiguration diameter"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1016/j.tcs.2023.114188",
+        "arXiv:1603.03855",
+        "arXiv:1603.04559",
+        "Resultary search: dodecahedron minimum feedback vertex set token sliding reconfiguration diameter",
+        "Actual Git verification sources verify.py and verify_alt.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A path in the unrestricted token-jumping graph may exchange nonadjacent graph vertices and so need not map to any token-slide path.",
+          "The exact TS eccentricities 8,9,10 strictly exceed the known TJ eccentricity six."
+        ],
+        "reasoning": "There is no valid implication from TJ-connectedness to TS-connectedness nor a sharp TS metric. The result requires a complete local-move state graph computation.",
+        "searches": [
+          "Feedback vertex set reconfiguration in planar graphs Bousquet et al 2023",
+          "dodecahedron minimum feedback vertex set token sliding reconfiguration diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The token-slide relation exchanges vertices x∈S and y∉S only if xy is an edge of GP(10,2).",
+          "The known token-jumping graph permits arbitrary replacements and has 23,940 edges, as against 8,880 for sliding."
+        ],
+        "reasoning": "Reconfiguration language must distinguish token sliding (TS) from token jumping (TJ), and feedback-vertex-set complements correspond to maximum induced forests. The assessed result concerns TS, not a reworded TJ diameter.",
+        "searches": [
+          "dodecahedron minimum feedback vertex set token sliding reconfiguration diameter",
+          "feedback vertex set token sliding vs token jumping reconfiguration planar graphs",
+          "doi:10.1016/j.tcs.2023.114188"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier numerical census of 2,520 optimal states and their e(S)=0/1 strata is acknowledged as known.",
+          "Prior unrestricted exchange graph has 23,940 edges and eccentricity 6 for all vertices, different adjacency and distances."
+        ],
+        "reasoning": "The inherited state-count table does not determine the graph on states after requiring original-graph edge adjacency; only the new full enumeration gives 8,880 local edges and eccentricity distribution.",
+        "searches": [
+          "dodecahedron minimum feedback vertex set token sliding reconfiguration diameter",
+          "dodecahedron 2520 minimum feedback sets 660 1860 unrestricted exchange"
+        ]
+      },
+      "rationale": "The known 2,520-state dodecahedral minimum FVS census and unrestricted token-jump graph (23,940 edges, diameter six) are prior information and explicitly excluded from novelty. The locally adjacent token-slide relation is strictly more restrictive; unrestricted FVS reconfiguration results for planar subcubic graphs do not imply its connectivity or its diameter ten. The exact slide graph profile is qualified as original for this single natural graph.",
+      "residual_risks": [
+        "The finite local-slide graph may appear in an unpublished dodecahedral census or an unindexed reconfiguration thesis.",
+        "The result has no immediate extension to arbitrary cubic graphs; value is confined to a natural canonical finite case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its allowed reconfiguration operation is unrestricted vertex exchange (jump), so it does not directly establish token-slide connectivity/metric.",
+          "evidence": [
+            "Bousquet et al, Theoretical Computer Science 2023, exchange relation"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Accessible original journal full-text HTML, abstract, definitions of reconfiguration relation, and planar degree conditions were checked.",
+          "method": "Read primary article relevant statements and relation definition",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Closest claimed general graph-family reconfiguration theorem"
+        },
+        {
+          "assessment": "Deals with optimal size, not exact token-slide reconfiguration graph.",
+          "evidence": [
+            "Kelly–Liu 2016, induced-forest bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.03855",
+          "material_read": "Primary source scope/statement and relationship to FVS size inspected.",
+          "method": "Primary abstract and theorem-scope comparison",
+          "title": "Size of the Largest Induced Forest in Subcubic Graphs of Girth at least Four and Five",
+          "trigger": "Dodecahedron as canonical subcubic girth-five extremal graph"
+        },
+        {
+          "assessment": "Does not assert the local TS diameter distribution of GP(10,2).",
+          "evidence": [
+            "Kelly–Liu 2016, planar FVS minima"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.04559",
+          "material_read": "Primary source scope/statement inspected.",
+          "method": "Primary abstract/theorem-scope comparison",
+          "title": "Minimum Size of Feedback Vertex Sets of Planar Graphs of Girth at least Five",
+          "trigger": "Planar-girth-five FVS background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dodecahedron is a canonical cubic large-girth object and the minimum-feedback-set space is a natural optimization landscape. Connectivity and sharp distances under physically local token slides are mathematically different from known arbitrary-jump connectivity; the full radius/eccentricity/stratum profile is a complete motivated finite classification, not an arbitrary isolated count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem concerns only GP(10,2), not all planar cubic graphs.",
+    "The all-source BFS is exhaustive for the finite claimed set, unlike a sample; does not prove a structural formula for other graphs."
+  ],
+  "schema_version": 1
+}
