@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:05:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real α,β>0 and n≥3, A=αI+βuuᵀ, u=1/√n, the entire Frobenius-best rank-r set for 2≤r≤n−1 is (α+β)uuᵀ+αP for rank-(r−1) orthoprojectors P on u⊥. From 0≤P≤I, P_ij≥−1/2 for i≠j and P_ii≥0. Rank-(r−1) projector vvᵀ+R_S with v=(e1−e2)/√2 attains P_12=−1/2 for every r. Thus min across all entries and minimizers equals (α+β)/n−α/2, giving β≥(n−2)α/2 iff all minimizers are nonnegative. Group partition projector Q=ZD⁻¹Zᵀ yields strictly positive nonnegative-factorizable C=αQ+βuuᵀ with exact unconstrained error α√(n−r), for every r=1..n. In strict subthreshold region Aε=A+εP stays entrywise positive for 0<ε≤β/n, has unique truncation with (1,2)=−δ−ε/2 and optimum α√(n−r), while the closed feasible rank-r nonnegative set has strictly larger minimum and the NNF infimum excess is ≤ε√(r−1). Independently verified projector identities, all intermediate ranks n=3..7 with exact SymPy arithmetic, perturbation spectral separation, and the exact n=3 witness. Infinite-n claims come from algebra, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matveev–Budzinskiy study alternating projections for nonnegative low-rank matrices; Montaño–Salas–Soto treat sufficient preservation conditions for singular-value perturbations (sections 2–3)."
+        ],
+        "reasoning": "General algorithmic nonnegativity and perturbation conditions are not exact necessary-sufficient simultaneous worst-optimal-truncation thresholds plus NMF excess bounds for this family.",
+        "searches": [
+          "https://arxiv.org/abs/2201.11154",
+          "https://arxiv.org/abs/2009.03998",
+          "https://doi.org/10.1155/2009/301582"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2009/301582",
+        "https://arxiv.org/abs/2201.11154",
+        "https://arxiv.org/abs/2009.03998",
+        "Resultary semantic query: positive semidefinite compound symmetric matrix truncated SVD rank r projector nonnegative factorization rank independent threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Montaño Lemma 2.1 supplies sufficient entrywise bounds for a specified spectral perturbation, not universal optimal projector minima; NMF algorithms do not require zero approximation cost."
+        ],
+        "reasoning": "A priori positivity-preservation sufficient conditions do not imply if-and-only-if over every tied optimal rank-r truncation or the positive-gap/vanishing-cost pair after degeneracy splitting.",
+        "searches": [
+          "https://doi.org/10.1155/2009/301582",
+          "https://arxiv.org/abs/2201.11154"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Eckart–Young–Mirsky characterizes best rank-r singular subspaces, but positivity of all tied truncations is an additional extremal projector question."
+        ],
+        "reasoning": "No inspected theorem gives min_{P:rank(P)=r−1,Pu=0}min_{ij}((α+β)/n+αPij) or its independent-r threshold.",
+        "searches": [
+          "positive semidefinite compound symmetric matrix truncated SVD rank r projector nonnegative factorization rank independent threshold",
+          "https://arxiv.org/abs/2201.11154",
+          "https://doi.org/10.1155/2009/301582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No concrete published exact table of compound-symmetric all-truncation minima was located; the threshold is algebraic in n and α,β, not a sampled catalogue constant."
+        ],
+        "reasoning": "This check is about known parameter tables/formulas rather than a numerical database; the searched sources provide no exact three-variable envelope.",
+        "searches": [
+          "positive semidefinite compound symmetric matrix truncated SVD rank r projector nonnegative factorization rank independent threshold",
+          "compound symmetric matrix SVD nonnegative all optimal rank r threshold projector"
+        ]
+      },
+      "rationale": "Qualified PASS for the combined sharp all-optimal-SVD sign threshold, its rank independence, existence of positive nonnegative-factorizable exact optimum and robust vanishing-penalty unique-negative-SVD perturbation. Eckart–Young and projector geometry are standard; consulted low-rank NMF and singular-value perturbation primary literature studies general algorithms and sufficient nonnegativity preservation, not the exact compound-symmetric envelope.",
+      "residual_risks": [
+        "An unnoticed exact compound-symmetric projector extremum in matrix perturbation literature may subsume the sharp formula.",
+        "Positive NMF competitor is existential and does not imply numerical alternating projections find it; perturbation gap upper bound is not exact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact compound-symmetric all-rank envelope",
+          "evidence": [
+            "Sufficient matrix-specific nonnegativity conditions and changed singular-value formulas, not minimum over all best rank-r projectors or NMF excess."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2009/301582",
+          "material_read": "Full text sections 1–3 including Lemma 2.1 and Theorems 3.1,3.5 on singular-value and mixed perturbations",
+          "method": "Read publisher accessible HTML full theorem text and examples",
+          "title": "Nonnegativity Preservation under Singular Values Perturbation",
+          "trigger": "Close general positivity-preserving SVD perturbation conditions"
+        },
+        {
+          "assessment": "PARTIAL; no whole-document exclusion claimed",
+          "evidence": [
+            "Sketched alternating projections numerical study, not explicit sharp closed-form family classification in accessed material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11154",
+          "material_read": "Abstract and described algorithmic objective; complete manuscript was not read",
+          "method": "arXiv abstract/primary metadata and available summary",
+          "title": "Sketching for low-rank nonnegative matrix approximation: numerical study",
+          "trigger": "SVD negativity and nonnegative low-rank constraints"
+        },
+        {
+          "assessment": "PARTIAL; residual historical comparison",
+          "evidence": [
+            "Algorithmic alternating projection, not this exact projector sign envelope in accessible summary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.03998",
+          "material_read": "Abstract/description of tangent-space convergence, not full article",
+          "method": "arXiv primary summary",
+          "title": "Tangent Space Based Alternating Projections for Nonnegative Low Rank Matrix Approximation",
+          "trigger": "NMF and projection-based best rank-r methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of a truncated SVD and the true cost of a nonnegative low-rank constraint differ sharply, even under arbitrarily small perturbations removing the spectral tie. The rank-independent threshold and vanishing-penalty separation are a natural exact benchmark for nonnegative low-rank approximation, not merely reapplication of Eckart–Young.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/2009/301582",
+    "https://arxiv.org/abs/2201.11154",
+    "https://arxiv.org/abs/2009.03998",
+    "Resultary semantic query: positive semidefinite compound symmetric matrix truncated SVD rank r projector nonnegative factorization rank independent threshold"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only real positive compound-symmetric square matrices with β>0, Frobenius norm, intermediate ranks for the threshold; not arbitrary positive data or numerical SVD tie-breaking.",
+    "No universal algorithmic approximation-rate or optimization guarantees beyond the exact family."
+  ],
+  "residual_risks": [
+    "An unnoticed exact compound-symmetric projector extremum in matrix perturbation literature may subsume the sharp formula.",
+    "Positive NMF competitor is existential and does not imply numerical alternating projections find it; perturbation gap upper bound is not exact."
+  ],
+  "schema_version": 1
+}
