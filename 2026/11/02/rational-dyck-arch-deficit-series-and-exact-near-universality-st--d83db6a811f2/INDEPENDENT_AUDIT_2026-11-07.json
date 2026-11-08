@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:46:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The arch factorization for scattered-subsequence universality equals the greedy count of completed 0/1 arches. Pairing consecutive symbols turns Dyck words into coloured Motzkin excursions (paired height h), tracking R/Z/O arch states; each two-symbol block completes at most one arch. On first reaching a new paired height, the 00 block cannot be good because good 00 needs state O and creating that state at height h requires an earlier 11 from height h+1, impossible at the first visit. Thus max h<=d bad blocks and all fixed-deficit Dyck paths are in a finite 3(d+1)-state transfer system. G_d=e(I-zP)^(-1)[zQ(I-zP)^(-1)]^d f proves rationality for every fixed d, not joint bivariate rationality. Checked boundaries n=0 and d=0, transition table and first four displayed rational functions. Independent fresh direct enumeration of 23,714 Dyck paths for n<=10 corroborates height bound and first deficiency distributions; all-n argument is the first-height lemma plus formal matrix identity, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A Dyck language is not regular, so the DFA universal-language counting theorem does not supply rational G_d for all fixed d.",
+          "m-nearly k-universal counts missing subsequences at a fixed length, not n minus maximal universal length; related but a different statistic."
+        ],
+        "reasoning": "Neither general regular-language or missing-word result covers the nonregular fixed-arch-deficit Dyck height mechanism by direct specialization.",
+        "searches": [
+          "arXiv:2311.10658 k-Universality of Regular Languages theorem automaton",
+          "arXiv:2202.07981 m-Nearly k-Universal Words",
+          "Resultary Dyck entropy deficit search"
+        ]
+      },
+      "checked_sources": [
+        "Adamson–Fleischmann–Huch–Koß–Manea–Nowotka arXiv:2311.10658",
+        "Fleischmann et al. arXiv:2202.07981",
+        "OEIS A001793",
+        "Resultary Closed-form law for binary subsequence universality https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results give the greedy arch principle and special number sequences; the missing implication is that every new paired Dyck height costs a lost arch, yielding rational fixed-defect GF."
+        ],
+        "reasoning": "No inspected reference states the first-visit height lemma or general fixed-d Dyck transfer. General grammar plus arch counting alone does not imply rationality without that lemma.",
+        "searches": [
+          "arXiv:2311.10658 regular languages",
+          "arXiv:2202.07981 nearly universal words",
+          "OEIS A001793"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greedy arch index and all-binary-word length generating series are prior; restricting to Dyck words introduces a nonregular balanced-height constraint, which is controlled here only after fixing arch deficit."
+        ],
+        "reasoning": "The earlier all-word result is not equivalent to the Dyck excursion distribution even when the alphabet is binary; the finite-height lemma is essential.",
+        "searches": [
+          "Adamson et al. arXiv:2311.10658 greedy arch decomposition k-universality",
+          "Resultary: Closed-form law for binary subsequence universality (unconstrained words)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001793 contains 2^(n-5)(n-2)(n+1) shifted, already interpreted by Dyck pyramid weight; that is a matching numeric row, not the asserted all-d rational theorem.",
+          "For n=4, example 01001011 has arch defect 1 despite appearing in an existing pyramid-weight-three list."
+        ],
+        "reasoning": "Numerical novelty is rejected for d=2. The principal novelty is a statistic-level structural transfer theorem for every fixed d; no exact Dyck arch-deficit table covering the full theorem identified.",
+        "searches": [
+          "OEIS A001793 Dyck pyramid weight",
+          "Resultary exact Dyck arch deficit rational generating series"
+        ]
+      },
+      "rationale": "Known arch decomposition, regular-language universality counting and the known numerical sequence A001793 are carefully separated from the claimed structural Dyck fixed-deficit rationality and explicit d=3. The exact d=2 count is not presented as discovery of a new sequence; it is a differently defined Dyck statistic. No stronger result inspected mechanically gives the bounded-height arch-deficit transfer.",
+      "residual_risks": [
+        "A differently formulated context-free language automaton theorem may independently imply rational fixed deficit; no exhaustive literature guarantee.",
+        "Same numbers for defect two preexist; the novelty is not the sequence itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ARCH_DECOMPOSITION_PRIOR_DYCK_FIXED_DEFECT_NOT_STATED",
+          "evidence": "Universality via arches is a premise; a bounded-height Dyck refinement is not supplied by regular-language enumerations.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+          "material_read": "Accessible 21-page primary PDF; arch definition and theorem and DFA/NFA counting sections were inspected.",
+          "method": "Opened full primary PDF, inspected formal definition and representative counting results.",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Greedy arch factorization and counting words accepted by automata"
+        },
+        {
+          "assessment": "DISTINCT_NEAR_UNIVERSALITY_STATISTIC",
+          "evidence": "Counting absent length-k subsequences is different from semilength-minus-universality index.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07981",
+          "material_read": "Abstract/accessible cited theorem scope, not every line of full text; focus is number of missing subsequences of length k.",
+          "method": "Checked primary abstract and referenced definitions; did not assert whole-document noncoverage.",
+          "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+          "trigger": "Possible stronger near-universality theorem"
+        },
+        {
+          "assessment": "EXACT_NUMERIC_SEQUENCE_PRIOR",
+          "evidence": "Numerical duplication acknowledged; pathwise statistics differ and all-d theorem not supplied by OEIS entry.",
+          "identifier_or_url": "https://oeis.org/A001793",
+          "material_read": "Sequence entry and earlier Dyck pyramid-weight combinatorial interpretation.",
+          "method": "Inspected sequence formula and stated Dyck interpretation.",
+          "title": "OEIS A001793",
+          "trigger": "Identical coefficient sequence in d=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A structural bounded-height characterization and rational generating function for every fixed universality deficit in the canonical nonregular Dyck class is an independently useful exact enumeration theorem. It unifies arbitrary fixed deficit and explains exponential sparsity, rather than reporting only the already-known d=2 sequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No rationality claim for joint bivariate n,d generating series.",
+    "OEIS A001793 preexisting; no priority claimed for that coefficient sequence."
+  ],
+  "schema_version": 1
+}

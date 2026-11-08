@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an all-defect, all-semilength theorem, not a finite-sequence extrapolation. Ordinary greedy-arch factorization identifies universality index with completed arches [1,2]. Each adjacent input pair completes zero or one arch; inspecting the nine state/block possibilities yields the full transition table. A first visit to a new paired-height maximum must use a no-completion \(00\) step, forcing height at most defect; the proof handles initial state and boundaries, including the empty word and the forbidden \(10\) at paired height zero. Exactly \(d\) no-completion blocks are then counted by the stated bounded transfer matrix, proving rationality and making the four explicit series finite exact algebra. Verified direct enumeration of 82,500 paths (semilength at most 11), pair DP to 80, and symbolic matrix simplifications for defects 0–3. Residual correctness risk: implementation cross-checks are finite; the infinite assertion rests on the structural proof, as appropriate.
+PASS
 
-## Originality — PASS, qualified
+The arch factorization for scattered-subsequence universality equals the greedy count of completed 0/1 arches. Pairing consecutive symbols turns Dyck words into coloured Motzkin excursions (paired height h), tracking R/Z/O arch states; each two-symbol block completes at most one arch. On first reaching a new paired height, the 00 block cannot be good because good 00 needs state O and creating that state at height h requires an earlier 11 from height h+1, impossible at the first visit. Thus max h<=d bad blocks and all fixed-deficit Dyck paths are in a finite 3(d+1)-state transfer system. G_d=e(I-zP)^(-1)[zQ(I-zP)^(-1)]^d f proves rationality for every fixed d, not joint bivariate rationality. Checked boundaries n=0 and d=0, transition table and first four displayed rational functions. Independent fresh direct enumeration of 23,714 Dyck paths for n<=10 corroborates height bound and first deficiency distributions; all-n argument is the first-height lemma plus formal matrix identity, not finite extrapolation.
 
-The relevant primary full HTML for Adamson et al. [1] discusses subsequence-universal *regular* languages, not the nonregular Dyck class or this arch-deficit bounded-height reduction. Fleischmann et al. [2] introduce and analyze arches and the missing-subsequence-count parameter, not the semilength-minus-index distribution. Earlier published records for unrestricted binary universality, shortest absent subsequences, and primitive Dyck finite cores do not imply this classification without additional reasoning. Importantly the defect-two coefficient sequence is *not numerically new*: it agrees with OEIS A001793 [3], which lists a Dyck pyramid-weight interpretation. Its underlying pathwise statistic differs, so this coincidence leaves the general theorem and defect-three formula unaddressed. Residual risk: a broad lattice-path statistic identity or unpublished specialty formula could imply some or all of these results; this is not a proof of universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The invariant is a natural measure of loss of scattered-read coverage under a balanced-parenthesis constraint; binary index alone is well established, while the Dyck constraint introduces an unbounded-stack obstacle. The structural height-versus-defect bound proves that every fixed loss level is a finite-state stratum, gives a constructive exact counting algorithm for any defect, and makes the near-maximal universal Dyck words exponentially rare among Catalan paths. The third-defect formula and uniform mechanism go beyond merely rediscovering a listed integer sequence.
+Known arch decomposition, regular-language universality counting and the known numerical sequence A001793 are carefully separated from the claimed structural Dyck fixed-deficit rationality and explicit d=3. The exact d=2 count is not presented as discovery of a new sequence; it is a differently defined Dyck statistic. No stronger result inspected mechanically gives the bounded-height arch-deficit transfer.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
 
-### Scientific limitations
+PASS
 
-No joint-bivariate rationality and no independent external validation are claimed. Algebraic simplification for the four displayed rational functions can be replayed with an optional SymPy program; all finite word/transfer checks require only Python's standard library.
+A structural bounded-height characterization and rational generating function for every fixed universality deficit in the canonical nonregular Dyck class is an independently useful exact enumeration theorem. It unifies arbitrary fixed deficit and explains exponential sparsity, rather than reporting only the already-known d=2 sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
