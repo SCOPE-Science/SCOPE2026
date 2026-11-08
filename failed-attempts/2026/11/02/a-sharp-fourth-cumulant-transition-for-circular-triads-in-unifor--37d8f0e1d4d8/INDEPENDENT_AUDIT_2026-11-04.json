@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:47:27.989472Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=3, the proof correctly encodes centered cyclic triangles as -Q/4, Q a signed incidence-line-graph Rademacher chaos; kappa4(Q)=-2M+24S follows from even-degree edge multigraphs. BB^T=nI-J determines tr(A^4); nonbacktracking 4-cycle extraction gives S=n(n-1)(n-2)(n-3)(n-7)/8, hence the displayed polynomial. Independent exact tournament enumeration n=3..6 and trace/symbolic equality of old and new moment formulas corroborate, while the all-n proof is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berry–Johnston–Mielke (2014), section 3.3 pp.113–114 calls Kendall–Babington Smith’s all-n first-four-moment expressions a conjecture and its footnote 12 states that these results were later proved by Moran (1947).",
+          "P.A.P. Moran, On the method of paired comparisons, Biometrika 34(3/4), 363–365 (1947), DOI 10.1093/biomet/34.3-4.363, verified publisher bibliographic metadata."
+        ],
+        "reasoning": "The older four-moment result is strictly broader than a fourth cumulant; it covers every integer n in precisely the same unbiased complete-tournament model. The 1947 text is inaccessible, but the precise 1940 formula and secondary proof attribution are sufficient strong mathematical coverage without claiming to have read the primary Moran proof.",
+        "searches": [
+          "Exact fourth cumulant circular triads uniform random tournaments signed line graph signed four cycles variance kurtosis",
+          "Moran 1947 the method of paired comparisons fourth moments theorem circular triads formula"
+        ]
+      },
+      "checked_sources": [
+        "Berry–Johnston–Mielke (2014) section 3.3 pp113–114, PDF screenshot and exact formula",
+        "Kendall–Babington Smith (1940) DOI 10.1093/biomet/31.3-4.324 (source full text inaccessible)",
+        "Moran (1947) DOI 10.1093/biomet/34.3-4.363 (source full text inaccessible, proof attributed by history)",
+        "Bruss–Ferguson (2018) author-hosted full text",
+        "Harris–McShane (2024) full publicly accessible article",
+        "Resultary query Exact fourth cumulant circular triads uniform random tournaments signed line graph signed four cycles variance kurtosis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let M4_prior=(3/256)*C(n,3)*[9*C(n-3,3)+39*C(n-3,2)+9*(n-3)+7], V_prior=(3/16)*C(n,3). Then M4_prior-3*V_prior**2=n(n-1)(n-2)(3n**2-30n+62)/256 exactly, checked in SymPy.",
+          "Berry–Johnston–Mielke p.114 footnote 12 attributes proof to Moran (1947); official 1947 journal record confirms the paper exists."
+        ],
+        "reasoning": "The prior-moment implication is exact, not a title-level coincidence. The signed line-graph sum S follows algebraically from the same cumulant and the routine quadratic-chaos fourth-moment identity; no independent novelty rescue.",
+        "searches": [
+          "Exact fourth cumulant circular triads uniform random tournaments signed line graph signed four cycles variance kurtosis",
+          "P A P Moran 1947 fourth moments circular triad paired comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berry–Johnston–Mielke (2014), p.114 explicitly prints mu_4=3/256*C(n,3)[9*C(n-3,3)+39*C(n-3,2)+9*C(n-3,1)+7].",
+          "Using variance 3/16*C(n,3), SymPy factor(mu_4-3*variance**2 - n(n-1)(n-2)(3*n**2-30*n+62)/256) = 0 exactly."
+        ],
+        "reasoning": "Cumulant equals fourth central moment minus 3 variance squared, so the asserted all-order fourth cumulant, excess kurtosis and integer sign threshold are direct algebraic equivalents of the older fourth-moment statement. Different terminology and normalization do not preserve originality.",
+        "searches": [
+          "Exact fourth cumulant circular triads uniform random tournaments signed line graph signed four cycles variance kurtosis",
+          "Kendall Babington Smith fourth central moment circular triads proven Moran 1947",
+          "P A P Moran 1947 \"The method of paired comparisons\" proof fourth moments circular triads"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kendall and Babington Smith originally enumerated n=3 through 7 and printed the polynomial formulas for all n, reproduced verbatim in Berry–Johnston–Mielke (2014) p.114.",
+          "Harris–McShane (2024), J. Integer Sequences, present finite exact circular-triad count generating functions and review historical tables."
+        ],
+        "reasoning": "Historical finite tables alone would not cover the all-n theorem. Here, however, the historical source ALSO has the exact all-n fourth-moment polynomial, not just small-n data.",
+        "searches": [
+          "Exact fourth cumulant circular triads uniform random tournaments signed line graph signed four cycles variance kurtosis",
+          "random tournament cyclic triples fourth moment Kendall Babington Smith 1940"
+        ]
+      },
+      "rationale": "A decisive all-n fourth CENTRAL moment formula for exactly the same random circular-triad count was published by Kendall and Babington Smith in 1940 as an explicit conjecture and subsequently proved by P. A. P. Moran in 1947, as documented in Berry–Johnston–Mielke, A Chronicle of Permutation Statistical Methods (2014), section 3.3 pp.113–114 and footnote 12. Symbolic simplification of that printed formula minus three squared known variances reproduces this result’s exact fourth cumulant polynomial IDENTICALLY. Its claimed n=8 sign threshold follows immediately from that polynomial. The additional signed-four-cycle identity is a reformulation through the quadratic Rademacher expansion and trace, not an independent new substantive claim. This is strong prior mathematical coverage, not a merely inaccessible or keyword-matching source.",
+      "residual_risks": [
+        "The full primary texts of 1940/1947 were inaccessible; mathematical coverage is anchored to the explicit exact 1940 formula reproduced in 2014 and attributed 1947 proof, not an invented direct read.",
+        "Other signed-line-graph trace presentations might differ in technique, but an alternative proof of a known fourth cumulant is not the unmodified claimed novel finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact 1940 expression, attributed proof in 1947",
+          "evidence": "p.114 displayed mu_4 equation; footnote 12: results proved by Moran 1947.",
+          "identifier_or_url": "https://errorstatistics.com/wp-content/uploads/2018/01/berry-johnston-mielke.pdf",
+          "material_read": "Full section 3.3 pp.113–114 and footnote 12, including all first four moment formulas",
+          "method": "Open PDF extracted text and page 114 screenshot",
+          "title": "A Chronicle of Permutation Statistical Methods (1920–2000)",
+          "trigger": "Precise claimed fourth moment in 1940 paired-comparison literature"
+        },
+        {
+          "assessment": "Exact all-n 4th central moment already proposed in 1940; not misrepresented as original full read",
+          "evidence": "Berry–Johnston–Mielke 2014 pp.113–114 identifies Kendall–Babington Smith 1940 p.332.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/31.3-4.324",
+          "material_read": "Publication metadata, secondary exact transcription of claimed moment; primary full text NOT read",
+          "method": "Publisher metadata plus history-book primary citation; authorized access unavailable",
+          "title": "On the Method of Paired Comparisons",
+          "trigger": "Original 1940 fourth-moment source"
+        },
+        {
+          "assessment": "Secondary source explicitly attributes proof to Moran; primary detail remains an access caveat, not absence of a known exact statement",
+          "evidence": "Berry–Johnston–Mielke p.114 footnote 12; Biometrika vol34 pp363–365 1947.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/34.3-4.363",
+          "material_read": "Publisher/JSTOR bibliographic and secondary footnote only; primary proof NOT read",
+          "method": "Open bibliographic web plus lawful OA searches; authorized institutional connection requires VPN",
+          "title": "On the method of paired comparisons",
+          "trigger": "1947 proof of 1940 conjecture"
+        },
+        {
+          "assessment": "Classical score and moment method, confirms historical importance",
+          "evidence": "2018 Section 4 and references Kendall–Babington Smith moment-based chi-square approximation.",
+          "identifier_or_url": "https://www.math.ucla.edu/~tom/papers/testing.pdf",
+          "material_read": "14-page public paper, relevant sections on tournament score statistic, mixed moment supports, and moment history",
+          "method": "Open author-hosted PDF with page visual inspection",
+          "title": "Testing equality of players in a round-robin tournament",
+          "trigger": "Independent modern discussion of moments and original source"
+        },
+        {
+          "assessment": "Finite tables not the cause of O failure; the old all-n fourth moment is",
+          "evidence": "Journal of Integer Sequences 27 (2024).",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/McShane/mcshane1.pdf",
+          "material_read": "Public HTML and relevant fixed-count generating-function sections",
+          "method": "Lawful open-access article text",
+          "title": "Counting Tournaments with a Specified Number of Circular Triads",
+          "trigger": "Modern enumerative tables and generating functions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as a research contribution: paired-comparison fourth moments and the exact all-n fourth-cumulant value were already conjectured in 1940 and proved in 1947; the n=8 sign change and leading 12/n kurtosis are immediate manipulations. The signed line-graph proof is mathematically sound but a short equivalent way to compute a known natural statistic, with no demonstrated additional independently useful new invariant or structural theorem. This is known-table/formula recomputation, not a surviving original valuable claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The full primary texts of 1940/1947 were inaccessible; mathematical coverage is anchored to the explicit exact 1940 formula reproduced in 2014 and attributed 1947 proof, not an invented direct read.",
+    "Other signed-line-graph trace presentations might differ in technique, but an alternative proof of a known fourth cumulant is not the unmodified claimed novel finding.",
+    "Exact all-n numerical moment and sign threshold already established in earlier paired-comparison research; no novel final mathematical claim remains in unmodified package."
+  ],
+  "schema_version": 1
+}
