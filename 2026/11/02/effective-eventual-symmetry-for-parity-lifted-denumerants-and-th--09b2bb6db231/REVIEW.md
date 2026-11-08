@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact parity bijection, pairwise-coprime pole decomposition, resulting period shift, finite onset, and translated-ideal count constitute a complete infinite proof under the stated quantifiers. The sharp progression classification uses a reconstructible exact 84-difference certificate, the period shift, and finite enumerations of exceptional p. The supplied Python verifier independently checks arithmetic cases but is not the proof of infinite quantifiers.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest 2022 results provide p-Frobenius and p-symmetry theory in bounded low-p ranges. A 2024 Watanabe-type reduction covers some \(c\in\langle a,b\rangle\), but not outside that semigroup, and it does not state the explicit high-p translated set or full \(6,7,8\) spectrum. Targeted published-record queries and accessible related claims were compared by statements and implications, not titles. A broader unindexed theorem remains possible; no definitive priority certification is claimed.
+PASS
 
-**Mathematical value — PASS.** The general effective tail theorem answers an unbounded-threshold structural question for an infinite family, while the complete (6,7,8) spectrum determines a precise natural low-parameter boundary: unique failure at \(p=1\), including the surprising \(p=7\) non-ray symmetric case. Exact gap, Frobenius and genus formulas give useful invariant information. The generic onset is not optimized, and extension beyond the stated parity/coprimality regime is open.
+Parity bijection gives d_{2a,2b,c}(2t)=H(t)=d(2t+c), H for (a,b,c), all t≥0. Root-of-unity partial fractions for pairwise coprime three generators yield exact H(t+L)-H(t)=t+(L+a+b+c)/2 and Δ(t+L)=Δ(t)+1, L=abc. Hence after explicit U=L max(0,1-min_{r<L}Δ(r)), H is strictly increasing and bounded initial levels give an effective p threshold. The translated ideal and ell,g,n formulas follow by parity. For (a,b,c)=(3,4,7), an exact 84-residue negative-difference table (only indices 0,4,7,28), together with the shift identity and direct low-t counts, leaves only p=0,1,7 non-ray levels; p=0,7 symmetric but p=1 not. Independent rational/integer recurrence checked 84 rows, shift, and 181 thresholds; infinite tail follows from algebra.
 
-**Closest inspected literature.** Komatsu–Ying, arXiv:2206.13052 and arXiv:2207.08962 (2022); Komatsu, arXiv:2409.02394 (2024). Specific overlapping statements and the Watanabe-hypothesis distinction are recorded in the attached structured originality review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Komatsu–Ying 2022 papers define p-symmetry and give low-p results for arithmetic triples; Komatsu 2024 Watanabe-type transfer requires c∈<a,b> and does not provide the all-high-p translated ideal or exact all-p (6,7,8) spectrum. The latter is also claimed in assigned record 5, but record 4 has strictly broader parameters including c outside <a,b>; thus 5 does not dominate 4. The broad all-p structural theorem survives the known-method overlap.
+
+## value
+
+PASS
+
+The computable all-high-p threshold ideal and exact generalized Frobenius/genus for an infinite non-gluing family address a natural multiplicity problem. The full (6,7,8) exception classification, especially p=7 symmetric despite nonray, is a motivated sharp boundary, not a sample-only calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
