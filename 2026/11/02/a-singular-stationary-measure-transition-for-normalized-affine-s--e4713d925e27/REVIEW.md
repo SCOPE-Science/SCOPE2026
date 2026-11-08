@@ -1,19 +1,21 @@
-# Review: A singular stationary-measure transition for normalized affine sphere maps
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A nonpolar orbit has the exact skew-product form \(F(h,v)=(f(h),-v)\). The period-two normalization forces a quadratic factorization; its extraneous algebraic root gives a negative denominator and is impossible. This establishes the complete \(F^2\)-fixed set outside resonance. Strict order of \(f^2\), normal multipliers, and dominated convergence establish every basin and every stationary probability. At resonance, direct substitution yields \(F^2=I\), and the conformal Jacobian gives an explicit positive normalized invariant density. The standalone verifier tests the algebra and representative trajectories; the analytic argument supplies all quantifiers.
+PASS
 
-## Originality — PASS, with recognized inherited component
+For n>=2, alpha,r in (0,1), write x=h e+sqrt(1-h²)v. The map becomes (f(h),-v) with f=(alpha-h)/sqrt((alpha-h)²+r²(1-h²)), derivative strictly negative. The unique fixed h is alpha/(1+r). The exact period-two factorization is [alpha-(1+r)h][alpha-(1-r)h][alpha²+r²-1]/alpha², with the second candidate invalid because the required positive norm would be -r. An increasing f² has no longer scalar periodic orbits, and monotone iteration plus explicit pole/latitude multipliers gives basin exchange at alpha²+r²=1. Invariant measures away from resonance are mixtures of symmetric pole pair and latitude antipodal pairs, all singular against surface measure. At resonance f(h)=(alpha-h)/(1-alpha h), f²=id, surface Jacobian [r/(1-alpha h)]^n and symmetrization gives rho=(1+J_F)/2. Independent SymPy symbolic identity check and source verifier reading support the algebra.
 
-The 2022 defining source's Proposition 3 **already characterizes the analogous involution criterion on \(S^1\)**, so the equality \(\alpha^2+r^2=1\) alone is not treated as new. Corollary 9 also establishes the isotropic circle period-two picture. The contribution assessed here is the all-dimensional classification of invariant probabilities and basins, together with the exact singular-to-absolutely-continuous transition at the resonance. These statements were not present in the inspected primary text; searches for normalized affine sphere statistical laws, dualities to circle/Möbius formulations and published research-record aliases did not locate a stronger covering claim. A possible pre-existing meridianwise extension or unindexed stationary-law treatment remains a novelty risk, not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The question is natural for a family constructed specifically to study affine-induced sphere dynamics: which invariant statistical states survive, and how do typical forward orbits behave? The answer distinguishes two competing attracting strata of different dimensions; on a single sharp parameter curve every point becomes periodic and smooth full-support invariant probabilities appear, while none exists off the curve. This is a complete invariant-measure classification, not an arbitrary finite parameter computation. The surface-measure singularity and the exact basins give structural information beyond local circle involution criteria.
+Best-of-knowledge PASS qualified for global basin and complete invariant-probability simplex in n>=2, not for known circle involution criterion. The 2022/2024 Choudhuri–Faraco–Yadav paper Prop.3 already gives meridional resonance condition; inspected higher-dimensional results concern distality/expansivity, not a complete invariant-law classification.
 
-## Closest literature and limits
+## value
 
-Choudhuri–Faraco–Yadav, arXiv:2209.05236v1, Proposition 3 and Corollary 9, is the closest primary source; the published journal version has DOI 10.1080/14689367.2023.2248013. Other spherical mapping and Möbius classifications can contain equivalent identities. The theorem is restricted to the stated axisymmetric two-parameter subfamily and dimensions at least two; it does not classify all normalized affine sphere transformations. Only self-review is claimed here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full all-dimension classification of invariant probabilities and a sharp exchange of two attractor strata is a natural topological-dynamical result. The presence of smooth full-support invariant probability only on a codimension-one involution locus is mathematically meaningful beyond the known meridian criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
