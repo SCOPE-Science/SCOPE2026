@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The explicit monotone benefit function realizes the unique even-neighbor best response. Symmetric \\(\\mathbb F_2\\) linear algebra proves equilibrium existence on every finite simple undirected graph. On cluster graphs, an odd active count is exactly best-response satisfaction throughout its clique; each move increases the integer potential by one and permanently settles a previously even component, proving exact length and \\(2^{n-c}\\) equilibria. An induced \\(P_3\\) forces a four-flip strict cycle regardless of all other fixed inactive vertices. Bipartite Hamming parity and uniqueness of best response rule out cycles shorter than four. The actual packaged verify.py enumerated 33867 simple graphs to n=6, 14946 cluster profiles and 134356 strict witness moves; tests corroborate rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klimm–Stahlberg Corollary 3.4 proves an O(n²) convergence bound for decreasing best-response patterns (leading ones followed by zeros), not the alternating infinite pattern.",
+        "Gilboa–Nisan examine equilibrium complexity for discrete response patterns.",
+        "A 2016 paper on conforming/nonconforming games uses linear-threshold pairwise payoffs, unlike the nonmonotone parity response."
+      ],
+      "reasoning": "The closest stronger-looking convergence theorem has a different response-pattern hypothesis and therefore does not contain the alternating case. Linear-threshold coordination/anticoordination models cannot implement repeated parity alternation with degree at least three. No general graph class or update theorem found covers the if-and-only-if P3-free boundary for this specific response.",
+      "searches": [
+        "even neighbor count choose active asynchronous improvements four step path graph public goods parity game",
+        "binary public goods games alternating pattern finite improvement property cycles convergence graph",
+        "parity public goods games asynchronous best response cycles union of cliques induced path",
+        "arxiv:2301.11849, Section 3 and Corollary 3.4",
+        "arxiv:2207.04238"
+      ]
+    },
+    "checked_sources": [
+      "Papadimitriou and Peng, Public Goods Games in Directed Networks, arxiv:2106.00718, Lemma 3.3",
+      "Gilboa and Nisan, Complexity of Public Goods Games on Graphs, arxiv:2207.04238",
+      "Klimm and Stahlberg, Complexity of Equilibria in Binary Public Goods Games on Undirected Graphs, arxiv:2301.11849, Table 1 and Corollary 3.4",
+      "Published mathematical record: Sharp period-four census for complete multipartite parity automata (scientific summary only)",
+      "Networks of conforming or nonconforming individuals tend to reach satisfactory decisions (2016), abstract and pairwise linear-threshold model"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier equilibrium equations imply affine solution spaces (a known algebraic fact), which the new proof uses as background.",
+        "Convergence for decreasing patterns and periodic orbits under simultaneous updates do not imply the claimed alternating-rule FIP classification.",
+        "The four-step path-based countercycle explicitly separates existing equilibrium from unrestricted convergence."
+      ],
+      "reasoning": "The component of the result concerning linear-equation descriptions of equilibrium is credited to prior authors; only the graph-theoretic FIP biconditional, exact clique path clock and shortest improvement-cycle obstruction are assessed as new. Different hypotheses (decreasing vs alternating) and update relations (simultaneous vs unilateral strict) block the superficially plausible prior implications.",
+      "searches": [
+        "arxiv:2106.00718, Lemma 3.3",
+        "arxiv:2301.11849, Sections 1 and 3",
+        "undirected graphical parity public goods every graph pure equilibrium but cycles exactly induced three vertex paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Papadimitriou–Peng Lemma 3.3 identifies the equilibrium condition as (I+A)s=1 mod 2; the lemma concerns existence/computation and does not state pathwise convergence.",
+        "The inspected 2023 public-goods study identifies alternating as a distinct response pattern, not a decreasing pattern."
+      ],
+      "reasoning": "Checked the aliases alternating binary best response, odd/even active-neighbor parity, XOR best response, finite improvement, induced P3, and cluster graphs. Solvability of a linear equilibrium equation is a fixed-point statement and cannot imply that all sequential best-response trajectories terminate; the explicit induced-path cycle demonstrates the logical distinction.",
+      "searches": [
+        "homogeneous alternating (10)* binary public goods games unilateral best response finite improvement property iff disjoint union of cliques induced P3 4-cycle",
+        "undirected graphical parity public goods every graph pure equilibrium but cycles exactly induced three vertex paths",
+        "arxiv:2106.00718, Lemma 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Klimm–Stahlberg Table 1 classifies computational decision complexity by best-response pattern, not all improvement edges or P3 graph obstructions.",
+        "The mathematical record Sharp period-four census for complete multipartite parity automata addresses synchronous parity update orbit counts on complete multipartite graphs, not unilateral strict improvement across all simple undirected graphs."
+      ],
+      "reasoning": "Looked for exact all-graph best-response transition tables, graph-class FIP catalogs, induced P3 certificates and clique-component path lengths. The closest table concerns equilibrium decision complexity, while the closest parity orbit record is a different transition process. Search absence alone is not claimed as proof of novelty.",
+      "searches": [
+        "homogeneous alternating (10)* binary public goods games unilateral best response finite improvement property iff disjoint union of cliques induced P3 4-cycle",
+        "even neighbor count choose active asynchronous improvements four step path graph public goods parity game",
+        "binary public goods response 101010 clique union exact number of best-response steps pure Nash equilibria",
+        "arxiv:2301.11849, Table 1"
+      ]
+    },
+    "rationale": "The exact if-and-only-if finite-improvement classification on all simple undirected networks was compared as a statement against three accessible foundational full texts and targeted mathematical-record searches. The 2021 parity linear-system lemma establishes computable equilibria, not universal convergence. The 2023 convergence theorem assumes decreasing patterns, excluding the infinite alternating rule. The 2022 complexity paper addresses equilibrium decision problems, not arbitrary unilateral improving cycles. A related synchronous parity record changes every site simultaneously rather than allowing unilateral strictly improving flips, and so does not imply this criterion. Residual risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "An equivalent forbidden-P3 improvement-dynamics classification could occur in unindexed game-theory or Boolean-network literature under different terminology.",
+      "The related synchronous parity record was matched by summary only, not read in full; its explicit synchronous transition rule makes direct implication inapplicable.",
+      "No independent expert or external audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers linear-algebraic equilibrium computation; does not assert unrestricted unilateral best-response FIP on simple undirected networks",
+        "evidence": "Section 3 Lemma 3.3 derives s_i+sum_{(j,i)}s_j=1 over F_2. This is a fixed-point system, not a trajectory theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2106.00718v2",
+        "material_read": "Full-text introduction, alternating definition, Lemma 3.3 and proof, concluding discussion",
+        "method": "Accessible arXiv full HTML; theorem-equation and assumption comparison",
+        "title": "Public Goods Games in Directed Networks",
+        "trigger": "Original alternating-function best-response parity equation and equilibrium solver"
+      },
+      {
+        "assessment": "Classifies complexity of pure equilibrium existence for patterns; not an all-improvement-path dichotomy",
+        "evidence": "The paper frames main contributions as polynomial and NP-complete equilibrium decision cases, and studies binary response patterns.",
+        "identifier_or_url": "https://arxiv.org/html/2207.04238v1",
+        "material_read": "Full-text abstract, model formulation, complexity theorem discussions, conclusion",
+        "method": "Accessible arXiv full HTML; compare objects, hypotheses and conclusions",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Binary response-pattern model and potential stronger equilibrium statement"
+      },
+      {
+        "assessment": "Proof of convergence is for decreasing patterns only; infinite alternating pattern is mentioned separately for equilibrium decision complexity; no covering universal-convergence classification",
+        "evidence": "Section 1.1 and Table 1 distinguish (10)* from 1+0+, and Corollary 3.4 applies to the game of Theorem 3.3, with patterns in 1+0+.",
+        "identifier_or_url": "https://arxiv.org/html/2301.11849v3",
+        "material_read": "Full-text introduction, pattern table, model, Section 3 including Corollary 3.4 and proof, concluding discussion",
+        "method": "Accessible arXiv full HTML; direct theorem-hypothesis and implication comparison",
+        "title": "Complexity of Equilibria in Binary Public Goods Games on Undirected Graphs",
+        "trigger": "Closest undirected model; existing best-response convergence theorem"
+      },
+      {
+        "assessment": "Recorded result describes synchronous parity updates and periodic orbits on complete multipartite graphs; cannot certify claims on arbitrary sequential strict best-response improvement",
+        "evidence": "The record synopsis expressly uses synchronous binary parity update, states its graph class and period bounds. Its full text was not relied upon for any negative coverage conclusion.",
+        "identifier_or_url": "Published record titled “Sharp period-four census for complete multipartite parity automata” (summary only)",
+        "material_read": "Search-result title and scientific summary, not full text",
+        "method": "Semantic mathematical-record search; limited abstract-level comparison",
+        "title": "Sharp period-four census for complete multipartite parity automata",
+        "trigger": "Topically closest published mathematical-record match involving parity dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "161ecf17-95f2-41bf-89c4-7b2ed175e2f0",
+  "value": {
+    "rationale": "The literature-motivated nonmonotone alternating public-goods rule has efficiently identifiable Nash equilibria, but their existence does not decide robustness under arbitrary sequential player adjustments. The exact \\(P_3\\)-free forbidden-induced-subgraph boundary gives a complete network-design criterion, a sharp minimal cycling obstruction and an exact schedule-independent convergence horizon across an infinite family. These structural facts are not merely a relabeled instance count and provide actionable separation between equilibrium existence and unavoidable convergence of improvement paths.",
+    "status": "PASS"
+  }
+}
