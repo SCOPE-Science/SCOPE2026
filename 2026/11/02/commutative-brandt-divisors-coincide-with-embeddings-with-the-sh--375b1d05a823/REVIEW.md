@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof separately handles source subsemigroups omitting and containing ambient zero, identifies every finite diagonal fiber as a group, shows that two distinct fibers cannot have a common nonzero quotient image, and proves that commutativity forces every off-diagonal image to annihilate the quotient. The construction uses a direct product of groups and one finite cyclic label group, with two auxiliary matrix indices when needed. The lower bound accounts for distinct diagonal idempotents, zero preservation, and two endpoints disjoint from the idempotent indices; all singleton cases are explicit. The finite checker exhaustively examines all commutative congruence quotients of the five-element Brandt semigroup and checks four independent embeddings. Its output is reproducible and is not used to prove the infinite statement.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The motivating source, arXiv:2604.04763v1, explicitly asks for the description of Brandt divisors in Problem 1.2(1), without addressing the commutative special case. Margolis–Rhodes–Silva, arXiv:1705.04956v1, Theorems 5.3–5.5, describe structural components for *subsemigroups* of an aperiodic Brandt semigroup; those results do not state the equivalence of division and embedding for all commutative target semigroups with arbitrary finite structure groups, nor the minimum-index formula. Search comparisons included Rees matrix, quotient, orthogonal-sum, null-ideal and minimal-index formulations and revealed no equivalent explicit theorem. Older general 0-simple divisor work may have unstated special-case implications; complete historical priority is not certified.
+PASS
 
-## Mathematical value — PASS
-This gives a natural complete classification within the commutative target slice of a specifically published open divisor problem. The equivalence between a quotient-of-subsemigroup condition and an embedding condition is structural, and the exact minimum number of Brandt matrix indices adds a sharp resource invariant independent of component group sizes. Allowing arbitrarily many nil annihilator elements and arbitrarily many abelian-group components produces an infinite-class theorem, not an arbitrary small census or restatement of one prior construction.
+For a finite subsemigroup T of B_m(G), if ambient zero is absent, squaring forces every element into one diagonal group. With ambient zero, every nonzero diagonal image lies in an abelian group K_i and different diagonal positions meet only at the absorbing zero; any off-diagonal image annihilates all commuting quotient images, including the opposite-index case where c^2=z inside a diagonal image group. Every listed disjoint union embeds using t diagonal positions and, when annihilator X is present, two fresh endpoints (a,b) with distinct group labels. The lower bound follows from distinct nonzero diagonal idempotents and an off-diagonal square-zero image whose endpoints cannot overlap them. Singleton and group cases give b=1. Inspected CHECK.py exhaustively enumerates subsemigroups/congruences of five-element trivial-group Brandt and explicit embeddings; this code is corroboration only.
 
-## Literature and scope
-See arXiv:2604.04763v1, Problem 1.2; arXiv:1705.04956v1, Theorems 5.3–5.5; and the standard Brandt formulas in Semigroup Forum (2019), Section 4. The general noncommutative case remains outside the claim. A different historical classification could imply some special cases, and the included computational checks have finite scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Lyapin notebook states the general finite Brandt-divisor description as an open problem, so this is only a commutative-target solution. Margolis-Rhodes-Silva study aperiodic Brandt subsemigroup complexes, not arbitrary commutative quotients over varying groups and sharp embedding index. Historical universal-algebraic divisor classifications could implicitly imply the structure; record this priority risk.
+
+## value
+
+PASS
+
+The natural commutative slice of a published semigroup-divisibility problem is settled by a sharp structural equivalence, not simply membership testing: divisibility collapses to embeddability, and the least matrix index is determined independently of group sizes. The t+2 threshold distinguishes annihilator fibers from maximal subgroup components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
