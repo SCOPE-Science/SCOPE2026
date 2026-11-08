@@ -1,19 +1,21 @@
-# Scientific review of the remainder-added linear map transport theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sharp parameter boundary is derived from two explicit one-step inequalities, with all quantifiers and the critical endpoint handled separately. At the critical endpoint the fractional-phase semiconjugacy is exact, and positivity converts boundedness into summability of the phase; expansion then proves eventual fixation. The golden-ratio phase has a primitive two-interval Markov partition. Direct transfer-operator substitution establishes its invariant density, while an exact four-dimensional affine-density calculation establishes the all-lag covariance recurrence and both finite-time and asymptotic variances. A standalone symbolic and rational checker reproduces algebraic identities, not the infinite proofs. Only a stationary initial-phase law is used for the precise variance statement.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS. Since |rem(y,1)|<1, both |H(x)|<=|x|/k+1 and |H(x)|>=|x|/k-1 hold; the geometric iteration proves absorption for k>1 and escape beyond k/(1-k) for k<1. At k=1 the exact phase relation u_{j+1}={(1+a)u_j}, x_{j+1}=x_j+u_j on x>=0 plus odd symmetry proves eventual fixation iff bounded, using near-zero expansion of u. At a=phi-1 the two Markov intervals [0,phi^-1),[phi^-1,1) give an invariant positive piecewise-constant Parry density. The transfer operator preserves a four-dimensional affine-density subspace; the centered source vector satisfies the stated quadratic annihilator with eigenvalues phi^-1 and -phi^-2. Direct integration recovers all C_j, mean 1/sqrt5 and the exact finite-n variance sum; geometric-series resummation yields (5+3sqrt5)/50 and the constant correction. Independently verified density invariance and seven exact covariance lags symbolically, including the variance coefficient; read the real verify.py. No claim for arbitrary initial ensemble or nonlinear rem(a x,1) with nontruncating modulus.
 
-The same map was introduced in Moysis–Kafetzis–Baptista–Volos, *Mathematics* 10 (2022), 2801, equations (4) and (23). Its accessible article discusses Lyapunov enhancement, numerical bifurcations, and pseudo-randomness, not the neutral global-escape/confinement threshold or a phase-unwrapped exact transport covariance. The 2023 multiple-remainder continuation is directed toward encryption and Lyapunov properties and does not establish the single-remainder transport formula. General \(\beta\)-transformation results already provide the invariant density and ergodicity, and these are acknowledged as preexisting ingredients. The exact diffusion-coefficient literature gives frameworks for calculating statistical variances of expanding maps but the inspected Jenkinson–Pollicott–Vytnova article does not state this model's \((5+3\sqrt5)/50\) coefficient. Search results and accessible prior research claims contain no known exact covering statement. Risk: an unindexed paper or an unrecognized instance of an exact Parry-process autocovariance formula could cover the same numerical invariant; a qualified independent priority review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The source map was proposed as a deterministic method for increasing chaotic complexity, so deciding whether its unwrapped trajectories are confined, escape geometrically, or exhibit transport is an intrinsic dynamical question rather than a normalization check. The critical line is sharply separating two opposite global behaviors. At its smallest noninteger golden-mean Markov multiplier, the stationary drift differs from the integer-multiplier value, and the exact all-lag correlations quantify sustained variance inflation. The full finite-time variance is specified, not a numerical approximation or a generic central-limit claim. The result supplies a motivated exact transport benchmark for remainder-based chaotic maps and identifies a failure of the intuition that stronger local expansion ensures bounded chaotic trajectories.
+PASS, with explicit classical-beta overlap. Moysis et al., Mathematics 2022, introduce exactly the remainder-added map and its normalizations, so that construction is not novel. The full accessible 2022 paper, especially its eq.(23) and the analysis of Lyapunov exponents and chaotic map behaviour, does not in the examined sections give a sharp all-k confinement boundary or exact stationary golden-phase all-lag covariance. The Parry density and ergodicity for golden beta maps are classical and specifically not counted as the contribution. The contribution is the exact unwrapped displacement covariance/variance for this concrete neutral remainder map, which is not logically implied by a general existence theorem for diffusion.
 
-## Closest literature and scientific limits
+## value
 
-The 2022 defining article establishes the recurrence and a Lyapunov sufficient condition, which neither implies the critical orbit criterion nor computes transport moments. The 2023 multi-remainder article has a different map class and question. Parry's classical invariant-density theory and the 2018 diffusion-coefficient framework provide general tools, not the exact unwrapped-map statistics as stated. The full result is restricted to a singled-out noninteger parameter for exact moments, and to positive \(a,k\) for the global trichotomy. A compact absorbing interval is not identified with a topological global attractor of the discontinuous map. This review does not assess cryptographic security or conduct an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Neutral dynamics separates bounded from escaping behaviour in an elementary yet discontinuous concrete model. A natural noninteger beta-Markov parameter has nonuniform invariant phase and correlated displacement, making its exact all-lag covariance and variance coefficient useful quantitative transport invariants. The result pinpoints deterministic drift bias relative to integer slopes; it does not imply cryptographic security or a Gaussian limit law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

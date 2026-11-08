@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` uses SymPy and Python's exact rational arithmetic. It checks the golden-ratio algebra, the invariant density, the stationary mean, the four-by-four transfer matrix, its spectrum, the first sixteen exact lag covariances and their two-exponential formula, the finite geometric-sum formula for each of sixteen time horizons, and integer-expansion digit/displacement identities on several exact rational orbits.
+## correctness
 
-Run with `python verify.py` in a working environment with SymPy installed. The expected terminal result begins `PASS: invariant density` and identifies the other checked components.
+PASS
 
-The infinity of parameters and orbit times is justified by the inequalities, semiconjugacy and transfer-operator recurrence proved in `RESULT.md`, not by the finite test runs. The stationary initialization is specified explicitly, and no statement is made about a stochastic perturbation or independent external verification.
+PASS. Since |rem(y,1)|<1, both |H(x)|<=|x|/k+1 and |H(x)|>=|x|/k-1 hold; the geometric iteration proves absorption for k>1 and escape beyond k/(1-k) for k<1. At k=1 the exact phase relation u_{j+1}={(1+a)u_j}, x_{j+1}=x_j+u_j on x>=0 plus odd symmetry proves eventual fixation iff bounded, using near-zero expansion of u. At a=phi-1 the two Markov intervals [0,phi^-1),[phi^-1,1) give an invariant positive piecewise-constant Parry density. The transfer operator preserves a four-dimensional affine-density subspace; the centered source vector satisfies the stated quadratic annihilator with eigenvalues phi^-1 and -phi^-2. Direct integration recovers all C_j, mean 1/sqrt5 and the exact finite-n variance sum; geometric-series resummation yields (5+3sqrt5)/50 and the constant correction. Independently verified density invariance and seven exact covariance lags symbolically, including the variance coefficient; read the real verify.py. No claim for arbitrary initial ensemble or nonlinear rem(a x,1) with nontruncating modulus.
+
+## originality
+
+PASS
+
+PASS, with explicit classical-beta overlap. Moysis et al., Mathematics 2022, introduce exactly the remainder-added map and its normalizations, so that construction is not novel. The full accessible 2022 paper, especially its eq.(23) and the analysis of Lyapunov exponents and chaotic map behaviour, does not in the examined sections give a sharp all-k confinement boundary or exact stationary golden-phase all-lag covariance. The Parry density and ergodicity for golden beta maps are classical and specifically not counted as the contribution. The contribution is the exact unwrapped displacement covariance/variance for this concrete neutral remainder map, which is not logically implied by a general existence theorem for diffusion.
+
+## value
+
+PASS
+
+PASS. Neutral dynamics separates bounded from escaping behaviour in an elementary yet discontinuous concrete model. A natural noninteger beta-Markov parameter has nonuniform invariant phase and correlated displacement, making its exact all-lag covariance and variance coefficient useful quantitative transport invariants. The result pinpoints deterministic drift bias relative to integer slopes; it does not imply cryptographic security or a Gaussian limit law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

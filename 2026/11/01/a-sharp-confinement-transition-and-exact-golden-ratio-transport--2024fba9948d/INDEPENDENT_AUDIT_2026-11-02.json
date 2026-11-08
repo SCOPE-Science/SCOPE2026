@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Since |rem(y,1)|<1, both |H(x)|<=|x|/k+1 and |H(x)|>=|x|/k-1 hold; the geometric iteration proves absorption for k>1 and escape beyond k/(1-k) for k<1. At k=1 the exact phase relation u_{j+1}={(1+a)u_j}, x_{j+1}=x_j+u_j on x>=0 plus odd symmetry proves eventual fixation iff bounded, using near-zero expansion of u. At a=phi-1 the two Markov intervals [0,phi^-1),[phi^-1,1) give an invariant positive piecewise-constant Parry density. The transfer operator preserves a four-dimensional affine-density subspace; the centered source vector satisfies the stated quadratic annihilator with eigenvalues phi^-1 and -phi^-2. Direct integration recovers all C_j, mean 1/sqrt5 and the exact finite-n variance sum; geometric-series resummation yields (5+3sqrt5)/50 and the constant correction. Independently verified density invariance and seven exact covariance lags symbolically, including the variance coefficient; read the real verify.py. No claim for arbitrary initial ensemble or nonlinear rem(a x,1) with nontruncating modulus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 source studies nonlinear chaos enhancement, Lyapunov exponents, numerical diagrams; 2018 theory gives rigorous numerical methods for diffusion of expanding maps without identifying this model coefficient."
+        ],
+        "reasoning": "A general computation framework is not an exact formula for this observable. The classical beta-map spectral gap/mixing facts explain why coefficients exist but do not on their own give the exact displayed two-exponential identity.",
+        "searches": [
+          "Moysis et al. Mathematics 10 (2022) 2801 full HTML",
+          "Jenkinson, Pollicott, Vytnova 2018 DOI:10.1007/s10955-017-1930-8",
+          "Resultary:integer-beta switching variance"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify.py, actual seven-blob Git tree",
+        "Moysis et al. Mathematics 2022 DOI:10.3390/math10152801 full relevant HTML",
+        "Jenkinson et al. 2018 DOI:10.1007/s10955-017-1930-8 abstract",
+        "Parry golden beta transformation classical background",
+        "Resultary comparisons of beta-map and dynamical covariance records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moysis supplies the map; Parry supplies its phase invariant measure; a further transfer-operator restriction and annihilating quadratic are required to infer the two-mode C_j and the stated exact finite-time variance."
+        ],
+        "reasoning": "The claim is a concrete quantitative corollary of combining known dynamics with additional exact linear-algebraic calculation, rather than a repeat of the map construction or a routine one-line mean calculation.",
+        "searches": [
+          "Moysis et al. 2022 DOI:10.3390/math10152801",
+          "general Parry density theory",
+          "Jenkinson et al. 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The neutral update is exactly x_{j+1}=x_j+u_j with u_{j+1}={phi u_j}. Golden mean Parry density is a standard invariant density, but the sum over its time-correlations supplies the additional transport statistic."
+        ],
+        "reasoning": "The phase semiconjugacy has classical beta-transformation form, but an invariant density alone fixes only the one-time mean, not its complete autocorrelation sequence or variance constant.",
+        "searches": [
+          "Moysis et al. Mathematics 2022 DOI:10.3390/math10152801 eqs.(4),(23)",
+          "Parry beta-transformation invariant density golden mean",
+          "Resultary:remainder added linear map golden ratio beta variance coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary hits involving integer-beta maps and Kaplan–Yorke stationary variance use different observables, and the original 2022 paper gives numerical dynamics instead of this exact covariance table."
+        ],
+        "reasoning": "No inspected exact-time covariance sequence for the same critical remainder-added map and stationary golden phase was found.",
+        "searches": [
+          "Resultary:remainder added linear map x + remainder(ax,1) golden ratio beta transformation variance diffusion coefficient",
+          "GitHub public math search:golden ratio remainder transport variance",
+          "Moysis et al. 2022 eq.(23)"
+        ]
+      },
+      "rationale": "PASS, with explicit classical-beta overlap. Moysis et al., Mathematics 2022, introduce exactly the remainder-added map and its normalizations, so that construction is not novel. The full accessible 2022 paper, especially its eq.(23) and the analysis of Lyapunov exponents and chaotic map behaviour, does not in the examined sections give a sharp all-k confinement boundary or exact stationary golden-phase all-lag covariance. The Parry density and ergodicity for golden beta maps are classical and specifically not counted as the contribution. The contribution is the exact unwrapped displacement covariance/variance for this concrete neutral remainder map, which is not logically implied by a general existence theorem for diffusion.",
+      "residual_risks": [
+        "An explicit golden beta-transformation observable covariance formula could already appear in classical Parry/Markov expansion literature under a non-remainder-map framing.",
+        "The statistical formulas apply only to stationary golden-phase initialization; other initial distributions need not have the same finite-time variance.",
+        "Finite symbolic checks corroborate but do not replace the two-state transfer-operator proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers defining map and numerical chaotic behaviour, but not the particular golden-phase covariance law in sections examined.",
+          "evidence": [
+            "Definition of same remainder-added linear model is present; focus is chaos enhancement/Lyapunov exponents, not critical invariant-phase all-lag transport."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10152801",
+          "material_read": "Accessible full HTML original work, focusing on eq.(23), remainder conventions, linear-map example, Lyapunov/numerical discussion and conclusions.",
+          "method": "Primary full-HTML mathematical equation and result comparison",
+          "title": "Chaotification of One-Dimensional Maps Based on Remainder Operator Addition",
+          "trigger": "Original identical recurrence H_{a,k}; potential exact transport results"
+        },
+        {
+          "assessment": "Broad computational framework cannot alone be cited as either covering or noncovering a specific explicit coefficient.",
+          "evidence": [
+            "The named result concerns rigorous computation of diffusion coefficients for expanding maps in general."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-017-1930-8",
+          "material_read": "Bibliographic theorem description/abstract and model comparison; full primary text not read in this execution.",
+          "method": "Abstract-level comparison with specific exact covariance formula",
+          "title": "Rigorous Computation of Diffusion Coefficients for Expanding Maps",
+          "trigger": "Potential dominating general diffusion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Neutral dynamics separates bounded from escaping behaviour in an elementary yet discontinuous concrete model. A natural noninteger beta-Markov parameter has nonuniform invariant phase and correlated displacement, making its exact all-lag covariance and variance coefficient useful quantitative transport invariants. The result pinpoints deterministic drift bias relative to integer slopes; it does not imply cryptographic security or a Gaussian limit law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify.py, actual seven-blob Git tree",
+    "Moysis et al. Mathematics 2022 DOI:10.3390/math10152801 full relevant HTML",
+    "Jenkinson et al. 2018 DOI:10.1007/s10955-017-1930-8 abstract",
+    "Parry golden beta transformation classical background",
+    "Resultary comparisons of beta-map and dynamical covariance records"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all a,k>0 the signed-truncation remainder map H(x)=x/k+rem(ax,1) has bounded-set confinement if k>1 and remote escape if k<1; at k=1 all non-eventually-fixed trajectories escape. For a=phi-1 at k=1, the invariant positive-phase law has mean increment 1/sqrt(5), exact two-exponential all-lag covariance and asymptotic variance coefficient (5+3sqrt(5))/50 with finite-time correction.",
+  "limitations": [
+    "No GitHub write, external publisher update, attestation, or replacement to published files was performed.",
+    "Scientific verdicts are based on the written unbounded proofs and bounded independent checks, not solely the repository verification logs.",
+    "An explicit golden beta-transformation observable covariance formula could already appear in classical Parry/Markov expansion literature under a non-remainder-map framing.",
+    "The statistical formulas apply only to stationary golden-phase initialization; other initial distributions need not have the same finite-time variance.",
+    "Finite symbolic checks corroborate but do not replace the two-state transfer-operator proof."
+  ],
+  "residual_risks": [
+    "An explicit golden beta-transformation observable covariance formula could already appear in classical Parry/Markov expansion literature under a non-remainder-map framing.",
+    "The statistical formulas apply only to stationary golden-phase initialization; other initial distributions need not have the same finite-time variance.",
+    "Finite symbolic checks corroborate but do not replace the two-state transfer-operator proof."
+  ],
+  "schema_version": 1
+}
