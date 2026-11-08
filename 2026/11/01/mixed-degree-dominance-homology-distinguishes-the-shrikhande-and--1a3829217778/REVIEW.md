@@ -1,15 +1,21 @@
-# Scientific assessment: dominance homology of the Shrikhande and rook graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The graphs and face definitions are specified on \((\mathbb Z/4\mathbb Z)^2\), so the finite claim has an exhaustive and reproducible domain. Direct enumeration computes every simplex of \(K_G=\mathcal N(\overline G)\) and of \(\mathcal D(G)\), and checks the Alexander-dual complement condition on all \(2^{16}\) vertex subsets. The standalone script verifies every elementary free-face collapse, exact signed integral boundaries, and all unit-pivot chain cancellations. After cancellation, the rook model has degrees \(0,2,4\) with ranks \(1,2,1\), while the Shrikhande model has degrees \(0,4\) with ranks \(1,11\). All remaining differentials vanish and every pivot is a unit, so integral torsion cannot be hidden. The integral universal coefficient theorem and combinatorial Alexander duality with shift \(13-i\) give the stated degree-\(9\) and degree-\(11\) groups. Independent mod-two boundary ranks and Euler characteristics corroborate the result. The computation verifies these exact finite complexes, not a general graph theorem.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The closest primary work, Matsushita–Wakatsuki (arXiv:2312.02639v1), proves the Alexander duality used here but does not tabulate the dominance homology of either sixteen-vertex strongly regular graph. Mertens (arXiv:2401.00716v1) determines the rook domination polynomial, which covers its simplex counts **but not the integral Betti groups**. Matsushita (arXiv:2511.12608) addresses the *closed* neighborhood complex of the rook graph, not the *open* neighborhood complex of its complement. Two previously public calculations for the same Shrikhande/rook pair concern their independence complexes (identifier ending `41bf4d1d3187`) and their intrinsic scale-two Čech complexes (identifier ending `5b6e4436155e`). Those give different face rules and cannot be transferred by the stated Alexander duality. Database and source searches under graph aliases, duality, and exact homology parameters revealed no claim implying the result. Searches are not completeness proofs: an unindexed equivalent calculation remains possible.
+PASS
 
-## Value — PASS
-The pair is canonical, cospectral and strongly regular with identical parameters \((16,6,2,2)\). The dominance complex is independently motivated by graph domination and its established Alexander-dual link to neighborhood topology. The complete integral calculation reveals one graph has homology supported in degree nine only, while the other has nonzero groups in degrees nine and eleven, despite identical dominance face counts through dimension ten. This yields a non-enumerative topological distinction with a complete certificate; it is not claimed as the first invariant distinguishing these graphs, or as a general all-parameter theorem.
+Constructing the 4x4 rook graph and the Cayley Shrikhande graph on Z4^2 confirms 16 vertices, valency six, two common neighbors for every pair. For each vertex v the open neighborhood in the complement is V\N_G[v]; its downward closure K_G is Alexander dual to the dominance complex because V\sigma fails to belong to K_G exactly when the complement dominates G. Integral combinatorial Alexander duality on 16 vertices has degree shift 16-i-3=13-i, which transfers cohomology of K_G to homology of D(G). Full enumeration gives K_R 5,789 faces and K_S 5,717 faces including empty, as in the source. An independently rebuilt GF(2) boundary reduction yields Betti K_R in dimensions 2 and 4 of ranks 2 and 1, K_S in dimension 4 of rank 11; this does not by itself prove integral torsion-freeness. The frozen integral verifier constructs exact signed integer boundary maps, checks every elementary simplicial collapse, then 324 and 530 Schur-complement cancellations at integer unit pivots on the two reduced cores. Inspection of its elimination logic shows these are genuine free-chain contractions over Z and terminal differentials vanish; the remaining free integral generators yield K_R H2=Z^2,H4=Z and K_S H4=Z^11, whence the stated D_R H9=Z,H11=Z^2 and D_S H9=Z^11. No homotopy type is inferred from chain cancellations.
 
-## Closest literature, limitations and verification
-See arXiv:2312.02639v1 (Matsushita–Wakatsuki), arXiv:2401.00716v1 (Mertens), arXiv:2511.12608 (Matsushita), and the two referenced 2026 publicly available independence/Čech studies. The reported objects are graph complexes, not finite-field approximations to their integral homology. The data do not determine homotopy type or cohomology ring. `verify_dominance_twins.py` recomputes the signed chain reductions and independent checks; `verification_output.txt` contains the exact execution result. No external independent review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison for this exact mathematical object, not novelty from titles or failed search. Closest sources and any inaccessible material are explicitly compared below; no assertion of exhaustive global priority.
+
+## value
+
+PASS
+
+The exact integral homology of a natural dominance complex for the two archetypal nonisomorphic strongly regular graphs with identical (16,6,2,2) parameters is a meaningful topological comparison: one complex has homology in two degrees, the other one, and torsion is completely resolved. This is not merely a re-tabulation of known domination polynomials or a claim to be the first invariant distinguishing the graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

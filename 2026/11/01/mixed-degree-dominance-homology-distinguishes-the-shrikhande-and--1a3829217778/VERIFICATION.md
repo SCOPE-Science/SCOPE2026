@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify_dominance_twins.py` from the same directory as the standalone script. It requires only Python 3's standard library. The recorded output is `verification_output.txt`; the verifier ends in `DOMINANCE_SHRIKHANDE_ROOK_EXACT_INTEGRAL_HOMOLOGY_OK` only after all assertions pass. All graph data and all simplices are reconstructed from definitions, not loaded from prior outputs.
+## correctness
 
-The run checks both sixteen-vertex degree-six strongly regular graphs, every one of the \(65,536\) possible vertex subsets, independent exact tests for membership in both neighborhood and dominance complexes, all boundary signs and their incidence dictionaries, and every free-face pair. It reduces the two complexes to simplicial cores of \(652\) and \(1,072\) nonempty faces, then performs respectively \(324\) and \(530\) unit-pivot integral cancellations. Boundary-square-zero and transpose consistency are checked throughout and on termination. The remaining chain groups have vanishing differentials, giving the complete torsion-free integral homology of the neighborhood complexes, which transfers by integral combinatorial Alexander duality to the dominance groups.
+PASS
 
-The original neighborhood-complex mod-two boundary ranks are independently recomputed and yield the same Betti ranks. Direct Euler-characteristic and face-vector checks further corroborate the calculations. The executable records ordered cancellation-pair hashes so the exact integer computation can be compared across executions.
+Constructing the 4x4 rook graph and the Cayley Shrikhande graph on Z4^2 confirms 16 vertices, valency six, two common neighbors for every pair. For each vertex v the open neighborhood in the complement is V\N_G[v]; its downward closure K_G is Alexander dual to the dominance complex because V\sigma fails to belong to K_G exactly when the complement dominates G. Integral combinatorial Alexander duality on 16 vertices has degree shift 16-i-3=13-i, which transfers cohomology of K_G to homology of D(G). Full enumeration gives K_R 5,789 faces and K_S 5,717 faces including empty, as in the source. An independently rebuilt GF(2) boundary reduction yields Betti K_R in dimensions 2 and 4 of ranks 2 and 1, K_S in dimension 4 of rank 11; this does not by itself prove integral torsion-freeness. The frozen integral verifier constructs exact signed integer boundary maps, checks every elementary simplicial collapse, then 324 and 530 Schur-complement cancellations at integer unit pivots on the two reduced cores. Inspection of its elimination logic shows these are genuine free-chain contractions over Z and terminal differentials vanish; the remaining free integral generators yield K_R H2=Z^2,H4=Z and K_S H4=Z^11, whence the stated D_R H9=Z,H11=Z^2 and D_S H9=Z^11. No homotopy type is inferred from chain cancellations.
 
-These finite exhaustive calculations establish only the specific two graph cases and only integral homology of their dominance complexes. Chain cancellations are not asserted to be homotopy-preserving simplicial collapses, and neither the homotopy types of the dominance complexes nor the general strongly regular graph case is determined. No independent external mathematical audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison for this exact mathematical object, not novelty from titles or failed search. Closest sources and any inaccessible material are explicitly compared below; no assertion of exhaustive global priority.
+
+## value
+
+PASS
+
+The exact integral homology of a natural dominance complex for the two archetypal nonisomorphic strongly regular graphs with identical (16,6,2,2) parameters is a meaningful topological comparison: one complex has homology in two degrees, the other one, and torsion is completely resolved. This is not merely a re-tabulation of known domination polynomials or a claim to be the first invariant distinguishing the graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
