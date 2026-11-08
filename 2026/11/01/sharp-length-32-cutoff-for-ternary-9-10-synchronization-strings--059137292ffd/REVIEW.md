@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical restricted-growth representation is unique up to permutation of the ternary alphabet. Admissibility is prefix-closed, and adding one digit changes only adjacent intervals ending at that digit; testing those intervals exhausts the next level. Two independent integer-arithmetic LCS methods agree on every level cardinality through length \(33\). Ten weak length-\(32\) representatives have exactly thirty terminal extensions, all supplied with a violating split. A length-\(32\) witness has minimum strict integer margin \(1\), proving attainability for every shorter length by prefix inheritance. The computational check is exact and its scope is finite; the reduction makes the no-longer-words consequence rigorous.
+## correctness
 
-## Originality — PASS
-Xu et al., arXiv:2609.04122, establish ternary existence for parameters exceeding \(226/227\), while explicitly leaving the optimal parameter open. Camungol and Rampersad, arXiv:1308.1620, test only equal-length adjacent blocks and report a lower similarity threshold near \(0.888\), not an all-adjacent \(9/10\) obstruction. Full-text, mathematical-record and historical-claim comparison found no dominating result or equivalent finite cutoff. A possibly unindexed older finite computation remains a genuine priority risk.
+PASS
 
-## Value — PASS
-This is a sharp, interpretable finite boundary for a natural quantitative synchronization parameter, together with the consequent necessary lower bound \(\varepsilon>9/10\) for unbounded ternary index strings. It addresses a current open optimization question without pretending to settle its still-large constructive gap. Finite computation is valuable here because prefix inheritance converts it into a universal obstruction.
+Alphabet relabeling to canonical restricted-growth digits 0,1,2 is bijective on symbol-permutation classes and preserves all LCS. Weakly admissible words (20LCS<=9L for every pair) are prefix closed. Appending a letter adds only new right-endpoint pair tests, so the recurrence tests every canonical word exactly once. I independently implemented a fresh dynamic-programming LCS exhaustive recurrence: length counts through n=33 match repository certificate for all 33 levels, with precisely 10 survivors at n=32 and 0 at n=33. I independently tested every pair of the explicit witness 01020120212012101201020120212012; strict minimum margin 9L-20LCS is 1. Inspected the actual 30-extension certificate and two source LCS implementations (DP and bit-parallel). The finite exhaustive classification plus prefix inheritance, not sampling, proves all n>=33 impossible. For epsilon<=.9 the same obstruction rules out unbounded ternary strings; it does not determine epsilon>.9.
 
-## Limitations
-The optimum feasible parameter above \(9/10\) is not determined. The programs are independent implementations, not an independent external mathematical audit. The theorem does not claim the analogous cutoff for other alphabets or other parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xu–Fu–Qiao–Tao construct infinite ternary synchronization strings for epsilon>226/227 in their 2026 arXiv first version; this is an existence result at much weaker quality. Camungol–Rampersad 2013/2018 analyze only equal-length adjacent factors and their 0.888 ternary lower similarity coefficient does not imply an all-unequal-length 32/33 boundary. Resultary and broad search found no exact matching table. Potential older unindexed exhaustive search is a remaining priority risk.
+
+## value
+
+PASS
+
+A sharp, nontrivial exhaustive finite cutoff for the natural three-letter synchronization LCS condition yields an all-length obstruction, directly informing the open minimal ternary synchronization parameter. This is not merely a small arbitrary slice because every longer word inherits the forbidden 33-letter prefix; exact reproducibility and certificate are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

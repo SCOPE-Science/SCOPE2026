@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:53:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Alphabet relabeling to canonical restricted-growth digits 0,1,2 is bijective on symbol-permutation classes and preserves all LCS. Weakly admissible words (20LCS<=9L for every pair) are prefix closed. Appending a letter adds only new right-endpoint pair tests, so the recurrence tests every canonical word exactly once. I independently implemented a fresh dynamic-programming LCS exhaustive recurrence: length counts through n=33 match repository certificate for all 33 levels, with precisely 10 survivors at n=32 and 0 at n=33. I independently tested every pair of the explicit witness 01020120212012101201020120212012; strict minimum margin 9L-20LCS is 1. Inspected the actual 30-extension certificate and two source LCS implementations (DP and bit-parallel). The finite exhaustive classification plus prefix inheritance, not sampling, proves all n>=33 impossible. For epsilon<=.9 the same obstruction rules out unbounded ternary strings; it does not determine epsilon>.9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu et al first arXiv abstract: existence for epsilon>226/227 (newer mirror lists 215/216), optimal ternary epsilon remains open.",
+          "Camungol–Rampersad Theorem 1 handles k>16^(1/alpha) alphabet for equal-length similarity; k=3 Table 1 states alpha lower bound .888 and conjectural upper .901."
+        ],
+        "reasoning": "Neither broad existence construction supplies a smaller-ε obstruction for all adjacent pairs nor an exact length-32/33 cutoff; their hypotheses and quantifier directions differ.",
+        "searches": [
+          "arxiv:2609.04122 ternary synchronization lower alphabet 2026",
+          "arxiv:1308.1620 Theorem1 ternary similarity"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1308.1620 full PDF §§2,4/Table1",
+        "arxiv:2609.04122 abstract and open-problems synopsis",
+        "ternary 9/10 synchronization strings length 32 33 adjacent LCS exact obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence at epsilon>.995 does not contradict impossibility at epsilon<=.9.",
+          "An unavoidability coefficient ~.888 for equal-length adjacent factors implies weaker necessary condition than the .9 all-length obstacle; cannot imply the sharp finite n=33 failure."
+        ],
+        "reasoning": "Different range, inequality direction, and unequal-factor quantifiers prevent theorem implication; fresh exhaustive canonical recurrence supplies the sharpened specific boundary.",
+        "searches": [
+          "Xu Fu Qiao Tao 2026 arxiv 2609.04122",
+          "Camungol Rampersad 2013 arxiv 1308.1620 Section 2 Table1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Insertion/deletion ED_ID=L-2LCS makes condition 20LCS<9L equivalent to epsilon=.9 sync strings.",
+          "Camungol–Rampersad Definition in Section 2 uses LCS(X,Y)/|X| only for equal-length adjacent pairs."
+        ],
+        "reasoning": "Equal-block approximate repetition does not require unequal adjacent split comparisons; cannot transfer exact finite bound by a parameter renaming.",
+        "searches": [
+          "ternary 9/10 synchronization strings length 32 33 adjacent LCS exact obstruction",
+          "ternary synchronization edit distance equal length versus arbitrary adjacent LCS epsilon 0.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary 2013 article Table 1 contains ternary 0.888<alpha<0.901 (?) for equal-length similarity, not an exact weakly admissible word count through n=33.",
+          "Resultary semantic results concern unrelated ternary DNA-profile and code-size finite enumerations."
+        ],
+        "reasoning": "Old tables would cover this finding if using the same all-adjacent criterion; the inspected table uses a different object and neither gives the ten length-32 canonical representatives.",
+        "searches": [
+          "ternary 9/10 synchronization strings length 32 33 adjacent LCS exact obstruction",
+          "ternary 32 33 longest common subsequence finite synchronization cutoff table",
+          "arxiv:1308.1620 Table 1"
+        ]
+      },
+      "rationale": "Xu–Fu–Qiao–Tao construct infinite ternary synchronization strings for epsilon>226/227 in their 2026 arXiv first version; this is an existence result at much weaker quality. Camungol–Rampersad 2013/2018 analyze only equal-length adjacent factors and their 0.888 ternary lower similarity coefficient does not imply an all-unequal-length 32/33 boundary. Resultary and broad search found no exact matching table. Potential older unindexed exhaustive search is a remaining priority risk.",
+      "residual_risks": [
+        "An earlier unindexed canonical finite search might already have derived exactly the length-32/33 bound.",
+        "Full text of the very recent Xu et al 2026 paper was inaccessible; no whole-document noncoverage conclusion is drawn.",
+        "This settles only strict epsilon=9/10 finite cutoff and a necessary bound, not the optimal achievable infinite ternary epsilon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the distinct all-adjacent finite cutoff in material read",
+          "evidence": "The paper defines sc(z) using |X|=|Y|; table upper bounds marked conjectural; no 32/33 all-adjacent threshold.",
+          "identifier_or_url": "arxiv:1308.1620",
+          "material_read": "primary PDF Sections 2–4, theorem and Table 1, including the definition requiring equal-length factors and ternary 0.888<alpha<0.901 (?)",
+          "method": "arxiv PDF text plus screenshots pp1 and 10",
+          "title": "Avoiding approximate repetitions with respect to the longest common subsequence distance",
+          "trigger": "similar pairwise LCS on ternary words"
+        },
+        {
+          "assessment": "incomplete primary full-text coverage; source strongly relevant, no observed dominating statement",
+          "evidence": "Abstract proves ternary construction with epsilon>226/227 v1, so it cannot directly imply the exact epsilon=.9 no-go. Updated mirrors report epsilon>215/216; still >.9.",
+          "identifier_or_url": "arxiv:2609.04122",
+          "material_read": "arxiv indexed abstract and open-problems synopsis; full PDF and lawful OA attempts failed; newer abstract mirror differs in numerical construction bound",
+          "method": "published arxiv abstract and OA secondary index; no claim to have read complete paper",
+          "title": "Synchronization Strings over the Optimal Alphabet",
+          "trigger": "same ternary all-interval synchronization definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, nontrivial exhaustive finite cutoff for the natural three-letter synchronization LCS condition yields an all-length obstruction, directly informing the open minimal ternary synchronization parameter. This is not merely a small arbitrary slice because every longer word inherits the forbidden 33-letter prefix; exact reproducibility and certificate are substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1308.1620 full PDF §§2,4/Table1",
+    "arxiv:2609.04122 abstract and open-problems synopsis",
+    "ternary 9/10 synchronization strings length 32 33 adjacent LCS exact obstruction"
+  ],
+  "disposition": "passed",
+  "final_claim": "Over <=3 letters, the strict all-adjacent-factor inequality 20 LCS(X,Y)<9(|X|+|Y|) holds for words of length n iff 1<=n<=32; all 33-letter words violate even the weak <= condition, and a displayed length-32 strict witness attains margin 1.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All nonempty adjacent factors, including unequal lengths, must be checked.",
+    "No claims for other alphabet sizes or the precise optimal infinite ternary epsilon."
+  ]
+}
