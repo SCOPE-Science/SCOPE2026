@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The proof is a deterministic convex-support calculation. The symmetric convex numerical-range hull has the norm support in every direction; Minkowski reflection averages its support with a reflected copy, decreases the squared angular average, and contains all four vertices of the axis diamond. The trigonometric integral is explicit. Equality requires equality in both Jensen and support inclusion, forcing exactly the diamond. The four-dimensional normal diagonal construction attains every pair of norm constraints. Numerical quadrature is supplementary; no finite sampling is used as an infinite proof.
+
+**Originality: PASS (qualified).** Audeh--Kittaneh--Moradi--Sahoo introduce the invariant and give global comparisons and a nonmatching two-norm upper bound. The closest published cubic-stability mathematical record proves a lower bound based on a phase-self-adjoint distance, and already evaluates the same four-dimensional diagonal example; that example and cubic coefficient are prior inputs and **not** novelty by themselves. The accepted new claim is universal sharp two-norm optimality for all operators, together with exact equality rigidity of the symmetrized numerical range. published-finding corpus comparisons included aliases, implications and potential broader theorems. An older convex-support principle could be equivalent; this remains a publication-priority risk.
+
+**Value: PASS.** The result exactly solves a natural, previously open quantitative constraint problem associated with the new angular operator radius. Fixing both Cartesian component norms is an intrinsic strengthening over the numerical-radius-only comparison; the extreme diamond shape classifies all possible equality numerical-range geometries, including nonnormal operators. The cubic transverse-norm law quantifies the sharp departure from single-axis degeneracy.
+
+**Limitations.** The criterion is for central symmetrized numerical ranges, not unitary classifications; it is coordinate-dependent. No independent mathematical audit has been performed. Its novelty may ultimately be implied by classic convex-geometric identities outside the checked sources.
+
+Self-review: passed. Independent audit: not yet performed.
