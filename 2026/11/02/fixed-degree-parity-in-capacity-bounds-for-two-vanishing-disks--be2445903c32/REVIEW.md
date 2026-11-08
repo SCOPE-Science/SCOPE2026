@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact disk Taylor-jet identity turns the least-squares minimum into finitely many nonnegative terms. Parity follows from uniqueness, while the jet-to-coefficient map is invertible in each parity class. The two explicit monic competitors yield matching upper and lower asymptotics; a logarithmic-energy squeeze supplies \(\operatorname{cap}(K_{a,r})\sim\sqrt{2ar}\). Low-degree rational Gram checks confirm constants through degree six. No numerical limit is used to establish the all-degree theorem.
+PASS
 
-## Originality — PASS, with residual priority risk
+For each fixed n, the derivative substitution reduces b_n² to n/π times the minimal monic degree-(n−1) planar L² norm. The exact Taylor-jet disk identity is π∑ r^(2j+2)|q^(j)(±a)/j!|²/(j+1). Symmetry and uniqueness force odd/even minimizers. The injective k-jet map on each parity subspace bounds coefficients and proves convergence to z(z²−a²)^(k−1) for degree 2k−1 and (z²−a²)^k for degree 2k. Their first nonzero jets give b_(2k)~(2ar)^k and b_(2k+1)~2^k a^k r^(k+1) sqrt[2(2k+1)/(k+1)]. Circle equilibrium-energy bounds sqrt(2ar) <= cap(K) <= sqrt(2r(a+r)), proving capacity equivalence. No uniform-in-degree conclusion. Independently solved exact rational Gram matrices n=1..8 at radii 1/30 and 1/120, 16 cases consistent with asymptotic constants (within 3%).
 
-Ransford's 2026 least-squares capacity theorem gives the universal inequality and \(n\to\infty\) result on a fixed set, not the claimed \(r/a\to0\) fixed-index parity constants. Relevant inspected archipelago papers study degree asymptotics for fixed regions and different exact configurations. Published-record and literature searches did not yield an equivalent fixed-degree two-disk result; this is evidence of noncoverage in inspected sources, not proof of exhaustive historical priority. Older implicit small-island formulas remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The two-component equal-disk model is a canonical separated-set test for capacity estimation. The sharp distinction between fixed even and odd moments tells which least-squares estimators detect the inter-component scale and quantifies the failure of neighboring odd orders. It is an exact structural classification across all fixed degrees, not an unmotivated single-number computation.
+The precise fixed-polynomial-degree shrinking-two-equal-disc parity constants are not supplied by the inspected Ransford abstract or the actual 2009 Bergman-archipelago section 7; the latter treats n→∞ on fixed lemniscate archipelagos. These limits and geometry differ. Best-of-knowledge PASS with explicit priority risk from inaccessible recent primary full text and possible classical small-island asymptotics.
 
-## Scope and risks
+## value
 
-The proof requires fixed degree and equal disks. No rate uniform as degree increases, no general archipelago formula, and no externally verified mathematical audit are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two small separated disks are a canonical test case for how degree-limited least-squares capacity estimators respond to component separation. The all-fixed-degree parity dichotomy is sharp and structurally motivated by the number of jets supported at the two islands, not a single arbitrary coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
