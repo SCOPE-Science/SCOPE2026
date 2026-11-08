@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim is an exact one-chord majority two-cycle census, plus two precise asymptotic statements. The proof reconstructs all cases: a degree-two flipper propagates phase-alternating flips to both chord endpoints; each arc is uniformly flipping or stationary; stationary words have no singleton runs, with the one-site case explicitly treated; endpoint phases produce disjoint compatibility classes. The generating functions give the Fibonacci and period-six coefficients. The uniform entropy and bulk prefactor follow from the same exact formula and Binet's estimate. Independent full-state and boundary-word programs passed (48 chord placements, 830,112 full configurations, 17 stationary-word lengths, recurrence coefficients through degree 100); these finite computations are supplementary rather than the all-length proof.
+
+## Originality — PASS, qualified
+The inspected 2014 preprint by Benjamini et al. establishes general majority dynamics results for random and transitive graphs, not a single-chord two-cycle census. The relevant full-text sections of Flocchini's 2008 survey concern irreversible dynamos on rings with a translationally repeated chord pattern, not immediate two-cycles on a cycle carrying one extra edge. The older Goles–Olivos abstract establishes eventual restriction to periods one and two, without this exact population statement. Accessible nearby historical claims concern a pendant leaf, a universal hub, fans and other distinct graph families. No surveyed claim implies the all-distance bilinear formula, endpoint-flip rigidity or the bulk leading law. Absolute historical priority is not certified: the 1980 article could not be inspected in full and unindexed equivalents remain possible.
+
+## Mathematical value — PASS
+A single graph edge changes the initial recurrent-state count on every odd cycle from zero to exponential in size. The complete two-arc classification records how chord location, arc parity and run constraints interact, while the uniform growth exponent and bulk-position-independent leading constant distinguish local seam effects from global recurrent entropy. These are natural structural invariants of a minimal topological perturbation, not an arbitrary single-size enumeration or a routine numerical improvement. The proof identifies the mechanism behind the formula and accommodates every allowable chord position.
+
+## Closest sources and remaining limitations
+Goles–Olivos (1980 and 1981): general eventual period bound, full original 1980 text unavailable. Benjamini et al., arXiv:1405.2486: 2014 preprint, inspected introduction and claimed results. Flocchini (2008): inspected definitions and chorded-ring survey sections. Prior one-leaf and hub-mediated majority counts have distinct graph hypotheses and cannot yield the present two-arc formula by substitution. The result addresses initial two-cycles only, not basins or fixed-state populations. No external scientific certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
