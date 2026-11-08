@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The package contains `verify_normality.cpp` and `independent_check.py`, which use only standard C++17 and Python 3 libraries respectively. Compile and run:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 -o verify_normality verify_normality.cpp
-./verify_normality 0 18
-python3 independent_check.py
-```
+PASS
 
-The complete C++ replay returned `VERIFY_OK 0_to_18`. In the size-eighteen comparison from rank eight to rank nine it printed equal achieved/required integer flows of `1837659219795`. All generated rank counts also agreed with an independent two-dimensional Delannoy recurrence; the odd central-rank bijection was checked explicitly. The separate Python program returned `INDEPENDENT_VERIFY_OK_0_TO_13`, computing normalized matching by a separately implemented augmenting-flow algorithm (including central pairs for odd sizes).
+The word model h+v+2d=n, rank v+d and precisely the covers H→V, HH→D and D→VV were reconstructed from RESULT.md and verifier code. For every lower rank pair the integer-capacity source-to-upper flow saturates iff all subsets satisfy normalized matching (Hall/max-flow min-cut). The H/V order-reversing involution gives upper halves; on odd sizes the first-unmatched-H to V bijection supplies the equal-size central pair. Independent Python Dinic checked every lower-half comparison n=0..10; independently reconstructed C++ integer-flow verifier completed n=0..13, n=14..17, and n=18 in disjoint k=0..5,6,7..8 runs (largest exact flow 1837659219795). All capacities and tested totals fit int64. Finite exhaustive proof is limited to n<=18; no statement for n>=19.
 
-The C++ source enumerates all size-\(n\) words over \(H,V,D\) for \(n\le18\), checks every possible elementary cover transition, and saturates every necessary lower-half rank flow using exact 64-bit integers. The finite computation is exhaustive for the stated domain, whereas the printed numeric totals alone are not an independent certificate. The max-flow/min-cut and duality arguments in `RESULT.md` transfer these flows to all subsets and all ranks. The experiment neither proves nor disproves normality for \(n\ge19\), and independent assessment has not been performed.
+## originality
+
+PASS
+
+Chen and Dong first posed normality for these size-indexed Delannoy lattices and established n<=5, so the verified complete finite extension to n=18 is a distinct progression, not the conjecture for all n. The older fixed-endpoint Delannoy path lattice has different rank universe and does not directly cover this union of endpoints. No stronger indexed Resultary record was retrieved. The directly relevant source full text was not accessible; record priority risk rather than claim comprehensive noncoverage.
+
+## value
+
+PASS
+
+A substantial exact finite cutoff n<=18 for every normalized matching inequality advances a natural explicit open conjecture from n<=5. The complete max-flow certificate makes the all-subsets result meaningful, without extrapolating to all sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
