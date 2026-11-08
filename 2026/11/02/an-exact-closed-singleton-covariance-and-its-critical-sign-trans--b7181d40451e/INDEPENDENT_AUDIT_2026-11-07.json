@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The RRT growth transition is exhaustive: Δ(U,S)=(1,0) with q, (0,1) with pU/n, (0,-1) with pS/n, else (0,0). From it E S_n=ns+(p-s)R_n for s=pq/(1+p); Var U=npq; total covariance gives c_{n+1}=(1-p/n)c_n+(1+p)alpha+(b/n)R_n with alpha=pq(p²+2p-1)/(1+p)² and b=2p³q/(1+p). Dividing d_n=c_n-n alpha by R_n telescopes to c_n=n alpha+R_n[-pq-alpha+b sum_{j=1}^{n-1}(j-p)^(-1)]. Initial c1=-pq matches. Gamma asymptotic R_n~n^(-p)/Gamma(1-p) and harmonic H~log n imply one sign flip at sqrt(2)-1 and positive critical decay b n^(-p)log n/Gamma(1-p). Centered martingale recursion B=[[0,0],[p,-p]] has bounded propagator M(t)=[[1,0],[1-t^p,t^p]]; conditional covariance -> G with entries pq,-q s,p(q+s)-s²; Lindeberg follows from bounded increments; integrate M G M^T to get displayed Σ and independence only for Gaussian limit at the critical p. Independently enumerated all trees/site outcomes through n=5 at three rational p; exact covariances match formula. No finite-size sign universality or actual-count independence asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson derives asymptotic covariance matrices for balanced small urns generally; Gu-Yuan establish the open-cluster frequency LLN."
+        ],
+        "reasoning": "The asymptotic joint Gaussian convergence is covered in principle by broad urn theory, and is not independent novelty. General formulas can in principle be specialized but do not state the finite-n Gamma-harmonic covariance and exact sign-cancellation term.",
+        "searches": [
+          "recursive tree site percolation closed vertices isolated singleton components covariance critical threshold Gaussian joint distribution",
+          "arXiv:1602.06203 Theorems 3.1-3.6",
+          "arXiv:2408.12515 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.12515 eqs (1.3)-(1.5), Theorem 1",
+        "arXiv:1602.06203 small balanced urn variance theorem",
+        "Resultary root-degree/leaf recursive tree published finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model transitions are enough to derive moments, but the original theorem only states first-order component frequencies; generic urn asymptotics allow covariance limits, not exact finite-size harmonic remainder."
+        ],
+        "reasoning": "Distinguish readily reusable transition premises from the nontrivial solved covariance recurrence and first-order cancellation. A generic theorem might mechanically yield alpha but not the all-n exact refinement without calculation.",
+        "searches": [
+          "recursive tree site percolation closed vertices isolated singleton components covariance critical threshold Gaussian joint distribution",
+          "arXiv:2408.12515 Eq (1.5)",
+          "arXiv:1602.06203 covariance method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu-Yuan X_n(0)=closed vertices and X_n(1)=open singletons exactly match U_n,S_n, and their Markov transition matches the reduction."
+        ],
+        "reasoning": "Compared urn-type fluctuations, percolation cluster counts, joint covariance of deleted nodes and isolates; the notationally equivalent observables are in Gu-Yuan but the all-n mixed covariance and critical correction are not given in the inspected results.",
+        "searches": [
+          "recursive tree site percolation closed vertices isolated singleton components covariance critical threshold Gaussian joint distribution",
+          "arXiv:2408.12515 eqs (1.3)-(1.5)",
+          "arXiv:1602.06203 Sections 3-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary random-recursive-tree finding concerns root-degree/leaf covariance, a different pair of statistics. No exact closed-singleton cross-covariance table found in the inspected paper."
+        ],
+        "reasoning": "The empirical index does not prove novelty; the exact model primary source does not list the claimed pair covariance or critical sign diagram.",
+        "searches": [
+          "recursive tree site percolation closed vertices isolated singleton components covariance critical threshold Gaussian joint distribution",
+          "Resultary semantic index of random recursive tree covariances",
+          "arXiv:2408.12515"
+        ]
+      },
+      "rationale": "PASS qualified: Gu and Yuan use precisely X_n(0) closed and X_n(1) open singleton counts, give the transition and singleton LLN; Janson supplies general small-urn Gaussian and variance theory. The specialized all-n closed-versus-singleton covariance identity, exact finite-size correction and critical n^(-p)log n cancellation were not located in those primary statements. Generic covariance machinery might imply a special case after explicit calculation, a genuine residual literature risk.",
+      "residual_risks": [
+        "The specialized alpha limit might be recovered mechanically from generic urn covariance formulas; literature beyond the inspected primary sources might have the full finite covariance.",
+        "The critical covariance positivity is asymptotic, and Gaussian independence does not imply independence at finite n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and transition prior; no all-n cross covariance or critical n^(-p) log n correction in inspected results",
+          "evidence": "Equation (1.5) gives X_n transition, X_n(0) closed and X_n(1) singleton; theorem studies cluster frequency asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.12515",
+          "material_read": "Introduction, equations (1.3)-(1.7), Theorem 1 and Markov branching generator; word search for covariance within the 24-page PDF",
+          "method": "Primary full-text PDF pertinent sections examined, equations inspected in page screenshot",
+          "title": "Size distribution of clusters in site-percolation on random recursive tree",
+          "trigger": "Exactly the two observables U_n and S_n"
+        },
+        {
+          "assessment": "General balanced small-urn mean/covariance asymptotics cover Gaussian machinery but not specialized all-n finite covariance expression",
+          "evidence": "The abstract and opening Sections 1–3 present covariance convergence for small urns, not a closed RRT singleton parameter cancellation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06203",
+          "material_read": "Abstract, Introduction, Section 2 definition and relevant mean/covariance theorem discussion",
+          "method": "Primary PDF pertinent sections read with screenshot",
+          "title": "Mean and variance of balanced Pólya urns",
+          "trigger": "Potential general theorem dominating Gaussian component"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closed sites and survivor singleton clusters are two natural coupled observables in vertex-percolation fragmentation of recursive trees. The explicit all-size covariance reveals a non-obvious negative/positive correlation phase transition and a fine positive vanishing covariance at the exact zero-Gaussian-correlation threshold. This structural dependence law is useful beyond a generic CLT or first-moment law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The specialized alpha limit might be recovered mechanically from generic urn covariance formulas; literature beyond the inspected primary sources might have the full finite covariance.",
+    "The critical covariance positivity is asymptotic, and Gaussian independence does not imply independence at finite n."
+  ],
+  "schema_version": 1
+}

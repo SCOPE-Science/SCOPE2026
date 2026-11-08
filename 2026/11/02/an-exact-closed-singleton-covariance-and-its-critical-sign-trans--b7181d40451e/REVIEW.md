@@ -1,19 +1,21 @@
-# Scientific review: closed–singleton dependence in site-percolated recursive trees
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The complete transition table follows from independent Bernoulli retention and one uniform attachment per arrival. The finite covariance recurrence is derived directly from total covariance, without an independence assumption between the counts, and the Gamma product telescopes exactly from the one-vertex initial condition. The unique parameter threshold and the logarithmic critical correction follow from classical Gamma and harmonic asymptotics. The martingale-array proof identifies the conditional increment covariance, shows quadratic fluctuations using bounded deterministic propagators, and evaluates the limiting Gaussian covariance explicitly. Independent small-size enumeration, rational matrix checks and large-size numerical recurrences passed 180 assertions. The infinite theorems rely on the written argument, not numerical data.
+PASS
 
-## Originality (O): PASS, qualified
+The RRT growth transition is exhaustive: Δ(U,S)=(1,0) with q, (0,1) with pU/n, (0,-1) with pS/n, else (0,0). From it E S_n=ns+(p-s)R_n for s=pq/(1+p); Var U=npq; total covariance gives c_{n+1}=(1-p/n)c_n+(1+p)alpha+(b/n)R_n with alpha=pq(p²+2p-1)/(1+p)² and b=2p³q/(1+p). Dividing d_n=c_n-n alpha by R_n telescopes to c_n=n alpha+R_n[-pq-alpha+b sum_{j=1}^{n-1}(j-p)^(-1)]. Initial c1=-pq matches. Gamma asymptotic R_n~n^(-p)/Gamma(1-p) and harmonic H~log n imply one sign flip at sqrt(2)-1 and positive critical decay b n^(-p)log n/Gamma(1-p). Centered martingale recursion B=[[0,0],[p,-p]] has bounded propagator M(t)=[[1,0],[1-t^p,t^p]]; conditional covariance -> G with entries pq,-q s,p(q+s)-s²; Lindeberg follows from bounded increments; integrate M G M^T to get displayed Σ and independence only for Gaussian limit at the critical p. Independently enumerated all trees/site outcomes through n=5 at three rational p; exact covariances match formula. No finite-size sign universality or actual-count independence asserted.
 
-The original 2024 Gu–Yuan site-percolation paper proves a law of large numbers and largest-cluster results, and explicitly supplies the Markov transitions for cluster counts; the transitions themselves and singleton first-order limit are prior art. Earlier Kalay–Ben-Naim work gives cluster-frequency predictions, and Janson's general small-urn theory covers Gaussian convergence in principle. The precise all-\(n\) cross covariance between the *deleted-vertex* count and *open singleton-component* count, its unique sharp asymptotic sign change, and the anomalously small positive covariance at the critical parameter were not identified as statements or implications of the inspected sources. A general covariance-matrix theorem need not include the specialized closed form and sign analysis, but could yield them after calculation; this is a genuine related-work limitation. Further unindexed specializations may exist.
+## originality
 
-## Value (V): PASS
+PASS
 
-The two natural observables describe complementary effects of deletion: how many sites disappear and how many surviving components remain isolated. An exact covariance with an unexpected sign reversal determines when increasing deletions corresponds, in the annealed law, to a deficit or excess of isolated survivor components. The cancellation at a concrete interior retention parameter shows a fine distinction between zero limiting Gaussian correlation and finite-size dependence. This is a structural dependence result across the full retention range, not an arbitrary numerical instance.
+PASS qualified: Gu and Yuan use precisely X_n(0) closed and X_n(1) open singleton counts, give the transition and singleton LLN; Janson supplies general small-urn Gaussian and variance theory. The specialized all-n closed-versus-singleton covariance identity, exact finite-size correction and critical n^(-p)log n cancellation were not located in those primary statements. Generic covariance machinery might imply a special case after explicit calculation, a genuine residual literature risk.
 
-## Boundaries
+## value
 
-The signs away from the critical retention probability are eventual, not asserted at every size. Critical covariance tends to zero but does not establish finite-size independence. The model requires uniform recursive attachment and independent sites; full historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closed sites and survivor singleton clusters are two natural coupled observables in vertex-percolation fragmentation of recursive trees. The explicit all-size covariance reveals a non-obvious negative/positive correlation phase transition and a fine positive vanishing covariance at the exact zero-Gaussian-correlation threshold. This structural dependence law is useful beyond a generic CLT or first-moment law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
