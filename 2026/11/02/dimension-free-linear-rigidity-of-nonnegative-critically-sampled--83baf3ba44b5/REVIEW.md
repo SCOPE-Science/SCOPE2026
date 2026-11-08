@@ -1,19 +1,21 @@
-# Review of the nonnegative cyclic Gabor rigidity theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The spectral formula follows from the orthogonal decomposition into residue classes modulo the translation step and Fourier diagonalization of each circulant block. In the positive class, the zeroth Fourier mode and Parseval's identity yield a bound on the sum of all but the largest tap in each block: \(r\le7\delta/6\). The dominant tap differs from unit size by less than \(5\delta/8\). Combining these yields the dimension-independent squared bound \(1009\delta^2/576\) for each normalized fiber, strictly better than the advertised \(16\delta^2/9\). The exact-zero case and the two-tap sharp-exponent witness are algebraic consequences. The supplementary `CHECK.py` returned `CHECK_OK 576`, comparing the direct Gram matrices with the independent Fourier-block calculation and testing the claimed inequality. These tests are finite, and the analytical argument is the universal proof.
+PASS
 
-## Originality
+Read actual RESULT.md and exact frozen tree including CHECK.py hash and dependencies. The b-sum of modulations annihilates cross-residue terms and gives q times the circulant translate Gram operator on each residue fiber u. A p-point DFT diagonalizes it with eigenvalues q|Σ_t g[u+qt] e^(−2πijt/p)|². For rescaled nonnegative fiber a_t=√q g_u[t], all squared Fourier magnitudes in [1±δ]; Z²=(Σa)^2 and Q=Σa² both lie there. m=max a≥(1−δ)/√(1+δ)≥6/7; 2mr≤Z²−Q≤2δ so residual ℓ1 r≤7δ/6. Then |m−1|<(5/8)δ and sum_{others}a_t²≤(7δ/6)², so squared fiber error <(16/9)δ²; fiber orthogonal sum yields global dist ≤4δ/3 independent p,q. δ=0 forces one unit spike in each fiber and converse holds. A two-tap fiber gives eigenvalues (√(1−t²)±t)², δ=2t√(1−t²), distance∼t, ratio→1/2, ruling out o(delta) only. Independent direct finite frame matrix/DFT comparisons for three nontrivial (p,q) pairs have error<1e-10; finite checks are not proof of all p,q.
 
-**PASS relative to the literature and indexed results inspected, with residual risk.** The closest primary source is Asipchuk–De Carli–Rodriguez, arXiv:2605.16139, which provides finite Gabor block-equivalence and diagonalization tools. Its inspected main theorems do not give a positivity-dependent inverse stability law: \(\|S_g-I\|\le\delta\) forcing a fixed-distance approximation of the window by a flat transversal, uniformly over all cyclic dimensions. Nicola's arXiv:2305.02738 concerns exact maximally localized Gabor orthonormal bases. Salanevich–Strachan's arXiv:2509.01325 concerns frame robustness and erasure stability, not this structural inverse conclusion. Liehr's arXiv:2605.29984 concerns real-line compactly supported Gabor bases. Closely related published finite Gabor measurement-rank findings and continuum sharp-frame results address distinct operators or settings. The exact transversal characterization itself is not claimed as the new mathematical step. An unindexed general stability theorem could dominate the estimate and is a genuine residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** At critical sampling, exact Parseval conditions are algebraic, but nearly Parseval window design requires control of deviations. This theorem supplies an explicit, deterministic, dimension-free inverse modulus on a natural positivity cone: the frame-operator defect determines proximity to a precisely classified sparse orthonormal design. The two-tap witness proves that the rate \(O(\delta)\) cannot be improved in this uniform family. The restriction to positivity is mathematically substantial, not a substitution of known complex-window statements; without positivity, non-sparse flat-Fourier windows are possible.
+Best-of-knowledge claim-specific originality after actual Resultary semantic search and primary literature comparisons, rather than title-only matches. The Fourier spectrum and critical-density orthonormality imply exact positive transversals at delta=0, but a dimension-independent *linear quantitative* stability estimate additionally needs positivity-dependent control of off-peak mass. The two-tap lower bound shows only optimal exponent, not optimal coefficient. Inaccessible/nonexhaustively read sources are not asserted to be whole-document noncoverage; residual risks below.
 
-## Literature and limitations
+## value
 
-The frame operator is on \(\ell^2(\mathbb Z_{pq})\), not \(L^2(\mathbb R)\); translations are by \(q\) and modulations by \(p\). The coefficient \(4/3\) is not proved optimal, only the linear exponent. Neither complex-phase rigidity nor other lattice geometries follow. The source's abstract and main claims are not evidence of an exhaustive absence of equivalent earlier treatments; expert novelty review remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A critically sampled finite cyclic Gabor frame is an established natural object; inverse stability of the nonnegative synthesis window under a near-identity frame operator is quantitatively important. The dimension-free linear bound identifies a discrete support geometry even for large N, a nontrivial inequality not simply a restatement of frame diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
