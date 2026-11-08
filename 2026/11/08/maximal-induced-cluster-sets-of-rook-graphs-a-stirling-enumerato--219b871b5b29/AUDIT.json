@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "An induced P3 in a rook graph equals three corners of a 2x2 rectangle, and selected edges of K_mn form a disjoint star forest exactly when their line graph is cluster. The maximality trichotomy follows from uncovered shores, and the associated Stirling formula counts uniquely oriented nontrivial stars plus unoriented isolated edges. The rectangular spectrum is proved by star-component bounds and explicit realizations. The independent finite checker enumerates 1,152,910 subsets with exact agreement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Le–Le Theorem 1 is an H-free complexity dichotomy; it does not state rook counts.",
+        "Conte et al. Theorem 1.1 gives polynomial-delay algorithms for multiple induced subgraph classes, not the present polynomial.",
+        "Liu–Huang Theorems 4.1–4.2 count nontrivial spanning forests without star restrictions, inclusion maximality, or cluster size profiles."
+      ],
+      "reasoning": "Theorem statements and relevant full-text sections were compared with the exact object and conclusion. Forest enumerators with only rooted-component counts cannot directly distinguish star-only configurations.",
+      "searches": [
+        "2022 maximal induced subgraph enumeration proximity search cluster vertex deletion",
+        "Complexity of the Cluster Vertex Deletion Problem on H-Free Graphs DOI 10.4230/LIPIcs.MFCS.2022.68",
+        "enumeration for no-trivial spanning forests complete bipartite graphs Liu Huang 2010"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.MFCS.2022.68",
+      "arxiv:1912.13446",
+      "Liu–Huang, Ars Combinatoria 97 (2010), pages 289–300",
+      "OEIS A352211",
+      "OEIS A291104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A general algorithm outputting all maximal subgraphs need not supply a closed enumerator; Le–Le addresses decision complexity.",
+        "The older K_mn forest formula is for all rooted nontrivial spanning forests, so it does not imply the present star-and-maximality coefficient formula without new structural filtering.",
+        "A352211 takes a maximum over graph inputs, not over subsets of one rook graph."
+      ],
+      "reasoning": "The proposed theorem is not a restatement, parameter substitution, or immediate corollary of the identified stronger-looking results; its maximality partition and labeled two-sided Stirling count are additional arguments.",
+      "searches": [
+        "\"minimal cluster vertex deletion sets\" line graphs",
+        "\"star forest\" \"inclusion-wise maximal\" complete bipartite",
+        "\"rook graphs\" \"maximal cluster\"",
+        "\"star forest\" \"K_{m,n}\" enumerate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The line graph converts rook-graph cluster sets to star forests in K_mn; no identified record states the maximal star-forest shape count for arbitrary m,n."
+      ],
+      "reasoning": "The equivalence was used to compare claims, not merely matching titles; generic spanning star-forest optimization does not classify inclusion-maximal edge subsets.",
+      "searches": [
+        "inclusion-maximal induced cluster subgraphs of rook graphs Cartesian product of complete graphs exact enumerator star forests",
+        "maximal star forests complete bipartite graphs enumerate maximal edge star forest rook cluster subgraph",
+        "maximal induced P3-free vertex subsets of line graphs K_mn rook graph exact polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A352211 maximizes the number of maximal induced cluster subgraphs over all graphs of order n, a different extremal problem.",
+        "OEIS A291104 counts maximal irredundant sets on square rook graphs: at board size 3 it gives 48, versus 21 cluster sets."
+      ],
+      "reasoning": "Neither table provides the polynomial or counts for arbitrary rook-board dimensions under the cluster condition.",
+      "searches": [
+        "site:oeis.org \"maximal cluster\" rook graphs",
+        "site:oeis.org \"maximal star forests\" bipartite",
+        "OEIS A352211",
+        "OEIS A291104"
+      ]
+    },
+    "rationale": "Targeted full-text and database comparisons distinguish the rook-graph complete maximal-cluster size polynomial from generic cluster vertex deletion algorithms, spanning-forest counts, global cluster-count extrema and irredundant rook-graph sets. Priority is provisional.",
+    "residual_risks": [
+      "Publication priority remains provisional if an unindexed or inaccessible exact star-forest/rook-graph count exists.",
+      "The full two-parameter classification is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING rook graph exact maximal-set enumeration; studies complexity dichotomies.",
+        "evidence": "Theorem 1 determines which H-free classes admit polynomial-time cluster deletion; no complete-bipartite line graph enumerator.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.MFCS.2022.68",
+        "material_read": "Full PDF text including abstract, theorem statements, Section 2 and conclusion; page 1 and page 9 screenshots checked.",
+        "method": "Open-access original PDF, text and page-image inspection",
+        "title": "Complexity of the Cluster Vertex Deletion Problem on H-Free Graphs",
+        "trigger": "Direct foundational paper on deletion to cluster graphs"
+      },
+      {
+        "assessment": "NOT_COVERING exact rook-graph size enumerator; gives generic polynomial-delay listing algorithms for different subgraph classes.",
+        "evidence": "Theorem 1.1 class list has bipartite, k-degenerate, chordal, proper interval and trees; does not list rook cluster cardinality profile.",
+        "identifier_or_url": "arxiv:1912.13446",
+        "material_read": "Full source PDF introduction, Theorems 1.1–1.2 and searched PDF for cluster graphs; first-page image checked.",
+        "method": "Lawful arXiv PDF text and page inspection",
+        "title": "Proximity Search For Maximal Subgraph Enumeration",
+        "trigger": "Potential general theorem about maximal induced subgraphs"
+      },
+      {
+        "assessment": "NOT_COVERING maximal star-forest size distribution; counts all rooted nontrivial spanning forests with unrestricted tree components.",
+        "evidence": "Theorems 4.1–4.2 express F(m,l;n,k) using rooted spanning-forest counts without degree-pattern maximality restrictions.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20097/volume-97-paper-28.pdf",
+        "material_read": "Scanned pages 289, 293, 298–300 including Theorems 4.1–4.2 and references.",
+        "method": "Publisher open-access scanned PDF visually inspected at cited pages",
+        "title": "Enumeration For No-Trivial Spanning Forests of Complete Bipartite Graphs",
+        "trigger": "Same complete bipartite host and spanning forest counting"
+      },
+      {
+        "assessment": "NOT_COVERING fixed-rook-graph enumerator.",
+        "evidence": "Defines largest cluster-subgraph count across arbitrary n-vertex graphs.",
+        "identifier_or_url": "https://oeis.org/A352211",
+        "material_read": "Full record including scope, terms, formula, examples and references.",
+        "method": "OEIS HTML record",
+        "title": "OEIS A352211",
+        "trigger": "Exact database claim for maximal node-induced cluster subgraphs"
+      },
+      {
+        "assessment": "NOT_COVERING cluster sets; counts maximal irredundant sets.",
+        "evidence": "For 3-by-3 rook graph it reports 48; this theorem gives 21 maximal cluster sets.",
+        "identifier_or_url": "https://oeis.org/A291104",
+        "material_read": "Full record including terms and formula.",
+        "method": "OEIS HTML record",
+        "title": "OEIS A291104",
+        "trigger": "Rook-specific maximal-set counting with similar Stirling terms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "219b871b-5b29-4d95-b18c-ed06b197285c",
+  "value": {
+    "rationale": "Cluster deletion is a natural hereditary induced-subgraph problem. The theorem gives a nontrivial complete labeled size distribution in a two-parameter family, separates spanning and one-sided exceptional maximal sets, and proves a sharp cardinality spectrum with n-m-1 consecutive absent sizes when n>=2m>=4. These are not consequences of the known decision dichotomy or broad forest count.",
+    "status": "PASS"
+  }
+}
