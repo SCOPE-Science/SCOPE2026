@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the stated independent-Bernoulli ignition and complete-within-component spread model, the expected saved-patch count is \(jq^j+(N-j)q^{N-j}\). The explicit adjacent-difference identity is independently confirmed with exact rational arithmetic. A strictly increasing positive-power polynomial yields one crossing for each adjacent pair. The decisive nonstandard step is the real-variable unimodality lemma: differentiating \(xq^x+(N-x)q^{N-x}\) and using monotonicity of \(z\coth z\) excludes valleys and triple ties. It forces all adjacent crossing thresholds to be strictly ordered and establishes global, not merely local, optimality. Full ignition enumeration and 2968 exact/finite checks corroborate the algebra. The universal statement follows from the proof, not the samples.
+PASS
 
-## Originality — PASS, provisional historical priority
+For N>=4, removing two distinct cycle edges yields path components of j and N-j patches. Independent Bernoulli ignition with q=1-p saves j q^j+(N-j)q^(N-j) in expectation, so B_j=N-H_j. The exact adjacent difference factorizes as q^j(1-q)[sum_{a=1}^{N-2j-2} q^a+(N-j)q^(N-2j-1)-j]; its bracket is strictly increasing from -j to positive endpoint for j<floor(N/2), hence a unique crossing r_j in (0,1). The nonstandard global argument extends j to x and writes h(x)=exp(-Nt/2)[N cosh(ty)-2y sinh(ty)], y=N/2-x,t=-log q. Derivative sign is Nt/2-1-z coth z, a strictly decreasing function of z, so the sampled H_j has no strict valley nor three consecutive equal values. A reversal or equality of adjacent thresholds would create precisely such a valley or triple tie, forcing all r_j strictly increasing and each unique globally optimal gap on (r_{j-1},r_j). Boundary N=4 and odd/even N are included. Independent exact rational checks and numerical root isolation found N=8 thresholds 0.469138898665, 0.569240819317 and 0.6; exact point checks confirm all four gaps. Finite N sample checks supplement rather than establish the all-N argument.
 
-Searches of published mathematical records and the primary literature did not expose an equivalent two-cycle-edge, independent multi-ignition, complete-spread staircase. Material inspected in Finney (2001), Wei–Rideout–Kirsch (2008), and Russo–Russo–Siettos (2015) concerns geometry, landscape optimization, and network-centrality approaches rather than this explicit all-size phase diagram. The highly relevant 2010 simulation-optimization article was assessed from its abstract only; this is a residual risk, not a full-text exclusion. Hwang–Rothblum is a potential general partition-optimization relation, but the function \(xq^x\) is not globally convex or concave in the allocation variable, so the commonly advertised Schur-convex result does not immediately give the complete alternation. Broader partition, reliability, or firebreak literature could still imply the result; priority needs independent checking.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a natural exact treatment-allocation decision under homogeneous ignitions and a fixed two-edge barrier budget. The result resolves not just endpoint balancing but every distinct intermediate spacing and its nonempty optimality interval, revealing a risk-dependent transition from clustered to distributed intervention. For eight patches it has four genuinely different unique optimal designs; at \(q=3/4\) the expected-burn difference between adjacent and opposite cuts is \(13875/16384\) patches. These statements are for an idealized mechanism, not predictions about field-scale wildfire incidence.
+Qualified PASS: Finney 2001 and later wildfire-treatment optimization papers study spatial propagation, large landscapes and simulation/centrality, whereas this claim is the exact deterministic-component independent-ignition cycle model. Hwang–Rothblum generic Schur-convex partition results do not directly yield a parameter-dependent staircase since x exp(-t x) changes curvature. The explicitly ordered thresholds and no-skipped-gap theorem were not found in inspected literature, but an equivalent elementary partition theorem may exist, and a specialized 2010 paper was not read in full.
 
-## Closest literature and limitations
+## value
 
-Finney (2001), DOI 10.1093/forestscience/47.2.219; Wei, Rideout & Kirsch (2008), DOI 10.1139/X07-162; Rytwinski & Crowe (2010), DOI 10.1016/j.foreco.2010.03.013; Russo, Russo & Siettos (2015), arXiv:1509.04065v1; and Hwang & Rothblum, DOI 10.1137/S0895480198347167. The mathematical result is restricted to equal patches, independent ignitions, perfect two-edge cuts, full component spread, and expected total burn.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact optimal placement across all ignition risks in a mathematically natural minimal network partition provides a complete phase diagram and excludes skipped geometries and triple ties. Although the homogeneous ring is a stylized model, the strict staircase is not merely obvious equal spacing: at high ignition probability adjacent cuts win, all intermediate gaps become uniquely best, and equal spacing is optimal only below a sharp threshold. This structural calculation is potentially reusable as a reliability/fragmentation benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

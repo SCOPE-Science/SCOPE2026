@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:42:24.267985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md d6f60cdf9e523719158242c3f63e55abe0db99b7 and check_firebreak.py 0ca2726d9b562346974514520eeec4db0b9d0104",
+        "Independent rational evaluations of adjacent difference and N=8 ordered root/optimality examples",
+        "Model defines complete spread within path components, homogeneous independent ignition"
+      ],
+      "rationale": "For N>=4, removing two distinct cycle edges yields path components of j and N-j patches. Independent Bernoulli ignition with q=1-p saves j q^j+(N-j)q^(N-j) in expectation, so B_j=N-H_j. The exact adjacent difference factorizes as q^j(1-q)[sum_{a=1}^{N-2j-2} q^a+(N-j)q^(N-2j-1)-j]; its bracket is strictly increasing from -j to positive endpoint for j<floor(N/2), hence a unique crossing r_j in (0,1). The nonstandard global argument extends j to x and writes h(x)=exp(-Nt/2)[N cosh(ty)-2y sinh(ty)], y=N/2-x,t=-log q. Derivative sign is Nt/2-1-z coth z, a strictly decreasing function of z, so the sampled H_j has no strict valley nor three consecutive equal values. A reversal or equality of adjacent thresholds would create precisely such a valley or triple tie, forcing all r_j strictly increasing and each unique globally optimal gap on (r_{j-1},r_j). Boundary N=4 and odd/even N are included. Independent exact rational checks and numerical root isolation found N=8 thresholds 0.469138898665, 0.569240819317 and 0.6; exact point checks confirm all four gaps. Finite N sample checks supplement rather than establish the all-N argument.",
+      "residual_risks": [
+        "Assumes a fully symmetric ring, perfect breaks and one-season independent ignition; no claims about operational wildfire behavior under wind or correlated fuel.",
+        "No numerical root sample substitutes for the continuous one-peak and exact polynomial-crossing proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang–Rothblum conditions optimize Schur-convex functions uniformly; f(x)=x exp(-t x) has f''(x)=t exp(-t x)(t x-2), changing sign in the relevant domains."
+        ],
+        "reasoning": "Schur-convexity does not globally apply to this objective for arbitrary t and N, hence it does not immediately imply all sequential crossings. Other majorization or discrete one-peak results remain conceivable.",
+        "searches": [
+          "two firebreaks on cycle independent ignitions expected burned optimal gap spacing thresholds",
+          "Hwang Rothblum Partition Optimization Schur Convex Sum Objective Functions sum x exp minus x",
+          "doi:10.1093/forestscience/47.2.219"
+        ]
+      },
+      "checked_sources": [
+        "Finney 2001 primary PDF USDA hosted, opening page and setup",
+        "Hwang–Rothblum SIAM Discrete Mathematics doi:10.1137/S0895480198347167 abstract",
+        "Rytwinski–Crowe doi:10.1016/j.foreco.2010.03.013 abstract",
+        "Resultary firebreak/cycle optimization semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finney analyzes physical front growth and treatment geometry; the frozen result derives a completely explicit stochastic component formula and one-peak threshold ordering for any N."
+        ],
+        "reasoning": "Neither inspected geometric fire model nor conditional Schur-convexity theorem yields the exact all-gap staircase under this non-Schur-convex function. Unread highly relevant full texts are retained as risk.",
+        "searches": [
+          "two firebreaks on cycle independent ignitions expected burned optimal gap spacing thresholds",
+          "Hwang Rothblum Partition Optimization Schur Convex Sum Objective Functions sum x exp minus x",
+          "doi:10.1137/S0895480198347167"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary closest combustion/burning papers concern graph-burning propagation schedules or other hazard models; Finney 2001 treats fuel-treatment landscape geometry rather than a two-component Bernoulli ignition expectation."
+        ],
+        "reasoning": "The word firebreak overlaps, but the exact expectation and comparison across every gap is a different probabilistic optimization question. No matching cycle partition staircase statement was located.",
+        "searches": [
+          "two firebreaks on cycle independent ignitions expected burned optimal gap spacing thresholds",
+          "Hwang Rothblum Partition Optimization Schur Convex Sum Objective Functions sum x exp minus x",
+          "doi:10.1137/S0895480198347167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked firebreak or reliability table gives r_1<...<r_m and exact all-N optimizer intervals; literature generally uses modeled spatial fire spread or algorithms."
+        ],
+        "reasoning": "Absent same-table search result is bounded evidence only, not novelty proof; particular partition sequence may be implicit in combinatorics texts.",
+        "searches": [
+          "two firebreaks on cycle independent ignitions expected burned optimal gap spacing thresholds",
+          "Hwang Rothblum Partition Optimization Schur Convex Sum Objective Functions sum x exp minus x",
+          "doi:10.1016/j.foreco.2010.03.013"
+        ]
+      },
+      "rationale": "Qualified PASS: Finney 2001 and later wildfire-treatment optimization papers study spatial propagation, large landscapes and simulation/centrality, whereas this claim is the exact deterministic-component independent-ignition cycle model. Hwang–Rothblum generic Schur-convex partition results do not directly yield a parameter-dependent staircase since x exp(-t x) changes curvature. The explicitly ordered thresholds and no-skipped-gap theorem were not found in inspected literature, but an equivalent elementary partition theorem may exist, and a specialized 2010 paper was not read in full.",
+      "residual_risks": [
+        "A prior general optimization theorem for discrete x exp(-t x) splits might imply this sharp staircase despite different application vocabulary.",
+        "Rytwinski–Crowe 2010 and other specialized firebreak full texts not fully inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies continuous fire growth and pattern geometry; no inspected exact two-cut Bernoulli ignition cycle threshold law.",
+          "evidence": [
+            "Forest Science 47 (2001) 219-228, initial setup on regular treatment patterns and rate of spread."
+          ],
+          "identifier_or_url": "doi:10.1093/forestscience/47.2.219",
+          "material_read": "Government-hosted primary full PDF, opening page and main setup visually inspected",
+          "method": "Lawful USDA-hosted PDF with page screenshot and text",
+          "title": "Design of Regular Landscape Fuel Treatment Patterns for Modifying Fire Growth and Behavior",
+          "trigger": "Canonical fuel-break pattern spatial optimization"
+        },
+        {
+          "assessment": "Its advertised Schur-convex condition does not cover x exp(-t x) uniformly; no whole-text noncoverage claim.",
+          "evidence": [
+            "Objective f(theta_pi) with conditions uniformly optimal for Schur-convex f; here second derivative changes sign."
+          ],
+          "identifier_or_url": "doi:10.1137/S0895480198347167",
+          "material_read": "Published primary abstract, objective and admissible Schur-convex assumptions; not full paper",
+          "method": "Publisher summary and mathematical curvature comparison",
+          "title": "Partition-Optimization with Schur Convex Sum Objective Functions",
+          "trigger": "Potential dominating general discrete partition theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen assigned RESULT.md and code",
+        "Primary scientific comparisons in originality assessment"
+      ],
+      "rationale": "Exact optimal placement across all ignition risks in a mathematically natural minimal network partition provides a complete phase diagram and excludes skipped geometries and triple ties. Although the homogeneous ring is a stylized model, the strict staircase is not merely obvious equal spacing: at high ignition probability adjacent cuts win, all intermediate gaps become uniquely best, and equal spacing is optimal only below a sharp threshold. This structural calculation is potentially reusable as a reliability/fragmentation benchmark.",
+      "residual_risks": [
+        "The conclusion is a mathematical expectation result for a toy homogeneous landscape, not an empirically calibrated wildfire recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes a fully symmetric ring, perfect breaks and one-season independent ignition; no claims about operational wildfire behavior under wind or correlated fuel.",
+    "No numerical root sample substitutes for the continuous one-peak and exact polynomial-crossing proof.",
+    "A prior general optimization theorem for discrete x exp(-t x) splits might imply this sharp staircase despite different application vocabulary.",
+    "Rytwinski–Crowe 2010 and other specialized firebreak full texts not fully inspected.",
+    "The conclusion is a mathematical expectation result for a toy homogeneous landscape, not an empirically calibrated wildfire recommendation.",
+    "No public/source-file edits, no independent formal or expert certificate; historical literature access/research risks remain explicit."
+  ],
+  "schema_version": 1
+}
