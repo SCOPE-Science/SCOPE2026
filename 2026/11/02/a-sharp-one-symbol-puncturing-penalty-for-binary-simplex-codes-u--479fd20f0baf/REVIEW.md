@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every dimension at least three, double counting zero-zero adjacent pairs across all nonzero linear functionals establishes a universal upper bound, independent of the coordinate order. A Singer-cycle puncture followed by a suffix reversal yields a single Hamiltonian cycle with a precisely identified edge-difference multiset. Binary character orthogonality then proves the complete pair-weight enumerator and exact optimality, while a three-vector independence argument establishes the lower quality of naive puncturing. The source-level checker reproduces the explicit field construction and all word weights through degree eight and exhaustively tests degree three; those runs support, but are not substituted for, the universal argument.
+PASS
 
-## Originality — PASS, qualified
+For any cyclic ordering of the n=4k−2 remaining nonzero distinct binary columns, each edge has exactly k−1 nonzero functionals zero on both independent endpoints. Thus sum_{a≠0}e_a=n(k−1), forcing max e_a>=k−1 and pair minimum <=3k−1. A primitive-field Singer cycle minus 1 has edge differences all distinct except deleted t,s and duplicated c=t+s. Reversing the suffix at the disjoint existing difference-c edge replaces two c edges by two difference-1 edges, forming a single Hamiltonian cycle. The new difference multiset yields 4e_a=n−3−chi_a(t)−chi_a(s)−chi_a(c), hence e=k−2 for k−1 characters and k−1 for 3k characters, proving sharp enumerator. Three-vector independence ensures naive deletion min 3k−2. Independently built the GF(8) cycle and enumerated all 720 orders, finding exactly 96 orders with optimum distance five and the predicted histogram.
 
-The full cyclic simplex equiweight theorem of Ma and Luo is a genuine strong closest predecessor, but it does not imply the sharp minimum over coordinate orders of the punctured code: ordinary deletion can yield a strictly inferior pair metric, while the specific two-edge repair is essential. The bounds and MDS constructions of Chen–Lin–Liu and the reducible cyclic families of Wang–Su–Zheng–Lu concern different code classes or restricted orderings. No equivalent sharp punctured simplex bound, explicit repair, or full two-weight formula was found in the searches of the accessible research records and literature. The full Liang–Liu equiweight/simplex articles were inaccessible, and their potential relevance remains a priority risk, not a claimed whole-document exclusion.
+## originality
 
-## Value — PASS
+PASS
 
-Single-coordinate puncturing is a natural length adaptation of a classical maximum-distance code, and cyclic symbol-pair reads are sensitive to physical coordinate order. The result is a sharp infinite family with a nontrivial rearrangement recovering exactly one pair-distance unit, a universal obstruction, and a fully determined error-weight spectrum. It supplies a constructive optimal layout rather than an arbitrary narrow finite table or a restatement of the original simplex equiweight theorem.
+The Singer-ordered unpunctured simplex pair-equiweight theorem is prior in Ma–Luo (2019). Generic cyclic pair-code and MDS bounds do not determine the arbitrary-column-order punctured optimum; an explicit two-edge surgery and two-weight spectrum are new compared with accessible literature. Liang–Liu 2024/2025 symbol-pair equiweight and simplex papers remain closely relevant; their accessible abstracts do not establish the exact arrangement, but complete texts were not read and remain a documented priority risk (authorized Oxford access vpn_disconnected).
 
-## Closest literature and limits
+## value
 
-The relevant full primary texts are Chen–Lin–Liu (arXiv:1605.03460), Ma–Luo (arXiv:1911.02184), and Wang–Su–Zheng–Lu (arXiv:2309.04068). The more recent papers by Liang and Liu (DOIs 10.1109/TIT.2024.3392744 and 10.1109/TIT.2025.3621494) remain full-text access risks. The claim does not determine all optimal orders, multiple punctures, nonbinary alphabets or higher read-window lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Single-symbol puncturing and physical column order are natural coding operations under overlapping pair reads. The theorem solves the infinite-family optimal layout problem, proves a universal obstruction and explicit achieving construction, and determines its complete nonzero pair-weight spectrum, not merely a finite code table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
