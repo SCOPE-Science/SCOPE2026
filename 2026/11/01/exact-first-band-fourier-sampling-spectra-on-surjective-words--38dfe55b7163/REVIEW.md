@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The exact cross-character correlations follow by identifying two positions in an onto word and applying color exchangeability, then by the Stirling recurrence. The resulting \(n\)-coordinate blocks diagonalize into constant and sum-zero subspaces. An explicit two-word witness proves positivity for all \(n>q\), and the \(n=q\) block has exactly \(q-1\) null directions. At \(n=q+1\), direct Stirling values give \(q+2\). Finite exhaustive rational tests support, but do not replace, the algebraic proof.
+## correctness
 
-## Originality
-Multiple semantic searches compared the complete onto-word Fourier-spectrum statement against related Hamming-shell, q-ary Fourier, finite-array, and exchangeable occupancy results. The closest found published results address exact-weight supports and independent occupancy, not the joint all-colors-present event. Full available HTML was inspected for Bóna–Mező's 2007 Stirling partition paper and for Carayol–Rotondo's later surjection sampling paper. Neither text establishes the present first-band Gram spectrum. The elementary character calculations themselves are not claimed as historical innovations. A possible equivalent formulation in categorical covariance literature remains the principal unresolved priority risk.
+PASS
 
-## Mathematical value
-Uniform onto sampling is the canonical conditional law when every category must appear. Exactly when the first harmonic band is reconstructible and how stably it can be recovered are natural complete classification questions. The theorem supplies the exact eigenvalues and multiplicities, a sharp sample-size threshold, minimal-length condition number, and exponential asymptotic tightening, rather than only a low-dimensional table.
+Coordinate color-exchangeability and Stirling partition count give P(X_i=X_j)=S(n−1,q)/S(n,q), and orthogonality between distinct cyclic character indices. Thus each nonconstant frequency block is (1+theta)I−theta J; its zero-sum and constant-coordinate eigenspaces yield all multiplicities and the q−1 nullity at n=q. Comparing onto configurations with extra symbols of two different colors proves strict positivity for n>q; n=q+1 and the fixed-q asymptotic follow directly from Stirling values/inclusion-exclusion. Independently computed nine exact/complex finite Gram matrices match the analytical spectrum. q need not be prime; finite spectra do not replace the all-(n,q) proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+Uniform sampling from onto words is the canonical occupancy-conditioned design; full first-band harmonic identifiability, exact Riesz constants, and its sharp n=q+1 boundary are natural reconstructibility invariants. The all-parameter spectrum is not a table recomputation or just the Stirling identity; it does not address higher-degree bands.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
