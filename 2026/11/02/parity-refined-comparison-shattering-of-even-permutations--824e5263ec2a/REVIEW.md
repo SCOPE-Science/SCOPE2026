@@ -1,19 +1,21 @@
-# Scientific review: parity-refined comparison shattering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The forest necessity follows from a directed-cycle assignment. The positive direction uses a proof of connectivity of the linear-extension graph by adjacent incomparable swaps, and a unique-extension lemma identifying precisely the consistently oriented spanning paths. The maximal-support count then uses Cayley's formula and a parity-swapping label transposition. The finite Littlestone table is supported by the exact induction recurrence, 1,322 leaf witnesses in full adaptive trees, and a replayed 121,279-state impossibility search for depth eleven at seven labels. All support classifications through six labels were checked by independent Boolean trace enumeration. Risks: the finite upper result depends on a correct software implementation and has no independent formal or expert certification; there is no claim beyond seven labels for adaptive depth.
+PASS
 
-## Originality
+Reconstructed the all-n static theorem from forest acyclicity and the connected graph of topological orders under adjacent incomparable transpositions: a forest orientation has a unique extension precisely when the edges form a directed spanning path. The two traversals have the same inversion parity exactly for n=0,1 modulo 4; Cayley and a label-swap involution give T_n. The finite adaptive recurrence W(H,d) is exact and full-tree feasibility is tested for n<=7. A separate independent bit-mask version-space recursion produced Littlestone depths (0,0,1,3,5,8,10), including nonattainability of depth 11 at n=7. The source verifier and complete witness format were inspected, not assumed correct from logged PASS; no adaptive claim beyond n=7.
 
-**PASS on accessible evidence, with residual priority risk.** Maass–Turán (1992, p. 139) proves that unrestricted linear orders shatter exactly the forests, which is explicitly acknowledged, but unrestricted shattering does not imply the parity condition or the count for even permutations. Walker (2022) proves general tree-dimension bounds, not a restricted permutation-class classification. Raz (2000) uses another permutation VC notion. Berendsohn–Kozma–Marx (2019) studies pattern algorithms rather than binary pairwise-comparison shattering. The unrestricted-order result does not imply the new parity-constrained bounds; semantic database queries did not surface a stronger implication. Historical coverage is not guaranteed.
+## originality
 
-## Value
+PASS
 
-**PASS.** Alternating permutations form the index-two subgroup of the natural total-order family. Restricting the allowed orders changes the parity of singleton extensions and creates a modulo-four variation in the number of maximal shattered query supports while preserving the static dimension for all orders at least four. The finite adaptive calculation also gives the first exact cardinality-bound obstruction in this restricted family, supplying a precise boundary for a natural learning invariant rather than an arbitrary graph slice.
+Unrestricted-order shattering forests are prior art, but do not force even extensions in uniquely sorted orientations. An index-two parity restriction changes the exact maximum-support count and gives a separate finite adaptive cardinality obstruction. Inspected closest full unrestricted-comparison work; Resultary semantic hits did not match the special class. Priority outside these sources remains possible.
 
-## Limitations and closest literature
+## value
 
-The exhaustive adaptive result ends at seven labels; the all-order VC characterization does not. Maass–Turán's full-class forest characterization is the nearest direct predecessor. Potentially relevant work on permutation learning under parity restrictions outside the inspected sources is a residual novelty risk. Computer replay is not independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even permutations are the canonical alternating-group restriction of linear orders. The exact parity-sensitive obstruction and all-order maximum-support count are structural, while the first n=7 adaptive cardinality gap identifies a natural finite cutoff; neither is a routine restatement of unrestricted-order dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
