@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:00:07.160693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-endpoint-doublet-transition-for-four-surveys-of-markovia--83d0ec176818/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-endpoint-doublet-transition-for-four-surveys-of-markovia--83d0ec176818/check.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "PASS. For a stationary two-state CTMC with availability fraction pi in (0,1), transition total rate gamma>0, conditional detection d in (0,1], and fixed first/last visits 0,T, the exact non-detection probability is v D P(x) D P(y) D P(z) D 1. Independent symbolic expansion matched alpha^4+c alpha^2 y+c alpha(alpha+beta y)(x+z)+c(c+beta^2 y)xz where x*y*z=R=e^{-gamma T}. Coefficient of x+z strictly positive; AM-GM at fixed y forces x=z=u, and u in [sqrt(R),1]. Differentiate the one-variable expression to Fprime=2c H(u)/u^3, H=c u^4+alpha^2 u^3-alpha beta R u-alpha^2 R. H\"\" is positive, H(sqrt R)<0 for 0<R<1, H(1) changes sign exactly at Tc=gamma^{-1} log[alpha(alpha+beta)/(alpha^2+c)]. Hence the endpoint doublets are unique for 0<T<=Tc (d<1), and otherwise there is a unique interior symmetric schedule 0,a,T-a,T. At uniform u0=R^(1/3), H(u0)=-(1-d)R^(4/3), proving strict outer gaps shorter than middle for d<1. For d=1, H factors and gives unique equal spacing at all T. Independent exact-rational matrix/product and derivative checks corroborate the analytical global proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guillera-Arroita 2010 optimizes site count versus replicate count for estimator bias/precision with constant detectability; Petitot 2014 uses field-protocol comparisons; Borchers-Langrock 2015 MMPP focuses estimating availability and detection parameters"
+        ],
+        "reasoning": "The prior model formulations are broad but do not state a stronger fixed-horizon continuous-time four-inspection optimizer theorem; a latent Markov decision-program framework could derive it but no direct implication was found.",
+        "searches": [
+          "Guillera Arroita Ridout Morgan 2010 design occupancy studies imperfect detection full text",
+          "Petitot et al 2014 optimizing occupancy surveys detection probability empirical",
+          "Borchers Langrock 2015 Markov modulated animal availability"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+        "https://doi.org/10.1111/biom.12341",
+        "https://doi.org/10.1002/ece3.1207",
+        "Resultary 2 targeted queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2015 MMPP paper models line-transect repeated sightings to estimate unknown parameters; 2010 optimizes estimator MSE across sampling sites; four-visit theorem optimizes one-minus-no-detection at known occupied site"
+        ],
+        "reasoning": "Even if old papers use Markovian availability, neither their stated theorem nor objective implies this quartic global timing law; existing three-observation statements also do not settle four-observation boundary behavior.",
+        "searches": [
+          "Guillera Arroita 2010 Sections Introduction, methods, survey simulation",
+          "Borchers Langrock 2015 Sections 2–6",
+          "Petitot 2014 occupancy detection methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borchers and Langrock 2015 uses Markov-modulated availability for transect likelihood inference; its Section 2 model and Section 6 discussion concern estimation, not four nonadaptive fixed endpoints"
+        ],
+        "reasoning": "The latent two-state model resembles Markov observation systems, but the target is maximize at-least-one detection over four instantaneous inspections, unlike existing abundance-likelihood or occupancy-precision estimands.",
+        "searches": [
+          "Resultary: four visits stationary two-state Markov animal availability probability detection endpoint replicate doublets optimal spacing",
+          "web: optimal fixed-horizon four time Markov availability repeated survey detection probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings address two-visit N-mixture identification and three-visit scheduling rather than four-visit endpoint doublets"
+        ],
+        "reasoning": "An exact one-parameter threshold and unique-root schedule are continuous optimization outputs, not finite tabulated parameters. No exact data table establishing this schedule was located.",
+        "searches": [
+          "Resultary: four survey visits Markov availability endpoint doublets",
+          "web: exact four observations Markov chain optimal detection times quartic threshold table"
+        ]
+      },
+      "rationale": "Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.",
+      "residual_risks": [
+        "An unlocated generic finite-state inspection optimization theorem might specialize to this exact quartic rule.",
+        "The endpoint-doublet optimum requires independent conditional tests at the same instant; without coincident visits only a supremum is attained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Analytical bias/precision, optimal numbers of survey sites/replicates, not four fixed times in known-occupied Markov availability model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+          "material_read": "Full open-access Wiley HTML Introduction, methods, discussion and design examples",
+          "method": "Read online full article focusing on mathematical objective and assumptions",
+          "title": "Design of occupancy studies with imperfect detection",
+          "trigger": "Prior study design for repeated imperfect detections"
+        },
+        {
+          "assessment": "RELATED_MODEL_NOT_COVERING_SCHEDULE",
+          "evidence": [
+            "MMPP line-transect detection likelihood and mark-recapture inference; Section 6 focuses abundance estimation precision rather than maximizing four-sample probability of detection."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/biom.12341",
+          "material_read": "Open-access Oxford full HTML: introduction, model formulation Sections 2–3, results overview and Section 6 discussion",
+          "method": "Read full HTML article, compared estimands, assumptions and claims",
+          "title": "Double-Observer Line Transect Surveys with Markov-Modulated Poisson Process Models for Animal Availability",
+          "trigger": "Same Markov-modulated animal availability"
+        },
+        {
+          "assessment": "EMPIRICAL_FIELD_DESIGN_DIFFERENT_THEOREM",
+          "evidence": [
+            "Date/method-specific field detection probabilities rather than exact CTMC four-visit law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.1207",
+          "material_read": "Open-access article text, objective and field protocol overview",
+          "method": "Read accessible article results and methods",
+          "title": "Optimizing occupancy surveys by maximizing detection probability: application to amphibian monitoring",
+          "trigger": "Title explicitly promises optimal detection surveys"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+        "https://doi.org/10.1111/biom.12341",
+        "https://doi.org/10.1002/ece3.1207",
+        "Resultary 2 targeted queries"
+      ],
+      "rationale": "PASS. A sharp optimal-design transition between replicated instantaneous endpoint observations and four separated surveys gives a substantive, nontrivial scheduling result for a natural two-state ecological availability model. The quantitative criterion and uniqueness offer guidance for mathematical study-design analysis, while physical assumptions and lack of field validation are explicit.",
+      "residual_risks": [
+        "An unlocated generic finite-state inspection optimization theorem might specialize to this exact quartic rule.",
+        "The endpoint-doublet optimum requires independent conditional tests at the same instant; without coincident visits only a supremum is attained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Known occupied site, stationary two-state availability, constant identical sensitivity, conditional independence including coincident times, nonadaptive first and last visits fixed, no empirical biological validation."
+  ],
+  "schema_version": 1
+}
