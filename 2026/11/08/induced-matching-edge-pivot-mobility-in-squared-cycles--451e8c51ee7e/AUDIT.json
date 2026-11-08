@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The cyclic block inequality n≥4m proves the optimum size. Every maximizer is encoded uniquely up to k cyclic roots by binary edge lengths and weak slack compositions. The four generating-function coefficients and their integer formulas are directly derived. For zero slack four phases are frozen. For positive slack, shortening long edges and transferring gap units by explicit incident pivots reduces every state to a rotated canonical matching, and a k-move slide connects adjacent rotations. Boundary cases k=1 and n≥5 are handled. Two standalone independent finite implementations exhaustively corroborate n=5..23 and n=5..47, without using experiments as proof for unbounded n. No external nonstandard lemma is assumed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basavaraju et al., arxiv:1312.5180, abstract and full-text material: an extremal bound on numbers of maximal induced matchings in triangle-free graphs.",
+        "Cameron et al., doi:10.1016/S0012-365X(02)00803-8, accessible indexed material: finding a maximum induced matching in weakly chordal graphs."
+      ],
+      "reasoning": "Bounds or algorithms for induced matchings in other graph families do not determine the entire set of maximizers or pivot-edge connectivity on squared cycles. The triangle-free hypothesis fails because the squared cycle has triangles. Publisher-hosted full-text inspection remains incomplete for Cameron et al., so historical risk is retained.",
+      "searches": [
+        "induced matching number and maximum induced matching reconfiguration for squares of cycles C_n^2 under edge sliding, natural induced-matching packing and all optimum configurations",
+        "arxiv:1312.5180",
+        "doi:10.1016/S0012-365X(02)00803-8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1312.5180, relevant full HTML",
+      "arxiv:2203.16861, full accessible PDF",
+      "Demaine et al. 2015 open PDF, relevant pages",
+      "Cameron–Sritharan–Tang 2003 indexed excerpts, full text unavailable",
+      "Public semantic literature searches for induced matching edge pivots, cycle-squared optimum counts and equivalent formulations",
+      "arxiv:1812.05419, inspected full PDF definitions and theorem statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Avis and Hoang, arxiv:2203.16861: ordinary independent-vertex-set token sliding, including cycle statements.",
+        "Demaine et al., TCS 600 (2015): independent vertex token sliding on trees.",
+        "Bousquet–Hatanaka–Ito–Mühlenthaler, arxiv:1812.05419, sections 1 and 2: ordinary matchings under edge token jumping, not induced matchings with incident-edge pivots."
+      ],
+      "reasoning": "None of the inspected statements logically entails the four-residue classification under the original-edge incident-pivot rule. In particular, a maximum-size formula, graph matching-complex result, or standard vertex-token-sliding theorem cannot supply the new state counts and connectedness dichotomy without an additional specialized argument. The explicitly inspected general matching reconfiguration paper permits arbitrary edge jumps and requires only ordinary matching; its equivalence of TS and TJ for maximum ordinary matchings does not cover maximum induced matchings or local pivots.",
+      "searches": [
+        "arxiv:2203.16861",
+        "Demaine et al. Linear-time algorithm for sliding tokens on trees, 2015",
+        "arxiv:1812.05419"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2203.16861: Definition of token sliding on independent vertex sets and results for ordinary cycles; the present graph is a graph of maximum induced edge matchings and pivot adjacency requires common endpoints in the original squared cycle.",
+        "No covering equivalent state-space or move model identified in inspected comparisons."
+      ],
+      "reasoning": "Representing induced matchings as independent sets in the square of the line graph translates feasibility, but adjacency is not standard token sliding in that conflict graph: two original edges sharing an endpoint are adjacent in the conflict graph and hence cannot simultaneously be selected, and the induced-matching constraint is imposed on all other edges. Results on independent-set reconfiguration in ordinary cycles or on trees therefore do not imply the theorem.",
+      "searches": [
+        "induced matching reconfiguration in circulant graph C_n(1,2) or squared cycles C_n^2, swapping one selected edge for an incident edge, connectedness and frozen states when n divisible by four",
+        "sliding edge token reconfiguration for induced matchings powers of cycles connected when n not multiple of 4",
+        "arxiv:2203.16861"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of known induced-matching sources and mathematical indexes showed a published exact induced-matching computation for a different graph, but no matching squared-cycle edge-pivot count or equivalently stronger theorem.",
+        "An existing maximum independent *vertex* set classification in squared cycles concerns a different state space and does not imply induced *edge* matching pivot connectivity."
+      ],
+      "reasoning": "A numerical maximum induced-matching table alone would not imply the proven complete optimum-state counts or their reconfiguration graph. No exact covering database/table was found in the searches; this is evidence of noncoverage within checked resources, not proof of global historical novelty.",
+      "searches": [
+        "exact number of maximum induced strong matchings of graph squares of cycles C_n^2 by gap enumeration and modular four formula",
+        "strong matchings in squares of cycles and powers of cycles"
+      ]
+    },
+    "rationale": "The new statement concerns *incident-edge-pivot reconfiguration* of all optimum induced edge matchings of squared cycles, with a complete four-residue count and connectivity classification. Neither the established maximum independent-vertex-set results on squared cycles nor the inspected induced-matching extremal and general independent-set token-sliding literature implies this specific theorem. Published arXiv source full text and other inspected primary material was compared. Remaining historical-coverage uncertainty is recorded, not treated as uniqueness proof. The original 2018 ordinary-matching reconfiguration framework was also inspected and does not cover induced edge matchings under required incident pivots.",
+    "residual_risks": [
+      "Alternative terms such as strong matching edge rotation may conceal earlier equivalent results.",
+      "Some older publisher-hosted primary paper full texts were not accessible; no global uniqueness is claimed.",
+      "No independent scholarly review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the paper treats extremal counts of inclusion-maximal induced matchings in triangle-free graphs, not maximum induced matchings under edge pivots of squared cycles; the graph family has triangles.",
+        "evidence": [
+          "arxiv:1312.5180, first submitted 2013-12-18, abstract: upper bound for maximal induced matchings in triangle-free graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.5180",
+        "material_read": "Full arXiv HTML text in relevant definitions, theorem and proof sections, as well as arXiv submission history and abstract.",
+        "method": "Direct arXiv HTML text inspection and statement/assumption comparison.",
+        "title": "Maximal induced matchings in triangle-free graphs",
+        "trigger": "Earliest verified dated induced-matching source and broad extremal maximal-matching counts"
+      },
+      {
+        "assessment": "Accessible text concerns an induced-matching algorithm in weakly chordal graphs, not this pivot classification; unresolved possibility of uninspected further content.",
+        "evidence": [
+          "Cameron–Sritharan–Tang, Discrete Mathematics 266 (2003), 133–142, DOI 10.1016/S0012-365X(02)00803-8."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00803-8",
+        "material_read": "Accessible abstract and search-indexed sections; the complete publisher-hosted paper could not be inspected.",
+        "method": "Publisher metadata and indexed text comparison; no whole-document exclusion asserted.",
+        "title": "Finding a maximum induced matching in weakly chordal graphs",
+        "trigger": "Plausible earlier primary induced-matching paper"
+      },
+      {
+        "assessment": "Not covering: ordinary independent vertex-token configurations on trees, rather than induced matching edge pivots in squared cycles.",
+        "evidence": [
+          "Demaine and coauthors, Theoretical Computer Science 600 (2015)."
+        ],
+        "identifier_or_url": "https://erikdemaine.org/papers/TokenReconfigurationTrees_TCS2015/paper.pdf",
+        "material_read": "Full accessible PDF, title, introduction, theorem and relevant algorithm sections.",
+        "method": "PDF text reading and visual page inspection.",
+        "title": "Linear-time algorithm for sliding tokens on trees",
+        "trigger": "Closest older token-sliding framework and incident local moves"
+      },
+      {
+        "assessment": "Not covering: different state objects and move adjacency; no induced-matching-pivot classification.",
+        "evidence": [
+          "Avis–Hoang, arxiv:2203.16861, definitions of TS_k(G) and cycle results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+        "material_read": "Accessible complete arXiv manuscript, definitions and cycle-related sections examined.",
+        "method": "ArXiv PDF text inspection and visual title-page inspection; matched statements/definitions.",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "General contemporary theory of reconfiguration graph structure, ordinary cycles"
+      },
+      {
+        "assessment": "Not covering: its configuration objects are ordinary matchings and main operation arbitrary edge-token jumping; it does not impose the induced-matching separation condition or local original-edge pivot rule, and does not give the exact cycle-square component classification.",
+        "evidence": [
+          "Bousquet et al., arxiv:1812.05419, sections 1–2, Definition Matching Reconfiguration, Theorems 1–4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+        "material_read": "Complete 31-page arXiv PDF available; introduction, formal edge-token jumping definition, main theorem statements and distinction between ordinary matchings and TS examined in pages 1–4.",
+        "method": "ArXiv PDF textual inspection, visual page inspection of definition page, and claim/hypothesis comparison.",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "Highly relevant general matching reconfiguration paper and possible stronger connectivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "451e8c51-ee7e-407e-a553-b5b301597d74",
+  "value": {
+    "rationale": "For a fundamental cyclic interference graph, the exact size of an optimal induced matching does not determine local reorganizability. This theorem identifies a sharp arithmetic phase transition, frozen optimum states when four divides the graph order versus global reachability otherwise, and counts the full optimum-state space. The moving resource is structural cyclic slack, a reusable explanation of local-search barriers. It is a natural invariant across all n≥5, not an arbitrary finite slice or an unmotivated normalization.",
+    "status": "PASS"
+  }
+}
