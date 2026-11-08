@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The integral is absolutely convergent for both tones; period averaging yields orthonormal harmonic blocks with exactly four singular values. Derivatives prove unique extrema and the arcsinh crossover. All assumptions and endpoint limits are handled analytically, with a numerical SVD cross-check on constructed measurements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alaifari--Wellershoff (2019) Theorems 3.6, 3.11, 3.13; published-finding corpus 52be44b25eaa and c114096c73ba",
+        "Alaifari et al. 2024, full paper Sections 3 and 5",
+        "Grohs--Liehr arXiv:2109.02494 Theorem 1.1 and Section 3.2 sample time-slice Riesz reconstruction",
+        "Bartusel DOI:10.1007/s00041-023-10026-2 Theorem 5.1.8 full STFT L2 connectedness"
+      ],
+      "reasoning": "General stability theorems quantify signal phase errors under ambiguity support hypotheses or local geometry. They neither fix the two-tone Gaussian Hermitian lifting nor imply its global bin-placement minimax constant. Cyclic finite-group optimization uses different measurement operators and parameters.",
+      "searches": [
+        "two-frequency Gaussian short-time Fourier transform measurement of two complex exponentials spectral PhaseLift optimal frequency-bin placement singular values transition",
+        "Hermitian 2x2 phase lift symmetric Gaussian bins optimal least singular value critical tone separation",
+        "\"Stability estimates for phase retrieval from discrete Gabor measurements\" arxiv initial submitted"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.05296 (2019-01-12)",
+      "DOI:10.1007/s00041-020-09802-1 (full accessible HTML)",
+      "arXiv:2206.03946 (full author preprint text)",
+      "DOI:10.1007/s43670-023-00079-1 (full accessible HTML)",
+      "DOI:10.1137/22M1510224 (publisher abstract and MSC)",
+      "published-finding corpus: 52be44b25eaa, c114096c73ba, 29afd3fc909d, b03d8e4c7818",
+      "Accessible own prior ledgers through g000022 (2026-11) and g000163 (2026-10), claim/ID comparisons only",
+      "arXiv:2109.02494 (open-access HTML main results and stability section)",
+      "DOI:10.1007/s00041-023-10026-2 (open-access HTML main results and Gaussian example)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wellershoff 2022 proves phaseless uniqueness of Paley-Wiener L2 from any distinct bins, not their noise-optimal location",
+        "Alaifari--Wellershoff 2019 gives finite cyclic Gabor phase stability estimates but not continuous plane-wave bin design",
+        "published-finding corpus finite cyclic results 52be44b25eaa, c114096c73ba, 29afd3fc909d",
+        "Theorem 1.1 of Grohs--Liehr arXiv:2109.02494 has opposite sampling orientation (discrete time, continuum frequency) and Gaussian translate signal class; Bartusel 2023 Theorem 5.1.8 assumes full spectrogram."
+      ],
+      "reasoning": "The new injectivity-for-two-lines component is a model-specific companion to known two-bin uniqueness and not independently claimed as the main novelty; the full four-point lifted singular spectrum and exact unique maximin crossover do not follow from qualitative uniqueness or the dissimilar finite cyclic bounds.",
+      "searches": [
+        "Gaussian STFT phaseless two-line two-tone spectral separation stability and optimal sensor placement",
+        "phase retrieval lifted intensity operator Gaussian window rank-2 signal optimal frequency-bin spacing",
+        "Sampling at Twice the Nyquist Rate in Two Frequency Bins Guarantees Uniqueness in Gabor Phase Retrieval arxiv 2022 Wellershoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest 52be44b25eaa (cyclic two-tap Jacobian), 52a1191ef6d6 (bispectral samples)",
+        "Wellershoff 2022 arXiv:2206.03946, Theorem 3.1 on Gaussian STFT frequency lines"
+      ],
+      "reasoning": "An equivalent phrase could be optimal two-tone Gaussian spectrogram sensor placement or lifted frame lower bound; inspected candidate results do not state the arcsinh crossover or the exact real Hermitian singular spectrum.",
+      "searches": [
+        "optimal two symmetric frequency bins for Gaussian short-time Fourier intensity measurement of two monochromatic tones, Hermitian PhaseLift stability smallest singular value, sharp transition arcsinh",
+        "Gaussian STFT phaseless two-line two-tone spectral separation stability and optimal sensor placement",
+        "phase retrieval lifted intensity operator Gaussian window rank-2 signal optimal frequency-bin spacing",
+        "\"two tone\" \"Gaussian\" \"phase retrieval\" \"optimal\" frequency bins condition number",
+        "\"Gabor\" \"frequency bins\" \"optimal spacing\" \"stability\" two tones"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus six query results: no exact continuous Gaussian two-tone two-bin threshold among highest matches",
+        "Primary literature above contains no Gaussian-bin design table"
+      ],
+      "reasoning": "The proposed closed critical separation and global maximizing bin position are not entries in the returned published records or inspected source formulas; this does not prove exhaustive novelty.",
+      "searches": [
+        "optimal two symmetric frequency bins for Gaussian short-time Fourier intensity measurement of two monochromatic tones, Hermitian PhaseLift stability smallest singular value, sharp transition arcsinh",
+        "frequency sensor placement for dual tone phaseless Fourier measurements maximin conditioning",
+        "\"two tone\" \"Gaussian\" \"phase retrieval\" \"optimal\" frequency bins condition number"
+      ]
+    },
+    "rationale": "No equivalent or dominating claim identified after comparisons with verified primary literature, six actual published-finding corpus similarity queries and accessible own ledgers. The closest two-frequency-line theorem is uniqueness for Paley-Wiener L2 functions, not exact PhaseLift singular values or maximin frequency placement. The finite cyclic prior computes different operators; remaining historical-risk is disclosed.",
+    "residual_risks": [
+      "An equivalent calculation might appear under Fisher-information, optimal sensor-frequency design or PhaseLift 2x2 matrix-frame nomenclature beyond the inspected publications.",
+      "The full main body of the 2023 Grohs--Liehr Non-Uniqueness Theory paper was not inspected; its setting differs but cannot be ruled out solely from abstract.",
+      "The finding optimizes only symmetric frequency-bin pairs, not arbitrary placements, so there is no claimed universal sensor optimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Finite cyclic Gabor phase estimates with ambiguity-window lower bounds and temporal-island graph geometry; no symmetric two-frequency-line Gaussian lifted singular-value maximization. Not a stronger covering theorem.",
+        "evidence": [
+          "Theorems 3.6/3.11/3.13 and remarks in https://link.springer.com/article/10.1007/s00041-020-09802-1",
+          "arXiv:1901.05296 first public 2019-01-12 (arxiv.org abstract history)"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-020-09802-1",
+        "material_read": "Entire publicly displayed HTML sections 1-4, especially formulas in Section 2, Theorems 3.6, 3.11, 3.13, and proof strategy in Section 5; not just abstract",
+        "method": "Read complete accessible journal HTML text and inspected main theorem statements and proofs",
+        "title": "Stability estimates for phase retrieval from discrete Gabor measurements",
+        "trigger": "Focal earliest-public (arXiv 1901.05296, 2019-01-12), primary MSC 42C15; stable phaseless Gabor inversion"
+      },
+      {
+        "assessment": "Shows uniqueness for Paley-Wiener L2 functions from two frequency lines (sampled time) with no quantitative singular-value maximization over line separation. Our two-tone waves are not L2 and the comparison is not direct corollary in either direction.",
+        "evidence": [
+          "arXiv:2206.03946 Theorem 3.1 text and proof, first submitted 2022-06-08"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/361181752_Sampling_at_twice_the_Nyquist_rate_in_two_frequency_bins_guarantees_uniqueness_in_Gabor_phase_retrieval",
+        "material_read": "Author preprint full-text transcription, introduction and main Theorem 3.1 including proof through entire-function uniqueness, with preliminaries",
+        "method": "Read the available complete preprint text embedded in the open access webpage",
+        "title": "Sampling at twice the Nyquist rate in two frequency bins guarantees uniqueness in Gabor phase retrieval",
+        "trigger": "The exact same two-frequency-line measurement geometry"
+      },
+      {
+        "assessment": "Investigates general L2 signal counterexamples, sampled uniqueness and local spectral-gap instability; does not optimize a two-tone Gaussian Hermitian lift for symmetric line placement.",
+        "evidence": [
+          "2024 article Theorems 3, 6, and Section 5, DOI:10.1007/s43670-023-00079-1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s43670-023-00079-1",
+        "material_read": "Full open-access HTML: Sections 1, 3, 4, 5, toy model and main counterexample/stability results",
+        "method": "Read open HTML theorem and examples plus proof sections",
+        "title": "On the connection between uniqueness from samples and stability in Gabor phase retrieval",
+        "trigger": "Potentially stronger phase-retrieval stability statements, multi-line sampling and two-bump counterexamples"
+      },
+      {
+        "assessment": "Concerns lattice sampling of arbitrary L2(R) and impossibility of generic uniqueness; our continuous-time two-bin two-tone setting is not a lattice and uses tempered waves. Residual whole-text risk acknowledged.",
+        "evidence": [
+          "Publisher abstract and MSC listing (2023); arXiv:2207.05628 named but full text not inspected"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/22M1510224",
+        "material_read": "Publisher abstract, publication history, MSC classification, results description (not full inaccessible body)",
+        "method": "Inspected public publisher metadata and abstract; no whole-text exclusion asserted",
+        "title": "Non-Uniqueness Theory in Sampled STFT Phase Retrieval",
+        "trigger": "Potential universal non-uniqueness on STFT lattices"
+      },
+      {
+        "assessment": "Reconstruction from spectrogram samples on time-slice lines for Gaussian-shift-invariant signals via Riesz dual systems; differs both in input (Gaussian translates vs pure plane-wave two tones) and observation geometry (time slices with continuous frequency vs two frequency slices with continuous time). No implication of exact two-tone two-bin lifted singular spectrum/offset optimization.",
+        "evidence": [
+          "arXiv:2109.02494 first 2021-09-06; Theorem 1.1, Section 3.2, DOI:10.1007/s00365-023-09629-1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00365-023-09629-1",
+        "material_read": "Open access full HTML, Introduction, Section 1.2 Theorem 1.1 and 1.3, Sections 3.1 and 3.2 stability identities and discussions",
+        "method": "Read relevant primary theorem and proof sections and model assumptions in accessible full article HTML",
+        "title": "Stable Gabor Phase Retrieval in Gaussian Shift-Invariant Spaces via Biorthogonality",
+        "trigger": "Gaussian-window Gabor phase retrieval stability and observations on parallel lines may dominate the proposed special model"
+      },
+      {
+        "assessment": "Characterizes full STFT phase retrieval for L2 signals by support connectedness. Its complete continuous-spectrogram data and qualitative injectivity do not imply optimal two-bin quantitative lifting for tempered plane waves.",
+        "evidence": [
+          "DOI:10.1007/s00041-023-10026-2, Theorems 5.1.7/5.1.8 and Example 5.4.2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-023-10026-2",
+        "material_read": "Open access HTML introduction, Section 2 framework, Theorems 5.1.7 and 5.1.8, Gaussian-window example and statements in Sections 3–5",
+        "method": "Read model assumptions, relevant theorem statements and mathematical arguments from accessible original HTML",
+        "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Zd and Rd",
+        "trigger": "Potential general full-STFT or two-line uniqueness theorem implying proposed claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb32cc8a-05b7-43ec-9fd3-642f2d3a790f",
+  "value": {
+    "rationale": "Worst-case Hilbert--Schmidt lifted intensity gain is a natural stable-reconstruction metric. Optimizing actual bin placement gives an exact two-regime law, identifies amplitude-balance versus interference-visibility bottlenecks, provides sharp small- and large-separation behavior, and supplies a natural minimal-two-bin identifiability boundary. Distinct from standard injectivity and arbitrary unmotivated finite enumeration.",
+    "status": "PASS"
+  }
+}
