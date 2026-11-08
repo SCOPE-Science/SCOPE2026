@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The centered Gaussian KL identity fixes both the orientation and trace scale. The coordinate derivative has cubic numerator P whose derivative is strictly positive for all positive coordinates by Cauchy–Schwarz and a negative-discriminant argument, forcing endpoint spectra. Substitution yields the exact discrete maximum, a unique continuous critical fraction and the large-contrast limit. The proof explicitly handles n=2, the normalization and nonflat equality cases. The embedded deterministic checker passed 385 exact rational identities, 3,048 vertex enumerations, 18,900 interior samples, 14,000 derivative tests, 180 critical-point checks, and 16 large-contrast tests; it is corroboration rather than the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen et al., arXiv:2609.10080, Theorem 13(iii): per-dimension divergence bounded above by half the squared condition-number deficit.",
+        "The classical Kantorovich inequality bounds the arithmetic–harmonic term, yielding the generally nonattained \\((\\kappa-1)^2/(8\\kappa)\\) envelope after Jensen.",
+        "Pinski et al. arXiv:1310.7845 develops general Gaussian KL variational approximation in infinite-dimensional spaces."
+      ],
+      "reasoning": "A valid broad upper bound does not specify the exact finite-dimensional supremum or equality spectra. The published quadratic envelope is weaker in large condition number. Kantorovich can imply a linear-order upper bound but does not optimize the coupled log-determinant penalty. Pinski abstract/scope does not establish the same condition-number extremal; full-text priority remains a risk.",
+      "searches": [
+        "Stochastic Lanczos Quadrature Computational Uncertainty covariance complementary bulk isotropy KL condition number bound exact optimal spectra",
+        "Kantorovich inequality Kullback Leibler Gaussian isotropic approximation spectrum sharp",
+        "Pinski Simpson Stuart Weber KL approximation Gaussian isotropic covariance finite dimensional sharp condition number"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.10080v1 (HTML sections 4.1–4.3, Theorem 13)",
+      "arxiv:1310.7845 (abstract/scope only)",
+      "https://en.wikipedia.org/wiki/Kantorovich_inequality (statement)",
+      "Published finding database semantic search, four queries",
+      "Published Gaussian-covariance and spectral extremal literature compared on the mathematical claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fifen–Karambal–Hennig Section 4.3 (Theorem 13): generic isotropic inverse covariance bound in terms of \\(\\kappa\\), without exact extremal multiplicities in material inspected.",
+        "Cauchy–Schwarz and Kantorovich control mean products; neither as stated determines the competing logarithmic term or its optimal mixture.",
+        "The equality construction is an explicit two-point covariance with multiplicities selected by a unique one-dimensional critical fraction."
+      ],
+      "reasoning": "The new theorem is not a corollary of the cited upper bound, since an inequality alone does not give its exact best constant or attainability. Existing Gaussian approximation variational frameworks concern a different optimization variable. The full source comparison and searches support noncoverage to the extent inspected, not certified historical novelty.",
+      "searches": [
+        "https://arxiv.org/html/2609.10080",
+        "https://arxiv.org/abs/1310.7845",
+        "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+        "Gaussians relative entropy between isotropic trace matched covariance and arbitrary covariance maximum condition number sharp spectral endpoints"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Forward Gaussian KL equals one half of an arithmetic–harmonic product deficit plus a logarithmic geometric-mean deficit (RESULT.md Eq. 1).",
+        "The published-record search returned no candidate matching the two-point spectral finite-dimensional sharp optimization; closest covariance-metric and sign-concentration records are scientifically distinct."
+      ],
+      "reasoning": "The claim is invariant under covariance scale, orthogonal conjugacy, and inversion of the SPD precision representation, all covered in the statement. Keyword variations with isotropic covariance, Gaussian relative entropy, and mean-ratio inequalities were checked; no equivalent exact sharp multiplicity law was found. Search absence is not itself a uniqueness proof.",
+      "searches": [
+        "sharp worst-case Gaussian KL divergence trace-matched isotropic covariance approximation for positive definite matrix fixed condition number dimension endpoint two-point spectra",
+        "Gaussians relative entropy between isotropic trace matched covariance and arbitrary covariance maximum condition number sharp spectral endpoints",
+        "\"isotropic\" \"condition number\" \"Kullback Leibler\" sharp covariance bounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included generic Gaussian condition-number and KL approximation papers but no exact table or value of the described finite-dimensional surrogate maximum.",
+        "The sharp values here form an analytic finite family over arbitrary real \\(\\kappa>1\\), with exact equality multiplicities for all integer dimensions."
+      ],
+      "reasoning": "No directly matching exact spectral table was identified in accessible sources or published finding summaries. A hypothetical existing general entropy-mean extremal result is a priority risk, not ruled out solely by this search.",
+      "searches": [
+        "sharp worst-case Gaussian KL divergence trace-matched isotropic covariance approximation for positive definite matrix fixed condition number dimension endpoint two-point spectra",
+        "Stochastic Lanczos Quadrature Computational Uncertainty covariance complementary bulk isotropy KL condition number bound exact optimal spectra",
+        "\"maximum\" \"KL divergence\" \"eigenvalues\" \"condition number\" \"covariance\""
+      ]
+    },
+    "rationale": "Fifen–Karambal–Hennig Theorem 13 bounds the same abstract isotropic covariance KL functional but does not identify its exact sharp constant in finite dimension, equality spectra, optimal multiplicity or high-contrast coefficient. Classical Kantorovich gives only a nonsharp bound when its logarithmic penalty is omitted. Published-record and literature searches found no covering assertion; priority remains qualified by limited access to the general Gaussian approximation monograph/article.",
+    "residual_risks": [
+      "An older sharp entropy-mean inequality might be equivalent even if not indexed under Gaussian covariance terminology.",
+      "The full text of Pinski et al. was not retrieved; its abstract does not establish decisive noncoverage.",
+      "The sharp covariance-class equality spectra need not be realizable by a fixed Lanczos residual complement; no such attainability is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 13 provides a dimension-normalized quadratic-in-condition-number KL upper bound, not the sharp spectral endpoint classification or finite-dimensional exact bound. The Lanczos-specific covariance class is smaller than the unrestricted class optimized here.",
+        "evidence": [
+          "Section 4.3, Theorem 13(iii): \\(n^{-1}D_{KL}(N(0,\\widetilde\\Gamma)\\|N(0,B^{-1}))\\le (\\kappa_B-1)^2/2\\).",
+          "Section 4.2 uses a trace-preserving isotropic correction for the unresolved covariance bulk."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.10080",
+        "material_read": "Accessible arXiv full-text HTML: Sections 4.1–4.3 (equations 21–38, Propositions and Theorem 13), including complement variance and the KL bound; parts of numerical experiments and references",
+        "method": "Primary full-text HTML reading and exact formula comparison",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Direct motivating construction and likely strongest overlap: complement isotropic covariance and KL error"
+      },
+      {
+        "assessment": "Studies infinite-dimensional variational KL approximation; not enough full text to exclude a hidden related finite-dimensional extremal lemma. Historical-priority risk explicitly retained.",
+        "evidence": [
+          "Abstract describes Gaussian approximation, existence/uniqueness and regularized variational optimization, without a stated sharp condition-number fixed-trace isotropic extremum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.7845",
+        "material_read": "ArXiv abstract and bibliographic description; no successful full-text retrieval",
+        "method": "Abstract and scope comparison only",
+        "title": "Kullback–Leibler Approximation for Probability Measures on Infinite Dimensional Spaces",
+        "trigger": "General Gaussian KL approximation and potential broader coverage"
+      },
+      {
+        "assessment": "Provides a weaker condition-number upper envelope after a separate Jensen estimate, but no equality classification of the full KL functional.",
+        "evidence": [
+          "Weighted arithmetic–harmonic product is bounded by \\((a+b)^2/(4ab)\\) and, in a refinement, by partition-dependent corrections."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+        "material_read": "Displayed full classical inequality statement and refined weighted form",
+        "method": "Direct mathematical implication comparison",
+        "title": "Kantorovich inequality",
+        "trigger": "Potential stronger classical bound on arithmetic–harmonic spectral product"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36243b44-62f7-4d7d-aceb-0a26cc3edfa3",
+  "value": {
+    "rationale": "A trace-preserving isotropic complement covariance is a natural and explicitly used approximation in matrix-free Lanczos uncertainty models. Determining the exact worst-case forward-KL cost with fixed condition-number budget and dimension replaces a loose quadratic bound by a sharp finite-dimensional formula, locates the equality spectra and isolates the large-contrast coefficient with dimension parity. This gives a meaningful conditioning diagnostic and benchmark; it is not merely an unmotivated scalar evaluation.",
+    "status": "PASS"
+  }
+}
