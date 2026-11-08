@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the attached script. It requires only Python's standard library. The executed verifier reported:
+## correctness
 
-`PASS: 793 exact rational checks; determinant, KKT, covariance and full cofactors verified.`
+PASS
 
-The script tests \(2\le n\le9\) at five positive rational parameters, including the budget identity, direct inverse of the tridiagonal Laplacian-plus-diagonal matrix, the exact AR(1) covariance and its constant diagonal, and the explicit determinant formula. For \(2\le n\le7\), it independently builds the full weighted two-rail graph Laplacian and computes its exact Kirchhoff cofactor. It compares 15 reproducible feasible alternative allocations for each parameter pair, and tests the separate rational point \(n=6,u=1,B=2,\tau=24\).
+Symmetric/antisymmetric rail decomposition of the 2n-vertex weighted Laplacian gives τ=(1/2)det(L_path+2diag w). With u>0 the positive root of nu²+2(1-B)u-2B=0, set endpoint w=u/2 and interior w=u²/[2(1+u)]; these sum to B. The corresponding positive-definite A has AR(1) inverse (A^-1)_ij=ρ^(|i-j|+1)/(1-ρ²), ρ=(1+u)^-1, hence constant diagonal and equal gradient 2(A^-1)_ii. Strict concavity of logdet on diagonal perturbations proves global unique maximizer even against asymmetric or zero-rung allocations. AR(1) determinant computes τ*=u(u+2)(1+u)^(n-2)/2; series expansion gives the endpoint premium and all stated limits.
 
-The proof in `RESULT.md`, rather than these finite checks, establishes all-size global optimality, boundary uniqueness and both asymptotic regimes. Specialist-priority comparison is only as strong as the literature actually inspected; no independent expert or formal verification is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS on the exact all-budget, all-length independent-rung optimal allocation. General weighted-tree optimization is known; nearest published finite rung correlation formula assumes common c and does not imply optimization over independent w_i.
+
+## value
+
+PASS
+
+For an intrinsically important D-optimal spanning-tree objective, the theorem solves a natural continuous budget design exactly, exposing unique strictly positive optimal rungs and a nontrivial boundary premium. It is not a mere application of concavity without explicit optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
