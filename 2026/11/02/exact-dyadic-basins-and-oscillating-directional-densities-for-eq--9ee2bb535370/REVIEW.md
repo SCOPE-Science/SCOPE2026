@@ -1,12 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The actual Euclidean distance comparison and the two orthogonal projection formulas produce the exact global scalar recurrence \(p'=-p/2+\operatorname{sgn}(p)/4\) away from ties. The outer absolute-value recurrence integrates exactly to \(r_n+1/2=2^{-n}(r_0+1/2)\); the minimal integer entrance time, its equality cases, and the inner affine contraction determine every basin including vertices. The even-shell lengths form a geometric progression, yielding the exact limiting directional fractions \(1/3\) and \(2/3\). The classification of invariant probabilities follows from the explicit recurrent-point census and measure-preserving recurrence. Literal projection computations at \(6147\) rational test points and exact shell endpoint identities are supplementary tests; the proof holds for all real initial conditions.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Everett's original definition, qualitative convergence theorem and geometric periodicity are **not claimed as new**. A published exact criterion already counts up to two primitive period-three cycles for any triangle, including the two cycles of an equilateral triangle, but explicitly excludes their global basins and other periods. The present proof instead determines all global basins, countably many midpoint preimages, exact one-sided arclength proportions and nonexistence of a directional density. It does not follow by mere specialization of the existing period-three count or by the qualitative convergence theorem. A prescribed-composition projection study has no state-dependent farthest-choice mechanism. Searches of equivalent recurrence formulations, broader literature and mathematical research records found no implication of the full global basin-and-density claim; this search result is not itself a novelty proof. Residual risk: unindexed independent geometric computation or coverage in another treatment.
+PASS
 
-## Mathematical value — PASS
-The farthest-projection rule is a natural established geometric dynamical model. A complete explicit global basin partition and invariant probability classification sharpen its qualitative asymptotic picture. Moreover, the surprising log-periodic selection of basins gives a sharp and naturally normalized failure of directional asymptotic density: the exact \(1/3\) and \(2/3\) values are not an arbitrary numerical slice but arise from the full two-attractor partition and the geometric growth of capture shells. The distinction between one-sided and symmetric truncation prevents an artificial or misleading density claim. The result is confined to the exactly symmetric equilateral case.
+Compute exact projection distances sqrt(3)|1-t|/2 and sqrt(3)|t|/2, yielding branches T(i,t)=(i+1,(1-t)/2) for t<1/2 and (i-1,1-t/2) for t>1/2, with tie at midpoint fixed. Center p=t-1/2; outer |p|>1/2 gives sign flip and r_next=r/2-1/4, so r_m+1/2=2^-m(r0+1/2). Inner 0<|p|<1/2 keeps sign and contracts by -1/2 to s/6: two globally attracting 3-cycles, while exact dyadic shell boundaries hit fixed midpoint. Alternating shell lengths (1/2,1,2,4,...) yield the two limit densities 2/3 and 1/3. Nonperiodic points are nonrecurrent; Poincare recurrence forces invariant probabilities onto 9 periodic points and hence five extremal orbit measures. Independently checked 28 exceptional positions, 15 exact shell endpoint equalities. The phase space is complete lines, not finite sides.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier qualitative convergence and exact existence of two equilateral three-cycles are acknowledged as covered. The new claim is the global labelled basin partition, dyadic exceptional set, nonconvergent one-sided basin densities and all invariant probabilities. Published cycle classification does not imply a full global basin answer.
+
+## value
+
+PASS
+
+The complete transient-basin and invariant-measure census for an established discontinuous projection system reveals logarithmically oscillating directional basin proportions despite convergence of every orbit. Exact 1/3,2/3 accumulation values form a natural sharp global dynamical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
