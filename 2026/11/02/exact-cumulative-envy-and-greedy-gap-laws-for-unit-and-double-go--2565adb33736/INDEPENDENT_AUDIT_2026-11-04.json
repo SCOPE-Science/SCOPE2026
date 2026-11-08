@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:48:30.149354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two identical additive agents reduce maximum pairwise envy at step t to |d_t|. Since each item of weight w_t changes d by +/-w_t, sum of w_t<=|d_{t-1}|+|d_t| implies C>=ceil((a+2b)/2). When a>=1, release one unit to get |d|=1, let each of b double items flip the sign at cost 1, and pair or cancel remaining units; this attains b+ceil(a/2), including all parity boundaries. At a=0 every odd step gap is at least 2, giving 2ceil(b/2). Under unit-first greedy gaps alternate (1,0) on unit steps and (1,1) versus (2,0) on double steps, so the sole additive-one failure is a positive even number of units and odd b. This is an unrestricted constructive proof, not merely the 529-case finite dynamic program.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg et al. establish general sequenced-goods complexity and 3/2 guarantee, plus a lower bound; those statements do not yield an exact all-multiplicity formula in the mixed 1/2 subclass."
+        ],
+        "reasoning": "Broad hardness and approximation bounds neither mathematically imply exact parity optimality nor contradict it.",
+        "searches": [
+          "Resultary: cumulative maximum envy two identical agents goods values 1 2 arrival order optimal sum greedy gap",
+          "arxiv:2610.09843 cumulative envy 3/2 bound hardness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09843v1: Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "Resultary matched allocation/fairness studies (different objectives)",
+        "Oxford institutional lookup source arXiv:2610.09843; unavailable, VPN disconnected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General lower bound ceil((a+2b)/2) fails to be attained when a=0 and b is odd; published (2,1) sharp 3/2 witness is one member of our exceptional infinite family."
+        ],
+        "reasoning": "Requires explicit constructive attainment and handling pure-double parity to get full OPT, then greedy indicator. General lower bounds/one tight witness do not entail all cases.",
+        "searches": [
+          "arxiv:2610.09843v1 Lemma 1 Theorem 5 and Example 3",
+          "web: sequence item allocation two identical agents sum maximum envy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldberg–Robinson–Teh arXiv:2610.09843: two-agent absolute load-difference cost and small a=2,b=1 greedy failure are known."
+        ],
+        "reasoning": "Both frame the problem as minimizing sum of |load imbalance|; exact all-(a,b) parity-phase characterization is the additional candidate statement.",
+        "searches": [
+          "Resultary: minimizing cumulative envy item sizes one and two two agents identical valuation sequences",
+          "web: two agent cumulative maximum envy identical goods weights 1 2 exact optimal allocation order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The smallest three-good witness (a,b)=(2,1) is published; no all-count table was found in accessible indexed material."
+        ],
+        "reasoning": "Smallest witness is preexisting and not new; presence of one example does not imply the complete iff classification. Negative search cannot certify originality.",
+        "searches": [
+          "Resultary: minimizing cumulative envy item sizes one and two two agents identical valuation sequences",
+          "web: Goldberg Robinson Teh 1 2 item count table cumulative envy"
+        ]
+      },
+      "rationale": "The source work already proves the general lower bound, a 3/2 upper approximation and the smallest (a,b)=(2,1) counterexample. This claim adds every multiplicity’s exact optimum and iff greedy failure, not an isolated witness. Direct full-text access to closest manuscript failed, so this is only a qualified best-of-knowledge O PASS with explicit priority risk.",
+      "residual_risks": [
+        "Closest October 2026 manuscript was not read in full; OAuth/VPN access reported vpn_disconnected, so broader appendix coverage cannot be eliminated.",
+        "The smallest failure and general lower bound are certainly prior art, not credited as new.",
+        "A complete formula may exist under a load-balancing/control-theory alias."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible material establishes general framework but cannot rule out a more extensive exact classification hidden in its appendix or proofs.",
+          "evidence": [
+            "Published approximation guarantee and explicit two-unit/one-double three-good failure; full-(a,b) theorem not verified from full primary text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+          "material_read": "Public indexed abstract, bibliographic record, cited lemma/example descriptions in frozen research package; full manuscript inaccessible to this independent run.",
+          "method": "arXiv HTML/PDF open attempts and lawful OA search unsuccessful; institutional source request returned vpn_disconnected.",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Same objective, two identical agents and source (a,b)=(2,1)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimum and tight additive greedy gap for every pair of multiplicities of the two smallest positive integer weights is a natural tractable island within a generally hard sequencing problem. It gives a sharp, reusable parity boundary rather than merely restating the published (2,1) three-item counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two agents only; identical additive values 1 or 2; freely chosen order and irreversible assignments.",
+    "Closest arXiv full text could not be independently inspected; source overlap remains a residual priority risk."
+  ],
+  "schema_version": 1
+}

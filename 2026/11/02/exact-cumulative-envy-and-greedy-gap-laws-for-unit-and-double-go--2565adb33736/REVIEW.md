@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact signed load imbalance characterizes maximum pairwise envy for identical valuations of two agents. Triangle inequalities for each step yield the universal sum-value lower bound. Explicit odd/even constructions attain that bound whenever a unit good exists, while the all-double case has a stronger parity obstruction. The greedy rule's gaps are determined completely by parity. An exact DP exhaustively verified all 529 multiplicity pairs up to 22 goods of each size. The infinite statement rests on the proof, not these trials.
+PASS
 
-## Originality — PASS, with limits
+Two identical additive agents reduce maximum pairwise envy at step t to |d_t|. Since each item of weight w_t changes d by +/-w_t, sum of w_t<=|d_{t-1}|+|d_t| implies C>=ceil((a+2b)/2). When a>=1, release one unit to get |d|=1, let each of b double items flip the sign at cost 1, and pair or cancel remaining units; this attains b+ceil(a/2), including all parity boundaries. At a=0 every odd step gap is at least 2, giving 2ceil(b/2). Under unit-first greedy gaps alternate (1,0) on unit steps and (1,1) versus (2,0) on double steps, so the sole additive-one failure is a positive even number of units and odd b. This is an unrestricted constructive proof, not merely the 529-case finite dynamic program.
 
-The full main text and relevant appendix of Goldberg, Robinson and Teh, arXiv:2610.09843v1, were read and statement-level comparisons made. Their universal lower bound and the \((2,1)\) three-item greedy counterexample are expressly prior results; the new claim is the exact two-parameter optimum and necessary-and-sufficient greedy-failure classification over all multiplicities. Targeted research-record and literature searches did not reveal an equivalent classification. Search absence does not prove priority; an unindexed version of the argument remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-In the source paper, sequencing for two identical agents is NP-complete in general and the ascending greedy rule is guaranteed only \(3/2\)-approximate. This gives an exact algorithm-free closed-form classification on the smallest heterogeneous positive-integer domain, identifies every member of the greedy failure regime, and establishes the full sharp additive gap rather than just one tight example. The specialized theorem does not claim broader hardness or generalization.
+The source work already proves the general lower bound, a 3/2 upper approximation and the smallest (a,b)=(2,1) counterexample. This claim adds every multiplicity’s exact optimum and iff greedy failure, not an isolated witness. Direct full-text access to closest manuscript failed, so this is only a qualified best-of-knowledge O PASS with explicit priority risk.
 
-## Closest literature and limitations
+## value
 
-Goldberg, Robinson and Teh (2026), Sections 4–5 and Appendix C.5, arXiv:2610.09843v1. Their three-item witness and lower bound are covered prior art. The result requires two agents, identical additive positive values \(1\) and \(2\), and free ordering; there is no claim for adversarial fixed orders, different values, or independent scientific verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact optimum and tight additive greedy gap for every pair of multiplicities of the two smallest positive integer weights is a natural tractable island within a generally hard sequencing problem. It gives a sharp, reusable parity boundary rather than merely restating the published (2,1) three-item counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
