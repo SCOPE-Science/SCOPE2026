@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:48:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-dyadic-block-row-equilibration-with-a-sharp-2-1-1-b-condit--f5c0a821870d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-dyadic-block-row-equilibration-with-a-sharp-2-1-1-b-condit--f5c0a821870d/check_scaling.py",
+        "/mnt/data/scope_worker03_20261107T0038Z/independent_checks_output.txt"
+      ],
+      "rationale": "For D constant on each block, ||DM||∞=max_q d_q alpha_q and ||(DM)^-1||∞=max_l sum_q C_lq/d_q. For any positive scales, set T=max d_q alpha_q, giving objective >=max_l sum_q alpha_q C_lq; equality at d_q=1/alpha_q proves K*. For dyadic d_q=2^{k_q}, normalize a maximizing block s to k_s=0. Replacing each other k_q by floor(log2(alpha_s/alpha_q)) cannot increase maximum forward norm and lowers inverse sum, hence one of exactly b candidates attains global unbounded-integer minimum. Largest circular gap of b fractional log2 alpha_q phases has length >=1/b, so integer shifts make all scaled log norms lie within width <=1-1/b; this yields K2/K*<=2^{1-1/b}. Diagonal block coefficients 2^{(q-1)/b} have equally spaced phases, forcing the opposite bound; works for arbitrary positive block sizes and b=1. Independent exact rational inversion/condition calculations on 56 small nonsingular examples agreed with complete bounded normalized exponent searches; finite checks corroborate, not prove, arbitrary n.",
+      "residual_risks": [
+        "The theorem assumes exact real arithmetic, arbitrary integer exponents, nonsingular square M, positive row scales, and fixed row blocks.",
+        "A finite exponent range or joint row-column scaling changes the optimization problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Continuous norm-scaling theory allows arbitrary positive scales, and the source theorem optimizes a restricted dyadic subset."
+        ],
+        "reasoning": "Broader continuous results determine K* but do not imply the sharp discrete quantization penalty or specific integer optimizer without an additional lattice rounding argument.",
+        "searches": [
+          "Rump 2003 optimal scaling for p-norms componentwise distance to singularity",
+          "van der Sluis 1969 condition numbers equilibration matrices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.06414",
+        "https://doi.org/10.1093/imanum/23.1.1",
+        "https://doi.org/10.1137/0722005",
+        "LAPACK DGEEQUB documentation",
+        "Resultary query: dyadic block row scaling infinity condition number exact minimization sharp ratio 2^(1-1/b)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed-precision paper bounds errors using kappa∞(DM) but also other scale-dependent terms, while current claim minimizes that factor alone."
+        ],
+        "reasoning": "A bound containing an optimizable factor does not solve its global discrete minimization or sharp ratio; conversely this theorem does not optimize the prior paper’s full mixed-precision error estimate.",
+        "searches": [
+          "arXiv:2610.06414v1 A Mixed-Precision Model for Matrix-Splitting Methods Corollary 2",
+          "doi:10.1093/imanum/23.1.1 Rump 2003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LAPACK xGEEQUB supplies bounded radix-based equilibration heuristics rather than exact global condition-number optimization.",
+          "Lindquist et al 2026 Corollary 2 permits blockwise power-of-two row scaling as an input to error bounds."
+        ],
+        "reasoning": "Equivalent norm-balancing folklore could imply candidate normalization; no inspected source states the exact unbounded integer b-candidate formula and sharp loss.",
+        "searches": [
+          "optimal radix power block row scaling infinity norm condition number finite candidate",
+          "Resultary: dyadic block row scaling infinity condition number exact minimization sharp ratio 2^(1-1/b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "LAPACK routine applies radix-compatible factors but does not guarantee minimizing the left-scaled infinity condition number."
+        ],
+        "reasoning": "No natural finite table captures this all-dimension exact continuous-input formula; database exact coverage is not identified, but practical scaling recipes are not proofs of global optimality.",
+        "searches": [
+          "LAPACK DGEEQUB power radix scaling condition minimization specification",
+          "matrix scaling numerical linear algebra lookup tables dyadic block"
+        ]
+      },
+      "rationale": "The standard continuous one-sided normalization is acknowledged classical. The b-candidate exact optimization and sharp dyadic/continuous factor for blockwise infinity condition numbers are not obtained from the inspected mixed-precision block-scaling premise or from general equilibration practice.",
+      "residual_risks": [
+        "The optimal block-row integer scaling might be known as an uncited rounding/equilibration folklore result.",
+        "Available Rump primary text was not read end-to-end; no whole-paper noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes relevance of dyadic block scaling, not exact candidate minimization or sharp factor",
+          "evidence": "Corollary 2 allows left row block factors and displays condition-number error term",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06414",
+          "material_read": "Corollary 2 and associated row-scaling/error-bound discussion",
+          "method": "Open accessible primary preprint HTML",
+          "title": "A Mixed-Precision Model for Matrix-Splitting Methods",
+          "trigger": "Direct source of prescribed blockwise powers-of-two matrix scaling"
+        },
+        {
+          "assessment": "Continuous-norm scaling background; no inspected exact dyadic block theorem",
+          "evidence": "Rump 2003 addresses optimal p-norm scaling in continuous setting",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/23.1.1",
+          "material_read": "Abstract, theorem-level descriptions and available scaling assertions",
+          "method": "Published primary-source abstract and relevant statements; not claimed full inaccessible text",
+          "title": "Optimal scaling for p-norms and componentwise distance to singularity",
+          "trigger": "Classical stronger continuous scaling possible overlap"
+        },
+        {
+          "assessment": "An equilibration heuristic not a proven global optimum under this norm objective",
+          "evidence": "Power-of-radix scaling description",
+          "identifier_or_url": "https://www.netlib.org/lapack/explore-html/",
+          "material_read": "Purpose and row/column factor specification",
+          "method": "Official LAPACK documentation",
+          "title": "DGEEQUB / xGEEQUB radix equilibration documentation",
+          "trigger": "Potential algorithmic equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-dyadic-block-row-equilibration-with-a-sharp-2-1-1-b-condit--f5c0a821870d/RESULT.md",
+        "https://arxiv.org/abs/2610.06414",
+        "https://doi.org/10.1093/imanum/23.1.1"
+      ],
+      "rationale": "Exact reduction from infinitely many dyadic exponent vectors to b explicit candidates is a useful global algorithmic structural fact, and the sharp universal loss 2^{1-1/b} quantifies the cost of radix quantization in a common numerical-linear-algebra setting. The b=1 boundary and arbitrary block size extremizers make the statement complete in its natural class.",
+      "residual_risks": [
+        "Does not guarantee finite-machine representability or optimize the entire mixed-precision error estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem assumes exact real arithmetic, arbitrary integer exponents, nonsingular square M, positive row scales, and fixed row blocks.",
+    "A finite exponent range or joint row-column scaling changes the optimization problem.",
+    "The optimal block-row integer scaling might be known as an uncited rounding/equilibration folklore result.",
+    "Available Rump primary text was not read end-to-end; no whole-paper noncoverage assertion is made.",
+    "Does not guarantee finite-machine representability or optimize the entire mixed-precision error estimate.",
+    "Scientific best-of-knowledge judgment, not formal proof certification or historical priority guarantee. Publication withheld."
+  ],
+  "schema_version": 1
+}

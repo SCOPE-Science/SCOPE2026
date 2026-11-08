@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_scaling.py` using Python 3.9 or newer and the standard library. The checker computes exact rational matrix inverses and exactly compares the finite-candidate theorem with a bounded independent exponent enumeration for 168 nonsingular test matrices, representing 19,558 exponent assignments after common-shift normalization. The output records PASS and also tests nine diagonal examples against the analytic sharp constant using floating-point comparisons. The test set is finite; the accompanying proof, rather than enumeration, establishes optimality over unbounded integer exponents and all nonsingular matrices.
+## correctness
 
-The critical proof steps are the two norm identities, monotonicity of the inverse norm under increasing a block scale at fixed maximal scaled row norm, and the largest-gap covering lemma for \(b\) points of the logarithmic circle. The sharpness example is computed from exact diagonal formulas. The historical-priority assessment remains subject to the explicit residual risks in `REVIEW.md` and `AUDIT.json`; no independent validation has been performed.
+PASS
+
+For D constant on each block, ||DM||∞=max_q d_q alpha_q and ||(DM)^-1||∞=max_l sum_q C_lq/d_q. For any positive scales, set T=max d_q alpha_q, giving objective >=max_l sum_q alpha_q C_lq; equality at d_q=1/alpha_q proves K*. For dyadic d_q=2^{k_q}, normalize a maximizing block s to k_s=0. Replacing each other k_q by floor(log2(alpha_s/alpha_q)) cannot increase maximum forward norm and lowers inverse sum, hence one of exactly b candidates attains global unbounded-integer minimum. Largest circular gap of b fractional log2 alpha_q phases has length >=1/b, so integer shifts make all scaled log norms lie within width <=1-1/b; this yields K2/K*<=2^{1-1/b}. Diagonal block coefficients 2^{(q-1)/b} have equally spaced phases, forcing the opposite bound; works for arbitrary positive block sizes and b=1. Independent exact rational inversion/condition calculations on 56 small nonsingular examples agreed with complete bounded normalized exponent searches; finite checks corroborate, not prove, arbitrary n.
+
+## originality
+
+PASS
+
+The standard continuous one-sided normalization is acknowledged classical. The b-candidate exact optimization and sharp dyadic/continuous factor for blockwise infinity condition numbers are not obtained from the inspected mixed-precision block-scaling premise or from general equilibration practice.
+
+## value
+
+PASS
+
+Exact reduction from infinitely many dyadic exponent vectors to b explicit candidates is a useful global algorithmic structural fact, and the sharp universal loss 2^{1-1/b} quantifies the cost of radix quantization in a common numerical-linear-algebra setting. The b=1 boundary and arbitrary block size extremizers make the statement complete in its natural class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
