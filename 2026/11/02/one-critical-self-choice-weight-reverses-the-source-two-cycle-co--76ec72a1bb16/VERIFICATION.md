@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite claims
+# Independent mathematical audit
 
-The standalone `verify_weighted_mapping.py` enumerates all maps for \(n=3,4,5,6\) at five exact rational self-image weights, computing source and directed-cycle counts from each mapping. Every mapping is weighted by the product of its self-loop weights. Exact-rational covariance values are compared to the analytically derived factorization for every cycle length at the tested parameters; the symbolic sign bracket is also compared. Additional rational sign checks range over higher finite values of \(n\). The checker was run successfully and reported:
+## correctness
 
-`EXACT_TEST_PASS checks= 79610 sample_weighted_map_evaluations= 250320`
+PASS
 
-These are finite checks of a finite-sample law, not an infinite proof. The unrestricted result follows from the event calculation and strict inequalities in `RESULT.md`. The asymptotic limits follow by elementary expansion of the exact expression and are not inferred from numerical samples.
+Each independent image has mass 1/(n-1+w) off diagonal and w/(n-1+w) on itself. For a marked vertex, q=(n-1)/a*((a-1)/a)^(n-1), a=n-1+w. A fixed r-cycle has probability a^-r; a vertex on it cannot have indegree zero, while an outside vertex gains avoidance conditional factor (a/(a-1))^r. Consequently Cov(Z,C_r)=(n)_r/(r a^r)*q*((n-r)(a/(a-1))^r-n). All prefactors are positive. The bracket decreases with cycle length and w; at w=0 its r=3 value is -(2n-3)/(n-2)^3<0. For r=2, the bracket numerator is -(2w²+2(n-2)w-(n-2)), so exactly one positive zero. Fixed-r Taylor expansion gives n Cov→e^-1((3-r)/2-w); w=1/2+t/n yields n²Cov(Z,C2)→-(t+1/4)/e. Independently enumerated all n^n maps for n=3,4,5 and five rational weights, confirming 45 exact covariance identities. Finite tests corroborate but do not prove the parameter-uniform claim.
+
+## originality
+
+PASS
+
+PASS on distinct full-parameter theorem, not on w=0 or w=1 endpoint statistics; exact mixed covariance and parameter sign boundary are not supplied by inspected endpoint random-mapping results. Algebraically elementary overlap permits historical rediscovery, retained as residual risk.
+
+## value
+
+PASS
+
+The loopless and ordinary mapping models have opposite source/two-cycle correlation signs. A natural diagonal self-choice interpolation gives an exact unique threshold and microscopic scaling window while all longer cycles remain negative. This is a structural phase diagram of natural statistics, not a change of notation or finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The distribution has independent source arrows, and the proof directly computes the one-vertex avoidance probability, the number and probability of marked directed cycles, and the mixed moment after separating vertices inside and outside a cycle. The covariance factorization and the strict sign comparisons follow algebraically; positivity of the prefactors is explicit for all \(n\ge3\), finite \(w\ge0\), and \(2\le r\le n\). The strict negative sign for longer cycles uses monotonicity in cycle length and weight, not extrapolation from experiments. The fixed-length expansion and moving-weight two-cycle window use controlled finite-order asymptotic expansions. Exact rational exhaustive checks corroborate all tested small parameters.
+## correctness
 
-## Originality: PASS, with residual historical-priority risk
-Tavaré (2020, arXiv:2006.04805v1) thoroughly studies the no-self-choice endpoint, its core cycles, and component-size distributions; its accessible text was compared for the full diagonal interpolation and no such covariance transition was identified. The classical uniform mapping model sits at the other endpoint. A known earlier loopless covariance classification covers the \(w=0\) endpoint; this endpoint is **not** claimed as new. The proposed statement is the exact finite-parameter crossover, strict global sign classification across weights, and boundary-layer asymptotics. Search and comparison did not identify a broader result expressly including this diagonal-weight crossover. The elementary event calculation makes independent prior derivation possible, and priority remains qualified rather than certified.
+PASS
 
-## Value: PASS
-Loopless random mappings and classical uniform random mappings are standard neighboring models. Their natural one-parameter interpolation answers a structural question about whether incoming-degree-zero vertices and feedback cycles compete or coexist. The unique exact sign change for two-cycles, its microscopic cutoff, and the opposite rigid sign for all longer cycles provide a complete phase diagram; they are not a mere numeric instance or parameter relabeling. The exact critical window quantifies the passage between the distinct endpoint regimes.
+Each independent image has mass 1/(n-1+w) off diagonal and w/(n-1+w) on itself. For a marked vertex, q=(n-1)/a*((a-1)/a)^(n-1), a=n-1+w. A fixed r-cycle has probability a^-r; a vertex on it cannot have indegree zero, while an outside vertex gains avoidance conditional factor (a/(a-1))^r. Consequently Cov(Z,C_r)=(n)_r/(r a^r)*q*((n-r)(a/(a-1))^r-n). All prefactors are positive. The bracket decreases with cycle length and w; at w=0 its r=3 value is -(2n-3)/(n-2)^3<0. For r=2, the bracket numerator is -(2w²+2(n-2)w-(n-2)), so exactly one positive zero. Fixed-r Taylor expansion gives n Cov→e^-1((3-r)/2-w); w=1/2+t/n yields n²Cov(Z,C2)→-(t+1/4)/e. Independently enumerated all n^n maps for n=3,4,5 and five rational weights, confirming 45 exact covariance identities. Finite tests corroborate but do not prove the parameter-uniform claim.
 
-## Limitations
-The result is about covariances, not conditional independence, and applies only to independently sampled outgoing arrows with a common diagonal weight. A published equivalent derivation remains a real historical-priority risk. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on distinct full-parameter theorem, not on w=0 or w=1 endpoint statistics; exact mixed covariance and parameter sign boundary are not supplied by inspected endpoint random-mapping results. Algebraically elementary overlap permits historical rediscovery, retained as residual risk.
+
+## value
+
+PASS
+
+The loopless and ordinary mapping models have opposite source/two-cycle correlation signs. A natural diagonal self-choice interpolation gives an exact unique threshold and microscopic scaling window while all longer cycles remain negative. This is a structural phase diagram of natural statistics, not a change of notation or finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

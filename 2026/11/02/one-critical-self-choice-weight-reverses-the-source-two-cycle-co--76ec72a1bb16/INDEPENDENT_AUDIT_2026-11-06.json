@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:59:14.221034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each independent image has mass 1/(n-1+w) off diagonal and w/(n-1+w) on itself. For a marked vertex, q=(n-1)/a*((a-1)/a)^(n-1), a=n-1+w. A fixed r-cycle has probability a^-r; a vertex on it cannot have indegree zero, while an outside vertex gains avoidance conditional factor (a/(a-1))^r. Consequently Cov(Z,C_r)=(n)_r/(r a^r)*q*((n-r)(a/(a-1))^r-n). All prefactors are positive. The bracket decreases with cycle length and w; at w=0 its r=3 value is -(2n-3)/(n-2)^3<0. For r=2, the bracket numerator is -(2w²+2(n-2)w-(n-2)), so exactly one positive zero. Fixed-r Taylor expansion gives n Cov→e^-1((3-r)/2-w); w=1/2+t/n yields n²Cov(Z,C2)→-(t+1/4)/e. Independently enumerated all n^n maps for n=3,4,5 and five rational weights, confirming 45 exact covariance identities. Finite tests corroborate but do not prove the parameter-uniform claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General iid-target random mapping results assume identically distributed image laws; w≠1 has source-dependent diagonal weights."
+        ],
+        "reasoning": "General iid-target formulas cannot be applied directly to the common nonunit diagonal weight; a more general inhomogeneous-mapping factorial-moment formula could specialize and is a real priority risk.",
+        "searches": [
+          "Flajolet Odlyzko random mapping statistics 1990 cycle source distribution",
+          "random functional digraph with diagonally weighted arrows covariance cycles sources"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 5d531c5951a3194c3d1245eba6121d94bdced55a/RESULT.md and verify_weighted_mapping.py",
+        "Tavaré arXiv:2006.04805",
+        "Flajolet and Odlyzko, Random mapping statistics (bibliographic background)",
+        "Resultary semantic search on weighted mapping covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An endpoint distribution does not imply a uniform covariance sign over every w≥0; n-dependent crossover follows from fresh mixed-event calculation."
+        ],
+        "reasoning": "The displayed conditional-cycle avoidance identity supplies additional reasoning for the nonendpoint theorem. No searched source was found to state or trivially imply that complete general-weight classification.",
+        "searches": [
+          "Tavaré 2020 loopless mapping Theorem cycle counts",
+          "Flajolet Odlyzko 1990 random mapping statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tavaré, A note on the Screaming Toes game, arXiv:2006.04805, studies w=0 only; standard independent random mappings correspond to w=1."
+        ],
+        "reasoning": "A loopless directed functional graph is the w=0 specialization, so its covariance is covered at that endpoint; no inspected source identifies the interpolation or the w-dependent sign reversal.",
+        "searches": [
+          "\"random mappings\" \"self loops\" cycle indegree-zero covariance weighted",
+          "Resultary: random mapping weighted self loops no indegree vertices source count directed cycles covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact loopless cycle/component tables are for w=0, not the continuously varying threshold w*(n)."
+        ],
+        "reasoning": "A finite table at w=0 or 1 cannot contain the real-parameter sign locus; an older symbolic generating-function table remains unexcluded.",
+        "searches": [
+          "Tavaré Screaming Toes game exact cycle count table",
+          "Resultary random mapping two cycle empty indegree covariance"
+        ]
+      },
+      "rationale": "PASS on distinct full-parameter theorem, not on w=0 or w=1 endpoint statistics; exact mixed covariance and parameter sign boundary are not supplied by inspected endpoint random-mapping results. Algebraically elementary overlap permits historical rediscovery, retained as residual risk.",
+      "residual_risks": [
+        "Equivalent inhomogeneous random-mapping moment identities not indexed by the targeted searches may contain this as a corollary.",
+        "Asymptotic limit assumes r fixed and critical-window t fixed; no claims when r grows with n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers loopless endpoint, not directly arbitrary nonnegative diagonal self-choice weights.",
+          "evidence": "Independent arrows excluding self-choice; no continuous w parameter in the inspected model.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04805",
+          "material_read": "Freely available full PDF opened; introductory model definition and directed-cycle/component-statistics passages read, including relevant displayed formulas.",
+          "method": "primary manuscript PDF and page screenshots",
+          "title": "A note on the Screaming Toes Game",
+          "trigger": "Same loopless w=0 mapping model and directed-cycle statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The loopless and ordinary mapping models have opposite source/two-cycle correlation signs. A natural diagonal self-choice interpolation gives an exact unique threshold and microscopic scaling window while all longer cycles remain negative. This is a structural phase diagram of natural statistics, not a change of notation or finite example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 5d531c5951a3194c3d1245eba6121d94bdced55a/RESULT.md and verify_weighted_mapping.py",
+    "Tavaré arXiv:2006.04805",
+    "Flajolet and Odlyzko, Random mapping statistics (bibliographic background)",
+    "Resultary semantic search on weighted mapping covariance"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all integers n≥3, finite w≥0 and 2≤r≤n, an explicit covariance formula describes empty-indegree count Z against directed r-cycle count C_r; r≥3 has negative covariance, r=2 has a unique sign change at w*=(sqrt(n(n-2))-(n-2))/2, with fixed-weight and n^-1 critical-window limits.",
+  "limitations": [
+    "Only independent source arrows and common finite diagonal weight; r≥2 and n≥3.",
+    "Zero covariance does not mean independence; finite enumeration is corroboration only."
+  ],
+  "residual_risks": [
+    "Equivalent inhomogeneous random-mapping moment identities not indexed by the targeted searches may contain this as a corollary.",
+    "Asymptotic limit assumes r fixed and critical-window t fixed; no claims when r grows with n."
+  ],
+  "schema_version": 1
+}
