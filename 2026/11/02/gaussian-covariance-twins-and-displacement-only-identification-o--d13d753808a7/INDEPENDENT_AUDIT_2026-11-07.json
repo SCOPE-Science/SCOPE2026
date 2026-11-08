@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At stationarity, fresh N(0,sigma²) Poisson redraws preserve the Gaussian one-time velocity distribution; two velocities are correlated only if their interval has no collision, so covariance is sigma² exp[-(gamma+r)|t-s|]. For ordered four-time gaps a,b,c, conditional Gaussian block pairings yield cumulant 2 sigma⁴ exp[-lambda(a+2b+c)](exp(rb)-1), lambda=gamma+r; checked independent enumeration of 8 collision-pattern configurations for two parameter sets. Integrating the connected cumulant over the ordered four-time simplex gives cum4(X_T)=48 sigma⁴∫_0^T exp[-2lambda b](exp(rb)-1)J_lambda(T-b)db>0; J_lambda(L)=∫_0^L q(L-q)exp(-lambda q)dq. Var X_T=sigma² B_lambda(T), B=2∫_0^T(T-h)e^-lambda h dh. The ratio B_lambda(T2)/B_lambda(T1) for 0<T1<T2 strictly decreases with lambda by monotone likelihood ratio of weighted lags; determines lambda, first variance determines sigma, strict monotonicity of positive cum4 integral at fixed lambda determines r, then gamma=lambda-r. Boundaries require gamma,r,sigma>0 and exact ensemble moments, not empirical finite sample certainty.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Olsen–Gupta 2024 develops general renewal switching formulas in alternating motility phases, which may be specialized after nontrivial work. Olsen–Löwen 2024 considers resets to fixed values rather than fresh Gaussian marks."
+        ],
+        "reasoning": "Neither inspected source stated this three-moment displacement-only inverse theorem or the connected four-time integrand in the fresh-Gaussian redraw regime; broader derivability remains risk.",
+        "searches": [
+          "Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+          "random Gaussian velocity redrawing Andersen thermostat fourth cumulant displacement inverse rate"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.12685",
+        "https://arxiv.org/abs/2408.16643",
+        "Resultary semantic query: Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+        "Pinned Git result blob 1903f26aefee19bfbace11918c978fe43e165697"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General switching renewal and deterministic resetting results do not immediately imply the fresh-equilibrium-Gaussian covariance twin plus positive fourth cumulant and unique parameter recovery with two variance windows."
+        ],
+        "reasoning": "Explicit collision-pattern Wick decomposition and strict variance-ratio ordering prove the new final claim in a motivated model.",
+        "searches": [
+          "Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+          "random Gaussian velocity redrawing Andersen thermostat fourth cumulant displacement inverse rate",
+          "https://arxiv.org/abs/2401.12685"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed-velocity-reset model is not fresh equilibrium Gaussian rethermalization. A Gaussian OU twin matches all covariances yet has identically zero fourth cumulant, so fourth-order displacement separates the models."
+        ],
+        "reasoning": "Prior renewal switching frameworks contain general propagator tools but no verified same exact stationary cumulant and two-window inversion conclusion.",
+        "searches": [
+          "Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+          "random Gaussian velocity redrawing Andersen thermostat fourth cumulant displacement inverse rate",
+          "https://arxiv.org/abs/2401.12685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All positive continuous rates and times, not a previously tabulated finite constant. The formula is a continuous exact analytic integral."
+        ],
+        "reasoning": "Parameter identifiability requires monotonicity, not a lookup.",
+        "searches": [
+          "Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+          "random Gaussian velocity redrawing Andersen thermostat fourth cumulant displacement inverse rate"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. Prior renewal switching frameworks contain general propagator tools but no verified same exact stationary cumulant and two-window inversion conclusion.",
+      "residual_risks": [
+        "A broader thermostat or renewal switching theorem might imply the evaluated fourth cumulant after specialization; historical priority not definitive.",
+        "Ideal ensemble cumulants assumed; finite noisy-window inverse-conditioning not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_RESET_DISTRIBUTION",
+          "evidence": "Velocity reset to a fixed value breaks the Gaussian-preserving equilibrium mechanism used for the exact covariance twins.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Accessible bibliographic and model/abstract discussion; complete paper not inspected",
+          "method": "Abstract and physical model comparison",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "Closest velocity-resetting stochastic process"
+        },
+        {
+          "assessment": "BROAD_RENEWAL_METHOD_NOT_EXPLICIT_FINAL_FORMULA",
+          "evidence": "Alternating motility phases and general methods; not an explicit fresh-Gaussian OU covariance-twin, connected 4-point cumulant, and displacement 3-moment injectivity theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16643",
+          "material_read": "Accessible full 14-page PDF; model definitions and general switching formulas in initial sections, with page images inspected",
+          "method": "Full-text/PDF model and result comparison",
+          "title": "Dynamics of switching processes: general results and applications to intermittent active motion",
+          "trigger": "Potential stronger renewal-motion framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural renewal thermalization model is invisible to every quadratic observation despite distinct non-Gaussian fourth-order behavior; the exact three-displacement-moment inverse theorem provides a practically motivated structural identifiability result, with sharp strict positivity/monotonicity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2401.12685",
+    "https://arxiv.org/abs/2408.16643",
+    "Resultary semantic query: Poisson rethermalization Ornstein Uhlenbeck displacement fourth cumulant covariance parameter identification",
+    "Pinned Git result blob 1903f26aefee19bfbace11918c978fe43e165697"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A broader thermostat or renewal switching theorem might imply the evaluated fourth cumulant after specialization; historical priority not definitive.",
+    "Ideal ensemble cumulants assumed; finite noisy-window inverse-conditioning not established."
+  ],
+  "residual_risks": [
+    "A broader thermostat or renewal switching theorem might imply the evaluated fourth cumulant after specialization; historical priority not definitive.",
+    "Ideal ensemble cumulants assumed; finite noisy-window inverse-conditioning not established."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DISTINCT_RESET_DISTRIBUTION",
+      "evidence": "Velocity reset to a fixed value breaks the Gaussian-preserving equilibrium mechanism used for the exact covariance twins.",
+      "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+      "material_read": "Accessible bibliographic and model/abstract discussion; complete paper not inspected",
+      "method": "Abstract and physical model comparison",
+      "title": "Dynamics of inertial particles under velocity resetting",
+      "trigger": "Closest velocity-resetting stochastic process"
+    },
+    {
+      "assessment": "BROAD_RENEWAL_METHOD_NOT_EXPLICIT_FINAL_FORMULA",
+      "evidence": "Alternating motility phases and general methods; not an explicit fresh-Gaussian OU covariance-twin, connected 4-point cumulant, and displacement 3-moment injectivity theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/2408.16643",
+      "material_read": "Accessible full 14-page PDF; model definitions and general switching formulas in initial sections, with page images inspected",
+      "method": "Full-text/PDF model and result comparison",
+      "title": "Dynamics of switching processes: general results and applications to intermittent active motion",
+      "trigger": "Potential stronger renewal-motion framework"
+    }
+  ]
+}

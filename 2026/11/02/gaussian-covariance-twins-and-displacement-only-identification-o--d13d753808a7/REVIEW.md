@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Poisson-block Wick decomposition retains the collision-free requirement for crossing pairings and exactly cancels the independent \((12)(34)\) pairing. Its connected fourth-time kernel integrates to the stated positive displacement cumulant. The two-window variance ratio has a strict monotone likelihood-ratio proof for any positive distinct windows. At fixed total relaxation \(\lambda\), the cumulant strictly increases in the thermalization rate, yielding uniqueness. The accompanying independent collision-partition enumeration, inverse reconstructions and conditional-Gaussian Monte Carlo agree with the theorem's quantitative formulas. Numerical evidence never substitutes for the proof.
+## correctness
 
-## Originality
-**PASS with residual uncertainty.** Olsen and Löwen (arXiv:2401.12685) reset hidden velocity to a fixed value; their general moment machinery is established background, not a stated Maxwellian-redraw inverse theorem. Santra, Olsen, and Gupta (arXiv:2408.16643) derive switching-process renewal propagators, but not the specific Gaussian-covariance indistinguishability and exact three-observation inverse. Andersen-style Maxwellian thermalization is standard. Actual published-finding corpus semantic searches found related OU sensor, numerical Langevin integrator and thermostat results without comparable assumptions or implication. Related previously established findings concern switched harmonic confinement and diffusivity reset, not this dynamical model. A more general renewal or Andersen-model theorem may be stronger and is a genuine priority risk; independent priority verification remains absent.
+PASS
 
-## Mathematical value
-**PASS.** A concrete stationary stochastic thermostat is invisible to all quadratic observations yet distinguishable from its exact Gaussian OU covariance twin at fourth order. The theorem demonstrates exactly which additional observable and which two finite displacement observation durations suffice to identify the physical friction, collision rate and temperature scale. The strict all-time sign, injectivity and asymptotic laws distinguish this result from a mere example or generic Gaussian-mixture observation.
+At stationarity, fresh N(0,sigma²) Poisson redraws preserve the Gaussian one-time velocity distribution; two velocities are correlated only if their interval has no collision, so covariance is sigma² exp[-(gamma+r)|t-s|]. For ordered four-time gaps a,b,c, conditional Gaussian block pairings yield cumulant 2 sigma⁴ exp[-lambda(a+2b+c)](exp(rb)-1), lambda=gamma+r; checked independent enumeration of 8 collision-pattern configurations for two parameter sets. Integrating the connected cumulant over the ordered four-time simplex gives cum4(X_T)=48 sigma⁴∫_0^T exp[-2lambda b](exp(rb)-1)J_lambda(T-b)db>0; J_lambda(L)=∫_0^L q(L-q)exp(-lambda q)dq. Var X_T=sigma² B_lambda(T), B=2∫_0^T(T-h)e^-lambda h dh. The ratio B_lambda(T2)/B_lambda(T1) for 0<T1<T2 strictly decreases with lambda by monotone likelihood ratio of weighted lags; determines lambda, first variance determines sigma, strict monotonicity of positive cum4 integral at fixed lambda determines r, then gamma=lambda-r. Boundaries require gamma,r,sigma>0 and exact ensemble moments, not empirical finite sample certainty.
 
-## Scope and limitations
-Rates and equilibrium variance are strictly positive. Collision velocities are independently redrawn from the exact invariant Gaussian, clocks are Poisson, and measurements are ideal exact ensemble moments. Finite-sample conditioning, other refresh distributions, confining fields, and statistically stable inversion have not been proved. Full-literature novelty and independent mathematical review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original evaluated final claim relative to the inspected primary results and actual Resultary semantic search, not a universal historical priority certificate. Prior renewal switching frameworks contain general propagator tools but no verified same exact stationary cumulant and two-window inversion conclusion.
+
+## value
+
+PASS
+
+A natural renewal thermalization model is invisible to every quadratic observation despite distinct non-Gaussian fourth-order behavior; the exact three-displacement-moment inverse theorem provides a practically motivated structural identifiability result, with sharp strict positivity/monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
