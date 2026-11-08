@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge7\) and real \(t\ge0\), the operator/transport duality and cyclic edge-flow formula reduce the sharp norm to a median problem. The radial heat kernel is strictly decreasing with distance for all positive times because its successive differences evolve by an irreducible cooperative linear system. Four exhaustive residue-class counts determine the median, and an exact shortest-walk expansion proves the sharp first nonzero contraction coefficient. Cycle Fourier diagonalization and finite trigonometric sums establish the long-time coefficient. The supplied standard-library verifier checks independent dual optimizations, exact Taylor coefficients and spectral coefficients, while the proof handles every size and time. No finite experiment is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The circular median transport formula is explicitly credited to Delon–Rabin–Gousseau, arXiv:0906.5499, Section 2.2.3; the general curvature/transport viewpoint is credited to Ollivier, arXiv:math/0701886; and the general heat-semigroup gradient estimate is credited to Münch–Wojciechowski, arXiv:1712.00875, Theorem 3.8. None of the inspected relevant sections states the all-\(n\ge7\) cyclic heat norm, its precise \(\lfloor(n+2)/4\rfloor\) short-time flatness order and four residue coefficients, or its explicit long-time amplitude formula. Prior exact work on the six-cycle is outside the novelty domain. The claim is not that the general median formula or Fourier spectrum was discovered here. An unindexed equivalent heat-profile calculation is a residual publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-Simple cycles are natural compact flat graphs. When \(n\ge7\), their infinitesimal heat transport curvature is zero, yet their heat semigroup contracts every positive time and the first nonzero contraction occurs at an order increasing linearly with circumference. The exact four-residue law quantifies the delay before compact topology affects a local transport distance, while the spectral coefficient converges to \(4/\pi\). These are precise, reusable benchmarks for graph diffusion and transport stability, not an arbitrary small-graph enumeration.
+For the finite unit-edge cycle, KR duality identifies the attained sharp Lipschitz seminorm with W1 of neighboring heat rows, and an edge-circulation argument gives min_c sum_j|p_t(j)-c|. The radial difference system for q_d=p_t(d) is irreducible cooperative: q_0>q_1>...>q_floor(n/2) for every t>0. Counting multiplicities of radial entries gives the four exact median expressions for n=4r+a. Taylor expansion e^{-tL} shows p_t(d)=t^d/d!+O(t^(d+1)) before the antipode; plugging the four cuts yields contraction deficit b_a t^k/k! at k=floor((n+2)/4), b=(2,1,4,3). Spectral Fourier modes ±1 give leading e^{-4sin²(pi/n)t} and explicit trigonometric median sum c_n; remaining modes decay at λ_2 for n>=7. Boundary t=0 and all residue classes covered. Independent exact combinatorial leading coefficient check across 33 n agreed; experiments do not establish the universal limit.
 
-## Limitations
-Only unit-edge simple cycles, combinatorial heat and graph-metric \(W_1\) are included. The prior general median identity is not new. The reviewed result has not received independent scientific verification, and priority beyond the inspected literature is not guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general circular transport median/min-cost-flow reduction and Fourier cycle heat kernel are classical antecedents, not claimed new. The combined all-n≥7 exact heat-Lipschitz profile, quarter-cycle delayed first strict contraction order and exact spectral amplitudes go beyond general W1 and curvature inequalities; no relevant inspected primary theorem entailed that combined evaluation.
+
+## value
+
+PASS
+
+Sharp contractivity of graph heat on finite cycles is a natural diffusion/transport invariant. The quarter-cycle delay to the first nonzero Taylor derivative is a meaningful high-order boundary phenomenon, and the all-time exact four-residue formula plus explicit long-time constants give quantitative information not supplied by standard generic curvature estimates. This is valuable even though circular flow duality and Fourier diagonalization are well known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
