@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:44:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rook graph is exactly the line graph of K_{m,n}. A selected edge uv has induced rook degree d_H(u)+d_H(v)-2, so the constraint is d_H(u)+d_H(v)≤4. If a vertex has degree three, all neighbors are leaves and the component is K_{1,3}; otherwise components are alternating paths, even cycles or isolates. The labelled two-sort exponential formula sums exact path, cycle, star contributions, including removal of the forbidden two-cycle. In a square, |E(H)|≤|V(H)|≤2q, with equality iff H is a spanning bipartite two-factor. For total domination when max(m,n)≥5, a chosen vertex has at least 5 rook neighbors, at most 2 chosen; a complement vertex with no complement neighbor would make four chosen vertices in a row/column clique, contradicting max degree two. Direct subset tests of boards up to 3×4 and exact 2×2,3×3 maxima corroborate but do not prove universal statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mao et al DOI:10.26493/2590-9770.1216.6d2 establishes bounds for product k-independence numbers, not all coefficients",
+          "Cappelle et al DOI:10.1051/ro/2024098 treats algorithmic complexity on graph products; not the displayed rook-graph EGF",
+          "Cabrera-Martínez et al DOI:10.3390/math8020194 defines and bounds total outer k-independent domination"
+        ],
+        "reasoning": "General graph-product bounds do not recover exact counts or two-factor multiplicities. The total-outer-domination paper covers the invariant definition but not the automatic complement property at the specified size boundary.",
+        "searches": [
+          "Resultary semantic search: three-independent sets rook graph Cartesian product complete graphs induced maximum degree 2 bipartite two-factor exponential generating function",
+          "Mao Cheng Wang Guo The k-independence number of graph products",
+          "Cappelle Coelho Mortosa Nascimento Complexity results on k-independence in some graph products"
+        ]
+      },
+      "checked_sources": [
+        "Mao et al 2017/2018 DOI 10.26493/2590-9770.1216.6d2",
+        "Cabrera-Martínez et al 2020 DOI 10.3390/math8020194",
+        "Cappelle et al 2024 DOI 10.1051/ro/2024098",
+        "Resultary semantic rook graph published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bound on α_k(K_m□K_n) is one coefficient-support consequence of the new EGF, not a converse implication",
+          "Induced-forest rook enumerators exclude even-cycle components and are not equal to the induced max-degree-two polynomial"
+        ],
+        "reasoning": "Earlier bounds, 2-factor enumeration or induced-forest counts cannot imply all coefficients without constructing the exact paths/cycles/stars component enumeration.",
+        "searches": [
+          "Resultary semantic search: three-independent sets rook graph Cartesian product complete graphs induced maximum degree 2 bipartite two-factor exponential generating function",
+          "Mao et al 2017 k-independence Cartesian complete bounds; Cabrera-Martínez total outer k-independent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md: rook K_m□K_n=L(K_{m,n}); selected edge uv has rook degree d_H(u)+d_H(v)-2",
+          "The induction parameter name three-independent here means max induced degree two (other conventions call it 2-independent)"
+        ],
+        "reasoning": "These are definitionally equivalent languages. No identified prior source using the alternate k-index displays the same three-component-type bivariate EGF.",
+        "searches": [
+          "Resultary semantic search: three-independent sets rook graph Cartesian product complete graphs induced maximum degree 2 bipartite two-factor exponential generating function",
+          "k-independence versus 2-independence line graphs bipartite degree-sum condition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard labelled bipartite two-factor EGF exp(sum_{k≥2}t^k/(2k))=e^{-t/2}/sqrt(1-t) is classical and acknowledged",
+          "No exact matching published all-m,n three-independent rook coefficient table was identified by Resultary search; nearest returned rook three-cut/Čech complexes, distinct invariants"
+        ],
+        "reasoning": "The maximum-set count itself can be reduced to known two-factor enumeration and is not independently novel; the complete rook polynomial and domination equivalence go beyond it. Search absence is a residual risk, not a proof of priority.",
+        "searches": [
+          "Resultary semantic search: three-independent sets rook graph Cartesian product complete graphs induced maximum degree 2 bipartite two-factor exponential generating function",
+          "bipartite 2-factor count K_n,n exponential generating function rook induced degree two polynomial"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality of the precise joint final claim; searched published mathematical records and compared primary statements, stronger methods and equivalent formulations. Earlier bounds, 2-factor enumeration or induced-forest counts cannot imply all coefficients without constructing the exact paths/cycles/stars component enumeration. All residual priority/access risks are recorded.",
+      "residual_risks": [
+        "A less-searchable historical 2-regular bipartite subgraph enumerator may imply the all-m,n EGF",
+        "Literature on line-graph induced maximum degree two could use alternate k-independence numbering",
+        "The 2-factor count is known enumerative combinatorics; novelty lies in full polynomial and domination transfer"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state full coefficientwise two-sort generating series",
+          "evidence": "Extremal/inequality focus, unlike full component EGF",
+          "identifier_or_url": "https://doi.org/10.26493/2590-9770.1216.6d2",
+          "material_read": "Accessible full primary author-hosted text sections on Cartesian products and complete factors",
+          "method": "Full text browsed and compared statements about bounds",
+          "title": "The k-independence number of graph products",
+          "trigger": "Exact graph family and extremal independence invariant"
+        },
+        {
+          "assessment": "No matching all-m,n rook EGF identified; residual risk unindexed appendix",
+          "evidence": "Primary focus complexity rather than exact rook coefficient enumeration",
+          "identifier_or_url": "https://doi.org/10.1051/ro/2024098",
+          "material_read": "Accessible article text and main statements on complexity for products; not a line-by-line survey of all appendices",
+          "method": "Open lawful author-hosted full text; inspect main results",
+          "title": "Complexity results on k-independence in some graph products",
+          "trigger": "Plausible general graph-product dominance"
+        },
+        {
+          "assessment": "Defines related invariant and inequalities; no verified exact rook complement theorem",
+          "evidence": "Total outer k-independent domination terminology and bounds",
+          "identifier_or_url": "https://doi.org/10.3390/math8020194",
+          "material_read": "Accessible abstract, definitions and online passages; not asserted as complete line-by-line full text",
+          "method": "Publisher abstract and partial text comparison",
+          "title": "On the Total Outer k-Independent Domination Number of Graphs",
+          "trigger": "Same domination concept"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact three-independence polynomial is a natural coefficientwise graph invariant beyond known extremal k-independence numbers. The spanning two-factor extremizers give exact multiplicities, and a nontrivial large-board equivalence produces total outer three-independent domination polynomials; these are useful precise quantities and not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mao et al 2017/2018 DOI 10.26493/2590-9770.1216.6d2",
+    "Cabrera-Martínez et al 2020 DOI 10.3390/math8020194",
+    "Cappelle et al 2024 DOI 10.1051/ro/2024098",
+    "Resultary semantic rook graph published findings"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every m,n≥0 the induced maximum-degree-at-most-two polynomial of K_m square K_n has the stated alternating-path/even-cycle/three-star EGF; q×q maxima have cardinality 2q and count (q!)²[t^q] exp(-t/2)/sqrt(1-t), and for min(m,n)≥2,max(m,n)≥5 the complementary sets are totally dominating.",
+  "limitations": [
+    "Complement automatically totally dominates only for m,n≥2 with max(m,n)≥5",
+    "Finite direct enumeration checks neither all polynomial coefficients nor the infinite formal series",
+    "Priority for two-factor enumeration itself is not asserted",
+    "No exhaustive global novelty certification or external expert attestation claimed.",
+    "Publication withheld for operational privacy/transport, despite complete qualified scientific review."
+  ],
+  "residual_risks": [
+    "A less-searchable historical 2-regular bipartite subgraph enumerator may imply the all-m,n EGF",
+    "Literature on line-graph induced maximum degree two could use alternate k-independence numbering",
+    "The 2-factor count is known enumerative combinatorics; novelty lies in full polynomial and domination transfer"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Does not state full coefficientwise two-sort generating series",
+      "evidence": "Extremal/inequality focus, unlike full component EGF",
+      "identifier_or_url": "https://doi.org/10.26493/2590-9770.1216.6d2",
+      "material_read": "Accessible full primary author-hosted text sections on Cartesian products and complete factors",
+      "method": "Full text browsed and compared statements about bounds",
+      "title": "The k-independence number of graph products",
+      "trigger": "Exact graph family and extremal independence invariant"
+    },
+    {
+      "assessment": "No matching all-m,n rook EGF identified; residual risk unindexed appendix",
+      "evidence": "Primary focus complexity rather than exact rook coefficient enumeration",
+      "identifier_or_url": "https://doi.org/10.1051/ro/2024098",
+      "material_read": "Accessible article text and main statements on complexity for products; not a line-by-line survey of all appendices",
+      "method": "Open lawful author-hosted full text; inspect main results",
+      "title": "Complexity results on k-independence in some graph products",
+      "trigger": "Plausible general graph-product dominance"
+    },
+    {
+      "assessment": "Defines related invariant and inequalities; no verified exact rook complement theorem",
+      "evidence": "Total outer k-independent domination terminology and bounds",
+      "identifier_or_url": "https://doi.org/10.3390/math8020194",
+      "material_read": "Accessible abstract, definitions and online passages; not asserted as complete line-by-line full text",
+      "method": "Publisher abstract and partial text comparison",
+      "title": "On the Total Outer k-Independent Domination Number of Graphs",
+      "trigger": "Same domination concept"
+    }
+  ]
+}
