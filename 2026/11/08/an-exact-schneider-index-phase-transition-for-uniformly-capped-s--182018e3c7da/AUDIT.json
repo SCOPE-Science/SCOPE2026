@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The complete proof verifies vertex/facet descriptions, both independent lower bounds, all boundary facets covered at the claimed threshold, and a common star center for every translate. The endpoint t=1 and t=1/2 are handled. The standalone exact-Fraction checker completed 19,385 tests; it is supplementary, not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer arXiv:2610.26744 Theorem 1.3 proves a finiteness characterization for polytope convexifiers, not a sharp cap-index expression.",
+        "Artstein-Avidan et al. arXiv:2407.20604 Lemma 5.1 treats centrally symmetric polytopes, which these general cap truncations are not."
+      ],
+      "reasoning": "Finiteness and facial-restriction statements do not imply the exact max-of-two-affine-terms threshold or its switch at the claimed point without solving the new coverage problem.",
+      "searches": [
+        "Schneider index simplex cap x_i<=t phase transition at d/(d+1)",
+        "arXiv:2610.26744 PDF Sections 1, 5 and full-text find \"simplex\", \"truncat\"",
+        "arXiv:2407.20604 PDF Section 5 and Section 7"
+      ]
+    },
+    "checked_sources": [
+      "M. Meyer, arXiv:2610.26744 (2026-10-19), primary PDF inspected",
+      "S. Artstein-Avidan, T. Falah, B. A. Slomka, arXiv:2407.20604 (2024-07-30), primary PDF inspected",
+      "published-finding corpus record 2026/10/11/SCOPE-sharp-finite-convexification-thresholds-for-every-skeleton-of-a--92b027220722",
+      "published-finding corpus record 2026/10/11/SCOPE-volume-spline-jumps-count-nonsimple-vertices-in-upper-hadamard-t--f2c794cd6440",
+      "Known hypersimplex vertex-index formula at t=1/2 (endpoint comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact hypersimplex index at t=1/2 is d-1 for this family; the value d for t=1 is the classical simplex endpoint.",
+        "Artstein-Avidan et al. show simplex extremality but no cap interpolation."
+      ],
+      "reasoning": "Knowing two endpoint values does not determine the plateau, the precise phase threshold, or the linear tail; those require the facet and common-center construction.",
+      "searches": [
+        "arXiv:2407.20604 PDF search: hypersimplex; simplex; truncat",
+        "published-finding corpus queries on truncated simplex Schneider index and hypersimplex deformation",
+        "arXiv:2407.20604 Proposition 7.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2407.20604 discusses the normalized identity P=alpha V+(1-alpha)P and general vertex-generated parameter; it does not state a cap-parameter profile.",
+        "arXiv:2610.26744 defines c^(K)(A), reducing to the Schneider index for K=conv(A)."
+      ],
+      "reasoning": "The normalized vertex-generation parameter is 1/(1+c), so equivalent wording was checked. The indexed texts do not identify the exact continuous deformation profile.",
+      "searches": [
+        "Schneider nonconvexity index vertex set truncated simplex P_t={x_i>=0,sum x_i=1,x_i<=t} for t between 1/2 and 1, exact phase transition max(d-1,(d+1)t-1)",
+        "vertex-generated parameter uniformly truncated simplex capped probability simplex continuous deformation hypersimplex index",
+        "web: \"uniformly truncated simplex\" \"Schneider\" vertex generation",
+        "arXiv:2407.20604 PDF find \"truncat\" and \"hypersimplex\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed record on Hadamard-truncated simplex is a volume-spline result.",
+        "The exact hypersimplex index covers the t=1/2 endpoint, not the continuum."
+      ],
+      "reasoning": "No exact table or formula covering the parameterized capped-simplex index was identified. An unsuccessful database search does not prove absence from all literature.",
+      "searches": [
+        "Schneider nonconvexity index vertex set truncated simplex P_t={x_i>=0,sum x_i=1,x_i<=t} for t between 1/2 and 1, exact phase transition max(d-1,(d+1)t-1)",
+        "vertex-generated parameter uniformly truncated simplex capped probability simplex continuous deformation hypersimplex index",
+        "Schneider index simplex cap x_i<=t phase transition at d/(d+1)",
+        "web: \"capped simplex\" \"vertex generated\" polytope coefficient"
+      ]
+    },
+    "rationale": "Direct comparisons against both high-relevance primary preprints and relevant published published-finding corpus/own-claim endpoints did not reveal coverage of the all-real-parameter capped-simplex phase profile. The nearest results cover general criteria or one endpoint. Priority remains provisional, with explicit residual risk.",
+    "residual_risks": [
+      "An old or incompletely indexed uniformly truncated-simplex result could implicitly determine the same Schneider index.",
+      "Generic index bounds and simplex/hypersimplex endpoint claims are already known, so novelty is confined to the exact parameterized transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exposed-face and finiteness framework; does not supply a sharp uniformly capped simplex threshold.",
+        "evidence": "Theorem 1.3 and Section 5, PDF pages 2–3 and 16–18; no matches for simplex or truncat across the PDF.",
+        "identifier_or_url": "https://borowiecki.dev/pdf/2610.26744",
+        "material_read": "Introduction and principal theorems on pages 1–3, proof of polytope criterion on pages 16–18, and full-document searches for simplex/truncation/vertex.",
+        "method": "Lawful open-access PDF, read parsed text and viewed first-page screenshot.",
+        "title": "Finite convexification by Minkowski summation",
+        "trigger": "Recent primary motivating paper explicitly defining the requested finite convexification threshold."
+      },
+      {
+        "assessment": "Relevant general bounds/definitions; the facet recursion requires central symmetry and the present exact cap interpolation is not stated.",
+        "evidence": "Lemma 5.1, PDF page 12; Proposition 7.5, PDF page 20; no matches for truncat or hypersimplex.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.20604",
+        "material_read": "Relevant introduction, dimension and simplex statements, Lemma 5.1, concluding remarks and full-text term searches.",
+        "method": "Open-access 22-page PDF inspection, with targeted full-text searches.",
+        "title": "Vertex generated polytopes",
+        "trigger": "Foundational primary treatment of the equivalent vertex-generated parameter and face methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "182018e3-c7da-4944-83e2-448e20b90652",
+  "value": {
+    "rationale": "The family naturally interpolates between a rectified simplex/hypersimplex and the simplex. The exact index remains constant under a substantial deformation and then changes at an intrinsic critical cap, because facet and center obstructions exchange dominance. This is a complete sharp structural classification of a motivated nontrivial family.",
+    "status": "PASS"
+  }
+}
