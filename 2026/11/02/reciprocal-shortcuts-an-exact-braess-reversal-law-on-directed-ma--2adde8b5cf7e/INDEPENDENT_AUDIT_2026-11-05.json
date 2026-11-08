@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:44:38.325174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥4 and 2≤k≤n−2, the CTMC generator is the rank-one update L=I−S+(a e0−b ek)(e0−ek)^T. The cyclic adjugate identity yields F(s)=d^n−1+a(d^(n−1)−d^(k−1))+b(d^(n−1)−d^(n−k−1)), d=1+s, without division at roots. The simple zero eigenvalue gives H=c2/c1; binomial coefficients reduce to the stated exact two-rate rational function. Its nonnegative excess vanishes only for n=4,k=2, while direct differentiation proves fixed-budget orientation and both independent-rate reversal inequalities, including equality at thresholds. An independent SymPy matrix determinant/coefficient comparison passed 15 (n,k) pairs with n≤8. This finite check is corroboration; the cyclic identity proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirkland 2010 optimizes discrete-time transition matrices over a digraph.",
+          "Kirkland–Zeng 2016 forest formula and Braess example concern undirected-tree random walks."
+        ],
+        "reasoning": "The more general identities require specializing a different normalization or graph class and then deriving the two-rate CTMC coefficients; no checked theorem directly supplies the claimed classification.",
+        "searches": [
+          "Kemeny constant directed cycle continuous time reciprocal shortcut two edges Braess rate perturbation",
+          "Kirkland directed graph Kemeny optimization 2010",
+          "Kirkland–Zeng 2016 Braess trees"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10915-010-9382-1",
+        "https://doi.org/10.1016/j.laa.2010.07.016",
+        "https://doi.org/10.13001/1081-3810.3222",
+        "Resultary search: Kemeny constant directed cycle continuous time reciprocal shortcut two edges Braess rate perturbation",
+        "SCOPE-Science/SCOPE2026/2026/11/02/reciprocal-shortcuts-an-exact-braess-reversal-law-on-directed-ma--2adde8b5cf7e/RESULT.md @ 2c8d98134d9930cd11887f086cc209007a54248d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-budget derivative has sign(2k−n) and reversal requires b>n(k−2)/(k(n−2k)) or the symmetric analogue.",
+          "Catral Section 6 considers cyclic chain Kemeny structure; Kirkland-Zeng demonstrates an edge-addition effect on trees."
+        ],
+        "reasoning": "Neither a general Kemeny definition nor a tree Braess example implies the new independent-rate directional reversal under this exact normalization without substantive algebra.",
+        "searches": [
+          "Kemeny constant directed cycle continuous time reciprocal shortcut two edges Braess rate perturbation",
+          "Catral et al. Section 6 cyclic chains"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catral et al. Section 5 treats row perturbations for ergodic Markov chains, not the displayed joint CTMC two-rate ring family.",
+          "Kirkland 2010 treats minimum over stochastic matrices supported on a fixed directed graph."
+        ],
+        "reasoning": "A one-row perturbation or discrete-time embedding may be a route to the formula, but the precise varying-rate two-chord expression and orientation thresholds do not follow as a stated identical theorem from inspected passages.",
+        "searches": [
+          "Kemeny constant directed cycle continuous time reciprocal shortcut two edges Braess rate perturbation",
+          "Catral–Kirkland–Neumann–Sze DOI:10.1007/s10915-010-9382-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked papers contain general relations/optimization, not a table of n,k,a,b continuous-time reciprocal ring relaxations."
+        ],
+        "reasoning": "A known one-direction specialization or general forest determinant is not an exact two-rate table; specialized historical ring tables remain a risk.",
+        "searches": [
+          "Kemeny constant directed cycle continuous time reciprocal shortcut two edges Braess rate perturbation",
+          "Kirkland and Zeng 2016 Electronic Journal of Linear Algebra 31:444-464"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an exact two-rate continuous-time directed-ring classification. Classical Kemeny identities, low-rank perturbation theory, discrete-time directed-graph optima and undirected-tree Braess behavior are prior art and are not claimed new.",
+      "residual_risks": [
+        "An old specialized directed-ring shortcut formula or transformed CTMC embedding might cover the thresholds implicitly.",
+        "The Kemeny functional is integrated trace relaxation, not spectral gap or all notions of mixing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: general method and cyclic identities, not the two-rate classification.",
+          "evidence": "Catral et al. 2010, Sections 5–6.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-010-9382-1",
+          "material_read": "Opened lawful Maynooth full paper; inspected abstract, perturbation identities, cyclic-chain sections and their scope.",
+          "method": "Open repository PDF, text extraction and page screenshot",
+          "title": "The Kemeny Constant for Finite Homogeneous Ergodic Markov Chains",
+          "trigger": "general and cyclic Kemeny perturbation antecedent"
+        },
+        {
+          "assessment": "Different discrete-time optimization, not exact CTMC rates.",
+          "evidence": "Kirkland 2010 Theorem 2.6.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2010.07.016",
+          "material_read": "Opened full author-hosted PDF; inspected formulation and Theorem 2.6 on fixed directed support.",
+          "method": "PDF full text and page screenshot",
+          "title": "Fastest expected time to mixing for a Markov chain on a directed graph",
+          "trigger": "stronger directed graph optimization possibility"
+        },
+        {
+          "assessment": "Related but graph and normalization different.",
+          "evidence": "Kirkland and Zeng 2016, forest formulas and tree example.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.3222",
+          "material_read": "Opened full journal PDF; inspected theorem and undirected tree application.",
+          "method": "PDF full text and screenshot",
+          "title": "Kemeny's constant and an analogue of Braess' paradox for trees",
+          "trigger": "similar Braess phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural fixed-rate network-design problem has a complete nonmonotonic answer: adding a reciprocal chord worsens integrated Kemeny relaxation for n≥5, yet increasing one rate can improve an already damaged network. Orientation budget and sharp thresholds would be useful exact benchmarks distinct from a routine calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unit-rate directed cycles, one nonadjacent reciprocal pair, and nonnegative added rates; no general mixing-time implication."
+  ],
+  "schema_version": 1
+}

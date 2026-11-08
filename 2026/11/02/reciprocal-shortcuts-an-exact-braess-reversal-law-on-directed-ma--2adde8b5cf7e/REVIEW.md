@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns all integer cycle lengths \(n\ge4\), nonadjacent offsets \(2\le k\le n-2\), and nonnegative rates \(a,b\). Its proof uses an exact finite cyclic adjugate identity and a rank-one determinant expansion, then obtains the Kemeny functional from the first two characteristic-polynomial coefficients. The sign and strict-equality statements follow by explicit differentiation and integer inequalities. Exact minor and determinant checks corroborate the coefficients without claiming to prove the unbounded-parameter theorem by enumeration.
+## correctness
 
-## Originality — PASS, with qualification
-Catral et al.'s general 2010 stochastic-matrix perturbation theory, Kirkland's 2010 graph-wide discrete-time optimization and Kirkland--Zeng's 2016 directed-forest identity/Braess analysis for undirected trees were compared using primary text. A pre-existing one-shortcut specialization covers \(b=0\); the distinct contribution here is the exact **simultaneous reciprocal-rate law**, fixed-budget orientation and threshold reversal. General matrix-tree and determinant tools themselves are not claimed as original. A specialized unindexed prior solution remains possible.
+PASS
 
-## Value — PASS
-The theorem supplies a complete rate-and-location decision rule in a natural edge-addition problem. It demonstrates that adding a reciprocal connection is globally harmful relative to the unmodified cycle in every dimension above four, yet incrementally increasing one of its rates can become beneficial after an exact threshold. It also gives a closed-form choice of rate orientation and the worst location under symmetric installation.
+For n≥4 and 2≤k≤n−2, the CTMC generator is the rank-one update L=I−S+(a e0−b ek)(e0−ek)^T. The cyclic adjugate identity yields F(s)=d^n−1+a(d^(n−1)−d^(k−1))+b(d^(n−1)−d^(n−k−1)), d=1+s, without division at roots. The simple zero eigenvalue gives H=c2/c1; binomial coefficients reduce to the stated exact two-rate rational function. Its nonnegative excess vanishes only for n=4,k=2, while direct differentiation proves fixed-budget orientation and both independent-rate reversal inequalities, including equality at thresholds. An independent SymPy matrix determinant/coefficient comparison passed 15 (n,k) pairs with n≤8. This finite check is corroboration; the cyclic identity proves all n.
 
-## Closest sources and limitations
-- Catral, Kirkland, Neumann, Sze (2010), https://doi.org/10.1007/s10915-010-9382-1: general perturbations and structure-dependent Kemeny identities.
-- Kirkland (2010), https://doi.org/10.1016/j.laa.2010.07.016: discrete-time constrained digraph optimization, not fixed-rate reciprocal CTMC chords.
-- Kirkland and Zeng (2016), https://doi.org/10.13001/1081-3810.3222: general forest representation and Braess behavior for undirected trees.
-- An existing one-arc directed ring result is a covered boundary case and is not claimed as new.
+## originality
 
-The result does not treat heterogeneous base rates, multiple chord pairs, or other notions of mixing; historical coverage is not guaranteed. Independent expert validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original as an exact two-rate continuous-time directed-ring classification. Classical Kemeny identities, low-rank perturbation theory, discrete-time directed-graph optima and undirected-tree Braess behavior are prior art and are not claimed new.
+
+## value
+
+PASS
+
+A natural fixed-rate network-design problem has a complete nonmonotonic answer: adding a reciprocal chord worsens integrated Kemeny relaxation for n≥5, yet increasing one rate can improve an already damaged network. Orientation budget and sharp thresholds would be useful exact benchmarks distinct from a routine calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the reciprocal-chord classification
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this file. The checker uses only Python standard-library `fractions`, `itertools`, and exact Gaussian elimination, and constructs the negative Markov generator directly from its graph definition.
+## correctness
 
-**Executed:** `python verify.py` returned `PASS 845 exact-rational checks`.
+PASS
 
-Tests cover every \(n\in\{4,\ldots,10\}\), each allowed offset \(k\), seven rational pairs of independent additional rates, two separate resolvent test arguments, equality at the exceptional four-state case, strict symmetric link deterioration, optimal budget allocations, and the opposite-rate reversal at \(n=7,k=3\). The Kemeny result is independently reconstructed as the quotient of sums of principal minors, rather than using the package's stated coefficient expansion to compute the left side.
+For n≥4 and 2≤k≤n−2, the CTMC generator is the rank-one update L=I−S+(a e0−b ek)(e0−ek)^T. The cyclic adjugate identity yields F(s)=d^n−1+a(d^(n−1)−d^(k−1))+b(d^(n−1)−d^(n−k−1)), d=1+s, without division at roots. The simple zero eigenvalue gives H=c2/c1; binomial coefficients reduce to the stated exact two-rate rational function. Its nonnegative excess vanishes only for n=4,k=2, while direct differentiation proves fixed-budget orientation and both independent-rate reversal inequalities, including equality at thresholds. An independent SymPy matrix determinant/coefficient comparison passed 15 (n,k) pairs with n≤8. This finite check is corroboration; the cyclic identity proves all n.
 
-**Limits:** Numerical or finite exact checks alone cannot prove the unbounded-dimensional statement. The proof in `RESULT.md` verifies the characteristic polynomial and its derivative relations algebraically for all allowed inputs. Independent expert audit and comprehensive historical-priority certification have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact two-rate continuous-time directed-ring classification. Classical Kemeny identities, low-rank perturbation theory, discrete-time directed-graph optima and undirected-tree Braess behavior are prior art and are not claimed new.
+
+## value
+
+PASS
+
+A natural fixed-rate network-design problem has a complete nonmonotonic answer: adding a reciprocal chord worsens integrated Kemeny relaxation for n≥5, yet increasing one rate can improve an already damaged network. Orientation budget and sharp thresholds would be useful exact benchmarks distinct from a routine calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
