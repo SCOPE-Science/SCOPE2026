@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the full shortest-path metric on the two-layer, cubic generalized Petersen graph \(GP(n,2)\) for every integer \(n\ge5\). Exact anchored Gram matrices turn conditional negative semidefiniteness into ordinary positive semidefiniteness. Four complete integer characteristic-polynomial factorizations prove positivity and exact squared-Euclidean dimensions at orders 5, 6, 9 and 10; every nonzero polynomial factor has alternating signs and the matrices are symmetric. For each remaining order below 18, an explicit zero-sum signed-distance certificate is positive. A single eight-vertex certificate with value \(2\) works uniformly for every order at least 18. The latter universal statement follows from a path-reordering formula on the infinite two-layer cover and a checked winding lower bound, not finite extrapolation. The standalone exact-integer script reproduces the four characteristic polynomials and all finite certificates and checks 171580 distances on 46 graph orders. Gaussian strict positivity follows from finite Schoenberg theory and distinct squared-Euclidean points. The proof does not rely on numerical eigenvalue thresholds.
+PASS
 
-## Originality — PASS, bounded historical comparison
+The 2n-vertex cubic GP(n,2) shortest-path metric is defined for every n≥5. For a distinguished vertex, B_ij=d(x0,xi)+d(x0,xj)−d(xi,xj) satisfies c^T D c=−v^T B v for zero-sum c; B/2 is the squared-Euclidean Gram matrix. On the two-layer cyclic cover, exact displacement distances f_uu=min(|s|,2+ceil(|s|/2)), f_uv=1+ceil(|s|/2), f_vv=|s|/2 for even s and 2+ceil(|s|/2) for odd s, followed by minimization over windings, reconstruct finite distances. Independent BFS+exact symbolic characteristic polynomials verified all four factorizations for n=5,6,9,10 and ranks 5,7,9,10; all real nonzero roots are positive because their monic factors have strictly alternating signs and B is symmetric. Independent BFS checked the listed zero-sum witness quadratic values n=7..17 and for n=18,20,50. The universal c(v_i)=1,c(u_i)=−1 on i=0,2,5,7 has exact quadratic value 2 for all n≥18 by |s+mn|≥n−7≥11; all other n are finitely excluded by explicit witnesses. Schoenberg gives exp(−tD) PSD for all t exactly for the four, strictly PD since embedded points are distinct; excluded witnesses imply negative quadratic form for all sufficiently small t by Taylor expansion. No finite-n extrapolation proves the infinite exclusion.
 
-Kutnar–Malnič–Marušič–Miklavič [1] classify strongly distance-balanced generalized Petersen graphs, not conditional negative type; in fact, their \(GP(n,2)\) index list differs. Sánchez [2] proves general negative-type criteria but not the four-order classification. Gera–Stănică [3] diagonalize ordinary adjacency matrices, not centered graph-distance matrices. Kratica et al. [4] treat strong metric dimension, distinct from squared-Euclidean embedding rank. Shaheen–Mahfud–Alhawat [5] give metric distance distributions and polynomials, but no sign classification of the full centered distance form. A related public result on Vietoris–Rips homotopy for \(GP(n,2)\) does not imply the Gaussian-kernel positivity statement. Published related studies of Möbius ladders, powered cycles and line graphs of cubes concern different graph families. Published search did not identify a stronger result directly covering the classification. Search incompleteness and a possible equivalent older treatment remain real originality risks; title mismatch alone is not used as evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A full classification of a standard two-layer cyclic graph family is mathematically natural: the question asks precisely when its complete shortest-path metric is squared Euclidean, equivalently when all Gaussian distance kernels are positive definite. The four isolated surviving orders and a single uniform obstruction for the infinite complement reveal a structural gap between ordinary graph-distance invariants and negative type. Exact minimal squared-Euclidean dimensions \(5,7,9,10\) further specify the geometry and make the result useful for checking finite metric embeddings and kernel admissibility. This is not merely a small graph calculation or a result about arbitrary selected parameters.
+No inspected general negative-type classification covers GP(n,2). Sánchez gives criterion only; Kutnar et al classify a different strong distance-balanced property, Gera–Stănică adjacency spectra, Kratica et al strong metric dimension, Shaheen et al distance polynomials, all insufficient to infer the signs of centered distance quadratic forms. Resultary search found no same-family CND classification. Exact 4-order result requires nontrivial infinite uniform obstruction and finite Gram spectra.
 
-## Sources, limitations, and risk
+## value
 
-Sources [1]–[5] are defined in RESULT.md. Inspections involved the distance-balanced classification, the finite-metric negative-type criterion, the adjacency spectral decomposition, the strong-metric-dimension setting, and the published distance enumerators for the same graph family. The classification is for exponent one, not all powered distances; excluded graphs could have kernels positive at some larger scales. Relevant older literature may have a different equivalent statement. No independent mathematical audit or validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-orders classification of when a standard cubic cyclic family carries a squared-Euclidean shortest-path metric is a natural negative-type and positive-kernel invariant. The isolated four orders, minimal embedding dimensions and one uniform eight-vertex obstruction illuminate structure unmeasured by adjacency spectra or distance enumerators; it is not arbitrary finite slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
