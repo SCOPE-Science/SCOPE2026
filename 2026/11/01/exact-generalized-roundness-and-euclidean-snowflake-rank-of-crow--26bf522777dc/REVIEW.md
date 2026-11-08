@@ -1,12 +1,21 @@
-# Scientific review: crown-graph negative type
+# Independent mathematical audit
 
-## Correctness — PASS
-The distances in the connected crown graph are exactly one across present matching-complement edges, two inside each bipartition class, and three across each deleted matched pair. Its powered-distance matrix has a complete orthogonal decomposition of the zero-sum space into three invariant subspaces, with exact eigenvalues given in `RESULT.md`. The upper eigenvalue is therefore explicit, all sign regimes follow from a strictly increasing scalar function on the admissible exponent interval, and Gram-matrix rank gives the claimed embedding dimensions. The improved generalized-roundness comparison follows from substituting Sánchez's complete-bipartite exponent into the new exact criterion. The Taylor expansion has been checked term by term. The finite checker supplies reproducible corroboration, not a substitute for proof. Risk: algebraic or interpretive error despite self-review; independent audit is still required.
+## correctness
 
-## Originality — PASS, subject to recorded access risk
-Relevant full-text sections of Sánchez (arXiv:1108.0451v1) and Horak et al. (2010) were examined. Sánchez gives a general matrix criterion and the complete-bipartite result, not the missing-matching crown family with a third distance. Horak et al. study the different four-point roundness invariant and finite cycles. Searches for crown graphs, bipartite double covers, bipartite Kneser graph metrics, negative type, Hilbert snowflakes, spectral formulations, and equation aliases did not uncover an equivalent or stronger formula. Historical results on complete split graphs, clique bouquets, and two-clique sums concern distinct metric matrices and do not imply the crown theorem. Risk: general early Euclidean-transform or normed-space embedding literature may contain an implicit covering specialization; Deza–Maehara (1990) and Matoušek (1996) were not available in complete accessible text. The comparison is a best-knowledge evaluation, not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The crown graph is the canonical perfect-matching deletion from a complete bipartite graph, with nontrivial graph metric geometry and well-studied embedding behavior. This result determines a natural exact invariant for every connected member, identifies the sharp first failure of \(1\)-negative type at ten vertices, supplies an attained quantitative gap and all endpoint ranks, and shows a strict, asymptotically quantified improvement from deleting a perfect matching. It is a natural complete family classification rather than a single unmotivated numeric instance. Risks: the all-parameter answer may eventually be found as an implicit earlier corollary, and the theorem is specific to the crown family.
+Graph distances are 2 inside a shore, 1 across nondeleted edges and 3 across deleted matched pairs, producing the displayed symmetric two-block D_p. The entire zero-sum subspace splits as H0=(1,-1), H+=(v,v), H-=(v,-v), with eigenvalues (n-1)2^p-n-3^p+1, 3^p-2^p-1 and 1-2^p-3^p and multiplicities 1,n-1,n-1. Their maximum determines the claimed exact gap. On 0<=p<=1, (2^p-1)/3^p strictly increases, so the root is unique IN (0,1) for n>=5; for p>1, 3^p>2^p+1 makes the H+ eigenvalue positive. The zero-sum Gram rank gives minimal snowflake dimension 3 for n=3,4, or 2n-2 for n>=5 at endpoint. Taylor expansion yields asymptotic improvement log(3)/((log2)^2(n-1)^2). Independent distance matrices and restricted numerical spectra matched n=3,4,5,6,8. Critical nuance: for n=5 the scalar equation has ANOTHER positive root above 1, but the RESULT/SLOGAN explicitly restrict uniqueness to (0,1), and p>1 is already ruled out by H+; no global root uniqueness is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality after comparing equivalent mathematical statements, stronger-coverage implications and relevant primary material. No inspected source is shown to imply the target exact statement; incomplete historical coverage is retained as a risk.
+
+## value
+
+PASS
+
+Crown graphs are a standard infinite graph family obtained by deleting the canonical perfect matching from K_nn. Their complete sharp p-negative-type classification, explicit ten-vertex first p=1 obstruction, normalized quantitative gap, exact least Euclidean snowflake ranks and strict matching-deletion comparison address natural embedding and metric invariants. The n cutoff is structurally forced by eigenvalue signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
