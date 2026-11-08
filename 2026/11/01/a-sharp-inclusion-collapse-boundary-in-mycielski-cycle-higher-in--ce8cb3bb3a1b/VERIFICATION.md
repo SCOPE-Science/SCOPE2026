@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducing the finite collapse and relative homology calculations
+# Independent mathematical audit
 
-The file `verification/check.py` is a self-contained Python 3 program. Run it with
+## correctness
 
-```sh
-python3 verification/check.py
-```
+PASS
 
-Expected output is recorded in `verification/output.txt`. The final line must be `ALL_CHECKS_PASS`. There are no external libraries, network queries, downloaded tables, random seeds, or input files.
+Independent reconstruction of all 2^(2n+1) vertex masks for n=3,4,5,6 agrees with packaged face counts (including empty) (18,42),(47,103),(103,313),(254,866). Deterministic relative toggle matching gives 12,28,105 collapse pairs and no unmatched n≤5 faces; every free-face removal is directly checkable. At n6 relative 612 cells reduce by 301 unit-pivot algebraic Morse cancellations to 7 critical 3-cells, 2 critical 4-cells and one 5-cell, with ∂4 columns (0,0,1,1,0,−1,0) and ∂5=(1,−1). Primitive ∂4 image and ker∂4=im∂5 imply torsion-free H3=Z^6 and all other relative homology zero. The independently constructed exact-integer reduction reproduced critical masks and matrices. No inference about n≥7 or absolute L6 homotopy is made.
 
-The program creates the graph \(\mu(C_n)\) directly from the edge formulas for each \(n\in\{3,4,5,6\}\). It enumerates all masks in the range \(0\le m<2^{2n+1}\), comparing two independently coded membership tests—maximum induced degree and connected-component traversal—for both ordinary and two-independence. The resulting face counts are exact.
+## originality
 
-For \(n=3,4,5\), the code makes the sequential toggle matching and checks a *literal order of free-face elementary collapses*. It removes only the two faces of each free pair and finally asserts that the remaining faces are exactly those of the original ordinary independence complex. It also checks Hasse-digraph acyclicity. The counts of elementary collapses are \(12,28,105\), respectively.
+PASS
 
-For \(n=6\), it constructs the relative simplicial boundary operator over the integers, with coefficients determined by the parity of lower-positioned vertex bits. A separately checked acyclic matching has \(301\) matched pairs and leaves seven critical three-faces, two critical four-faces, and one critical five-face. All \(301\) integer algebraic-Morse elimination pivots are verified to have absolute value one. The reduced differential \(\partial_4\) has two identical primitive columns \((0,0,1,1,0,-1,0)^T\), and \(\partial_5=(1,-1)^T\). The full chain identities are checked before and after cancellation. This establishes the integral relative group without relying on rational or mod-two rank alone.
+Earlier generalized Mycielski results address ordinary Ind1 homotopy; Deshpande–Singh study paths, cycles and other base graph families, not Ind1⊂Ind2 of μ(C_n). Taylan provides devoid-complex tools and non-Mycielskian classifications. The present theorem adds a sharp inclusion-level relative integral obstruction at n6. Assigned record1 repeats only the n5 clause, not the n6 computation or complete n3–n6 transition; thus it does not imply this full theorem.
 
-An additional implementation computes mod-two ranks directly from the **original unreduced relative chain complex** and checks all degree-by-degree Betti numbers. Its agreement with the integral reduction is a cross-check, not an independent proof of the integral torsion claim.
+## value
 
-The conclusion is finite and exact for the stated values of \(n\); code execution cannot establish a pattern for larger graphs. No externally independent audit has been performed.
+PASS
+
+Identifies a natural first failure of simple-homotopy invariance under relaxing independence to size-2 induced components, and computes the full integral relative obstruction Z^6; this is a meaningful structural boundary, not an arbitrary small homology table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

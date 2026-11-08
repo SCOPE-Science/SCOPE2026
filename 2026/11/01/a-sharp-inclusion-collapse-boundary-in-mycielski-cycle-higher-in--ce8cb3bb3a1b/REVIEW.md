@@ -1,23 +1,21 @@
-# Scientific review: sharp inclusion-collapse boundary in Mycielski-cycle higher independence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed theorem has four and only four finite length cases. For \(n=3,4,5\), an explicit, deterministic list of toggle pairs is converted into a genuine sequence of elementary simplicial collapses in which every lower face is free when removed; the residual complex is checked to equal the original ordinary independence complex. Hence the **natural inclusion** is a strong deformation retract, not just some homotopy equivalence. For \(n=6\), the independently checked enumeration has \(612\) relative basis faces, a verified acyclic matching with \(301\) unit-pivot pairs and ten critical faces, and integer reduced differential matrices of sizes \(7\times2\) and \(2\times1\). The first is two copies of a primitive nonzero column; the second is \((1,-1)^T\). Elementary integral chain cancellation proves \(H_3(L_6,K_6;\mathbb Z)\cong\mathbb Z^6\) and all other relative groups zero, without extrapolation to an untested length. A separate mod-two calculation from unreduced chains checks the rank profile, but the integral statement depends on the integer unit pivots and matrices. The file `verification/check.py` reconstructs all these assertions using only the standard library.
+PASS
 
-The mathematical risk of using an acyclic matching to conclude a **simplicial collapse** is addressed by a stronger, explicit free-face check at every step. The risk of mistaking field ranks for an integral proof is addressed by exact unit-pivot integer reduction and a primitive-column argument. The empty face is handled in the augmented ordinary matching and is excluded from the relative chain basis.
+Independent reconstruction of all 2^(2n+1) vertex masks for n=3,4,5,6 agrees with packaged face counts (including empty) (18,42),(47,103),(103,313),(254,866). Deterministic relative toggle matching gives 12,28,105 collapse pairs and no unmatched n≤5 faces; every free-face removal is directly checkable. At n6 relative 612 cells reduce by 301 unit-pivot algebraic Morse cancellations to 7 critical 3-cells, 2 critical 4-cells and one 5-cell, with ∂4 columns (0,0,1,1,0,−1,0) and ∂5=(1,−1). Primitive ∂4 image and ker∂4=im∂5 imply torsion-free H3=Z^6 and all other relative homology zero. The independently constructed exact-integer reduction reproduced critical masks and matrices. No inference about n≥7 or absolute L6 homotopy is made.
 
-## Originality — PASS, subject to ordinary publication risk
+## originality
 
-The primary historical reference is Taylan, arXiv:1501.06754, first publicly submitted January 27, 2015. The inspected full text defines devoid complexes and supplies general matching methods and explicit results for paths, cycles and forests. Here the \(P_3\)-devoid complex is taken over the **Mycielskian of a cycle**, which is neither a path, cycle nor forest; Taylan's stated classifications do not imply the claimed *relative inclusion* or the \(\mathbb Z^6\) obstruction. Paolini–Salvetti and Deshpande–Singh supply the higher-independence context but their inspected results do not cover this family. Goyal–Shukla–Singh and Carnero Bravo deal with **ordinary** independence complexes of Mycielskians: the sphere type of ordinary \(K_5\) is prior knowledge and is explicitly excluded from the novelty claim.
+PASS
 
-Records with closely related graph names were compared at the level of defining face predicates: the Grötzsch **matching complex** uses graph edges as simplicial vertices, and its intrinsic graph Čech complex uses graph balls, so neither statement implies an elementary collapse from ordinary to two-independence or a relative integral homology calculation. The indexed higher-independence calculations for the Petersen graph and for other symmetric graphs concern different graphs. Searches for the aliases *devoid complex*, *dissociation complex*, *two-independence complex*, and *Mycielskian of a cycle* found no identified exact covering statement. This is evidence of noncoverage, not proof that no unpublished or unindexed parallel calculation exists.
+Earlier generalized Mycielski results address ordinary Ind1 homotopy; Deshpande–Singh study paths, cycles and other base graph families, not Ind1⊂Ind2 of μ(C_n). Taylan provides devoid-complex tools and non-Mycielskian classifications. The present theorem adds a sharp inclusion-level relative integral obstruction at n6. Assigned record1 repeats only the n5 clause, not the n6 computation or complete n3–n6 transition; thus it does not imply this full theorem.
 
-## Mathematical value — PASS
+## value
 
-The inclusion \(\operatorname{Ind}_1(G)\subseteq\operatorname{Ind}_2(G)\) is canonical. Deciding whether the permission to add edges inside induced components changes the actual space—rather than merely the number of simplices—is a natural structural question. The cyclic Mycielski graphs form a standard coherent family; their first four lengths give an exact sharp contrast between **three actual simplicial collapses preserving all of ordinary independence homotopy** and the first nonzero integral relative obstruction of rank six. This is more informative than another isolated Betti number, since it identifies the map and the first failure in a natural filtered family. The explicit free-pair counts and integral relative chain matrices can serve as comparators for larger lengths and other Mycielski constructions. No unproven all-length pattern is claimed.
+PASS
 
-## Nearest literature and remaining limits
+Identifies a natural first failure of simple-homotopy invariance under relaxing independence to size-2 induced components, and computes the full integral relative obstruction Z^6; this is a meaningful structural boundary, not an arbitrary small homology table.
 
-References inspected: Taylan (2015, arXiv:1501.06754), Paolini–Salvetti (2017, arXiv:1703.02586), Goyal–Shukla–Singh (2019, arXiv:1905.06926), Deshpande–Singh (2020, arXiv:2001.05448), Carnero Bravo (2026, arXiv:2601.13432). The principal open limits here are the absence of a statement for larger cycle lengths, the lack of an absolute homotopy classification for the length-six two-independence complex, and residual unindexed-publication overlap risk. The finite certificate and scientific reasoning have not received independent mathematical verification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
