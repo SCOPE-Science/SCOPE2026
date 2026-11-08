@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The first-move characterization of Ehrenfeucht–Fraïssé equivalence proves that the recursive character-set fingerprint is exact. The \(70\)-letter reference word realizes \(70\) different rank-two characters, so is optimal. The \(73\)-letter word has the same rank-three fingerprint. Complete enumeration of all \(62\,196\) three-position deletions verifies that any resulting \(70\)-letter induced suborder realizes at most \(68\) of the reference characters. Both programs were run on the displayed strings, and the second implementation independently checks rank-three signatures and small-game semantics.
+## correctness
 
-**Originality: PASS under accessible comparisons.** Mwesigye and Truss (arXiv:1705.04632, published in *Order*) establish the positive two-round result, supply the \(70\)- and \(74\)-letter optimal examples, and explicitly conjecture by informal expectation that the analogous optimal-suborder assertion fails for three rounds. Their full paper does not exhibit the counterexample proved here. Earlier cited classification work concerns bounds and lower-rank cases. The closest accessible related record on one-red coloured orders studies a much narrower family; its formulas cannot cover the alternating two-colour words displayed here.
+PASS
 
-**Value: PASS.** The counterexample resolves a specifically articulated natural problem about whether bounded-rank logical equivalence permits optimal reduction by induced substructure. It shows a genuine change from two to three Ehrenfeucht–Fraïssé rounds, with a small, reproducible finite certificate rather than a routine parameter extension.
+The first-move EF recursion makes the set of (left rank-2 fingerprint, colour, right rank-2 fingerprint) an exact rank-3 equivalence invariant. Every position gives at most one such character, so the 70-character A is optimal. An independently implemented C++ program reconstructs both literal words and 32-bit rank-2 masks, confirms lengths 70/73, equality of all 70 characters, and exhausts all C(73,3)=62,196 three-deletion induced subwords; NONE has the same signature, and the maximum reference-type overlap is 68. This is full finite exhaustion, not sampling. The original source verifier and a separate Python EF implementation were read, not blindly relied on.
 
-**Residual limitations.** Historical priority in unindexed or later sources remains possible. The length \(73\) is only an explicit witness, not asserted to be minimal. The decisive finite certificate is exhaustive but has not received an independent external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 70-letter class and rank-three EF recurrence are credited to Mwesigye–Truss, which explicitly anticipates the failure of induced-suborder optimality in rank three. The additional 73-letter witness with full 62,196-case nonembedding is a concrete solution of that open construction problem. No stronger overlapping primary theorem was found in the compared material; possible other unindexed witnesses are a bounded priority risk.
+
+## value
+
+PASS
+
+The example resolves a specific advertised finite-model-theoretic obstacle: in three moves a shortest representative need not embed as an induced coloured order, unlike the two-round setting. A fully reproducible finite counterexample with exact minimal class size gives a reusable boundary example; no global minimality of the counterexample length is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
