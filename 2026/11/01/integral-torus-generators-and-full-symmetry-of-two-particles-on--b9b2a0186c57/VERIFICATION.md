@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and limitations
+# Independent mathematical audit
 
-Execute `python k44_verify.py` with `sympy` and `numpy` installed. The program constructs the finite cell complex from definitions; no external precomputed matrices are required. It verifies the boundary-square-zero equation, both boundary ranks, all integral Smith factors, the primitive span of eighteen torus generators, the full automorphism character for 1152 graph symmetries, and independent signed Lefschetz trace comparisons for all symmetries. Its output ends with `VERIFY_OK`. The supplied `verification_output.txt` is from an actual run of this exact script.
+## correctness
 
-The exact finite calculation proves this single instance and does not extrapolate to larger graphs. The use of the discrete cubical model relies on the graph's standard subdivision conditions for two particles. Literature-priority limitations are described separately in `REVIEW.md`; no independent scientific audit has been performed.
+PASS
+
+On the unsubdivided K4,4 the two-particle Abrams cubical model has 28 unordered vertex-pair cells, 96 vertex/edge cells and 72 disjoint-edge two-cells. Independently reconstructed the signed integer boundary matrices: ranks 27 and 60, ∂1∂2=0, SNF(∂2) has 59 factors 1 and one factor 2; connectedness/primitivity gives H1=Z^9⊕Z/2, H2=Z^12. Constructed all eighteen complementary K2,2 product-torus cycles independently and checked ∂2T=0 and SNF(T) has twelve unit factors, so the torus lattice saturates ker∂2, rather than merely spanning rationally. Independently recomputed all 1152 automorphism traces of H2 on the twelve-dimensional lattice: on (σ,τ) they equal χ22(σ)χ211(τ)+χ211(σ)χ22(τ), and vanish on the exchanging coset, identifying the induced Specht representation. H1 rational tensor augmentation and negative factor-flip follow from ordered maturity/graph cycle module and edge-orientation flip; neither positive-degree representation has W invariants. All statements are finite exact for K4,4, not general Kp,q.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact *unordered* 18-torus integral relation lattice plus the full 1152-element wreath-product action, not for general product-cycle generation or known ordered ranks. Farber–Hanbury Proposition 22/Corollary 24 give mature ordered Kp,q Betti numbers (K4,4 ordered b1=18, b2=25), which cannot determine the unordered integral module. Maciążek et al. discuss product cycles and other examples without this exact action. Indexed K3,3 Morse complexes are matching/Morse complexes, not particle configuration spaces; other graph-specific configuration results use other graphs. Durham thesis full text inaccessible, an important priority risk, but its abstract describes ordered results and does not establish actual coverage.
+
+## value
+
+PASS
+
+K4,4 is a natural first dense bipartite example admitting two disjoint 4-cycles; 18 geometric tori with six integral relations and a 12-dimensional induced Specht module encode top-dimensional motions and all color-class permutations/exchange. The exact torsion in H1 and symmetry quotient refine bare Betti ranks, providing reusable geometric braid/configuration-space structure. This is a motivated finite complete invariant, not a renamed graph or parameter sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
