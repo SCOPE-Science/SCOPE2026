@@ -1,19 +1,21 @@
-# Scientific review: delayed four-reservoir runoff crest threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies identical, equal-volume, instantaneous inputs and a four-stage Nash cascade with strictly positive common outflow rate. The proof differentiates the exact impulse sum and obtains a cubic polynomial for every physical time after the second arrival. Direct coefficient expansion gives \(\operatorname{Disc}P=-108\tau^2e^{2\tau}F(\tau)\). The power series for \(F'\), bounded by a strictly negative quintic, proves the unique threshold, and the signs of the cubic on the physical intervals classify all local extrema, including equality and arrival-time boundaries. The finite checker supports these steps with exact rational discriminant tests, high-precision bisection and independent derivative and root-count checks (3,491 assertions). The proof, not the finite tests, establishes the universal parameter claim. No field measurements are claimed.
+PASS
 
-## Originality — PASS within inspected evidence, with risk
+For two equal instantaneous impulses and identical 4-stage Nash kernels, after dimensionless scaling G_tau(x)=x^3e^{-x}+1_{x>=tau}(x-tau)^3e^{-(x-tau)}. For x>tau, e^x G_tau prime is cubic P_tau=x^2(3-x)+e^tau(x-tau)^2(3-x+tau), with symbolic discriminant exactly -108 tau^2 e^{2tau} F(tau), F=6cosh(tau)-2tau sinh(tau)+6-3tau^2+tau^4/4. The series of F prime has a strictly negative polynomial upper bound for all positive tau, F(2)>0>F(3), giving unique tau*=2.95880814824387897254... . For 0<tau<3, all cubic real roots lie in (3,3+tau), discriminant sign counts one simple root vs three simple roots, and at equality one double stationary shoulder and one simple maximum. At tau>=3 the original impulse has its peak at x=3, while two post-arrival stationary roots add one local minimum and one maximum. Independent SymPy symbolic discriminant identity and high-precision root/sign classification reproduced the transition; finite root samples corroborate only the analytic sign proof.
 
-Nash (1957) supplies the single-input gamma kernel but not an equal two-impulse bimodality threshold. Pattison and collaborators (2014) study the effect of tributary timing in a hydraulic case study, but the inspected material does not state a universal algebraic crest-count transition; the accepted-manuscript PDF could not be retrieved, so whole-text exclusion is not asserted. Santos and collaborators (2018) specify Nash-cascade routing and a single pulse's time to peak, without classifying the delayed sum. A related mathematical record on a **two-stage parallel-route rectangular-rainfall** hydrograph treats a different kernel and input class; neither implies the four-stage two-impulse discriminant or sharp root. Direct overlap queries for aliases including translated gamma mixtures and Erlang pulses found no comparable established statement. This is not a proof of world-first priority; hidden classical shifted-gamma-mixture analyses remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-A second local discharge crest is a natural qualitative property for interpreting tributary synchronization and possible two-wave runoff. The theorem supplies a sharp criterion that is not the obvious separated single-pulse peak time: the second crest appears at \(2.958808\ldots\) dimensionless time constants, strictly before the isolated pulse's peak at three. The simple exact classification is useful for benchmark hydrograph superposition and helps distinguish model-intrinsic bimodality from numerical artefacts. It makes no assertion about economically optimal catchment intervention, peak flood stage, unequal sources or nonlinear channel processes.
+Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. Two impulses correspond to a mixture of two translated Gamma(shape 4, rate k) densities; equivalent terminology is a shifted Erlang mixture. General mixture framework must still specialize its implicit shape test and prove a single positive lag threshold.
 
-## Sources and limitations
+## value
 
-Primary inspected source: J. E. Nash, *The Form of the Instantaneous Unit Hydrograph* (1957), pp. 114–121, including derivation, examples and discussion; https://iahs.info/uploads/dms/045011.pdf. Closely relevant original study: Pattison, Lane, Hardy and Reaney (2014), https://doi.org/10.1002/2013WR014067 (metadata, indexed portions and conclusion available; accepted manuscript download inaccessible). Later full-text comparison: Santos, Thirel and Perrin (2018), https://doi.org/10.5194/gmd-11-1591-2018, particularly §§2.2–2.4. A general prior theorem for translated-gamma mixtures could subsume the result without mentioning Nash cascades. The result has not been checked by an independent auditor.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the classical four-stage linear-reservoir impulse response, delayed equal inputs create a genuine mode-bifurcation. The exact dimensionless separation threshold and shoulder boundary provide an interpretable analytical benchmark for sequencing in idealized hydrologic response, beyond simply knowing the gamma hydrograph formula. The result does not assert operational real-flood safety or global peak dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

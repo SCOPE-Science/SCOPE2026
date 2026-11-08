@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two equal instantaneous impulses and identical 4-stage Nash kernels, after dimensionless scaling G_tau(x)=x^3e^{-x}+1_{x>=tau}(x-tau)^3e^{-(x-tau)}. For x>tau, e^x G_tau prime is cubic P_tau=x^2(3-x)+e^tau(x-tau)^2(3-x+tau), with symbolic discriminant exactly -108 tau^2 e^{2tau} F(tau), F=6cosh(tau)-2tau sinh(tau)+6-3tau^2+tau^4/4. The series of F prime has a strictly negative polynomial upper bound for all positive tau, F(2)>0>F(3), giving unique tau*=2.95880814824387897254... . For 0<tau<3, all cubic real roots lie in (3,3+tau), discriminant sign counts one simple root vs three simple roots, and at equality one double stationary shoulder and one simple maximum. At tau>=3 the original impulse has its peak at x=3, while two post-arrival stationary roots add one local minimum and one maximum. Independent SymPy symbolic discriminant identity and high-precision root/sign classification reproduced the transition; finite root samples corroborate only the analytic sign proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Došlá Theorems 1–3 are general mixture derivative-ratio criteria; Section 3.5 applies to gamma components with different rates or different shapes, not two time-shifted same-shape same-rate Erlang(4) densities.",
+          "Pattison focuses tributary timing in empirical/numerical floods; Santos describes single-input Nash cascade state-space responses."
+        ],
+        "reasoning": "No inspected broader explicit theorem gives the special F discriminant, its global strictly monotone unique zero, and complete equality/large-lag mode classification without additional calculation.",
+        "searches": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "https://doi.org/10.1002/2013WR014067",
+          "https://doi.org/10.5194/gmd-11-1591-2018",
+          "two equal shifted Erlang gamma shape 4 density bimodality threshold separation stationary shoulder"
+        ]
+      },
+      "checked_sources": [
+        "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+        "https://iahs.info/uploads/dms/045011.pdf",
+        "https://doi.org/10.1002/2013WR014067",
+        "https://doi.org/10.5194/gmd-11-1591-2018",
+        "two equal shifted Erlang gamma shape 4 density bimodality threshold separation stationary shoulder"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general two-density mixture result could give an implicit modality criterion in suitable circumstances, but applying it requires a nontrivial analysis of parameter-dependent shifted kernels and stationary shoulders.",
+          "The original hydrograph response and one-input time-to-peak give no direct threshold for two overlapping impulses."
+        ],
+        "reasoning": "The submitted cubic discriminant reduction and F prime monotonicity provide a stronger explicit four-reservoir statement. A decisive stronger published shifted-gamma theorem would cover it, but none was found in the inspected primary text.",
+        "searches": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "https://iahs.info/uploads/dms/045011.pdf",
+          "https://doi.org/10.5194/gmd-11-1591-2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nash (1957) derives cascaded gamma instantaneous hydrographs, not two equal delayed-pulse mode count.",
+          "Došlá (2009) derives general mixture modality criteria in terms of the derivative ratio, distinct from exact lag threshold for same-rate same-shape shifted gamma pulses."
+        ],
+        "reasoning": "Two impulses correspond to a mixture of two translated Gamma(shape 4, rate k) densities; equivalent terminology is a shifted Erlang mixture. General mixture framework must still specialize its implicit shape test and prove a single positive lag threshold.",
+        "searches": [
+          "two equal shifted Erlang gamma shape 4 density bimodality threshold separation stationary shoulder",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "https://iahs.info/uploads/dms/045011.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table of tau*=2.95880814824... or equal-pulse four-reservoir two-crest boundary was located in queried mathematical/hydrology sources."
+        ],
+        "reasoning": "An exact analytic positive root and classification for a natural model is more than a tabular known constant; unsuccessful searches alone do not establish priority.",
+        "searches": [
+          "two equal shifted Erlang gamma shape 4 density bimodality threshold separation stationary shoulder",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf"
+        ]
+      },
+      "rationale": "Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. Two impulses correspond to a mixture of two translated Gamma(shape 4, rate k) densities; equivalent terminology is a shifted Erlang mixture. General mixture framework must still specialize its implicit shape test and prove a single positive lag threshold.",
+      "residual_risks": [
+        "An earlier specialized shifted-gamma mixture classification may derive the same threshold using a derivative-ratio formula under different keywords.",
+        "Realistic storms need unequal finite-duration inputs, varied kernel parameters and nonlinear routing; those are beyond the idealized result.",
+        "Pattison accepted manuscript not read in full; no full-document novelty claim is based on its abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_IMPLICIT_PRIOR_NOT_EXPLICIT_THRESHOLD",
+          "evidence": [
+            "Gamma subsection treats different rates or different shapes, while Theorem 2 gives a general derivative-ratio modality criterion. The exact four-stage lag root is not stated."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "material_read": "Full 15-page publicly accessible PDF: Theorems 1–3, Section 3.5 gamma cases including Propositions 6–7; checked assumptions and specializations; screenshot",
+          "method": "PDF full-text inspection and screenshot",
+          "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+          "trigger": "potential general mixture theorem covering shifted same-shape gamma law"
+        },
+        {
+          "assessment": "PRIOR_MODEL_KERNEL",
+          "evidence": [
+            "Single gamma-form instantaneous response is classical."
+          ],
+          "identifier_or_url": "https://iahs.info/uploads/dms/045011.pdf",
+          "material_read": "Original model/formula identified through referenced public historic source; did not make full-text negative claim",
+          "method": "bibliographic/source-formula comparison",
+          "title": "The Form of the Instantaneous Unit Hydrograph",
+          "trigger": "foundation of four-reservoir kernel"
+        },
+        {
+          "assessment": "APPLICABILITY_CONTEXT_NOT_COMPLETE_COVERAGE_CHECK",
+          "evidence": [
+            "Empirical watershed sequencing context; no assertion about uninspected full manuscript."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2013WR014067",
+          "material_read": "Accessible abstract and indexed conclusions, not complete accepted manuscript",
+          "method": "abstract/selected excerpts only",
+          "title": "The role of tributary relative timing and sequencing in controlling large floods",
+          "trigger": "timing and peak significance in hydrology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the classical four-stage linear-reservoir impulse response, delayed equal inputs create a genuine mode-bifurcation. The exact dimensionless separation threshold and shoulder boundary provide an interpretable analytical benchmark for sequencing in idealized hydrologic response, beyond simply knowing the gamma hydrograph formula. The result does not assert operational real-flood safety or global peak dominance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Identical four-reservoir linear cascades, equal instantaneous pulses and common rate k only; claim concerns count of strict local maxima not floods in physical catchments."
+  ],
+  "schema_version": 1
+}
