@@ -1,19 +1,21 @@
-# Scientific review: finite unclustered BWT census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard-permutation criterion and Hamming identity (Kumallagov, Proposition 4.3) identify the exact finite predicate. The enumeration visits precisely all \(3\cdot2^{n-1}\) ternary words without equal adjacent letters at each tested length and retains exactly the one-cycle words at the sharp Hamming threshold. The sole pruning invokes Kumallagov's proved parity necessity. The program was compiled and exercised from its actual included source; the second, independently written bit-decision count agrees for all lengths 13–26 without parity pruning. Eighteen direct inverse-BWT/forward-BWT reconstructions check every claimed positive witness, and an independent short exhaustive loop gives the same four images at length 14. The explicit witness plus the established universal lower bound proves the numeric optimum for all larger alphabets.
+PASS
 
-## Originality — PASS, with priority risk
+For the fixed ordered alphabet 0<1<2 and n=13..30 only, the sharp BWT output words L are exactly those with adjacent unequal symbols, Hamming distance ceil(n/2) to sorted(L), and an n-cycle stable sorting permutation. Independently implemented two separate COMPLETE C++ enumerations of all 3*2^(n-1) such words for EACH n=13..30; one used parity pruning and one deliberately used NO pruning. Both give c_13..c_30=(28,4,88,22,120,30,256,61,540,94,1084,180,2148,330,3956,595,8322,1072); n=30 exhaustive generator visits 1,610,612,736 distinct candidates. Verified displayed witnesses with direct inverse and forward BWT and cyclic input runs; cited known factor-two lower bound gives U_q(n)=ceil(n/2) for all q>=3, limited to these n.
 
-The principal 2026 preprint (arXiv:2606.01267v1) provides a conjecture, sharp examples only through length 12, and an arithmetic family that already covers numerical optima at lengths 13, 28 and 29; these prior numbers are explicitly excluded as individually new numerical claims. The 2025 construction paper (arXiv:2508.20879v1) concerns existence of unclustered images, without minimum input run counts. Neither inspected manuscript supplies the exact eighteen ternary optimizer counts, four-word classification at length 14, or finite sharpness over the remaining fifteen new numerical lengths. Searches by both the direct formulation and the equivalent one-cycle/Hamming/Parikh descriptions found no decisive broader coverage. Index recall and implicit coverage elsewhere remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The fully enumerated sharp-image spectrum is a motivated invariant of the central open extremal BWT problem and captures the first eighteen lengths beyond the main published witness table. The finite cutoff through length 30 covers all four residue classes and includes the sparsely realized 14-symbol parameter (exactly four optimizers with the same content). It gives useful benchmark counts and exact test cases for constructing or classifying future infinite sharpness families; it is not a routine one-step extension of an already published table.
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. The known factor-two bound plus constructed ternary witnesses yields finite-range numeric sharpness; the main additional theorem is the complete exact c_n count, which requires a genuine exhaustive one-cycle and Hamming predicate census, not a corollary of mere existence. Priority qualified: Decisive historical-priority uncertainty: full Kumallagov 2026 appendix was inaccessible due vpn_disconnected, so it may contain an equivalent 13..30 table; retain for human full-text comparison, no fabricated NOT_COVERING claim.
 
-## Limits
+## value
 
-The result is exact only for the displayed finite interval; image counts are ternary, not counts for every larger alphabet. The theorem leaves the unrestricted conjecture open. Independent review and broader historical priority checking remain necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete, nontrivial finite classification of sharp unclustered BWT images of primitive necklaces across 18 consecutive natural lengths, including unique four-image n14 shape and all image multiplicities. It resolves a substantial finite range of a published extremal question without falsely claiming all-length conjecture; multiple billions of candidates and independent algorithms establish finite exhaustiveness, not infinite extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

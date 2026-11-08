@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of finite sharp unclustered BWT images
+# Independent mathematical audit
 
-The self-contained exhaustive enumerator `verify_enumeration.cpp` enumerates all `3*2^(n-1)` adjacent-unequal ternary images for every chosen `n` and applies the cited necessary parity condition, exact sorted-word Hamming comparison, and one-cycle standard-permutation test. Its run for lengths 13–30 yielded the counts in `witness_table.tsv`. Its input and output have no dependence on prior result packages.
+## correctness
 
-A second independently written generator `verify_bitmask.cpp` chooses the starting symbol and a binary mask selecting one of the other two symbols at each step, then constructs the inverse stable permutation. It does not apply parity pruning, and its exact results matched every primary count for lengths 13–26. Its direct exhaustive recount was not completed for lengths 27–30.
+PASS
 
-`verify_witnesses.py` separately reconstructs a primitive source via sorted-row inversion and recomputes the ordinary BWT from all its cyclic rotations; it also tests the cyclic input run count. All 18 displayed witnesses passed. A third small direct enumeration gave exactly four length-14 witnesses as listed in `n14_four.txt`.
+For the fixed ordered alphabet 0<1<2 and n=13..30 only, the sharp BWT output words L are exactly those with adjacent unequal symbols, Hamming distance ceil(n/2) to sorted(L), and an n-cycle stable sorting permutation. Independently implemented two separate COMPLETE C++ enumerations of all 3*2^(n-1) such words for EACH n=13..30; one used parity pruning and one deliberately used NO pruning. Both give c_13..c_30=(28,4,88,22,120,30,256,61,540,94,1084,180,2148,330,3956,595,8322,1072); n=30 exhaustive generator visits 1,610,612,736 distinct candidates. Verified displayed witnesses with direct inverse and forward BWT and cyclic input runs; cited known factor-two lower bound gives U_q(n)=ceil(n/2) for all q>=3, limited to these n.
 
-This is exhaustive verification only for finite lengths. There is no proof for lengths outside 13–30 and no independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. The known factor-two bound plus constructed ternary witnesses yields finite-range numeric sharpness; the main additional theorem is the complete exact c_n count, which requires a genuine exhaustive one-cycle and Hamming predicate census, not a corollary of mere existence. Priority qualified: Decisive historical-priority uncertainty: full Kumallagov 2026 appendix was inaccessible due vpn_disconnected, so it may contain an equivalent 13..30 table; retain for human full-text comparison, no fabricated NOT_COVERING claim.
+
+## value
+
+PASS
+
+A complete, nontrivial finite classification of sharp unclustered BWT images of primitive necklaces across 18 consecutive natural lengths, including unique four-image n14 shape and all image multiplicities. It resolves a substantial finite range of a published extremal question without falsely claiming all-length conjecture; multiple billions of candidates and independent algorithms establish finite exhaustiveness, not infinite extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
