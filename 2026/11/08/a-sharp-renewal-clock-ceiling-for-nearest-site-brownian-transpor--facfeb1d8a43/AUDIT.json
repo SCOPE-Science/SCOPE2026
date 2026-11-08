@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Conditional centering and renewal reward theorem yield the exact diffusivity. For small theta the Mills bound makes H=theta F′-F positive. For theta>=1/16 the explicit Fourier representation gives negative F″ by a decreasing alternating series, so H has a unique zero and R a unique maximizer. The Poisson bound follows from coefficientwise-positive hyperbolic series after a positive degree-six grouping. Source code replay gave 528 finite diagnostic assertions; global proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alston–Bertrand, arXiv:2401.12772, primary full text: exponential resetting times, regular site array, Poisson diffusivity formula and best spatial regularity",
+        "Bodrova–Chechkin–Sokolov arXiv:1812.05667: renewal reset of scaled Brownian motion to a fixed origin, not nearest-site transport"
+      ],
+      "reasoning": "The nearest-site Poisson transport result neither optimizes arbitrary iid renewal timing nor proves the maximizer deterministic; its spatial-lattice optimum is a different variable. Fixed-origin renewal resetting does not produce an unbounded lattice random walk and cannot imply a positive transport coefficient ceiling for nearest-site reset walks.",
+      "searches": [
+        "Alston Bertrand boosting macroscopic diffusion with local resetting 2401.12772; replacing Poisson clocks with periodic renewal resetting deterministic timing",
+        "periodic deterministic resetting nearest resetting site Brownian effective diffusivity Gaussian rounding",
+        "nearest site stochastic resetting deterministic intervals maximum diffusivity non Poisson",
+        "https://arxiv.org/abs/1812.05667"
+      ]
+    },
+    "checked_sources": [
+      "Alston and Bertrand, arXiv:2401.12772 (full accessible primary text)",
+      "Schneeweiss, Komlos, Ahmad 2006 (full accessible PDF sections 2–7)",
+      "Tricker 1984 DOI 10.2307/2987741 (abstract; full text unavailable)",
+      "Bodrova, Chechkin, Sokolov arXiv:1812.05667 (abstract, different mechanism)",
+      "Published research records on nearest-site renewal-clock sharp diffusivity",
+      "Available historical Brownian reset claims for direct and implied overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alston and Bertrand 2024 give D_eff/D = alpha^2 csch(alpha)coth(alpha) under a Poisson clock and optimize alpha around 1.606",
+        "The new theorem gives all-renewal sharp constant 1.332477887 and strict unique deterministic attainment, while Poisson is bounded independently below 1.25",
+        "Schneeweiss et al. 2006 give the preexisting Gaussian rounding moment formula; this is treated as an input, not an original subclaim"
+      ],
+      "reasoning": "Alston–Bertrand imply the Poisson subfamily formula and its enhancement but not the all-clock upper envelope or uniqueness of timing optimum. The present theorem strictly dominates the Poisson ceiling in the enlarged clock design space. A known moment formula alone does not imply strict unimodality of normalized variance or the renewal-reward equality classification.",
+      "searches": [
+        "Alston Bertrand boosting macroscopic diffusion with local resetting 2401.12772; replacing Poisson clocks with periodic renewal resetting deterministic timing",
+        "Boosting macroscopic diffusion with local resetting arxiv 2401.12772 periodic exponential time",
+        "Effects of Rounding on the Moments of a Probability Distribution Tricker 1984 full text",
+        "Symmetric and Asymmetric Rounding exact variance normal Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schneeweiss–Komlos–Ahmad (2006), Section 6, equations for the normal rounded second moment; original moment identity known",
+        "Tricker (1984), DOI 10.2307/2987741, abstract on rounded normal variance, full text unavailable"
+      ],
+      "reasoning": "Nearest-lattice displacements are rounded Gaussians, so quantization literature is a plausible alias. The moment identity is already known and not the asserted novelty. The assessed theorem additionally proves a unique global normalized-variance maximizer and uses it for a sharp optimization across renewal clock laws. The inspected 2006 full text discusses rounding moments and correction versus grid shift, not a renewal-clock bound. The unavailable 1984 text creates a residual priority risk.",
+      "searches": [
+        "nearest-lattice projection of Brownian motion at independent renewal times; universal maximum effective diffusivity at deterministic reset period 1.332477887",
+        "quantized Brownian increments nearest integer Gaussian rounding effective diffusion optimal variance ratio f(t)/t unique maximum",
+        "normal Gaussian quantization variance ratio rounded normal exact maximum variance over input standard deviation",
+        "https://epub.ub.uni-muenchen.de/1847/1/paper_479.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical constant or exact theorem identified among returned semantic research records, published search results, or inspected 2006 full text",
+        "Search surfaced unrelated sharp quantization and diffusion findings rather than this lattice-reset renewal-clock constant"
+      ],
+      "reasoning": "The index search is negative, not a proof of uniqueness or publication priority. The exact expression for the constant in the new proof is specified implicitly and independently verifiable.",
+      "searches": [
+        "nearest-lattice projection of Brownian motion at independent renewal times; universal maximum effective diffusivity at deterministic reset period 1.332477887",
+        "diffusion coefficient nearest site Brownian periodic local reset 1.332477",
+        "variance 1.332 rounding gaussian",
+        "normal distribution rounded variance ratio maximum 1.332",
+        "Results indexed for nearest integer Gaussian variance sharp diffusion periodic"
+      ]
+    },
+    "rationale": "Full-text comparison with the original nearest-site Poisson transport paper and normal quantization moment review shows the sharp all-renewal clock ceiling, strict unique deterministic optimizer, and all-Poisson separation are not implied by those sources. Four alias, broad-coverage, table and implication checks plus semantic results searches revealed no exact coverage. Publication priority risk remains for inaccessible Tricker 1984 and unindexed rounding optimization.",
+    "residual_risks": [
+      "Tricker 1984 normal-rounding article not fully inspected; sharp normalized-variance property might conceivably be implicit.",
+      "Unindexed broader rounding or renewal-optimization theorem may affect publication priority.",
+      "Numerical values depend on evaluation of an analytically unique root; they are not rational closed forms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING all-iid-renewal clock optimization; covers Poisson rate and array geometry and recovers one included subfamily",
+        "evidence": "Paper explicitly states resetting events occur with Poisson rate and gives regular-array D_eff/D=alpha² csch(alpha)coth(alpha); optimal Poisson enhancement near 1.169.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.12772",
+        "material_read": "Public preprint full available article text: abstract, model, resetting protocol, equations (12)–(20), optimization, discussion; source first posted 2024-01-23",
+        "method": "Read full article text available at arXiv landing full-text extraction, compared reset mechanism, clock domain and rate optimization equations",
+        "title": "Boosting macroscopic diffusion with local resetting",
+        "trigger": "Exact same one-dimensional nearest-lattice physical mechanism and Poisson diffusivity benchmark"
+      },
+      {
+        "assessment": "COVERS rounding-moment premise but not the unique all-time normalized variance maximum or renewal-clock physical optimization",
+        "evidence": "Section 6, normal rounded-data variance expressed as a sum over rounded Gaussian bins; discussion focuses on Sheppard correction and grid shift.",
+        "identifier_or_url": "https://epub.ub.uni-muenchen.de/1847/1/paper_479.pdf",
+        "material_read": "Full accessible PDF sections 2, 3, 5–7 and 12; Section 6 equations (28), rounded variance formula and normal-grid examples; page 4 image inspected",
+        "method": "Read article PDF text and page image, checked Sections 2–7 and searched for normal distribution, maximum and variance",
+        "title": "Symmetric and Asymmetric Rounding",
+        "trigger": "Same rounded-Gaussian moment functional; possible general quantization covering result"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY_RISK; moment identities precredited, no full-text claim of noncoverage made",
+        "evidence": "Abstract confirms rounded normal first-two-moment analysis without enough detail to exclude more specific inequalities.",
+        "identifier_or_url": "https://doi.org/10.2307/2987741",
+        "material_read": "Abstract and bibliographic information only; arXiv and lawful OA search found no full text; institutional retrieval inaccessible",
+        "method": "Checked journal abstract and OA availability; institutional attempt returned access unavailable",
+        "title": "Effects of Rounding on the Moments of a Probability Distribution",
+        "trigger": "Early paper specifically analyzing first two rounded-normal moments; possible sharp variance comparison"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL; origin reset destroys accumulated unbounded lattice walk, not a direct covering result",
+        "evidence": "Abstract specifies resetting a scaled Brownian process to its initial position.",
+        "identifier_or_url": "https://arxiv.org/abs/1812.05667",
+        "material_read": "Accessible arXiv abstract, describing renewal reset to fixed initial position",
+        "method": "Compared state reset map and transport observable from abstract",
+        "title": "Scaled Brownian motion with renewal resetting",
+        "trigger": "Generic renewal clock literature, candidate domination by broader result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "facfeb1d-8a43-4257-a127-9a47925fbbbd",
+  "value": {
+    "rationale": "Replacing a Poisson binding clock by arbitrary iid renewal intervals is a motivated physical design freedom in the nearest-site resetting model. An exact sharp ceiling, unique periodic optimizer and strict separation from the full Poisson family materially extend the prior optimized transport result; the claim is not merely a rounded-Gaussian identity or a rate substitution.",
+    "status": "PASS"
+  }
+}
