@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:48:50.198182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For alpha>-1 (beta=alpha+1) the complex weighted Poisson kernel has positive Fourier multipliers r^n and negative-frequency multipliers m_k=r^(-k) I_(r²)(k,beta)=r^(-k)Pr(N>=k) for N negative-binomial(beta,r²). Parseval makes the circle L² norm a supremum of these. When beta<=1 negative-binomial convolution with shape 1-beta stochastically bounds S_k by r^(2k), so only constants are norm extremizers. For beta>1, the pmf ratios r²(k+beta)/(k+1) strictly decrease, forcing increasing discrete hazards and a unique or two-adjacent-mode maximizer. The first crossing m1=1 occurs at unique r solving (1-r²)^beta=1-r. Incomplete-beta-to-Gamma scaling for k(1-r)->t, with uniform tail escape bounds, gives F_alpha(t)=e^t Gamma(beta,2t)/Gamma(beta), strictly uniquely maximized at t_alpha since Gamma survival hazard increases 0 to 1. For alpha=1 the exact m_k=r^k(1+k(1-r²)) yields switching radii rho_j and limit 2/sqrt(e). Independent scipy multiplier checks at alpha=-.5,0,.5,1,2 and radii bracketing thresholds agreed; finite samples are not proofs of universal limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Ma–Wang 2023 studies pointwise/derivative Schwarz–Pick estimates.",
+          "Olofsson 2020 treats boundary regularity; both distinct operator norms.",
+          "Resultary exact frequency staircase for weighted harmonic Bergman circle traces concerns trace-to-area beta-integral quotient r^(2n)/B(n+1,alpha+1), not a Poisson boundary-convolution operator with negative-binomial survival multipliers."
+        ],
+        "reasoning": "A general circle-Hilbert trace method can diagonalize modes, but the cited broader radial Bergman trace inequality is not a dominating theorem for this different kernel.",
+        "searches": [
+          "Li Ma Wang 2023 alpha harmonic Schwarz Pick operator bound",
+          "Olofsson 2020 Lipschitz continuity weighted harmonic functions L2",
+          "weighted harmonic Bergman circle trace spectral staircase Resultary 2026/10/11"
+        ]
+      },
+      "checked_sources": [
+        "Olofsson & Wittsten 2013, JMSJ 65, 447–486, exact kernel Fourier formula",
+        "Li Ma Wang arxiv:2311.10310, theorem statements",
+        "Olofsson 2020 weighted harmonic Lipschitz regularity, scope",
+        "Resultary 2026/10/11 harmonic Bergman circle trace, full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Olofsson–Wittsten supplies r^(-k)I_(r²)(k,beta), from which the new work derives a discrete optimization and asymptotic theorem.",
+          "Classical Schwarz derivative estimates do not bound the norm via the sharp full negative-frequency mode selection."
+        ],
+        "reasoning": "The new results are implied neither by the existing unoptimized coefficient display as a stated finished theorem nor by pointwise estimates; their proof genuinely uses additional hazard, compactness, and asymptotic analysis.",
+        "searches": [
+          "Olofsson Wittsten 2013 Corollary 1.10 Fourier coefficients vs optimized L2 norm",
+          "weighted harmonic Schwarz Lemma Li Ma Wang arxiv:2311.10310"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olofsson–Wittsten (2013) derives the same complex Poisson kernel and Fourier coefficients (relevant Corollary 1.10).",
+          "New assertion concerns max across ALL signed modes for each radius and exact Gamma limit of the maximizing frequency."
+        ],
+        "reasoning": "The known coefficient sequence is the input; knowing multipliers does not immediately state the strict hazard ordering, contractivity boundary, and optimizer localization.",
+        "searches": [
+          "weighted harmonic Poisson circle L2 operator norm negative binomial gamma boundary modal frequency alpha",
+          "Olofsson Wittsten 2013 Poisson integrals standard weighted Laplacians Fourier coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary title Exact frequency staircase for weighted harmonic Bergman circle traces was opened and its full RESULT.md examined: sharp ratio of area integral and centered-circle trace, different frequency dependence and normed spaces.",
+          "No exact table of NB hazard switching or Gamma boundary norm identified among retrieved results."
+        ],
+        "reasoning": "Matching words frequency staircase are insufficient: the Poisson multiplier tail and the Bergman volume-norm beta diagonal are not logically interchangeable.",
+        "searches": [
+          "Resultary weighted harmonic Poisson circle L2 operator norm negative binomial gamma boundary modal frequency alpha",
+          "exact L2 weighted Poisson Gamma boundary mode selection radius alpha"
+        ]
+      },
+      "rationale": "Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.",
+      "residual_risks": [
+        "Historical harmonic-analysis literature may have maximized these coefficients under another title; no exhaustive negative priority assertion.",
+        "The Gamma limit is for each fixed positive alpha only, and does not provide a uniform two-parameter boundary theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical Fourier coefficient formula is established prior art; sampled sections do not present the claimed optimized full-circle L² norm and boundary Gamma mode theorem.",
+          "evidence": [
+            "Corollary 1.10 is the known negative-frequency incomplete beta coefficient; theorem under audit maximizes over infinitely many k."
+          ],
+          "identifier_or_url": "https://doi.org/10.2969/jmsj/06520447",
+          "material_read": "Publisher PDF inspected, especially kernel definitions, Fourier formulas and Corollary 1.10; relevant formula page rendered",
+          "method": "Primary published PDF text and image of technical formula",
+          "title": "Poisson integrals for standard weighted Laplacians in the unit disc",
+          "trigger": "Original complex weighted Poisson operator and its exact Fourier coefficients"
+        },
+        {
+          "assessment": "Different quadratic forms: harmonic Bergman area energy versus weighted circle trace, with mode ratio r^(2n)/B(n+1,alpha+1), not Poisson convolution survival-tails.",
+          "evidence": [
+            "Staircase thresholds r_m²=m/(m+alpha+1), mathematically distinct from radius `(1-r²)^beta=1-r` and gamma maximization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-frequency-staircase-for-weighted-harmonic-bergman-circle-t--e5356e299a36",
+          "material_read": "Read complete RESULT.md including theorem, beta-integral diagonal formula, proof and limits",
+          "method": "Full source repository content read via GitHub connector",
+          "title": "Exact frequency staircase for weighted harmonic Bergman circle traces",
+          "trigger": "High-similarity Resultary finding with potentially covering title"
+        },
+        {
+          "assessment": "Pointwise and derivative estimates rather than full-circle sharp Fourier multiplier envelope.",
+          "evidence": [
+            "Theorems 2.1–2.4 concern Schwarz-type inequalities for weighted harmonic solutions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.10310v1",
+          "material_read": "Abstract and theorem statements as identified in primary references; complete derivation not reread in this execution",
+          "method": "Primary source metadata/theorem-scope comparison",
+          "title": "Schwarz Lemma and Schwarz-Pick Lemma for solutions of the alpha-harmonic equation",
+          "trigger": "Closest recent weighted-harmonic bound paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The radius at which a natural complex weighted Poisson extension ceases to contract L², the actual mode responsible, and the nontrivial boundary Gamma amplification quantify a coherent stability question. The all-real-positive-weight mode classification and unique asymptotic frequency scale are structural new conclusions relative to the known coefficients, with a sharp natural transition at alpha=0; not merely reproducing single-mode formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Poisson kernel is complex, not a positive real kernel. L² circle convolution only; not Lp, p≠2.",
+    "Gamma asymptotic for fixed alpha>0; not uniform alpha down to zero or providing convergence rate.",
+    "Multiplier identities themselves are previously known; historical priority of optimized envelope remains qualified."
+  ],
+  "schema_version": 1
+}
