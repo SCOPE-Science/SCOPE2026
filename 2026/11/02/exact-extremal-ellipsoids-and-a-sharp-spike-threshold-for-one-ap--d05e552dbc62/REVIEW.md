@@ -1,15 +1,21 @@
-# Scientific review: one-apex Euclidean-ball ellipsoids
+# Independent mathematical audit
 
-## Correctness — PASS
-The unit-ball section of the convex hull meets the apex cone at \(z=1/a\). The long-spike proposed John ellipsoid is proved to lie inside every supporting halfspace of that cone and, by an exact concavity comparison, inside the unit-ball section below the tangency latitude. The short-spike unit-ball extremizer, long-spike extremizer, and enclosing extremizer each have an explicit finite normalized pole-plus-regular-simplex contact certificate satisfying zero first moment and identity second moment. Standard contact theorems then prove extremality among all affine ellipsoids and uniqueness, not just within symmetric candidates. The small-dimensional boundary \(d=2\), transition \(a=d\), and degenerate parameter endpoint \(a=1\) are handled separately. A reproducible checker passed 320 dimensional/parameter cases. Universal claims rely on proof, not sampling.
+## correctness
 
-## Originality — PASS (best-knowledge, provisional historical priority)
-The nearest primary work derives ellipsoids of spherical *slabs* and truncated cones rather than the convex hull of a whole sphere with an exterior apex. The polar body is a one-sided spherical slab; because polarity is not volume-order preserving for off-center ellipsoids, the known slab ellipsoids do not automatically imply this classification. General John/Löwner contact theorems and the ellipsoids-of-revolution theory furnish criteria, but do not state the one-apex formulas, the sharp \(a=d\) invisibility threshold, or its quadratic volume onset. Targeted title, object, alias, polarity and implication searches, and inspection of relevant original articles, disclosed no stronger result. Unindexed sources or an earlier direct calculation could still establish priority; this is not an independence claim.
+PASS
 
-## Mathematical value — PASS
-The body is a canonical minimal nonsymmetric perturbation of a Euclidean ball. An entire interval of protrusion leaves its maximal inscribed ellipsoid invariant while its smallest enclosing ellipsoid reacts immediately, with exact contact geometry and a sharp second-order onset at the dimension threshold. The classification holds for every dimension and every spike length, rather than for arbitrarily selected numerical instances, and makes precise how extremal ellipsoids respond to an exterior point.
+C PASS. For d>=2 and a>=1, K=conv(B2^d,{ae1}). The tangency profile is the unit-sphere arc z<=1/a and cone arc z>=1/a. For a<=d John ball has a negative pole and a 1/d positive latitude isotropic contact certificate. For a>d E(c;b,r) with b=(a+1)/(d+1),c=b-1,r=b sqrt((d^2-1)/(a^2-1)) is contained in all conic support planes and the sphere via a concave quadratic radial difference, with pole+ring isotropic contacts proving uniqueness. For Loewner, exact negative latitude root zeta and b_L,c_L,r_L give containment of the full ball and apex and the corresponding isotropic contact measure. Checked algebraic support, contact and second-order John volume onset; no conflation of translated ellipsoid polar volumes.
 
-## Scope and residual risks
-The sole-spike, unit-Euclidean-ball assumption is essential. The calculation is not asserted to solve several-spike bodies or to be historically unique; independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified against the complete Güler–Gürtuna 2007 primary paper: their slabs are intersections of a ball with halfspaces and other cases truncated cones/cylinders; this exact convex hull of a ball and an external point with unrestricted translated extrema and threshold d was not covered in inspected sections. Broader 2025 John-of-revolution source may carry a hidden specialization.
+
+## value
+
+PASS
+
+V PASS. Complete sharp unchanged-John interval and exact John/Löwner dimensions/volumes solve a natural geometry perturbation problem with a true quadratic contact onset, not a routine computation of one sphere radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
