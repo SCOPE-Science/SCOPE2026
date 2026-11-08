@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The theorem is proved by a recursive count of absent scattered subsequences, a strict local improvement argument, and an exact Fibonacci defect calculation. Run `python checker.py` using Python 3 standard library only. The checker must print `ALL_CHECKS_PASS`.
+# Independent mathematical audit
 
-Direct subsequence enumeration is used only for small mixed-pair words. A separate earliest-occurrence subsequence automaton verifies all mixed-pair words with between two and eleven blocks and checks all binary words of lengths ten, twelve, fourteen, sixteen, and eighteen. Those finite checks do not certify all lengths. Independent mathematical verification has not been performed.
+## correctness
+
+PASS
+
+The greedy arch reduction bounds any word with fewer than m mixed arches by F_{m+2}; the pair suffix E/O recurrences are exact first-symbol partitions. Replacing equal by alternating boundary strictly increases count; one defect at j loses F_j F_{m-j}; Fibonacci identity minimizes at j=2,m-2, yielding four runner-up words for m>=5. Fresh direct all-binary-word enumeration at lengths 10,12,14 gave (21,19),(34,31),(55,50) with (2,4) multiplicities. No finite check substituted for the all-m induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge new strict first defect and multiplicity, with direct prior maximum acknowledged and explicit equivalence risk.
+
+## value
+
+PASS
+
+Meaningful stability refinement of a natural combinatorics-on-words extremum: identifies the sharp gap to second place and all four words achieving it, beyond known Fibonacci maximum, usable to distinguish near-universal scattered-subword constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
