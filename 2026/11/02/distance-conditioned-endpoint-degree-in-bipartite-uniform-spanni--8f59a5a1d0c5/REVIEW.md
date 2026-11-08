@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantifiers include all integer part sizes \(a,b\ge2\), all admissible half-distances \(t\), and both terminal and nonterminal branches. The fixed-path completion count is a restricted Laplacian determinant; the factorial moments reduce to a product of a binomial and a Bernoulli generating polynomial. Bernoulli convolution log-concavity establishes the likelihood-ratio order, with the deterministic final case handled separately. A monotone cubic expression gives the unique crossing; an exact product tail gives the Rayleigh law. Independent exhaustive enumerations over small bipartite spanning trees and 47,930 exact rational assertions matched the formulas; 1,566,873 further exact likelihood-ratio inequalities held. These checks support, but do not replace, the all-parameter proof.
+PASS
 
-## Originality — PASS, qualified
+For K_{a,b} with marked opposite-part endpoints, the all-minors matrix-tree determinant of the Laplacian minor after forcing a path with s=t+1 vertices in each part is b^(a−s)a^(b−s)[1−(a−s)(b−s)/(ab)]. Counting paths gives P(T=t)=((a−1)_t(b−1)_t C_t)/(ab)^(t+1), which telescopes to P(T≥t)=∏_{j=1}^t(1−j/a)(1−j/b). Conditional marked-endpoint extra-degree factorial moments factor to Bin(b−s−1,1/a)+Bern(b/[s(a+b−s)]) for b−s≥1, terminal H=1. The decreasing Bern parameter, shrinking Bin parameter and Bernoulli-convolution log-concavity prove STRICT monotone likelihood-ratio decay, including terminal point-mass boundary. The exact mean deviation b/[s(a+b−s)]−s/a has unique sign switch since s²(a+b−s) strictly increases on [1,min(a,b)], and the tail product gives Rayleigh scaling r=√(ab/(a+b)) as a,b diverge proportionally. Independent enumerations of all spanning trees for K2,2 K2,3 K3,3 K3,4 reproduced the exact rational conditional distributions and ordering.
 
-The comparison explicitly separates the known primitive enumeration from the assessed probability result. Ge–Dong (arXiv:1904.07766, 2019) already gives containment counts for every fixed connected tree; Dong–Ge (arXiv:2103.05294, 2021) gives arbitrary forest-containment counts. Both imply the factorial moments by specialization, so neither counting identity nor its straightforward algebraic reformulation is presented as novel. Their inspected theorems and relevant sections do not formulate a strict conditional likelihood-ratio order, the unique crossing against the unconditional mean, or the matching Rayleigh-scale location. Pemantle's 2004 survey discusses UST edge correlations and degree laws in complete graphs, not this biclique conditional theorem. A related publicly indexed complete-graph endpoint-distance regression addresses a different host, with weaker stochastic order. Broad historical literature might contain an equivalent dependence theorem; it remains a residual priority risk. No full-text negative conclusion is made for inaccessible sources.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Conditioning on an unusually short or long tree path is a natural probe of how local branching responds to global metric geometry. The all-imbalance likelihood-ratio comparison controls every upper tail and strictly increasing degree observable, while the exact one-switch mean bias identifies an intrinsic transition at the typical Rayleigh distance scale. This resolves a structural dependence question not addressed merely by counting one fixed path or one prescribed edge.
+Ge–Dong (2019) and Dong–Ge (2021) already supply the fixed-tree/forest completion enumerations from which these distributions are computable; their theorems are credited as input. A published related Resultary finding proves conditional degree negative regression in complete-graph Cayley trees, but not the bipartite all-parameter STRICT likelihood-ratio ordering and crossing. No dominating same-host stochastic order theorem identified in inspected sources.
 
-## References and limitations
+## value
 
-Pemantle, arXiv:math/0404099 (2004); Ge–Dong, arXiv:1904.07766 (2019), especially Section 4; Dong–Ge, arXiv:2103.05294 (2021), Theorem 4. The theorem is restricted to a uniform spanning tree of a complete bipartite graph and opposite-part marked vertices. The limiting statements require both part sizes to tend to infinity with nondegenerate ratio. No independent audit has yet been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies a strong negative dependence in a canonical noncomplete host of uniform spanning trees: likelihood-ratio ordering at all distances is stronger than covariance or stochastic ordering. The exact crossover and Rayleigh localization determine where long-distance branches suppress endpoint branching, making a precise usable statistical law, not a renamed fixed-tree counting lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T15:42:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/distance-conditioned-endpoint-degree-in-bipartite-uniform-spanni--8f59a5a1d0c5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/87a3259fa364a099771ee96c17369312da957cd4/2026/11/02/distance-conditioned-endpoint-degree-in-bipartite-uniform-spanni--8f59a5a1d0c5/VERIFICATION.md",
+        "/mnt/data/scope_worker-06_20261106T1529Z/local_checks.log"
+      ],
+      "rationale": "For K_{a,b} with marked opposite-part endpoints, the all-minors matrix-tree determinant of the Laplacian minor after forcing a path with s=t+1 vertices in each part is b^(a−s)a^(b−s)[1−(a−s)(b−s)/(ab)]. Counting paths gives P(T=t)=((a−1)_t(b−1)_t C_t)/(ab)^(t+1), which telescopes to P(T≥t)=∏_{j=1}^t(1−j/a)(1−j/b). Conditional marked-endpoint extra-degree factorial moments factor to Bin(b−s−1,1/a)+Bern(b/[s(a+b−s)]) for b−s≥1, terminal H=1. The decreasing Bern parameter, shrinking Bin parameter and Bernoulli-convolution log-concavity prove STRICT monotone likelihood-ratio decay, including terminal point-mass boundary. The exact mean deviation b/[s(a+b−s)]−s/a has unique sign switch since s²(a+b−s) strictly increases on [1,min(a,b)], and the tail product gives Rayleigh scaling r=√(ab/(a+b)) as a,b diverge proportionally. Independent enumerations of all spanning trees for K2,2 K2,3 K3,3 K3,4 reproduced the exact rational conditional distributions and ordering.",
+      "residual_risks": [
+        "Direct finite computations independently checked specific cases only; infinite assertions are supported by the reconstructed analytic proof, not computer output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dong and Ge (2021/22), Theorem 4, allows arbitrary specified forest in complete bipartite graph, dominating the path completion counting step.",
+          "Pemantle (2004) surveys general uniform spanning tree probabilistic techniques, but not the stated explicit strict LR theorem."
+        ],
+        "reasoning": "The general enumeration theorem is a known input and may mechanically imply conditional factorial moments after nontrivial summation; it does NOT by itself imply monotone-likelihood-ratio cross-product inequalities or the exact mean-crossover profile.",
+        "searches": [
+          "uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering",
+          "spanning tree complete bipartite fixed forest enumeration probability conditional distance"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.07766",
+        "https://arxiv.org/abs/2103.05294",
+        "https://arxiv.org/abs/math/0404099",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "Resultary semantic search query 3: uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ge–Dong Theorem 1.4 gives fixed path inclusions; conditional endpoint degree requires counting attached pendant branches and ratios, yielding two independent Bernoulli/binomial factors.",
+          "Strict MLR implies stochastic dominance and negative covariance, stronger than the previously published Cayley-tree stochastic order."
+        ],
+        "reasoning": "Different host graph means Cayley result cannot specialize to K_{a,b}; the prior forest theorem can serve as starting point but does not directly assert strict LR order or the characteristic Rayleigh cutoff.",
+        "searches": [
+          "uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering",
+          "complete graph Cayley tree distance degree conditional binomial Bernoulli versus bipartite"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ge–Dong 2019 Theorem 1.4 and Dong–Ge 2021 Theorem 4 count bipartite spanning trees containing specified fixed tree/forest.",
+          "Resultary 2026/10/4 SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae treats uniform Cayley trees, a complete rather than complete-bipartite host, and reports stochastic order."
+        ],
+        "reasoning": "The enumerative formula is not new; deriving its conditional dependence is an additional implication, and the Cayley conditional law is not the bipartite one (different host and parameters). The stronger LR order is not stated in the inspected prior theorem sections.",
+        "searches": [
+          "uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering",
+          "K_{a,b} uniform spanning tree distance conditional vertex degree likelihood ratio monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical K_{a,b} spanning-tree count a^(b−1)b^(a−1) and fixed-tree forest tables are known.",
+          "Resultary published Cayley-tree exact negative regression is a related structured record, not an exact biclique joint table."
+        ],
+        "reasoning": "An exact K_{a,b} joint distance/degree table would imply the current formulas, but no such prior direct table or inequality was located; absence in an indexed search is qualified evidence only.",
+        "searches": [
+          "uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering",
+          "bipartite K_{a,b} spanning tree vertex distance degree joint distribution table",
+          "complete graph Cayley tree endpoint degree conditional distance regression"
+        ]
+      },
+      "rationale": "Ge–Dong (2019) and Dong–Ge (2021) already supply the fixed-tree/forest completion enumerations from which these distributions are computable; their theorems are credited as input. A published related Resultary finding proves conditional degree negative regression in complete-graph Cayley trees, but not the bipartite all-parameter STRICT likelihood-ratio ordering and crossing. No dominating same-host stochastic order theorem identified in inspected sources.",
+      "residual_risks": [
+        "Prior fixed-forest results are strong enough to recover the conditional distribution; independent priority is confined to strict LR ordering and Rayleigh-scale crossover, not path counts.",
+        "Uninspected specialist probability literature could include an equivalent negative regression theorem for the biclique host.",
+        "Finite spanning-tree enumeration verifies only small part sizes; general theorem rests on determinant and log-concavity algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-tree completion count is prior work; no direct likelihood-ratio monotonicity of endpoint degree conditional on distance found in inspected theorem/section.",
+          "evidence": "Theorem 1.4 applies to a fixed tree in K_{m,n}.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.07766",
+          "material_read": "Primary arXiv PDF theorem 1.4 and section on fixed-tree inclusion counts",
+          "method": "full-text section and PDF screenshot",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "same host and fixed path enumeration"
+        },
+        {
+          "assessment": "General fixed-forest count subsumes determinant count used as proof input, not asserted stochastic-order theorem.",
+          "evidence": "Theorem 4 counts spanning trees containing specified forests.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "Full-text primary arXiv Theorem 4 and relevant definitions",
+          "method": "full-text targeted reading and PDF screenshot",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "stronger fixed-forest enumerative theorem on same host"
+        },
+        {
+          "assessment": "Distinct host K_n and stochastic rather than likelihood-ratio order; do not claim whole document absent result without reading it.",
+          "evidence": "Reported binomial–Bernoulli conditional law and strict stochastic order for uniform Cayley tree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Resultary ranked full title and summary including complete-graph host, conditional law and order",
+          "method": "Resultary search hit summary, not full primary document; comparison limited to reported claim",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "nearby published finding with same random-tree observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.07766",
+        "https://arxiv.org/abs/2103.05294",
+        "https://arxiv.org/abs/math/0404099",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "Resultary semantic search query 3: uniform spanning tree complete bipartite K_{a,b} conditional distance two vertices endpoint degree negative association likelihood ratio stochastic ordering"
+      ],
+      "rationale": "Identifies a strong negative dependence in a canonical noncomplete host of uniform spanning trees: likelihood-ratio ordering at all distances is stronger than covariance or stochastic ordering. The exact crossover and Rayleigh localization determine where long-distance branches suppress endpoint branching, making a precise usable statistical law, not a renamed fixed-tree counting lemma.",
+      "residual_risks": [
+        "Natural exact result judged worthwhile independently of reproducibility or novelty alone; downstream generalization not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior fixed-forest results are strong enough to recover the conditional distribution; independent priority is confined to strict LR ordering and Rayleigh-scale crossover, not path counts.",
+    "Uninspected specialist probability literature could include an equivalent negative regression theorem for the biclique host.",
+    "Finite spanning-tree enumeration verifies only small part sizes; general theorem rests on determinant and log-concavity algebra."
+  ],
+  "schema_version": 1
+}
