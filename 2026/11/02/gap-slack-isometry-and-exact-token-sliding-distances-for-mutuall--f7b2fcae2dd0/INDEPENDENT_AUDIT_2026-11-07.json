@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:52:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0/RESULT.md",
+        "2026/11/02/gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0/verify_mv_isometry.py",
+        "/mnt/data/scope_worker03_20261107T0938Z/independent_checks_output.txt"
+      ],
+      "rationale": "For k-token C_n with uniform positive clockwise gap cap U, the lifted feasible coordinate set with all consecutive cyclic differences in [1,U] is closed under coordinatewise min/max. If k<n<kU and U>=2, an attempt to increase a maximal-deficit coordinate can be blocked only by a neighboring equal-deficit site across a gap saturated at 1 or U; any obstruction directed cycle forces every gap to equal 1 or U, contradicting strict slack. Hence ordered feasible lifts admit L1-length monotone interpolations. Every ambient cycle token path preserves cyclic token order, so replacing its lifted displacement by this admissible path proves isometry. Edge-flow conservation yields f_j=s_j-c; minimizing sum|f_j| over integers uses a median and is attainable by cutting at zero flow. For k=3 mutual visibility iff all gaps<=floor(n/2); the n=3 singleton case is handled separately. Saturated n=6,k=3,U=2 has two isolated vertices. Independent full-graph BFS compared 8983 ordered visible-pair distances through n=11 and the median formula.",
+      "residual_risks": [
+        "Independent finite checks do not replace the stated infinite proof or establish correctness of assumptions outside the precise theorem domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former proves connectedness of mutual-visibility token layer, which is weaker than isometry; the latter gives unconstrained token graph framework."
+        ],
+        "reasoning": "Connectedness alone places no restriction on path lengths, while unconstrained metric does not ensure gap-feasible geodesics.",
+        "searches": [
+          "Resultary semantic: token slide cycles gaps isometry",
+          "Fresan-Figueroa Goldfeder Lozano-Pina arxiv 2610.24324 theorem 6.3; Fabila-Monroy Token Graphs arxiv 0910.4774"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.24324",
+        "arxiv:0910.4774",
+        "Resultary semantic: token slide cycles gaps isometry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 6.2 supplies gap characterization, Theorem 6.3 supplies connectivity. Neither theorem asserts all ambient token geodesic lengths are attainable inside the layer."
+        ],
+        "reasoning": "The lattice interpolation and circulation/median proof is needed for exact distance equality.",
+        "searches": [
+          "Resultary semantic: token slide cycles gaps isometry",
+          "arxiv 2610.24324 section 6 lemma 6.2 theorem 6.3; arxiv 0910.4774 Token Graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For ordered particles on a ring, conservation of cyclic token order and an integer circulation choice produce the median-flow expression. The nontrivial condition is existence of a shortest path preserving all gap caps."
+        ],
+        "reasoning": "Unconstrained earth-mover distance is prior one-dimensional transport; the constrained isometric lifting is a separate implication.",
+        "searches": [
+          "Resultary semantic: token slide cycles gaps isometry",
+          "cycle simple exclusion constrained maximal interparticle gap token sliding shortest paths isometric subgraph median earth mover; Resultary token graph distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact small C_n enumerations and BFS supply finite diagnostics only; no covering all-n distance tables found."
+        ],
+        "reasoning": "The theorem has arbitrary k and U under strict slack and all n, not a known finite graph metric table.",
+        "searches": [
+          "Resultary semantic: token slide cycles gaps isometry",
+          "Resultary token sliding cycle visibility exact distances; n=6 saturated boundary"
+        ]
+      },
+      "rationale": "Fresán-Figueroa, Goldfeder and Lozano-Piña (2026), Section 6, give the same cycle mutual-visibility gap criterion and token-layer connectivity. These are prior. The inspected proof does not give isometric inclusion or the exact pairwise ambient median-flow metric, nor the general gap cap U isometry theorem.",
+      "residual_risks": [
+        "Equivalent geodesic-convexity or isometry conclusions may occur in earlier exclusion-process or distributive lattice literature under other terminology.",
+        "Isometric does not mean all ambient geodesics feasible; strict k<n<kU mandatory for general theorem, with n=3 visibility corollary separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage of visibility/gap criterion and connectivity; not exact isometry in inspected result",
+          "evidence": [
+            "Section 6, Lemma 6.2, Theorem 6.3"
+          ],
+          "identifier_or_url": "arxiv:2610.24324",
+          "material_read": "Full arXiv PDF Section 6 pages 18–19, Lemma 6.2 and Theorem 6.3 inspected by page screenshot",
+          "method": "arXiv PDF, inspected theorem pages",
+          "title": "Reconfiguration graphs of mutual-visibility sets",
+          "trigger": "Identical token layer on cycle and visibility criterion"
+        },
+        {
+          "assessment": "General context, no claim of whole-paper noncoverage",
+          "evidence": [
+            "arxiv:0910.4774"
+          ],
+          "identifier_or_url": "arxiv:0910.4774",
+          "material_read": "Original abstract and bibliographic reference only; no complete original paper independently read",
+          "method": "arXiv bibliographic/abstract inspection",
+          "title": "Token Graphs",
+          "trigger": "General token graph terminology and potential stronger distance theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2610.24324",
+        "arxiv:0910.4774"
+      ],
+      "rationale": "Exact shortest permitted token-routing distances strengthen mere connectivity for a natural constrained reconfiguration graph, support optimal routing algorithms, and expose the strict-slack obstruction and difference between isometry and convexity.",
+      "residual_risks": [
+        "Value rests on the stated natural problem, not on code reproducibility or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent geodesic-convexity or isometry conclusions may occur in earlier exclusion-process or distributive lattice literature under other terminology.",
+    "Isometric does not mean all ambient geodesics feasible; strict k<n<kU mandatory for general theorem, with n=3 visibility corollary separately.",
+    "Scientific acceptance is not publication/import acceptance; public metadata sanitation blocked.",
+    "Historical ledger gaps preserved byte-for-byte and not reaudited."
+  ],
+  "schema_version": 1
+}
