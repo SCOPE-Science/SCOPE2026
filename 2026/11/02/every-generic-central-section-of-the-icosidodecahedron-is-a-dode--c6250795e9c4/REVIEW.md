@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies a fixed origin-centered convex polyhedron, every vertex-avoiding central plane, and a separate Haar-a.s. consequence. In a generic section, vertices are precisely crossing edges. The radial-neighbor-pairing lemma explicitly handles wall crossings (including antipodal vertices sharing a wall), so it proves constancy on all generic orientation chambers. The exact coordinate reconstruction and 30 finite pairing checks are reproduced by the bundled Python program without a tolerance at any critical step. The independent Crofton computation uses 60 edges, endpoint radius \(\varphi\), length \(1\), central angle \(\pi/5\), and crossing probability \(1/5\), giving the constant \(12\). The checker ran to completion; finite simulations are corroboration only. A nongeneric plane is expressly excluded.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The icosidodecahedron is the midpoint rectification of the specified icosahedron: the 30 exact Q(sqrt5) midpoint vertices have radius phi, 60 edges of unit length, and degree four. For a central plane avoiding vertices, each section vertex is a transverse edge crossing. At each polyhedron vertex, all four neighbors split into two pairs with each pair sum collinear with the vertex; on the corresponding normal great-circle wall, each pair has opposing projections, so crossing a wall preserves total number of crossed edges. The finite wall arrangement connects all generic directions by paths crossing only one wall at a time; hence # crossing edges is constant. Adjacent radii form angle arccos(phi/2)=pi/5, so Haar edge crossing probability 1/5 and E[N]=60/5=12, fixing every generic N=12. Independently reconstructed all 12 original vertices, 30 distance-2 original edges, 30 rectification vertices, 60 unit edges and all 30 radial pairings exactly in Q(sqrt5); three generic rational normals have exactly 12 crossings. Random diagnostics are unnecessary to infer universal claim.
 
-Brandenburg–De Loera–Meroni (2023), Theorem 1.1, identifies the edge sets within each slicing chamber and supplies general optimization algorithms. It does not prove that edge counts on **different** chambers agree for this solid. Reid (2016) describes the rectification and face vector, not its generic central-plane side-count rigidity. Published classifications for icosahedron sections and cuboctahedron sections are closely related but not the same assertion under a known implication or polarity. Exact object, claim aliases, paired-neighbor criterion and 12-side invariant were queried against accessible historical records, published-finding corpus and primary literature. No directly stronger or equivalent published theorem was verified. Classical geometric and stereological descriptions could nonetheless contain this property, so priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural **complete** classification of a topological invariant for every generic central section of a familiar non-zonohedral Archimedean solid; its 32 facets have two different side counts, yet all generic central sections unexpectedly have the same number of sides. The local radial-neighbor lemma explains the rigidity and supplies a reusable sufficient mechanism; the exact Crofton argument avoids brute-force enumeration of spherical orientation chambers. The result is not a slight numerical improvement or a special direction calculation.
+Qualified PASS for the all-generic central-section dodecagon rigidity of the rectified icosahedron, beyond prior fixed section chambers and classical face vector; distinct from already-known icosahedron central section distribution. Priority uncertainty from old stereology and geometric recreation remains.
 
-## Closest sources and limitations
+## value
 
-The closest inspected primary sources were arXiv:2304.14239v1 (all sections by chambers, not across-chamber side-count equality) and arXiv:1604.00580v1 (rectification geometry, not section rigidity). Some older specialist descriptions of Archimedean solids or stereological polyhedra could already state the same count; no novelty certificate is claimed. Nongeneric planes, off-center sections, other observables, and other solids are outside the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The surprisingly orientation-independent generic section complexity of a non-zonotopal regular Archimedean solid is a complete natural geometric invariant, with an exact probability law and a structural radial-pairing proof. Distinguishes generic 12-gons from special decagon equators and suggests a transferable wall-balance criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

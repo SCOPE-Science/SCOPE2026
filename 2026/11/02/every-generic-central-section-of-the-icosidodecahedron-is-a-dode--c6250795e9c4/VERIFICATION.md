@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_icosidodecahedron.py` with Python 3's standard library. The program reconstructs, over the exact quadratic field \(\mathbb Q(\sqrt5)\), the twelve icosahedral vertices and thirty original edges, twenty supporting triangular facets and twelve supporting pentagonal facets of their midpoint hull, all thirty rectification vertices, and exactly sixty section-relevant edges. Every facet-supporting inequality and every radial neighbor-pair cross product is checked exactly; it also checks the equal-radius edge angle \(\pi/5\). Four rational generic plane normals and fifteen thousand random plane normals are secondary checks. The full analytical proof of orientation-independent section complexity and the Crofton expectation is given in `RESULT.md`; no finite experiment stands in for that argument.
+## correctness
 
-Expected successful output:
+PASS
 
-```text
-EXACT_TWENTY_TRIANGLE_TWELVE_PENTAGON_SUPPORTING_FACETS_PASSED
-EXACT_RECTIFIED_ICOSAHEDRON_30_VERTICES_60_EDGES_PASSED
-EXACT_RADIAL_OPPOSITE_NEIGHBOR_PAIRING_AT_ALL_30_VERTICES_PASSED
-EXACT_EDGE_CROFTON_ANGLE_PI_OVER_FIVE_AND_MEAN_TWELVE_PASSED
-FOUR_EXACT_GENERIC_NORMAL_SECTION_COUNTS_TWELVE_PASSED
-FIFTEEN_THOUSAND_INDEPENDENT_GAUSSIAN_NORMAL_DIAGNOSTICS_PASSED
-ALL_CHECKS_PASSED
-```
+The icosidodecahedron is the midpoint rectification of the specified icosahedron: the 30 exact Q(sqrt5) midpoint vertices have radius phi, 60 edges of unit length, and degree four. For a central plane avoiding vertices, each section vertex is a transverse edge crossing. At each polyhedron vertex, all four neighbors split into two pairs with each pair sum collinear with the vertex; on the corresponding normal great-circle wall, each pair has opposing projections, so crossing a wall preserves total number of crossed edges. The finite wall arrangement connects all generic directions by paths crossing only one wall at a time; hence # crossing edges is constant. Adjacent radii form angle arccos(phi/2)=pi/5, so Haar edge crossing probability 1/5 and E[N]=60/5=12, fixing every generic N=12. Independently reconstructed all 12 original vertices, 30 distance-2 original edges, 30 rectification vertices, 60 unit edges and all 30 radial pairings exactly in Q(sqrt5); three generic rational normals have exactly 12 crossings. Random diagnostics are unnecessary to infer universal claim.
 
-No independent audit has been performed. Historical priority, especially in specialist older geometric-section literature, remains provisional. The result excludes normal directions perpendicular to any vertex vector; it makes no claim about exceptional degeneracies.
+## originality
+
+PASS
+
+Qualified PASS for the all-generic central-section dodecagon rigidity of the rectified icosahedron, beyond prior fixed section chambers and classical face vector; distinct from already-known icosahedron central section distribution. Priority uncertainty from old stereology and geometric recreation remains.
+
+## value
+
+PASS
+
+The surprisingly orientation-independent generic section complexity of a non-zonotopal regular Archimedean solid is a complete natural geometric invariant, with an exact probability law and a structural radial-pairing proof. Distinguishes generic 12-gons from special decagon equators and suggests a transferable wall-balance criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
