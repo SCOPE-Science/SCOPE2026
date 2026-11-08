@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify_ideals.py` with Python 3.8 or newer; no third-party libraries are needed. The output must match `verification_output.txt` exactly and end with `BIPARTITE_GRAPH_LIE_IDEALS_OK 7_EXHAUSTIVE_CONFIGURATIONS`.
+## correctness
 
-The checker generates **all** reduced-row-echelon subspaces independently of the proposed ideal classification. It evaluates the original bracket, verifies Lie closure against every horizontal basis generator, and counts ideals by subspace dimension. The comparison formula is evaluated separately using Gaussian coefficients and general linear-group cardinalities. A genuine polynomial-basis model of \(\mathbb F_4\) using \(u^2+u+1=0\) checks extension-field arithmetic. Its largest case exhausts all \(417199\) subspaces of \(\mathbb F_2^8\).
+PASS
 
-The arbitrary-field result is proved by projecting any ideal onto \(A\oplus B\), identifying the mandatory central bracket image \(P\otimes B+A\otimes Q\), recovering the unique lift map, and applying the linear Goursat lemma to the horizontal subspace. This proof does not depend on testing a finite set of parameters. Geometry follows from a locally trivial isomorphism bundle, a relative Grassmannian and a vector bundle.
+Read final RESULT.md. For arbitrary-field 2-step Lie algebra A⊕B⊕(A⊗B), any ideal has projection U onto A⊕B and central K=I∩(A⊗B). Closure is equivalent to H=[U,A⊕B]=P⊗B+A⊗Q⊆K, where P and Q are U projections; consequently K/H is E in (A/P)⊗(B/Q), and the linear lifting map φ:U→Z/K uniquely parameterizes the ideal. Goursat lemma classifies U by dimensions (α,β,c) and a GL_c isomorphism, u=α+β−c. For finite fields the Gaussian and GL products plus E and affine φ choices give the claimed full T enumerator, exactly including non-coordinate ideals. The relative Grassmann/GL_c/vector-bundle tower is smooth geometrically irreducible; dimension sum matches the displayed expression, explicitly only for reduced locally closed strata. One-dimensional ideals must be central since all adjoint operators square to zero, yielding [pr 1]_q and rigidity of {p,r}. Independent RREF all-subspace/bracket enumeration for K1,1 and K1,2 over F2 confirmed dimension multiplicities.
 
-Unproved limits: the original ideal scheme may be nonreduced and its global components are not classified. Exhaustive tests cover only the seven stated finite-field configurations. Publication priority and any independent mathematical validation are not established.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
+
+## value
+
+PASS
+
+A complete embedded ideal census, dimension generating function and smooth Goursat strata for a canonical infinite family of 2-step graphical Lie algebras is a natural classification, including non-graded and non-coordinate ideals. The size-rigidity corollary and geometric strata make it more than a routine low-dimensional enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
