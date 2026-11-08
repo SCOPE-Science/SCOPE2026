@@ -1,11 +1,21 @@
-# Review of the critical-obstruction classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The new assertion is the exact classification of *all* nonstackable and nonclearable configurations containing \(4m-1\) pebbles on \(F_m\) for \(m\ge2\). The proof's parity budget distinguishes hub occupancy and residual peripheral pairs. Unless the configuration is one of the stated \(2m\), a legal center-assisted strategy clears it. The reverse implication uses the exact move conservation equation in each peripheral pair and the last hub-interaction argument to exclude any stacked outcome for each stated exception. The scalar threshold itself is pre-existing and is not treated as original. Complete reachability checks corroborate the classification for \(m=2,3,4\); infinite scope rests on the proof, not these checks.
+## correctness
 
-**Originality — PASS, with priority limitations.** Csernák and Soukup's original 2026 paper defines the parameters, gives complete-graph and complete-multipartite formulas, and proves a general independence lower bound. An earlier exact analysis already gives the friendship-graph scalar threshold and one sharp witness, so neither is claimed here. That prior information does **not** imply that the sharp witness's orbit exhausts the critical configurations. The present theorem proves just that missing exclusivity. Searches for the same statement under friendship/Dutch windmill/bouquet terminology, stacking/clearing and almost-stacked terminology, and published mathematical research records found no covering critical-configuration theorem. The October 2026 follow-up paper's full text was not available for inspection, so its unrecognized contents remain a specific priority risk; a failed search is not proof of novelty.
+PASS
 
-**Value — PASS.** For a newly introduced graph-pebbling invariant, the structure of *all* worst configurations is information beyond the scalar threshold and a single obstruction. Here the entire critical layer has one exceptional orbit of only \(2m\) configurations despite a rapidly growing configuration space. The classification specifies the unique concentration pattern that causes failure and thereby provides an exact extremal test case for conjectures about almost-stacked configurations. The theorem covers an infinite natural family, not an arbitrary numerical slice.
+For m>=2 and total 4m-1, the hub-harvest invariant B=s+Σ floor(c(leaf)/2) gives T=2B-s+r with 0<=r<=2m. If B>=m+1 the nonempty leaf pairs can be cleared through the hub and a final K3. If B=m, s<=1; parity forces an odd-odd or even-odd free elimination except for the precisely 2m configurations with one peripheral pile 2m+1, its partner and hub empty and each other leaf carrying 1. For these, the exact pair flux d_P=X_P-2Y_P=(p_P-p_final-Z_P-3Y_P)/2 bounds the hub just before its last outgoing move by 1, contradicting the two pebbles required to move. The argument distinguishes stacking from clearing and handles m=1 as excluded boundary. Finite independent reachability for m=2,3 corroborates but is not used for all m.
 
-**Scope and limitations.** The result does not classify failures at lower masses or solve corresponding questions for bouquets of longer cycles, generalized windmills, or all block graphs. Literature priority is provisional; independent mathematical audit has not been performed. Computational verification is finite and is not substituted for symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content is exhaustiveness and uniqueness of the critical obstruction orbit, NOT the known scalar stack/clear threshold 4m or the existence of one obstruction. The inspected foundational paper does not classify F_m, and no direct covering published finding appeared in the actual Resultary or web queries. This is a best-of-knowledge assessment, with an inaccessible 2026 follow-up posing a real priority risk.
+
+## value
+
+PASS
+
+A sharp classification of all critical nonstackable configurations of a natural bouquet-of-triangles graph is a substantial graph-pebbling invariant: it distinguishes the unknown obstruction set from a previously known threshold and gives a complete orbit count for all m>=2, rather than another single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
