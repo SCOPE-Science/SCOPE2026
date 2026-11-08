@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-From this folder execute `python3 verify_cartier.py` (requires `sympy`) and `python3 verify_field_rank.py` (standard Python 3). Both were executed successfully on the packaged source. The former regenerates the complete Cartier coefficient matrix, confirms its nine nonzero entries, the rank-seven smooth-domain pivots, the exceptional \(Q\) polynomial, and the separable degree \(3+3+4+6\) factorization. The latter independently obtains the Cartier matrix by polynomial multiplication and calculates ten-fold Frobenius-twisted stable ranks at representatives of each irreducible exceptional factor in its splitting field, shifted generic controls, and every smooth \(\mathbb F_7\) parameter.
+## correctness
 
-A finite-field enumeration alone would not prove the universal assertion for all algebraically closed fields. That assertion is instead supplied by the coefficient formula, the explicit rank blocks and four-cycle contraction in `RESULT.md`, and polynomial identities in \(\mathbb F_7[u]\). No full Jacobian group structures, Newton polygons, or isomorphism classifications are verified. No independent external audit has been performed.
+PASS
+
+For smooth y^5=x^6+u x^3+1 in characteristic 7, gcd(5,6)=1 gives genus 10 and regular differential basis of dimensions 1+2+3+4. Derive the Cartier coefficient formula from y^{7J-j}=f(x)^m and x-exponents congruent 6 mod7; independent SymPy integer multinomial reconstruction finds nine nonzero entries exactly as in the result. The four character blocks have total rank seven whenever u²!=4, so a-number 3. Semilinear four-cycle survivor contraction is Q(u)=(3u²-2)(u^14+2)-4u^8; the other paths die, proving stable rank 4 or 0 without inferring p-rank from one Cartier matrix rank. Independently computed GF7 factorization Q=3(U³+U+1)(U³+U-1)(U⁴-U²+3)(U⁶+3U⁴+2U²+2); its four factors are distinct irreducibles degrees 3,3,4,6; Q is squarefree and coprime u²-4. The arithmetic checks are finite corroboration; the formula/semilinear argument covers every algebraically closed char7 parameter.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge claim is exact genus-ten one-parameter a-number and p-rank stratification with sixteen exceptional parameters and Frobenius orbit degrees. Standard Hasse-Witt/Cartier multinomial formula is not new, and Fermat-type p-rank formulas handle the special unperturbed parameter rather than this entire family.
+
+## value
+
+PASS
+
+Exact p-rank drop on a natural Kummer cyclic-cover family despite constant nonordinary a-number is a mathematically motivated stratification; the sixteen smooth exceptional parameters and their field degrees are non-obvious and useful moduli/arithmetic invariants, not an arbitrary finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

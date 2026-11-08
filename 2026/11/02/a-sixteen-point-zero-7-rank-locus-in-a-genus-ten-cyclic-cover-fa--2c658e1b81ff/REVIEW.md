@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete regular-differential basis and Cartier coefficient extraction yield a rank-seven matrix over the entire smooth parameter domain. Taking semilinear powers, rather than relying on the raw matrix rank, identifies the four-character survivor cycle and the contraction \(Q(u)\), whose four-step semilinear coefficient has \(7^4\)th power \((4-u^2)^{343}Q(u)\). The symbolic factorization confirms sixteen separable, smooth exceptional parameters; separately organized exact finite-field code tests the four extension-degree root families and nonexceptional controls. This proof holds over every algebraically closed characteristic-seven field. The main technical risk was confusing the Cartier rank with the stable \(7\)-rank; the iterated argument explicitly distinguishes them.
+## correctness
 
-**Originality — PASS, with residual risk.** Borges–Gonçalves analyze Fermat-type covers; this classification instead stratifies a nontrivial one-parameter deformation. Hase-Liu's general matrix/algorithm formulas could be used to rederive entries but do not state the specialized exceptional scheme, while Ohashi–Kudo–Harashita cover a distinct genus-three family. Searches of accessible mathematical records and historical claims found no assertion implying the full sixteen-point genus-ten dichotomy. These negative searches are not priority certification; unpublished or unindexed specialized computations remain a risk.
+PASS
 
-**Value — PASS.** The natural order-five Kummer cover has an additional order-three symmetry, and Frobenius cycles its four cyclic characters. The resulting sharp two-stratum \(7\)-rank classification with constant \(a\)-number reveals a nonordinary locus of sixteen geometric parameters and its exact arithmetic Frobenius degrees; this structural interplay is not an arbitrary numerical slice. The result does not claim classification of general genus-ten curves, zeta functions, or isomorphism classes.
+For smooth y^5=x^6+u x^3+1 in characteristic 7, gcd(5,6)=1 gives genus 10 and regular differential basis of dimensions 1+2+3+4. Derive the Cartier coefficient formula from y^{7J-j}=f(x)^m and x-exponents congruent 6 mod7; independent SymPy integer multinomial reconstruction finds nine nonzero entries exactly as in the result. The four character blocks have total rank seven whenever u²!=4, so a-number 3. Semilinear four-cycle survivor contraction is Q(u)=(3u²-2)(u^14+2)-4u^8; the other paths die, proving stable rank 4 or 0 without inferring p-rank from one Cartier matrix rank. Independently computed GF7 factorization Q=3(U³+U+1)(U³+U-1)(U⁴-U²+3)(U⁶+3U⁴+2U²+2); its four factors are distinct irreducibles degrees 3,3,4,6; Q is squarefree and coprime u²-4. The arithmetic checks are finite corroboration; the formula/semilinear argument covers every algebraically closed char7 parameter.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge claim is exact genus-ten one-parameter a-number and p-rank stratification with sixteen exceptional parameters and Frobenius orbit degrees. Standard Hasse-Witt/Cartier multinomial formula is not new, and Fermat-type p-rank formulas handle the special unperturbed parameter rather than this entire family.
+
+## value
+
+PASS
+
+Exact p-rank drop on a natural Kummer cyclic-cover family despite constant nonordinary a-number is a mathematically motivated stratification; the sixteen smooth exceptional parameters and their field degrees are non-obvious and useful moduli/arithmetic invariants, not an arbitrary finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
