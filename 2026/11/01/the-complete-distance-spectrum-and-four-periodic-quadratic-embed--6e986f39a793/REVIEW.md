@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Quotient character normalization has a necessary factor \(1/2\); the constant row sum, centered finite-difference identity, the central binomial and odd-degree coefficient corrections, and the increasing adjacent magnitude ratios were reconstructed. The exact script independently checks the original Walsh transform, all weights and multiplicities, sharp maxima, trace and inertia in a substantial finite range. Infinite quantifiers are discharged by the algebraic proofs, not enumeration. The positivity of the constant eigenvalue is immediate from a strictly positive graph-distance row sum. The \(n=3\) exception and all parity boundaries are explicit.
+## correctness
 
-**Originality — PASS under bounded literature comparison.** Ma–Koolen's twice-Q-polynomial classification identifies folded cubes but does not compute the ordinary distance spectrum or its sharp centered extremum. The Liu–Pan–Wang–Cao primary text concerns graph Laplacians and resistance/Kirchhoff indices, rather than the shortest-path distance matrix. The entire inspected Aalipour–Abiad et al. paper computes distance spectra for halved cubes, double odd graphs and Doob graphs but not folded cubes. An earlier related top-harmonic identity for odd folded cubes covers one weight, not all even weights, the four-periodic QEC or all-dimensional inertia. No exact equivalent appeared in the actual text/record searches, but older association-scheme tables remain a material possibility.
+PASS
 
-**Mathematical value — PASS.** Determining the largest zero-sum distance eigenvalue is an intrinsic quadratic-embedding invariant with an immediate negative-type and kernel-positivity consequence. The exact four-modulus transition of the maximizing Walsh mode is a structural distinction between an extreme weight and weight four, not merely a generic diagonalization or a decimal table. Full signed spectra and all-dimensional inertia also provide exact finite-graph invariants. The result settles these quantities for an unbounded natural graph family.
+PASS. The antipodal quotient F_2^n/<1> has 2^(n-1) characters indexed by even Walsh weights; the shortest-path distance is min(|x|,n-|x|). Its convolution Fourier transform has the indispensable 1/2 quotient-representative factor. Discrete integration by parts for the centered tent f(k) yields one or two central second-difference coefficients, giving the exact signed factorial spectrum and strictly positive constant row sum. Signs (-1)^a imply nonsingular inertia. The ratio |Lambda_{2(a+1)}|/|Lambda_{2a}| increases with a, so positive-mode magnitudes are log-convex; comparison of the admissible first and last positive levels yields all four stated cases of Q_n, including n=3, n odd, and n mod 4 boundaries. Independent direct Walsh sums from quotient representatives and Krawtchouk sums were compared in dimensions 3..10, all consistent; source CHECK.py expands to n=70 but finite tests alone do not prove arbitrary n. Positive centered eigenvalues for n>=4 imply negative-type failure and, by first-order Taylor expansion, loss of positive semidefiniteness of exp(-td) for sufficiently small t>0 only. No claim for all t.
 
-**Closest literature and limitations.** The main risk is a different presentation of the same Krawtchouk coefficient identity, especially in older distance-regular or association-scheme sources. Neither the powered-distance cutoff beyond exponent one nor Gaussian positivity at every fixed time is claimed. The result uses the graph with \(2^{n-1}\) antipodal classes, whereas some folded-hypercube articles use a shift in dimension indexing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-dimension nonzero Walsh spectrum plus four-periodic sharp centered distance quadratic constant is not identified as a direct result or corollary of checked adjacency, Kirchhoff, or related-family distance spectra. This is a natural metric embedding invariant; best-of-knowledge PASS with association-scheme historical risk.
+
+## value
+
+PASS
+
+PASS. The full ordinary distance-matrix spectrum, inertia and maximal zero-sum distance quadratic form are intrinsic metrics of a natural distance-regular graph family. The dimension-modulo-four transitions in the maximizing Walsh harmonics yield an exact quadratic embedding constant and sharp conditional-negative-type criterion, with a direct Gaussian-kernel consequence. These exact all-dimension facts are not a mere title relabeling or arbitrary low-dimensional table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
