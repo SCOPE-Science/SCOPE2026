@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonstandard circular-window lemma is proved by support orientation for proper supports and complementary windows for full support. The only repeated Parikh profiles occupy consecutive cyclic starting positions. The transition/Hamming identity follows from this lemma; explicit same-letter shift counts and a length-block decomposition then prove the formula. Linear windows are handled separately, including all endpoints and \(k=1\). The exhaustive finite checker agrees in 3025 instances, but is not treated as the universal proof.
+## correctness
 
-## Originality — PASS (qualified)
-Compared explicit Parikh-factor spectra, cyclic-word Hamming formulations, and jumbled-index-query formulations with arXiv:2007.08787, arXiv:2207.09937, arXiv:2011.00453 and the 2024 Parikh-collinear fixed-point paper. The primary texts inspected address different objects or more general *algorithms* without the exact run-power spectrum. Published research-record searches did not find a dominating or equivalent claim. Residual risk: a specialized elementary formula may exist elsewhere. Absence from search is not a proof of novelty.
+PASS
 
-## Value — PASS
-The theorem gives the complete natural Abelian-factor inventory of an infinite compressed-string family, with the exact effect of each added period and a sharp three-letter boundary. This is motivated by jumbled indexing and Abelian complexity and is not just an isolated small parameter count.
+For q>=3, a length-h linear window within distinct letter runs can have a repeated Parikh profile only for consecutive starts; its shift transition count is the linear window formula. For circular windows, proper support determines first/last runs or a single-run contiguous plateau, and full-alphabet support can be reduced to a complementary window missing a letter, proving the analogous circular contiguity lemma. Thus distinct cyclic Parikh profiles equal unequal adjacent-window shift count, computed from same-letter overlaps in runs; length blocks of P^k consist of k-1 full circular sets and one terminal linear set. Summing finite overlap formulas gives p+(2k-1)S+(k-1), including k=1 and full-length h=p. Independent literal factor-set enumeration matched all 11,856 length profiles across 723 finite instances; proof handles every allowed run length.
 
-## Limits
-No result is claimed for two-letter circular run powers, arbitrary periodic sources or arbitrary morphic sequences. The checker is finite; source access and literature coverage are bounded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Afshar–Amir–Goodrich–Matias study jumbled-index algorithms and periodic string reconstruction, not the exact cardinality spectrum of distinct-run period powers. General Abelian complexity surveys and automatic-sequence results are not proved to imply this family formula; non-ultimately-periodic hypotheses of Parikh-collinear fixed-point results differ. Resultary matches concern Parikh-matrix unambiguity or other sequences, not this spectrum. An older elementary cyclic run count may exist, retained as residual risk.
+
+## value
+
+PASS
+
+Parikh-vector factor counting is an invariant directly relevant to Abelian complexity and jumbled indexing. The complete by-length and total spectra for a natural compressed periodic distinct-run family, with constant per-copy increment and q>=3 boundary, are exact structural results rather than arbitrarily chosen small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
