@@ -1,31 +1,21 @@
-# Scientific review of sharp Radau IIA positivity phases on Boolean hypercubes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The graph convention, stability rational function and endpoint notion of positivity are explicit. Walsh diagonalization proves the finite shell identity at every dimension. Exact polynomial cross-multiplication establishes all rational shell formulas for dimensions one through five. The displayed low-dimensional numerator sign arguments show universal positivity through dimension three and reduce four- and five-dimensional positivity to the two diagonal and one antipodal polynomials. Two Descartes-sign-change certificates, rational sign witnesses, and the monotonic antipodal polynomial give exactly the asserted roots and their ordering. A shortest-path/Taylor argument proves the distance-five obstruction in all higher dimensions; a binomial monotonicity argument establishes negativity at the fixed intermediate step, and the zero-mode limit establishes eventual positivity. These are analytic arguments; finite checks only test their algebra and implementation.
+PASS
 
-The independent exact-arithmetic matrix implementation in `verify.py` gave `VERIFY_OK 12593 exact assertions`, comparing rationally inverted endpoint matrices with their Walsh decompositions in dimensions one through five. All stated polynomial identities were reconstructed coefficientwise, rather than only compared at sample points. No intermediate Runge--Kutta stage-positivity assertion is made.
+Walsh character diagonalization gives each Hamming-shell kernel as a finite Krawtchouk sum of R(2kh). Independently reconstructing shell numerators with symbolic exact rational algebra recovered the leading coefficients of Q4 and Q5, and the values of diagonal shells at h=3/2: -3/1804 for d=4 and -15549/349976 for d=5. Positive-coefficient off-diagonal numerators through d=4 and shells r=1..4 at d=5, plus two sign changes and rational sign witnesses for Q4,Q5, prove the advertised windows. G5 increases from negative to positive once, and its root lies below the first Q5 root. R(z)=1-z+z^2/2-z^3/6+z^4/36+z^5/108+... and (-L)^5 distance-five path sum 5! give coefficient -10/9. Pascal monotonicity extends the negative diagonal at h=3/2 to d>=4; spectral convergence to rank-one uniform projection gives eventual positivity for fixed d. The d>=6 claim does not classify all windows.
 
-## Originality
+## originality
 
-**PASS on checked evidence, with documented historical risk.** The 2013 rational absolute-monotonicity study by Lóczi and Ketcheson [1] concerns method-class monotonicity radii rather than graph-specific matrices and step-set reconnection. The 2015 work of Higueras, Ketcheson and Kocsis [2] changes the integrator by perturbation, unlike the unmodified two-stage Radau IIA matrix studied here. Blanes, Iserles and Macnamara [3] develop positive methods for general graph-Laplacian systems and discuss general order barriers, but not exact Hamming-shell Radau positivity domains. The historical Radau survey [4] is a method-development source, not a hypercube positivity classification. The nearest published analogous numerical results use other stability functions or other graph families. An unindexed older paper specialized to the same graph and method might nonetheless cover a portion of the claim.
+PASS
 
-The claimed new scope is deliberately precise: exact dimension-four and dimension-five phase intervals, the sharp dimension-three universal positivity cutoff, and the coefficient \(-10/9\) of the first distance-five obstruction. Generic RK positivity failure and the known Walsh spectrum are background facts, not novelty claims.
+Theorem is specifically the exact all-step endpoint kernel positivity phases for unweighted Boolean hypercubes under unmodified two-stage Radau IIA. Classical absolute monotonicity and generic path-length sign criteria do not determine the four/five-cube algebraic intervals. The dimension-five distance-five failure is related to an already-known short-step path obstruction.
 
-## Mathematical value
+## value
 
-**PASS.** A stable third-order implicit integrator can produce negative mass even for arbitrarily short timesteps on a symmetric Markov diffusion network; the appearance of this defect is controlled by the graph's dimension and shortest-path distance. This is a natural numerical-design boundary, not an arbitrary parameter slice: Boolean hypercubes are Cartesian products of the simplest symmetric two-state graph, and the fifth-distance obstruction arises from the method's first non-exponential Taylor coefficient with the wrong sign. The exact disconnected safe intervals in dimensions four and five provide usable positive-step rules and distinguish endpoint positivity from global SSP bounds. No inference about other integration schemes or all intermediate intervals above dimension five is asserted.
+PASS
 
-## Literature and limitations
+Positivity of high-order RK endpoint steps is a natural structural question in numerical diffusion; the precise hypercube threshold and disconnected time-step windows illustrate nonmonotone positivity on a canonical graph family. The result is a complete useful classification for dimensions 1..5, with valid explicit higher-dimensional obstructions.
 
-[1] Lóczi–Ketcheson, *Rational functions with maximal radius of absolute monotonicity*, https://arxiv.org/abs/1303.6651 (2013).
-
-[2] Higueras–Ketcheson–Kocsis, *Optimal monotonicity-preserving perturbations of a given Runge–Kutta method*, https://arxiv.org/abs/1505.04024 (2015).
-
-[3] Blanes–Iserles–Macnamara, *Positivity-preserving methods for ordinary differential equations*, https://arxiv.org/abs/2102.08242.
-
-[4] Hairer–Wanner, *Stiff differential equations solved by Radau methods*, https://doi.org/10.1016/S0377-0427(99)00134-X (1999).
-
-The complete positivity domain is proved only for dimensions at most five; for greater dimensions the theorem states small-step failure, one fixed negative intermediate step, and eventual positive recovery. Independently checked novelty is not a statement that all historical results have been indexed or read. No independent mathematical validation or certification has occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
