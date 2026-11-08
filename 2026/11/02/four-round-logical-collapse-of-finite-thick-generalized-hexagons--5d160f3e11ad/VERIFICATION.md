@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_local_profiles.py` with Python 3. The deterministic program creates two finite degree-three bipartite cyclic covers from independently chosen voltage assignments, checks the base's complete set of 133 short cycles, checks every voltage sum is nonzero, checks connectedness and degrees, computes exact rank-one triple extension diagrams with finite bitsets, and compares the resulting rank-two ordered-pair types across both covers. It also checks rank-three singleton-type agreement with the separately constructed symplectic quadrangle of order \((2,2)\).
+## correctness
 
-The expected last line is `VERIFY_OK`; `verification_output.txt` records an actual successful execution. The algorithm computes extensions from adjacency matrices, without assuming the proposed fourteen-class theorem when calculating the logical signatures. Its inference from absence of all projected short cycles to absence of short cycles in the covers is a standard voltage-cover argument.
+PASS
 
-These are finite nonisomorphic test structures, **not** hexagon or octagon certification examples. They do not prove an infinite statement. The general theorem is established by the direct no-short-cycles extension analysis in `RESULT.md`. Independent scientific validation: not performed. The rank-five theory and all stronger logics remain outside the verified scope.
+In the exact one-sorted named-point/named-line incidence signature, rank-one extension types of triples are fixed by equality, sorts, incidence and common-neighbor (distance-two) flags. Girth at least twelve excludes competing short paths and three different pairwise length-two links without a common star center; thickness permits each one-neighbor branch, and the finite generalized-hexagon side-size formula supplies fresh nonadjacent extensions. Therefore rank-two ordered-pair types depend on distance truncated to equality/2/4/>=6 within sorts and 1/3/>=5 across sorts (2*4+2*3=14). Every root has all permissible pair types, giving two rank-three singleton and one rank-four sentence types. Generalized quadrangles have the same rank-three sentence types; the explicitly nested rank-four existential sentence detects an opposite-sort pair with no length-three incidence path, false in generalized quadrangles and true in hexagons/octagons. Rank-five equivalence is not asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: generalized-polygon incidence diameter/girth facts in Exoo–Jajcay and Bamberg et al. do not provide a rank-four EF characterization; relevant bounded-model-theory searches did not locate a general theorem immediately entailing fourteen pair types. A general high-girth finite-model theorem or geometry thesis could still subsume the result; searches cannot establish historical priority.
+
+## value
+
+PASS
+
+Sharp finite quantifier-rank indistinguishability threshold is a natural invariant at the interface of generalized polygons and finite model theory; explicit type counts and a separating quadrangle sentence are mathematically usable. This is not a mere restatement of diameter/girth definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
