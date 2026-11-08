@@ -1,0 +1,301 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:43:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/RESULT.md",
+        "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/verify_svrg.py",
+        "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/VERIFICATION.md",
+        "independent_svrg_check.py",
+        "independent_svrg_check.log"
+      ],
+      "rationale": "For any a_1,a_2>0 distinct, mu=(a1+a2)/2>0 and z=((a1-a2)/(a1+a2))^2 in (0,1), iid signed-curvature noise yields the exact normalized last-snapshot recurrence y_j=(1-t-t xi_j)y_{j-1}+t xi_j. Because y_1=1-t and the Walsh monomials in xi_2,xi_3 are orthogonal, conditional epoch factors are exactly F2=(1-t)^4+zt^4 and F3=(1-t)^6+zt^4((1-t)^2+(2-t)^2)+z^2t^6. Independence across epochs yields E[s_k^2]=F_m(t,z)^k s0^2, so both strict necessity and sufficiency (including endpoint nonconvergence for nonzero s0) follow, and fixed finite inner-index moments inherit convergence. For F2, the unique cutoff is monotone after t=1. For F3, the degree-6 Bernstein coefficient pattern b=(1,0,0,0,z/3,2z/3,z(1+z)) and Descartes sign argument give at most one root for 0<t<1, and the expanded derivative in y=t-1 is strictly positive on t>=1. Together there is exactly one positive cutoff. At t=tau2, z=(2-t)(t^2-2t+2)/t^3 decreases strictly, and F3-1=(t-2)C(t), C(t)=2t^3-8t^2+13t-8, with C strictly increasing; hence exactly one threshold t_c and one z_c root of 128z^3-41z^2+6z-1. Strict rational witnesses show both directions. Independent SymPy expansion and exact rational branch sums reproduced moment factors, Bernstein coefficients, crossing identity, derivative signs, root intervals and both witnesses. Finite sampled parameter roots only corroborate the analytic proof; no higher epochs/nonquadratics are claimed.",
+      "residual_risks": [
+        "The independent finite arithmetic checks are not an exhaustive certification of every positive parameter; the global claim is justified by the reconstructed Descartes/monotonicity proof.",
+        "Every result assumes exact uniform independent components, two positive unequal scalar curvatures, fixed stepsize, m in {2,3}, and last-iterate snapshots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic original and proximal SVRG guarantees are sufficient step restrictions and/or different snapshot rules.",
+          "Published exact loopless SVRG and PAGE frontiers treat another specified stochastic process; same two curvature parameters alone do not imply deterministic epoch crossing.",
+          "SGD exact mean-square analyses omit snapshot-variance reduction."
+        ],
+        "reasoning": "A theorem for every deterministic last-snapshot epoch length with complete necessary mean-square stability would subsume the result, but the compared primary full texts do not establish such a theorem. Stronger general sufficiency cannot imply sharp necessity or reversal. An all-epoch result in uninspected older literature remains residual risk.",
+        "searches": [
+          "SVRG exact mean square stability two quadratic component last iterate snapshot epoch length crossing threshold",
+          "variance reduced stochastic gradient exact stability finite sum scalar quadratics equal probability last snapshot",
+          "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+          "https://arxiv.org/pdf/1403.4699v1",
+          "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf",
+          "https://arxiv.org/pdf/2006.01017",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b",
+          "https://arxiv.org/abs/2306.07850"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "https://arxiv.org/pdf/1403.4699v1",
+        "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf",
+        "https://arxiv.org/pdf/2006.01017",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b/RESULT.md",
+        "https://arxiv.org/abs/2306.07850"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the submitted exact update, F2=(1-t)^4+zt^4 and F3=(1-t)^6+zt^4((1-t)^2+(2-t)^2)+z^2t^6.",
+          "Loopless p=1/2 instead has a 3x3 moment matrix from independently refreshed w_k at every step, with its own radical threshold.",
+          "PAGE p=1/3 has a gradient-estimator state, also distinct.",
+          "Johnson--Zhang establishes the algorithm but no theorem implying unique z_c from 128z^3-41z^2+6z-1."
+        ],
+        "reasoning": "Existing sufficient SVRG bounds do not imply necessary-and-sufficient F_m<1. The fully inspected nearest exact scalar results cannot yield the fixed-epoch ordering by parameter substitution, because the random process and Markov state are different. Thus the short-epoch reversal is not shown to be a corollary, with unsearched historical specializations disclosed.",
+        "searches": [
+          "sharp epoch length stability reversal two component scalar quadratic SVRG last iterate mean square m 2 3",
+          "SVRG exact mean square stability two quadratic component last iterate snapshot epoch length crossing threshold",
+          "SVRG two epoch versus three epoch stability reversal 0.2563426067",
+          "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+          "https://arxiv.org/pdf/1403.4699v1",
+          "https://arxiv.org/pdf/2006.01017",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Actual last-snapshot step is y_j=(1-t-t xi_j)y_{j-1}+t xi_j, y_0=1 with i.i.d. xi_j=+-sqrt(z).",
+          "Johnson and Zhang 2013 Figure 1 Option I defines the estimator but does not provide F2,F3 or their crossing.",
+          "The 2026 loopless/ PAGE sources have distinct random-state refresh semantics and distinct radical frontiers."
+        ],
+        "reasoning": "The exact stochastic algorithm matters: fixed 2/3 inner-loop length with a snapshot only at epoch boundaries is not loopless refresh on every step, PAGE recursive estimator refresh, averaged snapshot, or ordinary SGD. Their squared-moment operators are different; no recovered equivalence gives the submitted cubic threshold.",
+        "searches": [
+          "sharp epoch length stability reversal two component scalar quadratic SVRG last iterate mean square m 2 3",
+          "SVRG exact mean square stability two quadratic component last iterate snapshot epoch length crossing threshold",
+          "sharp epoch length stability reversal Option I SVRG m=2 m=3 two components",
+          "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted cubic and decimal searches did not return an exact m=2 versus m=3 Option I table.",
+          "Closest published exact-frontier database entries concern loopless SVRG and PAGE with non-equivalent updates."
+        ],
+        "reasoning": "This is a continuum-parameter theoretical threshold, not a finite catalogue lookup. No inspected exact table contains the specific F2,F3 crossover; negative searches are supporting scope checks, never proof of originality on their own.",
+        "searches": [
+          "\"128 z^3 - 41 z^2 + 6 z - 1\" stochastic",
+          "SVRG two epoch versus three epoch stability reversal 0.2563426067",
+          "sharp epoch length stability reversal Option I SVRG m=2 m=3 two components",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b"
+        ]
+      },
+      "rationale": "The algorithm itself is Johnson--Zhang Option I prior work. The new scope is an exact necessary-and-sufficient scalar mean-square cutoff for the two smallest nontrivial fixed last-snapshot epoch lengths and its uniquely signed heterogeneity crossing. Reviewed original and proximal SVRG literature, Free-SVRG and quadratic Q-SVRG, plus complete published exact-frontier sources for Loopless SVRG and PAGE; their different snapshot/estimator state recurrences or only sufficient guarantees do not imply this fixed-epoch comparison. Search results for the exact crossing cubic also yielded no matching published prior. This is a qualified best-of-knowledge judgment, not a proof of historical nonexistence.",
+      "residual_risks": [
+        "A differently named older scalar SVRG or random-affine recurrence study may derive the same short-epoch stability polynomials, despite relevant targeted searches and primary reading.",
+        "Original supplements/appendices not established as wholly examined, and exact historical-priority completeness cannot be certified.",
+        "Related Loopless SVRG/PAGE models are similar in parameterization; the non-equivalence conclusion rests on actual refresh-rule comparison, not titles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same underlying estimator is present; generic sufficient rates and Option I/II distinction do not provide sharp necessary-and-sufficient m=2/3 scalar mean-square cutoffs or their crossing.",
+          "evidence": [
+            "Figure 1 gives the update and the Option I last-iterate snapshot; m=2,3 moment polynomials absent in examined theory.",
+            "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf"
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+          "material_read": "Original NeurIPS paper, relevant Figure 1 update and Options I/II, and generic convergence-theorem sections.",
+          "method": "Read PDF text and visually inspected algorithm page.",
+          "title": "Accelerating Stochastic Gradient Descent Using Predictive Variance Reduction",
+          "trigger": "Original definition of last-iterate Option I SVRG; may imply all exact finite-epoch comparisons."
+        },
+        {
+          "assessment": "Progressive variance-reduction uses different proximal/averaged snapshot constructions and sufficient convergence statements; not equivalent to fixed last-iterate Option I per-epoch exact F_2,F_3.",
+          "evidence": [
+            "Algorithm and stated rate theorem are not the exact m=2,3 mean-square threshold for the last snapshot.",
+            "https://arxiv.org/pdf/1403.4699v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4699v1",
+          "material_read": "Accessible primary full PDF, original algorithm and convergence theorem sections, including relevant algorithm page.",
+          "method": "Read text and inspected relevant PDF page.",
+          "title": "A Proximal Stochastic Gradient Method with Progressive Variance Reduction",
+          "trigger": "Proximal/SVRG analysis could cover or dominate finite-epoch stability."
+        },
+        {
+          "assessment": "Free-SVRG chooses a weighted average snapshot and supplies rates/bounds, not exact necessary-and-sufficient last-iterate two/three-step stability reversal.",
+          "evidence": [
+            "Free-SVRG weighted-average update differs from s_next=x_m used here.",
+            "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf"
+          ],
+          "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf",
+          "material_read": "Original NeurIPS 2019 paper, Free-SVRG method and its averaging prescription, relevant theorem and convergence discussion.",
+          "method": "Read primary PDF text and visually inspected method page.",
+          "title": "Towards Closing the Gap Between the Theory and Practice of SVRG",
+          "trigger": "Modern convergence theory with broader stepsizes and epoch averaging."
+        },
+        {
+          "assessment": "Q-SVRG averages inner iterates for snapshots; its quadratic estimates do not give the exact Option I m=2/3 last-iterate cutoff relation.",
+          "evidence": [
+            "Q-SVRG has averaged snapshots rather than the fixed last iterate.",
+            "https://arxiv.org/pdf/2006.01017"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.01017",
+          "material_read": "Accessible arXiv primary PDF; quadratic setup, update, snapshot rule and corresponding convergence-rate sections.",
+          "method": "Read PDF text and inspected early formula page.",
+          "title": "Improved SVRG for Quadratic Functions",
+          "trigger": "Quadratic-specialized prior result plausibly dominating the scalar model."
+        },
+        {
+          "assessment": "Loopless SVRG has Bernoulli snapshot refresh every step p=1/2 and a two-state 3x3 lifted recursion, not deterministic fixed m=2 or m=3 last-iterate outer loops. Its radical frontier therefore does not imply a crossover of two fixed-epoch factors.",
+          "evidence": [
+            "Published frontier alpha=[1+sqrt(9+32h^2)]/[2(1+4h^2)] for loopless p=1/2, with different timing of w_{k+1}.",
+            "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+          "material_read": "Full published RESULT.md, including update, state moment matrix, Jury proof, assumptions and rate boundaries.",
+          "method": "Read full original published source file through GitHub connector and compared the actual stochastic recursion.",
+          "title": "Sharp mean-square stability frontier for two-client Loopless SVRG",
+          "trigger": "Published same two-component scalar quadratic model, exact mean-square stability frontier."
+        },
+        {
+          "assessment": "PAGE estimator refresh p=1/3 and recursion in (x,g) differ from SVRG deterministic-length snapshot update; its radical frontier is not the proposed F2/F3 unique crossing.",
+          "evidence": [
+            "Published frontier [3+sqrt(25+32h^2)]/[4(1+2h^2)], different random state update.",
+            "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b/RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b",
+          "material_read": "Full published RESULT.md, including stochastic PAGE update and 3x3 lifted moment recurrence.",
+          "method": "Read entire primary GitHub text and compared state and refresh semantics.",
+          "title": "Sharp mean-square stability frontier for two-component PAGE",
+          "trigger": "Another same two-curvature scalar model with an exact mean-square frontier; possible equivalence through recursive-gradient reparameterization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/RESULT.md",
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b/RESULT.md"
+      ],
+      "rationale": "The first stochastic last-iterate epoch is m=2 (m=1 is deterministic). Comparing m=2 with m=3 is a structurally motivated minimal change in a standard variance-reduced method, not an arbitrary numerical slice. The exact z_c phase transition proves a nonmonotonic direction: an added inner update expands mean-square admissible stepsizes for lower curvature heterogeneity but shrinks them for higher heterogeneity. Two exact positive-curvature rational witnesses establish both regimes and the unique cubic provides a sharp parameter discriminator. This is a self-contained theoretically useful counterexample and exact classification; no universal practical epoch-cost recommendation or higher-dimensional extrapolation is asserted.",
+      "residual_risks": [
+        "The result is tightly specialized; actual computational efficiency must account for epoch cost, nonquadratic losses and higher-dimensional effects.",
+        "No result for m>=4, averaging snapshots, nonuniform sampling or numerical roundoff is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/AUDIT.json",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/METADATA.json",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/RESULT.md",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/REVIEW.md",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/SLOGAN.txt",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/VERIFICATION.md",
+    "2026/10/12/sharp-epoch-length-stability-reversal-in-two-component-svrg--32b6a9fbcf89/verify_svrg.py",
+    "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+    "https://arxiv.org/pdf/1403.4699v1",
+    "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf",
+    "https://arxiv.org/pdf/2006.01017",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For scalar strongly convex quadratics with a_1,a_2>0 distinct, independent uniform SVRG Option I samples, last-iterate snapshot, z=((a1-a2)/(a1+a2))^2 in (0,1), and normalized t=eta*(a1+a2)/2>0, m=2 and m=3 snapshots are mean-square stable exactly on (0,tau_m(z)), F_2=(1-t)^4+z t^4 and F_3=(1-t)^6+z t^4((1-t)^2+(2-t)^2)+z^2 t^6 with F_m(tau_m,z)=1. The ordering tau3(z)>tau2(z) for z<z_c reverses strictly for z>z_c, with unique z_c in (0,1) root of 128z^3-41z^2+6z-1=0.",
+  "limitations": [
+    "The independent checker first contained an incorrectly assumed constant factor for an elimination resultant; this checker-only guard was fixed and final successful run verifies the correct resultant identity.",
+    "Original research code VERIFY_OK is a finite crosscheck and not an infinite certificate.",
+    "Full sanitized public metadata not staged; plan not_ready is transport/privacy, not a scientific rejection."
+  ],
+  "residual_risks": [
+    "The independent finite arithmetic checks are not an exhaustive certification of every positive parameter; the global claim is justified by the reconstructed Descartes/monotonicity proof.",
+    "Every result assumes exact uniform independent components, two positive unequal scalar curvatures, fixed stepsize, m in {2,3}, and last-iterate snapshots.",
+    "A differently named older scalar SVRG or random-affine recurrence study may derive the same short-epoch stability polynomials, despite relevant targeted searches and primary reading.",
+    "Original supplements/appendices not established as wholly examined, and exact historical-priority completeness cannot be certified.",
+    "Related Loopless SVRG/PAGE models are similar in parameterization; the non-equivalence conclusion rests on actual refresh-rule comparison, not titles.",
+    "The result is tightly specialized; actual computational efficiency must account for epoch cost, nonquadratic losses and higher-dimensional effects.",
+    "No result for m>=4, averaging snapshots, nonuniform sampling or numerical roundoff is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The same underlying estimator is present; generic sufficient rates and Option I/II distinction do not provide sharp necessary-and-sufficient m=2/3 scalar mean-square cutoffs or their crossing.",
+      "evidence": [
+        "Figure 1 gives the update and the Option I last-iterate snapshot; m=2,3 moment polynomials absent in examined theory.",
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf"
+      ],
+      "identifier_or_url": "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+      "material_read": "Original NeurIPS paper, relevant Figure 1 update and Options I/II, and generic convergence-theorem sections.",
+      "method": "Read PDF text and visually inspected algorithm page.",
+      "title": "Accelerating Stochastic Gradient Descent Using Predictive Variance Reduction",
+      "trigger": "Original definition of last-iterate Option I SVRG; may imply all exact finite-epoch comparisons."
+    },
+    {
+      "assessment": "Progressive variance-reduction uses different proximal/averaged snapshot constructions and sufficient convergence statements; not equivalent to fixed last-iterate Option I per-epoch exact F_2,F_3.",
+      "evidence": [
+        "Algorithm and stated rate theorem are not the exact m=2,3 mean-square threshold for the last snapshot.",
+        "https://arxiv.org/pdf/1403.4699v1"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1403.4699v1",
+      "material_read": "Accessible primary full PDF, original algorithm and convergence theorem sections, including relevant algorithm page.",
+      "method": "Read text and inspected relevant PDF page.",
+      "title": "A Proximal Stochastic Gradient Method with Progressive Variance Reduction",
+      "trigger": "Proximal/SVRG analysis could cover or dominate finite-epoch stability."
+    },
+    {
+      "assessment": "Free-SVRG chooses a weighted average snapshot and supplies rates/bounds, not exact necessary-and-sufficient last-iterate two/three-step stability reversal.",
+      "evidence": [
+        "Free-SVRG weighted-average update differs from s_next=x_m used here.",
+        "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf"
+      ],
+      "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2019/file/cd00692c3bfe59267d5ecfac5310286c-Paper.pdf",
+      "material_read": "Original NeurIPS 2019 paper, Free-SVRG method and its averaging prescription, relevant theorem and convergence discussion.",
+      "method": "Read primary PDF text and visually inspected method page.",
+      "title": "Towards Closing the Gap Between the Theory and Practice of SVRG",
+      "trigger": "Modern convergence theory with broader stepsizes and epoch averaging."
+    },
+    {
+      "assessment": "Q-SVRG averages inner iterates for snapshots; its quadratic estimates do not give the exact Option I m=2/3 last-iterate cutoff relation.",
+      "evidence": [
+        "Q-SVRG has averaged snapshots rather than the fixed last iterate.",
+        "https://arxiv.org/pdf/2006.01017"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2006.01017",
+      "material_read": "Accessible arXiv primary PDF; quadratic setup, update, snapshot rule and corresponding convergence-rate sections.",
+      "method": "Read PDF text and inspected early formula page.",
+      "title": "Improved SVRG for Quadratic Functions",
+      "trigger": "Quadratic-specialized prior result plausibly dominating the scalar model."
+    },
+    {
+      "assessment": "Loopless SVRG has Bernoulli snapshot refresh every step p=1/2 and a two-state 3x3 lifted recursion, not deterministic fixed m=2 or m=3 last-iterate outer loops. Its radical frontier therefore does not imply a crossover of two fixed-epoch factors.",
+      "evidence": [
+        "Published frontier alpha=[1+sqrt(9+32h^2)]/[2(1+4h^2)] for loopless p=1/2, with different timing of w_{k+1}.",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834/RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-client-loopless-svr--3a5c82c9e834",
+      "material_read": "Full published RESULT.md, including update, state moment matrix, Jury proof, assumptions and rate boundaries.",
+      "method": "Read full original published source file through GitHub connector and compared the actual stochastic recursion.",
+      "title": "Sharp mean-square stability frontier for two-client Loopless SVRG",
+      "trigger": "Published same two-component scalar quadratic model, exact mean-square stability frontier."
+    },
+    {
+      "assessment": "PAGE estimator refresh p=1/3 and recursion in (x,g) differ from SVRG deterministic-length snapshot update; its radical frontier is not the proposed F2/F3 unique crossing.",
+      "evidence": [
+        "Published frontier [3+sqrt(25+32h^2)]/[4(1+2h^2)], different random state update.",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b/RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b",
+      "material_read": "Full published RESULT.md, including stochastic PAGE update and 3x3 lifted moment recurrence.",
+      "method": "Read entire primary GitHub text and compared state and refresh semantics.",
+      "title": "Sharp mean-square stability frontier for two-component PAGE",
+      "trigger": "Another same two-curvature scalar model with an exact mean-square frontier; possible equivalence through recursive-gradient reparameterization."
+    }
+  ]
+}
