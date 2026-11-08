@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is strictly finite (all lengths at most \(96\)); the square-block search has a proved complete factor bound \(80\), explores every possible block in the bound, and records every surviving nine-block decomposition. An independent prefix enumeration with exact square-factor dynamic programming gives the same twelve words and exact counts. The full census and both standalone source programs are included. No timeout, unverified extrapolation, or probabilistic sampling supports the result.
+
+**Originality — PASS, with priority risk.** Shallit's May 2026 theorem proves impossibility of ten consecutive squares and supplies a nine-square example of length \(48\), but does not classify the complete first doubling-window spectrum or its decompositions. Related earlier minimum-length work establishes only the smallest length and the number of shortest minimizers, not the attainable lengths \(76,86,92,96\), their exact multiplicities, or the gaps. Targeted searches for this exact spectrum, shorter aliases, and broader descriptions did not reveal a covering theorem. An unindexed prior computation remains possible.
+
+**Value — PASS.** Nine is the sharp global maximum number of overlap-free binary square blocks. The full first doubling window from the minimum length \(48\) to \(96\), the first length forced by applying the Thue–Morse morphism to a minimum witness, is a natural fundamental domain for asking about possible total lengths. The spectrum is sharply sparse: only five even lengths are feasible, with a gap of \(28\) between the first two and only twelve labeled words. This gives a nontrivial obstruction and complete multiplicity information not implied by the known maximum-block result or minimum-length witness; it is not a routine one-length extension.
+
+**Closest literature and limits.** Shallit, *Ten Squares Force an Overlap* (arXiv:2605.28570v1), especially Theorems 1 and 8 and Lemma 7. The latter concerns a restricted four-block alphabet and does not enumerate arbitrary nine-square concatenations through length \(96\). The new result applies only through length \(96\); full larger-length rigidity and publication priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.
