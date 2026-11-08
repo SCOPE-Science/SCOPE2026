@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-The supplied `verify.py` is standalone and uses only Python's standard library. Execute `python verify.py`. The deterministic output is supplied as `verify_output.txt` and starts with `BIPARTITE_TWO_CYCLE_EXACT_OK`.
+# Independent mathematical audit
 
-The checker independently scans all integer configurations inside the invariant confinement box \(0\le x_v\le2\deg(v)-1\) for seven small complete bipartite graphs, including \(K_{3,3}\). It tests \(F^2(x)=x\ne F(x)\) directly, constructs a histogram indexed by conserved mass, and compares this with polynomial (1). Additional integer calculations test all \(1\le a,b\le4\) for polynomial reflection and closed-form counts, and test the complete spectral/phased-state identity for \(1\le n\le14\). The confinement bounds do not omit primitive-two-cycles because every such state has the exact intervals derived in the proof.
+## correctness
 
-The arbitrary-size identities follow from the vertex-interval classification and the polynomial triangularization of the binomial matrix; finite simulation alone does not prove them. The limiting laws use a Gaussian-dominated falling-factorial Riemann sum and a uniform two-binomial local central limit estimate with explicit endpoint domination; they are not inferred from the finite verifier. No independent external audit has been performed.
+PASS
+
+For a primitive two-cycle on connected K_{a,b}, Laplacian conservation forces the two firing indicator sets to be complements; at every vertex exact allowed chip intervals have length the number of opposite-firing neighbors. Counting all labeled intervals gives the stated mass polynomial, with pure shore phases divided by two; mass reflection uses x_v -> 2d_v-1-x_v. For a=b=n the phased trace is n^(2n)tr(K_n^2); triangular polynomial action has eigenvalues (-1)^k(n)_k/n^k and gives exact N_n. Gaussian dominated falling factorial sum gives sqrt(pi n)n^(2n)/4 and local binomial estimates plus endpoint domination yield Beta(1/2,1/2) firing fraction. Boundaries a,b=1 handled. Direct finite counts do not prove asymptotic.
+
+## originality
+
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+Mass-resolved primitive orbit enumeration and nonconcentrating arcsine statistics are natural exact and limit invariants for a classical chip-firing system; eventual-period theorems cannot replace this census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
