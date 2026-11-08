@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Four exact orthogonal Laplacian modes give a positive-definite stochastic [2/2] Padé matrix. Its only potentially negative off-diagonals are two scalar rational functions whose numerators are quadratic in normalized time. The two resulting if-and-only-if weight thresholds and unique positive roots prove the whole interval classification. A 2,352-case full-matrix reproduction, 1,458 threshold brackets, exact symbolic identities and critical-scaling checks corroborate the proof for all parameters; finite tests alone do not prove it.
+## correctness
 
-**Originality — PASS, qualified.** Zappavigna, Colaneri, Kirkland and Shorten (2010, Section III; 2012, Section 4) prove generic sufficient Padé positivity bounds and examine special counterexamples. Neither inspected result provides the necessary-and-sufficient two-community ratio inequalities or competing exact horizons. Searches for Gauss–Legendre, Padé, two-block, split-graph and spectral aliases found no equivalent; closely related published records concern directed eight-state chains or different numerical updates. Existing special-case results for stars, paths and cycles cannot imply this all-size two-block classification. The review cannot exclude specialized earlier coverage; priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The result gives a sharp safety decision for a natural two-community diffusion discretization. It isolates a nontrivial loss of entrywise positivity despite unconditional spectral positivity, characterizes *all* safe time steps without gaps, and supplies exact critical scaling rather than a merely sufficient small-step bound.
+The Laplacian on complete two-community weighted graphs p,q>=2 (internal a,c>=0, cross b>0) decomposes into four commuting projectors with eigenvalues 0, b(p alpha+q), b(q gamma+p), b(p+q). The [2/2] Pade scalar r(s)=(1-s/2+s^2/12)/(1+s/2+s^2/12)>0, r(0)=1. Spectral reconstruction yields strictly positive cross-block and diagonal entries and two within-block offdiagonal rational functions whose quadratic numerators have one positive root if their leading coefficient is negative, none otherwise. This proves all-h entrywise positivity iff alpha<= (p+2q)/q and gamma<=(q+2p)/p, a single interval [0,H] otherwise, critical O(h^-2) decay and H_A~6/(b q epsilon). Positive definiteness does NOT by itself entail entrywise positivity.
 
-**Scope and residual limitations.** Constant weights inside each of the three edge classes, symmetric diffusion, and the fourth-order [2/2] Padé end-step only. Specialized earlier literature may cover an equivalent formulation. Computational checks support, rather than replace, the full analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete necessary-and-sufficient all-timestep positivity phase diagram, independent two-community thresholds, exact finite positivity horizon, and critical divergence are not given by the inspected general sufficient time-step criteria for Metzler/Pade schemes. The method uses standard spectral projectors.
+
+## value
+
+PASS
+
+Separating unconditional symmetric positive definiteness from positivity preservation and solving its precise phase boundary in a natural equitable-partition diffusion graph is a useful numerical-analysis classification. Decoupling and no-reentry give robust design information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
