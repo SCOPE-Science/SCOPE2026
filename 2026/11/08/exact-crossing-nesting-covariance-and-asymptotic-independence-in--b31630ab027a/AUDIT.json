@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "With n independent endpoint pairs, all 2n ranks give a uniform matching. The anchor projections are pX=2t(1-t) and pN=t^2+2l(1-r). Their exact triangle integrals give covariance of projections zero and individual projection variances 1/45. Same-pair crossing/nesting indicators have covariance -1/9, distinct single-overlap terms vanish, and disjoint terms are independent, proving Cov=-n(n-1)/18. The same overlap count proves Var=n(n-1)(n+3)/45. The bounded Hoeffding degenerate remainder has O(n^2) second moment, versus an n^3 leading scale, establishing joint iid Gaussian limits via the multivariate CLT. The independent standard-library checker passed 75 exact assertions, exhaustive through n=7; finite cases do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy (2000) Theorem 3 gives the exact crossing marginal mean, variance and Gaussian limit.",
+        "Paguyo (2021) Theorem 1.1 strengthens that marginal result with a rate and treats simple chords separately.",
+        "Chen et al. (2005) deal with maximal crossing/nesting sizes, not total pair counts."
+      ],
+      "reasoning": "Stronger marginal Gaussian approximation and maximal-family two-variable symmetry do not imply an explicit total-crossing/total-nesting covariance or bivariate asymptotic independence. An unpublished joint enumerator remains a possible priority risk.",
+      "searches": [
+        "web: random chord diagrams crossing nesting joint asymptotic normal independent total counts U statistics",
+        "arxiv:2104.01134",
+        "arxiv:math/0501230",
+        "Flajolet-Noy report 3914"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2104.01134 (main theorems/§2; 2021-04-02; MSC60C05)",
+      "arxiv:math/0501230 (maximal ranks)",
+      "Flajolet–Noy INRIA RR3914 (Theorem 3 PDF pages)",
+      "arxiv:1111.0269 (abstract only; maximal-rank comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The marginal variance Var(X)=n(n-1)(n+3)/45 is already known and explicitly excluded from originality.",
+        "The new mixed identity Cov(X,N)=-n(n-1)/18 requires evaluating a cross-projection; it is not fixed by either marginal law or the maximal-crossing symmetry theorem.",
+        "Bivariate iid normality follows here from orthogonality of the projection functions, a distinct argument from a univariate crossing CLT."
+      ],
+      "reasoning": "Neither the known crossing moments nor equality of marginal crossing/nesting distributions fixes their joint law; both positive and negative couplings are compatible with equal marginals. The exact cross projection and joint CLT constitute the scoped new result, subject to historical-priority uncertainty.",
+      "searches": [
+        "arxiv:2104.01134 §1-3, nesting term search",
+        "arxiv:math/0501230 §1 and main result",
+        "Flajolet–Noy (2000) Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al. 2005 §1 explicitly define cr(M), ne(M) as maximal sizes of crossing/nesting families, unlike the pair-count totals X and N.",
+        "Paguyo 2021 §1-3 defines total pair crossings but only studies crossing and simple-chord marginals."
+      ],
+      "reasoning": "Matching joint symmetry of maximal crossing/nesting ranks is not a formula for covariance of total pairwise pattern counts. Likewise marginal equidistribution cannot imply their mixed covariance or independent Gaussian limit.",
+      "searches": [
+        "web: \"number of crossings\" \"number of nestings\" \"covariance\" matchings",
+        "arxiv:math/0501230"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly inspected crossing/nesting literature provides marginal, maximal-family, or simple-chord distribution results rather than this exact total-pair mixed moment.",
+        "Targeted literal and semantic mathematical searches did not identify an equivalent formula or joint Gaussian limit."
+      ],
+      "reasoning": "No equivalent mixed-moment formula was identified in the scientific sources or search results examined. Absence from inspected sources does not establish comprehensive priority.",
+      "searches": [
+        "\"number of crossings\" \"number of nestings\" \"covariance\" matchings",
+        "\"crossings\" \"nestings\" \"asymptotically independent\" chord diagrams counts",
+        "joint distribution number of two-crossings and two-nestings perfect matchings arbitrary n mixed moments",
+        "crossing nesting alignment U statistics matching correlations",
+        "arxiv:2104.01134",
+        "arxiv:math/0501230"
+      ]
+    },
+    "rationale": "Full-text comparisons with Paguyo 2021, Chen et al. 2005, Flajolet–Noy 2000 identify known marginal crossing moments, a crossing/simple-chord comparison, and maximal crossing/nesting ranks but not total-crossing/total-nesting mixed covariance or independent bivariate Gaussian fluctuations. Targeted scientific literature comparisons identified no equivalent statement; priority uncertainty is recorded rather than dismissed.",
+    "residual_risks": [
+      "An earlier or unpublished joint crossing/nesting total-pair enumerator could imply the mixed covariance and is not ruled out by database search.",
+      "Baik–Jenkins full text was not inspected; its public abstract studies maximal crossing/nesting counts, not totals.",
+      "Neither scientific literature search nor this review establishes independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior covers crossing Gaussian rate and simple-chord Poisson rate, not a mixed crossing–nesting total-count law",
+        "evidence": [
+          "2021-04-02 first posting; MSC2020 60C05, 60F05",
+          "§1 Theorems 1.1–1.3 and §2 Lemma 2.2",
+          "nesting occurs in the introductory definitions/literature, not as an analyzed statistic"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+        "material_read": "Full-text HTML introduction, definitions, theorem statements, §2 crossing moments, §3 topic overview, and text search for nesting",
+        "method": "Read accessible arXiv HTML and inspected actual theorem/section scope",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Same matching law and crossing-count statistic, middle-age primary 60C05 source"
+      },
+      {
+        "assessment": "Joint symmetry concerns maximal k-crossing/k-nesting sizes, different objects, not a total pair-count cross-covariance",
+        "evidence": [
+          "§1 defines cr(M), ne(M) as maximal k, unlike total two-chord pair counts",
+          "Main theorem f_n(i,j)=f_n(j,i) gives rank symmetry"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+        "material_read": "Accessible full-text HTML introduction, definitions of maximal crossing and nesting numbers, main symmetry statement, relevant headings and passages",
+        "method": "Read detailed theorem definitions and compare their quantifiers and statistics with pair-count totals",
+        "title": "Crossings and Nestings of Matchings and Partitions",
+        "trigger": "Potentially dominating joint crossing-nesting result"
+      },
+      {
+        "assessment": "Prior gives marginal crossing moments and its Gaussian CLT, not a pair of crossing/nesting total counts",
+        "evidence": [
+          "Theorem 3: crossing mean n(n-1)/6, variance n(n-1)(n+3)/45, univariate Gaussian",
+          "The report identifies parameters as components, largest component, crossing number"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Abstract, introduction, Theorem 3 and crossing moment formulas on original report pages, PDF visually inspected",
+        "method": "Read publication text and original PDF pages containing statement and crossing moments",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational exact marginal crossing variance and Gaussian theorem"
+      },
+      {
+        "assessment": "Maximal pair of family sizes is not the total two-chord crossing/nesting count; abstract cannot exclude hidden discussion of totals",
+        "evidence": [
+          "Abstract explicitly addresses maximal crossing and maximal nesting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.0269",
+        "material_read": "Bibliographic abstract and study description; full text not accessible here",
+        "method": "Compared explicitly stated maximal statistics with totals",
+        "title": "Limiting distribution of maximal crossing and nesting of Poissonized random matchings",
+        "trigger": "Similar sounding asymptotic independence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b31630ab-027a-4232-8b26-07bfd8d132d2",
+  "value": {
+    "rationale": "The exact negative correlation -5/[2(n+3)] and independent bivariate Gaussian limit jointly resolve the finite-versus-asymptotic dependence of two canonical matching pattern counts. This is not a marginal theorem: the key structural condition is exact orthogonality of distinct Hoeffding projections, yielding a natural full covariance matrix including alignments. The n^-1 decorrelation rate is exact and nontrivial, making the result useful for joint asymptotic inference.",
+    "status": "PASS"
+  }
+}
