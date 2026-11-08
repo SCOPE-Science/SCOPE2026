@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:53:31.987941Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full algebra RESULT.md@e3fc1f1fca21f51bf927cb2d278b01c8eef670d9",
+        "SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+        "SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+        "independent_checks.py rank-pruning section"
+      ],
+      "rationale": "For A=diag(1,c tau,0,0), c in (0,1), 0<tau<1/sqrt(2), the first accepted b=2 Gaussian sketch spans exactly the rank-two range almost surely; first unpivoted QR vector is (X,delta Y), delta=c tau. Direct orthonormal complement gives row squared norms w1^2=(X^2+delta^4 Y^2)/D, w2^2=delta^2(X^2+Y^2)/D. With Z=delta^2Y^2/D, both rows retained exactly for t<Z<1-t; Y/X Cauchy gives explicit two-arctan P0. Excluding initial premature stopping changes probability by at most 1-exp(-tau^2) using chi-square(2); therefore limit is 2 arcsin(c)/pi. SVD of already formed B recovers rank-one error delta<tau. Independently checked QR, Cauchy probability against 36,000 Gaussian samples across three tau/c cases; source MATLAB code independently read to confirm exact pruning and 4x4 cap. Sampling not infinite proof.",
+      "residual_risks": [
+        "Exact arithmetic and source version only, no finite-precision or high-block-width claim. Early-stop branch expressly excluded by event definition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martinsson–Voronin blocked rank-revealing, randUTV and adaptive randomized pivoting use different transformations and output criteria."
+        ],
+        "reasoning": "Those may guarantee rank accuracy under their algorithms, but do not determine this source-specific small-matrix probability under unpivoted QR row pruning.",
+        "searches": [
+          "randomized matrix free QB unpivoted QR pruning rank overestimation Frobenius Cauchy arcsine singular values",
+          "arxiv:1503.07157",
+          "arxiv:1703.00998",
+          "Resultary: sharp-multistage-arp-error-products--77e11f8220ee"
+        ]
+      },
+      "checked_sources": [
+        "randomized matrix free QB unpivoted QR pruning rank overestimation Frobenius Cauchy arcsine singular values",
+        "arxiv:2607.06758",
+        "SMART-Algebra/Adaptive-Matfree-Lowrank source",
+        "Resultary: sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+        "Resultary: sharp-multistage-arp-error-products--77e11f8220ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The underlying paper states the pruning motivation; its code shows row selection. Neither automatically computes distribution of row energies under first Gaussian QR."
+        ],
+        "reasoning": "The algorithm and SVD comparison supply premises, but the Cauchy integration and first-stop enclosure are independent mathematical conclusions.",
+        "searches": [
+          "arxiv:2607.06758",
+          "SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+          "randomized matrix free QB unpivoted QR pruning rank overestimation Frobenius Cauchy arcsine singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full author implementation sorts coefficient row norms, discards only if accumulated squared error remains strictly below tau^2; `randQB_MF_Fro.m` uses econ unpivoted QR."
+        ],
+        "reasoning": "The exact distribution of the unrotated Gaussian QR basis is a different question from generic rank revelation or the best rank-one approximation; no existing rule asserting rank optimality can imply the numerical obstruction.",
+        "searches": [
+          "randomized matrix free QB unpivoted QR pruning rank overestimation Frobenius Cauchy arcsine singular values",
+          "arxiv:2607.06758",
+          "Prune_Rank_Fro.m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published findings concern ACA norm amplification and ARP expected error, not empirical tables of QB rank-pruning failure."
+        ],
+        "reasoning": "This is an exact continuous-parameter probability law, not a data table count; no exact same algorithm probability table located.",
+        "searches": [
+          "randomized matrix free QB unpivoted QR pruning rank overestimation Frobenius Cauchy arcsine singular values",
+          "arxiv:2607.06758",
+          "Resultary: sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+        ]
+      },
+      "rationale": "Smith–Do–Chen explicitly introduce blockwise Gaussian QB and pruning but describe near-optimal rank empirically. The actual unpivoted QR and row-pruning code support this algorithm-specific over-retention example. The sharp Cauchy/arcsine law is distinct from classical SVD best rank, rank-revealing QR and random pivots.",
+      "residual_risks": [
+        "The full 2026 source paper and Foster 1990 QR probability paper were not inspected in complete text; an equivalent appendix theorem remains possible. Source implementation may evolve after reviewed main branch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Paper establishes algorithm and empirical ranks; cannot rule out mathematical appendix from abstract alone",
+          "evidence": [
+            "arxiv:2607.06758, introduction and abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.06758",
+          "material_read": "arXiv abstract, algorithm description, not complete article full text; paper remains a priority risk",
+          "method": "arXiv search and scholarly indexing",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Exact original method with block width, pruning, early-stop implementation"
+        },
+        {
+          "assessment": "Author implementation exactly applies the discussed row-norm procedure, no SVD rotation",
+          "evidence": [
+            "`alpha_new >= tau` breaks pruning; keep set determined by ascending norm"
+          ],
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+          "material_read": "Complete executable MATLAB source code read, including loop, threshold, ascending row norm sort",
+          "method": "GitHub source connector read",
+          "title": "Prune_Rank_Fro.m",
+          "trigger": "Exact rank pruning semantics"
+        },
+        {
+          "assessment": "Confirms source-specific stochastic event definition and two-iteration cap",
+          "evidence": [
+            "maxit=ceil(min_mn/b), Omega=randn/sqrt(b), QR econ, Prune_Rank_Fro"
+          ],
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m",
+          "material_read": "Complete source function, including absolute tolerance, first sketch, stopping, econ qr, maxit",
+          "method": "GitHub source connector read",
+          "title": "randQB_MF_Fro.m",
+          "trigger": "Check first stopping and four-dimensional block cap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original MATLAB algorithms `Prune_Rank_Fro.m`, `randQB_MF_Fro.m`",
+        "RESULT.md finite-tolerance probability enclosure",
+        "independent QR simulation"
+      ],
+      "rationale": "The algorithm explicitly aims for near-minimal adaptive rank. A 4-by-4 rank-two example with an exactly zero residual but a nonvanishing limiting probability of an extra retained basis column gives a sharp, actionable algorithmic limitation; exact SVD reorientation of an already computed coefficient block demonstrates a cost-contained fix. This is not a generic statement that SVD optimizes rank.",
+      "residual_risks": [
+        "Small fixed block exact-arithmetic limitation; broad practical frequency not quantified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic and source version only, no finite-precision or high-block-width claim. Early-stop branch expressly excluded by event definition.",
+    "The full 2026 source paper and Foster 1990 QR probability paper were not inspected in complete text; an equivalent appendix theorem remains possible. Source implementation may evolve after reviewed main branch.",
+    "Small fixed block exact-arithmetic limitation; broad practical frequency not quantified."
+  ],
+  "schema_version": 1
+}

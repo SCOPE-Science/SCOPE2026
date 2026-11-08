@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The announced event is conditioned on surviving the first sketch and thus avoids treating its exceptional branch as a normal final factorization. In exact arithmetic the first unpivoted QR block spans the rank-two image, so the second residual is identically zero. The exact row-norm formulas and Cauchy ratio determine a *finite-parameter* ideal pruning probability; the chi-square bound covers the first-stop discrepancy. The resulting \((2/\pi)\arcsin c\) limit is proved by ordinary limits of arctangent endpoints. Eckart–Young establishes the optimal rank-one tolerance, while the already-computed block's singular values establish the zero-new-matvec remedy. Symbolic, rational, QR/SVD, and random tests checked the key identities and normalizations. None of the Monte Carlo outcomes were used to infer the infinite theorem.
+PASS
 
-## Originality — PASS within stated access limits
+For A=diag(1,c tau,0,0), c in (0,1), 0<tau<1/sqrt(2), the first accepted b=2 Gaussian sketch spans exactly the rank-two range almost surely; first unpivoted QR vector is (X,delta Y), delta=c tau. Direct orthonormal complement gives row squared norms w1^2=(X^2+delta^4 Y^2)/D, w2^2=delta^2(X^2+Y^2)/D. With Z=delta^2Y^2/D, both rows retained exactly for t<Z<1-t; Y/X Cauchy gives explicit two-arctan P0. Excluding initial premature stopping changes probability by at most 1-exp(-tau^2) using chi-square(2); therefore limit is 2 arcsin(c)/pi. SVD of already formed B recovers rank-one error delta<tau. Independently checked QR, Cauchy probability against 36,000 Gaussian samples across three tau/c cases; source MATLAB code independently read to confirm exact pruning and 4x4 cap. Sampling not infinite proof.
 
-The motivating algorithm [1] derives a Pythagorean relation and row-energy pruning but does not quantify this particular rank-optimality obstruction. Relevant earlier randomized numerical-rank, QR and UTV sources [4–7] use different truncation diagnostics and do not state the source algorithm's Cauchy/arcsine probability. Searches of mathematical research records and accessible earlier claims yielded no dominating statement. The classical Cauchy ratio, SVD remedy, and known limits of unpivoted rank diagnostics are not claimed as discoveries. Foster's 1990 specialized QR-diagonal study [8] could not be read fully; it is explicitly retained as a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's rank-pruning rule is intended to decouple block width and returned numerical rank. A *nonvanishing* excess-rank probability, tunable through every value in \((0,1)\), is an exact reliability benchmark for that explicit design choice, and distinguishes noise in residual detection from geometrical delocalization of singular energy across a QR basis. Postprocessing the same small coefficient block by SVD gives a directly checkable remedy with no further operator actions. This is a motivated numerical linear algebra stability-of-rank-selection problem, not merely a probability exercise.
+Smith–Do–Chen explicitly introduce blockwise Gaussian QB and pruning but describe near-optimal rank empirically. The actual unpivoted QR and row-pruning code support this algorithm-specific over-retention example. The sharp Cauchy/arcsine law is distinct from classical SVD best rank, rank-revealing QR and random pivots.
 
-## Closest sources and scope limits
+## value
 
-Smith–Do–Chen (2026), §§3.1–3.2 and Algorithms 2–3, code [2–3]; Meier–Nakatsukasa (2021), Martinsson–Voronin (2015), randUTV (2017), Grigori–Xue (2025); abstract-only Foster (1990). See references and full definitions in `RESULT.md`. No claims about adjoint-free row-estimate sampling, arbitrary rank or block width, finite-precision MATLAB behavior near underflow, or exhaustive historical priority are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The algorithm explicitly aims for near-minimal adaptive rank. A 4-by-4 rank-two example with an exactly zero residual but a nonvanishing limiting probability of an extra retained basis column gives a sharp, actionable algorithmic limitation; exact SVD reorientation of an already computed coefficient block demonstrates a cost-contained fix. This is not a generic statement that SVD optimizes rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
