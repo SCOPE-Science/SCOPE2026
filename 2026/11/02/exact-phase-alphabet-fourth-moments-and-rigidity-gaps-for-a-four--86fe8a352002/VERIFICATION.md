@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The two mathematical forms of the fourth moment (aperiodic-correlation and squared-polynomial convolution) are independently evaluated in `CHECK.py` over all 9075 unique gauge-normalized phase assignments. Every arithmetic operation is on ordinary integers representing Gaussian or Eisenstein integers. The reported minimum, runner-up, complete gauge-fixed optimizer set and geometric-orbit partition are checked against `CERTIFICATE.json`.
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with `CERTIFICATE.json` in the same directory. The observed result was `CHECK_OK 9075 exact exhaustive normalized arrays, double evaluated`.
+## correctness
 
-This is complete **only** for four-by-two full supports with phase alphabets 2, 3, 4 and 6. The finite Fourier-grid extension follows from a separate character-orthogonality argument whenever both no-alias inequalities hold. Computations do not establish anything about continuous-phase optimizers or other array shapes. No independent audit has been performed.
+PASS
+
+Two independent Parseval expansions give fourth moment as sum of squared aperiodic autocorrelations or squared coefficients of P^2. Global/row/column character phases act freely with unique gauge c00=c01=c10=1; exactly q^5 cases per alphabet represent all q^8 arrays with q^3 multiplicity. Independently rebuilt Gaussian/Eisenstein exact integer norms and exhausted all 32+243+1024+7776=9075 cases: minima (88,84,88,84), counts (48,54,896,3024), second values (96,96,92,86), gaps (8,12,4,2). Reconstructed conjugation/reflection orbit sizes: (2,2,2),(2),(2,2,2,2,2,2,2),(2,4,8). No aliasing of P^2 frequencies 0..6 and 0..2 on M>=7,N>=3 gives uniform discrete result, not heuristic sampling.
+
+## originality
+
+PASS
+
+Nearby published 3x2 Fourier rectangle, 3x3 square and 8-mode Fourier cube have genuinely different additive difference structures, not a 4x2 full-support specialization; array-pair zero-correlation constructions do not optimize this one-array total moment. No exact 4x2 alphabet table located; older unindexed array catalogs remain possible.
+
+## value
+
+PASS
+
+Complete small-aperture quantized sidelobe-energy benchmark with explicit rigidity gaps, orbit geometry and an exact alias-free sampling theorem; the equality classification is not implied by a single minimum or a larger-support result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
