@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The graph eigenprojector weights give explicit resolvent diagonals; their rational difference identifies the critical part; clearing positive denominators yields a quadratic with exactly one positive root for 0<theta<(N-1)/N. The theta=0 endpoint and theta>=(N-1)/N case follow directly. Comparing the polynomials at consecutive smaller-part sizes proves strict balance ordering. The standalone rational Gaussian-elimination verifier replays 1,176 exact full-matrix cases; infinite quantifiers rely on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonnans--Tan (2011), accessible abstract: sharp theta monotonicity for diffusion finite-difference grids; full report unavailable.",
+        "Horváth (1998), accessible bibliographic record/abstract: general Runge--Kutta positivity radii, not the verified Kpq evaluated formula.",
+        "Prior exact complete-multipartite Crank--Nicolson analysis covers the evaluated theta=1/2 case and balance ordering. It does not state the full theta continuum."
+      ],
+      "reasoning": "A general positivity-radius framework could imply sufficient step restrictions but need not imply the exact graph-dependent maximal horizon; nevertheless the inaccessible 2011 report might contain relevant stronger coverage and is identified as a residual risk.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson positivity step threshold irregular complete bipartite graph with arbitrary parts spectral L eigenvalues",
+        "Web: Bonnans Tan Monotonicity condition theta scheme for diffusion equations pdf RR-7778 2011",
+        "Web: Crank Nicolson K_1,n positivity preserving threshold graph Laplacian star"
+      ]
+    },
+    "checked_sources": [
+      "Bonnans--Tan 2011 public report abstract and date metadata",
+      "Horváth 1998 bibliographic/abstract record",
+      "Fallat--Tsatsomeros 2002 full PDF, Lemma 2.2 and Section 4",
+      "Published resolvent-return theorem, full RESULT.md",
+      "published-finding corpus semantic searches for CN theta, graph Laplacian, bipartite aliases",
+      "Web text searches for theta heat step positivity and Kpq",
+      "Prior mathematical statement on exact Crank--Nicolson positivity for complete multipartite graphs (deduplication of claim and implications only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full resolvent-return theorem implies the diagonal-resolvent criterion at theta=1/2 and is credited verbatim as prior mathematical coverage of that reduction.",
+        "The 2002 paper gives a related Cayley identity and M-matrix positivity treatment; no theta-all-parameters biclique specialization was seen in inspected full text.",
+        "The 2011 abstract states sharp theta-scheme diffusion-grid conditions, but unavailable full text precludes a complete implication comparison.",
+        "An earlier complete-multipartite Crank--Nicolson statement, including its exact threshold and minimum-part extremal, directly covers the theta=1/2 specialization on every Kpq; this subset is excluded from any novelty claim."
+      ],
+      "reasoning": "An existing exact complete-multipartite result dominates the theta=1/2 case and its balance statement, so these are not new. The all-theta parameter continuum is not implied as a statement by that single-scheme theorem without a new parameter-dependent resolvent and quadratic analysis. The generic fixed-generator positivity criterion is credited; access to the 2011 theta report remains a material risk.",
+      "searches": [
+        "Full published resolvent-return RESULT: A resolvent-return law for Crank--Nicolson positivity on reversible Markov chains",
+        "Full Fallat--Tsatsomeros 2002 pdf: Lemma 2.2 and Section 4",
+        "Bonnans--Tan 2011 public abstract, HAL identifier inria-00634417"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published reversible-Markov-chain resolvent-return law covers the general CN diagonal criterion but, in its inspected full RESULT, evaluates complete graphs and two-state chains rather than Kpq.",
+        "Fallat--Tsatsomeros (2002), Lemma 2.2, gives the Cayley identity; it is not the evaluated all-theta graph-family step bound."
+      ],
+      "reasoning": "The Kpq graph projector spectrum supplies two distinct state classes and yields a specific rational function, a radical horizon, and strict balance extremality. The general return-law criterion alone is not the same statement; its method is explicitly attributed. Search absence is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson matrix entrywise nonnegative on complete bipartite K_{p,q}, sharp time step positivity maximum principle, exact radical threshold",
+        "published-finding corpus: Implicit midpoint graph heat finite step positivity K_{m,n}, nonnegative stochastic matrix, diagonal resolvent",
+        "Web: theta method complete bipartite graph positivity time step K_{m,n} finite heat matrix graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus hits included generic resolvent positivity and unrelated bipartite numerical objects, with no exact matching Kpq all-theta positivity table in returned summaries.",
+        "The inspected full reversible-chain result evaluates complete graphs K_n, not complete bipartite graphs."
+      ],
+      "reasoning": "No exact Kpq table was located in the searched material. This is qualified negative search evidence, not an exhaustive proof that a table does not exist.",
+      "searches": [
+        "published-finding corpus: Implicit midpoint graph heat finite step positivity K_{m,n}, nonnegative stochastic matrix, diagonal resolvent",
+        "Web: positivity theta method complete bipartite graph Laplacian Kmn stability threshold time step"
+      ]
+    },
+    "rationale": "The general reversible-chain resolvent-return criterion and the exact Crank--Nicolson complete-multipartite formula (including the CN balance extremum) already exist; neither is claimed novel. The assessed incremental result is the explicit exact all-theta complete-bipartite positivity horizon and fixed-order balance comparison for the entire theta continuum, including a finite-to-unconditional cutoff. Its extension beyond one numerical scheme has independent practical use, but the limited full-text access to Bonnans--Tan leaves material priority risk.",
+    "residual_risks": [
+      "Unretrieved full Bonnans--Tan 2011 report could include a stronger or equivalent theta positivity result under a different discretization formulation.",
+      "Related unindexed finite Markov and numerical heat-flow literature may evaluate Kpq using equivalent projectors.",
+      "Exact first-public source date is drawn from a dated public bibliographic record, not an inspection of the source PDF itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_CRITERION_COVERED; evaluated Kpq all-theta radical and balance ordering not in inspected theorem.",
+        "evidence": "General theorem C=2R-I and threshold via resolvent diagonals; example K_n only, alongside 2-state.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "material_read": "Full RESULT.md, including Finding, Proof, prior-work comparison and limitations.",
+        "method": "Read published full text, compared graph families, parameter regime, and claimed quantifiers.",
+        "title": "A resolvent-return law for Crank--Nicolson positivity on reversible Markov chains",
+        "trigger": "The exact CN diagonal positivity reduction could subsume the present statement."
+      },
+      {
+        "assessment": "FOUND_CORE_IDENTITY, NO_INSPECTED_GRAPH_FAMILY_EVALUATION.",
+        "evidence": "Lemma 2.2 gives I+C(A)=2(I+A)^{-1}; Section 4 discusses M-matrix positivity classes.",
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/173/173",
+        "material_read": "Full seven-page open PDF; especially Lemma 2.2 and Section 4.",
+        "method": "Inspected accessible full-text and page image; compared graph-specific versus matrix-class conclusions.",
+        "title": "On the Cayley Transform of Positivity Classes of Matrices",
+        "trigger": "Potential equivalent Cayley-resolvent positivity theorem."
+      },
+      {
+        "assessment": "POSSIBLE_STRONGER_COVERAGE_UNRESOLVED; no whole-document noncoverage assertion.",
+        "evidence": "Abstract claims sharp theta-scheme positivity of diffusion-grid heat equation; dated 2011-10-21.",
+        "identifier_or_url": "https://www.econbiz.de/10009325717",
+        "material_read": "Publication metadata and abstract only; full text inaccessible through available open records and retrieval attempt.",
+        "method": "Compared stated domain and claims in abstract; searched publicly available report and preprint alternatives.",
+        "title": "Monotonicity condition for the theta-scheme for diffusion equations",
+        "trigger": "Highly relevant sharp positivity threshold for a theta diffusion integrator."
+      },
+      {
+        "assessment": "GENERAL_CONTEXT; specialized Kpq result not established by inspected material.",
+        "evidence": "General 1998 positivity-radius treatment; no full primary text available.",
+        "identifier_or_url": "10.1016/S0168-9274(98)00050-6",
+        "material_read": "Accessible primary abstract and bibliographic data; no full-text claim.",
+        "method": "Compared general method-radius scope to fixed-graph exact maximization.",
+        "title": "Positivity of Runge--Kutta and Diagonally Split Runge--Kutta Methods",
+        "trigger": "Prior general method monotonicity theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b76cdd46-75ef-4695-b9cc-295d5fa4c05d",
+  "value": {
+    "rationale": "The non-Crank--Nicolson exact theta-family horizon provides a graph-dependent, sharp step-selection rule for every theta, including a finite-to-unconditional transition with theta and strict partition-balance comparison for all subcritical theta. The CN specialization and its size ordering already exist, and are not counted as new value. Unlike a fixed-theta calculation, the continuous-parameter classification enables optimizing positivity versus implicitness for a standard discretization.",
+    "status": "PASS"
+  }
+}
