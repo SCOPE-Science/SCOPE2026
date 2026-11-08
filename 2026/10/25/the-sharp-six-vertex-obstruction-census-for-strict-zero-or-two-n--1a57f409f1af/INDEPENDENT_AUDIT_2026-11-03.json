@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T20:06:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite loop-free simple labeled graphs and strict T(k)=1 iff k∈{0,2}, the provided bitmask equilibrium predicate is equivalent at each vertex to count(active neighbors)∈{0,2}. Independently reimplemented the census by explicit edge-by-edge active-neighbor tallies rather than executing the submitted verify.py. Exhausted all 1,2,8,64,1024,32768 labeled graphs for n=1,...,6 and all 2^n binary profiles of each (stopping after any equilibrium); obtained exactly 0,0,0,0,0,300 graphs without PNE. Independently enumerated 720 vertex permutations per supplied edge list: orbit sizes 180 (eight edges) and 120 (nine edges), disjoint and with union EXACTLY the 300 failure masks. Thus automorphism group orders are 4 and 6 and eight is minimal edge count at first failing order. Separately scanned NetworkX graph_atlas_g() across all isomorphism types through n=6 (1,2,4,11,34,156): only two n=6 types fail, with matching edge counts and degree sequences. An empty n=0 graph, if included, has the vacuous empty-strategy equilibrium. G8 degree-two parity equations imply s0=s2, s1=s5=1, s3+s4≡1+s0 (mod2); s0=s2=1 violates active vertex 0 (≥3 active neighbors), while s0=s2=0 forces s3=s4=1, contradicting parity. G9's three degree-four triangle vertices with pendant pair vertices cover r=0,1,2,3 active triangle cases: each forces a mismatch as in the actual proof. The Git tree recomputed from the seven actual file blob SHAs equals the assigned d300dbeee13f4734c57bc3ad8af51f40e0afa670. Finite enumeration supports precisely n≤6, not asymptotic statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gilboa–Nisan 2022 p.3 presents 0-or-2 complexity as open, not a forbidden-minor/finite obstruction classification.",
+          "Gilboa 2023 p.6 Fig.4 exhibits a nine-vertex four-triangle chain without a PNE and establishes general finite-pattern hardness, not exact six-vertex counts.",
+          "Klimm–Stahlberg 2023 establishes NP-completeness for picky patterns, with a six-vertex 3-sun gadget, not a full enumeration of smaller bad graphs."
+        ],
+        "reasoning": "NP-completeness of the existence decision for arbitrary n and existence of specific six- or nine-vertex counterexamples are logically compatible with many possible six-vertex obstruction classes; neither implies sharp minimality, an eight-edge example, or 300 labeled failures. Their stated results do not subsume the full finite classification.",
+        "searches": [
+          "arXiv:2207.04238v1 pp. 1–4 and open problem 2",
+          "arXiv:2301.11580v1 §3 and Fig.4",
+          "arXiv:2301.11849v3 Table 1, §5 and Lemma 5.3",
+          "Resultary: binary public goods games exact finite obstruction graph atlas no equilibrium zero-two degree vertices",
+          "web: binary public goods games smallest forbidden graph equilibrium 3 sun count 6"
+        ]
+      },
+      "checked_sources": [
+        "Gilboa–Nisan (2022), arXiv:2207.04238, p.3 0-or-2 open problem",
+        "Gilboa (2023), arXiv:2301.11580, p.6 Fig.4 and main theorem",
+        "Klimm–Stahlberg (2023), arXiv:2301.11849v3, Table 1, Fig.1a, §5.1 Lemma 5.3",
+        "NetworkX 3.6.1 graph_atlas_g() with direct game-rule scan",
+        "Resultary published search: 3 separate neutral exact-content semantic queries; closest returned records concerned different game/graph invariants",
+        "Targeted web queries for 300 labeled bad graphs, 8-edge extra class, picky 3-sun and minimal obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known 3-sun implies a six-vertex upper bound on first failure size but does not rule out five-vertex failures or other six-vertex graphs.",
+          "The independent full labeled scan finds 0,0,0,0,0,300 failures at n=1,...,6 and matches all 300 with 180 eight-edge plus 120 nine-edge relabelings.",
+          "The orbit sizes imply graph automorphism group orders 4 and 6, respectively, and minimum obstruction edge count 8 at first failing order."
+        ],
+        "reasoning": "Only a proper subclaim (a particular nine-edge six-vertex obstruction) is an implication of the nearest primary paper. Explicit complete enumeration and two disjoint orbits prove stronger finite-statistical facts not derivable from isolated-gadget existence or asymptotic hardness. No negative claim about unexamined literature is certified.",
+        "searches": [
+          "arXiv:2301.11849v3 §5.1 Lemma 5.3 / six-vertex 3-sun",
+          "arXiv:2301.11580v1 §3 / nine-vertex example",
+          "arXiv:2207.04238v1 p.3 / open zero-or-two complexity question",
+          "web: \"public goods\" graph smallest non-equilibrium graph 8 edges 9 edges 3-sun"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klimm–Stahlberg uses picky 10^k10* with k=1, the same T(0)=T(2)=1 rule; its 3-sun gadget has six vertices and no equilibrium (Fig.1a, Lemma 5.3, PDF pp. 10-11).",
+          "A six-vertex 3-sun existence obstruction is therefore covered prior work. The actual submitted theorem counts every six-vertex graph without equilibrium and includes a distinct eight-edge isomorphism class."
+        ],
+        "reasoning": "The alias picky 1010* is precisely this strict zero-or-two response rule. The published six-vertex 3-sun proves the first known witness but does not imply a lower-order absence theorem, a second eight-edge obstruction or the equality of all 300 failures with two relabeling orbits. Those extra claims are precisely what the audited finite census establishes; no novelty is asserted for the 3-sun alone.",
+        "searches": [
+          "Resultary: strict 0 or 2 active neighbors public goods binary games smallest 6 vertex graphs with no pure Nash equilibrium 300 labeled 8 edge 3-sun obstruction census",
+          "Resultary: Picky public goods equilibrium 3-sun six vertices two isomorphism types eight edges classification minimal graph obstruction",
+          "web: \"picky\" \"3-sun\" \"eight\" \"public goods\" equilibrium",
+          "web: \"0-or-2\" \"smallest\" \"six\" \"equilibrium\" graph",
+          "Klimm–Stahlberg arXiv:2301.11849v3 §5.1 Fig.1(a) Lemma 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "NetworkX graph atlas has 1, 2, 4, 11, 34, 156 isomorphism types for orders 1–6; direct independent application of this rule finds exactly two bad types at order 6, with degree lists (4,4,2,2,2,2) and (4,4,4,2,2,2).",
+          "The atlas supplies graphs but no indexed pure-equilibrium obstruction column; no matching model-specific published exact table appeared in the conducted targeted searches."
+        ],
+        "reasoning": "A generic graph atlas provides reusable input data, not the asserted two-class game-theoretic invariant. Running the response rule on that atlas is an independent verification of the submitted result, not evidence that the classification was previously published. A differently indexed prior table remains possible.",
+        "searches": [
+          "NetworkX 3.6.1 graph_atlas_g() direct independent 1–6 isomorphism-type scan (local database)",
+          "web: \"zero-or-two\" \"300\" graph pure equilibrium",
+          "web: \"public goods games\" \"two\" \"six-vertex\" \"obstructions\"",
+          "Resultary semantic queries for 300 labeled 6-vertex obstructions; closest hits were unrelated network/game census"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise novel conjunction (no failure below n=6, exactly two 6-vertex orbits with a distinct eight-edge witness, 300 labeled total). Prior full-text relevant sections establish the 3-sun and hardness, not this complete invariant. Broad searches and the exact graph atlas did not reveal a previously tabulated game-specific census; unindexed priority remains a real risk.",
+      "residual_risks": [
+        "Publication-priority risk: a prior unindexed exact small-graph table under another game-theory term might contain this same two-class count; targeted Resultary/web/primary comparisons did not locate one, which is not proof of absence.",
+        "The cited published 3-sun is a known partial result, not original; novelty applies only to sharp lower cutoff, other eight-edge witness and complete census.",
+        "All exact graph enumeration is bounded by n≤6, with no assertion on n≥7 or on weighted/heterogeneous players or mixed strategies.",
+        "Independent enumeration and graph-atlas scan are computer-assisted finite certificates, not Lean or external expert attestation; independent code was not a formal machine-checked proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Introduces the model and leaves complexity of 0-or-2 open; no minimal six-vertex obstruction census in the actually inspected introductory material. Full remaining paper not claimed searched exhaustively.",
+          "evidence": [
+            "arXiv:2207.04238v1 p.3 open problem 2 states T(0)=T(2)=1, T(k)=0 otherwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.04238",
+          "material_read": "27-page arXiv PDF abstract, introductory theorem/open questions pp. 1–4; screenshot of PDF p.3 showing open problem 2 and precise response pattern",
+          "method": "Primary open-access arXiv PDF readable text plus page screenshot",
+          "title": "Complexity of Public Goods Games on Graphs",
+          "trigger": "Original strict binary best-response model; exact 0-or-2 rule and historical open question"
+        },
+        {
+          "assessment": "Establishes NP-completeness for nonmonotone finite patterns and displays a nine-vertex obstruction; the checked relevant portion does not assert the first-six census or eight-edge graph.",
+          "evidence": [
+            "arXiv:2301.11580 p.6: four overlapping triangles are exhibited as a graph with no PNE."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11580",
+          "material_read": "19-page arXiv PDF abstract/introductory statements and Section 3 passage/Figure 4 on p.6 showing four-triangle nine-vertex chain; original page screenshot",
+          "method": "Open-access arXiv PDF full-text targeted section and page image",
+          "title": "A Characterization of Complexity in Public Goods Games",
+          "trigger": "Solution of the original 0-or-2 open complexity problem and explicit equilibrium-free graph"
+        },
+        {
+          "assessment": "Decisive partial coverage of the already-known nine-edge 3-sun. Main theorem establishes complexity, Lemma 5.3 establishes 3-sun nonexistence, but inspected relevant statements do not classify every six-vertex obstruction.",
+          "evidence": [
+            "arXiv:2301.11849v3 p.11, Fig.1a caption explicitly states graph gadget comprises the 3-sun S3; Lemma 5.3 states the operand-free gadget has no PNE, followed by proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.11849",
+          "material_read": "18-page arXiv v3 PDF abstract, Table 1 and Definitions on pp.1–3, Section 5.1 NEAR-OR gadget Fig.1 and Lemma 5.3 on pp.10–11, viewed page screenshot p.11",
+          "method": "Open-access arXiv primary PDF text, relevant theorem/proof and original figure image",
+          "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+          "trigger": "Closest primary prior source, a six-vertex equilibrium-free 3-sun for exactly the same picky pattern"
+        },
+        {
+          "assessment": "Two non-equilibrium types at n=6 only, eight- and nine-edge degree multisets match submitted witnesses; catalog does not itself tabulate this game invariant.",
+          "evidence": [
+            "Local output: n=1..5 no bad atlas types, n=6 two, with 8 or 9 edges and respective degrees [2,2,2,2,4,4] and [2,2,2,4,4,4]."
+          ],
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Local NetworkX 3.6.1 graph_atlas_g() returned all 1,2,4,11,34,156 unlabeled types at orders 1–6; independent pure best-response test applied to every type",
+          "method": "Local exact graph catalog and separately coded equilibrium predicate",
+          "title": "NetworkX Graph Atlas and direct model-specific scan",
+          "trigger": "Exact database/table coverage of all graphs of order at most six"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp smallest-obstruction order and exhaustive set of isomorphism types is a naturally motivated finite structural invariant for a well-studied strict homogeneous public-goods rule with NP-hard general equilibrium existence. Six-vertex 3-sun nonexistence was already known, but the new eight-edge nonisomorphic witness is sparser and the exact 180/120 labeled class decomposition is a meaningful complete first-obstruction layer, useful as a test family for model-specific algorithms and counterexample gadget selection. This is not an arbitrary slice or textbook corollary of NP-hardness; the two-class exhaustive boundary is a self-contained exact statement and need not imply a larger-n theorem. Its significance should not be overstated as a complexity improvement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gilboa–Nisan (2022), arXiv:2207.04238, p.3 0-or-2 open problem",
+    "Gilboa (2023), arXiv:2301.11580, p.6 Fig.4 and main theorem",
+    "Klimm–Stahlberg (2023), arXiv:2301.11849v3, Table 1, Fig.1a, §5.1 Lemma 5.3",
+    "NetworkX 3.6.1 graph_atlas_g() with direct game-rule scan",
+    "Resultary published search: 3 separate neutral exact-content semantic queries; closest returned records concerned different game/graph invariants",
+    "Targeted web queries for 300 labeled bad graphs, 8-edge extra class, picky 3-sun and minimal obstruction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No assertion on order at least seven, non-simple graphs, weighted games, other response rules, mixed equilibria or external expert verification.",
+    "Source Git trees/blobs and text were examined read-only; no GitHub write, signature replacement or external certification.",
+    "Metadata scientific status is not independently certified by the checked program; the three axes were assessed separately.",
+    "The repository source files include operational provenance in AUDIT.json and METADATA.json. Sanitized full verified replacements were not deliverable in the current tool-separated local file environment; no public release is authorized."
+  ],
+  "residual_risks": [
+    "Publication-priority risk: a prior unindexed exact small-graph table under another game-theory term might contain this same two-class count; targeted Resultary/web/primary comparisons did not locate one, which is not proof of absence.",
+    "The cited published 3-sun is a known partial result, not original; novelty applies only to sharp lower cutoff, other eight-edge witness and complete census.",
+    "All exact graph enumeration is bounded by n≤6, with no assertion on n≥7 or on weighted/heterogeneous players or mixed strategies.",
+    "Independent enumeration and graph-atlas scan are computer-assisted finite certificates, not Lean or external expert attestation; independent code was not a formal machine-checked proof."
+  ],
+  "schema_version": 1
+}
