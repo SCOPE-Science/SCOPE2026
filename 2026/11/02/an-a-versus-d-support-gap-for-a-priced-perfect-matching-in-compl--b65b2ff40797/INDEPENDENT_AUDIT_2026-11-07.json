@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:14:42.269374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected support the edgewise Laplacian map is injective. Trace-inverse on the positive-definite 1-perp space is strictly convex in the individual weights; logdet is strictly concave, guaranteeing unique optimizers. Matching-preserving automorphisms then force uniform x on matched edges and y on others, despite unrestricted weights. Eigenvalues 0,2[x+(m−1)y],my(m−1),[2x+(m−2)y](m−1) give A and D objectives. Boundary derivatives under budget produce the exact rational r_A and r_D. Independently verified symbolic threshold identity, strictly positive factorization of r_A−r_D, m=4 values 56/29 and 10/7, both critical gamma/m limiting derivatives and 12 full exact-rational Laplacian spectra at m=3..8. Strict convexity on original linear budget parameter proves global uniqueness, not a numerical optimizer alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi general convex optimum may be specialized but does not supply K_m,m fixed matching price thresholds",
+          "Klee–Stamps spectral crown endpoint covers x=0 case"
+        ],
+        "reasoning": "General optimization KKT and group symmetry supply tools, not a previously computed exact A-versus-D support gap over all m. Specialized priced-matching literature could potentially dominate; retained as risk.",
+        "searches": [
+          "Ghosh Boyd Saberi 2006 effective resistance graph conductance allocation analytic examples",
+          "Khosoussi maximizing weighted spanning trees near-t optimal graphs"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi MTNS 2006/SIAM Review 2008",
+        "arxiv:2008.01669",
+        "arxiv:1604.01116",
+        "Yang DOI 10.1155/2012/195242",
+        "Resultary spanning-tree biclique search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both optimality problems require separate one-sided derivatives after symmetry reduction"
+        ],
+        "reasoning": "Classical convexity and matrix-tree identities imply uniqueness/possible solution method, but not the explicit strict inequality r_D<r_A without the presented exact spectral and derivative calculations.",
+        "searches": [
+          "MTNS 2006 Ghosh Boyd Saberi effective resistance",
+          "arxiv:1604.01116 weighted spanning tree design",
+          "arxiv:2008.01669 crown spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi derive general conductance trace-inverse optimization",
+          "Khosoussi et al. formulate weighted spanning-tree D optimization"
+        ],
+        "reasoning": "These are the same two target objective classes but do not establish the specific exact two-price deletion thresholds or their strict ordering.",
+        "searches": [
+          "Resultary: priced perfect matching K_m,m A-optimal effective resistance versus D-optimal spanning tree determinant threshold support",
+          "web: perfect matching effective resistance spanning tree price optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Crown K_m,m\\M eigenvalues (unweighted) are established",
+          "Resultary geodesic subpath counts of bicliques with a deleted matching are a different invariant"
+        ],
+        "reasoning": "A known crown spectrum at the deletion boundary does not determine the derivative under inserting priced edges or either optimal cutoff; no existing exact table of both functions was located.",
+        "searches": [
+          "Klee Stamps crown graph Laplacian spectrum",
+          "Resultary biclique deleted matching invariants"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the precisely bounded final claim; prior premises and covered specializations explicitly credited. Four searched implication tests and actual primary-source inspections below identify the distinctions and residual priority risks.",
+      "residual_risks": [
+        "Specialized priced-matching optimal design paper may contain an equivalent cutoff; priority search bounded.",
+        "The result concerns m>=3 and two edge-price classes; does not imply analogous gap for arbitrary price matrices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_MATCHING_THRESHOLD",
+          "evidence": [
+            "Ghosh, Boyd and Saberi (2006) derive convex conductance optimization, not this crown two-price support gap"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Full paper including optimization formulation and examples",
+          "method": "Read PDF pages and visually verified page with screenshot",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same A-objective and conductance budget"
+        },
+        {
+          "assessment": "PRIOR_ENDPOINT_ONLY",
+          "evidence": [
+            "At x=0 eigenvalues known; does not fix r_A/r_D"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.01669",
+          "material_read": "Section 3.3 crown graph spectrum",
+          "method": "Read relevant full-text section",
+          "title": "Eigenvalues of Graph Laplacians via Rank-One Perturbations",
+          "trigger": "Crown-graph endpoint spectral identity"
+        },
+        {
+          "assessment": "GENERAL_D_OPTIMAL_TOOL",
+          "evidence": [
+            "No matching-price A-objective comparison in inspected result"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+          "material_read": "Full accessible method/objective description and results",
+          "method": "Read relevant method and results sections",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Same determinant design family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Network effective-resistance (A) and tree-determinant (D) are independently standard and motivated design objectives. The theorem gives an exact support decision conflict across every network size and an explicit asymptotic order-1/m price window; this is a meaningful nontransfer principle for graph design, not a cosmetic alternate spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Balanced K_m,m, m>=3; positive costs and budget; individual conductances nonnegative.",
+    "Interior A optimizer given by unique positive rational root, not radical expression."
+  ]
+}
