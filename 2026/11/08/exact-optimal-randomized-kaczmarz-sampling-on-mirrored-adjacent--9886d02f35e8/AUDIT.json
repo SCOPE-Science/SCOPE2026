@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every real 0<a,b<1 with a+b=1 and integer n>=3, exact unit-row projector algebra identifies the worst conditional one-step rate. A nonnegative dual vector y with a*y_i+b*y_{i+1}=1 and sum Q gives lambda_min<=1/Q for every unsymmetrized row distribution. Explicit balanced pair weights q_i/Q cancel offdiagonals and attain all diagonal lower bounds. Positive dual support and PSD zero-diagonal rigidity force uniqueness for a!=b. The a=b edge-cover construction proves the boundary. The bundled standard-library rational verifier passed 4,992 primal-dual/cover and 525 full-projector cases; finite checks supplement the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai et al. general SDP covers all row sets but gives numerical instances, not this evaluated family.",
+        "Chen and Powell characterize optimal measures over unconstrained subspace families; this problem restricts the measure to 2(n-1) prescribed local rows.",
+        "A published inverse-positive coordinate-sampling result optimizes an SPD quadratic coordinate update, not a rank-deficient set of signed row projectors."
+      ],
+      "reasoning": "The broader SDP entails a method for computing an optimum, but not the explicit all-dimensional formula, uniqueness, support transition, or sharp equal-sampling ratio. The unconstrained Grassmannian optimum need not lie in the prescribed finite frame, while the quadratic coordinate result has different hypotheses and selection objects.",
+      "searches": [
+        "arXiv:1402.2863 sections II-V",
+        "arXiv:1403.6190 Sections 4-6",
+        "published-finding corpus: randomized Kaczmarz sharp optimal probabilities for sparse bidiagonal measurement matrix"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1402.2863",
+      "https://arxiv.org/pdf/1403.6190",
+      "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "https://arxiv.org/abs/1402.2863",
+      "https://arxiv.org/abs/1403.6190"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 SDP specifies the variational problem but does not give this special family's evaluated value or optimizer.",
+        "Chen-Powell tight-frame examples have globally isotropic frame operators under different constraints; this fixed frame is nonisotropic for unbalanced amplitudes.",
+        "Agaskar et al. abstract is about exact MSE and optimized sampling, but its full results could not be compared."
+      ],
+      "reasoning": "The new statement is not merely that an optimizer exists or can be found by SDP. It supplies an exact closed formula and a rigid solution/support classification that require a separate explicit dual recurrence. The potential overlap with the unavailable MSE paper remains unresolved but no evidence of a dominating special-family theorem was obtained.",
+      "searches": [
+        "arXiv:1402.2863 Eq. (16) and Remark 3",
+        "arXiv:1403.6190 Corollary 4.12 and Example 4.13",
+        "doi:10.1109/GlobalSIP.2014.7032145 abstract",
+        "published-finding corpus: closed-form optimal coordinate sampling for inverse-positive SPD quadratics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai et al., Eq. (16), identifies a general E-optimal sampling SDP; Eq. (17) is an equivalent covering SDP.",
+        "The present matrix is a fixed finite signed-row frame. Its diagonal projection is a weighted fractional path cover with an explicit geometric primal-dual optimum."
+      ],
+      "reasoning": "The generic SDP and its covering normalization are indeed equivalent ways to pose the target optimization; neither inspected source evaluates the same signed-path family or characterizes its unique and sparse solutions. A problem formulation is not a closed parameter classification.",
+      "searches": [
+        "\"randomized Kaczmarz\" \"bidiagonal\" \"optimal probabilities\"",
+        "randomized Kaczmarz optimal row probabilities geometric profile path frame sharp uniform sampling gap",
+        "published-finding corpus: E-optimal design for pairwise sign-symmetric measurements weighted incidence path graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published record reports a table or formula for this fixed mirrored path frame.",
+        "The nearest retrieved records concern independent coordinate descent and residual spikes in greedy Kaczmarz, not the same optimized random iid row family."
+      ],
+      "reasoning": "The claim is an infinite parameter expression, not recomputation of a known numerical table. Absence among queried records is not a proof of uniqueness or discovery priority.",
+      "searches": [
+        "published-finding corpus: Kaczmarz E-optimal row probabilities signed path frame adjacent two-coordinate pairs geometric boundary layer unique nonuniform sampling",
+        "published-finding corpus: randomized Kaczmarz optimal row probabilities geometric profile path frame sharp uniform sampling gap",
+        "web: \"Kaczmarz\" \"paired\" \"sampling\" \"optimal\" probabilities"
+      ]
+    },
+    "rationale": "The first-public 2014 optimization framework gives a general semidefinite program, but the inspected text does not determine this fixed signed-path frame's exact closed value, full unbalanced probability vector with uniqueness, balanced sparsity switch, or sharp arbitrarily large gain over equal row sampling. A second full-text comparison treats distributions over Grassmannians and tight frames rather than this constrained row set. Public record searches and the accessible relevant prior claims found no dominating statement. An inaccessible exact-MSE paper remains a real specialist priority risk.",
+    "residual_risks": [
+      "Agaskar–Wang–Lu 2014 full text was not accessible; abstract-level evidence cannot exclude an explicit overlapping family result.",
+      "An arbitrary rare signed-pair design might have appeared in unindexed optimal-design literature; semantic and phrase queries do not certify priority.",
+      "The result is a structural exact evaluation of a known general SDP objective, not a new global optimization framework."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general SDP and algorithm are prior; no fixed mirrored path-frame exact formula or uniqueness/support theorem in inspected material.",
+        "evidence": [
+          "https://arxiv.org/pdf/1402.2863",
+          "https://arxiv.org/abs/1402.2863"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+        "material_read": "PDF Sections II-V, equations (13)-(18), SDP, numerical examples, concluding page",
+        "method": "Read article text and inspect PDF page images 3-6 and 9",
+        "title": "On the Randomized Kaczmarz Algorithm",
+        "trigger": "Same global row-probability E-optimality objective"
+      },
+      {
+        "assessment": "Global Grassmannian optimizer and tight-frame discussion do not evaluate optimal probabilities on the fixed signed adjacent-coordinate path set.",
+        "evidence": [
+          "https://arxiv.org/pdf/1403.6190",
+          "https://arxiv.org/abs/1403.6190"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.6190",
+        "material_read": "PDF introduction and Sections 4-6, especially Corollary 4.12, Example 4.13, Theorem 5.1",
+        "method": "Read full-text sections and inspect PDF pages 2,16,17",
+        "title": "Fusion frames and randomized subspace actions",
+        "trigger": "Potentially dominating optimal distribution or tightness result"
+      },
+      {
+        "assessment": "Actual contents not established; potentially relevant stronger results remain a literature-risk item, not asserted NOT_COVERING.",
+        "evidence": [
+          "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+          "https://doi.org/10.1109/GlobalSIP.2014.7032145"
+        ],
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Public abstract and bibliographic information only; full text unavailable after publisher/OA route attempts",
+        "method": "Inspected Harvard OA landing abstract; PDF retrieval returned 429, alternative author URL returned 502, institutional access unavailable",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Plausible same-method, same-criterion or stronger convergence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9886d02f-35e8-49be-9a54-afb7d0cc267d",
+  "value": {
+    "rationale": "The exact fixed-frame design gives a geometric boundary-layer probability law with a unique full-support optimum away from equal amplitudes and a sparse minimum edge-cover optimum at equality. The sharp per-step guaranteed reduction ratio over equal sampling tends to n-1 for each n when the smaller squared amplitude vanishes, demonstrating unbounded benefit in a natural sparse local-measurement setting. The family and exact sensitivity/support classification are motivated by practical row-sampling design, not arbitrary numerical slices.",
+    "status": "PASS"
+  }
+}
