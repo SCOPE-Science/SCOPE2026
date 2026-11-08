@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph and simplicial complex are unambiguous. Every matching is enumerated from graph adjacency; the Hasse matching and its acyclicity are checked over all 196785 faces. A second nonempty-poset acyclicity check leaves one zero-cell, 59 six-cells, and four seven-cells. The complete integral Morse boundary is calculated with signed incidences and has a displayed unimodular four-by-four minor. Standard cellular cancellation upgrades this to an integral homotopy equivalence with 55 six-spheres. The correctness limit is the single specified finite graph, not a general conjecture.
+
+**Originality — PASS subject to documented search limits.** The nearest currently available 2026 source proves only homology vanishing and connectivity for arbitrary three-row grids, while a secondary detailed review reports a remaining all-width wedge conjecture and finite computational evidence. The 2021 paper's apparent stronger theorem is explicitly retracted in its own published corrigendum, which invalidates parts of the purported proof. The 2019 valid small-grid theorem concerns two-row grids. Searches of the mathematical-record index under the exact grid, sphere rank, equivalent line-graph independence complex and conjecture terms found no exact seven-column homotopy certificate. The 2026 paper's full PDF was not accessible; an equivalent unpublished proof remains possible.
+
+**Mathematical value — PASS.** The result proves, rather than merely tests numerically, a naturally singled-out finite case of a currently discussed width-three matching-complex wedge conjecture. The integer unit-minor analysis is essential: the matching initially has critical cells in two successive high degrees, so a homology-rank count alone would not establish a wedge homotopy type. It supplies a self-contained replayable proof that resolves this exact nontrivial finite case, without claiming an infinite-family theorem.
+
+**Closest limitations.** Computational evidence cited elsewhere does not constitute a complete integral proof; previous all-length claims are retracted. The claim is neither a general stability theorem nor a full resolution of the conjecture; independent mathematical validation is still outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
