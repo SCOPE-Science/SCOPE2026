@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact Dirichlet moments and independent survival/inclusion-exclusion beta integrals yield all four covariance components, the finite rational cases n=2..6 are negative, and n>=7 is covered by the explicit lower bound (H_7-1)^2>2+2/7. All normalization, boundary and asymptotic variance steps have been reconstructed. verify.py runs exact rational and independently sampled geometric checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baci et al. Theorems A--D: marginal central limit, noncentral Gumbel, moderate and large deviations; Holst 1979 and Hall 1984: CLTs for spacing-sum statistics; general independence of extremes and sums: weak-limit laws, not exact finite covariance."
+      ],
+      "reasoning": "Marginal and joint weak convergence do not imply the sign of the finite covariance or determine its sharp nonzero logarithmic rate. These general results therefore do not directly dominate this exact finite-dimensional statement.",
+      "searches": [
+        "\"Limit theorems for random points in a simplex\" covariance",
+        "\"Asymptotic normality of sum-functions of spacings\" Holst 1979",
+        "\"Limit theorems for sums of general functions of m-spacings\" Hall 1984",
+        "\"Asymptotic Independence of the Sum and Maximum\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2005.04911",
+      "https://doi.org/10.1214/aop/1176994901",
+      "https://doi.org/10.1017/S0305004100062459",
+      "https://mathscinet.ams.org/msc/msc2020.html?t=52A21"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem A and Theorem B of Baci et al. establish marginal limiting Gaussian and Gumbel laws from exponential spacings; the new covariance is a specific finite-n combination of four exact mixed moments and has sign for every n."
+      ],
+      "reasoning": "A marginal Gaussian/Gumbel theorem does not imply finite-n covariance sign or its first-order decay. An older paper giving the same mixed-moment identity would cover the result even without geometric wording; this remains a residual risk.",
+      "searches": [
+        "arxiv:2005.04911",
+        "doi:10.1214/aop/1176994901",
+        "doi:10.1017/S0305004100062459",
+        "nearest and farthest squared distances regular simplex negative correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The simplex nearest/farthest squared-distance pair is the transformed triple (Greenwood sum Q, largest spacing M, smallest spacing m); the arXiv 2005.04911 introduction and proofs cover marginal Lq and L-infinity fluctuations, not their exact mixed covariance."
+      ],
+      "reasoning": "An equivalent statement would provide the signed combination Var(Q)-2Cov(Q,M)-2Cov(Q,m)+4Cov(M,m) at finite n or an inequality implying strict negativity. Neither was located in the primary full-text inspection or the searches; the component identities individually can be classical.",
+      "searches": [
+        "\"Greenwood's statistic\" \"largest spacing\" \"covariance\"",
+        "\"sum of squared spacings\" \"maximum spacing\" covariance exact",
+        "\"Dirichlet\" \"covariance\" \"minimum\" \"maximum\" \"sum of squares\"",
+        "arxiv:2005.04911"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite-dimensional signed covariance table was returned by targeted literature search; checks against accessible local geometric findings and mathematical record matches concerned unrelated simplex metrics or limit theorems."
+      ],
+      "reasoning": "The exact expression is not presented as a recomputation from a known table; lack of a match is not evidence of exhaustive novelty, particularly for historical spacing literature.",
+      "searches": [
+        "\"nearest vertex\" \"farthest vertex\" \"simplex\" covariance",
+        "\"Dirichlet uniform spacings maximum minimum second moment joint covariance geometry\"",
+        "\"exact negative covariance nearest farthest Euclidean squared vertex distances\""
+      ]
+    },
+    "rationale": "The closest primary 2020 simplex paper proves marginal norm and maximum-coordinate limits but not the exact nearest-versus-farthest squared-distance mixed covariance, its strict all-dimensional negative sign or leading logarithmic coefficient. Classical spacing CLTs are not explicit finite signed covariance formulas. Targeted mathematical and research-record searches found no covering statement. Historical priority remains provisional.",
+    "residual_risks": [
+      "Exact covariance might have appeared in older or unindexed maximal-spacing/Greenwood mixed-moment literature under statistical rather than geometric terminology.",
+      "Holst (1979) and Hall (1984) full texts were not accessed; abstract-level inspection does not establish whole-paper noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING finite signed nearest/farthest squared-distance covariance; covers prior marginal asymptotic ingredients",
+        "evidence": [
+          "Theorems A--D and discussion of Lq and L-infinity results in sections 1, 3 and 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.04911",
+        "material_read": "Full HTML text including introduction, Theorems A--D, section 3 proofs, section 5 delta-method argument and cited references",
+        "method": "Read arXiv HTML full text and searched covariance, joint and extrema statements",
+        "title": "Limit theorems for random points in a simplex",
+        "trigger": "Identical uniform-simplex model and order-statistic representation"
+      },
+      {
+        "assessment": "Potential broad asymptotic source; no evidence of finite exact signed covariance from material read",
+        "evidence": [
+          "Published 1979, marginal sum-of-spacings CLT; full text not examined."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aop/1176994901",
+        "material_read": "Indexed abstract, bibliographic metadata, and citation of this paper in Baci et al.",
+        "method": "Secondary abstract and full bibliographic description; full paper not accessible/read",
+        "title": "Asymptotic normality of sum-functions of spacings",
+        "trigger": "Classical Greenwood statistic based on Dirichlet spacings"
+      },
+      {
+        "assessment": "Marginal/general spacing sums, not demonstrably covering the finite mixed covariance; full text uninspected",
+        "evidence": [
+          "Publisher abstract states LLNs and CLTs for sums of spacing functions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0305004100062459",
+        "material_read": "Publisher abstract and references",
+        "method": "Publisher webpage abstract inspection",
+        "title": "Limit theorems for sums of general functions of m-spacings",
+        "trigger": "Broad generalized spacing-sum results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7ca4686-73d1-4553-9db6-455f10325017",
+  "value": {
+    "rationale": "The nearest and farthest vertex Euclidean squared distances are canonical geometric proximity and covering quantities for uniform points in a regular simplex. The exact all-dimensional signed covariance and sharp logarithmic correlation decay distinguish a finite-dependence effect invisible in established marginal Gaussian and extreme-value limit laws, making the precise invariant naturally motivated and reusable in stochastic geometry.",
+    "status": "PASS"
+  }
+}
