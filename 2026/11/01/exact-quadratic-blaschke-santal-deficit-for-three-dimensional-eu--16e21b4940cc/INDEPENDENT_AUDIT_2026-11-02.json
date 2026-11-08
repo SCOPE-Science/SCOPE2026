@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:16:01.531528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact result covers all r>0, a>=0, with s=a/r and delta=s/(1+s); central symmetry places the Santaló point at zero. From the original support function ||y||+s|y_1|, polar Fubini sections integrate to 2*pi*(s+2)/(3*(s+1)^2), while the capsule volume is (2*pi/3)*(2+3*s). Multiplication and 4(1+s)^2-(2+3s)(s+2)=s^2 prove the exact deficit. Direct differentiation gives -8*pi^2*s/[9*(s+1)^3] and strict decrease for s>0. The anisotropically rescaled support functions converge uniformly to those of [-1,1]x B_2^2, whose exact volume product is 4*pi^2/3. Independent SymPy integrations and identities checked the whole rational expression, not merely sampled parameters. The endpoint s=0 and unattained s=infinity are distinguished.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Böröczky Theorem 1.1 gives dimension-dependent Banach–Mazur control as deficit tends to zero, not an exact capsule coefficient.",
+          "Iriyeh–Shibata Theorem 1.1 gives a global 32/3 minimum, substantially below the capsule-cylinder limit 4*pi^2/3.",
+          "Meyer–Reisner Theorem 1 gives general convexity, without integrating this family."
+        ],
+        "reasoning": "The global and stability estimates leave the exact family curve and equality profile undetermined; they neither state nor numerically force its coefficient.",
+        "searches": [
+          "arxiv:0901.3340 Theorem 1.1 stability Banach Mazur",
+          "arxiv:1706.01749 Theorem 1.1 symmetric three dimensional Mahler bound",
+          "arxiv:math/0606305 Theorem 1 shadow system"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0606305 Theorem 1",
+        "arxiv:0901.3340 Theorem 1.1",
+        "arxiv:1706.01749 Theorem 1.1",
+        "Resultary semantic query Blaschke Santaló volume product of three-dimensional spherocylinder capsule Minkowski sum of ball and segment exact volume polar deficit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new equation gives P(s)/P(ball)=1-(s/(1+s))^2/4 for all real s>=0, with sharp cylinder limit.",
+          "Compared prior bounds provide only P(s)<=16*pi^2/9 and P(s)>=32/3, not its exact dependence."
+        ],
+        "reasoning": "The new exact formula implies inequalities special to this capsule path; none of the inspected general inequalities implies the pointwise profile without an additional family-specific integral.",
+        "searches": [
+          "Meyer Reisner shadow systems volume of polar convex bodies theorem 1",
+          "Böröczky stability Blaschke Santalo theorem 1.1",
+          "Iriyeh Shibata dimension three volume-product theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family is equivalently a 3D capsule, spherocylinder, stadium-of-revolution, or ball-plus-segment Minkowski sum.",
+          "Meyer–Reisner arXiv:math/0606305 Theorem 1 controls convexity of reciprocal polar volume for shadow systems, not the closed rational profile."
+        ],
+        "reasoning": "No inspected equivalent family identity was located under the geometric aliases; a standard support-integral could, however, readily reproduce the calculation.",
+        "searches": [
+          "Blaschke Santaló volume product of three-dimensional spherocylinder capsule Minkowski sum of ball and segment exact volume polar deficit",
+          "Mahler spherocylinder stadium ball plus centered segment polar volume product exact rational 3D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic top hits concern orthogonal disk hulls, cube/cross-polytope Mahler products and other solids, none the one-parameter capsule polar product.",
+          "A tabulated capsule body volume alone does not determine its polar."
+        ],
+        "reasoning": "No exact same-parameter numerical table or formula identified in bounded searches; database absence is not proof of priority.",
+        "searches": [
+          "Blaschke Santaló volume product of three-dimensional spherocylinder capsule Minkowski sum of ball and segment exact volume polar deficit",
+          "capsule polar volume product s/(1+s) squared coefficient 1/4 exact table",
+          "published Resultary Mahler capsule volume product convex bodies"
+        ]
+      },
+      "rationale": "Comparisons separate the elementary but previously unlocated capsule identity from general Blaschke–Santaló stability, shadow-system convexity and three-dimensional Mahler lower bounds. Alias searches and published-result semantic searches located no statement implying the exact rational profile. This is a bounded priority judgment, with an unusually material risk of an unindexed older elementary calculation.",
+      "residual_risks": [
+        "An older unindexed convex geometry text may have evaluated the elementary capsule polar integral.",
+        "The proof is an explicit family integration rather than a general stability theorem; scientific value is quantitative benchmarking, not methodology.",
+        "Full 60-page Iriyeh–Shibata argument not inspected end-to-end; the main comparison concerns its explicit global theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reciprocal polar volume convexity along shadow systems; no exact capsule parameter profile in inspected statements",
+          "evidence": [
+            "arXiv:math/0606305v2 p1 abstract and pp1–3 introductory theorem scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0606305",
+          "material_read": "Primary PDF abstract, introduction, definitions, Theorem 1 and its stated applications; rendered first page",
+          "method": "Read source text and inspected rendered primary PDF",
+          "title": "Shadow systems and volumes of polar convex bodies",
+          "trigger": "General polar-volume theorem could dominate capsule calculation"
+        },
+        {
+          "assessment": "General rate inequality, not exact quadratic capsule coefficient",
+          "evidence": [
+            "arxiv:0901.3340 Theorem 1.1 p2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.3340",
+          "material_read": "Primary PDF intro and Theorem 1.1 with explicit dimension-dependent exponent and Banach–Mazur distance, rendered theorem page",
+          "method": "Read text and inspected rendered p2",
+          "title": "Stability of the Blaschke–Santaló and the affine isoperimetric inequality",
+          "trigger": "Possible stronger sharp shape-deficit theorem"
+        },
+        {
+          "assessment": "Global sharp bound 32/3, not the capsule-specific equality curve",
+          "evidence": [
+            "arxiv:1706.01749v3 Theorem 1.1 p2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.01749",
+          "material_read": "Primary PDF abstract, introduction, Theorem 1.1 and its equality cases, rendered p2; not entire 60-page paper",
+          "method": "Read and checked exact statement and domain",
+          "title": "Symmetric Mahler’s conjecture for the volume product in the three dimensional case",
+          "trigger": "Sharp lower bound for all centrally symmetric 3D bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The capsule is a natural canonical Minkowski ball-plus-segment family and Santaló volume product is an important affine invariant. The exact normalized quadratic deficit gives a sharp explicit three-dimensional calibration near a ball, strict deformation order, and nonellipsoidal cylinder endpoint, not determined by general upper/lower bounds. The proof itself is elementary and the contribution deliberately narrow, but the precise whole-family coefficient and equality profile are independently reusable; no universal stability theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dimension 3, centered equal-radius caps, s>=0 only.",
+    "Exact formula may be independently familiar from unindexed elementary calculations.",
+    "No claim about affine Banach–Mazur distance or global sharp stability.",
+    "All source file content derived from pinned Git blob contents; source tree verified as Git tree object matching assignment SHA.",
+    "Published independent audit unavailable: operations intentionally none and publication not_ready owing to public metadata confidentiality."
+  ],
+  "schema_version": 1
+}
