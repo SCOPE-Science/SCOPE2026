@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The orthogonal tree-channel construction is checked directly: \(S^*=UD\), wandering spaces at successive levels are orthogonal, and each channel is a periodic forward unilateral shift. Zero extension and translation of finite bilateral tests yield equality of unilateral and bilateral lower moduli. Direct-integral Floquet theory and the coordinatewise reverse triangle inequality show that the minimum twist is zero, giving the exact finite cyclic singular-value expression for every radial parameter. The determinant isolates the unique non-surjective critical circle. The simple Perron eigenvalue and corresponding left/right null vectors give the exact singular-value slope via a one-dimensional Schur complement. Explicit four-period substitution verifies the arrangement contrast. The analytic proof, not finite computations, establishes the universal claim. The supplied checker passes 637 supplementary assertions.
+
+## Originality — PASS (with identified priority risk)
+Buckley–Seco (arXiv:2610.40089v1) give spectral growth and Rota-universality criteria, not sharp all-radius surjectivity moduli. The tree Wold decomposition of Budzyński et al. (arXiv:1702.00765) is prior structure; Mandal–Trivedi (arXiv:2508.00763v1) treat unitary equivalence. A related published two-periodic scalar recurrence sharp norm is already known and the present theorem makes no novelty claim for that special case. The new assertion combines a single exact finite-cycle formula for every period with the critical coefficient and an explicit strict branching-order inequality at fixed radius. It cannot follow merely from known geometric-mean spectra. General Floquet/Jacobi literature may provide an abstract expression covering the finite-matrix step, so originality priority is best knowledge, not guaranteed.
+
+## Mathematical value — PASS
+Optimal surjectivity constants quantify conditioning and minimal right-inverse norms rather than simply detecting onto or non-onto shifts. The four-period alternating-versus-clustered construction holds the offspring multiset and entire spectral disk fixed while producing two distinct sharp critical blow-up constants, demonstrating why geometry and order, not only branching growth, matter. The result is a natural exact functional-analytic invariant and a motivated quantitative refinement of a recent tree-shift classification. Its value does not rest on finite testing, and it does not claim arbitrary irregular-tree results.
+
+## Sources and limits
+Primary sources: arXiv:2610.40089v1 (2026-10-29), arXiv:1702.00765 (2017), arXiv:2508.00763v1 (2025). Related two-periodic scalar recurrence: a previously reported sharp two-periodic scalar recurrence stability theorem. The critical-circle operator has dense nonclosed range, hence no bounded right inverse there. The quantitative assertions are for fixed finite-period positive integer offspring patterns. All finite checker assertions are diagnostic rather than exhaustive proofs.
+
+Self-review: passed. Independent audit: not yet performed.
