@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Euler-tour iff balance plus connected positive support gives complete realizability. Four disjoint bridge cases have exact parameterizations; geometric sums yield the rational GF, partial fractions yield the closed formula and pole orders prove minimal quasiperiod 12. A standalone checker directly enumerates all words through n=17 and crosschecks coefficients through n=84. No step infers the infinite theorem solely from finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski (2010), pp. 388–390, defines order-one Markov transition matrices on an alphabet and derives their asymptotic enumeration.",
+        "He–Kari–Millan Arias (2025), Theorem 4.2, constructs approximations to valid k-mer distributions rather than counting exact fixed-length cyclic profiles."
+      ],
+      "reasoning": "The order-one Markov matrix family is structurally distinct from the overlapping binary trigram de Bruijn graph; the existence/approximation theorem leaves the fixed-length enumeration open. Standard Eulerian existence is a needed lemma, not a dominating enumerator.",
+      "searches": [
+        "published-finding corpus: counting Markov type classes second order binary cyclic transition empirical distributions generating function",
+        "web: Jacquet Knessl Szpankowski Counting Markov Types",
+        "arXiv:2506.22172 §4",
+        "web: count Eulerian flows integral de Bruijn graph binary order 2 period 12 number feasible"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2506.22172",
+      "https://arxiv.org/html/0708.2310v1",
+      "https://dmtcs.episciences.org/en/articles/2768/download",
+      "https://oeis.org/A132298",
+      "https://oeis.org/A132297",
+      "https://link.springer.com/article/10.1186/s13015-023-00227-1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eulerian realizability underpins the proof and is explicitly present in the 2025 paper.",
+        "Order-one balanced matrix counts in Jacquet et al. have different edges and can include disconnected supports; the present proof classifies the restricted order-two cases exactly.",
+        "Read-length-two linear spectra do not directly enumerate circular read-length-three histograms."
+      ],
+      "reasoning": "The result is a new explicit evaluation of an Euler-feasible integer-flow counting problem, not a new Euler existence theorem. None of the inspected prior statements supplies the five-term rational GF, all-length coefficient law or minimal period, and no general prior formula located implies them without additional nontrivial case analysis.",
+      "searches": [
+        "arXiv:2506.22172 Theorems 4.1–4.2",
+        "arXiv:0708.2310 §VII-A",
+        "doi:10.46298/dmtcs.2768 pp.388–390",
+        "published-finding corpus id 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A132298 gives 8,15,28,52 for linear binary 3-gram Markov types at n=3..6, versus present circular C_3..C_6=4,6,8,13.",
+        "Varshney–Goyal §VII-A describes sliding-window Markov classes, using nonwraparound source words."
+      ],
+      "reasoning": "Linear versus circular observation vectors have different boundary constraints and exact counts, so neither is equivalent. The present count is the integer Euler-flow count with support connectivity for a 4-vertex de Bruijn graph.",
+      "searches": [
+        "published-finding corpus: cyclic binary trigram histogram count Eulerian de Bruijn graph three gram profile quasi polynomial 12",
+        "web: cyclic Markov type number 2 binary second order 3 gram counts quasipolynomial",
+        "OEIS A132298",
+        "arXiv:0708.2310 §VII-A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A132298 describes linear order-three Markov types with first values 8,15,28,52,..., which disagree with circular results 4,6,8,13 at same lengths.",
+        "A related published binary two-multispectrum result enumerates read-length-two histograms over linear strings, not circular three-read profiles."
+      ],
+      "reasoning": "No matching exact circular trigram table or rational generating function was located in these exact searches. Searches are not a completeness guarantee; the closest table concerns a different model.",
+      "searches": [
+        "OEIS A132298",
+        "OEIS A132297",
+        "published-finding corpus: exact number of distinct binary length n 3-gram substring count vectors spectra length three read reconstruction code",
+        "published-finding corpus: three consecutive substring multispectrum de Bruijn graph count exact binary trigrams Euler trail histogram"
+      ]
+    },
+    "rationale": "The circular binary three-gram feasible-vector enumeration is absent from the inspected exact linear Markov-type table, the order-one cyclic Markov flow enumeration, and the 2025 Euler reconstruction study. The result requires connectivity-aware classification and an evaluated finite generating function. Priority remains subject to unindexed equivalent derivations.",
+    "residual_risks": [
+      "An unindexed general higher-order Markov-type formula might imply this specialization.",
+      "The directly linked full text of the closest published length-two multispectrum result was inaccessible (repository fetch error), so comparison there rests on indexed statement only.",
+      "An exact circular trigram sequence may exist in an unsearched table under a different alias."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies fundamental realizability method, not an exact enumeration of circular length-three binary histograms",
+        "evidence": [
+          "Theorem 4.2 approximates prescribed k-mer distributions within epsilon given sufficient sequence length.",
+          "Theorem 4.1 gives Eulerian graph criterion; fixed-length attainable-profile counts are not its conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.22172",
+        "material_read": "Full HTML text, particularly §§3–4 and Theorems 4.1–4.2",
+        "method": "Original arXiv HTML; inspected definitions, Eulerian construction, theorem conclusion",
+        "title": "Bridging Chaos Game Representations and k-mer Frequencies of DNA Sequences",
+        "trigger": "Newest complete recent work on realizing prescribed k-mer counts by de Bruijn paths"
+      },
+      {
+        "assessment": "Counts linear k-gram multiset types, distinct from cyclic profiles; no displayed circular trigram formula in inspected section",
+        "evidence": [
+          "§VII-A states k-gram multiset type enumeration and plotted linear-word counts.",
+          "OEIS A132298 links this reference for linear trigram Markov types."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0708.2310v1",
+        "material_read": "Original full HTML; introduction and §VII-A including Figure 5 description",
+        "method": "Open-access arXiv full HTML",
+        "title": "Benefiting from Disorder: Source Coding for Unordered Data",
+        "trigger": "Earliest published Markov-type enumeration motivating k-gram multisets"
+      },
+      {
+        "assessment": "Enumerates balanced order-one Markov frequency matrices over an m-letter alphabet; not the order-two binary de Bruijn transition restrictions or full finite count",
+        "evidence": [
+          "At p.388 defines order-one Markov frequencies k_ij; p.389 binary example k_00+2k_01+k_11=n.",
+          "The paper concentrates on asymptotics for matrix sizes m, not a finite cyclic binary triple profile formula."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+        "material_read": "Original open-access PDF pp. 388–390 (PDF pages 2–4), screenshots of 388–389",
+        "method": "Full-text extraction and page-image inspection",
+        "title": "Counting Markov Types",
+        "trigger": "Potential dominating exact Euler-flow count in earlier literature"
+      },
+      {
+        "assessment": "Not covering: linear Markov types, with provably different initial terms",
+        "evidence": [
+          "For n=3..6, OEIS lists 8,15,28,52, whereas circular profiles yield 4,6,8,13."
+        ],
+        "identifier_or_url": "https://oeis.org/A132298",
+        "material_read": "Full publicly displayed entry, terms, dates and cited reference",
+        "method": "Public database entry",
+        "title": "OEIS A132298",
+        "trigger": "Exact database or table matching the same observation name"
+      },
+      {
+        "assessment": "Indexed statement is strictly about length-two linear reads; implicit coverage cannot be excluded without full text",
+        "evidence": [
+          "Indexed summary gives quadratic length-two linear histogram counts, not quartic cyclic trigram spectrum counts."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "material_read": "Indexed title/summary only; original repository page was not retrievable",
+        "method": "published-finding corpus semantic search and attempted primary-page retrieval",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Closest published local family of k-mer spectrum enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5aea6f8-cf0b-4dbe-bee2-5ef0fdc80d4f",
+  "value": {
+    "rationale": "A complete exact length-indexed count for circular 3-gram observation types over the smallest alphabet supports sharp noiseless reconstruction codebook sizing and reveals an unexpected minimal period-twelve fluctuation. This is an infinite family with all boundary-support corrections and quartic leading constant, not an arbitrary finite count.",
+    "status": "PASS"
+  }
+}
