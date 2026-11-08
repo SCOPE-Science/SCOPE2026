@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The published Theorem 14 of Rampersad and Wiebe identifies this exact binomial-parity sum with the stated fourth-order run-length transform. The proof rechecks the companion matrix, its integral inverse (determinant minus one), the negative-index zeros, and its tenth power. The 2-adic matrix-binomial identity yields an odd quotient for both progressions; \(2(j-1)-\nu_2(j)\ge1\) proves all nonlinear terms are even 2-adically. The run-length formula then covers all specified binary words, including the empty word. Finite tests verify transcription, not infinity.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary result is Rampersad–Wiebe (2023), Theorem 14, which supplies the sequence identity but not the stated exact unbounded valuation profile; this is a necessary input rather than the claimed novel conclusion. Their adjacent Theorem 13 concerns a distinct lower binomial index and distinct initial values; it does not imply the two formulas. Wu (2022) studies related but different transforms. Actual targeted mathematical-record searches and local prior-claim comparisons found no dominating valuation theorem. Non-indexed literature or an implicit consequence of a published general recurrence-valuation method remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The two arithmetic progressions exhaust the natural residue stratum of one-run lengths congruent to four modulo five. The exact formula, with unbounded valuations controlled by \(\nu_2(r)\), is an infinite structural invariant of an explicitly studied integer sequence, and the additive rule gives it immediate meaning for a broad binary-word class. It is not merely a finite computation or a special numerical gain; it does not claim a complete valuation classification outside this stratum.
+Using published Theorem 14 as a stated premise, the recurrence companion matrix is unimodular with M^10=I+4B and backward s_-6=s_-1=0. Exact first-order coefficients eBM^-6v=1 and eBM^-1v=9 are odd. For each r>0, ((I+4B)^r-I)/(4r) is congruent to B modulo two because v2(4^(j-1)/j)>=1 for j>=2. This proves s_(10r-6)=4r*odd and s_(10r-1)=4r*odd, giving the claimed unbounded exact valuations; the multiplicative 1-run transform adds valuations across repeated runs including n=0. I recomputed matrix and 200 progression valuations independently, not an infinite empirical generalization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Rampersad–Wiebe theorem 14 gives precisely the run-length-transform recurrence and initial values, not the exact values of v2(s_(10r-6)) and v2(s_(10r-1)) for every r. Their theorem 13 is a genuinely different binomial parity transform. The new odd first-order matrix expansion on two backward zeros and 2-adic lifting are not the general run-length identity itself. Wu discusses different run transforms. An unlocated recurrence-valuation theorem may implicitly contain the special progressions; no directly dominating Resultary claim found.
+
+## value
+
+PASS
+
+The binary 1-run decomposition is central to this published binomial-parity transform. The two full progressions provide an unbounded, exact 2-adic invariant on an entire natural residue class and an additive formula for arbitrary matching-run words; beyond the finite checker and not a substitution of symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

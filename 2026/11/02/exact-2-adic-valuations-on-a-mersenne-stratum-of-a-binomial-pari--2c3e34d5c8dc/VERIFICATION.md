@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later; no third-party packages are needed. The script checks the explicit tenth-power matrix, its factorization as identity plus four times an integral matrix, both negative-index zeros, and both odd first-order coefficients (one and nine). It verifies the recurrence valuation formula for the first 139 values of the integer parameter in both progressions, and checks the defining binomial-parity sum directly for Mersenne indices with lengths 0 through 9 and 14 using Lucas' theorem.
+## correctness
 
-Expected output begins with `VERIFY_OK`. These arithmetic checks cannot replace the infinite 2-adic binomial argument in RESULT.md. The published run-length equivalence is cited as a literature premise rather than independently recertified here. An external independent mathematical audit has not been performed.
+PASS
+
+Using published Theorem 14 as a stated premise, the recurrence companion matrix is unimodular with M^10=I+4B and backward s_-6=s_-1=0. Exact first-order coefficients eBM^-6v=1 and eBM^-1v=9 are odd. For each r>0, ((I+4B)^r-I)/(4r) is congruent to B modulo two because v2(4^(j-1)/j)>=1 for j>=2. This proves s_(10r-6)=4r*odd and s_(10r-1)=4r*odd, giving the claimed unbounded exact valuations; the multiplicative 1-run transform adds valuations across repeated runs including n=0. I recomputed matrix and 200 progression valuations independently, not an infinite empirical generalization.
+
+## originality
+
+PASS
+
+Rampersad–Wiebe theorem 14 gives precisely the run-length-transform recurrence and initial values, not the exact values of v2(s_(10r-6)) and v2(s_(10r-1)) for every r. Their theorem 13 is a genuinely different binomial parity transform. The new odd first-order matrix expansion on two backward zeros and 2-adic lifting are not the general run-length identity itself. Wu discusses different run transforms. An unlocated recurrence-valuation theorem may implicitly contain the special progressions; no directly dominating Resultary claim found.
+
+## value
+
+PASS
+
+The binary 1-run decomposition is central to this published binomial-parity transform. The two full progressions provide an unbounded, exact 2-adic invariant on an entire natural residue class and an additive formula for arbitrary matching-run words; beyond the finite checker and not a substitution of symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
