@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python checker.py` with a standard Python 3 installation. The script has no external dependencies and performs exact integer and `fractions.Fraction` arithmetic throughout. An actual execution completed with the output:
+## correctness
 
-```
-PASS: 954 exact assertions; 46224 uniform permutations enumerated; 24 patterns checked
-```
+PASS
 
-The program independently enumerates every uniform permutation for lengths four through eight, calculates actual fixed-point/pattern joint moments, checks the sixteen reverse-complement polynomial groups (covering 24 patterns), and verifies Vandermonde endpoint-exclusion identities for sample sizes through 100. For every pattern it separately checks the proposed cubic polynomial identity at four distinct sample sizes. The proof establishes the degree-at-most-three bound, so these four values constitute an exact all-size polynomial identity certificate rather than an unproved extrapolation.
+Conditional on a fixed point at t in a four-window, the remaining ranks are counted by binomial(t-1,r-1)binomial(n-t,4-r)/(n-1)_3. Off-window indicators contribute no covariance. Vandermonde on the rth order statistic gives Cov(F,N_tau)=1/(2n)-E_tau/[n(n-1)(n-2)(n-3)], with E_tau only the at-most-six missing boundary positions. R_tau=3(n-1)(n-2)(n-3)-6E_tau has degree at most three. For each of all 24 patterns, exact evaluation at n=4,5,6,7 proves the displayed cubic identity (n-3)Q_tau=R_tau for every n>=4; explicit quadratic signs give the three and only three reversals. Independently recomputed exact boundary identities for all patterns and small-n direct permutation moments. This is an all-n polynomial proof, not an extrapolation from samples.
 
-Additional sign tests cover the three patterns that achieve both covariance signs, and the sum of all 24 covariance polynomials is verified as zero in the tested sizes, as independently required because the total number of length-four windows is deterministic.
+## originality
 
-Limits: the enumeration alone does not prove all-size statements; the proof's conditional probability and polynomial degree arguments are essential. The checker does not establish novelty or independent mathematical certification. No external audit has been performed.
+PASS
+
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. No inspected prior statement supplies a mathematical implication to the full 24-polynomial identity; general conditional combinatorics is background rather than pre-evaluated coefficients.
+
+## value
+
+PASS
+
+A complete 24-pattern finite-sample mixed-moment tensor makes the boundary localization of global fixed-point/local-order dependence explicit. Distinguishing the delayed 3142 reversal at n=18 is a natural, previously unrecorded dependence feature, not an arbitrary subcase or routine restatement of descent covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

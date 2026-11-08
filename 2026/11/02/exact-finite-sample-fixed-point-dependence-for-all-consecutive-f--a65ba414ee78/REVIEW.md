@@ -1,19 +1,21 @@
-# Scientific review: fixed-point dependence of consecutive four-patterns
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a uniform permutation, conditional on one specified fixed point, the remaining values are uniformly ordered. This gives the rank-conditioned binomial probability in the proof. The fourth-order Vandermonde identity makes the covariance a universal term minus an explicit boundary-exclusion count. Each exclusion count is polynomial of degree at most three, so four independently computed exact evaluations prove each of the 24 proposed polynomial identities for every sample size. The three sign reversals follow from the displayed integer quadratics, not finite experiments. The standalone exact-arithmetic checker passed 954 assertions and exhaustively enumerated 46,224 permutations. Remaining correctness risk is manual transcription of the displayed 16-orbit table; both the code and direct binomial expression are supplied for independent comparison.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Conditional on a fixed point at t in a four-window, the remaining ranks are counted by binomial(t-1,r-1)binomial(n-t,4-r)/(n-1)_3. Off-window indicators contribute no covariance. Vandermonde on the rth order statistic gives Cov(F,N_tau)=1/(2n)-E_tau/[n(n-1)(n-2)(n-3)], with E_tau only the at-most-six missing boundary positions. R_tau=3(n-1)(n-2)(n-3)-6E_tau has degree at most three. For each of all 24 patterns, exact evaluation at n=4,5,6,7 proves the displayed cubic identity (n-3)Q_tau=R_tau for every n>=4; explicit quadratic signs give the three and only three reversals. Independently recomputed exact boundary identities for all patterns and small-n direct permutation moments. This is an all-n polynomial proof, not an extrapolation from samples.
 
-The closest source checked is Paguyo (arXiv:2112.07728, first posted 2021-12-14), which treats fixed points and descent/inversion statistics of permutations in parabolic double cosets rather than the joint fixed-point/individual-consecutive-four-pattern covariance tensor. Borga (arXiv:2003.08426) proves central limits for consecutive patterns in permutation families but not these finite mixed moments. Fulman–Kim–Lee (arXiv:1902.00978) treats the aggregate number of peaks and cycle structure; peaks are not the individual four-pattern counts. Allen and collaborators (arXiv:2011.12179) count distinct consecutive patterns, not mixed covariance with fixed points. Accessible published mathematical-result summaries cover exact fixed-point–descent dependence and fourth consecutive-pattern frequency polytopes, neither of which algebraically implies this mixed moment table on the inspected statements. A general multivariate pattern generating function might implicitly contain the formulas, and some primary texts were inspected only in relevant portions: historical priority is therefore provisional.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete covariance classification for all 24 minimal nontrivial four-letter local order tests jointly with the global fixed-point statistic. It identifies the exact exceptional finite-size behavior rather than an arbitrary case: `2143` crosses through zero at size five, `4231` at size six, and `3142` remains negative until its delayed reversal between sizes seventeen and eighteen. A uniform boundary-exclusion identity explains the source of all differences and provides a reusable conditional-moment method. The facts may support joint finite-sample calibration of local pattern and fixed-point randomness diagnostics. No larger asymptotic theorem or independent validation is claimed.
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. No inspected prior statement supplies a mathematical implication to the full 24-polynomial identity; general conditional combinatorics is background rather than pre-evaluated coefficients.
 
-## Closest literature and limitations
+## value
 
-The result is confined to uniform permutations and consecutive patterns of length four. Its covariances decay at order \(n^{-1}\), and it does not establish stochastic independence or a general higher-order sign theorem. Relevant original documents were compared on their actual objects and conclusions, not just paper titles. The possibility of implicit older tabulations or unpublished derivations persists.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete 24-pattern finite-sample mixed-moment tensor makes the boundary localization of global fixed-point/local-order dependence explicit. Distinguishing the delayed 3142 reversal at n=18 is a natural, previously unrecorded dependence feature, not an arbitrary subcase or routine restatement of descent covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

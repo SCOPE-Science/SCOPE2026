@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:13:59.656422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on a fixed point at t in a four-window, the remaining ranks are counted by binomial(t-1,r-1)binomial(n-t,4-r)/(n-1)_3. Off-window indicators contribute no covariance. Vandermonde on the rth order statistic gives Cov(F,N_tau)=1/(2n)-E_tau/[n(n-1)(n-2)(n-3)], with E_tau only the at-most-six missing boundary positions. R_tau=3(n-1)(n-2)(n-3)-6E_tau has degree at most three. For each of all 24 patterns, exact evaluation at n=4,5,6,7 proves the displayed cubic identity (n-3)Q_tau=R_tau for every n>=4; explicit quadratic signs give the three and only three reversals. Independently recomputed exact boundary identities for all patterns and small-n direct permutation moments. This is an all-n polynomial proof, not an extrapolation from samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borga addresses distributional normality for consecutive-pattern counts in generating-tree permutation families, not the mixed fixed-point conditional moments at each finite n.",
+          "Paguyo treats fixed points, descents and inversions in double cosets, not a 24-pattern finite n table."
+        ],
+        "reasoning": "CLT information and aggregate descent dependence do not imply the explicit finite joint covariance polynomial table or its sign diagram.",
+        "searches": [
+          "arXiv:2003.08426 Borga consecutive pattern normal limits",
+          "arXiv:2112.07728 Paguyo fixed points descents inversions",
+          "finite random permutation covariance fixed points and each consecutive pattern of length four exact n sign reversal"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-sample-fixed-point-dependence-for-all-consecutive-f--a65ba414ee78/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md",
+        "arXiv:2003.08426 (abstract/description)",
+        "arXiv:2112.07728 (abstract/description)",
+        "arXiv:1902.00978 (described prior peak theorem)",
+        "arXiv:2011.12179 (described expected-distinct theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cycle-structure generating function for peaks counts a different three-letter aggregate; an expected distinct-pattern count is not E(F N_tau).",
+          "Vandermonde boundary count varies with tau-position and rank, essential to recover coefficients."
+        ],
+        "reasoning": "No inspected prior statement supplies a mathematical implication to the full 24-polynomial identity; general conditional combinatorics is background rather than pre-evaluated coefficients.",
+        "searches": [
+          "arXiv:1902.00978 Fulman Kim Lee peaks conditional on cycle structure",
+          "arXiv:2011.12179 Allen et al expected distinct consecutive patterns",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published boundary-descent result gives Cov(F,D)=-1/n and coordinates Cov(I_i,D_j) for length-two descents; this does not determine the twenty-four four-window mixed moments.",
+          "The submitted theorem includes the 3142 polynomial n^2-21n+62 with sign change at n=18."
+        ],
+        "reasoning": "Substitution of descent or peaks into this theorem does not recover a four-pattern-resolved table: the former aggregates or shortens pattern ranks, losing the claimed coefficients.",
+        "searches": [
+          "finite random permutation covariance fixed points and each consecutive pattern of length four exact n sign reversal",
+          "fixed point indicator rank-conditioned local four-window permutation pattern covariance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected published Resultary RESULT.md describes descents, not four-pattern covariance.",
+          "No exact table among searched Resultary hits; this absence alone does not prove global novelty."
+        ],
+        "reasoning": "The precise existing table checks were for 24 patterns with fixed-point correlation; the known published exact descent table indexes two-window comparisons, hence is not an exact database for the claim.",
+        "searches": [
+          "Resultary published fixed-point descent law 6e228e1e9495",
+          "finite random permutation covariance fixed points and each consecutive pattern of length four exact n sign reversal"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. No inspected prior statement supplies a mathematical implication to the full 24-polynomial identity; general conditional combinatorics is background rather than pre-evaluated coefficients.",
+      "residual_risks": [
+        "A previously unlocated general mixed-factorial-moment theorem for consecutive patterns conditioned on fixed points may specialize to these coefficients.",
+        "Four-point polynomial checks require the independently verified degree bound and full Vandermonde argument; the checker alone is not an all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the length-four pattern-resolved covariance: only descents and cyclic descents",
+          "evidence": "Coordinate formula for adjacent length-two descent indicator and the total Cov(F,D)=-1/n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495/RESULT.md",
+          "material_read": "Complete finding and coordinate conditional-probability proof, including (1)–(9) as read from GitHub RESULT.md",
+          "method": "Read primary mathematical result through GitHub public blob",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Potential exact predecessor for fixed-point/local-pattern joint moments"
+        },
+        {
+          "assessment": "Direct proof and exact polynomial certificate support C",
+          "evidence": "R_tau(n) cubic and agreement at n4..7; signs checked for n>=4.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-finite-sample-fixed-point-dependence-for-all-consecutive-f--a65ba414ee78/RESULT.md",
+          "material_read": "Complete RESULT.md definitions, proof, 24-pattern table and checker.py",
+          "method": "Read immutable Git blob and independently evaluate boundary sums",
+          "title": "Exact finite-sample fixed-point dependence for all consecutive four-patterns",
+          "trigger": "Frozen assigned final theorem"
+        },
+        {
+          "assessment": "No whole-document noncoverage claim; broader priority remains qualified",
+          "evidence": "Marginal asymptotic normality does not by itself determine fixed-point mixed covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.08426",
+          "material_read": "Accessible abstract and relevant available description; full theorem text not verified in this run",
+          "method": "arXiv abstract/metadata inspection",
+          "title": "Asymptotic normality of consecutive patterns in permutations encoded by generating trees with one-dimensional labels",
+          "trigger": "Plausible marginal consecutive-pattern predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete 24-pattern finite-sample mixed-moment tensor makes the boundary localization of global fixed-point/local-order dependence explicit. Distinguishing the delayed 3142 reversal at n=18 is a natural, previously unrecorded dependence feature, not an arbitrary subcase or routine restatement of descent covariance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform S_n, four consecutive positions only; no Mallows law, nonconsecutive patterns, higher cumulants or independence assertions.",
+    "Exact polynomial-identity proof supports infinite n; finite checker alone does not."
+  ],
+  "schema_version": 1
+}
