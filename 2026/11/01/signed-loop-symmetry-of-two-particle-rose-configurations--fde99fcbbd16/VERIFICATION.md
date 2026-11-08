@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Extract `verify_rose.py` and `verification_output.txt` from this package without changing bytes. Run `python3 verify_rose.py` with Python 3 and compare its standard output to `verification_output.txt`.
+## correctness
 
-The verifier constructs vertices, radial/peripheral edges, the complete unordered cubical zero-, one- and two-cell sets, and edge-coordinate orientations independently of the symbolic character formula. For \(m=1,2,3,4,5\), it checks each prescribed free-face collapse against the then-active two-cells, verifies the residual one-skeleton is connected, and compares its rank with \(1+3\binom m2\). For each of all \(4282\) signed petal permutations across those five values, it computes three signed cellular traces directly from the mapped cells, compares the Lefschetz-derived first-homology trace to the claimed polynomial, and checks full-group and permutation-only invariant averages.
+PASS
 
-Recorded completion marker: `VERIFY_OK`. The continuous, unrestricted claims follow from the complete combinatorial cell-classification and counting proof in `RESULT.md`, not finite extrapolation. The code does not independently audit source novelty or provide an integral irreducible representation decomposition.
+PASS: The symmetric three-edge subdivision of each rose petal meets the unordered two-particle discrete cubical configuration criterion. Cell counts c0=m(2m+1), c1=3m(2m−1), c2=5*C(m,2) follow from explicit disjoint graph-cell pairs. Radial/peripheral squares have unique active free edges and then peripheral/peripheral squares admit free edges; all 2-cells collapse and the remaining graph is connected, with β1=1+3*C(m,2), proving the integral wedge-of-circles type. For each signed petal permutation, oriented fixed 0,1,2 cells give signed Lefschetz trace 1+(3a²+2ab−b²−3a−3b)/2−r on rational H1, including transposition square-coordinate sign; group averaging gives invariant dimensions 2 for S_m and 0 for B_m. An independently built cubical-cell complex exhaustively checked all B_m actions for m=2,3,4,5, valid collapses, connected residual graphs and character/invariants; the proof of arbitrary m is symbolic rather than finite extrapolation.
+
+## originality
+
+PASS
+
+PASS on identified prior literature: Abrams/Farley–Sabalka supply discretization, Ghrist and Maciążek–Sawicki cover graph-configuration homology, Chettih–Lütgehetmann handle ordered spaces on trees with loops. The full hyperoctahedral character on ordinary unordered two-particle rose H1 and distinction between S_m/B_m invariants are not determined by these stated results. Unindexed equivariant work remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Complete exact B_m rational symmetry character across the natural all-m rose family is a useful representation-theoretic refinement; it distinguishes flips, petal cycles and equivariant invariants invisible in ordinary Betti numbers. The rank and collapse support the character rather than being a superficial numeric check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

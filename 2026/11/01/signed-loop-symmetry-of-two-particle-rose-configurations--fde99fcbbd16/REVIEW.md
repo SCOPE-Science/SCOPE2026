@@ -1,19 +1,21 @@
-# Scientific review: signed-loop symmetry of two-particle rose configurations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is one full rational signed-petal character for every integer \(m\ge2\), together with the integral one-skeleton collapse and two invariant dimensions as consequences. The complete unordered cubical cell census \(c_0=m(2m+1)\), \(c_1=3m(2m-1)\), \(c_2=5\binom m2\) is supported by explicit cells. Two elementary-collapse families remove all squares, leaving a connected graph of first Betti number \(1+3\binom m2\). For every orientation-preserving or -reversing petal symmetry, counting fixed cells with edge and square orientations yields the exact Lefschetz character and, by group averages, invariant dimensions two and zero. The attached standalone program exhausts 4,282 symmetries through five petals and rechecks every listed collapse, but the unlimited theorem follows from the symbolic enumeration in `RESULT.md`, not from extrapolation.
+PASS
 
-## Originality — PASS, qualified
+PASS: The symmetric three-edge subdivision of each rose petal meets the unordered two-particle discrete cubical configuration criterion. Cell counts c0=m(2m+1), c1=3m(2m−1), c2=5*C(m,2) follow from explicit disjoint graph-cell pairs. Radial/peripheral squares have unique active free edges and then peripheral/peripheral squares admit free edges; all 2-cells collapse and the remaining graph is connected, with β1=1+3*C(m,2), proving the integral wedge-of-circles type. For each signed petal permutation, oriented fixed 0,1,2 cells give signed Lefschetz trace 1+(3a²+2ab−b²−3a−3b)/2−r on rational H1, including transposition square-coordinate sign; group averaging gives invariant dimensions 2 for S_m and 0 for B_m. An independently built cubical-cell complex exhaustively checked all B_m actions for m=2,3,4,5, valid collapses, connected residual graphs and character/invariants; the proof of arbitrary m is symbolic rather than finite extrapolation.
 
-The closest foundations are Ghrist, arXiv:math/9905023 (homological dimension bounds); Farley–Sabalka, arXiv:math/0410539 (cubical models); Chettih–Lütgehetmann, arXiv:1612.08290 (ordered configurations on trees with loops); and Maciążek–Sawicki, arXiv:1606.03414 (homology calculations on one-connected graphs). None of their inspected relevant assertions gives the complete signed-petal class function for ordinary first homology of the unordered two-particle rose. Lütgehetmann, arXiv:1701.03490 (representation stability), and Gadish–Hainaut, arXiv:2202.12494 (compactly supported ordered-configurations) concern distinct functors or incomplete symmetry descriptions. Searches of alternative names, full signed permutations, Borel–Moore objects, and potentially stronger coverage did not locate an implication that eliminates this computation. The last paper's full coverage and potentially unindexed mathematics remain residual risks; no absolute uniqueness is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The rose gives the basic cyclic graph with one essential vertex, where the two-particle configuration space describes graph-braid motions. The all-petal class character is more informative than the known Betti number and isolates a structural effect: the \(S_m\)-fixed rational first homology has dimension two while the \(B_m\)-fixed part vanishes. A uniform explicit character of a natural graph-automorphism group is not a routine reparametrization of ranks or an arbitrary finite slice.
+PASS on identified prior literature: Abrams/Farley–Sabalka supply discretization, Ghrist and Maciążek–Sawicki cover graph-configuration homology, Chettih–Lütgehetmann handle ordered spaces on trees with loops. The full hyperoctahedral character on ordinary unordered two-particle rose H1 and distinction between S_m/B_m invariants are not determined by these stated results. Unindexed equivariant work remains a priority risk.
 
-## Limitations
+## value
 
-Only two distinct unordered particles, rational symmetry characters, and the ordinary homotopy type are covered. No integral representation-lattice splitting, higher-particle assertion, or independent expert confirmation is included. See `RESULT.md`, `AUDIT.json`, and `VERIFICATION.md` for the claim-to-evidence proof and finite checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Complete exact B_m rational symmetry character across the natural all-m rose family is a useful representation-theoretic refinement; it distinguishes flips, petal cycles and equivariant invariants invisible in ordinary Betti numbers. The rank and collapse support the character rather than being a superficial numeric check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
