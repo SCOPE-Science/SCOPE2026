@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses the minimum-length accepting-run lemma and its parity refinement: a repeated state in a run through a transition-compatible bipartite graph can be removed at even cost, so the first accepted length of each parity requires a simple run. For odd modulus, the second accepted multiple is the first with opposite parity and forces the larger bound. For both parities the explicit complete deterministic witnesses meet the lower bound; the even cycle and accepted-length progressions are computed directly. The checker validates 600 cases. Limitations: no claim about erased self-loops or epsilon transitions, and finite execution is not a proof of infinitely many parameter values.
+
+**Originality — PASS, provisional.** The 2026 bipartite cactus representation theorem supplies qualitative existence and explicitly leaves tight state-complexity bounds open; its full text has been examined (Sections 2–4). Existing unary state-complexity and undirected-transition literature uses distinct restrictions or operations. The candidate is an exact two-parameter optimum for a distinct graph-constrained minimization question, not just a restatement of the generic construction. However, the simple parity argument may be implicit in older work and definitive historical priority needs further verification.
+
+**Value — PASS.** The quantitative blow-up is motivated by an explicit state-minimization question in the motivating paper. The result identifies a sharp parity divide, yields exact rather than asymptotic cost, shows that nondeterminism cannot reduce this cost on the family, and realizes the optimum within the more restrictive cactus class. This covers all parameters rather than an ad hoc finite slice.
+
+Closest accessible reference: Grobler–Koziel–Siebertz, *Every Regular Language Has a Bipartite Cactus Automaton* (2026), https://arxiv.org/abs/2610.11717, especially Section 4. Related comparison: Kutrib–Malcher–Schneider (2022), https://doi.org/10.1007/s00236-021-00402-0; their symmetric-transition definition differs. The contribution is narrow, and possible implicit folklore is a remaining priority risk.
+
+Self-review: passed. Independent audit: not yet performed.

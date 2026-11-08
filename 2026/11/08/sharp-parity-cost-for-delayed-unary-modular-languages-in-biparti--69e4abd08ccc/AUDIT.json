@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every shortest accepted run is simple; in a transition-bipartite graph, any repeated-state subrun has even length, hence a first accepted word of a given parity must have a simple run. For odd n the first opposite-parity accepted word has length (t+1)n. The explicit one-cycle DFAs achieve exact length progression and have the claimed counts and correct transition parity; checker verifies 600 finite witness instances. The proof addresses all n>=2,t>=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/2610.11717, p. 12, Section 4 identifies tight state complexity as an open quantitative direction.",
+        "https://doi.org/10.1142/S012905410200100X addresses unary language operation complexities under ordinary machine models."
+      ],
+      "reasoning": "Unrestricted shortest-word lower bounds are insufficient to force the odd-case extra n states. The 2026 all-regular-language existence theorem has broader domain but does not bound optimal state counts, and thus does not imply this numerical optimum.",
+      "searches": [
+        "Grobler Koziel Siebertz state complexity arbitrary regular language bipartite cactus automata",
+        "unary automata bipartite state minimization",
+        "Pighizzini Shallit unary language operations state complexity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11717",
+      "doi:10.4204/EPTCS.454.9",
+      "doi:10.1007/s00236-021-00402-0",
+      "doi:10.1142/S012905410200100X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grobler–Koziel–Siebertz Theorem 1.1: ε-free bipartite cactus existence for all regular languages, with no size optimum; Section 4 is explicit.",
+        "Kutrib–Malcher–Schneider: undirected means symmetric transition on each edge; a different restriction.",
+        "Pighizzini–Shallit: unary operational state complexity without the transition-bipartite cactus condition."
+      ],
+      "reasoning": "Existence cannot imply exact minimum size; symmetric-transition automata are distinct from directed transition-bipartite automata. Simple-path and parity arguments are prior elementary tools, but the matched all-parameter state-minimizing construction for this specific regime is not found in the consulted work.",
+      "searches": [
+        "arxiv:2610.11717",
+        "https://doi.org/10.1007/s00236-021-00402-0",
+        "https://doi.org/10.1142/S012905410200100X"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grobler–Koziel–Siebertz 2026, Section 2 defines transition-compatible two-colorings; Section 4 states no sharp complexity bound.",
+        "Kutrib–Malcher–Schneider 2022 analyzes symmetric transitions, not bipartite directed state graphs."
+      ],
+      "reasoning": "The exact optimization over unary delayed multiples is invariant under automaton relabeling and captures all ε-free NFAs with a proper transition coloring; neither equivalent language form nor reversal provides an already established formula in checked sources.",
+      "searches": [
+        "bipartite cactus epsilon-free NFA state complexity unary language multiples n threshold t parity odd periods exact minimal states",
+        "unary regular language a^(mn) with m at least t minimal bipartite automaton n odd cycle length 2n",
+        "state blow-up parity bipartite cactus automata unary modular language state complexity",
+        "arxiv:2610.11717"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published research records returned no table or exact formula for minimum transition-bipartite cactus recognition of the specified family."
+      ],
+      "reasoning": "The result is symbolic for all moduli and thresholds, not a finite database entry; an absent database hit alone is not treated as a proof of novelty.",
+      "searches": [
+        "unary regular language a^(mn) with m at least t minimal bipartite automaton n odd cycle length 2n",
+        "state blow-up parity bipartite cactus automata unary modular language state complexity",
+        "unary nondeterministic automata accepted lengths multiples n eventually 2n cactus lower bound",
+        "Every Regular Language Has a Bipartite Cactus Automaton size tight blowup unary",
+        "binary cycle automata parity lower bound unary languages",
+        "https://arxiv.org/abs/2610.11717"
+      ]
+    },
+    "rationale": "The motivating October 2026 full paper proves qualitative existence and explicitly leaves state-minimality open; the new exact n,t formula for unary delayed multiples is not its theorem and is not implied by its constructions or the compared unary and undirected-transition claims. General parity path facts are acknowledged as prior; direct sharp constructions, an all-parameter exact state cost, and an additive parity penalty are the actual contribution. Historical priority remains provisional.",
+    "residual_risks": [
+      "An older automata textbook or thesis may implicitly contain this delayed modular subfamily as a corollary of a parity run lemma.",
+      "The Pighizzini–Shallit paper was not available in full text, limiting direct exclusion of an implicit special case.",
+      "The claim does not cover models that ignore actual self-loops while checking graph bipartiteness; scope is deliberately transition-compatible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides existence, no tight state complexity; the source asks for the quantitative question addressed here on a defined subfamily",
+        "evidence": [
+          "Theorem 1.1 on page 2; transition graph and loopless coloring definitions on pages 3–4; Section 4, page 12, explicitly states tight state bounds not established."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.11717",
+        "material_read": "Full 13-page primary manuscript, focusing on Introduction, Section 2 definitions, constructions and Section 4 conclusion",
+        "method": "Read searchable full PDF text and inspected the conclusion page image",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Direct same graph restriction and explicit open optimization question"
+      },
+      {
+        "assessment": "Different model requiring reverse transitions; not an exact result on directed bipartite cactus NFAs",
+        "evidence": [
+          "The abstract explicitly defines undirected automata by symmetric transitions. The unary Theorem 2 classifies accepted languages under that extra condition."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-021-00402-0",
+        "material_read": "Open-access online abstract, terminology, unary characterization and state-complexity lemmas",
+        "method": "Read HTML full article sections relevant to unary automata",
+        "title": "Finite automata with undirected state graphs",
+        "trigger": "Possible older unary graph restriction and state lower bound"
+      },
+      {
+        "assessment": "No demonstrated implication to transition-bipartite cactus state cost; full paper remains priority risk",
+        "evidence": [
+          "Publisher abstract describes tight unary state complexity for union, intersection, concatenation and Kleene star."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S012905410200100X",
+        "material_read": "Publisher abstract and indexed description; full text not accessible",
+        "method": "Compared stated scope of unary language operations and cyclotail structure, no full-text noncoverage conclusion",
+        "title": "Unary Language Operations, State Complexity and Jacobsthal’s Function",
+        "trigger": "Potentially broader older unary state-complexity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69e4abd0-8ccc-4cb9-90c6-aa5251b5b99b",
+  "value": {
+    "rationale": "Motivated by an explicit open sharp state-complexity direction after the bipartite-cactus representation theorem. Exact all-parameter minimum, explicit t,n constructive witnesses, sharp additive parity penalty, and an optimality statement applying even to the larger bipartite NFA class provide useful quantitative boundaries; not a finite enumeration or a general qualitative existence restatement.",
+    "status": "PASS"
+  }
+}
