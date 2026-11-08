@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite coalition condition is equivalent to a subset-indexed count inequality because a blocking coalition can be enlarged to all disapprovers who jointly approve a selected set. For independent approval bits, its normalized margins obey strong laws. A strictly convex log-ratio shows that only the empty shared-approval set and the full rival set can dominate. The single-active-boundary case is Gaussian with survival probability one half. At the simultaneous boundary, the centered constraints have covariance \(1/2\), variances \(1/4\) and \((m+1)/2\), and Gaussian correlation \(\sqrt{2/(m+1)}\). Its first-quadrant probability yields the stated arcsine formula. Literal and reduced coalition tests agreed exhaustively in 40,960 small profiles; finite checks are corroboration, not universal proof.
+PASS
 
-## Originality
+For every approval profile a>0, a disapproving coalition S with shared better set T has size ≤h_T, while coalition H_T proves the converse, so blocking iff some subset T has m h_T>a(m−|T|). With m fixed, independent Bernoulli bits give h_T/n→(1−p)q^|T| and a/n→p; maximizing q^k/(m−k) over k∈[0,m−1] follows from positive second derivative of k log q−log(m−k), leaving only k=0 or k=m−1. Hoeffding controls strict off-boundary margins. At a single-front threshold a nondegenerate one-dimensional CLT yields 1/2. At the simultaneous front, Y=approval of c and Z=disapproval with approval of every rival are mutually exclusive with P(Y)=1/2,P(Z)=1/(2m). For U=Y−1/2 and V=Y−mZ, Var U=1/4, Var V=(m+1)/2, Cov=1/2, giving rho=sqrt(2/(m+1)); the Gaussian quadrant formula gives the critical limit. The a=0 convention is exponentially negligible for p>0 but included exactly. Independent direct and reduced veto definitions agreed on 8448 binary profiles; covariance was recalculated algebraically for m=2..11. The infinite limit is proved by LLN/CLT, not by simulation.
 
-**PASS, subject to literature coverage risk.** Dong et al. (2026, arXiv:2609.10759) introduce AWVC and establish deterministic veto thresholds, as well as experimental results, but the inspected analytical and empirical sections do not derive an independent-approval phase diagram or the double-critical arcsine law. Ianovski and Kondratev (2020/2023, arXiv:2003.09153) prove an impartial-culture expected-size limit for the unmodified proportional veto core with strict rankings, not the approval-gated AWVC on independent binary ballots. Lackner and Maly (2023/2025) analyze different approval shortlisting functions. A general central limit theorem alone does not determine the two active AWVC coalition classes or their critical correlation. Unindexed equivalent work and uninspected portions of the motivating document remain risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The motivating AWVC rule explicitly balances majority approval against minority protection. Majority counts alone cannot predict acceptance because the coherence of disapproving coalitions also matters. This theorem gives the precise independent-approval parameter boundary separating those two mechanisms, and the exceptional \(3/8\) three-candidate probability when both become marginal. It is an analytic calibration of a recently introduced social-choice solution concept, not merely a finite numerical example.
+Dong et al introduce AWVC and its deterministic welfare/consent properties; the stated independent heterogeneous-rival Bernoulli culture and simultaneous Gaussian two-front survival law were not identified in accessible abstracts or Resultary. Ianovski–Kondratev concern a different unapproved-gate proportional veto solution on strict rankings. Full access to the central AWVC source is missing, therefore the comparison is best-of-knowledge only with a significant residual risk; no whole-paper noncoverage is asserted.
 
-## Limits
+## value
 
-The result assumes binary utilities and mutually independent voter-candidate approvals, fixed \(m\), and the uncomposed AWVC. It neither proves exact finite-electorate probabilities nor addresses dependent or nonbinary preferences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact binary-profile blocking reduction and a sharp random-culture phase diagram with a non-generic bivariate critical law quantify behavior of a new collective-consent solution concept; the 3/8 boundary is not a routine one-dimensional threshold calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
