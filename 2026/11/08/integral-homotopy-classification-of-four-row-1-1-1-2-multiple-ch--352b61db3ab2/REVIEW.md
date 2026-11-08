@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Two independent enumerators reconstruct all admissible simplices and agree in all four tested cases. A complete, explicitly indexed matching leaves the stated critical cells; every cover relation of the face poset is checked, and a complete topological sort establishes global acyclicity. The exact signed Morse boundary is zero for six columns; for seven columns it has a certified integral unit minor and exact rank two, making its Smith invariants \((1,1)\). Since the resulting CW complexes have no positive-dimensional cells below degree three, their attaching maps are classified by the computed integer degree vectors; this yields the claimed integral wedge types, rather than merely mod-two Betti numbers. The verifier independently recomputes the original mod-two simplicial homology. For larger column counts the published shellability theorem and the explicit Euler count supply the remaining formula.
+
+## Originality — PASS
+The novel statements are the four-, five- and six-column homotopy types. The seven-column homotopy type is not claimed as novel: the 2026 Column Law top-homology formula gives top rank 90, the 2014 connectivity bound gives two-connectivity, degree-three integral homology is free by the Column Law, and Euler characteristic gives rank 21; the standard wedge lemma then gives the type. The closest recent paper already gives the three-column case and a different four-row torsion family; the earlier shellability theorem covers all column counts at least eight. The other relevant 2026 top-homology theorem does combine with connectivity and Euler counting to cover the seven-column case, but does not eliminate the lower-degree homology ambiguities for the four-, five- and six-column cases. Prior semantically similar work and equivalent descriptions as bounded-degree subgraph complexes were compared. A later revision of one primary manuscript was not fully accessible and equivalent unindexed work cannot be excluded; no stronger covering claim was found in the inspected material.
+
+## Mathematical value — PASS
+The problem is a natural first nonuniform four-row model in a recently active topological classification question, with direct connections to colored partition constraints and multigraded Segre syzygies. The three new finite cases bridge the known small examples and previously implied higher-column regime. Six columns supply a mixed-dimensional integral homotopy type not forced by the already-known top-homology freeness theorem or Euler characteristic alone. The certificates demonstrate how these exceptional topological types arise rather than reporting isolated field-valued Betti numbers.
+
+## Scope and limitations
+The proof is finite-and-executable for the three new cases and supplies an extra check at seven columns, relying on standard algebraic discrete-Morse theory; it is not a general classification of other capacity vectors, does not claim an equivariant refinement, and has not undergone independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
