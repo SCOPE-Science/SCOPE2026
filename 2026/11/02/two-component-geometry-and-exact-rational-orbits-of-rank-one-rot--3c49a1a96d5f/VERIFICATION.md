@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of rank-one Lie Rota–Baxter classification
+# Independent mathematical audit
 
-The standalone file `check_rankone_sl2_rb.py` contains its complete finite-field arithmetic, Lie bracket, projective enumeration, direct Rota–Baxter identity test, and explicit conjugation action. It has no dependencies outside the Python standard library.
+## correctness
 
-Reproduce with `python check_rankone_sl2_rb.py`. Expected exact stdout is provided in `check_rankone_sl2_rb.txt`. The checker ran successfully using those exact current files, and output bytes agreed with the embedded expected output.
+PASS
 
-For \(q=3,5,7,9\), all \((q^2+q+1)^2\) pairs of projective lines were examined. The direct original bracket identity was checked for every pair, both on and off the solution locus, and was found equivalent to the geometric incidence condition. The \(q=9\) implementation uses \(\mathbb F_3[t]/(t^2+1)\), which is a field because \(t^2+1\) is irreducible over \(\mathbb F_3\). The projective solution counts were \(25,61,113,181\); the exact nonzero rank-one map counts were \(50,244,678,1448\), agreeing with the formula. Explicit \(\operatorname{PGL}_2\) enumeration over \(\mathbb F_3\) and \(\mathbb F_5\) reproduced the full predicted orbit-size multisets.
+PASS: For char!=2 trace pairing B nondegenerate, a rank-one map R(x)=B(w,x)v is RB iff [w,v] is a multiple of w. The sl2 centralizer gives diagonal D and nilpotent normalizer gives F={w isotropic,B(v,w)=0}. Binary quadratic factorization identifies reduced D=P2, F=P1xP1 and intersection conic; rational projective count (q²+q+1)+(q+1)²-(q+1)=2q²+2q+1. PGL2 stabilizers yield split/nonsplit and nilpotent square-class orbit sizes. Independently checked all 13² projective line pairs over F3 against the criterion (25 valid; 50 nonzero maps).
 
-Verification marker: `RANK_ONE_SL2_ROTA_BAXTER_GEOMETRY_OK 4_FINITE_FIELDS 2_EXACT_ORBIT_CHECKS`.
+## originality
 
-Finite enumeration does not prove the arbitrary-characteristic-not-two geometry or the all-odd-prime-power orbit spectrum. The proof is the trace-pairing reduction, the rational tangent-incidence parametrization, and the explicit stabilizer and square-class arguments in `RESULT.md`. No independent external mathematical audit has been performed.
+PASS
+
+PASS qualified: Pei–Bai–Guo (2013) classify all complex weight-zero sl2 RB operators, so rank-one complex classification is covered; their complex matrix list has no rational odd-field orbit splitting or q-point enumeration. New candidate is the uniform reduced incidence description and exact Fq conjugacy spectrum, not reclassification over C.
+
+## value
+
+PASS
+
+PASS: the finite-field orbit stratification and point count give intrinsic arithmetic moduli of a natural Lie RB operator locus; square-class splitting at isotropic points is mathematically meaningful and not a mere small numeric census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

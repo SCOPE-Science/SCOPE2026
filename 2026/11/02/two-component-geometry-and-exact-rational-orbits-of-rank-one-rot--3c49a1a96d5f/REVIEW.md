@@ -1,15 +1,21 @@
-# Review of the rank-one \(\mathfrak{sl}_2\) Rota–Baxter geometry and orbit theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is restricted to characteristic different from two for geometry and odd finite fields for arithmetic/orbits. Trace pairing is nondegenerate, and every nonzero rank-one map has a two-vector representation unique up to one scalar. Substitution of that representation into the original weight-zero Lie Rota–Baxter identity is reconstructed explicitly, not imported from a complex-field normal-form classification. The identity reduces to \([w,v]\in kw\). Centralizer dimension one gives the diagonal component; trace invariance and the explicit normalizer of a nilpotent line give exactly the tangent-incidence component. A binary-quadratic factorization proves the second component is \(\mathbb P^1\times\mathbb P^1\), and the two components intersect in a split smooth conic. Their finite-field point count yields \(2q^3-q-1\). For rational orbits, separate split, nonsplit, nilpotent and nonselfadjoint strata; the stabilizer action on scalar fibers is calculated, rather than assumed. The orbit sizes sum to the count. The standalone checker independently re-evaluates the original brackets and the original Rota–Baxter identity over four finite fields, and tests complete conjugation-orbit partitions over two. Finite tests are corroboration only.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest source is Pei–Bai–Guo, arXiv:1311.0612v1 (November 4, 2013). Relevant full text, especially Theorem 2.1 and Sections 2–5, gives a complete **complex** matrix classification of all weights-zero operators up to scalar multiplication. Its broader coverage in operator rank is expressly credited. This does not furnish the claimed uniform odd-finite-field point count, rational automorphism orbit sizes, or the explicit two-component split reduced projective geometry for every characteristic other than two. The latter geometry over algebraically closed characteristic zero could be recovered by reworking the earlier classification, so it is not represented as independent classification of all complex operators. Pei–Bai–Guo, arXiv:1306.3046v1, concerns general operadic constructions; Burde–Gubarev, arXiv:1805.05104v1, concerns weight-one operators and post-Lie structures. Neither implies the exact present rank-one finite-field spectrum. Relevant indexed mathematical-record searches and available historical research claims were checked for direct, equivalent and stronger coverage. No such finite-field formula or geometric-and-orbit theorem was identified. A previously unknown rational-orbit classification or a later generic tensor-operator classification remains a genuine publication-priority risk; a negative search alone is not evidence of uniqueness.
+PASS
 
-## Value — PASS
-The rank-one stratum is a natural first geometrically nontrivial locus inside the quadratic space of Lie Rota–Baxter solutions on the smallest simple Lie algebra. The result describes its entire reduced component geometry over a uniform field range, locates the component intersection, and upgrades a complex matrix classification to a fully rational orbit-size and exact point-count description. The split/nonsplit and nilpotent square-class distinctions show that rational conjugation has structure invisible over the complex field. This is not a mere individual numerical example or a repetition of the complex normal-form list. It does not purport to settle all ranks or the unreduced scheme, and the rank-one restriction is substantive rather than a surrogate for the larger problem.
+PASS: For char!=2 trace pairing B nondegenerate, a rank-one map R(x)=B(w,x)v is RB iff [w,v] is a multiple of w. The sl2 centralizer gives diagonal D and nilpotent normalizer gives F={w isotropic,B(v,w)=0}. Binary quadratic factorization identifies reduced D=P2, F=P1xP1 and intersection conic; rational projective count (q²+q+1)+(q+1)²-(q+1)=2q²+2q+1. PGL2 stabilizers yield split/nonsplit and nilpotent square-class orbit sizes. Independently checked all 13² projective line pairs over F3 against the criterion (25 valid; 50 nonzero maps).
 
-## Primary comparison and limitations
-Pei–Bai–Guo (arXiv:1311.0612v1, Section 2, Theorem 2.1) is the decisive close reference and has been compared at the implication level. Its complete complex classification covers the set of complex rank-one examples, while the present new results are rational geometry and arithmetic for odd finite fields. The characteristic-two case, the all-ranks classification, scheme-theoretic multiplicities and independent historical publication-priority confirmation remain outside this finding. The exact checker results and their finite-only interpretation appear in `VERIFICATION.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Pei–Bai–Guo (2013) classify all complex weight-zero sl2 RB operators, so rank-one complex classification is covered; their complex matrix list has no rational odd-field orbit splitting or q-point enumeration. New candidate is the uniform reduced incidence description and exact Fq conjugacy spectrum, not reclassification over C.
+
+## value
+
+PASS
+
+PASS: the finite-field orbit stratification and point count give intrinsic arithmetic moduli of a natural Lie RB operator locus; square-class splitting at isotropic points is mathematically meaningful and not a mere small numeric census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
