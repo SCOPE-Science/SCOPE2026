@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The own-color fraction counts the moving agent herself and occupied graph neighbors only. Lemma 1 proves exact ordinal equivalence between all allowed single-peaked payoffs and a rational tent representative; Lemma 2 locates every parameter value at which an improvement comparison can change. The standard-library verifier then exhausts the complete finite state graph for every connected complete bipartite topology through six vertices, every two-color composition with at least one vacancy, and every distinct peak-comparison cell and breakpoint. All 3,079 parameterized instances satisfy the classification, covering 140,610 state/parameter pairs and 216,828 permitted arcs. The explicit four-move labeled-agent cycle gives the non-FIP half, including the strict threshold. Tests do not claim infinite-graph coverage.
+PASS
 
-## Originality — PASS, with priority risk
+PASS — Reconstructed payoff-order preservation under the exact reflected-branch assumption: for every attainable local own-color fraction f, the admissible payoff orders agree with min(f/Λ,(1−f)/(1−Λ)). All strict-comparison sign changes for distinct rational fractions in F_n occur at Λ=f/(1+f−g), and evaluating each such boundary and every open interval midpoint gives an exhaustive real-peak partition. Independently built all K_{s,t} color-state graphs (s≤t, s+t≤6) and ran Kahn topological-cycle detection on 3,079 exact graph/composition/peak instances, 140,610 states and 216,828 improving edges, agreeing with the claimed unique K_{3,3}, (r,b,e)=(3,1,2), Λ>2/5 exceptional cycle. Recomputed the four-step labeled witness: red fractions 1→2/3, blue 1/3→1/2, with strict blue improvement precisely Λ>2/5. Distinguishable-agent cycles project to a color cycle; projected acyclicity suffices for the FIP conclusion. Scope requires two occupied colors, ≥1 vacancy, n≤6, connected complete bipartite graph and the specific source-symmetric utility, not arbitrary unimodal payoffs.
 
-The closest primary article is Friedrich et al. (arXiv:2302.12107v1). It proves some nonconvergent examples on paths, rings and regular graphs, and conditions for equilibrium existence on bipartite graphs, but its full accessible text does not state the exhaustive order-at-most-six complete-bipartite FIP phase diagram. Already known specific-peak examples on \(K_{3,3}\) are proper consequences of the new sharp phase and do not imply its positive, all-composition classification. The source paper's subgraph-embedding observation is credited rather than claimed as new. Swap models change which moves are admissible. Relevant specialist publications may still contain unidentified equivalent statements, and a broader systematic citation search would be desirable before publication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives an exact first nonconvergence boundary on a natural graph family, not just another arbitrary small counterexample. The transition at \(\Lambda=2/5\) identifies a sharp preference-side phase change, while the classification proves that neither a smaller bipartite graph nor another six-vertex bipartite graph, nor a different composition on \(K_{3,3}\), can produce cycles under the source's entire preference class. These are useful structural constraints for testing potential-function conjectures, classifying finite improvement, and separating graph-topology effects from single-peaked preferences.
+PASS, bounded — The primary jump-game source already establishes nonconvergent cycles on other graph families and induced-subgraph inheritance; those do not determine the precise bipartite n≤6 classification or universal threshold over Λ. Published swap-game work differs because both agents must improve. Resultary's semantic search returned only different graph and combinatorial finite thresholds, not this model. This is a best-of-knowledge judgment with real risk from the inaccessible full version of the initiating paper, rather than a guarantee of priority.
 
-## Limitations and closest literature
+## value
 
-The positive conclusion is restricted to at most six vertices and to the symmetric source utility class. The central result is a computer-assisted but complete finite proof with an analytical reduction of the continuous peak parameter and an explicit, hand-checkable negative witness. The initiating paper and its jump-versus-swap comparison were inspected as described in AUDIT.json. No external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Sharp smallest-order/complete-composition FIP classification on a natural graph class, with a nontrivial exact preference-peak transition and an explicit minimal labeled improvement cycle. It answers a structural dynamic stability question and the finite cutoff is motivated by the smallest witness; this is more than checking a few arbitrary instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
