@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The package includes `verify.py`, an ordinary Python 3 standard-library program. Execute `python3 verify.py`. It constructs candidate section corners from cylinder-pair equality lines, counts active arcs for deterministic Gaussian viewing directions, computes the exact elementary sector formula, and compares it with independently sampled planar polar integrals. It also runs a seeded random-orientation comparison against the exact solid-angle probability.
+## correctness
 
-The executed program reported 2,000 exact-pattern arc-count agreements, a maximum 64-case area discrepancy of approximately \(1.63\times10^{-8}\) at unit radius with 25,000-point quadratures, and 100,000-direction frequency 0.64643 against exact 0.649040687816... . These are checks of finite test cases, **not** a certificate of the general proof. The proof of exhaustive breakpoints, exact area, and spherical probability is supplied in `RESULT.md`. All methods are standard mathematics and numerical testing; no external or independent scientific validation was performed.
+PASS
+
+For the equal-radius intersection of three infinite perpendicular right cylinders, the radial section function on central plane n⊥ is ρ(u)²=R²/(1-min_i u_i²). Switching between constituent ellipses occurs at u_i=s u_j (s=±1) only when |n_k|<|n_i+s n_j|; the switch is transverse for generic nonzero normal coordinates. Sorting a>=b>=c>0 shows exactly three active unoriented switching lines if a<b+c and four if a>b+c, giving six/eight genuine curved arcs, not polygonal sides. On each angular sector the polar area integral is R²/2∫dθ/(1-u_i²), and the oriented linear map with determinant |n_i| transforms it to an atan2 angle divided by |n_i|. Consecutive sector widths are <π and this fixes arctangent branch, yielding an explicit globally finite formula. The eight-arc normal chamber is union of 24 congruent spherical triangles of solid angle 2 arctan(3-2√2), hence P8=12/π arctan(3-2√2). Degenerate planes are excluded from generic arc count; area extends continuously.
+
+## originality
+
+PASS
+
+Qualified PASS for the exact curved-arc breakpoint/area formula for all generic central normals. The six/eight numerical Haar probability alone is the known cube hexagon chamber and is not independently new; the paper proves its correspondence. Highly relevant older Moore tricylinder specialists remain full-text access risks.
+
+## value
+
+PASS
+
+The triple orthogonal-cylinder Steinmetz solid is canonical; orientation-dependent central-plane section area and exact curved-boundary combinatorial type are natural geometric invariants beyond known total volume/surface. A constructive elementary arctangent area evaluation supplies reproducible exact geometric data for every generic orientation rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
