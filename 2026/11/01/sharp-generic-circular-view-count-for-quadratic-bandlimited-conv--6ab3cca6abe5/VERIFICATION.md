@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-The proof of the all-dimensional result uses exact linear-algebraic identities, not numerical extrapolation. Every planar restriction of a quadratic support has two observable second angular Fourier coefficients. The critical separation step is the explicitly calculated nonzero determinant of the two restrictions on the plane spanned by \((e_i+e_j)/\sqrt2\) and \((e_i-e_j+2e_k)/\sqrt6\), whenever the joint eigenvalue points \((a_i,b_i)\), \((a_j,b_j)\), \((a_k,b_k)\) are noncollinear. This follows after eigenvector compression forces simultaneous diagonalization under the hypothetical universal rank defect. The induction therefore lowers any remaining kernel by two dimensions per plane, except its last one-dimensional stage.
+## correctness
 
-The attached checker is executable with the Python standard library: `python verify_quadratic_views.py`. It uses integer-coordinate pairs of linearly independent spanning vectors for each plane. For each tracefree matrix basis element, it computes the two rational-linear compression conditions in exact integers and performs Gaussian elimination in the finite field modulo \(1000003\). A full field rank is a certificate of full rational rank of this particular sample. A deterministic seed gives full ranks in dimensions \(3\) through \(12\); these are diagnostic finite certificates only.
+PASS
 
-For the lower bound, if the view count is less than the ceiling of half the traceless-symmetric dimension, a nonzero tracefree matrix annihilates every observed second harmonic. The spherical support-curvature matrix of \(1+\varepsilon u^{\mathsf T}Qu\) has smallest eigenvalue at least \(1-3|\varepsilon|\|Q\|_{\mathrm{op}}\), giving a smooth strictly convex nonball witness for sufficiently small nonzero \(\varepsilon\).
+Disk projections require vanishing of the two tracefree compression coordinates of Q on each plane. The diagonalize-A separation lemma is sound: dependence with a nontrivial eigenvector e forces e to be a B-eigenvector; variation within a repeated eigenspace forces B scalar on that eigenspace; three noncollinear (a_i,b_i) then yield a plane with two independent measurements, contradiction. Inductively reduce the tracefree symmetric kernel by two dimensions until zero; the nonzero analytic rank minor gives open dense full-measure tuples on connected Gr(2,n)^m. For fewer planes, dimension counting gives nonzero Q in the kernel, and 1+epsilon u^T Q u has positive spherical curvature for small epsilon, hence smooth nonball counterexamples. Independently derived measurement constraints and modular full-rank instances n=3,4,5,6,7 with D=5,9,14,20,27 and m=3,5,7,10,14. Finite ranks corroborate, not prove all n.
 
-Limitations: no computer test proves the all-dimensional quantifier, the generic set need not contain every tuple, and the claimed count does not apply to unbounded harmonic bandwidth. Historical priority has not been independently certified.
+## originality
+
+PASS
+
+The exact finite minimal measurement count for quadratic-support convex bodies does not follow from all-plane rotational symmetry rigidity or averaged projection operators; separation and rank induction are distinct mathematical conclusions. Best-of-knowledge originality only.
+
+## value
+
+PASS
+
+The sharp number and generic rank classification of circular shadows is a natural, motivated finite tomography invariant in every dimension. It establishes both attainable reconstruction and a universal obstruction below threshold, beyond a computational table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
