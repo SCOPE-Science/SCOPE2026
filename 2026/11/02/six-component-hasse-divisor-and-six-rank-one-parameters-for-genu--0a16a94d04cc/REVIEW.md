@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Cartier--Manin coefficient extraction has been reconstructed from the defining octic and checked against the explicit characteristic-five matrix. The diagonalization uses a Frobenius-fixed basis, so its rank formula is valid for stable semilinear rank rather than merely first-step rank. The six geometric components have explicit irreducible factors; the rank-one list is exhaustive by two elimination resultants and a separate two-factor intersection calculation. All six points are smooth-curve parameters, reduced and transverse by nonzero Jacobian determinants. Exact symbolic checks and a separately implemented exhaustive \(\mathbb F_{25}\) semilinear computation agree. There is no claim that finite enumeration proves the geometric theorem.
+## correctness
 
-**Originality — PASS, subject to a specific residual priority risk.** Ohashi's full arXiv text establishes the normal form, isogeny decomposition, and conditional maximality of superspecial curves but does not give the characteristic-five six-component Hasse divisor or six rank-one points. Moriya--Kudo's arXiv text addresses explicit Richelot decompositions and superspecial enumeration, not this rank stratification. The known characteristic-five nonexistence of superspecial hyperelliptic curves is expressly treated as context, not new. Related characteristic-seven classifications concern different polynomial factorizations, ranks and geometric strata, and do not imply this result. Searches of published literature and the available indexed research records did not expose an equivalent claim. Hidden/unindexed equivalent computations and an undiscovered stronger general result remain priority risks.
+PASS
 
-**Value — PASS.** The complete classification describes all geometric nonordinary degenerations of a natural two-dimensional genus-three Howe stratum, not merely a substitution into an invariant. It determines the topology and irreducible components of the nonordinary divisor, gives a natural sharp finite rank-one stratum of six transverse crossings with Frobenius orbit structure, and distinguishes this characteristic-five degeneration geometry from the corresponding characteristic-seven pattern. Such explicit arithmetic stratifications give concrete test examples for moduli of curves with involutions and for products of elliptic quotient invariants.
+PASS. Reconstructed genus-three hyperelliptic Cartier–Manin coefficients from F(x)^2 modulo5 and Frobenius-fixed diagonalization. H eigenvalues are Q±2(a+b),R; their irreducible factorization yields four lines/two hyperbolas, and exact elimination resultants (a±2)^6 times quadratic plus nonzero Jacobian residues give precisely six transverse rank-one parameters. All excluded singular corners handled; finite GF25 census (380 rank3,120 rank2,6 rank1) is corroboration, not geometric proof.
 
-**Scope and limitations.** Coefficient-marked points are not curve-isomorphism classes; Newton polygons beyond rank and full zeta functions are not classified. There is no external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Ohashi gives the normalized genus-three Howe model, and Richelot work addresses superspecial decomposition, not the six-component 5-Hasse divisor and all six rank-one transverse crossings. Formula and comparators were inspected; no exact covering statement established, but unindexed genus-three rank-strata calculations remain possible.
+
+## value
+
+PASS
+
+PASS. Exact irreducible nonordinary components and six transverse rank-one strata furnish a natural complete arithmetic classification of the two-dimensional marked Howe family; rank stratification is not a small arbitrary invariant, even though no curve-isomorphism classes or Newton slopes beyond rank are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
