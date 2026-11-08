@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-row partition multiplication supports the explicit \(\alpha=te\) decomposition, where both \(t\) and the idempotent \(e\) retain the rank of \(\alpha\). The elementary movable-token lemma has the necessary nonempty-vacancy hypothesis \(r<n\), and each token move is implemented by a rank-\(r\) idempotent full transformation. The proof makes no unsupported extrapolation from finite tests. The standalone exhaustive verifier checks all singular elements through \(n=5\) and every proper rank-ideal closure through \(n=4\).
+## correctness
 
-## Originality — PASS relative to inspected primary literature
-East–Gray arXiv:2011.00663 asks whether all proper full-domain rank ideals are idempotent-generated. Carroll–East–Fresacher arXiv:2507.05497 proves that the largest singular ideal is idempotent-generated but does not assert same-rank factorizations or generation of every smaller ideal. An unrestricted partition-monoid theorem is not directly transferable to the full-domain submonoid. Actual research-record, bibliography and targeted terminology searches found no decisive equivalent, although embedding the construction into prior general normal forms remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The result resolves the outstanding proper-ideal question in the positive and gives a stronger diagram-by-diagram rank-preservation property. Rank is the canonical Green-class stratification for these finite semigroups, so the proof removes a genuine generation obstruction rather than providing an arbitrary enumeration. No minimal idempotent-generator cardinalities are claimed.
+Decompose a rank-r full-domain diagram α into a rank-r full transformation t mapping top kernel block A_i to a selected b_i in lower through-block B_i, then a rank-r diagram idempotent e with top blocks D_1=B_1 union lower-only blocks C_j and D_i=B_i (i>1), retaining B_i and C_j bottom partitions. Diagram multiplication gives α=te and e²=e. Transformations t factor as a kernel idempotent followed by vacancy moves of r labelled image tokens through n positions; each vacancy move is a rank-r idempotent fixing its image. This proves exact rank preservation, and excluding rank-n units is essential. Independently inspected exhaustive n<=5 diagram verifier and reasoned through the general token-move construction; finite cases are secondary.
 
-## Prior-work risk and limitations
-The 2025 top singular-ideal result is already known and is explicitly separated from the new lower-ideal and same-rank assertions. The general factorization result might be implicit in a broader semigroup factorization argument; independent literature review and mathematical audit are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared exact mathematical statement and logical implication against the listed primary sources and semantically searched published Resultary records. The prior largest singular ideal factorization allows intermediate rank choices and does not imply rank r idempotents inside each smaller ideal. The supplied vacancy construction fills that logical gap. Failed search is not novelty proof; residual risks remain.
+
+## value
+
+PASS
+
+The question whether every proper rank ideal is idempotent-generated is an explicit natural structural question for the full-domain partition monoid. Constant-rank constructive factors refine a previously known maximal singular-ideal theorem; neither minimal word length nor minimal generating set is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

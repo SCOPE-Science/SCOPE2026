@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
-The standalone `verify.py` uses pure Python standard-library routines. Execute `python verify.py` with a standard Python 3 interpreter. The script enumerates all full-domain diagrams on at most five pairs of vertices, explicitly constructs idempotent factors of the same rank by breadth-first token movement, and compares the diagram product to the input using independent three-layer connectivity. It separately enumerates the idempotent-generated closures of every proper rank ideal through four pairs of vertices.
+# Independent mathematical audit
 
-Expected checked singular-element totals for sizes two through five: `3,46,831,19801`. Rank-ideal closure counts checked: for size two `3`; for size three `10,46`; for size four `37,471,831`. A successful run ends with `VERIFY_OK`.
+## correctness
 
-# Scope and limits
-Finite tests corroborate, but cannot prove, the universal statement. The unrestricted mathematical proof is in `RESULT.md`. No external or independent audit has been performed; the available verification consists of reproducible self-checks.
+PASS
+
+Decompose a rank-r full-domain diagram α into a rank-r full transformation t mapping top kernel block A_i to a selected b_i in lower through-block B_i, then a rank-r diagram idempotent e with top blocks D_1=B_1 union lower-only blocks C_j and D_i=B_i (i>1), retaining B_i and C_j bottom partitions. Diagram multiplication gives α=te and e²=e. Transformations t factor as a kernel idempotent followed by vacancy moves of r labelled image tokens through n positions; each vacancy move is a rank-r idempotent fixing its image. This proves exact rank preservation, and excluding rank-n units is essential. Independently inspected exhaustive n<=5 diagram verifier and reasoned through the general token-move construction; finite cases are secondary.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared exact mathematical statement and logical implication against the listed primary sources and semantically searched published Resultary records. The prior largest singular ideal factorization allows intermediate rank choices and does not imply rank r idempotents inside each smaller ideal. The supplied vacancy construction fills that logical gap. Failed search is not novelty proof; residual risks remain.
+
+## value
+
+PASS
+
+The question whether every proper rank ideal is idempotent-generated is an explicit natural structural question for the full-domain partition monoid. Constant-rank constructive factors refine a previously known maximal singular-ideal theorem; neither minimal word length nor minimal generating set is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
