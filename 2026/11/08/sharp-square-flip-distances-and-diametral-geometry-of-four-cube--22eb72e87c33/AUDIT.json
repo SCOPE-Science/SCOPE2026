@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Two independent complete finite enumerations (recursive matchings with explicit 24 squares; bipartite permutation enumeration with crossed-partner square switches) reproduce 272 states, 768 links and the entire 264-state distance matrix. BFS exhausts all legal neighbors, verifying eccentricities 252*7+12*8, radius 7, diameter 8, distance histogram and the 3C4 antipodal relation. The explicit distance-eight witness and all 384 natural cube symmetries are checked from the embedded source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al., arXiv:1904.06184, Section 1.3 proves algorithmic graph-class statements and hardness, not exact Q4 metrics.",
+        "Milet–Saldanha, arXiv:1410.7693, treats flip/twist invariants for three-dimensional regions."
+      ],
+      "reasoning": "Neither graph-class complexity/linear-bound statements nor three-dimensional twist invariants yield this labelled four-cube exact all-pairs distance census. Some earlier work permits six-cycles as well as squares; allowing additional edges can only lower distances and need not preserve eccentricities, so that broader move relation does not determine the square-only metric.",
+      "searches": [
+        "hypercube perfect matching square switches transition graph rotation graph structure",
+        "\"Domino tilings and flips in dimensions 4 and higher\" Q4 example",
+        "\"The Perfect Matching Reconfiguration Problem\" Q4 exact diameter"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s11083-012-9279-8",
+      "https://arxiv.org/abs/1410.7693",
+      "https://arxiv.org/html/1904.06184v1",
+      "https://www.numdam.org/item/10.5802/alco.205.pdf",
+      "https://oeis.org/A005271"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published four-cube result, Klivans–Saldanha 2022, Example 2.2/Remark 8.2, directly establishes only counts and twist class for this small box.",
+        "A recoverable earlier analysis of the same cube with both 4- and 6-cycle trades has radius/diameter four, a different adjacency relation."
+      ],
+      "reasoning": "Knowing connectivity and 264 states gives no sharp distance bound; a diameter for a strictly richer move set gives no upper bound for the square-only subgraph. The new exhaustive certificate proves the sharper separate exact square-only metric and symmetry statements.",
+      "searches": [
+        "For Q4 2x2x2x2 box, 264 connected domino tilings, shortest square flip distance exactly eight, radius seven, twelve eccentricity-eight tilings, three four-cycles of diametral pairs",
+        "Klívans Saldanha 2020 4 dimensional box 272 tilings nine components 264 giant flip graph exact diameter 8",
+        "four-dimensional hypercube tiling perfect matching reconfiguration metric sharp eight flips diameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klivans–Saldanha 2022, Example 2.2 and Remark 8.2 (arXiv:2007.08474; DOI 10.5802/alco.205) give nine components, not distances.",
+        "Bonamy et al. 2019, Section 1 defines four-cycle matching flips, arXiv:1904.06184."
+      ],
+      "reasoning": "Domino rotations in the 2x2x2x2 box are square flips of perfect matchings of Q4; these names refer to the same object and move. Targeted comparisons found prior component information but not an equivalent radius/eccentricity/diametral-pair theorem.",
+      "searches": [
+        "four dimensional hypercube Q4 perfect matchings square flip reconfiguration graph diameter median 272",
+        "4-cube domino tilings perfect matching flip graph connected",
+        "\"2x2x2x2\" \"flip\" \"diameter\"",
+        "\"Q_4\" \"perfect matching\" \"square flip\" \"distance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A005271 records 272 perfect matchings for Q4, based on Graham–Harary and later enumerations.",
+        "Klivans–Saldanha 2022, Example 2.2 gives 264 plus eight isolated configurations and their twist values.",
+        "Östergård–Pettersson, published online 2012-11-21, DOI 10.1007/s11083-012-9279-8, concerns matching counts and symmetry enumeration."
+      ],
+      "reasoning": "Exact count tables and component-size lists are acknowledged and excluded from novelty. They do not imply the minimum number of square flips between every connected pair or the three-cycle-component structure of the diametral relation.",
+      "searches": [
+        "\"272\" \"perfect matchings\" \"hypercube\" 2015",
+        "\"264\" \"272\" \"domino\" \"diameter\" flips",
+        "\"Enumerating Perfect Matchings in n-Cubes\" \"272\" \"flip\""
+      ]
+    },
+    "rationale": "The claimed new content is solely the exact shortest-path metric on the previously identified 264-state square-flip component, its 7/8 eccentricity classification, and symmetry of all twelve farthest pairs. In the fully inspected relevant sections, the closest paper proves the 272/9/264+8 counts but does not present these metric and orbit conclusions. Separate broad four-cycle reconfiguration results and an earlier broader-move result do not imply the metric after forbidding longer flips. Historical priority remains qualified due to an unavailable complete cube-enumeration article and possible unindexed calculations.",
+    "residual_risks": [
+      "An unpublished or unindexed Q4 square-flip all-pairs computation may already contain the metric and orbit census.",
+      "The full Östergård–Pettersson 2012 paper could not be examined; no assertion of full-document noncoverage is made.",
+      "A prior same-cube computation using additional six-cycle flips has a different metric; the claimed new metric is square-only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR for all 272 matchings, 264 mobile and eight isolated, but those inspected passages do not specify radius 7, diameter 8, eccentricity 252/12, or 3C4 diametral graph.",
+        "evidence": [
+          "Example 2.2: 272 tilings, nine components, giant 264 and eight singletons.",
+          "Remark 8.2: four-dimensional frozen tilings and their twists.",
+          "PDF search for the word diameter: none."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/10.5802/alco.205.pdf",
+        "material_read": "Article pp. 165-167 (Example 2.2, Fig. 3) and p. 179 (Remark 8.2); searchable PDF checked for diameter/distance and four-cube occurrences.",
+        "method": "Lawful openly accessible full PDF, PDF text search and visually inspected the page with the examples.",
+        "title": "Domino tilings and flips in dimensions 4 and higher",
+        "trigger": "Same 2x2x2x2 object, same elementary domino-flip move, existing exact component census."
+      },
+      {
+        "assessment": "A three-dimensional flip/twist result; neither the four-cube nor the requested finite distance metrics are covered by this theorem.",
+        "evidence": [
+          "First submitted 2014-10-28; flip definition and three-dimensional theorem described in introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.7693",
+        "material_read": "Author-provided HTML full-text Introduction, flip definition and main theorem (lines 1-56).",
+        "method": "Public arXiv HTML version with paper content.",
+        "title": "Domino tilings of three-dimensional regions: flips, trits and twists",
+        "trigger": "Historical archive-age source of local domino flips and connected components."
+      },
+      {
+        "assessment": "General complexity/algorithmic results and motivation, not an exact four-cube distance theorem.",
+        "evidence": [
+          "Section 1.1 defines a flip by alternating 4-cycle.",
+          "Section 1.2 states why diameter is relevant to matching-sampling geometry.",
+          "Section 1.3 lists complexity and graph-class results, no hypercube-specific theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.06184v1",
+        "material_read": "Full HTML sections 1.1-1.3, including the formal move, related work, motivation for diameter, and summary of paper results; whole-text search for hypercube/cube found no hits.",
+        "method": "Lawful public arXiv full HTML.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Same alternating four-cycle matching move and relevance of diameter."
+      },
+      {
+        "assessment": "Count and symmetry relevance confirmed, but a complete full-text comparison could not be performed; no whole-document exclusion asserted.",
+        "evidence": [
+          "Published online 2012-11-21; abstract focuses on counts and orbit classes of cube matchings.",
+          "Full text not successfully inspected, so hidden distance material is a residual risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11083-012-9279-8",
+        "material_read": "Publisher abstract, publication metadata, and cited enumerative conclusions only; full article inaccessible.",
+        "method": "Publisher preview, arXiv/open-access attempts, and an institutional-access request that required interactive approval.",
+        "title": "Enumerating Perfect Matchings in n-Cubes",
+        "trigger": "Exact same n-cube perfect matching states; closest old enumeration reference."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22eb72e8-7c33-4e37-9c33-b5cecf9a766a",
+  "value": {
+    "rationale": "The box is the canonical smallest nontrivial four-dimensional domino tiling case already known to have eight frozen states; finding its SHARP square-only shortest-move geometry is a motivated missing invariant not implied by prior component counts. The 12 peripheral states and their 3C4 farthest-pair graph give structural rather than just numerical information. The result supplies a complete benchmark for constrained perfect-matching reconfiguration and no mixing-time or general-dimension claims.",
+    "status": "PASS"
+  }
+}
