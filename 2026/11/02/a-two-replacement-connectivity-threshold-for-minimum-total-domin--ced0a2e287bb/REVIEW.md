@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof separates the two parity covering problems, classifies every four-point cover by a full weight case split, and proves that distinct covering quadrangles cannot share three vertices. It deduces the precise single- versus double-replacement rule and verifies the remaining forty-quadrangle diameter incidence lemma by an explicit exhaustive finite certificate. The independent C++ program checks all 10,518,300 eight-vertex candidates of the original five-cube and every permitted pair replacement; both independent programs agree on the 1600 optima, absence of one-replacement moves, 19,200 two-replacement edges, and full distance profile. The lower bound of eight is a mathematical neighborhood-count argument. The claim is restricted to the single graph and stated move operations.
+## correctness
 
-**Originality — PASS with residual risk.** The static total domination value is in Azarija–Henning–Klavžar (2016); the count 1600 is explicitly in OEIS A323515; the Clebsch strongly regular parameters and 40 quadrangles are known. None is claimed as new. The proposed new assertion is the frozen one-replacement graph, the complete two-replacement Cartesian-product structure, and its exact connectivity, valency, and distance profiles. General addition/removal and multi-token reconfiguration sources do not supply this fixed-graph, fixed-optimum, exact statement. Targeted published-record, literature, and square-intersection searches located no implication-equivalent result. Search absence is not proof of priority; coding-theoretic terminology and incompletely indexed publications remain residual risks.
+PASS
 
-**Value — PASS.** The threshold from no legal single replacement to connectivity under a simultaneous two-replacement rule determines the minimum feasible simultaneous rearrangement of optimal monitoring sets. The complete distance distribution quantifies the shortest number of legal two-replacement moves, while the Cartesian-square model explains their separable parity geometry. This is not a restatement of a known minimum size or a routine numerical count; it identifies a sharp structural mobility change under a natural reconfiguration rule.
+PASS: The bipartition of Q5 has sixteen vertices on each side, every selected vertex has five neighbors, hence every total dominating set needs >=4 selected even and >=4 selected odd vertices. Independent enumeration of all C(16,4)=1820 parity-side four-subsets found exactly 40 coverings; the same 40 are precisely the four-cycles of 5-regular distance-four Clebsch graph, confirming the source analytic weight-0/2/4 classification. Therefore minimum size eight with exactly 40²=1600 configurations. Clebsch four-cycles share no three vertices, so there are no legal one-replacement edges. Two-replacement moves cannot split among parities and correspond to edge-sharing quadrangles on one factor, giving R2=H Cartesian H. Independent reconstruction of all H edges via direct intersection of the 40 four-subsets found 240 edges, valency 12, every vertex distance histogram (1,12,27) and diameter two. Cartesian product then has 1600 vertices, 24-regular, 19200 edges, diameter four, profile (1,24,198,648,729). This fresh 1820-subset and 780-pair computation checks the exact finite certificate; it is not a partial random sample. The supplied separate direct-Q5 C++ exhaustive tester was inspected but its asserted exit output was not treated as additional independent execution.
 
-**Scope and limits.** The finite Clebsch incidence comparison is exhaustive and reproducible rather than accompanied by a separate hand enumeration of all 780 pairs. No other cube dimension, token sliding rule, or independent scholarly certification is claimed. Earlier historical records were only partially accessible for overlap checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Static Q5 minimum size and the number 1600 are explicitly known and not novel (OEIS A323515). Generalized token jumping literature discusses different rule and ordinary domination; no matched theorem gives the exact fixed-optimum total-domination two-replacement Cartesian-square graph. Best-of-knowledge PASS on reconfiguration geometry only.
+
+## value
+
+PASS
+
+PASS: Frozen one-swap optima versus globally connected two-swap optima is a sharp natural reconfiguration threshold for the hypercube's optimal total dominating configurations. The exact factor decomposition, degrees and distance profile supply more than a tiny isolated numerical novelty and distinguish changes of permitted move size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

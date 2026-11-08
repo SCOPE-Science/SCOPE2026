@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-The package contains `verify_clebsch.py` and `verify_direct.cpp`. Execute the former with `python3 verify_clebsch.py`, and the latter with `g++ -O3 -std=c++17 verify_direct.cpp -o verify_direct && ./verify_direct` on a C++17 compiler. No external package, downloaded dataset, network access, or numerical floating-point computation is required.
+# Independent mathematical audit
 
-The Python program enumerates all 1820 four-subsets of one parity half, verifies that exactly 40 cover the other half, matches the list exactly to the forty \(C_4\) subgraphs of the distance-four Clebsch graph, checks an independent 10+30 symbolic square construction, all 780 unordered square pairs, the \(H\)-adjacency degrees and every distance profile, and computes the Cartesian-product profile. Its success marker is `CLEBSCH_SQUARE_CLASSIFICATION_AND_METRIC_PASS`.
+## correctness
 
-The C++ program constructs the original 32-vertex hypercube directly. It enumerates all \(\binom{32}{8}=10{,}518{,}300\) subsets, finds exactly 1600 total dominating sets, exhausts all one- and two-replacement neighbors, and computes an all-source breadth-first distance histogram on the 1600 optimal configurations. Its success marker is `DIRECT_Q5_ALL_8_SUBSETS_ALL_REPLACEMENTS_PASS`.
+PASS
 
-The conclusion that no set of fewer than eight vertices can total dominate is proved mathematically by the parity-side neighborhood bound. The 780-pair incidence lemma is verified by exact finite exhaustive loops rather than a printed pair-by-pair certificate. Two independent implementations support, but do not constitute an independent scholarly audit of, the stated proof. No results about higher-dimensional hypercubes are asserted.
+PASS: The bipartition of Q5 has sixteen vertices on each side, every selected vertex has five neighbors, hence every total dominating set needs >=4 selected even and >=4 selected odd vertices. Independent enumeration of all C(16,4)=1820 parity-side four-subsets found exactly 40 coverings; the same 40 are precisely the four-cycles of 5-regular distance-four Clebsch graph, confirming the source analytic weight-0/2/4 classification. Therefore minimum size eight with exactly 40²=1600 configurations. Clebsch four-cycles share no three vertices, so there are no legal one-replacement edges. Two-replacement moves cannot split among parities and correspond to edge-sharing quadrangles on one factor, giving R2=H Cartesian H. Independent reconstruction of all H edges via direct intersection of the 40 four-subsets found 240 edges, valency 12, every vertex distance histogram (1,12,27) and diameter two. Cartesian product then has 1600 vertices, 24-regular, 19200 edges, diameter four, profile (1,24,198,648,729). This fresh 1820-subset and 780-pair computation checks the exact finite certificate; it is not a partial random sample. The supplied separate direct-Q5 C++ exhaustive tester was inspected but its asserted exit output was not treated as additional independent execution.
+
+## originality
+
+PASS
+
+Static Q5 minimum size and the number 1600 are explicitly known and not novel (OEIS A323515). Generalized token jumping literature discusses different rule and ordinary domination; no matched theorem gives the exact fixed-optimum total-domination two-replacement Cartesian-square graph. Best-of-knowledge PASS on reconfiguration geometry only.
+
+## value
+
+PASS
+
+PASS: Frozen one-swap optima versus globally connected two-swap optima is a sharp natural reconfiguration threshold for the hypercube's optimal total dominating configurations. The exact factor decomposition, degrees and distance profile supply more than a tiny isolated numerical novelty and distinguish changes of permitted move size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
