@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of analytical formulas
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` is the primary proof. Run `python verify_fractional_gyrator.py` with NumPy and SciPy. It independently evaluates the positive-frequency integral for the instantaneous signed-circulation coefficient, compares it with the closed beta-integral expression, verifies cancellation for four pairs of distinct bath exponents and checks the predicted small-lag sign and approach to the exact fractional amplitude after subtraction of the zero linear term. The separate code uses no prior-run artifact or external file.
+## correctness
 
-The finite tests do not certify the theorem over a continuum of parameters; that universality follows from Fourier transfer, an exact convergent beta integral, dominated convergence and a standard convergent cosine integral. No pathwise instantaneous velocity is assumed or computed for fractional baths. The method does not quantify finite-sample detection, measurement error, all-lag sign or entropy-production rate. Independent scientific audit has not been performed.
+PASS
+
+For distinct α_x,α_y∈(0,2), 0<u<1, independent normalized fractional Gaussian baths, derive cross-spectrum Φ_xy=u(Sx+Sy+iω(Sx−Sy))/D_u; antisymmetric lag covariance A(t) is the sine transform of ω(Sx−Sy)/D_u. Its derivative at zero reduces via the explicit beta integral to −[TxΓ(1+αx)F(u,αx)−TyΓ(1+αy)F(u,αy)]/2, fixing one positive bath-strength ratio. After subtracting the vanishing linear term, dominated convergence shows A(t)~±2uT_min t^(1+α_min)/(1+α_min), nonzero: hence Gaussian path time reversal fails. Independently checked three beta integrals by high-precision quadrature; noninteger limit rests on the spectral dominated-convergence argument.
+
+## originality
+
+PASS
+
+Best-knowledge PASS: The published fractional Brownian gyrator has the same stationary model and computes equal-time covariance, probability current, curl and mean angular velocity; these are not the calibrated antisymmetric two-time covariance fractional cusp. General Gaussian spectral reversibility and Abelian/Tauberian transform facts can be specialized here, but no inspected primary gyrator theorem states the zero-circulation/nonzero-time-arrow and exact min-exponent coefficient together.
+
+## value
+
+PASS
+
+A sharp mathematically meaningful two-time irreversibility witness at exactly zero mean signed circulation, with universal short-lag exponent and coefficient sensitive to the more persistent fractional bath. Distinguishes a first-derivative null observable from actual time reversibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
