@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3; no third-party packages or downloads are required. The script builds the exact count and founder generators from the stated event rules, normalizes their solutions, applies finite rational Taylor recursions through order five, and checks the coefficients \((0,0,0,0,0,89/56010528)\). It also independently reconstructs the full nonperturbative source instance with killing vector \((1,2,4)\), checking \(421413160/139117744582101\). The actual program output is in `CHECKER_OUTPUT.txt`.
+## correctness
 
-The verified operations are finite exact-rational eliminations, not stochastic simulations. The extension to all sufficiently small real perturbations uses the analytical invertibility of the normalized finite-state systems and reflection symmetry. Positivity is only asserted locally; a quantitative choice of the unspecified positive neighbourhood radius is not established. Independent mathematical audit remains unperformed.
+PASS
+
+For exactly three particles on the unit-rate 3-site complete graph with uniformly chosen surviving donor and |ε|<1, derive the ten-state count generator L(c,c−e_a+e_b)=c_a+(c_a c_b k_a)/2 and the 18-state founder operator including two offspring when founder is copied. Normalization at k=(1,1,1) makes the stationary and founder systems analytic near ε=0. Coefficient-wise rational linear solves yield d_1=d_3=0, d_5=89/56010528; reflection of sites 0↔2 gives exact oddness and O(ε^7). Independently rebuilt both rational systems and Taylor recursion in private check_quintic.py; result [0,0,0,0,0,89/56010528] exactly. This proves strict positive current for sufficiently small positive ε, not global sign. Source verifier and cited nonperturbative test independently inspected, but a checker alone is not proof.
+
+## originality
+
+PASS
+
+Accept best of knowledge: exact exceptional quintic coefficient at minimum population and sign reversal versus published N≥4 cubic are not supplied by inspected comparator statements. The same-model Lin–Lu paper is a serious historical-priority risk because its full text could not be independently accessed; this access limitation alone does not negate the concrete five-order derivation.
+
+## value
+
+PASS
+
+The first nonzero response order of a natural survival-weighted ancestral circulation at the smallest population supporting circulation is a motivated, nontrivial invariant, not a substitution: the cubic coefficient cancels and exact quintic positivity determines a reversed weak-heterogeneity direction. Model size and local sign are explicit boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

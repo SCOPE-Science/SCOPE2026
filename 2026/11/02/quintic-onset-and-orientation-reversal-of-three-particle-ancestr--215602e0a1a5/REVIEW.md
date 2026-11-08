@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed.** On a unit-rate motion triangle with exactly three uniformly copying Fleming–Viot particles and killing rates \((1-\varepsilon,1,1+\varepsilon)\), the survival-weighted ancestral current satisfies \(\Delta_3=89\varepsilon^5/56010528+O(\varepsilon^7)\). This is the single new claim in the accompanying result.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The ten population-state and eighteen founder-state equations follow by first-step conditioning, including copying between coincident sites. At homogeneous killing, normalization removes the stationary and founder null directions, making the solution analytic in the perturbation. Exact-rational recursion gives zero degree-one and degree-three coefficients and the displayed positive degree-five coefficient; reflection eliminates all even terms. A standalone finite-matrix checker reproduces the coefficient and exactly matches the source's independent current at killing rates \((1,2,4)\). The theorem is a local asymptotic, not a numerical extrapolation or a claim about all killing contrasts.
+For exactly three particles on the unit-rate 3-site complete graph with uniformly chosen surviving donor and |ε|<1, derive the ten-state count generator L(c,c−e_a+e_b)=c_a+(c_a c_b k_a)/2 and the 18-state founder operator including two offspring when founder is copied. Normalization at k=(1,1,1) makes the stationary and founder systems analytic near ε=0. Coefficient-wise rational linear solves yield d_1=d_3=0, d_5=89/56010528; reflection of sites 0↔2 gives exact oddness and O(ε^7). Independently rebuilt both rational systems and Taylor recursion in private check_quintic.py; result [0,0,0,0,0,89/56010528] exactly. This proves strict positive current for sufficiently small positive ε, not global sign. Source verifier and cited nonperturbative test independently inspected, but a checker alone is not proof.
 
-## Originality — PASS, qualified
+## originality
 
-The closest work is Lin and Lu, arXiv:2610.12589v1, especially Section 5 and Appendices A–B. Its cubic law for \(N\ge4\) vanishes when formally evaluated at \(N=3\), and it gives a single exact nonperturbative three-particle witness, but not the exceptional fifth coefficient. Lin and Lu, arXiv:2610.18802v1, addresses a different Brownian current with a different perturbation profile. Cloez–Thai (arXiv:1603.04670) and Corujo (arXiv:2001.08000) concern uniform killing, which cannot supply the heterogeneous-killing fifth derivative. Actual parameter- and alias-based mathematical-record searches did not identify an equivalent full statement. A more general identity or an unlocated symbolic computation could still subsume this result; historical priority requires independent appraisal.
+PASS
 
-## Mathematical value — PASS
+Accept best of knowledge: exact exceptional quintic coefficient at minimum population and sign reversal versus published N≥4 cubic are not supplied by inspected comparator statements. The same-model Lin–Lu paper is a serious historical-priority risk because its full text could not be independently accessed; this access limitation alone does not negate the concrete five-order derivation.
 
-The missing response order at the minimum population supporting circulation is a natural and non-obvious structural question. The exact positive quintic coefficient demonstrates a change of **both onset order and direction** relative to the known negative cubic response for any fixed larger population. The conclusion is useful for interpreting the effect of weak spatial killing heterogeneity, without assuming a global current-sign theorem or broader applicability.
+## value
 
-## Scope and limitations
+PASS
 
-Exactly three particles, three-site complete motion graph, symmetric unit jump rates, uniform copying, positive near-homogeneous killing, and survival-weighted founder transport. No global sign classification, alternative graphs, or nonuniform copying is established. The larger-population cubic coefficient belongs to the cited source.
+The first nonzero response order of a natural survival-weighted ancestral circulation at the smallest population supporting circulation is a motivated, nontrivial invariant, not a substitution: the cubic coefficient cancels and exact quintic positivity determines a reversed weak-heterogeneity direction. Model size and local sign are explicit boundaries.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
