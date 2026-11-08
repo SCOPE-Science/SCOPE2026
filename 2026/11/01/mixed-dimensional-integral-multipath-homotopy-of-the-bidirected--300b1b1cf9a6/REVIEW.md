@@ -1,15 +1,21 @@
-# Scientific review of the bidirected \(K_{3,3}\) multipath classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, arc order, cycle exclusion, quantifiers and coefficient ring are explicit. The executable checker explores all \(2^{18}\) arc subsets using two logically distinct membership tests, obtaining 714 nonempty faces. Its 336 matched Hasse pairs are disjoint and the whole 714-vertex directed Hasse graph is acyclic. The exact integral Morse model has critical cells in degrees \((0,2,3,4)\) with multiplicities \((1,5,24,12)\). A 5-by-5 attaching-degree minor is exactly +1, and all 288 entries of the degree-four boundary vanish. After five homotopy cancellations the remaining four-cell attaching maps are null by the dimension-three Hurewicz theorem. This proves \(\bigvee^{19}S^3\vee\bigvee^{12}S^4\), not just mod-two Betti numbers. The recorded checker output was reproduced with the embedded finite certificate.
+## correctness
 
-## Originality — PASS against inspected evidence
-Vrećica–Živaljević's cycle-free chessboard complex involves all cross-label arcs of the complete digraph; the present eighteen-arc complex is its proper bipartition-induced subcomplex, not an instance of their full-complex homotopy results. Caputi–Collari–Di Trani–Smith's complete bipartite formulas use the **one-way** orientation, which has a different arc set and topology. Their remaining homotopy classifications cover tournaments, paths, cycles and small oriented grids. Later bidirectional-polygon work does not cover a fully bidirected complete bipartite graph. Neighboring recorded exact results for \(\overleftrightarrow{K_{3,4}}\) and \(\overleftrightarrow{K_{2,n}}\) are neither the same graph nor parameter-wide theorems implying the claim. The universal top-degree Hamiltonian-cycle theorem does imply the twelve degree-four homology generators; the nineteen degree-three generators and the full homotopy type are not implied. Search and comparison details appear in AUDIT.json. Residual risk: an unindexed equivalent computation may exist.
+PASS
 
-## Value — PASS
-The smallest balanced complete bipartite graph with cubic vertices, \(K_{3,3}\), is a canonical six-vertex cubic bipartite graph. Unlike the one-way chessboard orientation, the bidirected case has cycles and nonpure multipath faces. Its mixed-dimensional integral homotopy splitting provides a natural boundary datum for studying bidirected complete bipartite families; in particular, it identifies nineteen lower-degree spheres beyond the twelve top classes already described by the Hamiltonian-cycle formula. The numerical case is motivated by a missing canonical base graph, not an arbitrary induced subgraph. No uniform theorem for larger sizes is claimed.
+For the six-vertex fully bidirected complete bipartite graph the directed arc vertex-set has cardinality 18. Face condition is indegree and outdegree at most one at each graph vertex and no directed cycles; a separate weak-component test characterizes the same disjoint directed paths. Exhausting all 2^18 bitmasks yields 714 nonempty faces with vector (18,108,264,252,72), independently recomputed. The source finite certificate and inspected verify.py give exactly 336 face-poset matching pairs with a complete directed Hasse topological sort over 714 vertices/2376 incidences: one critical 0-cell, five degree-2, 24 degree-3, twelve degree-4 cells. Signed integral cancellations at unit pivots preserve the cellular chain type; the resulting D3 is 5x24 with explicit determinant +1 on columns indexed 6304,33952,35088,65676,67716, while D4 (24x12) vanishes. The five primitive relations kill the five 2-spheres in the Morse CW 2-skeleton; 19 degree-3 generators remain. For a wedge of 19 S3, pi3=H3=Z^19, so zero D4 implies the twelve 4-cell attaching maps are all null; the full homotopy splitting follows. Separate independent GF2 boundary ranks (17,91,173,60) yield (1,0,0,19,12) as a corroboration, not proof of attaching maps.
 
-## Sources and limitations
-Primary source: Caputi et al., arXiv:2208.04656v1, first publicly posted 2022-08-09. Closest comparison sources: Vrećica–Živaljević, arXiv:0710.5252; Caputi–Collari–Di Trani, DOI:10.1007/s10801-022-01180-9; Caputi–Collari–Smith, arXiv:2601.05670v1. Prior recorded mathematical findings on neighboring bipartition sizes and the universal Hamiltonian-cycle theorem were compared by implication rather than titles alone. The finite reproducible verifier is an exact proof certificate subject to its mathematical interpretation; no infinite-family statement, exhaustive literature uniqueness or independent external audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison for this exact mathematical object, not novelty from titles or failed search. Closest sources and any inaccessible material are explicitly compared below; no assertion of exhaustive global priority.
+
+## value
+
+PASS
+
+The first balanced nontrivial complete bipartite bidirected digraph has a naturally defined path-selection complex whose integral homotopy is not captured by known one-way chessboard models. Its explicit mixed-dimensional wedge, including 19 lower-degree spheres beyond the twelve top Hamiltonian classes, resolves a meaningful finite low-dimensional boundary and supplies a reusable exact benchmark without pretending to classify all K_m,n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T00:12:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md SHA 1de403992dd758c9a0b7927c935ec8acc079fd88",
+        "frozen verify.py SHA fe1bd0cf2e2a40deaf9474da723cae2f7ac6f16b, matching acyclicity and integer_reduction code actually read",
+        "frozen certificate.json SHA 4c79d7e5b6337be992b48ac649615b6c8f40a565, explicit pairs, critical cells, boundary matrix and unit minor",
+        "independent enumeration all 262144 subsets and GF2 ranks"
+      ],
+      "rationale": "For the six-vertex fully bidirected complete bipartite graph the directed arc vertex-set has cardinality 18. Face condition is indegree and outdegree at most one at each graph vertex and no directed cycles; a separate weak-component test characterizes the same disjoint directed paths. Exhausting all 2^18 bitmasks yields 714 nonempty faces with vector (18,108,264,252,72), independently recomputed. The source finite certificate and inspected verify.py give exactly 336 face-poset matching pairs with a complete directed Hasse topological sort over 714 vertices/2376 incidences: one critical 0-cell, five degree-2, 24 degree-3, twelve degree-4 cells. Signed integral cancellations at unit pivots preserve the cellular chain type; the resulting D3 is 5x24 with explicit determinant +1 on columns indexed 6304,33952,35088,65676,67716, while D4 (24x12) vanishes. The five primitive relations kill the five 2-spheres in the Morse CW 2-skeleton; 19 degree-3 generators remain. For a wedge of 19 S3, pi3=H3=Z^19, so zero D4 implies the twelve 4-cell attaching maps are all null; the full homotopy splitting follows. Separate independent GF2 boundary ranks (17,91,173,60) yield (1,0,0,19,12) as a corroboration, not proof of attaching maps.",
+      "residual_risks": [
+        "The homotopy conclusion uses low-dimensional CW attaching-degree classification after exact integral Morse cancellations; modular Betti numbers alone do not imply it.",
+        "The statement is for fully bidirected K3,3 only; one-way chessboard complexes are different."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caputi–Collari–Di Trani–Smith arXiv:2208.04656 complete bipartite theorem uses all edges directed from one part to the other.",
+          "Caputi–Collari–Smith arXiv:2601.05670 concerns bidirected polygonal paths/cycles.",
+          "Vrećica–Živaljević arXiv:0710.5252 analyzes bigger complete-digraph cycle-free complex."
+        ],
+        "reasoning": "None of these full-text identified the exact wedge splitting for fully bidirected K3,3, nor does connectivity of Omega6 determine the homotopy of its bipartite induced subcomplex.",
+        "searches": [
+          "arxiv:2208.04656 Section 4 complete bipartite digraph multipath",
+          "arxiv:2601.05670 bidirectional polygonal multipath complexes",
+          "arxiv:0710.5252 cycle-free chessboard complex Omega6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.04656 relevant definitions and Sections 3–5",
+        "arXiv:0710.5252 cycle-free complete digraph",
+        "arXiv:2601.05670 bidirectional paths/polygons",
+        "Resultary query multipath complex bidirected complete bipartite K3,3 homotopy spheres discrete Morse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ArXiv:2208.04656 one-direction Kmn has at most one arc outgoing each left vertex and no return arcs, not 18 arcs.",
+          "Existing top Hamiltonian-cycle classes may account for 12 degree-four classes but do not force 19 degree-three spheres or homotopy splitting."
+        ],
+        "reasoning": "Neither a bigger complex nor adjacent family determines the precise integral attaching matrices under restriction; new 5x24 primitive incidence cancellation is substantive non-implied information.",
+        "searches": [
+          "Caputi Collari Di Trani Smith multipath complexes orientation Kmn chessboard",
+          "Vrecica Zivaljevic cycle-free chessboard Omega6",
+          "bidirected double star multipath Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vrećica–Živaljević arXiv:0710.5252 defines cycle-free chessboard complex Omega6 for all directed arcs on six vertices, containing present complex as proper induced subcomplex.",
+          "Caputi et al. arXiv:2208.04656 distinguishes all directed paths (multipath) and bipartite one-way orientations."
+        ],
+        "reasoning": "An induced subcomplex does not inherit its ambient homotopy type; treating the one-way orientation as the same digraph would be an invalid reduction. Claim covers precisely the 18-arc cross-part bidirectionality.",
+        "searches": [
+          "bidirected complete bipartite K3,3 multipath complex cycle-free chessboard complex",
+          "multipath complex bidirected complete bipartite K3,3 homotopy spheres discrete Morse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby finding SCOPE-the-morse-complex-of-k-3-3-is-a-wedge-of-80-four-spheres--ada39e4b9bea is the discrete Morse matching complex of the undirected graph, not this directed multipath complex.",
+          "Resultary bidirected double-star multipath family does not cover K3,3."
+        ],
+        "reasoning": "A database count of complete bidirected K3,3 top homology might cover twelve degree-four classes, but no located exact lower degree-three rank plus integral wedge certificate matches or dominates the claim.",
+        "searches": [
+          "Resultary multipath complex bidirected complete bipartite K3,3 homotopy spheres discrete Morse",
+          "K3,3 multipath 714 simplices 19 S3 12 S4"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison for this exact mathematical object, not novelty from titles or failed search. Closest sources and any inaccessible material are explicitly compared below; no assertion of exhaustive global priority.",
+      "residual_risks": [
+        "Possible unindexed exact bipartite multipath computation; no absolute publication priority guarantee.",
+        "Published general top-Hamiltonian homology results cover some classes; novelty is confined to full mixed-dimensional integral wedge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_ORIENTATION",
+          "evidence": [
+            "Complete bipartite examples are directed entirely from one color class to the other, giving a chessboard complex."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.04656",
+          "material_read": "Full-text accessible; Section 2 definitions and Sections 3–5 graph-class constructions/theorem statements read",
+          "method": "arXiv PDF text and theorem pages inspected",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Same named multipath invariant and complete bipartite case"
+        },
+        {
+          "assessment": "AMBIENT_COMPLEX_NOT_DIRECT_COVERAGE",
+          "evidence": [
+            "Omega6 permits all nonloop arcs, whereas bidirected K3,3 permits only crossing arcs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.5252",
+          "material_read": "Full-text accessible; definitions and relevant homology/connectivity statements read",
+          "method": "arXiv PDF text",
+          "title": "Cycle-free chessboard complexes and symmetric homology of algebras",
+          "trigger": "Potential stronger ambient six-vertex arc complex"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": [
+            "The paper concerns paths and cycles, not bidirected complete bipartite K3,3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.05670",
+          "material_read": "Full-text accessible; introduction, Theorems 1.4, 2.8 and 2.10 inspected",
+          "method": "arXiv PDF text and theorem screenshot",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Latest seemingly relevant bidirectional general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Caputi et al. arXiv:2208.04656 general motivation of multipath complexes",
+        "Vrećica–Živaljević arXiv:0710.5252 motivates cycle-free chessboard complexes"
+      ],
+      "rationale": "The first balanced nontrivial complete bipartite bidirected digraph has a naturally defined path-selection complex whose integral homotopy is not captured by known one-way chessboard models. Its explicit mixed-dimensional wedge, including 19 lower-degree spheres beyond the twelve top Hamiltonian classes, resolves a meaningful finite low-dimensional boundary and supplies a reusable exact benchmark without pretending to classify all K_m,n.",
+      "residual_risks": [
+        "The graph-specific calculation is not a parameter-family theorem; it remains valuable as a complete natural case with an integral attaching-map certificate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No family-wide recurrence or equivariant refinement is claimed; homotopy relies on legal integer cancellations and CW attaching classification."
+  ],
+  "schema_version": 1
+}
