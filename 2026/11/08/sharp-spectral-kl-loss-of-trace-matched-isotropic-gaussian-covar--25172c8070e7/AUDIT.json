@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Gaussian KL reduces exactly to an orthogonally invariant spectral expression. The coordinate-stationarity identity and Cauchy--Schwarz show every potential interior maximum is a strict one-coordinate minimum, forcing the full compact-cube maximizers to vertices. Vertex substitution gives the claimed finite formula and all equality cases; strict sign and concavity properties identify the continuous peak, and Taylor expansion gives both asymptotics. An extracted standard-library verifier passed 8770 finite checks; these supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen--Karambal--Hennig, arXiv:2609.10080v1, Section 4.3, Theorem 13: broad KL bound for an isotropic covariance-block approximation; exact finite-dimension endpoint supremum and equality cases are absent.",
+        "Fifen et al. bound applies generally but is numerically larger and does not specify sharp equality, e.g. dimension 4, cap 10: the finite optimum is approximately 2.9430889."
+      ],
+      "reasoning": "A general upper bound does not imply the sharp equality and optimizers. The earlier theorem may apply to a broader algorithmic covariance construction, while the new statement is a sharp isolated-block spectral bound only.",
+      "searches": [
+        "Lanczos stochastic quadrature isotropic bulk approximation KL spectral condition kappa optimal two point eigenvalues",
+        "sharp gaussian KL isotropic Gaussian covariance trace matched maximum spectral condition number eigenvalues extremum",
+        "relative entropy bound covariance condition number trace matched isotropic Gaussian sharp"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.10080v1 (primary Section 4.3, Theorem 13)",
+      "doi:10.1186/s13660-015-0735-z (open full article)",
+      "Kantorovich mean inequality (reproduced in Liao--Wu Lemma 2.1)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fifen--Karambal--Hennig, arXiv:2609.10080v1, Section 4.3, Theorem 13: broad KL bound for an isotropic covariance-block approximation; exact finite-dimension endpoint supremum and equality cases are absent.",
+        "Liao--Wu (2015), doi:10.1186/s13660-015-0735-z, Sections 2-4: reverse weighted arithmetic/harmonic mean inequalities, but not the joint reciprocal-trace plus log-determinant Gaussian-KL extremal problem.",
+        "Kantorovich inequality, as Liao--Wu (2015) Lemma 2.1: controls arithmetic mean times inverse mean, not the logarithmic determinant term or the exact combined optimum."
+      ],
+      "reasoning": "Theorem 13 gives a non-sharp condition-number control and cannot imply equality for every dimension. Kantorovich bounds only the reciprocal-trace factor and may overestimate while the log-determinant term changes; no directly read prior theorem supplied the finite integer maximization or exact equality cases.",
+      "searches": [
+        "Lanczos stochastic quadrature isotropic bulk approximation KL spectral condition kappa optimal two point eigenvalues",
+        "sharp gaussian KL isotropic Gaussian covariance trace matched maximum spectral condition number eigenvalues extremum",
+        "sharp inequality arithmetic harmonic mean log mean reverse Gaussian KL divergence condition ratio Kantorovich"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liao--Wu (2015), doi:10.1186/s13660-015-0735-z, Sections 2-4: reverse weighted arithmetic/harmonic mean inequalities, but not the joint reciprocal-trace plus log-determinant Gaussian-KL extremal problem.",
+        "Kantorovich inequality, as Liao--Wu (2015) Lemma 2.1: controls arithmetic mean times inverse mean, not the logarithmic determinant term or the exact combined optimum."
+      ],
+      "reasoning": "Rewriting directed Gaussian KL as one half of the arithmetic-times-reciprocal mean defect plus a logarithmic geometric-mean defect reveals an AM-HM-GM equivalent formulation. The inspected papers concern separate mean comparisons and do not determine the exact joint extremal value and discrete spectral multiplicities.",
+      "searches": [
+        "sharp forward KL divergence trace-matched isotropic Gaussian covariance inverse spectrum bounded condition number endpoints two level exact dimension",
+        "Kantorovich complementary Gaussian divergence arithmetic mean eigenvalue two point exact sharp bound",
+        "reverse logarithmic arithmetic harmonic mean sharp condition number inequality sum log x harmonic mean",
+        "sharp inequality arithmetic harmonic mean log mean reverse Gaussian KL divergence condition ratio Kantorovich"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the exact finite mesh formula and its two-endpoint eigenvalue structure returned no matching published database or tabulated exact optimizer."
+      ],
+      "reasoning": "No exact indexed table found for the quantity optimized. This is limited negative evidence, not proof that such a table does not exist.",
+      "searches": [
+        "sharp forward KL divergence trace-matched isotropic Gaussian covariance inverse spectrum bounded condition number endpoints two level exact dimension",
+        "Kantorovich complementary Gaussian divergence arithmetic mean eigenvalue two point exact sharp bound",
+        "maximum KL divergence between isotropic Gaussian with covariance average diagonal Gaussian fixed condition number eigenvalues extremal",
+        "sharp maximum A/H - log and geometric mean logarithmic spectral spread inequality"
+      ]
+    },
+    "rationale": "The sharp finite-dimensional spectral optimization is not stated or implied by the original paper’s general condition-number upper bound. The exact vertex theorem and multiplicity law are stronger than the Kantorovich product estimate. Relevant exact-formula searches and existing accessible mathematical records exposed no dominating claim. Classical inequality priority remains a stated residual risk.",
+    "residual_risks": [
+      "Equivalent unindexed classical extremal mean inequalities may exist under alternative terminology.",
+      "Full text of every specialized KL approximation or matrix-mean monograph was not available; absence in keyword and semantic searches alone cannot prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivates the same covariance-block functional; supplies general upper bound, not the sharp finite-dimensional equality or extremizers.",
+        "evidence": "Fifen--Karambal--Hennig, arXiv:2609.10080v1, Section 4.3, Theorem 13: broad KL bound for an isotropic covariance-block approximation; exact finite-dimension endpoint supremum and equality cases are absent.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.10080",
+        "material_read": "Original article HTML: Section 4.3, Theorem 13 and adjacent covariance approximation discussion.",
+        "method": "Read primary open preprint, analyzed stated bound and assumptions.",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Same trace-matched isotropic complement covariance and directed Gaussian KL under condition-number control."
+      },
+      {
+        "assessment": "Reverse weighted AM-HM operator inequalities do not state the exact joint AM-HM-log-determinant spectral extremum.",
+        "evidence": "Liao--Wu (2015), doi:10.1186/s13660-015-0735-z, Sections 2-4: reverse weighted arithmetic/harmonic mean inequalities, but not the joint reciprocal-trace plus log-determinant Gaussian-KL extremal problem.",
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-015-0735-z",
+        "material_read": "Open full HTML: introduction, Sections 2, 3 and relevant Section 4 material, including Lemma 2.1 and Theorems 2.1--3.3.",
+        "method": "Compared hypotheses and conclusions of the mean/operator inequalities to the Gaussian KL joint objective.",
+        "title": "Reverse arithmetic-harmonic mean and mixed mean operator inequalities",
+        "trigger": "Potential exact equivalent formulation using arithmetic--harmonic--geometric means."
+      },
+      {
+        "assessment": "Bounds a factor, not the full functional or sharp multiplicity-classified supremum.",
+        "evidence": "Kantorovich inequality, as Liao--Wu (2015) Lemma 2.1: controls arithmetic mean times inverse mean, not the logarithmic determinant term or the exact combined optimum.",
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+        "material_read": "Classical product inequality statement and its spectral-interval dependence, also reproduced in Liao--Wu Lemma 2.1.",
+        "method": "Direct implication comparison of the inequality with the combined Gaussian-KL expression.",
+        "title": "Kantorovich inequality (background statement)",
+        "trigger": "A potentially stronger known inequality for the nonlogarithmic trace factor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25172c80-70e7-468d-a42e-fbea1e2707ca",
+  "value": {
+    "rationale": "The paper’s isotropic complement covariance requires quantifying calibration of Gaussian uncertainty. The new formula is the exact worst-case directed-KL certificate at any dimension and cap, identifies all adverse spectra, and improves a general quadratic-in-condition-number scale to the provably optimal linear scale for large condition number. Such a bound is relevant for testing conservative uncertainty-quantification guarantees; it is not a mere parameter substitution or a generic invocation of Kantorovich.",
+    "status": "PASS"
+  }
+}
