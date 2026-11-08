@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and limits
-The analytic result is derived from the conditional uniform proper-coloring law, complete orthogonal decomposition of the coordinate block, and the exact two-dimensional determinant and extremal inequalities. No infinite statement is inferred from a finite test.
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and NumPy. It enumerates complete proper coloring spaces for nine pairs of color counts and triangle counts, reconstructs pairwise color-difference counts using integer arithmetic, and compares the resulting Fourier Gram eigenvalues with the analytic formulas for all 28 nonzero-frequency blocks. Expected output begins `CHECK_OK`.
+## correctness
 
-The work has been reviewed within one mathematical assessment only. Independent audit and external certification have not been performed. Earlier equivalent formulations in historical literature remain possible.
+PASS
+
+The intended notation is A=1+r (multiplicity m), S=1−r−2r² (multiplicity m−1), r=1/(q−1). Conditioning on the hub, petal colors are independent ordered distinct draws from q−1 remaining colors. Direct character orthogonality yields hub-petal and same-triangle correlation −r, different-triangle r², separating antisymmetric petal, zero-sum symmetric petal, and 2D hub/global-petal sectors. The 2D block [[1,−sqrt(2m)r],[−sqrt(2m)r,1−r+2(m−1)r²]] has determinant S, proving μ± and all multiplicities. q=3 gives S=μ−=0, one relation per triangle and frequency; for q>=4 positivity and extreme eigenvalues μ± imply μ+²/S~4m²r^4/S. The independent color enumeration and Gram Fourier spectra agree for 14 frequency bands.
+
+## originality
+
+PASS
+
+The chromatic polynomial q((q−1)(q−2))^m and windmill graph structure are known, and a conditional Potts correlation calculation is elementary. The complete Gram eigenspectrum, exact q=3 rank boundary and q>=4 condition numbers are not provided in inspected chromatic polynomial extremal works. Risk: older Potts-model covariance eigenvalue results could give an implicit specialization.
+
+## value
+
+PASS
+
+Exact first-order Fourier information and its sharp conditioning for a canonical graph family has natural sampling/theory significance: at minimal q=3 the one-site features become dependent, whereas q>=4 are independent with quadratic squared conditioning. The complete parameter spectrum is a motivated exact finite-invariant family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:10:35.981927Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md b8a61c2ab8f7f7c3c954dab110bd0b5033f884c3: complete conditional covariance and rank argument",
+        "verify.py e3556a76eeb2305bc54248d18611fa4ed8dc148a source examined",
+        "independent_five_checks.py C4 14 full-coloring frequency bands"
+      ],
+      "rationale": "The intended notation is A=1+r (multiplicity m), S=1−r−2r² (multiplicity m−1), r=1/(q−1). Conditioning on the hub, petal colors are independent ordered distinct draws from q−1 remaining colors. Direct character orthogonality yields hub-petal and same-triangle correlation −r, different-triangle r², separating antisymmetric petal, zero-sum symmetric petal, and 2D hub/global-petal sectors. The 2D block [[1,−sqrt(2m)r],[−sqrt(2m)r,1−r+2(m−1)r²]] has determinant S, proving μ± and all multiplicities. q=3 gives S=μ−=0, one relation per triangle and frequency; for q>=4 positivity and extreme eigenvalues μ± imply μ+²/S~4m²r^4/S. The independent color enumeration and Gram Fourier spectra agree for 14 frequency bands.",
+      "residual_risks": [
+        "Only first coordinate Fourier harmonics, not all graph coloring Fourier bands; numeric tests are finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General graph-coloring extremal counts; other Resultary Fourier spectra concern distinct graphs"
+        ],
+        "reasoning": "No inspected general Potts covariance theorem covers q=3 nullity and sharp all-m spectrum, though a more general 2-point correlation formula might.",
+        "searches": [
+          "arXiv:0811.2625",
+          "Resultary search: friendship graph uniform proper graph coloring coordinate Fourier characters Gram spectrum sampling conditioning"
+        ]
+      },
+      "checked_sources": [
+        "Loh, Pikhurko and Sudakov, Maximizing the number of q-colorings, arXiv:0811.2625 full primary PDF",
+        "Mertzios and Unger, The Friendship Problem on Graphs, ROGICS 2008",
+        "Resultary search: friendship graph uniform proper graph coloring coordinate Fourier characters Gram spectrum sampling conditioning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P_Fm(q)=q((q−1)(q−2))^m vs covariance modes S,A,μ±"
+        ],
+        "reasoning": "The earlier count is used as normalization but does not imply the full Gram eigenvalue multiplicities without conditional expectation and diagonalization.",
+        "searches": [
+          "arXiv:0811.2625",
+          "RESULT.md conditional color computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chromatic polynomial and proper coloring counting vs first harmonic Gram spectrum"
+        ],
+        "reasoning": "No spectrum is implied by just the count P_Fm(q): pair correlations are additional statistics.",
+        "searches": [
+          "arXiv:0811.2625",
+          "Resultary search: friendship graph uniform proper graph coloring coordinate Fourier characters Gram spectrum sampling conditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unrelated Fourier graph sampling records, no q,m windmill spectrum table"
+        ],
+        "reasoning": "The object is an all-parameter eigenvalue law; no checked exact table dominates it.",
+        "searches": [
+          "Resultary search: friendship graph uniform proper graph coloring coordinate Fourier characters Gram spectrum sampling conditioning"
+        ]
+      },
+      "rationale": "The chromatic polynomial q((q−1)(q−2))^m and windmill graph structure are known, and a conditional Potts correlation calculation is elementary. The complete Gram eigenspectrum, exact q=3 rank boundary and q>=4 condition numbers are not provided in inspected chromatic polynomial extremal works. Risk: older Potts-model covariance eigenvalue results could give an implicit specialization.",
+      "residual_risks": [
+        "Exact covariance diagonalization for windmill/Potts random colorings may be known under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Optimizes total number of colorings of graphs for given vertex/edge constraints; not a covariance/Fourier frame spectrum theorem.",
+          "evidence": "It studies P_G(q) as scalar count, not eigenvalues of coordinate character Gram matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/0811.2625",
+          "material_read": "Opened full arXiv PDF; read abstract, introduction and initial extremal statements, checked their variable q-coloring counts.",
+          "method": "Opened lawful full-text source and inspected relevant theorem/sections",
+          "title": "Maximizing the number of q-colorings",
+          "trigger": "Direct same proper colorings and chromatic polynomial"
+        },
+        {
+          "assessment": "No whole-document noncoverage claim; a residual historical context source.",
+          "evidence": "Classical friendship theorem relates to graph structure, but this run does not certify its full results.",
+          "identifier_or_url": "https://mertzios.net/papers/Conf/Conf_Windmills.pdf",
+          "material_read": "Cited title and contextual description; full-text not materially inspected in this run.",
+          "method": "Bibliographic/contextual source comparison only; not a full text inspection",
+          "title": "The Friendship Problem on Graphs",
+          "trigger": "Friendship/windmill graph structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual claim and proof in frozen RESULT.md at b8a61c2ab8f7f7c3c954dab110bd0b5033f884c3",
+        "Compared primary literature listed in originality checked_sources"
+      ],
+      "rationale": "Exact first-order Fourier information and its sharp conditioning for a canonical graph family has natural sampling/theory significance: at minimal q=3 the one-site features become dependent, whereas q>=4 are independent with quadratic squared conditioning. The complete parameter spectrum is a motivated exact finite-invariant family.",
+      "residual_risks": [
+        "No degree-two interaction spectrum or general cactus classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Scientific priority is best-knowledge qualified by originality residual risks. Nonpublishing metadata transport remains not_ready. No formal proof or expert attestations invented; no repository write.",
+  "schema_version": 1
+}

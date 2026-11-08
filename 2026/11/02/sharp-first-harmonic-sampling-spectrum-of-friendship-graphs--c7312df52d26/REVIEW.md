@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional proper-coloring law gives exactly four types of coordinate correlations. Their orthogonal decomposition produces the explicit spectrum; the two-dimensional determinant equals \(S=q(q-3)/(q-1)^2\). This proves the sharp \(q=3\) rank defect, strict positivity for every \(q\ge4\), exact extremizers, and the stated condition-number asymptotics. Independent full-coloring enumeration corroborated nine cases, but is not the infinite proof.
+## correctness
 
-## Originality — PASS under bounded comparisons
-Mertzios–Unger (2008) prove the friendship structural theorem, not Fourier sampling. Loh–Pikhurko–Sudakov (2008) study proper-coloring counts and extremal graph structure, not Gram eigenvalues. Fendley–Krushkal (2008) develop Potts/chromatic algebra, not this first-harmonic spectral classification. Related sampled-coloring formulas for cycles, complete multipartite graphs, and trees concern different graphs; the common-hub triangle-block correlations are not their corollaries. A hidden equivalent formulation in older coloring-covariance literature remains possible.
+PASS
 
-## Mathematical value — PASS
-Uniform proper colorings form a canonical zero-temperature antiferromagnetic Potts probability space on a graph singled out by the friendship theorem. The smallest color palette produces an exact growing nullspace; a single extra color removes every dependency, but the largest-to-smallest squared singular-value ratio grows quadratically with triangle count. This is an exact natural two-parameter harmonic sampling classification, not a numerical instance or a bare chromatic-polynomial recount.
+The intended notation is A=1+r (multiplicity m), S=1−r−2r² (multiplicity m−1), r=1/(q−1). Conditioning on the hub, petal colors are independent ordered distinct draws from q−1 remaining colors. Direct character orthogonality yields hub-petal and same-triangle correlation −r, different-triangle r², separating antisymmetric petal, zero-sum symmetric petal, and 2D hub/global-petal sectors. The 2D block [[1,−sqrt(2m)r],[−sqrt(2m)r,1−r+2(m−1)r²]] has determinant S, proving μ± and all multiplicities. q=3 gives S=μ−=0, one relation per triangle and frequency; for q>=4 positivity and extreme eigenvalues μ± imply μ+²/S~4m²r^4/S. The independent color enumeration and Gram Fourier spectra agree for 14 frequency bands.
 
-## Limitations
-The claim does not concern higher Fourier degrees, general cactus graphs, nonzero-temperature measures, or independent mathematical certification. The exact pointwise relations at \(q=3\) and the universal proof must not be replaced with finite checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The chromatic polynomial q((q−1)(q−2))^m and windmill graph structure are known, and a conditional Potts correlation calculation is elementary. The complete Gram eigenspectrum, exact q=3 rank boundary and q>=4 condition numbers are not provided in inspected chromatic polynomial extremal works. Risk: older Potts-model covariance eigenvalue results could give an implicit specialization.
+
+## value
+
+PASS
+
+Exact first-order Fourier information and its sharp conditioning for a canonical graph family has natural sampling/theory significance: at minimal q=3 the one-site features become dependent, whereas q>=4 are independent with quadratic squared conditioning. The complete parameter spectrum is a motivated exact finite-invariant family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
