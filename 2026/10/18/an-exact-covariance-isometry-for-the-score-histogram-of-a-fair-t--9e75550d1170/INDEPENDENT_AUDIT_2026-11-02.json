@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:53:54.223640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K=n-1 >=1, every ordered distinct pair of players has (S_v,S_w) = (B_v+Z,B_w+1-Z) in distribution with independent Bin(K-1,1/2) variables and a single independent fair Bernoulli Z. For arbitrary finite-support f,g, conditional independence gives -delta_f delta_g/4 off-diagonal covariance; the individual diagonal is Cov(f(R),g(R)) for R~Bin(K,1/2). A direct Bernoulli-summand expansion gives Cov(f(R),R)=K delta_f/4, so summing the n diagonal and n(n-1) ordered off-diagonal contributions yields the stated n-times residual covariance after projecting f and g off 1,R. For indicator test functions the exact histogram formula is Sigma=n(P-pp^T)-nK dd^T/4, d_j=2(2j-K)p_j/K. Therefore P^{-1/2}Sigma P^{-1/2}=n(I-uu^T-ww^T), u=sqrt(p), w=(2j-K)sqrt(p)/sqrt(K), with orthonormal u,w. Rank and eigenvalues are exactly 0 twice and n with multiplicity n-2 (including n=2 zero covariance). Trace gives EX_n=n-2, residual projection gives the sharp minimum over affine functions and equality cases, and the binomial generating function E[(1-z)^R(1+z)^{K-R}(1-y)^R(1+y)^{K-R}]=(1+zy)^K establishes orthogonal Krawtchouk modes of degrees >=2. I independently reconstructed the formulas, inspected the exact verify.py code, exhaustively recomputed all 33,866 labeled orientations of K_2 through K_6 and their full covariance matrices, and rationally checked the projector identity, constraints, Pearson trace and all Krawtchouk cross-covariances for each n=2..10. My first independent checker had a Krawtchouk-index coding typo that produced a failure at n=3; after correcting comb(K-j,r-t), every check passed. This debugging is not scientific contradiction. The universal statement is proved analytically, not by finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thörnblad arXiv:1611.09579 concerns characterizing degree distributions of tournament limits, not finite-n random orientation fluctuations.",
+          "Kolesnik--Sanchez 2024 full Theorem 4.1 is about representing any prescribed mean-score vector with a forest of random games, not all binwise second moments under independent fair games.",
+          "Zegers 2026 publicly stated local CLT and concentration is directly relevant to score bins, but complete proof, second-moment lemmas and possible exact covariance are inaccessible."
+        ],
+        "reasoning": "A theorem on all random tournament score-bin joint laws or a CLT with explicit covariance might imply the submitted finite exact projector. The identified thesis is the strongest such plausible coverage risk and cannot be marked noncovering from its abstract. Accessible general score/limit theorems do not logically specify the fixed independent-fair law or all finite covariances; no strong prior domination was demonstrated.",
+        "searches": [
+          "web: \"random tournament\" \"covariance\" \"outdegrees\" \"degree distribution\"",
+          "web: tournament limits degree distributions score functions self converseness paper authors 2016",
+          "web: random tournament number vertices fixed score covariance 1978 degree frequencies joint variance",
+          "Resultary: joint score distribution of random tournament degree sequence exact second moments spectral eigenvalues",
+          "The Geometry of Random Tournaments, Kolesnik--Sanchez theorem 4.1; Zegers 2026 thesis repository record"
+        ]
+      },
+      "checked_sources": [
+        "Kolesnik--Sanchez 2024 full HTML, doi:10.1007/s00454-023-00571-4 (Theorems 1.2, 3.1, 4.1)",
+        "Zegers 2026 TU Delft repository full abstract, https://repository.tudelft.nl/record/uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca (full text inaccessible)",
+        "Claesson et al. 2023 published abstract doi:10.5817/CZ.MUNI.EUROCOMB23-040",
+        "Aldous--Kolesnik arXiv:1811.06662 publisher abstract/section 1.2 accessible synopsis",
+        "Alspach--Reid 1978 DOI:10.1002/jgt.3190020307 abstract",
+        "Thörnblad arXiv:1611.09579 abstract",
+        "Resultary searches on tournament score-frequency covariance, all-functions residual projection, degree distribution and tournament histograms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary: 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 determines covariance/precision of permutation inversions, not bins of tournament outdegrees.",
+          "Resultary: 2026/10/4/SCOPE-complete-seven-alternative-banks-uncovered-disparity-census--956fe67b3bf6 is a social-choice classification of 7-vertex tournaments, not all-n score histograms.",
+          "Resultary: 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166 addresses independent occupancy events, not complementary tournament edges.",
+          "Moon/Kolesnik--Sanchez and Aldous--Kolesnik constrain possible mean scores, whereas the audited theorem distinguishes full second moments of dependent empirical score counts."
+        ],
+        "reasoning": "The fixed conservation law sum_j jH_j=n(n-1)/2 yields only a null constraint; it does not force equal positive standardized covariance eigenvalues. Binomial one-vertex marginals alone similarly do not determine the off-diagonal pairs. Existing nearby results concern different random objects or only deterministic feasibility; none of their accessible conclusions implies this exact universal covariance projector. The Zegers text remains unavailable and may supply such an implication.",
+        "searches": [
+          "Resultary: covariance of outdegree counts in uniform random tournament shared edge anti correlation all score bins",
+          "Resultary: tournament outdegree score number of cyclic triangles covariance",
+          "Resultary: exact joint degree histogram covariance independent directed arcs random digraph",
+          "web: To stay discovered Moon mean score Bradley Terry Theorems",
+          "Springer full text doi:10.1007/s00454-023-00571-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fair-tournament theorem is equivalent to n times orthogonal projection of L^2(Bin(n-1,1/2)) onto affine-score complement, or P^{-1/2} Sigma P^{-1/2}=n(I-uu^T-ww^T), or diagonalization in Krawtchouk contrasts.",
+          "Kolesnik--Sanchez Theorems 1.2/3.1/4.1 concern feasible mean scores and randomness localization, not a second-moment isometry.",
+          "Resultary near match 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 instead studies permutation inversion indicators; unlike H_j, these are pairwise comparisons, not tournament outdegree-frequency functions."
+        ],
+        "reasoning": "I compared equivalent formulations (all test-function residual covariance, Pearson-standardized rank-two projector, degree-two-and-higher Krawtchouk modes), not title alone. No inspected primary theorem or returned Resultary item yields this complete exact identity. The 2026 thesis is an explicit uninspected plausible equivalent, not dismissed by snippet/abstract; failed retrieval is not proof of originality.",
+        "searches": [
+          "Resultary: random tournament score frequency histogram exact covariance matrix projector Pearson n minus 2 Krawtchouk binomial",
+          "Resultary: probability binomial histogram Pearson covariance tournament shared pair edge Krawtchouk",
+          "web: \"random tournament\" \"score\" \"covariance\" \"histogram\"",
+          "web: \"random tournament\" \"degree counts\" \"variance\" central limit",
+          "Kolesnik--Sanchez doi:10.1007/s00454-023-00571-4 full text; Zegers TU Delft record uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Alspach--Reid 1978 (abstract) classifies deterministic frequency sets and smallest realizing tournament orders; stochastic moments are not part of its stated abstract result.",
+          "Claesson et al. 2023 count distinct feasible score sequences with a distinguished-index generating function, rather than weighted counts of all 2^{n choose 2} labeled orientations.",
+          "Resultary retrieved nearby random-graph or tournament-class censuses but no directly identified all-n exact score-histogram covariance table."
+        ],
+        "reasoning": "A table of complete weighted score-histogram laws could imply each finite-n covariance, but unweighted score-sequence counts alone cannot: orientations realizing each degree sequence have unequal multiplicities. The auditable theorem asserts a uniform all-n projection formula not captured by observed tables. Inaccessible older tables remain a residual possibility.",
+        "searches": [
+          "web: \"tournament\" \"frequency\" \"covariance\" \"number of vertices\" \"score\"",
+          "web: \"degree frequencies\" \"random tournament\" variance",
+          "Claesson--Dukes--Franklín--Stefánsson, doi:10.5817/CZ.MUNI.EUROCOMB23-040",
+          "Alspach--Reid doi:10.1002/jgt.3190020307",
+          "Resultary: exact joint degree histogram covariance independent directed arcs random digraph"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact all-n covariance-isometry finding after direct comparison of four mathematical reformulations, stronger coverage, exact score tables and prior-result implications. A full relevant geometric primary article gives feasible score/mean-score zonotopes, not orientation-weighted second moments; other accessible source statements and Resultary hits do not imply the projector. Crucially, the 2026 Zegers thesis explicitly develops score-bin concentration/CLT and could contain this finite-n covariance identity; only its full abstract was read, the complete text could not be obtained, and overlap remains a named priority risk. Inaccessibility alone does not force FAIL, but it is not proof of novelty. This verdict does not claim exhaustive historical priority or independent publisher certification.",
+      "residual_risks": [
+        "Zegers (2026) thesis abstract explicitly studies dependent score bins and local CLT; 12.4MB full PDF could not be retrieved (public download timed out), and authorized Oxford access returned vpn_disconnected. Its precise finite-n covariance and possible priority implications have not been read or ruled out.",
+        "Full 1978 Alspach--Reid degree-frequency paper and complete Aldous--Kolesnik, Claesson et al. and Thörnblad manuscripts were not read in this run; conclusions about their noncoverage are restricted to accessible theorem statements/abstracts, not whole documents.",
+        "Earlier exact covariance identities might appear implicitly in older random-tournament probabilistic enumerations or thesis appendices under different notation; database searches cannot prove absolute novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its results classify feasible deterministic or mean score sequences, via permutahedral/zonotopal geometry; Theorem 4.1 realizes prescribed mean scores with forest-worth of randomized games. These statements do not imply pairwise second moments of H_j in the independently and uniformly oriented complete tournament.",
+          "evidence": [
+            "Sections 1--4; Theorem 1.2 (Moon: possible mean scores), Theorem 3.1 (multigraph extension), Theorem 4.1 (forest randomness); full HTML has no covariance theorem; https://link.springer.com/article/10.1007/s00454-023-00571-4"
+          ],
+          "identifier_or_url": "Kolesnik--Sanchez, Discrete & Computational Geometry 71 (2024), doi:10.1007/s00454-023-00571-4; https://link.springer.com/article/10.1007/s00454-023-00571-4",
+          "material_read": "Full HTML article: introduction, theorem statements 1.1, 1.2, 2.1, 3.1, 4.1, proofs of the main theorems, references; reviewed the score-model distinction",
+          "method": "Direct full-text theorem/quantifier/implication comparison",
+          "title": "The Geometry of Random Tournaments",
+          "trigger": "Primary full text directly about complete tournament score vectors, including probabilistic tournaments"
+        },
+        {
+          "assessment": "The abstract proves concentration/local CLT for score-bin counts and may derive finite-n pair covariance formulas. No claim of noncoverage from the abstract alone. Material priority risk persists, but no accessible statement decisively implies the exact all-functions projector.",
+          "evidence": [
+            "TU Delft abstract: contribution 2 derives concentration and local CLT for score-bin sizes N_s, a directly relevant random vector; https://repository.tudelft.nl/record/uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca"
+          ],
+          "identifier_or_url": "S. P. C. Zegers (2026), TU Delft thesis, https://repository.tudelft.nl/record/uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca",
+          "material_read": "Repository title and full publicly displayed abstract, including enumerated contributions 1--3; NOT the 12.4-MB full text",
+          "method": "Read institutional repository abstract; attempted freely hosted PDF but retrieval timed out; searched arXiv and OA alternatives for identical thesis; authorized Oxford retrieval returned vpn_disconnected, not bypassed or retried",
+          "title": "The Heat Capacity of Random Tournaments: A study in nonequilibrium statistical mechanics",
+          "trigger": "Strong plausible overlap: 2026 thesis explicitly treats dependent score-bin sizes and local central limit theory for a random tournament"
+        },
+        {
+          "assessment": "The stated factorization and counting algorithm enumerate distinct feasible sorted score vectors, whereas the audited covariance averages over every labeled orientation with multiplicity. Enumeration alone, without orientation weights, does not imply the complete covariance formula.",
+          "evidence": [
+            "Published abstract and introduction synopsis: distinguished-index generating function and quadratic-time counting algorithm; https://doi.org/10.5817/CZ.MUNI.EUROCOMB23-040"
+          ],
+          "identifier_or_url": "Claesson--Dukes--Franklín--Stefánsson, EUROCOMB 2023, doi:10.5817/CZ.MUNI.EUROCOMB23-040; arXiv:2209.03925",
+          "material_read": "Open conference abstract and published result synopsis; not full journal paper",
+          "method": "Compared the sample space and counted objects described in the published abstract with the uniformly orientation-weighted histogram moments",
+          "title": "Counting tournament score sequences",
+          "trigger": "Exact enumeration/generating functions for score sequences could potentially dominate a score-histogram table"
+        },
+        {
+          "assessment": "The visible theorems concern feasible mean scores over arbitrary match probabilities and Bradley--Terry representations; these do not logically fix the covariance of histogram bins in the specific independent fair model. No whole-document noncoverage assertion.",
+          "evidence": [
+            "Abstract and section 1.2 Theorems 1/2 describing possible mean score sequences and Bradley--Terry realizability; https://doi.org/10.1016/j.spa.2019.10.011"
+          ],
+          "identifier_or_url": "Aldous--Kolesnik (2018 preprint, 2022 journal), arXiv:1811.06662; doi:10.1016/j.spa.2019.10.011",
+          "material_read": "ArXiv/publisher abstract plus accessible publisher introduction and theorem-1/2 synopsis; full manuscript not obtained during this run",
+          "method": "Compare publicly accessible theorem scope (mean score feasibility and representation) with full covariance of score-frequency bins",
+          "title": "To stay discovered: On tournament mean score sequences and the Bradley--Terry model",
+          "trigger": "Foundational probability results for tournament mean score sequences, possibly overlapping edge independence model"
+        },
+        {
+          "assessment": "The visible result classifies possible sets of outdegree frequencies and least orders of tournaments that realize them, not random covariance matrices. Unseen body may still contain related tables; no full-text noncoverage claim.",
+          "evidence": [
+            "Wiley abstract defines frequency sets and describes deterministic existence/order; https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.3190020307"
+          ],
+          "identifier_or_url": "Alspach--Reid (1978), Journal of Graph Theory 2:241--249; doi:10.1002/jgt.3190020307",
+          "material_read": "Wiley abstract and independent bibliographic description; full text not retrieved",
+          "method": "Compared frequency-set definition and stated existence/minimal-order conclusion with orientation-weighted expectations",
+          "title": "Degree frequencies in digraphs and tournaments",
+          "trigger": "Potential historical exact frequency-table antecedent using precisely degree-frequency vocabulary"
+        },
+        {
+          "assessment": "The stated result is existence/characterization of limit score functions and degree distributions, not exact finite-sample second moments of random labeled tournament histograms.",
+          "evidence": [
+            "arXiv:1611.09579 abstract specifies limit distributions and tournament kernels, not finite uniform tournament covariance"
+          ],
+          "identifier_or_url": "E. Thörnblad (2016), arXiv:1611.09579, https://arxiv.org/abs/1611.09579",
+          "material_read": "ArXiv abstract and indexed summary, not full paper",
+          "method": "Compared asymptotic tournament-kernel degree-distribution characterization to exact finite-n covariances under independent fair orientations",
+          "title": "Tournament limits: Degree distributions, score functions and self-converseness",
+          "trigger": "Potential generalized score-distribution framework with a dominating parameter or limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full score histogram is a natural statistic of uniformly oriented complete tournaments, with non-independent counts despite binomial one-player marginals. Classifying its entire Pearson-standardized covariance as exactly n times a rank-(n-2) projector isolates both deterministic conservation laws and proves an equal-variance structure for every higher-order Krawtchouk score contrast. The all-functions residual-variance identity and exact finite-sample Pearson mean n-2 provide sharp reusable second-moment tools for comparing tournament scores and assessing naive independence benchmarks. This is a natural, parameter-uniform structural classification rather than a contrived numeric slice, a mere n=small experiment, or the known fact that the total number of wins is fixed. Its significance is bounded to second moments; no goodness-of-fit calibration is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub pinned source tree fc9a09a6bb95377843e10a37bc32fef68e5bf194: RESULT.md full proof, verify.py full code, SLOGAN.txt, VERIFICATION.md, AUDIT.json, METADATA.json, REVIEW.md",
+    "Independent exact rational covariance and Krawtchouk calculations n=2..10; exhaustive labeled orientations n=2..6 (33,866 total); executed 2026-11-02 UTC",
+    "Kolesnik--Sanchez 2024 full HTML, doi:10.1007/s00454-023-00571-4 (Theorems 1.2, 3.1, 4.1)",
+    "Zegers 2026 TU Delft repository full abstract, https://repository.tudelft.nl/record/uuid:673a65cb-d6aa-4e3f-a4b6-43d567e500ca (full text inaccessible)",
+    "Claesson et al. 2023 published abstract doi:10.5817/CZ.MUNI.EUROCOMB23-040",
+    "Aldous--Kolesnik arXiv:1811.06662 publisher abstract/section 1.2 accessible synopsis",
+    "Alspach--Reid 1978 DOI:10.1002/jgt.3190020307 abstract",
+    "Thörnblad arXiv:1611.09579 abstract",
+    "Resultary searches on tournament score-frequency covariance, all-functions residual projection, degree distribution and tournament histograms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "C assessment is analytical plus independent bounded finite verification; the finite checks n<=10 do not prove all n.",
+    "Only cited sections of accessible papers were read as described; the Zegers thesis full text is inaccessible, with institutional VPN disconnected.",
+    "No public scientific files were changed. Private audit review is not a publication or external scientific certificate."
+  ],
+  "residual_risks": [
+    "Zegers (2026) thesis abstract explicitly studies dependent score bins and local CLT; 12.4MB full PDF could not be retrieved (public download timed out), and authorized Oxford access returned vpn_disconnected. Its precise finite-n covariance and possible priority implications have not been read or ruled out.",
+    "Full 1978 Alspach--Reid degree-frequency paper and complete Aldous--Kolesnik, Claesson et al. and Thörnblad manuscripts were not read in this run; conclusions about their noncoverage are restricted to accessible theorem statements/abstracts, not whole documents.",
+    "Earlier exact covariance identities might appear implicitly in older random-tournament probabilistic enumerations or thesis appendices under different notation; database searches cannot prove absolute novelty.",
+    "The theorem addresses only second moments of fair independent-edge tournaments; no chi-square calibration, Gaussian convergence, biased-game extension or distributional independence follows.",
+    "Independent program recomputation checks finite n=2..10 and exhaustive orientations through n=6; the n-uniform theorem rests on the inspected analytical proof, not those bounded checks."
+  ],
+  "schema_version": 1
+}
