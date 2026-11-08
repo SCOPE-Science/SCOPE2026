@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:04:26.094616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For invertible Euclidean-monotone M, L=||M||2 and gamma>=2, the exact recurrence has C=gamma L M^-1 b, D=-gamma(gamma-1/2)L^2 M^-2 b and E=gamma(gamma-1/2)(gamma-1)L^3 M^-3 b. The three identities MC/L=gamma b, MD/L=-(gamma-1/2)C, ME/L=(1-gamma)D cancel the s^-1, s^-3/2 and s^-2 coefficients of a formal C s^-1/2 +D s^-1 +E s^-3/2 approximation. Residual defect O(s^-5/2). Monotonicity gives ||B_s||<=sqrt((1-gamma/s)^2+1/s)=1-(gamma-1/2)/s+O(s^-2). Discrete convolution yields O(s^-3/2 log s) when gamma=2 and O(s^-3/2) for gamma>2; this is o(s^-1). Neumann expansion of (M+gamma L s^-1/2 I)^-1 then gives universal nonzero lag s(u_k-v_k)->gamma L^2 M^-2 b/2. Independent exact coefficient checks and finite-step simulations on SPD, skew and nonnormal accretive 2x2 matrices corroborated signed coefficients; asymptotics rest on contraction proof, not sampled sequences.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai-Zheng arXiv:2604.12235v1 provides O(k^-1/2) general monotone inclusion last-iterate rate.",
+          "Surina et al. arXiv:2604.03782 gives general squared-residual convergence upper rate."
+        ],
+        "reasoning": "General classes of operators are covered at the level of rate upper bounds, but without coefficients or an asymptotic signed lag. Specializing a big-O result cannot produce a nonzero limit.",
+        "searches": [
+          "Resultary: anchored gradient descent Tikhonov tracking asymptotic residual second order linear monotone",
+          "arXiv:2604.12235v1 anchored gradient descent last iterate",
+          "arXiv:2604.03782 anchored gradient descent ascent",
+          "arXiv:2605.30905 anchored Tikhonov regularization",
+          "vanishing Tikhonov forward linear exact second-order asymptotic expansion"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 7c7c7ab4ce413ff2d0865b9a88614975a8e4d7c6",
+        "verify.py frozen blob 6ba7efebf809861c558f80800a5af3f6820f8c36",
+        "https://arxiv.org/html/2604.12235v1",
+        "https://arxiv.org/html/2605.30905v1",
+        "https://arxiv.org/html/2604.03782"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharp limit sqrt(s)Mu->gamma Lb is equality, not implied by O(s^-1/2) residual bound.",
+          "Second-order lag compares coefficients -gamma(gamma-1/2) and -gamma^2, requiring actual discrete dynamics."
+        ],
+        "reasoning": "The linear recurrence plus classical asymptotic convolution yields the claim in the audited proof, but checked existing papers stop at upper rates or qualitative regularized-target tracking.",
+        "searches": [
+          "Resultary: anchored gradient descent Tikhonov tracking asymptotic residual second order linear monotone",
+          "arXiv:2604.12235v1 anchored gradient descent last iterate",
+          "arXiv:2604.03782 anchored gradient descent ascent",
+          "arXiv:2605.30905 anchored Tikhonov regularization",
+          "vanishing Tikhonov forward linear exact second-order asymptotic expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai-Zheng linear specialization uses the same fixed anchor and 1/sqrt(k) step-size schedule.",
+          "Chen identifies a moving Tikhonov zero as a natural comparison target."
+        ],
+        "reasoning": "Same algorithm and moving-regularization interpretation are prior; the second-order lag is a strictly stronger quantitative result than upper residual convergence.",
+        "searches": [
+          "Resultary: anchored gradient descent Tikhonov tracking asymptotic residual second order linear monotone",
+          "arXiv:2604.12235v1 anchored gradient descent last iterate",
+          "arXiv:2604.03782 anchored gradient descent ascent",
+          "arXiv:2605.30905 anchored Tikhonov regularization",
+          "vanishing Tikhonov forward linear exact second-order asymptotic expansion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest AdOGD spectral counterexamples concern an adaptive scheme, not this anchored fixed-parameter schedule.",
+          "Frozen verify.py checks signed C,D,E cancellation on four explicit 2x2 matrices; our independent checks confirmed representative examples."
+        ],
+        "reasoning": "No numerical leading-coefficient or signed lag table for this exact fixed schedule found in searched published records. Failure to find a table is not novelty proof.",
+        "searches": [
+          "Resultary: anchored gradient descent Tikhonov tracking asymptotic residual second order linear monotone",
+          "arXiv:2604.12235v1 anchored gradient descent last iterate",
+          "arXiv:2604.03782 anchored gradient descent ascent",
+          "arXiv:2605.30905 anchored Tikhonov regularization",
+          "vanishing Tikhonov forward linear exact second-order asymptotic expansion"
+        ]
+      },
+      "rationale": "Cai and Zheng (2026) give the anchored schedule and O(k^-1/2) tangent-residual upper bound; Surina et al. give analogous squared-gradient upper rate; Chen (2026) explains operator-side Tikhonov regularization and an upper rate at gamma=4. Exact two-term vector coefficients and nonzero discrete tracking lag for every invertible monotone M are not given by these upper bounds: an upper rate permits zero leading constant. Best-of-knowledge, with risk from general asymptotic expansions for vanishing regularization.",
+      "residual_risks": [
+        "A general operator asymptotic expansion or Halpern–Tikhonov tracking theorem may imply this linear result.",
+        "Constants depend on fixed invertible M and can worsen near singularity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same schedule and upper residual bound, but not nonzero vector coefficient and lag",
+          "evidence": "Theorem on O(k^-1/2) residual, linear specialization",
+          "identifier_or_url": "https://arxiv.org/html/2604.12235v1",
+          "material_read": "Accessible arXiv HTML problem, iteration and main convergence theorem",
+          "method": "Primary full-text relevant sections",
+          "title": "Last-Iterate Convergence of Anchored Gradient Descent",
+          "trigger": "Original source of anchored step schedule and broad rate bound"
+        },
+        {
+          "assessment": "Moving regularized zero is known; exact discrete second-order tracking coefficient not stated in inspected material",
+          "evidence": "Theorem 1 upper bound and Section 4.2",
+          "identifier_or_url": "https://arxiv.org/html/2605.30905v1",
+          "material_read": "Accessible arXiv HTML Section 4.2, relevant theorem and interpretation",
+          "method": "Primary full-text sections",
+          "title": "A Unifying View of Anchoring via Operator-Side Tikhonov Regularization",
+          "trigger": "Closest regularization explanation for tracking the moving zero"
+        },
+        {
+          "assessment": "General upper convergence rate, not signed two-term linear expansion",
+          "evidence": "Squared-gradient O(1/k) upper rate",
+          "identifier_or_url": "https://arxiv.org/html/2604.03782",
+          "material_read": "Source theorem and abstract/result statement accessible",
+          "method": "Primary arXiv relevant theorem examination",
+          "title": "An Improved Last-Iterate Convergence Rate for Anchored Gradient Descent Ascent",
+          "trigger": "Cited earlier upper squared-gradient rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives sharp unavoidable residual bias and the sign/magnitude of the first discrete tracking error for a standard anchored algorithm, including strongly convex quadratics and bilinear skew saddle problems. It distinguishes discretization lag from the target regularization bias, an independently useful quantitative limitation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 7c7c7ab4ce413ff2d0865b9a88614975a8e4d7c6",
+    "verify.py frozen blob 6ba7efebf809861c558f80800a5af3f6820f8c36",
+    "https://arxiv.org/html/2604.12235v1",
+    "https://arxiv.org/html/2605.30905v1",
+    "https://arxiv.org/html/2604.03782"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite dimensional real M invertible and monotone, nonzero b, gamma>=2; not nonlinear, singular or alternative schedules.",
+    "No formal proof-system attestation or floating-point robustness theorem.",
+    "A general operator asymptotic expansion or Halpern–Tikhonov tracking theorem may imply this linear result.",
+    "Constants depend on fixed invertible M and can worsen near singularity."
+  ],
+  "schema_version": 1
+}
