@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:51:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every directed cycle in a fan contains a directed triangle because the underlying fan is chordal. In an acyclic orientation a directed edge is individually reversible precisely when it has no alternative directed path; chordality shortens any alternate path to a directed 2-step path. Hub spoke sign strings split into maximal same-sign runs. Between unlike signs, rim orientation is forced transitive and nonflippable; within runs, each rim edge is flippable and a spoke is flippable exactly when the associated path vertex is a source (positive run) or sink (negative run). Two-state transfer of path direction words counts source/sink occurrences and gives per-run B=tz/[1-2tz+(1-t)t^2z^2]; summing alternated runs with two initial signs yields exact rational D_n series. The H_n coefficient recurrence H_n=3H_(n-1)+(t-1)H_(n-2) gives Fibonacci 2F_(2n) min class and top coefficients. For connectivity, within-run edge flips move the marked source/sink along the rim; by moving marks toward adjacent sign boundaries then flipping a negative spoke one reduces number of negative spokes while preserving a unique mark in each remaining run. A singleton negative run between positives is handled by bringing both positive source marks to the boundary and merging around the converted site, proving connectivity of the entire min-degree stratum. Independent brute force orientations via topological sorting and direct single-edge flips for n=3..7 checked each predicted degree histogram and simple-induced BFS connectedness; this finite range is corroboration, not the n-unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1993 whole flip graph is connected and the n-fan total orientation count is 2*3^(n-1). Postnikov provides general zonotope constructions."
+        ],
+        "reasoning": "Neither full graph connectivity nor general polytope construction entails connectivity of the subgraph on degree-n vertices. The exact degree enumerator requires additional signed-run transfer.",
+        "searches": [
+          "Savage--Squire--West 1993 Theorem 2.1",
+          "arXiv:2212.03915",
+          "arXiv:math/0507163"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, direct_orientation_check.py, run_transfer_check.py and all metadata/review/verification files",
+        "Savage--Squire--West 1993 author PDF relevant sections",
+        "Postnikov arXiv:math/0507163 full text relevant constructions",
+        "Cardinal et al. arXiv:2212.03915 full text relevant introductory and Gray-code statements",
+        "Resultary published fan dissociation/zero forcing summaries (different invariants)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A connected full graph can have disconnected minimum-degree induced subgraph; explicit source/sink run-merging establishes the stronger result."
+        ],
+        "reasoning": "General Gray-code Hamiltonicity or acyclic-orientation enumeration gives no control on induced connectivity of min-degree vertices. The Fibonacci coefficient 2F_(2n) is not determined by D_n(1)=2*3^(n-1).",
+        "searches": [
+          "Savage--Squire--West 1993",
+          "arXiv:2212.03915",
+          "fan graph K1 join path acyclic orientations flippable edges degree 2 F_2n simple vertices connectivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan acyclic orientations correspond to vertices of graphical zonotope; reversals correspond to zonotope edges, and minimal valence n means simplicity."
+        ],
+        "reasoning": "Compared acyclotope orientation degree, simple graphical-zonotope vertex, transitive-reduction degree and flip-degree aliases. The exact valence generating series and simple-stratum connectivity are additional claims, not just alternate vocabulary.",
+        "searches": [
+          "arXiv:math/0507163",
+          "arXiv:2212.03915",
+          "fan graph K1 join path acyclic orientations flippable edges degree 2 F_2n simple vertices connectivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known orientation-count table is the t=1 specialization of new polynomial; dissociation fan enumerator counts a different family."
+        ],
+        "reasoning": "The n=2,3 special cases and total counts are acknowledged as prior; no searched published full degree histogram/connected simple-stratum table for all n>=4 was found. Historical unindexed tables remain a risk.",
+        "searches": [
+          "Savage--Squire--West 1993 fan orientation count",
+          "Resultary:graphical parking functions fan graph degree enumerator simple connected stratum",
+          "Resultary:2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b"
+        ]
+      },
+      "rationale": "Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.",
+      "residual_risks": [
+        "An older fan acyclotope/zonotope valence enumerator in unindexed literature may equal the formula.",
+        "Constructive simple-stratum connectivity argument depends on preserving one marked source or sink through singleton-run merges; bounded brute-force examples corroborate but do not replace proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes 2*3^(n-1) total acyclic orientations and connectivity of full orientation-flip graph, not the degree enumerator nor connectivity induced by minimum-degree orientations.",
+          "evidence": [
+            "Whole-flip connectivity does not imply induced min-degree connectivity; known total count is precisely D_n(1)."
+          ],
+          "identifier_or_url": "Savage--Squire--West (1993), https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "material_read": "Full accessible author-hosted paper, Theorem 2.1 and fan/chordal orientation count and Gray-code sections",
+          "method": "Original PDF and relevant page screenshot plus theorem/graph comparison",
+          "title": "Gray Code Results for Acyclic Orientations",
+          "trigger": "Same fan/wheel-missing-rim-edge orientation count and Gray-code flip graph"
+        },
+        {
+          "assessment": "Defines graph-zonotope framework, but no inspected formula for fan orientation reversal degree distribution or connected simple-vertex subgraph.",
+          "evidence": [
+            "General Minkowski sum and vertex enumeration do not give all degrees/edge incidences of one specific fan without additional combinatorial analysis."
+          ],
+          "identifier_or_url": "arXiv:math/0507163; Postnikov (2005)",
+          "material_read": "Full accessible PDF abstract/introduction and sections describing graphical zonotope constructions",
+          "method": "Primary arXiv full PDF and screenshot of first page; inspect geometric scope",
+          "title": "Permutohedra, associahedra, and beyond",
+          "trigger": "General graph zonotope vertex/orientation correspondence"
+        },
+        {
+          "assessment": "Gives universal generation algorithms and graph classes, not the exact fan degree-generating series and induced simple-stratum connectivity in inspected statements.",
+          "evidence": [
+            "Generating all acyclic orientations in a flip Gray code does not prove the subgraph induced by minimum flip degree is connected."
+          ],
+          "identifier_or_url": "arXiv:2212.03915; Cardinal--Hoang--Merino--Mička--Mütze (2023)",
+          "material_read": "Full accessible PDF abstract, introduction and relevant Gray-code framework; no assertion about every appendix",
+          "method": "Original arXiv PDF with first page screenshot",
+          "title": "Combinatorial Generation via Permutation Languages. V. Acyclic Orientations",
+          "trigger": "Modern general acyclic-orientation Gray-code and chordal flip techniques"
+        },
+        {
+          "assessment": "Counts dissociation sets in a fan, not reversible acyclic orientations or zonotope degrees.",
+          "evidence": [
+            "Dissociation polynomial is a vertex-subset independent induced-degree constraint, a different combinatorial object."
+          ],
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+          "material_read": "Resultary summary only",
+          "method": "Semantic published-finding search",
+          "title": "Dissociation polynomial and extremal coefficients of fan graphs",
+          "trigger": "Same graph class published exact enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The degree of a graphical zonotope vertex and connectedness of its simple-vertex induced subgraph are natural finer geometric/combinatorial invariants than total vertices. This gives a complete infinite-family degree spectrum and the nontrivial coexistence of a connected simple stratum with exponentially vanishing density, not implied by full flip-graph connectivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, direct_orientation_check.py, run_transfer_check.py and all metadata/review/verification files",
+    "Savage--Squire--West 1993 author PDF relevant sections",
+    "Postnikov arXiv:math/0507163 full text relevant constructions",
+    "Cardinal et al. arXiv:2212.03915 full text relevant introductory and Gray-code statements",
+    "Resultary published fan dissociation/zero forcing summaries (different invariants)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older fan acyclotope/zonotope valence enumerator in unindexed literature may equal the formula.",
+    "Constructive simple-stratum connectivity argument depends on preserving one marked source or sink through singleton-run merges; bounded brute-force examples corroborate but do not replace proof."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only fan K_1 join P_n (n>=4 for new claim) and single-edge reversals; no complete distances within the simple stratum.",
+    "For n<=3 known degenerate complete/split instances are not claimed new.",
+    "Independent finite flip checks only n=3..7; connectedness for all n rests on explicit run merging."
+  ]
+}

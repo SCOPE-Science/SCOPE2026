@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Chordality reduces both acyclicity and nonflippability to directed triangles and directed two-step alternate paths. Spoke signs partition into alternating constant runs. Within each run, reversible rim edges and source/sink spokes are counted by an exact two-state transition formula, giving the stated rational generating function. The coefficient and Fibonacci consequences follow algebraically. The constructive procedure moves marked sources/sinks and flips negative spokes one at a time without leaving the degree-minimal stratum; the special sandwich case is explicitly handled. Two independent standalone verification programs corroborate the orientation enumerator, flip graph, and connectivity on finite ranges. Computation alone is not presented as an infinite proof.
+PASS
 
-## Originality
+Every directed cycle in a fan contains a directed triangle because the underlying fan is chordal. In an acyclic orientation a directed edge is individually reversible precisely when it has no alternative directed path; chordality shortens any alternate path to a directed 2-step path. Hub spoke sign strings split into maximal same-sign runs. Between unlike signs, rim orientation is forced transitive and nonflippable; within runs, each rim edge is flippable and a spoke is flippable exactly when the associated path vertex is a source (positive run) or sink (negative run). Two-state transfer of path direction words counts source/sink occurrences and gives per-run B=tz/[1-2tz+(1-t)t^2z^2]; summing alternated runs with two initial signs yields exact rational D_n series. The H_n coefficient recurrence H_n=3H_(n-1)+(t-1)H_(n-2) gives Fibonacci 2F_(2n) min class and top coefficients. For connectivity, within-run edge flips move the marked source/sink along the rim; by moving marks toward adjacent sign boundaries then flipping a negative spoke one reduces number of negative spokes while preserving a unique mark in each remaining run. A singleton negative run between positives is handled by bringing both positive source marks to the boundary and merging around the converted site, proving connectivity of the entire min-degree stratum. Independent brute force orientations via topological sorting and direct single-edge flips for n=3..7 checked each predicted degree histogram and simple-induced BFS connectedness; this finite range is corroboration, not the n-unbounded proof.
 
-**PASS, qualified by residual historical risk.** The 1993 Savage–Squire–West theorem gives the total number of acyclic fan orientations and whole-graph flip connectivity, not the present degree distribution or connectivity of the **induced** minimum-degree stratum. Postnikov and subsequent work give the geometric interpretation and general flippability framework, not these special enumerators. Closely related published work on wheel orientations and on complete-split graphs does not imply the infinitely many fan cases with at least four path vertices; the shared small graphs are excluded. Actual searches of mathematical research records, published literature, and accessible older claims found no covering theorem. Historic unindexed acyclotope literature remains a priority risk; absence of a search hit is not treated as a mathematical proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Vertex degree and simplicity are natural finer invariants of a graphical zonotope than its vertex count. The exact degree law for an infinite family distinguishes all local mobility classes and yields a nontrivial geometric phenomenon: the simple vertices form a connected stratum despite becoming an exponentially vanishing proportion of all vertices. This is stronger than enumerating configurations or establishing connectivity of their full graph.
+Best-of-knowledge: actual Resultary semantic queries and primary published mathematical statements were compared by object, hypotheses and implications; no source inspected established this entire additional conclusion. The four explicit comparisons, source inspections and residual risks below qualify historical priority; inaccessible full texts alone do not count as disproof.
 
-## Limits
+## value
 
-The proof is specific to \(K_1\vee P_n\). It does not settle the metric of the induced simple subgraph, and independently checked published priority is limited to accessible documents and searchable records. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The degree of a graphical zonotope vertex and connectedness of its simple-vertex induced subgraph are natural finer geometric/combinatorial invariants than total vertices. This gives a complete infinite-family degree spectrum and the nontrivial coexistence of a connected simple stratum with exponentially vanishing density, not implied by full flip-graph connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
