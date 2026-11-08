@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact object is the connected clique bouquet with positive blade sizes and exactly the chromatic number of named colours. The proof establishes necessity and sufficiency of every seed restriction: smaller blades have degree below the forcing threshold; maximum blades allow at most one hole; a blank hub can be forced precisely when its initial neighbourhood displays all other colours. The count of failed missing-colour configurations uses an explicit sum over the colours absent from smaller blades, yielding the stated correction term. Full-colouring uniqueness prevents double counting. Independent finite enumeration of partial assignments was replayed from the accompanying verifier, with all coefficients matching on twenty-one small cases. The general formula rests on the combinatorial proof, not on extrapolation.
+
+## Originality — PASS (provisional historical priority)
+The full September 2026 primary work of Farr treats general forcing properties, complete graphs, small graphs, bipartite graphs at palette two and general hardness, not the clique-bouquet coefficient formula. Farr and Morgan's earlier introduction is also inspected in its section on partial colouring and contains no such formula. The closest published exact forcing results concern complete multipartite graphs at their chromatic palette and maximum-degree-two graphs at three colours. Neither class covers clique bouquets with multiple nontrivial blades. Searches of the published mathematical database found these nearest neighbours but no formula implying the result. The currently accessible previous claims in the assigned collection were compared for the forcing predicate and graph family; the closest same-host claim concerns a different fort invariant. Unindexed older work may exist, so priority is provisional.
+
+## Mathematical value — PASS
+This gives an exact, all-coefficient enumeration for an unrestricted multiset of clique-block sizes in a natural articulation-vertex family. It characterizes successful initial colourings, reveals a sharp freezing mechanism in smaller blocks, and determines the exact minimum seed number and multiplicity, rather than only one small-graph value. This family lies beyond both the complete multipartite and maximum-degree-two cases of the recent forced-colouring theory. The local-versus-global inclusion-exclusion term quantifies how coloured short blades help activate an unseeded hub. The result is self-contained and does not claim a general theorem for arbitrary block graphs.
+
+## Closest literature and remaining risks
+G. E. Farr, *The forced colouring function of a graph* (2026), arXiv:2609.17108v1; G. Farr and K. Morgan, *Graph polynomials: some questions on the edge* (2024 preprint). Published exact forcing studies on complete multipartite and maximum-degree-two graphs were read and compared at the level of their hypotheses and implications. An unindexed earlier exact bouquet formula is not ruled out; no independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
