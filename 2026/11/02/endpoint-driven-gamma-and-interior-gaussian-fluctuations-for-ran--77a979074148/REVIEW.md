@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Strict convexity of the quadratic graph makes all sampled points extreme, so the hull boundary consists of the parabolic sample chain and its closing chord. The exact secant-area error is cubic in the horizontal gap. The anchored uniform spacings have a Dirichlet law; the free range has the stated beta law and is independent of its normalized internal spacings. Exact factorial moments give both expectation and variance formulas. The free endpoint deficit has a joint extreme-value Gamma limit; the centered interior deficit has a delta-method Gaussian limit with variance \(360\). Exact rational checks and independent computational hull geometry corroborate the formulas. For the specified models no unproved lemma is needed beyond standard order-statistic and central limit theorems.
+PASS
 
-## Originality
+For ordered normalized horizontal coordinates, integrating the vertical difference between each quadratic secant and the parabola gives area/H=s^3-sum(gap^3), H=a*l^3/6. The n-2 interior order statistics conditioned on extremes produce m=n-1 Dirichlet(1,...,1) spacings; the free sample range has Beta(n-1,2) independent of internal normalized gaps. Direct Dirichlet rising-factorial calculations give E[Z]=6/[n(n+1)], E[Z^2]=36(n+18)/[n(n+1)(n+2)(n+3)(n+4)] and the stated variances; beta third/sixth moments give the full free variance polynomial. The two extreme deficits n*T_(1) and n*(1-T_(n)) converge jointly to iid exponential(1), hence n(1-S^3)->3 Gamma(2,1). Exponential Dirichlet representation gives a bivariate CLT for (mean E, mean E^3), delta-method gradient (-18,1), variance 324+684-648=360; exact range/shape independence yields the joint independent Gaussian correction. All n>=3, arbitrary affine graph terms and a>0 survive normalization; finite tests are not limit proofs.
 
-PASS under presently accessible evidence, with historical-priority risk. The closest full primary text, Besau–Rosen–Thäle, treats boundary samples from a smooth closed convex body and supplies a Gaussian volume CLT, not exact beta–Dirichlet area laws on an open parabola with a Gamma endpoint scale. Reitzner–Schütt–Werner treats polytopal-body boundaries, a different sample support. Calka–Yukich studies perturbed spherical samples and a parabolic process limit, not independently sampled horizontal coordinates on a deterministic quadratic arc. Published work on random circular gap energies has a related spacings technique, but its geometric object and functional differ. Search results do not constitute exhaustive priority proof. The independent beta, Dirichlet and CLT identities are classical and are credited as tools, not asserted as inventions.
+## originality
 
-## Value
+PASS
 
-PASS. Endpoint uncertainty is a genuine design parameter in random boundary approximation. The theorem gives a complete exact coupling between equal-vertex-count anchored and unanchored designs, quantifies a full-order gain in expected missing area by anchoring, identifies distinct Gamma and Gaussian fluctuation mechanisms, and provides finite-sample variance formulas in a canonical quadratic local model for convex boundary geometry. The statement is a geometric law and a motivated sampling comparison, rather than a standalone computation of an arbitrary moment.
+Compared complete-closed-boundary CLTs, polytopal-boundary asymptotics, and perturbed spherical parabolic hull processes with the exact open-parabola horizontal-sampling model. Classical uniform-order-statistic, beta and Dirichlet tools are acknowledged; no inspected primary result directly entails both finite exact area laws and the two independent limit mechanisms. Priority remains qualified against hidden conic-arc gap calculations.
 
-## Limits and residual risks
+## value
 
-The result requires horizontal-uniform independent sampling on a quadratic arc; other sampling measures and general smooth curves are outside its scope. The complete finite law is a distributional pushforward, not an elementary density. Comparisons to the closest published theory are based on inspected accessible full texts and identified results, but an exact earlier parabola calculation might exist under alternate terminology. The current scientific record has no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixing versus not fixing endpoints is a canonical sampling-design choice for convex-boundary approximation. The exact beta-Dirichlet coupling separates endpoint uncertainty from interior spacing noise and explains the non-Gaussian order-n^-1 missing-area law versus order-n^-5/2 centered Gaussian fluctuations; complete finite-size moments quantitatively support that structural difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
