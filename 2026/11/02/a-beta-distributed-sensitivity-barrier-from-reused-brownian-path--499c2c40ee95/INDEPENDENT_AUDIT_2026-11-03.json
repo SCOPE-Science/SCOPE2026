@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:57:56.899765Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/verify.py"
+      ],
+      "rationale": "The exact terminal observable is F(u)=Phi(u_d), gradient phi(u_d)e_d, and E phi(U_d)^2=1/(2pi sqrt3). The centered indicator coefficient is always plus/minus 1/2, so each inner score belongs to the fixed Gaussian endpoint span, has nonzero value a.s. because the d-by-ell endpoint matrix has full column rank, and hence every positive-eigenvalue matrix eigenvector lies in that span. Haar-uniform ell-planes have projection energy Beta(ell/2,(d-ell)/2). Gaussian regression gives E[Phi(U_d)|v^TU]=Phi(cY/sqrt(2-c²)); a bivariate normal orthant identity yields Var=arcsin(c²/2)/(2pi). Monotonicity makes projected e_d the optimal direction; convex arcsine lies below its endpoint chord, proving linear lower bound. For ell=1 outer products equal ZZ^T/4 algebraically. Independent 3 reused-endpoint identity cases and 21 exact risk-floor checks passed. The theorem is explicitly restricted to fresh Gaussian prediction inputs.",
+      "residual_risks": [
+        "The tests are finite and do not replace the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Active subspace principal-angle bounds for unbiased outer products are established.",
+          "Derivative-informed ridge-risk approximation is broadly studied."
+        ],
+        "reasoning": "Those theories provide tools but do not eliminate the fixed common-random inner span and cannot infer the exact Beta and arcsine risk for this specialized estimator without the shared-noise algebra.",
+        "searches": [
+          "reused Brownian paths sensitivity gradient estimator fixed random subspace beta distribution",
+          "arXiv:1801.00682",
+          "JMLR 27(182) 2026",
+          "arXiv:2610.33210v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33210v1",
+        "arXiv:1801.00682",
+        "JMLR 27(182) 2026; 25-1861",
+        "reused Brownian paths sensitivity gradient estimator fixed random subspace beta distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper implements trajectory reuse in a more general SDE with spatially varying score integrands.",
+          "Its estimator need not be confined to the fixed endpoint span under varying drifts."
+        ],
+        "reasoning": "The presented theorem is a genuinely restricted rank-one Gaussian benchmark with additional implication of nonzero fresh-prediction risk; it neither refutes nor follows automatically from the general implementation.",
+        "searches": [
+          "reused Brownian paths sensitivity gradient estimator fixed random subspace beta distribution",
+          "arXiv:2610.33210v1 Section 4.1",
+          "arXiv:1801.00682",
+          "JMLR 27(182)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source explicitly reuses the same inner Brownian realizations for outer parameter samples.",
+          "Fixed parameter-independent endpoint scores are Gaussian random features producing a rank-ell span."
+        ],
+        "reasoning": "Rephrasing as common-random-numbers random-feature rank deficiency yields the same statement; existing active-subspace theorems assume independent outer products and do not imply it directly.",
+        "searches": [
+          "reused Brownian paths sensitivity gradient estimator fixed random subspace beta distribution",
+          "arXiv:2610.33210v1 Sections 3.3,4.1",
+          "arXiv:1801.00682"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found Gaussian subspace and Beta related findings but no same shared-Brownian sensitivity-risk result.",
+          "Beta(ell/2,(d-ell)/2) Haar projection law is classical, not claimed independently."
+        ],
+        "reasoning": "No relevant exact model-specific risk table identified; classical exact distribution alone does not cover reuse-driven estimator consequences.",
+        "searches": [
+          "reused Brownian paths sensitivity gradient estimator fixed random subspace beta distribution",
+          "Resultary random Gaussian subspace Beta shared Monte Carlo",
+          "arXiv:2610.33210v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison supports new combined conclusion within the precise scope; not merely lack of search hits. For an isotropic Gaussian constant-drift SDE and a shared pool of ell<d Brownian endpoints, all positive sensitivity eigendirections belong to the random ell-plane spanned by endpoints; squared alignment bounded by Beta(ell/2,(d-ell)/2), and the optimal single-direction ridge error equals 1/12-arcsin(P/2)/(2pi), bounded below by (1-P)/12 independent of outer sample count; ell=1 makes Khat=ZZ^T/4 for all outer samples. Historical priority remains qualified.",
+      "residual_risks": [
+        "Classical Haar-subspace Beta and Gaussian orthant identities are not original.",
+        "An older shared-random-features or nested Monte Carlo rank theorem may imply this specialization.",
+        "The motivating paper treats general spatially varying fields for which the fixed-span assertion can fail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Section 4.1 explicitly shares Brownian trajectories across parameters, but inspected statements do not derive the constant-drift fixed-score span, Beta law or fresh-input Bayes-risk formula.",
+          "evidence": "Section 3.3 estimator; Section 4.1 reused trajectories",
+          "identifier_or_url": "arXiv:2610.33210v1",
+          "material_read": "Accessible complete arXiv HTML, especially Sections 3.2, 3.3, 4.1 and concluding sections",
+          "method": "Read primary HTML relevant mathematical sections",
+          "title": "Derivative-Informed Dimension Reduction of Stochastic Differential Equations: A Path-Space Sensitivity Approach",
+          "trigger": "Exact source model of score sensitivity and shared Brownian pool"
+        },
+        {
+          "assessment": "Independent unbiased outer-product sampling assumptions differ from the shared inner-pool correlated gradient estimator.",
+          "evidence": "Outer product model and independent sampling assumptions",
+          "identifier_or_url": "arXiv:1801.00682",
+          "material_read": "Accessible introductory material and outer-product independence assumptions",
+          "method": "Read relevant mathematical descriptions",
+          "title": "A Probabilistic Subspace Bound with Application to Active Subspaces",
+          "trigger": "Potential stronger eigenvector concentration theorem"
+        },
+        {
+          "assessment": "General approximation-error theory does not state this exact fixed-path-span model or its conditional arcsine floor in inspected material; broader applicability remains a risk.",
+          "evidence": "General ridge approximation and Monte Carlo assumptions",
+          "identifier_or_url": "JMLR 27(182) 2026; 25-1861",
+          "material_read": "Accessible theorem summaries and portions on Gaussian subspace estimation; not whole paper",
+          "method": "Read relevant source excerpts",
+          "title": "Dimension Reduction for Derivative-Informed Operator Learning: An Analysis of Approximation Errors",
+          "trigger": "Broader conditional-expectation ridge approximation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/RESULT.md",
+        "arXiv:2610.33210v1",
+        "arXiv:1801.00682",
+        "JMLR 27(182) 2026; 25-1861"
+      ],
+      "rationale": "This quantifies a structural common-random-number failure mode of nested score estimation: arbitrary outer sample budgets cannot overcome a fixed shared inner-path span, even for a genuinely rank-one population sensitivity. Exact alignment distribution and Bayes ridge-risk floor inform sample allocation.",
+      "residual_risks": [
+        "Classical Haar-subspace Beta and Gaussian orthant identities are not original.",
+        "An older shared-random-features or nested Monte Carlo rank theorem may imply this specialization.",
+        "The motivating paper treats general spatially varying fields for which the fixed-span assertion can fail."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.33210v1",
+    "arXiv:1801.00682",
+    "JMLR 27(182) 2026; 25-1861",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/a-beta-distributed-sensitivity-barrier-from-reused-brownian-path--499c2c40ee95/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Classical Haar-subspace Beta and Gaussian orthant identities are not original.",
+    "An older shared-random-features or nested Monte Carlo rank theorem may imply this specialization.",
+    "The motivating paper treats general spatially varying fields for which the fixed-span assertion can fail."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Only identity-diffusion constant drift, isotropic Gaussian prior, terminal one-coordinate threshold, and reused fixed Brownian endpoints. Spatially varying score vectors or independently resampled inner paths need not obey obstruction."
+}
