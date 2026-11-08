@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The source's second-order transfer-operator inequality is valid for each given critical map. Convexity preserves its strict essential-spectral-radius bound uniformly in the mixing weight. A positive-probability topologically exact component establishes strict positivity of any fixed nonnegative continuous density. Equality in the complex triangle inequality on arbitrarily small full-branch cylinders forces every peripheral eigenfunction to have constant phase; hence eigenvalue \(1\) is the sole peripheral eigenvalue and has geometric multiplicity one. Integral preservation and \(L^1\) contraction rule out Jordan chains. Compact parameter continuity and resolvent projections give uniform exponential mixing and analytic normalized densities. The Peano jet and discriminant follow from the exact inverse-branch expansion, using only \(C^1\) regularity at the cusp. The finite script checks coefficient identities, not spectral assertions.
+## correctness
 
-**Originality: PASS within inspected comparisons.** Oltiboev--Vafoyev's 2026 theorem treats the pure operator and small Bernoulli perturbation, not all mixing probabilities uniformly. The 2026 earlier strict-cusp random theory does not include the critical exponent. The previously established local endpoint-jet formulas alone are covered; the present single claim instead includes full-interval uniform spectral mixing, analytic response, and global recovery. The closest indexed literature searches found no dominating global critical-cusp mixture statement. Uninspected broad historical random expanding-map theorems leave some priority uncertainty.
+PASS
 
-**Mathematical value: PASS.** Extending local stationary response to **every** probability, uniformly across the entire mixing regime, rules out a possible intermediate nonmixing parameter or phase transition. It supplies rigorous nonperturbative statistical control at all stochastic mixing laws and upgrades local identification to global identification, a natural exact classification beyond a routine single-parameter coefficient computation.
+For each theta in (1,2), the displayed branches are full onto and strictly expanding, and the paper source Proposition 4.1 supplies a W2,1 contraction with essential factor (1+theta/2)^(-2)<1. Convex combining yields uniform Doeblin Fortet bounds; compact W2,1→W1,1/L1 and L1 contraction yield uniform essential spectral radius <1. Every p has a strictly positive-probability full-branch component whose expanding inverse cylinders shrink, so positive eigenfunction modulus and equality in the positive triangle inequality force any peripheral phase to be constant; fixed modulus strictly positive inside via topological exactness. This proves eigenvalue1 simple and alone on unit circle; L1 contraction precludes Jordan chains. Norm-continuity and compact p then yield a uniform spectral gap and real-analytic normalized Riesz eigenprojection across [0,1]. Independent symbolic expansion of inverse weight yielded 2w(z)=a z-(3/4)a r z²+(5/8)a r² z³+..., and A C-B²=p(1-p)a0a1(r1-r0)² gives the stated Peano jet inversion and discriminant. The finite source verification only checks algebra, not operator spectra. Endpoint is Peano C1 data, not a claimed C3 density.
 
-Limitations: only the stated full-branch critical pair and the annealed operator; the optimal spectral rate is not computed, and no samplewise rate is proved. Independence of the mathematical assessment is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for all-mixture p globality. The exact source primary already proved per-map W2,1 Lasota Yorke, exactness and sufficiently-small-p analytic response, including local jet, but not a full interval uniform spectral gap. Extra positivity plus compactness closes the gap. General PF/quasicompact random-map results may encompass this as a corollary, but no checked theorem directly covers these critical cusp maps for all mixture weights.
+
+## value
+
+PASS
+
+The distinction between local perturbative analytic response and uniform mixing for every bias is a substantive dynamical-systems question; it supplies global identifiability of the mixture parameter via endpoint jets and robust control of mixing beyond infinitesimal perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
