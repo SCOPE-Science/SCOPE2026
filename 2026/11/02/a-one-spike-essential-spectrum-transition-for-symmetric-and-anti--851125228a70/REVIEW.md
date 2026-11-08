@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The tensor block formula includes the exceptional two-site block, and reflection parity is exactly the symmetry defining the two operators. The exterior eigenvalue analysis is valid for each real spectral parameter outside the free interval: the interior free path has no such eigenvalue, and the two-endpoint Schur complement reduces each parity's eigenvalue equation to a scalar equation. Chebyshev continuants give the precise corner resolvents, converging locally uniformly to the half-line Green function. Its only possible external real zeros are the two values in the theorem when the spike exceeds the stated threshold. Explicit parity-symmetrized interior plane waves supply orthogonal Weyl sequences at every interior-band parameter, while exponentially decaying half-line edge modes and their reflected copies supply orthogonal Weyl sequences at each supercritical outlier. The result covers every positive spike, the threshold, and both parities. The finite checker succeeded in 2,371 assertions; the infinite assertions are analytical, not based on numerical extrapolation.
+PASS
 
-## Originality
+For positive spike a and S_a e0=a e1 with later weights 1, RESULT.md decomposes (S⊗S*+S*⊗S)/2 into homogeneous real Jacobi blocks, then parity-reflected ± blocks. Uniform exterior Chebyshev Schur complements converge to f(lambda)=lambda-(a²/2)rho(lambda), and f=0 permits |rho|<1 precisely when a>sqrt(2), giving ±E=a²/(2sqrt(a²-1)). Separate parity-adapted Weyl sequences prove [-1,1] essential and boundary-localized ±E essential; no other exterior accumulation. Thus Fredholm essential spectra both equal band alone at/below threshold, plus detached ±E above; essential norm follows, not full norm. Independent numerical Jacobi and parity-folded block eigenvalues at n=120 for a=1,1.4,sqrt2,1.8,2.4 corroborated threshold and E to numerical precision. Unrestricted proof is resolvent convergence plus Weyl criterion, not numerics; low n blocks do not change essential spectrum.
 
-**PASS, best-knowledge.** The nearest primary sources are Garcia–O'Loughlin–Yu (the unweighted special case and weighted-shift question), Tian–Wang–Zhu (norm identities), and Yang–Zhang (general finite-block point-spectrum polynomials). Full accessible texts were compared by mathematical implication. The general polynomial algorithm subsumes the *finite block representation*, which is not claimed as new; it does not itself give the one-spike accumulation set, Fredholm essential norms, or explicit threshold. The required nontrivial limit and both-parity singular-sequence arguments distinguish the present statement from those sources. General Jacobi boundary-perturbation theory is acknowledged as a methodological antecedent. Searches for tensor-shift essential spectra and the spiked-edge formula found no matching explicit theorem. An equivalent specialized limit in older Jacobi or weighted-tensor literature cannot be categorically excluded.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result gives a complete essential spectral classification of a natural one-parameter family answering a concrete slice of the weighted shift/adjoint tensor problem. It exhibits a qualitative change that cannot be inferred by compact-perturbation invariance of the underlying shift: a rank-one spike becomes an infinite collection of boundary perturbations after tensorization, generating two isolated essential spectral points beyond a sharp threshold. The coincident thresholds for symmetric and antisymmetric sectors, closed-form outlier locations, essential norm, and quadratic detachment have interpretable spectral significance. It is more than a fixed finite matrix exercise or routine constant substitution.
+Existing tensor-weighted-shift point spectrum decompositions and standard one-sided Jacobi boundary theory are substantial prior work; inspected papers do not compute the same infinite direct-sum Fredholm essential spectrum in both tensor flip sectors or the exact spike threshold. Best-of-knowledge with possible implicit reduction risk.
 
-## Closest literature and limitations
+## value
 
-Theorem 8.1 of Garcia–O'Loughlin–Yu establishes the interval for the unweighted case; Problem 7 asks about weighted cases. Theorem 1.3 of Tian–Wang–Zhu concerns norms. Theorem 3.3 of Yang–Zhang encodes finite-block point spectra, but not the computed essential-spectrum limit. Webb–Olver gives general Jacobi methods, not an explicitly published tensor essential-spectrum classification for this one-spike family. The proof is specialized to one exceptional weight and does not classify all isolated finite-multiplicity eigenvalues; independent checking and publication-priority confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fredholm essential spectrum and essential norm are natural invariants of symmetric/exterior tensor operator constructions. The exact one-spike threshold separates pure continuous band from two isolated essential spectral points in both parity sectors, and explains a nontrivial finite-block versus infinite-sum distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:58:25.959648Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive spike a and S_a e0=a e1 with later weights 1, RESULT.md decomposes (S⊗S*+S*⊗S)/2 into homogeneous real Jacobi blocks, then parity-reflected ± blocks. Uniform exterior Chebyshev Schur complements converge to f(lambda)=lambda-(a²/2)rho(lambda), and f=0 permits |rho|<1 precisely when a>sqrt(2), giving ±E=a²/(2sqrt(a²-1)). Separate parity-adapted Weyl sequences prove [-1,1] essential and boundary-localized ±E essential; no other exterior accumulation. Thus Fredholm essential spectra both equal band alone at/below threshold, plus detached ±E above; essential norm follows, not full norm. Independent numerical Jacobi and parity-folded block eigenvalues at n=120 for a=1,1.4,sqrt2,1.8,2.4 corroborated threshold and E to numerical precision. Unrestricted proof is resolvent convergence plus Weyl criterion, not numerics; low n blocks do not change essential spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Zhang give matrices/point spectra for broader nonnegative shift weights.",
+          "Tian–Wang–Zhu focus on norm identities of regular weighted shifts, not the Fredholm essential norm of this single-spike example.",
+          "Garcia–O’Loughlin–Yu develop tensor-operator structure rather than this concrete boundary-state threshold."
+        ],
+        "reasoning": "Broader weight assumptions do not automatically dominate a computed essential spectrum: direct-sum limit points and each reflection symmetry must be handled, which submitted proof explicitly performs.",
+        "searches": [
+          "arxiv:2509.07374 point spectrum symmetric tensor weighted shifts",
+          "arxiv:2507.17181 symmetric antisymmetric tensor products norm",
+          "arxiv:2306.14807 Garcia O Loughlin Yu symmetric tensor products"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen tree ab3062893f1b8c41495e12b8be27f8a5f0b53103",
+        "arxiv:2509.07374",
+        "arxiv:2507.17181",
+        "arxiv:2306.14807",
+        "Resultary targeted symmetric tensor query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Critical claimed existence of ±E in essential spectrum of BOTH reflection parities, from infinitely many V_k blocks.",
+          "Prior finite block eigenvalues and half-line bound states alone do not assert infinite multiplicity or Weyl accumulation in both sectors."
+        ],
+        "reasoning": "Explicit parity-reflected approximants in mutually orthogonal homogeneous blocks produce the necessary extra implication. Standard Weyl-sequence reasoning is credited as standard method.",
+        "searches": [
+          "Yang Zhang arXiv 2509.07374 Theorem 3.3 finite block polynomial",
+          "Jacobi finite rank perturbation half-line Weyl theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homogeneous decomposition gives reflecting finite Jacobi matrices; Fredholm essential spectrum of their infinite direct sum is the statement to compare, not eigenvalues of any one section.",
+          "Yang–Zhang arXiv:2509.07374 Theorem 3.3 provides finite spectral machinery."
+        ],
+        "reasoning": "Inclusion of limits of finite parity blocks and construction of infinite orthogonal Weyl sequences are extra mathematical steps not shown by a finite point-spectrum theorem.",
+        "searches": [
+          "Resultary essential spectrum symmetric antisymmetric tensor weighted shift one spike Jacobi detached points",
+          "arxiv:2509.07374 symmetric tensor product weighted shifts point spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General half-line Jacobi spectral formula can yield ±a²/(2sqrt(a²−1)) for a>sqrt2 but a single half-line is not the full tensor direct-sum essential spectrum."
+        ],
+        "reasoning": "No exact database/table with two parity-sector infinite direct-sum spectra surfaced in the actual targeted searches; absence is not novelty certification.",
+        "searches": [
+          "one spike Jacobi half-line bound state sqrt2 threshold essential spectrum symmetric tensor shift",
+          "Resultary weighted unilateral shift essential spectrum parity detachment"
+        ]
+      },
+      "rationale": "Existing tensor-weighted-shift point spectrum decompositions and standard one-sided Jacobi boundary theory are substantial prior work; inspected papers do not compute the same infinite direct-sum Fredholm essential spectrum in both tensor flip sectors or the exact spike threshold. Best-of-knowledge with possible implicit reduction risk.",
+      "residual_risks": [
+        "An older Jacobi/Toeplitz operator paper might implicitly derive this infinite direct-sum parity spectrum through general limit-operator machinery.",
+        "No general a priori classification of arbitrary finite number of exceptional weights claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BLOCK_METHOD_ONLY",
+          "evidence": [
+            "Provides finite homogeneous block eigenvalue algorithm, not evaluated Fredholm essential spectrum of single spike in both parity sectors"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.07374",
+          "material_read": "Accessible full text: setup and main finite-Jacobi-block spectral theorem, including Theorem 3.3; PDF page 5 visually inspected",
+          "method": "arXiv full PDF text plus page screenshot",
+          "title": "On the Spectrum of the Symmetric Tensor Products of Certain Hilbert-Space Operators",
+          "trigger": "Same symmetric weighted-shift tensor operators"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Norm equality machinery, not Fredholm essential spectrum of the one-spike shift"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.17181",
+          "material_read": "Accessible mathematical statements on ordinary norms and regularity; visual PDF page inspection",
+          "method": "arXiv full PDF text and page screenshot",
+          "title": "Norms of symmetric and antisymmetric tensor products of regular weighted shifts",
+          "trigger": "Possible stronger norm theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "General tensor-operator framework, no specified detached spectral points"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.14807",
+          "material_read": "Operator setup and selected structural theorem/problem statements; PDF page visually checked",
+          "method": "arXiv PDF plus screenshot",
+          "title": "Symmetric and antisymmetric tensor products of operators",
+          "trigger": "Prior broader tensor framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fredholm essential spectrum and essential norm are natural invariants of symmetric/exterior tensor operator constructions. The exact one-spike threshold separates pure continuous band from two isolated essential spectral points in both parity sectors, and explains a nontrivial finite-block versus infinite-sum distinction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen tree ab3062893f1b8c41495e12b8be27f8a5f0b53103",
+    "arxiv:2509.07374",
+    "arxiv:2507.17181",
+    "arxiv:2306.14807",
+    "Resultary targeted symmetric tensor query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Science decision is best-of-knowledge independent mathematical assessment, not third-party formal certification.",
+    "Finite computation corroborates only finite cases and cannot prove infinity.",
+    "Publication is not_ready because source public operational IDs have not been sanitized with guarded complete file replacements."
+  ],
+  "residual_risks": [
+    "An older Jacobi/Toeplitz operator paper might implicitly derive this infinite direct-sum parity spectrum through general limit-operator machinery.",
+    "No general a priori classification of arbitrary finite number of exceptional weights claimed."
+  ],
+  "schema_version": 1
+}
