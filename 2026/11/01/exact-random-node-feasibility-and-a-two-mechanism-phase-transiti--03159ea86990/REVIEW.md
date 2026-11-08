@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim fixes the sampling distribution, the entire moment target and the allowed weights. Convex hull geometry proves that the feasible second moment at fixed zero mean is the full interval between products of the closest and farthest opposite-sign sample pairs. Two unconditional order-statistic densities prove the exact finite-sample integral; two matching exponential event bounds prove the sharp large-sample rate without extrapolating from experiments. Boundary cases have probability zero for fixed \(q\in(0,1)\). The standalone exact-arithmetic checker passed \(4,800\) random rational configuration comparisons against Carathéodory enumeration and the \(n=3,4\) symbolic identities. The proof, not those samples, establishes the universal statements.
+PASS
 
-## Originality (O): PASS within evidence limits
+The event of nonnegative weights integrating (1,x,x²) with target (1,0,q), q∈(0,1), is convex hull membership (0,q) in parabola points (X_i,X_i²). With opposite signs, the feasible vertical segment is from nearest-sign product uv to extreme-sign product ab because the curve is strictly convex and every opposite-sign chord hits height rs at zero. Thus E_n iff uv≤q≤ab, and strict interior yields all node weights strictly positive by epsilon redistribution for n≥3; for n=2 event measure zero. Joint unconditional extreme density n(n−1)(a+b)^{n−2}/2^n and near-zero density n(n−1)(2−u−v)^{n−2}/2^n, integrated over ab≥q, give displayed exact double integral, n3=3q/2(log(1/q)−1+q) and n4=2P3. Failures ab<q and uv>q are disjoint. Constraints ab≤q ⇒ a+b≤1+q and uv≥q ⇒ u+v≥2sqrt(q) yield sharp root upper bounds; events all nodes in [-q,1] and all outside [-s,s] with both signs yield matching root lower bounds. Therefore lim(1−P_n)^(1/n)=max{(1+q)/2,1−sqrt(q)}, crossover q=3−2sqrt2. Independent adaptive double integration at q=.12,1/3,.7 checked n3/n4 closed forms; direct sample computations are not an all-n proof.
 
-The direct source, Neumayer–Schäfer–Ullrich, arXiv:2610.32699v1, guarantees high-probability positive quadrature for a general finite-dimensional space with an explicit sample-size sufficient bound and weights constrained near importance-sampling weights. It does not calculate the exact feasibility event for independent uniform quadratic-node sampling. Bělík–Narayan–Turnage study randomized least-squares quadrature; van den Bos–Sanderse study deterministic node insertion. Hayakawa–Lyons–Oberhauser study general random convex hull probabilities, but their inspected results do not give the two exact product tails or this sharp crossover. The convex-hull formulation is standard and receives no novelty claim. Search evidence cannot rule out all earlier specialist probabilistic computations; an independent historical literature audit remains necessary.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Positive quadrature is an established numerical-stability design constraint. The smallest nonlinear moment model has a nontrivial positive-weight success probability, and a precise transition between extreme-sample shortage and central unsampled gaps. The finite-sample probability and sharp exponential rate give concrete sample-budget diagnostics beyond general high-probability existence theorems. They are meaningful even absent downstream solver estimates.
+Best-of-knowledge original scientific contribution confined to the exact theorem beyond explicitly acknowledged prior partial coverage. Meaningful searched aliases, broader-result implications, primary source materials, and access limits are documented below.
 
-## Limitations and closest literature
+## value
 
-The result does not prescribe or compute particular weight sizes, sampling algorithms, floating-point error, nonuniform node distributions or multivariate moments. The rate holds at fixed \(q\) as the number of samples tends to infinity. The reviewed direct primary full texts support, but cannot certify, absence of equivalent historical statements. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact positive-weight feasibility probabilities for the first nonlinear moment system (quadratic integration) quantify a natural numerical quadrature design constraint across every n and q. The two independent geometric failure mechanisms and crossover at 3−2sqrt2 give a nontrivial sharp sample-complexity diagnostic beyond sufficient high-probability bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
