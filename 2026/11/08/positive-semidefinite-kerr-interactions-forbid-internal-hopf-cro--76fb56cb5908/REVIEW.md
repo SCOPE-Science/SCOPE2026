@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact intensity-phase Jacobian gives the pencil \(\lambda(\lambda+\kappa)-4DV_S\). For positive-semidefinite \(V_S\), the Sylvester symmetric-matrix reduction excludes every nonzero imaginary root, including singular supports. The explicit stronger-than-onsite dimer construction is physical at every positive damping value; its quartic has a unique Routh–Hurwitz stability switch with a simple transverse imaginary pair, and its formulas were checked by independent exact-rational calculations and a standalone executable checker.
+
+**Originality — PASS, with residual priority risks.** The most closely related primary work is Gómez and del Pino, arXiv:2610.26573v1 (2026). It supplies the stationary spectral pencil, the equal-sign symmetrization and a case-specific dimer Hopf condition; these are not claimed as new. The new theorem instead treats arbitrary network size, arbitrary active branch signs and positive-semidefinite cross-Kerr matrices, coupled with an all-ratios sharp two-mode constructive converse. published-finding corpus, accessible prior claims and relevant published literature were searched by mechanism and implication, not title alone. The generic spectral pencil in the source and incomplete full-text examination of additional papers remain explicit priority risks. Independent literature verification is not asserted.
+
+**Value — PASS.** The PSD/non-PSD distinction provides a network-wide design criterion for intrinsic oscillatory instabilities, together with a sharp realizability boundary and a completely algebraic tunable-loss witness. It distinguishes robust structural impossibility from a parameter-dependent example and clarifies which nonlinear interactions can produce oscillatory destabilization.
+
+**Scope.** The theorem concerns internal linear spectral crossings with common positive damping, not nonlinear Hopf normal forms, the existence or stability of periodic cycles, dormant transverse modes, quantum master-equation spectra, or unequal-damping arrays. The analytical proof is decisive; finite test output is supplementary. Closest relevant literature: Gómez–del Pino 2026, Ameye–Eichler–Zilberberg 2025, Trinchão et al. 2026.
+
+Self-review: passed. Independent audit: not yet performed.
