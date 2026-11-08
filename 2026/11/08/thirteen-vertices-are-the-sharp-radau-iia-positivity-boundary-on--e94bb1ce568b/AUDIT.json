@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The conference identity A^2=tI-A+tJ yields exactly three Laplacian eigenvalues. Rational interpolation yields a common strictly positive denominator and explicit entry numerators. Adjacent and nonadjacent entries are positive for all h>0. The diagonal quartic is positive for t=1,2; for each t>=3 it is positive at 0 and infinity, negative at h=2, and has at most two positive zeros by Descartes sign count. Therefore its two roots are simple and delimit exactly one negative interval. Fixed-scale limits of the quartic prove both asymptotics. Direct exact rational replay confirms 40 inverse matrices and 11,240 entry identities, without standing in for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General absolute-monotonicity results supply sufficient step restrictions across broad systems, not necessary and sufficient graph-parameter sign conditions at all positive steps.",
+        "The known strongly regular Gauss--Legendre Padé result uses a different stability function; graph structure alone cannot transfer its conclusion to Radau IIA."
+      ],
+      "reasoning": "A general stability theorem may cover contractivity without entrywise positivity and may control an initial timestep interval without characterizing later positivity recovery. The present all-step iff classification requires graph-specific signs not implied by those results.",
+      "searches": [
+        "strongly regular graph three eigenvalues two-stage Radau IIA unconditional positivity graphical parameter cutoffs",
+        "2015 numerical preservation positivity Radau IIA heat equations Paley conference graph",
+        "https://arxiv.org/pdf/1510.04303",
+        "https://arxiv.org/pdf/1303.6651"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/302467919_Radau_Methods",
+      "https://arxiv.org/pdf/1510.04303",
+      "https://arxiv.org/pdf/1303.6651",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://mathworld.wolfram.com/ConferenceGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hairer--Wanner establishes the relevant numerical method, not its graph-dependent positivity boundary.",
+        "Bonaventura--Della Rocca treats TR-BDF2, a different method.",
+        "Zappavigna--Colaneri--Kirkland--Shorten treats [m/m] Padé maps, not the [1/2] Radau map.",
+        "A nine-vertex Hamming/rook special case and a different-filter strongly regular classification do not imply a theorem for the full conference family."
+      ],
+      "reasoning": "Even after rewriting both as rational Laplacian filters, the numerator and denominator coefficient polynomials differ. Earlier graphs either intersect this family only at a small special instance or belong to other classes. The new polynomial root count for every integer t>=3, the exact recovered positivity set, and the asymptotic endpoint scales do not follow from their mathematical statements.",
+      "searches": [
+        "arxiv:1510.04303",
+        "arxiv:1303.6651",
+        "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "third order L stable Padé 1/2 rational heat kernel on strongly regular Paley conference graphs row stochastic negative diagonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-stage Radau IIA endpoint is the subdiagonal [1/2] Padé map on the heat generator; conference graphs are strongly regular with parameters (4t+1,2t,t-1,t).",
+        "Hairer--Wanner describes the scalar Padé mapping, not a conference graph matrix classification."
+      ],
+      "reasoning": "The conference, Paley, self-complementary strongly regular and [1/2]-Padé formulations were searched and algebraically matched. None of the inspected method statements specifies or entails the attained 9-to-13 threshold, one negative diagonal band, and the two root scales.",
+      "searches": [
+        "Conference graphs Paley graphs Radau IIA third order graph heat equation positivity 5 9 13 diagonal negative timestep interval",
+        "Radau IIA two stage 3rd order stability function (6-2z)/(z2+4z+6) positivity Runge Kutta 2015 preprint",
+        "https://www.researchgate.net/publication/302467919_Radau_Methods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld records conference parameters and examples (5,9,13,...) but no Radau timestep sign table.",
+        "No retrieved exact positivity table for the 5/9/13 transition and asymptotic polynomial endpoints."
+      ],
+      "reasoning": "A finite graph catalogue cannot dominate a uniform two-root theorem for all existing conference graphs. Search failure alone does not certify priority; databases may omit unpublished tables.",
+      "searches": [
+        "Radau IIA diffusion positivity conference graphs Paley graph numerical heat flow Runge Kutta",
+        "Paley graph Radau IIA heat transition diagonal positivity graph method",
+        "https://mathworld.wolfram.com/ConferenceGraph.html"
+      ]
+    },
+    "rationale": "The inspected method papers give scalar stability/SSP theory or diagonal Padé failures; graph-specific 9-to-13 transition and two exact Radau positivity roots were not present. General graph-class conclusions for other methods or restricted Hamming cases do not imply this complete conference family result. This is a qualified evidence-based originality judgment, not an absolute priority guarantee.",
+    "residual_risks": [
+      "Specialist numerical diffusion on association schemes or a pre-existing Padé table could encode an equivalent result under other notation.",
+      "The Lóczi--Ketcheson paper was inspected selectively, not exhaustively through all 42 pages.",
+      "Ranked literature searches are not exhaustive; a missing retrieval hit does not imply nonexistence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the method and scalar Padé stability properties; no conference-graph entrywise sign statement was found in that full-text source.",
+        "evidence": [
+          "Two-stage tableau and subdiagonal Padé representation of Radau IIA; no graph-dependent threshold or diagonal sign band."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/302467919_Radau_Methods",
+        "material_read": "Accessible author-provided full-text web rendering, including tableau, stability-function, order sections and bibliography (roughly six pages).",
+        "method": "Read and compared the original stability formula with the endpoint matrix; inspected the positivity and graph-specific content (none stated).",
+        "title": "Radau Methods",
+        "trigger": "Closest method-specific source for the two-stage Radau IIA stability function and order"
+      },
+      {
+        "assessment": "Analyzes TR-BDF2 and generic monotonicity, not the two-stage Radau IIA conference graph endpoint classification.",
+        "evidence": [
+          "Sections 2--3 define SSP and positive RK steps for general ODE contexts; sections 3 onward analyze a different TR-BDF2 filter."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.04303",
+        "material_read": "Full-text sections 1--3 and related definitions/theorems, and appendix applications/experiments, with PDF page inspection.",
+        "method": "Read the formal monotonicity definitions, RK stability functions, SSP radius discussion and problem classes; compared the numerical filter and graph assumptions.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Archived primary literature on positivity versus high-order implicit Runge--Kutta stability"
+      },
+      {
+        "assessment": "Analyzes diagonal Padé maps (not the [1/2] subdiagonal Radau IIA map) on broad positive matrices; no conference-graph exact threshold in the inspected sections.",
+        "evidence": [
+          "Its eight-state nilpotent counterexample concerns [2/2] Padé, whereas the present method is [1/2] and the graph generator is symmetric."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Introduction, definitions and Padé mapping, plus Section 4 counterexamples and sufficient conditions (pp. 1--4, 12--15), with PDF page inspection.",
+        "method": "Compared numerator and denominator orders, generator types, and quantifiers to the graph endpoint claim.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Plausible broad prior treatment of Padé positivity failures on positive matrices"
+      },
+      {
+        "assessment": "Gives scalar positivity radii and class optimization; no graph-specific conference positivity cutoff in the material read. Deeper uninspected sections remain a priority risk.",
+        "evidence": [
+          "The paper optimizes rational-function absolute-monotonicity radii, not a stochastic matrix sign pattern based on conference graph parameters."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.6651",
+        "material_read": "Title, abstract, pp. 1--3 introductory results and definitions, with PDF page inspection.",
+        "method": "Compared universal absolute-monotonicity radii for rational functions with graph-dependent endpoint entry signs.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Plausible generic scalar positivity theorem dominating a special graph numerical stability claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e94bb1ce-568b-4262-a880-125e46b671e8",
+  "value": {
+    "rationale": "Conference graphs are a natural two-point correlation class, including an infinite Paley family. The result pinpoints the first attained graph size at which a widely used L-stable integrator loses the heat-flow maximum principle, describes the complete allowed timesteps rather than just a sufficient CFL condition, proves positivity of every distinct-vertex transition, and yields two different sharp timestep asymptotics.",
+    "status": "PASS"
+  }
+}
