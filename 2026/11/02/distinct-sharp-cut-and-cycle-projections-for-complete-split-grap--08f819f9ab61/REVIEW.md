@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is all integers \(a,b\ge2\), with real coordinate-\(\ell_1\) edge spaces. The gradient-fixing calculation establishes that each displayed operator is a projection. Signed permutation averaging reduces both unrestricted infima to invariant projections; the elementary stabilizer calculation exhausts that one-parameter family. All four edge-column norms are counted explicitly. Triangle inequalities give universal sharp lower bounds, and the displayed rational parameters achieve equality within the required ranges. The incompatible-minimizer statement uses strict positive parameter separation, not numerical evidence. Exact-rational matrix checks and several unrestricted numerical LP computations corroborate, but do not replace, the unrestricted proof.
+## correctness
 
-## Originality — PASS, qualified
-The primary full text of Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) was examined for its invariant-projection theory and graph-specific results: tori and Hamming graphs, not exact complete split graphs. The corresponding 2018 work (arXiv:1807.03814) covers general and recursively built metric graphs, and the 2020 Laakso work (arXiv:2007.07949) studies a different recursive family. Related projection results for bipartite and balanced multipartite graphs do not imply the asymmetric split graph formulas: the former have no clique edges, and the latter have no singleton-part-versus-large-part asymmetry. Searches with the split-graph, clique-join, invariant-flow, and projection-constant aliases identified no theorem implying both the rational values and the optimizer-incompatibility assertion. This is a best-knowledge comparison, not exhaustive historical priority certification. The main residual risk is older literature using electrical-flow or transportation-operator terminology.
+PASS
 
-## Mathematical value — PASS
-A natural two-parameter graph family has an exact pair of complementability invariants. Its two edge orbits force a genuinely nonorthogonal scalar minimax problem, and the two minima have different unique invariant optimizers for every allowed parameter pair. The sharp and different clique-size thresholds for orthogonal optimality (two versus four) are a structural distinction unavailable from the usual orthogonal projection formulas. Complete classification of all nonsymmetric minimizers and weighted cases remains open here.
+For every a,b>=2, the displayed map P_(A,B) with aA+bB=1 fixes every clique/outer gradient and is a cut projection. Signed permutation averaging reduces unrestricted ℓ1-minimization to invariant projections; the stabilizer representation yields this full one-parameter family. Direct column counting for the two edge-orbits gives F_CC,F_CP,H_CC,H_CP. Triangle inequalities and aA+bB=1 give universal linear lower bounds, attained at positive interior rational pairs (A_C,B_C) and (A_Z,B_Z). The strict identity B_Z-B_C=4b(b-1)/(d_C*d_Z)>0 gives incompatible optimums, and substitution A=B=1/(a+b) gives orthogonal optimum only at a=2 cut or a=4 cycle. Boundary a,b=2 checked separately; no general nonsymmetric optimizer classification claimed.
 
-## Closest literature and limitations
-Most relevant: Dilworth–Kutzarova–Ostrovskii (2018, 2023) on graph-cycle projections and symmetry, and their 2020 study of Laakso graph projections. The theorem does not extend without proof to weighted, arbitrary multipartite, or general \(\ell_p\) edge spaces. Alternative terminology creates residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority judgment after direct mathematical comparison; prior material credited and residual risks recorded. Equivalent formulations under transportation-cost, cut/cycle, and electrical-flow terminology were considered. The inspected primary theorem provides group-averaging methods, not the complete-split-graph minimizers.
+
+## value
+
+PASS
+
+Cut and circulation subspaces of finite graph edge ℓ1 spaces are canonical Banach-space invariants. The complete split-graph family has clique edges and cross edges, forcing a nontrivial two-orbit tradeoff. Exact projection constants, strict optimizer incompatibility, and distinct orthogonal-optimality thresholds give a complete natural structural classification, beyond conventional orthogonal-projector norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

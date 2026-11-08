@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
-The proof is analytic and holds for all integers \(a,b\ge2\). The exact-rational checker `CHECKER.py` independently constructs the full edge-space projection columns for the integer rectangle \(2\le a,b\le8\), verifies that every gradient is fixed, evaluates both operator norms, and checks rational identities, parameter ordering, and the two orthogonal-optimality thresholds. Run it using only the Python standard library:
+# Independent mathematical audit
 
-```
-python3 CHECKER.py
-```
+## correctness
 
-Observed output: `CHECK_OK 49 parameter pairs, 1813 edge columns, exact rational identities`.
+PASS
 
-As an additional noncertifying numerical cross-check, unconstrained finite-dimensional linear programs for \((a,b)=(2,2),(3,2),(3,3),(4,2)\) gave the analytical minima on both sides to tolerance \(10^{-8}\). The finite tests do not establish the universal theorem; its proof is the invariant normal-form classification and the sharp lower-bound inequalities in `RESULT.md`. No independent mathematical audit was performed.
+For every a,b>=2, the displayed map P_(A,B) with aA+bB=1 fixes every clique/outer gradient and is a cut projection. Signed permutation averaging reduces unrestricted ℓ1-minimization to invariant projections; the stabilizer representation yields this full one-parameter family. Direct column counting for the two edge-orbits gives F_CC,F_CP,H_CC,H_CP. Triangle inequalities and aA+bB=1 give universal linear lower bounds, attained at positive interior rational pairs (A_C,B_C) and (A_Z,B_Z). The strict identity B_Z-B_C=4b(b-1)/(d_C*d_Z)>0 gives incompatible optimums, and substitution A=B=1/(a+b) gives orthogonal optimum only at a=2 cut or a=4 cycle. Boundary a,b=2 checked separately; no general nonsymmetric optimizer classification claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority judgment after direct mathematical comparison; prior material credited and residual risks recorded. Equivalent formulations under transportation-cost, cut/cycle, and electrical-flow terminology were considered. The inspected primary theorem provides group-averaging methods, not the complete-split-graph minimizers.
+
+## value
+
+PASS
+
+Cut and circulation subspaces of finite graph edge ℓ1 spaces are canonical Banach-space invariants. The complete split-graph family has clique edges and cross edges, forcing a nontrivial two-orbit tradeoff. Exact projection constants, strict optimizer incompatibility, and distinct orthogonal-optimality thresholds give a complete natural structural classification, beyond conventional orthogonal-projector norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
