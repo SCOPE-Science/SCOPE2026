@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact decomposition of legal families is proved by a disjoint-pair argument; the four-point containment is also stated in Frankl--Kupavskii's Claim 1.7. All intersections of four-point simplices lie in the ordinary independence subcomplex, so their octahedral boundaries can be coned independently. Under the nerve equivalence of the star cover, each octahedral fundamental cycle maps to an oriented tetrahedron boundary with unit coefficients. Simply connectedness and Hurewicz identify the attaching homotopy classes; the resulting third simplex skeleton is a wedge of \(\binom{n-1}{4}\) three-spheres. The signed cellular chains give the integral \(\mathfrak S_n\)-module, without claiming equivariant homotopy equivalence. Two executable finite checkers independently corroborate the full face enumeration, discrete-Morse acyclicity, homology and six-symbol character; finite checks are not used as an infinite proof.
+## correctness
 
-## Originality — PASS (best available evidence)
-The closest published source, Frankl--Kupavskii's *Almost intersecting families* (arXiv:2004.08714, Claim 1.7), proves the underlying four-point containment but not the homotopy type or integral permutation module. Braun 2009, Taylan 2015, Deshpande--Singh 2020 and Feng--Wang 2024 were inspected for their actual graph objects and face conditions; their ordinary/stable-Kneser or other-family results do not imply this theorem. Published indexed results about the Kneser neighborhood and Čech complexes use different face predicates. No equivalent or dominating claim appeared in the previously indexed mathematical claims or the searched published index. Residual risk: unindexed work and future independent priority checking.
+PASS
 
-## Value — PASS
-The theorem supplies a natural **entire infinite-family** homotopy classification and a signed integral symmetry representation. The simplicial complex encodes almost-intersecting families of two-element sets, already independently motivated in extremal set theory, yet its homotopy type is not given by the prior extremal containment lemma. The identification with a simplex skeleton gives a reusable structural model, not an arbitrary isolated numerical invariant.
+A family of chosen pairs with induced Kneser maximum degree <=1 either lies in ordinary pairwise-intersecting B_n or contains disjoint A,B; every remaining pair meets both A,B, hence belongs to the same four-symbol Q (Frankl–Kupavskii Claim 7 supplies known containment). Ordinary B_n is built from star simplices with nerve K_n plus triangle 2-cells, giving skel_2 Delta^(n-1) via triangle attaching loops. For each 4-set Q, the 5-simplex D_Q meets B_n in the octahedral S2 and meets other D_R only in B_n; its fundamental attaching cycle maps to the alternating tetrahedral boundary. Hurewicz for the simply connected 2-skeleton permits replacing the 3-cell attaching map by that boundary. Therefore full skel3 and wedge. Integral oriented relative 3-chains have alternating Q sign, boundary contraction by the sum functional, so kernel = wedge^4 V_n. Independent exact finite face enumerations n=4,...,8 yielded sphere counts 0,1,5,15,35; source verification n=6 includes complete matching and all 720 characters. General proof rather than finite extrapolation covers all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Frankl–Kupavskii previously proves the exact four-point combinatorial containment; it is explicitly not claimed new. Inspected higher-independence homotopy literature treats other graph families and does not yield the all-n Kneser 3-skeleton or signed integral homology lattice. No covering all-n result found in checked publications/Resultary; best-of-knowledge with unindexed risk.
+
+## value
+
+PASS
+
+The infinite n family is a natural first higher-independence Kneser problem with explicit three-skeleton homotopy and full integral symmetric-group lattice, not just isolated Betti numbers. The result connects intersecting-family combinatorics to equivariant algebraic topology and would be reusable for graph-complex comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
