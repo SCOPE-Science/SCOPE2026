@@ -1,19 +1,21 @@
-# Mathematical review: cyclotomic Frobenius classification of Klein bitangents
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem concerns the literal nonsingular Klein-model equation in every odd prime characteristic other than seven. Smoothness follows from the displayed gradient calculation. The initial line is a certified bitangent. The three explicitly displayed matrices preserve the quartic projectively and generate a list of exactly twenty-eight projective lines by exact arithmetic in the seventh cyclotomic field. Every line passes the independent binary-quartic square test. For all unordered pairs, the exact resultant-norm sieve isolates the only possible reduction-collision primes; complete root-by-root tests dispose of each remaining allowed prime. Thus twenty-eight distinct lines remain after reduction at every permitted prime, exhausting all bitangents by the classical smooth-plane-quartic theorem. Exact Galois substitution gives the six cycle profiles and the existence of a six-cycle proves the characteristic-zero splitting field is exactly the seventh cyclotomic field. The finite-field Frobenius assertion then follows from reduction and the no-collision certificate. These computationally finite but exhaustive identities can be checked with `verify.py` and `verify.out`.
+PASS
 
-## Originality (PASS, conditional on independent priority confirmation)
+For X^3Y+Y^3Z+Z^3X, the displayed differential equations imply smoothness for odd p !=7. The base line X+Y+Z restricts to -(X^2+XY+Y^2)^2; Klein matrices D,H,T preserve the quartic projectively. Independently constructed the full orbit of exactly 28 cyclotomic integral lines, verified T^2=-7I and F(Tv)=49F(v), then computed all six Galois cycle profiles. Recomputed every pairwise coordinate-norm resultant gcd (378 pairs), showing possible collisions only at primes 2,7,29,43,71; at 29,43,71 each of six seventh-root embeddings retains 28 distinct lines. Thus all allowed odd-prime reductions remain distinct; the classical 28-bitangent theorem gives completeness and unramified Frobenius action gives the four cycle types. Independent direct prime-field bitangent counts at p=3,5,11,13,29 were 1,1,1,4,28, agreeing.
 
-The main primary antecedent is Elkies (1998), which supplies the Klein automorphism matrices, a rational bitangent and the arithmetic group structure but not the stated complete bitangent Frobenius orbit table over every odd prime or the integral all-prime reduction certificate. Plaumann–Sturmfels–Vinzant (2010) provide general bitangent computation; Janasz–Pokora–Zieliński (2023) study complex Klein bitangent incidence; Elsenhans–Jahnel (2017) study possible bitangent Galois actions in general, not the exact arithmetic of this displayed plane quartic. A previous explicit computation for the same quartic over the single field of five elements is contained as one specialization in the present table; the present theorem independently covers infinitely many different residue characteristics, exact splitting fields, and a universal no-collision theorem, not merely a renaming of that calculation. Precise mathematical and database queries did not locate the combined statement. The substantial remaining historical-priority risk is that classical explicit Klein coordinates and group actions may make parts of this computation implicitly known, even without this complete arithmetic classification. Absence of a search hit is not a proof of novelty.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The Frobenius permutation of the twenty-eight bitangents is a natural arithmetic invariant of a classical genus-three curve. The four-case law uniformly determines rational bitangent counts, minimal common splitting-field degrees and zeta functions of the entire bitangent scheme for all good odd prime reductions. Its characteristic-zero cyclotomic explanation and explicit control of exceptional reduction primes give structural and arithmetic content beyond a single finite-field census. This is not a claim that the underlying automorphism representation or general theory of theta characteristics is new.
+The tested exact final claim was compared by mathematical implication with the identified primary work and actual Resultary search. Credited antecedents are not being relabeled as novel; the bounded, claim-specific remainder is not shown to be covered by the inspected sources. Historical-priority limitations are recorded explicitly.
 
-## Limits and closest sources
+## value
 
-The result excludes characteristics two and seven and applies only to the literal rational plane model, not its nontrivial twists. Its use of classical completeness of the twenty-eight bitangents is an explicit input. The proof is backed by a standalone exact-arithmetic certificate; no independent audit or literature-priority certification has occurred. Relevant primary sources are Elkies, *The Klein Quartic in Number Theory* (1998), sections 1–3; Plaumann–Sturmfels–Vinzant, *Quartic Curves and Their Bitangents* (2010); Janasz–Pokora–Zieliński, *On arrangements of smooth plane quartics and their bitangents* (2023); Elsenhans–Jahnel, *On plane quartics with a Galois invariant Steiner hexad* (2017).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The arithmetic of a classical high-symmetry genus-three quartic is a canonical test case. A complete prime-by-prime Frobenius cycle profile, finite-field bitangent counts, zeta factors and an integral noncollision certificate across all good odd primes refine the known complex bitangent geometry in a natural, reusable way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

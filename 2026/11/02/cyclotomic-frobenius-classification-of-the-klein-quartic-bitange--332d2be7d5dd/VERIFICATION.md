@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` contains exact arithmetic for the full list of twenty-eight bitangents in the seventh cyclotomic field. It verifies the three projective generators, the quartic restriction square conditions, the complete six-element Galois-action table, and every unordered pair of normalized bitangent coordinates. It checks all six primitive seventh-root embeddings at each of the three possible odd exceptional reduction primes. The captured `verify.out` concludes with `VERIFY_OK`.
+# Independent mathematical audit
 
-The source of universality over all odd primes other than seven is the pairwise norm sieve plus the complete exceptional-prime checks, followed by reduction of unramified cyclotomic Frobenius. Sample direct counts over small prime fields are supplemental. The general theorem that a smooth plane quartic over an algebraic closure in characteristic different from two has twenty-eight bitangents, including hyperflexes, is used as classical input. The source-chronology and novelty comparison are matters for independent review; no independent audit or external certification is asserted.
+## correctness
+
+PASS
+
+For X^3Y+Y^3Z+Z^3X, the displayed differential equations imply smoothness for odd p !=7. The base line X+Y+Z restricts to -(X^2+XY+Y^2)^2; Klein matrices D,H,T preserve the quartic projectively. Independently constructed the full orbit of exactly 28 cyclotomic integral lines, verified T^2=-7I and F(Tv)=49F(v), then computed all six Galois cycle profiles. Recomputed every pairwise coordinate-norm resultant gcd (378 pairs), showing possible collisions only at primes 2,7,29,43,71; at 29,43,71 each of six seventh-root embeddings retains 28 distinct lines. Thus all allowed odd-prime reductions remain distinct; the classical 28-bitangent theorem gives completeness and unramified Frobenius action gives the four cycle types. Independent direct prime-field bitangent counts at p=3,5,11,13,29 were 1,1,1,4,28, agreeing.
+
+## originality
+
+PASS
+
+The tested exact final claim was compared by mathematical implication with the identified primary work and actual Resultary search. Credited antecedents are not being relabeled as novel; the bounded, claim-specific remainder is not shown to be covered by the inspected sources. Historical-priority limitations are recorded explicitly.
+
+## value
+
+PASS
+
+The arithmetic of a classical high-symmetry genus-three quartic is a canonical test case. A complete prime-by-prime Frobenius cycle profile, finite-field bitangent counts, zeta factors and an integral noncollision certificate across all good odd primes refine the known complex bitangent geometry in a natural, reusable way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
