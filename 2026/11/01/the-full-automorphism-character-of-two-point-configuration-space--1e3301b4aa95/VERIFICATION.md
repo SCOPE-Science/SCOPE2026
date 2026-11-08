@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The companion `verify.py` constructs the full two-point unordered cubical cell set for the once-subdivided trees using only Python's standard library. It checks all graph automorphisms in six tree examples, computes the signed fixed-cell traces without relying on the local-character formula, independently computes the fixed-direction/two-cycle trace, constructs simplicial cubical boundary maps over the field with two elements, verifies the chain identity, rank and connectivity, and compares every computed character. Exact execution output is embedded as `verification_output.txt`. The program was run directly from the source included with this package and exited with `VERIFY_OK`.
+# Independent mathematical audit
 
-The general proof is in RESULT.md and does not rely on finite testing as a universal certificate. This is a self-review only. An independent audit has not been performed.
+## correctness
+
+PASS
+
+Subdividing every edge once yields a G-equivariant deleted-product cubical model for unordered two distinct points in any finite tree (at least one edge). For an automorphism of subdivision, fixed vertices and edges form a nonempty subtree with q=k-1, and for g² the same gives s_V=s_E for 2-cycles. Direct orientation-signed fixed-cell traces are L0=C(k,2)+s_V, L1=q(k-2), L2=C(q,2)-sum_fixedv C(f_v,2)-s_E+sum_fixedv t_v. With connected H0=Q and known H_i=0 for i>=2, 1-L0+L1-L2 reduces exactly to sum_v ((f_v-1)(f_v-2)/2-t_v). This equals the exterior-square character of W_v=kernel(sum Q^{incident directions}) at every fixed v. Semisimplicity of rational representations of finite G turns character equality into the asserted noncanonical G-module isomorphism. Independent star-4 direct signed cell counts match the formula at identity, a transposition, a 4-cycle and a double-transposition; finite examples are only corroboration of the all-tree fixed-cell proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge full graph-automorphism character for two unordered particles on every finite tree refines the standard nonequivariant rank. Highly relevant ordered-tree equivariant papers concern swapping particle labels, an action mathematically distinct from Aut(T), and do not imply this uniform exterior-square branch formula. Published SCOPE graph examples concern graphs with cycles or different coefficients; no surveyed dominating all-tree G-module theorem was identified. Equivalence under graph braid group terminology checked; residual unindexed classical character decomposition remains.
+
+## value
+
+PASS
+
+The formula gives the entire rational symmetry module, not only a familiar tree configuration rank, uniformly for all finite trees and arbitrary vertex-moving automorphisms. Exterior-square augmentation modules give a conceptual local-to-global representation description usable to compute each symmetry trace without constructing the full configuration complex; this is a motivated structural theorem with nontrivial group action.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
