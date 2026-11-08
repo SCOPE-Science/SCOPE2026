@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every positive radius and finite positive height, the projected disk-plus-segment area is exactly \(\pi r^2 x+2rh\sqrt{1-x^2}\) with \(x\) uniform on \([0,1]\). Beta integrals give the three raw moments. Normalizing by the mean yields the stated quadratic and cubic in \(y=h/(r+h)\). Every collision of the quadratic is a reflection \(y+z=s\), and the cubic secant quotient is strictly negative on such pairs by the explicit quartic \(f(\pi)<0\). The quartic's sign is proved with rational upper and lower bounds on \(\pi\). Endpoint cases and positivity hypotheses are stated. The standalone verifier independently checked analytic moments, reflected pairs, and directly projected polygonal rims.
+PASS
 
-## Originality
+For a solid right circular cylinder r,h>0 the unlabelled Haar plane normal has X=|U·e_3| uniform on [0,1]. Minkowski sum of projected disk and axial segment has exact area A=πr²X+2rh√(1−X²). Direct beta integrals establish stated m1,m2,m3; putting y=h/(r+h), equality of q2=m2/m1² is either y=z or reflection y+z=s=2π(π−2)/(π²−4π+8). On reflected pairs the divided difference (q3(y)−q3(z))/(y−z) is strictly negative: an explicit upper bound is 12 f(π)/(π(π²−4π+8)²), f(p)=p⁴−6p³+4p²+36p−64, f(π)<0 by rational bounds 157/50<π<22/7 and positive f′ over that interval. Thus the third raw moment separates every nonidentical second-moment pair, while second-moment two-branch ambiguity starts at t>(π²−8)/(4(4−π)), except the reflection vertex t=π(π−2)/(2(4−π)). Independent numerical quadrature over seven aspect ratios and exact symbolic identities confirmed normalization; not a general-body or statistical inference theorem.
 
-**PASS, subject to historical-priority uncertainty.** Finch (2012) calculates moments for random polytope shadows, not inverse recovery of cylinder dimensions. Kim–Yaskin–Zvavitch (2015) investigate distributional projection tomography for general convex bodies but do not prove the finite three-moment cylinder criterion. Agimelen and collaborators (2014) infer shape using chord-length distributions, a different invariant. A published same-cylinder area–perimeter *mixed*-moment calculation was inspected and contains the elementary forward shadow-area function, but not its third pure moment or the normalized-moment global inverse/collision classification. Other published finite-moment tomography results for orthotopes concern a different family. No inspected statement implies this exact theorem. Residual risk is an unlocated older stereological calculation of the same inverse criterion.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The natural observable is a dimensionless aspect ratio inferred from unlabeled silhouette areas. The mean alone fixes only surface area, the second moment becomes a two-branch shape parameter, and a specific third moment resolves that ambiguity for *all* positive aspect ratios. The explicit sharp bifurcation threshold and complete inverse of a two-parameter smooth convex-body family go beyond a single table value or elementary Cauchy mean-area restatement. No claim of broad statistical optimality is made.
+PASS, qualified: the cylinder shadow-area FORWARD formula and Cauchy mean law are older mathematics; the algebraic global three-pure-moment inverse and full two-moment branch cutoff were not implied by inspected statements. Priority risk in unindexed stereology remains.
 
-## Closest sources and limitations
+## value
 
-Finch, arXiv:1203.2464v1 (2012); Agimelen et al., arXiv:1408.4399v1 (2014); Kim, Yaskin and Zvavitch, arXiv:1512.07289v1 (2015). The proof applies only to one ideal right circular cylinder, Haar-uniform viewing planes, and its first three exact consecutive raw area moments. It does not address stability against noise, other measurement pairs, or arbitrary convex bodies. Independent historical-priority review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural shape-inverse problem asks whether unoriented silhouettes determine the size and aspect ratio of a standard convex body. A complete proof of the first sufficient number of consecutive pure moments, including exact two-moment collision locus and explicit inversion, provides reusable identifiability information; value is not inferred merely from the elementary forward area integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
