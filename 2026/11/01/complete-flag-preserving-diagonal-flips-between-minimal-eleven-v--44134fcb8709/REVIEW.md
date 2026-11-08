@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local flag-preserving flip criterion is proved from the common-neighbor characterization of cliques. Direct exhaustive checks on both eleven-point graph6 complexes inspect all 60 candidate edges and return exactly five and four eligible flips. Each flipped graph has an explicit verified isomorphism to the other representative. All automorphisms are independently enumerated, giving orders ten and eight, and their actions on eligible edges have one orbit each. Eleven cyclic vertex links, exact f-vectors and no four-cliques confirm the stated finite topology models. Completeness of types depends on the cited 2026 graph census; this is identified as an external premise rather than re-certified.
+## correctness
 
-## Originality — PASS with bounded risk
-Bibby et al. (2019), Example 3.1/Table 1, previously gave the two eleven-vertex flag real-projective-plane triangulations and **one** bistellar flip. Van Tuyl (2026) previously classified the two connected eleven-vertex Cohen–Macaulay nonshellable complement graphs. Neither inspected source gives the full five/four local flag-preserving move census, the exclusion of other moves, or their full automorphism-orbit structure. published-finding corpus search found a superficially related exact Klein-bottle flip-graph result, covering a different surface. Detailed searches and comparisons are stored in `AUDIT.json`. The full 2026 PDF was not accessible, although its author-maintained data, descriptions, and abstract were read; exact unindexed prior flip enumerations remain a risk.
+PASS
 
-## Value — PASS
-This gives the entire local move geometry at the minimum possible vertex count for a flag real-projective-plane triangulation, not merely a previously known path between two examples. The five-versus-four labeled valence asymmetry and one-orbit structure distinguish the two symmetry types; the sharp common-neighbor exclusion criterion explains why the other 51 candidate flips fail. This is a motivated natural finite classification, with explicit reproducible witnesses, and does not assert results for larger triangulations or general surfaces.
+For both eleven-point graph6 complement encodings I decoded the exact flag one-skeleta and independently enumerated every one of the 30 edges, all triangular faces and every graph automorphism, rather than trusting VERIFY_OK. Each has f=(11,30,20), cyclic vertex links and no four-clique, so is a combinatorial closed surface; Euler characteristic 1 plus the cited RP2 characterization establishes the intended type. For an edge ab with opposite vertices c,d, deleting ab and adding cd preserves the flag 2-complex exactly when N(c)∩N(d)={a,b}: otherwise an extra triangle appears, while with precisely a,b the changed cliques are exactly the two replacement triangles and no four-clique exists. Independent graph enumeration gave exactly five legal labeled flips for graph6 JCpdUg{[ap_ and four for JCp`eikYa|?, with the stated removed/added edge lists. Each changed graph is isomorphic to the other and not itself; automorphism group orders are 10 and 8 and act transitively on the respective 5/4 edges. The global two-type assertion follows from Van Tuyl Theorem 1.1 for connected complement graphs, together with the elementary no-nontrivial-join fact for closed RP2 triangulations (a join triangulated closed surface is a sphere); it does not assert a fresh independent 1,006,700,565-graph census.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-versus-prior comparison found no work proving the complete final claim; specifically distinguishes stronger source statements, aliases, exact tables and non-implications. No failed search is regarded as proof of priority.
+
+## value
+
+PASS
+
+The exact move graph on the minimum possible flag triangulations of a canonical nonsimply connected surface is a natural complete finite classification. The asymmetric five-versus-four labeled incidence, symmetry transitivity and exclusion of every other edge are not an arbitrary tiny numerical slice; they refine a known one-flip example and are usable as a benchmark for flag bistellar algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
