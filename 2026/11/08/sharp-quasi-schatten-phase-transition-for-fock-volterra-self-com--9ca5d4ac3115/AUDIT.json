@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Direct monomial integration yields alpha_n=2a sqrt((n+1)/(n+2)) and beta_n=b/sqrt(n+1). Subtracting V*V and VV* yields d_0=2|a|^2+|b|^2, d_n=8|a|^2/[n(n+2)]-|b|^2/[n(n+1)] for n>=1, t_0=a conj(b), t_n=-2a conj(b)/[(n+2)sqrt(n+1)] for n>=1. Sum of |d_n| and |t_n| is finite; exact partial trace telescoping gives 8|a|^2. Three-band singular-value inequality gives upper O(n^-3/2) (O(n^-2) for ab=0); sparse compression onto 3k,3k+1 supplies lower Ω(n^-3/2) when ab≠0, while pure cases are diagonal with nonzero n^-2 tails. Disjoint 4k,4k+1 pair quadratic forms prove infinite signed inertia in the mixed case. The independently constructed finite matrix checker passed 21010 assertions; finite tests do not establish the infinite conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The focal paper proves only C_g compact, which is weaker than any quantified S_p threshold or singular-value decay.",
+        "Other found records on Cesàro self-commutators and polydisc quotient-module self-commutators cover different operators and weighted bases."
+      ],
+      "reasoning": "A general theorem giving Schatten bounds for all mixed one-step/two-step weighted-shift self-commutators could dominate this result, but no such directly applicable theorem was identified in the inspected records; this is a residual literature risk, not a novelty proof from failed search.",
+      "searches": [
+        "mixed one and two step weighted shifts n^-1/2 Schatten class self commutator compact perturbation threshold",
+        "self adjoint tridiagonal operator diagonal 1/n² off diagonal 1/n^(3/2) Schatten phase threshold 2/3 spectral positive negative infinitely many",
+        "self-commutator sum of weighted shifts Schatten p membership two step one step",
+        "Fock Volterra type V_g selfcommutator singular value asymptotics trace class",
+        "normality Volterra type Fock self commutator trace Schatten p negative eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s43036-026-00541-6 (open full text, October 21, 2026)",
+      "https://arxiv.org/abs/1702.08157 (full HTML, original 2017)",
+      "https://doi.org/10.4153/S0008439526102616 (publisher abstract, October 23, 2026)",
+      "Related published mathematical records: classical Cesàro self-commutator sharp S_p threshold; polydisc quotient self-commutator Schatten endpoint (distinct operator families)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.1007/s43036-026-00541-6, Proposition 2.6 establishes essential normality and supplies alpha_n and beta_n; it neither states nor proves the sharp order of off-diagonal cancellation or compressed singular-value lower bounds.",
+        "arXiv:1702.08157, Theorem 1.1(iii): S_p(V_g) criteria, not S_p([V_g^*,V_g]).",
+        "DOI 10.4153/S0008439526102616 abstract: Berezin range, norms and numerical radius, not Schatten self-commutator."
+      ],
+      "reasoning": "The prior compactness statement is strictly weaker than quantified two-sided decay. The present proof needs the additional off-diagonal cancellation, sharp compression lower bound, trace telescoping, and the infinite signed-inertia argument. Existing S_p(V_g) statements do not logically classify S_p of the self-commutator because commutator regularity may be higher than regularity of its factors.",
+      "searches": [
+        "Volterra type integral operator Fock space self-commutator Schatten S_p ideals 2/3 threshold mixed quadratic linear symbol az^2+bz",
+        "Tesfa Mengestie normality properties Volterra Fock self commutator trace class singular values 2026",
+        "Sharp quasi-Schatten phase transition for Fock Volterra self-commutators trace 8|a| squared; mixed coefficients singular values n^(-3/2) versus pure n^(-2)",
+        "Fock Volterra operator self-commutator Schatten p trace class quadratic linear symbol g(z)=az2+bz",
+        "Schatten class self commutator Volterra operators Fock spaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mengestie, Normality properties (DOI 10.1007/s43036-026-00541-6), §2.3, gives compactness and the coefficients but not an ideal membership or singular value rate.",
+        "Mengestie, Spectral properties (arXiv:1702.08157), Theorem 1.1(iii) addresses ℓ^p singular values of V_g rather than [V_g^*,V_g]."
+      ],
+      "reasoning": "Checked both self-commutator and equivalent weighted-shift/normality formulations. No inspected source identifies a 1/2-versus-2/3 quasi-Schatten boundary for this commutator. A result on the integration operator V_g cannot imply its commutator threshold by merely changing notation.",
+      "searches": [
+        "Volterra type integral operator Fock space self-commutator Schatten S_p ideals 2/3 threshold mixed quadratic linear symbol az^2+bz",
+        "Fock Volterra self commutator Schatten classes p>two thirds p>one half essential normality trace 8|a|^2",
+        "Sharp quasi-Schatten phase transition for Fock Volterra self-commutators trace 8|a| squared; mixed coefficients singular values n^(-3/2) versus pure n^(-2)",
+        "Volterra-type integral operator V_g on Gaussian Fock space self commutator exact trace weak Schatten 2/3 singular values",
+        "Fock Volterra operator self-commutator Schatten p trace class quadratic linear symbol g(z)=az2+bz",
+        "Schatten class self commutator Volterra operators Fock spaces"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source article normality summary table (2026, §2.4) lists normal/hyponormal/binormal/essentially normal properties, but no Schatten p threshold or trace.",
+        "Closest returned mathematical record concerns the classical Cesàro self-commutator with 1/3 threshold, not Fock Volterra self-commutators."
+      ],
+      "reasoning": "No exact entry matching the Fock Volterra tridiagonal commutator or its 2/3 ideal cutoff was located. The source normality table classifies logical normality predicates, not singular-value asymptotics.",
+      "searches": [
+        "Fock Volterra self commutator Schatten classes p>two thirds p>one half essential normality trace 8|a|^2",
+        "Tesfa Mengestie normality properties Volterra Fock self commutator trace class singular values 2026",
+        "Volterra-type integral operator V_g on Gaussian Fock space self commutator exact trace weak Schatten 2/3 singular values",
+        "Normality properties of Volterra-type integral operators on the Fock space Mengestie Schatten self commutator"
+      ]
+    },
+    "rationale": "Best-knowledge original quantitative refinement of the 2026 essential-normality result: that primary article proves compactness of the self-commutator and supplies the two shift coefficients, but does not identify its full Schatten/weak-Schatten regularity, trace, singular-value orders, or mixed-sign inertia. The 2017 Fock--Sobolev Schatten theorem is about V_g itself, not its commutator. The Berezin/numerical-range 2026 article concerns different invariants; the inspected abstract does not imply the current theorem. Targeted published mathematical-record and literature searches showed no dominating statement; original priority is not independently certified.",
+    "residual_risks": [
+      "An unlocated general theorem on finite-band weighted-shift commutators might imply the same exponents without using this operator name; no priority certification is claimed.",
+      "The full manuscript of the contemporary Berezin-range paper was not read; its available abstract does not suggest direct coverage of Schatten self-commutators.",
+      "No independent mathematical audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports exact two-step and one-step monomial weights and known compactness. Does not state trace, Schatten quasi-ideals, weak boundary, sharp mixed decay or mixed infinite inertia.",
+        "evidence": "Published online October 21, 2026; §2.3 explicitly states and proves compactness of [V_g^*,V_g].",
+        "identifier_or_url": "https://doi.org/10.1007/s43036-026-00541-6",
+        "material_read": "Full open-access publisher HTML: definitions, Theorems 2.1, 2.2, 2.4, formulas (2.1)--(2.3), §2.3 Proposition 2.6 and proof, normality summary and references.",
+        "method": "Publisher open-access HTML, mathematical statement and coefficient-by-coefficient inspection.",
+        "title": "Normality properties of Volterra-type integral operators on the Fock space",
+        "trigger": "Same bounded Fock Volterra operators and self-commutator, primary motivating 2026 work."
+      },
+      {
+        "assessment": "Establishes S_p(V_g) for compact V_g, different invariant and cutoff; no self-commutator theorem.",
+        "evidence": "Theorem 1.1(iii) explicitly concerns Schatten membership of V_g, not [V_g^*,V_g].",
+        "identifier_or_url": "https://arxiv.org/abs/1702.08157",
+        "material_read": "Full arXiv HTML: introduction, Theorem 1.1(iii), and §3 Schatten-membership proof.",
+        "method": "Open-access arXiv HTML, checked operator in each theorem and its implications.",
+        "title": "Spectral properties of Volterra-type integral operators on Fock--Sobolev spaces",
+        "trigger": "Plausible earlier Schatten ideal classification under same Volterra and Fock terminology."
+      },
+      {
+        "assessment": "Abstract treats Berezin range, various norms, and numerical radius; no claimed self-commutator Schatten results in material read. Full text remains a priority risk.",
+        "evidence": "Published online October 23, 2026; abstract enumerates Berezin/numerical range and norm results.",
+        "identifier_or_url": "https://doi.org/10.4153/S0008439526102616",
+        "material_read": "Publisher abstract, classification metadata, and references only; full manuscript not inspected.",
+        "method": "Cambridge publisher abstract and bibliographic page.",
+        "title": "Berezin range and norm of Volterra-type integral operators on the Fock space",
+        "trigger": "Nearly simultaneous 2026 paper on identical operator family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ca5d4ac-3115-443c-83b5-309bf2e36a26",
+  "value": {
+    "rationale": "Completes the quantitative operator-ideal refinement of the focal 2026 essential-normality result throughout the entire bounded-symbol class: the mere presence of a nonzero linear coefficient changes the sharp singular-value order and critical quasi-Schatten exponent from 2 to 3/2 (p from 1/2 to 2/3), while the trace depends only on the quadratic coefficient. The infinite two-sided signed inertia in the mixed regime is an additional spectral distinction. These natural and exact invariants measure how far essentially normal Volterra operators are from actual normality beyond a qualitative compactness statement.",
+    "status": "PASS"
+  }
+}
