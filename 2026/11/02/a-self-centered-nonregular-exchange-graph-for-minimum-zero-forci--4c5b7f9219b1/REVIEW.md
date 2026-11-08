@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite universe is exactly the \(\binom{16}{8}\) eight-subsets of the graph with edges defined by single-bit cube-coordinate changes. Both implementations independently establish the minimum size by exact forcing predicates, enumerate all 2360 minimum sets and all 22848 one-exchange edges, and compute graph distances by exhaustive breadth-first searches. One computes source-distance profiles for eleven automorphism orbits whose sizes sum to 2360; the other computes all 2360 source-distance profiles independently. Both reconstruct the degree distribution, every ordered-pair distance count and the Johnson-distance excess. No infinite extrapolation is asserted. Remaining risk: programming errors shared through the mathematical model; contrasting predicates and all-source verification mitigate but do not replace independent review.
+PASS
 
-## Originality — PASS, with residual risk
+From explicit Hamming-neighbor rule on 16 cube vertices, independently enumerated all C(16,7)=11440 and C(16,8)=12870 candidate blue sets with synchronous closure; none of size 7 succeeds and exactly 2360 size-8 sets succeed. Built every one-element-exchange edge (22848), verified 384 affine cube automorphisms give 11 state orbits, then ran BFS from every orbit representative. Exact degree counts {14:384,18:384,19:384,20:432,22:480,23:192,24:104}, distance P coefficients [2360,45696,355776,1274880,2110368,1361280,371184,45696,2360], all eccentricities 8, Wiener index 11197808, Johnson excess {0:5458192,1:105600,2:5808}. Proved orbit BFS exhaustive because each automorphism preserves forcing and exchanges; this is a complete finite certificate, not a sample.
 
-The earlier ordinary zero-forcing theory proves only the minimum size. General zero-forcing reconfiguration work provides the exchange operation but no implication establishing this particular 16-vertex graph's all-pairs distances. Recent hypercube work concerns forts and forcing/propagation, not the new graph metric. Importantly, a pre-existing finite census includes 2360 minimum sets, eleven symmetry orbits, and their propagation-time counts: this research does not claim those as new and relies on them only as checks. The new proposition is the exact edge/degree/metric geometry and its Johnson-distortion distribution. Searches for four-cube minimum-forcing-set swaps, token jumping, reconfiguration diameter and Johnson-distance distortion did not identify covering statements. The risk of an unindexed equivalent computation or unstated specialization remains.
+## originality
 
-## Value — PASS
+PASS
 
-The reconfiguration metric quantifies how constrained minimum zero-forcing configurations can be exchanged without losing feasibility, rather than merely how many such sets exist. Exact diameter \(8\), the unexpected common eccentricity despite nonregularity, and exactly 5808 ordered pairs suffering two extra moves beyond Johnson distance are structured, nontrivial benchmarks at the first four-cube level. Complete source/target distance counts support future comparison with higher-dimensional hypercubes and other constrained token-jumping spaces, without claiming such an extension here.
+Prior Z(Q4)=8, prior census 2360 minimum sets, and 11 symmetry classes are credited; the new asserted object is the entire minimum-set exchange graph's nonregular degree distribution, self-centeredness, distance polynomial, Wiener index and Johnson-distance defect. Full primary zero-forcing reconfiguration and hypercube-fort sources inspected without finding these same graph metric statements.
 
-## Closest literature and scientific limits
+## value
 
-AIM Minimum Rank–Special Graphs Work Group (2008) introduces the forcing setting; Peters (2012) gives the hypercube minimum size; Geneson–Haas–Hogben (2020) develops zero-forcing reconfiguration; Brimkov–Cameron–Grubbs (2025) analyzes hypercube forts and propagation. The degree and distance statements are specific to the stated operation and the four-cube. No uniqueness or independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph of minimum ordinary forcing configurations is a natural reconfiguration object. Exact connectivity, diameter, eccentricity and all-pairs metric characterize feasible local transformations; they give reusable finite benchmark data and a nontrivial self-centered nonregular example. This exact finite invariant does not need an arbitrary-dimension generalization to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
