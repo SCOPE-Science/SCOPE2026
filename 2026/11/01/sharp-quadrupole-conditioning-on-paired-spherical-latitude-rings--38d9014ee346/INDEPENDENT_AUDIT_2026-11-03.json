@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:40:56.263030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At exactly harmonic degree 2, normalized spherical harmonics with azimuthal orders -2..2 give five columns. Each of the two m-point rings annihilates every nonzero order difference of absolute value <=4 when m>=5. Thus Gram is diagonal irrespective of second-ring azimuthal phase, with (5m/8pi) times A=(3u-1)^2 once, B=6u(1-u) twice, C=3(1-u)^2/2 twice. On 0<u<1 only u=1/3 is singular. Comparing C/B below the smaller A=B crossing, C/A up to 1/3, B/A to 2/5 and B/C thereafter gives unique u=(6-sqrt(21))/15 and squared condition (5+sqrt(21))/4. An independently constructed raw complex spherical-harmonic 14x5 evaluation Gram at m=7 and nonzero twist matched the full diagonal to 2.3e-16; checked optimizer and rank boundary algebra. These finite tests corroborate exact orthogonality and rational inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior models address L different rings and bandlimited SHT, broader signal classes but distinct objective.",
+          "Present optimization is over mirror height and phase for fixed 5-dimensional harmonic subspace."
+        ],
+        "reasoning": "Broader bandlimited transform algorithms do not establish constrained two-ring global exact condition optimum without additional proof.",
+        "searches": [
+          "Khalid Kennedy latitude placement 2014",
+          "Optimal-Dimensionality Sampling on the Sphere Improvements Variations arXiv:1709.02497"
+        ]
+      },
+      "checked_sources": [
+        "Z. Khalid, R. Kennedy, J. McEwen, An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms, arXiv:1403.4661v2, full HTML §III and IV, https://arxiv.org/html/1403.4661v2.",
+        "Z. Khalid and R. Kennedy, On the Placement of Latitudes in Iso-Latitude Optimal-Dimensionality Sampling Schemes on the Sphere (2014 conference paper), https://www.zubairkhalid.org/papers/C17.pdf (listed and scope checked, not full read)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier §III-E treats numeric condition matrices P_m for L-dependent ring sizes.",
+          "This proof isolates five orthogonal azimuthal columns and analyzes A,B,C analytically."
+        ],
+        "reasoning": "The independent radical minimizer and phase rigidity cannot be read as an immediate corollary of the prior full-band optimizations in material inspected.",
+        "searches": [
+          "Khalid Kennedy McEwen ring condition number Section III-E",
+          "spherical harmonic evaluation paired antiprism optimal height"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sampled l=2 spectrum is (5m/8pi){A[1],B[2],C[2]}, independent of ring twist.",
+          "Khalid et al. optimize invertibility of full bandlimited transform systems P_m and use unequal ring sizes."
+        ],
+        "reasoning": "The exact five-column restricted frame formula is not a direct special case of the earlier numerical optimized P_m design; ring counts and operator differ.",
+        "searches": [
+          "spherical degree two harmonics sampled two circular mirror latitude rings optimal condition number height and twist",
+          "spherical harmonic l=2 paired latitudes antiprism evaluation Gram eigenvalues",
+          "arXiv:1403.4661v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No specific exact two-ring l=2 radical table located; published first-degree sphere designs have different spectra."
+        ],
+        "reasoning": "Exact database/table matching not found, but absence is not a novelty proof.",
+        "searches": [
+          "antiprism spherical harmonics quadrupole condition number sqrt21 15",
+          "Resultary semantic search: spherical degree two harmonics sampled two circular mirror latitude rings optimal condition number height and twist"
+        ]
+      },
+      "rationale": "Earlier latitude-ring designs optimize full bandlimited transform matrices and commonly unequal ring populations, while this theorem completely solves the five-dimensional exact-degree-2 equal paired-ring model. The inspected Khalid–Kennedy–McEwen HTML text proposes a numerical ordering procedure rather than the stated radical closed form. Best-of-knowledge novelty qualified by specialist array/acoustic frame literature risk.",
+      "residual_risks": [
+        "Specialized antenna/acoustics paired-ring analytic Gram spectra may preexist without the same terminology.",
+        "Only uniform unweighted exact degree 2 and m>=5 equally populated mirror-symmetric rings; no global optimum over all sampling sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerically chosen ring latitudes for entire bandlimited transform, not two m-point mirrored rings restricted to l=2 with exact three-level Gram spectrum or radical unique optimum.",
+          "evidence": "Section III-E, Eq. (19) and sample placement algorithm, and Section III-F.",
+          "identifier_or_url": "https://arxiv.org/html/1403.4661v2",
+          "material_read": "Read accessible full arXiv HTML and inspected §III-E (ring sizes 2k+1 and numerical condition-number order minimization), §III-F, §IV and conclusion.",
+          "method": "primary full-text HTML",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Latitude location conditioning is exactly same design motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact spectral condition number and its unique optimal height are directly motivated by noise amplification in quadrupole recovery; twist-independence and singular latitude are useful stable sensor-design facts. The result is a natural complete constrained frame design, not a claim of unrestricted optimal sampling on the sphere.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized antenna/acoustics paired-ring analytic Gram spectra may preexist without the same terminology.",
+    "Only uniform unweighted exact degree 2 and m>=5 equally populated mirror-symmetric rings; no global optimum over all sampling sets."
+  ],
+  "schema_version": 1
+}

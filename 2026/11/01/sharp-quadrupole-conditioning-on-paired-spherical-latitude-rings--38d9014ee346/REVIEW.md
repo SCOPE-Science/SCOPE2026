@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized five-function basis is explicit. Separately summing fifth-order-and-lower azimuthal differences around each ring makes the off-diagonal Gram entries zero for all integers \(m\ge5\). The three polynomial squared norms give the spectrum and the only interior singular latitude. An exact four-region comparison of pairwise eigenvalue ratios gives the unique global squared-condition-number minimum. Reproducible finite tests independently compare the full matrices; they are not used as a substitute for the proof.
+## correctness
 
-## Originality
-PASS under bounded searches. The closest fully inspected work on stable spherical harmonic sampling by Khalid, Kennedy, and McEwen studies full band-limited transforms and unequal ring populations; the later latitude-placement work optimizes ring locations numerically for that framework. Neither inspected paper proves the present mirror-paired, equal-population, exact-degree-two spectral and optimization statement. Published mathematical record comparisons involving spherical harmonic extremal \(L^4\) norms and hemisphere concentration concern different operators and do not imply the sharp frame bound. Earlier specialized spherical microphone-array designs may contain equivalent cases; an independent literature audit remains necessary.
+PASS
 
-## Value
-PASS. Estimating quadrupolar modes from two cyclic sensor rings is a natural, fully specified five-dimensional spherical sampling problem. The result computes the complete singular spectrum and exact unique best latitude, independent of sensor count and angular twist, rather than merely reporting invertibility or a numerical placement. It also isolates a forbidden singular latitude and distinguishes the quadrupole optimum from the degree-one isotropic height. The result has a concrete stable-design interpretation even without any general higher-degree theorem.
+At exactly harmonic degree 2, normalized spherical harmonics with azimuthal orders -2..2 give five columns. Each of the two m-point rings annihilates every nonzero order difference of absolute value <=4 when m>=5. Thus Gram is diagonal irrespective of second-ring azimuthal phase, with (5m/8pi) times A=(3u-1)^2 once, B=6u(1-u) twice, C=3(1-u)^2/2 twice. On 0<u<1 only u=1/3 is singular. Comparing C/B below the smaller A=B crossing, C/A up to 1/3, B/A to 2/5 and B/C thereafter gives unique u=(6-sqrt(21))/15 and squared condition (5+sqrt(21))/4. An independently constructed raw complex spherical-harmonic 14x5 evaluation Gram at m=7 and nonzero twist matched the full diagonal to 2.3e-16; checked optimizer and rank boundary algebra. These finite tests corroborate exact orthogonality and rational inequalities.
 
-## Limitations and closest literature
-This is an exact-degree-two problem, not a transform for all harmonics up to degree two or a global optimization over unrestricted spatial designs. The archived source motivates iso-latitude numerical conditioning, not this analytic extremal. Literature coverage is bounded. The only independent validation status is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier latitude-ring designs optimize full bandlimited transform matrices and commonly unequal ring populations, while this theorem completely solves the five-dimensional exact-degree-2 equal paired-ring model. The inspected Khalid–Kennedy–McEwen HTML text proposes a numerical ordering procedure rather than the stated radical closed form. Best-of-knowledge novelty qualified by specialist array/acoustic frame literature risk.
+
+## value
+
+PASS
+
+The exact spectral condition number and its unique optimal height are directly motivated by noise amplification in quadrupole recovery; twist-independence and singular latitude are useful stable sensor-design facts. The result is a natural complete constrained frame design, not a claim of unrestricted optimal sampling on the sphere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
