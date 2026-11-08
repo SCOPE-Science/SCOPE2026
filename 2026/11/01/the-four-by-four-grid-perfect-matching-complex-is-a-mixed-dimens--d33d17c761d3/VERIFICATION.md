@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The included `check_4x4_perfect_matching.py` is a complete standard-library checker for the specific finite graph, with no external files or network access required.
+# Independent mathematical audit
 
-It recursively enumerates all 36 perfect matchings and the complete 5,407-face augmented simplicial poset. It checks the 2,702 disjoint toggle pairs, exhaustively verifies acyclicity by topological sorting 24,812 directed Hasse incidences, and identifies precisely two two-dimensional and one three-dimensional critical faces. An independent simplicial reduction checks 2,628 elementary free-face collapses to 14 vertices, 49 edges, 62 triangles and 25 tetrahedra. Exact signed integer boundaries verify a nonzero 25-term top cycle, and exact binary elimination computes boundary ranks 13, 36 and 24. Those calculations certify the vanishing of the sole integral three-cell Morse attaching column through rational homology, completing the wedge proof.
+## correctness
 
-The coefficient vector refers to tetrahedra of the deterministically reduced complex sorted by integer face bitmask, not to the original 36 maximal simplices. The script asserts all claimed values and prints `MORSE_AND_EXACT_TOP_CYCLE_GRID_4X4_OK` only upon complete success. Finite verification proves this exact finite case only; it does not establish the conjectured wedge property for arbitrary grids. Independent audit has not been performed.
+PASS
+
+Full generation of the 36 perfect matchings and 5407 faces; independent toggle matching 2702 pairs and 24812 directed Hasse incidences acyclic. Independent collapse of 2628 free pairs gave core face-vector (14,49,62,25), mod-2 boundary3 rank 24 and exact integral nonzero top cycle, forcing the three-cell Morse attaching column to vanish over Z. Hurewicz π2(S²∨S²)=Z² implies the wedge, not merely mod-2 homology.
+
+## originality
+
+PASS
+
+Independent, best-of-knowledge search and mathematical comparison support a distinct exact claim. Chandrakar–Singh arXiv:2407.05809 concerns 2×n rectangular grids and presents a wider-grid wedge conjecture; the fixed square 4×4 case supplies motivated evidence, with both homological dimensions nonzero. The published ordinary matching-complex result for the same grid has all matchings (not just extendable ones), 10012 faces and a different wedge in dimensions 4 and 5.
+
+## value
+
+PASS
+
+A natural earliest fully square test of a published perfect-matching-complex conjecture, exhibiting both H2 and H3 despite pure seven-dimensional triangulation. The exact object and mixed homotopy type are mathematically informative independent of later generalizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
