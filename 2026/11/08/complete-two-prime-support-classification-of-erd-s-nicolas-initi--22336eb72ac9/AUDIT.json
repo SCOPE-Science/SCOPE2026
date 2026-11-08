@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact layer sums and strict inequalities prove the p>=5 cases, and verified exact sums at consecutive proper divisors prove all p=3 exclusions. The case n=24 and even perfect equality are direct. A standalone exact-integer program covers 8,000 finite cases, but universal proof is analytic and unconditional.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The prior full RESULT.md Theorem 4 restricts any b>=3 example to p dividing 2^(a+1)-1, b odd, and b<=a+v_p(2^(a+1)-1)-1, but explicitly leaves those candidates unresolved.",
+        "The 1975 original paper, p. 89, exhibits the initial-divisor equality and seven small examples, not a classification of this family."
+      ],
+      "reasoning": "If the prior finite-reduction theorem implied nonexistence of all b>=3, its own stated unresolved case would be empty; no such implication is supplied. The new consecutive-divisor and largest-proper-divisor arguments handle all a,p,b and go beyond its constraints.",
+      "searches": [
+        "partial sums of ordered positive divisors of numbers with two distinct prime factors, Erdös Nicolas almost perfect",
+        "Erdos Nicolas numbers unique first 24 prime support classification",
+        "\"Erdős–Nicolas\" \"exactly two prime factors\" 24",
+        "\"Erdos Nicolas numbers\" \"two distinct primes\" 24"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A194472",
+      "https://oeis.org/A064510 (cross-reference only)",
+      "https://www.renyi.hu/~p_erdos/1975-37.pdf (introduction and p. 89)",
+      "https://oeis.org/A064510 (complete entry read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Theorem 1 classifies b=1; Theorem 2 excludes b=2; Theorem 3 excludes p>2^a; Theorem 4 gives b>=3 necessary conditions only.",
+        "The present theorem excludes b>=3 for p>=5 by bounding all prefixes before n/2 and a final integrality obstruction; it excludes p=3 by explicit consecutive-divisor straddles."
+      ],
+      "reasoning": "New claim strictly implies all those earlier exclusion statements and closes the acknowledged gap. The prior statements do not imply the new exclusion of p<=2^a, b>=3, including possible p|2^(a+1)-1 cases.",
+      "searches": [
+        "2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2",
+        "Erdős–Nicolas numbers of the form 2^a p^b with odd prime p>=5 and exponent b>=3, no initial divisor sum equals the number",
+        "Erdős and Nicolas 1975 p.89 initial divisor sum",
+        "Every Erdős–Nicolas number of form 2^a p^b with odd prime p is 24; complete classification of initial divisor sum numbers two prime support including even perfect numbers",
+        "no Erdős Nicolas numbers 2^a p^b with b>=2; consecutive divisors n/6 n/4 straddle prefix sum when p=3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A064510 permits perfect numbers and records initial-divisor sums; OEIS A194472 excludes perfect numbers. The new theorem addresses both formulations explicitly.",
+        "The inspected prior research classifies b=1 and b=2 but states that b>=3 remains unresolved.",
+        "OEIS A064510 (original entry October 6, 2001) explicitly identifies the union of perfect and Erdős–Nicolas numbers without restricting prime support."
+      ],
+      "reasoning": "The nonperfect wording is equivalent to removing the even perfect cases from the exact initial-divisor-sum classification; synonym and parity conversions do not produce an earlier all-exponent theorem. The claim is an all-exponent exclusion beyond previously proved b<=2.",
+      "searches": [
+        "Erdős–Nicolas numbers of the form 2^a p^b with odd prime p>=5 and exponent b>=3, no initial divisor sum equals the number",
+        "for n=2^a p^b, first crossing of n by sum of divisors in ascending order; exclusion p≥5 b≥2",
+        "OEIS A064510: initial-divisor-sum numbers",
+        "OEIS A194472: Erdős–Nicolas numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A194472 starts 24,2016,8190,... and displays finite examples and computations, without an infinite all-exponent theorem.",
+        "The earlier record reports a finite exclusion only for 4<=a<=30 in its unresolved b>=3 regime."
+      ],
+      "reasoning": "A finite list lacking further two-prime examples and a computational cutoff do not imply the theorem. This proof separates all exponents without a cutoff.",
+      "searches": [
+        "OEIS A194472",
+        "OEIS A064510",
+        "Erdos Nicolas numbers unique first 24 prime support classification"
+      ]
+    },
+    "rationale": "Original 1975 source and OEIS establish the problem and examples, not this family classification. The most directly relevant prior published RESULT.md was read in full: it establishes b=1, excludes b=2, and explicitly leaves a constrained set at b>=3 unresolved. New proof excludes entire b>=3 family. Prior and published searches did not locate a dominating theorem; unindexed historical priority remains possible.",
+    "residual_risks": [
+      "Historical work that is not discoverable from indexed titles or searched equivalences may contain the same all-exponent classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; explicitly leaves b>=3 candidate regime unresolved.",
+        "evidence": "Theorem 4 only supplies a>=4, p|2^(a+1)-1, p<=2^a, odd b, b<=a+v-1, followed by a limited computational search a<=30.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/21/SCOPE-erdos-nicolas-two-prime-power-reduction--fab5fef920f2/RESULT.md",
+        "material_read": "Full RESULT.md, including four theorems, proofs, limitations and references.",
+        "method": "GitHub repository file read, not just semantic-result snippet.",
+        "title": "Prime-power odd parts in initial-divisor sums",
+        "trigger": "Same objects and exactly matching parameter family, strongest relevant prior published-finding corpus hit"
+      },
+      {
+        "assessment": "NOT_COVERING; source introduces equality and lists early nonperfect examples, no all-exponent 2^a p^b classification on inspected relevant passages.",
+        "evidence": "Page 89 introduces equality to n from initial divisors, separates perfect numbers and lists 24,2016,8190,... below one million.",
+        "identifier_or_url": "https://www.renyi.hu/~p_erdos/1975-37.pdf",
+        "material_read": "Article introduction and final motivating section, especially page 89, inspected as PDF text and page image.",
+        "method": "Open-access primary PDF page read and rendered screenshot.",
+        "title": "Répartition des nombres superabondants",
+        "trigger": "Original source of Erdős–Nicolas initial-divisor-sum problem"
+      },
+      {
+        "assessment": "NOT_COVERING; finite known terms and open parity question, no such prime-support classification.",
+        "evidence": "Comments lines 27–42; example lines 55–59; initial author date August 24, 2011, lines 90–92.",
+        "identifier_or_url": "https://oeis.org/A194472",
+        "material_read": "Complete visible OEIS sequence entry including comments, examples, references, programs, and initial author date.",
+        "method": "Full HTML entry read.",
+        "title": "OEIS A194472: Erdős–Nicolas numbers",
+        "trigger": "Primary archival sequence and names/equivalent definitions"
+      },
+      {
+        "assessment": "NOT_COVERING; records examples and code but not all-exponent two-prime-support theorem.",
+        "evidence": "The entry is dated October 6, 2001; lists perfect numbers and 24, and states A064510 is the union of A000396 (perfect) and A194472 (nonperfect).",
+        "identifier_or_url": "https://oeis.org/A064510",
+        "material_read": "Complete OEIS sequence entry, including definition, comments, computation snippets and original author date.",
+        "method": "Full HTML entry read.",
+        "title": "OEIS A064510: initial-divisor-sum numbers",
+        "trigger": "Broader definition including even perfect instances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22336eb7-2ac9-4eb7-b34b-e007ace13d15",
+  "value": {
+    "rationale": "A complete natural two-prime-support classification resolves a specifically identified open b>=3 case, isolates the sole nonperfect instance 24 and separates all even perfect instances. This is an infinite structural exclusion, not a bounded computation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
