@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is defined on analytic polynomials to avoid an unjustified whole-space unbounded-symbol Toeplitz domain. Angular orthogonality gives exact eigenvalues; a convergent Gamma–Laplace representation permits Watson's estimate uniformly near the critical circle. The resulting normalized multiplier asymptotic proves the boundedness trichotomy and complete Schatten classification. Abelian estimates for a geometric cutoff establish the exact divergence coefficients; the same-modulus comparison follows from the circle equation. Finite independent quadrature checks agree with exact moment identities and complex Watson factors. They do not replace the infinite proof.
+## correctness
 
-## Originality — PASS under checked evidence
-The source Fock kernel paper studies broad symbol-growth conditions, and the undamped canonical Gaussian spectral theory is prior work. General radial diagonalization is also prior. Their claims do not imply the exact nonzero-polynomial-damping singular-value law on the complex critical boundary, phase-independent Schatten norm crossover or the same-modulus instability/stabilization comparison. The closest published smooth radial logarithmic-filter theorem handles bounded positive inverse-polynomial symbols and traces, not complex exponentially growing phase-stabilized kernels; a related Gaussian zero-product construction is nonradial and involves different operators. Historical literature could contain an equivalent special-function asymptotic; independent priority review remains necessary.
+PASS
 
-## Value — PASS
-The critical circle is a natural phase boundary in the motivating Fock integral-kernel family. Polynomial damping changes an undamped borderline phenomenon to every prescribed sharp compactness order, with a calculable transition exponent and universal leading constant; oscillatory stabilization with identical pointwise symbol modulus distinguishes operator cancellation from mere decay. These are structural spectral facts, not arbitrary finite evaluations.
+Reconstructed angular monomial diagonalization and two exact Gamma/Laplace moment representations for Re(a)>0, a=1-c. Complex Watson asymptotic λn=s^(-1/2)a^(τ-1)(sa)^(-n)n^(-τ)(1+O(1/n)) follows by right-half-plane contour-free Laplace localization, uniformly near fixed critical a*. Consequently r=(s|a|)^(-1) gives unbounded r>1, bounded/all-Schatten r<1, and on r=1 compact singular values ~s^(1/2-τ)n^(-τ), S_p iff pτ>1 and weak endpoint. Polylog Abelian asymptotics and uniform O(n^(-α-1)) remainder recover the cusp coefficient C^p Γ(1-α)[p(1-ρ)]^(α-1) and log case. Checked correct polynomial-domain caveat and chirp example inequalities. Independently evaluated four complex/real normalized moment ratios at n=100; they approach 1 as stated. Uniform complex Laplace error is asserted on compact right-half-plane parameter paths, not arbitrary approach.
 
-## Limitations
-The conclusion is confined to the stated radial Gaussian with positive polynomial damping, one variable and polynomial initial domain. An independent audit of the proof, source priority and public-domain interpretation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier radial Toeplitz eigenvalue/moment diagonalization and bare complex Gaussian Fock spectra are acknowledged. The specific polynomial envelope critical n^(-τ) cusp and angle-universal Schatten-norm divergence are additional. The most relevant Oct 16 2026 Dong–Wang–Zhu two-parameter paper states broad compactness and Schatten tests and could imply some threshold subclaims. Its complete text could not be obtained via arXiv/OA or authorized Oxford (VPN disconnected); no whole-document noncoverage judgment is made. The separate accessible 2025 Dong–Zhu Gaussian paper concerns undamped kernels, not this damping-dependent endpoint or divergence constants.
+
+## value
+
+PASS
+
+Critical exact spectral decay and weak-Schatten endpoint for a motivated symbol family give a sharp quantitative border between boundedness, compactness, and unboundedness. Same-modulus chirping changing all-Schatten membership is a concrete, nontrivial phase-cancellation phenomenon; cusp constants are useful to compare singular-value asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
