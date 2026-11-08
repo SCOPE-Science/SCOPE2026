@@ -1,15 +1,21 @@
-# Scientific review: nonreversible Crank–Nicolson positivity
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the post-departure return-time convention and reconstructs the occupation transform from independent holding/excursion renewal cycles. For every finite irreducible chain the return time is positive with finite expectation. The identity \((R_s)_{ii}=[1+a_i\mathbb E\{s(1-e^{-T_i/s})\}]^{-1}\) follows from the exact Laplace transform. Monotonicity of the integral \(\int_0^{T_i}e^{-u/s}\,du\) is strict at every positive step parameter, and the limiting occupation ratio equals \(\pi_i\). The \(M\)-matrix property and \(C_h=2R_{h/2}-I\) turn these identities into a sharp necessary-and-sufficient positivity interval with no reversibility assumption. The directed-cycle polynomial follows from the finite cyclic geometric series. The exact-rational verifier independently reconstructs 222 identity/monotonicity checks and thirteen cycle boundaries. No finite computation is used as the proof for all dimensions.
+## correctness
 
-## Originality — PASS (qualified)
-The closest published result, *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains* (October 2026), already establishes the Cayley/diagonal criterion and the monotone threshold for reversible generators. Its statement explicitly excludes the nonreversible single-interval conclusion. The new first-excursion argument supplies precisely this missing implication for every irreducible nonreversible generator, together with sharp directed-cycle thresholds. Higueras–Roldán (2023) treat a symmetric Dirichlet heat grid, while Fallat–Tsatsomeros (2002) supply prior Cayley and positivity-class algebra. The classical Markov renewal formula itself is not claimed new. Title/statement/alias searches did not identify a publication already giving the entire nonreversible theorem. Specialized matrix-Cayley or renewal literature could nevertheless contain the exact implication, and independent publication-priority adjudication has not occurred.
+PASS
 
-## Value — PASS
-This closes a structurally motivated gap about whether increasing the step may restore positivity of the Crank–Nicolson end map on directed networks. The universal negative answer is supported by an explicit first-return representation usable without diagonalizability, normality, or detailed balance. Sharp directed-cycle values exhibit a genuinely nonreversible graph class and a size-dependent numerical timestep frontier, including an exact three-state golden-ratio threshold. The result has direct bearing on timestep certification for finite-state stochastic evolution. It makes no unsupported accuracy, performance or nonlinear extension claim.
+For any finite irreducible row Markov generator Q and state i, decompose occupation at i into Exp(a_i) sojourn followed by independent post-departure first-return excursion T_i. Laplace renewal gives R_s[ii]=1/(1+a_i E[s(1-exp(-T_i/s))]); T_i>0, finite mean. Since s(1-exp(-t/s))=int_0^t exp(-u/s)du strictly increases in s>0, R_s[ii] strictly decreases 1->pi_i for all irreducible directed nonreversible chains. R_s is nonnegative row-stochastic as inverse M matrix and C_h=2 R_{h/2}-I, so positivity iff every diagonal >=1/2; therefore unique initial [0,h*] interval with no reentrant positivity. Nonuniform directed n-cycle special case Q=a(P-I), R_s[ii]=1/(1+r+...+r^{n-1}); unique root sum_{j=1}^{n-1}r^j=1 and h*=2r/(a(1-r)), h3=(1+sqrt5)/a, limit 2/a. Independently reconstructed R_s and killed-chain first-return Laplace transforms over exact rational matrices for three genuinely nonreversible CTMCs, 3 s parameters each; all diagonal identities agree. Infinite proof depends on regeneration, not on this finite check.
 
-## Related literature and limits
-Higueras–Roldán, arXiv:2301.01066v1 (first public 2023-01-03); Fallat–Tsatsomeros, ELA 9 (2002), 190–196; Horváth (1998), Runge–Kutta positivity radii; *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains* (published October 2026). The theorem is exact for finite irreducible homogeneous generators and addresses end-step entrywise positivity. Reducible generators, roundoff, stagewise positivity, and efficient return-time computation are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise published predecessor proves identical diagonal positivity criterion and single interval only under detailed balance, explicitly leaves nonreversible case unresolved; target closes it by a first-return renewal argument. This is not a rediscovery of general M-matrix or renewal facts. Relevant classical positivity-radius theory concerns method-wide worst cases, not fixed-generator sharp no-reentrance. Historical priority qualified by possible earlier specialization of Markov renewal and Cayley transform theorems.
+
+## value
+
+PASS
+
+Positivity restoration at a larger numerical timestep is a genuine stability question for directed finite Markov generators. A universal no-reentrance classification without reversibility is strong structural content; exact directed-cycle thresholds make the result testable and reveal graph-size trend. Explicitly excludes reducible chains, internal stages and floating-point rounding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

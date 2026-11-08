@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:58:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite irreducible row Markov generator Q and state i, decompose occupation at i into Exp(a_i) sojourn followed by independent post-departure first-return excursion T_i. Laplace renewal gives R_s[ii]=1/(1+a_i E[s(1-exp(-T_i/s))]); T_i>0, finite mean. Since s(1-exp(-t/s))=int_0^t exp(-u/s)du strictly increases in s>0, R_s[ii] strictly decreases 1->pi_i for all irreducible directed nonreversible chains. R_s is nonnegative row-stochastic as inverse M matrix and C_h=2 R_{h/2}-I, so positivity iff every diagonal >=1/2; therefore unique initial [0,h*] interval with no reentrant positivity. Nonuniform directed n-cycle special case Q=a(P-I), R_s[ii]=1/(1+r+...+r^{n-1}); unique root sum_{j=1}^{n-1}r^j=1 and h*=2r/(a(1-r)), h3=(1+sqrt5)/a, limit 2/a. Independently reconstructed R_s and killed-chain first-return Laplace transforms over exact rational matrices for three genuinely nonreversible CTMCs, 3 s parameters each; all diagonal identities agree. Infinite proof depends on regeneration, not on this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier resolvent-return theorem explicitly assumes reversibility for monotonic diagonal, and heat-grid schemes have symmetric Q; neither implies arbitrary nonnormal, nonreversible irreducible Q."
+        ],
+        "reasoning": "The new return transform provides the missing monotone formula in the non-symmetric case; prior all-generator matrix criterion alone cannot ensure no-reentrance.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "https://arxiv.org/abs/2301.01066"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob f24f9c7457c2120b9f44c60b8141bd4ca73778ec",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+        "https://arxiv.org/abs/2301.01066",
+        "https://doi.org/10.13001/1081-3810.1086"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier full RESULT explicitly states that nonreversible positivity windows after first loss are unclassified; Cayley identity only identifies diagonal test, not monotonicity without separate renewal."
+        ],
+        "reasoning": "Direct logical gap between prior reversible theorem and the all-irreducible theorem is closed via new statewise excursion integral.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "https://doi.org/10.13001/1081-3810.1086"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_h=2(I-hQ/2)^-1-I is also a Cayley transform of an M-matrix; fixed-generator step-size positivity is equivalent to diagonal resolvent >=1/2."
+        ],
+        "reasoning": "Compared Cayley, resolvent, Markov renewal and Runge–Kutta positivity aliases; same mathematical condition contrasted.",
+        "searches": [
+          "Crank Nicolson Cayley transform stochastic matrices resolvent diagonal monotonicity nonreversible",
+          "Markov chain first return Laplace transform resolvent monotonic diagonal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published symmetric grid thresholds and 2-state all-step positivity are different; the directed 3-cycle exact (1+sqrt5)/a and all-n roots were not found in inspected tables."
+        ],
+        "reasoning": "A method-wide positivity-radius number and a directed-cycle fixed-generator threshold have different quantifiers; no exact covered table identified.",
+        "searches": [
+          "directed n cycle Crank Nicolson positivity threshold golden ratio rate",
+          "https://arxiv.org/abs/2301.01066"
+        ]
+      },
+      "rationale": "The precise published predecessor proves identical diagonal positivity criterion and single interval only under detailed balance, explicitly leaves nonreversible case unresolved; target closes it by a first-return renewal argument. This is not a rediscovery of general M-matrix or renewal facts. Relevant classical positivity-radius theory concerns method-wide worst cases, not fixed-generator sharp no-reentrance. Historical priority qualified by possible earlier specialization of Markov renewal and Cayley transform theorems.",
+      "residual_risks": [
+        "Classical CTMC regenerative theory may already contain this numerical implication under another name; search is not priority certification.",
+        "Reducible and stage positivity not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already has diagonal criterion for all finite chains and monotone threshold for reversible chains; leaves nonreversible interval open",
+          "evidence": [
+            "Prior explicitly states nonreversible no-reentrance not classified."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Complete published RESULT.md including theorem, proof, limitations and nonreversible discussion",
+          "method": "Full primary text and theorem-implication check",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "same fixed-generator positivity problem with weaker reversibility assumption"
+        },
+        {
+          "assessment": "Treats symmetric tridiagonal heat discretization, not arbitrary irreducible directed Markov generator",
+          "evidence": [
+            "Symmetric tridiagonal heat grid cannot imply arbitrary directed cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Abstract and symmetric grid theorem comparison",
+          "method": "Primary theorem summary and assumption comparison",
+          "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+          "trigger": "sharp numerical positivity threshold for Crank–Nicolson"
+        },
+        {
+          "assessment": "Cayley matrix identity is old; no inspected global no-reentrance claim under general irreducible CTMC assumptions",
+          "evidence": [
+            "(I+C)=2(I+A)^-1 is a prior algebraic identity."
+          ],
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "Main Cayley identities and M-matrix section identified in cited text",
+          "method": "Primary theorem/formula comparison",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices",
+          "trigger": "possible general all-generator positivity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity restoration at a larger numerical timestep is a genuine stability question for directed finite Markov generators. A universal no-reentrance classification without reversibility is strong structural content; exact directed-cycle thresholds make the result testable and reveal graph-size trend. Explicitly excludes reducible chains, internal stages and floating-point rounding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob f24f9c7457c2120b9f44c60b8141bd4ca73778ec",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+    "https://arxiv.org/abs/2301.01066",
+    "https://doi.org/10.13001/1081-3810.1086"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical CTMC regenerative theory may already contain this numerical implication under another name; search is not priority certification.",
+    "Reducible and stage positivity not covered."
+  ],
+  "residual_risks": [
+    "Classical CTMC regenerative theory may already contain this numerical implication under another name; search is not priority certification.",
+    "Reducible and stage positivity not covered."
+  ],
+  "schema_version": 1
+}
