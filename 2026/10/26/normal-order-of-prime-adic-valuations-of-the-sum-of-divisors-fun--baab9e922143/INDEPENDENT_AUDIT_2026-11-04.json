@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:13:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed prime ell, multiplicativity yields nu_ell(sigma(n))=sum_{p^e||n}nu_ell(sigma(p^e)). For e=1, local term nu_ell(p+1). For e>=2, 0<=nu_ell(sigma(p^e))<=(e+1)log(p)/log(ell) and nu_ell(p+1)<=log(p+1)/log(ell), so |difference|<=C_ell e log p; averaging over n<=x bounds the error by C_ell sum_p sum_{e>=2} e log p / p^e<infinity, hence error/loglog n converges to 0 in density. For each fixed J, g_{ell,J}(n)=sum_{p|n}min(nu_ell(p+1),J) is strongly additive; min= sum_{j<=J}1_{p=-1 mod ell^j}. Each fixed reduced progression has reciprocal prime sum (1/phi(ell^j))loglog x+O(1); Turan-Kubilius variance is O_{ell,J}(loglog x), implying density concentration at c_{ell,J}loglog n. For j>J, mean of nonnegative tail is bounded by sum_{j>J}sum_{p<=x,p=-1 mod ell^j}1/p. Uniform Brun-Titchmarsh for ell^j<=x^delta gives O_{ell,delta}(ell^{-J}loglog x); for larger ell^j elementary harmonic counting of p=k*ell^j-1 gives O(log x * x^{-delta})=o(1); Markov then J->infinity. Sum_{j>=1}1/phi(ell^j)=ell/(ell-1)^2, including ell=2 with coefficient 2. n with n<=x^a has density 0 for any fixed 0<a<1, justifying loglog n versus loglog x. This reconstructs the proof, not merely finite tests. Local inequality and all quantifiers verified for fixed ell only. Independent six-entry Git tree SHA recomputation matches f43753a0c914926d2fb1d041e93d18a9327de179. Prior small-n arithmetic checks are only corroboration; no false finite-to-infinite inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Troupe arXiv:1405.3587 Sections 1 and 5 includes distribution/normal order for prime-factor COUNT in s(n) and discusses omega(sigma(n)); these are not weighted contribution from a fixed prime.",
+          "Standard Turan-Kubilius bounds strongly additive g_{ell,J} but do not alone identify the local sigma prime-power error or justify removal of unbounded j-tail.",
+          "2025 Zhao-Chen DOI:10.1007/s11464-023-0154-2 abstract proves unconditional pointwise upper bound nu_p(sigma(n))<=ceil(log_p n), which does not yield normal density with coefficient. Full text inaccessible."
+        ],
+        "reasoning": "General probabilistic additive-function theory supplies reusable proof technology and could yield this as a corollary of a more general theorem if one already specified the same prime values and controlled the tail; no such explicit dominating prior result was located. A pointwise O(log n) bound is far too coarse to imply c loglog n for density one.",
+        "searches": [
+          "Resultary 2026-11-04: Erdos Kac theorem p-adic order sigma(n) divisor sum normal distribution prime powers (24 hits)",
+          "Resultary 2026-11-04: Exact 5-divisibility criterion for the sum-of-divisors function nu_5 sigma(n) density one (29 hits)",
+          "Full Troupe arXiv:1405.3587 Sections 1-5, including remarks on prior Erdos-Pomerance omega(sigma(n)) results",
+          "Tenenbaum 2015 standard Turan-Kubilius inequality context"
+        ]
+      },
+      "checked_sources": [
+        "T. Amdeberhan, V.H. Moll, V. Sharma, D. Villamizar (2020/2021), Arithmetic properties of the sum of divisors, arXiv:2007.03088, Theorems 1.1-1.4, full HTML",
+        "Lee Troupe (2014), On the number of prime factors of values of the sum-of-proper-divisors function, arXiv:1405.3587, full text Sections 1-5",
+        "OEIS A336937, 2-adic valuation of sigma(n), exact values and local formulas",
+        "Junjia Zhao, Yonggao Chen (2025), p-adic Valuation of the Sum of Divisors, Frontiers of Mathematics 20 (4), DOI:10.1007/s11464-023-0154-2, abstract and references only",
+        "Cheng-Zhang 2026 arXiv:2603.11979, On the 2-adic valuation of sigma_k(n), full arXiv text",
+        "O. Bordelles 2026 arXiv:2605.17872, A note on the q-adic valuation of sigma_k(n), full arXiv text",
+        "G. Tenenbaum, Introduction to Analytic and Probabilistic Number Theory, 3rd ed., cited standard Turan-Kubilius/Brun-Titchmarsh tools; not independently read full textbook"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Amdeberhan et al. Theorem 1.1 (ell=2), Theorem 1.2 (odd ell) decompose valuations of sigma, while Theorems 1.3-1.4 give pointwise upper bounds; none has the density-one leading constant.",
+          "Zhao-Chen abstract generalizes the pointwise inequality nu_p(sigma(n))<=ceil(log_p n), not the typical scale.",
+          "Troupe has omega(s(n)), Omega(s(n)) on loglog scale and cites Erdos-Pomerance related count of distinct prime factors of sigma(n). Neither controls a prescribed fixed-prime multiplicity."
+        ],
+        "reasoning": "Local exact formulas plus a known additive-function inequality require the substantive reduction of higher prime powers to bounded-mean error and uniform control of the unbounded valuation tail; the reviewed final claim is not a formal implication of the cited explicit theorems as stated. Older overarching theorems are a priority risk.",
+        "searches": [
+          "Full arXiv:2007.03088v1, Theorems 1.1-1.4",
+          "Full arXiv:1405.3587, main theorem and Sections 2-5",
+          "OEIS A336937 formulas",
+          "Zhao-Chen 2025 DOI abstract and references",
+          "Resultary 2026-11-04: prime-adic valuation sum of divisors almost all integers density typical log log n (24 hits)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A336937 tabulates nu_2(sigma(n)), provides its multiplicative/local formulas, but no normal-order coefficient: https://oeis.org/A336937.",
+          "Amdeberhan et al. arXiv:2007.03088v1, Theorems 1.1-1.2, provide complete local prime-power valuation identities; the paper treats pointwise bounds, not a density-one log-log asymptotic.",
+          "Troupe arXiv:1405.3587, Theorem 1.3, gives normal order of omega(s(n)) and Omega(s(n)), s(n)=sigma(n)-n, which differs in arithmetic function and statistic."
+        ],
+        "reasoning": "Equivalent statement is the additive/probabilistic assertion that nu_ell(sigma(n))/loglog n tends in density to sum_{j>=1}1/phi(ell^j). Existing formulas compute nu_ell(sigma(n)) at individual n, not this limit. Counting ALL prime factors of the distinct proper-divisor sum is not fixed-ell valuation of sigma(n).",
+        "searches": [
+          "Resultary 2026-11-04: normal order valuation sigma(n) fixed prime ell asymptotic log log n arithmetic sum divisor (24 hits)",
+          "Resultary 2026-11-04: Erdos Kac theorem p-adic order sigma(n) divisor sum normal distribution prime powers (24 hits)",
+          "Resultary 2026-11-04: prime-adic valuation sum of divisors almost all integers density typical log log n (24 hits)",
+          "OEIS A336937, https://oeis.org/A336937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A336937 (Antti Karttunen, 2020) provides exact values and local formulas for all n at ell=2, without any density-one asymptotic.",
+          "Resultary searches returned 24,24,24,29 ranked findings; no returned title/summary matched the stated fixed-ell normal-order theorem; search recall is limited."
+        ],
+        "reasoning": "An exact values database is not an asymptotic normal-order law; the OEIS formula could be used as ingredient but no exact constant is stated. Absence of a matching database record is not proof of novelty.",
+        "searches": [
+          "OEIS A336937",
+          "Resultary 2026-11-04: normal order valuation sigma(n) fixed prime ell asymptotic log log n arithmetic sum divisor (24 hits)",
+          "Resultary 2026-11-04: Exact 5-divisibility criterion for the sum-of-divisors function nu_5 sigma(n) density one (29 hits)",
+          "Resultary published-record semantic returns for normal-order valuation aliases"
+        ]
+      },
+      "rationale": "Best-of-knowledge claim-specific novelty, qualified: the exact fixed-prime density-one normal-order coefficient ell/(ell-1)^2 for nu_ell(sigma(n)) was not established by the inspected primary full texts, OEIS valuation table, or Resultary semantic matches. Local p-adic formulas, unconditional pointwise upper bounds, and normal orders for omega(s(n))/Omega(s(n)) are prior and are not claimed as new. Applying classical Turan-Kubilius to a specifically constructed strongly additive proxy is the proof method; priority could be subsumed by an older general theorem or neglected literature. Search absence does not prove originality.",
+      "residual_risks": [
+        "A classical or less-indexed theorem on normal order of additive approximations to nu_ell(sigma(n)) may already imply the coefficient without identical wording.",
+        "Full text of Zhao-Chen (2025) is unavailable due to institutional VPN disconnection; only abstract and references were read; no whole-paper noncoverage conclusion.",
+        "Resultary and web search are not exhaustive; absence of search hits does not establish priority.",
+        "A previously cited 2026-10-04 public exact-5-divisibility note was not accessible in full and not used as evidence of its entire content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact local valuation formulas and bounds but does not claim the normal order",
+          "evidence": "Introduction lines 43-114: Theorem 1.1 for ell=2, Theorem 1.2 for odd ell; Theorems 1.3-1.4 logarithmic upper bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2007.03088v1",
+          "material_read": "Complete arXiv HTML including introduction, Theorems 1.1-1.4, 2-adic and odd-prime sections and conclusions",
+          "method": "Compared local identities and pointwise bounds to fixed-prime natural-density asymptotic",
+          "title": "Arithmetic properties of the sum of divisors",
+          "trigger": "Same nu_ell(sigma(n)) object and local identities"
+        },
+        {
+          "assessment": "No implication: different arithmetic function and total prime-factor counts, not multiplicity of a chosen prime in sigma(n)",
+          "evidence": "Theorem 1.3 and Sections 3-5 concern omega(s(n)) and Omega(s(n)); s(n)=sigma(n)-n.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3587",
+          "material_read": "Available full extracted paper text, introduction, Sections 2-5 including main theorem and proof structure",
+          "method": "Compared omega(s(n)) and Omega(s(n)) with fixed-ell nu_ell(sigma(n))",
+          "title": "On the number of prime factors of values of the sum-of-proper-divisors function",
+          "trigger": "Plausible stronger normal-order theorem for sigma-related function"
+        },
+        {
+          "assessment": "Exact table and additive local expression, no normal-order statement",
+          "evidence": "OEIS comments 25-42 give local factor formulas and sequence values; no density or normal-order asymptotic.",
+          "identifier_or_url": "https://oeis.org/A336937",
+          "material_read": "Entire OEIS entry including sequence values, comments, formulas, cross-references and authorship",
+          "method": "Read exact local formula and searched entry for stated typical asymptotic",
+          "title": "A336937: The 2-adic valuation of sigma(n), the sum of divisors of n",
+          "trigger": "Exact database for same object ell=2"
+        },
+        {
+          "assessment": "Abstract addresses unconditional pointwise upper bounds/equality cases, not this normal-order law; full-text priority risk persists",
+          "evidence": "Frontiers of Mathematics 2025 20(4), 795-827, abstract: nu_p(sigma(n))<=ceil(log_p n) and equality classifications for primes below 10^5.",
+          "identifier_or_url": "https://doi.org/10.1007/s11464-023-0154-2",
+          "material_read": "Publisher abstract and references page only; full paper restricted. Both arXiv and OA routes were searched unsuccessfully. Institutional download reported VPN disconnected; no further access attempted.",
+          "method": "Compared publisher-stated main theorem with density-one normal order; did not claim whole-document absence of a result",
+          "title": "p-adic Valuation of the Sum of Divisors",
+          "trigger": "Very close title and exact same valuation, potentially stronger theorem"
+        },
+        {
+          "assessment": "Exact local valuations and pointwise bounds do not state this density-one coefficient",
+          "evidence": "Introduces 2-adic valuation formulas and upper-bound/equality descriptions for sigma_k(n).",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11979",
+          "material_read": "Full accessible arXiv extracted text, introduction, main statements and proof sections",
+          "method": "Compared divisibility formulas and pointwise sharpness to normal-order law for k=1",
+          "title": "On the 2-adic valuation of sigma_k(n)",
+          "trigger": "Recent same prime 2 and generalized sum-of-divisors literature"
+        },
+        {
+          "assessment": "No claim of reviewed normal order in material examined",
+          "evidence": "Study of q-adic valuations of sigma_k(n) and pointwise bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.17872",
+          "material_read": "Full accessible arXiv extracted text, statements and main proof sections",
+          "method": "Compared general sigma_k local valuations/pointwise bounds with mean-scale density asymptotic for k=1",
+          "title": "A note on the q-adic valuation of sigma_k(n)",
+          "trigger": "Recent odd-prime extensions on same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-prime exponent of the natural multiplicative sum-of-divisors function is a motivated arithmetic statistic. The exact typical coefficient ell/(ell-1)^2 quantifies density-one prime-adic divisibility, distinguishes ell=2 from odd primes and relates it to the hierarchical arithmetic progressions p=-1 mod ell^j. This is more than a known local table and supplies an independently useful leading constant; no downstream general theorem or paper-scale requirement is imposed. Standard proof tools and the possibility of earlier general coverage limit claims of scope but do not alone negate the mathematical utility. It does not claim an exceptional-set rate, fluctuations, or uniformity in ell.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "T. Amdeberhan, V.H. Moll, V. Sharma, D. Villamizar (2020/2021), Arithmetic properties of the sum of divisors, arXiv:2007.03088, Theorems 1.1-1.4, full HTML",
+    "Lee Troupe (2014), On the number of prime factors of values of the sum-of-proper-divisors function, arXiv:1405.3587, full text Sections 1-5",
+    "OEIS A336937, 2-adic valuation of sigma(n), exact values and local formulas",
+    "Junjia Zhao, Yonggao Chen (2025), p-adic Valuation of the Sum of Divisors, Frontiers of Mathematics 20 (4), DOI:10.1007/s11464-023-0154-2, abstract and references only",
+    "Cheng-Zhang 2026 arXiv:2603.11979, On the 2-adic valuation of sigma_k(n), full arXiv text",
+    "O. Bordelles 2026 arXiv:2605.17872, A note on the q-adic valuation of sigma_k(n), full arXiv text",
+    "G. Tenenbaum, Introduction to Analytic and Probabilistic Number Theory, 3rd ed., cited standard Turan-Kubilius/Brun-Titchmarsh tools; not independently read full textbook"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific conclusion is in natural density for every individually fixed prime ell, not pointwise in n, not uniform in ell.",
+    "No formal Lean or expert certification performed; source VERIFICATION.md lists them as not_performed.",
+    "Scientific review accepted best-of-knowledge with explicit historical-priority and inaccessible-full-text caveats.",
+    "METADATA.json and AUDIT.json contain internal identifiers; publication withheld."
+  ],
+  "residual_risks": [
+    "A classical or less-indexed theorem on normal order of additive approximations to nu_ell(sigma(n)) may already imply the coefficient without identical wording.",
+    "Full text of Zhao-Chen (2025) is unavailable due to institutional VPN disconnection; only abstract and references were read; no whole-paper noncoverage conclusion.",
+    "Resultary and web search are not exhaustive; absence of search hits does not establish priority.",
+    "A previously cited 2026-10-04 public exact-5-divisibility note was not accessible in full and not used as evidence of its entire content.",
+    "Proof uses standard Brun-Titchmarsh and fixed progression Mertens as cited rather than an independent derivation of these deep analytic tools.",
+    "No effective exceptional-set estimate or uniformity in growing ell has been established."
+  ],
+  "schema_version": 1
+}
