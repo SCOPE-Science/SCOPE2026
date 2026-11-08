@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Section 2 of arXiv:2004.01813v1 characterizes the mixing skew tent class by the slope inequalities, all of which hold strictly here. Its Theorem 3.1 supplies the signed orbit-jump formula. The exact rational orbit-and-weight sums through the sixteenth iterate, all interval bounds and the positive normalizer are independently replayed by the included checker. The full remaining series is bounded by an elementary geometric majorant because every branch expands by at least \(21/20\). This proves the strict density bound on a set of positive Lebesgue measure, rather than merely estimating a plotted density. Open-neighborhood persistence uses only strict finite inequalities and continuity away from a finite turning-point itinerary.
+PASS
 
-## Originality
+The concrete map has slopes 21/20 and -2, turning point 1/2 and positive image endpoints; its mixing-class inequality 1<1/s+1/t=61/42<2 matches the cited source. Independently iterating exactly 17 rational orbit points z_0..z_16 and signed inverse slopes gives max z=779/800, H=171583841/85766121, I=66261439/85766121, |w16|=62500/85766121. The geometric remainder bound R=1250000/85766121 is valid for every later derivative since |f′|>=21/20. The credited Ito–Tanaka–Nakada density representation has Z>0, and on (779/800,1) all first 17 indicators are one, so normalized density rho>=(H-R)/(I+R)=170333841/67511439>5/2. The interval has length 21/800; strictly open finite-branch inequalities persist for nearby parameters. This is an analytic geometric tail argument paired with an independently recomputed exact finite certificate, not finite iteration taken as an infinite proof.
 
-PASS within the inspected literature. The source explicitly states Conjecture 3.5 as a universal upper density bound \(2\). The attached rational counterexample refutes this specific assertion. The earlier orbit-jump representation, and previous studies of densities for Markov skew tent parameters, are credited. No equivalently explicit counterexample or stronger result implying it was located in the inspected primary literature or targeted mathematical-index comparisons. The full Billings–Bollt article was not accessible, and publication priority beyond the material inspected is unresolved.
+## originality
 
-## Value
+PASS
 
-PASS. A rigorous counterexample to a natural explicitly stated conjecture is meaningful in its own right. The positive-length violating set, parameter robustness and short finite certificate show that the failure is not an isolated numerical artifact, a boundary degeneration, or an arbitrary diagnostic. The finding does not address the weaker conjecture asserting existence of some finite universal density bound.
+The source Alsedà–Misiurewicz–Pérez 2020 explicitly states Conjecture 3.5 (universal density ceiling 2); its own signed-orbit density formula is cited, not claimed new. A rational counterexample and open parameter family refute that specific conjecture. Billings–Bollt 2001 also constructs exact skew-tent densities; its inaccessible full text is a specific priority risk, not a demonstrated counterexample or a reason to fail by itself.
 
-## Closest literature and limitations
+## value
 
-The direct source is Alsedà–Misiurewicz–Pérez (2020), Theorem 3.1 and Conjecture 3.5. Billings–Bollt (2001) and Mackey–Tyran-Kamińska (2008) provide related invariant-density methods. The claimed novelty is the explicit rational disproof, not the source's density formula. The exact maximal density and the validity of Conjecture 3.4 remain unresolved. Full verification by an independent specialist and comprehensive publication-priority checking remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit rational, positive-measure and open-family disproof of a numbered published conjecture is a substantive negative mathematical result. Exact 17-term rational certificate plus infinite tail bound isolate the failure of ceiling 2 without pretending to disprove existence of a larger universal ceiling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
