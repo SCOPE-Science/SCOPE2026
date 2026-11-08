@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:56:47.447706Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The free/fixed positive-definite tridiagonal stiffness has normalized cosine eigenvectors u_jk=sqrt(4/M) cos(pi(2j+1)(2k+1)/(2M)), M=2N+1. Solving stationary scalar damped-oscillator kinetic variance yields Q_kj=u_jk² (the known forward formula). Finite cosine sums imply C1=1/2 1, C²=M/4 I-1/2 J, hence Q²=(I+2J)/M. Thus Q has eigenvalue one in span{1} and eigenvalues of absolute size 1/sqrt M on mean-zero subspace, giving the inverse and exact Euclidean condition number; nonnegative baths are inverse-inequalities. For each row k, modular multiplication by odd m=2k+1 on odd residues mod 2M yields closest residues ±g to zero, giving g maximizing sites; congruence mr=M has (g-1)/2 bath sites when g>1 (perfectly dark), while g=1 gives unique nearest M±2 minimizing site. Linear heat allocation gives extrema and sharp positivity limits. Independent NumPy reconstruction verified Q², inverse geometry and all gcd maxima/minima and multiplicities for every N=2..79, but no claim that finite tests prove all N; original Lyapunov testing inspected as supplied, not independently rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original derives a free-boundary inverse for reflection-paired temperatures and mixed-boundary forward law, not full unique reconstruction of all site baths in the mixed-boundary case."
+        ],
+        "reasoning": "A broader Fourier orthogonality statement implies Q² after specialization; that algebraic step is classical. Novelty is a packaged conditional inverse/feasibility/arithmetic heat extremum for the physically relevant boundary condition, not Fourier orthogonality itself.",
+        "searches": [
+          "RESULTARY: mixed free fixed harmonic chain local Langevin baths inverse modal kinetic temperatures squared eigenvector transform exact condition number gcd optimal heating",
+          "Falasco 2015 Eqs. 9–12, Appendix C",
+          "discrete cosine transform odd-length identities"
+        ]
+      },
+      "checked_sources": [
+        "Falasco et al arXiv:1505.05088; Phys Rev E 92, 022129, Eqs 11–12 and Appendix A",
+        "Odd-length discrete cosine transform orthogonality",
+        "Resultary search #5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq.11 already determines Q completely; theoretically an informed reader can invert it, but Eq.12 covers reflection paired free-boundary, not arbitrary N mixed boundary. No explicit gcd mode support extrema in cited original."
+        ],
+        "reasoning": "The new claims are mathematically consequences of the published forward formula plus nontrivial (though elementary) spectral and odd-residue computations; value stems from exact inverse, stability, and optimization rather than inventing a new physical model.",
+        "searches": [
+          "RESULTARY: mixed free fixed harmonic chain local Langevin baths inverse modal kinetic temperatures squared eigenvector transform exact condition number gcd optimal heating",
+          "Falasco Phys Rev E 92, 022129 (2015) Eq. 11 and free-boundary reverse Eq. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known forward mixed-boundary cosine-square matrix is mathematically exactly Q; the inverse and spectral stability follow by additional finite cosine sums not displayed in original."
+        ],
+        "reasoning": "An equivalent odd-length discrete cosine transform identity makes inversion computationally accessible, but this does not alone give the complete positive-bath cone and gcd extrema.",
+        "searches": [
+          "RESULTARY: mixed free fixed harmonic chain local Langevin baths inverse modal kinetic temperatures squared eigenvector transform exact condition number gcd optimal heating",
+          "Falasco et al arXiv:1505.05088 Eq. 11, App. A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published same-object inverse feasibility cone, exact singular spectrum and heat allocation gcd table found; direct source has qualitative mode energy plots."
+        ],
+        "reasoning": "This is a uniform formula for every N and mode, not a recomputed specific mode table. Exact arithmetic site multiplicity is not part of earlier forward-equation statements checked.",
+        "searches": [
+          "RESULTARY: mixed free fixed harmonic chain local Langevin baths inverse modal kinetic temperatures squared eigenvector transform exact condition number gcd optimal heating",
+          "Resultary search #5 for harmonic chain inverse modal temperatures and gcd dark modes"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge with close-prior qualification: Falasco et al 2015 derive exactly the forward mixed-boundary squared-eigenvector relation Q and discuss heat repartition, so the dynamical linear response is NOT new. The complete explicit inverse, sharp condition number/feasibility cone, gcd-selected dark baths and exact budget extrema are a motivated additional arithmetic tomography classification not explicitly stated in inspected original.",
+      "residual_risks": [
+        "The exact inverse and singular spectrum are relatively short algebraic consequences of the prior explicit forward transfer; an unlocated original Appendix calculation might contain them implicitly.",
+        "General positivity of a bistochastic cosine-square transfer does not itself give the gcd dark-site multiplicities; related spectral tomography work may contain equivalent arithmetic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq.11 provides the same forward transfer; Eq.12 inversion concerns free/reflection-paired boundary, not the fully invertible mixed-boundary case. No exact gcd extrema, feasibility cone or condition number identified.",
+          "evidence": "Eqs 11,12; Appendix A(13); boundary-mode discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.05088",
+          "material_read": "Primary OA PDF main model, formulas Eqs (6),(8),(9)–(12), Appendix A inverse/normalizations, and discussion of mixed boundaries; inspected PDF page screenshots",
+          "method": "Lawful arXiv OA primary PDF",
+          "title": "Energy repartition for a harmonic chain with local reservoirs",
+          "trigger": "Exact same damped mixed-boundary harmonic chain and local reservoirs"
+        },
+        {
+          "assessment": "Classical transform orthogonality may lead to Q² but does not establish physics-specific heat budget extremizers",
+          "evidence": "Odd-length cosine transform identities.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Discrete_cosine_transform",
+          "material_read": "Background odd-length DCT conventions and orthogonality setting",
+          "method": "General mathematical background, not primary research claim",
+          "title": "Discrete cosine transform, odd-length versions",
+          "trigger": "Potential equivalent transform-inverse identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full recovery of local thermal reservoir temperatures from the measurable modal energies, exact attainable-cone conditions, a sharp noise amplification factor and heat allocation extrema/dark-site multiplicities are natural system identification and control invariants. These useful uniform formulas go substantially beyond merely reprinting the existing forward transfer, while crediting the finite-transform algebra as standard.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Falasco et al arXiv:1505.05088; Phys Rev E 92, 022129, Eqs 11–12 and Appendix A",
+    "Odd-length discrete cosine transform orthogonality",
+    "Resultary search #5"
+  ],
+  "disposition": "passed",
+  "final_claim": "For N>=2 equal-mass harmonic mobile sites with free left/fixed right end, positive uniform spring stiffness/damping and independent local Langevin bath temperatures T>=0, the modal kinetic temperature map Theta=QT with Q_kj=2/(2N+1)[1+cos(pi(2k+1)(2j+1)/(2N+1))] has Q²=(I+2J)/(2N+1), inverse T=(2N+1)Q Theta-2(sum Theta)1, condition number sqrt(2N+1), and exactly characterized nonnegative feasible cone. Under total heat budget H>0, each modal max/min and dark-site counts are exact gcd formulas for g=gcd(2k+1,2N+1).",
+  "limitations": [
+    "All equal masses, uniform nearest-neighbor springs and damping, mechanically free/fixed boundaries, nonnegative independent white Langevin reservoirs.",
+    "Off-diagonal modal covariances can remain; only diagonal modal kinetic temperatures are inverted.",
+    "Min/max for strict positive baths are sharp limits but generally unattained."
+  ],
+  "residual_risks": [
+    "The exact inverse and singular spectrum are relatively short algebraic consequences of the prior explicit forward transfer; an unlocated original Appendix calculation might contain them implicitly.",
+    "General positivity of a bistochastic cosine-square transfer does not itself give the gcd dark-site multiplicities; related spectral tomography work may contain equivalent arithmetic."
+  ],
+  "schema_version": 1
+}
