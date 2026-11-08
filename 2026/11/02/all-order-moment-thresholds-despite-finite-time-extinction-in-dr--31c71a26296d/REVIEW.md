@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The absorption condition uses two consecutive zero multipliers; geometric waiting time follows from the exact two-state Markov recursion. Every order-\(k\) mixed moment closes in the displayed primitive matrix by a literal binomial expansion. Perron–Frobenius positivity and strict entrywise parameter monotonicity prove the unique spectral crossing and critical positive limit. The simple first- and second-moment determinants are exact. Lyapunov moment monotonicity and a positive-probability run of retained multipliers prove the decreasing threshold hierarchy and limit. The exact-rational enumerator provides a separate finite-instance replay, not an infinite proof.
+PASS
 
-## Originality
+A zero multiplier followed by a zero multiplier makes the state exactly (0,0) forever; the first waiting pair occurs a.s. and first-step conditioning gives mean waiting time (1+r)/r^2. For integer k>=1 the binomial expansion closes k+1 nonnegative mixed moments into B_k(M,w), with strong-connectedness and an aperiodic loop giving primitivity for M,w>0; Perron–Frobenius gives an asymptotic positive multiple of rho(B_k)^t. The Perron root is strictly increasing in M, vanishes at M=0 and is <1 at M=1 by geometric absorption, so unique M_k>1. Determinants yield M1=1/w and M2=(sqrt(1+8/w)-1)/2. Lyapunov moment comparison gives M_{k+1}<=M_k; an all-retained run has growth root R_M>1 for each M>1 and forces M_k->1. Fresh independent numeric threshold checks at w=1/2 and orders 1..6 give approx 2,1.56155,1.38513,1.28735,1.22701,1.18691; finite checks not infinite proof.
 
-PASS under best-knowledge comparison, subject to an explicit archival priority risk. The recent deterministic moving-average study is not a random-coefficient moment result. Earlier random-coefficient autoregression and multiplicative-noise small-gain theory contain the general moment machinery and cover or plausibly entail some low-order implications, which are credited rather than presented as new. A previously recorded random-coefficient moving-average theorem covers the second-moment condition with additive innovations and general coefficient covariance; it does not imply the all-order thresholds, critical positive limits, or the finite-time extinction/higher-moment explosion dichotomy. A previously published dropout error-feedback result concerns another recurrence and its second moment. The particular all-order classification was not found in the checked mathematical records. Complete source access limitations prevent claiming historical priority conclusively.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Exact all-order thresholds distinguish almost-sure finite termination from mean-square and higher-risk stability, a substantive reliability question for randomly dropped feedback iterations. The dimension of the explicit moment test grows only linearly with the moment order, and the strict \(M_2<M_1\) and \(M_k\downarrow1\) laws make the finite-sample rare-streak mechanism transparent. It is a motivated exact classification, rather than a reparameterization of the established second-moment test.
+Random-coefficient AR moment spectral criteria are longstanding; the k=2 criterion is already in general small-gain theory. The exact threshold sequence for every integer order and critical positive limit together with almost-sure finite-time extinction is not stated in inspected accessible older work. Feigin–Tweedie 1985 remains a real material priority risk because full text could not be read: authorized institutional attempt returned VPN disconnected. The absence alone is not automatic FAIL, and we do not present generalized moment-matrix machinery as new.
 
-## Closest literature and limitations
+## value
 
-Closest sources: Epperlein–Wirth (2026), Feigin–Tweedie (1985), Lu–Skelton (2002), and moment-dynamics work on random delays (2020). An older generic positive-matrix moment criterion may imply the spectral characterization abstractly, even though no identical specialization was located. Full text of the 2026 and 1985 sources was unavailable. All results are limited to the specified two-point multiplier law, two equal lag weights and fixed positive initialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One natural model can terminate exactly after finite time on every sample path while high moments diverge; the theorem determines exactly which multipliers do this at all orders, with computable matrices of size k+1 and thresholds decreasing to the sharp barrier 1. The distinction between pathwise reliability and moment risk is mathematically nontrivial and potentially useful in stochastic feedback, without claiming a general random-control law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

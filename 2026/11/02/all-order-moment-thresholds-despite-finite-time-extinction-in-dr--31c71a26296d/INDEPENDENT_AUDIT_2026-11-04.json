@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T01:14:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and finite certificate under exact source Git tree",
+        "fresh independent checks /mnt/data/scope_worker10_next/checks.py"
+      ],
+      "rationale": "A zero multiplier followed by a zero multiplier makes the state exactly (0,0) forever; the first waiting pair occurs a.s. and first-step conditioning gives mean waiting time (1+r)/r^2. For integer k>=1 the binomial expansion closes k+1 nonnegative mixed moments into B_k(M,w), with strong-connectedness and an aperiodic loop giving primitivity for M,w>0; Perron–Frobenius gives an asymptotic positive multiple of rho(B_k)^t. The Perron root is strictly increasing in M, vanishes at M=0 and is <1 at M=1 by geometric absorption, so unique M_k>1. Determinants yield M1=1/w and M2=(sqrt(1+8/w)-1)/2. Lyapunov moment comparison gives M_{k+1}<=M_k; an all-retained run has growth root R_M>1 for each M>1 and forces M_k->1. Fresh independent numeric threshold checks at w=1/2 and orders 1..6 give approx 2,1.56155,1.38513,1.28735,1.22701,1.18691; finite checks not infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feigin–Tweedie treat random-coefficient autoregressive stationarity and finiteness of moments in general (full text inaccessible); Lu–Skelton treat mean-square small gain.",
+          "Epperlein–Wirth 2026 is deterministic moving-average iteration in its accessible description."
+        ],
+        "reasoning": "General tensor moment criteria plausibly subsume pieces (not newly claimed). No inspected theorem directly combines exact a.s. absorption time with a unique all-k threshold hierarchy and limit one; broad coverage remains a serious risk.",
+        "searches": [
+          "random coefficient two lag recurrence Bernoulli dropout almost surely extinct but moment thresholds for every order spectral radius",
+          "Feigin Tweedie 1985 random coefficient autoregressive finiteness moments",
+          "Lu Skelton 2002 mean-square small gain"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.21442 abstract/intro",
+        "Feigin–Tweedie DOI 10.1111/j.1467-9892.1985.tb00394.x abstract and 2020 corrigendum",
+        "Lu–Skelton DOI 10.1109/9.989147 abstract",
+        "Resultary q3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known mean-square small-gain test only decides k=2; generic moment methodology may give B_k stability test but not necessarily strict ordering and rare-streak limit.",
+          "2020 correction to Feigin–Tweedie general theorem increases caution about quoting uninspected original."
+        ],
+        "reasoning": "No decisive prior implication was established; this is best-of-knowledge PASS with explicit open primary comparison, not proof of historical independence.",
+        "searches": [
+          "random coefficient two lag recurrence Bernoulli dropout almost surely extinct but moment thresholds for every order spectral radius",
+          "Feigin Tweedie 1985 random coefficient autoregression moments theorem 1 correction 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_k is exactly a symmetric-k tensor-moment transfer for a random 2x2 update; Perron spectral radius is the standard moment-growth test."
+        ],
+        "reasoning": "The tensor-power formulation is an equivalent general methodology; prior general results could reproduce the spectral criterion, but the hierarchy and absorption counterpoint require an additional monotonicity/rare-streak argument.",
+        "searches": [
+          "random coefficient two lag recurrence Bernoulli dropout almost surely extinct but moment thresholds for every order spectral radius",
+          "random matrix products symmetric tensor power moment Lyapunov exponent Bernoulli nilpotent coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite threshold table at w=1/2 is monotone: orders 1..6 numerical checks; Resultary query returned unrelated random-measure results."
+        ],
+        "reasoning": "A finite table cannot decide all k nor prove critical positivity and limit one. No exact database/table with those features was identified.",
+        "searches": [
+          "random coefficient two lag recurrence Bernoulli dropout almost surely extinct but moment thresholds for every order spectral radius",
+          "Bernoulli two-lag random recurrence all k moment thresholds spectral radius tabulated"
+        ]
+      },
+      "rationale": "Random-coefficient AR moment spectral criteria are longstanding; the k=2 criterion is already in general small-gain theory. The exact threshold sequence for every integer order and critical positive limit together with almost-sure finite-time extinction is not stated in inspected accessible older work. Feigin–Tweedie 1985 remains a real material priority risk because full text could not be read: authorized institutional attempt returned VPN disconnected. The absence alone is not automatic FAIL, and we do not present generalized moment-matrix machinery as new.",
+      "residual_risks": [
+        "Full 1985 primary text inaccessible through legitimate channels; an equivalent theorem could already imply the spectral criterion and possibly hierarchy.",
+        "Only two equal lags, two-point iid multipliers and strictly positive start."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Describes deterministic linear maps, not a Bernoulli-dropout all-moment phase diagram; no whole-document absence claim",
+          "evidence": "Abstract/intro frames deterministic iteration. Full text not inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21442",
+          "material_read": "Accessible abstract and introductory material only",
+          "method": "Read available arxiv landing/HTML extract",
+          "title": "Moving-Average Iteration of Linear Maps",
+          "trigger": "2026 similarly named moving-average stability result"
+        },
+        {
+          "assessment": "Could contain a general theorem implying moment matrix thresholds, so PRIORITY RISK; cannot assert full-text NOT_COVERING",
+          "evidence": "Published 1985 subject and later correction; full content not read.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.1985.tb00394.x",
+          "material_read": "Public metadata/abstract and 2020 corrigendum; complete 1985 article inaccessible",
+          "method": "Tried lawful open access; authorized institutional download returned vpn_disconnected (job 76cb8562fa6d68cc127ff3101800a999), no bypass",
+          "title": "Random Coefficient Autoregressive Processes: A Markov Chain Analysis of Stationarity and Finiteness of Moments",
+          "trigger": "Highly relevant original broad random-coefficient moment theorem"
+        },
+        {
+          "assessment": "Covers general k=2 mean-square ideas, not evidence for every-k sharp hierarchy",
+          "evidence": "Mean-square is moment order two, unlike entire k family.",
+          "identifier_or_url": "https://doi.org/10.1109/9.989147",
+          "material_read": "Publisher abstract and bibliographic theorem description",
+          "method": "Read accessible abstract",
+          "title": "Mean-square small gain theorem for stochastic control: discrete-time case",
+          "trigger": "Potential low-order spectral criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "the exact theorem and proof in assigned RESULT.md",
+        "specific relevant prior mathematical context named in originality axis"
+      ],
+      "rationale": "One natural model can terminate exactly after finite time on every sample path while high moments diverge; the theorem determines exactly which multipliers do this at all orders, with computable matrices of size k+1 and thresholds decreasing to the sharp barrier 1. The distinction between pathwise reliability and moment risk is mathematically nontrivial and potentially useful in stochastic feedback, without claiming a general random-control law.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 1985 primary text inaccessible through legitimate channels; an equivalent theorem could already imply the spectral criterion and possibly hierarchy.",
+    "Only two equal lags, two-point iid multipliers and strictly positive start."
+  ],
+  "schema_version": 1
+}
