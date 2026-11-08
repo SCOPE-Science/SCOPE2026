@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=4 and all positive real c,B, both Fourier-pair Rayleigh trace bounds apply to every independent nonnegative edge allocation. Equal-orbit allocations attain the minimum of these bounds because their Fourier spectrum has odd minimum D_m a+2b and even minimum A_m a. A two-line optimization determines all price regimes. Equality in the k=1 Rayleigh bound forces a genuine eigenvector equation; its imaginary parts force all cycle rates equal, and its real parts force all chord rates equal. Taylor expansions yield the claimed fourfold rate ratio and vanishing budget fraction. Standalone verify.py replayed VERIFY_OK 641; numerical checks only supplement proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006), equations (1) and Section 5, provide a general semidefinite optimization model and explicit paths/cycles but no evaluated chorded-cycle family.",
+        "Shakeri et al. (2015), problem (4), optimize one-to-one interlayer conductances while keeping both base-layer Laplacians fixed."
+      ],
+      "reasoning": "A general optimization formulation does not itself state or algebraically evaluate the required all-optimum and price-cutoff formulas. The interlayer fixed-base-edge problem has a different feasible set and does not dominate joint optimization of antipodal and cycle edges on the specified graph. The exact formulas here require an additional Fourier-mode and equality-rigidity proof.",
+      "searches": [
+        "fastest mixing continuous time Markov chains optimal algebraic connectivity edge weights trees double star barbell graph budget bridge",
+        "\"circulant graph\" \"weighted\" \"fastest mixing\" antipodal",
+        "antipodal shortcut cycle exact price threshold algebraic connectivity fastest mixing cycle with perfect matching weighted chords",
+        "https://arxiv.org/abs/1510.06785"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. 2006, DOI 10.1137/S0036144504443821, relevant full-text sections",
+      "Boyd et al. 2009, DOI 10.1137/070689413, relevant full-text sections",
+      "Shakeri et al. 2015, arXiv:1510.06785, full arXiv text",
+      "Relevant graph and spectral-gap query results from literature and mathematical research index searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The six-vertex graph in this family is K_{3,3}; its known priced-matching cost threshold is four, and is excluded here (m>=4).",
+        "The full 2006 continuous-time problem covers arbitrary graphs implicitly, but its inspected special cases do not express the present explicit graph family and price transition.",
+        "The 2009 discrete-time and 2015 fixed-layer problems differ in normalization or which conductances can be bought."
+      ],
+      "reasoning": "An evaluated matching-price theorem on K_{n,n} covers m=3 only, not higher Möbius ladders: for m>=4 the graph has 2m vertices, 3m edges and degree three, not K_{m,m}. No known stronger statement in the inspected sources immediately yields the present piecewise rates, complete equality set and O(m^-2)-budget/fourfold-gain limit. The exclusion prevents counting a known special case as new.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://arxiv.org/abs/1510.06785",
+        "Möbius ladder graph continuous-time Markov edge rate optimization spectral gap full optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), Section 5.3, treats the bare cycle and arbitrary prices on cycle edges, not a chorded cycle.",
+        "Boyd et al. (2009), the cycle and wheel example sections concern discrete-time stochastic transition probabilities.",
+        "Targeted literal and semantic searches surfaced Möbius-ladder combinatorics and quantum-walk literature, not the specified continuous-time rate-budget optimizer."
+      ],
+      "reasoning": "The positive-rate Laplacian on a cycle with its full antipodal matching is not merely a reparametrized bare cycle or a discrete-time stochastic chain. In particular, the extra odd-mode eigenvalue shift produces a price-dependent support transition absent from those formulations. A non-retrieved equivalent theorem is still possible.",
+      "searches": [
+        "\"Möbius ladder\" \"fastest mixing\" weight",
+        "\"Möbius ladder\" \"algebraic connectivity\" \"optimal\" weights",
+        "Möbius ladder graph continuous-time Markov edge rate optimization spectral gap full optimizer",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned unweighted Möbius-ladder spectral/combinatorial results and general fastest-mixing methods, not a tabulation indexed jointly by m and continuous price c.",
+        "The formula is symbolic for every m>=4 and real positive c rather than a finite graph table."
+      ],
+      "reasoning": "No encountered exact spectral table included optimized edge weights and all-maximizer classification with continuous costs. This search is not exhaustive and does not prove no such table exists.",
+      "searches": [
+        "\"cycle\" \"diametral\" chords \"spectral gap\" optimization cost",
+        "\"Möbius ladder\" \"algebraic connectivity\" \"optimal\" weights",
+        "algebraic connectivity optimization cycle antipodal matching price weight Möbius ladder all optimizers",
+        "circulant graph weighted eigenvalue SDP support transition antiperiodic Fourier modes"
+      ]
+    },
+    "rationale": "The 2006 primary priced-rate FMMP paper gives the general SDP and a cycle without antipodal matching. The 2009 symmetry paper addresses discrete stochastic mixing rather than the priced continuous-time graph. The 2015 coupled-network work fixes the intralayer Laplacians while optimizing interlayer links. The previously known priced K_{3,3} case is explicitly excluded by m>=4. No searched result was seen to imply the full all-m>=4 optimizer rigidity, csc-squared threshold, critical segment, and vanishing-cost fourfold asymptotic. Risk of an unindexed exact circulant result remains.",
+    "residual_risks": [
+      "An unindexed or unpublished paper could contain an equivalent all-m>=4 Möbius ladder price-optimizer theorem.",
+      "The framework papers are broad and can be specialized, although their inspected statements do not explicitly imply the closed-form classification.",
+      "No independent publication-priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework and bare-cycle result, no identified full antipodal-matching case",
+        "evidence": "PDF p. 681 states AMS 90C22 and published electronically November 2, 2006; Section 5.3 explicitly analyzes C_n with unit cycle costs and then arbitrary cycle-edge costs.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "PDF first page and relevant text on pp. 681-683, 695-697, including Section 1 and Section 5.3; full PDF searched for antipodal/cycle and matching terms",
+        "method": "Open-access 19-page primary PDF, direct text inspection and first-page visual inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Foundational continuous-time rate allocation with per-edge costs and a cycle example"
+      },
+      {
+        "assessment": "Discrete-time SLEM optimization and symmetry methods, not the stated continuous-time priced shortcut optimization",
+        "evidence": "Abstract and Sections 3.1.1/5.4 discuss symmetric stochastic chains, cycles and wheels, with no evaluated priced-antipodal network in the inspected sections.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "PDF first page and relevant cycle/wheel and graph-example sections, including pp. 792, 799, 812-815; PDF searched for ladder/antipodal/Mobius aliases",
+        "method": "Open-access 28-page primary PDF, relevant text and first-page visual inspection",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry reductions might imply price-dependent orbit allocation"
+      },
+      {
+        "assessment": "Only cross-layer weights vary; both layer Laplacians are fixed. Not the present joint purchase of rim and antipodal edges.",
+        "evidence": "The problem states a fixed base Laplacian L1/L2 and optimizes only W=diag(w), unlike the budget here charged on both edge classes.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+        "material_read": "arXiv full HTML/text, abstract, introduction, definition of optimization (4), derivations, identical-layer threshold section and results",
+        "method": "Open-access arXiv text reading (initial posting 2015-10-22)",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Potential stronger interlayer coupling price/budget theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb857c99-5ddb-4de6-a307-fa9d9a856837",
+  "value": {
+    "rationale": "Ring networks with diametral shortcuts are natural sparse diffusion designs. The exact all-optimizer theorem identifies a phase transition in deleting an entire edge class, the price at which a nontrivial interval of designs becomes equally best, and a quantitatively surprising fixed-price limit: a vanishing O(m^-2) spending fraction buys a fourfold leading spectral-gap improvement. This all-size structural result has meaningful network investment and preconditioning interpretations, and is not just an isolated numerical datum.",
+    "status": "PASS"
+  }
+}
