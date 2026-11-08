@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** Each complex maximizer reduces to a nonnegative signal by entrywise positivity, and every finite-exponent maximizer is strictly positive. For exponents above two, a strictly convex divided-difference argument forces two equal input coordinates. The derivative sign, unique minimum of the logarithmic critical-point ratio, exact factorization at exponent four, and strict log-convexity in the exponent prove the full stated transition. The critical optimizer equality is an exact logarithmic identity; finite checks are corroborative only.
+
+**Originality — PASS (best-knowledge, with priority risk).** The closest initiating published full text, Matveev's *Shapes and Norms of Random Pairs* (arXiv:2608.08039v1), proves a graph-to-Lebesgue-norm correspondence but does not compute this six-cycle exponent line. Matveev–Romashchenko's earlier shape framework supplies context; its complete text was not available for this comparison, and its abstract is not treated as proof of noncoverage. Relevant scientific records for graph-edge numerical radius, order-three Fourier character pairs, and finite-state cyclic \(\ell_4\) norms have different domains and optimizing variables. Alias/parameter/implication searches and accessible prior claim comparisons found no dominating theorem. Older three-state nonlinear norm/hypercontractive literature remains a genuine originality risk.
+
+**Mathematical value — PASS.** The result evaluates a complete natural exponent line for the smallest non-complete connected homogeneous bipartite graph. It identifies an exact transcendental threshold with two separated equality orbits and a discontinuous symmetry change, giving concrete non-Hilbert shape behavior that endpoint spectral theory does not predict.
+
+**Limits.** This is the unnormalized counting-measure matrix norm and the Euclidean-input line only. The nonuniform optimizer for all exponents above the threshold is specified through an exact scalar maximization, not claimed to have a global elementary closed form or unique root. The underlying shape-function normalization is not recomputed. No independent mathematical audit or publication-priority certification has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
