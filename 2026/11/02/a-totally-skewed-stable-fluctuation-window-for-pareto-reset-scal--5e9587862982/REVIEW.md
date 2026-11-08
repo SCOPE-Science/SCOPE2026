@@ -1,12 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof specifies independent resetting of both path and clock, derives the exact Pareto moment and renewal speed, computes the reward's regularly varying tail through Brownian self-similarity and finite fractional moments, proves the centered reward has a one-sided index-\(q\) stable attraction law, and transfers it to physical time via the renewal clock and tight residual age. The independent numerical cross-checker validates 25 identities. The infinite-time conclusion is analytic rather than experimentally inferred.
+## correctness
 
-## Originality — PASS (best-knowledge, with source access risk)
-The 2026 Méndez–Cristín study (arXiv:2610.19985) explicitly advertises moments and ergodicity classes, but its full manuscript could not be inspected; the comparison is therefore restricted to its available abstract. Méndez–Flaquer-Galmés (arXiv:2507.05955) establishes general moments and a half-occupation limiting law. Zamparo (arXiv:2207.07521) proves normal-fluctuation and large-deviation results for resetting additive functionals. The present specific stable index and Lévy measure are not stated in the accessible evidence, although the proof uses standard product-tail and stable-limit theorems. A broader pre-existing stable-renewal theorem or full-paper result may subsume the application; independent priority assessment is still required.
+PASS
 
-## Value — PASS
-The claim quantitatively resolves typical long-time fluctuations in a physically motivated regime that moment-level ergodicity descriptions do not characterize: for ordinary Brownian resetting with Pareto exponent between two and three, the time average can converge in mean square yet its centered numerator still has a non-Gaussian stable law with a sharp scaling power. It supplies a direct observable fluctuation exponent and tail-intensity formula over a continuous nontrivial parameter interval.
+For full independent renewal of both path and intrinsic clock, Brownian scaling gives cycle length S and reward R=S^p Z, p=1+β/2, Z=√(2K)∫₀¹|B(u^β)|du independent of S with all positive moments. For p<α<2p, q=α/p in (1,2): Breiman tail P(R>x)~t0^α E[Z^q]x^−q; Y=R−μS is centered and its left tail is O(x^−α)=o(x^−q), yielding spectrally positive stable attraction. Renewal N(T)/T→1/E S and functional random-time-change give Lévy intensity q c* y^−q−1 dy with c*=(α−1)t0^(α−1)E Z^q. Age and unfinished continuous Brownian path rewards are tight at deterministic large T; the centered remainder is o_P(T^(1/q)). Recomputed β=1,α=5/2,t0=K=1: q=5/3 and μ=2/√π. The source verifier’s 25 identities do not prove stable convergence, which follows from the analytical limit theorems.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS for a specific full-renewal scaled Brownian absolute-area stable window and evaluated index, mean and Lévy intensity. Classical heavy-tail renewal-reward stable summation is existing machinery; Zamparo 2022 expressly acknowledges possible stable laws in general but analyzes LLN/CLT/LDP and standard Brownian absolute-area large deviations. Méndez–Cristín 2026 full current arXiv paper treats moments and ergodic regimes rather than an explicit q-stable fluctuation limit. Specialization is mathematically nontrivial but its derivability from classical renewal theorems is a meaningful originality risk.
+
+## value
+
+PASS
+
+The precise non-Gaussian fluctuation phase q∈(1,2) for a natural physical reset model fills a gap between finite mean rate and infinite reward variance, including ordinary Brownian α∈(2,3). Its explicit one-sided Lévy coefficient identifies nontrivial scaling beyond second-moment ergodicity diagnostics. It is an independently useful model-level classification even though classical probability theorems are invoked.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
