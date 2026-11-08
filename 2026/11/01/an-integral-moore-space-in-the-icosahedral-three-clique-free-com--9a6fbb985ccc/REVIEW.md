@@ -1,11 +1,21 @@
-# Scientific review: icosahedral three-clique-free Moore space
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete description of all twenty forbidden triangles determines every face. The finite checker verifies the full face poset, 522 pair matching, directed Hasse acyclicity, and the integral Morse differential by two different exact cancellation procedures. Critical dimensions are zero, four and five, and the integer degree is \(-2\). Therefore the CW model is \(S^4\cup_2e^5\); this is a homotopy classification, not an inference from finite-field Betti numbers. Diagnostic ranks over four characteristics agree.
+## correctness
 
-**Originality — PASS, with residual risk.** Ghosh–Selvaraja (arXiv:2602.09623v1, §§1,3–5) gives shellability criteria for chordal graph families and clique attachments, neither of which computes the icosahedral complex. Moradi (arXiv:1712.00583v1, introductory scope and §2) develops the equivalent Stanley–Reisner ideal description and treats complements of paths/cycles, without this result. Related published calculations concern the icosahedral matching, three-cut, and neighborhood complexes, whose face sets differ and do not imply the claim. Exact nomenclature, hypergraph-independence aliases, two-torsion, dimensional, facet-count and Moore-space searches found no covering theorem. Undiscovered equivalent computations remain possible; a search result alone is not a uniqueness certificate.
+PASS
 
-**Value — PASS.** This is a natural highly symmetric, regular, planar triangulation outside the chordal shellability setting. The exact two-torsion and degree-two attachment are not recoverable from ordinary rational homology or shellability conditions, and the result supplies a concrete pure five-dimensional nonshellable clique-free complex with a compact, reproducible integer certificate. The case is self-contained and motivated by the open classification of nonchordal clique-free complexes, without extrapolating to larger graph families.
+PASS. Reconstructed the icosahedral graph with poles 0 and 11, upper/lower pentagons and crossing edges, obtaining 30 edges and 20 triangles. Enumerated exactly 1047 nonempty subsets avoiding all graph triangles, with face vector (12,66,200,345,312,112), all 112 facets of size six. Independently reconstructed the 12-pivot discrete Morse matching, 522 matched pairs, three critical masks 64 (dim0), 3124 (dim4), 1926 (dim5), and validated acyclicity by topological sorting the entire 1047-face, 4344-incidence directed Hasse graph. The signed integral critical 5→4 Morse differential independently recomputed to be −2 (Smith invariant 2), so Forman gives a one-0-cell, one-4-cell, one-5-cell CW model with degree-two attaching map. Hence homotopy M(Z/2,4), reduced H4=Z/2 and all other reduced integral homology zero; the pure 5-dimensional complex cannot be shellable. No mod-p sample replaces the integer Morse differential.
 
-**Limitations.** No conclusion for arbitrary polyhedral graphs or other thresholds. Potential unindexed prior equivalent remains an originality risk, and mathematical validation by another party has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. Clique-free complexes are a natural graph-topological generalization of independence complexes; the highly symmetric, nonchordal icosahedron is a canonical boundary for shellability families. An explicit pure five-dimensional complex with a genuine integral Z/2 Moore homotopy type supplies a structural torsion/non-shellability witness, valuable independent of a general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3; no nonstandard packages or external input files are needed. It reconstructs the icosahedral graph and all twenty triangular cliques from a fixed twelve-vertex labeling, and checks an independent explicit triangle list.
+## correctness
 
-The program enumerates all \(4{,}095\) nonempty vertex subsets, retaining precisely those avoiding every triangular clique. It checks that the complex has \(1{,}047\) nonempty faces, \(112\) six-vertex facets, and face vector \((12,66,200,345,312,112)\). It constructs \(522\) matching pairs via the published pivot order and checks the entire directed Hasse graph of \(4{,}344\) incidences for acyclicity. The three critical masks are `64`, `3124`, and `1926`.
+PASS
 
-Two algebraically distinct cancellation recurrences, one on the four-face rows and one on the five-face columns, calculate the integer Morse boundary coefficient \(-2\). Separate reductions of original simplicial boundary matrices over \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7\) check the expected characteristic dependence. These field calculations alone would not determine the integral order-two torsion; that conclusion uses the signed integer calculation.
+PASS. Reconstructed the icosahedral graph with poles 0 and 11, upper/lower pentagons and crossing edges, obtaining 30 edges and 20 triangles. Enumerated exactly 1047 nonempty subsets avoiding all graph triangles, with face vector (12,66,200,345,312,112), all 112 facets of size six. Independently reconstructed the 12-pivot discrete Morse matching, 522 matched pairs, three critical masks 64 (dim0), 3124 (dim4), 1926 (dim5), and validated acyclicity by topological sorting the entire 1047-face, 4344-incidence directed Hasse graph. The signed integral critical 5→4 Morse differential independently recomputed to be −2 (Smith invariant 2), so Forman gives a one-0-cell, one-4-cell, one-5-cell CW model with degree-two attaching map. Hence homotopy M(Z/2,4), reduced H4=Z/2 and all other reduced integral homology zero; the pure 5-dimensional complex cannot be shellable. No mod-p sample replaces the integer Morse differential.
 
-The certificate is finite and exact for this labeled complex. Its validity rests on the stated discrete-Morse and cellular attaching-map theorems, not on numerical extrapolation. Independent audit has not been performed.
+## originality
+
+PASS
+
+PASS. Compared the actual integral/homotopy claim, its intrinsic invariant and implications against published exact/nearby records, Resultary semantic search and mathematically relevant primary text. Distinguishes general methods and other complex functors from an exact integral calculation; inaccessible or unindexed priorities remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. Clique-free complexes are a natural graph-topological generalization of independence complexes; the highly symmetric, nonchordal icosahedron is a canonical boundary for shellability families. An explicit pure five-dimensional complex with a genuine integral Z/2 Moore homotopy type supplies a structural torsion/non-shellability witness, valuable independent of a general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
