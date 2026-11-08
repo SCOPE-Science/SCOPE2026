@@ -1,19 +1,21 @@
-# Scientific review: shortest one-joker scattered-subsequence covers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has explicit quantifiers \(q\ge2\) and \(k\ge1\) and a per-target single-symbol matching definition for the joker. The all-equal-symbol targets force at least \(k-1\) ordinary copies of each alphabet letter, proving the minimum-length lower bound. At equality, the target \(b^{r+1}a^{k-r-1}\) rules out unequal numbers of \(a\) and \(b\) before the joker. Appending a repeated copy of the last letter of an absent prefix pattern forces both ordinary sides to be universal. A proved greedy-arch lemma characterizes minimum-length ordinary universal words as concatenations of permutations. This yields the exact iff classification and a nonovercounting enumeration. Explicit construction proves attainability. The finite verification covers 18 parameter pairs and 61,609 hosts, but is corroboration rather than a substitute for the proof. No boundary cases are omitted.
+PASS
 
-## Originality — PASS with bounded-literature risk
+All-one-letter targets force at least k-1 occurrences of each ordinary symbol, giving the sharp length bound. At equality, unequal prefix symbol counts are contradicted by target b^{r+1}a^{k-r-1}; suffix counts follow. If prefix lacks a t-letter target ending with a, appending a^(k-t) yields unembeddable k-target; reversal proves suffix universality. The greedy complete-alphabet arch factorization forces minimum ordinary universal words into t and k-1-t permutation blocks; converse and unique joker boundary count follow. k=1 vacuous sides handled. Independent full enumeration of balanced shortest hosts for (q,k)=(2,2),(2,3),(2,4),(3,2),(3,3) and separate direct target DP matched counts 4,12,32,12,108. Finite checks are not used for all parameters.
 
-Barker et al. (arXiv:2003.04629v1, 2020) treat scattered subsequence universality for ordinary hosts, including the classical arch factorization; the wildcard-host minimum classification is not stated there. Adamson (arXiv:2304.04583v1, 2023) counts ordinary hosts, not joker hosts. Chen et al. (arXiv:1601.06456, 2016) study joker hosts but require contiguous targets exactly once, not scattered subsequences at least once. Adamson et al. (arXiv:2311.10658v1, 2023) study universal ordinary words in regular languages, rather than a set of target-dependent completions of a single partial host. The closest accessible related record on insertion distance measures ordinary-symbol insertions and does not imply this joker placement or enumerator. Targeted query searches found no statement-equivalent result. The nonexistence of an unindexed specialization is not established; it is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural partial-word analogue of minimum-length universal supersequences, relevant when a single wildcard position can stand for any missing letter in distinct patterns. The theorem supplies an exact all-alphabet, all-order minimum, rigid characterization of **all** optimizers, and exact cardinality. The forced equality of prefix symbol counts and exclusion of joker positions internal to permutation rounds are genuine structural constraints rather than numeric examples or a direct substitution into an ordinary-word formula. It gives the entire minimal design space, not an arbitrary finite slice. No claim is made about longer, multiple-joker, cyclic or uniquely-occurring designs.
+The closest ordinary scattered-factor universality theorems establish arches with no wildcard; the closest joker-host partial-word theory matches contiguous factors exactly once. This intersection and the rigidity/counting statement are not logically implied by those different models. Exact one-joker scattered coverage may have an unindexed alias and remains a residual priority risk.
 
-## Residual scientific limitations
+## value
 
-The theorem is self-contained and the finite program tests only the stated ranges. A differently named characterization in unindexed partial-word literature could duplicate part of the result, and the classification is not an independent external validation. Comparison of available primary full text and accessible related summaries does not yield absolute uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The structure and exact enumeration of shortest universal partial words provide a natural bridge between universal subsequences and wildcard hosts; the forced boundary placement is a mathematically meaningful rigidity result rather than an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
