@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:44:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All perfect matchings of Q5 correspond bijectively to a perfect bijection from 16 even vertices to 16 odd vertices satisfying Hamming-one adjacency; a depth-first assignment of unused odd partners enumerates each exactly once. Legal square flips are precisely swaps of two even-vertex partners when both cross edges exist; this is exhaustive for every four-cycle move (not long even alternating cycles). Exact disjoint-set traversal over every enumerated state and swap gives N=589185, 3,219,360 reconfiguration edges, component sizes (1×120,4×80,99280×1,489465×1), component edge totals 0,320,359680,2859360. Independently implemented fresh C++ enumeration from source logic, recompiled and executed, reproduced all state/edge/component and degree sums. Four-vertex components are C4 by degree 2, and every move flips the partner permutation sign, giving bipartiteness. Read the separate Python original, which enumerates 80-bit matching-edge subsets and applies all 3840 bit-translation/coordinate-permutation automorphisms to verify two stated exceptional orbits; orbit check not independently reexecuted, with exact scope made explicit. This is truly exhaustive finite n=5, not evidence for n≥6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klivans–Saldanha asymptotic regular-box connectivity allows vertical height extension and gives twist-sector behavior, not exact five-cube components.",
+          "Hartarsky–Lichev–Toninelli arXiv:2304.10930 allows alternating cycles of length ≤4d−4, strictly more moves than squares."
+        ],
+        "reasoning": "Connectivity under a superset of moves does not determine the partition under only square moves; no existing general bound dictates these exact finite numbers.",
+        "searches": [
+          "Resultary semantic search: five-dimensional hypercube perfect matchings square flip connected components frozen matchings 589185 202"
+        ]
+      },
+      "checked_sources": [
+        "Bonamy et al. arXiv:1904.06184 full primary PDF",
+        "Klivans–Saldanha arXiv:2007.08474 primary PDF especially Example 2.3",
+        "Östergård–Pettersson DOI 10.1007/s11083-012-9279-8 bibliographic static enumerator",
+        "Hartarsky–Lichev–Toninelli arXiv:2304.10930 abstract different allowed moves",
+        "Resultary hypercube matching semantic search (9 hits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bonamy complexity theorems and Klivans higher-dimensional twist invariant do not imply the exact count of 202 Q5 square-flip components and exceptional orbits.",
+          "Klivans Example 2.3 has 99,280 in a different 4D box; Q5 has 32 vertices, not the same tiling graph."
+        ],
+        "reasoning": "Without enumerating Q5 flips or a structural classification for this precise graph, the exact component sizes, edge counts and orbit transitivity do not follow from those prior statements.",
+        "searches": [
+          "Resultary semantic search: five-dimensional hypercube perfect matchings square flip connected components frozen matchings 589185 202"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bonamy et al. arXiv:1904.06184 define precisely alternating four-cycle reconfiguration, in general graph classes but not Q5 census.",
+          "Klivans–Saldanha arXiv:2007.08474 analyze flips of rectangular lattice dominoes and [0,2]^2×[0,3]^2 box tilings."
+        ],
+        "reasoning": "Perfect matchings of Q5 correspond to domino tilings of a 5D unit hypercube with 32 cells. The Klivans 4D 36-cell box is a different graph despite a 99,280-sized component being numerically coincident.",
+        "searches": [
+          "Resultary semantic search: five-dimensional hypercube perfect matchings square flip connected components frozen matchings 589185 202",
+          "https://arxiv.org/pdf/1904.06184",
+          "https://arxiv.org/pdf/2007.08474"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Graham–Harary and Östergård–Pettersson static matching total 589185 is explicitly known, and reproduced only as checksum.",
+          "The component census 120K1+80C4+G_99280+G_489465 and 3,219,360 flip edges was reproduced in an independently implemented exhaustive graph traversal."
+        ],
+        "reasoning": "A known total count is not a known reconfiguration component table. The pre-existing Klivans numerical 99,280 applies to a nonisomorphic 36-cell box, not this Q5 graph; older inaccessible static-enumeration appendices remain risk.",
+        "searches": [
+          "Resultary semantic search: five-dimensional hypercube perfect matchings square flip connected components frozen matchings 589185 202"
+        ]
+      },
+      "rationale": "Static Q5 matching total 589185 was known (Graham–Harary; Östergård–Pettersson). Bonamy et al. study general square-flip reconfiguration complexity; Klivans–Saldanha establish a twist invariant and component phenomena for other high-dimensional boxes, including a 99,280-size component in a different 4D box with 36 cells, which is NOT the 32-vertex five-cube Q5. Hartarsky et al allow longer alternating-cycle moves and cannot imply square-only components. No read primary source supplies the exact 202-component Q5 census, although specialized tiling tables remain a qualified priority risk.",
+      "residual_risks": [
+        "Östergård–Pettersson 2012/2013 static matching paper was not read in full; unindexed flip-census appendix remains possible.",
+        "Automorphism orbit assertions follow the supplied complete Python test inspected but were not independently rerun; all component and edge counts independently enumerated.",
+        "Only labeled Q5 matchings and square flips: no dimension≥6 classification or general tiling connectivity theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exact square switch but classifies general graph computational complexity, not Q5 component multiplicities.",
+          "evidence": "https://arxiv.org/pdf/1904.06184",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+          "material_read": "Primary 22-page PDF, abstract, formal move definition, main complexity theorems and related-work sections, with page-image check",
+          "method": "Open-access primary PDF: text, mathematical section inspection and page-image cross-check",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Same four-cycle flip adjacency, possible general theorem"
+        },
+        {
+          "assessment": "99,280 refers to 4D box [0,2]^2×[0,3]^2 with 36 cells, not five-cube Q5 of 32 vertices; no exact Q5 component census.",
+          "evidence": "https://arxiv.org/pdf/2007.08474",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.08474",
+          "material_read": "Primary 30-page PDF, introduction, Example 2.3 and figures, large-component/twist results and their different box dimensions, with page-image checks",
+          "method": "Open-access primary PDF: text, mathematical section inspection and page-image cross-check",
+          "title": "Domino tilings and flips in dimensions 4 and higher",
+          "trigger": "Extremely close higher-dimensional dimer flip work including 99,280 count"
+        },
+        {
+          "assessment": "Supplies background static matchings; full text could in principle include flip partition and remains originality risk.",
+          "evidence": "https://doi.org/10.1007/s11083-012-9279-8",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-012-9279-8",
+          "material_read": "Published DOI and abstract only, not primary full text",
+          "method": "Published abstract/metadata; full text not obtained",
+          "title": "Enumerating Perfect Matchings in n-Cubes",
+          "trigger": "Exact known total perfect matchings 589185"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact components, frozen exceptional orbit and giant-component sizes under the most local natural matching switch resolve a sharp finite Q5 reconfiguration invariant. The two large components coexist with 200 small ones; distinguishing square-only flips from larger even-cycle transformations matters for Markov-chain connectivity and tiling geometry. A natural complete finite classification remains mathematically valuable without claiming all dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Östergård–Pettersson 2012/2013 static matching paper was not read in full; unindexed flip-census appendix remains possible.",
+    "Automorphism orbit assertions follow the supplied complete Python test inspected but were not independently rerun; all component and edge counts independently enumerated.",
+    "Only labeled Q5 matchings and square flips: no dimension≥6 classification or general tiling connectivity theorem."
+  ],
+  "schema_version": 1
+}

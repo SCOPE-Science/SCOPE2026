@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-# Reproducible verification of square-flip components in the five-cube
+# Independent mathematical audit
 
-Two complete standalone source files are supplied and require no external datasets or mathematical packages. The C++ program requires a compiler supporting C++17; the Python implementation uses only the Python 3 standard library.
+## correctness
 
-Run:
+PASS
 
-```sh
-g++ -O3 -std=c++17 q5_verify_cpp.cpp -o q5_verify_cpp
-./q5_verify_cpp
-python3 q5_verify_python.py
-```
+All perfect matchings of Q5 correspond bijectively to a perfect bijection from 16 even vertices to 16 odd vertices satisfying Hamming-one adjacency; a depth-first assignment of unused odd partners enumerates each exactly once. Legal square flips are precisely swaps of two even-vertex partners when both cross edges exist; this is exhaustive for every four-cycle move (not long even alternating cycles). Exact disjoint-set traversal over every enumerated state and swap gives N=589185, 3,219,360 reconfiguration edges, component sizes (1×120,4×80,99280×1,489465×1), component edge totals 0,320,359680,2859360. Independently implemented fresh C++ enumeration from source logic, recompiled and executed, reproduced all state/edge/component and degree sums. Four-vertex components are C4 by degree 2, and every move flips the partner permutation sign, giving bipartiteness. Read the separate Python original, which enumerates 80-bit matching-edge subsets and applies all 3840 bit-translation/coordinate-permutation automorphisms to verify two stated exceptional orbits; orbit check not independently reexecuted, with exact scope made explicit. This is truly exhaustive finite n=5, not evidence for n≥6.
 
-Expected C++ success markers:
+## originality
 
-```text
-Q5_BIPARTITE_PARTNER_EXHAUSTIVE_PASS
-Q5_202_COMPONENTS_AND_EXACT_EDGES_PASS
-matchings=589185 flip_edges=3219360 components=1x120 4x80 99280x1 489465x1
-```
+PASS
 
-Expected Python success markers:
+Static Q5 matching total 589185 was known (Graham–Harary; Östergård–Pettersson). Bonamy et al. study general square-flip reconfiguration complexity; Klivans–Saldanha establish a twist invariant and component phenomena for other high-dimensional boxes, including a 99,280-size component in a different 4D box with 36 cells, which is NOT the 32-vertex five-cube Q5. Hartarsky et al allow longer alternating-cycle moves and cannot imply square-only components. No read primary source supplies the exact 202-component Q5 census, although specialized tiling tables remain a qualified priority risk.
 
-```text
-Q5_INDEPENDENT_80_EDGE_BITSET_EXHAUSTIVE_PASS
-Q5_SYMMETRY_ORBITS_FROZEN_AND_FOUR_CYCLE_COMPONENTS_PASS
-states 589185 edges 3219360 components [(1, 120), (4, 80), (99280, 1), (489465, 1)]
-```
+## value
 
-The full Python output additionally contains the exact degree histogram. The C++ verifier uses a bijection from even vertices to odd vertices to encode each perfect matching, tests all partner swaps and applies exact disjoint-set connectivity. The Python verifier instead enumerates undirected edge subsets, constructs all \(80\) coordinate squares, toggles every applicable square, computes component sizes, and checks the \(5!\cdot 2^5\) cube-symmetry group actions on exceptional components. The implementations verify the claimed finite structures, not a theorem about general cube dimension. Exhaustive code is accompanied by arguments proving that each enumeration and flip test is complete; experimental sampling alone is not used as proof. These are mathematical self-checks, not independent scholarly auditing.
+PASS
+
+Exact components, frozen exceptional orbit and giant-component sizes under the most local natural matching switch resolve a sharp finite Q5 reconfiguration invariant. The two large components coexist with 200 small ones; distinguishing square-only flips from larger even-cycle transformations matters for Markov-chain connectivity and tiling geometry. A natural complete finite classification remains mathematically valuable without claiming all dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

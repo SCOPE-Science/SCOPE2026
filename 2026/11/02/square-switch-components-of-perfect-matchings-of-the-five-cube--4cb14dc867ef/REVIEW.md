@@ -1,19 +1,21 @@
-# Scientific review: five-cube perfect-matching square switches
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state encoding bijects admissible sixteen-partner assignments with perfect matchings, and exhaustive recursion visits each exactly once. The swap predicate is equivalent to an alternating four-cycle; an independent edge-bitset implementation tests the eighty actual squares. The two implementations agree on all 589,185 states, 3,219,360 flip edges, 202 components and their orders; the independent implementation checks all 3,840 cube automorphisms for the stated orbit assertions. Connectivity is computed by exact disjoint-set closure, not guessed from sampling. The four-cycle type is justified by checked degree two at every vertex of each size-four component. Bipartiteness is proved by permutation-sign alternation.
+PASS
 
-## Originality — PASS (qualified)
+All perfect matchings of Q5 correspond bijectively to a perfect bijection from 16 even vertices to 16 odd vertices satisfying Hamming-one adjacency; a depth-first assignment of unused odd partners enumerates each exactly once. Legal square flips are precisely swaps of two even-vertex partners when both cross edges exist; this is exhaustive for every four-cycle move (not long even alternating cycles). Exact disjoint-set traversal over every enumerated state and swap gives N=589185, 3,219,360 reconfiguration edges, component sizes (1×120,4×80,99280×1,489465×1), component edge totals 0,320,359680,2859360. Independently implemented fresh C++ enumeration from source logic, recompiled and executed, reproduced all state/edge/component and degree sums. Four-vertex components are C4 by degree 2, and every move flips the partner permutation sign, giving bipartiteness. Read the separate Python original, which enumerates 80-bit matching-edge subsets and applies all 3840 bit-translation/coordinate-permutation automorphisms to verify two stated exceptional orbits; orbit check not independently reexecuted, with exact scope made explicit. This is truly exhaustive finite n=5, not evidence for n≥6.
 
-The perfect-matching count was established by earlier authors and is excluded from the proposed novelty. General four-cycle flip reconfiguration was studied by Bonamy et al. (2019); their inspected treatment concerns computational complexity and certain graph classes, not the exact five-cube component census. The highly relevant full papers of Klivans–Saldanha (2022) and Hartarsky–Lichev–Toninelli (2023/2024) describe dimension-four examples, twist/stabilization, and ergodicity with longer alternating cycles, rather than the fixed five-cube square-only component census. Östergård and Pettersson (published online in 2012) discuss static counts and symmetry orbits; only metadata and abstract were accessible, so an equivalent result elsewhere in their full text cannot be ruled out. Results for four-cubes and for unrestricted alternating-cycle flips do not imply the square-only five-cube component split. Comparisons and residual risks are detailed in the structured review.
+## originality
 
-## Value — PASS
+PASS
 
-The five-cube is a natural first substantially larger case after four-cube computations. An exact decomposition into 120 frozen configurations, 80 four-state motion cycles and two large disconnected motion sectors distinguishes static enumeration from actual reconfiguration accessibility. In particular, a sampler restricted to local square switches is provably not irreducible. The orbit statements reveal that small exceptional components are systematic rather than arbitrary isolated examples. This is a natural exact finite connectivity benchmark, not a parameter chosen only for computation.
+Static Q5 matching total 589185 was known (Graham–Harary; Östergård–Pettersson). Bonamy et al. study general square-flip reconfiguration complexity; Klivans–Saldanha establish a twist invariant and component phenomena for other high-dimensional boxes, including a 99,280-size component in a different 4D box with 36 cells, which is NOT the 32-vertex five-cube Q5. Hartarsky et al allow longer alternating-cycle moves and cannot imply square-only components. No read primary source supplies the exact 202-component Q5 census, although specialized tiling tables remain a qualified priority risk.
 
-## Limits and sources
+## value
 
-The two large connected graphs are not classified beyond their orders and edge totals, and no higher-dimensional formula or full literature uniqueness proof is asserted. Sources: Graham–Harary (1988); Östergård–Pettersson (2012/2013), DOI `10.1007/s11083-012-9279-8`; Bonamy et al. (2019), DOI `10.4230/LIPIcs.MFCS.2019.80`; Mütze's combinatorial Gray-code survey, matching section; Klivans–Saldanha, DOI `10.5802/alco.205`; Hartarsky–Lichev–Toninelli, `arXiv:2304.10930`; Fink, DOI `10.1137/070697288`. Relevant primary full text was consulted where open access allowed; the 2012 article remained inaccessible in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact components, frozen exceptional orbit and giant-component sizes under the most local natural matching switch resolve a sharp finite Q5 reconfiguration invariant. The two large components coexist with 200 small ones; distinguishing square-only flips from larger even-cycle transformations matters for Markov-chain connectivity and tiling geometry. A natural complete finite classification remains mathematically valuable without claiming all dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
