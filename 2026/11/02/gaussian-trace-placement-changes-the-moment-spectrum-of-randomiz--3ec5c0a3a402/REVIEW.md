@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Gaussian direct denominator is a positive weighted chi-square variable over exactly \(mn\) independent Gaussian coordinates; the small-ellipsoid probability includes the determinant factor \(\det(R)^{-m/2}\). The complementary denominator crosses zero at a strictly interior point of a weighted gamma density because \(H\) has at least one positive eigenvalue. Its smooth positive density there yields the two-sided local probability \(2\varepsilon f_H(n)\). These facts prove both complete tail and positive-moment spectra, including threshold equality. The fixed-norm identity and deterministic lower bound prove the Rademacher contrast. The worked chi-square example and 836 finite code checks support the algebra but are not substitutes for the proofs. Assumptions explicitly exclude singular \(R\), trivial \(H=0\), random numerators, and probe-dependent smoothers.
+PASS
 
-## Originality: PASS (qualified)
+For fixed 0<=H<I and R=I-H positive definite, Ddirect is a positive quadratic form on exactly mn independent normal coordinates; the ellipsoid small-ball volume gives the coefficient with det(R)^(-m/2) and exponent mn/2. S_H=sum of independent positive-eigenvalue gamma variables has strictly positive smooth density at n, so n-S_H has linear two-sided small-ball probability and the squared score has t^-1/2 tail. Layer-cake integration yields q thresholds including divergence on equality. Norm sqrt(n) probes satisfy z^T R z=n-z^T H z>=n lambda_min(R) samplewise. Independent rational checks verified the n=2,m=3 example E[Gdirect]=9/8 and 60 fixed-norm identities.
 
-The complete 2020 Gazzola–Sabaté Landman open-access paper establishes the GCV and randomized trace-estimation context; it does not, in the inspected GCV passage, provide the stated inverse-moment dichotomy. The 2021 Chung–Gazzola survey concerns large-scale regularization and is not evidence for the new thresholds; its full paper was not inspected. The Girard–Hutchinson notes cover unbiased Gaussian/Rademacher quadratic traces and their variance, not the reciprocal-squared nonlinear score. published-finding corpus searches using generalized cross-validation, complement subtraction, moment thresholds, chi-square poles, and fixed-norm aliases returned nearby probabilistic and inverse-problem results but no statement implying the full theorem. No searched database or primary table of this exact statistic was identified. Classical facts about inverse chi-square moments and weighted gamma densities are credited as proof tools. A specialized pre-existing noisy-GCV pole analysis remains a residual priority risk; there is no claim of exhaustive literature coverage or independent novelty verification.
+## originality
 
-## Value: PASS
+PASS
 
-GCV is a standard regularization-parameter selection objective. The finding shows that mathematically equivalent and individually unbiased Monte Carlo forms of its denominator can have different, *exact* integrability classes, making finite means impossible for one natural Gaussian placement at every finite sample size. It also supplies a simple, samplewise fixed-norm alternative and an exact finite-moment budget for the direct placement. These observations concern estimator reliability beyond the familiar variance of a trace estimator, and they distinguish moment failure from merely increased numerical error.
+Best-of-knowledge PASS. The classical GCV functional, Hutchinson/Girard quadratic trace estimates and inverse-chi-square calculations are prior art, but the complete sharp denominator placement/tail dichotomy with direct-vs-subtraction and fixed-norm alternative was not found in the inspected sources.
 
-## Closest literature and limits
+## value
 
-Gazzola–Sabaté Landman (2020), DOI:10.1002/gamm.202000017: inspected relevant full-text GCV and stochastic trace-estimation discussion. Chung–Gazzola (2021 preprint, 2024 journal), arXiv:2105.07221 / DOI:10.1137/21M1441420: inspected abstract and metadata; full text unavailable. Girard–Hutchinson estimator notes: inspected Gaussian and Rademacher trace laws. Classical Hutchinson (1990) trace estimator: bibliographic comparison. The claim is conditional on a fixed positive-contraction smoother; adaptive tuning, other probe families, score clipping, and alternative GCV normalizations involving random numerators are not analyzed. Independent literature priority assessment remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Generalized cross-validation is a standard regularization functional. The observation that unbiased algebraically identical trace placements have different sharp inverse-moment classes is a consequential estimator reliability boundary; it distinguishes integrability failure from variance inflation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:55:39.211071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<=H<I and R=I-H positive definite, Ddirect is a positive quadratic form on exactly mn independent normal coordinates; the ellipsoid small-ball volume gives the coefficient with det(R)^(-m/2) and exponent mn/2. S_H=sum of independent positive-eigenvalue gamma variables has strictly positive smooth density at n, so n-S_H has linear two-sided small-ball probability and the squared score has t^-1/2 tail. Layer-cake integration yields q thresholds including divergence on equality. Norm sqrt(n) probes satisfy z^T R z=n-z^T H z>=n lambda_min(R) samplewise. Independent rational checks verified the n=2,m=3 example E[Gdirect]=9/8 and 60 fixed-norm identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gazzola–Sabaté Landman cover GCV and Hutchinson stochastic trace estimation in large-scale inverse problems.",
+          "Resultary K-fold Gaussian likelihood-ratio moment spectrum is a different statistic, not a GCV denominator."
+        ],
+        "reasoning": "The broad algorithmic survey and Gaussian e-value heavy-tail theorem do not directly calculate the two sharp GCV moment thresholds.",
+        "searches": [
+          "randomized generalized cross validation noisy trace estimator Gaussian denominator zero pole inverse moments Hutchinson complement trace",
+          "DOI:10.1002/gamm.202000017",
+          "arXiv:2105.07221"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2105.07221",
+        "https://www.ethanepperly.com/index.php/2023/01/25/the-girard-hutchinson-estimator/",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/gamm.202000017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "GCV uses squared effective-degrees-of-freedom denominators and traces may be estimated stochastically; the prior source does not establish moment stability under trace placement."
+        ],
+        "reasoning": "GCV definitions + estimator unbiasedness cannot imply integrability of nonlinear reciprocal squares. The two distinct small-ball analyses are needed.",
+        "searches": [
+          "DOI:10.1002/gamm.202000017",
+          "arXiv:2105.07221"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct GCV denominator is a weighted chi-square near-zero event; complementary subtraction creates an interior density pole near trace(H)=n."
+        ],
+        "reasoning": "Searched Gaussian trace placement, chi-square poles, complementary subtraction, inverse moments and GCV aliases. Classical gamma/ellipsoid identities are tools, not a documented identical theorem for these two GCV estimators.",
+        "searches": [
+          "randomized generalized cross validation noisy trace estimator Gaussian denominator zero pole inverse moments Hutchinson complement trace",
+          "DOI:10.1002/gamm.202000017",
+          "arXiv:2105.07221"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The standard Gaussian trace estimator variance formulas and inverse-chi-square moments are known separately."
+        ],
+        "reasoning": "No identified table supplies the positive weighted-chi-square small-ball determinant coefficient and the subtraction pole coefficient for arbitrary H,m,n; finite scalar examples do not cover the general comparison.",
+        "searches": [
+          "randomized generalized cross validation noisy trace estimator Gaussian denominator zero pole inverse moments Hutchinson complement trace",
+          "Hutchinson:1990",
+          "DOI:10.1002/gamm.202000017"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The classical GCV functional, Hutchinson/Girard quadratic trace estimates and inverse-chi-square calculations are prior art, but the complete sharp denominator placement/tail dichotomy with direct-vs-subtraction and fixed-norm alternative was not found in the inspected sources.",
+      "residual_risks": [
+        "An older specialized noisy GCV denominator/pole analysis may predate the claim.",
+        "Adaptive parameter selection, random numerator, singular residual R, and clipped denominators are explicitly excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes context, not reported same Gaussian direct versus complement inverse-moment law.",
+          "evidence": [
+            "GCV parameter-choice discussion and randomized trace estimation passages."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/gamm.202000017",
+          "material_read": "Open publisher HTML with GCV/parameter choice sections and stochastic trace estimator passages",
+          "method": "Full HTML available; relevant sections read",
+          "title": "Krylov methods for inverse problems: Surveying classical, and introducing new, algorithmic approaches",
+          "trigger": "Direct discussion of GCV and stochastic Hutchinson estimator"
+        },
+        {
+          "assessment": "Possible implicit overlap remains a source risk; no assertion about entire text.",
+          "evidence": [
+            "Survey scope covers hybrid projection methods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.07221",
+          "material_read": "Abstract and available overview; no complete technical paper examination established",
+          "method": "ArXiv metadata/abstract only",
+          "title": "Computational Methods for Large-Scale Inverse Problems: A Survey on Hybrid Projection Methods",
+          "trigger": "Broad relevant inverse problems parameter-choice survey"
+        },
+        {
+          "assessment": "No whole-document noncoverage assertion; classical trace estimators motivate but do not verify a matching GCV moment law.",
+          "evidence": [
+            "Quadratic estimator comparisons."
+          ],
+          "identifier_or_url": "https://www.ethanepperly.com/index.php/2023/01/25/the-girard-hutchinson-estimator/",
+          "material_read": "Bibliographic description of Gaussian and Rademacher trace estimators; live full HTML retrieval failed",
+          "method": "Citation/abstract only, no independent full-text reading",
+          "title": "The Girard–Hutchinson Estimator",
+          "trigger": "Quadratic Gaussian/Rademacher estimator variance background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Generalized cross-validation is a standard regularization functional. The observation that unbiased algebraically identical trace placements have different sharp inverse-moment classes is a consequential estimator reliability boundary; it distinguishes integrability failure from variance inflation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2105.07221",
+    "https://www.ethanepperly.com/index.php/2023/01/25/the-girard-hutchinson-estimator/",
+    "https://onlinelibrary.wiley.com/doi/full/10.1002/gamm.202000017"
+  ],
+  "disposition": "passed",
+  "final_claim": "With unnormalized Gaussian probes, direct Monte Carlo trace of R=I-H gives GCV positive moment q iff q<mn/4, while n minus trace of nonzero H gives q iff q<1/2 independent of m; sharp tail constants and samplewise bounded fixed-norm-isotropic remedy.",
+  "limitations": [
+    "Fixed positive-contraction smoother and fixed nonzero residual numerator, independent unnormalized Gaussian or fixed-norm isotropic probes.",
+    "60 exact finite fixed-norm checks and scalar chi-square evaluation do not prove the all-moment statement."
+  ],
+  "residual_risks": [
+    "An older specialized noisy GCV denominator/pole analysis may predate the claim.",
+    "Adaptive parameter selection, random numerator, singular residual R, and clipped denominators are explicitly excluded."
+  ],
+  "schema_version": 1
+}
