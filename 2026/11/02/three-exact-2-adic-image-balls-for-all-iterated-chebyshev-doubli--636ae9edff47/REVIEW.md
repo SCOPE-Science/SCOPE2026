@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof explicitly computes every 2-adic input valuation class at the quartic base, using that odd squares fill \(1+8\mathbb Z_2\). It proves the key odd-linear/even-quadratic permutation lemma rather than assuming a p-adic inverse theorem. Exact ball propagation, the valuation \(\nu_2(c_r-2)=2r+2\), and the merge/split boundary produce the complete formula for all \(r\ge2\) and \(k\ge1\). Exhaustive finite-ring images provide an independent cross-check, not a replacement for these quantified arguments. No unproved lemma is needed for the stated family.
+PASS
 
-## Originality (O): PASS, with material historical-priority risk
+Every odd 2-adic square fills 1+8Z2. For a odd and b even, (au+bu²)-(av+bv²)=(u-v)(a+b(u+v)) has second factor odd; thus the map is an isometry/bijection on each Z/2^k and Z2. Direct expansion of F2(x)=x^4−4x²+2 across valuation classes odd, 2×odd,4×odd, divisible by8 gives exactly the three stated base balls (-1+16Z2), (2+128Z2), (194+512Z2), including full surjectivity. For odd-centre balls f increases exponent one, for centre a≡2 mod8 it increases exponent two; induction yields all r. Factor c_{r+1}−2=(c_r−2)(c_r+2), with v2(c_r+2)=2, establishes v2(c_r−2)=2r+2 and disjointness at precision k>=2r+3. Counts come from full residue-ball reductions including k<=2r+2 overlap, densities from stable exponents, and fixed-point intersection from contracting centres. Independently checked actual SET equality (not just size) for 72 pairs 2<=r<=7, 1<=k<=12; finite checks corroborate but the all-r,k result is the lifting induction.
 
-Equivalent descriptions as \(D_{2^r}(X,1)\), the Chebyshev doubling polynomial \(2T_{2^r}(X/2)\), and repeated \(X^2-2\) were compared. The closest identified work is Bremser--Gomez-Calderon's 1991 Galois-ring Dickson value-set paper; only its abstract, not full text, was accessible, so its coverage is not definitively excluded. Chou--Gomez-Calderon--Mullen (1988) concerns finite fields; Ralph (1995) supplies general inequalities; Cheng--Hill--Wan (2011) studies finite-field counting; Qu--Ding (2014) handles second-kind permutation; Shang (2023) gives general residue-ring value-set bounds. Their inspected statements do not imply these three exact dyadic balls. Retrieved comparable research findings address different maps or invariants. Failed searches do not prove historical uniqueness; a specialist-source priority risk remains.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-An infinite Chebyshev/Dickson family has a complete nontrivial classification of its 2-adic value sets and every finite quotient count. The center-gap valuation causes a sharp deep-precision branch splitting; the three radii give exact stable densities, and repeated image sets contract to two fixed points. These are natural dynamical and number-theoretic invariants, not arbitrary computed slices.
+Best-of-knowledge original as a precise 2-adic three-ball and all-modulus image classification of iterated first-kind Dickson polynomials; classical polynomial identities and lifting are prior. The historically close 1991 Galois-ring paper could contain a stronger equivalent formula and was only accessible by abstract; this unresolved full-text comparison is a major qualified priority risk, NOT a proof of noncoverage. No decisive coverage evidence was obtained.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to first-kind parameter-one Dickson polynomials of dyadic index and integer residue rings of 2-power modulus. It does not classify fiber sizes or extensions of the base ring. A related 1991 source remained incompletely accessible; the record does not claim that its unexamined text fails to cover the result. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact images and densities of the canonical Chebyshev-doubling dynamical system over Z2 provide natural p-adic arithmetic structure and a complete precision-dependent invariant; the two even branches separate at an exact sharp depth. Unlike general upper bounds or generic polynomial composition, the calculated three-ball classification is a useful self-contained exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

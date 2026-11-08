@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_dickson_2adic_images.py` with Python 3, standard library only.
+## correctness
 
-The verifier independently computes complete residue images for every \(2\le r\le9\) and \(1\le k\le16\) (128 cases), plus \(2\le r\le5\) at \(k=17,18\) (eight cases), then compares both sets and cardinalities with the exact three-ball formula. The largest exhaustively iterated input domain has \(2^{18}\) elements. It checks center gaps and the stable-density arithmetic through \(r=14\).
+PASS
 
-Expected checked-package output:
+Every odd 2-adic square fills 1+8Z2. For a odd and b even, (au+bu²)-(av+bv²)=(u-v)(a+b(u+v)) has second factor odd; thus the map is an isometry/bijection on each Z/2^k and Z2. Direct expansion of F2(x)=x^4−4x²+2 across valuation classes odd, 2×odd,4×odd, divisible by8 gives exactly the three stated base balls (-1+16Z2), (2+128Z2), (194+512Z2), including full surjectivity. For odd-centre balls f increases exponent one, for centre a≡2 mod8 it increases exponent two; induction yields all r. Factor c_{r+1}−2=(c_r−2)(c_r+2), with v2(c_r+2)=2, establishes v2(c_r−2)=2r+2 and disjointness at precision k>=2r+3. Counts come from full residue-ball reductions including k<=2r+2 overlap, densities from stable exponents, and fixed-point intersection from contracting centres. Independently checked actual SET equality (not just size) for 72 pairs 2<=r<=7, 1<=k<=12; finite checks corroborate but the all-r,k result is the lifting induction.
 
-```
-VERIFY_OK grid_cases= 128 deep_cases= 8 maximum_r=14 maximum_direct_modulus=262144 image_sets_exact=True density_arithmetic=True
-```
+## originality
 
-No finite computation can prove the all-\(r\), all-\(k\) theorem. The proof is the exact base partition, the isometric polynomial-map lemma, and an induction on ball images in RESULT.md. This verification is not an independent audit.
+PASS
+
+Best-of-knowledge original as a precise 2-adic three-ball and all-modulus image classification of iterated first-kind Dickson polynomials; classical polynomial identities and lifting are prior. The historically close 1991 Galois-ring paper could contain a stronger equivalent formula and was only accessible by abstract; this unresolved full-text comparison is a major qualified priority risk, NOT a proof of noncoverage. No decisive coverage evidence was obtained.
+
+## value
+
+PASS
+
+Exact images and densities of the canonical Chebyshev-doubling dynamical system over Z2 provide natural p-adic arithmetic structure and a complete precision-dependent invariant; the two even branches separate at an exact sharp depth. Unlike general upper bounds or generic polynomial composition, the calculated three-ball classification is a useful self-contained exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
