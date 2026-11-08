@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:08:24.862758Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and 0<a,b, a!=b, Fourier eigenvalues of the biased ring generator have imaginary parts (a-b)sin(2pi k/n). The real circulant exponential P(t) is symmetric iff every sampling phase lies in pi Z. For n>=5 both sin(2pi/n),sin(4pi/n) are nonzero; their rational ratio forces 2cos(2pi/n) a rational algebraic integer, hence integer; 0<2cos<2 forces n=6. Direct sine sets for n=3,4,6 give precisely t=2m pi/(sqrt3|a-b|) for 3,6 and m pi/|a-b| for 4. At even m phases all +1 so P=e^{tQsym}; at odd m the first nontrivial Fourier eigenvalue is strictly negative, excluding an exponential of a reversible continuous-time generator. Sampled KL entropy zero iff P symmetric since P(t)>0. Independently computed numerical matrix exponentials and Fourier eigenvalues for the three resonant sizes (m=1,2), tested negative modes and even-m symmetric exponentials; exact algebraic-integer proof covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jia provides general necessary/sufficient conditions for reversible embedding of a reversible Markov matrix.",
+          "Bauer et al analyze generator non-identifiability and stroboscopic thermodynamic inference."
+        ],
+        "reasoning": "General embedding theory does not by itself decide which biased nearest-neighbor circulants e^{tQ} are symmetric; the sine commensurability restriction supplies the missing explicit answer. General statements may provide negative-eigenvalue implications.",
+        "searches": [
+          "biased continuous time Markov cycle stroboscopic reversible propagator exact resonance embedding entropy time",
+          "reversible Markov embedding criteria Chen Jia 2016 arxiv:1605.03502"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md and CHECK.py",
+        "arXiv:2412.15642",
+        "arXiv:2511.22800",
+        "arXiv:1605.03502",
+        "Resultary semantic search: biased continuous time Markov cycle stroboscopic reversible propagator exact resonance embedding entropy time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full Fourier criterion is derived directly from ring generator and exact eigenphases; n6 follows as the only integer solution to 2cos(2pi/n) in (0,2).",
+          "Prior general embedding principles independently explain nonembeddability of matrices with negative eigenvalues but do not produce the all-ring resonance set."
+        ],
+        "reasoning": "The original contribution is the exact crystallographic-size classification, not Fourier diagonalization nor negative-real-eigenvalue nonembeddability (standard prior methods).",
+        "searches": [
+          "arXiv:2412.15642 Appendix A four state circulant",
+          "arXiv:2511.22800 reversible matrices negative eigenvalues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bauer–Seifert–van der Meer exhibit nonreversible 3-state and circulant 4-state generators sharing discrete propagators at selected times.",
+          "Baake–Baake–Sumner investigate reversible Markov matrices and negative eigenvalue embeddings."
+        ],
+        "reasoning": "The odd-resonance negative-mode mechanism and some small n cases are already represented in prior work. The exact all-n nearest-neighbor ring set {3,4,6}, resonance lattice, and cyclotomic necessity are distinct unless a stronger hidden general theorem yields them.",
+        "searches": [
+          "biased continuous time Markov cycle stroboscopic reversible propagator exact resonance embedding entropy time",
+          "Bauer Seifert van der Meer 2024 2025 stroboscopic measurements Markov networks exact generator reconstruction",
+          "Baake Baake Sumner embedding reversible Markov matrices 2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The arithmetic obstruction uses cyclotomic integrality, not a finite list or numerical diagonalization.",
+          "Bauer et al contains 3-state and 4-state illustrative examples."
+        ],
+        "reasoning": "Examples for sizes three/four or numerical tables are strictly partial and do not classify every n>=3 and every positive resonance t.",
+        "searches": [
+          "Markov cyclic generator sampling detailed balance 3 4 6 crystallographic restriction",
+          "biased continuous time Markov cycle stroboscopic reversible propagator exact resonance embedding entropy time"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.",
+      "residual_risks": [
+        "General Markov embedding/stroboscopic aliasing theorems may imply parts of the classification, particularly 3/4 state mechanisms.",
+        "Exact symmetry is a noiseless idealization; large-time approximate symmetry does not constitute a resonance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Contains stroboscopic aliasing and circulant four-state construction; no inspected general n=3,4,6 cyclotomic restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.15642",
+          "material_read": "Full PDF text relevant generator-aliasing sections and Appendix A four-state circulant construction",
+          "method": "Read arXiv PDF relevant sections and mathematical appendix",
+          "title": "Stroboscopic measurements in Markov networks: Exact generator reconstruction vs. thermodynamic inference",
+          "trigger": "Closest stroboscopic same physical interpretation and small circulant examples"
+        },
+        {
+          "assessment": "GENERAL_RELATED",
+          "evidence": "Negative-eigenvalue and embedding analysis partly overlaps mechanism; full technical coverage not asserted from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.22800",
+          "material_read": "Public abstract and representative embedding claims",
+          "method": "Read abstract/accessible summary",
+          "title": "Embedding of reversible Markov matrices",
+          "trigger": "Reversible discrete propagators with negative eigenvalues"
+        },
+        {
+          "assessment": "BROADER_EMBEDDING_BUT_NOT_RING_ENUMERATION",
+          "evidence": "Does not by description give the biased circulant sampling-time classification; unresolved specialized corollary risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03502",
+          "material_read": "Abstract and general theorem description",
+          "method": "Read indexed paper summary",
+          "title": "A solution to the reversible embedding problem for finite Markov chains",
+          "trigger": "Generic reversible embeddability conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp arithmetic 3/4/6 restriction identifies precisely when observing an irreversible continuous-time Markov ring at an exact regular interval destroys all measurable one-step time asymmetry, plus a meaningful distinction between odd discrete-time reversible aliasing and even genuine reversible embedding. This exact finite-system classification is relevant to stroboscopic inference and not a routine stationary-distribution computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md and CHECK.py",
+    "arXiv:2412.15642",
+    "arXiv:2511.22800",
+    "arXiv:1605.03502",
+    "Resultary semantic search: biased continuous time Markov cycle stroboscopic reversible propagator exact resonance embedding entropy time"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General Markov embedding/stroboscopic aliasing theorems may imply parts of the classification, particularly 3/4 state mechanisms.",
+    "Exact symmetry is a noiseless idealization; large-time approximate symmetry does not constitute a resonance.",
+    "Mathematical infinite claims rest on scrutinized proofs, not finite numerical verification. Best-of-knowledge originality is not a priority certificate. Public status files retain private provenance and were not sanitized; scientific PASS does not authorize publication."
+  ],
+  "residual_risks": [
+    "General Markov embedding/stroboscopic aliasing theorems may imply parts of the classification, particularly 3/4 state mechanisms.",
+    "Exact symmetry is a noiseless idealization; large-time approximate symmetry does not constitute a resonance."
+  ],
+  "schema_version": 1
+}

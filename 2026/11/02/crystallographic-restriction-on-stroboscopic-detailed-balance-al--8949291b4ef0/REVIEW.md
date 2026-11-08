@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement covers every integer ring size \(n\ge3\), all positive unequal rates, and all positive observation intervals. Fourier diagonalization yields necessary and sufficient symmetry conditions on *each* mode. For \(n\ge5\), the two nonzero sine frequencies force \(2\cos(2\pi/n)\) to be rational; its algebraic integrality then isolates \(n=6\). The direct sine lists prove sufficiency and completeness for \(n=3,4,6\). The negative Fourier mode at odd resonances excludes any reversible continuous-time generator; the even-resonance Fourier identity explicitly supplies one. A 182-assertion independent matrix-exponential check supports the computations but is not substituted for the infinite all-size proof. Numerical conditioning near small eigenvalues is handled with finite tolerance only in the checker.
+## correctness
 
-## Originality — PASS on examined evidence, provisional
-The 2010 Chen–Chen work provides the negative-eigenvalue three-state embedding mechanism. The 2016 Jia work supplies general reversible embedding criteria. The 2024/2025 Bauer–Seifert–van der Meer work proves broader stroboscopic generator ambiguity and gives a concrete three-state equilibrium/nonequilibrium coincidence. The 2025 Baake–Baake–Sumner paper contains a three-state cyclic example, four-state constructions and negative-spectrum embedding analysis. **Those are prior art**, not novel subclaims. The asserted new fact is a complete classification for *every* homogeneous nearest-neighbor ring size, with the rigid exceptional set \(\{3,4,6\}\), exact observation intervals and complementary positive/negative embedding regimes. None of the inspected relevant passages state this all-size cyclotomic obstruction. A general but unlocated theorem of normal-matrix/Markov-semigroup resonance could imply it; historical priority and source coverage are genuine residual risks. Publication claims must remain provisional until independent historical checking.
+PASS
 
-## Mathematical value — PASS
-The natural observables are all stationary two-time transition probabilities, not an artificially chosen statistic. The theorem establishes a sharp, model-wide boundary between exact observation-time equilibrium aliasing and its impossibility; its exceptional cycle sizes reflect a nontrivial arithmetic commensurability criterion rather than a limited table. It also resolves whether a sampled equilibrium-looking propagator admits any reversible continuous-time explanation. These distinctions bear directly on thermodynamic inference from temporally sampled Markov trajectories, while requiring no external application theorem to motivate the invariant.
+For n>=3 and 0<a,b, a!=b, Fourier eigenvalues of the biased ring generator have imaginary parts (a-b)sin(2pi k/n). The real circulant exponential P(t) is symmetric iff every sampling phase lies in pi Z. For n>=5 both sin(2pi/n),sin(4pi/n) are nonzero; their rational ratio forces 2cos(2pi/n) a rational algebraic integer, hence integer; 0<2cos<2 forces n=6. Direct sine sets for n=3,4,6 give precisely t=2m pi/(sqrt3|a-b|) for 3,6 and m pi/|a-b| for 4. At even m phases all +1 so P=e^{tQsym}; at odd m the first nontrivial Fourier eigenvalue is strictly negative, excluding an exponential of a reversible continuous-time generator. Sampled KL entropy zero iff P symmetric since P(t)>0. Independently computed numerical matrix exponentials and Fourier eigenvalues for the three resonant sizes (m=1,2), tested negative modes and even-m symmetric exponentials; exact algebraic-integer proof covers all n.
 
-## Scope and risks
-The claim is restricted to homogeneous nearest-neighbor finite cycles with nonzero rate bias, exact infinite-statistics sampling, and uniform stationarity. Neither model-independent thermal inference nor uniqueness under noisy data is asserted. The closest 2010, 2016 and 2025 primary sources have been examined for mathematical implication and partially overlapping examples. Numerical tests do not certify the infinite case. Independent review has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct claim/implication comparison with published same-object and general methods. Known ingredients, exact overlaps, and inaccessible/plausible priority alternatives are explicitly retained; unsuccessful search alone is not novelty proof.
+
+## value
+
+PASS
+
+A sharp arithmetic 3/4/6 restriction identifies precisely when observing an irreversible continuous-time Markov ring at an exact regular interval destroys all measurable one-step time asymmetry, plus a meaningful distinction between odd discrete-time reversible aliasing and even genuine reversible embedding. This exact finite-system classification is relevant to stroboscopic inference and not a routine stationary-distribution computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
