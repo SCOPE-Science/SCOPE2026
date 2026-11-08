@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:06:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Dirichlet neutrality and conditional regression g(s)=phi(s)+(n-1)E phi((1-s)Y1), with g''(s)>0 for strictly convex C2 phi. After removing affine terms, f(0)=0 and f(s)/s strictly increasing; a size-biased pick W_m~Beta(alpha+1,(m-1)alpha) strictly stochastically decreases with m, forcing g(0)>E F_phi even for n=2. Strict convexity forces g(1)>E F_phi. Since h=g-mean strictly convex, positive at endpoints and mean-zero under Beta(alpha,(n-1)alpha), its negative set is one interval and integrated tail H(t) has exactly one sign crossing from negative to positive. Independently differentiated the proposed beta-tail antiderivative for phi(s)=s^2, confirming Cov(K_t,Q)=n t^alpha(1-t)^beta[((n alpha+2)t-(alpha+1))]/[B(alpha,beta)(beta+1)(n alpha+1)]; sole root (alpha+1)/(n alpha+2), n=2 identically 1/2 and n>2 strictly decreases with alpha. Finite rational examples corroborate but do not prove all real alpha.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen arXiv:1008.4059 full text covers marginal distribution of sum of squares over general Dirichlet variables",
+          "Hashorva arXiv:1404.3304 covers tail laws for Dirichlet power sums"
+        ],
+        "reasoning": "Marginal Q laws do not determine Cov(K_t,Q) without the joint dependence, and no same joint all-score result was located in inspected primary statements.",
+        "searches": [
+          "symmetric Dirichlet spacings exceedance count convex sum covariance unique crossing threshold Simpson Greenwood",
+          "Royen Dirichlet square sum distribution Greenwood statistic covariance exceedances"
+        ]
+      },
+      "checked_sources": [
+        "GitHub RESULT.md tree 6db9842d6cc5562d8f495cc32bcab21c604550b0",
+        "Royen arXiv:1008.4059 primary full text",
+        "Hashorva arXiv:1404.3304 abstract",
+        "prior one-switch alpha=1 finding 8cec2684-e10a-4f25-bc74-47e4588a92c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neutrality permits conditional Beta regression g(s); the separate size-biased W_{n-1} stochastically dominates W_n",
+          "Royen 2010 marginal Dirichlet Q distribution",
+          "Generic Dirichlet conditional moments by themselves do not guarantee one sign crossing for every strictly convex score; the proof adds endpoint ordering and convexity of conditional regression."
+        ],
+        "reasoning": "The theorem is not simply a substitution into the alpha=1 identity. Its universal convex-score statement is established by a distinct stochastic-order argument; an older general beta/Dirichlet covariance theorem could still subsume it.",
+        "searches": [
+          "symmetric Dirichlet spacings exceedance count convex sum covariance unique crossing threshold Simpson Greenwood",
+          "Dirichlet neutrality beta size biased stochastic dominance covariance sign one crossing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior uniform-simplex finding 8cec2684-e10a-4f25-bc74-47e4588a92c0 gives strict one-crossing for alpha=1 (Greenwood)",
+          "The current formula specializes to 2/(n+2) at alpha=1"
+        ],
+        "reasoning": "The uniform spacings case is equivalent and already covered, but does not imply general alpha>0; the new conditional beta parameters change continuously with shape.",
+        "searches": [
+          "symmetric Dirichlet spacings exceedance count convex sum covariance unique crossing threshold Simpson Greenwood",
+          "Dirichlet Simpson concentration versus exceedance count covariance size-biased Beta threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary topical one-switch covariance searches did not return this all-alpha exact formula",
+          "Known Greenwood uniform case threshold 2/(n+2) recovered at alpha=1"
+        ],
+        "reasoning": "The prior alpha=1 numerical curve is an exact special-case table, not an all-alpha formula; nonmatching search results are not used as a proof of novelty.",
+        "searches": [
+          "symmetric Dirichlet spacings exceedance count convex sum covariance unique crossing threshold Simpson Greenwood",
+          "Dirichlet concentration Simpson index threshold (alpha+1)/(n alpha+2) exceedance covariance"
+        ]
+      },
+      "rationale": "A prior uniform-simplex alpha=1 one-switch convex-score result and Greenwood special case are expressly covered, not rediscovered. Royen's general Dirichlet square-sum distributions and Hashorva's power-sum tail work treat marginal distributions/asymptotics, not the joint finite-sample covariance with K_t. The new all-real-alpha symmetric Dirichlet single-crossing law and shape-dependent exact threshold survive best-of-knowledge comparison; a general older beta covariance identity remains a possible implicit prior theorem.",
+      "residual_risks": [
+        "Older size-biased Beta or Dirichlet covariance theory might state a general theorem implying the universal sign crossing; no exhaustive historical priority guarantee.",
+        "The general result requires symmetric Dirichlet parameters and strictly positive curvature on (0,1); endpoints t=0 and t=1 are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS marginal Q law and Greenwood alpha=1 background; not the displayed joint K_t-Q covariance",
+          "evidence": "Theorems derive Q distribution/quantiles, not the one-crossing covariance with exceedance counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.4059",
+          "material_read": "Full accessible 21-page PDF, abstract, introductory theorems and marginal distribution formulas",
+          "method": "Web PDF full text and rendered page 1",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+          "trigger": "Same Q statistic and all-shape Dirichlet parameters"
+        },
+        {
+          "assessment": "Tail asymptotics appear distinct but no whole-document NOT_COVERING claim",
+          "evidence": "Power-sum tail behavior is not an exact finite-sample two-statistic covariance theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.3304",
+          "material_read": "Abstract and statement-level metadata; not full paper text in this run",
+          "method": "Metadata/abstract comparison only",
+          "title": "Extremes of aggregated Dirichlet risks",
+          "trigger": "Potential stronger general Dirichlet power-sum coverage"
+        },
+        {
+          "assessment": "COVERS alpha=1 special case; priority of new alpha!=1 cases remains best-of-knowledge",
+          "evidence": "The new all-alpha formula specializes to its threshold 2/(n+2) when alpha=1.",
+          "identifier_or_url": "8cec2684-e10a-4f25-bc74-47e4588a92c0",
+          "material_read": "Prior reported alpha=1 theorem and Greenwood threshold as stated in research source, not independently retrieved full result this run",
+          "method": "Citation/statement comparison with new alpha parameter",
+          "title": "A universal one-switch covariance law for large spacings and convex spacing tests",
+          "trigger": "Exact published predecessor on uniform-simplex alpha=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Threshold exceedance counts and convex concentration statistics are natural shape diagnostics of random compositions and spacings; the exact covariance sign classification shows when high occupancy predicts positive versus negative concentration and how the transition shifts continuously with Dirichlet shape. It extends the published alpha=1 case to the full natural symmetric Dirichlet parameter family and all strictly convex scores.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub RESULT.md tree 6db9842d6cc5562d8f495cc32bcab21c604550b0",
+    "Royen arXiv:1008.4059 primary full text",
+    "Hashorva arXiv:1404.3304 abstract",
+    "prior one-switch alpha=1 finding 8cec2684-e10a-4f25-bc74-47e4588a92c0"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older size-biased Beta or Dirichlet covariance theory might state a general theorem implying the universal sign crossing; no exhaustive historical priority guarantee.",
+    "The general result requires symmetric Dirichlet parameters and strictly positive curvature on (0,1); endpoints t=0 and t=1 are excluded."
+  ],
+  "schema_version": 1
+}
