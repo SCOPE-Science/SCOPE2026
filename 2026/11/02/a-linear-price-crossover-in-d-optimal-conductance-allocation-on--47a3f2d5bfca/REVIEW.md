@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The problem fixes a simple torus, edge-specific nonnegative conductances, two positive directional prices, and a single linear budget. Strict log-determinant concavity with an injective graph-Laplacian weight map gives uniqueness without assuming symmetry; symmetry reduces the optimum to two positive parameters. The exact Fourier product, monotonic finite price equation, and cyclic resolvent are reconstructed. Uniform local expansions of the cyclic resolvent and periodic quadrature prove the integral crossover and its first correction; the formula for the correction has the correct sign. The standard-library verifier completed 124 independent finite checks, including integer matrix-tree cofactors. Numerical convergence alone is not used to prove the asymptotic theorem.
+PASS
 
-## Originality
+Kirchhoff determinant on the feasible connected-support domain has strict logdet concavity since individual edge weights inject into grounded Laplacian; the optimum saturates budget, and torus translations force uniform positive weights by uniqueness. Fourier eigenvalues yield the finite matrix-tree product, while strict Cauchy–Schwarz proves D_n/A_n monotone with full range, giving a unique exact root and reciprocal symmetry. Summing over one Fourier direction with the exact cyclic Poisson resolvent gives F_n(u/n²)=nH(u)−1+O(n^-1) with one derivative uniformly on compact u. Monotone inversion yields u_kappa and positive v_kappa; small/large-u expansions establish 1/(nQ) finite-price and 4/(pi²Q²) infinite-volume power laws. Independent cofactors and finite resolvent checks corroborate only small n.
 
-**PASS on inspected evidence, with specialist priority risk.** Tzeng--Wu (2000) already prove the anisotropic toroidal spanning-tree product; Izmailian--Kenna (2015) already derive finite-size free energies; Khosoussi et al. (2016) supply general determinant network-design machinery. None of the inspected relevant statements gives the unrestricted unequal-price optimum or the \(Q=\kappa n\) integral crossover with its explicit first finite-size correction. Closest related results for effective-resistance optimization on square tori and spanning-tree optimization on fixed-width prisms have distinct objectives or graph sequences, so neither implies the new singular square-torus result. A specialized source with an equivalent hidden price-dependent limit may exist; this literature check does not establish absolute priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Price-driven loss of one coordinate direction is a natural network-design singularity. The result resolves finite-volume optimal allocation and a noncommuting thermodynamic/high-price limit, including a genuine crossover from inverse-first-power to inverse-second-power conductance ratios and an explicit positive first correction. This is a structural limiting law rather than just a determinant recomputation or a special numerical instance. It is specific to square tori and two directional prices.
+Best-of-knowledge priority assessment after actual same-object comparisons; covered ingredients are credited, and explicit residual risks remain. equivalent_formulations: The optimization is a question about the product with independently priced edge parameters and singular double scaling, not the product formula alone. broader_coverage: Those broader contexts don't provide the explicit unique edge-wise optimizer or kappa n price crossover, which uses a separate resolvent expansion. exact_database_or_table: The indexed table is a different graph geometry and observable; cannot supply u_kappa/v_kappa by substitution. claim_vs_prior_implication: The new limit keeps the lowest Fourier modes and requires coth resolvent; it is not the direct specialization of a fixed positive anisotropy free-energy theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The price-driven collapse of one lattice direction is a natural singular design limit; the complete unrestricted optimization and noncommuting price/volume limits, with explicit first-order correction, are useful quantitative network-design results rather than a rederivation of the known toroidal spanning-tree determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
