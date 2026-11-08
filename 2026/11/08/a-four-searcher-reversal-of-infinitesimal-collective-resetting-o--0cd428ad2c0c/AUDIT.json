@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each N=1,..,4, independent rate-one walkers give a transient 4-state-per-walker generator; the occupancy-count lumped generator has C(N+3,3) states and diagonal -N. Its exact linear solutions (-Q)u=1 and (-Q)v=u give first moment u and half second moment v. A complete standard-library Fraction checker recalculates the claimed signs and separately uses the 4^N labeled generator for N<=3. The renewal differentiation then establishes strictly opposite local reset effects and matrix-continuity gives robustness. No numerical extrapolation or all-N claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biroli et al. study Brownian half-line searchers: Section IV Eq. (21) uses erf(x0/sqrt(4Dt)) to power N and gives continuum N_c=6.3555864... for simultaneous resetting.",
+        "Wang Chen Huang 2021 abstract covers single-walker graph resetting with multiple resetting nodes."
+      ],
+      "reasoning": "Broad stochastic-restart identities imply a way to compute the claim but do not dominate its exact finite-network classification by hypotheses or explicitly produce its two strict rational inequalities. This is a narrowly computed consequence of those tools, not an independently invented general principle.",
+      "searches": [
+        "Finite-network random-walk team search with synchronized resetting, critical number of walkers, exact rational first-passage moments and phase change",
+        "Biroli Majumdar Schehr 2023 finite graph reflecting resetting team",
+        "arxiv:2303.18012 Sections I, IV, Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2303.18012",
+      "https://arxiv.org/abs/2105.08323",
+      "https://doi.org/10.1103/PhysRevLett.116.170601"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known renewal formula applies to any restartable completion time; derivative is E[T]^2 - E[T^2]/2.",
+        "The four-walker exact derivative is 52393068681552240430947689/1243605430255921087768428544, strictly positive; the three-walker derivative is negative."
+      ],
+      "reasoning": "Known renewal results are explicitly included in the proof, and consequently the novelty claim excludes them. Their application to this concrete finite chain requires nontrivial exact multi-particle moment evaluation and yields the new 3/4 local reversal.",
+      "searches": [
+        "Exact coefficient of variation of first target-hitting time among N independent Markov searchers on five-vertex reflecting path, zero-restart derivative sign changes between N=3 and N=4",
+        "Biroli 2023 Eq 20-29 simultaneous Poisson renewal",
+        "Reuveni 2016 restart CV threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli et al. 2023 Eq. (29) gives the general zero-rate derivative as a squared survival integral minus a time-weighted survival integral; the particular finite-path sign is not tabulated.",
+        "Reuveni 2016 gives the known coefficient-of-variation criterion for restart."
+      ],
+      "reasoning": "The CV criterion and renewal transform are equivalent representations of the response derivative, and are treated as prior art. They do not state the precise killed-chain moment ratios or the 3-versus-4 switch on the specified finite path; these require the separate 20- and 35-state rational solves.",
+      "searches": [
+        "Critical searcher number for Poisson simultaneous resetting on finite path P5 with four independent rate-one continuous-time nearest-neighbor random walks starting vertex distance two from absorbing endpoint; three walkers benefit from infinitesimal restart while four walkers are harmed",
+        "Exact coefficient of variation of first target-hitting time among N independent Markov searchers on five-vertex reflecting path, zero-restart derivative sign changes between N=3 and N=4",
+        "arxiv:2303.18012 Section IV simultaneous resetting",
+        "arxiv:2105.08323 renewal approach"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No equivalent finite-path rational four-searcher derivative was found in the checked article, its reported tables, or targeted search results.",
+        "Nearest available indexed records concerned unrelated graph-indexed range processes and combinatorial graph burning; no matching finite-path multi-searcher threshold was surfaced."
+      ],
+      "reasoning": "The 2023 source reports a continuum critical value, not this five-node moment table. Absence from search is not proof of novelty; searchable coverage is incomplete.",
+      "searches": [
+        "Critical searcher number for Poisson simultaneous resetting on finite path P5 with four independent rate-one continuous-time nearest-neighbor random walks starting vertex distance two from absorbing endpoint; three walkers benefit from infinitesimal restart while four walkers are harmed",
+        "critical number random walkers reset confined interval reflecting target team 2022 2023",
+        "arxiv:2303.18012",
+        "finite path Markov chain synchronized multiple restart exact rational moments"
+      ]
+    },
+    "rationale": "The one-team renewal identity is known (Biroli et al., Section IV, Equations 20-29). The asserted result is instead an exact rational sign reversal for a concrete five-state killed chain: negative at N=1,2,3, positive at N=4, with an open robustness argument. The inspected Biroli study uses Brownian motion on an unbounded line and its reported numerical team threshold is different. No explicit or logically dominating finite path result was identified in the recorded source comparisons. Known general moment criteria could make the calculation derivative of prior methods; this residual priority risk is acknowledged.",
+    "residual_risks": [
+      "Published results on finite-network synchronized resets might contain the exact small-path comparison under alternate notation; targeted search and available indexed literature are not exhaustive.",
+      "The 2021 network-resetting paper was not available as fully inspected text in this run.",
+      "The general restart derivative is prior knowledge; the assessed contribution is only the exact finite path transition and its robustness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic renewal mechanism and Brownian continuum model, but no finite-state path or rational moments",
+        "evidence": [
+          "First posted March 31, 2023",
+          "Brownian half-line survival erf function; simultaneous-reset continuum threshold N_c=6.3555864...",
+          "Section IV explicit renewal transform and local derivative criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+        "material_read": "Introduction, Section IV including renewal formula Eq. (20)-(29), conclusion and Appendix B as rendered from arXiv full text",
+        "method": "Full-text arXiv HTML/text examination",
+        "title": "Critical number of walkers for diffusive search processes with resetting",
+        "trigger": "Same physical collective-reset protocol and team-size transition"
+      },
+      {
+        "assessment": "Single-walker multiple reset targets; no evidence of team-size exact path example in material accessed, but full-text priority risk remains",
+        "evidence": [
+          "First posted May 18, 2021",
+          "Network single-walker resetting occupancy and first passage from abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.08323",
+        "material_read": "arXiv abstract and accessible bibliographic/introductory text; full article not independently verified",
+        "method": "Primary arXiv abstract/text access",
+        "title": "Random walks on complex networks with multiple resetting nodes: a renewal approach",
+        "trigger": "Network first-passage resetting could supply a dominating graph statement"
+      },
+      {
+        "assessment": "Generic restart effect known; not presented as a new theorem here",
+        "evidence": [
+          "2016 generic optimal restart criterion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.116.170601",
+        "material_read": "Search-indexed bibliographic statement and published abstract; full text not independently read",
+        "method": "Bibliographic and abstract comparison",
+        "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+        "trigger": "Generic CV criterion may imply derivative identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0cd428ad-2c0c-408b-9938-f8211d43d0be",
+  "value": {
+    "rationale": "A finite five-vertex network displays an exact team-size-dependent sign reversal under common restarting between three and four identical searchers. This gives a reproducible tiny testbed for collective reset policies distinct from the known Brownian half-line threshold, with a mathematically meaningful choice of a reset rate near zero and robust behavior under small rate perturbations. It is a narrow but natural structural boundary rather than an arbitrary graph table.",
+    "status": "PASS"
+  }
+}
