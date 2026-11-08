@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the Python standard library. Its deterministic expected end marker is `FULL_TREE_CHIP_CYCLES_VERIFY_OK`.
+## correctness
 
-The checker uses two structurally distinct finite approaches: (1) enumerate all edge subsets of explicit breadth-first rooted trees, discarding those that leave a vertex isolated, and sum the products of the selected-edge degrees; and (2) directly update each chip configuration in the finite confined box and check the definition of a primitive two-cycle. The first method also checks the predicted complete root-edge histogram. Integer-recursion results must agree exactly with all enumerated values.
+PASS
 
-It covers edge subsets for binary height one, two and three; ternary height one and two; quaternary height one and two; and the five-ary star. Direct microscopic checking covers binary height one and two and ternary and quaternary stars. It verifies the five displayed binary counts. For fixed \(d=2\), it prints an approximation using 48 exact recursion stages with a mathematically bounded positive series tail; floating-point rendering itself is not a formal interval arithmetic certificate.
+For connected loopless graph, two-step periodicity makes two-step firing counts a harmonic vertex function; connectedness forces the constant 1 in a primitive 2-cycle (constants 0 or 2 are fixed states). Given phase bipartition, opposite-phase degree c(v)>=1 and admissible nonnegative initial heights form a length-c(v) interval, so each unlabelled temporal orbit corresponds bijectively to a spanning edge-cover H of the tree with weight product_v deg_H(v). The recursive weighted edge-cover DP with A0=0,B0=1 yields A_{j+1}=dB_j(A_j+B_j)^(d-1), B_{j+1}=(A_j+B_j)^(d-1)(A_j+(d+1)B_j); root k histogram is k*C(d,k)*B^(k)*A^(d-k), giving the size-biased binomial exact law. Ratio recursion r_{j+1}=d/(d+1+r_j), contraction q=d/(d+1)^2, and summable logarithmic tail give rho_d and sharp fixed-d asymptotic. Independently counted edge covers on rooted (d,h)=(2,1),(2,2),(2,3),(3,2) reproducing N=2,30,9350,588 and root degrees. The unrestricted theorem follows algebraically, not from finite tests.
 
-The proof for arbitrary \(d\) and \(h\) is analytic and does not depend on testing finitely many instances. In particular, enumeration cannot establish the general two-phase criterion, the finite-height formula, or the limiting entropy. The full argument for those assertions is in `RESULT.md`.
+## originality
+
+PASS
+
+The Bitar–Goles 1992 bound that tree periods are at most 2 and Jiang 2010 Proposition 2.5 equal firing counts are acknowledged. The weighted spanning edge-cover count, complete d-ary recursion, root binomial law and height entropy are not stated by these period restriction theorems; the newer binary-tree root-chip problem concerns different initial data.
+
+## value
+
+PASS
+
+Exact temporal-orbit counts and the root boundary statistics for a natural family of trees quantify how much period-two behavior is possible in a model where only a qualitative period bound was known. The entropy constant and asymptotic identify scalable structural information, not merely a small finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

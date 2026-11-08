@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:07:06.430408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For connected loopless graph, two-step periodicity makes two-step firing counts a harmonic vertex function; connectedness forces the constant 1 in a primitive 2-cycle (constants 0 or 2 are fixed states). Given phase bipartition, opposite-phase degree c(v)>=1 and admissible nonnegative initial heights form a length-c(v) interval, so each unlabelled temporal orbit corresponds bijectively to a spanning edge-cover H of the tree with weight product_v deg_H(v). The recursive weighted edge-cover DP with A0=0,B0=1 yields A_{j+1}=dB_j(A_j+B_j)^(d-1), B_{j+1}=(A_j+B_j)^(d-1)(A_j+(d+1)B_j); root k histogram is k*C(d,k)*B^(k)*A^(d-k), giving the size-biased binomial exact law. Ratio recursion r_{j+1}=d/(d+1+r_j), contraction q=d/(d+1)^2, and summable logarithmic tail give rho_d and sharp fixed-d asymptotic. Independently counted edge covers on rooted (d,h)=(2,1),(2,2),(2,3),(3,2) reproducing N=2,30,9350,588 and root degrees. The unrestricted theorem follows algebraically, not from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bitar–Goles restrict all tree periods to at most 2; Jiang treats equal-firing-count necessity on all connected graphs. Neither supplies orbit numbers, weighted edge covers or the root law. Scully–Jiang–Zhang firing-word constraints do not evaluate this d-ary recursion."
+        ],
+        "reasoning": "Inspected broader ambient theorems have weaker or different conclusions and so do not automatically imply the full assigned claim; residual stronger-theorem risks are retained.",
+        "searches": [
+          "Jiang, arXiv:1003.0943v2, On the Period Lengths of the Parallel Chip-Firing Game, Proposition 2.5",
+          "Bitar–Goles, Parallel chip firing games on graphs (1992), DOI:10.1016/0304-3975(92)90316-8",
+          "Scully–Jiang–Zhang, Firing Patterns in the Parallel Chip-Firing Game (2014)"
+        ]
+      },
+      "checked_sources": [
+        "Jiang, arXiv:1003.0943v2, On the Period Lengths of the Parallel Chip-Firing Game, Proposition 2.5",
+        "Bitar–Goles, Parallel chip firing games on graphs (1992), DOI:10.1016/0304-3975(92)90316-8",
+        "Scully–Jiang–Zhang, Firing Patterns in the Parallel Chip-Firing Game (2014)",
+        "Inagaki–Khovanova–Luo, arXiv:2410.00039, On Chip-Firing on Undirected Binary Trees",
+        "Resultary semantic query: parallel chip firing primitive period two orbit counts complete d ary rooted trees entropy weighted edge covers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A period bound never determines the number of primitive period-two cycles; a two-step phase coloring alone undercounts because each opposite-phase degree supplies multiple heights. The weighted counting identity and tree recursion are needed."
+        ],
+        "reasoning": "Explicit mathematical implication direction checked rather than title-only similarity; any inaccessible plausible sources remain priority risks.",
+        "searches": [
+          "Jiang, arXiv:1003.0943v2, On the Period Lengths of the Parallel Chip-Firing Game, Proposition 2.5",
+          "Bitar–Goles, Parallel chip firing games on graphs (1992), DOI:10.1016/0304-3975(92)90316-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Period-two parallel chip-firing is equivalent here to weighted spanning edge-cover enumeration on a tree, with edge membership indicating opposite firing phases."
+        ],
+        "reasoning": "Aliases were compared at the level of mathematical domain and conclusion. A matching title or parameter alone cannot establish coverage; the exact evaluated invariant differs from known foundational results.",
+        "searches": [
+          "Resultary semantic: parallel chip firing primitive period two orbit counts complete d ary rooted trees entropy weighted edge covers",
+          "Jiang, arXiv:1003.0943v2, On the Period Lengths of the Parallel Chip-Firing Game, Proposition 2.5",
+          "Bitar–Goles, Parallel chip firing games on graphs (1992), DOI:10.1016/0304-3975(92)90316-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is a parameterized infinite family with explicit DP and entropy, not a finite table. Looked for OEIS-like binary sequence 2,30,9350 and tree chip-firing orbit enumerators; any matching exact sequence with proof would be a priority risk."
+        ],
+        "reasoning": "Compared exact tabulations, finite sequences and classifications when relevant; finite searches and code checks cannot prove historical novelty.",
+        "searches": [
+          "Resultary semantic: parallel chip firing primitive period two orbit counts complete d ary rooted trees entropy weighted edge covers",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/primitive-two-cycle-entropy-and-root-boundary-law-on-complete-ro--d45dad7c82d0/RESULT.md"
+        ]
+      },
+      "rationale": "The Bitar–Goles 1992 bound that tree periods are at most 2 and Jiang 2010 Proposition 2.5 equal firing counts are acknowledged. The weighted spanning edge-cover count, complete d-ary recursion, root binomial law and height entropy are not stated by these period restriction theorems; the newer binary-tree root-chip problem concerns different initial data.",
+      "residual_risks": [
+        "Full 1992 Bitar–Goles article and some specialist firing-pattern papers not completely inspected; implicit orbit-count formula may exist.",
+        "Only complete d-ary trees are given the entropy and boundary-law formulas; generic-tree formula counts only period-two orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The harmonic firing-count fact is prior, but not the weighted edge-cover enumeration and entropy",
+          "evidence": [
+            "Proposition 2.5 is uniform number of firings across vertices for periodic configurations; it does not enumerate states."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1003.0943v2",
+          "material_read": "Abstract, general graph firing-count lemma/Proposition 2.5 and tree/period context",
+          "method": "ArXiv full-text HTML reading",
+          "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+          "trigger": "Published all-graph equal-firing theorem may subsume period-two counting"
+        },
+        {
+          "assessment": "Documented period bound only, with uncertainty about any auxiliary counting observation",
+          "evidence": [
+            "Tree period at most two is cited and used as background, but our derivation does not require it."
+          ],
+          "identifier_or_url": "doi:10.1016/0304-3975(92)90316-8",
+          "material_read": "Accessible abstract/bibliographic account of tree maximum period; full 1992 text unavailable",
+          "method": "Targeted literature search; no complete original full text",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Original cited tree period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact temporal-orbit counts and the root boundary statistics for a natural family of trees quantify how much period-two behavior is possible in a model where only a qualitative period bound was known. The entropy constant and asymptotic identify scalable structural information, not merely a small finite case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jiang, arXiv:1003.0943v2, On the Period Lengths of the Parallel Chip-Firing Game, Proposition 2.5",
+    "Bitar–Goles, Parallel chip firing games on graphs (1992), DOI:10.1016/0304-3975(92)90316-8",
+    "Scully–Jiang–Zhang, Firing Patterns in the Parallel Chip-Firing Game (2014)",
+    "Inagaki–Khovanova–Luo, arXiv:2410.00039, On Chip-Firing on Undirected Binary Trees",
+    "Resultary semantic query: parallel chip firing primitive period two orbit counts complete d ary rooted trees entropy weighted edge covers"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full 1992 Bitar–Goles article and some specialist firing-pattern papers not completely inspected; implicit orbit-count formula may exist.",
+    "Only complete d-ary trees are given the entropy and boundary-law formulas; generic-tree formula counts only period-two orbits.",
+    "No source edit/GitHub write; publication not_ready due to public-file provenance; no external certification or unbounded search guarantee."
+  ],
+  "schema_version": 1
+}
