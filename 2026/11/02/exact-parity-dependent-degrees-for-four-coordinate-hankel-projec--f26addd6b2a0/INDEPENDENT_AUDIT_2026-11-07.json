@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:02:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the generic two-node Prony stratum, the first three selected even-index moments give nonsingular conic S²=Q(P) with Δ=s2²-s0s4≠0. Recurrence reduces even moments to polynomial E_{2k}(P) of degree 2k−4 and odd moments to N_{2k+1}(P)/S with degree numerator 2k−2. Even targets compose the degree-two conic projection with polynomial degree n−5; odd targets eliminate S giving degree 2n−8 and a unique generic lift, separable over C. Nonzero leading coefficients were independently checked using sympy for n=6..26; finite tests support rather than replace induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reed–Tsakiris accessible abstract and cited source table establish generic finite projections and six n values.",
+          "Decimated Prony analysis treats arithmetic-progressions and node aliasing."
+        ],
+        "reasoning": "A generic finiteness theorem does not establish degree; an equally spaced decimation formula need not apply to this irregular four-coordinate pattern. But the complete original matroid manuscript could not be read.",
+        "searches": [
+          "Reed Tsakiris arXiv:2610.27554v1 On Hankel Determinantal Matroids",
+          "Batenkov arXiv:1308.0753"
+        ]
+      },
+      "checked_sources": [
+        "On Hankel Determinantal Matroids — https://arxiv.org/abs/2610.27554",
+        "Decimated generalized Prony systems — https://arxiv.org/abs/1308.0753"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact six cases match; general matroid results establish rank/generic finiteness, not exact all-n degree in available material.",
+          "The special pattern has three equally spaced 0,2,4 observations and an independent late observation n−1."
+        ],
+        "reasoning": "All-n degree needs leading-coefficient/no-cancellation induction and generic conic map degree, not inferred solely from generic finiteness or finite-table extrapolation. Full prior text access risk remains.",
+        "searches": [
+          "Reed–Tsakiris 2026 Hankel matroids",
+          "Batenkov 2013 Prony"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection degree is the number of generic two-node Prony completions of a given four-moment sparse observation pattern.",
+          "Batenkov studies equally spaced decimation, unlike {1,3,5,n} for general n."
+        ],
+        "reasoning": "Tested sparse-Prony identifiability and Hankel-matroid aliases. A model-equivalent parametrization alone does not supply the evaluated generic fiber count for this nonuniform pattern.",
+        "searches": [
+          "Resultary: Hankel determinantal matroid coordinate projection {1,3,5,n} generic fiber degree parity Prony",
+          "Batenkov arXiv:1308.0753 decimated generalized Prony systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table reports n=7..12 degrees 4,8,8,12,12,16 and is expressly credited."
+        ],
+        "reasoning": "The finite table is covered, not a new result. It does not, as inspected, state the uniform all-n parity formula.",
+        "searches": [
+          "Reed Tsakiris arXiv:2610.27554v1 section 5.1 remark 6 table",
+          "Resultary Hankel degree search"
+        ]
+      },
+      "rationale": "The published finite degree table n=7..12 is explicitly prior; the paper states an all-n closed parity law with conic-degree proof. Rank-two Prony identifiability and generic finiteness are also known. Full Reed–Tsakiris text unavailable, so best-of-knowledge priority remains qualified.",
+      "residual_risks": [
+        "Reed–Tsakiris 2026 full primary text unavailable after lawful open access attempts; institutional source returned vpn_disconnected, potentially decisive exact-pattern coverage in uninspected main text/appendix.",
+        "An unlocated sparse-Prony degree formula could be equivalent to the parity law.",
+        "Induction and genericity arguments are analytic; bounded recurrence checks n<=26 are not proof for all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clear partial prior exact finite cases; possibility the main paper or appendix contains uniform formula not eliminated.",
+          "evidence": "Reed & Tsakiris arXiv:2610.27554v1, 2026-10-20; institutional job 2896b9d3c69a82ddf11e151241806254 blocked",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27554",
+          "material_read": "Accessible abstract, metadata and cited six-case table as reported in source proof; full arXiv HTML/PDF not retrieved and institutional retrieval VPN disconnected",
+          "method": "abstract and tabulation-based comparison; no invented full reading",
+          "title": "On Hankel Determinantal Matroids",
+          "trigger": "same exact sparse pattern and n=7..12 table"
+        },
+        {
+          "assessment": "Different equally spaced observation design; no full coverage conclusion.",
+          "evidence": "Batenkov 2013 arXiv:1308.0753",
+          "identifier_or_url": "https://arxiv.org/abs/1308.0753",
+          "material_read": "Accessible abstract and source cited discussion of regular decimation; complete publication text not read during this run",
+          "method": "abstract/source-statement comparison",
+          "title": "Decimated generalized Prony systems",
+          "trigger": "possible reconstruction degree alias via Prony systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact algebraic degree is the natural number of generic completions of a sparse Hankel sampling pattern, a distinct invariant from generic identifiability; extending six tabulated cases to all n with parity is a motivated complete family result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "On Hankel Determinantal Matroids — https://arxiv.org/abs/2610.27554",
+    "Decimated generalized Prony systems — https://arxiv.org/abs/1308.0753",
+    "Frozen source RESULT.md blob b441114d2df1173f1aaa0a71606cd7567a94b65c",
+    "source record Git tree 3b0b7e379f3e89d668de1f5bb57599446573fb0b"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=6 the generic degree of the complex rank-at-most-two Hankel coordinate projection retaining positions {1,3,5,n} equals 4 floor((n-4)/2), namely 2n-8 when n is even and 2n-10 when n is odd.",
+  "limitations": [
+    "Characteristic zero; rank-at-most-two Hankel determinant variety; exactly selected coordinates {1,3,5,n}.",
+    "Generic degree only; no exceptional fibers, higher-rank matroid or arbitrary sparse pattern classification."
+  ],
+  "residual_risks": [
+    "Reed–Tsakiris 2026 full primary text unavailable after lawful open access attempts; institutional source returned vpn_disconnected, potentially decisive exact-pattern coverage in uninspected main text/appendix.",
+    "An unlocated sparse-Prony degree formula could be equivalent to the parity law.",
+    "Induction and genericity arguments are analytic; bounded recurrence checks n<=26 are not proof for all n."
+  ],
+  "schema_version": 1
+}

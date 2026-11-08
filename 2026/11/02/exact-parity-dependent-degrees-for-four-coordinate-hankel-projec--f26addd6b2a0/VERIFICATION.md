@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The algebraic argument reduces a generic three-observation fiber to the conic \(S^2=Q(P)\), and checks that the leading coefficients of the remaining moment functions are nonzero if \(s_0s_2(s_2^2-s_0s_4)\ne0\). The exact map degree follows from a degree-two conic projection for even moments, or a univariate eliminant with a unique lift for odd moments. These are proofs valid for every integer \(n\ge6\) over \(\mathbb C\).
+## correctness
 
-The enclosed `verify_degree.py` is an optional exact symbolic consistency checker. It uses rational coefficients \((s_0,s_2,s_4)=(2,3,5)\) and verifies recurrences and generic-degree polynomial identities for \(6\le n\le21\), including the six independently published values for \(7\le n\le12\). The successful run prints `VERIFY_OK`. The finite computation is not a substitute for the proof or independent verification.
+PASS
 
-No independent mathematical audit or external validation has been performed. The unproved scope includes branch loci, higher rank, exceptional fibers, and other observation subsets.
+On the generic two-node Prony stratum, the first three selected even-index moments give nonsingular conic S²=Q(P) with Δ=s2²-s0s4≠0. Recurrence reduces even moments to polynomial E_{2k}(P) of degree 2k−4 and odd moments to N_{2k+1}(P)/S with degree numerator 2k−2. Even targets compose the degree-two conic projection with polynomial degree n−5; odd targets eliminate S giving degree 2n−8 and a unique generic lift, separable over C. Nonzero leading coefficients were independently checked using sympy for n=6..26; finite tests support rather than replace induction.
+
+## originality
+
+PASS
+
+The published finite degree table n=7..12 is explicitly prior; the paper states an all-n closed parity law with conic-degree proof. Rank-two Prony identifiability and generic finiteness are also known. Full Reed–Tsakiris text unavailable, so best-of-knowledge priority remains qualified.
+
+## value
+
+PASS
+
+The exact algebraic degree is the natural number of generic completions of a sparse Hankel sampling pattern, a distinct invariant from generic identifiability; extending six tabulated cases to all n with parity is a motivated complete family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
