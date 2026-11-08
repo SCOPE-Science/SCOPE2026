@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization of the finite symplectic configuration is explicit: sixteen nodes, fifteen isotropic directions, and four cosets per direction. The six moment congruences contain the span. Their kernel has index 128 by an explicit surjectivity argument, and a deterministic 16-column incidence minor has determinant -128, forcing equality. The independent standard-library checker reproduces these exact quantities. The claim is a formal integer-incidence claim, not a divisor-equivalence theorem.
+## correctness
 
-## Originality — PASS (qualified)
-The 60 Göpel tetrads and the genus-two Kummer-node structure are classical and credited to published sources. The closest explicit Smith computation in Ren–Sam–Schrader–Sturmfels (2012, Section 6) is a 63-by-135 genus-three configuration, not the 16-by-60 affine genus-two incidence matrix. He (2024, Section 2.4.1) and Dolgachev (2024, Section 5) enumerate the tetrads, but the inspected text does not give the lattice kernel or cokernel. Elsenhans–Jahnel (2011) concerns Kummer Picard groups and surfaces. No matching published-finding corpus entry or direct source was located, but older symplectic design or code literature could conceal an equivalent result. Full historical originality has not been independently certified.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies the complete integral span of an intrinsic, geometrically motivated 60-element configuration, including one modulo-four and five modulo-two constraints. This is more precise than ordinary rational rank or orbit enumeration and gives a reusable test for integer node-incidence combinations. There is no asserted consequence for the complete Néron–Severi lattice.
+There are exactly fifteen 2D totally isotropic subspaces of symplectic F2^4 and four affine translates each. Every tetrad has total 4 and q restricts to an affine function, so all 60 generators satisfy the six congruences. The six moments define a surjection onto Z/4⊕(Z/2)^5 of order 128. The publicly specified lexicographic 16-column minor has exact Bareiss determinant −128, whence the inclusion of index 128 forces equality. An independently regenerated 60-tetrad matrix and independent integer determinant gave −128, with binary rank ten; no floating-point computation is needed.
 
-## Closest literature and limitations
-See the source-level comparisons in `AUDIT.json` and the full references in `RESULT.md`. Exact computation verifies a finite determinant, while the index comparison supplies the mathematical deduction; historical priority remains conditional on the inspected corpus.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claimed statement and implications were compared, not merely titles. The 60 Göpel tetrads are the affine isotropic 2-planes in F2^4; this classical combinatorial equivalence defines the same incidence matrix but does not automatically give its integer saturation or five-plus-one congruence characterization. Higher-genus Göpel varieties use different symplectic dimensions and 63×135 incidence matrices; a rank/Smith result for those matrices need not imply the 16×60 genus-two lattice. General group-character tables may offer a path to the same Smith form, but no dominating implication identified. The arithmetic index is obtained by a concrete maximal minor and moment quotient; geometrical descriptions of tetrads and Picard groups are prior ingredients but their cited statements do not determine this formal integer span. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
+
+## value
+
+PASS
+
+The formal node-tetrad incidence lattice is a natural, finite but nontrivial integral invariant of the classical Kummer configuration; its full membership criterion and Smith form can be used directly in integer lattice and code computations without confusing the node-label free group with a Neron–Severi quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

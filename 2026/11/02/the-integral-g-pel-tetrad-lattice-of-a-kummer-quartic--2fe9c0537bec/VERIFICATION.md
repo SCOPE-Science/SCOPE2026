@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The supplied `verify_gopel.py` is self-contained Python 3 code requiring no third-party dependencies. It enumerates exactly the 15 two-dimensional maximal isotropic vector subspaces of the standard symplectic `F2^4`, their 60 affine translates, and the resulting 16-by-60 matrix in deterministic lexicographic order. Every one of the 60 columns satisfies the six stated congruences; all column sums are 4 and all row sums 15.
+# Independent mathematical audit
 
-The certificate columns (zero-based indices `11,1,39,49,36,7,43,45,23,51,31,37,3,12,9,17`) have determinant `-128` by a signed, exact integer Bareiss algorithm. The program also gives binary row rank 10. The mathematical proof in `RESULT.md` independently shows that the congruence lattice has index 128; together these facts establish equality of lattices, not merely approximate membership or a rank estimate.
+## correctness
 
-The checker was run on the included source and returned `VERIFY_OK`. The source is finite and does not establish any claim about higher genus, geometric divisor-class equivalence, or complete Picard lattices. Independent scientific audit remains unperformed.
+PASS
+
+There are exactly fifteen 2D totally isotropic subspaces of symplectic F2^4 and four affine translates each. Every tetrad has total 4 and q restricts to an affine function, so all 60 generators satisfy the six congruences. The six moments define a surjection onto Z/4⊕(Z/2)^5 of order 128. The publicly specified lexicographic 16-column minor has exact Bareiss determinant −128, whence the inclusion of index 128 forces equality. An independently regenerated 60-tetrad matrix and independent integer determinant gave −128, with binary rank ten; no floating-point computation is needed.
+
+## originality
+
+PASS
+
+The exact claimed statement and implications were compared, not merely titles. The 60 Göpel tetrads are the affine isotropic 2-planes in F2^4; this classical combinatorial equivalence defines the same incidence matrix but does not automatically give its integer saturation or five-plus-one congruence characterization. Higher-genus Göpel varieties use different symplectic dimensions and 63×135 incidence matrices; a rank/Smith result for those matrices need not imply the 16×60 genus-two lattice. General group-character tables may offer a path to the same Smith form, but no dominating implication identified. The arithmetic index is obtained by a concrete maximal minor and moment quotient; geometrical descriptions of tetrads and Picard groups are prior ingredients but their cited statements do not determine this formal integer span. The searches and inspected sections support a bounded best-of-knowledge judgment, not an exhaustive novelty certificate.
+
+## value
+
+PASS
+
+The formal node-tetrad incidence lattice is a natural, finite but nontrivial integral invariant of the classical Kummer configuration; its full membership criterion and Smith form can be used directly in integer lattice and code computations without confusing the node-label free group with a Neron–Severi quotient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
