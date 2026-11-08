@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:08:46.538808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=4 and q>=k, follower grounded Laplacian on K_(2,q) with h selected hubs has block [[q I_(2-h),-11^T],[-11^T,2 I_(q-k+h)]]. Its within-class eigenspaces and two-dimensional block yield exact trace J_h=(1-h)/q+(q-k+h-1)/2+(q+2)/(2q-(2-h)(q-k+h)); verify empty class by cancellation. Independent symbolic arithmetic checked J1-J2=(3-k)/(q+k-1)<0 and J0-J1=P_k(q)/(2kq(q+k-1)), P cubic as RESULT. P(k),P(2k)<0, P(3k)>0, P'' positive q>=k: unique transition τ between 2k and3k. Leading k-asymptotic root (1+sqrt(2))k-3/2+O(1/k). Boundary k=q+1 h0 impossible. Independent numerical substitution k=4,5,8,10 confirms signs. The actual verify.py contains rational grounded inversions of class reps, all subsets q=4..8, and exact objective comparison. K_(2,8) k=2 has both hubs optimum, k=4 no hubs optimum, valid non-nesting example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch-Leonard primary paper explicitly specializes to path/cycle families.",
+          "Other cited budget results target k=3 or balanced biclique cases intersecting K_(2,q) only at small q."
+        ],
+        "reasoning": "The candidate stronger leader-selection framework gives algorithms but no inspected stronger explicit K_(2,q) classification across the unbounded q range.",
+        "searches": [
+          "Fitch Leonard arxiv:1407.1569",
+          "Resultary K_(m,m+1) leader selection",
+          "Patterson arxiv:1412.6595"
+        ]
+      },
+      "checked_sources": [
+        "Fitch Leonard primary PDF central theorem and path/cycle examples",
+        "Resultary semantic K2q leader search",
+        "Actual RESULT.md and exact-rational verify.py inspected",
+        "Independent sympy algebra for cubic comparisons and root endpoint signs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic objective plus graph symmetry allows reduction to h=0,1,2, but the sign of J0-J1 and sharp root require algebra."
+        ],
+        "reasoning": "It is a short yet nontrivial exact consequence of spectral methods, not a mere restatement of the general objective.",
+        "searches": [
+          "Fitch Leonard grounded trace objective",
+          "K_(2,q) two-class equitable quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General joint-centrality objective and inverse-grounded-Laplacian trace are known.",
+          "Named prior analyses solve paths/cycles; the claim solves all k>=4 on K_(2,q)."
+        ],
+        "reasoning": "Same objective does not imply the specialized cubic threshold without the two-follower-class spectrum and objective comparisons.",
+        "searches": [
+          "leader selection complete bipartite K2q optimal grounded Laplacian inverse trace cubic leader budget threshold",
+          "Fitch Leonard Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "Patterson McGlohon Dyagilev 2014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed τ_k is unique real root of cubic P_k(q), h2 strictly suboptimal k>=4.",
+          "Resultary hit for discounted hitting domination has different source dynamics and threshold parameters."
+        ],
+        "reasoning": "No matching natural exact table or threshold identified; numerical sign values are supporting checks not novelty proof.",
+        "searches": [
+          "leader selection complete bipartite K2q optimal grounded Laplacian inverse trace cubic leader budget threshold",
+          "Resultary K2q complete bipartite leader budget phase threshold"
+        ]
+      },
+      "rationale": "Fitch-Leonard joint centrality provides the inverse-grounded-Laplacian objective and explicit leader placement on paths/cycles; Patterson et al. address weighted paths/cycles, not complete bipartite K_(2,q) arbitrary k>=4. Published Resultary search found a discounted hitting domination biclique result, different objective, and a reported k=3 biclique special case does not cover the stated range. The exact two-hub cubic threshold is a specialized new explicit classification within prior general theory.",
+      "residual_risks": [
+        "Unindexed specialized complete-bipartite leader-placement theorem may imply this cubic.",
+        "No claim for heterogeneous weights or all K_(p,q)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_K2Q_CUBIC",
+          "evidence": "Analyzes general joint centrality and paths/cycles, no inspected k>=4 K_(2,q) cubic optimal class.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Primary PDF introduction, grounded covariance framework, explicit path/cycle applications and relevant theorems",
+          "method": "Web opened primary PDF, find and rendered-page inspection",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Same stochastic network grounded-Laplacian trace objective"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "One-dimensional path and cycle graph exact algorithms are not an explicit complete-bipartite classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+          "material_read": "Title, abstract and cited scope about weighted paths/cycles",
+          "method": "Public abstract/bibliographic access",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Possible general exact leader placement coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete optimizer class for all budgets k>=4 and q>=k on a natural network family, with sharp cubic transition, integer tie behavior, asymptotic threshold and a non-nested lower-budget witness. These give an interpretable control-design boundary that generic combinatorial leader selection methods do not themselves state.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Fitch Leonard primary PDF central theorem and path/cycle examples",
+    "Resultary semantic K2q leader search",
+    "Actual RESULT.md and exact-rational verify.py inspected",
+    "Independent sympy algebra for cubic comparisons and root endpoint signs"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only unit edge conductances, perfectly grounded leaders, exactly two hub vertices and objective trace inverse."
+  ],
+  "residual_risks": [
+    "Unindexed specialized complete-bipartite leader-placement theorem may imply this cubic.",
+    "No claim for heterogeneous weights or all K_(p,q)."
+  ],
+  "schema_version": 1
+}

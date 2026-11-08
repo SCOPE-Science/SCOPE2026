@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The grounded-matrix block decomposition and its exceptional empty-part cases give the exact objective for all three feasible hub counts. Subtraction reduces the complete minimization to the sign of a cubic; strict convexity with the evaluated boundary signs establishes a single crossing. The asymptotic expansion follows from the cubic with a nonzero leading derivative. An independent exact-rational matrix construction confirms 258 representative traces and all 1,474 small labeled selections. Finite checks are not used as an all-size proof.
+PASS
 
-## Originality — PASS (best-knowledge, not priority certification)
+For k>=4 and q>=k, follower grounded Laplacian on K_(2,q) with h selected hubs has block [[q I_(2-h),-11^T],[-11^T,2 I_(q-k+h)]]. Its within-class eigenspaces and two-dimensional block yield exact trace J_h=(1-h)/q+(q-k+h-1)/2+(q+2)/(2q-(2-h)(q-k+h)); verify empty class by cancellation. Independent symbolic arithmetic checked J1-J2=(3-k)/(q+k-1)<0 and J0-J1=P_k(q)/(2kq(q+k-1)), P cubic as RESULT. P(k),P(2k)<0, P(3k)>0, P'' positive q>=k: unique transition τ between 2k and3k. Leading k-asymptotic root (1+sqrt(2))k-3/2+O(1/k). Boundary k=q+1 h0 impossible. Independent numerical substitution k=4,5,8,10 confirms signs. The actual verify.py contains rational grounded inversions of class reps, all subsets q=4..8, and exact objective comparison. K_(2,8) k=2 has both hubs optimum, k=4 no hubs optimum, valid non-nesting example.
 
-The general joint-centrality approach in Fitch–Leonard (arXiv:1407.1569) treats the same inverse-grounded-Laplacian objective and explicitly solves path/cycle classes, not the present unbounded two-hub allocation. Patterson–McGlohon–Dyagilev (arXiv:1412.6595) give efficient algorithms for weighted paths and rings. A previously available exact-three-leader biclique theorem has disjoint cardinality scope; an all-budget almost-balanced biclique result intersects the present family only at the excluded size \(K_{2,3}\). Relevant semantic searches found no stronger directly covering statement, but specialized coverage cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives an exact, classwise complete optimal leader-allocation law for all \(q\ge k\ge4\), a nontrivial sharp cubic transition, a limiting size-to-budget ratio \(1+\sqrt2\), and an explicit high-degree hub exclusion and non-nesting witness on \(K_{2,8}\). These are motivated structural rules for resilient two-hub information networks, not arbitrary numerical gains.
+Fitch-Leonard joint centrality provides the inverse-grounded-Laplacian objective and explicit leader placement on paths/cycles; Patterson et al. address weighted paths/cycles, not complete bipartite K_(2,q) arbitrary k>=4. Published Resultary search found a discounted hitting domination biclique result, different objective, and a reported k=3 biclique special case does not cover the stated range. The exact two-hub cubic threshold is a specialized new explicit classification within prior general theory.
 
-## Closest literature and limitations
+## value
 
-The theorem does not extend to unequal edge conductances, finite pinning gains, general bicliques or other noise criteria. Unexamined specialized results remain a genuine priority risk. The mathematical proof and exact verification files support only the stated claim; novelty searches are not independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete optimizer class for all budgets k>=4 and q>=k on a natural network family, with sharp cubic transition, integer tie behavior, asymptotic threshold and a non-nested lower-budget witness. These give an interpretable control-design boundary that generic combinatorial leader selection methods do not themselves state.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
