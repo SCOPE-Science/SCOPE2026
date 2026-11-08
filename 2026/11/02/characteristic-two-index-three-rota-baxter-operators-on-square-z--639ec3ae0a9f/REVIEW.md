@@ -1,15 +1,21 @@
-# Review of the characteristic-two Rota–Baxter classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification follows by comparing coefficients at two radical inputs, at a unit and a radical input, and at two units. No division by two is performed: the precise universal condition is \(B^2=0\) and \(2Bu=0\). The affine incidence proof establishes geometric irreducibility, rationality, and dimensions of reduced solution varieties for both characteristic regimes. The finite-field count chooses the image, kernel, and induced isomorphism of a square-zero matrix, then partitions augmentation vectors into three disjoint strata. Nine exhaustive finite configurations were replayed from the standalone checker and agreed with both the equations and formulas. Nonreduced schemes are not asserted to be classified.
+## correctness
 
-## Originality — PASS, with limitations
-Farooq (arXiv:2605.15670, Section 3) already gives the characteristic-zero classification for exactly this truncated algebra, and Achar–Henderson (arXiv:0712.1079, Sections 1–3) develops enhanced nilpotent-orbit geometry. The 2014 small-semigroup operator classification supplies earlier motivation. The reviewed contribution is specifically the sharp characteristic-two failure of the square-zero-operator condition, the associated dimension jump, and the joint rank/index enumerator over all binary extension fields. Source review and mathematical-record searches did not identify an equivalent theorem. Implicit coverage in broader positive-characteristic Rota–Baxter literature remains possible; the novelty assessment is not independent publication certification.
+PASS
 
-## Value — PASS
-The same naturally defined operator equation acquires exact index-three solutions on a Zariski-open dense set in characteristic two, while odd characteristic forbids them. The result gives a sharp characteristic boundary, an unbounded geometric dimension gap as the embedding dimension grows, and a complete arithmetic census that distinguishes operator ranks and the nilpotency index. These answer natural classification and quantitative questions rather than enumerating an arbitrary finite slice.
+Coefficient comparison in the weight-zero RB identity on A=k1⊕V,V²=0 first forces zero scalar part and zero scalar functional, then R=[[0,0],[u,B]] with B²=0, 2Bu=0, valid over arbitrary fields. In characteristic two u is arbitrary; R²(1)=Bu, R³=0, so exact index three exists for d>=2 and is open dense since rank-floor(d/2) square-zero matrices form an irreducible dense orbit. In other characteristic Bu=0, whence R²=0. Incidence varieties of B with image inside kernel show reduced geometrically irreducible rational varieties of dimensions 2r(d-r)+d (char2) and (d-r)(2r+1) (other), jump r=floor(d/2). Gaussian count of square-zero matrices of each rank j, stratified by u in image/ker/outside, proves the joint rank/index finite-field polynomials including d=1 boundary. Independently enumerated all linear maps over F2 for d=1,2,3 and checked exact distributions d=2: (rank0,index2) 1,(rank1,index2)9,(rank2,index3)6; d=3: 1,49,42,84 in printed strata.
 
-## Scope and independent status
-The result treats labelled weight-zero operators on \(k\oplus V\), \(V^2=0\), and reduced solution varieties. It does not address nonzero weights, higher radical powers, automorphism-conjugacy counts, or possible nonreduced scheme structure.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS confined to char2 RB-operator classification, index-three genericity, dimension jump, and rank/index polynomial. Farooq Thm3.4 already treats truncated polynomial local algebras in characteristic zero, implying B²=0 and Bu=0; these are acknowledged and do not imply Bu free in characteristic two. Achar–Henderson enhanced nilpotent cone contains some orbit and dimension geometry once this operator identification is made, not the identification or char2 statistics. Published Resultary matches treat a different exterior algebra or Jordan lifts.
+
+## value
+
+PASS
+
+Characteristic-dependent nilpotency index and a precise geometric dimension jump at characteristic two are structural, natural algebra phenomena; the full finite-field joint rank/index count distinguishes strata otherwise invisible from standard nilpotent-matrix classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

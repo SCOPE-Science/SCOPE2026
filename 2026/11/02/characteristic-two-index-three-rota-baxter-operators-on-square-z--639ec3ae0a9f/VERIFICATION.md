@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone `checker.py` uses independent semigroup-algebra multiplication to evaluate the weight-zero Rota–Baxter identity on every ordered pair of basis elements. Bilinearity makes basis testing sufficient for a fixed operator. It compares this identity against the proposed block conditions and independently counts ranks and whether the square is zero.
+# Independent mathematical audit
 
-Complete enumeration of **all** linear maps was performed for \((d,q)=(1,2),(1,3),(2,2),(2,3),(2,4),(3,2)\). Additional complete enumeration of the predicted square-zero-block search space was performed for \((d,q)=(3,3),(4,2),(3,4)\). These latter tests are exhaustive within the mathematically proved normalization, not exhaustive over all ambient linear maps.
+## correctness
 
-The last output line was `ROTA_BAXTER_MODULAR_SQUARE_ZERO_OK`. The full trace is reproducible with `python3 checker.py` using the Python standard library. The program implements \(\mathbb F_4\) using the polynomial \(X^2+X+1\); it does not assume that the field order is prime.
+PASS
 
-The general-dimensional proofs of the classification, variety dimensions, and finite-field rank formulas are symbolic and do not follow by extrapolating from these checks. This verification is not an independent audit or mathematical certification.
+Coefficient comparison in the weight-zero RB identity on A=k1⊕V,V²=0 first forces zero scalar part and zero scalar functional, then R=[[0,0],[u,B]] with B²=0, 2Bu=0, valid over arbitrary fields. In characteristic two u is arbitrary; R²(1)=Bu, R³=0, so exact index three exists for d>=2 and is open dense since rank-floor(d/2) square-zero matrices form an irreducible dense orbit. In other characteristic Bu=0, whence R²=0. Incidence varieties of B with image inside kernel show reduced geometrically irreducible rational varieties of dimensions 2r(d-r)+d (char2) and (d-r)(2r+1) (other), jump r=floor(d/2). Gaussian count of square-zero matrices of each rank j, stratified by u in image/ker/outside, proves the joint rank/index finite-field polynomials including d=1 boundary. Independently enumerated all linear maps over F2 for d=1,2,3 and checked exact distributions d=2: (rank0,index2) 1,(rank1,index2)9,(rank2,index3)6; d=3: 1,49,42,84 in printed strata.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS confined to char2 RB-operator classification, index-three genericity, dimension jump, and rank/index polynomial. Farooq Thm3.4 already treats truncated polynomial local algebras in characteristic zero, implying B²=0 and Bu=0; these are acknowledged and do not imply Bu free in characteristic two. Achar–Henderson enhanced nilpotent cone contains some orbit and dimension geometry once this operator identification is made, not the identification or char2 statistics. Published Resultary matches treat a different exterior algebra or Jordan lifts.
+
+## value
+
+PASS
+
+Characteristic-dependent nilpotency index and a precise geometric dimension jump at characteristic two are structural, natural algebra phenomena; the full finite-field joint rank/index count distinguishes strata otherwise invisible from standard nilpotent-matrix classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
