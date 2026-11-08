@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:55:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By the published Type-A characterization, two binary length-n words have two distinct common one-deletion descendants precisely when they are complementary alternating phases on their unique first-to-last mismatch interval of length>=2. Therefore neighbors of x biject with alternating intervals in x. Maximal 1-runs of the difference string have lengths h_i, contributing binom(h_i+1,2) each. Unique run decomposition yields F(z,u)=2(1+R)/(1-z-zR), R=sum_{h>=1}z^h*u^binom(h+1,2); differentiation at u=1 yields exactly mean n-2+2^(1-n) and variance 6n-30+(2n^2+6n+17)/2^(n-1)-4^(1-n), and limiting degree/n->1 in probability. n=1 has two zero-degree vertices. Independent direct distinct-deletion-ball adjacency over all binary words n=1..8 matched every predicted degree and histogram. The all-n conclusion uses the Type-A theorem and formal combinatorics, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full published Resultary RESULT.md explicitly states it gives total edges and mean degree, not the degree distribution.",
+          "The 2020 Type-A pairwise intersection classification supplies the central structural premise, but no run-length degree enumerator or second moment in its inspected proposition."
+        ],
+        "reasoning": "An aggregate q-ary edge count is broader in alphabet but weaker in statistical specificity; the exact binary distribution and variance are not implied by a mean alone.",
+        "searches": [
+          "binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance",
+          "published exact edge count finite alphabet two-read deletion reconstruction graph"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 762b5382c4ce00848be5bc9d846641c8c52164dc and verification/check.py a5305659407b45f9c8f49d9daa2bd7a57633616f",
+        "https://arxiv.org/pdf/2001.01376",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "Resultary query: binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 9 yields neighbor characterization; to obtain the new result one counts alternating subintervals per center and forms a marked run generating function.",
+          "The prior published edge count equals the sum of new per-center degrees /2 and recovers precisely the known mean, not variance or distribution."
+        ],
+        "reasoning": "The new result is a nontrivial derived invariant from existing Type-A structure, not an independent discovery of Type-A; no direct stronger prior theorem implies the full marked enumerator without further counting.",
+        "searches": [
+          "binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance",
+          "Cai Kiah Nguyen Yaakobi Proposition 9 shared deletion descendants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai–Kiah–Nguyen–Yaakobi Proposition 9 characterizes pairs sharing exactly two distinct one-deletion descendants via unique alternating intervals.",
+          "Binary words have alternating intervals equivalent to consecutive one-blocks in their first-difference word."
+        ],
+        "reasoning": "The degree-by-word sum is equivalent to counting nonempty subintervals of all maximal difference-one runs. This is not the size of a deletion ball or the number of center-pair edges alone.",
+        "searches": [
+          "binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance",
+          "Type-A two-read reconstruction adjacency alternating interval per-word degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit the edge-enumeration result directly, not a complete degree histogram.",
+          "Independent n=1..8 histograms obey the claimed generating function; for n=5 the histogram is {0:2,1:8,2:6,3:6,4:4,6:4,10:2}."
+        ],
+        "reasoning": "No exact pre-existing complete-degree table found; the relevant existing edge table only supplies its first moment, leaving true all-degree census open in that source.",
+        "searches": [
+          "binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance",
+          "binary two read deletion reconstruction degree distribution lookup graph table"
+        ]
+      },
+      "rationale": "Cai et al. established pairwise Type-A characterization and an earlier published Resultary result exactly counts edges and mean degrees for arbitrary alphabet; neither determines the complete degree distribution or the exact variance. The bivariate all-length histogram and per-word formula are strictly more informative than their aggregate counts. Novelty qualified against broader reconstruction-code graph studies.",
+      "residual_risks": [
+        "Potential differently indexed degree-distribution identity in coding theory could cover this theorem.",
+        "The structural Type-A characterization is borrowed and has not been independently reproved for arbitrary n; original full proof was inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the Type-A alternating pair characterization used as premise, not by itself the full degree histogram",
+          "evidence": "Cai et al. arXiv:2001.01376, Proposition 9 and surrounding proof.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376",
+          "material_read": "Proposition 9 and its proof in the full arXiv paper, including Hamming-distance-one boundary",
+          "method": "Full-text PDF and original-page screenshot",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "exact same one-deletion descendant intersection criterion"
+        },
+        {
+          "assessment": "Covers total edges for all q and mean (binary n-2+2^(1-n)), expressly excludes degree distribution",
+          "evidence": "Resultary/2026 2026/10/4/...-737fed325e91 RESULT.md lines under Finding, Proof, Limitations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "Entire publicly available RESULT.md including theorem, proof, known mean and limitations",
+          "method": "GitHub pinned public scientific RESULT.md via GitHub connector",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "same graph, stronger q-ary parameter range, potentially dominating theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full degree distribution is a natural, previously missing graph invariant controlling local confusability heterogeneity, and the exact variance gives an independent quantitative law beyond the known edge count. The all-length formal bivariate generating function makes all local degree counts extractable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 762b5382c4ce00848be5bc9d846641c8c52164dc and verification/check.py a5305659407b45f9c8f49d9daa2bd7a57633616f",
+    "https://arxiv.org/pdf/2001.01376",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+    "Resultary query: binary two-read one-deletion reconstruction graph vertex degree alternating runs generating function variance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet, one deletion, two reads; excludes higher q and independence number.",
+    "Finite direct pairs through n=8 are corroboration; infinite proof uses the published Type-A theorem."
+  ],
+  "residual_risks": [
+    "Potential differently indexed degree-distribution identity in coding theory could cover this theorem.",
+    "The structural Type-A characterization is borrowed and has not been independently reproved for arbitrary n; original full proof was inspected."
+  ],
+  "schema_version": 1
+}
