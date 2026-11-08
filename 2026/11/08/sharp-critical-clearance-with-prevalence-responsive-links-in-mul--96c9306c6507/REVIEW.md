@@ -1,0 +1,23 @@
+# Scientific review: critical clearance with adaptive multigroup contacts
+
+## Correctness (PASS)
+
+The domain and claim are explicit: finite heterogeneous groups, irreducible nonnegative transmission matrix, positive recovery and zero-prevalence contact restoration, smooth nonnegative responses, no breaking at zero prevalence, and the equality \(\mathcal R_0=1\). The forward-invariant compact cube is verified by face derivatives. The exact Perron-mass identity is nonpositive; irreducibility and contact restoration rule out all nonzero invariant subsets of its zero-derivative locus, giving global disease extinction. Every link tends to full restoration. The infection mass then changes subexponentially while the non-Perron modes contract exponentially. Exact variation-of-constants limits give the right Perron mode for prevalence and a link-deficit response proportional to its first directional derivative. The mass derivative consequently tends to a *strictly positive* quadratic-drift coefficient, yielding the claimed inverse-time amplitudes for every nonzero initial infection. Algebraic and numerical sanity checks are reproduced by `verify.py`; numerical trajectories are supportive only. No all-time assertion depends on an observed finite-time fit.
+
+## Originality (PASS, on the inspected comparisons)
+
+The defining source (Achterberg–Sensi–Sottile, initially public 2024-07-24, arXiv:2407.17639) was inspected across its model, analytical results, examples and conclusions. Its Theorem 2 uses the **strict** inequality \(\mathcal R_0<1\), and the proof relies on a negative linear spectral gap; it therefore does not imply its endpoint. The paper does not give the coefficient \(\kappa\), the coupled \(t(1-z_{ij})\) limit, or an order-of-response dichotomy. The earlier single-community aNIMFA study has only one infection coordinate, whereas the new coefficient uses both left/right network Perron vectors and the entire array of adaptive links.
+
+The closest previously documented one-community exact critical asymptotic result is a genuine related antecedent, not a new finding here. Its scalar coefficient is recovered by the present formulas when specialized, but its statement gives no heterogeneous-network result or network-level global extinction proof. The separate inverse-time metapopulation finding concerns a discrete population map without adaptive contact equations and does not imply this result. Static SIS results can provide an inverse-time critical infection profile but not the first-order link-deficit or extra adaptivity coefficient. Classical adaptive-network bifurcation and near-critical topology studies address different dynamical reductions; no inspected statement was found to dominate this multigroup claim. Similarities of mathematical technique and the scalar specialization are acknowledged rather than presented as novelty.
+
+Residual risk: unindexed equivalent spectral or center-manifold treatments of multigroup coevolving epidemic links may exist; several broader network papers could be inspected only to their accessible abstracts, not asserted to be excluded on whole-document evidence. This assessment does not establish absolute publication priority or independent mathematical validation.
+
+## Value (PASS)
+
+The initiating paper motivates distinguishing local and global risk responses in networks of multiple interacting groups but leaves critical equality unresolved. The new result fills an analytically sharp gap, resolving whether infection persists or clears on that boundary, and determining its *physical-time coefficient* for all nonzero admissible initial conditions, including asymmetric transmission and link repair. Its structural decomposition identifies a mechanism that cannot be seen in \(\mathcal R_0\) alone: linear-order behavior changes the leading critical clearance rate, while quadratic-order behavior does not. That difference is directly relevant when interpreting or calibrating prevalence-responsive contact models. The exact two-community family supplies an independently reproducible quantitative benchmark; the value does not rest on the modest numerical experiment.
+
+## Limits and confidence
+
+The theorem is deterministic and finite-dimensional. It does not address stochastic extinction, infinite networks, non-restoring links, reducible transmission networks, or supercritical endemic-wave classification. The available literature checks are substantial but not an exhaustive priority determination. The independent audit and replication channels have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
