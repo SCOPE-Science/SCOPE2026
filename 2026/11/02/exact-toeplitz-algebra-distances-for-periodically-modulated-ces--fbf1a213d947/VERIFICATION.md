@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The supplementary standalone executable `verify.py` checks exact finite-period and covariance algebra, and finitely truncated mean-zero periodic kernel tails. It relies only on Python's standard library. Invoke `python3 verify.py` in a directory containing the extracted files.
+# Independent mathematical audit
 
-The reported PASS count is a finite-consistency count only. No finite matrix, sample period or computation proves compactness, the Hardy essential norm, operator-algebra membership, or the exact infinite-dimensional distance. Those deductions are given analytically in `RESULT.md`.
+## correctness
 
-Actual analytic checks reconstructed: periodic cancellation forces the Gram-sandwich error to be Hilbert–Schmidt; the Cesàro essential norm is two; the finite shift-orbit average is a positive contraction in the Calkin algebra; squared-distance averaging gives the lower bound; finite-row compact corrections to the scalar Cesàro element give the matching upper bound. The equality is an infimum; no attainment assertion is made beyond asymptotically attaining finite-rank corrections.
+PASS
 
-Research source limitations: Sang's theorem supplies Cesàro membership in the full Toeplitz algebra; the proof does not construct this factorization independently. Specialist priority checking and independent mathematical audit have not been performed.
+For periodic zero-mean b, (C*D_b C)_{jk}=Σ_{n≥max(j,k)} b_n/(n+1)²=O((1+max(j,k))^-2) by bounded partial sums; its Hilbert–Schmidt norm is finite. This yields C*D_|a-µ|² C=v C*C modulo compacts. Weakly-null Hardy extremizing vectors prove ||π(C)||=2, so ||π(D_(a-µ)C)||=2√v. Conjugation by the Calkin shift is a *-automorphism and cyclic averaging annihilates the periodic centered row modulation. Averaging (y+z)*(y+z) for fixed-point z eliminates both mixed terms, giving lower bound 4v for squared distance to the essential commutant. Since C and finite-ranks lie in the Toeplitz algebra, µC+P_ND_(a-µ)C achieves the limiting upper bound. One shift conjugation gives essential commutator 2√δ. Finite averaged variance/tail tests corroborate, not replace, Calkin proof. Full Hardy/Calkin and Sang inclusion explicitly needed.
+
+## originality
+
+PASS
+
+Sang’s 2026 primary theorem proves C belongs to the Toeplitz algebra and provides a broader Rhaly operator membership criterion; hence qualitative nonmembership for nonconstant periodic Rhaly sequences is NOT new. The exact quantitative two-algebra distance 2√v and essential commutator 2√δ, with sharp approximants, were not found in the inspected source.
+
+## value
+
+PASS
+
+A complete exact norm-distance profile of a natural periodic family to two important operator algebras is a substantive quantitative operator-algebra invariant, in contrast with binary membership and generic compactness bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
