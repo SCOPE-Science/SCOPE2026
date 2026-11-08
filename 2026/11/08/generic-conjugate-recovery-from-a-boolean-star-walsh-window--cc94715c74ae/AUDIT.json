@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Direct normalized Walsh inversion recovers all correlations at Hamming lags zero, one and two; the star difference geometry isolates off-diagonal real Gram entries. For even n, n+1-2wt(b) never vanishes and permits exact diagonal deconvolution. The complete rank follows by counting independent symmetric entries. An induction on Hamming weight with explicitly independent predecessor pairs yields an O(2) congruence and hence conjugate recovery, with a separate complete-Gram proof for n=2. Two sites at distance 3 disprove global recovery for n>=4. The supplied standard-library checker verifies exact integer/rational instances n=2..6, without substituting a finite test for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bojarovska–Flinth, arXiv:1503.05800, Theorems 2.2–2.4: complex phase retrieval under nonvanishing Gabor ambiguity hypotheses or particular full-support lag conditions.",
+        "Bartusel, arXiv:2206.06729, Introduction and Sections 2 and 4: ordinary complex phase retrieval on Z, cyclic groups and R^d with window ambiguity/support criteria.",
+        "Cheng–Daubechies–Dym–Lu, arXiv:2006.11709, Proposition 2.6: graph connectivity under local phase-retrievable measurement assumptions."
+      ],
+      "reasoning": "The fixed Walsh-star measurements are real linear forms, so conjugation is always invisible: no criterion for ordinary complex phase retrieval can directly cover them. The local-measurement connectivity theorem assumes each block already allows complex local phase recovery, which the real Walsh block cannot; exact real-2D Gram lateration and even-dimension deconvolution are additionally required.",
+      "searches": [
+        "finite abelian Gabor intensity lifting window quadratic residues difference set singular value spectrum",
+        "Phase Retrieval from Gabor Measurements Bojarovska Flinth arXiv:1503.05800 theorem 2.4",
+        "Injectivity conditions for STFT phase retrieval on Z Zd and Rd Bartusel arXiv:2206.06729",
+        "Stable Phase Retrieval from Locally Stable and Conditionally Connected Measurements arXiv:2006.11709"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.05800, Theorems 2.2–2.4",
+      "arXiv:1709.08836, Theorems 2.3 and 2.5",
+      "arXiv:2006.11709, Proposition 2.6",
+      "arXiv:2206.06729, introductory scope and Section 4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.5 of Evans–Lai requires a generic real measurement frame, whereas the prescribed translates and Walsh modulations form one fixed highly structured frame and fail uniform conjugate recovery for n>=4.",
+        "Theorem 2.2 of Bojarovska–Flinth has an everywhere-nonzero ambiguity hypothesis; the star ambiguity has many zeros.",
+        "Cheng et al. Proposition 2.6 uses local complex phase-retrievability absent here."
+      ],
+      "reasoning": "No inspected stronger theorem directly implies the fixed-window even-n generic-signal recovery with the stated rank, n=2 uniform endpoint and distance-three exception. This is a bounded implication comparison, not a proof that no such historical theorem exists.",
+      "searches": [
+        "Walsh short time Fourier conjugate phase retrieval real local oversampled frames",
+        "binary hypercube F2^n indicator Hamming radius one star Walsh short-time Fourier intensity conjugate phase retrieval",
+        "Conjugate Phase Retrieval on C^M by real vectors arXiv:1709.08836",
+        "Stable Phase Retrieval from Locally Stable and Conditionally Connected Measurements arXiv:2006.11709"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Evans–Lai, arXiv:1709.08836, Theorems 2.3 and 2.5, analyzes real-frame conjugate phase retrieval, including a generic-FRAME theorem with 4M-6 measurements.",
+        "The present Walsh-star frame is deterministic and fixed, and its result is generic in SIGNALS, with explicit nongeneric failures."
+      ],
+      "reasoning": "Equivalent real-Gram completion is checked: the claim is a highly incomplete, locally specified Gram observation scheme recovering generic rank-two real Gram factorizations; Evans–Lai provides general conjugate-phase language and a generic measurement-frame existence result, not this prescribed Boolean-star mask. Its theorem cannot be specialized by saying the fixed frame is a generic frame.",
+      "searches": [
+        "binary hypercube F2^n indicator Hamming radius one star Walsh short-time Fourier intensity conjugate phase retrieval",
+        "real Walsh Gabor short time Fourier magnitude binary Hamming cube radius one star generic conjugate phase retrieval full support",
+        "Conjugate Phase Retrieval on C^M by real vectors arXiv:1709.08836"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finite-Gabor/Boolean-Hamming results inspected concern other window geometries or full Fourier concentration rather than the specific radius-one Walsh-STFT measurement mask.",
+        "The explicit formula for this mask is \\(2^n+2^{n-1}\\binom{n+1}{2}\\), derived by direct independent-entry recovery."
+      ],
+      "reasoning": "A search for an exact Boolean-star matrix-sensing rank or conjugate-retrieval table found no identified covering table in the compared materials; absence of a table is not a proof of priority. The claim is quantified over every even n, not an isolated computed value.",
+      "searches": [
+        "sparse Walsh Gabor frames Hamming star full spectrum rank",
+        "translation modulated binary star window conjugate recovery Gram square hypercube",
+        "Fourier transform of Hamming balls Krawtchouk zeros Gabor ambiguity support rank"
+      ]
+    },
+    "rationale": "Bounded comparison of exact statements and implications: no inspected primary source provides the fixed Boolean-star real-Walsh conjugate phase retrieval on generic signals, its exact rank, and the exceptional sparse family. A generic frame theorem is not equivalent to generic-signal recovery for this fixed frame; ordinary complex phase retrieval criteria cannot hold because all sensing vectors are real. Residual historical coverage remains possible.",
+    "residual_risks": [
+      "An unlocated Walsh-STFT or real-graph-rigidity theorem may contain this fixed-window specialization as a corollary.",
+      "Sufficient signal genericity is not claimed optimal; odd-dimensional recovery is unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General complex Gabor recovery criterion requires ambiguity nonvanishing; proposed all-real Walsh frame does not meet that conclusion and is instead generically conjugate recoverable.",
+        "evidence": [
+          "Theorem 2.2 uses nonzero all-index window ambiguity; Theorem 2.4 uses two nonzero cyclic lags to recover full complex phases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+        "material_read": "Abstract, introduction, Theorems 2.2–2.4 and their proofs in pages 3–6; discussion of nonvanishing signal recovery.",
+        "method": "Direct inspection of publicly available arXiv full-text pages and proof equations.",
+        "title": "Phase Retrieval from Gabor Measurements",
+        "trigger": "Historical finite Gabor PhaseLift framework and nonvanishing conditions."
+      },
+      {
+        "assessment": "Provides equivalence to real Gram and generic real FRAME theorem, not generic signals for the fixed Boolean-star STFT geometry.",
+        "evidence": [
+          "Theorem 2.5: a generic real frame with at least 4M-6 measurements is conjugate phase retrievable; genericity applies to the frame."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.08836",
+        "material_read": "Abstract, Definitions, Theorems 2.3 and 2.5, and geometric real-Gram proof around pages 5–9.",
+        "method": "Direct inspection of publicly available arXiv full-text theorems and supporting proof.",
+        "title": "Conjugate Phase Retrieval on C^M by Real Vectors",
+        "trigger": "Closest general formalism for conjugation-invariant real measurements."
+      },
+      {
+        "assessment": "Local complex phase retrievability is assumed in the relevant graph theorem; not applicable to star real-block measurements with conjugate ambiguities.",
+        "evidence": [
+          "Proposition 2.6 assumes an LSCC scheme whose local analysis determines phases, unlike a block of only real sensing vectors on unrestricted complex signals."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.11709",
+        "material_read": "Abstract, introduction, Definition of locally stable and conditionally connected schemes, and Proposition 2.6 in Section 2.",
+        "method": "Direct inspection of publicly available author full text with the local block assumptions and connectivity result.",
+        "title": "Stable Phase Retrieval from Locally Stable and Conditionally Connected Measurements",
+        "trigger": "Possible graph-connectivity domination of the local lateration argument."
+      },
+      {
+        "assessment": "Studies ordinary complex phase retrieval on cyclic groups, including vanishing ambiguity windows; does not directly settle conjugate real Walsh retrieval on binary product groups.",
+        "evidence": [
+          "Introduction specifies global complex phase recovery on Z, cyclic Z_d, and R^d, while real exponent-two Walsh characters create an unavoidable conjugation symmetry."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.06729",
+        "material_read": "Abstract, introduction, general locally compact abelian STFT setup, and start of Section 4 discussing finite cyclic groups.",
+        "method": "Direct inspection of publicly available arXiv full-text pages.",
+        "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Zd and R^d",
+        "trigger": "General finite-group STFT injectivity criteria and possible support-based dominance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cc94715c-74ae-4b52-9c0a-96c419d9605a",
+  "value": {
+    "rationale": "The radius-one Boolean star is a canonical highly localized time-frequency aperture. The result demonstrates generic nonlinear complex-signal recovery modulo unavoidable conjugation despite the exact severely incomplete matrix-sensing rank, identifies the parity mechanism that recovers pointwise intensities, and proves a genuine uniform-to-nonuniform distinction at n=2 versus n>=4. These are motivated structural inverse-problem features, rather than a routine numeric slice.",
+    "status": "PASS"
+  }
+}

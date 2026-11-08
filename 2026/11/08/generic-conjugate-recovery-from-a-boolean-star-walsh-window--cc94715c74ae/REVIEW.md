@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof starts from exact finite Walsh orthogonality, including the normalization \(2^{-n}\), and reconstructs each local correlation with no unproved Fourier inversion. The star's two-point intersections isolate every Hamming-distance-one or -two real Gram entry. For even \(n\), the diagonal convolution multipliers \(n+1-2w\) are all nonzero. Two-neighbor lateration then reconstructs each signal coordinate from a linearly independent pair. The all-signal \(n=2\) case follows from full real-Gram recovery, and the distance-three two-site construction proves nonuniformity for every even \(n\ge4\). The projector-span rank counts independent diagonal and short-distance off-diagonal functionals. The standalone checker validates all identities for the explicitly tested dimensions. No conclusion relies on finite experiments alone.
+
+## Originality — PASS under bounded literature comparison
+The first comparator, Bojarovska–Flinth (arXiv:1503.05800), gives general finite Gabor measurement results in which ordinary complex phase retrieval requires nonzero ambiguity; the proposed real Walsh frame has zero ambiguity and cannot distinguish conjugation. Evans–Lai (arXiv:1709.08836) establishes conjugate phase retrieval for generic measurement frames, rather than this deterministic translated/modulated Boolean-star frame and generic signals. Cheng–Daubechies–Dym–Lu (arXiv:2006.11709) assumes locally phase-retrievable measurements, which cannot follow for a complex star block of only real sensing vectors by phase ambiguity alone. Bartusel (arXiv:2206.06729) studies ordinary complex STFT phase retrieval, primarily on cyclic groups; this exponent-two Boolean setting instead has real characters and a conjugate ambiguity. The new exact rank, recovery class, and exceptional family are not stated by those inspected results. Residual risk: a specialized but unlocated Walsh-STFT reconstruction result or general lateration theorem might yield an equivalent corollary; historical uniqueness is not proved.
+
+## Mathematical value — PASS
+The radius-one Hamming star is a canonical sparse local sampling aperture, and its real Walsh shifts provide a deterministic, explicitly invertible sensing architecture. It is not immediate that globally unique generic complex signals can be recovered when the complex-linear matrix-sensing rank grows only polynomially relative to \(2^n\) while the ambient matrix dimension is \(4^n\). The theorem identifies the mechanism—parity-dependent diagonal deconvolution followed by real-Gram lateration—and gives a strict boundary between global recovery at dimension four and genuinely phase-ambiguous sparse signals in higher even dimensions. This is a natural concrete inverse-problem classification, not an arbitrary table entry.
+
+## Limitations
+No odd-dimensional recovery theorem, noisy stability bound, necessary characterization of the genericity set, or historical priority beyond the stated comparisons is asserted. Independent validation is pending.
+
+Self-review: passed. Independent audit: not yet performed.
