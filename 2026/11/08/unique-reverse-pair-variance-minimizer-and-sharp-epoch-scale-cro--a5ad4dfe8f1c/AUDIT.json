@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A complete affine-composition proof obtains every exact coefficient and covariance; the strict rearrangement inequality establishes uniqueness for all at least two components and a contraction factor strictly between zero and one; nonconstant centers exclude the zero-variance denominator. Centered-weight expansions, Riemann limits and AR(1) recurrence cover the other statements. Complete up to seven components enumeration and all up to five components pairing checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen–Phan–Kalagnanam 2026: general nonlinear cancellation, without global ordering optimum or stationary scale classification.",
+        "Safran–Shamir 2020: RR/shuffle-once rates but not coupled two-pass averaging.",
+        "Li 2026 is related finite-sum reshuffling theory; only its abstract was accessible."
+      ],
+      "reasoning": "Broader problem classes in the cited papers do not, solely from their stronger assumptions or convergence bounds, imply the exact paired-vs-unpaired stationary variance, unique fixed σ optimality, or λ crossover. An unavailable appendix in a later reshuffling paper remains a residual risk.",
+      "searches": [
+        "antithetic permutation reversal stochastic gradient identical curvature quadratic variance exact epoch length crossover",
+        "reversal minimizes permutation covariance geometric weights SGD finite-sum equal Hessian stationary noise coupling",
+        "https://arxiv.org/html/2604.00260v1",
+        "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+        "https://arxiv.org/abs/2609.04578"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.00260v1",
+      "https://arxiv.org/html/2206.00632v1",
+      "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+      "https://arxiv.org/abs/2609.04578",
+      "https://arxiv.org/abs/2604.00260",
+      "Published finding: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.6 of arXiv:2604.00260v1: order dependence cancels at second order; Theorem 3.9: an O(η⁶n⁶) bound on paired variance under a bounded-gradient assumption.",
+        "arXiv:2206.00632 analyzes independent RR and shuffle-once stationary noise via power spectra.",
+        "The nearest same-theme indexed reverse-order claim concerns asymptotic Kaczmarz bias cancellation."
+      ],
+      "reasoning": "A uniform upper bound is not the equality, neither its unique argmin over position permutations nor the two distinct n-scaling limits. The source bounded-gradient hypothesis does not automatically cover global quadratic gradients. The Kaczmarz mean bias comparison is distinct from random-SGD permutation variance, so it does not subsume this claim.",
+      "searches": [
+        "https://arxiv.org/html/2604.00260v1#3.2",
+        "https://arxiv.org/html/2604.00260v1#3.4",
+        "https://arxiv.org/html/2206.00632v1",
+        "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+        "Published finding: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nguyen–Phan–Kalagnanam Theorems 3.6/3.9 derive asymptotic order/variance bounds, not an exact geometric-weight optimum.",
+        "Domingo-Enrich 2022 sections 4–5 cover single shuffled algorithms via a zero-order noise model, without paired permutation covariances."
+      ],
+      "reasoning": "A symmetrized finite-sum SGD epoch is not in general identical to the separate two-pass coupled epoch variance objective, and bounding the leading Taylor remainder does not algebraically provide the exact ratio or unique minimizer. No equal statement was located; search coverage is not a proof of novelty.",
+      "searches": [
+        "\"paired reversal\" \"random reshuffling\" exact variance stationary scalar quadratic",
+        "antithetic permutation reversal stochastic gradient identical curvature quadratic variance exact epoch length crossover",
+        "paired reverse order random reshuffling scalar quadratic variance formula geometric weights",
+        "https://arxiv.org/html/2604.00260v1",
+        "https://arxiv.org/html/2206.00632v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantically returned Published finding: Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz concerns underrelaxed cyclic block Kaczmarz bias, not paired stochastic SGD stationary variance.",
+        "The closest publicly indexed reverse-order analysis treats a cyclic Kaczmarz bias rather than an exact paired-SGD stationary variance."
+      ],
+      "reasoning": "This problem is an analytic all-parameter theorem, not a table lookup. Searches did not return an already indexed instance of its full statement. Non-match neither proves priority nor excludes absent content.",
+      "searches": [
+        "\"paired reversal\" \"random reshuffling\" exact variance stationary scalar quadratic",
+        "paired reverse order random reshuffling scalar quadratic variance formula geometric weights",
+        "reversal minimizes permutation covariance geometric weights SGD finite-sum equal Hessian stationary noise coupling",
+        "random reshuffling forward reverse average uniform permutations noise variance asymptotic n eta",
+        "paired reversal shuffled SGD third order bias optimal symmetric order quadratic Hessian commutator"
+      ]
+    },
+    "rationale": "The exact global fixed-position coupling minimum, strict ratio formula, stationary equality, and n-times-stepsize crossover are not statements of the inspected prior theorems. Classical strict rearrangement and uniform permutation covariance are acknowledged building blocks, not claimed discoveries; residual priority risk is recorded.",
+    "residual_risks": [
+      "Classical rearrangement or permutation-covariance material may have been independently applied to the same scalar SGD pairing; database searches cannot exclude unindexed equivalent formulations.",
+      "The full text of a later 2026 centered-permutation-prefixes preprint was inaccessible in this comparison; the accessible abstract did not report paired reverse-epoch optimization, but full noncoverage is not claimed.",
+      "Theorem is restricted to fixed position maps and equal curvatures; nonlinear or broader couplings could behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELATED_NOT_FULLY_COVERING",
+        "evidence": "Theorem 3.6 cancellation and Theorem 3.9 bounded-gradient variance upper bounds do not state unique position-pairing optimality or exact scalar crossover.",
+        "identifier_or_url": "https://arxiv.org/html/2604.00260v1",
+        "material_read": "Sections 2.3, 3.2–3.4, Theorems 3.6–3.9, related-work section and supporting appendix proof passages",
+        "method": "Read lawful full-text HTML and inspect the definitions, theorem hypotheses, variance statements, and appendix",
+        "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+        "trigger": "Defines exactly the paired-reversal averaged epoch operator and a permutation variance theorem"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_COUPLING",
+        "evidence": "Examines individual shuffled iterates and a zero-order noise approximation, with no two-full-epoch fixed-position antithetic pairing optimum.",
+        "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+        "material_read": "Full-text HTML abstract, assumptions and stationary-noise analysis in sections 4–5",
+        "method": "Read primary HTML and compared the shuffle once/random reshuffle definitions and covariance targets",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Earlier direct stationary variance theory for shuffled SGD"
+      },
+      {
+        "assessment": "RELATED_NO_PAIRING_CLASSIFICATION",
+        "evidence": "Single-pass reshuffling bounds do not determine the unique antithetic position permutation or exact paired stationary variance.",
+        "identifier_or_url": "https://proceedings.mlr.press/v125/safran20a/safran20a.pdf",
+        "material_read": "PDF introduction and relevant scalar quadratic section, including page images",
+        "method": "Read primary PDF text with page image inspection",
+        "title": "How Good is SGD with Random Shuffling?",
+        "trigger": "Canonical sharp rate analysis for equal-curvature and one-dimensional quadratic SGD"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5ad4dfe-8f1c-4507-96ad-4d8ebe9ad7cd",
+  "value": {
+    "rationale": "The motivating paired-reversal theory leaves an algorithmically natural choice unanswered: whether reversal is the best fixed order pairing, and when the noise suppression is materially better than factor-two averaging. The theorem gives the exact unique optimizer across all fixed position relabelings and classifies both the stationary noise floor and effective epoch length transition, informing when a second pass may be worth its cost.",
+    "status": "PASS"
+  }
+}
