@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every retained edge of a cactus cycle is a bridge unless the entire original cycle is retained, since no alternative cycle uses that edge. Hence the independent edge-block factorization is exact. Differentiating gives Cov(X,B)=p(1-p)[m-sum c_j^2 p^(c_j-1)], where the bracket is strictly decreasing for any cycles. Uniform e-subsets give the stated falling-factorial conditional means and nonpositive second differences. Independent exhaustive graph traversal checks 24 complete rational Bernoulli joint laws on eight small cactus examples and eight discrete-concavity sequences. Domain m>=1, 0<p<1, all c_j>=3; endpoints give zero covariance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Allard et al. (2012), arXiv:1201.4369, full arXiv text: sections on Q_i component partitions and conclusion, not bridge-count joint distribution.",
+        "H. Bonneau et al. (2021), arXiv:2101.09977, full arXiv text Sec. III.2 equations (14)-(20): edge-specific bridge probabilities, not the joint count law."
+      ],
+      "reasoning": "Allard et al. compute component-size and partition distributions for finite arbitrary graphs with rapidly growing complexity; they do not supply bridge counts (which are not determined by component sizes) or this all-size cactus product. Bonneau et al. study individual-edge bridge probabilities, not joint edge/bridge-count statistics. Neither displayed result dominates the new phase theorem.",
+      "searches": [
+        "arxiv:1201.4369 component partitions",
+        "arxiv:2101.09977 bridge probabilities",
+        "web: bond percolation on cactus exact bridge edge expectation covariance threshold finite graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1201.4369",
+      "arxiv:2101.09977",
+      "arxiv:1209.1937"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A. Allard et al. (2012), arXiv:1201.4369, full arXiv text: sections on Q_i component partitions and conclusion, not bridge-count joint distribution.",
+        "H. Bonneau et al. (2021), arXiv:2101.09977, full arXiv text Sec. III.2 equations (14)-(20): edge-specific bridge probabilities, not the joint count law.",
+        "A published component-triangle covariance theorem concerns component and triangle counts, not retained-edge versus bridge counts.",
+        "H. Chae et al., arXiv:1209.1937, Sep. 2012, analyze agglomerative percolation on an infinite triangular cactus, a different law."
+      ],
+      "reasoning": "The component-triangle covariance theorem applies a different observable on an arbitrary graph. General finite component distributions do not determine which occupied edges are bridges. The individual bridge probability statements alone do not determine covariance with total occupied edges or give a joint law. Agglomerative percolation is dependent and not the same Bernoulli model.",
+      "searches": [
+        "bond percolation cactus graph covariance number of open edges and bridges sign transition cycle length sum squares",
+        "arxiv:1201.4369",
+        "arxiv:2101.09977",
+        "arxiv:1209.1937"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "H. Bonneau et al. (2021), arXiv:2101.09977, full arXiv text Sec. III.2 equations (14)-(20): edge-specific bridge probabilities, not the joint count law.",
+        "Cactus cycle-reliability polynomial identity expresses joint PGF by independent cycle blocks, unlike marginal bridge probabilities."
+      ],
+      "reasoning": "Relabeled isthmus counts, bridge indicators, and bond-percolation cycle-rank transforms were considered. The candidate is not just edge-wise bridge probability: it gives a bivariate generating function and a mixed covariance sign classification. A general exact enumeration is an algorithmic route, not a matching closed-form result.",
+      "searches": [
+        "bond percolation cactus graph covariance number of open edges and bridges sign transition cycle length sum squares",
+        "finite cactus graph independent bond percolation joint probability generating function number of retained edges and bridges factorization by edge disjoint cycles",
+        "web: expected number of bridges in a random subgraph",
+        "arxiv:2101.09977 Section III.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned general component-triangle percolation, cactus topology, and other bridge-related topics but no identical joint distribution or threshold.",
+        "No located primary published exact bridge/edge generating-function table for all cacti."
+      ],
+      "reasoning": "The theorem is for unbounded graph order and an arbitrary multiset of cycle lengths rather than a finite table, so small-graph enumerations cannot by themselves cover the symbolic classification. Absence from search results is not independent novelty proof.",
+      "searches": [
+        "bond percolation cactus graph covariance number of open edges and bridges sign transition cycle length sum squares",
+        "finite cactus graph independent bond percolation joint probability generating function number of retained edges and bridges factorization by edge disjoint cycles",
+        "conditional expectation bridge count given exact number edges concavity cactus graph and unique sign change covariance",
+        "bridge edge count percolation cactus all cycle lengths phase threshold m sum c squared",
+        "web: percolation cactus bridge count generating function distribution open edges bridges"
+      ]
+    },
+    "rationale": "The exact arbitrary-cactus joint PGF, all-cycle-length threshold criterion and conditional concavity were not stated or implied as closed-form results in the inspected closest primary texts. The method of all-subset enumeration is broader but does not supply the claimed structural factorization or universal symbolic phase inequality. Unexamined historical work remains a priority risk.",
+    "residual_risks": [
+      "A historical result in reliability-polynomial or all-subgraph bridge-count generating functions may contain an implicit equivalent identity.",
+      "The paper by Bonneau et al. develops single-edge formulas that may provide a route to portions of the expectation formula, even though no matching joint law was identified.",
+      "No external independent originality adjudication has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the explicit bridge/edge joint PGF and sharp sign theorem; addresses component-size and partition probabilities, not bridge counts.",
+        "evidence": [
+          "Sections Percolation on arbitrary graphs and Conclusion, discussion of Q_i and component distributions, 2012-01-20."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1201.4369",
+        "material_read": "Full arXiv HTML text, abstract, component recurrence, finite arbitrary graph section, conclusion and appendix.",
+        "method": "Read full browser-rendered arXiv primary text; searched for bridge.",
+        "title": "Exact solution of bond percolation on small arbitrary graphs",
+        "trigger": "Earliest directly relevant finite-graph bond-percolation primary source (2012-01-20)."
+      },
+      {
+        "assessment": "NOT_COVERING the joint count law: one-edge bridge probabilities b_ij and approximate cavity methods are distinct from mixed bridge-count covariance, and no cactus sign classification is stated.",
+        "evidence": [
+          "Section III.2 equations (14)-(20), 2021-01-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.09977",
+        "material_read": "Full browser-rendered arXiv article text, introduction, Section III.2 Bredges (equations 14-20), conclusions and targeted covariance/cactus searches.",
+        "method": "Read primary arXiv HTML text and inspected bridge section and paper-wide searches for covariance and cactus.",
+        "title": "The Fate of Articulation Points and Bredges in Percolation",
+        "trigger": "Direct bridge-probability percolation source (2021-01-25)."
+      },
+      {
+        "assessment": "NOT_COVERING: analyzes a distinct agglomerative cluster-growth process on an infinite triangular cactus.",
+        "evidence": [
+          "Introduction describes AP selecting a cluster, not an independent edge; Section III AP_3 triangular cactus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1937",
+        "material_read": "Primary arXiv HTML text, introduction, percolation-model definition, cactus section and concluding discussion.",
+        "method": "Read main article browser text and identified the rule selecting whole clusters rather than independent edges.",
+        "title": "Agglomerative percolation on the Bethe lattice and the triangular cactus",
+        "trigger": "Cactus-specific percolation literature (2012-09-10)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "165dfc9c-b694-418a-b409-227867533c2a",
+  "value": {
+    "rationale": "The bivariate PGF supplies the complete joint finite-sample law of retained links and failure-critical bridges for every simple cactus geometry, independent of graph size or assembly topology. It yields a sharp, necessary-and-sufficient one-threshold change from positive to negative covariance and a discrete concavity theorem for fixed-budget bond retention. These are natural reliability and redundancy measures, not an arbitrary parameter slice or tiny numerical gain. The simple block proof is stated without overstating breadth.",
+    "status": "PASS"
+  }
+}
