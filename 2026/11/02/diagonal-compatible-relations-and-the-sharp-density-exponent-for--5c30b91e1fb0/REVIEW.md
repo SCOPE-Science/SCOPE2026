@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four level-pair strata of a compatible relation are finite subsemigroups of \(G\times G\). Every nonempty stratum is therefore a subgroup, and the diagonal relation forces it to contain the diagonal group; the subgroup/normal-subgroup correspondence gives a unique normal subgroup. Compatibility forces precisely \(N\le M\) and, when nonempty, \(N\le X,Y\le M\). The converse checks all level types. Symmetry and transitivity identify precisely the two congruence families. Gaussian-binomial interval counts and matching uniform exponent bounds yield the asserted \(-1/6\) limit. The standalone checker exhaustively enumerates the complete relation sets in four small cases and checks the predicted nonabelian case by construction. Risk: finite computational checks alone are not infinite proofs; the symbolic arguments supply universal coverage.
+## correctness
 
-## Originality — PASS, qualified
-Barber–Ruškuc (arXiv:2602.17286, Section 4) introduce a kernel-and-trace **injection** for finite Clifford semigroups, state that this family need not exhaust diagonal relations, and provide only the general inequality \(\chi(S)\le\chi(E(S))\). Their Rees-matrix completeness theorem does not apply to the present direct product, and their earlier qualitative DSC paper does not count its relations. The new four-interval parameterization supplies previously absent independent cross-level choices and an exact two-level formula, including a rank-dependent exponent. Comparisons with prior subgroup-chain congruence descriptions and with absorbing-zero extensions do not imply this full diagonal classification. Research-index and bibliographic searches did not reveal a dominating statement. Risk: older specialized Clifford-semigroup relation theory not fully accessible could contain a reformulation, and negative search results do not certify priority.
+PASS
 
-## Value — PASS
-The 2026 Clifford discussion explicitly raises a gap between constructed and actual diagonal relations; this classification resolves that gap for a natural family with two nontrivial group fibres, not for an arbitrary numerical slice. It determines the whole inclusion order, an exact normal-lattice count, and a sharp quadratic-exponential density rate as group rank grows at fixed two-level semilattice. The discrepancy between the general construction (twelve) and the actual count (seventeen) already occurs for \(E_2\times C_p\); the structural formula extends to all finite groups. Scope remains limited to identity connecting maps and two levels.
+For finite G, each nonempty level-pair stratum of a reflexive product-compatible relation on E2 x G is a subgroup of G x G; containing the diagonal makes it H_N for a unique normal N. Compatibility gives normal N=K11<=M=K00 and independent optional normal cross strata X,Y between N and M. The sixteen stratum products are compatible under these inclusions. Congruences have both X,Y empty or N=M=X=Y. Hence D=Σ_{N<=M}(1+I(N,M))² and C=|N(G)|+#normal subgroup interval pairs. For elementary abelian rank d, Gaussian binomial intervals give log_p D=d²/2+O(log d) and log_p C=d²/3+O(log d), so log_p χ/d² -> -1/6 for fixed p. Independently enumerated all compatible reflexive relations for G=C2 (17) and compared with the formula; original checker additionally exhausts trivial,C3,C2xC2 but those runs were not independently reproduced. There is no general arbitrary-group assertion based solely on small enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge PASS for all compatible reflexive relations of two-level direct-product Clifford monoids and exact fixed-prime rank-decay law. Barber–Ruškuc explicitly construct only an injection of a family of diagonal subsemigroups for arbitrary Clifford semigroups and state it need not be exhaustive; their bound χ(S)<=χ(E(S)) is much weaker. Classical congruence pairs cover the congruence portion but not all compatible non-equivalence relations or the full numerator/denominator count.
+
+## value
+
+PASS
+
+The DSC coefficient is the natural probability of a random compatible reflexive relation being a congruence. An exact normal-lattice classification and a sharp p^(-d²/6+o(d²)) decay for a canonical two-level Clifford family resolve meaningful enumerative and asymptotic questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
