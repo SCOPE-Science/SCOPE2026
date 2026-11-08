@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact nonnegative moment transfer with det M=lambda A B <=0; det(I-M)=hG. Analytically G(-t)>0; two discriminant identities derive exact three-positive-root phase and q threshold. qstar and lambda-star give exact triple-root cusp. Symbolic verifier and rational certificates agree. No finite enumeration replaces the global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2102.00185 establishes general Markov-product moment sufficiency rather than a sharp all-step-size classification.",
+        "arxiv:2306.07850 assumes independent sampled Hessians; it cannot imply the anti-persistent product geometry.",
+        "arxiv:2302.05516 gives a broad regenerative framework and comparisons of tail indices, but its published optimization objective and claims do not furnish the sharp real-root heterogeneity cusp."
+      ],
+      "reasoning": "A general matrix-product transfer can encode particular parameters without already proving the exact optimization-domain classification. The result is a nontrivial derived phase theorem. Remaining risk: a specialist may recognize the cusp as a previously worked consequence of the older framework.",
+      "searches": [
+        "arxiv:2302.05516 section 3 proposition 4 and Appendix B.4.3 formula",
+        "arxiv:2102.00185 Markov random matrix product exponential moment stability",
+        "arxiv:2306.07850 exact mean square SGD iid Hessians"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.00953v3",
+      "https://arxiv.org/html/2302.05516v2",
+      "https://arxiv.org/abs/2306.07850",
+      "https://arxiv.org/abs/2102.00185",
+      "https://arxiv.org/abs/2203.11992"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gürbüzbalaban et al. Eq. 61 and Corollary 4 characterize moment quantities in a fixed Markovian-stepsize setting; they do not state the learning-rate classification or global q threshold.",
+        "Banman et al. arxiv:2203.11992 describes resonance with momentum and periodic covariate shifts, not this memory-one two-state noise and sharp mean-square heterogeneity boundary.",
+        "Huo et al. main results address sufficiently small steps and limiting distribution bias."
+      ],
+      "reasoning": "Prior formulas may imply the present result after substantial algebra, which is expressly acknowledged. The claim does not assert novelty of Markovian stability operators or temporal correlation; it asserts an explicit global necessary-and-sufficient phase boundary for this natural optimizer family. No inspected theorem supplies that boundary as a direct corollary.",
+      "searches": [
+        "arxiv:2302.05516 Corollary 4 second-moment threshold and anti-persistence",
+        "arxiv:2203.11992 Resonance in Weight Space periodic shift SGD momentum",
+        "arxiv:2210.00953 Markovian linear stochastic approximation exact stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gürbüzbalaban et al. arxiv:2302.05516, full HTML Appendix B.4.3, Lemma 6 gives two-state Markovian stepsize moment-regeneration formula; no full parameter-domain root topology or heterogeneity cusp is stated.",
+        "Huo, Chen, Xie arxiv:2210.00953, full HTML Sections 3-4 address Markovian linear stochastic approximation and small-step expansion."
+      ],
+      "reasoning": "In one dimension, changing sample curvature at fixed nominal step is algebraically equivalent to Markov-varying effective step sizes; therefore the earlier two-state formulas cannot be dismissed as unrelated. They make the transfer mechanism known, but obtaining a necessary/sufficient second stable window and the sharp q threshold involves new explicit elimination and global real-root classification, rather than a quoted result.",
+      "searches": [
+        "two-state Markovian stepsizes quadratic SGD second moment growth arxiv:2302.05516",
+        "Markovian switching SGD learning-rate stability islands cubic discriminant arxiv:2210.00953",
+        "arxiv:2302.05516 Appendix B.4.3 Lemma 6 Eq. 61"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical claim searches yielded unrelated IID/variance-reduced SGD stability results, not this paired-Markov curvature threshold.",
+        "arxiv:2302.05516 Appendix B.4.3 provides the nearest exact two-state transfer analysis, not a stability-set table."
+      ],
+      "reasoning": "No exact published table or equation for these three positive learning-rate roots and sharp q cusp was identified. This negative search outcome does not demonstrate uniqueness.",
+      "searches": [
+        "two-state Markov switching SGD exact cubic discriminant root q=(5+2sqrt(13))/27",
+        "nonmonotone mean-square stable step sizes anti-correlated SGD quadratic",
+        "SGD anti correlated mini batches stability learning rate islands reentrant"
+      ]
+    },
+    "rationale": "Distinct from existing Markovian moment-transfer methods: a complete classification of disconnected mean-square stable learning-rate windows for two strongly convex losses, including the sharp universal curvature-contrast threshold (5+2sqrt(13))/27 and a rational strictly anti-persistent witness. This requires two discriminant factorizations and global sign/root analysis. The 2023 two-state Markovian randomized-stepsize results provide a closely related transfer formula, so originality is qualified, not claimed for the matrix itself.",
+    "residual_risks": [
+      "The general two-state random-stepsize moment formula of arxiv:2302.05516 may permit an unrecognized prior derivation of the same phase boundary; published text did not state it.",
+      "Specialist earlier Markov-jump switched-system literature could encode a structurally equivalent cusp.",
+      "Only abstract-level material was retrieved for the 2022 resonance-with-momentum paper; whole-paper noncoverage is not certified.",
+      "No independent human validation of novelty or mathematical proof has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING sharp global anti-persistent mean-square reentrance; covers small-step Markovian convergence/bias",
+        "evidence": "Abstract and Sections 3–4, arxiv:2210.00953; first public posting 2022-10-03",
+        "identifier_or_url": "https://arxiv.org/html/2210.00953v3",
+        "material_read": "Abstract; Sections 3-4 including convergence and bias; relevant appendices and model statements",
+        "method": "Open-access HTML full text, section-level mathematical comparison",
+        "title": "Bias and Extrapolation in Markovian Linear Stochastic Approximation with Constant Stepsizes",
+        "trigger": "Initial source: constant-stepsize Markovian stochastic approximation"
+      },
+      {
+        "assessment": "CLOSEST BROADER BACKGROUND: two-state transfer formula covers algebraic mechanism; published results concern tail-index comparisons and do not establish the sharp disconnected learning-rate phase or cusp",
+        "evidence": "arxiv:2302.05516v2, HTML lines 249–261 and 729–748",
+        "identifier_or_url": "https://arxiv.org/html/2302.05516v2",
+        "material_read": "Abstract; Sections 3–4 including Propositions 4–5; Appendix B.4.3 Lemma 6 equations (61)–(63), Corollary 4",
+        "method": "Open-access HTML full text with exact equation inspection",
+        "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+        "trigger": "Plausible equivalent scalar Markovian multiplicative coefficient model"
+      },
+      {
+        "assessment": "NOT_COVERING: time-independent IID sample Hessian assumption precludes Markov anticorrelation",
+        "evidence": "arxiv:2306.07850, assumed independence of sampled Hessians, main theorem",
+        "identifier_or_url": "https://arxiv.org/abs/2306.07850",
+        "material_read": "Abstract; mathematical model assumptions and main spectral theorem in open preprint text",
+        "method": "Open-access preprint HTML/text inspected",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Title directly suggests global exact SGD stability"
+      },
+      {
+        "assessment": "NOT_COVERING sharp all-step-size phase; provides sufficient moment stability conditions",
+        "evidence": "arxiv:2102.00185, principal exponential stability theorem",
+        "identifier_or_url": "https://arxiv.org/abs/2102.00185",
+        "material_read": "Abstract, assumptions, main stability/moment-bound results",
+        "method": "Open-access full preprint text inspected",
+        "title": "On the Stability of Random Matrix Product with Markovian Noise: Application to Linear Stochastic Approximation and TD Learning",
+        "trigger": "Broad Markov-matrix product moment theorem may dominate a finite-state case"
+      },
+      {
+        "assessment": "Potential qualitative resonance precedent, but momentum and periodic covariate-shift construction differ; limited full-text access remains a risk",
+        "evidence": "arxiv:2203.11992 abstract and ICLR 2022 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2203.11992",
+        "material_read": "Abstract and accessible published research summaries; full original paper not reviewed in entirety",
+        "method": "Published abstract and bibliographic/research summaries, limited material",
+        "title": "Resonance in Weight Space: Covariate Shift Can Drive Divergence of SGD with Momentum",
+        "trigger": "Possible prior nonmonotone stability/resonance with temporally correlated inputs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scalar homogeneous multiplicative quadratic SGD; stationary symmetric strictly anti-persistent two-state Markov samples only",
+    "Mean-square spectral stability, not almost-sure divergence or general nonlinear objective guarantee"
+  ],
+  "scope_run_id": "6bca143a-3be1-44d5-9ba6-307a3c5dfe55",
+  "value": {
+    "rationale": "Sharp structural description of nonmonotone learning-rate stability for a natural correlated-sampling strongly convex optimization problem, including a unique universal curvature-contrast onset and strict rational witnessing of reentrant convergence. Not a mere restatement of an operator formula or arbitrary parameter slice; informs interpretation of learning-rate tuning under temporally correlated data.",
+    "status": "PASS"
+  }
+}

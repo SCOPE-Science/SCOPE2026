@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** For each \(0<q<1\) and \(-1<\lambda<0\), the nonnegative two-state second-moment transfer has determinant \(\lambda AB\le0\) and its Perron eigenvalue crosses one exactly at the signs of the displayed cubic. The cubic's nonpositive roots are excluded by signs. Two symbolic discriminant factorizations and explicit real-root continuity certify the sharp cusp. Exact rational witness values prove separated stability regions; a reproducible checker verifies all algebraic identities. The analysis does not mistake finite computations for the global proof.
+
+**Originality — PASS, qualified.** The closest prior result is the two-state Markov randomized-stepsize moment expression in Gürbüzbalaban et al., Appendix B.4.3, Lemma 6 and equation (61). That earlier general framework can encode the scalar product but does not identify the disconnected stability-set geometry or the sharp universal curvature-contrast cusp. The resulting classification requires a separate cubic discriminant-of-discriminant analysis. Huo et al. establish small-step Markovian approximation behavior; Mulayoff and Michaeli assume IID sample Hessians. Public mathematical result searches and accessible prior finding summaries gave no direct claim. Specialist historical overlap remains a material risk, including potential deductions from the 2023 Markovian-step formula.
+
+**Value — PASS.** For a natural two-component strongly convex optimization problem, this identifies a new qualitative difficulty with learning-rate tuning: a smaller step may be less stable in mean square. The exact cusp, finite parameter classification and rational witness distinguish a structural regime from an isolated numerical example. The result is confined to scalar quadratic multiplicative noise and is not an extension to general nonlinear stochastic optimization.
+
+Self-review: passed. Independent audit: not yet performed.
