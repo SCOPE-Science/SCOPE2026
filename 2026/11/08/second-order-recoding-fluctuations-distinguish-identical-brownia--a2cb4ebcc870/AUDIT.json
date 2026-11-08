@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional sign mean is \\(m_n=(1-2p_n)^{\\binom{S_n}{d}}\\). Uniformly in the count of negative increments, it has an order-\\(n^{-1}\\) approximation by \\(\\exp[-2\\lambda(S_n/n)^d/d!]\\). Taylor expansion at one half gives \\(m_n-\\rho=aX_n/n+R_n\\), with \\(\\|R_n\\|_2=O(n^{-1})\\) and aggregate remainder negligible on the square-root scale. The history sum has harmonic weights whose sum equals \\(N\\) and whose squared sum equals twice \\(N\\) minus the harmonic number. Multivariate Lindeberg gives history covariance entries one, one and two. Independent conditional coefficient-row errors have limiting normalized variance \\(1-\\rho^2\\), and their Gaussian limit is independent of the increment history because conditional characteristic functions converge to a nonrandom limit. Orthogonality and the negligible remainder also prove the moments. The first-order quenched limit follows by Hoeffding, Fubini and a bounded martingale functional CLT. The bundled finite checker passes 824 assertions but is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamza--Tournier arXiv:2610.01658v1 Proposition 10, HTML lines 481–525, explicitly includes row independent coefficients, and is the closest material.",
+        "Hamza--Tournier arXiv:2610.01658v1 §3 Theorem 2 obtains first-order Brownian under full uniform ellipticity, while §5 Proposition 15 treats the different T.U. basis.",
+        "Collevecchio et al. arXiv:2010.16000 §3 Theorem 6 concerns first-order joint Brownian convergence."
+      ],
+      "reasoning": "The strongest inspected prior coverage is Hamza--Tournier Proposition 10 for arbitrary row-independent inclusion-induced coefficient groups, which already puts the first-order martingale covariance question under a broad scheme. Its conclusion is only the relationship between conditions for first-order Brownian convergence, not a Gaussian CLT for the empirical covariation, nor a degree-dependent second-order variance at fixed Brownian correlation. The 2020 criterion likewise cannot identify second-order variance without extra analysis.",
+      "searches": [
+        "Random random walks normal sparse coefficient vanishing Bernoulli probability polynomial threshold degree d interpolation Gaussian correlation",
+        "Hamza Tournier Are random random walks normal inclusion-induced independently Bernoulli coefficients sparse polynomial monomials critical scaling correlated Brownian FCLT quenched",
+        "Hamza and Tournier arXiv:2610.01658v1 Theorem 2, Proposition 15",
+        "Collevecchio et al. arXiv:2010.16000 Theorem 6"
+      ]
+    },
+    "checked_sources": [
+      "K. Hamza and L. Tournier, Are random random walks normal?, arXiv:2610.01658v1 (2026-10-01), https://arxiv.org/html/2610.01658v1",
+      "A. Collevecchio et al., Limit theorems and ergodicity for general bootstrap random walks, arXiv:2010.16000 (2020-10-30), https://arxiv.org/abs/2010.16000",
+      "Accessible prior finding 962714ec-bc50-4276-a0a6-593cf8a62647: time-invariant degree-grouped fair coefficients, different environment dependence and no polynomial activation parameters",
+      "published-finding corpus exact searches: Quenched correlated Brownian limit for sparse inclusion induced bootstrap random walks random Boolean degree d monomials Bernoulli c over n to d covariance exp minus c; Random random walks normal sparse coefficient vanishing Bernoulli probability polynomial threshold degree d interpolation Gaussian correlation; general bootstrap random walk sparse inclusion induced coefficients independent across time row degree fixed correlated two dimensional Brownian; Hamza Tournier Are random random walks normal inclusion-induced independently Bernoulli coefficients sparse polynomial monomials critical scaling correlated Brownian FCLT quenched",
+      "published-finding corpus closest non-covering ids: 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63; 2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9",
+      "Specific closest source: arXiv:2610.01658v1 §4.2 Proposition 10, row-independent I.I. coefficients, a first-order implication but not second-order variance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hamza--Tournier Proposition 10 (2026), the closest logical coverage: first-order criterion A=>B under row-independent coefficients",
+        "Collevecchio et al. Theorem 6 (2020), Brownian convergence criteria rather than second-order bracket fluctuations",
+        "Earlier accessible finding 962714ec-bc50-4276-a0a6-593cf8a62647 uses shared cardinality coefficients instead of independent, degree-restricted rows with polynomially small inclusion probabilities."
+      ],
+      "reasoning": "The first-order correlation rho can be inferred using the known martingale criterion and a conditional sign-mean calculation, so it is explicitly not the original final claim. The second-order CLT requires an expansion of the conditional sign expectation, the nontrivial harmonic-history variance 2 and asymptotic coefficient-noise independence; none are implied by convergence of the normalized two-walk process. The own prior fair time-invariant environment cannot imply a degree-dependent critical thinning variance.",
+      "searches": [
+        "Hamza Tournier Are random random walks normal inclusion-induced independently Bernoulli coefficients sparse polynomial monomials critical scaling correlated Brownian FCLT quenched",
+        "arXiv:2610.01658v1 §§3–5",
+        "arXiv:2010.16000 §§2–3",
+        "accessible ledger claim 962714ec-bc50-4276-a0a6-593cf8a62647"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hamza--Tournier arXiv:2610.01658v1 §4.2 Proposition 10 covers row-independent coefficients at the level of first-order covariance criteria, not sqrt(N) fluctuation of the bracket.",
+        "Collevecchio et al. arXiv:2010.16000 §3 Theorem 6 is a necessary/sufficient criterion for Brownian convergence but contains no second-order bracket CLT.",
+        "Own prior item 962714ec-bc50-4276-a0a6-593cf8a62647 treats a time-invariant cardinality-grouped fair environment and a distinct centered covariance object."
+      ],
+      "reasoning": "The candidate is the square-root-scale fluctuation of the empirical cross-sign \\(H_N\\), equivalently the predictable covariation of the two walks, not their first-order functional invariance principle. The second-order variance \\(1-\\rho^2+2d^2\\rho^2(\\log\\rho)^2\\) requires a separate harmonic-history computation and conditional coefficient-noise limit.",
+      "searches": [
+        "Quenched correlated Brownian limit for sparse inclusion induced bootstrap random walks random Boolean degree d monomials Bernoulli c over n to d covariance exp minus c",
+        "general bootstrap random walk sparse inclusion induced coefficients independent across time row degree fixed correlated two dimensional Brownian",
+        "arXiv:2610.01658v1 §2 inclusion-induced parity representation",
+        "arXiv:2010.16000 §3 Gaussian criterion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matching returned nearby topics including 2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9 (Boolean Fourier projection, not stochastic recoding)",
+        "published-finding corpus id 2026/9/20/SCOPE-quantitative-path-stability-graph-indexed-ranges--fc2d9220df63 studies graph-indexed walk ranges, not bootstrap recodings",
+        "Accessible prior finding 962714ec-bc50-4276-a0a6-593cf8a62647: time-invariant degree-grouped fair coefficients, different environment dependence and no polynomial activation parameters"
+      ],
+      "reasoning": "Searches of the indexed published claims and accessible own ledger exposed related random-walk and Boolean-statistic findings, but no exact table for the second-order variance/covariance of the row-sparse recoding bracket. This is evidence of no detected duplicate, not a proof of global priority.",
+      "searches": [
+        "Quenched correlated Brownian limit for sparse inclusion induced bootstrap random walks random Boolean degree d monomials Bernoulli c over n to d covariance exp minus c",
+        "Random random walks normal sparse coefficient vanishing Bernoulli probability polynomial threshold degree d interpolation Gaussian correlation",
+        "general bootstrap random walk sparse inclusion induced coefficients independent across time row degree fixed correlated two dimensional Brownian",
+        "Hamza Tournier Are random random walks normal inclusion-induced independently Bernoulli coefficients sparse polynomial monomials critical scaling correlated Brownian FCLT quenched"
+      ]
+    },
+    "rationale": "The investigated 2026 and 2020 primary sources characterize first-order joint Brownian convergence and in particular 2026 Proposition 10 includes an arbitrary row-independent coefficient grouping, so the first-order sparse correlation alone would be covered conceptually. The final claim instead computes a second-order annealed CLT and exact asymptotic variance/covariance of the empirical bracket, with a degree-identifiability phenomenon at equal Brownian correlation. The inspected source statements do not give this second-order law and targeted published-finding corpus searches and accessible prior claims found no direct coverage. A broader unlocated fluctuation theorem remains a priority risk.",
+    "residual_risks": [
+      "A general martingale fluctuation/triangular-array theorem in prior literature might yield the same second-order Gaussian variance after specializing, although no directly covering statement was found.",
+      "Hamza--Tournier Proposition 10 already covers much of the first-order mechanism; only the computed second-order law and fixed-correlation degree distinction are claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides closely applicable first-order row-independent generality via Proposition 10; no demonstrated coverage of the second-order bracket-fluctuation distribution, its variance or the fixed-correlation degree identifiability.",
+        "evidence": "HTML §4.2 Proposition 10 lines 481–525; §3 Theorem 2 lines 233–266; §5 T.U. Proposition 15 lines 667–680.",
+        "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+        "material_read": "Read source arXiv HTML introductory model and table, full relevant formal-setting and Theorem 2 statement, and detailed Proposition 10 and its proof in §4.2, including the row-independence allowance, plus T.U. Propositions 13–15. Selected HTML text examined from lines 32–266, 348–400, 455–547 and 600–680.",
+        "method": "Read the primary accessible arXiv HTML and compare theorem assumptions and conclusions directly",
+        "title": "Are random random walks normal?",
+        "trigger": "Exact motivating basis/model, possible stronger result under full inclusion-induced random coefficients"
+      },
+      {
+        "assessment": "Background first-order Gaussian convergence criteria; no second-order empirical bracket fluctuation theorem was located in read relevant sections.",
+        "evidence": "Theorem 6 at lines 87–107 and representation Theorem 4 at lines 79–85",
+        "identifier_or_url": "https://arxiv.org/abs/2010.16000",
+        "material_read": "Primary arXiv HTML-rendered content, section 2 recoding representation and Section 3.1 Theorem 6 Gaussian convergence criterion and examples (particularly lines 61–137).",
+        "method": "Read and compared the available primary text in arXiv expanded article page",
+        "title": "Limit theorems and ergodicity for general bootstrap random walks",
+        "trigger": "Foundational theorem could dominate the proposed covariance limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2cb4ebc-c870-4fcc-bb2c-f06bcb8fa077",
+  "value": {
+    "rationale": "Degree-restricted activation mechanisms can be calibrated to the same first-order Brownian correlation \\(\\rho\\). Nevertheless the empirical cross-covariation has asymptotic variance \\(1-\\rho^2+2d^2\\rho^2(\\log\\rho)^2\\) and covariance with the original walk \\(-d\\rho\\log\\rho\\). This separates invisible first-order mechanisms using a canonical second-order observable, quantitatively decomposing fresh-coefficient randomness and feedback from shared increment history; it is not merely a reparameterization of the first-order invariance principle.",
+    "status": "PASS"
+  }
+}
