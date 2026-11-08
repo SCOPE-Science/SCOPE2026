@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:52:37.815686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Partition token vertices into A-A, B-B, A-B classes. For arbitrary chosen D, let A₀,B₀ be vertices not incident with selected cross pairs and C_A,C_B vertices covered by same-side selected pairs. All A-A or B-B token vertices are dominated exactly when every pair from the corresponding zero-degree set lies in D_A or D_B. All cross tokens are dominated exactly when every pair in (A\\C_A)×(B\\C_B) lies in D_X. With k=|B₀|, x≥n−k and z≥C(k,2), hence x+z≥n−1; a set of size <n fails in equality cases k=1,2. With exactly n selected tokens, y=|D_A|≤1. When y=1, k=2 and the entire form is Family I. When y=0, the cross-coverage inequalities show all B vertices belong to some selected B-pair, force k=2 and n≤4, exclude n=3, and leave n=4 with two disjoint B-pairs and an injection of two B-indices into A. Count families and group orbits. Independently exhaustively enumerated all n-vertex candidate dominating subsets for n=3,4,5 and reproduced 9,54,30 with all examples belonging to these families. This is not an infinite computational proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general necessary-and-sufficient domination criterion can in principle derive all equality cases, but its stated results establish cardinality not complete minimizer enumeration.",
+          "Different non-token biclique domination formulas do not count subsets of F₂(K₃,n)."
+        ],
+        "reasoning": "No inspected broader stated theorem implies the n=4 exceptional orbit and all-n counts without the new equality-case analysis.",
+        "searches": [
+          "Acosta Troncoso et al 2026 2-token biclique complete formula",
+          "Chinman et al 2026 k-token biclique",
+          "Resultary minimum dominating sets complete multipartite variants"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_minimum_token_domination.cpp, Git tree a604b9ea342fe6eadcc83bb748a3162a289688fe",
+        "Chinman et al arXiv:2610.28936v1 (2026-10-20)",
+        "Acosta Troncoso et al arXiv:2610.31557v1 (2026-10-22)",
+        "Independent exhaustive domination subset enumeration n=3..5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both previous scalar bounds n are compatible with many inequivalent minimizer families; Family II satisfies the stronger domination criterion but is not forced by the scalar result.",
+          "The new proof solves all equality cases of the prior lower-bound inequality."
+        ],
+        "reasoning": "The exact classification is not mechanically implied by the previous cardinality theorem. Existing criterion supplies a starting lemma, not the final enumerator.",
+        "searches": [
+          "Chinman et al 2026 Theorem minimum domination",
+          "Acosta Troncoso et al 2026 Proposition 4.1 and Remark 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-token graph is also a symmetric-square/exclusion graph; one paper proves the same γ value and one gives an equivalent domination criterion.",
+          "Neither full text states Family II for n=4 as the additional 36 minimum dominating sets."
+        ],
+        "reasoning": "Compared token-graph and symmetric-square terminology and all equality cases of the general domination criterion, rather than assuming novelty from a title mismatch.",
+        "searches": [
+          "Resultary: dominating set enumeration all minimum sets two token graph K3n four column exceptional",
+          "Chinman et al arXiv:2610.28936v1",
+          "Acosta Troncoso et al arXiv:2610.31557v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Family I is displayed and n=4 γ=4 is known; the 36 additional n=4 minimizers are not listed in either primary paper.",
+          "Independent exact enumeration found 54 total at n=4 versus 18 Family I."
+        ],
+        "reasoning": "No published exhaustive n=4 minimizer table found in the accessible closest primary statements.",
+        "searches": [
+          "arXiv:2610.31557 §4 Proposition 4.1, §5 Remark 5.5",
+          "arXiv:2610.28936 corresponding K3n theorem"
+        ]
+      },
+      "rationale": "Two independent October 2026 primary papers already prove the scalar γ=n and give a standard Family-I construction, and one proves the general domination criterion. Their accessible full texts do not give the complete all-n equality-family classification or exceptional 36-configuration orbit at n=4. The scalar cardinality is credited, not claimed new.",
+      "residual_risks": [
+        "An independent equivalent classification in recent unindexed token/symmetric-square literature remains possible.",
+        "Only minimum ordinary dominating sets for F₂(K₃,n), n≥3, are classified; not a full domination polynomial or general side size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves scalar γ(F₂(K₃,n))=n and examples, not all minima or 36 Family-II exceptions",
+          "evidence": [
+            "Main formula for K3n and displayed sharp construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.28936v1",
+          "material_read": "Accessible entire primary HTML, relevant K3n theorem and construction sections",
+          "method": "Read full relevant mathematical text and theorem statements",
+          "title": "The domination number of the k-token graph of the complete bipartite graph K_m,n",
+          "trigger": "Same graph parameter and possible full classification"
+        },
+        {
+          "assessment": "Covers domination criterion and Family-I witness, does not state all minimizers or four-column Family II",
+          "evidence": [
+            "Proposition 4.1 gives γ; Remark 5.5 presents the canonical construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31557v1",
+          "material_read": "Accessible entire primary HTML, Section 4 Proposition 4.1 and Section 5 Remark 5.5",
+          "method": "Read proof and theorem sections and compared equality patterns",
+          "title": "The domination number of the 2-token graph of the complete bipartite graph",
+          "trigger": "Exact same token graph plus full domination criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete minimum-dominating-set rigidity for the natural two-token complete biclique and its sharp four-column exception is an exact combinatorial classification with genuine nontrivial enumerative content. The 36 exceptional structures are not determined by the prior scalar domination number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify_minimum_token_domination.cpp, Git tree a604b9ea342fe6eadcc83bb748a3162a289688fe",
+    "Chinman et al arXiv:2610.28936v1 (2026-10-20)",
+    "Acosta Troncoso et al arXiv:2610.31557v1 (2026-10-22)",
+    "Independent exhaustive domination subset enumeration n=3..5"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An independent equivalent classification in recent unindexed token/symmetric-square literature remains possible.",
+    "Only minimum ordinary dominating sets for F₂(K₃,n), n≥3, are classified; not a full domination polynomial or general side size."
+  ],
+  "schema_version": 1
+}
