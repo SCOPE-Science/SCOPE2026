@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:15:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For cyclic indexed binary rings, labeled two-bit de Bruijn transitions of rule126 (output 0 exactly for uniform triples) give d_n(y)=tr(prod B_y). The labeled-one matrix splits into complement-even E=[[0,1],[1,1]] and complement-odd O=[[0,1],[-1,-1]], with Fibonacci and period-three traces. Each cyclic zero gap contributes simultaneous eigenvalues F_(a-1) and tau_a, proving the exact product formula for all outputs other than all-one (including adjacent zeros via F_-1=1). The all-one trace is Lucas L_n plus 2 if 3|n, else -1. Multi-zero output fibers are bounded by F_(n-3)+1, strictly below F_(n-2)+tau_(n-1) for n>=7; all-one exceeds that runner-up. Independently enumerated all indexed initial states and all outputs for n=1,...,12 and verified exact products, top, and one-zero equality for n>=7. All-length inequalities prove the unbounded statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen 1987/1989 provide general transfer recurrences and Rule126 block special cases; Fukś studies multistep infinite lattice preimage sequences.",
+          "The new theorem classifies second-largest one-step **periodic-ring** fiber uniformly for all n>=7."
+        ],
+        "reasoning": "Generality of a counting method does not automatically provide a tight all-n ordering of cyclic output fibers. The stronger all-length inequality and exact equality class are not stated in the inspected primary sections.",
+        "searches": [
+          "Rule 126 cellular automaton cyclic periodic ring preimage count second largest fiber Fibonacci",
+          "Jen 1987 scaling preimages cellular automata",
+          "Jen 1989 enumeration preimages cellular automata",
+          "Fuks sequences preimages elementary cellular automata"
+        ]
+      },
+      "checked_sources": [
+        "Jen 1989 Complex Systems 3 421-456 original PDF",
+        "Jen 1987 Complex Systems 1 1045-1062",
+        "arxiv:1212.0124",
+        "arxiv:1305.6533",
+        "Resultary semantic Rule126 cyclic preimage search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jen Eq.(4.11) counts one-step linear Rule126 blocks and Section 5.4 mentions linear all-one maximization.",
+          "The second cyclic eigenmode tau_(n-1) from O^n and the one-zero universal equality statement require periodic closure plus a strict multi-zero comparison."
+        ],
+        "reasoning": "The linear-block maximum alone cannot imply this periodic runner-up or number of equality outputs; generic de Bruijn construction permits computing counts but does not assert the theorem.",
+        "searches": [
+          "Rule 126 cellular automaton cyclic periodic ring preimage count second largest fiber Fibonacci",
+          "Jen Enumeration of Preimages in Cellular Automata equation 4.11 section 5.4",
+          "Martinez Rule 126 de Bruijn diagram 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic one-step preimage count is an indegree of the finite-state global rule and a closed-walk trace in the labeled de Bruijn automaton.",
+          "Jen 1989 Eq. (4.11) concerns linear-block predecessor counts, with boundary pairs not closed into a ring."
+        ],
+        "reasoning": "Compared finite-ring global indegree with linear-block counts and trace machinery; cyclic closure produces the period-three tau correction and imposes different extremal rankings.",
+        "searches": [
+          "Rule 126 cellular automaton cyclic periodic ring preimage count second largest fiber Fibonacci",
+          "Erica Jen 1989 Rule 126 Fibonacci preimages linear block",
+          "Rule 126 finite periodic cyclic de Bruijn trace maximal in-degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct table of n=7..12 maxima and runner-ups (28/46/78/122/198/324 and 6/8/12/22/34/54) matches the analytic formula.",
+          "Prior finite block tables differ from cyclic indexed-ring counts."
+        ],
+        "reasoning": "A finite-output table may contain initial values but cannot prove the exact runner-up for every n>=7. The proof handles all cyclic zero-gap partitions.",
+        "searches": [
+          "Rule 126 cellular automaton cyclic periodic ring preimage count second largest fiber Fibonacci",
+          "Rule 126 preimage n=7 n=8 n=9 fiber count table",
+          "Jen 1989 table Rule126 maximum"
+        ]
+      },
+      "rationale": "Erica Jen 1989 already gives Rule 126 Fibonacci preimages and maximization of all-one **finite linear blocks**, and the de Bruijn/transfer-matrix technique is established. However periodic indexed-ring closure adds a second period-three mode; the exact all-output gap factorization and unique one-zero runner-up for every n>=7 are not a direct corollary of the inspected linear-block ranking. Rule126 image-set/reachability literature does not itself rank the positive fibers.",
+      "residual_risks": [
+        "A specialized unindexed rule126 periodic-ring indegree table or theorem could contain an equivalent runner-up; none located.",
+        "One synchronous update only, periodic indexed rings n>=7 for extremality; not multiple iterations, rotation-equivalence or arbitrary CA rules."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS finite linear-block counts and all-one block maximization; distinct cyclic runner-up claim not stated in inspected relevant sections",
+          "evidence": "Explicit linear-block boundary treatment differs from periodic indexed de Bruijn trace with tau correction.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Relevant Sections 2, 4 Eq. (4.11), and Section 5.4, including the scanned original page 438 containing the Rule126 one-step linear-block formula",
+          "method": "Full PDF text search plus page-image screenshot of original pages",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Direct same-rule 1989 primary antecedent with Fibonacci formulas"
+        },
+        {
+          "assessment": "General method and scaling, not exact cyclic Rule126 runner-up equality class",
+          "evidence": "No ring-specific all-output runner-up classification identified.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+          "material_read": "Relevant abstract, general recurrence setup and compared statements",
+          "method": "Accessible primary PDF reading",
+          "title": "Scaling of Preimages in Cellular Automata",
+          "trigger": "General exact preimage scaling precedent"
+        },
+        {
+          "assessment": "Same rule, different multistep/memory question",
+          "evidence": "No theorem on one-step indexed cyclic fiber runner-up identified.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.0124",
+          "material_read": "Accessible title/abstract and reported de Bruijn/memory focus",
+          "method": "Primary abstract and problem-scope comparison",
+          "title": "How to Make Dull Cellular Automata Complex by Adding Memory: Rule 126 Case Study",
+          "trigger": "Exact same elementary rule 126"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two leading preimage multiplicities and equality classes quantify worst-case ambiguity of a canonical elementary cellular automaton on finite periodic systems. The exact factorization gives a reusable structural classification, while the runner-up gap is a natural extremal question independent of sampling or trivial rule renaming.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jen 1989 Complex Systems 3 421-456 original PDF",
+    "Jen 1987 Complex Systems 1 1045-1062",
+    "arxiv:1212.0124",
+    "arxiv:1305.6533",
+    "Resultary semantic Rule126 cyclic preimage search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized unindexed rule126 periodic-ring indegree table or theorem could contain an equivalent runner-up; none located.",
+    "One synchronous update only, periodic indexed rings n>=7 for extremality; not multiple iterations, rotation-equivalence or arbitrary CA rules."
+  ],
+  "schema_version": 1
+}
