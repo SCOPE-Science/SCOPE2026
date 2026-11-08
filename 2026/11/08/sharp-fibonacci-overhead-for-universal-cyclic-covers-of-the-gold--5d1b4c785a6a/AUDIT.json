@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact n>=2 graph construction and potential proof: every allowed edge lowers rightmost-one position by at most one, the compulsory-edge potential sum is -(F_n-1) by a reversal pair and Fibonacci sum, and duplicating exactly 0u0 with u nonzero cancels degree imbalances in a strongly connected graph. Two distinct standard-library programs passed a tour-and-potential check n=2..12 and brute force n=2..5; separate min-cost circulation n=2..10 agrees. Finite checks are supplemental, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. 2022 abstract and Sections 1–2 formulate and solve general Eulerian extensions algorithmically, including augmentation under forbidden arcs, but provide no specialized golden-mean Fibonacci formula.",
+        "Cazaux–Rivals 2016 is cited in Bernardini et al. 2022 references as a general shortest cyclic covering algorithm; full text unavailable."
+      ],
+      "reasoning": "A general algorithm for a class of optimization problems can compute instances but its statement does not give the explicit all-n closed form, exact duplicated-edge pattern, or dual optimality certificate. The inaccessible 2016 paper leaves nonzero residual priority risk; no stronger statement was established.",
+      "searches": [
+        "golden mean shift shortest universal covering cycle all admissible n-blocks duplication 0u0 length Fibonacci n+2 plus Fibonacci n minus one",
+        "Eulerian duplication augmentation golden-mean de Bruijn graph shortest universal cover every linearly admissible block optimal potential",
+        "Bernardini et al. Making de Bruijn Graphs Eulerian 2022 Sections 1–2",
+        "Cazaux Rivals A linear time algorithm for shortest cyclic cover of strings DOI 10.1016/j.jda.2016.05.001"
+      ]
+    },
+    "checked_sources": [
+      "Moreno–Matamala 2007 arXiv:0711.1695 HTML full §§1–4",
+      "Bernardini et al. 2022 DOI:10.4230/LIPIcs.CPM.2022.12 PDF first three pages and references",
+      "Cazaux–Rivals 2016 DOI:10.1016/j.jda.2016.05.001 citation and inaccessible full text",
+      "Mathematical research-record semantic searches for all five exact technical queries",
+      "Related published mathematical claims on constrained and fixed-weight universal cyclic covers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=3 the mandatory edge 101 is not a period-three golden-mean word but is a linear 11-free factor; it forces 6 rather than the 4-pattern periodic Euler cycle.",
+        "The present proof gives explicit length F_{n+2}+F_n-1, duplicate factors 0u0, and a sharp potential; the cited prior formulations do not directly imply that family-specific symbolic answer."
+      ],
+      "reasoning": "The asserted family-specific extremal formula is neither the known periodic de Bruijn-cycle existence result nor merely a restatement of a general graph augmentation procedure. An exact comparison with the unavailable full 2016 cyclic-cover article remains unresolved at the level of hidden examples.",
+      "searches": [
+        "shortest cyclic binary word avoiding 11 containing every length n binary word without 11 at least once exact length Fibonacci Lucas L(n+1)-1 de Bruijn supercycle",
+        "golden mean shift shortest universal covering cycle all admissible n-blocks duplication 0u0 length Fibonacci n+2 plus Fibonacci n minus one",
+        "minimum length circular word containing every binary length-n string avoiding 11 cyclic forbidden adjacent ones Fibonacci F(n+2)+F(n)-1 exact shortest constrained supercycle",
+        "Moreno–Matamala 2007 exact admissibility and minimality definitions",
+        "Bernardini et al. 2022 main theorems/intro"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala 2007 §2.1 defines admissible words by admissibility of their periodic repetitions, while this theorem requires all linear 11-free factors; n=3 gives 4 vs 5.",
+        "Moreno–Matamala 2007 §3 defines minimum as lexicographic Euler tour, not shortest covering length with factor repetitions."
+      ],
+      "reasoning": "Golden-mean periodic universal cycles are not equivalent to universal cyclic covers for all linear 11-avoiding blocks; the missing block 101 at n=3 is decisive. Lexicographic minimality does not imply length minimality under repeated edges.",
+      "searches": [
+        "shortest cyclic binary word avoiding 11 containing every length n binary word without 11 at least once exact length Fibonacci Lucas L(n+1)-1 de Bruijn supercycle",
+        "minimum length circular word containing every binary length-n string avoiding 11 cyclic forbidden adjacent ones Fibonacci F(n+2)+F(n)-1 exact shortest constrained supercycle",
+        "shortest universal cycle binary words avoid consecutive ones Fibonacci words superstring",
+        "arXiv:0711.1695 Sections 2.1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical-record queries returned unrelated Fibonacci absent-subsequence counts, periodic golden-mean cycles, and fixed-weight circular-cover records; no exact F_{n+2}+F_n-1 table matched.",
+        "A related weight-two circular cover addresses fixed Hamming weight and allows unconstrained output, while a separate square-free universal-cycle result requires a different alphabet and length-four local conditions."
+      ],
+      "reasoning": "The established records use a different mandatory edge family or a different output constraint; neither table subsumes the present golden-mean constrained all-length minimum. Failed search is not a proof of global uniqueness.",
+      "searches": [
+        "optimal postman superstring for Fibonacci words no consecutive ones Eulerian augmentation de Bruijn graph",
+        "golden mean shift all admissible length n blocks shortest covering sequence cyclic edge duplication",
+        "universal cycle all binary strings without adjacent ones minimum length repetitions",
+        "Related mathematical claims on golden-mean cycles, fixed-weight cyclic covers, forbidden 11, and Fibonacci overhead"
+      ]
+    },
+    "rationale": "Moreno–Matamala require periodic admissibility of individual factors and minimize lexicographic tour order, differing from all linear 11-free blocks and shortest repeated-edge coverage. Bernardini et al. supply general augmentation algorithms but not the exact Fibonacci answer and primal/dual pattern. Mathematical-record and comparisons with related mathematical claims revealed no implication covering the asserted formula. General cyclic-cover work Cazaux–Rivals 2016 had inaccessible full text; this remains a disclosed priority risk.",
+    "residual_risks": [
+      "Cazaux–Rivals 2016 complete article was not obtainable, so unindexed examples or an exact golden-mean specialization cannot be excluded.",
+      "No search can establish unique global historical priority; alternate shortest-supercycle terminology and undiscovered tables may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: periodic-admissible required words and lexicographic Euler-cycle minimization, not linearly admissible all-pattern shortest cyclic covering",
+        "evidence": [
+          "§2.1 explicitly defines language membership by w^infinity admissibility; §3 says minimal label (lexicographic order).",
+          "The periodic golden-mean factor 101 fails due to 11 across the period boundary, but it belongs to the present linear factor set."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0711.1695v1",
+        "material_read": "Full HTML article, abstract, Sections 1–4, theorem statements and definitions in Sections 2.1 and 3, references",
+        "method": "Read lawful arXiv HTML primary full text and compared definitions and n=3 factor sets",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Same forbidden factor 11 and golden-mean de Bruijn sequence; plausible direct coverage"
+      },
+      {
+        "assessment": "General algorithms and hardness for constrained edge augmentation; no stated Fibonacci formula, explicit duplicated-edge classification or lower-bound potential for the 11-free family",
+        "evidence": [
+          "Abstract describes Eulerian extension and optimal algorithms for fixed graphs; pages 2–3 define general augmentation problems and the allowed/forbidden arcs."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol223-cpm2022/LIPIcs.CPM.2022.12/LIPIcs.CPM.2022.12.pdf",
+        "material_read": "PDF abstract and pages 1–3, including formal Problems 1–2 and motivation; bibliographic references",
+        "method": "Read extracted primary PDF text and inspected its first page image",
+        "title": "Making de Bruijn Graphs Eulerian",
+        "trigger": "General optimal Eulerian extension algorithms potentially dominating restricted cyclic-cover minimization"
+      },
+      {
+        "assessment": "Undetermined whether specialized golden-mean examples appear; explicitly retained as historical-priority risk",
+        "evidence": [
+          "Bernardini et al. 2022 reference 3 lists Cazaux–Rivals 2016, J. Discrete Algorithms 37, 56–67."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jda.2016.05.001",
+        "material_read": "Bibliographic listing and title in Bernardini et al. 2022 references; publisher full text inaccessible",
+        "method": "Attempted DOI access; not treated as read full text",
+        "title": "A linear time algorithm for shortest cyclic cover of strings",
+        "trigger": "Title and citation in Bernardini et al. 2022 suggest a possible stronger shortest cyclic cover generalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d1b4c78-5a6a-4a6d-879a-54e3e24c97dc",
+  "value": {
+    "rationale": "The golden-mean language is a canonical finite-type constrained system, and the minimal universal cyclic cover must necessarily repeat patterns. The theorem gives a nontrivial exact all-blocklength overhead F_n-1 with a matching constructive multiplicity pattern and potential certificate, useful for optimal constrained sequence testing and combinatorics on words. It is not a mere small census, substitution, or parameter renaming.",
+    "status": "PASS"
+  }
+}
