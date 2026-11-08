@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:50:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The embedded affine recurrence Z=aZ+aB_E gives the infinite product, while stationary active/refractory weights produce the exact mixture (shape-independent for finite E[R]); normalization d=D/r and w=r E[R]/(1+r E[R]) checked. Frullani yields the symmetric Lévy density with K(t)=sum_{j>=0} exp[-t/(a^j sqrt d)]-exp[-t/sqrt(wd)]. K is pointwise nonnegative because its j=0 term dominates the subtracted term, with logarithmic near-zero growth and exponential tails; thus Lévy integrability holds. The classical Sato radial-profile monotonicity criterion implies SD iff K is decreasing. At w=a^(2m), the j=m term cancels; at a=1/100,w=a^(2m+1), at s=a^m/10, scaled derivative obstruction has negative term 10/e and positive sum bounded by 100/99+200e^-10<2; hence K prime>0, all m>=1. Exact cumulant formula and odd vanishing consistent. Independent finite check for m=1,2,3 verified the strict bound numerically; it is not the infinite proof. w=0 convention and tau=0 endpoint accounted for.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nonrefractory AR representation of partial reset stationary states is at w=0.",
+          "The positive-w mixture has a subtractive profile term and can lose self-decomposability."
+        ],
+        "reasoning": "An all-mixture theorem implying complete monotonicity would contradict the exhibited K prime witness. Known nonrefractory self-decomposability can imply the resonant limit but not the strict non-SD sequence.",
+        "searches": [
+          "Brownian partial resetting with refractory periods infinitely divisible self-decomposable Lévy density alternating interlaced occupancy",
+          "arXiv:2412.15626 partial resetting stable AR Lévy"
+        ]
+      },
+      "checked_sources": [
+        "Olsen and Löwen arXiv:2406.10039v1, inspected primary HTML §IV and Appendix B",
+        "Tal-Friedman–Roichman–Reuveni arXiv:2205.03363, abstract and cited nonrefractory scope",
+        "Grzywny et al. arXiv:2412.15626, abstract/scope only",
+        "Sato Lévy Processes and Infinitely Divisible Distributions (1999), standard Thm 15.10 as referenced by proof",
+        "Resultary semantic query and 2026 variance-gamma Gaussian-jump record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior stationary Fourier mixture formula is explicitly assumed in RESULT; the profile K(t)=sum exp[-t/(a^j sqrt d)]-exp[-t/sqrt(wd)] and its derivative analysis are additional."
+        ],
+        "reasoning": "The prior mixture Fourier formula logically determines the measure if analyzed with Frullani, but does not by itself establish K≥0, exact SD equivalence, or strictly positive K prime for interlaced occupancies; the current proof supplies these steps.",
+        "searches": [
+          "arXiv:2406.10039 §IV and Appendix B",
+          "Brownian partial resetting with refractory periods infinitely divisible self-decomposable Lévy density alternating interlaced occupancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen–Löwen stationary characteristic function (1+w d k²)/(1+d k²) times a Laplace-product; prior nonrefractory convolution.",
+          "Sato 1999 Thm 15.10 standard monotone Lévy profile criterion."
+        ],
+        "reasoning": "Known transform plus a classical criterion permits derivation but does not state the new sign reversal of K prime for infinitely many positive occupancies. A characteristic function or cumulant list is not an equivalent statement of all-w infinite divisibility plus interlaced SD/non-SD.",
+        "searches": [
+          "Brownian partial resetting with refractory periods infinitely divisible self-decomposable Lévy density alternating interlaced occupancy",
+          "arXiv:2406.10039 §IV",
+          "arXiv:2205.03363"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary variance-gamma/Gaussian jump perturbation self-decomposability concerns a different infinitely divisible family.",
+          "No located exact tabulation of positive refractory w SD status in this model."
+        ],
+        "reasoning": "The 2026 Resultary spectral threshold is not a table of Brownian partial-reset stationary laws; a negative search alone gives no priority certification.",
+        "searches": [
+          "Brownian partial resetting with refractory periods infinitely divisible self-decomposable Lévy density alternating interlaced occupancy",
+          "Resultary 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e"
+        ]
+      },
+      "rationale": "Qualified PASS for the explicit positive Lévy kernel and a self-decomposability/non-self-decomposability phase alternation under arbitrarily small positive refractory occupation. The equilibrium characteristic function, infinite product, and nonrefractory Laplace convolution are old, not claimed as new. Best-of-knowledge comparison of the actual model and implications finds no established earlier occupancy-interlacing result; lack of an exhaustive priority search remains a risk.",
+      "residual_risks": [
+        "A more general known theorem on self-decomposability of Laplace-factor mixtures could subsume this special criterion.",
+        "Primary full text of some nonrefractory stability articles not independently reread; novelty remains best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of equilibrium transform and moments, not identified coverage of interlaced positive-occupancy self-decomposability",
+          "evidence": "Stationary active/refractory mixture and infinite product are the source starting point (Section IV, equations around 46–49).",
+          "identifier_or_url": "https://arxiv.org/html/2406.10039v1",
+          "material_read": "Full open-access HTML, including Section IV stationary transform and Appendix B formulas",
+          "method": "Read primary arXiv HTML directly",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "Exact same active/refractory Brownian partial resetting model"
+        },
+        {
+          "assessment": "Prior nonrefractory Laplace convolution; whole-document negative claims withheld",
+          "evidence": "w=0 distribution is an infinite convolution, unlike the subtracted positive-w component.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Abstract and reported nonrefractory convolution scope; not independently checked in complete full text",
+          "method": "Abstract-level source comparison",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Same partial reset but no refractory delay"
+        },
+        {
+          "assessment": "Potential broader AR tools at zero refractory occupation; residual full-text risk",
+          "evidence": "No confirmed theorem giving the claimed positive-w alternate self-decomposability pattern.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.15626",
+          "material_read": "Accessible bibliographic abstract and comparison in assigned RESULT; no complete text read",
+          "method": "Abstract/scope comparison",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Related Lévy/AR representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A stationary stochastic resetting model has a natural divisibility hierarchy relevant to Lévy-driven representations and AR laws. The property of all-occupancy infinite divisibility alongside alternating self-decomposability in arbitrarily small positive occupancy is a sharp, non-obvious qualitative boundary, not just routine cumulant computation. It gives explicit parameter witnesses rather than an unsupported full phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "One-dimensional driftless Brownian active motion, exponential active epochs, independent finite-mean refractory holding. Interlaced geometric occupancy sequences are witnesses, not a complete SD phase diagram; positive-w novelty not historically certified.",
+  "schema_version": 1
+}

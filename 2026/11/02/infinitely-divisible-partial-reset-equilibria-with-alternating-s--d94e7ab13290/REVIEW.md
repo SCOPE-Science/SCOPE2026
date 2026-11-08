@@ -1,11 +1,21 @@
-# Review of the equilibrium Lévy-measure and self-decomposability theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The equilibrium Fourier law is reconstructed by the embedded renewal chain and stationary phase occupancy, rather than assumed from a numerical approximation. A positive Lévy measure follows from Frullani's formula and a pointwise domination argument. The criterion for self-decomposability is the classical monotone radial Lévy-profile characterization. Exact resonant cancellation proves the positive cases, and a uniform strict analytic derivative bound proves the negative cases. The verifier supplies independent moment and quadrature checks but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The stationary characteristic function, its infinite convolution without refractory periods, and the all-order moment framework are already in the primary literature, including Olsen–Löwen (2024), Tal-Friedman–Roichman–Reuveni (2022) and Di Bello et al. (2023). These are not asserted to be new. The assessed finding is the explicit positive Lévy density for the refractory mixture combined with the **interlaced** self-decomposable/non-self-decomposable parameter sequences arbitrarily close to zero occupancy. Comparisons included the subsequent Grzywny et al. (2024) nonrefractory treatment and a general result on Gaussian compound-Poisson perturbations of variance-gamma laws; neither provides the asserted interlacing. A more general result from distributional self-decomposability theory could subsume the calculation, so exhaustive priority remains uncertain.
+PASS
 
-**Mathematical value — PASS.** The theorem separates two natural structural notions of stationary laws (infinite divisibility and self-decomposability), demonstrates that weak positive refractory occupation can have discontinuous effects on the stronger property, and provides an exact criterion applicable beyond the explicit witnesses. The effect is a mathematically motivated feature of geometric renewal smoothing, independent of the form of the finite-mean refractory distribution.
+PASS. The embedded affine recurrence Z=aZ+aB_E gives the infinite product, while stationary active/refractory weights produce the exact mixture (shape-independent for finite E[R]); normalization d=D/r and w=r E[R]/(1+r E[R]) checked. Frullani yields the symmetric Lévy density with K(t)=sum_{j>=0} exp[-t/(a^j sqrt d)]-exp[-t/sqrt(wd)]. K is pointwise nonnegative because its j=0 term dominates the subtracted term, with logarithmic near-zero growth and exponential tails; thus Lévy integrability holds. The classical Sato radial-profile monotonicity criterion implies SD iff K is decreasing. At w=a^(2m), the j=m term cancels; at a=1/100,w=a^(2m+1), at s=a^m/10, scaled derivative obstruction has negative term 10/e and positive sum bounded by 100/99+200e^-10<2; hence K prime>0, all m>=1. Exact cumulant formula and odd vanishing consistent. Independent finite check for m=1,2,3 verified the strict bound numerically; it is not the infinite proof. w=0 convention and tau=0 endpoint accounted for.
 
-**Limitations and risks.** The distributional characterization is one-dimensional and assumes Brownian exploration, a fixed multiplicative reset, and exponential active times. The two witness sequences do not classify the full self-decomposability phase diagram. Source overlap and priority have been assessed from accessible primary full text, but not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the explicit positive Lévy kernel and a self-decomposability/non-self-decomposability phase alternation under arbitrarily small positive refractory occupation. The equilibrium characteristic function, infinite product, and nonrefractory Laplace convolution are old, not claimed as new. Best-of-knowledge comparison of the actual model and implications finds no established earlier occupancy-interlacing result; lack of an exhaustive priority search remains a risk.
+
+## value
+
+PASS
+
+PASS. A stationary stochastic resetting model has a natural divisibility hierarchy relevant to Lévy-driven representations and AR laws. The property of all-occupancy infinite divisibility alongside alternating self-decomposability in arbitrarily small positive occupancy is a sharp, non-obvious qualitative boundary, not just routine cumulant computation. It gives explicit parameter witnesses rather than an unsupported full phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
