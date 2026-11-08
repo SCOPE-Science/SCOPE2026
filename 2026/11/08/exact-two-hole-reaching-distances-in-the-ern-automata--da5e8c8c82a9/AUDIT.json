@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Universal proof covers n>=4 and every 0<=p<q<n. Explicit b a^h b a^j witnesses attain all four formula cases. A rank-monotone potential proves the matching lower bound by checking all a,b transitions on rank >=n-2 and excluding lower-rank detours. Every pair is counted exactly once in the histogram. Standalone checker confirms 451 independent pairwise BFS distances, 451 witness executions, 220 histogram entries, 23014 potential transitions, with no computation substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cyclic defect-one theorem encompasses the Černý family and yields two-b witnesses within 2n for every pair.",
+        "The general reaching-threshold paper studies all completely reachable DFAs and bounds thresholds rather than exact Černý pair distances."
+      ],
+      "reasoning": "The broader family theorem proves existence and upper bounds, with no pairwise optimality. The newly supplied high-rank potential is needed to prove lower bounds and the complete histogram.",
+      "searches": [
+        "Cerny automaton all subsets of size n minus two, reaching threshold exact spectrum, sharp 2n maximum",
+        "Minimal word mapping full set Q onto Q minus two states in cyclic binary synchronizing Cerny automaton, shortest image word",
+        "published-finding corpus:2026-10-04:two-defect-reachability",
+        "arXiv:2208.05956"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.24245 (first public 2026-08-25), substantive Sections 1–2.2",
+      "DOI:10.4230/LIPIcs.MFCS.2021.46, page 2 and Section 1.1",
+      "arXiv:2208.05956 (first public 2022-08-11), introduction/reaching bounds and Černý context",
+      "published-finding corpus 2026: Exact k-avoiding thresholds of the Černý automata (full RESULT.md)",
+      "published-finding corpus 2026: Two-defect reachability in cyclic defect-one automata (full RESULT.md)",
+      "published-finding corpus 2026: Exact early deficiency profile of the Černý automata (full RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior inverse-extension work fixes the shortest one-step extension length E_n(S), not the global shortest path from Q to each exact two-hole target.",
+        "The published two-b witness theorem provides constructive upper bounds, and the all-k avoidance result provides maxima but neither gives the lower-bound potential."
+      ],
+      "reasoning": "The complete pairwise geodesic metric logically implies the rank-(n-2) maximum and minimum and gives a new histogram. Conversely neither an upper bound for each pair nor the maximum/minimum over all pairs determines the middle distances or their multiplicities. No stronger available result was found with the requisite parameters.",
+      "searches": [
+        "Exact shortest reaching word length in Cerny automaton from all states to a subset missing two states, rank n-2, formula depending on pair of excluded indices and distribution",
+        "Cerny automaton all subsets of size n minus two, reaching threshold exact spectrum, sharp 2n maximum",
+        "Minimal word mapping full set Q onto Q minus two states in cyclic binary synchronizing Cerny automaton, shortest image word",
+        "Cerny automaton two-hole reaching length all unordered missing pairs p q, distribution length 4 through 2n, maximum 2n",
+        "Černý 2-avoidance individual pair exact shortest word, pairwise avoiding distances histogram and subset reached equal complement",
+        "Černý subset reachability co-rank two exact geodesic distance in power automaton, source all states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact reachability is equality Qw=Q\\{p,q}; avoidance requires only Qw subset Q\\{p,q}.",
+        "The published-finding corpus k-avoiding theorem takes a maximum over missing pairs and allows lower-rank images."
+      ],
+      "reasoning": "A stronger exact-avoidance formula for each pair could imply the exact-reaching formula if one additionally ruled out lower-rank shortcuts; none was found. Mere same worst-case maximum or bounded inclusion is insufficient to obtain every exact distance.",
+      "searches": [
+        "Exact shortest reaching word length in Cerny automaton from all states to a subset missing two states, rank n-2, formula depending on pair of excluded indices and distribution",
+        "Černý 2-avoidance individual pair exact shortest word, pairwise avoiding distances histogram and subset reached equal complement",
+        "arXiv:2608.24245 Section 2.2",
+        "MFCS 2021 DOI:10.4230/LIPIcs.MFCS.2021.46 Section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 article gives the four-state maximum two-avoidance threshold 8, without an all-pair distribution.",
+        "A public exact all-k maxima result gives 2n and the unique worst pair, and the rank profile gives the smallest distance 4."
+      ],
+      "reasoning": "These known extremes are subsumed and not separately new. No inspected table or record gives t-3 targets at each distance 4<=t<=n+1 and one target at each higher distance; the entire targetwise distance spectrum is not a restatement of known extrema.",
+      "searches": [
+        "Cerny automaton two-hole reaching length all unordered missing pairs p q, distribution length 4 through 2n, maximum 2n",
+        "Černý subset reachability co-rank two exact geodesic distance in power automaton, source all states",
+        "MFCS 2021 DOI:10.4230/LIPIcs.MFCS.2021.46 page 2",
+        "published-finding corpus:2026-09-17:exact-k-avoiding-thresholds"
+      ]
+    },
+    "rationale": "Full quantified pairwise distances and their histogram remain distinct from and not implied by the closest inspected max-over-targets, general bounded two-merge existence, and rank-minimization statements. Exact n=4 maximum, all-n maximum 2n and the unique hardest pair are covered prior facts and are explicitly excluded from the novelty claim. All tested searches and full material inspections are documented; priority remains provisional.",
+    "residual_risks": [
+      "Older equivalent all-pair formulas could exist under transformation-semigroup, subset inclusion or total-extension terminology, outside inspected indexed sources.",
+      "published-finding corpus semantic search is not a proof of worldwide novelty; the present claim excludes already-known extrema.",
+      "No independent literature specialist has assessed implicit corollaries of all historic results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Discusses one-hole avoiding thresholds and general open problems; no two-hole pairwise exact image-distance formula.",
+        "evidence": [
+          "The survey gives single-state avoiding thresholds for the Černý automaton in Section 2.2; it does not classify shortest exact two-hole reached subsets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Full accessible structured arXiv text with Sections 1, 2.1, 2.2 and surrounding definitions; source first public 2026-08-25.",
+        "method": "Read survey definitions, Černý example, avoiding-word discussion and references.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Recent primary survey motivating quantitative avoiding and synchronization invariants"
+      },
+      {
+        "assessment": "Covers the n=4 maximum two-avoidance threshold 8, not a general exact prescribed-image geodesic metric.",
+        "evidence": [
+          "Page 2 says k-avoidance thresholds for C4 are 4,8,12 and identifies the hardest two-set; reachability and included avoidance are explicitly distinguished."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.46",
+        "material_read": "Open-access PDF, beginning and Section 1.1 including page 2 diagram and threshold example; also relevant discussion of subset reachability.",
+        "method": "Read extracted paper text and visually inspected the page with its four-state Černý example.",
+        "title": "Lower Bounds on Avoiding Thresholds",
+        "trigger": "Original k-avoiding definition and closest small-state Černý example"
+      },
+      {
+        "assessment": "Gives general upper bounds and Černý sharpness by cardinality, but no formula for each pair of missing states.",
+        "evidence": [
+          "General reaching bound for completely reachable automata and the Don reaching conjecture; no indexed pairwise formula.",
+          "First source date 2022-08-11, not its 2026 journal publication date."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.05956",
+        "material_read": "Accessible arXiv rendered paper text, introduction, reachability definitions and bounds, discussion of Černý examples.",
+        "method": "Read primary article text and searched for Černý, n-2 and reaching thresholds.",
+        "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+        "trigger": "General reaching-threshold bounds and statements about Černý automata"
+      },
+      {
+        "assessment": "Covers max 2n and the unique hardest pair for k=2, not the minimum length for every fixed pair or the histogram.",
+        "evidence": [
+          "The recorded theorem states at_k(C_n)=kn and unique extremal B_k; it does not enumerate remaining pair distances."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md, including theorem, proof, originality limitations and the cited 2021 example.",
+        "method": "Read the full published result, compared quantified target-by-target distances to the max-over-targets theorem.",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Exact maximum 2n for two excluded states, potential stronger or equivalent covering result"
+      },
+      {
+        "assessment": "Provides bounded two-merge reachability for the present Černý subclass, but expressly does not classify shortest reaching words target by target.",
+        "evidence": [
+          "This record explicitly limits its result to existence with two b letters and does not determine shortest lengths for each target."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md including proof of existence of b a^k b a^j words of length <=2n and its explicit limitations.",
+        "method": "Compared its all-target bounded existence statement and normal-form witnesses to the proposed shortest-distance lower bounds.",
+        "title": "Two-defect reachability in cyclic defect-one automata",
+        "trigger": "Broader family and exactly two-defect witness theorem with same normal-form words"
+      },
+      {
+        "assessment": "Covers the minimum shortest rank-(n-2) image length, 4, but not the entire range and its multiplicities.",
+        "evidence": [
+          "The theorem lambda_n(s)=3s-2 for early rank deficiencies is a minimum over target images."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Complete public RESULT.md, theorem and proof through deficiency ceil(n/2).",
+        "method": "Compared minimization over target subsets versus prescribed pairwise exact reachability.",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Exact minimum length over all rank n-2 images might dominate part of the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "da5e8c8c-82a9-48aa-ab84-46c09f5f46b6",
+  "value": {
+    "rationale": "A natural exact-image reachability invariant at the first rank where geometry of two missing states matters, rather than only cardinality or a worst-case bound. The four-case classification yields the complete shortest-distance histogram, all integer distances from 4 to 2n, and explicit optimal words for all pairs, furnishing a structural benchmark for synchronizing automata.",
+    "status": "PASS"
+  }
+}
