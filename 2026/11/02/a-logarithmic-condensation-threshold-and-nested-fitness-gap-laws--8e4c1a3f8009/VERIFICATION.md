@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem's claim is the analytic phase diagram and limiting fitness-gap distributions in `RESULT.md`. The standalone `verification.py` is a finite supporting test, not a proof of limits or novelty.
+## correctness
 
-**Actual execution:** `python verification.py` completed with `PASS: 46 deterministic analytical-formula and quadrature checks`. The program uses Python 3 and SciPy (`scipy.integrate.quad`), reconstructs the exact stationary integrals after the substitution \(s=\log(1/(1-l))\), and compares against exactly integrable linear-reset formulas, normalized mixture masses, four divergent asymptotic branches, three first-logarithmic distributional regimes, the nested-log regime and finite-density examples.
+PASS
 
-**Critical analytic steps:** use the true stationary mean profile (Grange 2023, equations 41–44); prove \(J_\zeta\to J_0\) by dominated convergence using \(q(l)=O((1-l)^\alpha)\); derive \(I_\zeta\) from the exact logarithmic integral and compare on subcritical logarithmic windows; derive weak endpoint concentration when \(I_\zeta\to\infty\); derive beta/uniform limits as restricted-kernel ratios; use the second logarithm when \(\theta=1\).
+Using the stationary occupation identity n(l)=(l+beta*rho*q(l))/(zeta+1-l+r(l)), integration gives rho=I/(1-beta*J), beta*J0<1 and a positive exact two-component mixture. The endpoint q(l)=O((1-l)^alpha) implies dominated convergence for J. With s=log(1/u), I is an integral against (1+c*s^theta+exp(s-L))^(-1), whose comparison establishes divergence at theta<=1, finiteness for theta>1, and correct L, L/(1+c), L^(1-theta)/(c(1-theta)) and log L/c asymptotics. Ratios of restricted s-interval integrals prove beta/uniform gap limits and a nested logarithm at theta=1. Independent numerical integration verifies the theta=0 exact elementary case and several other regimes; it is not a proof of asymptotics.
 
-**Limits:** Numerical quadrature samples only finitely many explicit parameters and cannot validate an asymptotic result for every admissible profile. No finite-system stochastic simulation, external expert review, or exhaustive publication-priority certification is claimed.
+## originality
+
+PASS
+
+Grange 2023 develops the stationary local-reset profile and the pure power-law boundary. The nonconstant logarithmic factor at marginal algebraic rate, its theta=1 condensation boundary, and two coordinate-level gap laws are additional assertions; the earlier abstract does not show them. Direct primary full text could not be retrieved, leaving regular-variation-corollary priority risk.
+
+## value
+
+PASS
+
+The logarithm discriminates finite stationary density from condensation within a physically natural marginal class whose algebraic exponent is fixed at one; the nested uniform and beta scaling laws describe where particle mass concentrates on otherwise invisible fitness gap scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

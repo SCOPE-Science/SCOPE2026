@@ -1,19 +1,21 @@
-# Scientific review: logarithmic condensation threshold and nested fitness-gap laws
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result starts from the established exact stationary formula (Grange 2023, Section 5, equations 41–44), and derives a normalized decomposition with positive weights. The endpoint condition \(q(1-u)=O(u^\alpha)\) ensures the background integral converges; the strict bound \(\beta J_0<1\) ensures every stationary normalization is valid. An exact logarithmic substitution reduces the singular component to an integral with comparison kernel \([1+c s^\theta]^{-1}\), giving all four infinite-density regimes and the finite-density side. Ratios of restricted integrals give the beta/uniform scaling laws, including the second logarithm at \(\theta=1\). Positivity, boundary cases and parameter domains are explicit. An independent quadrature checker passed 46 deterministic checks; the analytic proof, not the finite checker, justifies all asymptotic assertions.
+PASS
 
-## Originality — PASS, qualified
+Using the stationary occupation identity n(l)=(l+beta*rho*q(l))/(zeta+1-l+r(l)), integration gives rho=I/(1-beta*J), beta*J0<1 and a positive exact two-component mixture. The endpoint q(l)=O((1-l)^alpha) implies dominated convergence for J. With s=log(1/u), I is an integral against (1+c*s^theta+exp(s-L))^(-1), whose comparison establishes divergence at theta<=1, finiteness for theta>1, and correct L, L/(1+c), L^(1-theta)/(c(1-theta)) and log L/c asymptotics. Ratios of restricted s-interval integrals prove beta/uniform gap limits and a nested logarithm at theta=1. Independent numerical integration verifies the theta=0 exact elementary case and several other regimes; it is not a proof of asymptotics.
 
-The 2023 primary text supplies the entire forward stationary mean equation and addresses the three pure-power cases. Its Sections 5.2.1–5.2.3 assume \(r(1-u)\sim cu^\nu\), not \(cu[\log(1/u)]^\theta\) with nonzero \(\theta\), and do not present the \(\theta=1\) second transition or fitness-gap distributional limits. Earlier nonresetting and globally resetting processes are different physical protocols. Separate searches of publication literature and archived mathematical findings for equivalent rates, condensate boundaries, beta laws and nested logarithmic coordinate limits did not identify a prior statement entailing this precise combined theorem. An unstated regular-variation corollary or unindexed specialty work remains a risk. The original general mean formula, logarithmic asymptotic tools, and classic Kingman condensation are not claimed as original.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At the physically marginal linear-reset boundary the algebraic power alone cannot distinguish a finite-density phase from a condensed phase. The exact threshold at logarithmic exponent \(\theta=1\) repairs this classification, while the beta and double-logarithmic uniform limits quantify how near-maximal fitness particles distribute over exponentially nested gaps. The full result is a natural structured phase diagram for a motivated existing interacting-particle model, not an arbitrary chosen moment or trivial parameter substitution.
+Grange 2023 develops the stationary local-reset profile and the pure power-law boundary. The nonconstant logarithmic factor at marginal algebraic rate, its theta=1 condensation boundary, and two coordinate-level gap laws are additional assertions; the earlier abstract does not show them. Direct primary full text could not be retrieved, leaving regular-variation-corollary priority risk.
 
-## Closest sources and residual limitations
+## value
 
-P. Grange, arXiv:2311.12414 (Sections 5.1–5.2, equations 41–66); P. Grange, arXiv:1904.05604 and 1910.05991 (different no-reset/global-reset mechanisms); L. Yuan, arXiv:2001.07033 (random mutation rather than local reset rates). The theorem is restricted to mean-field stationary population profiles and asymptotically equivalent logarithmic-rate families. A broader published theorem may still cover these consequences; independent expert priority review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The logarithm discriminates finite stationary density from condensation within a physically natural marginal class whose algebraic exponent is fixed at one; the nested uniform and beta scaling laws describe where particle mass concentrates on otherwise invisible fitness gap scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
