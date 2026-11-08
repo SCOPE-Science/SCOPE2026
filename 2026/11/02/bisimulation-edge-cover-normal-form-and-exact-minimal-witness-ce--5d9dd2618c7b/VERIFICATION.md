@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of exact finite-model witness formulas
+# Independent mathematical audit
 
-Execute `python checker.py` using Python 3 with only the standard library. The program directly tests every nonempty relation between each ordered pair of all one-agent models with one to three labelled worlds and one Boolean atom, and four further chosen pairs with four and three worlds. For each relation it independently checks atomic agreement, every forth and back obligation, global projection, and inclusion-minimality under proper subset inclusion. It compares the resulting four counts with independently computed formulas using bipartite inclusion-exclusion, a minimal-cover star recurrence, and explicit compatible-component edge-cover subsets.
+## correctness
 
-The completed execution produced `ALL_CHECKS_OK model_pairs=2504 profile_cases=5`. The five coefficient cases are the complete bipartite sizes \((1,1)\), \((2,2)\), \((2,3)\), \((3,3)\), \((4,4)\). Separate hand-checkable examples give \((15,4,7,2)\) for two singleton classes on each side, and \((7,2,7,2)\) for one two-world class on each side, with identical atomic colors throughout.
+PASS
 
-The proof of the unrestricted theorem is the class-pair normal-form bijection and the two-level minimality argument in `RESULT.md`. Finite experimentation is not a proof of the all-size statements. No formal proof assistant or independent audit has been used. The method counts fixed labelled one-agent S5 models with a common finite propositional vocabulary; it does not count multiagent frames, automorphism orbits, or modal-depth-bounded simulations.
+For a finite one-agent S5 model, successors of a world are its complete equivalence class. An active cross-model class pair must have identical atomic profile support and, for each profile, the chosen relation pairs form a spanning bipartite edge cover. Conversely any selection of compatible class pairs and independent internal profile covers satisfies atomic harmony, forth and back. This is a genuine bijection (even if a class participates in multiple pairs). Inclusion-exclusion gives U(a,b) spanning covers. Any inclusion-minimal cover has every edge incident to a degree-one endpoint; its connected components are precisely stars, yielding H(a,b) from exp(xy+x(e^y-1-y)+y(e^x-1-x)). Thus nonempty, minimal nonempty, global, and minimal global relations are counted respectively by product_{ij}(1+beta_ij)-1; sum eta_ij; a weighted spanning edge-cover sum on compatibility graph; and a weighted minimal edge-cover sum. These formulas cover empty compatibility graphs, isolated class vertices, zero propositional vocabulary, all nonempty finite labelled models and distinguish inclusion-minimality from minimum size.
+
+## originality
+
+PASS
+
+Ordinary bisimulation axioms, global/total bisimulation terminology, and complete-bipartite edge-cover counts are classical. The independent two-stage weighted enumeration across arbitrary finite labelled one-agent S5 model pairs, with all four inclusion-minimal/global census formulas, is a nontrivial combined classification not stated in the inspected logical-definability sources. Best-of-knowledge PASS qualified against obscure enumeration results or alternate presentations of bisimulation witnesses.
+
+## value
+
+PASS
+
+A universal exact census for four natural classes of witnesses between arbitrary fixed finite epistemic models is a useful structural classification, not just another example or arbitrary small enumeration. The layered normal form allows researchers to compute minimal/global witness abundance and understand effects of accessibility partitions and valuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

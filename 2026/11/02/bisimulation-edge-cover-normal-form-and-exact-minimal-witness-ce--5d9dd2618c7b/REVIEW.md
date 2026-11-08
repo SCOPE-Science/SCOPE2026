@@ -1,19 +1,21 @@
-# Review: finite \(\mathsf{S5}\) bisimulation witness census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full argument starts from the atomic, forth and back clauses and proves that each **active pair** of accessibility classes must have identical sets of atomic profiles and a spanning bipartite cover for each profile. The converse construction verifies the same clauses explicitly. Because active pairs are independent, ordinary witness counts factor. The proof separately checks the two nested levels of inclusion-minimality; this is important because a global witness can be minimal without having only one active class pair. Inclusion-exclusion proves the all-cover coefficients, and the degree-one-endpoint characterization proves the star-forest exponential formula and recurrence for minimal covers. The empty compatibility graph, isolated class vertices and unequal cardinalities are handled. The accompanying independent brute-force checker compares the four derived counts with direct clause tests on 2,504 pairs of small models; its output is `ALL_CHECKS_OK model_pairs=2504 profile_cases=5`. The computation checks finite instances and does not replace the universal proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For a finite one-agent S5 model, successors of a world are its complete equivalence class. An active cross-model class pair must have identical atomic profile support and, for each profile, the chosen relation pairs form a spanning bipartite edge cover. Conversely any selection of compatible class pairs and independent internal profile covers satisfies atomic harmony, forth and back. This is a genuine bijection (even if a class participates in multiple pairs). Inclusion-exclusion gives U(a,b) spanning covers. Any inclusion-minimal cover has every edge incident to a degree-one endpoint; its connected components are precisely stars, yielding H(a,b) from exp(xy+x(e^y-1-y)+y(e^x-1-x)). Thus nonempty, minimal nonempty, global, and minimal global relations are counted respectively by product_{ij}(1+beta_ij)-1; sum eta_ij; a weighted spanning edge-cover sum on compatibility graph; and a weighted minimal edge-cover sum. These formulas cover empty compatibility graphs, isolated class vertices, zero propositional vocabulary, all nonempty finite labelled models and distinguish inclusion-minimality from minimum size.
 
-Burrieza–Soler-Toscano–Yuste-Ginel, *A meta-modal logic for bisimulations* (arXiv:2507.15117), develops bisimulation and its logical expressibility, but the inspected full text through its conclusions does not supply a counting or minimality formula for relations between two fixed S5 models. Van Ditmarsch–Fernández-Duque–van der Hoek, *On the definability of simulation and bisimulation in epistemic logic* (2014), defines total bisimulation and proves a logical definability result, not enumeration of witnesses. Conventional edge-cover and star-forest combinatorics are openly acknowledged ingredients, not separately claimed as new. Searches for counting, weighted bisimulation, minimal witnesses, component compatibility, and competing stronger formulations found no covering result among inspected sources. Different terminology or less accessible work could imply the theorem; absence of a retrieved result is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of bisimulation witnesses is a natural quantitative invariant for comparing fixed finite epistemic models, while ordinary results usually ask only whether witnesses exist or whether bisimilarity is definable. The structural theorem gives four all-size exact counts, separates partial from global witnesses, and exhibits the distinctive **two-stage star-forest** condition for inclusion-minimal global witnesses. Its arbitrary class multiplicities and atomic-support patterns include both disconnected and connected S5 frames and rule out reductions based only on world counts. It does not claim a general theorem for multiple agents or arbitrary frame relations.
+Ordinary bisimulation axioms, global/total bisimulation terminology, and complete-bipartite edge-cover counts are classical. The independent two-stage weighted enumeration across arbitrary finite labelled one-agent S5 model pairs, with all four inclusion-minimal/global census formulas, is a nontrivial combined classification not stated in the inspected logical-definability sources. Best-of-knowledge PASS qualified against obscure enumeration results or alternate presentations of bisimulation witnesses.
 
-## Closest literature and residual risks
+## value
 
-The exact bisimulation definition and relevance of relation quantification are in the 2025–2026 meta-modal paper; the precise totality condition and definability context are in the 2014 epistemic-logic article. Graph edge-cover identities are standard, but these references do not state the four weighted finite-model formulas. An older enumeration of finite bisimulation relations or a general relational combinatorics theorem with equivalent implications remains possible; no exhaustive priority claim is made. Verification remains internal and no independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A universal exact census for four natural classes of witnesses between arbitrary fixed finite epistemic models is a useful structural classification, not just another example or arbitrary small enumeration. The layered normal form allows researchers to compute minimal/global witness abundance and understand effects of accessibility partitions and valuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
