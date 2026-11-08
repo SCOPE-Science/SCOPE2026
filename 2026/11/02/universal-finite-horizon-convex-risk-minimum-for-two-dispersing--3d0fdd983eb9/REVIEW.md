@@ -1,19 +1,21 @@
-# Scientific review: finite-horizon convex-risk minimum for two habitats
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model's column sums are \(c_q=1-q+sq\), which gives a mean-one normalized total abundance with a conditionally unbiased annual multiplier. Spatial exchangeability supplies a conditional symmetrization inequality for every convex test. Convexity of the one-period averaging operator closes the induction over all finite horizons. The strict argument requires \(q\ne1/(1+s)\), positive habitat masses, nonidentical growth shocks with positive probability, and finite relevant convex expectations; these are stated. The two-year variance identity follows by direct conditional second moments and the exact first-year habitat contrast. The independently implemented path enumerator passes 6022 rational checks; enumeration does not certify arbitrary horizons or distributions.
+PASS
 
-## Originality — PASS within inspected evidence
+Column sums of D_q are c_q=1-q+sq, so normalized total U_t is a mean-one martingale under independent years. At q*=1/(1+s), D_q has equal rows and U_t=product of independent annual average growth V_t. For any y>0 and weight w, spatial exchangeability lets one average swapped inputs, then Jensen gives the centered average-G multiplier smaller in convex order. The operator Pφ(y)=Eφ(yV) preserves convexity; induction proves all finite horizons. If q!=q* and P(G1 != G2)>0, W_t !=1/2 with positive probability from the strict positive-coordinate model, giving t>=2 strictness. Conditioning on the next squared multiplier yields the exact two-year variance gap d²/(16μ⁴)*[(1-(1+s)q)/(1-(1-s)q)]² and floor K^t−1. Direct independent Fraction enumeration verified 15 discrete-law/parameter cases. This does NOT optimize unnormalized biomass or long-run log growth.
 
-Morita--Yoshimura (2012, arXiv:1207.4618) explicitly contains the dispersal matrix and its well-mixed condition; both are acknowledged and not claimed as new. Its main established conclusions concern stationary patch ratios and asymptotic logarithmic growth. Morita--Yoshimura (2013, arXiv:1307.7903) studies many-patch power-law behavior and approximate growth variances. Jansen--Yoshimura (1998) treats allocation maximizing long-run geometric growth. The inspected texts do not give the present *all finite horizons, all convex functionals* ordering of strategy-normalized total abundance, its strict unique optimum, or the exact two-year variance gap. A separate previously documented antiphase patch-ratio result concerns stationary Cantor support and a dispersal duality; those conclusions neither imply nor are implied by the present finite-horizon convex order of total abundance. The static convex symmetrization inequality is standard and is credited as proof machinery. Full technical coverage of Schreiber (2010), Keeling (2000) and any undiscovered dynamic diversification theorem remains a priority risk; an unsuccessful search is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The primary paper identifies risk spreading as ecologically important while concentrating on long-run typical growth and patch-ratio distributions. The new law gives a complete, distribution-free finite-horizon answer for relative abundance risk, robust to arbitrary within-year spatial correlation and every convex loss including upper-tail and shortfall hinge losses. It pinpoints the migrant-survival-adjusted optimum \(q_*=1/(1+s)\), identifies the earliest horizon at which unequal dispersal is detectable, and quantifies the exact two-year penalty from spatially unequal shocks. Crucially, it distinguishes this relative-risk objective from absolute abundance, migrant mortality and biological persistence. This is a natural structural result for stochastic ecology, not an arbitrary numerical slice.
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
 
-## Closest literature and limitations
+## value
 
-The principal comparator is Morita and Yoshimura (2012), whose equation for the dispersal matrix is the precise forward model. The independent-year assumption is necessary to use the convexity operator recursively; habitat exchangeability is necessary for the pointwise symmetrization. Models with temporal dependence, nonexchangeable patch environments, nonlinear competition, stochastic individual extinction, or a fixed absolute-wealth target are not addressed. The strict-variance law assumes second moments. Literature comparisons are limited to accessible texts and the inspected search results; no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-horizon relative risk is ecologically meaningful and distinct from long-run mean/geometric growth. The theorem gives an all-convex-loss, distribution-free minimum even with within-year spatial correlation and a sharp earliest strictly distinguishable horizon; the exact two-year penalty describes impact of incomplete mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

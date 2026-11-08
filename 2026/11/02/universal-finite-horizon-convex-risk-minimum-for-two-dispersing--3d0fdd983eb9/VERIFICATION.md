@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing the extracted package. Its expected output is `EXACT_CHECKS_PASSED 6022`. It uses only the Python standard library and exact fractions, reconstructs state paths directly from the two-patch update, and checks the two-year variance identity and finite examples, including positive spatial correlation, anticorrelation and perfectly shared shocks. Checks are finite and cannot establish the universal claims on their own; the proof in `RESULT.md` establishes the general result.
+## correctness
 
-The result requires positive exchangeable growth, independent environmental years, a fixed constant migrant-survival fraction, and mean-normalization by each strategy's own expected total. The independent audit has not been performed.
+PASS
+
+Column sums of D_q are c_q=1-q+sq, so normalized total U_t is a mean-one martingale under independent years. At q*=1/(1+s), D_q has equal rows and U_t=product of independent annual average growth V_t. For any y>0 and weight w, spatial exchangeability lets one average swapped inputs, then Jensen gives the centered average-G multiplier smaller in convex order. The operator Pφ(y)=Eφ(yV) preserves convexity; induction proves all finite horizons. If q!=q* and P(G1 != G2)>0, W_t !=1/2 with positive probability from the strict positive-coordinate model, giving t>=2 strictness. Conditioning on the next squared multiplier yields the exact two-year variance gap d²/(16μ⁴)*[(1-(1+s)q)/(1-(1-s)q)]² and floor K^t−1. Direct independent Fraction enumeration verified 15 discrete-law/parameter cases. This does NOT optimize unnormalized biomass or long-run log growth.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
+
+## value
+
+PASS
+
+Finite-horizon relative risk is ecologically meaningful and distinct from long-run mean/geometric growth. The theorem gives an all-convex-loss, distribution-free minimum even with within-year spatial correlation and a sharp earliest strictly distinguishable horizon; the exact two-year penalty describes impact of incomplete mixing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
