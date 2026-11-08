@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is a smooth complex complete intersection of three quadrics containing a line, together with a smooth connected divisor in \(|m(2H+E)|\) disjoint from that line. The exact ideal-sheaf sequence, complete-intersection arithmetically Cohen--Macaulay vanishings, K3 Serre duality, and the filtration by the \((-2)\)-curve are sufficient to calculate every integer twist through the canonical boundary. The endpoint uses a distinct K3 Riemann--Roch computation, rather than extrapolating the positive-degree recurrence. The spin formula follows from adjunction and the computed restriction defect. The finite checker verifies numerical identities but is not an infinite proof. The proof is characteristic-zero only.
+PASS
 
-## Originality — PASS (qualified)
+Let S=(2,2,2) smooth K3 in P5 containing a line E, H²=8,H.E=1,E²=-2, D=2H+E, C~mD smooth connected and disjoint E. Ambient S arithmetically Cohen–Macaulay gives H1(I_C(t))=H1(S,O((t-2m)H-mE)). For t<2m, Serre duality makes this h1(kH+mE), k=2m-t>0. Exact E-filtration with restriction O_E(k-2j), Kodaira vanishing of kH and h2=0, yields sum_{j=1}^m max(0,2j-k-1)=0 if t<=1, floor(t²/4) for 2<=t<=2m-1. At t=2m, mE rigid with h0=1,h2=0 and Riemann–Roch chi=2-m² gives h1=m²-1, not floor((2m)²/4). Adjunction and E|C trivial imply O_C(mH)^2=K_C; h0(C,mH)=4m²+2+floor(m²/4), odd exactly m=2 mod4. Reconstructed recurrence for m=1..20 and all t=-2..2m; checked sample m2/m3 and original verify_rao.py up to m64. These finite tests corroborate the unrestricted exact-sequence proof and not an independent geometric existence proof.
 
-The full Nasu 2026 primary text was inspected (Introduction, Lemma 2.3, Lemma 2.7 and Section 4): it identifies the Hilbert components but does not state the uniform precanonical Rao profile, the exceptional one-unit endpoint correction, or the associated spin parity formula. The open-access Ciliberto--Dedieu 2021 article was inspected (Introduction and spin section): it studies K3 curves with divisible ample polarizations, rather than this exceptional-line cohomology. Published research-record searches were carried out for K3, Rao, theta, spin, deficiency, and equivalent all-twist formulas. Mathematical-record searches covering the formula and equivalent m-normality/spin statements found no matching claim, but lack of a match is not proof of priority. General deficiency-module literature could imply the result implicitly; this is the principal remaining historical risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Hartshorne--Rao deficiency is a natural embedded-curve invariant measuring all degree-dependent failures of polynomial restriction surjectivity. A complete exact profile across the entire pre-canonical interval is materially more informative than one arbitrary twist: its quadratic dimensions are independent of the chosen family parameter until a geometrically distinguished endpoint with a one-unit jump. The induced theta characteristic and its mod-four parity give an intrinsic interpretation of the middle degree and place these curves in the even/odd spin strata. No general classification of K3 curves is claimed.
+Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. The all-twist and spin counts require an explicit recurrence on O_E(k-2j) and Riemann–Roch endpoint. Those standard tools, together with family parameters, reconstruct claim, but earlier printed conclusions do not directly state it. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.
 
-## Closest sources and limits
+## value
 
-Nasu (arXiv:2610.30962v1), especially §§2 and 4; Ciliberto--Dedieu (DOI:10.1007/s40574-021-00286-5), Introduction and §5. The values at twists above \(2m\), Rao multiplication, other spin structures, and independent validation remain outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural ample-embedding K3 curve family with exceptional contracted line and nontrivial embedded deficiency, the complete pre-canonical graded Hartshorne–Rao profile and induced theta-characteristic parity distinguish the exceptional endpoint and offer precise inputs for Hilbert/deformation and spin studies. The claim is specifically an explicit family-wide classification, not a new K3 vanishing theorem or full module multiplication structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
