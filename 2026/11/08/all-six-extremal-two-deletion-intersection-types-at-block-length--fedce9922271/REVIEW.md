@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The combinatorial universe of pairs of length-four words, modulo global symbol relabeling, is exactly the 4140 set partitions of eight indexed positions. The finite checker enumerates every partition without truncation, constructs the deletion output sets directly, verifies the lower-order disjointness hypothesis, and identifies the exact six maximizing types. The separate labeled-count calculation counts injective alphabet assignments. Direct source-word enumeration for alphabet sizes two through four corroborates the result. The mathematical assertion for all alphabets rests on the complete equality-partition reduction, not numerical extrapolation.
+
+**Originality: PASS against inspected evidence, residual priority risk.** Wang–Li–Fu (arXiv:2609.16837) study the same reconstruction parameter in the sufficiently-large-block-length regime, but do not state this length-four six-type classification or the exact ordered labeled counts. Sun–Ge (arXiv:2606.25822) study general deletion-ball bounds and lower-order disjointness; their upper bounds do not imply the exact length-four classification. Related records on binary three-deletion intersections and one-center sphere variance involve different domains or statistics. An unindexed treatment of the finite boundary remains possible; no definitive historical-priority claim is made.
+
+**Value: PASS.** The first nontrivial short-block case yields a complete finite-alphabet reconstruction-ambiguity boundary: not only the exact extremal overlap but every extremal source-pair equality pattern and an all-alphabet labeled counting polynomial. Distinct patterns first appear as alphabet size passes two and three. The result supplies a precise finite-length benchmark for deletion-reconstruction analyses, rather than an arbitrary isolated numerical example.
+
+**Scientific limitations.** The classification is restricted to four-symbol sources and exact two deletions under the disjoint-one-deletion hypothesis; it establishes neither asymptotic code rates nor broader block-length extremizers. Independent validation and final historical priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.
