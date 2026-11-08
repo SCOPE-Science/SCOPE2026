@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:16:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<c<v the contributor set is exactly a maximal independent set. On a cycle binary gap lengths must be 2 or 3; two selected chord endpoints remove c_d c_(n-d) previously valid equilibria, while one new neighbor rescues exactly 2 c_(d-2)c_(n-d-2) otherwise undominated profiles. The difference D(d,m)=c_(d+m-3)-c_d c_m+2c_(d-2)c_(m-2) obeys D(d,m)=D(d,m-2)+D(d,m-3); nonnegative base sequences for m=2,3,4 and d=2,3,4 force D>=0 with equality iff d=3 or m=3, including n=5. The difference for d=2 is c_(n-4)-c_(n-5), nonnegative with exactly the stated finite equalities. Dominant plastic-root asymptotics establish minimum/P_n ->1-1/(2alpha+3). Independently enumerated all contributor profiles for 65 n,chord combinations, n=5..14 (not substituted for all-n recurrence).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sagan–Vatter, DOI:10.1002/jgt.20186, studies extremal MIS bounds over graph classes of fixed order/cycle count.",
+          "Bramoullé–Kranton, DOI:10.1016/j.jet.2006.06.006, studies public-good welfare and incentives across networks."
+        ],
+        "reasoning": "Extremal bounds over all bicyclic graphs and network welfare incentives do not determine exact MIS count for each individual chord length; those broader objects do not imply the stated optimizing separation.",
+        "searches": [
+          "Sagan Vatter maximal independent sets graphs with at most r cycles 2006",
+          "Resultary: maximal independent sets cycle graph with one chord count exact pure Nash equilibria best-shot public goods adding edge chord distance Perrin Padovan"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/math/0701647v2",
+        "https://arxiv.org/abs/1002.3572",
+        "https://oeis.org/A001608",
+        "https://doi.org/10.1002/jgt.20186",
+        "https://doi.org/10.1016/j.jet.2006.06.006"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ring baseline P_n and MIS/Nash equivalence are prior, not claimed new.",
+          "The source construction adds a deletion term and a distinct rescue term; the latter is needed to explain increase when d=2."
+        ],
+        "reasoning": "Baseline ring enumeration and a general game representation cannot by themselves give the opposite-sign gain/rescue count or strict all-chord optimization.",
+        "searches": [
+          "arxiv:1002.3572",
+          "arxiv:math/0701647v2",
+          "doi:10.1002/jgt.20186"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dall’Asta–Pin–Ramezanpour, arXiv:1002.3572: best-shot equilibrium iff maximal independent set.",
+          "Bisdorff–Marichal, arXiv:math/0701647v2: plain cycle MIS are gap words of 2s and 3s."
+        ],
+        "reasoning": "The game-theoretic theorem translates exactly to counting MIS of C_n with one chord of length d. The cited cycle enumeration fixes P_n only and is not chord-indexed; the rescue term is new work under this equivalence.",
+        "searches": [
+          "Resultary: maximal independent sets cycle graph with one chord count exact pure Nash equilibria best-shot public goods adding edge chord distance Perrin Padovan",
+          "maximal independent sets of a cycle with a chord; independent dominating sets and independence domination polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001608 tabulates the plain-cycle Perrin count P_n.",
+          "Bisdorff–Marichal tabulate unchorded cycle and orbit counts, not a bivariate (n,d) chord table."
+        ],
+        "reasoning": "A known exact table gives only the baseline; search cannot rule out an unindexed chorded-cycle table, which is retained as a risk.",
+        "searches": [
+          "OEIS A001608 Perrin cycle maximal independent sets",
+          "Resultary: maximal independent sets cycle graph with one chord count exact pure Nash equilibria best-shot public goods adding edge chord distance Perrin Padovan"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS qualified: the added-edge loss/rescue formula, unique three-step optimal chord, and counterintuitive distance-two multiplicity increase are more specific than known best-shot/MIS equivalence and Perrin cycle enumerations. No exact chord-by-chord formula found in the actual searches; unindexed chorded-cycle independence-polynomial literature may contain an equivalent result.",
+      "residual_risks": [
+        "An unindexed chorded-cycle maximal-independent-set or independent-domination polynomial may contain the entire formula.",
+        "Only source regions materially read support comparisons; the broader network-welfare article was not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cycle Perrin count but not augmented chord C_n+e",
+          "evidence": "Binary words for unmodified cycle exclude 11 and 000; no chord variable in its enumerations.",
+          "identifier_or_url": "https://arxiv.org/html/math/0701647v2",
+          "material_read": "Full public text; opening and cycle MIS enumeration sections; selected PDF pages including opening and end",
+          "method": "Full-text HTML and PDF page screenshots",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Same combinatorial object without extra edge"
+        },
+        {
+          "assessment": "Confirms equilibrium/MIS identification, not enough read to certify absence of chord theorem in complete paper",
+          "evidence": "The paper fixes the network for its planner; exact one-chord equilibrium counting not in inspected source material.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.3572",
+          "material_read": "Article abstract and accessible description of planner problem; complete main proof not newly re-read",
+          "method": "Published abstract/source cross-comparison",
+          "title": "Optimal equilibria of the best shot game",
+          "trigger": "Same Nash game and MIS equivalence"
+        },
+        {
+          "assessment": "Supplies plain-cycle P_n; not this bivariate count",
+          "evidence": "Perrin P0=3,P1=0,P2=2 recurrence Pn=Pn-2+Pn-3.",
+          "identifier_or_url": "https://oeis.org/A001608",
+          "material_read": "Sequence definition and cycle MIS interpretation from retrieved reference",
+          "method": "Database query",
+          "title": "OEIS A001608 — Perrin sequence",
+          "trigger": "Exact baseline database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The welfare-independent question of how one new social connection changes equilibrium multiplicity is natural in local public-goods games. Exact all-n chord optimization with a unique reflection class, sign reversal for short chords and an explicit 17.7008% asymptotic reduction is a motivated structural graph-game theorem, not a routine restatement of the Perrin cycle count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/math/0701647v2",
+    "https://arxiv.org/abs/1002.3572",
+    "https://oeis.org/A001608",
+    "https://doi.org/10.1002/jgt.20186",
+    "https://doi.org/10.1016/j.jet.2006.06.006"
+  ],
+  "disposition": "passed",
+  "limitations": "Finite uniform binary-action pure Nash equilibria on one-chord simple cycles, n>=5, 2<=d<=n-2. No welfare/selection dynamics conclusions; finite enumeration is not the all-n proof.",
+  "residual_risks": [
+    "An unindexed chorded-cycle maximal-independent-set or independent-domination polynomial may contain the entire formula.",
+    "Only source regions materially read support comparisons; the broader network-welfare article was not read in full."
+  ],
+  "schema_version": 1
+}

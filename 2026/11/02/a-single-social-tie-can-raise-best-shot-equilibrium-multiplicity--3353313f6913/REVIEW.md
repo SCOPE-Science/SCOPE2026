@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated payoff yields a unique binary best response and hence the exact maximal-independent-set representation. Two disjoint configurations account for every link-induced count change: ring equilibria invalidated by joint endpoint provision and newly stabilized profiles whose sole formerly undominated vertex gains access through the chord. The composition recurrence gives an exact formula for all admissible ring sizes and chord lengths. A nonnegative two-variable Padovan recurrence proves global minimization and its exhaustive equality cases. The two-step-link paradox follows from a recurrence on successive differences. A generating-function pole gives the sharp asymptotic fraction. These are analytic, all-size arguments; the checker is corroboration, not the proof.
+## correctness
 
-**Originality — PASS, provisionally on inspected evidence.** The exact best-shot game and its equivalence to maximal independent sets were published in Dall'Asta, Pin and Ramezanpour (2010); the Perrin/Padovan cycle baseline was published in Bisdorff and Marichal (2007/2008). The former explicitly fixes the social network when studying incentives, while the latter studies the unmodified cycle and orbit counts. Bramoullé and Kranton discuss link-related welfare but do not give a chord-position-resolved pure-equilibrium count. Sagan and Vatter's graph-class extremal parameter is distinct from the count for each prescribed chord length. OEIS A001608 tabulates the *baseline* cycle count. Direct searches using the equivalent independent-domination terminology, chorded-cycle terminology, exact count and best-shot equilibrium design did not identify a dominating published formula. A prior indexed chorded-cycle enumeration under alternative vocabulary remains a historical-priority risk.
+PASS
 
-**Value — PASS.** Equilibrium multiplicity is a natural coordination and selection burden in local public-goods games. This complete one-link design problem exhibits a mathematically nontrivial distinction between making a social ring slightly denser and actually reducing that burden: one type of shortcut *increases* multiplicity, while the unique optimal class cuts it by a positive limiting fraction. The explicit formula distinguishes every possible chord, not just an unmotivated graph size. No claim about welfare improvement or real-world behavioral prediction is made.
+For 0<c<v the contributor set is exactly a maximal independent set. On a cycle binary gap lengths must be 2 or 3; two selected chord endpoints remove c_d c_(n-d) previously valid equilibria, while one new neighbor rescues exactly 2 c_(d-2)c_(n-d-2) otherwise undominated profiles. The difference D(d,m)=c_(d+m-3)-c_d c_m+2c_(d-2)c_(m-2) obeys D(d,m)=D(d,m-2)+D(d,m-3); nonnegative base sequences for m=2,3,4 and d=2,3,4 force D>=0 with equality iff d=3 or m=3, including n=5. The difference for d=2 is c_(n-4)-c_(n-5), nonnegative with exactly the stated finite equalities. Dominant plastic-root asymptotics establish minimum/P_n ->1-1/(2alpha+3). Independently enumerated all contributor profiles for 65 n,chord combinations, n=5..14 (not substituted for all-n recurrence).
 
-The principal scientific limitation is game-model scope; the main historical limitation is incomplete coverage of every possible graph-counting table and terminology. Full text of the two most relevant primary works was compared. Numerical enumeration is limited to stated finite sizes; the theorem relies on the independent proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS qualified: the added-edge loss/rescue formula, unique three-step optimal chord, and counterintuitive distance-two multiplicity increase are more specific than known best-shot/MIS equivalence and Perrin cycle enumerations. No exact chord-by-chord formula found in the actual searches; unindexed chorded-cycle independence-polynomial literature may contain an equivalent result.
+
+## value
+
+PASS
+
+The welfare-independent question of how one new social connection changes equilibrium multiplicity is natural in local public-goods games. Exact all-n chord optimization with a unique reflection class, sign reversal for short chords and an explicit 17.7008% asymptotic reduction is a motivated structural graph-game theorem, not a routine restatement of the Perrin cycle count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
