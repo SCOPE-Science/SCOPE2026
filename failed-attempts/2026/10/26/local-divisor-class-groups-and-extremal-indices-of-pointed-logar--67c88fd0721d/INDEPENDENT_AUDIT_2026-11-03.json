@@ -1,0 +1,230 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T10:37:27Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md explicit rays, T transform, gap relations and extremum proof.",
+        "Arena–Song arXiv:2605.17922v1 Corollary 4.1 and Definition 4.2 verified against assigned primitive rays.",
+        "Independent script independent_checks.py and log independently rebuilt 508 matrices, compared full Smith forms with diagonal gaps and exact maxima for n=2..8.",
+        "Seven Git blob SHA-1s independently assembled into expected tree d151c6f2b42420aa6d641db283682d92a2dac9ab."
+      ],
+      "limitations": [
+        "n>=2, complex coarse toric fixed points only; local group is finite noncanonically isomorphic to N/N_sigma.",
+        "Index means order of local Cl / cone lattice multiplicity, not Gorenstein index or exponent.",
+        "No classification of nonfixed orbits or stack-local class groups; finite tests cannot establish all n.",
+        "The first-one-free all-zero case yields the empty product/group."
+      ],
+      "rationale": "For n>=2 the source Corollary 4.1/Definition 4.2 gives primitive cone rays. The lower-unitriangular second-difference lattice automorphism sends rho_(n-j) to basis f_(j+1), old e_j to f_j−2f_(j+1)+f_(j+2), and u to −f_1+f_2. A one in the binary cone forces z_(i+1)=0; a zero forces a second-difference relation, with terminal z_(n+1)=0. Each interval between forced zeros contributes exactly one independent generator w with g*w=0; the all-zero word gives trivial quotient. Thus N/N_sigma=⊕Z/g and its finite Smith invariants agree with local toric Cl for full-dimensional simplicial cones. Maximizing the gap product means i_1=0 and an ordered composition of n; replacing 1 and >=5, and three 2s, derives standard 3/2 integer break. Counts are 1 for n=3a, a+1 for n=3a+2, and a(a+3)/2 for n=3a+1. Independent sympy Smith normal forms and determinants on all 508 cones of 2<=n<=8 confirmed every cyclic-factor profile, maximum and multiplicity. This is not a universal computational proof: the recurrence and integer-break argument is.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arena–Song Corollary 4.1 constructs the entire toric stack with beta sending every ray to its primitive generator. Their §7 product formula applies to all boundary strata, not just torus fixed points.",
+          "Goldin et al. Theorem 2.2 gives the general stacky-fan isotropy exact computation Tor(N/N_sigma); standard affine toric Cl is coker(M→Z^sigma(1)), same finite Smith invariants in the simplicial full-rank case."
+        ],
+        "reasoning": "These genuinely stronger theorems cover the identical family and the identical local group invariant under conversion between inertia and coarse toric class groups. The mathematical specialization is not an independent classification theorem: the local groups follow from source data without the submitted second-difference coordinate construction.",
+        "searches": [
+          "https://arxiv.org/html/2605.17922v1 Corollary 4.1, Definition 4.2, Lemma 4.3, §7",
+          "https://arxiv.org/abs/1306.5036 Theorem 2.2 and Proposition 2.4",
+          "web: toric stack canonical stack stabilizer at fixed point Cartier dual local class group simplicial cones primitive rays",
+          "web: toric DM stack stabilizer group torus fixed point N/Nsigma quotient class group"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.17922v1 (full primary HTML §§1.1,4.4,7)",
+        "https://arxiv.org/abs/1306.5036 (full text of Thm 2.2 and related sections)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md (full RESULT.md)",
+        "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html (toric divisor presentation)",
+        "Resultary semantic searches for toric local class groups, logarithmic Hilbert stabilizers and extremal toric lattice indices on 2026-11-03",
+        "Frozen record RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, VERIFY.py, AUDIT.json, METADATA.json at inventory commit b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arena–Song §7 states the stronger boundary-stratum stack isomorphism, weighted-projective coordinate description, and gcd stabilizer rule.",
+          "Its Corollary 4.1 specifies primitive rays for the toric stack; Goldin et al. Theorem 2.2 and standard toric class-group sequence identify the relevant finite groups.",
+          "Compositions n−m enumerate all fixed points: 1+Σ_{k=1}^n 2^{k−1}=2^n, agreeing with the binary labeling. Ordered compositions of n maximize by breaking into 3s and 2s; [4] is interchangeable with [2,2]."
+        ],
+        "reasoning": "All asserted local group isomorphism classes are already logical consequences of the full boundary-stratum formula and standard toric quotient theory. Its extremal index formula and counts are immediate finite integer-break corollaries of those previously determined groups. The source does not need to print the binary formula or exact integers for prior implication to be decisive. Therefore O=FAIL for the submitted final claim. No surviving independent original claim was established; a disclaimer or extra certificate would not repair it.",
+        "searches": [
+          "https://arxiv.org/html/2605.17922v1 §§4.4 and 7",
+          "https://arxiv.org/abs/1306.5036 Thm 2.2",
+          "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html",
+          "web: Arena Song 2026 toric Hilbert scheme stabilizers product cyclic bubble sizes",
+          "Resultary: stabilizer groups logarithmic Hilbert schemes P1 one point exceptional bubbles lattice cone multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arena–Song §7, lines 948–965, writes each boundary stratum for one marked point as Sym^m(C\\D) × ∏[Sym^g(C*)/C*], identifying each bubble quotient with P(1,...,g)\\V(e_g).",
+          "At the unique torus-fixed point of each bubble quotient, only e_g is nonzero, so the stabilizer is μ_g by Arena–Song §7 gcd rule. m interior points contribute the unique ∞^m fixed point.",
+          "Goldin–Harada–Johannsen–Krepski (2013), Theorem 2.2, identifies toric-stack stabilizers at a cone with Tor(N/N_sigma). The standard primitive-ray toric divisor sequence gives the same finite invariant-factor type for the coarse local Cl."
+        ],
+        "reasoning": "The binary word with first one i_1 corresponds to m=i_1 interior points plus ordered bubble lengths (i_2−i_1,...,n−i_r). The source already provides the product of quotient stacks, including precisely those bubble lengths; fixed-point cyclic stabilizers are μ_g. The fixed coarse local class group is its abstract character group, ⊕ Z/g, by the standard primitive-ray toric correspondence. Thus the central claimed group formula is a direct corollary of the published stronger description, notwithstanding different terminology.",
+        "searches": [
+          "Resultary: toric local divisor class groups pointed logarithmic Hilbert scheme weighted blow ups Arena Song binary gap torsion order",
+          "Resultary: stabilizer groups logarithmic Hilbert schemes P1 one point exceptional bubbles lattice cone multiplicities",
+          "web: Arena Song Hilbert n P1 0 stabilizers torus fixed points P(1...n) coarse local class group",
+          "https://arxiv.org/html/2605.17922v1 §7",
+          "https://arxiv.org/abs/1306.5036 Theorem 2.2"
+        ]
+      },
+      "evidence": [
+        "Arena–Song §7 lines 948–965: exact stack product and gcd stabilizer at bubble coordinates.",
+        "Arena–Song §4.4 Corollary 4.1 primitive ray map; Goldin et al. Theorem 2.2 inertia groups as Tor(N/N_sigma).",
+        "Standard affine toric class group sequence and integer-break argument give all remaining claimed output."
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Full inspected Resultary local-class-group finding for Liu–Zhu small-alpha toric Fano examples uses different ray fan and two fixed-point orbits; it does not provide a table of the Arena–Song family.",
+          "No exact printed B(n) table was located, but Arena–Song §7 supplies group factors for every bubble configuration, and classical integer-break maximizes their product."
+        ],
+        "reasoning": "Absence of a verbatim table does not confer originality. For each n, the source formula contains all group types indexed by m and compositions; the maximum B(n) and multiplicity 1, a+1, a(a+3)/2 follow by routine integer composition optimization. This is an implicit full table with a direct extremal corollary.",
+        "searches": [
+          "Resultary: toric local divisor class groups pointed logarithmic Hilbert scheme weighted blow ups Arena Song binary gap torsion order",
+          "Resultary: extremal lattice indices toric Hilbert schemes integer compositions class group",
+          "web exact-match: logarithmic Hilbert local class group bubble; Arena Song maximal stabilizer composition",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md"
+        ]
+      },
+      "rationale": "The full fixed-point group spectrum is a direct special case of Arena–Song’s published §7 boundary-stratum quotient and stabilizer rule, together with its own primitive toric stack fan and the general inertia/class-group identification from Goldin et al. and toric divisor theory. The binary-gap code is exactly the ordered composition of bubble lengths; at each bubble’s unique torus-fixed point the nonzero highest elementary symmetric coordinate forces stabilizer μ_g. Its character group gives Z/g. Ordered integer compositions yield the claimed sharp maximum and counts by the standard integer-break argument; no genuinely original substantive remainder survived. Different naming and absence of verbatim formula do not avoid prior implication.",
+      "residual_risks": [
+        "No uncertainty about the key prior implication: the Arena–Song §7 product formula combined with their primitive-ray toric stack and standard inertia/class-group identification covers the complete fixed-point group spectrum.",
+        "The primary paper does not print the displayed integer-break maximizer counts verbatim; they follow from already covered bubble sizes via an elementary ordered-composition count and do not save the overall originality claim.",
+        "The explicit second-difference Smith presentation is a useful alternate proof but mathematically equivalent to the earlier inertia computation for these fixed cones; independent novelty for that technique was not shown.",
+        "The comparison is for the coarse toric fixed points over C, not a claim about nonfixed-orbit local classes or analytic singularity types.",
+        "Finite Smith-normal-form tests n=2..8 do not replace the universal proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT BROADER COVERAGE: every fixed-point group factor follows from the bubble-product factorization and e_g-only toric fixed points, after standard coarse toric duality. The integer break is elementary postprocessing.",
+          "evidence": [
+            "https://arxiv.org/html/2605.17922v1 Corollary 4.1 lines 543–546; Definition 4.2/Lemma 4.3 lines 548–560; §7 lines 948–965."
+          ],
+          "identifier_or_url": "arXiv:2605.17922v1; https://arxiv.org/html/2605.17922v1",
+          "material_read": "Primary full-text HTML: introduction §1.1 (toric fan), §4.4 Corollary 4.1, Definition 4.2, Lemma 4.3, and §7 lines 946–967 including quotient-stack factorization and stabilizer gcd rule.",
+          "method": "Read primary arXiv HTML and compare the exact stack stratification/stabilizer formula with fixed binary-gap local-group claim; derive toric fixed strata from the nonvanishing e_g coordinate.",
+          "title": "Logarithmic Hilbert schemes of curves as weighted blow-ups and their integral Chow rings",
+          "trigger": "Exact same pointed logarithmic Hilbert family, complete fan, and boundary stabilizer product"
+        },
+        {
+          "assessment": "Theorem 2.2 proves inertia is abstractly Tor(N/N_sigma). Primitive-ray toric local Cl has the same finite Smith invariants in this case; therefore primary §7 group factors already cover the proposed Cl groups.",
+          "evidence": [
+            "https://arxiv.org/abs/1306.5036 Theorem 2.2 lines 157–175; Proposition 2.4 lines 198–205."
+          ],
+          "identifier_or_url": "arXiv:1306.5036; https://arxiv.org/abs/1306.5036",
+          "material_read": "Accessible full preprint text §1.1 stacky fans and §2.1 through Theorem 2.2, Proposition 2.4 and the Smith-normal-form discussion.",
+          "method": "Read theorem and proof lines 137–175 and Proposition 2.4; apply to primitive ray stack at a full-dimensional simplicial toric cone.",
+          "title": "Inertia groups of a toric Deligne-Mumford stack, fake weighted projective stacks, and labelled sheared simplices",
+          "trigger": "Needed rigorously to compare source stabilizer groups with coarse toric local divisor class groups rather than assuming matching names"
+        },
+        {
+          "assessment": "Not exact coverage: Liu–Zhu polytope family and two orbit types differ from the Arena–Song weighted Hilbert family. Shows standard class-group procedure, not same invariant.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md theorem and proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md",
+          "material_read": "Full RESULT.md, including theorem, exact ray-lattice proof, verification, limits and references.",
+          "method": "Read source through GitHub connector at Resultary/2026; compare toric fan, objects, and quotient groups.",
+          "title": "Local divisor class groups at the torus fixed points of the Liu–Zhu small-alpha examples",
+          "trigger": "Highest-ranked published Resultary result for local toric class groups"
+        },
+        {
+          "assessment": "General standard toric divisor sequence; not new in submitted package.",
+          "evidence": [
+            "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html Description; Cox–Little–Schenck Thm 4.1.3 identified there."
+          ],
+          "identifier_or_url": "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html",
+          "material_read": "Documentation definition and description, including torus-invariant divisor presentation and Cox–Little–Schenck Theorem 4.1.3 reference.",
+          "method": "Read online primary software documentation of toric class-group presentation.",
+          "title": "classGroup(NormalToricVariety) — Macaulay2 documentation",
+          "trigger": "Confirm standard toric divisor-class sequence underlying comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "The invariant is full torsion class-group structure rather than simply determinant or a chosen small n value.",
+        "For n=4, binary cone 1000 has Cl=Z/4 and 1010 has Cl=(Z/2)^2; independent Smith computations confirmed distinction.",
+        "Exact n-uniform extremal index B(n) and counts may serve as a quantitative singularity benchmark."
+      ],
+      "limitations": [
+        "Mathematical value does not assert novelty; no novel substantive increment over known stack stabilizer product has been established."
+      ],
+      "rationale": "Independently of priority, the coarse fixed-point local class-group spectrum, sharp largest cone multiplicity, and exact maximizing-orbit count are mathematically natural singularity invariants for a moduli-derived toric family, useful for selecting and comparing worst local singularities. The group type distinguishes, for example, Z/4 and (Z/2)^2 at n=4 even though their orders match. This intrinsic geometric use clears the natural-complete-classification value bar; it does not rescue originality because the classification is already implied by source results.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2605.17922v1 (full primary HTML §§1.1,4.4,7)",
+    "https://arxiv.org/abs/1306.5036 (full text of Thm 2.2 and related sections)",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md (full RESULT.md)",
+    "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html (toric divisor presentation)",
+    "Resultary semantic searches for toric local class groups, logarithmic Hilbert stabilizers and extremal toric lattice indices on 2026-11-03",
+    "Frozen record RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, VERIFY.py, AUDIT.json, METADATA.json at inventory commit b5aea33dab4e6e6dfd4fd4e653bde9dc7ae28595"
+  ],
+  "disposition": "failed",
+  "final_claim": "For n>=2, the coarse toric variety of Hilb^n(P1_C|0) has at binary-labeled fixed point b with ones i1<...<ir the group Cl(O_X,x_b)≅⊕_t Z/g_t, where g=(i2−i1,...,n−ir) and empty ones gives zero group. Its maximal group order is classical integer-break B(n), attained with counts 1 for n=3a, a+1 for n=3a+2, and a(a+3)/2 for n=3a+1. This mathematical statement is correct but follows from earlier published general stack stabilizer formulas and standard toric class-group theory.",
+  "limitations": [
+    "The final rejection is for covered originality, not incorrect mathematics or inability to read literature.",
+    "The exact extremal count is not written in Arena–Song, but follows from source-provided full group profile by elementary compositions.",
+    "No mathematical repair without a separately proved, truly original, valuable remaining claim.",
+    "Public-intended existing AUDIT.json and METADATA.json contain operational scope_run_id and cannot be emitted unchanged as publication replacements."
+  ],
+  "residual_risks": [
+    "No uncertainty about the key prior implication: the Arena–Song §7 product formula combined with their primitive-ray toric stack and standard inertia/class-group identification covers the complete fixed-point group spectrum.",
+    "The primary paper does not print the displayed integer-break maximizer counts verbatim; they follow from already covered bubble sizes via an elementary ordered-composition count and do not save the overall originality claim.",
+    "The explicit second-difference Smith presentation is a useful alternate proof but mathematically equivalent to the earlier inertia computation for these fixed cones; independent novelty for that technique was not shown.",
+    "The comparison is for the coarse toric fixed points over C, not a claim about nonfixed-orbit local classes or analytic singularity types.",
+    "Finite Smith-normal-form tests n=2..8 do not replace the universal proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIRECT BROADER COVERAGE: every fixed-point group factor follows from the bubble-product factorization and e_g-only toric fixed points, after standard coarse toric duality. The integer break is elementary postprocessing.",
+      "evidence": [
+        "https://arxiv.org/html/2605.17922v1 Corollary 4.1 lines 543–546; Definition 4.2/Lemma 4.3 lines 548–560; §7 lines 948–965."
+      ],
+      "identifier_or_url": "arXiv:2605.17922v1; https://arxiv.org/html/2605.17922v1",
+      "material_read": "Primary full-text HTML: introduction §1.1 (toric fan), §4.4 Corollary 4.1, Definition 4.2, Lemma 4.3, and §7 lines 946–967 including quotient-stack factorization and stabilizer gcd rule.",
+      "method": "Read primary arXiv HTML and compare the exact stack stratification/stabilizer formula with fixed binary-gap local-group claim; derive toric fixed strata from the nonvanishing e_g coordinate.",
+      "title": "Logarithmic Hilbert schemes of curves as weighted blow-ups and their integral Chow rings",
+      "trigger": "Exact same pointed logarithmic Hilbert family, complete fan, and boundary stabilizer product"
+    },
+    {
+      "assessment": "Theorem 2.2 proves inertia is abstractly Tor(N/N_sigma). Primitive-ray toric local Cl has the same finite Smith invariants in this case; therefore primary §7 group factors already cover the proposed Cl groups.",
+      "evidence": [
+        "https://arxiv.org/abs/1306.5036 Theorem 2.2 lines 157–175; Proposition 2.4 lines 198–205."
+      ],
+      "identifier_or_url": "arXiv:1306.5036; https://arxiv.org/abs/1306.5036",
+      "material_read": "Accessible full preprint text §1.1 stacky fans and §2.1 through Theorem 2.2, Proposition 2.4 and the Smith-normal-form discussion.",
+      "method": "Read theorem and proof lines 137–175 and Proposition 2.4; apply to primitive ray stack at a full-dimensional simplicial toric cone.",
+      "title": "Inertia groups of a toric Deligne-Mumford stack, fake weighted projective stacks, and labelled sheared simplices",
+      "trigger": "Needed rigorously to compare source stabilizer groups with coarse toric local divisor class groups rather than assuming matching names"
+    },
+    {
+      "assessment": "Not exact coverage: Liu–Zhu polytope family and two orbit types differ from the Arena–Song weighted Hilbert family. Shows standard class-group procedure, not same invariant.",
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md theorem and proof."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b/RESULT.md",
+      "material_read": "Full RESULT.md, including theorem, exact ray-lattice proof, verification, limits and references.",
+      "method": "Read source through GitHub connector at Resultary/2026; compare toric fan, objects, and quotient groups.",
+      "title": "Local divisor class groups at the torus fixed points of the Liu–Zhu small-alpha examples",
+      "trigger": "Highest-ranked published Resultary result for local toric class groups"
+    },
+    {
+      "assessment": "General standard toric divisor sequence; not new in submitted package.",
+      "evidence": [
+        "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html Description; Cox–Little–Schenck Thm 4.1.3 identified there."
+      ],
+      "identifier_or_url": "https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/NormalToricVarieties/html/_class__Group_lp__Normal__Toric__Variety_rp.html",
+      "material_read": "Documentation definition and description, including torus-invariant divisor presentation and Cox–Little–Schenck Theorem 4.1.3 reference.",
+      "method": "Read online primary software documentation of toric class-group presentation.",
+      "title": "classGroup(NormalToricVariety) — Macaulay2 documentation",
+      "trigger": "Confirm standard toric divisor-class sequence underlying comparison"
+    }
+  ]
+}
