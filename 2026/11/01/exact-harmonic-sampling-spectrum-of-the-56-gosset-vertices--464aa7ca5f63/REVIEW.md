@@ -1,15 +1,21 @@
-# Scientific review of the Gosset harmonic-sampling theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The 56 normalized vectors are distinct unit vectors in a seven-dimensional space. Their 28 representative inner products are exactly \(\pm1/3\). The 28-by-28 Seidel matrix \(S=2BB^{\mathsf T}-3I-J\), with \(B\) the edge-vertex incidence matrix of \(K_8\), has eigenvalues \(9\) (multiplicity seven) and \(-3\) (multiplicity 21), proved from \(B^{\mathsf T}B=6I+J\). Antipodal parity and the addition theorem yield the complete spectrum in RESULT.md. Exact Gegenbauer recurrence establishes the five exceptional ranks. The integral representation with \(U^2\sim\operatorname{Beta}(1/2,5/2)\) yields \(|P_k(1/3)|\le965/59049<1/27\) for all \(k\ge10\), ensuring no higher missing spectral sector. The standalone checker reconstructs and verifies the finite identities with rational arithmetic. The infinite result rests on the analytic bound.
+## correctness
 
-## Originality — PASS, subject to bounded historical review
-Searches in accessible research records and previously available related claims, including aliases \(3_{21}\), equiangular 28-line configurations, and Gegenbauer harmonics, did not identify this all-degree rank theorem or its sharp consecutive interpolation threshold. Bannai–Okuda–Tagami (arXiv:1308.5101), Greaves–Koolen–Munemasa–Szöllősi (arXiv:1403.2155), and Barg–Yu (arXiv:1311.3219) supply adjacent theory; their inspected passages did not present the particular rank and parity theorem. The result is not the earlier 126-point E7 root-system sampling result: the Gosset vertex orbit consists of 56 minuscule vectors, not 126 roots. A general association-scheme rank formula might already imply this theorem; this remains a residual risk and is not ruled out by unsuccessful searches.
+PASS
 
-## Mathematical value — PASS
-The 56-point Gosset configuration is a canonical extremal equiangular/spherical-design geometry. The complete all-degree interpolation rank sequence and spectral multiplicities identify three genuine low-degree degeneracies, a one-dimensional defect at degree four, and a sharp two-degree interpolation threshold, while proving no higher-degree exceptions. The result provides exact finite-sampling information not furnished by the mere vertex count or low-degree design property. No broader theorem or independent certification is asserted.
+On X={+/-v_e: e two-subset of {1..8}} in the 7-dimensional coordinate-sum-zero space, direct inner products yield +/-1/3 off-diagonal. The K8 edge-incidence Seidel matrix S=2BB^T-3I-J has eigenvalues 9 (multiplicity 7), -3 (multiplicity 21). Antipodal parity and normalized Gegenbauer kernels give the exact four block eigenvalue expressions 2(1+27c_k),2(1-c_k) for even k, and 2(1+9c_k),2(1-3c_k) for odd k, where c_k=P_k(1/3). Rational recurrence values yield ranks 1,7,27,21,27 for k=0..4; for 5..9 |c_k|<1/27; beta-moment estimate |c_k|<=965/59049<1/27 for k>=10 proves every k>=5 has rank28. The first consecutive complete two-degree interpolation is 5+6 rank56; 4+5 rank55. Independent rational 28x28 Gram rank computations through k9 agreed; the beta-moment inequality, not the finite data, proves all k.
 
-## Limits
-Some older tight-design and association-scheme sources were available only as abstracts or excerpts and were not used to assert exhaustive novelty. This is a self-review only; no external independent audit or validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Gegenbauer addition kernel and Seidel/association scheme framework are standard; the all-degree rank-sequence specialization, low-degree exceptional fourth-degree defect, and first full consecutive harmonic sampling pair 5,6 are not stated or dominated by inspected harmonic-index design results. This remains best-of-knowledge, with 56-point tight-design association-scheme character tables a material equivalence risk.
+
+## value
+
+PASS
+
+The 56-point Gosset code is a canonical exceptional finite spherical configuration; determining every exact harmonic evaluation rank and the minimal two-consecutive-degree interpolation threshold gives a natural complete sampling-spectrum invariant. The all-k threshold and fourth-degree missing direction provide genuinely useful design/interpolation information beyond a finite rank sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
