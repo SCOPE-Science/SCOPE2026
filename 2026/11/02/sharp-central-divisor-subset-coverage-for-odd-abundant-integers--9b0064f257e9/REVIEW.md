@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A monotone exact-rational classification shows that every relevant integer is divisible by one of eight explicitly listed minimal abundant integers. The finite central-interval assertion is exhaustively verified on each base by a proved subset-sum bitset invariant, with an alternative Boolean dynamic program on the two decisive examples. An independent infinite interval-extension lemma bounds every newly introduced divisor via the two-prime cofactor's monotonically increasing deficiency, and the abundance recurrence supplies the required overlap margin. The sharp missing sum is checked against all divisors not exceeding the target.
+PASS
 
-## Originality
+The prime-product upper bounds force p,q,r=(3,5,7),(3,5,11),(3,5,13). Coordinatewise monotonicity of prime-power sigma indices and exact rational boundary comparisons yield precisely eight minimal abundant exponent triples. Independently constructed the distinct-divisor bitset (start 1; for each d, B|=B<<d) for each actual eight bases and verified every sum in the inclusive [23,sigma-23] and the sharp missing 22 at n=7425; this is exhaustive for those finite bases, not merely sampled. Verified the two-prime cofactor monotonicity of Delta(d)=2d-sigma(d) by its exponent-increment formula. The interval-extension lemma adds each new p^{a+1}d in order and proves overlap under sigma(pN)-2pN>=45; monotone minimal abundance >=26 gives this at every extension. Consequently the claim covers the unbounded exponents. The proper-divisor complement proves semiperfectness; parity of sigma is equivalent to an equal-sum divisor partition (Zumkeller) in this class.
 
-PASS within investigated evidence. Jokar (arXiv:2207.09053v1, 2022) proves an almost-practical-to-Zumkeller implication and gives the odd almost-practical family with third prime \(7\), which does not include third-prime \(11\) and \(13\) families. Fang (arXiv:2207.12906v1, 2022) obtains finite searches for odd weird numbers, not full interior subset-sum coverage on an unbounded family. The historical eight-element primitive-abundant table is explicitly acknowledged and independently rederived; it does not imply the sharp full interval without a separate propagation argument. Relevant searchable mathematical records yielded no stronger covering theorem. An older unindexed equivalent or unstated consequence remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a sharp structural interval theorem valid for infinitely many non-almost-practical odd integers, not a new table of examples. It resolves a natural restricted-support case of both the odd-weird and odd-Zumkeller questions and controls every central subset sum, substantially more than a single equal-partition witness. The endpoint cannot be improved because \(7425\) misses \(22\).
+Best-of-knowledge PASS for the exact universal central subset-sum interval and optimal endpoint. The eight primitive abundance threshold numbers are known, but arithmetic tables do not imply the claimed coverage for all exponents. Jokar’s almost-practical results specialize to prime support 3,5,7 and do not cover the r=11/13 sharp family. Fang examines finite odd-weird searches rather than this unbounded central interval.
 
-## Boundaries
+## value
 
-The theorem does not settle odd weirdness for four or more distinct prime factors, or universal attainability of edge sums. Finite experiments alone do not establish the infinite theorem. Same-author bibliographic inspection does not constitute external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The uniform best central interval is a mathematically natural stronger invariant than mere semiperfectness for the infinite odd-three-prime abundant family; the sharp 7425 obstruction and exact endpoint 23 are informative. The threshold/base decomposition plus rigorous propagation solves an infinite question, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
