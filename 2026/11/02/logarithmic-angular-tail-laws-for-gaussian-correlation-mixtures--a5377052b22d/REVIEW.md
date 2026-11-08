@@ -1,19 +1,21 @@
-# Scientific assessment: logarithmic Gaussian-correlation-mixture tails
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies independent standard normal innovations and an almost-surely subunit nonnegative random correlation whose endpoint survival probability is asymptotic to a positive constant times a positive power. Its proof establishes an exact Plackett/Tonelli integral for arbitrary mixing laws, a precise normal-quantile scaling, a global integrable bound at both endpoints, and the Gamma/elementary formulas. The assumptions and quantifiers are kept fixed throughout. The actual packaged numerical program checks the special-function and finite-scale formulas, but no inference from finitely many numerical tests to the asymptotic theorem is needed.
+PASS
 
-## Originality — PASS, with residual historical risk
+Let R∈[0,1) be independent of X,Z standard normal, with P(R>1-s)∼c s^a (a,c>0), and Y=RX+√(1-R²)Z. Plackett differentiation gives exactly C(uw1,uw2)=u²w1w2+∫_0¹P(R>r) h_r(q1,q2)dr, valid with atoms. For r=1-t/log(1/u), normal quantiles and Mills asymptotics give scaled kernel ∝(w1w2)^1/2 t^-1/2 exp[-t/2-(log(w1/w2))²/(8t)]; endpoint survival contributes c t^a. A uniform integrable bound K t^(a-1/2)e^-t/4 justifies dominated convergence for fixed positive weights. This proves L^a C(uw1,uw2)/u→c B_a(w1,w2), with B_a as displayed and B_1=min(w1,w2)(1+|log(w1/w2)|/2). Independent SciPy Plackett quadrature for endpoint laws a=.5,1,2 and unequal weights checked convergence at L=15,30,60; finite quadrature is corroboration, not the proof.
 
-The closest same-object work is Manner and Segers (arXiv:0912.3516v1), whose Section 3.2 and Proposition 4 establish zero tail dependence and the residual index one, without the sharp logarithmic coefficient and off-diagonal angular law. Koike, Hofert and Tsunekawa (arXiv:2604.05985v1) explicitly require a non-degenerate first-order tail copula for their tail-path framework; their theorem does not imply this limit for the class with identically zero first-order tail copula. Fixed-correlation Gaussian-tail estimates and Hüsler–Reiss near-perfect-correlation limits are related but are not themselves the evaluated mixture with a general regularly varying endpoint and its explicit uniform-correlation angular profile. Searches of mathematical research records, exact-copula formulations, and accessible primary papers did not reveal the full asserted result. A stronger, unindexed integration theorem remains a priority risk; this is not an assertion of exhaustive global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines a natural quantitative invariant of a known near-asymptotically dependent probability model: the entire small-tail angular intensity. Neither a zero first-order tail coefficient nor the residual dependence exponent identifies the multiplicative logarithmic rate or the dependence on unequal thresholds. A universal endpoint-power classification, exact Gamma coefficients, and an elementary non-product two-threshold law can inform extreme-risk calibration. The extension from one special law to all endpoint regularly varying correlation laws is structural, not an arbitrary finite computation.
+Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.
 
-## Sources and limitations
+## value
 
-Evidence consists of the directly inspected HTML text of arXiv:2604.05985v1 (especially Theorem 1 and its non-degeneracy assumption), the directly inspected arXiv:0912.3516v1 (Section 3.2, Proposition 4 and its proof), and accessible bibliographic material on fixed-correlation normal copulas. Uncertainty remains about broad, unpublished or unindexed Hüsler–Reiss mixture reductions; this is a historical-priority risk, not a gap in the presented mathematical argument. The proof is only pointwise in fixed positive threshold multipliers and only for the specified endpoint-power law. No external independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Endpoint-regular-variation assumption for random correlations creates a natural near-asymptotic dependence problem where classical first-order tail copula is identically zero. The result supplies a genuinely informative second-scale logarithmic normalization and full non-product angular profile, plus exact uniform-mixing formula, a precise probabilistic invariant useful beyond the diagonal Ledford–Tawn index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

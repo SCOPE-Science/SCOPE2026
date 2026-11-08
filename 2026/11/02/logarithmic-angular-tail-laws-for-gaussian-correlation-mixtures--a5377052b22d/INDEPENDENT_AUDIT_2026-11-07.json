@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:56:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let R∈[0,1) be independent of X,Z standard normal, with P(R>1-s)∼c s^a (a,c>0), and Y=RX+√(1-R²)Z. Plackett differentiation gives exactly C(uw1,uw2)=u²w1w2+∫_0¹P(R>r) h_r(q1,q2)dr, valid with atoms. For r=1-t/log(1/u), normal quantiles and Mills asymptotics give scaled kernel ∝(w1w2)^1/2 t^-1/2 exp[-t/2-(log(w1/w2))²/(8t)]; endpoint survival contributes c t^a. A uniform integrable bound K t^(a-1/2)e^-t/4 justifies dominated convergence for fixed positive weights. This proves L^a C(uw1,uw2)/u→c B_a(w1,w2), with B_a as displayed and B_1=min(w1,w2)(1+|log(w1/w2)|/2). Independent SciPy Plackett quadrature for endpoint laws a=.5,1,2 and unequal weights checked convergence at L=15,30,60; finite quadrature is corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koike–Hofert–Tsunekawa require nondegenerate first-order tail copula, which does not exist in this mixture; it cannot dominate this theorem.",
+          "Manner–Segers same model gives qualitative eta=1 but not quantitative B_a."
+        ],
+        "reasoning": "No inspected source implies the full power-law-dependent asymptotic; stronger general limit representations may be adaptable, which is a residual risk.",
+        "searches": [
+          "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+          "arXiv:2604.05985",
+          "arXiv:0912.3516"
+        ]
+      },
+      "checked_sources": [
+        "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+        "Resultary:2026/9/19/SCOPE-renyi-integrability-spectrum-gaussian-magnitudes--5d956edf6d4a",
+        "arXiv:0912.3516, https://arxiv.org/abs/0912.3516; full-text https://research.dial.uclouvain.be/bitstreams/009c0d7d-6d16-42ba-85a7-74ac7e385206/download",
+        "arXiv:2604.05985v1, https://arxiv.org/html/2604.05985v1",
+        "DOI:10.1016/j.spl.2011.06.003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "eta=1 does not determine slowly varying factor; distinct endpoint-tail exponents a yield distinct log rates while all have eta=1.",
+          "First-order nondegenerate tail-copula representation does not apply to zero limit."
+        ],
+        "reasoning": "The endpoint Plackett integral and dominated convergence are needed to extract exact angular behavior beyond the earlier qualitative results.",
+        "searches": [
+          "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+          "arXiv:0912.3516",
+          "arXiv:2604.05985"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Manner–Segers give Ledford–Tawn eta=1 and zero ordinary first-order copula, not the exact logarithmic correction.",
+          "Angular B_1(w1,w2)=min(w1,w2)(1+|log(w1/w2)|/2), non-factorizable and fixed-weight dependent."
+        ],
+        "reasoning": "The classical eta=1 statement neither fixes logarithmic order nor the off-diagonal profile, so it is not equivalent.",
+        "searches": [
+          "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+          "arXiv:0912.3516"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is a continuous family over a,c,w1,w2, not an exact finite table or stored coefficient database.",
+          "Search hit Gaussian magnitude Rényi integrability concerns different functionals; no B_a table located."
+        ],
+        "reasoning": "An exact-database check is inapplicable as a numeric table problem; comparison instead tests published analytic special-case profiles.",
+        "searches": [
+          "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+          "arXiv:0912.3516",
+          "Resultary Gaussian correlation mixtures query"
+        ]
+      },
+      "rationale": "Targeted Resultary search plus comparison of the closest published primary statements and hypotheses identifies no prior implication of the complete final claim; originality is best-of-knowledge and subject to explicitly named residual risks.",
+      "residual_risks": [
+        "The Manner–Segers same-model paper and Hüsler–Reiss theory may contain an unindexed corollary not stated in the inspected material.",
+        "Fung–Seneta fixed-correlation paper not available in full, but not decisive by itself; qualified best-of-knowledge originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows zero classical first-order tail dependence with Ledford–Tawn coefficient eta=1 when upper endpoint=1; does not state cL^-a factor or exact fixed-angular B_a profile in the inspected theorem/proof.",
+          "evidence": "Their qualitative near dependence classification is weaker than this endpoint-tail-specific quantitative law.",
+          "identifier_or_url": "arXiv:0912.3516, https://arxiv.org/abs/0912.3516; full-text https://research.dial.uclouvain.be/bitstreams/009c0d7d-6d16-42ba-85a7-74ac7e385206/download",
+          "material_read": "Open manuscript Section 3.2, Proposition 4, and relevant appendix proof and formulae",
+          "method": "Inspected full accessible PDF in sections including proof; compared exact assumptions, normalizations and limits",
+          "title": "Tails of correlation mixtures of elliptical copulas",
+          "trigger": "Same random correlation-mixture copula and near-perfect endpoint"
+        },
+        {
+          "assessment": "Theorem1 assumes a nondegenerate C(uw)/u limit; here that limit is zero everywhere, so the theorem does not imply B_a.",
+          "evidence": "The hypothesis of nondegeneracy demonstrably fails for the current model.",
+          "identifier_or_url": "arXiv:2604.05985v1, https://arxiv.org/html/2604.05985v1",
+          "material_read": "Full HTML introduction, Theorem 1 assumptions requiring nondegenerate first-order tail copula",
+          "method": "Opened full HTML and inspected theorem hypotheses and definitions",
+          "title": "Tail copula representation of path-based maximal tail dependence",
+          "trigger": "Potential stronger tail-copula representation covering off diagonal profiles"
+        },
+        {
+          "assessment": "Considers fixed correlation bivariate normal copula; the random mixing distribution with R approaching 1 is a different limit regime.",
+          "evidence": "An implicit Hüsler–Reiss integrated argument remains a priority risk.",
+          "identifier_or_url": "DOI:10.1016/j.spl.2011.06.003",
+          "material_read": "Published abstract and bibliographic result",
+          "method": "Targeted bibliographic search, no whole article access claimed",
+          "title": "The bivariate normal copula function is regularly varying",
+          "trigger": "Potential fixed Gaussian correlation asymptotic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Endpoint-regular-variation assumption for random correlations creates a natural near-asymptotic dependence problem where classical first-order tail copula is identically zero. The result supplies a genuinely informative second-scale logarithmic normalization and full non-product angular profile, plus exact uniform-mixing formula, a precise probabilistic invariant useful beyond the diagonal Ledford–Tawn index.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gaussian correlation mixtures endpoint regular variation logarithmic residual tail dependence angular tail copula",
+    "Resultary:2026/9/19/SCOPE-renyi-integrability-spectrum-gaussian-magnitudes--5d956edf6d4a",
+    "arXiv:0912.3516, https://arxiv.org/abs/0912.3516; full-text https://research.dial.uclouvain.be/bitstreams/009c0d7d-6d16-42ba-85a7-74ac7e385206/download",
+    "arXiv:2604.05985v1, https://arxiv.org/html/2604.05985v1",
+    "DOI:10.1016/j.spl.2011.06.003"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed strictly positive angular weights w1,w2; no uniformity over weights varying with u.",
+    "Requires R≥0, R<1 a.s., and power-law endpoint survival; atoms allowed but R=1 mass excluded.",
+    "A newer hidden-regular-variation or Hüsler–Reiss scale-mixture theorem might imply the same B_a formula; no historical-priority certification."
+  ],
+  "residual_risks": [
+    "The Manner–Segers same-model paper and Hüsler–Reiss theory may contain an unindexed corollary not stated in the inspected material.",
+    "Fung–Seneta fixed-correlation paper not available in full, but not decisive by itself; qualified best-of-knowledge originality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Shows zero classical first-order tail dependence with Ledford–Tawn coefficient eta=1 when upper endpoint=1; does not state cL^-a factor or exact fixed-angular B_a profile in the inspected theorem/proof.",
+      "evidence": "Their qualitative near dependence classification is weaker than this endpoint-tail-specific quantitative law.",
+      "identifier_or_url": "arXiv:0912.3516, https://arxiv.org/abs/0912.3516; full-text https://research.dial.uclouvain.be/bitstreams/009c0d7d-6d16-42ba-85a7-74ac7e385206/download",
+      "material_read": "Open manuscript Section 3.2, Proposition 4, and relevant appendix proof and formulae",
+      "method": "Inspected full accessible PDF in sections including proof; compared exact assumptions, normalizations and limits",
+      "title": "Tails of correlation mixtures of elliptical copulas",
+      "trigger": "Same random correlation-mixture copula and near-perfect endpoint"
+    },
+    {
+      "assessment": "Theorem1 assumes a nondegenerate C(uw)/u limit; here that limit is zero everywhere, so the theorem does not imply B_a.",
+      "evidence": "The hypothesis of nondegeneracy demonstrably fails for the current model.",
+      "identifier_or_url": "arXiv:2604.05985v1, https://arxiv.org/html/2604.05985v1",
+      "material_read": "Full HTML introduction, Theorem 1 assumptions requiring nondegenerate first-order tail copula",
+      "method": "Opened full HTML and inspected theorem hypotheses and definitions",
+      "title": "Tail copula representation of path-based maximal tail dependence",
+      "trigger": "Potential stronger tail-copula representation covering off diagonal profiles"
+    },
+    {
+      "assessment": "Considers fixed correlation bivariate normal copula; the random mixing distribution with R approaching 1 is a different limit regime.",
+      "evidence": "An implicit Hüsler–Reiss integrated argument remains a priority risk.",
+      "identifier_or_url": "DOI:10.1016/j.spl.2011.06.003",
+      "material_read": "Published abstract and bibliographic result",
+      "method": "Targeted bibliographic search, no whole article access claimed",
+      "title": "The bivariate normal copula function is regularly varying",
+      "trigger": "Potential fixed Gaussian correlation asymptotic comparison"
+    }
+  ]
+}
