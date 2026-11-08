@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact necessary-and-sufficient overlap condition from marker positions; proof checks positive proper overlap lengths, orientation, rectangle containment and integer-concave optimum, and exhaustively checks complete small cases with verify.py. No finite computation is used as an all-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn (2013) https://arxiv.org/abs/1303.1026 gives unrestricted C(n,q) bounds and short n, not a fixed-weight-three sharp bound.",
+        "Stanovnik et al. (2024) https://doi.org/10.1007/s10623-023-01344-z optimize over all q-ary codewords.",
+        "Stanovnik et al. (2025) https://arxiv.org/abs/2410.18458 use nearly balanced and run-limited words, not exactly three ones for every length."
+      ],
+      "reasoning": "An unrestricted optimum does not imply a sharp optimum of a specified Hamming weight; its generic upper bound is far larger than the quadratic sparse class size. The balanced window shrinks around n/2, while weight three is sparse as n grows; published constrained optimizers do not cover this infinite layer.",
+      "searches": [
+        "cross-bifix-free non-overlapping code over binary alphabet exact maximum size with three ones per codeword / fixed Hamming weight 3",
+        "non-overlapping codes constant composition sparse binary markers extremal family",
+        "two maximal fixed-weight-three binary non-overlapping codebooks mod three parity",
+        "https://arxiv.org/abs/1303.1026",
+        "https://doi.org/10.1007/s10623-023-01344-z",
+        "https://arxiv.org/abs/2410.18458"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1209.0236v2",
+      "https://arxiv.org/abs/1303.1026",
+      "https://arxiv.org/abs/2211.10309",
+      "https://doi.org/10.1007/s10623-023-01344-z",
+      "https://link.springer.com/article/10.1007/s40314-024-03055-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earliest primary source: Chee et al. arXiv:1209.0236v1 (2012-09-03), supplies the frame-synchronization context and an unrestricted bound.",
+        "Restricted-overlap work arXiv:2211.10309 forbids a chosen set of prefix/suffix lengths, rather than fixing the Hamming weight with all lengths forbidden.",
+        "Nearest indexed restricted cases are non-overlap length-five or ternary-variable-length records, not the exact binary weight-three optimization."
+      ],
+      "reasoning": "The new theorem is a necessary-and-sufficient global index condition I+J<=n-1 and optimization, including the exact two/four complete extremizers. A general upper bound or sufficient construction from the inspected literature is not a matching sparse upper bound; no inspected result entails this one by immediate specialization. Implicit unindexed coverage remains a risk.",
+      "searches": [
+        "https://arxiv.org/abs/1209.0236",
+        "https://arxiv.org/abs/1303.1026",
+        "https://arxiv.org/abs/2211.10309",
+        "https://arxiv.org/abs/2410.18458",
+        "https://doi.org/10.1007/s10623-023-01344-z",
+        "cross-bifix-free codes constant weight binary words all lengths exact maximum number of codewords weight three bifix-free",
+        "Exact optimal size floor((2n-3)^2/24) binary constant weight three cross-bifix-free non-overlapping block codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee et al. (2012), https://arxiv.org/abs/1209.0236, uses cross-bifix-free; Blackburn (2013), https://arxiv.org/abs/1303.1026, uses non-overlapping; terminology is equivalent.",
+        "Under reversal prefix/suffix non-overlap is invariant but fixed weight-three is preserved, giving only mirrored codebooks."
+      ],
+      "reasoning": "Compared both naming conventions, mutual uncorrelated and strong comma-free terms, reversal, bit complement and run-gap coordinate representations. Complement changes weight three to weight n minus three and cannot independently yield a fixed-weight-three theorem at general n. Neither checked synonym produces a stronger enumerative all-length theorem.",
+      "searches": [
+        "cross-bifix-free codes constant weight binary words all lengths exact maximum number of codewords weight three bifix-free",
+        "Exact optimal size floor((2n-3)^2/24) binary constant weight three cross-bifix-free non-overlapping block codes",
+        "Optimal nonoverlapping cross bifix code binary words Hamming weight 3 all maximizers prefix suffix gap characterization",
+        "Binary constant composition synchronization words with three ones maximum cross-bifix-free family",
+        "\"non-overlapping codes\" \"constant weight\" maximum",
+        "\"non-overlapping codes\" \"weight three\" binary",
+        "\"cross-bifix-free\" \"weight\" three maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "TheoremDB cross-bifix-free n=11 unrestricted binary maximum 44, https://theoremdb.org/statements/P100019/; fixed-weight-three maximum at n=11 is 15 and represents a distinct optimization.",
+        "The Chee et al. and Stanovnik et al. tables compare whole-alphabet unrestricted codes, not Hamming-weight-three maxima."
+      ],
+      "reasoning": "Exact indexed sequence/parameter checks and searched theorem/data records did not reveal a table of the sparse capacities 1,2,3,5,7,9,12,... as constant-weight-three cross-bifix-free optima. A numerical sequence coincidence would not establish the all-length extremizer theorem, and search absence alone is not proof of originality.",
+      "searches": [
+        "\"cross-bifix-free\" \"constant-weight\"",
+        "\"non-overlapping codes\" \"three ones\"",
+        "\"(2n-3)^2/24\" \"codes\"",
+        "\"non-overlapping codes\" \"constant weight\" maximum",
+        "\"non-overlapping codes\" \"weight three\" binary",
+        "\"cross-bifix-free\" \"weight\" three maximum",
+        "\"constant-weight\" \"non-overlapping codes\" \"three\" exact",
+        "\"non-overlapping\" \"weight-three\" code cardinality"
+      ]
+    },
+    "rationale": "Inspected primary full texts cover unrestricted non-overlapping codes, selected overlap lengths or balanced/run-length constraints, not binary constant-weight-three maximum and complete extremizer classification. Actual semantic research-record queries found nearby but none implicating the final all-n statement; implicit/unindexed equivalents remain a residual historical risk.",
+    "residual_risks": [
+      "A prior exact fixed-weight-three theorem could exist under alternative nomenclature, in unindexed works or as an unadvertised corollary.",
+      "A complete verification of priority beyond inspected full-text works and accessible indexed research records has not been independently performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the all-length binary fixed-weight-three optimum or every maximizing codebook; near-optimal unrestricted construction gives no sharp sparse-class theorem.",
+        "evidence": [
+          "https://arxiv.org/abs/1209.0236",
+          "https://arxiv.org/html/1209.0236v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.0236v2",
+        "material_read": "Full HTML: definitions, Sections 3-4 constructions and unrestricted bounds, length tables and references",
+        "method": "Inspected section theorem statements, construction parameters and listed fixed-length values",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Main earliest public source for cross-bifix-free synchronization codes"
+      },
+      {
+        "assessment": "General unrestricted q-ary upper bounds and n<=3 values do not prove the sharp constant weight-three binary all-length result.",
+        "evidence": [
+          "https://arxiv.org/abs/1303.1026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Full arXiv text: introduction and Sections 2-5 including bounds, constructions and small n",
+        "method": "Compared theorem quantifiers over n and q and any weight/composition constraints",
+        "title": "Non-overlapping codes",
+        "trigger": "Foundational general optimum theory with possible coverage via short-length theorems"
+      },
+      {
+        "assessment": "Its overlap-length restriction is different from the present constant-composition restriction; does not yield the stated optimum/classification.",
+        "evidence": [
+          "https://arxiv.org/abs/2211.10309"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.10309",
+        "material_read": "Accessible full article sections on prescribed prohibited overlap lengths and lower/upper bounds",
+        "method": "Compared prohibition of selected overlap lengths versus all lengths under exact Hamming weight",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Terminologically close restriction of overlap condition"
+      },
+      {
+        "assessment": "Unrestricted maximum sizes and codebook counts neither dominate nor directly specialize to the sharp Hamming-weight-three capacity at all lengths.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s10623-023-01344-z"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Complete open-access journal HTML, Sections 1-6 on optimization, maximal and maximum unrestricted codes",
+        "method": "Compared its optimization variables and reported parameter-specific maximum counts with the fixed weight-three theorem",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Most relevant unrestricted maximum-cardinality and extremizer paper"
+      },
+      {
+        "assessment": "Balanced-polarity and run-length bounds do not imply an all-n binary exactly-three-one optimum or the two/four maximizing families.",
+        "evidence": [
+          "https://arxiv.org/abs/2410.18458",
+          "https://link.springer.com/article/10.1007/s40314-024-03055-0"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+        "material_read": "Open-access HTML sections 1-7 including balance definitions, constructions, maximality conditions, tables and restricted-run section",
+        "method": "Compared allowed weight window (nearly half positive), and exact maximizer outputs, with weight exactly three for arbitrarily large n",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Closest constrained-code article; possibility of weight-restricted theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "11a7001a-60a6-4bae-9539-ebd609c29137",
+  "value": {
+    "rationale": "The first multi-marker sparse case of cross-bifix-free frame synchronization is solved exactly for all lengths, with quadratic capacity and complete extremizer classification. The zero-one gap compatibility is a structural lemma, and the two versus four distinct maximizers at multiples of three is a natural discontinuity; not just a code-example census.",
+    "status": "PASS"
+  }
+}
