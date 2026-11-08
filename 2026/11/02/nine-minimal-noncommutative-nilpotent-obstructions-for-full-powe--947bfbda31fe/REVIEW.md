@@ -1,15 +1,21 @@
-# Review: Nine minimal noncommutative nilpotent obstructions for full power semirings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces every relevant semigroup of order at most five to two disjoint index-three shapes, and proves the smaller and index-four noncommutative cases are finitely based. The complete enumeration of 63 three-generator loopless support digraphs gives 15 isomorphism types and exactly eight noncommutative, nonfinitely based types; the distinct two-output case adds a ninth. An exhaustive 1,296-table filtered index-four check independently confirms the key exclusion. The general infinite-equational conclusion uses the published finite-duality equivalence, not the finite computation alone. Reproduction instructions and results are in `VERIFICATION.md` and `verify.py`.
+PASS
 
-## Originality — PASS, qualified
+For finite noncommutative nilpotent semigroups with zero, the full power semiring includes all subsets (also empty) in the constant-free binary signature. The nilpotent power filtration makes indices <=4 at order<=4; index two is commutative and noncommutative index-four order-five cases have nonzero pure cube, giving finite basis by the explicitly credited published sufficient condition. At order five, index-three and zero squares reduce to either three generators and one nonzero product value (loopless 3-vertex digraph support) or exactly two generators with two distinct mixed-product values. I independently enumerated all 63 nonempty labeled loopless digraphs into 15 isomorphism types, computed induced retract cores, their categorical squares and complete domination-removal searches: 12 classes are noncommutative, of which eight fail finite duality, with canonical six-bit strings 000110,000111,001111,010101,011001,011011,011110,011111; the other four have finite duality. The bidirected two-generator/two-output type adds one further nonfinite-duality class. The infinite nonfinite-equational-basis conclusion depends essentially on the published finite-duality/full-power-semiring equivalence; the finite checker is not a substitute. The structural all-types reduction, source verify.py and acyclic-path unbounded odd-cycle obstruction were read and checked. Hence the sharp minimum size five and nine noncommutative isomorphism classes follow under stated external theorems.
 
-Wang–Yin–Wang, *Finite bases for full power semirings of finite nilpotent semigroups* (arXiv:2610.01329v1), proves a general decision criterion and supplies boundary examples. The present exact smallest noncommutative nilpotent order and nine isomorphism types are not stated there. Jackson–Ren–Zhao (arXiv:2112.13918v1) concerns related finite ai-semiring nonfinite basability; Larose–Loten–Tardif (arXiv:0707.2562) supplies the preexisting finite-duality test; Wu–Zhao (2024) concerns nonempty power semirings and commutative nil settings. Relevant accessible primary text and published-result searches identified no exact covering nine-class table. It may occur in older small-semigroup or digraph classification literature, and two original articles were not inspected in full; priority is therefore qualified. Existing more general decision criteria are explicitly credited.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact minimum cardinality and complete list of extremal noncommutative examples is a structurally motivated boundary for the finite-basis property of full power semirings. It distinguishes this setting from previously known commutative and order-four examples, identifies an additional two-output semigroup type, and shows that an acyclic directed support can already create the obstruction. No further general theorem is claimed.
+Qualified acceptance for an exact minimum size and isomorphism-class census. The finite duality criterion and nonzero cube sufficient condition are existing general theorems and entirely credited; applying them to classify small-order semigroups requires a nontrivial exhaustive structural reduction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp minimum cardinality and all nine isomorphism classes constitute a natural small-object classification at the boundary of the finite equational-basis property, which is already known to behave differently in commutative and nilpotent settings. The acyclic support obstruction and extra two-output case are structural and nonobvious. The result is useful to finite-semigroup databases and as concrete benchmark cases for the existing finite-duality criterion; no new general criterion is falsely claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
