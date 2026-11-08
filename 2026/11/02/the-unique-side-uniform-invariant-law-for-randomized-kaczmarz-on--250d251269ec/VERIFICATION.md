@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the geometric stationary law
+# Independent mathematical audit
 
-The theorem is established by the two-interval density identity on every side of an acute triangle, together with an independent two-step synchronous-projection contraction. These are infinite mathematical statements and do not depend on finite enumeration.
+## correctness
 
-The reproducible exact arithmetic checker is `verification/check_triangle_stationary.py` (Python with SymPy). Run `python verification/check_triangle_stationary.py` from the package root. It checks the rational acute triangles \((0,0),(4,0),(1,2)\) and \((0,0),(5,0),(2,3)\): twelve exact incoming-density constraints and 72 exact stationary polynomial moments through total degree seven. Its expected final output is `ALL PASSED: 12 exact density constraints and 72 exact polynomial Markov identities`.
+PASS
 
-This check does not substitute for the arbitrary-triangle proof or establish publication priority. It also does not test or guarantee finite-precision numerical implementation, extension to obtuse triangles, or an optimal contraction coefficient. No independent scientific audit has been performed.
+Projection of uniform measure on each adjacent side gives constant densities on two complementary intervals divided by a perpendicular foot, forcing p_i cos A_i/ell_i constant. The converse satisfies the full stationarity identity. Two-step products of line-direction orthogonal projectors have squared operator norm 1 or cos² of intersecting angles, giving strict expected W2 contraction. Pairwise differing indices infinitely often imply all-moment uniqueness by bounded-Lipschitz convergence. Independent exact geometry calculations verified all side-balance equations for three acute triangles with p=(3/16,1/16,3/4), (1/5,2/15,2/3), (7/32,7/32,9/16). Tests corroborate, they do not replace measure-level proof.
+
+## originality
+
+PASS
+
+Hermer–Luke–Sturm general nonexpansive random iteration theory includes invariant measures and contractive convergence, so existence and coupling technique are not new. Zeng et al. use adaptive-step Kaczmarz, Li–Wu augmented methods. The additional non-implied result is the explicit unique sidewise-uniform law on acute three-line inconsistent problems. A distinct Resultary farthest-projection map has different transition mechanics. Unread older Butnariu projection literature presents residual priority risk.
+
+## value
+
+PASS
+
+The exactly calibrated probability vector determines a geometrically natural invariant law of an inconsistent randomized linear solver and distinguishes sidewise uniformity from global perimeter uniformity. It is a useful exact test case for stationary error, with an explicit sufficient mixing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
