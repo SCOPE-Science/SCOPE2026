@@ -1,15 +1,21 @@
-# Self-review: rectangular Fock third-cumulant constant
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator is defined on the normalized analytic Fock space, its localization is a positive trace-class contraction, and the cubic trace is well-defined. The two-point trace is an exact one-displacement Gaussian overlap. The three-point trace is an exact four-variable magnetic Gaussian overlap. The proof computes the determinant-one quadratic matrix and all nine cross-correlations, then uses the analytically continued bivariate Gaussian absolute-moment identity to obtain the area, perimeter, and constant terms. Gaussian bounds justify exchanging the clipped rectangle overlap with its polynomial expression with exponentially small error. All divergent contributions cancel with the stated coefficients. The standalone matrix checker passes, while finite tests are not treated as proofs. Residual correctness risk: no independent mathematical examination of the complex-Gaussian integration argument has occurred.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Pfirsch's 2018 polygonal Szegő theorem treats spatial restrictions of translation-invariant Fourier multipliers; the Fock projection has nontrivial magnetic holonomy, and that theorem does not provide the claimed constant. Byun--Forrester's Ginibre review develops general counting determinant identities and boundary variance, not this third rectangular cumulant. Charlier's exact counting-cumulant asymptotics concern rotation-invariant circles and do not determine rectangular corners. Related analytic Fock spectral results found in a published mathematical research index and accessible earlier records do not determine the specific limit. Equivalence under the Fock/Ginibre correspondence was checked explicitly, rather than counted as two independent findings. Searches may fail to identify a general magnetic polygon theorem that implies this limit; this remains a specific priority risk.
+PASS
 
-## Mathematical value — PASS
-The third spectral cumulant detects shape-dependent non-Gaussian effects that the established boundary variance does not determine. The explicit positive constant, surprisingly involving the golden ratio, is independent of aspect ratio despite the nontrivial complex three-point magnetic phase. Exact cancellation separates the corner response from area and perimeter. This is a natural exact invariant in Fock localization and determinantal counting, not a numerical exercise or a routine restatement of a known result.
+The normalized Fock projection has kernel K(z,w)=π^-1exp(z conjugate(w)-(|z|²+|w|²)/2). Trace powers 1,2,3 reduce to an area integral, a Gaussian displacement integral with rectangular overlap (A-|x|)_+(B-|y|)_+, and a four-real-variable three-point integral with intersection overlap (A-Δ(x,s))_+(B-Δ(y,t))_+. Exponential Gaussian tails justify removing truncations with O(exp(-cR²)). The complex three-point phase gives the explicitly inspected 4×4 quadratic M with det M=1 and C=M^-1/2, where pairwise real covariances have variance 1/2 and cross correlations consist of three zeros and six ±i/2. Analytic continuation of the absolute bivariate Gaussian identity H(ρ)=[sqrt(1-ρ²)+ρarcsinρ]/π leads to E[Δ(X)Δ(Y)]=3/(4π)(1+sqrt(5)-log φ); direct substitution cancels area and perimeter in Tr(T-3T²+2T³). Independent exact SymPy inversion and correlation reconstruction confirmed the matrix, pattern and numeric positive 0.11472437826741096. Finite matrix algebra alone does not prove complex-Gaussian continuation or trace tails; these are addressed by the analytic argument.
 
-## Closest literature and limits
-Primary comparisons: Pfirsch (arXiv:1807.04714, Theorem 2.1, Fourier-multiplier setting); Byun--Forrester (arXiv:2211.16223, §3.1 general-domain number counting); Charlier (arXiv:2109.03660, Corollary 1.6 and Remark 1.7, circular counting). The theorem does not cover general polygons, arbitrary spectral functions, finite ensembles, or perturbations of the right angle. Independent confirmation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after primary comparisons: No source inspected has an implication to the constant without the nontrivial magnetic trilinear Gaussian integral. The exact mathematical assumptions/implications, not titles or absence of search matches alone, determine this decision.
+
+## value
+
+PASS
+
+This is a natural exact corner contribution to the third counting cumulant of the infinite Ginibre determinantal process, where leading area and perimeter terms cancel completely. The third cumulant detects non-Gaussian shape effects unavailable from the leading second cumulant or a central limit theorem. The exact positive golden-ratio expression and aspect-ratio independence for all fixed positive rectangles provide a reusable invariant for the Fock projection, not an arbitrary toy constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

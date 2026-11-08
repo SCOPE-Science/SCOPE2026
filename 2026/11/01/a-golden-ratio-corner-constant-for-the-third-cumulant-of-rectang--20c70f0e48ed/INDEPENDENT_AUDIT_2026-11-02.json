@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:17:31.864398Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized Fock projection has kernel K(z,w)=π^-1exp(z conjugate(w)-(|z|²+|w|²)/2). Trace powers 1,2,3 reduce to an area integral, a Gaussian displacement integral with rectangular overlap (A-|x|)_+(B-|y|)_+, and a four-real-variable three-point integral with intersection overlap (A-Δ(x,s))_+(B-Δ(y,t))_+. Exponential Gaussian tails justify removing truncations with O(exp(-cR²)). The complex three-point phase gives the explicitly inspected 4×4 quadratic M with det M=1 and C=M^-1/2, where pairwise real covariances have variance 1/2 and cross correlations consist of three zeros and six ±i/2. Analytic continuation of the absolute bivariate Gaussian identity H(ρ)=[sqrt(1-ρ²)+ρarcsinρ]/π leads to E[Δ(X)Δ(Y)]=3/(4π)(1+sqrt(5)-log φ); direct substitution cancels area and perimeter in Tr(T-3T²+2T³). Independent exact SymPy inversion and correlation reconstruction confirmed the matrix, pattern and numeric positive 0.11472437826741096. Finite matrix algebra alone does not prove complex-Gaussian continuation or trace tails; these are addressed by the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pfirsch arXiv:1807.04714 Theorem 2.1 treats polygonal Szegő asymptotics for spatially translation-invariant Fourier multipliers. Bargmann–Fock projection exhibits a nontrivial magnetic 3-point phase, preventing straightforward identification. Charlier arXiv:2109.03660 obtains circular radial cumulants and not rectangle corner terms."
+        ],
+        "reasoning": "The operator assumptions and shape are different; these sources do not already give the golden-ratio constant by their stated theorems.",
+        "searches": [
+          "Ginibre determinantal infinite point process rectangle third cumulant corner constant golden ratio Fock localization",
+          "https://arxiv.org/abs/1807.04714",
+          "https://arxiv.org/abs/2211.16223",
+          "https://arxiv.org/abs/2109.03660"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1807.04714",
+        "https://arxiv.org/abs/2211.16223",
+        "https://arxiv.org/abs/2109.03660"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A trace/Fredholm counting identity establishes a polynomial in eigenvalues only; the general polygon translation-invariant theorem has no magnetic phase, and a radial disk result does not determine 90-degree corners."
+        ],
+        "reasoning": "No source inspected has an implication to the constant without the nontrivial magnetic trilinear Gaussian integral.",
+        "searches": [
+          "Ginibre determinantal infinite point process rectangle third cumulant corner constant golden ratio Fock localization",
+          "https://arxiv.org/abs/1807.04714",
+          "https://arxiv.org/abs/2211.16223",
+          "https://arxiv.org/abs/2109.03660"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For projection determinantal processes the third number cumulant equals Tr(T-3T²+2T³); thus infinite Ginibre rectangle count and Bargmann–Fock spectral localization are exact alternative descriptions. Byun–Forrester arXiv:2211.16223 explains Fredholm count identities but not this rectangle corner constant."
+        ],
+        "reasoning": "The Ginibre reading was explicitly included in searches; standard cumulant representation does not evaluate the complex magnetic Gaussian corner integral.",
+        "searches": [
+          "Ginibre determinantal infinite point process rectangle third cumulant corner constant golden ratio Fock localization",
+          "https://arxiv.org/abs/1807.04714",
+          "https://arxiv.org/abs/2211.16223",
+          "https://arxiv.org/abs/2109.03660"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search for exact third Ginibre rectangle cumulants, magnetic Fock corner constants and golden ratio returned nonmatching constants and other Fock operators, but no exact square/rectangle cubic trace table."
+        ],
+        "reasoning": "The four-variable Gaussian computation is necessary; a known general determinantal formula does not determine its numerical value.",
+        "searches": [
+          "Ginibre determinantal infinite point process rectangle third cumulant corner constant golden ratio Fock localization",
+          "https://arxiv.org/abs/1807.04714",
+          "https://arxiv.org/abs/2211.16223",
+          "https://arxiv.org/abs/2109.03660"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after primary comparisons: No source inspected has an implication to the constant without the nontrivial magnetic trilinear Gaussian integral. The exact mathematical assumptions/implications, not titles or absence of search matches alone, determine this decision.",
+      "residual_risks": [
+        "Broader magnetic polygon Szegő theorem or a special-function evaluation omitted by bibliographic search might already imply this constant.",
+        "Only fixed a,b>0 perpendicular rectangles and infinite planar Ginibre, not general polygons, nonright corners or finite ensembles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OPERATOR_CLASS",
+          "evidence": "Fock projection is magnetically translation covariant and has nontrivial holonomy, not the assumed ordinary translation-invariant Fourier multiplier.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.04714",
+          "material_read": "Full 29-page lawful PDF obtained; relevant Theorem 2.1 and Fourier-multiplier assumptions examined",
+          "method": "arXiv PDF with page screenshots",
+          "title": "A Szegő limit theorem for translation-invariant operators on polygons",
+          "trigger": "Nearest general polygon corner trace asymptotic, possibly dominating constant"
+        },
+        {
+          "assessment": "FOUNDATIONAL_ONLY",
+          "evidence": "Establishes determinantal counts and leading boundary variance, not this rectangular third cumulant.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.16223",
+          "material_read": "Relevant §3.1 Fredholm determinants and counting-variance statements reviewed in OA text",
+          "method": "arXiv OA primary",
+          "title": "Progress on the study of the Ginibre ensembles I: GinUE",
+          "trigger": "Exact equivalence to Ginibre process and general cumulant formulas"
+        },
+        {
+          "assessment": "DIFFERENT_REGION",
+          "evidence": "Disk/circular cumulant asymptotics do not imply this four-corner constant.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.03660",
+          "material_read": "Full lawful PDF retrieved; Corollary 1.6/Remark 1.7 circular-region hypotheses inspected",
+          "method": "arXiv PDF with page screenshot",
+          "title": "Asymptotics of determinants with a rotation-invariant weight and discontinuities along circles",
+          "trigger": "Strongest exact higher cumulants neighboring case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural exact corner contribution to the third counting cumulant of the infinite Ginibre determinantal process, where leading area and perimeter terms cancel completely. The third cumulant detects non-Gaussian shape effects unavailable from the leading second cumulant or a central limit theorem. The exact positive golden-ratio expression and aspect-ratio independence for all fixed positive rectangles provide a reusable invariant for the Fock projection, not an arbitrary toy constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader magnetic polygon Szegő theorem or a special-function evaluation omitted by bibliographic search might already imply this constant.",
+    "Only fixed a,b>0 perpendicular rectangles and infinite planar Ginibre, not general polygons, nonright corners or finite ensembles.",
+    "Published record metadata contains operational provenance fields; all potentially public package files need complete guarded semantic sanitization before any publication. Scientific acceptance here is not authorized publication.",
+    "Full literatures remain incompletely indexed; best-of-knowledge novelty is not historical uniqueness proof.",
+    "Connector-to-container structured response required a display-to-private-file transfer; original Git tree SHA was independently returned by the tree GET endpoint and all listed blobs read via SHA."
+  ],
+  "schema_version": 1
+}
