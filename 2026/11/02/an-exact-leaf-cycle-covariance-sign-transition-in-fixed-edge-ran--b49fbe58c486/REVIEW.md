@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact model specifies uniformly sampled edge subsets. Conditioning on a designated vertex of degree one exposes a uniformly selected \((m-1)\)-edge graph on \(n-1\) vertices, and the motif minimum-degree assumption prevents a copy using the designated vertex. Injective-embedding counts yield the two exact conditional and unconditional expectations. Their ratio proves the covariance formula for all integer parameters, with disjoint zero-support cases. For triangles the unique real threshold lies strictly between \(n\) and \(n+1\) when \(n\ge5\); the exceptional \(n=4\) range is stated. The sparse limit follows from explicit hypergeometric probabilities. Standalone exact finite checks independently corroborate the proof.
+PASS
 
-## Originality
+In uniform G(n,m), conditioning on degree(v)=1 leaves an independent uniform (n-1)-vertex induced graph with m-1 edges; every non-induced motif H of minimum degree >=2 excludes v. Exact embedding counts and E[L]=n P(degree(v)=1) give Cov(L,X_H)=E[L]E[X_H]((n-h)/n*(m-e)/m*(N)_e/(A)_e-1), for e<=m<=A+1, zero otherwise. The normalized bracket is strictly increasing by K*e/[m(m+1)]. For H=triangle the continuous zero m*=3(n+1)(n²-n-4)/(3n²-3n-4) lies in (n,n+1) for each n>=5, giving negative sign m=3..n and positive m=n+1..A+1. From hypergeometric asymptotics, for fixed c>0, m=floor(cn) covariance tends to 8c³(c-1)exp(-2c). The n=4 exception, h>=3, n>=h+1 and finite support are handled. Independent direct enumeration of all 2^10 simple graphs on 5 vertices and 2^15 on 6 vertices matched exact covariance at every edge count (11 and 16 levels). The universal conclusion uses the conditioning proof, not finite tests.
 
-**PASS, with historical-priority qualification.** Janson (2006/2007), arXiv:math/0605642, Section 4, describes degree-class asymptotics, not the exact fixed-edge covariance between degree-one vertices and non-induced 2-core motifs. Alm–Janson–Linusson (2009), arXiv:0906.0720, study reachability correlations of oriented paths, not these statistics. General classical first moments and the already-known independent-edge sign are not treated as new. The closely related isolated-vertex/motif identity does not imply this result: a degree-one event removes one selected edge, adding the factor \((m-e)/m\) and creating an actual edge-count-dependent sign reversal. The matched fixed-edge degree-one motif covariance and exact threshold were not located in available comparisons. Janson's 1990 broad subgraph-count work was accessible only in abstract, so implicit earlier coverage is a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The precise sign at every finite integer edge count exposes a qualitative reversal from negative to positive association, occurring at the sparse natural excess-edge boundary \(m=n+1\). The motif-general identity separates universal conditioning geometry from motif topology, while the nonzero \(c\)-dependent limit demonstrates a persistent sparse phenomenon. These conclusions concern a natural degree-class statistic and a natural cyclic-subgraph statistic and are not determined by their marginal moments.
+Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.
 
-## Scope and limitations
+## value
 
-This is a statement about uniform simple \(G(n,m)\), non-induced motifs with minimum degree at least two, and covariance only. The counting argument is exact; finite verifications are not used as infinite proofs. Older general moment treatments might imply the formulas implicitly. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp finite-size reversal at m=n+1 in the natural fixed-edge ensemble, together with a motif-isomorphism-independent normalized mixed-moment identity for cyclic/minimum-degree-two motifs. It separates G(n,m) and G(n,p) dependence phenomena and supplies exact parameters for random-graph covariance research; not just known first moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

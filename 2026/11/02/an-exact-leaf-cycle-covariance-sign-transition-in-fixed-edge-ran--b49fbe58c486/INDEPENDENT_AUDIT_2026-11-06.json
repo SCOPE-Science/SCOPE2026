@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:07:27.710049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In uniform G(n,m), conditioning on degree(v)=1 leaves an independent uniform (n-1)-vertex induced graph with m-1 edges; every non-induced motif H of minimum degree >=2 excludes v. Exact embedding counts and E[L]=n P(degree(v)=1) give Cov(L,X_H)=E[L]E[X_H]((n-h)/n*(m-e)/m*(N)_e/(A)_e-1), for e<=m<=A+1, zero otherwise. The normalized bracket is strictly increasing by K*e/[m(m+1)]. For H=triangle the continuous zero m*=3(n+1)(n²-n-4)/(3n²-3n-4) lies in (n,n+1) for each n>=5, giving negative sign m=3..n and positive m=n+1..A+1. From hypergeometric asymptotics, for fixed c>0, m=floor(cn) covariance tends to 8c³(c-1)exp(-2c). The n=4 exception, h>=3, n>=h+1 and finite support are handled. Independent direct enumeration of all 2^10 simple graphs on 5 vertices and 2^15 on 6 vertices matched exact covariance at every edge count (11 and 16 levels). The universal conclusion uses the conditioning proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 concerns the limiting Gaussian covariance structure of vertex degree-class counts, not an all-n/m exact leaf–cycle cross-statistic.",
+          "The 1990 subgraph-statistics paper is plausible wider coverage but was read only at abstract level."
+        ],
+        "reasoning": "A generic subgraph factorial-moment framework may be used to derive this identity, but an actual stronger all-parameter formula or dominating parameter theorem was not verified; the plausible 1990 source remains a concrete residual risk.",
+        "searches": [
+          "Janson arXiv:math/0605642 §4 Theorem 4.1",
+          "Janson 1990 DOI:10.1002/rsa.3240010103 (abstract)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/math/0605642 (Full accessible PDF; Section 4 and Theorem 4.1 examined with page 8 screenshot)",
+        "https://doi.org/10.1002/rsa.3240010103 (Bibliographic record and abstract only; full text unavailable)",
+        "https://arxiv.org/abs/0906.0720 (Open-access primary manuscript material covering main statement and model)",
+        "Resultary semantic: fixed-edge random graph G(n,m) covariance number degree-one leaves triangles sign threshold m=n subgraph count mixed covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree-class count CLTs and random-orientation path correlations do not entail the exact one-leaf conditional non-induced motif count, its sign threshold or its fixed-c limit."
+        ],
+        "reasoning": "The first-moment hypergeometric identities are prior tools; the assessed claim is the exact mixed moment and its sharp sign-change classification. Neither inspected theorem implies this conclusion as a stated special case.",
+        "searches": [
+          "Janson arXiv:math/0605642 Section 4",
+          "Alm–Janson–Linusson arXiv:0906.0720"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson treats degree-count covariance and asymptotic distributions, whereas the target is a finite mixed degree-one/motif covariance identity and exact integer reversal."
+        ],
+        "reasoning": "Degree-count covariance with two local degree statistics is not equivalent to mixed covariance with a non-induced h-vertex motif; simple binomial G(n,p) has a different sign law. No equivalent fixed-m formula was found in inspected statements.",
+        "searches": [
+          "Resultary semantic: fixed-edge random graph G(n,m) covariance number degree-one leaves triangles sign threshold m=n subgraph count mixed covariance",
+          "Janson arXiv:math/0605642 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary related component–triangle and tree-degree covariance findings concern different observables and distributions; no exact L/T table or all-size m-threshold encountered."
+        ],
+        "reasoning": "Known expectations for leaves/triangles are not a table of their joint covariance; failed lookup alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic: fixed-edge random graph G(n,m) covariance number degree-one leaves triangles sign threshold m=n subgraph count mixed covariance",
+          "Web: exact covariance number of leaves triangles G(n,m) negative positive m n"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority comparison on the exact final statement, allowing explicit inaccessible-primary-source risks; known related first-moment, connectivity, single-class and one/two-factor theorems are acknowledged as prior, not claimed new.",
+      "residual_risks": [
+        "Janson 1990 subgraph-statistic full text unavailable; an equivalent mixed-covariance instance might be implicit.",
+        "Claim needs non-induced motifs with minimum degree at least two; no induced-graph extension or general unconditional monotonicity of raw covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Comparison supports different degree-degree rather than leaf–triangle exact finite-size claim",
+          "evidence": "Section 4 Theorem 4.1 and definitions of degree class counts",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+          "material_read": "Full accessible PDF; Section 4 and Theorem 4.1 examined with page 8 screenshot",
+          "method": "Read degree-count statements, their random-graph ensemble and covariance scope",
+          "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+          "trigger": "Closest primary random-graph degree-class covariance analysis"
+        },
+        {
+          "assessment": "Potential priority risk, NOT declared non-covering",
+          "evidence": "1990 journal abstract explicitly addresses random graph subgraph count statistics",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Bibliographic record and abstract only; full text unavailable",
+          "method": "Read publication record and abstract, no complete primary theorem comparison",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Plausible general subgraph-statistic framework covering mixed covariances"
+        },
+        {
+          "assessment": "Different random-orientation path observables; no identified implication",
+          "evidence": "Alm, Janson, Linusson: oriented path connection correlations",
+          "identifier_or_url": "https://arxiv.org/abs/0906.0720",
+          "material_read": "Open-access primary manuscript material covering main statement and model",
+          "method": "Compared oriented reachability observable with leaf/motif moments",
+          "title": "Correlations for paths in random orientations of G(n,p) and G(n,m)",
+          "trigger": "Shares both graph ensembles and covariance terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp finite-size reversal at m=n+1 in the natural fixed-edge ensemble, together with a motif-isomorphism-independent normalized mixed-moment identity for cyclic/minimum-degree-two motifs. It separates G(n,m) and G(n,p) dependence phenomena and supplies exact parameters for random-graph covariance research; not just known first moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/math/0605642 (Full accessible PDF; Section 4 and Theorem 4.1 examined with page 8 screenshot)",
+    "https://doi.org/10.1002/rsa.3240010103 (Bibliographic record and abstract only; full text unavailable)",
+    "https://arxiv.org/abs/0906.0720 (Open-access primary manuscript material covering main statement and model)",
+    "Resultary semantic: fixed-edge random graph G(n,m) covariance number degree-one leaves triangles sign threshold m=n subgraph count mixed covariance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Janson 1990 subgraph-statistic full text unavailable; an equivalent mixed-covariance instance might be implicit.",
+    "Claim needs non-induced motifs with minimum degree at least two; no induced-graph extension or general unconditional monotonicity of raw covariance.",
+    "All source-tree and RESULT/verifier Git identities checked; finite checks do not substitute for all-size mathematical proof.",
+    "Publication withheld: original public-bound METADATA.json and AUDIT.json contain private scope_run_id; no sanitized replacement bytes staged."
+  ],
+  "schema_version": 1
+}
