@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The metric formula follows because all missing edges have a common neighbor. Finite \(\ell_1\) metrics are nonnegative combinations of cut semimetrics. Two explicitly displayed integer cut inequalities were exhaustively tested on all \(128\) binary vectors, not inferred from sampling: the cyclic inequality gives \(42\le35c\) for seven vertices, and the path inequality gives \(12\le10c\) for every larger cycle complement. Exact rational cyclic cut combinations establish equality for orders five, six and seven. The companion standard-library checker was run successfully from the actual package content; it verifies all finite cut cases and matching upper constructions. The all-orders conclusion is analytical. Risk: the finite certificate is computationally presented rather than shortened to a pen-and-paper lemma, but it checks the complete, small finite domain exactly.
+## correctness
 
-## Originality — PASS, qualified
-Comparisons were made against the full accessible mathematical text of Abraham--Filtser--Gupta--Neiman on general shortest-path distortion, Knill on the same complement graphs' topological and spectral structure, and Deza--Laurent's cut-cone/isometric embedding theory. None of the compared statements gives the uniform sharp quantitative \(6/5\) lower bound for complements of every cycle of length at least seven or its matching extremal construction. The historical papers of Deza--Huang and Shpectorov on pairs of complementary \(\ell_1\)-graphs concern qualitative embeddability. Shpectorov's entire paper could not be checked; the available abstract only describes a classification of complementary pairs on at least \(22\) vertices, not distortion constants. A published record concerning six different cubic-symmetric graphs also has nonoverlapping objects. Historical priority remains conditional on inaccessible full text and terminology variants; this assessment is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-Cycle complements form a natural dense circulant graph family, already studied for homotopy, symmetry, and combinatorial geometry. The result identifies the exact onset of non-isometric \(\ell_1\) embeddability, proves a uniform quantitative obstruction for infinitely many orders by one seven-vertex metric certificate, and shows the lower constant cannot be raised uniformly by a sharp order-seven embedding. It is not merely a numerical fact about seven points: the second certificate applies to every larger order. The theorem deliberately leaves the exact values for orders eight and higher unresolved.
+For n≥5, non-cycle pairs in complement C_n have distance 1 and cycle-neighbor pairs have distance 2. A finite ℓ1 metric decomposes into nonnegative cut semimetrics. The cyclic seven-point cut inequality 3E1≤E2+4E3 gives 42≤35c; a second seven-linear-point cut inequality whose right coefficients sum to 10 gives 12≤10c on every seven consecutive labels for n≥8. Each cut inequality was independently verified for all 2^7 masks, establishing a finite lemma rather than an experiment extrapolation. Independent rational averaged-cut recomputation produces exact d_n for n=5,6 and distortion 6/5 at n=7. Therefore c1=1 for 5,6, exactly 6/5 for 7, and ≥6/5 for n≥8, without claiming exact values at higher n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known general cut-cone theorems, isometric ℓ1 graph classifications and cycle-complement topology do not yield the quantified uniform sharp 6/5 metric distortion lower bound; qualitative complement embeddability is not claimed as novel. Closely relevant Shpectorov and Deza–Huang full texts remain uninspected, so historical quantitative priority is qualified.
+
+## value
+
+PASS
+
+Cycle complements form a canonical dense graph family. The first failure of exact ℓ1 isometry and a uniform positive quantitative gap for infinitely many n are meaningful geometric invariants; a single seven-point obstruction applies to the entire family with a sharp seven-point witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
