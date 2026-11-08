@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:14:55.888097Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every monic cubic mod p has one of five disjoint factorization types; reduction counts sum p^3. Hensel splitting of a distinct simple factor plus double root gives uniform discriminant modulo p^3, with 0,p,2p additional roots; triple reductions give 0,p,p^2 through p-adic digit conditions. The weighted PGF includes exactly root-count support {0,1,3,p,p+1,2p+1,p^2} (collisions at 3), P(R=p^2)=p^-5 and the stated fourth moment. Independent exhaustive enumeration of all 3^9=19683 monic cubics modulo 27 reproduced histogram {0:7452,1:9963,3:1215,4:486,7:486,9:81}. Separate rational differentiation at p=3,5,7,11 gave the claimed fourth-moment polynomial. General proof uses factorization and Hensel, not only finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monagan–Tuncer supplies mean/variance for arbitrary n; Nir gives deterministic root-lifting algorithm; Caruso supplies field-root statistics"
+        ],
+        "reasoning": "Broader algorithms and moments do not imply the evaluated full cubic PGF.",
+        "searches": [
+          "random monic cubic over Z/p^3 number of solutions 0 1 3 p p+1 2p+1 p^2 distribution",
+          "Monagan and Tuncer 2016 full PDF Theorem1",
+          "Bhargava et al 2022 https://doi.org/10.1112/plms.12438 primary HTML"
+        ]
+      },
+      "checked_sources": [
+        "Monagan and Tuncer 2016 full PDF Theorem1",
+        "Bhargava et al 2022 https://doi.org/10.1112/plms.12438 primary HTML",
+        "Caruso 2022 https://doi.org/10.1017/fms.2022.27 primary HTML",
+        "Nir 2026 arXiv:2608.00668 abstract",
+        "Resultary semantic query: random monic cubic over Z/p^3 number of solutions 0 1 3 p p+1 2p+1 p^2 distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monagan Theorem1 gives E=1 and Var=3(1-1/p); claim gives E[R^4]=p^3+8p^2+2p+4-42/p+28/p^2"
+        ],
+        "reasoning": "The earlier first-two-moment theorem is implied by the new law but cannot determine it or its fourth moment.",
+        "searches": [
+          "random monic cubic over Z/p^3 number of solutions 0 1 3 p p+1 2p+1 p^2 distribution",
+          "Monagan and Tuncer 2016 full PDF Theorem1",
+          "Bhargava et al 2022 https://doi.org/10.1112/plms.12438 primary HTML"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhargava et al 2022 Q_p-root count law; explicit X^3 example with many modular roots"
+        ],
+        "reasoning": "A Q_p root distribution cannot be identified with all residues solving congruence modulo p^3; singular solutions need not lift indefinitely.",
+        "searches": [
+          "random monic cubic over Z/p^3 number of solutions 0 1 3 p p+1 2p+1 p^2 distribution",
+          "Monagan and Tuncer 2016 full PDF Theorem1",
+          "Bhargava et al 2022 https://doi.org/10.1112/plms.12438 primary HTML"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search found no same modular-cubic PGF; independent p=3 all 19683 cubic census"
+        ],
+        "reasoning": "No exact preexisting table identified; this absence is limited search evidence.",
+        "searches": [
+          "random monic cubic over Z/p^3 number of solutions 0 1 3 p p+1 2p+1 p^2 distribution",
+          "Monagan and Tuncer 2016 full PDF Theorem1",
+          "Bhargava et al 2022 https://doi.org/10.1112/plms.12438 primary HTML"
+        ]
+      },
+      "rationale": "The evaluated full modular-root law and fourth moment are distinct from first two moments known generally, from exact Q_p root laws that ignore temporary modular lifts, and from finite-field root counts. The seven-level singular-lift distribution is not stated in inspected primary papers. Prior cubic finite-ring tables might still give implicit coverage, a documented priority risk.",
+      "residual_risks": [
+        "unindexed specialized finite-ring cubic tables may imply PGF"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: first and second moments general, not the cubic PGF or fourth moment",
+          "evidence": "E[X]=1, Var(X)=3(1-1/p) at p^3.",
+          "identifier_or_url": "https://dmtcs.episciences.org/6371/pdf",
+          "material_read": "Theorem 1, proof discussion and modulus variance result",
+          "method": "read PDF text and rendered theorem page",
+          "title": "Some results on counting roots of polynomials and the Sylvester resultant",
+          "trigger": "Monic polynomial moments modulo p^3"
+        },
+        {
+          "assessment": "DIFFERENT_ROOT_OBJECT: roots in Q_p rather than modulo p^3",
+          "evidence": "x^3 has p^2 modular roots but only one Q_p root; no direct implication.",
+          "identifier_or_url": "https://doi.org/10.1112/plms.12438",
+          "material_read": "Primary article HTML introduction, main distribution statements and field-root definition",
+          "method": "read accessible primary HTML material",
+          "title": "The density of polynomials of degree n over Z_p having exactly r roots in Q_p",
+          "trigger": "Same monic cubics and p-adic root-count distribution"
+        },
+        {
+          "assessment": "NOT_EXACTLY_SAME: roots in algebraic closure over Q_p",
+          "evidence": "Finite temporary modular roots are not Q_p zeros.",
+          "identifier_or_url": "https://doi.org/10.1017/fms.2022.27",
+          "material_read": "Publisher primary HTML introduction and root statement",
+          "method": "read publisher primary HTML",
+          "title": "Where are the zeroes of a random p-adic polynomial?",
+          "trigger": "Possible stronger random p-adic root theorem"
+        },
+        {
+          "assessment": "POTENTIALLY_RELATED: algorithm rather than random law; full text not assessed",
+          "evidence": "Exact distribution of random monic cubics not asserted in accessible summary.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.00668",
+          "material_read": "Public abstract and paper metadata only",
+          "method": "read abstract only",
+          "title": "Faster Deterministic Integer Root Finding for Integer Polynomials",
+          "trigger": "Singular-root lifting tree methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform random monic cubic is the lowest natural degree displaying simultaneous simple, double and triple singular root families at precision p^3; full law and p^-5 mass of p^2 roots are concrete reusable arithmetic statistics, not a rote calculation of known mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "odd primes only; no p=2, higher degree or precision",
+    "p=3 brute force exact but not proof for all odd primes",
+    "unindexed specialized finite-ring cubic tables may imply PGF"
+  ],
+  "schema_version": 1
+}

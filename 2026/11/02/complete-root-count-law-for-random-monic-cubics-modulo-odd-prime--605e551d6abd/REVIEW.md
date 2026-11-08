@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** All monic cubic reductions modulo an odd prime are partitioned into five disjoint factorization types with exact integer counts adding to \(p^3\). The double-root branch uses measure-preserving coprime Hensel factorization and a uniform quadratic discriminant; the triple-root branch follows from the exact two-digit Taylor congruence. The derived probabilities sum to one, and independent exhaustive direct-substitution checks for primes \(3\) and \(5\) reproduce every mass. The exact fourth moment is obtained algebraically, not inferred from those tests. The proof requires only that the prime is odd; the case \(p=3\) has a collision between two possible counts and is handled by summing generating-function coefficients.
+## correctness
 
-**Originality — PASS, with risk.** Nir's 2026 work on lifting repeated polynomial roots is algorithmic, not a probability law. Jain (2024) computes first moments over finite commutative rings and a binomial distribution in sufficiently rich polynomial spaces over finite fields, not this finite-ring cubic distribution. Bhargava–Cremona–Fisher–Gajović (2022) and Caruso (2022) study actual \(p\)-adic roots, not the finite quotient's ephemeral roots. The closest accessible comparison from related modular polynomial work gives all-degree moments and high-degree stable laws, not this degree-three full distribution. Searches for aliases including root-lifting statistics and monic-cubic finite-ring laws found no directly covering statement. These are implication comparisons, not a proof of exhaustive novelty: an earlier equivalent finite-ring generating-function theorem might exist.
+PASS
 
-**Mathematical value — PASS.** Finite-precision singular-root branching is the obstruction to straightforward modular root lifting. The lowest-degree genuinely mixed simple/double/triple model gives an explicit root-count distribution including seven sharply distinct values for \(p\ge5\), a rare \(p^2\)-root extreme of exact probability \(p^{-5}\), and a fourth moment of order \(p^3\). This is a natural benchmark for arithmetic root statistics beyond the first moments, not an arbitrary small table or a restatement of continuous \(p\)-adic distributions. It does not establish algorithmic speedups, nor a law for higher precisions.
+Every monic cubic mod p has one of five disjoint factorization types; reduction counts sum p^3. Hensel splitting of a distinct simple factor plus double root gives uniform discriminant modulo p^3, with 0,p,2p additional roots; triple reductions give 0,p,p^2 through p-adic digit conditions. The weighted PGF includes exactly root-count support {0,1,3,p,p+1,2p+1,p^2} (collisions at 3), P(R=p^2)=p^-5 and the stated fourth moment. Independent exhaustive enumeration of all 3^9=19683 monic cubics modulo 27 reproduced histogram {0:7452,1:9963,3:1215,4:486,7:486,9:81}. Separate rational differentiation at p=3,5,7,11 gave the claimed fourth-moment polynomial. General proof uses factorization and Hensel, not only finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The evaluated full modular-root law and fourth moment are distinct from first two moments known generally, from exact Q_p root laws that ignore temporary modular lifts, and from finite-field root counts. The seven-level singular-lift distribution is not stated in inspected primary papers. Prior cubic finite-ring tables might still give implicit coverage, a documented priority risk.
+
+## value
+
+PASS
+
+Uniform random monic cubic is the lowest natural degree displaying simultaneous simple, double and triple singular root families at precision p^3; full law and p^-5 mass of p^2 roots are concrete reusable arithmetic statistics, not a rote calculation of known mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
