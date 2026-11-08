@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "From the stated quadratic interpolation recurrence, direct 2x2 companion multiplication gives W mu^2-P mu+r=0. The strict Schur--Cohn condition is established exactly by |W|>r and (|W|^2-r^2)^2-|P conj W-r conj P|^2=(r+1)^4 A B with A,B manifestly positive for Re z>=0, z !=0, r>0. At z=0 roots are 1 and r/[(2r+1)(r+2)]. Direct trace and determinant limits prove the singular trapezoidal factor and opposite iterated stiff limits. The delivered checker independently verifies the critical algebra and selected numerical cases with 115 successful tests; no finite sampling is treated as a general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Liao (2022) prove arbitrary-grid perturbation stability with a maximum-step restriction depending on the problem Lipschitz constant, not A-stability for all scalar eigenvalues in the closed left half-plane.",
+        "Wang--Mao--Wang and Liao et al. prove estimates under mesh ratio, energy or differential-equation assumptions, not unrestricted spectral half-plane monodromy for all positive r."
+      ],
+      "reasoning": "Results applicable on arbitrary grids with mesh restrictions do not cover ratios above their hypotheses; small-step bounded-region estimates do not imply all z in a half-plane. Independent full-text priority check of older specialist articles remains desirable.",
+      "searches": [
+        "arXiv:2201.00527v1 arbitrary grid BDF2 BDF3 perturbation stability",
+        "arXiv:2003.03534v1 variable BDF2 stability parabolic step ratio",
+        "arXiv:2102.03731v1 BDF2 mesh robustness energy stability",
+        "\"variable step BDF2\" unconditional A stability alternating ratio",
+        "published-finding corpus: variable step BDF2 constant negative eigenvalue unconditional stability alternating step lengths Floquet"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.03534v1 (full text)",
+      "arXiv:2201.00527v1 (full text)",
+      "arXiv:2102.03731v1 (abstract; full text not accessible)",
+      "doi:10.1137/0720076 (abstract only, not full text)",
+      "published-finding corpus:2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+      "published-finding corpus:2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dahlquist--Liniger--Nevanlinna (1983) emphasize the failure of broad variable-step unconditional stability and present a modified one-leg family; without accessible full text, an exact older two-periodic special case cannot be ruled out.",
+        "The first-order bilateral norm paper proves a bound for operators u_n-a_n u_(n-1), not roots of the BDF2 2x2 companion-product polynomial at any complex test parameter.",
+        "Fixed-step BDF2 positivity concerns signs of scalar iterates and does not imply periodic-grid complex A-stability or the singular trapezoidal limit."
+      ],
+      "reasoning": "The exact conjunction requires globally stable alternating BDF2 under any r, including the imaginary axis, and noncommuting r/q spectral limits. None of the retrieved statements logically implies both. The inaccessible earlier paper constitutes residual specialist precedence risk, not affirmative stronger coverage.",
+      "searches": [
+        "doi:10.1137/0720076 stability of two-step methods for variable integration steps",
+        "arXiv:2003.03534v1 2-periodic nonuniform BDF2 left half plane",
+        "published-finding corpus: sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+        "published-finding corpus: exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical constant-step BDF2 A-stability concerns a single companion matrix at a fixed step and is not logically sufficient for alternating products with unbounded adjacent-step ratios.",
+        "Closest record 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe gives first-order bilateral recurrence residual norm, not the two-step BDF2 companion characteristic and stability domain."
+      ],
+      "reasoning": "The submitted nonautonomous two-step method requires simultaneous treatment of alternating coefficients; the exact determinant P,W and positivity identity imply a global theorem absent from those compared claims.",
+      "searches": [
+        "\"BDF2\" \"two-periodic\" \"A-stable\"",
+        "\"BDF2\" \"alternating steps\" \"stability\" Floquet",
+        "\"BDF2\" \"periodic mesh\" Schur monodromy stability",
+        "published-finding corpus: two-periodic alternating nonuniform BDF2 complex left half plane absolute A stability for arbitrary alternating ratio monodromy Schur Cohn",
+        "published-finding corpus: standard variable-step BDF2 two-periodic alternating positive steps full complex A stability all ratios Crank Nicolson trapezoidal limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest record 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 is constant-step BDF2 positivity delay for real negative scalar coefficient, not two-periodic A-stability.",
+        "Known stability regions and ratio thresholds for general nonperiodic meshes do not supply the submitted exact monodromy polynomial or noncommuting stiffness limits."
+      ],
+      "reasoning": "No direct mathematical record or exact table covering the full new claim emerged. This is positive overlap screening, not a proof of absence in external literature.",
+      "searches": [
+        "published-finding corpus: two-cycle variable-step backward differentiation formula scalar test equation A-stability characteristic roots",
+        "published-finding corpus: BDF2 alternating step lengths Floquet characteristic Schur Cohn left half plane stiff decay noncommuting limits",
+        "published-finding corpus: variable step BDF2 alternating step ratios exact unconditional A stability two-cycle"
+      ]
+    },
+    "rationale": "Exact all-complex-half-plane Schur--Cohn stability on every fixed positive two-periodic BDF2 grid, together with the noncommuting singular-ratio/stiff limits, is not implied by inspected classical fixed-step A-stability, arbitrary-grid small-step results or cited periodic first-order recurrence norms. The inaccessible 1983 older paper and related unindexed literature are genuine precedence risks, so the finding is not represented as independently certified.",
+    "residual_risks": [
+      "An earlier work may already state alternating-grid BDF2 A-stability or derive a dominating theorem; the 1983 Dahlquist--Liniger--Nevanlinna full text was unavailable.",
+      "Classical stability analyses outside the indexed mathematical records might use equivalent terminology such as two-periodic time meshes or Floquet G-stability.",
+      "No independent specialist priority or correctness audit has been performed.",
+      "The full arXiv:2102.03731 text could not be inspected in this run, although its stated restriction excludes arbitrary adjacent-step ratios."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact two-periodic unrestricted half-plane monodromy and singular stiff limit",
+        "evidence": "This work treats parabolic evolution estimates under mesh-ratio restrictions rather than the complex scalar test equation for all r,z.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.03534",
+        "material_read": "Available HTML full article, including introduction, stability hypotheses and principal estimates",
+        "method": "Compared definition of variable-step BDF2, mesh assumptions and quantitative scope",
+        "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+        "trigger": "Direct primary source on nonuniform BDF2 stability"
+      },
+      {
+        "assessment": "NOT_COVERING unrestricted complex half-plane absolute stability of a fixed alternating mesh",
+        "evidence": "Its perturbation stability theorem assumes sufficiently small maximum steps relative to the problem Lipschitz constant; unrestricted half-plane z is not obtained.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Primary 20-page PDF, introduction, definitions, section 2 BDF2 result and theorem 2.1 with assumptions (full source accessible; relevant proof read)",
+        "method": "Checked original PDF, including page 5 theorem and max-step condition, against all-z A-stability",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Potential stronger arbitrary-grid stability coverage"
+      },
+      {
+        "assessment": "Abstract excludes the claimed all-ratio regime from the source theorem, but entire unexamined full text is not certified NOT_COVERING",
+        "evidence": "Focus is a PDE energy estimate for a different problem and a restricted adjacent-step-ratio range.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.03731",
+        "material_read": "Primary arXiv abstract and available bibliographic summary; full article unavailable in this execution",
+        "method": "Compared explicitly stated step-ratio restriction and Cahn--Hilliard context to unrestricted two-periodic scalar stability",
+        "title": "Mesh-robustness of an energy stable BDF2 scheme with variable steps for the Cahn--Hilliard model",
+        "trigger": "Potential unconditional energy stability for nonuniform BDF2"
+      },
+      {
+        "assessment": "UNRESOLVED plausible historical source, explicitly retained as precedence risk",
+        "evidence": "Publisher abstract concerns variable-step instability and a specially constructed one-leg formula, but the accessible material cannot exclude a special alternating-BDF2 theorem in the full article.",
+        "identifier_or_url": "https://doi.org/10.1137/0720076",
+        "material_read": "Accessible publisher abstract and bibliography only; full text not obtained",
+        "method": "Compared directly visible abstract claims and method type; full-text coverage left unresolved",
+        "title": "Stability of Two-Step Methods for Variable Integration Steps",
+        "trigger": "Historically closest possible general theory, 1983"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7444aae-6a0d-4038-a28d-e75bb26e5ca1",
+  "value": {
+    "rationale": "Alternating integration steps are a natural elementary variable-grid pattern, and unrestricted spectral A-stability in the face of known general-grid BDF instabilities is a meaningful structural boundary. Its nonuniform stiff-damping limit supplies a precise mechanistic warning that stable finite-ratio grids can approach a trapezoidal-rule response in an extreme mesh limit. The result is a complete exact classification for this well-defined family, beyond a routine finite test or isolated counterexample; it does not overstate arbitrary-grid applicability.",
+    "status": "PASS"
+  }
+}
