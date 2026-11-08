@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, row-or-column coverage proves maximum minimal domination size n and one per column with a missing row. All legal optimum swaps change within one column, so jumping=sliding. Inclusion-exclusion and degree sum yield vertices and edges. Explicit paths cover same-support, constant-to-two-letter, and two-support intersection cases; a first symbol-extinction argument proves the matching diameter lower bound. Independently implemented direct graph enumeration for n=4..7 and complete word-graph BFS for n=4..9 pass, as secondary finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "B. Brešar, Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof, Electronic Journal of Combinatorics 12 (2005), N12, DOI 10.37236/1979 (first public 2005-07-19). Establishes a general product inequality, not an exchange graph or its exact metric.",
+        "A. Suzuki, A. E. Mouawad and N. Nishimura, Reconfiguration of Dominating Sets, arXiv:1401.5714 (first posted 2014-01-22). Considers token addition/removal rather than fixed-cardinality exchange on only maximum inclusion-minimal dominating sets.",
+        "H. AbouEisha et al., Upper Domination: towards a dichotomy through boundary properties, arXiv:1609.01510 (first posted 2016-09-06). Addresses upper-domination algorithmics and graph classes, not the exact state space and sharp exchange diameter.",
+        "R. Burdett, M. Haythorpe and A. Newcombe, Binary programming formulations for the upper domination problem, Math. Methods Oper. Res. 98 (2023), DOI 10.1007/s00186-023-00831-2. Discusses integer formulations and numerical rook instances, not this optimum-exchange theorem."
+      ],
+      "reasoning": "The known numerical values Gamma(K_3 square K_n)=n and broad product lower bounds cannot imply classification, exact edge count, token-jump=token-slide identity, or sharp diameter. Graph-family and adjacency-model hypotheses were compared, not just paper titles. No inspected theorem subsumes the claimed four-part result.",
+      "searches": [
+        "reconfiguration of upper dominating sets in Cartesian products of complete graphs",
+        "upper domination number Cartesian complete graph K3 Kn optimal solution exchange graph",
+        "Brešar 2005 Vizing-like conjecture upper domination Cartesian products graph N12",
+        "well-dominated Cartesian products upper domination rook graph K3 Kn"
+      ]
+    },
+    "checked_sources": [
+      "B. Brešar, Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof, Electronic Journal of Combinatorics 12 (2005), N12, DOI 10.37236/1979 (first public 2005-07-19).",
+      "A. Suzuki, A. E. Mouawad and N. Nishimura, Reconfiguration of Dominating Sets, arXiv:1401.5714 (first posted 2014-01-22).",
+      "H. AbouEisha et al., Upper Domination: towards a dichotomy through boundary properties, arXiv:1609.01510 (first posted 2016-09-06).",
+      "R. Burdett, M. Haythorpe and A. Newcombe, Binary programming formulations for the upper domination problem, Math. Methods Oper. Res. 98 (2023), DOI 10.1007/s00186-023-00831-2.",
+      "Published mathematical record on upper k-tuple domination of complete multipartite graphs",
+      "Published mathematical record on rook-graph neighborhood homology",
+      "Mathematical records on upper domination and general domination-set reconfiguration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "B. Brešar, Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof, Electronic Journal of Combinatorics 12 (2005), N12, DOI 10.37236/1979 (first public 2005-07-19).",
+        "A. Suzuki, A. E. Mouawad and N. Nishimura, Reconfiguration of Dominating Sets, arXiv:1401.5714 (first posted 2014-01-22).",
+        "H. AbouEisha et al., Upper Domination: towards a dichotomy through boundary properties, arXiv:1609.01510 (first posted 2016-09-06).",
+        "R. Burdett, M. Haythorpe and A. Newcombe, Binary programming formulations for the upper domination problem, Math. Methods Oper. Res. 98 (2023), DOI 10.1007/s00186-023-00831-2.",
+        "Published upper k-tuple domination work on complete multipartite graphs concerns a different graph class and extremal parameter.",
+        "A published rook-graph neighborhood homology result concerns topological invariants, not upper domination mobility."
+      ],
+      "reasoning": "None of the inspected prior statements implies the metric characterization: Brešar gives inequality of optima, not state-space structure; Suzuki permits intermediary sizes and nonminimal states; complexity and formulation papers address decision/optimization, and related mathematical records concern other parameters. Conversely the new result proves more than existing minimum values; it is not a corollary of a single upper domination estimate.",
+      "searches": [
+        "upper domination rook graph maximum minimal dominating sets all optimal configurations reconfiguration token sliding",
+        "reconfiguration of upper dominating sets in Cartesian products of complete graphs",
+        "upper domination of a three-by-n rook board exact distance between maximum inclusion-minimal dominating sets via one token sliding within columns",
+        "upper domination number Cartesian complete graph K3 Kn optimal solution exchange graph",
+        "upper domination rook reconfiguration literature 2005 2014 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The reconfiguration graph is the Hamming graph on non-surjective ternary words; its exact vertex count is 3*2^n-3, its edge count 3n(2^(n-1)+1), and its diameter n+floor(n/2)-1. No matching equivalent formulation was returned by the cited semantic queries.",
+        "Suzuki et al., arXiv:1401.5714, analyze reconfiguration of all bounded-cardinality dominating sets under add/remove rather than single replacement among maximum inclusion-minimal sets."
+      ],
+      "reasoning": "Also searched the exact word-reconfiguration alias and checked the implications of a general Hamming bound: the ambient diameter n does NOT imply the induced, three-letter-nonsurjective subgraph diameter. Non-surjective and omitted-symbol formulations were explicitly compared; absent matching search hits alone is not proof of priority.",
+      "searches": [
+        "upper domination rook graph maximum minimal dominating sets all optimal configurations reconfiguration token sliding",
+        "non-surjective word reconfiguration Hamming graph missing symbols diameter 4n/3",
+        "upper domination of a three-by-n rook board exact distance between maximum inclusion-minimal dominating sets via one token sliding within columns",
+        "non-surjective ternary string graph Hamming induced subgraph exact diameter floor(3n/2)-1",
+        "\"non-surjective\" \"Hamming graph\" \"diameter\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent exact counts for n=4..9 are 45,93,189,381,765,1533 vertices and 108,255,594,1365,3096,6939 edges; no exact graph diameter table corresponding to these states was identified in the searches.",
+        "Finite checks do not establish general novelty and no exhaustive catalog of published enumeration tables was available."
+      ],
+      "reasoning": "Numerical upper-domination tables list only maximum cardinalities, not exchange-graph diameters. A match for the word-count sequence alone would be an elementary inclusion-exclusion count, not coverage of the sharp metric theorem. The newly claimed infinite formula is independently proved.",
+      "searches": [
+        "non-surjective word reconfiguration Hamming graph missing symbols diameter 4n/3",
+        "non-surjective ternary string graph Hamming induced subgraph exact diameter floor(3n/2)-1",
+        "\"3*2^n-3\" graph reconfiguration diameter",
+        "OEIS 45 93 189 381 765 graph"
+      ]
+    },
+    "rationale": "Extensive primary-source statement comparison and publicly indexed mathematical-record searches found no equivalent whole theorem. Known upper-domination numerical values and product inequality do not imply exact optimum configuration graph nor n+floor(n/2)-1 diameter. Distinct fixed-cardinality minimality and adjacency hypotheses were checked against Suzuki et al. Search incompleteness and unindexed priority remain risks.",
+    "residual_risks": [
+      "General reconfiguration literature is broad; an unindexed result about non-surjective ternary Hamming words may give the same diameter under different vocabulary.",
+      "Historical claims available here and primary mathematical literature may not exhaust unpublished, inaccessible, or otherwise unindexed work.",
+      "Well-dominated product literature was screened at a high level, not relied upon for a full-text exclusion; it is not a demonstrated implication of the new theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant product lower bound and foundational definitions; no classification or optimum-replacement graph diameter",
+        "evidence": "B. Brešar, Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof, Electronic Journal of Combinatorics 12 (2005), N12, DOI 10.37236/1979 (first public 2005-07-19).",
+        "identifier_or_url": "https://doi.org/10.37236/1979",
+        "material_read": "Complete six-page research PDF including definition, statements, proof and references; pages 1 and 4 additionally visually inspected",
+        "method": "Read all PDF text and inspect page images to compare formal theorem and exact graph hypotheses",
+        "title": "Vizing-like conjecture for the upper domination of Cartesian products of graphs—the proof",
+        "trigger": "Direct original source for upper domination on Cartesian products and first-public-date/MSC classification"
+      },
+      {
+        "assessment": "Add/remove all dominating sets up to size k is distinct from maximum inclusion-minimal single-exchange states; no inspected exact 3-row rook diameter",
+        "evidence": "A. Suzuki, A. E. Mouawad and N. Nishimura, Reconfiguration of Dominating Sets, arXiv:1401.5714 (first posted 2014-01-22).",
+        "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+        "material_read": "Research preprint HTML text including abstract, definitions and main results (complete available article text)",
+        "method": "Read statements and allowable edit operations; compare state space, size constraints and reachability assertions",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Closest foundational reconfiguration model and potential stronger connectivity result"
+      },
+      {
+        "assessment": "General upper-domination complexity/hardness and class results; not complete optimum state-space metric",
+        "evidence": "H. AbouEisha et al., Upper Domination: towards a dichotomy through boundary properties, arXiv:1609.01510 (first posted 2016-09-06).",
+        "identifier_or_url": "https://arxiv.org/abs/1609.01510",
+        "material_read": "Full available HTML article text including problem setup and structural algorithmic results",
+        "method": "Checked graph classes and theorem implications against labeled 3-by-n rook optimum exchange states",
+        "title": "Upper Domination: towards a dichotomy through boundary properties",
+        "trigger": "Potential broad upper domination classification that could dominate rook result"
+      },
+      {
+        "assessment": "Optimization formulations and cardinality benchmarking do not supply fixed-size optimal-set reconfiguration diameter",
+        "evidence": "R. Burdett, M. Haythorpe and A. Newcombe, Binary programming formulations for the upper domination problem, Math. Methods Oper. Res. 98 (2023), DOI 10.1007/s00186-023-00831-2.",
+        "identifier_or_url": "https://doi.org/10.1007/s00186-023-00831-2",
+        "material_read": "Available full publisher HTML including introduction, formulations and rook benchmarks",
+        "method": "Checked rook claims, computational outputs and cited numerical results for coverage of exchange connectivity or diameter",
+        "title": "Binary programming formulations for the upper domination problem",
+        "trigger": "Paper with explicit rook graph discussion and numerical upper domination values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "975b771d-c47e-4347-aa32-9f3659251d4b",
+  "value": {
+    "rationale": "The full optimum state space of a canonical Cartesian rook family is classified; the restrictive sliding and jumping models coincide, with an explicit graph-size and sharp metric theorem. The diameter n+floor(n/2)-1 exceeds the unconstrained Hamming diameter by almost 50%, a structurally motivated transport obstruction not given by Gamma=n or counts alone. This supplies a general geometric invariant with applications to rearrangement of extremal minimal dominating sets.",
+    "status": "PASS"
+  }
+}

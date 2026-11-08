@@ -1,0 +1,11 @@
+# Scientific review of the three-row upper-domination mobility theorem
+
+**Correctness: PASS.** The row-or-column coverage criterion is exact; inclusion-minimality gives the upper \(n\)-set characterization for \(n\ge4\). Every legal optimum exchange stays in its column, yielding the non-surjective ternary Hamming subgraph. The vertex and edge enumeration are combinatorial identities. The proof of the sharp diameter uses explicit legal replacement paths in every alphabet-support case and a first-symbol-extinction lower bound. Independently implemented exhaustive checks give matching values through the stated finite ranges; they are not used as an infinite proof.
+
+**Originality: PASS, with historical limitations.** Brešar (2005) proves a product inequality for upper domination, not an optimum exchange graph theorem. Suzuki–Mouawad–Nishimura (2014) analyze addition/removal graphs on all small dominating sets, a different state and adjacency model. AbouEisha et al. (2016) focus on complexity classes. Burdett–Haythorpe–Newcombe (2023) describe upper domination programs and numerical rook cases, without the exact optimum graph or diameter. Mathematical-record searches for upper rook domination, word-model aliases, and diameter parameters returned no statement covering this theorem; the closest hits concern other domination variants and rook homology. Accessible earlier claims were compared by implication, not merely titles. This does not exclude unpublished or unindexed prior knowledge.
+
+**Value: PASS.** Upper domination is a natural extremal property, but the numerical optimum alone says nothing about motion between distinct optima. The sharp \(n+\lfloor n/2\rfloor-1\) transport law, complete connectivity, equality of restrictive and unrestricted exchange models, and exact state and edge counts explain a nontrivial constrained configuration space. The diameter exceeds its ambient Hamming counterpart by about 50%, so the result is not just a renamed upper-domination calculation.
+
+**Main residual risk:** an exact non-surjective ternary-word diameter or rook upper-domination exchange theorem may exist under an unindexed name. No result outside the specified family is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
