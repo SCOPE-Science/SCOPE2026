@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a uniform statement about binary one-word avoidance languages, not a finite extrapolation. The explicit zero-padding path proves the deleted-edge de Bruijn graph primitive; the golden-mean language embeds because the forbidden word contains \(11\). At its simple pole, differentiating the published bivariate border identity yields the exact sign formula. A negative border starts and ends in \(11\), forcing length at least nine, so one such term exceeds both positive short-border terms at every \(\lambda\ge(1+\sqrt5)/2\). The strict inequality completes the argument. The general family has a direct complete border classification. Standard-library finite checks corroborate the symbol and sign accounting through eight family instances and 629 eligible short words. No finite test is used in place of an infinite proof.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+The de Bruijn automaton after deleting the one forbidden edge is primitive via a zero padding path and all-zero loop. Its entropy eigenvalue lambda obeys phi<=lambda<2 because the golden-mean shift is contained. The weighted border generating function provides rho-1/2=E/(2Q^2*x0*F_x), with E=sum_b (2ones(b)-len(b))*lambda^{len(b)} and negative denominator. Short borders 1,11 contribute lambda+2lambda^2; each longer border is nonpositive. Every negative border beginning and ending 11 contains at least four ones and must have length>=9; thus E<=lambda+2lambda^2-lambda^9<0 for lambda>=phi. Direct independent KMP finite-state Perron calculations for (1100000011)^r, r=1,2,3 reproduced lambda~1.9980411457,1.9999980945,1.9999999981 and rho~.5009784186,.5000019044,.5000000027. The all-length sign theorem follows from the analytic argument, not finite tests.
 
-The primary full text arXiv:2606.06655v2 explicitly leaves mixed-sign border cancellation as Conjecture 6.1; its Theorem 3.5 assumes same-sign border imbalances, which fails here. The earlier full text arXiv:2409.09024v1 concerns entropy, autocorrelation and conjugacy, without this letter-bias domination result. Available mathematical-record searches for this exact mixed-sign boundary criterion and corresponding aliases identified no equivalent theorem. The present class permits arbitrarily many negatively imbalanced borders, not just a fixed small number. Unindexed or implicit earlier arguments remain a residual novelty risk.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a structural sufficient condition for strict bias on a class left untreated by the sign-uniform method, directly addressing the mixed-sign issue in a published conjecture. The golden-mean entropy floor dominates an arbitrary number of longer opposite-sign border contributions, and the explicit power family witnesses unbounded border complexity. It is not a mere numerical instance or a two-border corollary.
+The Bóna–Maga–Richey 2026 paper supplies the weighted border identity and addresses equal-frequency/balanced borders; it raises a mixed-sign issue. The candidate theorem gives a concrete sufficient sign criterion despite arbitrarily many zero-heavy overlaps, a different implication from balanced iff half. Resultary returned unrelated word statistics. Best-of-knowledge PASS, but complete primary text could not be inspected and another contemporaneous balanced-border characterization may contain a relevant proof ingredient.
 
-## Scope and residual risks
+## value
 
-The result does not establish Conjecture 6.1 in full or address stopping-time frequency. The critical generating-function formula comes from the cited primary source; the spectral and signed dominance steps are reconstructed in the proof. Novelty remains best-knowledge rather than an independent priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sign of limiting symbol bias for one forbidden pattern is a natural symbolic-dynamics invariant. This theorem resolves a motivated infinite mixed-border region with no bound on number of competing borders; its entropy-floor domination is a nontrivial structural sufficient condition, albeit not a full conjecture solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

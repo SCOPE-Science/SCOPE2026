@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:16:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The de Bruijn automaton after deleting the one forbidden edge is primitive via a zero padding path and all-zero loop. Its entropy eigenvalue lambda obeys phi<=lambda<2 because the golden-mean shift is contained. The weighted border generating function provides rho-1/2=E/(2Q^2*x0*F_x), with E=sum_b (2ones(b)-len(b))*lambda^{len(b)} and negative denominator. Short borders 1,11 contribute lambda+2lambda^2; each longer border is nonpositive. Every negative border beginning and ending 11 contains at least four ones and must have length>=9; thus E<=lambda+2lambda^2-lambda^9<0 for lambda>=phi. Direct independent KMP finite-state Perron calculations for (1100000011)^r, r=1,2,3 reproduced lambda~1.9980411457,1.9999980945,1.9999999981 and rho~.5009784186,.5000019044,.5000000027. The all-length sign theorem follows from the analytic argument, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A reported independent balanced-border theorem characterizes rho=1/2, but rho!=1/2 alone does not select > rather than <.",
+          "Chandgotia–Marcus–Richey–Wu study conjugacy and avoidance counts."
+        ],
+        "reasoning": "Known broader symbolic-dynamics structures and balanced-border necessary/sufficient claims do not directly establish a positive sign for this mixed-sign family.",
+        "searches": [
+          "arxiv:2606.06655v2 Conjecture 6.1",
+          "arxiv:2409.09024 one forbidden pattern",
+          "trureturing BonaMagaRicheyHalfFrequency"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md / verify_long_border.py at Git blob SHAs",
+        "https://arxiv.org/abs/2606.06655",
+        "https://arxiv.org/abs/2409.09024",
+        "https://www.trureturing.org/research/bona-maga-richey-2026-half-frequency-balanced-borders/",
+        "Resultary query: binary subshift forbid one word long border dominance letter frequencies bias"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The border generating function already determines rho in principle. A new dominance inequality uniformly handles arbitrarily many negative borders."
+        ],
+        "reasoning": "The existing formula makes each instance computable, but the infinite-family uniform sign is not a mere tabulated specialization; the derivation uses lambda>=phi and the forced length-nine onset.",
+        "searches": [
+          "Bóna Maga Richey 2026 weighted border formula Sections 2 3 6 as described in package",
+          "arxiv:2409.09024 Guibas Odlyzko polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The criterion is sign of E=sum(delta(b)*lambda^len b), not simply sign of delta(w) or total letter count.",
+          "Bóna–Maga–Richey set up exactly the weighted border language."
+        ],
+        "reasoning": "Equivalent Perron-eigenvalue perturbation and weighted autocorrelation forms were compared; the new inequality is an additional sufficient condition.",
+        "searches": [
+          "binary subshift forbid one word long border dominance letter frequencies bias",
+          "one forbidden word border polynomial eigenvalue letter frequency 1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary queries returned generic substring/coding problems and no exact long-border sign table."
+        ],
+        "reasoning": "Failure of indexed searches is not proof no earlier table exists; equivalence under autocorrelation formulations remains a risk.",
+        "searches": [
+          "binary subshift forbid one word long border dominance letter frequencies bias",
+          "SFT one forbidden word letter bias 1100000011 powers table"
+        ]
+      },
+      "rationale": "The Bóna–Maga–Richey 2026 paper supplies the weighted border identity and addresses equal-frequency/balanced borders; it raises a mixed-sign issue. The candidate theorem gives a concrete sufficient sign criterion despite arbitrarily many zero-heavy overlaps, a different implication from balanced iff half. Resultary returned unrelated word statistics. Best-of-knowledge PASS, but complete primary text could not be inspected and another contemporaneous balanced-border characterization may contain a relevant proof ingredient.",
+      "residual_risks": [
+        "The highly relevant Bóna–Maga–Richey full article was not read; significant potential priority or implicit-corollary risk despite the inspected conjecture.",
+        "This simple entropy-floor sign estimate could already occur in an unindexed note or thesis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Possible stronger same-object theorem not excluded in full; PASS qualified.",
+          "evidence": [
+            "Weighted border polynomial is central; Conjecture 6.1 addresses rho=1/2 iff balanced borders, not the sign of specified mixed borders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.06655",
+          "material_read": "Primary abstract and independent quotation of Conjecture 6.1 available; full preprint inaccessible in browser and authorized Oxford returned vpn_disconnected",
+          "method": "arXiv/OA lookup, abstract, separate theorem-status summary, Oxford attempt",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Same one-forbidden-word object, weighted border polynomial and sign conjecture"
+        },
+        {
+          "assessment": "Established symbolic-dynamics framework, not a verified full-text exclusion of this sign.",
+          "evidence": [
+            "Guibas–Odlyzko autocorrelation determines counts, with Perron representations and conjugacy results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.09024",
+          "material_read": "Primary abstract and theorem descriptions only, not full text",
+          "method": "arXiv metadata and independent bibliographic abstract",
+          "title": "Shifts of Finite Type Obtained by Forbidding a Single Pattern",
+          "trigger": "Same forbidden-word transfer matrices and autocorrelation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sign of limiting symbol bias for one forbidden pattern is a natural symbolic-dynamics invariant. This theorem resolves a motivated infinite mixed-border region with no bound on number of competing borders; its entropy-floor domination is a nontrivial structural sufficient condition, albeit not a full conjecture solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a sufficient criterion for binary one-word shifts, not all mixed borders or stopping-time frequencies.",
+    "The geometric family demonstration is at each positive integer r; numeric tests for only r<=3 are corroborative."
+  ],
+  "schema_version": 1
+}
