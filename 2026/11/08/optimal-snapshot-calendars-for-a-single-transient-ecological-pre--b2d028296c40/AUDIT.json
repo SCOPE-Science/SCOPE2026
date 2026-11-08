@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The disjoint-first-detection formula is integrated directly; its Bellman objective is uniquely unimodal for every r>0 including r=1. Recursive substitution proves the unique gaps and r=2 exact value. The epsilon expansion gives the sharp 2/r asymptotic and the periodic-grid upper/lower bounds give the logarithmic loss. Standalone Python verification passed 9,032 rational, quadrature, optimization and numerical assertions; limits do not rely on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Moore and McCarthy (2016), DOI 10.1111/2041-210X.12564, optimize site effort and visit counts",
+        "Guillera-Arroita et al. (2014), DOI 10.1002/ece3.1056, optimize continuous effort/treatment allocation",
+        "Parmigiani (1996), DOI 10.1287/opre.44.2.360, inspection optimization, abstract only"
+      ],
+      "reasoning": "The broader surveillance frameworks optimize different control variables and take static occupancy or repeating event assumptions. The non-stationary no-reentry random interval with exactly n punctual noiseless observation opportunities is not a stated or implied solved specialization. Classical general inspection theory was not exhaustively accessible.",
+      "searches": [
+        "doi:10.1111/2041-210X.12564",
+        "doi:10.1002/ece3.1056",
+        "doi:10.1287/opre.44.2.360"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1890/12-1720.1",
+      "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+      "https://doi.org/10.1002/ece3.1056",
+      "https://doi.org/10.1111/2041-210X.12564",
+      "https://arxiv.org/abs/1309.6041",
+      "https://doi.org/10.1287/opre.44.2.360"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kendall (2013): staggered entry/exit occupancy estimation; article abstract available",
+        "MacKenzie and Royle (2005): precision/effort on occupancy",
+        "Moore and McCarthy (2016): effort budget and visit count",
+        "Yu et al. (2013): multi-station patrol monitoring"
+      ],
+      "reasoning": "A statement that occurrence is temporary does not imply optimizing visit times; optimizing repeated survey time or station patrol frequency under other objective functions does not provide this Bellman recursion or sharp equal-grid loss. The current mathematical result is neither a direct corollary nor a parameter restriction of any *inspected* stronger theorem.",
+      "searches": [
+        "doi:10.1890/12-1720.1",
+        "doi:10.1111/2041-210X.12564",
+        "doi:10.1111/j.1365-2664.2005.01098.x",
+        "arxiv:1309.6041"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kendall et al. (2013), DOI 10.1890/12-1720.1, explicitly models within-season entry and exit",
+        "Yu et al. (2013), arXiv:1309.6041, studies stochastic events and station monitoring"
+      ],
+      "reasoning": "Equivalent candidate formulations are random-interval interception, timed snapshots during a transient occupancy episode, and inspection of short-lived events. The reviewed accessible sources do not deliver the same n-visit global optimization and miss-probability asymptotic; full 2013 Kendall text remains a named uncertainty.",
+      "searches": [
+        "doi:10.1890/12-1720.1",
+        "arxiv:1309.6041",
+        "An organism arrives after exponentially distributed time and remains for exponential time; deterministic instantaneous species surveys at n freely chosen times; maximize chance of encountering the organism; exact optimal survey gaps recursively and 2/n miss probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact formula/table identified in accessible primary ecological studies or relevant mathematical search results"
+      ],
+      "reasoning": "Exact special-case rational probability is validated analytically and by fractions; a matching n-th probability alone would not imply unique times, general-rate recurrence, or asymptotic periodic-grid loss. No known exact table directly dominates the full theorem.",
+      "searches": [
+        "Logarithmic spacing for optimal detection of one exponentially arriving and departing organism, exact n/(n+1) probability at entry rate twice departure rate",
+        "Staggered single arrival and irreversible departure, exponentially distributed entry and residence time, choose n instantaneous ecological survey visits without fixed horizon. Unique dynamic-programming recurrence, strictly increasing visit gaps, exact n/(n+1) detection at birth rate twice death rate, equal-spacing logarithmic inefficiency"
+      ]
+    },
+    "rationale": "The accessible full texts address non-closure occupancy estimation, occupancy-inference design, continuous survey effort and treatment, or stochastic patrols, not the precise all-count single-episode snapshot-optimum recurrence, uniqueness, sharp asymptotic error, and equal-spacing regret. Relevant inaccessible primary sources and broad inspection theory make historical priority provisional.",
+    "residual_risks": [
+      "Kendall et al. (2013) exact full text was not available; its complete content has not been certified not to contain an equivalent optimization.",
+      "Broad historical inspection and optimal-sampling literature may contain an equivalent result under different terminology.",
+      "Literature searches and accessible text comparisons are not mathematical proof of uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant non-closure likelihood model; no claim that entire source lacks optimal survey schedule",
+        "evidence": [
+          "Published 2013-03-01; species staggered entry and exit modeled for estimation, according to abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/12-1720.1",
+        "material_read": "publisher publication chronology, abstract, references and open linked records; complete article inaccessible",
+        "method": "abstract/method comparison, explicit access limitation",
+        "title": "Relaxing the closure assumption in occupancy models: staggered arrival and departure times",
+        "trigger": "Same stochastic entry/departure biological motivation"
+      },
+      {
+        "assessment": "Inference effort/precision under closed or conventional occupancy; no direct implication of single-episode interception calendar",
+        "evidence": [
+          "Repeated occupancy surveys optimize precision and allocation, not random-interval interception timing"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+        "material_read": "accessible article text describing design assumptions and precision objective",
+        "method": "compare population-closure, study objective, observation action",
+        "title": "Designing efficient occupancy studies: general advice and tips on allocation of survey effort",
+        "trigger": "Classical occupancy-study design"
+      },
+      {
+        "assessment": "Continuous surveys and management costs; a separate problem from instantaneous visits intercepting an independent finite episode",
+        "evidence": [
+          "2014 full text frames resource allocation between detection and treatment for initially occupied sites"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.1056",
+        "material_read": "full accessible HTML article including objectives and optimization sections",
+        "method": "compare static site occupancy and time-spent surveying to transient timing",
+        "title": "Optimal surveillance strategy for invasive species management when surveys stop after detection",
+        "trigger": "Optimal survey design after detection"
+      },
+      {
+        "assessment": "Allocates surveillance effort, travel and number of visits; does not imply n-snapshot transient-episode optimal spacing or asymptotic equal-grid loss",
+        "evidence": [
+          "Full text specifies site-specific visit count, survey duration, detection effort under temporally varying detection rates"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12564",
+        "material_read": "full accessible HTML article including model and analysis sections",
+        "method": "compare all-size result, rate model, action, and optimization variable",
+        "title": "Optimizing ecological survey effort over space and time",
+        "trigger": "Strong title-level overlap: timing and number of visits"
+      },
+      {
+        "assessment": "Multi-station robotic monitoring and cyclic patrol; different objective and observation dynamics",
+        "evidence": [
+          "Arrival processes at multiple stations; persistent monitoring optimizing long-run performance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.6041",
+        "material_read": "accessible full arXiv report text previously inspected",
+        "method": "compare persistent station visits and objective with finite one-event window interception",
+        "title": "Persistent Monitoring of Events with Stochastic Arrivals at Multiple Stations",
+        "trigger": "Poisson stochastic arrival and monitoring optimization"
+      },
+      {
+        "assessment": "Could contain related methods but abstract does not show exact single irreversible appearance/departure snapshot theorem",
+        "evidence": [
+          "Classical inspection of faulty equipment under costs and permanent-failure-like setups"
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.44.2.360",
+        "material_read": "bibliographic record and abstract; full paper not accessible",
+        "method": "inspect abstract and compare detection of permanent failures to vanishing transient events",
+        "title": "Optimal Scheduling of Fallible Inspections",
+        "trigger": "Possible general inspection optimization reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2d02829-6c40-49d1-9dc2-ac8286b381c3",
+  "value": {
+    "rationale": "Temporarily present organisms violate ecological closure, making timed snapshots operationally meaningful. The result gives an exact finite-n design for all positive rates, identifies nonuniform gap direction, quantifies asymptotic diminishing missed-episode risk, and proves an unbounded (logarithmic) multiplicative penalty for regular monitoring. This is a mathematically motivated optimal-design benchmark, not a trivial reparameterization or small numeric example.",
+    "status": "PASS"
+  }
+}
