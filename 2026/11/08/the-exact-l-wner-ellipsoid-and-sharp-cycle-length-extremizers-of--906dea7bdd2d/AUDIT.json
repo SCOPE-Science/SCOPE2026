@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For a connected cactus the graph incidence roots span H. Every spanning tree contains all bridges and deletes exactly one edge per cycle. The weighted matrix-tree theorem yields \\(\\det_H M=n\\prod_C k_C((k_C-1)/k_C)^{k_C-1}\\). Jacobi differentiation gives \\(a_e^{\\mathsf T}M^{-1}a_e=1\\) exactly for every bridge and cycle edge at weights 1 and \\((k-1)/k\\), respectively; the weights sum to \\(d=n-1\\). For every possibly off-center competitor with center \\(h\\) and positive shape \\(S\\), two-sided contact inequalities yield \\(\\operatorname{tr}(S^{-1}M)+d h^{\\mathsf T}S^{-1}h\\le d\\), and AM–GM forces \\(\\det S\\ge\\det M\\), equality only if \\(h=0\\) and \\(S=M\\). Strict increase and strict concavity of \\(\\log F(x)\\) for \\(x>2\\) prove both sharp fixed-\\((n,c)\\) bounds and equality classifications. The package contains a standalone standard-library rational checker that successfully tested 110 cacti, 1,274 exact contact identities, 75 extremal parameter profiles. Finite checks are corroborative and not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published mathematical-record item: 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0 studies wheel graphs, whose rim-spoke cycles share edges, not general cactus graphs.",
+        "2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b concerns two-block PQ-type adjacency polytopes, not symmetric-edge root polytopes of cacti.",
+        "D’Alì–Juhnke-Kubitzke–Koch, arXiv:2307.04933, Theorem 4.6 characterizes unimodular equivalence classes, not minimum ellipsoids."
+      ],
+      "reasoning": "General optimal-design theory permits a variational characterization for every graph but leaves a separate optimization; it does not dominate the explicitly solved cactus case. Published wheel and complete-bipartite results solve different root families; no proved implication from their formulas to cactus weights or fixed-cycle extremizers was identified. Qualitative matroid-volume invariance is already subsumed and has been assigned to prior work.",
+      "searches": [
+        "published-finding corpus query: Löwner ellipsoid symmetric edge polytope of cactus graphs exact volume cycle lengths spanning tree determinant",
+        "published-finding corpus query: minimum volume enclosing ellipsoid convex hull of signed graph incidence vectors cactus graph all contacts",
+        "Web: Lowner ellipsoid graphical matroid basis generating polynomial parallel classes cycle graph",
+        "Web: symmetric edge polytopes Löwner ellipsoid minimal volume around graph root polytope"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2008.08621, public preprint 2020-08-19, inspected relevant full text",
+      "arxiv:2307.04933, public preprint 2023-07-10, inspected relevant full text",
+      "arxiv:2107.12315, public preprint 2021-07-26, inspected relevant full text",
+      "Todd (2007), author-hosted minimum-volume ellipsoid lecture notes, §§1–9",
+      "Published mathematical-record identifier 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0, abstract compared",
+      "Published mathematical-record identifier 2026/10/11/SCOPE-exact-minkowski-asymmetry-and-unique-centers-of-semi-balanced-ca--a52784552f6c, abstract compared",
+      "Published mathematical-record identifier 2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b, abstract compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2008.08621 studies h*-data and normalized volume of A_(suspension of G) when G is a cactus; its geometric object and invariant differ from this A_G metric ellipsoid.",
+        "arXiv:2307.04933 Theorem 4.6 gives graphic-matroid unimodular equivalence. In fixed \\(n\\) this implies the qualitative statement that the optimal ellipsoid volume is the same across matroid twins, but supplies neither its numerical value nor the weighted-Laplacian ellipsoid.",
+        "arXiv:2107.12315 proves facets correspond to maximal bipartite subgraphs and does not determine enclosing metric ellipsoids.",
+        "Todd (2007) gives the general trace/determinant dual certificate, not the cactus-specific weights and sharp value classification."
+      ],
+      "reasoning": "The strongest prior implication (graphic-matroid equivalence) subsumes only qualitative invariance, which is explicitly not isolated as novel. The general minimum-ellipsoid optimality certificate is a standard method. Deriving and proving an explicit positive solution for all cactus graphs and the fixed-\\((n,c)\\) sharp extrema requires the cycle-factor derivative computation and strict logarithmic concavity, neither of which is stated by the inspected cited results.",
+      "searches": [
+        "arXiv:2008.08621 full text, Theorems 1.1, 1.2, 4.3, §§4–7",
+        "arXiv:2307.04933 full text, introduction, Theorems 3.2, 4.6, §5",
+        "arXiv:2107.12315 full text, abstract, §1, Theorems 3 and 9",
+        "Todd (2007) full presentation §§4–9, optimal ellipsoid/D-optimal duality",
+        "published-finding corpus query: Löwner ellipsoid symmetric edge polytope of cactus graphs exact volume cycle lengths spanning tree determinant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Todd, Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms (2007), §§4–9: a general equivalence between optimal ellipsoid and D-optimal covariance designs, without cactus-specific allocation.",
+        "The graphic incidence matrix formulation is explicit in D’Alì–Juhnke-Kubitzke–Koch, arXiv:2307.04933, pp.1–2.",
+        "The supplied proof computes the D-optimal edge weights 1 on bridges and \\((k-1)/k\\) on each length-k cycle and certifies all contacts by exact determinant derivatives."
+      ],
+      "reasoning": "The alternate formulation as a D-optimal design maximizing the weighted spanning-tree polynomial is mathematically equivalent to the Löwner statement, not an additional novelty claim. The generic equivalence theorem and matrix-tree identity do not themselves state the explicit optimal cactus weights, the exact cycle-product volume, or the sharp extremizers. No searched record explicitly gives those statements; nonindexed design-theory coverage remains a residual risk.",
+      "searches": [
+        "published-finding corpus query: minimum volume enclosing ellipsoid convex hull of signed graph incidence vectors cactus graph all contacts",
+        "published-finding corpus query: D-optimal design incidence matrix cactus graph with bridges and disjoint cycles weights (length minus one)/length",
+        "Web: cactus graph D-optimality edge weights experimental design uniform cycle spanning tree maximization",
+        "Web: minimum volume ellipsoid signed incidence vectors graph spanning tree effective resistance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched entry stated the exact volume constant κ_(n−1)√(n ∏_cycles k(\\((k-1)/k\\))^(k−1)) or both sharp fixed-\\((n,c)\\) extremizers.",
+        "Ohsugi–Tsuchiya, arXiv:2008.08621, Theorem 1.1 and Theorem 4.3 give normalized volume and h*-polynomial formulas for suspensions, not a tabulation of cactus Löwner volumes."
+      ],
+      "reasoning": "The published lattice-volume tables and wheel ellipsoid results are not exact entries for the claim. Search absence alone is not used as a uniqueness proof. The explicit certificate and extremal analysis are checked independently, with residual historical-priority risk recorded.",
+      "searches": [
+        "published-finding corpus query: minimum volume enclosing ellipsoid convex hull of signed graph incidence vectors cactus graph all contacts",
+        "published-finding corpus query: D-optimal design incidence matrix cactus graph with bridges and disjoint cycles weights (length minus one)/length",
+        "Web: cactus graph symmetric edge polytope Löwner ellipsoid weighted Laplacian",
+        "Web: cactus graph optimal experimental design maximize weighted spanning trees edges"
+      ]
+    },
+    "rationale": "The new statement is the explicit unique Euclidean Löwner ellipsoid for every canonical cactus symmetric-edge polytope, all-edge tangency, its exact determinant and Euclidean volume, and sharp equality-classified cycle-length extrema at fixed vertex and cycle counts. The prior graphic-matroid classification already implies qualitative volume invariance and general D-optimal duality supplies the optimization certificate, so neither is claimed as a new independent theorem. Inspected relevant full-text sources provide lattice/Ehrhart, facet, and general ellipsoid theory, without giving the explicit cactus solution or sharp extrema. Search cannot certify historical priority: earlier work under network-design terminology remains possible.",
+    "residual_risks": [
+      "An earlier nonindexed theorem in D-optimal network design or weighted spanning-tree optimization may supply the same cactus weights and volume under different terminology; this is an honest historical-priority limit.",
+      "The published mathematical-record full-text links for certain analogous ellipsoid results were inaccessible through the webpage fetch. Their abstracts concern other graph/polytope families; those were not represented as complete full-text NOT_COVERING checks.",
+      "Todd (2007) is a general methodological source rather than a historical catalogue of every graph incidence optimal design."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No coverage: study concerns h*-polynomials and lattice normalized volume of suspended graphs, not Euclidean Löwner ellipsoid of the original cactus root polytope.",
+        "evidence": "Theorem 1.1, pp.2–3; Theorem 4.3, pp.8–9; absence of ellipsoid terminology in full-text search.",
+        "identifier_or_url": "arxiv:2008.08621 / https://arxiv.org/pdf/2008.08621",
+        "material_read": "Abstract, introduction pp.1–3, Theorems 1.1 and 1.2, Theorem 4.3 and its proof pp.8–9, Section 5 topic and the conclusion/reference structure; searchable full-text inspected for ellipsoid.",
+        "method": "Original openly accessible full-text PDF with text and page-image inspection.",
+        "title": "Symmetric edge polytopes and matching generating polynomials",
+        "trigger": "Same symmetric-edge construction and cactus hypothesis; plausible dominating graph-family theorem."
+      },
+      {
+        "assessment": "Covers qualitative unimodular-equivalence invariant, but not the explicit optimal Euclidean shape or numerical volume and extremizers.",
+        "evidence": "Definition and incidence matrix on p.1; Theorem 4.6 on p.12; no ellipsoid terminology in searchable text.",
+        "identifier_or_url": "arxiv:2307.04933 / https://arxiv.org/pdf/2307.04933",
+        "material_read": "Abstract and pp.1–2, graphic incidence representation, theorem statement and proof of Theorem 4.6 p.12, and published topic/section structure; full-text searched for ellipsoid.",
+        "method": "Original arXiv full-text PDF with text and first-page image inspection.",
+        "title": "On a generalization of symmetric edge polytopes to regular matroids",
+        "trigger": "Same polytope and a stronger possible equivalence theorem based on graphic matroids."
+      },
+      {
+        "assessment": "Theorems classify facets and face subgraphs but do not imply the numerical outer-ellipsoid shape.",
+        "evidence": "Introduction p.2 describes the maximal bipartite facet correspondence; no ellipsoid statement found.",
+        "identifier_or_url": "arxiv:2107.12315 / https://arxiv.org/pdf/2107.12315",
+        "material_read": "Abstract pp.1–2, introduction, stated Theorems 3 and 9 and construction/metric coordinate discussion on pp.2–3; full-text searched for ellipsoid.",
+        "method": "Original arXiv full-text PDF with first-page image and text inspection.",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Same object and potentially stronger face-geometry statement."
+      },
+      {
+        "assessment": "General duality already known; no cactus incidence graph specialization or exact extremal formula.",
+        "evidence": "Sections 4–8 provide design covariance, logdet dual, weak duality, and equality.",
+        "identifier_or_url": "https://people.orie.cornell.edu/miketodd/ublndetz.pdf",
+        "material_read": "Sections 1–9 (especially §§4–8, duality and equality certificates).",
+        "method": "Author-hosted lecture-note PDF with page-image and text inspection.",
+        "title": "Minimum-Volume Ellipsoids: Applications, Duality, and Algorithms",
+        "trigger": "General enclosing ellipsoid versus D-optimal design equivalence could already cover optimality method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "906dea7b-dd2d-4dd9-8d7b-1d1db1ae54f5",
+  "value": {
+    "rationale": "A canonical minimum-volume ellipsoid provides the sharp affine-covariant outer approximation and a concrete intrinsic Euclidean volume invariant for graph-root polytopes; it also connects to graph-incidence D-optimal design. The cactus family is an infinite naturally motivated class with independently varying cycle sizes, bridges, and attachment patterns. An explicit all-edge-contact ellipsoid and tight fixed-order/cycle-count volume extrema with complete equality profiles are meaningful metric structural results and are not determined numerically by the known lattice/Ehrhart/facet statements. The matroid-equivalence literature already explains qualitative volume invariance, and this aspect is not misrepresented as standalone novelty.",
+    "status": "PASS"
+  }
+}
