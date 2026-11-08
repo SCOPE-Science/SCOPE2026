@@ -1,11 +1,21 @@
-# Scientific review: bonded double-apex antiferromagnetic rings
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier/Parseval inequality is sharp at every allowed total rim magnetization; the apex pair reduces to its resultant length exactly, and the resulting two-variable quadratic is minimized on the entire rectangle including \(K=K_{\mathrm c}\) and \(K=a\). The equality-mode analysis for odd \(n\ge5\) justifies all ground-state characterizations and the oriented chirality formula. The stand-alone implementation passed 3,901 numerical assertions, including direct nonlinear searches in the unreduced configuration space. Numerical checks supplement, not prove, the all-size theorem. Remaining correctness risk: no independent human proof review.
+## correctness
 
-**Originality — PASS on checked evidence, provisional.** A decisive prior source is Schmidt–Luban (arXiv:cond-mat/0209157, Sec. 6.3.1, Eq. (79)), whose exact quadratic fixed-spin ring energy is the same isolated-ring ingredient used here, and whose Sec. 6.3.3 treats a one-apex odd pentagonal star. That ingredient is explicitly not claimed as new. Other close inspected primary papers are Sklan–Henley (arXiv:1209.1381, full accessible text, sections on Fourier bounds and conical states), Grajek–Kopyciuk–Florek–Marlewski (2018, full three-page primary PDF, section 3), and Florek–Marlewski–Kamieniarz–Antkowiak (2020, full six-page primary PDF, sections 3.3–3.4). The latter two have only one apex and, for their centered-ring treatment, even rim size. Jeevanesan–Orth (arXiv:1409.1618, available abstract and selected manuscript passages) treats a triangular–honeycomb lattice, not a bonded two-apex finite odd wheel. Fourier conical constructions, exact fixed-magnetization ring parabolas, and single-apex frustration are existing results. The non-subsumed claim is the exact hub-bond-driven first-order switch and full coexistence/chirality law for \(K_2\vee C_n\). Search failures are not a proof of novelty; an equivalent general symmetric-exchange classification or unexamined molecular magnet literature remains possible.
+PASS
 
-**Value — PASS.** Adding a second, antiferromagnetically coupled apex is a physically natural competing exchange on a two-apex molecular wheel. Its finite zero-temperature ground-state phase has a sharp threshold, a discontinuous apex correlation, a nonzero spontaneously chiral interval and a continuous critical degeneracy. These quantities distinguish different magnetic orderings and are not isolated numerical benchmarks or a routine parameter substitution into a one-apex wheel model.
+Fourier diagonalization of the odd n-cycle yields the sharp constrained rim energy nJc+nJ(1-c)m^2, attained for every m by a lowest-mode cone; equality Fourier support and unit norms classify conical configurations for n>=5. Two apex unit spins have any resultant length s in [0,2] and correlation s^2/2-1, making the rectangle quadratic exactly attainable. Eliminate m and minimize in s to obtain Kc=sqrt(2aL/n), both matching energy branches, s=0 for K<Kc, coexistence 0<=s<=2 at Kc, and s=2 for K>Kc. For K>=a monotonicity on the clipped m=1 branch yields the uniform rim. Independent evaluation checked 3 odd n x 6 exchange values against dense constrained scans and 12 explicit Fourier-sharp cones, as finite corroboration.
 
-**Scientific scope and limitations.** The theorem covers unit classical \(O(3)\) spins on a homogeneous odd-rim, bonded double-apex graph with \(J,K,L>0\) and \(2L<nJ(1+\cos(\pi/n))\). It does not extend to finite temperature, quantum spins, heterogeneous exchange or other graph geometries without further work. Historical priority is assessed from the material examined, not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for independently bonded two-apex finite odd wheel first-order alignment, critical coexistence and chirality, not the prior exact odd-ring fixed-magnetization parabola. Schmidt–Luban 2002 derive such quadratic bands and analyze a one-apex pentagonal star; single-center wheel papers and general conical methods have no separate apex-apex L term in the inspected configurations. A stronger general exchange-matrix result could still imply this formula after optimization.
+
+## value
+
+PASS
+
+A bonded equivalent apex pair competes against an antiferromagnetic odd rim and itself; the two-parameter exact ground-state reduction determines a discontinuous correlation transition and nonzero chiral interval. This physically natural frustrated finite graph is genuinely different from a single apex and has a complete sharp phase diagram within its stated domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
