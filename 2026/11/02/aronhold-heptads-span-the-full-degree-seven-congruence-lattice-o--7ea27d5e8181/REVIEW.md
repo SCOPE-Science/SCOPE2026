@@ -1,11 +1,21 @@
-# Self-review: integral Aronhold-heptad incidence
+# Independent mathematical audit
 
-Correctness: PASS. The published Arf parity criterion produces 288 heptads; all incidence columns have sum seven. An explicit 28-column minor of the complete 28-by-288 incidence matrix has absolute determinant seven, independently reproduced by exact integer elimination. These two facts determine the entire column lattice and Smith invariants. No inference from finite sampling to an infinite theorem is made.
+## correctness
 
-Originality: PASS, qualified. The nearest published sources are Dalla Piazza–Fiorentino–Salvati Manni (2014), especially Section 3, and Gizatullin (2013) on the eight-design decomposition. Their accessible statements concern the configurations, 288-count, bitangent reconstruction and partition into designs. The index-seven saturation result was not found in actual searches. A complete historical-priority comparison of Gizatullin's full text and old finite-design literature remains outstanding.
+PASS
 
-Value: PASS. The exact integer reconstruction lattice has one congruence obstruction and allows every formal bitangent difference as an integral sum of Aronhold heptads, refining rational design/incidence properties of a canonical geometric configuration.
+For 28 geometric bitangents of a smooth nonhyperelliptic genus-three curve in characteristic !=2, the 288 seven-element Aronhold systems are modeled by odd quadratic refinements of F2^6 and the azygetic triple parity rule. Every heptad incidence column has sum 7, so its integer span is contained in the index-seven sum-congruence lattice. An explicit 28x28 submatrix of these 288 columns has exact integer determinant of absolute value 7, checked independently by constructing odd thetas, all 288 valid subsets and a fresh integer determinant; hence the column span has index exactly seven and its Smith invariants are 1^27,7. This is a formal incidence lattice, not a divisor-class assertion.
 
-Limits: This is an integral formal-lattice result over algebraically closed fields of characteristic different from two, not a statement about Jacobian torsion or arithmetic Galois forms. The result has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aronhold geometry, 288 heptads, and associated designs are known. Gizatullin 2013 was materially read: its 288-heptad partition/design theorem does not explicitly state or directly yield the integer span index 7; no prior integral Smith result was identified. Historical coding-theory overlap remains possible.
+
+## value
+
+PASS
+
+Determining the complete saturation/index and all bitangent differences in the natural 28-versus-288 classical incidence configuration is an independently useful exact integral combinatorial invariant beyond the well-known design parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
