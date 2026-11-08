@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The standalone `verify.py` is a pure Python 3 program. Run `python3 verify.py` in the directory containing the script; it requires no external packages, network, or user input. The exact program was run in the packaged build, and its observed standard output was saved in `verification_output.txt`.
+## correctness
 
-For every carrier size \(n\in\{4,5,6,7,8\}\), the program independently enumerates all set partitions (equivalence relations) on \(n\) labeled points, constructs precisely the proposed unary maps on \(n\) points, and checks directly whether each partition is preserved by all operations. It independently checks that every operation has image cardinality two and that the operation count is \(\binom{n-2}{2}(2^{n-2}-2)+2\). The surviving partitions are precisely the five specified relations. The outputs report `verification=PASS` for each size and conclude with `VERIFY_OK`.
+PASS
 
-The experiment is exhaustive only for the listed five finite sizes. The unbounded assertion \(\operatorname{spec}_2(N_5)=\{4,5,\ldots\}\) is justified by the structural two-case congruence proof and the partition-lattice height bound in `RESULT.md`, not by finite enumeration. The program does not perform an independent scientific audit or certify historical novelty.
+Construction uses B of r>=2 points plus x,y, every two-valued B-map extended with x and y imitating 1 and 2, and h_x,h_y of two values. Listed five equivalences 0,rho,sigma,tau,1 are preserved. For any congruence theta, its B-restriction is equality or universal since all two-output maps are present. Equality case permits x~1 iff y~2 and nothing else, so 0 or tau; universal B case yields rho,sigma or 1. N5 has chain of three strict comparisons, impossible on fewer than four carrier points because partition lattice has chain length n-1.
+
+## originality
+
+PASS
+
+Best-of-knowledge original in its precise qualified statement. The reported 2026 Proposition 41 concerns M3 and Proposition 42 finite distributive lattices; N5 is neither. The appendix reportedly gives a four-point N5 realization, which does not by itself yield all carrier sizes. The unavailable full text and Bandelt general characterization are plausible sources of stronger implicit coverage and remain material priority risks; no whole-document noncoverage is asserted. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+The carrier spectrum for exactly 2-valued unary presentations of the smallest nondistributive pentagon is a natural invariant, complementary to known spectra of distributive lattices and M3. A uniform all-n construction settles this individual structural case; method uses a genuinely substantive congruence argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
