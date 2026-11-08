@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** A signed difference of two filter vertices realizes every sign pattern on each antichain. A rational blow-up and Dilworth partition prove the full antichain-inequality/chain-indicator decomposition, including the real-weight closure step. This gives the sharp quadratic width bound; equality requires a maximum inverse-square-weight chain and alternating signs. All coordinate normalizations and the singleton case are included. Exact finite computations support but do not replace the proof.
+
+**Originality — PASS, historical priority provisional.** Comparisons included published work on order-/chain-polytope face vectors, simplex faces, and width of regular simplices, and previously recorded results on stable-set minimum width, order-polytope asymmetry, and chain-polytope inradii. Their statements do not imply the present *diagonally scaled order-polytope minimum width together with all minimizing normals*: the stable-set result concerns a different body with constant-sign clique normals, while the order-polytope result uses alternating chain signs. Earlier equivalences not indexed by the examined searches remain possible.
+
+**Mathematical value — PASS.** A single sharp metric quantity recovers longest-chain structure of every poset, and its complete equality classification recovers *all* maximizing chains. Positive scale changes yield a continuous piecewise chain-selection geometry, with transitions exactly where different chain inverse-square sums tie. The result gives a structural explanation through antichain cubes in the difference body rather than only a finite evaluation.
+
+**Closest literature and limitations.** The earliest lead paper is Freij-Hollanti--Lundström, arXiv:2312.13890 (2023-12-21); Ahmad--Fourier--Joswig, arXiv:2309.01626, and Mori, arXiv:2307.08447, study related poset polytopes but different invariants. Har-Peled--Robson, arXiv:2301.02616, studies regular simplices. Stanley and Dilworth supply foundational facts. The conclusion is limited to positive diagonal scalings; independent historical-priority and mathematical audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
