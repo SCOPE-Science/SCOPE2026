@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:00:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer n>=3 and arc split a+b=2n-2, conditioning on one chord leaves a uniform perfect matching. Direct pairing indicator moments give Var(Y)=2ab(a-1)(b-1)/[(M-3)(M-1)^2]. Summing the prescribed straddling-edge conditional crossing count over u in A,v in B gives the crucial Cov(X,Y)=ab(a-1)(b-1)/[6(M-3)(M-1)]. Together with Flajolet--Noy Var(X)=(n-1)(n-2)(n+2)/45, this proves the boxed conditional variance. Its inflation is nonnegative, vanishes iff min(a,b)<=1 and is uniquely greatest at a=b=n-1; finite-sum ratio gives strict interior ascent. Independently enumerated every conditional matching and exact rational X,Y moments for n=3,4,5,6 and every possible arc gap: all covariance and variance identities matched; enumeration is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pilaud--Rue arXiv:1307.6440 §2.4, §3.4",
+          "Acan arXiv:1501.01489 §2"
+        ],
+        "reasoning": "The k-crossing enumerator handles a different marking; a coefficient of it is not the conditional forced-edge variance without a further fixed arc parameter. No dominating refinement was located in inspected material.",
+        "searches": [
+          "uniform chord diagrams prescribed chord conditioned crossing total variance covariance degree crossings perfect matchings crossing number",
+          "arXiv:1307.6440 rooted matching crossing enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet and Noy, Analytic Combinatorics of Chord Diagrams, INRIA RR3914, Theorem 3",
+        "Acan, On a uniformly random chord diagram and its intersection graph, arXiv:1501.01489v1, section 2",
+        "Pilaud and Rue, Analytic combinatorics of chord and hyperchord diagrams with k crossings, arXiv:1307.6440, sections 2.4 and 3.4",
+        "Resultary published-finding semantic search for fixed-chord crossing variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Flajolet--Noy Var(X)=(n-1)(n-2)(n+2)/45",
+          "Acan Var(Y), E(Y)",
+          "Independent new Cov(X,Y)=ab(a-1)(b-1)/[6(M-3)(M-1)]"
+        ],
+        "reasoning": "The known moments give Var(X)+Var(Y), but the nonzero extra 2Cov(X,Y) is indispensable; the conditional first moment is acknowledged as known.",
+        "searches": [
+          "uniform chord diagrams prescribed chord conditioned crossing total variance covariance degree crossings perfect matchings crossing number",
+          "arXiv:1501.01489 root chord moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acan arXiv:1501.01489 section 2",
+          "Flajolet--Noy RR3914 Theorem 3"
+        ],
+        "reasoning": "Equivalent root-chord or conditioned edge-count formulations require a joint second moment Cov(X,Y); only the individual X and Y variances are covered.",
+        "searches": [
+          "uniform chord diagrams prescribed chord conditioned crossing total variance covariance degree crossings perfect matchings crossing number",
+          "random matching crossing count conditional fixed chord length variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Touchard--Riordan unrestricted crossing counts",
+          "Flajolet--Noy unconditional theorem"
+        ],
+        "reasoning": "Known tables enumerate crossing count without a separately forced chord, hence do not directly give the arc-resolved second moment.",
+        "searches": [
+          "uniform chord diagrams prescribed chord conditioned crossing total variance covariance degree crossings perfect matchings crossing number",
+          "Pilaud Rue arxiv:1307.6440 Section 2.4"
+        ]
+      },
+      "rationale": "Qualified PASS: classical unconditional crossing-variance and conditioned chord-degree moments do not supply the new mixed covariance or variance of all crossings given the specific edge. Relevant k-crossing enumerators inspected under rooted matching terminology but specialize by total crossings and not the prescribed-edge conditional law. Exact historical priority across unindexed joint refinements is not certified.",
+      "residual_risks": [
+        "An unindexed previously published rooted-crossing refined generating function may implicitly yield the exact conditional variance.",
+        "No general nonuniform chord sampling, multiple forced chords or full conditional distribution is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives unconditional crossing count mean and variance; no conditioning on a prescribed chord",
+          "evidence": "Theorem 3: E C_m=m(m-1)/6, Var C_m=m(m-1)(m+3)/45.",
+          "identifier_or_url": "https://inria.hal.science/inria-00072670",
+          "material_read": "Original report section on mean/variance, Theorem 3 and companion combinatorial argument",
+          "method": "Primary PDF text and page-image inspection",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Unconditional baseline is essential"
+        },
+        {
+          "assessment": "Contains first two moments of distinguished chord degree conditional on arc length; not covariance with the remaining crossing count",
+          "evidence": "Section 2 distinguishes root chord crossing degree, while C=X+Y needs 2 Cov(X,Y).",
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "Original full HTML section 2 and root-degree calculation",
+          "method": "Primary full-text HTML relevant mathematical sections",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Closest fixed-root crossing degree moments"
+        },
+        {
+          "assessment": "Provides counting at fixed total crossing number using cores and rooted marked submatchings, not a theorem giving conditional total variance when a specified endpoint pair is forced",
+          "evidence": "Section 2.4 Eq (3) M_k(x) enumerates by total crossing count k; no separate forced-chord arc sizes a,b.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.6440",
+          "material_read": "PDF contents, perfect matching rooted decomposition section 2.4, chord-diagram section 3.4 and figure/equation at PDF page 10",
+          "method": "Original PDF text and screenshot of relevant rooted matching decomposition",
+          "title": "Analytic combinatorics of chord and hyperchord diagrams with k crossings",
+          "trigger": "Possible dominating refined generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The total crossing count is the global edge count of the chord-intersection graph. Conditioning on one fixed local chord is a natural perturbation; the exact extra variance and strictly shape-dependent positive mixed covariance answer a meaningful conditional-fluctuation question, including a sharp arc extremizer and nontrivial O(n^2) maximum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Flajolet and Noy, Analytic Combinatorics of Chord Diagrams, INRIA RR3914, Theorem 3",
+    "Acan, On a uniformly random chord diagram and its intersection graph, arXiv:1501.01489v1, section 2",
+    "Pilaud and Rue, Analytic combinatorics of chord and hyperchord diagrams with k crossings, arXiv:1307.6440, sections 2.4 and 3.4",
+    "Resultary published-finding semantic search for fixed-chord crossing variance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed previously published rooted-crossing refined generating function may implicitly yield the exact conditional variance.",
+    "No general nonuniform chord sampling, multiple forced chords or full conditional distribution is proved."
+  ],
+  "residual_risks": [
+    "An unindexed previously published rooted-crossing refined generating function may implicitly yield the exact conditional variance.",
+    "No general nonuniform chord sampling, multiple forced chords or full conditional distribution is proved."
+  ],
+  "schema_version": 1
+}

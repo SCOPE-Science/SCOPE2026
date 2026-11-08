@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the crossing-variance identity
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` implements exhaustive enumeration of perfect matchings using Python 3 standard-library `fractions.Fraction` and checks the conditional first two moments of total crossings, the covariance between remaining crossings and distinguished-chord crossings, and the latter variance for every arc split at sizes \(3\le n\le7\). It also checks the unconditional crossing moments on sizes \(1\le m\le7\).
+## correctness
 
-Execution command: `python verify.py`.
+PASS
 
-Observed outcome: **PASS: 194 exact assertions, 293194 enumerated matching instances, n=3..7 conditional and m=1..7 unconditional.** This is an exact check for finite sizes only, not a proof for arbitrary sizes; the finite-sum proof in `RESULT.md` covers all integers \(n\ge3\).
+For every integer n>=3 and arc split a+b=2n-2, conditioning on one chord leaves a uniform perfect matching. Direct pairing indicator moments give Var(Y)=2ab(a-1)(b-1)/[(M-3)(M-1)^2]. Summing the prescribed straddling-edge conditional crossing count over u in A,v in B gives the crucial Cov(X,Y)=ab(a-1)(b-1)/[6(M-3)(M-1)]. Together with Flajolet--Noy Var(X)=(n-1)(n-2)(n+2)/45, this proves the boxed conditional variance. Its inflation is nonnegative, vanishes iff min(a,b)<=1 and is uniquely greatest at a=b=n-1; finite-sum ratio gives strict interior ascent. Independently enumerated every conditional matching and exact rational X,Y moments for n=3,4,5,6 and every possible arc gap: all covariance and variance identities matched; enumeration is only corroboration.
 
-No external proof assistant, independent validation, or human review was performed. Originality is provisional against uninspected historical refinements of crossing-enumerating functions.
+## originality
+
+PASS
+
+Qualified PASS: classical unconditional crossing-variance and conditioned chord-degree moments do not supply the new mixed covariance or variance of all crossings given the specific edge. Relevant k-crossing enumerators inspected under rooted matching terminology but specialize by total crossings and not the prescribed-edge conditional law. Exact historical priority across unindexed joint refinements is not certified.
+
+## value
+
+PASS
+
+The total crossing count is the global edge count of the chord-intersection graph. Conditioning on one fixed local chord is a natural perturbation; the exact extra variance and strictly shape-dependent positive mixed covariance answer a meaningful conditional-fluctuation question, including a sharp arc extremizer and nontrivial O(n^2) maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
