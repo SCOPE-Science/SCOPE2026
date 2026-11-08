@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Analytic verification and finite diagnostics
+# Independent mathematical audit
 
-The complete claim has a proof in `RESULT.md`. Its critical checks are: (i) the minimax infimum enforces each two-sided expectation box, including the zero-budget boundary, (ii) trace-one plus at most two independent active inequalities give no more than four real constraints on supported Hermitian perturbations, and (iii) the only positive integer ranks satisfying the bound are both one. The finite-dimensional dual minimum is attained because the image of the parameter map in the spectral-spread-plus-absolute-value norm is a closed linear subspace.
+## correctness
 
-The optional `CHECK.py` uses only the Python standard library. Invoking `python CHECK.py` checks a reproducible finite set of numerical equalities and inequalities for the two-Pauli example. It completed 2,540 assertions in the tested environment. Its random samples and ten error-budget comparisons cannot establish a general theorem and are not used as proof.
+PASS
 
-The originality comparison is best-knowledge rather than independently certified. The zero-budget special case was previously established. The present positive-error formula is the sole new mathematical claim; no assertion of independence has been made.
+Sion minimax applied to pairs of trace-one positive densities turns hard expectation box constraints into the support-function penalty, yielding the spectral spread. At an extreme feasible mixed-pair (r,s), supported Hermitian perturbations have dimension r²+s² and at most 2 trace plus 2 active independent equations, so r²+s²≤4 and necessarily r=s=1. Every maximum has a pure extreme maximizer; finite-dimensional linear-image distance gives dual attainment. On qubit Bloch-ball differences the constrained profile is e+sqrt(4−e²) until e=√2 then 2√2. Zero tolerances are covered mathematically but not claimed novel.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual mathematical statements and implications, not titles. None of the inspected exact results supplies the claim in this final scope; all four comparison types and materially read primary sources are documented. Inaccessible plausible sources are disclosed as risks rather than falsely excluded or used as automatic failure.
+
+## value
+
+PASS
+
+Two-observable expectation data with finite accuracy are a natural inverse-information problem. The exact convex dual converts a nonconvex pure-state worst-case into an explicit operator optimization, and the active-facet rank mechanism explains why relaxation remains sharp. A nonlinear error-saturation threshold is a substantive exact sensitivity law rather than routine restatement of the known zero-error case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
