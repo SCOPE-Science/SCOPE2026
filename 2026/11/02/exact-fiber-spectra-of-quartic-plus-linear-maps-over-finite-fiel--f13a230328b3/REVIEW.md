@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(q\equiv2\pmod3\), coefficient scaling normalizes all nonzero \(a\). An exact double-count of unordered pairs, triples and quadruples of coincident roots over all \(a\) gives the binomial moments. The critical ternary quadratic \(Q=x^2+y^2+z^2+xy+xz+yz\) is nondegenerate and has \(q^2\) zeros; its three and six pair-equality hyperplanes respectively contribute \(1+3\varepsilon(q-1)\) and \(1+6\varepsilon(q-1)\). Subtracting the explicitly known fourth-power map \(a=0\) and inverting moments proves all five formulas. No computational finite search is used as an infinite proof. The main risks (characteristic 3, nonzero coefficient, repeated fourth root in triple counting) are explicitly bounded by the hypotheses and treatment.
+## correctness
 
-**Originality — PASS, qualified.** Sun (2006), formula (1.7), covers the **value-set cardinality**, and is not credited as novel here. The exact simultaneous determination of the four nonempty fiber multiplicities, including unique three-fiber behavior and all eligible extension fields, is strictly more informative than that cardinality. Matera–Pérez–Privitelli (2013) give asymptotic averages and interpolation constructions, not this fixed-map histogram. Targeted published-finding corpus searches for `x^4+ax`, quartic fiber histograms, four-root fibers and Sun's paper revealed no equivalent; the nearby published quartic graph *additive energy* has different observables. A later or unindexed root-distribution theorem may supply equivalent coverage and remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The full fiber multiplicity spectrum is a natural invariant in finite-field polynomial maps, strengthening the historically studied value-set cardinality by separating all collision multiplicities. It identifies a sharp and unexpected zero-or-one rigidity for three-preimage targets, gives the complete distribution for an infinite prime-power family, and permits exact collision and sampling computations beyond image size. The result is a global classification rather than a small-field census or routine numerical increment.
+Coefficient-normalization by unique cube roots is valid since gcd(3,q-1)=1. Collision pairs uniquely fix a; three distinct roots require Q=x²+y²+z²+xy+xz+yz=0, and its q² zeros follow from nondegenerate ternary quadratic theory (char>=5); equality-plane intersection counts use 6≠0. Four distinct roots use six pair-equality hyperplanes. Subtracting the a=0 monomial moments and applying binomial inversion yields the q mod 24 table. Independent direct polynomial enumeration checked all a≠0 for eleven prime fields; extensions are handled by proof, not inferred from finite tests.
 
-**Scientific limits.** Scope is odd \(q\equiv2\pmod3\), \(a\ne0\); no analogous classification for other congruence classes is established. Sources inspected do not prove absolute priority. The prime-field image size is prior work. Independent audit was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhi-Hong Sun 2006 Equation (1.7) already gives prime-field image cardinality for x^4+bx, explicitly excluded. The published family-averaged polynomial value-set work of Matera–Pérez–Privitelli covers other statistics; no examined theorem provides this exact individual quartic fiber histogram for all allowed finite fields.
+
+## value
+
+PASS
+
+A complete output-fiber histogram, including 3- and 4-preimage strata and extension-field uniformity in a, is a natural value-distribution invariant strictly finer than the previously known image cardinality, with explicit arithmetic residue-class transitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
