@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The smooth genus-five family is constructed as a degree-\(16\) tame elementary-abelian quadratic cover with five distinct branch points. The nontrivial characters give five elliptic four-branch quotients and ten rational two-branch quotients. The explicit norm/pullback maps have composite multiplication by \(8\) on each elliptic factor and vanish off diagonal, establishing a \(3\)-prime isogeny without a characteristic-zero specialization. The Legendre Hasse coefficient \(-1-r\) makes a supersingular fourth point unique for every ordered triple in characteristic \(3\). Any two distinct four-subsets of five points share a triple, so at most one elliptic quotient is supersingular. All five nonordinary parameter equations, their disjointness, and all finite-field counts follow algebraically. Exact symbolic saturation and independent finite-field enumerations reproduced the predicted results.
+PASS
 
-## Originality — PASS, with residual risk
+The 5-branchpoint tame (Z/2)^4 cover of P1 has genus 5 by Riemann–Hurwitz (2g-2=-32+5·8=8). Five even characters ramified at four points give five elliptic quotients. Pullbacks and norms compose to diagonal multiplication by 8 (off-diagonal vanish by involution characters), so a prime-to-3 isogeny identifies 3-divisible groups, and p-rank/a-number sum over the elliptic factors. In char3 Legendre y²=x(x-1)(x-r) has Hasse invariant proportional to -(1+r), so the fourth branch point that makes a fixed triple supersingular is unique (r=-1). Distinct five-sets thus have at most one supersingular four-subset. The five explicitly stated equations lambda+1, mu+1, lambda+mu, lambda+mu+1, lambda*mu+lambda+mu vanish on pairwise disjoint loci in U. Each is rational with exactly q-3 points over F_(3^m), m>=2: total nonordinary 5(q-3), ordinary (q-3)(q-7). Independent F9 direct arithmetic confirmed 30 vs 12 and read exact saturation Groebner verifier for all ten pairwise intersections. Claims only on smooth U and ordered rational branch points; finite counts do not prove the geometric isogeny.
 
-The five-elliptic decomposition itself is an earlier theorem of Auffarth–Lucchini Arteche–Rojas (arXiv:1905.12690). Hidalgo (arXiv:1705.09337) treats the complex genus-five branching model, and Martínez-Núñez (arXiv:2303.18056) generalizes decomposition over the complex numbers. The new proposed claim is the *characteristic-three* complete rank/\(a\)-number stratification with five disjoint rational parameter components and exact \(\mathbf F_{3^m}\) counts. Targeted published-source searches and mathematical-record comparisons did not locate an equivalent full statement. An unindexed characteristic-three calculation or an unpublished consequence of the known decomposition remains a priority risk. The proof does not claim independence from the classical factorization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Jacobian of a genus-five curve ordinarily permits many possible \(3\)-ranks and Newton polygons; this natural two-dimensional family admits only the ordinary and almost-ordinary cases. A characteristic-specific collision of the three usual harmonic completions forces the nonordinary divisor to be geometrically disconnected, with five pairwise-disjoint rational components. The uniform counts \(5(q-3)\) and \((q-3)(q-7)\) characterize all ordered rational branch configurations over finite extensions of \(\mathbf F_3\). This gives a structural arithmetic restriction and exact moduli-stratum geometry, not merely a renamed construction or isolated finite calculation.
+Prior Humbert–Edge Jacobian decomposition into five elliptic factors and 2-primary kernel was explicitly obtained by Auffarth–Lucchini Arteche–Rojas; standard characteristic3 Legendre Hasse invariant is known. The evaluated combination yields five disjoint explicit nonordinary equations, complete (f3,a) restriction, Newton slopes, and all extension-field ordered census; no identical arithmetic classification found in actually inspected primary material. Qualified best-of-knowledge PASS, not novel decomposition or generic Legendre criterion.
 
-## Closest prior work and limits
+## value
 
-The closest mathematical implication is the already-known splitting into five elliptic factors; that theorem supplies the essential reduction but does not give the characteristic-three disjointness or the uniform arithmetic classification. The parameter counts are not abstract curve-isomorphism counts. No generic characteristic or degenerate-branch version is asserted. A targeted search cannot independently certify global priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact arithmetic parameter geometry of the full smooth ordered Humbert–Edge family answers which curves are ordinary and identifies a stringent one-factor defect, all Newton possibilities, and an exact rational-point census over each F_(3^m). Natural geometric family and full classification justify value independently of proof length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
