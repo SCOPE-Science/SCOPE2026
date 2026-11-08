@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each cube edge has a unique direction and an endpoint with a zero in that direction. The proof derives all distinct-edge shortest-path distances by minimizing over the four possible endpoint choices. On the resulting direction fibers, orthogonal Walsh characters give explicitly computable diagonal coefficients and cross-direction coefficients, hence a complete invariant-block diagonalization whose multiplicities sum to the number of edges. Every direction-constant eigenvalue is positive, and every direction-contrast eigenvalue has the stated factorization; its smallest value occurs at the zero Walsh frequency, giving a unique sharp crossing. Differentiation at the all-ones kernel correctly recovers the ordinary distance spectrum. An independent breadth-first-search and exact-rational Fourier-action checker ran successfully over 30,368 assertion groups; this is corroboration, not a substitute for the all-dimensional proof.
+## correctness
 
-**Originality — PASS under bounded evidence.** The closest original studies of the same graph family are Liu–Cao–Pan–Elaiw (2013), concerning Laplacian spectra, resistance distance and Kirchhoff indices, and Hou–Bian (2021), concerning adjacency spectra. Neither computes the all-distance exponential kernel or the exact positivity boundary. Aalipour et al. (2015) treat ordinary distance spectra for different families; DeVille (2017) presents general distance spectra but no directly covering cube-line-graph kernel theorem was found. Related published mathematical results on cuboctahedral graph topology and Boolean-cube Fourier spaces were compared by statements and do not imply the present threshold. Residual risk: equivalence to an older, differently indexed distance-kernel result remains possible.
+PASS
 
-**Mathematical value — PASS.** This is an all-dimensional classification for a canonical family of graph-metric kernel matrices. It determines not only the eigenvalues but also the exact scale at which the kernel first becomes positive semidefinite, its sharp nullity and directional optimizer geometry, a golden-ratio special case, and the growth of the cutoff with dimension. The unusual feature is eventual positive definiteness even though the metric fails conditional negative type; this is a structural kernel-design phenomenon and not an adjacency-spectrum restatement.
+On cube edges (i,x) the endpoint-minimum formula gives distance 0 on the diagonal, 1+Hamming distance off-diagonal in a direction, and 1+Hamming distance with coordinates i,j omitted between directions. For Walsh subset S of size s, the fiber of d-s directions has diagonal a_s=1-z+z(1+z)^(d-1-s)(1-z)^s and off diagonal b_s=2z(1+z)^(d-2-s)(1-z)^s, producing P_s with multiplicity binomial(d,s) and M_s with multiplicity (d-s-1)binomial(d,s). P_s is positive and M_s=(1-z)[1-z(1+z)^(d-2-s)(1-z)^s] is first nonpositive only at s=0. Thus for d>=3 the unique threshold z(1+z)^(d-2)=1 has exactly d-1 zero modes, while d=2 remains positive definite. Differentiation at z=1 recovers the stated four distance eigenvalues, including nonconstant positive eigenvalue 2^(d-2)-1 for d>=3. Independently built actual cube-edge line graphs, BFS distances and direct numerical kernel eigenspectra agree with all claimed Fourier multiplicities at d=2,3,4 for 0.23,0.55,0.85; finite checks are corroboration, not the all-d proof.
 
-Scientific scope: finite unweighted cube line graphs and real exponential parameters. Generalization to weighted or arbitrary line graphs and historical completeness are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.
+
+## value
+
+PASS
+
+The edge-incidence metric of the hypercube is a natural non-distance-regular family and the sharp Schoenberg-type exponential-kernel cutoff, exact nullspace and ordinary distance spectrum are useful structural facts beyond adjacency/Laplacian data. Dimension three already yields a nontrivial cuboctahedral golden-ratio threshold; the all-d phase boundary and failure of negative type are not an arbitrary one-off computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

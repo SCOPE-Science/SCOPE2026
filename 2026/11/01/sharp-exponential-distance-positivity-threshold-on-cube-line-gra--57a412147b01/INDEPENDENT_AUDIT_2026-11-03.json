@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:08:56.442070Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On cube edges (i,x) the endpoint-minimum formula gives distance 0 on the diagonal, 1+Hamming distance off-diagonal in a direction, and 1+Hamming distance with coordinates i,j omitted between directions. For Walsh subset S of size s, the fiber of d-s directions has diagonal a_s=1-z+z(1+z)^(d-1-s)(1-z)^s and off diagonal b_s=2z(1+z)^(d-2-s)(1-z)^s, producing P_s with multiplicity binomial(d,s) and M_s with multiplicity (d-s-1)binomial(d,s). P_s is positive and M_s=(1-z)[1-z(1+z)^(d-2-s)(1-z)^s] is first nonpositive only at s=0. Thus for d>=3 the unique threshold z(1+z)^(d-2)=1 has exactly d-1 zero modes, while d=2 remains positive definite. Differentiation at z=1 recovers the stated four distance eigenvalues, including nonconstant positive eigenvalue 2^(d-2)-1 for d>=3. Independently built actual cube-edge line graphs, BFS distances and direct numerical kernel eigenspectra agree with all claimed Fourier multiplicities at d=2,3,4 for 0.23,0.55,0.85; finite checks are corroboration, not the all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeVille arXiv:1708.02294 pp.1–10 introduces generalized distance spectra for graph families and distance-regular cases, but the searched full text does not supply this non-distance-regular cube line graph kernel.",
+          "Liu et al. 2013 DOI 10.1155/2013/543189 concerns graph Laplacian and Kirchhoff index."
+        ],
+        "reasoning": "A general spectral framework is not a numerical eigenvalue theorem for L(Q_d); its stated families and invariants do not imply the evaluated threshold without the new edge-distance Walsh blocks.",
+        "searches": [
+          "line graph hypercube Q_d exponential shortest path distance kernel positive semidefinite eigenvalues threshold z(1+z)^{d-2}=1",
+          "generalized distance spectrum line graph hypercube DeVille Walsh 2017",
+          "distance regular graph kernels line graph hypercube"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1708.02294",
+        "https://doi.org/10.1155/2013/543189",
+        "https://arxiv.org/abs/1509.01196",
+        "https://doi.org/10.12677/AAM.2021.1012470",
+        "Resultary 2026/9/17/SCOPE009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu et al. 2013 identifies Laplacian/resistance invariants, not z^shortest-path kernel.",
+          "DeVille arXiv:1708.02294 full relevant graph-spectrum discussion no line-hypercube theorem; present M_0 has a zero at z(1+z)^(d-2)=1."
+        ],
+        "reasoning": "Neither Laplacian nor adjacency spectrum determines this nonlinear distance kernel for a generic graph. The new claim adds an exact cutoff, all negative-type behavior and a singular eigenspace; checked prior results do not dominate it.",
+        "searches": [
+          "line graph hypercube Q_d exponential shortest path distance kernel positive semidefinite eigenvalues threshold z(1+z)^{d-2}=1",
+          "Liu Cao Pan Elaiw line graph hypercube Laplacian Kirchhoff spectrum",
+          "Hou Bian line graph hypercube adjacency spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L(Q_d) has vertices cube edges, equivalently the cuboctahedral graph for d=3; arXiv:1708.02294 is a generalized distance spectrum, not the exact exponential-kernel Walsh family."
+        ],
+        "reasoning": "Compared graph names, exp(-t shortest-path) versus z^distance (z=e^-t), generalized distance matrices and conditional negative type. The prior metric framework does not state the all-dimensional positivity crossing or the direction contrast nullspace.",
+        "searches": [
+          "line graph hypercube Q_d exponential shortest path distance kernel positive semidefinite eigenvalues threshold z(1+z)^{d-2}=1",
+          "cuboctahedral graph exponential shortest path distance kernel exact PSD golden ratio",
+          "line graph hypercube ordinary distance negative type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned cube edge-multiset dimension (2026/9/17/SCOPE009) and cube/cross-polytope metric records, none the exact exponential kernel or eigenvalue table."
+        ],
+        "reasoning": "No exact same-family formula or tabulation identified; an absent search hit is not proof of priority.",
+        "searches": [
+          "line graph hypercube Q_d exponential shortest path distance kernel positive semidefinite eigenvalues threshold z(1+z)^{d-2}=1",
+          "L(Q3) cuboctahedral exponential distance kernel eigenvalue threshold",
+          "cube line graph distance matrix eigenvalues"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.",
+      "residual_risks": [
+        "An earlier cube edge-distance spectral calculation or a semigroup kernel construction under different terminology could imply the threshold; the historical search is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No L(Q_d) all-z positive-kernel theorem or claimed singular Walsh modes found",
+          "evidence": [
+            "generalized distance matrices and graph-family theorems, arXiv:1708.02294"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02294",
+          "material_read": "PDF abstract, definitions, searched graph-family results and relevant application passages; inspected page 1 and later-page images",
+          "method": "Opened/search-read PDF and inspected page images",
+          "title": "The generalized distance spectrum of a graph and applications",
+          "trigger": "General distance spectral results could cover all distances"
+        },
+        {
+          "assessment": "Relevant objects but different Laplacian/resistance invariants; full independent text not completed",
+          "evidence": [
+            "paper bibliography and claimed Laplacian/Kirchhoff index scope"
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/543189",
+          "material_read": "Referenced Laplacian/Kirchhoff statement in frozen proof; external summary/bibliography searched",
+          "method": "bibliographic and search comparison only",
+          "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+          "trigger": "Same hypercube line graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The edge-incidence metric of the hypercube is a natural non-distance-regular family and the sharp Schoenberg-type exponential-kernel cutoff, exact nullspace and ordinary distance spectrum are useful structural facts beyond adjacency/Laplacian data. Dimension three already yields a nontrivial cuboctahedral golden-ratio threshold; the all-d phase boundary and failure of negative type are not an arbitrary one-off computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1708.02294",
+    "https://doi.org/10.1155/2013/543189",
+    "https://arxiv.org/abs/1509.01196",
+    "https://doi.org/10.12677/AAM.2021.1012470",
+    "Resultary 2026/9/17/SCOPE009"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier cube edge-distance spectral calculation or a semigroup kernel construction under different terminology could imply the threshold; the historical search is bounded.",
+    "Bounded mathematical checks do not replace infinite-domain proofs; historical priority is best of knowledge, not guaranteed."
+  ],
+  "schema_version": 1
+}
