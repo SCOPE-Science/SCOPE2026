@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:13:42.229795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Step1 geometric sum, Step2 Weyl kernel, Step3 support graph, Step4 one-probe argument; blob 6009932bdcdaac01c630aa9d610a10d20b5924d2",
+        "verify_geometric_stft.py blob eb7d81fa9417d9cb0f7fe094b75fa3f3642e6c0b",
+        "Independent numerical complex-ambiguity check N=2..16 all k,l r=1.4 in independent_scope05_checks.py"
+      ],
+      "rationale": "Splitting geometric cyclic indices at k yields A_r(k,l)=r^-k(1-r^N)(r^N+(r²ω^-l)^k)/(1-r²ω^-l); the denominator is nonzero when r>0,r!=1. A zero requires k=N/2 and an odd l, hence even N only. Weyl double Fourier diagonalization then leaves precisely h=N/2 real degrees of freedom in purely imaginary antipodal Hermitian entries. For two equal-data rank-one matrices, equal diagonals fix magnitudes and all non-antipodal offdiagonals fix phase products; on >=3 occupied indices the graph deleting the antipodal matching is connected. Only an antipodal two-sparse signal has b versus conjugate-b ambiguity. Additional Q using phase i between the two halves determines the missing imaginary cross-term, while one extra scalar is needed because genuinely distinct 2-sparse fibers exist. Independently checked ambiguity formula and zero set for all N=2..16 with r=1.4; finite checks corroborate, not prove, all N/r.",
+      "residual_risks": [
+        "Labels must be preserved and all N² full time-frequency intensities measured.",
+        "r=1 is excluded; exact identifiability says nothing about noise stability or conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bojarovska–Flinth establishes sufficient conditions and noninjective examples for other windows.",
+          "Li 2026 abstract describes perturbative complex geometric seed and conditioning rather than all signals for positive real geometric window."
+        ],
+        "reasoning": "General Gabor phase-retrieval or continuous-STFT sampling theorems do not specialize to exactly this even-order two-sparse fiber and minimal one-probe global repair.",
+        "searches": [
+          "arxiv:1503.05800 finite Gabor phase retrieval nonzero ambiguity",
+          "arxiv:2609.09614 complex geometric Gabor seeds",
+          "arxiv:2211.05687 compact support phaseless STFT"
+        ]
+      },
+      "checked_sources": [
+        "Bojarovska–Flinth arxiv:1503.05800 Sections 2.2,2.4",
+        "Resultary two-tap cyclic STFT full result",
+        "Li arxiv:2609.09614 abstract",
+        "Grohs–Liehr–Shafkulovska arxiv:2211.05687 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A nonzero-ambiguity condition implies odd-order injectivity but says nothing sharp for even-order kernel with N/2 dimensions.",
+          "Two-point-window result requires a sparse two-tap window and full-support signals, unlike positive geometric all-support classification."
+        ],
+        "reasoning": "No checked antecedent implies both the exact even-order nonlinear fiber and universal single additional measurement.",
+        "searches": [
+          "arxiv:1503.05800 finite Weyl ambiguity diagonalization",
+          "Resultary exact nonvanishing phase retrieval fibers for even two-point cyclic STFT window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bojarovska–Flinth Section 2.2 diagonalizes lifted Gabor data in Weyl basis; nonzero ambiguity is sufficient for global injectivity.",
+          "The positive geometric window has half-translation/odd-modulation zeros in even order, so the sufficient criterion does not determine its fibers."
+        ],
+        "reasoning": "The zero-pattern kernel combined with rank-one support connectivity is an extra nonlinear classification, not equivalent to a standard full-rank lifted criterion.",
+        "searches": [
+          "Resultary: cyclic short time Fourier phase retrieval positive geometric window antipodal ambiguity fibers one extra measurement",
+          "Bojarovska Flinth Phase Retrieval from Gabor Measurements arxiv 1503.05800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary record for a two-point cyclic STFT window classifies full-support alternating-magnitude exceptions for a sparse window, not the full-support geometric g_r."
+        ],
+        "reasoning": "No exact matching geometric-window fiber table was found; absence is not a novelty proof.",
+        "searches": [
+          "Resultary: cyclic short time Fourier phase retrieval positive geometric window antipodal ambiguity fibers one extra measurement",
+          "Gabor geometric windows single extra measurement antipodal ambiguity theorem"
+        ]
+      },
+      "rationale": "The Weyl ambiguity diagonalization and sufficient nonzero-ambiguity criterion are known. Originality claimed only for complete nonlinear fibers of real cyclic geometric windows and one scalar completion; closest retrieved work uses different windows or gives only sufficient criteria.",
+      "residual_risks": [
+        "Li 2026 full-text not inspected; an unexpectedly general reduction might cover a related class.",
+        "Older finite-STFT phase retrieval literature could contain an equivalent positive geometric special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies linear algebra but not positive geometric full fiber/one-probe result",
+          "evidence": "Bojarovska and Flinth 2015 nonzero window ambiguity is sufficient",
+          "identifier_or_url": "https://arxiv.org/html/1503.05800v2",
+          "material_read": "Relevant Section 2.2 nonvanishing-ambiguity theorem and Weyl diagonalization, Section 2.4 exceptional examples; introduction",
+          "method": "Full open HTML primary paper inspected by section",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Same finite Gabor intensity and ambiguity-operator framework"
+        },
+        {
+          "assessment": "Nonzero full-support signals for sparse window; does not dominate positive dense geometric window",
+          "evidence": "Two-point window has alternating-modulus fiber structure",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nonvanishing-phase-retrieval-fibers-for-an-even-two-point--29afd3fc909d/RESULT.md",
+          "material_read": "Entire finding, scope, Fourier two-tap proof and review of special supports",
+          "method": "Full Resultary RESULT.md read via GitHub connector",
+          "title": "Exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window",
+          "trigger": "Potential published exact fiber classification"
+        },
+        {
+          "assessment": "Perturbed complex geometric window and conditioning indicated in abstract",
+          "evidence": "Perturbed complex geometric window and conditioning indicated in abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09614",
+          "material_read": "Abstract and identifying information only, no full theorem read",
+          "method": "arXiv abstract; not enough full text to assert NOT_COVERING",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Geometric seed could dominate the claim"
+        },
+        {
+          "assessment": "Continuous compact-support function sampling, different setting; residual if broader theorem hidden",
+          "evidence": "Grohs–Liehr–Shafkulovska 2022 continuous-space result",
+          "identifier_or_url": "https://arxiv.org/abs/2211.05687",
+          "material_read": "Published abstract and summarized assumptions, not exhaustive main-text inspection",
+          "method": "arXiv abstract/metadata examined",
+          "title": "From completeness of discrete translates to phaseless sampling of the short-time Fourier transform",
+          "trigger": "Potential general theorem for STFT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md full all-support theorem and proof",
+        "Bojarovska–Flinth comparison of lifted-rank and rank-one injectivity"
+      ],
+      "rationale": "The specific geometric window is a simple canonical nonvanishing cyclic family; its even-dimensional linear Hermitian kernel is large yet the noninjective rank-one locus is only an explicit antipodal two-point stratum. The exact support-dependent fiber classification and a single deterministic extra phaseless intensity form a natural and useful measurement-design result that cannot be inferred merely from a zero-free criterion.",
+      "residual_risks": [
+        "No stability/robustness guarantee; extra measurement need not be a Gabor translate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Labels must be preserved and all N² full time-frequency intensities measured.",
+    "r=1 is excluded; exact identifiability says nothing about noise stability or conditioning.",
+    "Li 2026 full-text not inspected; an unexpectedly general reduction might cover a related class.",
+    "Older finite-STFT phase retrieval literature could contain an equivalent positive geometric special case.",
+    "No stability/robustness guarantee; extra measurement need not be a Gabor translate."
+  ],
+  "schema_version": 1
+}

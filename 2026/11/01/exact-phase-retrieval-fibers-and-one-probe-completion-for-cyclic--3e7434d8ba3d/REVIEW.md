@@ -1,19 +1,21 @@
-# Review of the geometric-window phase-retrieval theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The closed geometric-sum formula is exact for every positive ratio different from one. Its zeros occur only at the half translation with odd modulation in even cyclic order. The standard Weyl diagonalization identifies every Hermitian kernel entry; a connectivity argument then recovers every nonexceptional signal phase, and the additional scalar extracts the missing imaginary cross term. All quantifiers, supports and degeneracies are treated explicitly. The standalone checker passed 690 finite consistency assertions.
+PASS
 
-## Originality
+Splitting geometric cyclic indices at k yields A_r(k,l)=r^-k(1-r^N)(r^N+(r²ω^-l)^k)/(1-r²ω^-l); the denominator is nonzero when r>0,r!=1. A zero requires k=N/2 and an odd l, hence even N only. Weyl double Fourier diagonalization then leaves precisely h=N/2 real degrees of freedom in purely imaginary antipodal Hermitian entries. For two equal-data rank-one matrices, equal diagonals fix magnitudes and all non-antipodal offdiagonals fix phase products; on >=3 occupied indices the graph deleting the antipodal matching is connected. Only an antipodal two-sparse signal has b versus conjugate-b ambiguity. Additional Q using phase i between the two halves determines the missing imaginary cross-term, while one extra scalar is needed because genuinely distinct 2-sparse fibers exist. Independently checked ambiguity formula and zero set for all N=2..16 with r=1.4; finite checks corroborate, not prove, all N/r.
 
-The finite ambiguity diagonalization and nonzero-ambiguity sufficiency criterion belong to Bojarovska–Flinth (2015). The comparison with Grohs–Liehr–Shafkulovska (2022) concerns different continuous-domain sampling assumptions. Li (2026) treats a complex geometric seed and lifted stability rather than complete nonlinear fibers for the real geometric window. The essential new claim is the exact all-support fiber classification and universal one-probe completion for this specific window family. A residual priority risk is an equivalent result in older finite-STFT reconstruction literature.
+## originality
 
-## Mathematical value
+PASS
 
-The theorem distinguishes zero-free lifted tomography from exact phaseless reconstruction: an even-dimensional lifted operator has a kernel of real dimension half the signal length, yet phase retrieval fails only on an explicitly classified two-sparse stratum, and one scalar removes all ambiguity. This explains where a nonzero-ambiguity criterion loses information and supplies a minimal deterministic measurement repair for a natural one-parameter window family. No noise robustness is asserted.
+The Weyl ambiguity diagonalization and sufficient nonzero-ambiguity criterion are known. Originality claimed only for complete nonlinear fibers of real cyclic geometric windows and one scalar completion; closest retrieved work uses different windows or gives only sufficient criteria.
 
-## Limitations and relevant work
+## value
 
-The proof uses all labelled Gabor intensities, complex signals, positive real geometric windows with ratio different from one, and exact measurements. The separate additional measurement is not itself an original-window Gabor atom. Closest sources: arXiv:1503.05800, arXiv:2211.05687, arXiv:2609.09614. Historical-priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The specific geometric window is a simple canonical nonvanishing cyclic family; its even-dimensional linear Hermitian kernel is large yet the noninjective rank-one locus is only an explicit antipodal two-point stratum. The exact support-dependent fiber classification and a single deterministic extra phaseless intensity form a natural and useful measurement-design result that cannot be inferred merely from a zero-free criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
