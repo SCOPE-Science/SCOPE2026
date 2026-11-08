@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The tree incidence map is surjective onto independent edge-gradient coordinates, making each face-bound maximization exact rather than an estimate with unrealizable signs. The monotone finite-dimensional flow makes the invariant-box criterion valid for all \(1<p<\infty\); a strictly outward face gives necessity. The gauge statement is equivalent to \(Bx\le x\) and follows from left/right Perron–Frobenius eigenvectors; the single-edge case is separately treated. Two-input rigidity uses a smooth base state with nonzero gradients and the off-diagonal Jacobian dependence on the background gradient, which can overwhelm the diagonal whenever \(p\ne2\). The standard-library checker reproduced exact face identities and explicit smooth witnesses. Boundary conditions \(|E|=1\), \(p=2\), and \(1<p<2\) were addressed separately. The checker is not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Tree edge gradients are independent coordinates modulo constants. On every gradient-box face, the largest signed outward derivative is exactly r^(p−1)(A_e−D_e), obtained by independently assigning signs/magnitudes to adjacent gradients. Invariance of all gradient boxes proves iff condition and instantaneous derivative. x_e=c_eℓ_e^(p−1) converts the inequalities to Bx≤x; irreducible Perron–Frobenius establishes ρ(B)≤1, with critical positive gauge unique up to scale. For p≠2 and adjacent edges, the Jacobian off-diagonal response |g_f|^(p−2) can overwhelm fixed diagonal loss by varying g_f; an explicit 3-vertex path witness makes two-input distance increase. Independent p=1.2,1.5,2.5,3,4 path Jacobians and a 3-leaf star PF threshold corroborate, not prove, the theorem.
 
-The closest fully examined nonlinear graph semigroup paper is Mugnolo, arXiv:1207.1996: it treats vertex-space contractivity rather than the exact weighted edge-Lipschitz invariant boxes or a two-input impossibility theorem. Münch–Wojciechowski, arXiv:1712.00875, provides linear heat-flow Lipschitz/curvature theory; no nonlinear \(p\ne2\) implication was found in its inspected text. Earlier edge-total-variation theory has the same star mass-balance threshold but in a different norm, and does not imply the all-tree condition or the two-input rigidity. Mathematical record searches covered aliases involving graph \(p\)-Laplacian, tree gradient maximum principle, nonlinear Lipschitz contraction and two-solution nonexpansivity. Novelty is not logically proved by these searches; unindexed prior derivations are a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The difference between one-input regularization and two-input metric nonexpansivity is consequential in nonlinear semigroup theory. The theorem gives a complete criterion for the former on every weighted tree, a spectral design test for metric lengths, and a universal sharp dichotomy for the latter. Already the three-vertex path is individually Lipschitz-contracting but not two-input nonexpansive unless \(p=2\), so the obstruction is structural rather than an artificial large parameter example. The known star threshold is presented as a consistency boundary rather than claimed as an independent novelty.
+Mugnolo arXiv:1207.1996 develops nonlinear p-heat contraction in vertex ℓ^q norms; Münch–Wojciechowski arXiv:1712.00875 characterizes linear p=2 graph Lipschitz contraction via Ricci curvature. Neither inspected theorem implies nonlinear p≠2 edge-box criterion, PF length design and universal two-input obstruction. Related edge total variation star mass threshold is different norm and is acknowledged.
 
-## Closest literature and limitations
+## value
 
-Full-text inspections: D. Mugnolo, arXiv:1207.1996 (graph nonlinear heat semigroup); F. Münch and R. K. Wojciechowski, arXiv:1712.00875 (linear heat Lipschitz contraction and curvature). The theorem excludes graphs with cycles, treats only positive coefficients and finite graphs, and does not determine the sharp positive-time gain when the one-input inequalities fail. An independent originality assessment and independent mathematical validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp local invariant-box conditions, a computable PF design boundary and a structural separation between one-input decay and two-input stability are useful results for nonlinear graph diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

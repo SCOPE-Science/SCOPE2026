@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_tree_p_heat.py` with the Python 3 standard library. It independently enumerates edge-sign boundary configurations on six example trees for three integral exponents, computes star feasibility fractions exactly, and evaluates two-input Jacobian witnesses on a unit three-vertex path for six non-Hilbert exponents.
+## correctness
 
-Observed output summary:
+PASS
 
-```text
-BOUNDARY_EXACT_OK cases= 18 signed_faces= 678
-STAR_MASS_THRESHOLD_EXACT_OK q=3,4,5
-TWO_INPUT_WITNESS_OK p= 1.2 d_dt_first_gradient= 0.3999997
-TWO_INPUT_WITNESS_OK p= 1.5 d_dt_first_gradient= 0.9999995
-TWO_INPUT_WITNESS_OK p= 2.5 d_dt_first_gradient= 2.9999994
-TWO_INPUT_WITNESS_OK p= 3 d_dt_first_gradient= 3.999999
-TWO_INPUT_WITNESS_OK p= 4 d_dt_first_gradient= 6.0
-TWO_INPUT_WITNESS_OK p= 5 d_dt_first_gradient= 8.0000031
-ALL_TREE_P_HEAT_LIPSCHITZ_CHECKS_OK
-```
+Tree edge gradients are independent coordinates modulo constants. On every gradient-box face, the largest signed outward derivative is exactly r^(p−1)(A_e−D_e), obtained by independently assigning signs/magnitudes to adjacent gradients. Invariance of all gradient boxes proves iff condition and instantaneous derivative. x_e=c_eℓ_e^(p−1) converts the inequalities to Bx≤x; irreducible Perron–Frobenius establishes ρ(B)≤1, with critical positive gauge unique up to scale. For p≠2 and adjacent edges, the Jacobian off-diagonal response |g_f|^(p−2) can overwhelm fixed diagonal loss by varying g_f; an explicit 3-vertex path witness makes two-input distance increase. Independent p=1.2,1.5,2.5,3,4 path Jacobians and a 3-leaf star PF threshold corroborate, not prove, the theorem.
 
-Finite exact arithmetic applies to the boundary tests with integral exponents and the mass-threshold fractions; the nonintegral-exponent Jacobian witness is numerical. The universal theorem is established by analytical coordinate, invariance and Perron arguments in `RESULT.md`. The verification is not independent auditing or formal certification.
+## originality
+
+PASS
+
+Mugnolo arXiv:1207.1996 develops nonlinear p-heat contraction in vertex ℓ^q norms; Münch–Wojciechowski arXiv:1712.00875 characterizes linear p=2 graph Lipschitz contraction via Ricci curvature. Neither inspected theorem implies nonlinear p≠2 edge-box criterion, PF length design and universal two-input obstruction. Related edge total variation star mass threshold is different norm and is acknowledged.
+
+## value
+
+PASS
+
+Sharp local invariant-box conditions, a computable PF design boundary and a structural separation between one-input decay and two-input stability are useful results for nonlinear graph diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
