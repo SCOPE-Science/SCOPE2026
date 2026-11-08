@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-layer path count reduces exactly to intersections of a uniformly chosen size-\(r\) subset with fixed column-neighborhood sets. This yields the hypergeometric joint-vacancy formula; the row-degree double count fixes the average pair intersection. Strict positive second forward differences establish a sharp design bound. An incidence Gram-matrix argument proves both directions of the symmetric-design equality classification. Vandermonde expansion gives the exact nonnegative biclique-defect identity, and an explicit third-order logarithmic expansion gives the limiting variance constant. Boundary conditions \(r\ge3\), \(d\ge3r-2\), and integer \(\lambda\) are stated. The standalone exact-rational verifier passed 39 assertions; no finite enumeration is treated as an infinite proof.
+PASS
 
-## Originality — PASS (qualified historical priority)
+The path-count model reduces to a uniformly sampled r-subset S after the second independent shuffle, so Z is the sum of indicators that S avoids the incoming r-neighborhoods Bj. Single and double hypergeometric probabilities give the asserted exact variance. Row sums r force sum_{j!=k} |Bj intersect Bk|=dr(r-1), and strict second difference of f(t)=C(d-2r+t,r)/C(d,r) gives a sharp Jensen-style inequality at integral lambda. Equality forces all pair overlaps lambda, equivalently a symmetric 2-design via the incidence Gram matrix. At lambda=1 Vandermonde yields nonnegative k>=2 motif defect; plane existence gives exact minimum and a logarithmic binomial expansion yields the stated limit. Independent exact 35-subset enumeration on Fano (7,3,1) gives E Z=4/5, Var=4/25. Did not certify the infinite limit numerically.
 
-The motivating primary full text (arXiv:2610.14724v1), especially Theorems 1.1–1.6 and Section 8, establishes Poisson empirical occupancy and expected chi-square contraction but not the geometry-dependent vacancy-count variance or its exact projective-plane extremizers. Cameron–Soicher (2007) has established block-intersection identities but not the stochastic optimization. Related design-variance and incidence results are acknowledged. Searches of mathematical findings and primary literature using overlap, four-cycle, symmetric-design, and two-layer aliases disclosed no statement with the same random variable and exact optimizer. A more general historical convex block-design optimality theorem could subsume the equality principle; independent priority checking remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first critical depth \(r^2\asymp d\) is precisely where the motivating model develops its Poisson occupancy profile. Its first-order empirical limit and expected chi-square distance conceal strong geometry dependence in vacancy fluctuations. The theorem identifies a natural minimizing class, characterizes equality through finite projective geometry, expresses every strict excess as biclique motifs, and gives a universal sharp limiting variance constant for an infinite family of optimizers. This is a structural variance classification, not a restatement of the source's first-order result.
+The published permuted-layer model and standard block-design convexity are acknowledged. The exact variance of empty destinations, strict sharp 2-design equality, projective-plane four-cycle defect and limiting optimized variance are not established by the inspected incidence-design articles or available Chiclana abstract; its complete recent 29-page primary article was inaccessible, leaving material priority risk.
 
-## Limits and closest literature
+## value
 
-Only exactly two shuffled regular layers are covered. Integral pair-intersection average and \(d\ge3r-2\) are required for the bound; equality presupposes an existing design. The model itself, projective planes, Vandermonde's identity, and general block-incidence methods are prior work. Primary comparisons: Chiclana (2026) and Cameron–Soicher (2007); related Bailey–Soicher (2021) concerns semi-Latin squares, not these path vacancies. Independence of historical audit is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Vacancy fluctuations are a natural stochastic observable of randomly permuted regular layers. The theorem identifies design geometry as exactly variance-optimal at integrality and quantifies deviation by four-cycle motifs, giving structural information not implied by graph-independent chi-square estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

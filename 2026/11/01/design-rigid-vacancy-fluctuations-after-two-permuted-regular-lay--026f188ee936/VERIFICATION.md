@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. It deterministically checks all \(\binom73=35\) sample subsets in the seven-vertex example and all \(\binom{13}4=715\) sample subsets in the thirteen-vertex example, both before and after degree-preserving incidence switches. It verifies direct subset enumeration against the pair-overlap covariance identity, attainment by known projective planes, strict increase after a switch, and exact biclique-defect decompositions. A non-design nine-vertex example and several binomial identities are also tested.
+## correctness
 
-Expected final line: `PASS 39 exact assertions`. File `verification_output.txt` records the actual output of this checker. The analytical proof of the full theorem and the infinite-prime-power asymptotic is contained in `RESULT.md`; finite computation does not certify it. No external independent audit has occurred.
+PASS
+
+The path-count model reduces to a uniformly sampled r-subset S after the second independent shuffle, so Z is the sum of indicators that S avoids the incoming r-neighborhoods Bj. Single and double hypergeometric probabilities give the asserted exact variance. Row sums r force sum_{j!=k} |Bj intersect Bk|=dr(r-1), and strict second difference of f(t)=C(d-2r+t,r)/C(d,r) gives a sharp Jensen-style inequality at integral lambda. Equality forces all pair overlaps lambda, equivalently a symmetric 2-design via the incidence Gram matrix. At lambda=1 Vandermonde yields nonnegative k>=2 motif defect; plane existence gives exact minimum and a logarithmic binomial expansion yields the stated limit. Independent exact 35-subset enumeration on Fano (7,3,1) gives E Z=4/5, Var=4/25. Did not certify the infinite limit numerically.
+
+## originality
+
+PASS
+
+The published permuted-layer model and standard block-design convexity are acknowledged. The exact variance of empty destinations, strict sharp 2-design equality, projective-plane four-cycle defect and limiting optimized variance are not established by the inspected incidence-design articles or available Chiclana abstract; its complete recent 29-page primary article was inaccessible, leaving material priority risk.
+
+## value
+
+PASS
+
+Vacancy fluctuations are a natural stochastic observable of randomly permuted regular layers. The theorem identifies design geometry as exactly variance-optimal at integrality and quantifies deviation by four-cycle motifs, giving structural information not implied by graph-independent chi-square estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
