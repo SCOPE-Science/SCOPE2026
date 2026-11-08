@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The proof of the all-size claim is the explicit majority update on the reduced triple \((k,h,\ell)\), followed by a complete parity case split and a binomial multiplicity calculation. The scripts are independent corroborating finite tests rather than infinite certificates.
+## correctness
 
-Run `python3 verify_reduced.py` to reproduce the reduced update for all integer \(2\le r\le256\), asserting exact entry times, periods, first-entry class counts, and the total \(2^{r+2}\) labelled configurations. The recorded output is in `verify_reduced.log` and reports \(132600\) tested reduced triples.
+PASS
 
-Build `verify_full.cpp` using `g++ -O2 -std=c++17 -Wall -Wextra -pedantic verify_full.cpp -o verify_full` and run `./verify_full` to evolve the whole labelled graph using its direct adjacency relation, not the symbolic reduced updater. The recorded output is in `verify_full.log`: \(524272\) initial configurations for all \(2\le r\le16\). It verifies all stated first-entry classes and exact counts for each size.
+Symmetry reduction by k of r nonhub clique ones, hub h, leaf ell gives k′=k 1_{2(k+h-1)>=r}+(r-k)1_{2(k+h)>r}, hub majority from k+ell among r+1 neighbors (ties retain h), ell′=h. Split h=0 cases at central k and complement all bits for h=1, proving every trajectory, the two possible terminal phase types, and sharp bounds F^4=F^3 (even r) or F^4=F^2 (odd r). For odd r the balanced labelled nonhub bits genuinely complement in each two-cycle, not just their count. There are C(r,floor r/2) such h=0 states and their complement h=1 partners; binomial weights yield all four nonzero classes, with total 2^(r+2). Independent full bitmask updates of 8176 initial labelled states for r=2..10 give exactly those classes. This finite check corroborates the symbolic all-r case split.
 
-No third-party data sets or generated files are required; the source files and saved result transcripts are embedded alongside this document. These finite tests cannot prove an unbounded theorem; only the algebraic case distinction in the main exposition provides that proof. This is a self-review, not independent validation.
+## originality
+
+PASS
+
+Goles–Olivos 1980 proves at most eventual period two on any finite symmetric threshold network, while Benjamini et al 2014/2018 study random, regular and unimodular graphs and voting time. These do not provide a clique with ONE exceptional pendant leaf exact all-labelled state counts or the shift of the central-binomial layer from a 3-step transient to initial primitive 2-cycles. A complete classification for clique-coronas with one leaf at EVERY clique vertex is not the graph here. The elementary nature of the reduction leaves a priority risk for unindexed lecture examples.
+
+## value
+
+PASS
+
+It is a natural minimal symmetry-breaking perturbation of complete-graph majority dynamics, and shows a nontrivial parity-induced change from terminal consensus to recurrent two-cycles with sharp transient times and exact basin sizes, rather than simply repeating the period-two upper bound. The complete census is a useful benchmark in deterministic voting on almost-complete graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

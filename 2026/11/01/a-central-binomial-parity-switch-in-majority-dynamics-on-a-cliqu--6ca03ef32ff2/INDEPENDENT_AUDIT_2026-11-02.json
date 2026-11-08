@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:54:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry reduction by k of r nonhub clique ones, hub h, leaf ell gives k′=k 1_{2(k+h-1)>=r}+(r-k)1_{2(k+h)>r}, hub majority from k+ell among r+1 neighbors (ties retain h), ell′=h. Split h=0 cases at central k and complement all bits for h=1, proving every trajectory, the two possible terminal phase types, and sharp bounds F^4=F^3 (even r) or F^4=F^2 (odd r). For odd r the balanced labelled nonhub bits genuinely complement in each two-cycle, not just their count. There are C(r,floor r/2) such h=0 states and their complement h=1 partners; binomial weights yield all four nonzero classes, with total 2^(r+2). Independent full bitmask updates of 8176 initial labelled states for r=2..10 give exactly those classes. This finite check corroborates the symbolic all-r case split.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General threshold theorem yields eventual period <=2, without sharp entry time or labelled partitions.",
+          "2026 finite-trees paper gives worst-case times on trees, not a clique-with-leaf graph."
+        ],
+        "reasoning": "The graph is not a tree (except no allowed r case), nor a general random graph; no broad theorem compared implies the exact transition tables and binomial counts.",
+        "searches": [
+          "Resultary: complete labelled first-entry transient distribution majority dynamics clique attached pendant leaf central binomial parity two cycle",
+          "Web: Goles Olivos 1980 periodic behaviour generalized threshold functions majority graphs convergence period 2",
+          "Web: Majority Dynamics on Finite Trees DOI:10.1002/rsa.70092"
+        ]
+      },
+      "checked_sources": [
+        "Benjamini et al arXiv:1405.2486 primary PDF pp1–4",
+        "Goles–Olivos Discrete Math 30 (1980), abstract, Theorem 1.1 cited in Benjamini",
+        "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519 title and abstract",
+        "2026 Majority Dynamics on Finite Trees, abstract and mathematical domain",
+        "Resultary semantic search for same central-binomial clique/leaf structure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goles–Olivos theorem ensures no least eventual period above two; does not constrain T to <=3 or which initial states are cycles.",
+          "The exact update formulas plus binomial counts are indispensable extra computation for the parity phenomenon."
+        ],
+        "reasoning": "The claimed period upper bound is covered by general threshold theory, but the stronger all-r first-entry/orbit census and no-transient-to-two-cycle statement do not follow from that period bound alone.",
+        "searches": [
+          "Resultary: complete labelled first-entry transient distribution majority dynamics clique attached pendant leaf central binomial parity two cycle",
+          "arXiv:1405.2486",
+          "DOI:10.1016/0012-365X(80)90121-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goles–Olivos 1980 universal eventual period <=2.",
+          "Benjamini et al arXiv:1405.2486 equation (1.1) uses same neighbor majority and self-retention tie convention."
+        ],
+        "reasoning": "The natural equivalent is a threshold-map orbit census on an almost-clique; general period-two is a weaker eventual-period assertion and cannot count first-entry times or determine the central-binomial parity switch.",
+        "searches": [
+          "Resultary: complete labelled first-entry transient distribution majority dynamics clique attached pendant leaf central binomial parity two cycle",
+          "Web: \"clique\" \"pendant\" synchronous majority dynamics transient two cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Resultary: 2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642 is a general-position polynomial on the graph with a leaf on EVERY clique vertex, not the single-leaf majority orbit table."
+        ],
+        "reasoning": "No direct database or catalogue giving four entry classes for all r was located. This is an infinite family classification, not a single small-graph enumeration.",
+        "searches": [
+          "Resultary: complete labelled first-entry transient distribution majority dynamics clique attached pendant leaf central binomial parity two cycle",
+          "Web: \"leaf\" \"complete graph\" \"majority dynamics\" cyclic attractors exact"
+        ]
+      },
+      "rationale": "Goles–Olivos 1980 proves at most eventual period two on any finite symmetric threshold network, while Benjamini et al 2014/2018 study random, regular and unimodular graphs and voting time. These do not provide a clique with ONE exceptional pendant leaf exact all-labelled state counts or the shift of the central-binomial layer from a 3-step transient to initial primitive 2-cycles. A complete classification for clique-coronas with one leaf at EVERY clique vertex is not the graph here. The elementary nature of the reduction leaves a priority risk for unindexed lecture examples.",
+      "residual_risks": [
+        "An unindexed exact same one-leaf clique census may exist in voting-model lecture notes.",
+        "Original 1980 three-page text was not independently read in full; the reproduced period-two theorem is explicit.",
+        "R=2..10 finite exhaustive checks are not proof of all r; the symbolic reduced transition analysis is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies period-two generality and random/unimodular graph behavior, not exact single-leaf clique census; not asserting all unseen text outside inspected sections has no overlap.",
+          "evidence": [
+            "arXiv:1405.2486 §1 Theorem 1.1 and Theorems 1–3"
+          ],
+          "identifier_or_url": "arXiv:1405.2486; https://arxiv.org/pdf/1405.2486",
+          "material_read": "Full 19-page primary retrieved; material inspected: title/abstract, Section 1 pp1–4, equation (1.1), tie interpretation, Theorem 1.1, statements Theorem 1–3 and contents.",
+          "method": "Primary PDF text and screenshot page 2 (original printed p2)",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Same dynamics and explicit Goles–Olivos generality"
+        },
+        {
+          "assessment": "Covers possible eventual periods, not first-entry distribution.",
+          "evidence": [
+            "Goles–Olivos 1980 abstract; Benjamini et al Theorem 1.1"
+          ],
+          "identifier_or_url": "DOI:10.1016/0012-365X(80)90121-1",
+          "material_read": "Primary published abstract and later reproduced theorem statement in Benjamini et al; original three-page primary full text not inspected.",
+          "method": "Publisher/institutional abstract plus exact primary theorem as quoted by Benjamini et al",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General network period-two result potentially dominating recurrent part"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It is a natural minimal symmetry-breaking perturbation of complete-graph majority dynamics, and shows a nontrivial parity-induced change from terminal consensus to recurrent two-cycles with sharp transient times and exact basin sizes, rather than simply repeating the period-two upper bound. The complete census is a useful benchmark in deterministic voting on almost-complete graphs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Benjamini et al arXiv:1405.2486 primary PDF pp1–4",
+    "Goles–Olivos Discrete Math 30 (1980), abstract, Theorem 1.1 cited in Benjamini",
+    "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519 title and abstract",
+    "2026 Majority Dynamics on Finite Trees, abstract and mathematical domain",
+    "Resultary semantic search for same central-binomial clique/leaf structure"
+  ],
+  "disposition": "passed",
+  "final_claim": "Complete labelled first-periodic-entry (T,P) census for synchronous open-neighborhood majority with ties retained on K_(r+1) plus a single pendant leaf, r>=2: 2 fixed at T0; 2^(r+1)-2 fixed entrants T1; 2^(r+1)-2 C(r,floor r/2) fixed entrants T2; parity-even 2C_r fixed entrants T3 versus parity-odd 2C_r initially periodic 2-cycles.",
+  "limitations": [
+    "Fixed exactly one leaf; no multi-leaf, asynchronous or alternate tie rule claim.",
+    "Eventual period at most two is prior; only sharp parity-resolved labelled census is originality scope."
+  ],
+  "residual_risks": [
+    "An unindexed exact same one-leaf clique census may exist in voting-model lecture notes.",
+    "Original 1980 three-page text was not independently read in full; the reproduced period-two theorem is explicit.",
+    "R=2..10 finite exhaustive checks are not proof of all r; the symbolic reduced transition analysis is decisive."
+  ],
+  "schema_version": 1
+}
