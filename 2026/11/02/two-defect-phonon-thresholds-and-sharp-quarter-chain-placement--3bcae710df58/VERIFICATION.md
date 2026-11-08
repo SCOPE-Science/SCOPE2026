@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 CHECK.py` using the Python 3 standard library only. The checker builds the free-end finite-chain Laplacian independently from its diagonal and off-diagonal entries, inverts the proposed Green kernel symbolically at rational entries, computes the signs of the exact tridiagonal \(LDL^{\mathsf T}\) pivots for the full mass-perturbed problem, and compares those inertia counts against the explicit two-by-two determinant criterion. It separately checks the Rayleigh formula and exact equality witnesses at chain lengths congruent to two modulo four.
+## correctness
 
-Recorded execution output:
+PASS
 
-```
-PASS: exact Green inverse entries: 2104
-PASS: exact geometric Rayleigh checks: 6544
-PASS: rank-two vs full-system inertia: 39264
-Skipped singular-pivot/equality diagnostics: 0
-PASS: sharp quarter-site witnesses: 25
-```
+For free/free N>=3 constant-spring chain, T=4I-L_N is positive definite. The generalized eigenvalue count above E=4 equals positive inertia of -T+4delta P, hence of the 2x2 Green compression. Explicit inverse ((-1)^(i+j)(2min(i,j)-1)(2(N-max(i,j))+1)/(4N)) satisfies the boundary equations; independently checked T*G=I and full inertia vs rank-two predictions for all N=3..10, site pairs and three contrasts. Rayleigh vector (1,-1) bounds beta_-<=N/8, equality iff symmetric quarter sites with N=2 mod 4, and nearest-integer placement gives 2N/(N^2-4) upper onset. Strict > excludes edge modes; both thresholds <1 by endpoint inertia.
 
-These are finite exact arithmetic diagnostics across specified test lengths and contrasts. The analytical rank-two inertia proof and Rayleigh inequality in `RESULT.md` prove the unrestricted assertions; the program alone would not. The code does not independently test every band-edge equality, whose zero/positive inertia convention is established algebraically. No external audit or certification is asserted. No variable-spring, damping, nonlinear or infinite-chain conclusion is verified.
+## originality
+
+PASS
+
+Known one-defect band-edge equation is explicitly recovered and credited; unique optimal two-defect threshold is not visibly covered in inspected sources.
+
+## value
+
+PASS
+
+The model is a natural finite harmonic-chain defect problem; the exact two-mode onset, strict boundary counts, and mod-four quarter-chain extremizer answer a practical placement/threshold question nontrivially.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
