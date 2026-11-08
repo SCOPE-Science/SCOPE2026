@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 743 independent subsets (including the empty face) were enumerated exhaustively from the 32 cube edges; augmented mod-two boundary elimination yields reduced Betti dimension seven solely in degree three. The Euler characteristic forces the same rational concentration. Every one of the 384 graph automorphisms was evaluated using both fixed-face permutation signs and an independent orbit-conflict-polynomial count; both agree with the closed seven-dimensional character formula. Exterior-cube trace identities and finite-group character equality give the stated decomposition. The enclosed standalone verification program reconstructs all calculations and checks 20 signed conjugacy classes.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic risk
-The closest exact same-object public calculation determines the nonequivariant sphere-wedge homotopy type and expressly does not determine graph-automorphism representations. The earlier grid-complex paper handles open and cylindrical boundary conditions, while relevant cube Čech and open-grid cut-complex character calculations concern different complexes. Their implications determine no full \(B_4\)-module for the four-cube independence complex. Searches for equivariant cube independence homology, translations, signed permutations and toroidal 4-by-4 grids found no equivalent all-element character formula. An unindexed independent derivation remains possible.
+PASS
 
-## Value — PASS
-The full automorphism-module is a natural missing invariant of a canonical periodic-grid complex, not an arbitrarily chosen subfamily of faces. The two irreducible summands reveal information inaccessible from the previously known seven-sphere homotopy type. The translation-fixed three-dimensional module and rational acyclicity of the full symmetry quotient are nontrivial structural consequences relevant to equivariant combinatorial topology.
+Enumerate all 2^16 vertex masks and exclude cube-edge pairs: 743 independent subsets including empty, cardinality vector 1,16,88,208,228,128,56,16,2. Exact F2 augmented boundary rank profile 1,15,73,135,86,42,14,2,0 gives reduced b3=7 only; Euler and comparison of mod-2/rational dimensions then force rational homology likewise. Direct signed invariant-face Lefschetz sums for every one of 384 coordinate permutations and translations match ε(p)[fixed(p)−1+Σ_{p(j)=j}(−1)^{|b|−b_j}], including independent orbit conflict-graph formula. The first term is the sign-twisted S4 augmentation character, the second exterior cube of signed permutation W4, yielding irreducibles of dimensions 3+4; Fourier weights under translations prove multiplicity and quotient invariants. Independently re-enumerated faces/boundary ranks and all 384 signed characters, rather than trusting the stored verifier log.
 
-## Closest sources and limits
-Bousquet-Mélou–Linusson–Nevo (2007, arXiv:math/0701890) provides periodic-grid motivation but different proven boundary conditions. Barmak (2010, arXiv:1007.0418) gives general triangle-free independence-complex tools. The preceding finite nonequivariant seven-sphere computation supplies a rank comparison, not the representation. The result does not cover integral equivariant lattices, higher cubes or equivariant homotopy equivalences; independent certification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published exact nonequivariant Q4 independence-complex homotopy as wedge of seven 3-spheres fixes homology rank but does not determine any B4 character decomposition, translation Fourier weights or quotient homology. Other published B4 characters apply to Q4 Čech and cut complexes, distinct simplicial complexes and therefore not covering.
+
+## value
+
+PASS
+
+The complete character of the entire natural automorphism group on a canonical finite periodic four-by-four independence complex, with explicit irreducible decomposition and quotient homology, is a meaningful structural symmetry refinement of a previously known nonequivariant exact homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
