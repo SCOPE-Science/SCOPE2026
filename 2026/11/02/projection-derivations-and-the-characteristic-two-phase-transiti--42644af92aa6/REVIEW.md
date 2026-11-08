@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives every linear derivation from preservation of the intrinsic right annihilator and the full Jordan-block centralizer, then solves the projection equation without assuming algebraic closure or characteristic zero. In characteristic two, the even coefficients are polynomial squares of free odd coefficients; both the extra affine components and rank weights follow. The separate exhaustive matrix-space check for the smallest case and eleven complete parameter checks corroborate the all-field proof. Remaining correctness limit: the analysis is of reduced varieties, not their potentially nonreduced scheme structures.
+## correctness
 
-**Originality — PASS, with publication-priority risk.** The 2012 archival antecedent already computes the complex derivation structure of \(NGF_1\), so that part is credited, not new. Its actual theorem does not impose idempotence or address modular fields. A 2017/2021 grading classification assumes the complex field; it cannot account for the additional characteristic-two projection strata. The distinct published characteristic-two Leibniz automorphism-scheme finding concerns another family and another invariant. Source and equivalence comparisons found no published formula with the full characteristic-two reduced decomposition and rank enumeration; this is provisional rather than a proof of historical priority. A relevant 2014 derivations paper was only available at abstract level, and unindexed modular grading literature may be stronger.
+PASS
 
-**Value — PASS.** Projection derivations are a natural nonlinear locus in the derivation algebra, equivalent in characteristic two to direct \(\mathbb Z/2\mathbb Z\)-graded splittings. The theorem classifies all such maps and their ranks for an infinite, standard filiform family, detects a sharp bad-characteristic change in geometric dimension, and gives exact counts for every finite field. These structural and arithmetic data are not just the dimension of the ambient derivation space.
+For right-Leibniz bracket [e_i,e_1]=e_{i+1}, 2<=i<=n−1, derivations preserve W=span(e2,...,en) and satisfy D(e1)=a e1+b en, D|W=aH+f(N), where H has diagonal 0,...,n−2, N is a full Jordan shift, [H,N]=N. Triangular idempotent diagonal forces a=0 unless char2; a=0 gives local-polynomial idempotents f=0 or 1 with a zero map and A1 of rank n−1. In char2 and a=1, odd f coefficients are free, even coefficients c_{2j}=c_j² and c0∈{0,1}; first-column equation forces b=0 in one branch, free in the other. This gives four reduced affine components A0,A1,A^s,A^{s+1} and rank polynomial 1+qT^{n−1}+q^{s+1}T^{s+1}+q^sT^{t+1} for q even, with s=floor((n−1)/2),t=ceil((n−1)/2); odd q has 1+qT^{n−1}. Independently exhausted all 2^16 matrices for (n,q)=(4,2): 32 derivations, 9 projections with rank counts 0:1, 2:4, 3:4. This corroborates rather than substitutes symbolic arbitrary-field proof.
 
-The results have not been independently audited, and the finite experiments do not independently certify the unlimited-field statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rakhimov–Al-Hossain describe derivations of complex naturally graded NGF_1 and prove dimension n+1, matching the derivation parameter count, but do not classify idempotent compositions D²=D nor a field-characteristic-two branch. Grading literature under equivalent Z/2 decomposition language is a genuine stronger-theorem search risk; no dominating general formula was established in inspected sources.
+
+## value
+
+PASS
+
+The exact reduced variety components and rank spectra for a canonical graded filiform Leibniz algebra expose a genuine characteristic-two phase transition missed by complex-field derivation classifications. It gives a complete natural algebraic-geometric and finite-field invariant, not merely a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-Run `python3 VERIFY/check.py` from the package root. The script constructs the ordered basis multiplication \([e_i,e_1]=e_{i+1}\), forms every candidate derivation in the established \(n+1\)-parameter space, checks the original derivation identities, computes \(D^2\) with finite-field arithmetic, counts projections, and computes their exact matrix rank distribution by row elimination. It tests eleven finite-field/dimension configurations: \((n,q)=(4,2),(4,3),(4,4),(4,5),(5,2),(5,3),(5,4),(6,2),(6,3),(6,4),(7,2)\). The field with four elements uses multiplication modulo a quadratic irreducible polynomial rather than substituting integers modulo four. In the first case it also separately exhausts all \(2^{16}\) original endomorphism matrices to independently check completeness of the derivation parametrization.
+## correctness
 
-The embedded `VERIFY/output.txt` records all eleven passing configurations and ends in `FILIFORM_LEIBNIZ_IDEMPOTENT_DERIVATIONS_OK 11_CASES`. Matching these finite tests does not prove the formulas for arbitrary fields or all \(n\); the unrestricted proof is given in `RESULT.md`. No external or independent mathematical audit has been performed.
+PASS
+
+For right-Leibniz bracket [e_i,e_1]=e_{i+1}, 2<=i<=n−1, derivations preserve W=span(e2,...,en) and satisfy D(e1)=a e1+b en, D|W=aH+f(N), where H has diagonal 0,...,n−2, N is a full Jordan shift, [H,N]=N. Triangular idempotent diagonal forces a=0 unless char2; a=0 gives local-polynomial idempotents f=0 or 1 with a zero map and A1 of rank n−1. In char2 and a=1, odd f coefficients are free, even coefficients c_{2j}=c_j² and c0∈{0,1}; first-column equation forces b=0 in one branch, free in the other. This gives four reduced affine components A0,A1,A^s,A^{s+1} and rank polynomial 1+qT^{n−1}+q^{s+1}T^{s+1}+q^sT^{t+1} for q even, with s=floor((n−1)/2),t=ceil((n−1)/2); odd q has 1+qT^{n−1}. Independently exhausted all 2^16 matrices for (n,q)=(4,2): 32 derivations, 9 projections with rank counts 0:1, 2:4, 3:4. This corroborates rather than substitutes symbolic arbitrary-field proof.
+
+## originality
+
+PASS
+
+Rakhimov–Al-Hossain describe derivations of complex naturally graded NGF_1 and prove dimension n+1, matching the derivation parameter count, but do not classify idempotent compositions D²=D nor a field-characteristic-two branch. Grading literature under equivalent Z/2 decomposition language is a genuine stronger-theorem search risk; no dominating general formula was established in inspected sources.
+
+## value
+
+PASS
+
+The exact reduced variety components and rank spectra for a canonical graded filiform Leibniz algebra expose a genuine characteristic-two phase transition missed by complex-field derivation classifications. It gives a complete natural algebraic-geometric and finite-field invariant, not merely a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
