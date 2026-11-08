@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Two standalone Python 3 scripts constitute exact finite certificates. Run them from a directory containing `verify_kneser.py` and `verify_classical.py`, using only the Python standard library:
+## correctness
 
-```
-python verify_kneser.py
-python verify_classical.py
-```
+PASS
 
-Each script terminates normally only after all exact assertions succeed; the success markers are `KNESER_CERTIFICATE_PASS` and `CLASSICAL_CERTIFICATE_PASS`. The first enumerates every one of the 32,768 binary initial sets, computes simultaneous forcing closure, all 21 orbits of the natural 120-element label-permutation action, and all weighted shortest-path counts. The second constructs the line graph using the independent outer-five-cycle/inner-star/spoke description, exhaustively tests individual sequential forcing, constructs the entire one-token exchange graph from pair comparisons, and performs all 2,280 BFS shortest-path searches.
+Using vertices of Petersen graph as disjoint 2-subsets of five labels, its 15 edges are vertices of the degree-4 line graph. A 15-bit mask is zero-forcing exactly when iterative unique-white-neighbor closure is all ones; parallel eligible forces cannot inhibit success, so exhaustive closure is complete. Independent independently coded enumeration of all 2^15 masks found minimum size seven, exactly 2280 minimum sets, and under one-token exchange 28650 edges. All S5 relabelings give 21 orbits, 17 of size120 and four of size60. BFS weighted by those orbit sizes yields eccentricities 600 at 6 and 1680 at 7, radius6 diameter7, degree spectrum 22:180,23:480,24:240,25:240,26:660,27:240,28:60,29:180, and unordered distance counts 28650,234120,765570,1004640,483480,78540,3060 for distances1..7. Comparison to Hamming/Johnson lower bound |A\B| gives only 18540 detour pairs (3180 at h2,11640 at h3,3720 at h4) and d in {h,h+1}. Inspected pinned verify_kneser.py provides complete 32768 mask and 21-orbit exact BFS certificate; a separate alternative Petersen representation verify_classical.py is supplied. This precisely fixed finite result is supported by exhaustive combinatorial search, not extrapolation.
 
-The checks and expected exact counts were executed directly from these source files and passed. Their finite exhaustive scope proves the specific labelled graph's counts; neither code nor evidence claims an unbounded graph-family theorem. The published zero-forcing minimum seven is credited. No independently performed scholarly audit or external certificate is claimed.
+## originality
+
+PASS
+
+Fallat–Soltani already prove the minimum Z(L(P))=7 for line graphs of traceable G; only the 2280-state orbit/degree/distance and Johnson detour distribution is evaluated here. Geneson–Haas–Hogben introduced these reconfiguration graphs and studied general examples, but their full paper includes no Petersen case or this line graph. Search of published results/databases yielded no matching exact metric table; best-of-knowledge PASS with possible unindexed computation.
+
+## value
+
+PASS
+
+An exact natural configuration-space census for the line graph of a canonical nonhamiltonian graph, including a near-isometric Johnson embedding with a classified one-step defect, is a substantive finite structural invariant rather than a routine restatement of the already-known minimum forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

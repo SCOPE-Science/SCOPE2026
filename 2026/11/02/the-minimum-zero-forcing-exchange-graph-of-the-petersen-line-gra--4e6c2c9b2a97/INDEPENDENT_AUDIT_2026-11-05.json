@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:08:04.050493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using vertices of Petersen graph as disjoint 2-subsets of five labels, its 15 edges are vertices of the degree-4 line graph. A 15-bit mask is zero-forcing exactly when iterative unique-white-neighbor closure is all ones; parallel eligible forces cannot inhibit success, so exhaustive closure is complete. Independent independently coded enumeration of all 2^15 masks found minimum size seven, exactly 2280 minimum sets, and under one-token exchange 28650 edges. All S5 relabelings give 21 orbits, 17 of size120 and four of size60. BFS weighted by those orbit sizes yields eccentricities 600 at 6 and 1680 at 7, radius6 diameter7, degree spectrum 22:180,23:480,24:240,25:240,26:660,27:240,28:60,29:180, and unordered distance counts 28650,234120,765570,1004640,483480,78540,3060 for distances1..7. Comparison to Hamming/Johnson lower bound |A\\B| gives only 18540 detour pairs (3180 at h2,11640 at h3,3720 at h4) and d in {h,h+1}. Inspected pinned verify_kneser.py provides complete 32768 mask and 21-orbit exact BFS certificate; a separate alternative Petersen representation verify_classical.py is supplied. This precisely fixed finite result is supported by exhaustive combinatorial search, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fallat–Soltani line graph formula implies Z(L(P))=7; Geneson et al supply general reconfiguration framework and some graph-class characterizations but not arbitrary-case metric census."
+        ],
+        "reasoning": "Known results imply the minimum cardinality and existence of exchange graph, not its 28650 edges, 21 orbits, exact radius/diameter and Johnson defect.",
+        "searches": [
+          "Fallat Soltani 2016 line graph maximum nullity zero forcing",
+          "Geneson Haas Hogben 2020/2023 reconfiguration theorem"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify_kneser.py and verify_classical.py",
+        "arXiv:2009.00220 (Geneson–Haas–Hogben complete text)",
+        "DOI:10.1007/s10587-016-0290-x (Fallat–Soltani)",
+        "arXiv:1207.6127 (Eroh–Kang–Yi)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing Z=7 only singles out the size layer among 32768 masks; it does not imply how many masks force nor adjacency/distance invariants. Geneson theorem does not give these numbers."
+        ],
+        "reasoning": "No inspected prior theorem dominates the exact natural S5-orbit census; new result is not deduced automatically from known Z=7.",
+        "searches": [
+          "arXiv:2009.00220 full zero forcing reconfiguration text",
+          "DML-CZ Fallat Soltani line graph zero forcing formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definitions match exchange of one selected vertex (not token slides or positive-semidefinite forcing); the published paper studies general zero-forcing set reconfiguration, not this L(P) instance."
+        ],
+        "reasoning": "Searched aliases single-token replacement/J(15,7), edge forcing of Petersen, zero forcing graph L(P). No directly matching exact 2280-vertex invariant found.",
+        "searches": [
+          "zero forcing reconfiguration graph token-exchange Petersen line graph",
+          "arXiv:2009.00220 reconfiguration graph min zero forcing sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned Petersen-related other invariants but no matching 2280-state distance table; the inspected primary paper has no Petersen string."
+        ],
+        "reasoning": "An older bespoke enumeration cannot be excluded, but the evaluated 2280-state metric table is not a known preexisting zero-forcing-number database value.",
+        "searches": [
+          "Petersen line graph 2280 minimum zero forcing sets orbit distribution",
+          "Petersen L(P) forcing reconfiguration distance histogram",
+          "Resultary published semantic query"
+        ]
+      },
+      "rationale": "Fallat–Soltani already prove the minimum Z(L(P))=7 for line graphs of traceable G; only the 2280-state orbit/degree/distance and Johnson detour distribution is evaluated here. Geneson–Haas–Hogben introduced these reconfiguration graphs and studied general examples, but their full paper includes no Petersen case or this line graph. Search of published results/databases yielded no matching exact metric table; best-of-knowledge PASS with possible unindexed computation.",
+      "residual_risks": [
+        "Existing theory fully covers minimum zero-forcing size seven; this scalar must not be counted as original.",
+        "An earlier computational table of the same L(P) configuration-space graph may exist outside indexed literature.",
+        "The exhaustive verifier proves only the fixed 15-vertex line graph, no wider class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "no relevant special-instance table",
+          "evidence": "Introduces Z(G) and general results; Petersen not mentioned in inspected full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "Full arXiv HTML (definition, examples, complexity and results)",
+          "method": "read full primary text and searched Petersen and line graph",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Direct same reconfiguration-graph definition and possible Petersen example"
+        },
+        {
+          "assessment": "already determines Z(L(P))=7 but not exchange graph",
+          "evidence": "The line graph theorem implies minimum size 15-10+2=7 for traceable Petersen.",
+          "identifier_or_url": "https://doi.org/10.1007/s10587-016-0290-x",
+          "material_read": "Abstract and source result summary; no claim of independent full text read",
+          "method": "published abstract and related repository theorem citation",
+          "title": "Line graphs: their maximum nullities and zero forcing numbers",
+          "trigger": "General line graph theorem determining minimum forcing size"
+        },
+        {
+          "assessment": "foundation for other line graphs, no verified exhaustive L(P) metric",
+          "evidence": "Results concern other graph families and parameter bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.6127",
+          "material_read": "Abstract/theorem summary in pinned RESULT, original full text not independently obtained",
+          "method": "arXiv topic search",
+          "title": "Metric Dimension and Zero Forcing Number of Two Families of Line Graphs",
+          "trigger": "Older line graph forcing research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact natural configuration-space census for the line graph of a canonical nonhamiltonian graph, including a near-isometric Johnson embedding with a classified one-step defect, is a substantive finite structural invariant rather than a routine restatement of the already-known minimum forcing number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify_kneser.py and verify_classical.py",
+    "arXiv:2009.00220 (Geneson–Haas–Hogben complete text)",
+    "DOI:10.1007/s10587-016-0290-x (Fallat–Soltani)",
+    "arXiv:1207.6127 (Eroh–Kang–Yi)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existing theory fully covers minimum zero-forcing size seven; this scalar must not be counted as original.",
+    "An earlier computational table of the same L(P) configuration-space graph may exist outside indexed literature.",
+    "The exhaustive verifier proves only the fixed 15-vertex line graph, no wider class."
+  ],
+  "schema_version": 1
+}
