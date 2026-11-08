@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The estimator is unbiased by direct integration. The density normalization follows from arsinh(sinh 1)=1. Step-function risk is identically V*: the squared-moment correction equals (1-theta)^2. Monotone functions are mixtures of steps and squared L2 error is convex. The least-favorable step prior has positive interior density and endpoint atoms; its F obeys F(1-F)=c p*^2. Exact square completion and Cauchy-Schwarz imply the global lower bound within the specified family and force uniqueness. Direct numerical integration checks 79 equalities/inequalities. No finite experiment is used to prove the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2203.00423, Section 5, states global unbiased nonsequential optimality is unknown in that treatment",
+        "arxiv:2307.06787, inspected introduction/lower-bound discussion and full-document text search for monotone",
+        "Published record published-record:33b1062b46ae"
+      ],
+      "reasoning": "The survey mostly addresses different smoothness classes and complexity criteria, while the first article supplies bounds but not the exact optimal importance-control design. A positive-direction Cauchy perimeter quadrature deals with a different function class and information model. This claim does not extend to all one-point algorithms; possible broader work not located remains a residual risk.",
+      "searches": [
+        "one sample optimal unbiased integration monotone functions 0.078258821 coth 1",
+        "optimal randomized quadrature monotone functions one point importance distribution",
+        "optimal algorithms for numerical integration Novak 2023 survey"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.00423",
+      "arxiv:2307.06787",
+      "published-record:c37fd2660f48",
+      "published-record:b7c2819b6648",
+      "published-record:33b1062b46ae",
+      "https://papers.nips.cc/paper_files/paper/2023/hash/730ce0ae730f39e4d77b0f04a8afe4be-Abstract-Conference.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basak et al. Theorem 3.1 proves 1/12 for fixed uniform sampling; Theorem 4.1 concerns stratified multi-stratum rules",
+        "New proof supplies a least-favorable threshold distribution F and exact Cauchy-Schwarz saddle for optimizing density and control jointly",
+        "Novak 2023 survey uses distinct worst-case error/function-class regimes"
+      ],
+      "reasoning": "For p=1, the source rule has variance 1/12; its assertion does not imply the unique nonuniform minimizer or smaller variance. The new lower bound is against all admissible p,h rather than merely demonstrating an improvement. Known general rates or unrestricted lower bounds do not identify this exact family-constrained saddle value.",
+      "searches": [
+        "Basak Bect Vazquez 2022 randomized monotone integration importance sampling control variate optimal one sample variance",
+        "monotone function integration one observation optimal importance sampling risk hyperbolic cotangent",
+        "arxiv 2307.06787 randomized numerical integration lower bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2203.00423, Section 3 (uniform X and f(X)-X+1/2, variance 1/12)",
+        "Published record published-record:c37fd2660f48"
+      ],
+      "reasoning": "The source's uniform rule is a strict special case p=1 of the present p,h family. The exact new optimum uses a nonconstant density p*, and the source does not claim an optimal density. The listed published monotone-range result is about Newton-Cotes interpolation rather than randomized integration. No matching equivalent theorem was identified; searching is not proof of uniqueness.",
+      "searches": [
+        "Basak Bect Vazquez 2022 randomized monotone integration importance sampling control variate optimal one sample variance",
+        "monotone function numerical quadrature one-point nonuniform probability density minimax variance 0.0782588",
+        "randomized one-evaluation Monte Carlo quadrature centered control variates nonuniform design"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published search hit published-record:c37fd2660f48 concerns a different deterministic range defect",
+        "Closest published search hit published-record:b7c2819b6648 concerns deterministic Romberg positivity",
+        "Exact source 2203.00423 reports 1/12 not (coth 1 -1)/4"
+      ],
+      "reasoning": "No inspected public result table or published record supplies this constant for this estimator family. The prior 1/12 benchmark is numerically strictly larger; database absence alone is not a novelty certificate.",
+      "searches": [
+        "monotone function numerical quadrature one-point nonuniform probability density minimax variance 0.0782588",
+        "coth 1 sqrt density minimax control variate Monte Carlo integration",
+        "Basak Bect Vazquez Integration of bounded monotone functions 2022 2203.00423 1/(12n) improved nonuniform sampling"
+      ]
+    },
+    "rationale": "The closest directly inspected primary paper 2203.00423 proves worst-case variance 1/12 for a fixed uniform control, not joint design of an importance density and control. The new exact 0.0782588213 value is strictly smaller, unique and accompanied by a saddle proof; no dominating comparison was identified in the inspected public corpus. Publication precedence cannot be assured by search alone.",
+    "residual_risks": [
+      "Other unexamined specialist work could derive the same constant or dominate this restricted estimator class.",
+      "The broader class of nonlinear and singular-sampling one-point estimators is not settled here.",
+      "The 2023 numerical-integration overview was not exhaustively read; no assertion about every theorem in it is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS fixed-uniform one-point variance 1/12; DOES NOT establish optimized nonuniform sampling/control minimax saddle",
+        "evidence": [
+          "Section 3 Theorem 3.1, 1/(12n) for uniform control-variate rule",
+          "Section 5 explicitly says unrestricted optimality unknown in that work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.00423",
+        "material_read": "Seven-page primary PDF; introduction, theorems and proofs of Sections 2-4 and Section 5 discussion, including theorem 3.1 at page 4 and theorem 4.1 at page 5",
+        "method": "Public PDF text and page-image inspection",
+        "title": "Integration of bounded monotone functions: Revisiting the nonsequential case, with a focus on unbiased Monte Carlo (randomized) methods",
+        "trigger": "Direct object/function-class/one-point variance match"
+      },
+      {
+        "assessment": "No theorem directly comparable in inspected material; not asserted as exhaustive inspection of entire 26-page paper",
+        "evidence": [
+          "The paper addresses broad information-complexity rates and convex symmetric classes, whereas bounded monotone F is nonsymmetric"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.06787",
+        "material_read": "Abstract, Section 1 and beginning of Section 2 plus whole-document text search for monotone",
+        "method": "Public primary PDF text search and page-image inspection",
+        "title": "Optimal Algorithms for Numerical Integration: Recent Results and Open Problems",
+        "trigger": "Plausible general stronger minimax result and survey"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e26a5ce9-195c-4ec0-b8ca-444c197a6a63",
+  "value": {
+    "rationale": "The source 2022 paper identifies a natural concrete worst-case variance problem for bounded monotone integration and reports a uniform one-sample error benchmark 1/12 while highlighting unknown overall optimality. Exact joint importance-density/control design strictly improves that benchmark by 6.09% and proves the unique sharp optimum for a reusable natural estimator class. The explicit least-favorable monotone-step distribution and saddle are useful to design/benchmark one-evaluation unbiased integrators; the result is not a renaming or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
