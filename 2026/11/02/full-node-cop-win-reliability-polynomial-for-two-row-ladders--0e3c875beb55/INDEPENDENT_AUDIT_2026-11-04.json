@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:14:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In any connected triangle-free graph, a dismantlable dominated vertex is a leaf, so the nonempty induced cop-win subgraphs are exactly trees. The selected nonempty ladder columns form a contiguous interval in symbols top,bottom,double; connectivity and acyclicity are equivalent to excluding TB, BT and DD as adjacent pairs. Transfer recurrences U_{ell+1}=z(U_ell+2V_ell), V_{ell+1}=z^2 U_ell and placement factor n-ell+1 yield the claimed t z(2+z+3t z^2)/((1-t)^2(1-tz-2t²z³)). A second singleton-gap count verifies the coefficient binomial formula; reliability follows from p/(1-p) substitution and first moment by derivative. Independently enumerated all nonempty graph vertex subsets n=1..8, tested acyclicity/connectivity and transfer coefficients, including n=4 counts 8,10,16,18,16,10 and moment identity; unrestricted theorem rests on the complete forbidden-word bijection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vince abstract gives all connected ladder subsets with limiting density 3/4 and Pell-number moments; cyclic connected subsets make this strictly different from induced trees.",
+          "Ahmed–Cameron main stated graph families have 1 or 2 independent cycles. L_n has n-1, not included for n>=4."
+        ],
+        "reasoning": "General definitions do not calculate ladder coefficients. A graph family with bounded cycle rank cannot directly give all n; both full texts unavailable and cannot be declared noncovering wholesale.",
+        "searches": [
+          "Andrew Vince, The average size of a connected vertex set of a graph, doi:10.1002/jgt.22643",
+          "Ahmed Cameron, The node cop-win reliability of unicyclic and bicyclic graphs, arxiv:2011.10641",
+          "OEIS:A360202"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/jgt.22643",
+        "arxiv:2011.10641",
+        "doi:10.1002/net.22055",
+        "OEIS:A360202",
+        "OEIS:A360918",
+        "OEIS:A360920",
+        "Resultary ladder induced-subtree polynomial query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General connected induced subsets include trees and graphs with cycles, while cop-win on triangle-free induced subgraphs requires trees.",
+          "A scalar total C_n(1) equals sum of unknown coefficients and is insufficient to recover them."
+        ],
+        "reasoning": "The new polynomial implies OEIS totals as specialization and produces arbitrary-p reliability; neither old totals, older connected-subset means nor abstract graph-family results imply every coefficient. Inaccessible full texts remain priority uncertainty.",
+        "searches": [
+          "Wiley Vince J Graph Theory 2021 abstract and ladder mean-density claim",
+          "arxiv:2011.10641 primary abstract and Wiley summary",
+          "OEIS:A360202 exact table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cop-win on triangle-free induced subgraphs coincides with connected induced acyclic (tree) property.",
+          "A ladder induced-tree polynomial equals node cop-win polynomial; no matching bivariate exact coefficient law found."
+        ],
+        "reasoning": "The invariant is not just connectivity reliability or spanning tree counting: a vertex subset induces a single connected acyclic graph. This alias was searched rather than matching only cop-win wording.",
+        "searches": [
+          "Resultary semantic: induced subtree polynomial ladder graph P2 square Pn cop win vertex reliability all cardinalities",
+          "web: node cop-win reliability ladder Cartesian product P2 Pn",
+          "web: ladder connected induced acyclic subset polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A360202 n=1,2,3,... total 3,12,33,78,... agrees with the coefficient sum.",
+          "A360918/920 specify only extremal multiplicity and order, not all intermediate cardinalities."
+        ],
+        "reasoning": "The existing scalar tables are acknowledged and recovered; they cannot determine the complete bivariate coefficient distribution or node-failure polynomial.",
+        "searches": [
+          "OEIS:A360202 non-null induced trees in grid graphs",
+          "OEIS:A360918 maximum induced trees in grid graphs",
+          "OEIS:A360920 maximum order induced trees in grid graphs"
+        ]
+      },
+      "rationale": "The unweighted induced-tree counts C_n(1) and maximum-tree cardinalities/multiplicities occur in OEIS A360202/A360920/A360918; they are expressly prior art. Vince studies all connected induced vertex subsets and their mean density 3/4, not necessarily induced trees. Ahmed–Cameron defines node cop-win reliability and handles unicyclic/bicyclic host graphs; L_n has n-1 independent cycles. Its all-size, all-n cardinality distribution is not implied by those scalar results. Both relevant historical full texts were inaccessible (Oxford VPN disconnected), so equivalent specialized formulas remain risk.",
+      "residual_risks": [
+        "Both most plausible historical articles were unavailable in full. Authorized Oxford attempts for each returned vpn_disconnected; corresponding material may contain equivalent formulas.",
+        "Older induced-subtree/graph polynomial literature might encode the bivariate result under a different title.",
+        "Only identical independently surviving vertices and width-two open ladders are treated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ABSTRACT SCOPE: all connected sets, not exact induced-tree polynomial; full-text noncoverage unverified",
+          "evidence": [
+            "Abstract explicitly states Pell-number formula for all connected ladder subsets and mean density 3/4."
+          ],
+          "identifier_or_url": "doi:10.1002/jgt.22643",
+          "material_read": "Publisher abstract, publication history, references; attempted PDF link redirected to abstract",
+          "method": "Web primary publisher reading; arXiv/OA search unsuccessful; authorized Oxford request vpn_disconnected",
+          "title": "The average size of a connected vertex set of a graph—Explicit formulas and open problems",
+          "trigger": "Same two-row ladder and connected induced vertex subset mean"
+        },
+        {
+          "assessment": "PRIOR GENERAL DEFINITION, host classes differ; full-text noncoverage unverified",
+          "evidence": [
+            "Abstract states graph families of one/two independent cycles and the vertex-failure cop-win criterion, without all-n ladder size polynomial."
+          ],
+          "identifier_or_url": "arxiv:2011.10641 / doi:10.1002/net.22055",
+          "material_read": "ArXiv primary abstract and accessible indexed material; arXiv full PDF retrieval disabled",
+          "method": "Open abstract; arXiv/OA attempted; Oxford returned vpn_disconnected",
+          "title": "The node cop-win reliability of unicyclic and bicyclic graphs",
+          "trigger": "Original definition of node cop-win reliability, possible broad polynomial tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row ladder is a canonical graph family, and the full cop-win induced-subset size polynomial is the natural reliability invariant under vertex failure. It yields all survival probabilities, every coefficient, and the limiting conditional density 2/3; this is stronger than a known total and not a mechanistic re-tabulation of it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Both most plausible historical articles were unavailable in full. Authorized Oxford attempts for each returned vpn_disconnected; corresponding material may contain equivalent formulas.",
+    "Older induced-subtree/graph polynomial literature might encode the bivariate result under a different title.",
+    "Only identical independently surviving vertices and width-two open ladders are treated."
+  ],
+  "schema_version": 1
+}

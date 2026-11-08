@@ -1,17 +1,21 @@
-# Scientific assessment of the cop-win ladder polynomial
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nonempty vertex subset of \(P_2\square P_n\), triangle-freeness and the finite dismantling characterization reduce the cop-win property exactly to connected acyclicity. The column-word proof establishes necessary and sufficient local restrictions. The two weighted transition equations enumerate every admissible interval exactly once, and the geometric placement factor yields the displayed rational generating function. A separate gap enumeration proves every cardinality coefficient, and algebraic substitution and differentiation give the reliability and first-moment formulas. Exhaustive graph-level checks for nine sizes and an independent dismantling implementation for seven sizes corroborate the proof; the infinite conclusion does not rely on extrapolation.
+## correctness
 
-## Originality — PASS, with explicit publication-priority risk
-The full public OEIS entries A360202, A360918, and A360920 report the total number, maximum-tree multiplicity, and maximum-tree order, respectively. Those are known and credited. Their information cannot recover all cardinality coefficients or the probability dependence for arbitrary vertex survival \(p\). Ahmed--Cameron's 2020 preprint introduces the cop-win polynomial but examines unicyclic and bicyclic host graphs; the two-row ladder has cycle rank \(n-1\), hence lies outside those classes for \(n\ge4\). Vince's 2020 online article concerns all connected vertex subsets of ladders, not just the cop-win/acyclic ones in its accessible abstract. Literature searches included the aliases *induced subtree*, *cop-win polynomial*, *node cop-win reliability*, *connected induced forest*, and *two-row grid*. Targeted literature and mathematical-claim comparisons did not identify a statement implying the complete bivariate polynomial.
+PASS
 
-The Ahmed--Cameron and Vince full texts were not successfully retrieved for complete material comparison, and differently indexed size-refined counts might exist. Novelty is therefore an evidence-based assessment of the full coefficient distribution, not an assertion of exhaustive or independent publication priority.
+In any connected triangle-free graph, a dismantlable dominated vertex is a leaf, so the nonempty induced cop-win subgraphs are exactly trees. The selected nonempty ladder columns form a contiguous interval in symbols top,bottom,double; connectivity and acyclicity are equivalent to excluding TB, BT and DD as adjacent pairs. Transfer recurrences U_{ell+1}=z(U_ell+2V_ell), V_{ell+1}=z^2 U_ell and placement factor n-ell+1 yield the claimed t z(2+z+3t z^2)/((1-t)^2(1-tz-2t²z³)). A second singleton-gap count verifies the coefficient binomial formula; reliability follows from p/(1-p) substitution and first moment by derivative. Independently enumerated all nonempty graph vertex subsets n=1..8, tested acyclicity/connectivity and transfer coefficients, including n=4 counts 8,10,16,18,16,10 and moment identity; unrestricted theorem rests on the complete forbidden-word bijection.
 
-## Mathematical value — PASS
-A variable-parameter vertex-failure reliability model requires the coefficient distribution by retained-vertex cardinality, which neither the known total counts nor the known extremal counts provide. The theorem supplies this distribution for an entire natural infinite graph family via an explicit rational bivariate generating function and a separate finite coefficient formula. It also determines the exact conditional expected size and establishes a limiting fraction of \(2/3\) for cop-win induced sets, contrasting with the reported \(3/4\) for all connected sets of the same ladders. This identifies the quantitative effect of requiring evader-capture rather than connectivity alone. The result does not extend to wider grids or nonuniform survival probabilities.
+## originality
 
-## Scope and risks
-The same result is expressed across the polynomial, coefficient formula, probability generating function, and mean-size consequences. Tabulated scalar cases are not separate originality claims. Accessible primary records and the exact database entries have been compared, but two especially relevant full articles could not be completely inspected. No conclusion of independent validation is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unweighted induced-tree counts C_n(1) and maximum-tree cardinalities/multiplicities occur in OEIS A360202/A360920/A360918; they are expressly prior art. Vince studies all connected induced vertex subsets and their mean density 3/4, not necessarily induced trees. Ahmed–Cameron defines node cop-win reliability and handles unicyclic/bicyclic host graphs; L_n has n-1 independent cycles. Its all-size, all-n cardinality distribution is not implied by those scalar results. Both relevant historical full texts were inaccessible (Oxford VPN disconnected), so equivalent specialized formulas remain risk.
+
+## value
+
+PASS
+
+The two-row ladder is a canonical graph family, and the full cop-win induced-subset size polynomial is the natural reliability invariant under vertex failure. It yields all survival probabilities, every coefficient, and the limiting conditional density 2/3; this is stronger than a known total and not a mechanistic re-tabulation of it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

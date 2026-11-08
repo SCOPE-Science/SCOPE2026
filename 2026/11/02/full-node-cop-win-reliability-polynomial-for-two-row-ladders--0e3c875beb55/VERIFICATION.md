@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_ladder_copwin.py` using the Python standard library. The program constructs each two-row ladder from its Cartesian-product edges, enumerates all 349,515 nonempty subsets for \(1\le n\le9\), and verifies that the direct graph-level connected-acyclic test agrees with the forbidden-transition column words and with every coefficient of the rational transfer and explicit binomial formulas. For \(1\le n\le7\), a separately implemented dominated-vertex elimination routine tests cop-win status directly on every nonempty induced subgraph. For \(1\le n\le100\), exact integer arithmetic verifies all coefficient formulas, unweighted totals, first moments, maximum cardinalities, and maximum-cardinality multiplicities.
+## correctness
 
-The actual execution finished with:
+PASS
 
-`VERIFY_OK: 9 exhaustive graph/word/poly comparisons (349,515 nonempty subsets), 7 independent dismantling checks, 100 exact coefficient and transfer checks`
+In any connected triangle-free graph, a dismantlable dominated vertex is a leaf, so the nonempty induced cop-win subgraphs are exactly trees. The selected nonempty ladder columns form a contiguous interval in symbols top,bottom,double; connectivity and acyclicity are equivalent to excluding TB, BT and DD as adjacent pairs. Transfer recurrences U_{ell+1}=z(U_ell+2V_ell), V_{ell+1}=z^2 U_ell and placement factor n-ell+1 yield the claimed t z(2+z+3t z^2)/((1-t)^2(1-tz-2t²z³)). A second singleton-gap count verifies the coefficient binomial formula; reliability follows from p/(1-p) substitution and first moment by derivative. Independently enumerated all nonempty graph vertex subsets n=1..8, tested acyclicity/connectivity and transfer coefficients, including n=4 counts 8,10,16,18,16,10 and moment identity; unrestricted theorem rests on the complete forbidden-word bijection.
 
-The graph-level enumeration is finite evidence. The all-order conclusions follow instead from the local word equivalence, its exact symbolic transition equations, the gap-counting identity, and formal coefficient extraction presented in `RESULT.md`. The verifier is ordinary code, not a formal proof assistant or an independent publication-priority assessment.
+## originality
+
+PASS
+
+The unweighted induced-tree counts C_n(1) and maximum-tree cardinalities/multiplicities occur in OEIS A360202/A360920/A360918; they are expressly prior art. Vince studies all connected induced vertex subsets and their mean density 3/4, not necessarily induced trees. Ahmed–Cameron defines node cop-win reliability and handles unicyclic/bicyclic host graphs; L_n has n-1 independent cycles. Its all-size, all-n cardinality distribution is not implied by those scalar results. Both relevant historical full texts were inaccessible (Oxford VPN disconnected), so equivalent specialized formulas remain risk.
+
+## value
+
+PASS
+
+The two-row ladder is a canonical graph family, and the full cop-win induced-subset size polynomial is the natural reliability invariant under vertex failure. It yields all survival probabilities, every coefficient, and the limiting conditional density 2/3; this is stronger than a known total and not a mechanistic re-tabulation of it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
