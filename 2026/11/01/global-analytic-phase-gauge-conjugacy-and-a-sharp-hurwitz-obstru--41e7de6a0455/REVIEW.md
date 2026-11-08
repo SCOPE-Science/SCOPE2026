@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs a globally invertible analytic volume-preserving twist and establishes the full vector-field conjugacy by exact differentiation. Its identity remains valid at the rotational axis, so it is not merely a polar-coordinate argument on a punctured domain. A radial barrier establishes forward completeness. The cubic Jacobian polynomial at the inner periodic circle follows from direct symbolic differentiation, and exact Routh–Hurwitz conditions prove that the untwisted member fails pointwise Hurwitzness for every positive radial parameter. The phase formula is verified by the same differential coboundary and convergence to the attracting circle. The packaged script passed its rational and symbolic checks.
+## correctness
 
-## Originality — PASS under examined evidence
-Castañeda and Rebollo-Perdomo established the polynomial model, its pointwise-Hurwitz open region, and its two circular cycles. Those are not claimed here. The same source's polar equations motivate but do not, in the inspected statements, supply the global analytic conjugacy, entire-basin exact isochron foliation, or full local Hurwitz threshold. Searches of published mathematical findings using source names, angular-gauge aliases, analytic conjugacy, and pointwise-Jacobian contrasts found related results for different oscillator flows, not an implication covering this specific family. This claim remains algebraically close to the source; independent historical-priority review is warranted.
+PASS
 
-## Mathematical value — PASS
-The result resolves a structural interpretation issue in a family designed to exhibit periodic orbits despite globally Hurwitz Jacobians: the angular parameter may change instantaneous Jacobian spectra while leaving every trajectory unchanged after an explicit global analytic change of state coordinates. The non-Hurwitz companion and exact isochrons make that distinction concrete, quantitative, and useful for phase descriptions. It is more than a restatement of existence of periodic orbits.
+Directly from w_dot=[mu Q(R,z)+i(1+eS(R,z))]w and z_dot=-S with Q=(R-5)(20/21-R)-400z²/21, S=z+R/10, the entire-space real-analytic rotation W=e^(iez)w differentiates to W_dot=(mu Q+i)W, so H_e conjugates e to 0 at every point including the axis. Its inverse is H_-e and Jacobian determinant 1. The radial ODE R_dot=2mu RQ bounds R by max(R0,5) forward; variation of constants bounds z, proving forward completeness. The Cartesian Jacobian at (1,0,-1/10) has characteristic polynomial lambda³+(1-166mu/21)lambda²+(1+e/5-50mu/7)lambda+1, confirmed independently by symbolic differentiation and exact symbolic conjugacy. Cubic Routh–Hurwitz a1>0,a2>0,a1a2>1 yields exactly 0<mu<21/166, e>250mu/7+830mu/(21-166mu); e=0 is never locally Hurwitz there. Angle derivative theta_dot+e z_dot=1 gives global asymptotic phase theta+e(z+2/5) on the actual basin of R=4,z=-2/5. Existence of an open globally Hurwitz parameter region is cited to Castañeda–Rebollo-Perdomo, not independently reproved, and the pointwise bound is not claimed globally sufficient.
 
-## Limits and closest literature
-The original source's Hurwitz region is cited rather than independently reproved; the local parameter inequality is necessary, not sufficient, for full-space Hurwitzness. Stable-basin geometry is not classified, only its isochron level sets. The source angular equations make the new identity immediately derivable, an explicit priority risk. Published phase formulas for Lorenz-84 and homogeneous star-node systems are mathematically related but not the same objects. Independent validation and historical-priority assessment are not complete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison across equivalence, broader coverage, exact results and claimed implication finds no decisive existing result that covers the final scoped theorem in accessible inspected material; precise covered ingredients and full-text access risks are explicitly recorded. This is a best-knowledge scientific judgment, not an attestation of independence or a guarantee of historical priority.
+
+## value
+
+PASS
+
+The exact analytic volume-preserving time-preserving gauge shows that an angular parameter controlling global Jacobian-Hurwitzness is dynamically redundant in a natural 2026 counterexample to naive global-Hurwitz dynamics; a single rational-point Hurwitz cutoff and explicit entire-basin isochrons quantify this contradiction between coordinate-dependent Jacobians and invariant orbit dynamics. Although short algebra once the model is known, the connection and sharp constraint are directly motivated by its defining problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
