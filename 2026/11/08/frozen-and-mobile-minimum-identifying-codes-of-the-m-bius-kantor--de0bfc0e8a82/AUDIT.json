@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The GP(8,3) host graph has 16 vertices and 24 edges. A set is an identifying code exactly when it hits all 16 closed neighborhoods and all 120 pairwise symmetric differences of closed neighborhoods. verify_cpp.cpp exhaustively tests all 65,536 masks against those constraints; verify_python.py independently checks actual vertex-signature sets. They produce precisely 584 codes of minimum size eight. One-token moves are exhaustively exactly the pairs of different weight-eight masks of XOR-weight two; requiring the changed vertices to be graph-neighbors distinguishes slides. Both enumerate all 864 slide edges and 2,496 jump edges with identical certificates; full BFS from each state verifies 97 slide components (488+96 isolates), giant-component radius 8 and diameter 10, and one connected jump component of radius 7 and diameter 8. Degree and frozen-state induced-edge distributions are also checked; exhaustive finite state exploration is an exact proof, not asymptotic extrapolation. The public package contains all sources and replayable certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balbuena, Foucaud and Hansberg arXiv:1407.7263 theorem-level sections give girth>=5 identifying-code bounds and small cubic examples; neither token sliding nor GP(8,3) optimal-code transition graphs are presented in inspected text.",
+        "Mynhardt and Teshima arXiv:1707.02039 Section 2 Theorem 5 gives abstract universal realization of reconfiguration graphs, not a classification for a prescribed host graph GP(8,3)."
+      ],
+      "reasoning": "Universal realizability permits some host to realize a chosen abstract graph but does not determine the realizability graph induced by the fixed 16-vertex Möbius–Kantor host. Girth-based code bounds likewise do not imply the exact move graphs, component and distance spectra.",
+      "searches": [
+        "identifying code reconfiguration token sliding graph exact components Mobius-Kantor GP 8 3",
+        "arc-transitive cubic girth six identifying codes reconfiguration tokens",
+        "identifying codes girth at least five 2014 arxiv 2012",
+        "Möbius Kantor graph locating identifying code 584 reconfiguration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.7263: relevant actual full-text pages and sections",
+      "arxiv:1707.02039: full-text Section 2 and 5",
+      "MathWorld Möbius-Kantor Graph entry",
+      "published-finding corpus MCP exact-host/move model searches: no matching mobility record identified",
+      "Earlier exact Möbius–Kantor code census (id 5d42b185-5695-4432-ba00-fe8191e79aee) already establishes size eight, 584 minimum identifying codes, full code polynomial and thirteen optimum automorphism orbits; none is claimed original here."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier exact Möbius–Kantor code census (id 5d42b185-5695-4432-ba00-fe8191e79aee) already establishes size eight, 584 minimum identifying codes, full code polynomial and thirteen optimum automorphism orbits; none is claimed original here.",
+        "Mynhardt–Teshima 2017: definitions and universal construction, no exact GP(8,3) move-graph theorem.",
+        "Balbuena–Foucaud–Hansberg 2014: generic bounds and other cubic graph examples, no reconfiguration metric."
+      ],
+      "reasoning": "The new comparison is between two graph adjacencies on the same known 584 codes: slide edges require a host-graph edge whereas jumps do not. Prior determination of a set of 584 states implies these adjacencies are in principle decidable, but does not provide the 97-versus-1 connectivity contrast or its exact distance invariants. No cited stronger theorem yields these values by parameter substitution. They must be calculated and verified separately, as done here.",
+      "searches": [
+        "Möbius Kantor GP(8,3) minimum identifying codes size 8 584, slides 96 isolated, 488 connected, 864 edges",
+        "identifying code reconfiguration token sliding graph exact components Mobius-Kantor GP 8 3",
+        "Möbius Kantor graph identifying code polynomial 584 minimum codes thirteen symmetry orbits GP(8,3)",
+        "identifying codes girth at least five 2014 arxiv 2012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Earlier exact Möbius–Kantor code census (id 5d42b185-5695-4432-ba00-fe8191e79aee) already establishes size eight, 584 minimum identifying codes, full code polynomial and thirteen optimum automorphism orbits; none is claimed original here.",
+        "published-finding corpus closest hits 2026/10/11/SCOPE-cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e and 2026/10/4/SCOPE-the-m-bius-kantor-matching-complex-is-a-mixed-dimensional-sphere--4bfded76792e concern different complexes and invariants on the same host.",
+        "Mynhardt and Teshima arXiv:1707.02039 Section 2 defines minimum identifying-code sliding (γ-ID graph), and Section 5 motivates connectivity and frozen states."
+      ],
+      "reasoning": "Synonyms include minimum identifying-code γ-graph, detector replacement, token sliding/jumping, optimal sensor relocation and GP(8,3) code-move graph. Published comparable results specify general reconfiguration operators and do not enumerate this host's code-move edges or metrics. Searching alternate language and the precise state/edge parameters did not locate an equivalent theorem.",
+      "searches": [
+        "Möbius Kantor GP(8,3) minimum identifying codes size 8 584, slides 96 isolated, 488 connected, 864 edges",
+        "identifying code reconfiguration token sliding graph exact components Mobius-Kantor GP 8 3",
+        "arc-transitive cubic girth six identifying codes reconfiguration tokens",
+        "minimum identifying code of Möbius-Kantor graph",
+        "Möbius Kantor graph identifying code polynomial 584 minimum codes thirteen symmetry orbits GP(8,3)",
+        "\"Möbius-Kantor\" \"identifying\" \"8\" graph",
+        "\"GP(8,3)\" \"identifying code\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Earlier exact Möbius–Kantor code census (id 5d42b185-5695-4432-ba00-fe8191e79aee) already establishes size eight, 584 minimum identifying codes, full code polynomial and thirteen optimum automorphism orbits; none is claimed original here.",
+        "published-finding corpus closest hits 2026/10/11/SCOPE-cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e and 2026/10/4/SCOPE-the-m-bius-kantor-matching-complex-is-a-mixed-dimensional-sphere--4bfded76792e concern different complexes and invariants on the same host.",
+        "An earlier exact identifying-code census on the same host; its stated novel scope is polynomial and thirteen symmetry orbits, without exact token-slide/jump metrics."
+      ],
+      "reasoning": "The 584-state code census is preexisting, and the present work explicitly removes it from new priority claims. No located exact prior database/table reports the 864 slide edges, 97 components, 96 frozen configurations and 488-vertex giant component, or the all-pairs metric. The finite code enumeration can be used to compute transitions but does not itself state or subsume those structural parameters as a theorem.",
+      "searches": [
+        "Möbius Kantor GP(8,3) minimum identifying codes size 8 584, slides 96 isolated, 488 connected, 864 edges",
+        "minimum identifying code of Möbius-Kantor graph",
+        "Möbius Kantor graph identifying code polynomial 584 minimum codes thirteen symmetry orbits GP(8,3)",
+        "\"Möbius-Kantor\" \"584\" code",
+        "\"Mobius-Kantor\" \"96\" \"isolated\" token reconfiguration"
+      ]
+    },
+    "rationale": "The novel object is the fully specified move graph on the previously classified minimum identifying codes of GP(8,3), not their existence, number, optimum, polynomial or automorphism-orbit count. The prior census computes states and orbits but does not state the 96 isolated token-slide configurations, 488-state mobile component, exact transition spectra, or all-pairs metric. Relevant original literature gives definitions, broad bounds and universality of realization rather than this host-specific graph. Checks in published-finding corpus and exact-host scholarly searches did not locate equivalent or dominating structural results. Unindexed earlier equivalents remain a stated risk.",
+    "residual_risks": [
+      "An unpublished or unindexed equivalent GP(8,3) exact token-slide graph/census could establish earlier priority.",
+      "A preexisting explicit code list logically permits computing all transition invariants, but those properties are not asserted in the known census and new structural comparison still requires enumeration.",
+      "No independent external scholarly assessment has been performed.",
+      "Potential historical comparisons are not exhaustive; an inaccessible primary source could contain a previously published equivalent classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides code bounds and cubic examples; does not state this MK graph or optimal-code reconfiguration spectrum.",
+        "evidence": [
+          "arxiv:1407.7263",
+          "https://arxiv.org/pdf/1407.7263"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.7263",
+        "material_read": "Full-text PDF sections pp. 1–3 (definitions), 9–11 (bounds), 15–18 (cubic examples), plus text search for Möbius and reconfiguration",
+        "method": "Read PDF pages and inspect page images, checked named terminology",
+        "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+        "trigger": "Primary archival source for identifying codes on high-girth cubic graphs, dated 2014-07-27"
+      },
+      {
+        "assessment": "Defines relevant model and motivates connectivity/frozen configurations, but does not determine GP(8,3) minimum-code mobility.",
+        "evidence": [
+          "arxiv:1707.02039",
+          "https://arxiv.org/html/1707.02039"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.02039",
+        "material_read": "Full text HTML, Section 2 and Section 5, including reconfiguration definitions, universal realization theorem and connectivity questions",
+        "method": "Read research full text and compare theorem hypotheses and conclusions to fixed-host spectra",
+        "title": "A note on some variations of the γ-graph",
+        "trigger": "Direct relevant source defining sliding of minimum identifying codes"
+      },
+      {
+        "assessment": "Graph identity and symmetry; no identifying-code reconfiguration census.",
+        "evidence": [
+          "https://mathworld.wolfram.com/Moebius-KantorGraph.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/Moebius-KantorGraph.html",
+        "material_read": "Graph entry and description",
+        "method": "Inspect encyclopedia entry",
+        "title": "Möbius-Kantor Graph",
+        "trigger": "Confirm graph identity, standard naming and generalized Petersen representation"
+      },
+      {
+        "assessment": "States minimum eight, 584 codes, polynomial and thirteen automorphism orbits; it does not claim the token-move graph spectra in the new result.",
+        "evidence": [
+          "prior:5d42b185-5695-4432-ba00-fe8191e79aee"
+        ],
+        "identifier_or_url": "prior:5d42b185-5695-4432-ba00-fe8191e79aee",
+        "material_read": "Recoverable previous title, claim and scientific scope solely to exclude overlap",
+        "method": "Scientific deduplication comparison of the recoverable previous title and claim.",
+        "title": "Earlier exact Möbius–Kantor identifying-code census",
+        "trigger": "Same exact host and code invariant, highest-priority deduplication match"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de0bfc0e-8a82-4714-a7d4-61f66e6301ba",
+  "value": {
+    "rationale": "The distinguishing gap is not code-size enumeration: sensor-replacement reconfiguration of minimum identifying codes is motivated by literature but its fixed-host mobility may have many components. The Möbius–Kantor cubic symmetric 16-vertex graph supplies a natural benchmark with a striking and not a priori implied contrast: jumps connect all 584 optimum arrangements (radius 7, diameter 8), whereas adjacent moves trap 96 configurations and leave one 488-state component (radius 8, diameter 10). The split frozen classes by induced-edge count and degree-24 bipartition extremals give independently interpretable structure. Exact complete finite state and edge certificates make this a self-contained fact with uses as an exact benchmark for detecting immobility; no grander or unproven significance is claimed.",
+    "status": "PASS"
+  }
+}
