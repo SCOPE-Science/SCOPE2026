@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces the entire integer-frequency Fourier-zero question to a rational polynomial evaluated at \(-2\pi i\). The contour residue formula is exact and the constant term vanishes; transcendence makes cancellation across different polynomial degrees impossible. A complete multiplicity-partition analysis of five nodes proves that the only non-generic zero occurs when two doubly repeated knots have a midpoint singleton. The dimension-one-through-three boundary is also exhaustive. The exact rational checker independently tests all \([-3,3]^d\) cases for dimensions \(1\) through \(4\) without treating finite enumeration as an infinite proof.
+## correctness
 
-## Originality — PASS under bounded literature comparison
-De Boor's divided-difference survey provides the contour and Genocchi–Hermite formulas. Diaz, Le and Robins provide broader general polytope transform formulas, including nongeneric lattice directions. The new asserted content is solely the complete iff zero-support classification of the standard four-simplex, particularly the double-double-single midpoint resonance and its minimal-dimensionality statement. Closest indexed simplex-support research treats finite-field Fourier sums, a different object. An equivalent calculation in older literature is a residual risk; generic transform representations are not claimed as new.
+PASS
 
-## Mathematical value — PASS
-The full integer lattice of Fourier coefficients of a canonical four-dimensional body is classified sharply, exposing a cancellation that is not detected merely by repeated vertex phases. The first-dimension boundary and exact arithmetic resonance are structural features useful when reasoning about periodization and Poisson-summation terms, rather than a narrow arbitrary parameter improvement.
+For integer nodes a_0=0,a_j=k_j, the Hermite–Genocchi identity gives t^4 FT=[a_0,…,a_4]e^{tz} at t=-2πi. Contour partial fractions and integer-node e^{ta}=1 reduce this to a rational-coefficient polynomial in transcendental t, with its constant coefficient zero since denominator is O(z^-5). If one node uniquely maximizes multiplicity at M≥2, c_{a,M}=∏_{b≠a}(a-b)^-m_b is nonzero; only tied maximal partition of 5 with repeated nodes is (2,2,1), whose t-term coefficient is (a+b-2c)/[(a-b)^2(a-c)(b-c)]. Thus midpoint iff resonance and all-distinct zeros exhaust every partition. For d≤3 only tied case (2,2) produces 2/(a-b)^2≠0. Independent symbolic partial-fraction computations recovered zeros for nodes [0,0,1,2,2] and [0,1,1,-1,-1], and nonzero -t/6 for [0,0,1,2,3]. Normalization uses unnormalized Lebesgue measure on simplex (vol 1/24), negative exponential, and integer lattice only.
 
-## Limitations
-Only integer frequencies for this standard simplex are covered. The analytic reduction uses classical interpolation and transcendence of \(\pi\). The exact finite checker corroborates the proof but is not a substitute for it. Full historical equivalence exclusion and independent review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+de Boor's full divided-differences account proves the integration/contour inputs; Diaz–Le–Robins derive general Fourier transforms of polytopes. Neither compared source explicitly supplies the sharp complete integer-frequency zero iff for the 4-simplex or its first-dimension (2,2,1) midpoint resonance. The proof is an explicit algebraic application of known general formulas, but the exhaustive zero classification is not simply a reformulation of those inputs without new multiplicity cancellation analysis. Resultary nearby finite-field/group signal Fourier zeros concern different harmonic objects. Equivalent historical divided-difference identities remain a residual risk.
+
+## value
+
+PASS
+
+The full integer Fourier zero set of a canonical Euclidean simplex is a natural invariant for periodization, harmonic analysis and Poisson summation. The exceptional repeated-vertex-phase midpoint relation and proof of minimal dimension four are substantive structural information; the work does not pretend to generalize to arbitrary simplices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
