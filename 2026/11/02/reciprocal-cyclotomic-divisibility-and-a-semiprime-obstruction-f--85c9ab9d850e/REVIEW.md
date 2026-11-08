@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The positive-integer two-cycle lemma is proved by strict descent on the maximum; the divisor-sum formula is derived and the three cases \(p\), \(p^2\), and \(pq\) exhaust \(\Omega(n)\le2\). The independent finite checker corroborates (but does not prove) the infinite statement.
+## correctness
 
-**Originality — PASS with priority risk.** The nearest same-function literature (De Koninck–Letendre, arXiv:2610.10572, initially 2026-10-04) announces an aggregate sparseness theorem, which as stated does not entail pointwise nonintegrality for all semiprimes. OEIS A070999 supplies a formula and finite data but not this rigidity theorem. published-finding corpus and web searches did not return an equivalent statement. The originating preprint's full text could not be read; it might contain the special case, so independent priority checking remains important.
+PASS
 
-**Mathematical value — PASS.** This is an exact infinite classification of the first natural factor-count layer in the new integer-value problem, and its mechanism is a two-cycle prohibition for the sixth cyclotomic polynomial. It does not determine the higher factor-count layers or any global sharp count.
+A minimal nontrivial reciprocal-divisibility solution must have 1<a<b. Setting c=(a^2-a+1)/b gives 1<=c<a, bc==1 mod a, and from a|F(b) one gets a|c^2 F(b)==F(c) mod a; also c|F(a). Thus (c,a) is a strictly smaller solution unless c=1, which forces a|F(1)=1, a contradiction. Separately S(n)=n^-1 sum_{d|n}d phi(d), multiplicative numerator on prime powers (p^{2e+1}+1)/(p+1)==1 mod p, excluding p and p^2. For pq, S(pq)=F(p)F(q)/(pq) and integrality would imply the forbidden reciprocal pair. All cases Omega<=2 exhausted. Independent finite tests to a,b<=300 and n<=500 corroborate, not replace descent.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: the closest 2026 De Koninck–Letendre paper treats the identical gcd-reciprocal sum and its semiprime reciprocal polynomial relation, including a bound on solutions (Proposition 1); the reviewed special assertion is *no* nontrivial positive reciprocal divisibility pairs at all, rather than an upper bound on count and a global O(X^{2/3+epsilon}) sparsity result. The full primary HTML mathematical comparison did not identify the universal descent obstruction. Classical Vieta-jumping-type descent gives residual priority risk.
+
+## value
+
+PASS
+
+PASS: excluding every prime, prime square and squarefree semiprime is a natural sharp initial factor-count obstruction for the integrality problem; a clean universal cyclotomic two-cycle rigidity lemma is independently useful. No claim about Omega>=3 or existence there.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

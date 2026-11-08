@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:39:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A minimal nontrivial reciprocal-divisibility solution must have 1<a<b. Setting c=(a^2-a+1)/b gives 1<=c<a, bc==1 mod a, and from a|F(b) one gets a|c^2 F(b)==F(c) mod a; also c|F(a). Thus (c,a) is a strictly smaller solution unless c=1, which forces a|F(1)=1, a contradiction. Separately S(n)=n^-1 sum_{d|n}d phi(d), multiplicative numerator on prime powers (p^{2e+1}+1)/(p+1)==1 mod p, excluding p and p^2. For pq, S(pq)=F(p)F(q)/(pq) and integrality would imply the forbidden reciprocal pair. All cases Omega<=2 exhausted. Independent finite tests to a,b<=300 and n<=500 corroborate, not replace descent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior paper proves #integer-valued n<=X is O_eps(X^{2/3+eps}) and establishes restrictions, but this does not rule out semiprimes pointwise.",
+          "The same-paper semiprime counting technique is closely relevant; its quantitative bound does not imply the zero count for all semiprime pairs."
+        ],
+        "reasoning": "An asymptotic upper bound can hold despite finitely or infinitely many rare semiprimes. The new claim requires a separate descent.",
+        "searches": [
+          "De Koninck–Letendre The Integer Values of sum 1/gcd(n,i), arXiv:2610.10572",
+          "OEIS A317480 entries and comments"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 2cdf02d1ad2fb278ad91c44e2f98efac5e87d2c5",
+        "De Koninck–Letendre arXiv:2610.10572, Proposition 1 and global theorem",
+        "OEIS A317480",
+        "Resultary semantic query: integrality reciprocal gcd sum sum 1/gcd(n,i) semiprime cyclotomic two-cycle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same paper states a count bound for reciprocal polynomial constraints; this allows nonzero sparse solutions and hence does not logically imply the claimed all-positive-integer no-two-cycle lemma."
+        ],
+        "reasoning": "The newly proved strict quotient descent closes a possibility that quantitative sparsity alone leaves open. It does not establish any Omega>=3 classification.",
+        "searches": [
+          "De Koninck–Letendre arXiv:2610.10572 Section 5 Proposition 1",
+          "OEIS A317480"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent semiprime condition for distinct primes p,q is p|q²−q+1 and q|p²−p+1; proposed lemma strengthens to all positive integers.",
+          "The same-function article sets g(t)=t²−t+1 in its prime-divisor analysis."
+        ],
+        "reasoning": "The reciprocal cyclotomic statement is not merely a different wording of an earlier quantitative solution bound; an upper bound allows some solutions, while theorem proves none.",
+        "searches": [
+          "Resultary semantic search: integrality reciprocal gcd sum sum 1/gcd(n,i) semiprime cyclotomic two-cycle",
+          "De Koninck–Letendre arXiv:2610.10572 Proposition 1",
+          "OEIS A317480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists first nontrivial integer case 614341, with larger prime factor count; a finite list cannot prove exclusion of all semiprimes.",
+          "Resultary hits concerned unrelated cyclotomic prime pairs and harmonic integers rather than this exact reciprocal-divisibility rigidity."
+        ],
+        "reasoning": "Exact observed integer tables provide finite confirmation but no dominating universal nonexistence theorem.",
+        "searches": [
+          "OEIS A317480 integer gcd-reciprocal sum index",
+          "arXiv:2610.10572 known integer-valued cases",
+          "Resultary semantic search: integrality reciprocal gcd sum sum 1/gcd(n,i) semiprime cyclotomic two-cycle"
+        ]
+      },
+      "rationale": "Qualified PASS: the closest 2026 De Koninck–Letendre paper treats the identical gcd-reciprocal sum and its semiprime reciprocal polynomial relation, including a bound on solutions (Proposition 1); the reviewed special assertion is *no* nontrivial positive reciprocal divisibility pairs at all, rather than an upper bound on count and a global O(X^{2/3+epsilon}) sparsity result. The full primary HTML mathematical comparison did not identify the universal descent obstruction. Classical Vieta-jumping-type descent gives residual priority risk.",
+      "residual_risks": [
+        "Classical descent methods may prove reciprocal cyclotomic two-cycle rigidity elsewhere under another name; no exhaustive historical certification.",
+        "An Oxford authorized download attempt for same arXiv paper returned vpn_disconnected; an accessible HTML text was nevertheless compared, so the access failure did not prevent this science assessment.",
+        "Does not address integrality of numbers with at least three prime factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-object overlap; stated estimates do not assert the all-positive-divisor two-cycle impossibility",
+          "evidence": "Proposition 1 analyzes mutually constrained prime factors and bounds solution frequency; paper main theorem is O_eps(X^{2/3+eps}), not a zero bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10572",
+          "material_read": "Full accessible primary mathematical HTML including introduction, divisor-sum derivation, Section 5 and Proposition 1; the related bounds and hypotheses were compared",
+          "method": "Primary arXiv full-text theorem/implication reading",
+          "title": "The Integer Values of the Sum of Reciprocal GCDs",
+          "trigger": "Exact same arithmetic function and polynomial reciprocity for semiprimes"
+        },
+        {
+          "assessment": "Finite sequence lists integral examples; no proof of the universal semiprime exclusion in the table text",
+          "evidence": "First nontrivial term 614341, numerator product formula given.",
+          "identifier_or_url": "https://oeis.org/A317480",
+          "material_read": "Sequence definition, first terms, comments, formula and source links",
+          "method": "Exact data / database read",
+          "title": "OEIS A317480",
+          "trigger": "Listed integer n for same reciprocal gcd sum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: excluding every prime, prime square and squarefree semiprime is a natural sharp initial factor-count obstruction for the integrality problem; a clean universal cyclotomic two-cycle rigidity lemma is independently useful. No claim about Omega>=3 or existence there.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 2cdf02d1ad2fb278ad91c44e2f98efac5e87d2c5",
+    "De Koninck–Letendre arXiv:2610.10572, Proposition 1 and global theorem",
+    "OEIS A317480",
+    "Resultary semantic query: integrality reciprocal gcd sum sum 1/gcd(n,i) semiprime cyclotomic two-cycle"
+  ],
+  "disposition": "passed",
+  "final_claim": "The only positive integer reciprocal divisibility pair a|b^2-b+1 and b|a^2-a+1 is (1,1). Consequently the gcd-reciprocal sum S(n)=sum_{i=1}^n 1/gcd(n,i) cannot be integral for n>1 with Omega(n)<=2.",
+  "limitations": [
+    "Classical descent methods may prove reciprocal cyclotomic two-cycle rigidity elsewhere under another name; no exhaustive historical certification.",
+    "An Oxford authorized download attempt for same arXiv paper returned vpn_disconnected; an accessible HTML text was nevertheless compared, so the access failure did not prevent this science assessment.",
+    "Does not address integrality of numbers with at least three prime factors.",
+    "Original public source package not modified; publication is not authorized.",
+    "Independent bounded experiments are not proofs of infinite statements.",
+    "Raw assignment object cannot be directly mounted across tools; literal values were separately Git-verified."
+  ],
+  "residual_risks": [
+    "Classical descent methods may prove reciprocal cyclotomic two-cycle rigidity elsewhere under another name; no exhaustive historical certification.",
+    "An Oxford authorized download attempt for same arXiv paper returned vpn_disconnected; an accessible HTML text was nevertheless compared, so the access failure did not prevent this science assessment.",
+    "Does not address integrality of numbers with at least three prime factors."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Closest same-object overlap; stated estimates do not assert the all-positive-divisor two-cycle impossibility",
+      "evidence": "Proposition 1 analyzes mutually constrained prime factors and bounds solution frequency; paper main theorem is O_eps(X^{2/3+eps}), not a zero bound.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.10572",
+      "material_read": "Full accessible primary mathematical HTML including introduction, divisor-sum derivation, Section 5 and Proposition 1; the related bounds and hypotheses were compared",
+      "method": "Primary arXiv full-text theorem/implication reading",
+      "title": "The Integer Values of the Sum of Reciprocal GCDs",
+      "trigger": "Exact same arithmetic function and polynomial reciprocity for semiprimes"
+    },
+    {
+      "assessment": "Finite sequence lists integral examples; no proof of the universal semiprime exclusion in the table text",
+      "evidence": "First nontrivial term 614341, numerator product formula given.",
+      "identifier_or_url": "https://oeis.org/A317480",
+      "material_read": "Sequence definition, first terms, comments, formula and source links",
+      "method": "Exact data / database read",
+      "title": "OEIS A317480",
+      "trigger": "Listed integer n for same reciprocal gcd sum"
+    }
+  ]
+}
