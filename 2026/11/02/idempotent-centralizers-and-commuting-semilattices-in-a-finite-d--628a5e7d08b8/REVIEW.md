@@ -1,19 +1,21 @@
-# Review: idempotent centralizers in the finite directed-path monoid
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof directly analyzes the commutation equation with an interval clamp: its restriction to the fixed interval is a binary-step path with prescribed endpoints, and both tails are either unconstrained or forced constant according to those endpoints. The resulting endpoint-weighted binomial sum gives the centralizer formula with correct degenerate boundaries (singleton clamp and identity). Summing over all interval positions gives the total commuting-pair count, and a direct interval-intersection argument yields all maximal idempotent semilattices and the clique polynomial. The standalone verifier independently enumerates all monoid maps and all idempotents through size ten and all cliques through size five. The unrestricted mathematical proof, not these finite tests, establishes the claim. Residual correctness risk: an undetected error in the symbolic finite-sum simplification, although every tested value agrees.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Idempotents of W_n are exactly interval clamps e_[a,b]. For f commuting with e, the middle restriction a<=u=f(a)<=v=f(b)<=b gives C(k,v-u) monotone binary-step strings; a left tail is freely 2^(a-1) choices only if u=a and otherwise constant; similarly a right tail 2^(n-b) only if v=b. Expand weighted binomial sum to obtain (k+2)2^(k-1)+(L+R-2)2^k+(L-1)(R-1), including k=0 singleton and k=n-1 identity limits. Summing over interval positions yields A_n=(4n-12)2^n+(n²+9n)/2+12 and probability 32/n²+O(n^-3). Clamps commute exactly when intervals overlap, and interval Helly property yields n maximal semilattices H_j and inclusion-exclusion clique polynomial. Independently generated all W_n maps, tested every e,f composition and matched all centralizers and aggregate A_n for each n=2..7 (A_4=102; A_7=2116).
 
-The 2021 Fernandes–Paulista primary paper, arXiv:2112.13427, establishes the monoid characterization and its idempotent census, not centralizers. Fernandes (2024), DOI 10.1007/s00233-024-10466-2, gives presentations of **the same monoid** under another name, again not the individual centralizer counts, idempotent commuting clique polynomial or ordered commuting-pair enumeration. The comparison therefore accounts for the strongest immediate alias. A 2012 symmetric inverse semigroup commuting-graph paper and a 2025 completely simple semigroup graph paper concern different monoids and do not directly imply these precise counts. Targeted literature searches for interval-image idempotent centralizers and directed-path commuting graph formulas, plus searches against accessible mathematical research records and earlier claim collections, found no dominating statement. Search failure does not prove priority. A detailed 2025 thesis on semigroup commuting graphs and any general chain-transformation centralizer classification remain residual priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact centralizer profile is a natural intrinsic statistic of an infinite family already studied by monoid presentations, rank and regularity. It yields a closed aggregate commuting-pair count and the quadratic decay \(32/n^2\) of the mixed idempotent commutativity probability. The idempotent-commuting graph is completely classified, including **every** maximal commuting semilattice and **all** clique coefficients, not just a small special case. The result has a motivated structural role in understanding commuting substructures within path endomorphism monoids, beyond the previously known idempotent count.
+Fernandes–Paulista (arXiv:2112.13427) establish exact weak directed-path monoid, its size, idempotents and rank; Fernandes (2024, DOI:10.1007/s00233-024-10466-2) establishes the alias IO_n of interval-image order-preserving transformations and presentation. Both are the identical monoid, not unrelated name matches, and their accessible primary text does not provide each idempotent centralizer, all ordered commuting-pair count or interval-idempotent clique polynomial. Other commuting semigroup graph research addresses different monoids. A broader transformation centralizer theorem might contain this as an implied specialization; retained risk.
 
-## Literature and limits
+## value
 
-Closest source: Fernandes–Paulista, arXiv:2112.13427 (2021), Proposition 1.5 and Corollary 1.9; Fernandes, *Semigroup Forum* 109 (2024), Sections 1–4. General commuting-graph context: Araújo–Bentz–Konieczny, arXiv:1205.1664, and Paulista, *Communications in Algebra* 53 (2025). Only the idempotent part of the commuting relation is classified; this is not a complete full-monoid commuting graph. Independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact local centralizer profile and aggregate commuting probability quantify how commutation varies by interval endpoints in a natural finite semigroup; full clique polynomial and classification of maximal commuting idempotent subsemilattices are useful structural invariants across all n, not a tiny-instance exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

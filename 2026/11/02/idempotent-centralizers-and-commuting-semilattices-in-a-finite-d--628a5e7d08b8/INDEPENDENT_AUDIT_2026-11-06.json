@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:06:40.996835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Idempotents of W_n are exactly interval clamps e_[a,b]. For f commuting with e, the middle restriction a<=u=f(a)<=v=f(b)<=b gives C(k,v-u) monotone binary-step strings; a left tail is freely 2^(a-1) choices only if u=a and otherwise constant; similarly a right tail 2^(n-b) only if v=b. Expand weighted binomial sum to obtain (k+2)2^(k-1)+(L+R-2)2^k+(L-1)(R-1), including k=0 singleton and k=n-1 identity limits. Summing over interval positions yields A_n=(4n-12)2^n+(n²+9n)/2+12 and probability 32/n²+O(n^-3). Clamps commute exactly when intervals overlap, and interval Helly property yields n maximal semilattices H_j and inclusion-exclusion clique polynomial. Independently generated all W_n maps, tested every e,f composition and matched all centralizers and aggregate A_n for each n=2..7 (A_4=102; A_7=2116).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 primary §1 counts n(n+1)/2 idempotents and (n+1)2^(n-2) elements.",
+          "2024 open access primary Introduction/Sections 2–4 gives presentation and rank, not individual centralizer sizes or clique polynomial."
+        ],
+        "reasoning": "The baseline monoid counts are genuine prior ingredients, but do not on their own determine the pair centralizer profile; a general chain-transformation centralizer result might specialize and is not excluded.",
+        "searches": [
+          "Fernandes 2024 Semigroup Forum monoid order preserving transformations interval images sections presentations centralizers",
+          "Fernandes Paulista arxiv 2112.13427 directed path weak endomorphism idempotents"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2112.13427",
+        "https://link.springer.com/article/10.1007/s00233-024-10466-2",
+        "https://arxiv.org/abs/1205.1664",
+        "Resultary search: weak directed path endomorphism idempotent centralizers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 paper explicitly enumerates idempotents and maps; the 2024 paper gives generators/relations and order-decreasing structure.",
+          "Neither stated theorem entails the number of f with fe=ef for each fixed idempotent without a further commutation analysis."
+        ],
+        "reasoning": "The new interval-endpoint binomial counting plus Helly/inclusion-exclusion yields genuinely more detailed quantitative invariants than existing rank/idempotent census.",
+        "searches": [
+          "Fernandes Paulista 2021 directed path monoid idempotents count",
+          "Fernandes 2024 interval-image transformations order preserving presentation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandes 2024 §1 explicitly identifies IO_n (order-preserving maps whose images are intervals) with weak endomorphisms wEnd directed P_n; this is the SAME monoid.",
+          "The clamping idempotents are intervals, so their induced commuting graph is an interval-intersection graph by direct composition."
+        ],
+        "reasoning": "Search aliases wEnd(P_n), IO_n, interval-image transformations, commuting idempotent semilattices; matching object in published source has only classification/rank, no exact claimed centralizer enumerator in inspected text.",
+        "searches": [
+          "weak endomorphism directed path interval image order preserving transformation IO_n idempotent centralizer",
+          "Resultary: weak directed path endomorphism idempotent centralizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct exact enumeration gives A_2=7,A_3=30,A_4=102,A_5=303,A_6=825,A_7=2116, matching all-n formula.",
+          "No relevant external OEIS-like table was identified; published scalar monoid/idempotent sizes are distinct from A_n."
+        ],
+        "reasoning": "The exact count and graph polynomial are not just a renaming of published |W_n| and |E(W_n)|; direct centralizer constraints are additional.",
+        "searches": [
+          "weak endomorphism monoid n idempotent commuting pairs (4n-12)2^n",
+          "idempotent clamp centralizer j n-j+1 clique polynomial"
+        ]
+      },
+      "rationale": "Fernandes–Paulista (arXiv:2112.13427) establish exact weak directed-path monoid, its size, idempotents and rank; Fernandes (2024, DOI:10.1007/s00233-024-10466-2) establishes the alias IO_n of interval-image order-preserving transformations and presentation. Both are the identical monoid, not unrelated name matches, and their accessible primary text does not provide each idempotent centralizer, all ordered commuting-pair count or interval-idempotent clique polynomial. Other commuting semigroup graph research addresses different monoids. A broader transformation centralizer theorem might contain this as an implied specialization; retained risk.",
+      "residual_risks": [
+        "Possible general idempotent centralizer formula for order-preserving chain maps or specialized semigroup-commuting thesis not located.",
+        "Commuting graph here includes all idempotents (even central ones), different from graph deleting central elements; no claims for arbitrary-element centralizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASELINE_MONOID_PRIOR",
+          "evidence": [
+            "Defines weak directed-path endomorphisms, determines |W_n| and |E(W_n)| but does not state idempotent centralizer or commuting graph formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+          "material_read": "Open arXiv full rendered article: definitions, Section 1 basic properties, idempotents and Section 2 rank results",
+          "method": "Read primary mathematical text including Proposition/Corollary counting idempotents; compare enumerands",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Foundational identical monoid"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANTS",
+          "evidence": [
+            "Introduction explicitly identifies IO_n with wEnd directed P_n; authors target presentation and rank, not the fixed-clamp centralizer census."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00233-024-10466-2",
+          "material_read": "2024 openly accessible Springer primary HTML including Introduction and Sections 2–4 of presentation/rank results",
+          "method": "Read object equivalence and inspect theorem topics for possible covering statements",
+          "title": "On the monoid of order-preserving transformations of a finite chain whose ranges are intervals",
+          "trigger": "Crucial alternative formulation exactly same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact local centralizer profile and aggregate commuting probability quantify how commutation varies by interval endpoints in a natural finite semigroup; full clique polynomial and classification of maximal commuting idempotent subsemilattices are useful structural invariants across all n, not a tiny-instance exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full arbitrary-element commuting graph and centralizers are not classified; an unindexed same-monoid broad theorem is a priority risk."
+  ],
+  "schema_version": 1
+}
