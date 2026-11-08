@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The marked Kac identity E[L_cycle^m; J=j]=m!P(J=j)G^m follows by the ordered-time killed semigroup with r-exponential survival and Markov conditioning at the final visit to the reset/local-time site. It proves single-cycle exponential local time independent of success/reset mark. I.i.d. cycles and a geometric stopping index give the exact bivariate transform and density; summing/inverting gives the Poisson/Gamma conditionals, and direct moment arithmetic gives Corr(N,L)=sqrt(1-h). The argument uses explicitly finite positive h and G and the occupation-density normalization. A standalone scipy/numpy diagnostic checked the direct backward equation against separately computed killed CTMC resolvents for three parameter sets, 25 Laplace/PGF points each; checked OU and Brownian closed forms; 462 assertions passed. No finite experiment substitutes for this continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1902.00907 covers local time over fixed durations and survival-conditioned paths, not joint N and L at first absorption.",
+        "The closest published-finding corpus general-renewal records concern renewal age/residual power correlations and do not involve diffusion local time at the reset location."
+      ],
+      "reasoning": "A general marked excursion theorem might imply the present result, but no actual covering theorem was identified from the inspected source material. That risk remains explicit, not converted to a novelty certificate.",
+      "searches": [
+        "excursion theory local time exponential conditional number resets poisson marks marked excursion restart diffusion absorption",
+        "local time resetting absorbing diffusion bivariate law gamma conditional on reset count rank one Green function",
+        "\"local time\" \"number of resets\" first passage stochastic resetting joint",
+        "arxiv:1902.00907 Sections III-IV"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.05226",
+      "https://arxiv.org/abs/2202.02715",
+      "https://arxiv.org/abs/1902.00907",
+      "https://arxiv.org/abs/2206.14387",
+      "2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783",
+      "2026/9/19/SCOPE-almost-sure-coalescence-cusp-diffusions--3cc504535cf9",
+      "2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8",
+      "Related prior claim: item c254f452-edd9-4ccd-b48d-8c73be1b0c9b (joint spatial maximum/count, noncovering)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 OU paper: E[e^{-sL}] and E[L] but no N variable.",
+        "2022 Brownian paper: first-passage local-time marginal; no reset count distribution in inspected text.",
+        "2019 paper: fixed-t local time conditioned on survival, a different random horizon.",
+        "2022 Toledo-Marin/Boyer: mean number of resets for random resetting positions, without local time.",
+        "Accessible own ledger c254f452-edd9-4ccd-b48d-8c73be1b0c9b: joint spatial maximum/reset count; maximum is not occupation-density local time."
+      ],
+      "reasoning": "Knowing the geometric marginal N and the exponential L marginal does not establish their coupling; even a joint maximum/count result cannot imply a local-time/count relation. In contrast, the independent terminal-mark moment identity gives a positive explicit gamma conditional and hence N|L Poisson for every admissible diffusion.",
+      "searches": [
+        "arxiv:2304.05226 Sections 2-3",
+        "arxiv:2202.02715 Sections 2-3",
+        "arxiv:1902.00907 Sections III-IV",
+        "arxiv:2206.14387 abstract and results",
+        "2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783",
+        "2026/9/19/SCOPE-almost-sure-coalescence-cusp-diffusions--3cc504535cf9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same statement is equivalent to single-cycle independence of occupation-density local time from the success/reset terminal mark, followed by geometric sums.",
+        "arxiv:2202.02715 explicitly computes marginal first-passage local time, not the terminal-mark independence or N|L distribution.",
+        "arxiv:2304.05226 presents the OU local-time transform and mean but not a joint reset-count generating variable."
+      ],
+      "reasoning": "The bivariate generating function is not implied from one marginal without an additional dependence statement. A geometric law for N together with an exponential marginal for L admits many alternative couplings; our marked Kac identity uniquely determines this one. The possible general equivalence to excursion-Poisson marking is retained as a priority risk.",
+      "searches": [
+        "Exponential local time before absorption Poisson reset count conditional Poisson gamma distribution local-time clock restart",
+        "Brownian Ornstein Uhlenbeck first passage occupation local time at resetting location joint geometric reset count conditional Poisson count given local time",
+        "\"local time\" \"Poisson\" \"reset count\" absorption",
+        "arxiv:2202.02715 Sections 2-3",
+        "arxiv:2304.05226 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus closest count record gives a mean-preserving restarted variance envelope, not an occupation-density/count joint density.",
+        "No inspected primary source presents a table of the conditional Poisson intensity (1-h)/G for the full killed regular-diffusion family."
+      ],
+      "reasoning": "No exact numerical table or database value was substituted for the analytic joint law; the OU example is a derived parameter evaluation.",
+      "searches": [
+        "Poisson resetting absorbing Brownian Ornstein Uhlenbeck joint local time accumulated at reset site and number of resets until first-passage; conditionally Poisson reset count given local time and gamma local time given number resets",
+        "reset count joint local time distribution first passage Ornstein Uhlenbeck resetting Dubey Pal 2023",
+        "reset count conditional local time Poisson gamma joint density diffusion first passage",
+        "joint distribution local time and number of resets Poisson stochastic resetting diffusion",
+        "2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783"
+      ]
+    },
+    "rationale": "Closest primary manuscripts address the local-time marginal and/or its mean (2023, 2022), fixed-time local time (2019), or mean reset counts under random reset sites (2022). None in the inspected relevant text states the joint absorption-stopped occupation-density local time/reset-count law, marked-cycle independence, exact N|L Poisson conditional or universal correlation. Actual literature/published-finding corpus searches and the accessible related research records found no implication covering the bivariate statement. Classical Kac/excursion tools may encompass it implicitly: publication priority is qualified and is not claimed proven by searches alone.",
+    "residual_risks": [
+      "An unindexed general marked-excursion or rank-one Green-resolvent theorem might imply the exact joint distribution with different language.",
+      "Comparisons establish best-knowledge noncoverage of inspected results, not independent worldwide priority verification.",
+      "Strict occupation-density regularity and finite killed resolvent are assumptions; their validity is not claimed for every nonexplosive drift."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers OU local-time marginal transform and expectation but does not introduce count-generating weight or terminal-mark conditional; same-model main prior.",
+        "evidence": [
+          "Original arXiv timestamp 2023-04-11",
+          "Section 3 Eq. 27 local-time Laplace transform; Sections 2-3 no bivariate reset-count law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.05226",
+        "material_read": "Full publicly accessible arXiv text with particular examination of Sections 2, 3 (including Eq. 27), conclusion and appendix",
+        "method": "Full-text HTML mathematical sections and exact formula comparison",
+        "title": "First-passage functionals for Ornstein Uhlenbeck process with stochastic resetting",
+        "trigger": "Same OU absorbing boundary, local-time functional, Poisson reset to fixed site"
+      },
+      {
+        "assessment": "Marginal local-time law and FK framework cover the marginal specialization but not the bivariate law.",
+        "evidence": [
+          "Original arXiv timestamp 2022-02-06",
+          "Sections 2-3 local-time marginal analysis; no conditional reset-count Poisson law"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02715",
+        "material_read": "Full publicly accessible arXiv text; Sections 2 and 3 and source overview",
+        "method": "Full-text HTML formula/claim comparison",
+        "title": "First-passage Brownian functionals with stochastic resetting",
+        "trigger": "Earlier Brownian first-passage local-time distribution"
+      },
+      {
+        "assessment": "Fixed elapsed-time local-time statistics, including survival conditioning, differ from the total local time up to first absorption paired with reset count.",
+        "evidence": [
+          "Original arXiv timestamp 2019-02-03",
+          "Section III formulas define local time up to fixed t and normalize by survival probability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1902.00907",
+        "material_read": "Full publicly accessible arXiv text; Sections III-IV and definition of survival-conditioned fixed-time observables",
+        "method": "Full-text HTML method, conditioning and stopping-horizon comparison",
+        "title": "Local time of diffusion with stochastic resetting",
+        "trigger": "Broader local-time resetting paper with absorbing boundary"
+      },
+      {
+        "assessment": "Computes a mean reset count for random positions, not joint local-time/count distribution at a fixed coincident reset/local-time location.",
+        "evidence": [
+          "Original arXiv timestamp 2022-06-29",
+          "Mean first-passage number of resets appears in stated results; no local-time conditional"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.14387",
+        "material_read": "Full publicly accessible arXiv manuscript with attention to mean first-passage number of resets, resetting-position variants and related discussion",
+        "method": "Full-text HTML scientific result comparison",
+        "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+        "trigger": "Could include a reset-count functional stronger than an elementary geometric marginal"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "05188208-a06b-4be2-b6b8-1efa4a1d9741",
+  "value": {
+    "rationale": "N is an intervention cost and L is occupation/exposure at a controlled location. The exact conditional reset-count distribution given measured exposure and the universal correlation resolve the full coupling of two physically important observables in the OU and general one-dimensional class, beyond existing independent marginal formulae. The answer includes a concrete finite-rate OU parameter evaluation and a free-diffusion closed form; not merely a textbook mean or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
