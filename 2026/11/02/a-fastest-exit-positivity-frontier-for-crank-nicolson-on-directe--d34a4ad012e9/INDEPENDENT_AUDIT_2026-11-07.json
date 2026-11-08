@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:10:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-fastest-exit-positivity-frontier-for-crank-nicolson-on-directe--d34a4ad012e9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-fastest-exit-positivity-frontier-for-crank-nicolson-on-directe--d34a4ad012e9/VERIFICATION.md"
+      ],
+      "rationale": "For n≥3 one-way cycle with r_i>0, t=h/2, z_i=tr_i/(1+tr_i), B=∏z_i, the exact resolvent R=(I−tQ)^(−1) has R_ii=(1−z_i)/(1−B). The Cayley identity C(2t)=2R−I and irreducible M-matrix positivity imply all off-diagonal entries positive for t>0; only diagonal crossings matter. The diagonal derivative has sign −z_i+[B/(1−B)]Σ(1−z_j); setting U=∏_(j≠i)z_j and S=Σ_(j≠i)(1−z_j)>0 makes strict negativity equivalent to U(1+S)<1, valid by U≤e^(−S)<1/(1+S). The smallest diagonal resolvent occurs exactly at maximum r_*, and its stationary limit π_i≤1/n<1/2, so it crosses 1/2 once. Clearing denominators gives F(t)=(1−tr_*)∏_(j≠i*)(1+tr_j)+t^n∏r_j with unique positive root; exact positivity 0≤h≤2t*. In the uniform case, root x_n−1=x_n^n/(1+x_n)^(n−1), x_3=φ, x_n↓1, 2^(n−1)(x_n−1)→1. Independent rational inverses verified 16 mixed-rate examples plus the exact (1,2,4) threshold; finite tests did not establish global monotonicity.",
+      "residual_risks": [
+        "One-way directed cycles, n≥3, positive heterogeneous rates.",
+        "Only completed Crank–Nicolson end-step positivity, not stage-wise or nonlinear positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General fixed-generator diagonal test applies to all Markov generators but stops short of monotonicity for arbitrary nonreversible Q",
+          "Higueras–Roldán analyze symmetric one-dimensional Dirichlet grid Laplacians"
+        ],
+        "reasoning": "A general monotonicity result for arbitrary nonreversible chains would imply this, but the inspected general theorem only derives it under reversibility; model-class SSP methods provide sufficiency rather than this exact ring threshold.",
+        "searches": [
+          "Crank Nicolson positivity exact one way nonreversible directed cycle maximum exit rate",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "doi:10.1137/S003614450036757X",
+          "arxiv:2301.01066"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+        "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "https://arxiv.org/pdf/2301.01066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Cayley identity is prior work",
+          "One-way cycle product of z_i furnishes additional strict derivative inequality U(1+S)<1"
+        ],
+        "reasoning": "The earlier result implies only how to test a given t from R_ii, not whether every t below an exact root works, which state first fails, or the finite-size correction. These require a new cyclic-resolvent structural lemma.",
+        "searches": [
+          "Crank Nicolson positivity exact one way nonreversible directed cycle maximum exit rate",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "arxiv:2301.01066"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing general identity C=2(I−tQ)^(−1)−I and diagonal ≥1/2 criterion holds for any generator",
+          "Unique strict crossing in previous Resultary theorem assumes reversible Q"
+        ],
+        "reasoning": "A restatement in Cayley-transform or resolvent-return language does not supply nonreversible uniqueness or fastest-exit ordering. The explicit all-positive-rate ring theorem is not a corollary of a reversible spectral decomposition.",
+        "searches": [
+          "Crank Nicolson positivity exact one way nonreversible directed cycle maximum exit rate",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "arxiv:2301.01066"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest explicit reversible chain cases are balanced two-state and complete graph, not one-way n≥3 rings",
+          "Independent case (1,2,4) gives polynomial 1−t−10t²"
+        ],
+        "reasoning": "No published parameter table for heterogeneous directed cycles was found. The example calculation alone is not the novelty; universal sign/frontier proof is.",
+        "searches": [
+          "Crank Nicolson positivity exact one way nonreversible directed cycle maximum exit rate",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "arxiv:2301.01066"
+        ]
+      },
+      "rationale": "The published reversible Markov-chain result proves the general diagonal resolvent test and spectral strict monotonicity under reversibility, but expressly leaves nonreversible positivity intervals unclassified. One-way directed cycles n≥3 are nonreversible; the strict decline is established here by a different explicit product inequality, together with exact maximum-exit bottleneck and rate-dependent polynomial root. Gottlieb–Shu–Tadmor broad SSP theory and Higueras–Roldán Dirichlet heat grids do not cover the same generator family. Related Cayley/matrix-function literature remains a priority risk.",
+      "residual_risks": [
+        "Older specialist queueing/transport-cycle Cayley-transform literature may contain equivalent sharp threshold.",
+        "The source uses exact real arithmetic at the boundary; floating-point roundoff can perturb zero diagonal entries.",
+        "The claim does not extend to arbitrary nonreversible finite generators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Cayley diagonal criterion already prior; strict single-crossing established only reversible, not current directed cycles",
+          "evidence": [
+            "C=2R−I for general Q",
+            "Reversible spectral mixture and crossing theorem",
+            "Limitations decline nonreversible classification"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Complete published RESULT.md including all claims, proof and limitations",
+          "method": "Read complete repository scientific file",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Closest same-method general matrix theorem"
+        },
+        {
+          "assessment": "Method-class guarantees; no all-rate nonreversible ring threshold in inspected material",
+          "evidence": [
+            "SIAM Review 43 (2001), 89–112"
+          ],
+          "identifier_or_url": "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+          "material_read": "Author-hosted primary PDF, introduction, SSP method setup and implicit methods/conclusion",
+          "method": "Read primary sections and page image",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "General method-class positivity benchmark"
+        },
+        {
+          "assessment": "Different symmetric Dirichlet heat discretization, not directed rings",
+          "evidence": [
+            "Exact grid-dependent CN positivity comparisons"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.01066",
+          "material_read": "Primary 28-page document introductory contribution and formulas through page 4; text searched for directed cycles",
+          "method": "Read relevant primary PDF and inspected page image",
+          "title": "A New Insight on Positivity and Contractivity of the Crank–Nicolson Scheme for the Heat Equation",
+          "trigger": "Possible sharp CN positivity classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+        "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "https://arxiv.org/pdf/2301.01066"
+      ],
+      "rationale": "Sharp timestep positivity on heterogeneous directed transport rings is a natural numerical Markov property for a genuinely nonreversible class. Identifying the governing vertex by maximum departure rate and proving a unique sharp threshold, not only a sufficient CFL-like bound, settles an interpretable parameter classification; the uniform cycle has an unexpectedly small exponential finite-size correction.",
+      "residual_risks": [
+        "The claim does not extend to arbitrary nonreversible finite generators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One-way directed cycles, n≥3, positive heterogeneous rates.",
+    "Only completed Crank–Nicolson end-step positivity, not stage-wise or nonlinear positivity."
+  ]
+}

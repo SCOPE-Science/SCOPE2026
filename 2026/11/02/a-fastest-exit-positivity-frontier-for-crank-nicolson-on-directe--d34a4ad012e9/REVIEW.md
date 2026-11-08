@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact geometric-circuit resolvent identity is reconstructed from the directed generator. Off-diagonals of the completed step are positive, and a strict inequality for products of numbers in the unit interval proves monotonicity of every diagonal resolvent without invoking reversibility. The maximum-rate ordering and unique root give both directions of the sharp positivity threshold. The uniform-rate asymptotic follows from an exponential bound and the root identity. The standalone exact-rational checker covers 6,020 finite cases; these are corroboration, not a substitute for the general argument.
+## correctness
 
-**Originality — PASS, with limitations.** The general diagonal-resolvent criterion is explicitly prior work. The most directly relevant published general result establishes one-interval thresholds under reversibility and expressly does not classify nonreversible windows. The present cyclic geometric factorization and inequality establish the missing nonreversible monotonicity and identify the departure-rate extremum. The 2001 SSP study and a full 2023 study on symmetric Dirichlet heat grids do not state this all-rate directed-cycle result. Searching its key aliases returned no dominating theorem. Residual risk is specialized older research on unidirectional transport loops or Cayley transforms not exposed by those searches.
+PASS
 
-**Mathematical value — PASS.** Nonreversible transport rings are a natural discretization/Markov family in which a method stable in the usual scalar sense can nevertheless produce negative concentrations. The exact admissible range for arbitrary inhomogeneous rates, the surprising maximum-rate bottleneck, and the exponentially precise homogeneous-size law provide usable, structurally motivated design information. The theorem does not merely substitute an eigenvalue in the reversible formula; it proves a new strict crossing property without reversible spectral positivity.
+For n≥3 one-way cycle with r_i>0, t=h/2, z_i=tr_i/(1+tr_i), B=∏z_i, the exact resolvent R=(I−tQ)^(−1) has R_ii=(1−z_i)/(1−B). The Cayley identity C(2t)=2R−I and irreducible M-matrix positivity imply all off-diagonal entries positive for t>0; only diagonal crossings matter. The diagonal derivative has sign −z_i+[B/(1−B)]Σ(1−z_j); setting U=∏_(j≠i)z_j and S=Σ_(j≠i)(1−z_j)>0 makes strict negativity equivalent to U(1+S)<1, valid by U≤e^(−S)<1/(1+S). The smallest diagonal resolvent occurs exactly at maximum r_*, and its stationary limit π_i≤1/n<1/2, so it crosses 1/2 once. Clearing denominators gives F(t)=(1−tr_*)∏_(j≠i*)(1+tr_j)+t^n∏r_j with unique positive root; exact positivity 0≤h≤2t*. In the uniform case, root x_n−1=x_n^n/(1+x_n)^(n−1), x_3=φ, x_n↓1, 2^(n−1)(x_n−1)→1. Independent rational inverses verified 16 mixed-rate examples plus the exact (1,2,4) threshold; finite tests did not establish global monotonicity.
 
-Closest source: *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains*, published research record (2026), together with Gottlieb–Shu–Tadmor (2001) and Higueras–Roldán (2023).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published reversible Markov-chain result proves the general diagonal resolvent test and spectral strict monotonicity under reversibility, but expressly leaves nonreversible positivity intervals unclassified. One-way directed cycles n≥3 are nonreversible; the strict decline is established here by a different explicit product inequality, together with exact maximum-exit bottleneck and rate-dependent polynomial root. Gottlieb–Shu–Tadmor broad SSP theory and Higueras–Roldán Dirichlet heat grids do not cover the same generator family. Related Cayley/matrix-function literature remains a priority risk.
+
+## value
+
+PASS
+
+Sharp timestep positivity on heterogeneous directed transport rings is a natural numerical Markov property for a genuinely nonreversible class. Identifying the governing vertex by maximum departure rate and proving a unique sharp threshold, not only a sufficient CFL-like bound, settles an interpretable parameter classification; the uniform cycle has an unexpectedly small exponential finite-size correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
