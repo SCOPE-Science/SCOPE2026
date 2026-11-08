@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:41:54.525623Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ||u||=1, K²=I+3uu^T and H=2I+4uu^T. Each 2x2 block K_j=diag(1+s_j,1), B_j=diag(q(1+s_j)(q(1+s_j)+1),q(q+1)); q different positive s_j=j²/S give q different poles d_j=2/beta_j in active diagonal-plus-positive-rank-one C_a. Secular interlacing yields q simple roots, and Jensen gives F(eta0)=1-2(q+1)Σ[2q+1+q*s_j]^-1 <=1-q<0 so no collision with inactive eta0. Every active eigenvector has nonzero first coordinate; symmetrically transformed b also has inactive e2 projection, giving exact Krylov grade q+1. For homogeneous sj=1/q active sector has only two levels, inactive one more. Independent symbolic rational F(eta0) and qxq Krylov rank checks q=2..8; exact arithmetic proof covers all q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)",
+          "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8"
+        ],
+        "reasoning": "Checked whether a stronger known theorem, reduction or general method logically entails ALL stated conclusions. The frameworks/tools in these sources do not state the extra quantified structural claim without work specific to this result. Published Resultary searches returned related CG, MINRES, weighted Jacobi and Richardson constructions but not the specific Nyström KRR block rank-one orientation claim.",
+        "searches": [
+          "Resultary semantic published-finding index, exact query: Sketched block preconditioning Nyström BLOKS block Jacobi exact CG iterations rank one two eigenvalue kernel Krylov spectrum",
+          "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)",
+          "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8"
+        ]
+      },
+      "checked_sources": [
+        "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)",
+        "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8",
+        "Resultary semantic search: Sketched block preconditioning Nyström BLOKS block Jacobi exact CG iterations rank one two eigenvalue kernel Krylov spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each q>=2, the full-Nyström KRR system H=K²+K with K=I+uu^T has unpreconditioned eigenvalues 2 and 6 and, for b=e1+e2, exact CG grade two. The prescribed q blocks of size two generate q+1 distinct symmetrically preconditioned eigenvalues, all seen by b, hence exact PCG grade q+1. A homogeneous isospectral block orientation gives only three preconditioned eigenvalues.",
+          "Qualified PASS for model-specific exact CG *minimal polynomial* growth and its homogeneous isospectral control, not generic secular equations, CG grades, or BLOKS itself. Vitale et al §3 eq (12), Algo 1, Appendix B state the preconditioner and practical conditioning/performance comparisons; the source does not assert this every-q right-hand-side exact termination anomaly. General block-Jacobi conditioning bounds of Demmel and Kolotilina do not imply its block-orientation specificity."
+        ],
+        "reasoning": "Compared hypothesis domains and the conclusion actually proved, including corollaries and the direction of implication. Qualified PASS for model-specific exact CG *minimal polynomial* growth and its homogeneous isospectral control, not generic secular equations, CG grades, or BLOKS itself. Vitale et al §3 eq (12), Algo 1, Appendix B state the preconditioner and practical conditioning/performance comparisons; the source does not assert this every-q right-hand-side exact termination anomaly. General block-Jacobi conditioning bounds of Demmel and Kolotilina do not imply its block-orientation specificity.",
+        "searches": [
+          "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)",
+          "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8",
+          "BLOKS rank-one two-spectrum preconditioned CG q+1 distinct eigenvalues homogeneous orientation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qualified PASS for model-specific exact CG *minimal polynomial* growth and its homogeneous isospectral control, not generic secular equations, CG grades, or BLOKS itself. Vitale et al §3 eq (12), Algo 1, Appendix B state the preconditioner and practical conditioning/performance comparisons; the source does not assert this every-q right-hand-side exact termination anomaly. General block-Jacobi conditioning bounds of Demmel and Kolotilina do not imply its block-orientation specificity.",
+          "Published Resultary searches returned related CG, MINRES, weighted Jacobi and Richardson constructions but not the specific Nyström KRR block rank-one orientation claim."
+        ],
+        "reasoning": "Compared the exact predicate/quantifiers with plausible synonyms and existing terms rather than title matching. Qualified PASS for model-specific exact CG *minimal polynomial* growth and its homogeneous isospectral control, not generic secular equations, CG grades, or BLOKS itself. Vitale et al §3 eq (12), Algo 1, Appendix B state the preconditioner and practical conditioning/performance comparisons; the source does not assert this every-q right-hand-side exact termination anomaly. General block-Jacobi conditioning bounds of Demmel and Kolotilina do not imply its block-orientation specificity.",
+        "searches": [
+          "Resultary semantic published-finding index, exact query: Sketched block preconditioning Nyström BLOKS block Jacobi exact CG iterations rank one two eigenvalue kernel Krylov spectrum",
+          "BLOKS rank-one two-spectrum preconditioned CG q+1 distinct eigenvalues homogeneous orientation",
+          "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary searches returned related CG, MINRES, weighted Jacobi and Richardson constructions but not the specific Nyström KRR block rank-one orientation claim.",
+          "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8"
+        ],
+        "reasoning": "Checked numerical/structured results as coverage. Tables and general enumeration algorithms can cover known examples or finite cases, but those do not alone prove the complete unbounded parameterized final claim. A theorem already logically implying it would nevertheless count as coverage; none located.",
+        "searches": [
+          "Resultary semantic published-finding index, exact query: Sketched block preconditioning Nyström BLOKS block Jacobi exact CG iterations rank one two eigenvalue kernel Krylov spectrum",
+          "BLOKS rank-one two-spectrum preconditioned CG q+1 distinct eigenvalues homogeneous orientation",
+          "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8"
+        ]
+      },
+      "rationale": "Qualified PASS for model-specific exact CG *minimal polynomial* growth and its homogeneous isospectral control, not generic secular equations, CG grades, or BLOKS itself. Vitale et al §3 eq (12), Algo 1, Appendix B state the preconditioner and practical conditioning/performance comparisons; the source does not assert this every-q right-hand-side exact termination anomaly. General block-Jacobi conditioning bounds of Demmel and Kolotilina do not imply its block-orientation specificity.",
+      "residual_risks": [
+        "Exact arithmetic grade is highly sensitive to roundoff; finite-residual practical performance not established.",
+        "Some specialist block conditioning papers and all appendix subcases might conceal a closely related counterexample.",
+        "The example is full Nyström (all landmarks) and full diagonal block information, not necessarily the random small-subsample setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the same algorithmic preconditioner and empirical large-scale evaluation; its statements concern different quantities, not exact q+1 spectral grade for this deterministic rank-one constructed family.",
+          "evidence": "§3 eqs. 11–12 and Algorithm 1 lines 127–199; Appendix B.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13382v1",
+          "material_read": "Full accessible HTML of §2 normal equations, §3 sketched block definition/formula, Algorithm 1, §4 related work, and Appendix B block comparisons; not relying solely on abstract.",
+          "method": "Read primary arXiv HTML through formula and appendix (858-line document).",
+          "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+          "trigger": "Exact block construction being assessed, especially full-landmark reduction"
+        },
+        {
+          "assessment": "An optimization of condition numbers is not a theorem fixing exact minimal-polynomial degree for this KRR family; incomplete text presents a residual risk.",
+          "evidence": "J. Demmel, SIAM J. Matrix Anal. Appl. 44 (2023) 408–413.",
+          "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+          "material_read": "Abstract/bibliographic theorem focus on conditioning; full specialized article not checked.",
+          "method": "Public bibliographic abstract and citations from primary package.",
+          "title": "Nearly Optimal Block-Jacobi Preconditioning",
+          "trigger": "Stronger general block-Jacobi literature possibly dominating the example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact Krylov grade is a natural, exact-arithmetic diagnostic of an actual published block preconditioner. A bounded original condition number does not prevent q+1 preconditioned spectral levels, while a same-spectrum equal-orientation example has only three, isolating a testable mechanism. This says nothing unproved about finite-tolerance or wall-clock performance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vitale et al., BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning, arXiv:2610.13382v1, §3 eqs. (11)–(12), Algorithm 1 and Appendix B (https://arxiv.org/html/2610.13382v1)",
+    "Demmel, Nearly Optimal Block-Jacobi Preconditioning, SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1504901; Kolotilina, Optimally conditioned block matrices, LAA 340 (2002), DOI:10.1016/S0024-3795(01)00412-8",
+    "Resultary semantic search: Sketched block preconditioning Nyström BLOKS block Jacobi exact CG iterations rank one two eigenvalue kernel Krylov spectrum"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each q>=2, the full-Nyström KRR system H=K²+K with K=I+uu^T has unpreconditioned eigenvalues 2 and 6 and, for b=e1+e2, exact CG grade two. The prescribed q blocks of size two generate q+1 distinct symmetrically preconditioned eigenvalues, all seen by b, hence exact PCG grade q+1. A homogeneous isospectral block orientation gives only three preconditioned eigenvalues.",
+  "limitations": [
+    "Exact arithmetic grade is highly sensitive to roundoff; finite-residual practical performance not established.",
+    "Some specialist block conditioning papers and all appendix subcases might conceal a closely related counterexample.",
+    "The example is full Nyström (all landmarks) and full diagonal block information, not necessarily the random small-subsample setting."
+  ],
+  "residual_risks": [
+    "Exact arithmetic grade is highly sensitive to roundoff; finite-residual practical performance not established.",
+    "Some specialist block conditioning papers and all appendix subcases might conceal a closely related counterexample.",
+    "The example is full Nyström (all landmarks) and full diagonal block information, not necessarily the random small-subsample setting."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides the same algorithmic preconditioner and empirical large-scale evaluation; its statements concern different quantities, not exact q+1 spectral grade for this deterministic rank-one constructed family.",
+      "evidence": "§3 eqs. 11–12 and Algorithm 1 lines 127–199; Appendix B.",
+      "identifier_or_url": "https://arxiv.org/html/2610.13382v1",
+      "material_read": "Full accessible HTML of §2 normal equations, §3 sketched block definition/formula, Algorithm 1, §4 related work, and Appendix B block comparisons; not relying solely on abstract.",
+      "method": "Read primary arXiv HTML through formula and appendix (858-line document).",
+      "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+      "trigger": "Exact block construction being assessed, especially full-landmark reduction"
+    },
+    {
+      "assessment": "An optimization of condition numbers is not a theorem fixing exact minimal-polynomial degree for this KRR family; incomplete text presents a residual risk.",
+      "evidence": "J. Demmel, SIAM J. Matrix Anal. Appl. 44 (2023) 408–413.",
+      "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+      "material_read": "Abstract/bibliographic theorem focus on conditioning; full specialized article not checked.",
+      "method": "Public bibliographic abstract and citations from primary package.",
+      "title": "Nearly Optimal Block-Jacobi Preconditioning",
+      "trigger": "Stronger general block-Jacobi literature possibly dominating the example"
+    }
+  ]
+}
