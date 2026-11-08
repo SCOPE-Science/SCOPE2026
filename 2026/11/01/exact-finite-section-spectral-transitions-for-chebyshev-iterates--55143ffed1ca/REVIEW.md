@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The invariant-measure conjugacy \(1-2F_d(x)=T_d(1-2x)\) and Chebyshev composition give the exact degree \(m=d^n\) observable. Multiplication entries follow from orthogonality. Residue/reflection components partition every basis index, including the unusual degree-zero edge and even central self-loop. Their three characteristic polynomials supply all eigenvalues with multiplicity, not an asymptotic approximation. Direct component counts establish the sharp scalar and three-level regimes; elementary angular quantile bounds establish the quantitative spectral CDF comparison. The independent finite numerical program corroborated 1,392 parameter cases and seven quadrature constructions. No finite verification is used to infer a general proof.
+PASS
 
-## Originality
+Chebyshev conjugacy sends F_d^n to T_m with m=d^n and invariant arcsine angular measure. Orthogonality plus the product identity yields exactly the symmetric sparse C=I-2B matrix: for positive indices one half for |i-j|=m or i+j=m; the 0-to-m entry is 1/sqrt(2). Its nonzero graph decomposes into a degree-zero path, reflected residue-class paths, and possibly the even central self-loop path. Standard Chebyshev characteristic recurrences give all-K cosine root multisets and hence the complete B spectrum. For K<=m only two-vertex reflected pairs and possibly a 1/2 central self-loop survive; K<=ceil(m/2) is scalar, ceil(m/2)<K<=m has norm gap 1/4, and K=m+1 has gap 1/(2sqrt2). Each finite path angular-grid discrepancy <=1/L and there are <=floor(m/2)+1 paths, establishing the stated empirical arcsine bound and limit regimes. Independently constructed matrices for 450 (m,K) configurations agreed with all predicted eigenvalues within 1.8e-15. Finite checks confirm, not prove, unbounded n and K.
 
-PASS under inspected evidence, with historical priority provisional. Janowicz–Orłowski (arXiv:2607.19159, Sections 2.3 and 4.2) examine fixed shifted-Legendre coefficients in Lebesgue space, not the all-rank invariant-arcsine Chebyshev spectrum. Gumerov–Rigg–Slevinsky (arXiv:2412.17663, Section 4, equation (8)) already give a general Toeplitz-plus-Hankel Chebyshev Gram entry representation, which substantially overlaps the first algebraic step but does not state the dynamical rank-scale transition, explicit residue-path eigenvalue census, or CDF bound. Classical Chebyshev product and Jacobi polynomial identities are prerequisites, not contributions claimed here. Relevant full accessible primary texts and published research-index searches disclosed no covering result. Specialized finite-section spectral folklore remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The motivating multiplication-operator study explicitly highlights the unresolved distinction between fixed matrix elements and growing finite resolution. This theorem supplies a sharp exponential observation threshold and a complete spectral phase description in a naturally invariant Hilbert space. It distinguishes exact finite-rank invisibility from the nondecaying full-operator norm, and gives an explicit convergence bound once rank greatly exceeds oscillation degree. The invariant-measure change must be stated plainly; no conclusion is claimed for the source paper's Lebesgue–Legendre basis.
+Toeplitz-plus-Hankel Chebyshev Gram entries are established and exactly credited; the source focuses on Cholesky/fast matrix transforms rather than exact iterated-dynamics finite-section eigenvalues. Janowicz--Orlowski analyze fixed-degree entries of logistic multiplication on Lebesgue with shifted Legendre basis, not the arcsine Chebyshev variable-K spectrum. The rank-dependent thresholds, residue-block all-K diagonalization and noncommuting m,K limits are distinct from these prior statements, though unknown special Toeplitz/Hankel explicit diagonalizations remain a priority risk.
 
-## Boundaries and independent review
+## value
 
-The result is restricted to integer Chebyshev dynamics, the invariant arcsine probability and finite sections in its normalized polynomial basis. Historical novelty has not been independently certified. Published general structured-matrix formulas remain close precursors; no claim of a new Chebyshev product identity is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural finite-resolution observation question for a chaotic interval map has a sharply delayed visibility threshold despite full operator norm remaining 1/2; the complete spectral classification and explicit joint dimension/frequency transition quantify an operator-compression phenomenon rather than a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

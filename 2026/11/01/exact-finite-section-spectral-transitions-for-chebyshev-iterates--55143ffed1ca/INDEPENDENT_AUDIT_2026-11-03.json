@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:04:17.014834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Chebyshev conjugacy sends F_d^n to T_m with m=d^n and invariant arcsine angular measure. Orthogonality plus the product identity yields exactly the symmetric sparse C=I-2B matrix: for positive indices one half for |i-j|=m or i+j=m; the 0-to-m entry is 1/sqrt(2). Its nonzero graph decomposes into a degree-zero path, reflected residue-class paths, and possibly the even central self-loop path. Standard Chebyshev characteristic recurrences give all-K cosine root multisets and hence the complete B spectrum. For K<=m only two-vertex reflected pairs and possibly a 1/2 central self-loop survive; K<=ceil(m/2) is scalar, ceil(m/2)<K<=m has norm gap 1/4, and K=m+1 has gap 1/(2sqrt2). Each finite path angular-grid discrepancy <=1/L and there are <=floor(m/2)+1 paths, establishing the stated empirical arcsine bound and limit regimes. Independently constructed matrices for 450 (m,K) configurations agreed with all predicted eigenvalues within 1.8e-15. Finite checks confirm, not prove, unbounded n and K.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janowicz--Orlowski abstract states fixed shifted-Legendre matrix element convergence for r=4 and no norm convergence, not all-rank arcsine-basis spectra.",
+          "Gumerov et al Section 4 formula (4.2) is the known Chebyshev Toeplitz/Hankel Gram entry and studies hierarchical numerical factorization, not the exact rank thresholds."
+        ],
+        "reasoning": "Generic structured matrix methods cover coefficient construction, not the whole explicit all-K dynamics-dependent spectral distribution including K/m limits.",
+        "searches": [
+          "Janowicz--Orlowski arXiv:2607.19159",
+          "Gumerov--Rigg--Slevinsky arXiv:2412.17663",
+          "Strang--MacNamara doi:10.1137/120897572"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob cfbce1f011777371e89bd3d6a7b876f8a8057223",
+        "Assigned verify.py blob 69be034c5d18196574061a5b8c65b884c558d3b0",
+        "Gumerov--Rigg--Slevinsky arXiv:2412.17663 Section 4 equation (4.2)",
+        "Janowicz--Orlowski arXiv:2607.19159 abstract",
+        "DLMF 18.18.21",
+        "Resultary semantic search 2026-11-03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-degree Lebesgue-Legendre matrix limits cannot imply a sharp threshold for growing Chebyshev ranks under a different invariant measure.",
+          "Known Chebyshev Gram entries imply this particular sparse matrix after specializing moments; the all-rank eigenvalue grid and sharp joint scale still require the explicit path decomposition."
+        ],
+        "reasoning": "Separates what is mechanically implied (matrix entries) from the novel classification (full spectra, cutoffs and mixed limits); does not claim standard tridiagonal roots themselves as new.",
+        "searches": [
+          "arXiv:2607.19159 abstract",
+          "arXiv:2412.17663 equation (4.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compressed multiplication is a Chebyshev Toeplitz-plus-Hankel finite matrix, with reflection index i+j=m and shift |i-j|=m.",
+          "Its connected components are ordinary weighted Jacobi path matrices with classical T_L/U_L roots."
+        ],
+        "reasoning": "The matrix coefficients are standard, but the full residue-block decomposition for jointly varying m,K and the spectral scaling assertions are additional claims, not just relabeling individual entries.",
+        "searches": [
+          "Chebyshev multiplication finite section spectrum compressed logistic map Toeplitz Hankel residue blocks spectral phase transition",
+          "Gumerov--Rigg--Slevinsky arXiv:2412.17663 Section 4",
+          "DLMF 18.18.21 Chebyshev product identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The DLMF provides the polynomial product formula, not tables of spectral multiplicities of the degree-m compressed multiplier at arbitrary K.",
+          "The Resultary index searches returned unrelated Toeplitz/operator spectral classifications, no exact table for this Chebyshev iterate finite-section spectrum."
+        ],
+        "reasoning": "The claimed all-K cosine grids are not located in searched exact tables; absence in an index alone does not establish priority.",
+        "searches": [
+          "Chebyshev multiplication finite section spectrum compressed logistic map Toeplitz Hankel residue blocks spectral phase transition",
+          "arXiv:2412.17663 Section 4 and Appendix A",
+          "DLMF 18.18.21"
+        ]
+      },
+      "rationale": "Toeplitz-plus-Hankel Chebyshev Gram entries are established and exactly credited; the source focuses on Cholesky/fast matrix transforms rather than exact iterated-dynamics finite-section eigenvalues. Janowicz--Orlowski analyze fixed-degree entries of logistic multiplication on Lebesgue with shifted Legendre basis, not the arcsine Chebyshev variable-K spectrum. The rank-dependent thresholds, residue-block all-K diagonalization and noncommuting m,K limits are distinct from these prior statements, though unknown special Toeplitz/Hankel explicit diagonalizations remain a priority risk.",
+      "residual_risks": [
+        "The Janowicz--Orlowski full preprint and specialized finite Toeplitz-plus-Hankel spectra could not be comprehensively inspected; historical equivalence remains possible.",
+        "The limit is for invariant arcsine Hilbert space and integer Chebyshev dynamics only, not Lebesgue-Legendre logistic spectra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: standard Toeplitz-plus-Hankel entry and fast transformation framework, not all-rank iterate spectrum",
+          "evidence": "Eq. (4.2) 2 W_mn=mu_(m+n)+mu_|m-n|; Section4 focuses on numerical block ranks and transforms.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.17663",
+          "material_read": "Full primary PDF sections 2 and 4, especially equation (4.2) p.13, and Appendix A polynomial identities; screenshots and searchable text",
+          "method": "Primary arXiv PDF targeted full-method and theorem reading",
+          "title": "Fast measure modification of orthogonal polynomials via matrices with displacement structure",
+          "trigger": "Chebyshev Toeplitz-plus-Hankel Gram matrix might dominate special finite sections"
+        },
+        {
+          "assessment": "LIMITED: abstract explicitly confines analytic convergence to fixed Legendre-basis entries, distinct measure and no all-rank theorem; whole-text priority risk remains",
+          "evidence": "The abstract explicitly discusses fixed shifted-Legendre indices with L2 Lebesgue and no operator-norm convergence.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.19159",
+          "material_read": "arXiv abstract and indexed summary of fixed-index shifted Legendre calculations; full arXiv PDF could not be retrieved",
+          "method": "Abstract-level source inspection only; do not claim full-paper noncoverage",
+          "title": "Quantum logistic map considered as discrete-time Heisenberg equation",
+          "trigger": "Direct motivating logistic multiplication operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-resolution observation question for a chaotic interval map has a sharply delayed visibility threshold despite full operator norm remaining 1/2; the complete spectral classification and explicit joint dimension/frequency transition quantify an operator-compression phenomenon rather than a parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob cfbce1f011777371e89bd3d6a7b876f8a8057223",
+    "Assigned verify.py blob 69be034c5d18196574061a5b8c65b884c558d3b0",
+    "Gumerov--Rigg--Slevinsky arXiv:2412.17663 Section 4 equation (4.2)",
+    "Janowicz--Orlowski arXiv:2607.19159 abstract",
+    "DLMF 18.18.21",
+    "Resultary semantic search 2026-11-03"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Janowicz--Orlowski full preprint and specialized finite Toeplitz-plus-Hankel spectra could not be comprehensively inspected; historical equivalence remains possible.",
+    "The limit is for invariant arcsine Hilbert space and integer Chebyshev dynamics only, not Lebesgue-Legendre logistic spectra.",
+    "Scientific PASS is best-of-knowledge and not external attestation; no Git publication was performed.",
+    "Publication plan remains not_ready because public-bound source provenance was detected and no guarded sanitized replacement bytes were supplied."
+  ],
+  "schema_version": 1
+}
