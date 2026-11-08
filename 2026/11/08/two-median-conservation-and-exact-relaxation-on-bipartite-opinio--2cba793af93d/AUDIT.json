@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Define weighted medians as observed values, with strict uniqueness on both sides of each initial center. Positive affine order equivariance proves the medians along the candidate trajectories. Their derivatives exactly match every agent equation, and full initial data are recovered. Prior global Lipschitz guarantees uniqueness; the exact proof covers every finite \\(m,n\\), positive normalized shared row weights and real initial opinions. The nearest-observed-neighbor \\(K_{2,2}\\) tie boundary is verified algebraically. The standalone exact-rational checker passes 1,289 admissible finite cases and four boundary rational times; it is corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2404.16318v1, Theorem 11 (global convergence and graph-theoretic consensus, not an explicit initial-data formula).",
+        "arXiv:2404.16318v3, Section 3.2 (global convergence and graph criteria)."
+      ],
+      "reasoning": "General existence/convergence includes these networks as a domain, but only asserts convergence to an unspecified equilibrium. It neither specifies the limit as the mean of the two initial weighted medians nor provides the exact finite-time expressions, so it does not subsume the quantitative statement. Its global Lipschitz theorem is explicitly used and credited.",
+      "searches": [
+        "\"weighted median\" \"complete bipartite\" \"consensus\" 2024 Han",
+        "\"continuous-time weighted-median\" \"consensus value\" explicit",
+        "https://arxiv.org/html/2404.16318v1",
+        "https://arxiv.org/html/2404.16318v3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2404.16318v1",
+      "https://arxiv.org/html/2404.16318v3",
+      "https://arxiv.org/html/2406.17552v3",
+      "https://arxiv.org/abs/2212.08808",
+      "2022 Scientific Reports opinion formation models: https://www.nature.com/articles/s41598-022-17348-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Han et al., arXiv:2404.16318v1, Definition 2, Theorem 11 and Theorem 12: continuous-time model, uniqueness, and qualitative convergence.",
+        "Mei et al., arXiv:2212.08808: asynchronous discrete-time median selection.",
+        "Mohr et al., arXiv:2406.17552v3, Section 2.2: synchronous discrete-time inertia updates."
+      ],
+      "reasoning": "The source vector field is exactly the studied one and its global well-posedness is prior art. The new asserted implication is stronger on a restricted family: all initial vectors with two unique group medians have an explicit limit and \\(e^{-t}\\)/\\(e^{-2t}\\) trajectories, with a nonunique-median boundary instance. A general convergence theorem alone does not calculate these quantities; different discrete-time models do not imply this continuous-time law.",
+      "searches": [
+        "https://arxiv.org/html/2404.16318v1",
+        "https://arxiv.org/html/2404.16318v3",
+        "https://arxiv.org/html/2406.17552v3",
+        "https://arxiv.org/abs/2212.08808",
+        "\"weighted-median\" \"bipartite\" \"opinion\" dynamics exact consensus value"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2404.16318v1, Definition 2 and Section III-C (definition and general convergence without the two-group median invariant).",
+        "arXiv:2404.16318v3, Section 3.2 (general equilibrium and convergence theorems)."
+      ],
+      "reasoning": "Equivalent formulations could state preservation of the sum of two partwise medians or a two-community terminal map in an order-statistic guise. The observed group-affine invariant was compared to both versions of the initiating paper; neither states the exact median-sum invariant, selected limit, or its two transient modes. The mathematically equivalent affine median identities remain a residual indexing risk.",
+      "searches": [
+        "\"weighted-median\" \"bipartite\" \"opinion\" dynamics exact consensus value",
+        "\"median of two medians\" consensus opinion dynamics bipartite",
+        "\"weighted median\" \"two exponential\" consensus",
+        "https://arxiv.org/html/2404.16318v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The continuous-time initiating paper gives graph equilibrium and convergence theorems rather than a table of the initial-data-to-consensus map.",
+        "Mohr–Hjorth–Porter arXiv:2406.17552v3 studies synchronous updating and mean-field numerical comparisons."
+      ],
+      "reasoning": "The claimed object is a real-parameter, arbitrary-size analytic trajectory, not a finite database constant. No exact matching tabulation was located in the inspected primary work; any indexed formula in another source would still take priority and remains a residual possibility.",
+      "searches": [
+        "\"complete bipartite\" \"weighted median\" \"opinion\"",
+        "\"continuous-time weighted-median\" \"consensus value\" explicit",
+        "\"weighted median\" \"complete bipartite\" \"opinion\" \"closed form\""
+      ]
+    },
+    "rationale": "The v1 initiating paper introduces this ODE and proves well-posedness, stable equilibria, and convergence; its v3 revises and expands qualitative claims. Both were inspected for the initial-data-to-limit map and partwise median invariance. Earlier asynchronous and synchronous discrete-time median models have different update laws. Exact statements and implications, not merely keyword nonmatches, were compared. Searches found no preempting two-median finite-time formula; unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "Unindexed or independently derived equivalent two-community median formula might preempt publication priority.",
+      "The boundary example is not an exhaustive classification of all nonunique-median dynamics.",
+      "No independent literature-priority audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_AND_GENERAL_CONVERGENCE; quantitative two-median trajectories not stated",
+        "evidence": [
+          "Definition 1 observed-value weighted medians and strict-uniqueness lemma",
+          "Definition 2 closest observed-value tie rule",
+          "Theorem 11 convergence and Theorem 12 consensus graph criterion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.16318v1",
+        "material_read": "Definition 1 and Definition 2, main results in Section III-C, discussion and appendices relevant to proof scope",
+        "method": "Full accessible HTML, substantive definition/theorem and argument inspection",
+        "title": "The Continuous-Time Weighted-Median Opinion Dynamics",
+        "trigger": "Defines the exact model; potential full prior coverage"
+      },
+      {
+        "assessment": "GENERALIZED_MODEL_DISCUSSION, no covering exact part-median selection map located",
+        "evidence": [
+          "Section 2.2 retains the same continuous-time median ODE",
+          "Section 3.2 proves general convergence and consensus conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.16318v3",
+        "material_read": "Sections 2.2 and 3.2 on model and dynamical theorems; abstract, contributions and later discussion",
+        "method": "Full accessible HTML; compared assumptions and conclusions against precise formula",
+        "title": "Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics",
+        "trigger": "Same-paper revision may contain stronger theorem"
+      },
+      {
+        "assessment": "ASYNCHRONOUS_DISCRETE_MODEL, not the continuous-time exact relaxation formula",
+        "evidence": [
+          "Model updates one discrete-time agent at a random occasion by a median rather than continuous-time compromise"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.08808",
+        "material_read": "Abstract, model description and convergence statements, selected PDF page illustration",
+        "method": "Lawful arXiv PDF text and page inspection",
+        "title": "Convergence, Consensus and Dissensus in the Weighted-Median Opinion Dynamics",
+        "trigger": "Earlier median model may imply or contain two-group invariant"
+      },
+      {
+        "assessment": "SYNCHRONOUS_DISCRETE_INERTIA_MODEL, no same continuous-time two-median invariant",
+        "evidence": [
+          "Section 2.2 specifies synchronous time-step update",
+          "Sections 3–4 treat simulations and mean-field approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.17552v3",
+        "material_read": "Introduction, Section 2.2 update definition, main conclusions and mean-field methodology",
+        "method": "Full accessible HTML targeted equation and result inspection",
+        "title": "Long-Time and Short-Time Dynamics in a Weighted-Median Opinion Model on Networks",
+        "trigger": "Most relevant contemporary weighted-median dynamics paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2cba793a-f93d-4241-ba6a-9eef7d1ae7e8",
+  "value": {
+    "rationale": "A natural two-community structure supports a conserved pairwise order-statistic sum and gives a complete consensus-selection map, which qualitative global convergence does not determine. Exact \\(e^{-t}\\) internal and \\(e^{-2t}\\) intergroup transients identify different mixing timescales; robustness to nonmedian outliers and independence from group size make the invariant socially and mathematically interpretable. A four-agent tie example isolates the assumption controlling the phase transition to possible dissensus.",
+    "status": "PASS"
+  }
+}
