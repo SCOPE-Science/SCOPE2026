@@ -1,19 +1,21 @@
-# Scientific review — arithmetic specialization of Fermat-quartic sextactic points
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For the exact integral ideal \((F,G)\) displayed in `RESULT.md`, all geometric fibers away from 2 and 3 consist of 48 distinct transverse points (twelve four-line factors, four points per line). In characteristic 3, the verified polynomial identity \(G\equiv(X^4-Y^4)^3\pmod F\) makes the zero-dimensional scheme the third Cartier thickening of a reduced degree-16 divisor on a smooth plane quartic. The completed local algebras are \(k[[t]]/(t^3)\). In characteristic 2, fourth Frobenius powers give the three reduced support points with completed local algebras \(k[[u,v]]/(u^4,v^4)\). Bézout plus proper quasi-finiteness and the constant-fiber-length criterion over a DVR give finite flat rank 48. An exact standard-library script checks the key identities, the 28/16/12 Hermitian rational-point partition, and the three characteristic-two support points. The script's finite checks do not replace the universal algebraic steps.
+PASS
 
-## Originality: PASS, with historical priority risk
+For the EXACT displayed integral projective ideal (F,G), F degree 4 and G degree 12 meet properly in all characteristics, so every geometric fiber has intersection length 48. Outside primes 2 and 3, F is smooth, G splits into three disjoint quartic pencils each with four distinct lines and four transverse F-intersections, giving 48 reduced points. Mod 3, G-(X^4-Y^4)^3 is divisible by F; the reduced D=V(F,X^4-Y^4) has precisely 16 simple F9 points and G cuts 3D, with completed local ring k[[t]]/(t^3). The degree-4 norm on F9 yields 28 Hermitian points partitioned 16 noncoordinate plus 12 on coordinate axes. Mod 2, F=L^4 and G=H^4; three transverse reduced intersections of L,H give k[[u,v]]/(u^4,v^4), each length 16 and Hilbert function 1,2,3,4,3,2,1. Proper finite morphism with constant fiber length 48 over DVRs is torsion free, hence flat of rank 48 over Z. Independently checked the mod-3 polynomial identity with SymPy, reviewed supplied exact F9 enumeration; characteristic-independent proof is geometric, not finite enumeration.
 
-Merta–Zieliński (arXiv:2410.13997, first public 2024-10-17, Section 4.1) establishes the 48 complex proper sextactic points and their exact complete-intersection ideal; this input is explicitly prior work. Toft–Moe (arXiv:2412.16993, first public 2024-12-22, Sections 2.2.4 and 3.1) establishes related complex Fermat-curve pencil geometry, including the 16 triple points of its three four-line pencils. Those results do not give the scheme-theoretic reductions in characteristics 2 and 3, their completed local rings, or the characteristic-three identification with the non-coordinate Hermitian rational-point locus. Relevant complete sections of these primary papers and available published-result searches were compared for implication, not merely matching keywords; no covering statement was found. A prior unindexed modular calculation remains possible. The abstract Hermitian point count is classical and is not claimed as new.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This is a complete exceptional-characteristic classification of the natural integral model of a distinguished 48-point sextactic configuration. The two very different nonreduced limits (16 curvilinear points of length 3 versus three noncurvilinear points of length 16), the local-algebra structures, and the link to Hermitian rational points and concurrency geometry give motivated geometric information beyond a routine point count. The particular integral model, rather than an arbitrary slice, is fixed by the original published complete intersection.
+Best-of-knowledge originality qualified by primary literature, prior methods and named residual priority risks; the final evaluated theorem is not established or logically implied by the cited comparator statements.
 
-## Scope, closest literature, and limitations
+## value
 
-The published defining ideal is not a new discovery. The characteristic-zero configuration and its pencil geometry are not new. The characteristic-three Hermitian rational-point count is a classical background fact. The new claim concerns the exact flat specialization and its local scheme structures. In characteristic 2 the quartic itself is nonreduced; in characteristic 3 intrinsic osculation may not commute with reduction. Neither intrinsic positive-characteristic sextactic geometry nor uniqueness of an integral model is claimed. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies all bad-reduction characteristics and the *schemes*, not just their support cardinalities, for the canonical published integral equation of a distinguished 48-point configuration. Curvilinear 16-times-3 degeneration in characteristic 3 and transverse fourth-power 3-times-16 degeneration in characteristic 2 are different natural local invariants; the Hermitian rational-point and triple-pencil coincidence is geometrically motivated. No claim of novelty for the known complex 48-point ideal or classical Hermitian count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
