@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every n≥r≥1, the proof first bounds online depth by the number of distinct windows (m or m+1) and by the size r of every positive query fiber. A proven prefix-threshold lemma on blocks of at most r consecutive window starts supplies matching complete mistake trees. The null branch induction is carried out for 2^h−1 consecutive starts plus the empty concept. For static shattering, 101 is forbidden on any triple, and four binary pair labels are characterized explicitly, then counted by inclusion-exclusion. Edge cases r=1 and m=1 are included. A separate defining-recursion checker passed on 272 rank classes (n≤16) and exact trace coefficients for n≤14; enumeration corroborates but does not prove all-parameter identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon–Beimel–Moran–Stemmer (2020), PMLR 125, covers closure properties and bounds on online dimensions of concept classes, rather than exact finite window ranks.",
+        "Ghazi–Golowich–Kumar–Manurangsi (2021), PMLR 132, improves closure bounds, without giving these fixed-width coefficients.",
+        "Malliaris–Moran (2021), arXiv:2108.05569, develops stability and online learning, but no claimed exact finite-window formula."
+      ],
+      "reasoning": "Known generic cardinality bounds and interval-class results constrain the dimensions but do not imply equality at both numerical caps. The window positive-fiber cap r, block-threshold lower construction, and the effect of adding one null hypothesis are used essentially.",
+      "searches": [
+        "\"Littlestone dimension\" \"intervals\" length bounded",
+        "\"Littlestone dimension\" \"sliding windows\"",
+        "\"Littlestone dimension\" \"fixed-width\" interval",
+        "\"VC dimension\" \"sliding windows\" fixed length intervals"
+      ]
+    },
+    "checked_sources": [
+      "Model Theory and Machine Learning: arXiv:1801.06566 (2018-01-19)",
+      "Closure Properties for Private Classification and Online Prediction: https://proceedings.mlr.press/v125/alon20a/alon20a.pdf",
+      "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions: https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+      "Agnostic Online Learning and Excellent Sets: arXiv:2108.05569 (initial public date 2021-08-12)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The related cyclic-window rank has form 1+floor(log2 min(r,N-r)) for windows on a cycle, without a null concept.",
+        "At (n,r)=(10,4), linear fixed-width ranks are 2 and 3 (nonnull/null); the cyclic rank is 3.",
+        "Generic online-dimension closure papers do not derive the exact linear finite-chain shattering coefficients or null-jump threshold."
+      ],
+      "reasoning": "Cyclic windows wrap around and have different boundary query traces; the older cyclic rank neither implies the exact non-null linear rank nor the null jump and quadratic polynomials. A single special parameter coincidence cannot imply a universal theorem.",
+      "searches": [
+        "cyclic windows Littlestone dimension consecutive window complements 2-rank",
+        "\"Littlestone dimension\" \"translation\" \"interval\" finite",
+        "online mistake tree length bounded intervals paths contiguous vertex sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chase–Freitag (2018), arXiv:1801.06566, §4, identifies Littlestone dimension with Shelah 2-rank but does not derive exact ranks for finite translates of a length-r interval.",
+        "Membership-trace comparison distinguishes exact-width linear windows from arbitrary intervals, threshold concepts, and cyclic translations."
+      ],
+      "reasoning": "Translated fixed-width intervals can also be described by banded consecutive-ones columns or point queries to an unknown window start. None of the inspected theory provides a pair of exact null/nonnull ranks and their shattering polynomials. Keyword searches alone would not establish novelty, and the unexamined synonym risk is retained.",
+      "searches": [
+        "Littlestone dimension of intervals on a finite chain, binary consecutive ones concepts, exact rank",
+        "\"Littlestone dimension\" \"fixed-length intervals\"",
+        "\"Littlestone\" \"intervals\" \"length\"",
+        "\"Shelah 2-rank\" \"intervals\" bounded length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exhaustive defining-recursion verification in verify_windows.py covers all 272 null/nonnull classes for 1≤r≤n≤16 and all supports of size up to three through n=14.",
+        "No exact matching table or published enumeration was found in the inspected papers or the accessible mathematical research search."
+      ],
+      "reasoning": "The finite checker verifies the new formulas, but computational agreement alone cannot establish historical priority. Unlike a numerical table, the proof gives symbolic all-parameter formulas. Potential unindexed exact tables remain a residual risk.",
+      "searches": [
+        "fixed length intervals on finite chain, Littlestone dimension, null hypothesis raises online rank at powers of two",
+        "sliding window finite interval concepts exact VC shattering polynomial Littlestone dimension",
+        "\"VC dimension\" \"fixed-length intervals\" online"
+      ]
+    },
+    "rationale": "Compared the actual all-parameter null/nonnull ranks and pair coefficients, including their implication relations, with accessible prior theory on Shelah 2-rank and closure bounds and with the related cyclic-window rank. The cyclic result is not an equivalent linear-chain theorem (boundary traces differ; numerical example n=10,r=4). Exhaustive searches found no decisive published broader coverage, but historic priority may exist under banded consecutive-ones/active-window terminology; this remains an explicit unresolved risk.",
+    "residual_risks": [
+      "Exact finite-window identities might be present under banded consecutive-ones, window identification or interval translation terminology not located by searches.",
+      "The related cyclic-window theorem is known, but neither its no-wrap boundary nor null-completion is covered by a reduction established in that theorem.",
+      "A separate independent human mathematical audit and a complete historical priority review have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general equivalence and context, not the finite fixed-width translation formulas.",
+        "evidence": [
+          "Section 4 discusses Shelah rank and online learnability; no fixed-width chain-window calculation in inspected material."
+        ],
+        "identifier_or_url": "arXiv:1801.06566 (2018-01-19)",
+        "material_read": "Open-access PDF, introduction and Section 4, with in-document searches for interval and window.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "Model Theory and Machine Learning",
+        "trigger": "Earliest scope source establishing 2-rank/Littlestone terminology."
+      },
+      {
+        "assessment": "General closure results; no exact finite chain window rank or coefficients identified.",
+        "evidence": [
+          "PMLR 125 (2020) closure bounds concern compositions of classes rather than the specific contiguous-window family."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v125/alon20a/alon20a.pdf",
+        "material_read": "Open-access PDF, introduction, closure statements, and full-text term searches for interval/window.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "Closure Properties for Private Classification and Online Prediction",
+        "trigger": "Possible general stronger coverage via closure theorems."
+      },
+      {
+        "assessment": "No exact fixed-length finite interval case in inspected material.",
+        "evidence": [
+          "PMLR 132 (2021) develops near-tight closure bounds, not the two explicit polynomials."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Open-access PDF introduction, definitions, main theorem statement, and word searches for window and interval.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potential domination by sharp learning-dimension closure results."
+      },
+      {
+        "assessment": "Learning and stability background; no finite translated length-r windows or null rank jump identified.",
+        "evidence": [
+          "The initial 2021 public version precedes later revisions; the source is not used to claim a newer discovery date."
+        ],
+        "identifier_or_url": "arXiv:2108.05569 (initial public date 2021-08-12)",
+        "material_read": "Open-access arXiv PDF, introduction and results, with full-text searches for interval/window; later PDF revision noted.",
+        "method": "Direct PDF text and selected page-image inspection.",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Primary theory of online learning from model-theoretic stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8f87b8e9-beef-49f8-908e-eb2c419dc3cf",
+  "value": {
+    "rationale": "The natural problem is point-membership identification of an equal-length sliding interval with or without a null state. The result simultaneously classifies its exact adaptive and static shattering across every ground-set size, gives a sharp power-of-two boundary at which one null hypothesis increases online rank, and exhibits an unbounded VC=1 versus Littlestone gap along n=2r. The exact null-state transition and paired shattering polynomials are structural facts not merely a numerical gain or a fixed-size census.",
+    "status": "PASS"
+  }
+}
