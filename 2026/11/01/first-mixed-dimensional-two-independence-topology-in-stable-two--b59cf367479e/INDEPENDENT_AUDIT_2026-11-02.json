@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T05:08:22.478752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has the stable nonconsecutive two-subsets of an (k+4)-cycle as vertices, with disjointness adjacency. A legal Ind_2 face has induced maximum degree at most one; an exhaustive increasing-maximum subset recursion builds each face once, not a sampled list. I independently rebuilt all seven graphs for k=0..6, with augmented face counts 4,21,93,316,851,1948,4006, and checked the actual vertex-order matchings from verify_stable_kneser_two_independence.py against every Hasse cover. The reversed-incidence DAGs are acyclic. Independently recomputed the integer Morse projections and exact Smith normal forms: the critical d2 ranks are 1 at k=3..6, d3 ranks for k=3,4,5,6 are 0,0,9,21, and all nonzero Smith factors are units. For k=6, critical dimensions (c1,c2,c3)=(1,48,23) give Betti (0,26,2), no torsion; earlier cases give the stated circle, two-sphere and wedge ranks. In these CW Morse models a degree-one 2-cell kills the one-cell; Hurewicz for the simply connected remaining 2-skeleton identifies 3-cell attaching degrees and unit cancellation supplies the asserted wedges. No result beyond k=6 follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh introductory classification families include complete multipartite graphs, whiskered graphs, paths, cycles and m-ary trees; no stable two-subset Kneser graph result.",
+          "SG_{2,6} contains the induced four-cycle on chords {0,2},{0,3},{1,4},{1,5}, ruling out chordal hypothesis."
+        ],
+        "reasoning": "A theorem on another graph family does not imply this seven-case computation; chordal-graph conditions fail at the target k=6.",
+        "searches": [
+          "arxiv:2001.05448v2 higher independence graph homotopy classified families",
+          "arxiv:2106.10863 chordal graph higher independence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0912.0720",
+        "https://arxiv.org/html/2001.05448v2",
+        "https://arxiv.org/abs/2106.10863",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/first-mixed-dimensional-two-independence-topology-in-stable-two--b59cf367479e/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/first-mixed-dimensional-two-independence-topology-in-stable-two--b59cf367479e/verify_stable_kneser_two_independence.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Braun computes wedge-of-2-spheres for Ind(SG_{2,k}) for k>=4, whereas Ind_2 includes graph-edge faces and k=6 has nonzero H3.",
+          "The cited higher Ind_r machinery does not calculate stable Kneser Ind_2."
+        ],
+        "reasoning": "The new mixed-dimensional homotopy statement is not a corollary of cited ordinary-Ind results despite matching graph parameters.",
+        "searches": [
+          "Braun theorem 1.4 0912.0720",
+          "Deshpande Singh higher independence arxiv:2001.05448",
+          "Resultary ordinary dihedral stable Kneser character"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source definition Ind_2(SG_{2,k}) differs from Ind(SG_{2,k}); Resultary record character is on ordinary degree-2 independence homology.",
+          "Braun Theorem 1.4 explicitly writes Ind(SG_{2,k}), not Ind_2."
+        ],
+        "reasoning": "The standard stable-graph notation is aligned. No alleged renaming, ordinary-independence character, or edge/vertex Kneser variant computes this two-independence complex.",
+        "searches": [
+          "SG_{2,k} stable two-subset Kneser graph Ind_2",
+          "higher r-independence = every induced connected component size<=r",
+          "Resultary 2026/10/11/SCOPE-the-dihedral-character-of-stable-kneser-independence-complex-hom--8af1ffc8127a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched published records returned ordinary stable Kneser independence/other Kneser derived complexes, not the (26,2) reduced Betti vector for Ind_2 at k=6."
+        ],
+        "reasoning": "No exact published table supplying the claimed homotopy sequence was identified. A negative search is limited evidence and is not priority certification.",
+        "searches": [
+          "Resultary semantic SG_{2,k} higher two-independence k=6 mixed Betti",
+          "Braun 0912.0720 original result and 2001.05448 classification list"
+        ]
+      },
+      "rationale": "Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: First mixed-dimensional two-independence topology in stable two-subset Kneser graphs. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.",
+      "residual_risks": [
+        "An unindexed equivalent finite computation could precede this; the Resultary and arXiv searches are not exhaustive.",
+        "The acyclic matching plus integral CW cancellation is checked only for k<=6; higher-k behavior is unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the higher 2-independence statement; proves ordinary Ind only",
+          "evidence": [
+            "Theorem 1.4 displays Ind(SG_{2,k}) wedge of S^2; no Ind_2 parameter in its stated theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0912.0720",
+          "material_read": "Read introduction and Theorem 1.4 with surrounding definitions and proof overview (PDF pages 1–3), including screenshot of PDF page 3",
+          "method": "Primary PDF read and page screenshot",
+          "title": "Independence Complexes of Stable Kneser Graphs",
+          "trigger": "Same graph family and k parameter; plausible domination"
+        },
+        {
+          "assessment": "NOT_COVERING stable Kneser two-subset graphs within the inspected named classes",
+          "evidence": [
+            "Classification list comprises named multipartite/whiskered/path/cycle/tree classes, not SG_{2,k}."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.05448v2",
+          "material_read": "Read HTML abstract, introduction, listed graph-family results and relevant definitions",
+          "method": "Primary arXiv HTML reading",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Same higher-Ind_r construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first appearance of degree-three integral homology in the natural higher independence complexes of stable Kneser graphs is a motivated finite topological threshold. Determining the exact k<=6 homotopy types, rather than just rational Betti numbers, informs future classifications and distinguishes Ind_2 from ordinary Ind. A seven-term initial segment is finite, but the k=6 mixed-dimensional transition is not an arbitrary input or a known table restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0912.0720",
+    "https://arxiv.org/html/2001.05448v2",
+    "https://arxiv.org/abs/2106.10863",
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/first-mixed-dimensional-two-independence-topology-in-stable-two--b59cf367479e/RESULT.md",
+    "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/first-mixed-dimensional-two-independence-topology-in-stable-two--b59cf367479e/verify_stable_kneser_two_independence.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classification restricted to k=0..6; no extrapolation or assertion of equivariant homotopy.",
+    "Literature priority is best of knowledge, with unindexed source risk.",
+    "An unindexed equivalent finite computation could precede this; the Resultary and arXiv searches are not exhaustive.",
+    "The acyclic matching plus integral CW cancellation is checked only for k<=6; higher-k behavior is unproved."
+  ],
+  "schema_version": 1
+}

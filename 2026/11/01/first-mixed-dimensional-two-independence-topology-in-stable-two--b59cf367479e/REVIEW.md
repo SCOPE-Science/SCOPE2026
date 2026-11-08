@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical graph definition and the degree-at-most-one face criterion are equivalent to the two-independence definition. The finite face enumeration is exhaustive by deleting the maximum indexed vertex. Every matching is explicitly reproducible, and the checker topologically sorts every reversed face-incidence graph. The signed integer Morse differentials are constructed from the actual matchings; their squares vanish. Unimodular row/column eliminations use only integer unit pivots and end at zero, proving exactly the asserted free homology ranks. With a single one-cell killed by a degree-one two-cell, the two-skeleton becomes a wedge of two-spheres; by Hurewicz the remaining three-cell maps are exactly their integral degree columns. Thus the unit cancellations establish homotopy types, not just Betti vectors. An independent direct mod-two calculation agrees. The result makes no claim outside the seven checked parameter values.
+## correctness
 
-## Originality — PASS against checked literature
-Braun's Theorem 1.4 treats ordinary \(\operatorname{Ind}(SG_{2,k})\), not two-independence. Deshpande–Singh's higher-independence classification lists complete multipartite, fully whiskered, path, cycle and perfect-tree families, not stable two-subset Kneser graphs. Chordal higher-independence theorems do not apply, because the graph at the decisive stage has the explicitly exhibited induced four-cycle. Related indexed results on ordinary stable-Kneser dihedral characters and on a different Schrijver parameter have different hypotheses and statements. Searches also included the synonyms dissociation complex, induced maximum degree one, stable chords and the exact \(k=6\) numerical ranks. No result that implies this complete initial segment was found; an unindexed equivalent remains possible.
+PASS
 
-## Value — PASS
-The original stable-Kneser independence complex has a known single-degree two-sphere wedge classification. Higher independence permits disjoint chord pairs and can change dimension. The seven initial chromatic parameters show a precise first transition: two independent third-homology generators arise at \(k=6\), where earlier stages have none. This is a motivated qualitative boundary for a classical vertex-critical graph family, not an arbitrary graph or an insignificant numerical correction. Exact integral homotopy types go beyond the mod-two experiment; they form a reproducible starting point for analysis of larger parameters. No general formula is claimed.
+The graph has the stable nonconsecutive two-subsets of an (k+4)-cycle as vertices, with disjointness adjacency. A legal Ind_2 face has induced maximum degree at most one; an exhaustive increasing-maximum subset recursion builds each face once, not a sampled list. I independently rebuilt all seven graphs for k=0..6, with augmented face counts 4,21,93,316,851,1948,4006, and checked the actual vertex-order matchings from verify_stable_kneser_two_independence.py against every Hasse cover. The reversed-incidence DAGs are acyclic. Independently recomputed the integer Morse projections and exact Smith normal forms: the critical d2 ranks are 1 at k=3..6, d3 ranks for k=3,4,5,6 are 0,0,9,21, and all nonzero Smith factors are units. For k=6, critical dimensions (c1,c2,c3)=(1,48,23) give Betti (0,26,2), no torsion; earlier cases give the stated circle, two-sphere and wedge ranks. In these CW Morse models a degree-one 2-cell kills the one-cell; Hurewicz for the simply connected remaining 2-skeleton identifies 3-cell attaching degrees and unit cancellation supplies the asserted wedges. No result beyond k=6 follows.
 
-## Closest sources and remaining risks
-Primary full-text comparisons: Braun, arXiv:0912.0720, theorem and proof of the ordinary stable-Kneser case; Deshpande–Singh, arXiv:2001.05448, definitions and the listed complete family classifications; Abdelmalek et al., arXiv:2106.10863, chordal applicability. Other relevant indexed results are restricted to ordinary independence or different Kneser constructions. Residual risk: an unindexed preprint or indirect reduction could cover these exact two-independence stages. Independent audit and validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: First mixed-dimensional two-independence topology in stable two-subset Kneser graphs. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.
+
+## value
+
+PASS
+
+The first appearance of degree-three integral homology in the natural higher independence complexes of stable Kneser graphs is a motivated finite topological threshold. Determining the exact k<=6 homotopy types, rather than just rational Betti numbers, informs future classifications and distinguishes Ind_2 from ordinary Ind. A seven-term initial segment is finite, but the k=6 mixed-dimensional transition is not an arbitrary input or a known table restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
