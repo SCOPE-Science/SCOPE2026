@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md and check.py",
+        "Independent exact SymPy 2x2 quadratic inverse and sharp constant",
+        "Zhang–Xu–Liu–Li 2026 original Sections 2–3 for tensor norm conventions"
+      ],
+      "rationale": "Read RESULT.md and check.py. Injective tensor H⊗G is exactly N(u,v)=max(||u||,||v||,||u+v||); the three evaluation vectors (u,v,-u-v) permit every permutation by common linear isometries. The chosen positive convex quadratic minorant E=a(||u||²+||v||²)+c||u+v||², 2a+c=1, has P^-1=[[B,-1/2],[-1/2,B]], B=1+sqrt(3)/2. For unequal active indices, the Hilbert map L(x,y)=(u+s,v-t) has squared norm D=2+sqrt(3) relative to E, while equal indices obey parallelogram, yielding C_NJ<=B. The orthonormal h,k witness in RESULT attains equality. Canonical projective tensor dual to L(H,G*) and the isometry (u,v)->(u,-v), plus C_NJ(X)=C_NJ(X*), transfers the bound and attainment to projective, also for arbitrary Hilbert dimension. Independently computed SymPy P inverse exactly, B≈1.8660254038 and verified scalar equalities; finite 9000 checks in source script are supplementary, not substitutes for the all-H proof.",
+      "residual_risks": [
+        "Real-field restriction is essential; complex case not claimed.",
+        "One-dimensional Hilbert factor excluded from displayed sharpness witness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.11 characterizes when tensor constant reaches 2 through orthogonal contact, and Example 3.12 only concludes <2 for this same hexagon.",
+          "Published Resultary classical ell_p tensor-product constants are 2 for different smooth/four-vertex factor norms."
+        ],
+        "reasoning": "Qualitative <2 plus general lower estimates do not pin down exact B=1+sqrt(3)/2. The classical ell_p result does not dominate the affine-regular hexagon with six vertices.",
+        "searches": [
+          "Zhang Xu Liu Li arXiv:2609.37503 Theorem 3.11 Example 3.12",
+          "von Neumann Jordan all classical l_p tensor product exact=2",
+          "Resultary: von Neumann Jordan constant injective projective tensor product Hilbert space hexagon Zhang Xu Liu Li exact"
+        ]
+      },
+      "checked_sources": [
+        "Zhang–Xu–Liu–Li arXiv:2609.37503, original relevant Sections 2–3",
+        "Mizuguchi (2021) DOI 10.1007/s00605-021-01540-w abstract",
+        "Resultary query von Neumann Jordan constant injective projective tensor product Hilbert space hexagon Zhang Xu Liu Li exact"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3.12 gives only C_NJ(H⊗εH6)<2 and C_NJ(H⊗πH6)<2 for infinite-dimensional H.",
+          "The new result computes 1+sqrt(3)/2 and attains already with H=R², extending to arbitrary dimensions."
+        ],
+        "reasoning": "An unspecified strict bound does not entail this exact number or equality witnesses; the proof adds a positive quadratic minorant and full max-index permutation reduction.",
+        "searches": [
+          "arXiv:2609.37503 Example 3.12",
+          "arXiv:2609.37503 Theorem 3.11",
+          "Zhang et al. general lower bounds for tensor constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source hexagon H6 is exactly max(|a|,|b|,|a+b|).",
+          "Both canonical tensor constants are equivalent by duality and finite-dimensional dual hexagon isometry; quantitative value requires operator bound."
+        ],
+        "reasoning": "The equivalent operator-space model max(||u||,||v||,||u+v||) was checked, not just paper titles; Example 3.12 does not compute its sharp quadratic quotient.",
+        "searches": [
+          "von Neumann Jordan constant injective projective tensor product Hilbert space hexagon Zhang Xu Liu Li exact",
+          "arXiv:2609.37503 Example 3.12 H6 Hilbert injective projective",
+          "von Neumann Jordan constant operator space max norm of three Hilbert vectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest entries list scalar Day–James hexagon constants and classical ell_p tensor families, but not this Hilbert–hexagon tensor constant.",
+          "The matching 2026 paper Example 3.12 contains no exact rational radical equality."
+        ],
+        "reasoning": "No matching exact table found; possible equivalent older operator-norm computations remain residual risk.",
+        "searches": [
+          "Resultary search: von Neumann Jordan constant injective projective tensor product Hilbert space hexagon Zhang Xu Liu Li exact",
+          "1+sqrt(3)/2 tensor hexagon Hilbert von Neumann Jordan"
+        ]
+      },
+      "rationale": "The exact same hexagonal tensor family appears in Zhang–Xu–Liu–Li (2026) Example 3.12, where only strict C_NJ<2 is shown for infinite Hilbert factors. The inspected Theorem 3.11 gives an orthogonal-contact criterion for the maximal endpoint 2, not the exact nonmaximal value 1+sqrt(3)/2. The new sharp finite-dimensional witness and universal bound strictly strengthen but do not follow from that qualitative theorem.",
+      "residual_risks": [
+        "An older abstract operator-space estimate could coincide with the evaluated hexagonal tensor constant even without using the same terminology.",
+        "Inspected main paper relevant Sections 2–3, not every page of unrelated later renorming discussion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct background is qualitative strictness <2, no sharp 1+sqrt(3)/2 identity; no whole-paper claim beyond read sections",
+          "evidence": "Example 3.12, pp. 8–9, H6 exact norm and both tensor constants <2. Theorem 3.11 concerns maximal value 2 via orthogonal contact.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37503",
+          "material_read": "Original authorized full text pages 1–13, especially Sections 2–3 Theorem 3.11 and Example 3.12 on printed pages 8–9; remaining sections cover other geometry",
+          "method": "Institutionally authorized extracted PDF pages; detailed read of relevant original theorem and example",
+          "title": "Von Neumann–Jordan Constants in Banach Tensor Products",
+          "trigger": "Same H6 hexagon and both tensor norms, direct strongest related claim"
+        },
+        {
+          "assessment": "Concerned individual Radon planes, not identified as Hilbert tensor-factor equality",
+          "evidence": "Mizuguchi (2021), Radon planes, not same tensor product.",
+          "identifier_or_url": "https://doi.org/10.1007/s00605-021-01540-w",
+          "material_read": "Bibliographic entry and abstract only; tensor-product comparison not evidenced",
+          "method": "Publication metadata/abstract",
+          "title": "The von Neumann–Jordan and another constants in Radon planes",
+          "trigger": "Possible prior hexagon plane constant calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhang–Xu–Liu–Li 2026 Example 3.12 and Theorem 3.11",
+        "Full sharp quadratic proof in RESULT.md"
+      ],
+      "rationale": "The original 2026 paper explicitly singled out this hexagonal plane as a strict submaximal tensor example while leaving the numerical constant unknown. This result determines the exact invariant for both canonical tensor norms, gives an attained low-dimensional extremizer and proves stability under arbitrary enlargement of the real Hilbert factor. The sharp exact value is a natural targeted answer to that published geometric gap.",
+      "residual_risks": [
+        "No extension to arbitrary hexagons, complex Hilbert or dimension-one factor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real Hilbert dimension >=2 and one specific affine-regular hexagonal norm only.",
+    "Best-of-knowledge originality relative to older implicit operator geometry."
+  ],
+  "schema_version": 1
+}

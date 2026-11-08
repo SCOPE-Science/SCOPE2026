@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The assertion has explicit real-scalar and dimension hypotheses, both canonical tensor norms, and a fully specified von Neumann–Jordan normalization. The injective tensor identification gives precisely the norm \(N(u,v)=\max\{\|u\|,\|v\|,\|u+v\|\}\) because the hexagonal dual ball has the claimed six vertices. For the upper bound, a positive convex combination of the three squared Hilbert norms gives a Hilbert quadratic minorant. Its exact inverse Gram matrix has a crossed-coordinate amplification coefficient \(2+\sqrt3\); permutation symmetries reduce all *distinct* maximizing-coordinate cases to this bound, and equal-coordinate cases follow from the parallelogram identity. The displayed orthonormal-vector pair makes all three constraints active and attains the resulting quotient. Projective duality identifies the dual space with the same three-norm model after a coordinate sign change; equality of a Banach space's von Neumann–Jordan constant with its dual follows by adjointing the Hadamard parallelogram map. The analytic argument is independent of dimensional sampling. The supplementary pure-Python script verifies the algebra in \(\mathbb Q(\sqrt3)\) and performs seeded finite sanity tests.
+PASS
 
-## Originality (PASS, best-knowledge assessment)
+Read RESULT.md and check.py. Injective tensor H⊗G is exactly N(u,v)=max(||u||,||v||,||u+v||); the three evaluation vectors (u,v,-u-v) permit every permutation by common linear isometries. The chosen positive convex quadratic minorant E=a(||u||²+||v||²)+c||u+v||², 2a+c=1, has P^-1=[[B,-1/2],[-1/2,B]], B=1+sqrt(3)/2. For unequal active indices, the Hilbert map L(x,y)=(u+s,v-t) has squared norm D=2+sqrt(3) relative to E, while equal indices obey parallelogram, yielding C_NJ<=B. The orthonormal h,k witness in RESULT attains equality. Canonical projective tensor dual to L(H,G*) and the isometry (u,v)->(u,-v), plus C_NJ(X)=C_NJ(X*), transfers the bound and attainment to projective, also for arbitrary Hilbert dimension. Independently computed SymPy P inverse exactly, B≈1.8660254038 and verified scalar equalities; finite 9000 checks in source script are supplementary, not substitutes for the all-H proof.
 
-The closest primary literature is Zhang–Xu–Liu–Li, arXiv:2609.37503v1, particularly Example 3.12 and Theorem 3.11. This very example has the *qualitative* result that both tensor constants are strictly less than \(2\), and the paper states no exact positive value for this hexagon–Hilbert pair. Its orthogonal-contact maximality criterion does not imply the new explicit upper or equality cases. Other published work on Radon planes addresses the two-dimensional factor itself and not the tensor space; published results on classical \(\ell_p\)-by-\(\ell_q\) tensors have different factors and cannot be substituted for this hexagon. Targeted bibliographic searches for exact constants, the numerical radical, the operator-space formulation, and related geometries did not identify a dominating evaluation. These negative searches are *not* a priority proof; hidden equivalences in older operator-space or Hilbert-valued norm inequalities remain a residual risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The hexagon is specifically identified by a recent tensor-geometry study as a nonmaximal case whose exact constant is unresolved in its presentation. The current theorem replaces strictness by the sharp number \(1+\sqrt3/2\), includes finite and infinite real Hilbert factors uniformly, and establishes the same exact value under both tensor crossnorms. The constant is witnessed by a concrete two-dimensional Hilbert configuration, giving a sharp geometric measure of distance from Hilbertian parallelogram behavior. This is an exact natural invariant of a published example, not an arbitrary parameter slice.
+The exact same hexagonal tensor family appears in Zhang–Xu–Liu–Li (2026) Example 3.12, where only strict C_NJ<2 is shown for infinite Hilbert factors. The inspected Theorem 3.11 gives an orthogonal-contact criterion for the maximal endpoint 2, not the exact nonmaximal value 1+sqrt(3)/2. The new sharp finite-dimensional witness and universal bound strictly strengthen but do not follow from that qualitative theorem.
 
-## Source comparison and limits
+## value
 
-The 2026 primary manuscript was inspected in its freely available full-text HTML, including definitions, operator identifications, Theorem 3.11, Example 3.12, and surrounding finite-dimensional examples. The related 2021 Radon-plane paper was checked at the bibliographic and abstract level; no full-text exclusion is asserted for it. Broad prior results on classical tensor factors or individual hexagonal constants do not by themselves contain this tensor value. The work is limited to real Hilbert spaces and this particular hexagonal factor. Independent novelty and mathematical verification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original 2026 paper explicitly singled out this hexagonal plane as a strict submaximal tensor example while leaving the numerical constant unknown. This result determines the exact invariant for both canonical tensor norms, gives an attained low-dimensional extremizer and proves stability under arbitrary enlargement of the real Hilbert factor. The sharp exact value is a natural targeted answer to that published geometric gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
