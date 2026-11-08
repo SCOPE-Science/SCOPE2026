@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T03:56:36.081032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer N in 2..65536 and grid j/N, exact stochastic rounding of 4j(N-j)/N has support on integer indices floor and ceil with strictly positive weights whenever distinct. The supplied integer C++ verifier builds all directed edges for each N, reverse-BFS from 0 and checks that the only vertices not reaching 0 are empty when 4 does not divide N or precisely j=N/4,3N/4 when 4 divides N. Independently reconstructed and executed all four disjoint exhaustive blocks, covering every one of 65,535 denominators and 2,147,581,950 states without discrepancies. The extra two vertices are a feeder 1/4 to absorbing 3/4; all others reach 0, eliminating any other closed class. In any finite chain transient states absorb almost surely, and invariant probabilities are convex combinations of 0/3/4 point masses. Separately nearest-support transport from arcsine density at split 3/8 gives exact Wasserstein minimum about .15568790319968789436 and W1(delta0,rho)=1/2. This is a complete FINITE classification only through N=65536, not an all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klöwer et al. simulate finite-precision logistic and Bernoulli maps under multiple rounding modes and examine orbit/histogram behavior in different arithmetic formats."
+        ],
+        "reasoning": "A qualitative result that randomized rounding can still collapse does not logically imply the exact {0}/{3/4} closed-class theorem for every rational N<=65536 or its sharp W1 constants.",
+        "searches": [
+          "Stochastic rounding logistic map exact absorbing communicating classes uniform rational grids up to 65536",
+          "Scientific Reports 13:11410 (2023)"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 0e2665b54164e7f2d9a741cd3e56a998188255c5",
+        "verify.cpp frozen blob 54cf69c9387b9471373ef48942f9b5f7c53decaa",
+        "VERIFICATION.md frozen blob 1ad19b23854123fbfcf564a4cd8a605005225204",
+        "Scientific Reports 13 (2023) 11410",
+        "IEICE 2011 DOI 10.1587/transfun.E94.A.1817",
+        "Stochastic rounding logistic map exact absorbing communicating classes uniform rational grids up to 65536"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 full-text article studies finite-precision chaotic orbits and stochastic rounding; the 2011 paper title/abstract concern integer rounding but its full theorems could not be accessed."
+        ],
+        "reasoning": "The inspected 2023 findings do not yield the same exact finite rational-grid classification. An inaccessible plausible 2011 precursor ALONE is retained as residual risk without automatic O failure; no strong prior coverage established.",
+        "searches": [
+          "DOI:10.1038/s41598-023-37004-4",
+          "DOI:10.1587/transfun.E94.A.1817"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The investigated variable is the stationary classes of an exact one-step unbiased rational-grid stochastic-rounded logistic chain, not an IEEE floating-point approximation or deterministic rounding over integers."
+        ],
+        "reasoning": "Continuum conjugacy to doubling maps does not commute with rounding. Closest 2011 integer-rounding paper may be relevant but only abstract was accessible; its equivalence is not asserted or ruled out.",
+        "searches": [
+          "Stochastic rounding logistic map exact absorbing communicating classes uniform rational grids up to 65536",
+          "DOI:10.1038/s41598-023-37004-4",
+          "DOI:10.1587/transfun.E94.A.1817"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual complete 65,535-denominator certificate checks each vertex and all support edges; it is not a sparse or statistical table. No exact published table of these closed classes was identified."
+        ],
+        "reasoning": "This theorem is intentionally a fully exhaustive finite classification at a natural 16-bit cutoff; a prior equivalent all-N proof or table would cover it, but none was established from material read.",
+        "searches": [
+          "Stochastic rounding logistic map exact absorbing communicating classes uniform rational grids up to 65536",
+          "C++ exhaustive reverse BFS 2..65536",
+          "2011 integer logistic rounding"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.",
+      "residual_risks": [
+        "The 2011 primary paper could not be inspected beyond its abstract; authorized full-text access returned vpn_disconnected, so equivalence is not excluded.",
+        "Finite verifier proves only the stated 2<=N<=65536 interval; no all-N extension or finite-time mixing assertion.",
+        "Accumulated transition probabilities may be extremely small, so practical finite-time histograms need not resemble the stationary law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different finite-precision arithmetic/experimental regime; no exact all-uniform-grid 2..65536 classification found in read sections.",
+          "evidence": "Studies finite precision chaotic dynamics and stochastic rounding.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "primary fully open Scientific Reports article sections on rounding and logistic numerics",
+          "method": "publisher lawful open full text",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "same logistic dynamics and stochastic rounding"
+        },
+        {
+          "assessment": "Potential close coverage not resolvable from abstract alone, explicitly preserved as priority risk.",
+          "evidence": "Integer logistic rounding is a near-match in topic but exact stochastic rational-grid rule not established in examined abstract.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.E94.A.1817",
+          "material_read": "public indexed abstract only; complete text inaccessible and institutional authorized retrieval reported vpn_disconnected",
+          "method": "journal abstract and authorized institution attempted access",
+          "title": "Rounding Logistic Maps over Integers and the Properties of the Generated Sequences",
+          "trigger": "same map with integer rounding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exhaustive two-byte/16-bit grid range provides an exact phase diagram for a natural unbiased stochastic-rounding model: stationary simplex dimension jumps between adjacent denominators 65535 and 65536 and asymptotic distributions remain far from continuum chaos. The full classification and exact discrepancy offer reusable numerical-dynamics benchmarks, not a random tiny slice or finite sample extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 0e2665b54164e7f2d9a741cd3e56a998188255c5",
+    "verify.cpp frozen blob 54cf69c9387b9471373ef48942f9b5f7c53decaa",
+    "VERIFICATION.md frozen blob 1ad19b23854123fbfcf564a4cd8a605005225204",
+    "Scientific Reports 13 (2023) 11410",
+    "IEICE 2011 DOI 10.1587/transfun.E94.A.1817"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2011 primary paper could not be inspected beyond its abstract; authorized full-text access returned vpn_disconnected, so equivalence is not excluded.",
+    "Finite verifier proves only the stated 2<=N<=65536 interval; no all-N extension or finite-time mixing assertion.",
+    "Accumulated transition probabilities may be extremely small, so practical finite-time histograms need not resemble the stationary law."
+  ],
+  "residual_risks": [
+    "The 2011 primary paper could not be inspected beyond its abstract; authorized full-text access returned vpn_disconnected, so equivalence is not excluded.",
+    "Finite verifier proves only the stated 2<=N<=65536 interval; no all-N extension or finite-time mixing assertion.",
+    "Accumulated transition probabilities may be extremely small, so practical finite-time histograms need not resemble the stationary law."
+  ],
+  "schema_version": 1
+}

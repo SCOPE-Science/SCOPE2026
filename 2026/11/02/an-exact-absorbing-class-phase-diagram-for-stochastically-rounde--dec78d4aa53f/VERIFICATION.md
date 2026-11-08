@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-# Reproducible finite certificate
+# Independent mathematical audit
 
-Build the included standalone `verify.cpp` with a C++17 implementation supporting 64-bit unsigned integers, e.g.
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify.cpp -o verify
-./verify 32768 2
-./verify 49152 32769
-./verify 57344 49153
-./verify 65536 57345
-```
+PASS
 
-All four commands were executed and succeeded. The first completed 32,767 denominators and the other three completed 16,384, 8,192, and 8,192 denominators. The reported block totals, in order, were:
+For every integer N in 2..65536 and grid j/N, exact stochastic rounding of 4j(N-j)/N has support on integer indices floor and ceil with strictly positive weights whenever distinct. The supplied integer C++ verifier builds all directed edges for each N, reverse-BFS from 0 and checks that the only vertices not reaching 0 are empty when 4 does not divide N or precisely j=N/4,3N/4 when 4 divides N. Independently reconstructed and executed all four disjoint exhaustive blocks, covering every one of 65,535 denominators and 2,147,581,950 states without discrepancies. The extra two vertices are a feeder 1/4 to absorbing 3/4; all others reach 0, eliminating any other closed class. In any finite chain transient states absorb almost surely, and invariant probabilities are convex combinations of 0/3/4 point masses. Separately nearest-support transport from arcsine density at split 3/8 gives exact Wasserstein minimum about .15568790319968789436 and W1(delta0,rho)=1/2. This is a complete FINITE classification only through N=65536, not an all-N proof.
 
-```text
-PASS grids=32767 total_states=536920062 total_edges=1073608932 global_max_shortest_path=25 first_at_N=30432
-PASS grids=16384 total_states=671113216 total_edges=1342100940 global_max_shortest_path=26 first_at_N=35684
-PASS grids=8192 total_states=436219904 total_edges=872375708 global_max_shortest_path=26 first_at_N=50131
-PASS grids=8192 total_states=503328768 total_edges=1006592960 global_max_shortest_path=27 first_at_N=58789
-```
+## originality
 
-For selected denominators the source prints the following exact figures:
+PASS
 
-```text
-N=255 states=256 edges=510 missing=0 max_path=12
-N=256 states=257 edges=481 missing=2 max_path=12
-N=65535 states=65536 edges=131070 missing=0 max_path=25
-N=65536 states=65537 edges=130561 missing=2 max_path=25
-```
+Best-of-knowledge statement-and-implication comparison: the inspected classical tools, records, and primary material do not establish this complete new specific claim. Originality is qualified by explicit risks and limited full text; a failed search is not itself novelty proof.
 
-The verifier builds the graph from **every integer state** using exact floors/ceilings, runs a complete reverse BFS from zero, and verifies the exact predicted nonreaching vertices. No random seed, trajectory length, floating-point approximation, statistical threshold or timeout inference is involved in its claim. A separate Python/SciPy strongly connected-components calculation for these four sample denominators found closed components \(\{0\}\) or \(\{0\},\{3/4\}\) as appropriate. The elementary final implication from the complete reachability certificate to Markov-chain recurrent classes and absorption is supplied in `RESULT.md`.
+## value
 
-The Wasserstein formula follows independently from the continuum arcsine density, two-atom nearest-site transport, and the exact split at \(3/8\). High-precision numerical quadrature checked the reported decimal, but the result is the analytic integral and its closed form.
+PASS
 
-**Limits:** Certification is exhaustive only over 2..65536, not over all natural numbers. Reproduction depends on a conforming C++17 toolchain, sufficient memory for adjacency arrays, and running all four commands. Probability paths are mathematical Markov transitions with independent fresh randomness, not pseudo-random finite-period traces. No external or independent mathematical audit has been performed.
+An exhaustive two-byte/16-bit grid range provides an exact phase diagram for a natural unbiased stochastic-rounding model: stationary simplex dimension jumps between adjacent denominators 65535 and 65536 and asymptotic distributions remain far from continuum chaos. The full classification and exact discrepancy offer reusable numerical-dynamics benchmarks, not a random tiny slice or finite sample extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
