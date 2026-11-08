@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-parameter proof uses connected-Laplacian equal firing counts, exact threshold intervals, a predecessor-phase lemma for one firing per period, and chip complementation for the complementary firing count. For a four-period candidate with two firings per vertex it reconstructs and excludes the consecutive central firing pattern by a complete six-word neighbor-count check; alternating hub words force period two. The resulting counts \(m2^{m+1}\) and \(m(m-1)2^{m-1}\) count distinct orbits after dividing by their exact phase lengths. The standalone program exhaustively checks all confined microscopic states for six small graphs and separately enumerates firing-word classes through 25 pages. No finite test is presented as a proof for unbounded \(m\).
+## correctness
 
-**Originality — PASS (with residual risk).** The complete-graph rotation-number work [1], Jiang's complete-bipartite/multipartite period constructions [2], and the general forbidden firing-pattern theorem [3] were compared at statement and implication level. None of their inspected statements supplies the two exact book-graph orbit formulas. Related earlier research on complete graphs, generalized windmills and balanced multipartite graphs concerns genuinely different graph families and/or different period questions. Text search and semantic record search found no exact formula; absence from search is not a uniqueness proof. An older unindexed enumeration remains possible.
+PASS
 
-**Value — PASS.** The book graph is a natural two-hub interaction network, created by gluing triangles along a common edge. The precise abundance of primitive three- versus four-cycle attractors measures distinct firing modes, not simply the existence of a short period. Their exact crossover at five pages and the sharp four-cycle onset at two pages are graph-size laws that do not follow from merely knowing which firing strings are possible. No global dynamical classification is claimed.
+For every integer m>=1 on labelled book graph K2 joined to m independent leaves, under simultaneous loopless chip firing all vertices share the same number k of firings per period (connected Laplacian). For q=3, single firing per vertex requires distinct hub phases; predecessor-phase neighbor multiplicities and binomial sum yield 6*m*2^(m-1) states, doubled by complement involution and divided by 3 => N3=m*2^(m+1). For q=4, one-fire hub phases antipodal, multiplicity m(m-1)2^(m-2) per one of four rotations; complement doubles k=1 and k=3 classes. Source's complete six-word analysis forbids primitive k=2 four-cycles; alternating hubs yield only period two. Thus N4=m(m-1)2^(m-1) with crossing m=5. Independently enumerated all confined labelled states for m=1..4 by literal updates and confirmed (N3,N4)=(4,0),(16,4),(48,24),(128,96). Analytic all-m phase argument, not finite test, proves theorem; source verifier inspected.
 
-**Closest literature and limitations.** Jiang [2] provides the central general periodicity and complement lemmas, while Jiang–Scully–Zhang [3] proves a stronger generic exclusion of clumpy words, but neither counts the two orbit classes here. The finding does not classify other periods, preperiodic states, or attraction basins. Novelty remains subject to external historical literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Jiang's On the Period Lengths of the Parallel Chip-Firing Game (arXiv:1003.0943) supplies firing count, confinement, and period possibilities for complete bipartite/multipartite graphs, but those graph classes are not book graphs B_m (m>=2) and the inspected general material does not imply these labelled primitive orbit populations. Jiang–Scully–Zhang's forbidden-word approach gives restrictions but not a sharp book census. Resultary matches were unrelated parity automata. Prior hidden specialized enumeration possible.
+
+## value
+
+PASS
+
+Exact all-m primitive cycle populations for a natural one-edge sum of triangles, including sharp first four-cycle at m=2 and reversal of dominance at m=5; meaningful dynamical-statistical classification that cannot be deduced merely from period-existence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

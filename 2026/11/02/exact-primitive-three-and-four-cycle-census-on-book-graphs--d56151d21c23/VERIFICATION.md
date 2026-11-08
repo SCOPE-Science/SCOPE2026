@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` using a recent Python 3 interpreter with only the standard library. It enumerates all possible two-hub firing words of lengths 3 and 4 and both peripheral phase choices, calculates exact integer chip-height intervals and binomially weighted populations for page counts from 1 through 25, and checks the two symbolic formulas. An independent direct update simulation examines all confined labelled chip configurations for page counts 1 through 6 and counts actual least-period 3 and 4 states. The largest direct case enumerates 802,816 confined configurations. The recorded output in `verifier_output.txt` should end in `BOOK_PHASE_34_VERIFY_OK`.
+## correctness
 
-The proof for every positive page count is in RESULT.md. Neither finite enumeration nor checker success establishes novelty, independence or arbitrary-parameter correctness without the analytic proof. Nonperiodic states and other periods are outside scope.
+PASS
+
+For every integer m>=1 on labelled book graph K2 joined to m independent leaves, under simultaneous loopless chip firing all vertices share the same number k of firings per period (connected Laplacian). For q=3, single firing per vertex requires distinct hub phases; predecessor-phase neighbor multiplicities and binomial sum yield 6*m*2^(m-1) states, doubled by complement involution and divided by 3 => N3=m*2^(m+1). For q=4, one-fire hub phases antipodal, multiplicity m(m-1)2^(m-2) per one of four rotations; complement doubles k=1 and k=3 classes. Source's complete six-word analysis forbids primitive k=2 four-cycles; alternating hubs yield only period two. Thus N4=m(m-1)2^(m-1) with crossing m=5. Independently enumerated all confined labelled states for m=1..4 by literal updates and confirmed (N3,N4)=(4,0),(16,4),(48,24),(128,96). Analytic all-m phase argument, not finite test, proves theorem; source verifier inspected.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Jiang's On the Period Lengths of the Parallel Chip-Firing Game (arXiv:1003.0943) supplies firing count, confinement, and period possibilities for complete bipartite/multipartite graphs, but those graph classes are not book graphs B_m (m>=2) and the inspected general material does not imply these labelled primitive orbit populations. Jiang–Scully–Zhang's forbidden-word approach gives restrictions but not a sharp book census. Resultary matches were unrelated parity automata. Prior hidden specialized enumeration possible.
+
+## value
+
+PASS
+
+Exact all-m primitive cycle populations for a natural one-edge sum of triangles, including sharp first four-cycle at m=2 and reversal of dominance at m=5; meaningful dynamical-statistical classification that cannot be deduced merely from period-existence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
