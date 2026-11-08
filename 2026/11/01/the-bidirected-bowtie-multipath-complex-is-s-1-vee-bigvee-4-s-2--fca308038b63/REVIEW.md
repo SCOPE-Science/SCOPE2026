@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The directed bowtie and multipath face condition are explicitly specified. Two independently stated combinatorial face tests agree for all \(4096\) edge subsets, giving \(100\) nonempty simplices with dimension vector \((12,40,40,8)\). The included verifier builds every matched and unmatched Hasse cover, checks a topological ordering of all \(100\) faces, and verifies exactly \(47\) matched pairs with one critical cell in each of dimensions zero and one and four in dimension two. The exact signed integral Morse differential from dimension two to dimension one is the zero row. Attaching loops of degree zero to one circle gives the claimed wedge \(S^1\vee\bigvee^4S^2\). No finite-to-infinite inference is made, since the graph has exactly twelve arcs.
+## correctness
 
-## Originality: PASS, subject to documented residual risk
-The January 2026 bidirectional-polygon paper covers paths and individual polygons, not a vertex union of two cycles. The earlier broad multipath paper contains a dynamical-region join theorem, but the bowtie is not split into independent regions because the triangles share a vertex supporting directed connections; its specific homotopy type is not obtained from the theorem. The February 2026 directed-linear-forest paper supplies a general equivalent construction and hypergraph descriptions, not an exact bowtie homotopy classification. The closest indexed results on bidirected double stars and polygons use distinct graph structures; an earlier exact five-vertex bidirected wheel calculation also concerns a different graph. Search cannot exclude an unindexed small example or an unstated derivation, so this remains an explicit originality risk rather than a proof of absolute novelty.
+PASS
 
-## Mathematical value: PASS
-The bowtie is the smallest simple cactus graph with two distinct cycles meeting at a vertex. Disjoint bidirected triangles have complex \(S^1*S^1\simeq S^3\), whereas gluing one graph vertex produces \(S^1\vee\bigvee^4S^2\); thus the first nontrivial cyclic gluing introduces both a nontrivial fundamental group and multiple new two-dimensional spheres. The full integral homotopy type is a natural boundary case for extending the known bidirected single-cycle results. The claim is motivated by graph topology and does not rest on an arbitrary choice of parameters.
+Independently checked all 4096 subsets by arc degree/cycle restrictions, obtaining 101 faces including empty and f=(12,40,40,8). Rebuilt exact 47 disjoint Morse pairs and fully topologically sorted the 100-node reversed Hasse digraph; critical cells one vertex, one edge, four triangles. Recomputed signed integer elimination across all matched edge/triangle pairs, giving Morse d2=(0,0,0,0), not only Euler/rational ranks. Since π1(S1)=Z is degree-classified, all 2-cell attaching maps are nullhomotopic, proving wedge S1 vee4 S2 integrally.
 
-## Scope and limits
-A standalone finite exact certificate validates all critical integer computations for the specified graph; no claim about all cactus graphs or other orientations is made. The same review has not been independently replicated by an external expert.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for shared-vertex bowtie homotopy, not a general gluing theorem; primary polygon, dynamical-module and directed-linear-forest sources compared by hypotheses.
+
+## value
+
+PASS
+
+Two bidirected triangles are natural minimal overlapping cyclic units; attaching by one common vertex radically changes the multipath homotopy from the disjoint-union join S3 to nontrivial π1 and four H2 spheres. This concrete homotopy boundary example informs a natural gluing question, not merely a small unlabeled test graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

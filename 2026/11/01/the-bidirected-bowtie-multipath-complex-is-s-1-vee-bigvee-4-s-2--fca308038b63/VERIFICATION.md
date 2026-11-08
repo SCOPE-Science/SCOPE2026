@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
 
-The accompanying `verify.py` is a self-contained Python 3 script. Its check is exhaustive for the finite twelve-arc graph; there are \(4096\) candidate edge subsets. It verifies the arc-set definition against a separate forbidden-two/three-cycle characterization, counts all simplices, builds an explicit acyclic Morse matching, verifies that the full reversed Hasse graph has no directed cycles, and computes every signed integral degree-two Morse boundary coefficient.
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the script. Expected output:
+## correctness
 
-```
-VERIFY_OK faces=101 nonempty=100 matching_pairs=47 critical=(1,1,4,0) gradient_DAG=100 Morse_d2=[0, 0, 0, 0]
-critical_cells= [(0, 512), (1, 272), (2, 19), (2, 168), (2, 1216), (2, 3200)]
-```
+PASS
 
-No symbolic-algebra package, external dataset or network access is needed. The script proves the listed finite assertions provided the standard Python integer and collection operations behave as specified; the interpretation of its result as a homotopy equivalence uses the standard discrete-Morse theorem. An independent external mathematical audit has not been performed.
+Independently checked all 4096 subsets by arc degree/cycle restrictions, obtaining 101 faces including empty and f=(12,40,40,8). Rebuilt exact 47 disjoint Morse pairs and fully topologically sorted the 100-node reversed Hasse digraph; critical cells one vertex, one edge, four triangles. Recomputed signed integer elimination across all matched edge/triangle pairs, giving Morse d2=(0,0,0,0), not only Euler/rational ranks. Since π1(S1)=Z is degree-classified, all 2-cell attaching maps are nullhomotopic, proving wedge S1 vee4 S2 integrally.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for shared-vertex bowtie homotopy, not a general gluing theorem; primary polygon, dynamical-module and directed-linear-forest sources compared by hypotheses.
+
+## value
+
+PASS
+
+Two bidirected triangles are natural minimal overlapping cyclic units; attaching by one common vertex radically changes the multipath homotopy from the disjoint-union join S3 to nontrivial π1 and four H2 spheres. This concrete homotopy boundary example informs a natural gluing question, not merely a small unlabeled test graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
