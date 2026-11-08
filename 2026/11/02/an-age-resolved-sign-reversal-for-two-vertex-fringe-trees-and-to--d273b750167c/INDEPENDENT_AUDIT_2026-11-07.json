@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A uniform recursive tree is constructed with independent uniform earlier-parent choices. For fixed birth indices 2<=i<j<=n, the event that i has unique child j and no other descendants has exactly (i-1)(n-3)! parent sequences among (n-1)!, giving probability (i-1)/((n-1)(n-2)). Deleting the pair yields a uniform independent (n-2)-vertex recursive tree and a uniform earlier parent A among its first i-1 labels, with depth-sum law P_n|E_{i,j} =_d P_{n-2}+2D_A+3 independent of j. Summing over j gives the probability (i-1)(n-i)/((n-1)(n-2)), conditional mean and covariance with total path length exactly factor times [2(H_{i-1}-H_{n-2})+(n-2)/(n-1)]. The bracket increases by 2/i and crosses from negative at i=2 to positive at i=n-1 for n>=4; harmonic asymptotics yield alpha(1-alpha)(1+2log alpha) with root exp(-1/2). Independent exhaustive rational enumeration for n=3,...,8 corroborates all indexed covariances; only the deletion coupling proves arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson 2014 describes general fringe-function limit laws and aggregate covariance; Theorem 1.15 does not parameterize birth label i.",
+          "Feng–Mahmoud–Panholzer 2008 treats global size-count phase shifts rather than indexed path-length covariance."
+        ],
+        "reasoning": "Though general fringe-tree limit theorems have broader object classes, they do not imply an exact finite-n indexed conditional distribution or non-monotone sign dependence on a specified insertion age.",
+        "searches": [
+          "random recursive tree fixed birth-index two-vertex fringe subtree total path length covariance depth joint"
+        ]
+      },
+      "checked_sources": [
+        "Holmgren and Janson (2014) arXiv:1406.6883, Theorems 1.4/1.15 and nearby remarks",
+        "Feng, Mahmoud and Panholzer (2008) DOI 10.1137/060653950 accessible abstract",
+        "Resultary exact root-attachment/path-length finding 2026/10/4/...3b3e0426b1ba",
+        "Actual RESULT.md, VERIFY.py and assigned Git-tree entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Holmgren–Janson 2014 covariance Cov(X_{n,k},X_{n,m}) cannot be inverted to a unique Cov(Z_{n,i},P_n).",
+          "The conditional identity P_n|E_{i,j}=_d P_{n-2}+2D_A+3 entails more information than any unindexed expectation."
+        ],
+        "reasoning": "Earlier aggregation results logically sum away birth time and do not determine individual opposing signs. A specialized labeled-tree deletion lemma might imply the result but was not found among inspected sources.",
+        "searches": [
+          "random recursive tree fixed birth-index two-vertex fringe subtree total path length covariance depth joint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holmgren–Janson arXiv:1406.6883 Theorem 1.15 concerns X_{n,k} aggregated over all vertices.",
+          "Published Resultary record 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba gives a different root-edge indicator with covariance."
+        ],
+        "reasoning": "Marked cherry, two-vertex fringe subtree of a specified birth label, and unique-child event are equivalent in this oriented recursive-tree model; aggregate fringe counts are sums across labels, so a sum of mixed moments does not determine each signed summand.",
+        "searches": [
+          "random recursive tree fixed birth-index two-vertex fringe subtree total path length covariance depth joint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A search of published mathematical results found separate root-degree/leaves and root-attachment/path-length covariances, not the indexed cherry/path-length table.",
+          "Independent rational enumerations n=3..8 agreed with the stated harmonic formula."
+        ],
+        "reasoning": "No exact database table matching the two-parameter (n,i) harmonic covariance surfaced. Small enumerations alone cannot establish novelty or the all-size formula.",
+        "searches": [
+          "random recursive tree fixed birth-index two-vertex fringe subtree total path length covariance depth joint"
+        ]
+      },
+      "rationale": "Holmgren and Janson (2014) Theorems 1.4 and 1.15 describe aggregate fringe-subtree counts and their covariances, not a fixed birth-index two-vertex indicator paired with total root-path length. Feng et al. (2008) also study aggregate subtree-size phases; Fuchs/Hwang/Neininger address profiles. Resultary publication on forcing root attachment versus total path length concerns a different event and no two-vertex fringe deletion law. An aggregate covariance cannot recover opposing age-indexed contributions, so the additional exact conditional distribution and single sign switch are not merely rephrased. Specialist marked-fringe mixed moments might nevertheless predate this result.",
+      "residual_risks": [
+        "Some specialized labeled recursive tree mixed-moment literature or thesis may encode an equivalent child-age coupling.",
+        "Finite enumeration covers only small n, while global sign and distribution follow from independent-parent cancellation, not a numerical certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AGGREGATE_PRIOR_NOT_INDEXED",
+          "evidence": "Size-k fringe subtree totals treated; no fixed-birth-label mixed covariance with total depth in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "Primary 57-page preprint material including Theorems 1.4 and 1.15, remarks on fringe statistics and covariance, with original PDF pages inspected.",
+          "method": "Read targeted complete theorem statements and surrounding proof/remarks in original primary PDF.",
+          "title": "Holmgren and Janson, Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees (2014)",
+          "trigger": "Directly relevant recursive fringe subtree laws"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_BACKGROUND",
+          "evidence": "General subtree varieties and aggregate phase changes; no whole-document absence claim from partial text.",
+          "identifier_or_url": "https://doi.org/10.1137/060653950",
+          "material_read": "Accessible published abstract and bibliographic description, not full paper proof.",
+          "method": "Read abstract and published description.",
+          "title": "Feng, Mahmoud and Panholzer, Phase Changes in Subtree Varieties in Random Recursive and Binary Search Trees (2008)",
+          "trigger": "Fringe subtree phase changes in random recursive trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Birth index is natural in recursively grown trees, and conditioning on one local fringe cherry changes the global depth profile in opposite directions depending on arrival age. The exact conditional deletion coupling, finite sign threshold and macroscopic e^-1/2 crossover reveal localized contributions invisible to known aggregate statistics; useful for analyses of age-resolved fringe behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact zero covariance may arise at one integer index; finite sign transition is not a monotone coupling claim.",
+    "Aggregate fringe results are prior; only marked birth-index information assessed."
+  ],
+  "schema_version": 1
+}
