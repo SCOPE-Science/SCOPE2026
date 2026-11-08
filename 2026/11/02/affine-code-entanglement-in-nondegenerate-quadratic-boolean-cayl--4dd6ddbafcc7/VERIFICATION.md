@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify_quadratic_cuts.py` with Python 3.9+ and NumPy. It constructs quadratic Cayley graphs directly from Boolean quadratic functions with randomly chosen invertible linear substitutions and optional linear terms; it computes binary cut ranks using bit-vector Gaussian elimination, independently predicts them by the restriction of the polar form, and checks eight exact small-graph spectra by preparing the entire sixteen-qubit graph state and tracing out the opposite qubits.
+## correctness
 
-The recorded successful checker output was:
-
-```text
-exact_cut_ranks {4: 6336, 6: 2520, 8: 96}
-direct_graph_state_spectra 8 max_abs_error 4.1633e-17 graph_degrees [6, 10]
 PASS
-```
 
-The total \(8952\) binary-rank comparisons are exact calculations; the direct spectral diagonalizations use floating point with the reported maximum discrepancy. The checker covers all subspace directions and offsets for sampled quadratic forms in dimension four, randomized directions and offsets for dimensions six and eight, and both valence types in dimension four. These tests do not exhaust all ambient dimensions or all quadratic forms. Universal correctness depends on the explicit finite-field proof in `RESULT.md`, not the test counts.
+For even d>=4, nondegenerate β and Q(0)=0, pure qubit graph-state bipartition across affine flat A=a+U, graph-state Schmidt entropy is binary cross-adjacency rank r. On k<=d-2 flats the complement affinely spans F2^d; row differences D_u(z)=β(u,z)+Q(u)+β(u,a) produce k dimensions and, precisely for nonisotropic U, the constant direction. The first row Q(a+z) cannot be affine-linear on the complement because any nondegenerate quadratic plus affine linear term has support at least 2^{d-1}-2^{d/2-1}>2^{d-2}. Thus r=k+1 or k+2. On hyperplanes, β restricted to U has 1-dimensional radical, difference-row span has dimension d-1 including constants, and the nonlinear row yields r=d. Finite independent row-reduction examples in dimension 4 agree with formula; argument handles every k, affine offset and quadratic refinement. Flat Schmidt spectrum follows from reduced-state cosets of kernel of cross matrix.
 
-The relevant literature-comparison risk is possible earlier specialized work on modular affine-cut ranks; this is not resolved by numerical checks. No independent audit has been performed.
+## originality
+
+PASS
+
+Bounded best-of-knowledge originality: exact specialized formula and classification not shown to follow from inspected prior theorems; known general mechanisms and finite examples are credited, with residual priority risk.
+
+## value
+
+PASS
+
+Evaluating the exact entire affine-cut entanglement profile of a structured exponential-size graph-state family yields a concise symplectic isotropy dichotomy, one-ebit gap, and Arf-invariant independence. The explicit rank evaluation is not merely restating the general cut-rank principle; it is a natural quantum-information invariant useful for bipartition design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
