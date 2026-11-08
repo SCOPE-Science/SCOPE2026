@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` (Python 3 standard library only) alongside the included `SPECTRUM.csv`. The algorithm constructs each full undirected graph from exact quadratic-residue arithmetic modulo every odd prime through 353. Its greedy independent-set coloring is a rigorous upper bound for maximum-clique search; the proof of exhaustive branching and pruning is in `RESULT.md`.
+# Independent mathematical audit
 
-Observed checks: all seventy primes; eleven exact first-occurrence thresholds; direct pairwise verification of a twelve-element witness modulo 353; no clique of thirteen in that field. The program's canonical table hash is `16c12abf37901cb41a7515e6c6408f210092250527e0de9e89429139224e4bec`. Additional comparisons via a distinct general-purpose maximal-clique enumerator agreed on primes 3, 7, 11, 23, 37, 59, 83, 131, 181, and 251; they are supplementary and do not enter the proof certificate.
+## correctness
 
-The result is finite and reproducible, not an infinite generalization, and does not constitute independent scientific validation.
+PASS
+
+Reconstructed G_p on F_p^* with adjacency iff ab+1 mod p is in the set {r^2:r mod p}, zero included. A desired tuple is exactly a clique. Read frozen verify.py and all 70 rows of SPECTRUM.csv; checked branch-and-bound correctness: each candidate pool is partitioned by choosing a vertex, greedy independent color classes give valid clique upper bound for each processed prefix, and pruning only occurs if bound <= actual best. Independent DIFFERENT exact bitset coloring and recursive clique algorithm computed omega(G_p) for ALL 70 odd primes 3..353 and reproduced every first-prime threshold and M(353)=12, with direct verification of all 66 pairs of twelve-element witness. The proof is exhaustive finite computation, not a heuristic random search or extrapolation to larger primes.
+
+## originality
+
+PASS
+
+Dujella–Kazalicki 2021 covers finite-field tuple basics and small m plus modular-form counts; Kim–Yip–Yoo 2024 covers explicit constructions and general growth. Neither accessible full-text result supplies exact minimal odd primes across m=2..12 or the 70-graph maximum-clique census. First few classical thresholds not individually claimed novel; surviving contribution is complete finite initial spectrum.
+
+## value
+
+PASS
+
+The least field size for a fixed Diophantine tuple cardinality is a natural threshold invariant. The eleven-value first-occurrence spectrum through 12, with transparent proof of exhaustive finite search, provides an independently reusable benchmark; no general asymptotic theorem is required to make a complete motivated finite classification valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

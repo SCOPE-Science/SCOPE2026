@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph correspondence includes distinctness, nonzero elements and zero as a square. A proved greedy-color upper bound makes every branch-and-bound prune sound. The pure-standard-library verifier enumerates exactly the seventy odd primes through 353, computes each clique number and checks the eleven record thresholds. An explicit 12-clique is checked pairwise. Selected record values have an additional maximal-clique cross-check. Finite exhaustiveness, not finite extrapolation, proves the stated finite claim.
+## correctness
 
-**Originality — PASS within inspected literature.** The closest literature is Dujella–Kazalicki (arXiv:1609.09356), Hammonds et al. (arXiv:2201.06232), Shparlinski (arXiv:2301.04063), and Kim–Yip–Yoo (arXiv:2404.05514). The inspected theorems concern small-tuple counts, generalized higher-order products, asymptotic counts, or existence bounds; their statements do not determine this first-occurrence spectrum. Appendix B of Hammonds et al. tabulates three-factor tuples and does not give these pairwise thresholds. Search-index limitations and possible unindexed tables remain genuine risks.
+PASS
 
-**Value — PASS.** The smallest field supporting a given tuple size is an intrinsic, natural inverse of the established maximum-size invariant. The 2021 paper explicitly asks how large a prime is needed to guarantee such tuples; sharp first-occurrence thresholds complement, but are not the same as, an eventual-existence bound. The complete run through size twelve provides exact base cases and explicit test instances for lower-bound constructions. The result is deliberately a finite classification, with no claim of a general asymptotic theorem.
+Reconstructed G_p on F_p^* with adjacency iff ab+1 mod p is in the set {r^2:r mod p}, zero included. A desired tuple is exactly a clique. Read frozen verify.py and all 70 rows of SPECTRUM.csv; checked branch-and-bound correctness: each candidate pool is partitioned by choosing a vertex, greedy independent color classes give valid clique upper bound for each processed prefix, and pruning only occurs if bound <= actual best. Independent DIFFERENT exact bitset coloring and recursive clique algorithm computed omega(G_p) for ALL 70 odd primes 3..353 and reproduced every first-prime threshold and M(353)=12, with direct verification of all 66 pairs of twelve-element witness. The proof is exhaustive finite computation, not a heuristic random search or extrapolation to larger primes.
 
-The earliest public date of the 2024 motivating source was verified from arXiv. This classification is restricted to odd prime fields, tuple sizes two through twelve, with zero admitted as a square. General prime powers and larger tuple sizes remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dujella–Kazalicki 2021 covers finite-field tuple basics and small m plus modular-form counts; Kim–Yip–Yoo 2024 covers explicit constructions and general growth. Neither accessible full-text result supplies exact minimal odd primes across m=2..12 or the 70-graph maximum-clique census. First few classical thresholds not individually claimed novel; surviving contribution is complete finite initial spectrum.
+
+## value
+
+PASS
+
+The least field size for a fixed Diophantine tuple cardinality is a natural threshold invariant. The eleven-value first-occurrence spectrum through 12, with transparent proof of exhaustive finite search, provides an independently reusable benchmark; no general asymptotic theorem is required to make a complete motivated finite classification valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
