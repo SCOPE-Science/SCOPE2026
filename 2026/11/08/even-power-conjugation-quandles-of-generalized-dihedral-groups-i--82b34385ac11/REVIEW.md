@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** For even \(m\), the generalized dihedral group law proves that only rotations induce nonidentity right translations, and those translations form the image group \(H=(2m)A\). When \(H\ne1\), the rotation layer is intrinsically the global fixed-point set of \(\operatorname{Inn}(Q)\). The automorphism relation forces a uniquely induced additive automorphism of \(H\), independently of any chosen presentation of \(A\). Conversely the two affine-equivariance equations are sufficient, and fiber-by-fiber counting gives the exact group and its order. Isomorphism sufficiency uses matched fibers and matched free torsors, not an unproved extension of a group automorphism. The trivial boundary \(H=1\) is treated separately. Direct finite tests verify selected cases and do not prove the general formula.
+
+**Originality (PASS, qualified).** The closest direct source, Sangare's 2026 analysis of \(m\)-conjugation quandle automorphisms, provides general induced subgroups rather than the full classification for generalized dihedral groups at even powers. Bardakov–Sangare 2026 examines other quandle automorphism families, and Bardakov–Nasybullov–Singh treats ordinary \(m=1\) conjugation. Small-quandle tables do not imply this all-order formula. The new information is the full wreath-type group, exact count, and isomorphism invariant. An earlier equivalent under translation/quandle-extension terminology cannot be excluded without wider historical review.
+
+**Mathematical value (PASS).** A contemporary question is how much of \(\operatorname{Aut}(\operatorname{Conj}_m(G))\) arises from the group \(G\). The theorem determines all automorphisms, not just a subgroup, for a natural infinite family and all even exponents. It explains large symmetry jumps caused by torsion in \(A[2m]\), and it identifies exactly when different generalized dihedral groups yield isomorphic power-conjugation quandles. The structural and numerical conclusions are nontrivial beyond finite tabulations.
+
+The proof applies to finite abelian \(A\), including mixed torsion, and even \(m\), not to arbitrary groups or odd \(m\). Finite tests are only independent corroboration of small cases; this review is not independent mathematical certification.
+
+Self-review: passed. Independent audit: not yet performed.
