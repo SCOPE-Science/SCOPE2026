@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exact spectral calculus gives covariance as q_minus I + (q_plus-q_minus)P and a signed error equal to one fixed projector-probing error times a scalar ratio. Weighted-average comparison proves the high-to-low covariance ratio strictly descends from kappa to 1/kappa. A scalar derivative places the exact supremum at one endpoint and comparison proves the p=1/2 switch. A Boolean-cube bijection and P^2=P give the subGaussian mass bound; flat rank-one signs yield the binomial count exactly. A standalone checker executed 1,200 dense covariance comparisons, six exhaustive small sign enumerations and 20 endpoint checks; it returned VERIFY_OK. No infinite claim relies solely on the checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matti et al., arXiv:2502.18626, Theorems 2.1 and 2.5, bound an integrated-in-parameter trace error using common Gaussian random vectors, not a maximum-in-iteration coordinatewise Rademacher relative error.",
+        "Hallman et al., DOI:10.1137/22M1476277, Corollary 5.4, controls one fixed matrix diagonal coordinate; it does not identify a maximal iteration in a matrix-function family."
+      ],
+      "reasoning": "General fixed-matrix bounds and shared-randomness parameter-dependent trace bounds are materially relevant but neither implies this exact half-leverage endpoint selection or exact flat-spike binomial law without additional spectral arguments.",
+      "searches": [
+        "arXiv:2502.18626 Theorems 2.1,2.5",
+        "doi:10.1137/22M1476277 Corollary 5.4",
+        "adaptive randomized stopping Rademacher diagonal covariance probing confidence coverage fixed time versus stopping time",
+        "parameter-dependent stochastic trace diagonal Hutchinson time-uniform binomial spin rank one spiked"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00882v1",
+      "doi:10.1137/22M1476277",
+      "arXiv:2502.18626",
+      "doi:10.1137/25M1737857",
+      "Published mathematical-claim comparisons of Landweber covariance, spectral filter projector, shared-probe sampling, flat-spike binomial and parameter-dependent stochastic trace"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first source gives the exact covariance polynomial and fixed-K stochastic-diagonal-error guarantees, the mathematical starting point of the new claim.",
+        "The second source already covers fixed-matrix Rademacher moment concentration, while the third covers shared-randomness integrated trace estimates.",
+        "Neither prior statement contains an exact sup-K endpoint formula, a 1/2 projector-leverage phase boundary, or its infinite-horizon flat-spike binomial tail."
+      ],
+      "reasoning": "A known fixed-K estimate plus a union bound would not yield a horizon-free equality; an integrated trace error does not dominate an infinite-horizon pointwise maximum. The exact finite-sample tail and which iteration is extremal require the two-spectrum spectral monotonicity and projector-sign reduction proved here.",
+      "searches": [
+        "arXiv:2610.00882v1 equations 3.22-3.24 and 3.26",
+        "doi:10.1137/22M1476277 sections 3 and 5",
+        "arXiv:2502.18626 sections 1-2",
+        "shared Rademacher probes simultaneously across Landweber iteration covariance diagonal exactly worst first or infinite iteration spectral leverage 1/2 phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Landweber covariance family is a two-eigenvalue scalar matrix function and its Rademacher diagonal estimate reduces to a common projector estimator. Equations (3.22)-(3.24) of arXiv:2610.00882v1 are for a fixed K, not a supremum.",
+        "No equivalence theorem for the leverage-one-half endpoint classification appears in the materially inspected parts of the source."
+      ],
+      "reasoning": "Tested aliases of fixed-probe diagonal estimation, spectral-filter projectors, covariance propagation and leverage-score transitions. The new statement is an exact supremum over all K, not a reformulation of one fixed-K confidence bound. Search absence alone cannot establish priority.",
+      "searches": [
+        "Landweber covariance Hutchinson Rademacher diagonal estimator uniform over all iteration indices two eigenvalues spectral projector leverage half threshold",
+        "two-eigenvalue matrix function diagonal probing reusing fixed Rademacher probes endpoint worst relative error time uniform",
+        "shared Rademacher probes simultaneously across Landweber iteration covariance diagonal exactly worst first or infinite iteration spectral leverage 1/2 phase transition",
+        "web: \"two eigenvalues\" \"Hutchinson\" \"diagonal\" covariance",
+        "arXiv:2610.00882v1 sections 3.3,3.5,3.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The specialized flat-rank-one sign products have a binomial distribution after an explicit bijection; no consulted numerical table of those infinite-horizon Landweber errors was found.",
+        "Published-finding searches returned unrelated binomial and spectral-projector findings, but no exact shared-probe covariance-diagonal table."
+      ],
+      "reasoning": "The binomial formula is derived from the sampling model and is not a recomputation of a known listed table in the consulted sources. Search limitations leave priority risk.",
+      "searches": [
+        "flat rank-one spiked covariance diagonal Hutchinson exact binomial distribution all iterations",
+        "adaptive confidence intervals covariance diagonal estimator rank one spike relative error worst iteration first endpoint",
+        "parameter-dependent stochastic trace diagonal Hutchinson time-uniform binomial spin rank one spiked",
+        "web: \"all iterations\" \"Hutchinson\" \"diagonal\" estimator",
+        "web: \"time uniform\" \"Hutchinson\" diagonal estimation"
+      ]
+    },
+    "rationale": "Exact all-k shared-probe covariance-diagonal error, sharp half-leverage endpoint distinction, and flat-spike infinite-horizon binomial tail not covered by the materially inspected primary source (fixed k), fixed-matrix diagonal estimator literature, or parameter-dependent shared-Gaussian trace estimator (integrated parameter loss). Searches of published mathematical research records found no equivalent or stronger claim, subject to residual historical-priority risk.",
+    "residual_risks": [
+      "Search incompleteness and older unindexed projector-diagonal or matrix-function work could contain an equivalent consequence.",
+      "The universal bound is restricted to a two-eigenvalue normal operator; prior general time-uniform trace work is not itself a coordinatewise sup-norm result.",
+      "General stochastic matrix-function literature may contain broader statement not retrieved by current semantic queries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies covariance and fixed-index diagonal-estimation ingredients, but no stated leverage-one-half exact endpoint or all-horizon binomial law",
+        "evidence": [
+          "arXiv:2610.00882v1, equations (3.22)-(3.24), (3.26), (5.1); submission 2026-10-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Full arXiv HTML sections 3.1, 3.3, 3.5, 3.6, Appendix 5.1, especially equations (3.22)-(3.24), (3.26), (5.1); abstract and public posting date checked",
+        "method": "Read and compared covariance/diagonal estimator hypotheses and all fixed-iteration bounds to the claimed all-iteration shared-probe theorem",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "Direct motivating Landweber covariance and diagonal probing formula"
+      },
+      {
+        "assessment": "Establishes general fixed-matrix matrix-free diagonal error and recognizes leverage scores; lacks the coupled spectral evolution and exact maximum-time classification",
+        "evidence": [
+          "DOI:10.1137/22M1476277; SIAM J. Matrix Anal. Appl. 44 (2023), 240-269; Sections 3, 5.1"
+        ],
+        "identifier_or_url": "https://ipsen.math.ncsu.edu/ps/MonteCarloDiag.pdf",
+        "material_read": "Author-open PDF, introduction, Sections 2-3 and 5.1, including Theorem 5.3 and Corollary 5.4; PDF first page visually inspected",
+        "method": "Compared general per-matrix Rademacher concentration and discussion of projector diagonals with time-uniform Landweber error statement",
+        "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+        "trigger": "The original source invokes its Corollary 5.4 fixed-diagonal relative-error guarantee"
+      },
+      {
+        "assessment": "Shared random Gaussian trace estimators have L1-integrated parameter-error guarantees, not the claimed coordinatewise sup-in-time Rademacher law or binomial tail",
+        "evidence": [
+          "arXiv:2502.18626v2, Sections 1-2, Theorems 2.1 and 2.5; DOI:10.1137/25M1737857"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.18626",
+        "material_read": "Open arXiv full PDF, abstract, Sections 1,2 and Theorems 2.1 and 2.5; visually inspected first and third pages",
+        "method": "Compared estimator type, probability distribution and error norm with exact all-time coordinatewise Rademacher claim",
+        "title": "Stochastic Trace Estimation for Parameter-Dependent Matrices Applied to Spectral Density Approximation",
+        "trigger": "Potentially broader result using the same randomness across a continuum of matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6a0f8dc0-79de-4418-9248-0608edc18a4e",
+  "value": {
+    "rationale": "In covariance-guided iterative regularization, fixed probes are naturally reused across many prospective stopping indices. This theorem identifies the single iteration endpoint that governs worst relative diagonal probing error and yields a horizon-free probability guarantee; the exact binomial law supplies a natural finite-sample reliability benchmark. The half-leverage frontier is independent of step and condition number and is a structural distinction, not a textbook single-matrix concentration calculation.",
+    "status": "PASS"
+  }
+}
