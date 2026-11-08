@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The determinant defines two quartics in the verified general-position range of the Weddle construction [Dolgachev 2024, Section 2]. An exact standalone finite-field program evaluates all 4369 projective points by two separate arithmetic paths and checks the local leading forms at the seventh singularity. The restricted cubic in the first model has one rational root and a separable irreducible quadratic; the second splits into three rational linear factors. Standard two-stage blow-up of the \(D_4\) tangent-double-plane germ gives one central exceptional curve and three roots-indexed outer curves. Six rational nodes each add 16 points, and the \(D_4\) adds 32 or 64. The smooth resolution counts are therefore exactly 545 and 609. The Weil bound 609 holds for every K3 surface over 16 elements.
+PASS
 
-## Originality — PASS, qualified
+Over F16 with θ^4+θ+1, the two parameter vectors (1,8,2,7) and (3,11,1,15) are in the general-position Weddle determinant setting of Dolgachev. The six marked A1 nodes each replace one F16-point by an exceptional P1 with 17 points (net +16). At the seventh rational D4 point, the tangent cone is a square and its restricted cubic has one vs three rational simple projective roots; each rational outer exceptional curve adds +16 beyond the central line net +16, giving D4 net corrections +32 and +64. Independent finite-field arithmetic enumerated all 4369 normalized projective points, resulting singular-quartic counts 417 and 449, and verified one vs three rational roots of binary cubics (2,4,3,9) and (0,4,2,0). Thus resolved K3 totals 545 and 609, the latter exactly 16^2+22*16+1, the Weil upper bound for smooth K3. Source verify_weddle16.py was read and its separate determinant expansion, tangent-cone extraction, 15 general-position tests were checked at algorithm level; local exceptional configuration depends on standard D4 resolution theorem plus the explicit blow-up argument, not just output logs.
 
-Bolognesi's Weddle moduli account provides the classical geometric context but not either finite-field calculation. Dolgachev's full accessible Section 2 establishes the determinantal model, singularities and quasi-elliptic structure but does not state these two \(\mathbb F_{16}\) point counts or their local arithmetic splitting. The closest accessible earlier record for this construction proves a length-eight Jacobian-fixed-point identity, a different local scheme statement which does not imply the present Frobenius splitting or counts. Actual semantic searches of mathematical research records and targeted literature searches did not identify this two-form arithmetic comparison. Priority may be affected by older arithmetic tables or the uninspected entire texts of other Weddle papers.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated arithmetic boundary for a geometrically canonical supersingular K3 construction: six rational Weddle nodes do not force the rationally split exceptional configuration or maximal K3 point count. The paired explicit witnesses identify two distinct Frobenius types in the same field and a sharp Weil extremum, with a reproducible geometric explanation in the \(D_4\) resolution. It is not merely an arbitrary isolated numerical statistic or a generic K3 point count.
+Qualified best-of-knowledge PASS: Dolgachev 2024 Section 2 explicitly establishes the determinant construction, six ordinary nodes and a characteristic-two seventh D4 singularity with K3 resolution. Those geometric facts are not novel here. The two precise F16 vectors, their arithmetic D4 arm splitting and 545/609 point counts were not established by the inspected sections. Bolognesi studies Weddle moduli. Arithmetic K3 tabulations or uninspected Weddle papers may have the identical models.
 
-## Closest literature and limitations
+## value
 
-Bolognesi (2006/2007), arXiv:math/0601251; Dolgachev (2024), DOI 10.1112/blms.13033, Section 2; broader recent *Weddle schemes* (arXiv:2606.25060) could contain further configurations but its full text was not inspected. Only two models over \(\mathbb F_{16}\) are claimed; no full zeta function for the nonmaximal model and no full parameter classification are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A geometrically canonical K3 construction with identical rational singularity pattern exhibits distinct Frobenius actions on D4 outer components. It provides exact opposite splitting witnesses and achieves the sharp K3 Weil bound q^2+22q+1 over F16, a motivated arithmetic-geometric distinction rather than an arbitrary isolated finite-field count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
