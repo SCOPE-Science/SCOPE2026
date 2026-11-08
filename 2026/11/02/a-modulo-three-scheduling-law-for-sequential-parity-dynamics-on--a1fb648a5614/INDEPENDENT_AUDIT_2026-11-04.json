@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:58:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each site update x_v←x_v+sum_neighbor x_u over F2 is an involution; product is bijective. Shore parity quotient is two-dimensional and the full transformation factors as T=I+H Q where H is injective because fixed points are exactly ker Q. Iterate T^k=I+H(sum_{j<k}P^j)Q. The matrices S_A,S_B generate GL₂(F₂)=S₃; odd-length words have transposition order two, giving least periods 1,2,4 in explicit populations; even words either P=I (periods 1,2) or P has order three (periods 1,3). The product of alternating dihedral reflections has translation parity determined by b−2r mod3, and exact labelled orders are a!b!sum binom(m,r)binom(m,b−r). Independent exhaustive bit-level updates for 878 distinct labelled schedules on K_{1,1}, K_{1,2}, K_{2,1}, K_{2,2}, K_{2,3}, K_{3,3} checked each finite state orbit and schedule split, including 16/8 for K22 and 72/648 for K33. The analytic group proof covers all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang DOI:10.1007/s10801-014-0540-7 addresses a dual lit-only game with nondegeneracy restrictions.",
+          "Sjöstrand arxiv:2312.03933 classifies full group orbits of dual symplectic transvections."
+        ],
+        "reasoning": "Broader group reachability is a different invariant from individual fixed-word least periods; K_{a,b} adjacency forms are mostly degenerate for a+b>2.",
+        "searches": [
+          "complete bipartite sequential parity toggle xor fixed update schedule period three transvection Coxeter word",
+          "lit only sigma game nondegenerate graphs dual symplectic transvections group orbits"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0707.2360",
+        "https://arxiv.org/abs/0808.1238",
+        "https://arxiv.org/abs/2312.03933",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same graph but synchronous parity automata are a different linear map; whole generated group orbit descriptions do not determine Coxeter element cycle structure.",
+          "Complete fixed-word quotient computation yields transposition/identity/three-cycle cases and explicit labelled scheduling counts."
+        ],
+        "reasoning": "No examined prior theorem logically implies the fixed single-visit schedule classification without additional word-product and lift analysis.",
+        "searches": [
+          "complete bipartite sequential parity toggle xor fixed update schedule period three transvection Coxeter word",
+          "complete bipartite sequential xor vertex scan mod three order two three periodicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Site maps are graph transvections over F2, a possible Coxeter-product formulation.",
+          "Macauley–McCammond–Mortveit studied elementary asynchronous rules on cycle graphs; Sjöstrand arxiv:2312.03933 studies generated-group reachability."
+        ],
+        "reasoning": "Group orbit equivalence does not determine a particular repeatedly applied word’s exact cycle census or number of labelled words with the residue property.",
+        "searches": [
+          "complete bipartite sequential parity toggle xor fixed update schedule period three transvection Coxeter word",
+          "asynchronous graph transvections Coxeter product complete bipartite F2 periodic orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published finding Sharp period-four census for complete multipartite parity automata (Resultary 2026/10/11) is about synchronous updates.",
+          "K22 sequential scan has both 2- and 3-cycle regimes, and K33 exact 72/648 split; simultaneous maps cannot supply these order-indexed counts."
+        ],
+        "reasoning": "Closest database table fails to cover the same update semantics; lack of a match is not proof of absolute novelty.",
+        "searches": [
+          "complete bipartite sequential parity toggle xor fixed update schedule period three transvection Coxeter word",
+          "complete multipartite parity automata synchronous cycle census"
+        ]
+      },
+      "rationale": "Classic asynchronous cellular automata papers classify cyclic graph rules and update-order invariance; Huang and Sjöstrand describe whole transvection-group orbits, not periodic cycles of a fixed single-scan Coxeter word. The closest mathematically indexed complete-multipartite parity census uses simultaneous updates, with different map and period behavior. No exact modulo-three scan/labelled schedule classification was identified in these compared results; general Coxeter theory could contain an equivalent implicit theorem.",
+      "residual_risks": [
+        "A specialized Coxeter element or graph transvection source could implicitly enumerate the same fixed-word periods and schedule counts.",
+        "Closest synchronous published mathematical record inspected at summary level only; no whole-document exclusion.",
+        "Only GF2, complete bipartite graph and one visit per site; not general fair words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same sequential framework but different graph/rule and invariant",
+          "evidence": [
+            "Elementary circular Wolfram rules, not complete bipartite XOR state census"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2360",
+          "material_read": "Primary arXiv article introduction, model, definitions and order-independence theorem; scope described as elementary rules on cycles",
+          "method": "Open-access primary text",
+          "title": "Order Independence in Asynchronous Cellular Automata",
+          "trigger": "General fixed-order update theory"
+        },
+        {
+          "assessment": "Studies cyclic elementary automata and full dynamics groups rather than K_{a,b} period counts for fixed words",
+          "evidence": [
+            "Cycle graph local Wolfram rule restrictions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.1238",
+          "material_read": "Full publicly accessible 23-page primary PDF and selected page visual; Sections 1–2 and classification setup",
+          "method": "Full PDF reading and comparison of scope",
+          "title": "Dynamics Groups of Asynchronous Cellular Automata",
+          "trigger": "Possible dominating dynamics-group orbit formula"
+        },
+        {
+          "assessment": "Describes reachability under generated group, not a single schedule map",
+          "evidence": [
+            "Question 1.4 whole-group orbit problem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.03933",
+          "material_read": "Accessible primary introduction and main group-orbit statements",
+          "method": "Full-text relevant sections and equation comparison",
+          "title": "Orbits under Dual Symplectic Transvections",
+          "trigger": "Potential algebraic duality to graph updates"
+        },
+        {
+          "assessment": "Summary expressly treats simultaneous update; keep whole-text priority risk",
+          "evidence": [
+            "Describes synchronous complete multipartite parity maps with period bound four"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "Published title, abstract/summary only; underlying full mathematical text not used to conclude noncoverage",
+          "method": "Resultary semantic search and summary-level update-semantic comparison",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Closest published mathematical-record hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact complete classification of state orbit periods and labelled schedule frequencies for a natural asynchronous XOR update on every complete bipartite graph. A simple odd/even-position mod-three invariant explains the switch from primitive two- to three-cycles, and the odd-order four-cycle regime. This is a motivated scheduling law, not an arbitrary test graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Simple repeated scan orders only; schedules with repeats, randomized order, other graph topologies or fields excluded.",
+  "schema_version": 1
+}
