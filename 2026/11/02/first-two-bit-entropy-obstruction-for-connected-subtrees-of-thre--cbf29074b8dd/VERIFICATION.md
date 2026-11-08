@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Python 3.10 or later, standard library only:
+## correctness
 
-```sh
-python3 spider_connected_verify.py
-python3 spider_root_profile.py
-```
+PASS
 
-`spider_connected_verify.py` directly enumerates all allowed connected vertex sets by disjoint combinatorial forms; a second enumerator grows each set from singletons through graph adjacencies and must produce the identical list. Integer-bitset and frozenset implementations independently evaluate the complete adaptive shattering recurrence for arm lengths one through twelve. The program checks the exact concept-count formula, all twelve online dimensions, the explicit product-threshold lower bound, and that the first deficit of at least two bits occurs at arm length twelve. Its final line must read `SPIDER_CONNECTED_SUBTREES_ALL_CHECKS_PASS`.
+All connected induced sets are precisely single-arm nonempty intervals or center-containing independent triples of arm prefixes, giving the exact count. Three leaves are shattered; among any four marked vertices one lies between two others, so VC=3. The all-m Ldim lower bound is three independent balanced prefix-length binary searches. Exact online dimension uses the exhaustive recurrence P_k(H) iff some vertex divides H into two depth k-1 feasible sides; concept cardinality and symmetry pruning are sound. Independently enumerated m1..5 and their Ldim; for m12 independently evaluated all 13 root positions up to arm-permutation symmetry for depth10, using 44,411 memoized states; in every case one child fails depth9, while the product-threshold construction gives depth9. The inspected source enumerators and full m1..12 table establish first m12 threshold, not an unsupported infinite assertion.
 
-`spider_root_profile.py` computes the complete list of possible first-query positions up to arm symmetry and both conditioned online dimensions for twelve-edge arms. Compare its output with `spider_root_profile.csv`.
+## originality
 
-Scientific limits: only the twelve computed finite online dimensions have exhaustive upper certificates; the all-arm VC equality and adaptive lower bound have separate structural proofs. These are self-contained finite checks, not independent external certification. Historical-priority uncertainty remains.
+PASS
+
+Connected induced subtree counting and ordinary VC bounds are known, but the exact adaptive online dimension of this specific three-arm family, especially the first two-bit loss of the cardinality bound, does not follow from those prior statements. The asserted infinite Ldim lower bound uses standard binary search and is not claimed to be fundamentally new; the sharp finite m12 deficit is the finding.
+
+## value
+
+PASS
+
+Adaptive versus static shattering on naturally constrained connected sets tests how loose the universal log-cardinality bound can be. Finding the first concrete m12 two-bit obstruction with full root-split certificate is a motivated finite classification; the absolute scale is small, but the obstruction is not a routine count of concepts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

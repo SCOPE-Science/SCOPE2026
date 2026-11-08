@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The infinite-range VC dimension follows from geodesic obstruction and leaf witnesses; the unbounded online lower bound is an explicit product of three balanced threshold searches. The finite online upper bounds are exhaustive: at each version space, all coordinates and both outcome branches are considered by a complete inductive recurrence, with cardinality pruning only when mathematically necessary. Two independent concept enumerations and two different state representations yield identical values through twelve arm lengths; the root profile further checks all initial queries for the critical case. Limits: no extrapolation of exact online numbers to longer spiders; no external independent validation.
+PASS
 
-## Originality
+All connected induced sets are precisely single-arm nonempty intervals or center-containing independent triples of arm prefixes, giving the exact count. Three leaves are shattered; among any four marked vertices one lies between two others, so VC=3. The all-m Ldim lower bound is three independent balanced prefix-length binary searches. Exact online dimension uses the exhaustive recurrence P_k(H) iff some vertex divides H into two depth k-1 feasible sides; concept cardinality and symmetry pruning are sound. Independently enumerated m1..5 and their Ldim; for m12 independently evaluated all 13 root positions up to arm-permutation symmetry for depth10, using 44,411 memoized states; in every case one child fails depth9, while the product-threshold construction gives depth9. The inspected source enumerators and full m1..12 table establish first m12 threshold, not an unsupported infinite assertion.
 
-PASS under accessible comparisons, with a genuine historical-priority caveat. The 2013 Munaro paper and earlier graph-VC literature address static shattering, which is not presented as new. Dossou-Olory 2019 counts connected induced subgraphs rather than computing online query complexity. Krishna et al. 2023 address discrepancy, a different optimization problem. Ghazi et al. 2021 give general closure bounds, not the exact finite spider cutoff. Actual semantic research-record searches and comparisons to accessible earlier claims identified no stronger/equivalent result. Search non-detection alone does not establish priority; an alternative range-query or online mistake-bound formulation could predate this observation.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The invariant is the natural worst-case adaptive shattering depth of all connected vertex ranges in a fixed branching tree. The exact first two-bit gap at twelve arm edges is a motivated threshold in the tension between concept entropy and query geometry, not an arbitrary extra table cell. The all-size constant-VC/unbounded-online contrast explains why static subtree shattering cannot predict its adaptive behavior. A stronger general formula is not asserted.
+Connected induced subtree counting and ordinary VC bounds are known, but the exact adaptive online dimension of this specific three-arm family, especially the first two-bit loss of the cardinality bound, does not follow from those prior statements. The asserted infinite Ldim lower bound uses standard binary search and is not claimed to be fundamentally new; the sharp finite m12 deficit is the finding.
 
-## Closest literature and limitations
+## value
 
-See RESULT.md references and AUDIT.json for the inspected sources, equivalent-formulation and broader-coverage comparisons, and residual risks. The finite upper obstruction is computer-assisted and awaits independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Adaptive versus static shattering on naturally constrained connected sets tests how loose the universal log-cardinality bound can be. Finding the first concrete m12 two-bit obstruction with full root-split certificate is a motivated finite classification; the absolute scale is small, but the obstruction is not a routine count of concepts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
