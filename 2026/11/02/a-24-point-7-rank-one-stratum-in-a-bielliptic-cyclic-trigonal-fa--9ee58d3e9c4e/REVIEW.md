@@ -1,21 +1,21 @@
-# Scientific review: bielliptic cyclic trigonal genus-four strata
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is quantified over every smooth coefficient-marked member of the two-parameter genus-four family over an algebraic closure of characteristic seven. The discriminant criterion follows by reduction to the cubic in the squared coordinate; the genus follows by Riemann–Hurwitz. The four differentials were checked at all finite branch points and at infinity. The Cartier coefficient extraction gives a determinant \(3(ab+1)^2\Delta^2\), and the rank-one block on the nonordinary hyperbola has the explicitly oriented Frobenius second product \(B^{[7]}B\). Exact factorization leaves 24 simple roots outside the discriminant. Both standalone algebraic and independently written finite-field programs reproduced the stated identities and stratification. Finite enumerations were not used in place of a proof over the algebraic closure.
+PASS
 
-## Originality — PASS, with residual risk
+For y³=x⁶+a x⁴+b x²+1 in characteristic 7, distinct roots of its cubic in t=x² correspond to Δ≠0 and six simple finite branch points, giving genus four by Riemann–Hurwitz. The stated differential basis and Cartier coefficient extraction produce scalar d=2(ab+1), central c6=−Δ and determinant 3(ab+1)²Δ². Independently expanded q0(t)^2 and q0(t)^4 in GF(7)[a,b,t] and confirmed c3c9−c2c10=2(ab+1)Δ. On H=0, the 2x2 block has rank one and the semilinear stable-rank test uses B^[7]B (not BB^[7]); the vanishing scalar factors −3D(b)q(b³). Independently factored q(b³) into eight irreducible cubics with no discriminant intersection: exactly 24 distinct smooth coefficient parameters, all in degree-three Frobenius orbits, with (a-number,p-rank)=(2,1). Independently enumerated all 49² pairs in F49, finding ordinary2311/rank2 42/rank1 zero/singular48, exactly as predicted. Finite fields are not used to infer completeness over the algebraic closure.
 
-The closest inspected primary text is Ogasawara–Ohashi–Sakata–Harashita, *Superspecial genus-4 double covers of elliptic curves*, arXiv:2403.08139v1, especially its introduction, double-cover model, Cartier section, and enumeration section. It classifies smoothness and enumerates superspecial covers, not the smooth ordinary-elliptic-quotient family’s 24-point \(7\)-rank-one locus. Borges–Gonçalves, arXiv:2212.03987, treats Fermat-type and related \(p\)-rank calculations; the inspected full arXiv paper, including the main theorem and Section 6 on related families, does not state or imply this classification. The 2025 Sohn paper (DOI:10.23091/japm.2025.059) is a plausible source for the genus-four \(a\)-number statement; full text could not be inspected, so its potential overlap is not dismissed. The Hasse determinant alone is not treated as the new contribution: the exact characteristic-seven stable Frobenius rank stratification and eight cubic orbits are.
+## originality
 
-Searches of mathematical research records, primary articles, and direct equation/parameter/duality aliases found no matching or implication-dominating full-rank classification. Failed searches do not prove universal priority. Existing computations of superspecial curves do not imply the \(7\)-rank-one count because every smooth member here has ordinary elliptic quotient and is not superspecial. The uninspected 2025 paper and possible unindexed special-family studies remain priority risks.
+PASS
 
-## Mathematical value — PASS
+Bielliptic genus-four double-cover geometry and Frobenius/Cartier methods are established; the new assessed claim is the exact coefficient-marked GF7 7-rank stratification with degree-24 exceptional locus and Frobenius orbits. Ogasawara–Ohashi–Sakata–Harashita study superspecial double elliptic covers, which have vanishing Hasse-Witt and do not cover the smooth family’s rank-one locus via their enumerated superspecial conclusions. Borges–Gonçalves cover Fermat-type p-ranks with different parameter families. Sohn 2025 explicitly studies genus-four superelliptic a-numbers; only its abstract could be read, and authorized full-text access was blocked by disconnected VPN, so possible overlap with a-number portion is retained as a serious priority risk; it does not on present evidence resolve all stable 7-rank-one parameters.
 
-The construction is motivated by the natural involution and genus-one quotient rather than an arbitrary polynomial slice. The result fully resolves the ordinary/nonordinary divisor, its constant \(a\)-number jump, and the deeper \(7\)-rank-one stratum on the smooth base. It distinguishes Cartier rank from stable semilinear Frobenius rank and gives the exact field-of-definition orbit structure of every exceptional coefficient-marked fiber. It does not claim a moduli-isomorphism classification, a Newton-polygon classification, or an optimality principle.
+## value
 
-## Reproducibility and limits
+PASS
 
-`verify_symbolic.py` proves all polynomial identities, the factorization of the exceptional polynomial and disjointness from the discriminant. `verify_fields.py` independently computes Cartier coefficients over all coefficient pairs of three finite fields. Both ran successfully. The independent finite-field check is corroboration, while the symbolic argument establishes the theorem over the algebraic closure. Mathematical independence of the review and third-party validation have not been established.
+A natural involution x→−x makes this a geometrically motivated two-parameter bielliptic subfamily rather than a random coefficient slice. The Hasse divisor multiplicity, sharp jump in a-number, deeper stable-Frobenius rank locus, and all eight field-of-definition orbits describe a complete stratification useful for small-characteristic moduli and testing semilinear Cartier calculations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
