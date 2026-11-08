@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:48:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-number-and-optimizer-orbit-of-the-five-c--96aea6130e79/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-number-and-optimizer-orbit-of-the-five-c--96aea6130e79/verify.cpp",
+        "/mnt/data/scope_worker03_20261107T0038Z/cube_output.txt",
+        "/mnt/data/scope_worker03_20261107T0038Z/independent_checks_output.txt"
+      ],
+      "rationale": "Edge-open-packing means two selected edges cannot be joined by a third distinct graph edge between endpoints; an induced star may contribute three compatible edges. Q5 has 80 graph edges, hence the compatibility graph on those edges has 1120 conflicting pairs. Independent C++ reconstruction from Hamming adjacency searched all 12-cliques and all 13-cliques via branch with proper-coloring upper bounds: exactly 80 of size 12 and none of size 13. Independent Python generated all center constructions C={x,x xor a,x xor b,x xor a xor b} with wt(a)=2, wt(b)=4, wt(a&b)=1, yielding 80 distinct valid 12-edge sets. In each, four centers have distance pattern {2,2,4,4,4,4}, each with precisely three private leaves; independent enumeration matched all optimizer edge sets. Counting 32 choices of x, 10 a masks, 2 b masks / 8 representations yields 80 and a 40+40 parity split. Affine hypercube translations and coordinate permutations act transitively on the mask pattern. The finite exhaustive upper bound and structural census are complete for dimension five only.",
+      "residual_risks": [
+        "Do not conflate EOP with an induced matching; star edges are allowed.",
+        "This is a finite Q5 theorem and the exhaustive clique certificate does not extrapolate to higher dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al derive exact values in dimensions powers of two, and Table 1 only provides Q5 >= 10; Q5 is not a power-of-two dimension."
+        ],
+        "reasoning": "A general product-graph bound does not imply the present exact upper bound or number/orbit of optima at Q5.",
+        "searches": [
+          "arXiv:2406.04020 hypercube Qn Theorem 5.10 Table 1",
+          "arXiv:2403.00750 edge open packing complexity bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.04020",
+        "https://arxiv.org/abs/2403.00750",
+        "https://doi.org/10.1051/ro/2022171",
+        "Resultary query: edge open packing hypercube Q5 12 optimizers 80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original edge-open-packing convention allows induced stars; 2024 bounds do not supply the absent upper certificate at n=5."
+        ],
+        "reasoning": "The 12-clique vs 13-clique exhaustive construction is new logical evidence beyond prior lower bounds; orbit census is a strictly stronger classification even if maximum alone were known.",
+        "searches": [
+          "Bresar Dravec Hedzet Samadi induced matching versus edge open packing Section 5.1 Theorem 5.10",
+          "Chelladurai Kalimuthu Soundararajan 2022 definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Injective edge-coloring color classes equal edge-open packings, but minimum number of colors bounds individual color-class sizes only indirectly."
+        ],
+        "reasoning": "An existing injective edge coloring partition with a class of 12 yields a lower bound; it does not exclude 13-edge classes or classify all optimizers.",
+        "searches": [
+          "edge open packing Q5 hypercube injective edge coloring maximum color class",
+          "Resultary: edge open packing hypercube Q5 12 optimizers 80"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected source table records lower bounds, not the exact maximum or exact optimizer count."
+        ],
+        "reasoning": "A matching older machine-generated table might cover the finite fact, but no inspected table establishes a value 12 with 80 extremizers; negative search is not priority proof.",
+        "searches": [
+          "hypercube Q5 edge open packing exact 12 80 tabulations",
+          "edge-open packing hypercube Table 1 2024"
+        ]
+      },
+      "rationale": "Brešar et al 2024 Section 5.1 Table 1 lists Q5 lower bound 10 and proves exact results for power-of-two dimensions; an upper bound 12 and complete 80-optimum census/orbit for Q5 are not contained in those inspected results.",
+      "residual_risks": [
+        "An earlier computation of Q5 upper bound and optimizers may be missing from indexed literature.",
+        "An alternative injective edge-coloring result might imply maximum but not automatically full orbit/census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Q5 lower bound only; exact theorem covers powers-of-two cube dimensions",
+          "evidence": "Q5 row lower bound 10; power-of-two dimension theorem does not include d=5",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "Section 5.1, Table 1 and Theorem 5.10; displayed lower bounds and dimension constraints",
+          "method": "Primary full PDF, visually inspected relevant pages",
+          "title": "Induced matching versus edge open packing: Trees and product graphs",
+          "trigger": "Direct hypercube predecessor and possible dominating theorem"
+        },
+        {
+          "assessment": "Confirms edge-open packing star allowance; no Q5 optimizer classification identified",
+          "evidence": "Packing constraint is third edge between distinct selected edge endpoints",
+          "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+          "material_read": "Definition and associated examples in accessible article",
+          "method": "Primary publication text",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original definition potentially different third-edge convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-edge-open-packing-number-and-optimizer-orbit-of-the-five-c--96aea6130e79/RESULT.md",
+        "https://arxiv.org/abs/2406.04020",
+        "https://arxiv.org/abs/2403.00750"
+      ],
+      "rationale": "Q5 is a natural unresolved finite dimension singled out by hypercube edge-open packing tables. Giving the exact maximum, all 80 optimizer sets, a geometric four-star normal form and a single automorphism orbit is a self-contained complete combinatorial classification of that natural object, not arbitrary one-off parameter fitting.",
+      "residual_risks": [
+        "No claimed general Qd formula or complexity improvement for arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Do not conflate EOP with an induced matching; star edges are allowed.",
+    "This is a finite Q5 theorem and the exhaustive clique certificate does not extrapolate to higher dimensions.",
+    "An earlier computation of Q5 upper bound and optimizers may be missing from indexed literature.",
+    "An alternative injective edge-coloring result might imply maximum but not automatically full orbit/census.",
+    "No claimed general Qd formula or complexity improvement for arbitrary graphs.",
+    "Scientific best-of-knowledge judgment, not formal proof certification or historical priority guarantee. Publication withheld."
+  ],
+  "schema_version": 1
+}

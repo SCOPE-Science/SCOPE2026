@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The compatibility graph translates an edge-open-packing exactly into a clique. The C++17 certificate constructs all 80 cube edges, checks 1120 conflicting pairs, enumerates all 12-cliques (80) and 13-cliques (zero), and matches every optimum to the four-center construction. The branch-and-bound pruning is valid because each greedy color class is independent in the compatibility graph. The explicit 12-edge witness, symbolic 80-count and orbit argument cross-check the finite search. No assertion for higher dimensions is made.
+PASS
 
-## Originality — PASS (subject to priority risk)
+Edge-open-packing means two selected edges cannot be joined by a third distinct graph edge between endpoints; an induced star may contribute three compatible edges. Q5 has 80 graph edges, hence the compatibility graph on those edges has 1120 conflicting pairs. Independent C++ reconstruction from Hamming adjacency searched all 12-cliques and all 13-cliques via branch with proper-coloring upper bounds: exactly 80 of size 12 and none of size 13. Independent Python generated all center constructions C={x,x xor a,x xor b,x xor a xor b} with wt(a)=2, wt(b)=4, wt(a&b)=1, yielding 80 distinct valid 12-edge sets. In each, four centers have distance pattern {2,2,4,4,4,4}, each with precisely three private leaves; independent enumeration matched all optimizer edge sets. Counting 32 choices of x, 10 a masks, 2 b masks / 8 representations yields 80 and a 40+40 parity split. Affine hypercube translations and coordinate permutations act transitively on the mask pattern. The finite exhaustive upper bound and structural census are complete for dimension five only.
 
-The June 2024 product-graph paper lists only a lower bound 10 for the five-cube and proves exact values when the dimension is a power of two. The March 2024 complexity paper supplies general bounds and algorithms on other classes; the 2022 foundational article supplies the definition. The exact five-cube upper bound, complete 80-pack classification, and single-orbit statement were not found in checked literature or targeted mathematical-record searches. Earlier equivalent terminology or an unindexed computation remains a residual risk, not a claim of proven uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The five-cube is the first hypercube dimension beyond the exact power-of-two cases in the cited table. Closing its 10-to-16 general-bound gap with a sharp value and an optimizer classification gives a natural benchmark for induced-star packings, edge-open-packings, and injective edge coloring. The exact one-orbit structure is a mathematically motivated invariant, not an arbitrary numerical slice.
+Brešar et al 2024 Section 5.1 Table 1 lists Q5 lower bound 10 and proves exact results for power-of-two dimensions; an upper bound 12 and complete 80-optimum census/orbit for Q5 are not contained in those inspected results.
 
-## Limitations and literature comparison
+## value
 
-The theorem is finite, computer-assisted, and reproducible by a short standalone verifier. The 2024 Section 5.1 Table 1 and Theorem 5.10 were inspected as the closest direct comparisons; a foundational 2022 bibliographic record and 2024 complexity treatment were checked. No independent external audit has been performed, and literature priority is not guaranteed by a negative search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q5 is a natural unresolved finite dimension singled out by hypercube edge-open packing tables. Giving the exact maximum, all 80 optimizer sets, a geometric four-star normal form and a single automorphism orbit is a self-contained complete combinatorial classification of that natural object, not arbitrary one-off parameter fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
