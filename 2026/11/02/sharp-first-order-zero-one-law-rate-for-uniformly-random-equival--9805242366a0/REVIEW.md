@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is fixed-rank, with an explicit rank-r distinguishing sentence for singleton deficiency and a winning r-round equivalence-class strategy when singletons and each other small block size are sufficiently represented. The coefficient identity follows from the exponential formula for partitions with a marked j-block type. The positive saddle for the Bell EGF and its Gaussian concentration give fixed-component local left-tail probabilities. Combining them yields matching probability bounds and the coefficient 1/(r-2)!. Numerical tests reproduce exact Bell counts and singleton distributions but do not replace the EF argument or saddle estimate.
+PASS
 
-## Originality — PASS within inspected evidence
+In the uniform labelled Bell partition model, for FIXED rank r>=2 and limit E∞ with infinitely many finite classes of each positive size, exact rank-r sentence ∃x_1...∃x_{r-1}∀y says at least r-1 distinct singleton classes. Duplicator survives r rounds if >=r-1 singleton classes and >=r classes of each size j=2..r, matching opened small classes and treating large ones as >=r; a possible rth new singleton on the LAST move can be imitated by an unused nonsingleton. Exact Bell assembly coefficient marks class counts; saddle w exp(w)=n gives for fixed j,t P(N_j=t)~exp(-w^j/j!)(w^j/j!)^t/t!. Thus singleton shortage dominates and P(rank-r failure)~w^(r-1)/((r-2)! n), non-singleton shortages exponentially smaller in w^2. Independently reconstructed Bell and forbidden-singleton recurrences through n=320, checking exact probability mass and decreasing relative-error trends for fixed t; this is finite corroboration, not a proof of the saddle estimate.
 
-The recent finite-model paper concerns abstract closure criteria and random expansions, not Bell-partition rank-r error. The earlier 1972 work develops random equivalence relation block counts, and the 1994 work studies maximal blocks, not the first-order convergence rate. The earlier Bell singleton identities alone do not identify the sharp model-theoretic obstruction. The selected research-record comparisons also concern disjoint settings: equality/modal logics with extra colours, FO laws for other random structures, or covariance of block-count statistics. No inspected source supplies or logically subsumes the joint all-rank sharp failure theorem. The uninspected full text of Haigh (1972) and incomplete archival terminology search remain risks, not novelty guarantees.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The event is agreement with the full collection of rank-r first-order sentences, not one selected test sentence. The result gives a sharp, rank-dependent quantitative speed for the zero-one law on the canonical Bell-distributed finite-equivalence class and isolates its unique leading obstruction, whereas purely combinatorial counts of singletons have no such logical consequence by themselves. This is a natural finite-model-theoretic question motivated by the study of logical limit laws for random finite structures.
+Best-of-knowledge PASS: the precise failure probability of the WHOLE bounded-rank FO theory for a uniform labelled partition is additional to classical small-block statistics. Both finite-model EF obstruction and rare-class saddle asymptotic are required; neither standalone prior ingredient implies a complete rank-r theory rate without the connection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural strong zero-one-law rate for random equivalence relations: probability of ANY rank-r disagreement, not one formula, including sharp leading coefficient and the dominant logical obstruction. It is quantitatively useful for finite-model approximation and random partitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
