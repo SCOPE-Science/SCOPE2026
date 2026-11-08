@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-Run `python3 verify_affine_deletion.py` with a standard Python 3 installation. The program uses no third-party packages, external data, or network access. The output must match `verification_output.txt` and terminate with `VERIFY_OK`.
+## correctness
 
-For order three, the checker independently builds the incidence graph from prime-field coordinates with one direction deleted, checks every pairwise shortest-path distance, exhaustively enumerates the simplices at inclusive radii two and three and checks exact reduced mod-two boundary ranks. It also confirms that the proof's two radius-two subcomplexes cover the full complex and intersect in exactly the original graph. The radius-two face vector is `(18,81,108,18)`, with mod-two Betti vector `(1,0,26,0)`; radius three has face vector `(18,135,540,1215,1458,729)` and Betti vector `(1,0,0,0,0,64)`. The prime-order-five case verifies the all-pairs distance classification and the predicted partition into ten forbidden five-vertex blocks, without enumerating its huge simplicial complex.
+PASS
 
-**Proof versus calculation:** The finite checks do not certify the theorem for arbitrary affine planes. The all-order integral assertion rests on the distance classification, exact two-piece simplicial cover, homotopy pushout splitting and scale-three join decomposition proved in `RESULT.md`. There is no external or independent audit, and the code does not attempt to certify a journal-priority claim.
+Incidence axioms give exactly q^2 points plus q^2 retained lines, q^3 edges, and distances 1/2/3/4. At r=2, same-part complexes are each D_q^{*q}, while mixed simplices admit a literal cover X∪Y with intersection the original connected incidence graph; X and Y collapse to two simply-connected joins. Null attaching maps imply K2 ≃ A∨B∨ΣG and integral free sphere ranks. At r=3 only forbidden pairs occur inside 2q disjoint q-vertex blocks, so K3=D_q^{*(2q)}. Degree reasons annihilate successive positive-degree persistence maps (q>=3, including q=3 overlap handled by summing sphere counts). Independent explicit F3 coordinate-plane reconstruction and exhaustive clique enumeration reproduce K2 face vector (18,81,108,18) and K3 (18,135,540,1215,1458,729); finite test is not the all-plane proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+Deleting one complete parallel class is an intrinsic net/incidence operation, changes the graph metric and preserves a nontrivial high-dimensional r=3 stage absent from the full-affine-plane calculation. The uniform exact homotopy types and all-scale persistence are natural reusable classification results for an important incidence-graph family, including non-Desarguesian planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

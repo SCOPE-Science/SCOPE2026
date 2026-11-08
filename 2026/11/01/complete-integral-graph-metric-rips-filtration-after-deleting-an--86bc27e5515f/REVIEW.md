@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claimed graph has precisely \(2q^2\) vertices and \(q^3\) edges, with shortest-path distances one, two, three and four classified by incidence and removed/retained parallelism. The two pieces covering its scale-two Rips complex meet in the incidence graph exactly. Each collapses onto a simply connected join of discrete \(q\)-element sets. The maps from the one-dimensional intersection are nullhomotopic, so their homotopy pushout splits as two side joins plus the suspension of the graph. At scale three, forbidden distance-four edges partition into \(2q\) disjoint blocks of size \(q\), proving a join of \(2q\) discrete \(q\)-sets. The resulting integral sphere-wedge stages determine the full barcode because nontrivial homology dimensions do not overlap at consecutive stages. Exact finite mod-two calculations independently corroborate the order-three specialization; the proof, not sampling, covers all finite affine planes of order at least three.
+PASS
 
-## Originality (O): PASS with residual uncertainty
+Incidence axioms give exactly q^2 points plus q^2 retained lines, q^3 edges, and distances 1/2/3/4. At r=2, same-part complexes are each D_q^{*q}, while mixed simplices admit a literal cover X∪Y with intersection the original connected incidence graph; X and Y collapse to two simply-connected joins. Null attaching maps imply K2 ≃ A∨B∨ΣG and integral free sphere ranks. At r=3 only forbidden pairs occur inside 2q disjoint q-vertex blocks, so K3=D_q^{*(2q)}. Degree reasons annihilate successive positive-degree persistence maps (q>=3, including q=3 overlap handled by summing sphere counts). Independent explicit F3 coordinate-plane reconstruction and exhaustive clique enumeration reproduce K2 face vector (18,81,108,18) and K3 (18,135,540,1215,1458,729); finite test is not the all-plane proof.
 
-The closest complete-affine-plane graph theorem retains the extra parallel class and has a contractible scale-three complex; its inclusion does not imply the changed graph's scale-two/two-scale homotopy. Projective-plane graph results have all lines intersecting, not a net. The girth-six hexagon result explicitly requires edge-disjoint hexagons, violated here. Archive graph-power and bipartite-clique studies do not compute this family and all thresholds. The full primary results for the three closest published findings and the full foundational graph-power manuscript were inspected, and published-finding corpus searches tested alternate descriptions, parameters and relevant broader theorems. Unindexed prior coverage cannot be excluded and no publication-priority guarantee is implied.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The result is a natural **all-orders** structural classification for a canonical deletion operation on finite affine incidence designs. Its transition from a mixed-dimensional scale-two wedge to an exponentially large scale-three wedge is absent in the original full affine-plane result. It provides the complete integral homotopy and persistent homology filtration, including the precise Pappus specialization, and is not merely a modest rank correction.
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
 
-## Limitations
+## value
 
-Only a whole line parallel class is deleted, with all points kept and shortest-path metric recomputed. The claim does not address nonexisting plane orders, arbitrary partial geometries, weighted edges, integral equivariant actions, or edge-interior metrics. Finite computations cover only orders three and five; no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Deleting one complete parallel class is an intrinsic net/incidence operation, changes the graph metric and preserves a nontrivial high-dimensional r=3 stage absent from the full-affine-plane calculation. The uniform exact homotopy types and all-scale persistence are natural reusable classification results for an important incidence-graph family, including non-Desarguesian planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
