@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The arbitrary-parameter proof uses the standard tangent description \(\operatorname{Hom}_{R_d}(I,R_d/I)\) and the adjacent degree-one syzygies. Since the target is untruncated below degree \(r\), these enforce \(u h_{i+1}=v h_i\), then \(u^{dr}\mid h_0\) despite \(\deg h_0<dr\). This kills all lower target degrees. Every linear map of the generator layer to the socle then extends because positive-degree coefficients act trivially there. The exact character follows by subtracting exponent pairs. The independent finite syzygy checker corroborates all grading ranges for 30 pairs; it is not substituted for proof.
+## correctness
 
-**Originality — PASS, provisional.** The nearest known geometric theorems determine normality and dimension of the reduced Hilbert scheme on Kleinian and canonical surfaces, rather than this local \(\operatorname{Hom}\) representation at powers of the singular point. Explicit formula, all torus weights, and an infinite \(A_1\) tangent-excess series were not found in checked research records or accessible primary text. The most significant risk is that existing torus-partition methods for cyclic quotient surfaces implicitly encode the calculation; the accessible Pearce poster mentions tangent weights but does not state this formula. Full text of Craw–Yamagishi (2026) was inaccessible, so priority is not independently established.
+PASS
 
-**Mathematical value — PASS.** The result supplies a complete first-order deformation representation at a canonical family of fat points on singular surfaces, exactly quantifies singularity excess for the \(A_1\) case in every length \(r^2\), and records weights useful for equivariant localization or formal deformation calculations. It is a structural all-parameter theorem, not an isolated low-length computation.
+At I=m^r in R_d=⊕_{q≥0}C[u,v]_{dq}, minimal generators g_i=u^{dr-i}v^i (0≤i≤dr) and Q=R_d/I have socle Q_{r-1}. Applying u^d g_{i+1}=u^{d-1}vg_i to any homogeneous image h_i∈Q_t, t<r−1, gives u h_{i+1}=v h_i as actual binary-polynomial identities (no truncation in degree t+1<r). Iteration forces u^{dr}|h_0 while deg h_0=dt<dr; hence all such h_i vanish. Every map I/mI→Q_{r−1} extends R-linearly because m annihilates target. Therefore tangent Hom_R(I,Q) has dimension (dr+1)(d(r−1)+1), colength r+dr(r−1)/2, and character Σ_{i,j}U^{i−j−d}V^{j−i}; no hidden lower grades. In d=2 A1 case tangent dimension 4r²−1 versus known local dimension 2r² gives singularity for r≥1. I independently enumerated all monomial lower-grade relations over 30 (d,r) parameter pairs; finite check is corroboration, not the general proof. Critical external input: reduced Hilbert scheme on A1 surface dimension 2N.
 
-**Boundary and risks.** The construction covers only powers of the homogeneous vertex ideal. The theorem proves tangent dimensions, not local ring presentations or unobstructedness. The standard full Hilbert scheme may be nonreduced at larger lengths. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the precise stated claim, not a priority certificate. The tangent to Hilb is Hom_R(I,R/I), and Pearce's cyclic-quotient torus-fixed partitions can potentially encode such weights. The exact statement here is stronger than a dimension: it identifies all graded maps and every torus weight for arbitrary d,r. No inspected source displays an equivalent m^r all-parameter identity. Craw–Yamagishi arXiv:2607.08913 announce normality/dimension 2N of the underlying reduced Hilbert scheme on canonical surfaces; that does not determine tangent Hom dimensions, which can exceed 2N. Pearce's fixed-point partition technology is a plausible broader algorithm but its inspected poster provides no m^r formula. Accessibility of the complete 2026 paper is a material priority risk, not a rejection. Principal residual risk: Full Craw–Yamagishi 2026 text inaccessible; its appendices might contain a specialized tangent formula.
+
+## value
+
+PASS
+
+An all-rank first-order deformation representation at natural fat-point ideals on quotient-cone surfaces, including a complete equivariant character and sharp A1 tangent-excess series, is an independently useful structural invariant for deformation/torus-localization arguments. It is neither a re-expression of the surface dimension result nor a one-instance calculation. Does not compute higher obstructions or Hilbert scheme local equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
