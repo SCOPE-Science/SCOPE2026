@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:13:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Re-derived the absorbing birth-death scale Green kernel for state 1, with the Fermi update and the self-loop factor h_j. Exact expected cost E=N^2 theta B(r) where r=R exp(-beta theta), R=exp(-beta delta)>1, T=sum_{k=0}^{N-3}R^k, and B=(1+r)(A(1+rT)+CT)/(1+r+Tr^2), A=1/(N-1), C=1/(N-2). Differentiation yields Bprime=(AT-2CT^2r-(A+C)T^2r^2)/D^2. If Bprime>0 it forces r<1/(2T), Bprime/B<1/(1+r), and r log(R/r)<1 (since T>=1+R>2), proving the derivative positive at every theta>=0; the boundary theta=0 follows directly. Independently solved absorbing rational chains for 85 (N,R,r) configurations N=4..8 with exact agreement. The fixation-ratio optimization is a corollary and does not cover other initial states.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General fixation probabilities and intervention costs appear in prior work; some policies have nonmonotone costs.",
+          "Existing exact t=1 monotonicity cannot imply t=2 without bounding the second occupation term."
+        ],
+        "reasoning": "The broader model framework includes the current model as a special case, but the inspected comparison does not supply the specific sharp derivative inequality.",
+        "searches": [
+          "Cost Optimisation of Individual-Based Institutional Reward Incentives for Promoting Cooperation in Finite Populations (2024)",
+          "Han Tran-Thanh 2018 cost-effective external interference",
+          "Duong Han 2021 cost efficiency of institutional incentives"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.07663",
+        "DOI:10.1007/s11538-024-01344-7",
+        "DOI:10.1038/s41598-018-34435-2",
+        "Resultary query: two cooperator threshold institutional reward expected cost monotonicity Fermi imitation population"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior t=1 monotonicity and t=N-1 nonmonotone regimes are different incentive policies.",
+          "Exact scale Green kernel is shared methodology, but the t=2 derivative proof uses r<1/(2T) and a new logarithmic bound."
+        ],
+        "reasoning": "The claimed all-N sign does not follow immediately from a known fixation-ratio inequality, nor from numerical cost trends.",
+        "searches": [
+          "Duong Durbac Han 2024 theorem and numerical threshold section",
+          "2018 Han Tran-Thanh full-investment results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The monotonicity is equivalent to positivity of B(r)-log(R/r)rBprime(r) in the absorbing birth–death Green formula.",
+          "Prior article has the general expected cost representation but its stated monotonicity theorem covers only t=1."
+        ],
+        "reasoning": "An expression for E2 is not the same as the derivative sign for every R>1 and N>=4; no exactly equivalent universal inequality located.",
+        "searches": [
+          "Resultary: two cooperator threshold institutional reward expected cost monotonicity Fermi imitation population",
+          "Duong Durbac Han 2024 Cost Optimisation t=2 derivative Green function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant indexed results concern other finite evolutionary games, not an exact all-size derivative formula for this t=2 rule.",
+          "Independent 85 exact rational Markov solves show formula correctness but cannot prove prior absence."
+        ],
+        "reasoning": "This is a continuous-parameter theorem, not a finite database cutoff. Prior simulation tables cannot certify its universal sign.",
+        "searches": [
+          "Resultary semantic: two cooperator threshold institutional reward expected cost monotonicity Fermi imitation population",
+          "two threshold reward monetary expected cost derivative table N"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge. The 2024 Duong–Durbac–Han article analyzes Fermi reward costs and proves an analytical t=1 case, while threshold-dependent higher cases were treated numerically. The exact all-N threshold-two positivity proof for initial single cooperator is not furnished by their stated theorems. Strict scope prevents extrapolation to initial-state mixtures or t>=3.",
+      "residual_risks": [
+        "Unindexed follow-up to 2024 institution-cost work may already prove the t=2 sign.",
+        "Changing the initial mutant convention or paying during all absorbing visits changes the cost model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The general cost is prior art; observed material does not contain an all-population-size proof of strict t=2 monotonicity",
+          "evidence": [
+            "Duong–Durbac–Han, Bull. Math. Biol. 86, 115 (2024); arXiv:2402.07663"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-024-01344-7",
+          "material_read": "Accessible Springer full HTML: introduction, model definitions, reported analytical t=1 and numerical larger-threshold sections",
+          "method": "Read full-text relevant methods/results and compare t and initial-state conventions",
+          "title": "Cost Optimisation of Individual-Based Institutional Reward Incentives for Promoting Cooperation in Finite Populations",
+          "trigger": "Same Fermi model and exact reward cost threshold"
+        },
+        {
+          "assessment": "Applies other intervention criteria; no evidenced implication to the stated t=2 initial-mutant derivative",
+          "evidence": [
+            "Han and Tran-Thanh, Sci. Rep. 8, 15997 (2018)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-018-34435-2",
+          "material_read": "Accessible primary abstract and accessible contextual model descriptions; entire paper not read",
+          "method": "Focused primary summary and model comparison",
+          "title": "Cost-effective external interference for promoting the evolution of cooperation",
+          "trigger": "Could subsume institution-reward cost frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact all-N monotonicity for the first unsolved two-cooperator threshold settles the choice of least-cost reward in a natural absorbing evolutionary-game model with institution costs. The threshold-1 case alone does not decide it, and the proof supplies a nontrivial Green-kernel derivative inequality rather than a numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Expected reward cost starts with exactly one cooperator; not the equally mixed initial state, mutation during fixation, or higher rewarded thresholds.",
+    "Unindexed follow-up to 2024 institution-cost work may already prove the t=2 sign.",
+    "Changing the initial mutant convention or paying during all absorbing visits changes the cost model."
+  ],
+  "schema_version": 1
+}

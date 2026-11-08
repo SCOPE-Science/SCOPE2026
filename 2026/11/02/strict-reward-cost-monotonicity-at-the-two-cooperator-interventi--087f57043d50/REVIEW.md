@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the exact one-step absorbing Markov chain under the stated Fermi update, and the scale function produces the exact expected visit counts \(G_{11}\) and \(G_{12}\), hence the total cost. The derivative is explicit. When \(B'(r)\le0\), cost monotonicity is immediate; when \(B'(r)>0\), the polynomial forces \(r<1/(2T)\), while the logarithmic bound \(r\log(R/r)<1\) and the strict logarithmic derivative bound prove \(E_2'(\theta)>0\). All boundary cases \(N=4\), \(\theta=0\), and arbitrary \(\beta>0\), \(\delta<0\) are included. The independent direct Markov inversion in `check.py` agrees with 182 exact-rational instances and 10,000 numerical derivative checks pass. These computations only corroborate, not replace, the full proof.
+PASS
 
-## Originality — PASS (subject to external prior-art risk)
+PASS. Re-derived the absorbing birth-death scale Green kernel for state 1, with the Fermi update and the self-loop factor h_j. Exact expected cost E=N^2 theta B(r) where r=R exp(-beta theta), R=exp(-beta delta)>1, T=sum_{k=0}^{N-3}R^k, and B=(1+r)(A(1+rT)+CT)/(1+r+Tr^2), A=1/(N-1), C=1/(N-2). Differentiation yields Bprime=(AT-2CT^2r-(A+C)T^2r^2)/D^2. If Bprime>0 it forces r<1/(2T), Bprime/B<1/(1+r), and r log(R/r)<1 (since T>=1+R>2), proving the derivative positive at every theta>=0; the boundary theta=0 follows directly. Independently solved absorbing rational chains for 85 (N,R,r) configurations N=4..8 with exact agreement. The fixation-ratio optimization is a corollary and does not cover other initial states.
 
-The 2024 source paper gives two-reward-state formulas but formally establishes monotonicity only for threshold one and explicitly leaves higher-threshold monotonicity as a conjectural issue. The present result proves the first excluded threshold for all \(N\ge4\) and a specified initial-state convention. Han–Tran-Thanh (2018) treats composition-dependent rewards but supplies simulations for the relevant policy; Duong–Han (2021) and Duong–Durbac–Han (2023) analyze full investment or mixed incentives, which do not imply the assertion. Searches of the mathematical findings index and past accessible scientific claims yielded no equivalent. A theorem hidden in unindexed subsequent literature cannot be categorically excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source identifies threshold-dependent monotonicity as a nontrivial unsolved optimization problem; this theorem resolves an infinite family at the first genuinely intermediate threshold, and produces an explicit globally optimal reward for a target cooperation fraction. It distinguishes two-cooperator conditional reward from full investment, where cost can fail to be monotone, and gives a useful rigorous boundary case for understanding the threshold conjecture.
+PASS, qualified best-of-knowledge. The 2024 Duong–Durbac–Han article analyzes Fermi reward costs and proves an analytical t=1 case, while threshold-dependent higher cases were treated numerically. The exact all-N threshold-two positivity proof for initial single cooperator is not furnished by their stated theorems. Strict scope prevents extrapolation to initial-state mixtures or t>=3.
 
-## Limits
+## value
 
-Only rare-mutation, all-defector-origin excursions (starting at one mutant), \(N\ge4\), constant payoff difference and threshold two are covered; general threshold monotonicity and the equally weighted two-origin convention remain open. Prior-art verification is self-review rather than independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Exact all-N monotonicity for the first unsolved two-cooperator threshold settles the choice of least-cost reward in a natural absorbing evolutionary-game model with institution costs. The threshold-1 case alone does not decide it, and the proof supplies a nontrivial Green-kernel derivative inequality rather than a numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
