@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (computational finite theorem).** The shadow constraints are an exact if-and-only-if characterization of a one-deletion-correcting code, and the independently enumerated one-unit-transfer graph agrees on every edge. The two explicit zero-syndrome codebooks contain 143 and 201 words and satisfy the constraints. Four independently formulated complete finite mixed-integer searches, with two distinct constraint models for each length, gave optimal HiGHS statuses and solver dual bounds below 144 and 202. The integer objective converts those bounds into the claimed optima conditional on solver correctness. The proof makes no inference from partial enumeration or a timeout; verification code and raw results are embedded. Limit: no rational branch-and-bound certificate is supplied.
+## correctness
 
-**Originality — PASS (best accessible evidence).** Kreindel–Essayag–Zabokritskiy explicitly stopped the five-symbol exact table at length eight and stated the length-nine-and-higher optimality as a conjecture. Their own additive construction provides the lower bounds, which are credited. The general multiset deletion bounds and related deletion-ball geometry do not appear to imply either sharp upper bound. The exact graph equivalence was tested against the distinct stronger-transfer simplicial-rook formulation, and both accessible historical research claims and focused semantic searches failed to identify these two exact cases. Unindexed grid graph values remain a priority risk; nonappearance is not a proof of originality.
+PASS
 
-**Value — PASS.** This is a direct, finite, two-step advance on an explicitly stated prime-alphabet multiset-deletion coding conjecture: the first two cases not in the published table, one nonmultiple and one multiple of five. It is not an arbitrary parameter slice. The complete finite result requires integer integrality beyond the natural fractional relaxation (objectives approximately 148.0119 and 208.2). It supplies well-scoped exact benchmarks for future analytic attempts; it does not claim the full conjecture.
+The exact weak-composition universe has 715 and 1001 vectors, respectively; every received (n-1)-multiset is a 5-parent clique and a pair conflicts precisely under one unit transfer. Independent exact enumeration reproduced 495 and 715 shadows, 4950 and 7150 distinct pair-conflicts and valid syndrome-zero codewords of sizes 143 and 201. Four supplied *complete*, not sampled, MIP models in actual verification/ programs explicitly implement binary constraints and zero integrality gap, with source-recorded HiGHS dual upper bounds 143 and 201 below the next integer. The independently reconstructed n=10 MIP also returned primal=dual=201 and zero gap; a new n=9 solver rerun timed out, not treated as negative evidence. Thus the numerical upper bound is conditional on trusted HiGHS branch-and-bound semantics, not a standalone rational certificate. It is not extrapolated beyond n=10.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published five-symbol n<=8 exact table and Conjecture 21 identify n=9 and 10 as first unresolved lengths. The syndrome construction, exact formulation and generic deletion-ball bounds are prior art; the computed sharp upper bounds are the assessed addition, without an all-n theorem.
+
+## value
+
+PASS
+
+It settles two immediately adjacent, explicitly motivated finite instances of a published five-symbol multiset-deletion conjecture, identifying exact code capacities and sharp optimal constructions. They are not arbitrary tiny examples: they extend the published complete finite table in the first uncovered cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
