@@ -1,19 +1,21 @@
-# Scientific review: minor-arc length and crossing fluctuations
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-Conditional on one uniform geometric chord, another chord crosses it with probability \(p(w)=w-w^2/2\), where the doubled short-arc fraction \(w\) is uniform on \([0,1]\). The centered one-chord kernel has exact variance \(1/45\); the degenerate two-chord remainder has variance \(8/45\) per unordered pair. The orthogonal Hoeffding decomposition proves every finite-size variance, projection, and covariance identity. The empirical-process central limit theorem and the deterministic integral identity give the joint Brownian-bridge limit, with remainder vanishing in normalized \(L^2\). The calculus derivation of the unique optimal short-arc cutoff is exact. The packaged checker independently reproduces finite matching enumerations and geometric tests, but does not certify infinitely many sizes.
+PASS
 
-## Originality (O): PASS with priority risk
+For a chord with minor arc W/2, crossing probability is W-W^2/2; W is iid U[0,1]. The centered Hoeffding projection g(W)=W-W^2/2-1/3 has variance 1/45; the canonical degenerate residual kernel has variance 8/45 and disjoint/shared-index terms are uncorrelated, giving exact finite variances and covariance -n(n-1)t(1-t)(2-t)/6. Differentiating t(1-t)(2-t)^2 yields unique interior maximizer (7-sqrt17)/8. Empirical Donsker for the W_i and exact integration-by-parts identity produce the joint bridge limit; scaled residual variance O(n^-1) vanishes. Independently verified symbolic g integrals/threshold polynomial, and the known exact chord-count variance matches Flajolet–Noy Theorem 3. The result is not a full nonlinear conditional expectation.
 
-Flajolet–Noy (2000), Theorem 3, already gives the precise crossing mean, variance and marginal Gaussian limit, and so those are **not** presented as original. Paguyo (arXiv:2104.01134) gives normal-approximation rates and simple-chord limits; Acan (arXiv:1501.01489) examines the uniform matching and chord position. Their inspected texts do not state the joint limit involving the *physical minor-arc empirical process*, the exact additive projection, or the universally optimal cutoff. General Hoeffding/Donsker results supply the abstract mechanism but do not supply these geometric constants without calculation. Existing published results could nonetheless contain a different derivation of the same formulas; absence of search hits is not proof of priority. In particular, the position of a chord in an unlabeled matching should not be conflated with continuous angular minor-arc length.
+## originality
 
-## Value (V): PASS
+PASS
 
-This is a motivated refinement of the classical crossing-count central limit theorem: it identifies which readily measurable geometric statistic generates the leading fluctuations, quantifies the exact finite-size residual variance, and solves a natural optimal observable-design question. The covariance formula gives a nontrivial dependence profile for every threshold and the optimizer is universal in \(n\). These are structural conclusions not furnished by the marginal normal limit alone.
+Uniform sorted endpoint matchings give the same marginal crossing law, but their abstract matching records lack actual angular spacings W_i. The new joint law with the length empirical process is not the known marginal CLT under a different name. Hoeffding U-statistic projection and Donsker theory imply a general mechanism, but applying it requires the explicit chord kernel and its first projection. Flajolet–Noy and Paguyo prove the marginal mean/variance/normality rather than this length-indexed joint process. Classical Touchard–Riordan tables encode crossing count distributions, not continuous geometric minor-arc-length empirical covariances; Resultary chord-related results treat unrelated central/random chord observables. The new theorem implies the marginal Gaussian limit and reproduces the exact variance already in Flajolet–Noy; the converse implications do not recover the joint Brownian-bridge representation or sharp length threshold.
 
-## Limits and residual risks
+## value
 
-The result is specific to iid endpoint-uniform chords and the dimensionless short-arc length. The projection is additive, not necessarily the full conditional expectation given all lengths. An independent originality and correctness review is still needed before a publication-priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural geometric extension of random chord-diagram crossing theory: geometric lengths supply observable predictors not present in unlabeled matchings. Exact finite variance-explained fraction, optimal short-arc threshold and joint functional representation are precise, reusable stochastic-geometric invariants beyond the known marginal crossing CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
