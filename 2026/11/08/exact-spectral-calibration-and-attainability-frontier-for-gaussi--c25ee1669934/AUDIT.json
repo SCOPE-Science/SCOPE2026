@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Direct Gaussian KL reduction gives an explicitly differentiable scalar objective; strict posterior quadratic variance proves convexity in every full symmetric precision direction, coercivity follows from sigma>0, and sign-group averaging forces a diagonal minimizer. The resulting quadratic derivative has exactly one positive root for positive true eigenvalues and a zero boundary minimizer otherwise. Matrix and scalar numerical tests reproduced every tested identity; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spantini et al., arXiv:1607.01881 and arXiv:1407.3463, optimize goal-oriented / low-rank covariance or mean approximation with differing admissible classes.",
+        "Carere–Lie arXiv:2411.01112 treats low-rank posterior covariance approximation while fixing the posterior mean."
+      ],
+      "reasoning": "These broader Gaussian inverse-problem theorems do not optimize the precision of a surrogate *likelihood* whose posterior mean and covariance must both be induced by that one precision. Their objectives and feasibility constraints do not dominate the claimed classification.",
+      "searches": [
+        "Bayesian inverse Gaussian approximation error model posterior KL minimization spectral diagonal covariance calibration sharp positivity mode eigenvalues precision surrogate true forward model",
+        "web: \"approximation error approach\" \"posterior\" \"optimal\" \"commuting\" Gaussian precision",
+        "arxiv:2411.01112",
+        "arxiv:1607.01881"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.38434v1 Sections 1–4; arxiv:2411.01112 introduction; arxiv:1607.01881 abstract; DOI:10.1137/140977308 abstract",
+      "published-finding corpus relevant records including 2026/10/4/SCOPE-spectral-calibration-frontier-for-bagged-martingale-posterior-el--93780f48a968 and 2026/10/11/SCOPE-approximate-k-duality-needs-generalized-inverse-scaled-error--cf9c26f6c7d8",
+      "Published arXiv:2610.38434v1 theorem statements and scalar example"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schneider–Helin Section 4.1 demonstrates nonattainment only for a particular one-dimensional sign-flipped forward map; the new claim is a necessary-and-sufficient positive-spectrum boundary for all commuting symmetric dimensions.",
+        "Schneider–Helin equations (3.5)–(3.6) are an objective identity, not a solved global root formula or an EEA sign comparison.",
+        "EEA moment formula (1.4) fixes residual covariance but does not order posterior-KL optimal precision."
+      ],
+      "reasoning": "The previously proved special nonattainment example is strictly subsumed by the new classification. The named prior theorems do not logically imply the new spectral existence iff criterion and the exact EEA modewise sign without additional minimization, diagonal invariance and algebraic comparison arguments.",
+      "searches": [
+        "Optimal approximation error (OAE) scalar Gaussian linear Bayesian inverse problem exact covariance precision minimizer sign condition surrogate gain prior variance likelihood KL bias enhanced error approach EEA sharp threshold",
+        "Bayesian inverse Gaussian approximation error model posterior KL minimization spectral diagonal covariance calibration sharp positivity mode eigenvalues precision surrogate true forward model",
+        "2610.38434 Optimal approximation error approach in Bayesian inverse problems Schneider Helin Gaussian linear surrogate posterior calibration covariance KL",
+        "Schneider Helin 2026 Optimal approximation error OAE commuting diagonal symmetric Gaussian forward A B positive B exact spectral optimum precision quadratic formula sign of true gain, non-attainment for any negative eigenmode and sharp comparison with enhanced error EEA covariance",
+        "arxiv:2610.38434v1 Section 4.1 nonattainment",
+        "arxiv:2411.01112"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schneider–Helin arXiv:2610.38434v1 Theorem 3.1, equations (3.5)–(3.6), establish the objective and optimal shift but no closed-cone spectral optimizer or EEA order law.",
+        "Theorem 2.7 gives convexity, not an explicit commuting-spectrum KKT solution."
+      ],
+      "reasoning": "The exact equivalent formulation is global posterior-KL fitting with a fixed positive surrogate and free Gaussian likelihood precision. Transforming it to separate polynomial modes requires proving the strict full-matrix symmetrization result; a generic Gaussian covariance/mean approximation formula without a surrogate-consistency constraint does not imply this optimizer.",
+      "searches": [
+        "Optimal approximation error (OAE) scalar Gaussian linear Bayesian inverse problem exact covariance precision minimizer sign condition surrogate gain prior variance likelihood KL bias enhanced error approach EEA sharp threshold",
+        "Schneider Helin 2026 Optimal approximation error OAE commuting diagonal symmetric Gaussian forward A B positive B exact spectral optimum precision quadratic formula sign of true gain, non-attainment for any negative eigenmode and sharp comparison with enhanced error EEA covariance",
+        "web: \"optimal approximation error\" \"negative\" forward \"precision\" Gaussian surrogate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Results of the actual published-finding corpus comparisons do not describe a commuting Gaussian surrogate-likelihood posterior-KL precision optimizer or its eigenmode formula.",
+        "published-finding corpus retrieved related posterior calibration and spectral findings, but no exact table of the commuting Gaussian OAE optimiser."
+      ],
+      "reasoning": "The all-dimensional continuum of sensitivities and variances is not a discrete database fact. Actual claim searches and accessible claims revealed no identical formula; absence is not a proof of universal novelty.",
+      "searches": [
+        "2610.38434 Optimal approximation error approach in Bayesian inverse problems Schneider Helin Gaussian linear surrogate posterior calibration covariance KL",
+        "Schneider Helin 2026 Optimal approximation error OAE commuting diagonal symmetric Gaussian forward A B positive B exact spectral optimum precision quadratic formula sign of true gain, non-attainment for any negative eigenmode and sharp comparison with enhanced error EEA covariance",
+        "published-finding corpus IDs 2026/10/4/SCOPE-spectral-calibration-frontier-for-bagged-martingale-posterior-el--93780f48a968",
+        "published-finding corpus index: exact posterior precision calibration eigenmode spectral formula"
+      ]
+    },
+    "rationale": "The complete explicit global commuting-spectrum optimum, attainability iff positive true forward spectrum, and modewise precision ordering against EEA are not found in the inspected primary OAE proof or the distinct low-rank Bayesian approximations; these require the full-matrix symmetrization and scalar polynomial arguments. Priority remains provisional relative to unindexed older material.",
+    "residual_risks": [
+      "Historical-priority risk: an equivalent spectral calculation may exist in unindexed Gaussian surrogate-calibration literature.",
+      "The low-rank comparator papers were materially inspected at abstract/introduction rather than every theorem; their different feasible classes make direct implication unlikely.",
+      "The classification is restricted to commuting symmetric forward maps and an SPD surrogate, not an all-matrix theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OBJECTIVE_AND_SPECIAL_CASE_NOT_COMPLETE_CLASSIFICATION",
+        "evidence": [
+          "Equations (1.4), (1.5), Theorem 2.7, Theorem 3.1 and Section 4.1 (i) are prior; no closed global spectral optimization or modal EEA ordering stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.38434v1",
+        "material_read": "Abstract; Sections 1–4 including Theorems 2.7 and 3.1, eqs. (3.5)–(3.6), Section 4.1 example; relevant text and source PDF pages",
+        "method": "Primary full-text HTML with targeted theorem/equation inspection and PDF-page comparison",
+        "title": "Optimal approximation error approach in Bayesian inverse problems",
+        "trigger": "Exact same posterior-KL calibration functional, EEA comparator and source nonattainment example"
+      },
+      {
+        "assessment": "DISTINCT_LOW_RANK_FIXED_MEAN_CLASS",
+        "evidence": [
+          "Optimizes low-rank posterior covariance updates while holding the posterior mean fixed; unlike linked mean/precision of a surrogate likelihood."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.01112",
+        "material_read": "Primary PDF abstract and introductory statement of main optimization class",
+        "method": "Primary PDF text and first-page figure inspection",
+        "title": "Optimal low-rank posterior covariance approximation in linear Gaussian inverse problems on Hilbert spaces",
+        "trigger": "Plausible more general KL-based Gaussian posterior-precision optimizer"
+      },
+      {
+        "assessment": "DISTINCT_GOAL_ORIENTED_LOW_RANK_CLASS_WITH_LIMITED_MATERIAL",
+        "evidence": [
+          "Optimizes low-rank covariance and mean approximations for a quantity of interest; no free surrogate likelihood noise parameter class identified from inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.01881",
+        "material_read": "Primary arXiv abstract and stated scope; not full theorem proof",
+        "method": "ArXiv primary abstract and publisher descriptive scope",
+        "title": "Goal-oriented optimal approximations of Bayesian linear inverse problems",
+        "trigger": "Existing spectral characterization under KL divergence"
+      },
+      {
+        "assessment": "DISTINCT_LOW_RANK_CLASS_WITH_LIMITED_MATERIAL",
+        "evidence": [
+          "Published scope is low-rank prior-covariance updates and approximations of posterior mean; different from unconstrained noise precision calibration."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140977308",
+        "material_read": "Publisher abstract and result scope; not full primary text",
+        "method": "Publisher abstract and citation context",
+        "title": "Optimal low-rank approximations of Bayesian linear inverse problems",
+        "trigger": "Potential broad covariance approximation under KL divergence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c25ee166-9934-4367-be2b-cbba6cd20cd6",
+  "value": {
+    "rationale": "Full global eigenmode classification is a natural exact invariant of surrogate likelihood calibration. It characterizes whether the unregularized model has any finite optimal covariance, which measured directions are discarded and the exact direction of deviation from common enhanced-error correction; mixed spectra reveal an intrinsically anisotropic correction not captured by scalar inflation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (self-review).** The claim is established by an explicit Gaussian posterior calculation, strict convexity over every symmetric precision direction, sign-reflection reduction to the common spectral basis, and a one-variable polynomial stationary equation. Coercivity of the unregularised objective on the closed precision cone is proved from the positive observation-noise floor. Boundary cases \(a_i=0\), \(a_i<0\), and \(a_i=b_i\) are included. The self-contained checker and independent numeric matrix stress tests agree with the proof. Numerical tests do not replace the infinite-dimensional-in-parameter analytic reasoning.
+
+**Originality — PASS (qualified).** Schneider and Helin supply the functional, biconvexity/convexity ingredients, Gaussian objective, optimal shift, and a single sign-flipped nonattainment example. The additional classification supplies the closed-cone global spectral optimiser over **all** SPD precision matrices, the exact attainability criterion for every commuting spectrum, and the modal EEA ordering law. Earlier low-rank posterior approximation papers have different admissible parameter classes; no checked result states or dominates this complete calibration classification. The priority comparison is not exhaustive.
+
+**Value — PASS.** Inverse-model approximation naturally requires deciding whether a posterior-optimal covariance exists and how it deviates from EEA's residual-variance choice. The result shows that nonpositive true sensitivities force likelihood precision to the boundary and that calibration can move precision in opposite directions simultaneously. The full-SPD optimality statement avoids an artificial diagonal-only benchmark.
+
+**Closest literature and limitations.** Schneider and Helin, arXiv:2610.38434v1, Sections 2–4; Spantini et al., arXiv:1407.3463 and arXiv:1607.01881; Carere and Lie, arXiv:2411.01112. The theorem assumes an identity Gaussian prior, isotropic positive noise, commuting symmetric forward maps and positive-definite surrogate. Its boundary likelihood is a posterior limit rather than a proper finite Gaussian noise model. A separate independent mathematical audit would be needed before external certification.
+
+Self-review: passed. Independent audit: not yet performed.
