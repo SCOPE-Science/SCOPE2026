@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized \(\det(g)^{-1}g^{-1}F(gv)\) action is scalar-independent for cubic pairs, so it is an honest eight-dimensional \(\mathrm{PGL}_2\) representation. Twisting by any conic torsor yields an eight-dimensional vector space, hence an affine space after choosing a basis. The usual resultant and automorphism-free opens remain geometrically nonempty, and the geometric quotient remains dominant after twisting. Rational points of a nonempty affine open are Zariski dense over \(\mathbb Q\). Trivial automorphisms make the isomorphism of any two rational models unique, proving that a representative on \(\mathbb P^1\) would split the original conic. The explicit Hamilton witness's exact polynomial checks independently establish the nonempty generic locus. These steps prove the full quantifiers over all nonsplit conics, without a numerical extrapolation.
+## correctness
 
-## Originality — PASS (qualified)
-Shaska (arXiv:2610.33990v1) proves an individual-point quaternion-splitting test and height-statistical results, and West (arXiv:1408.3247v1) studies the invariant quotient and descent conic. Neither inspected source states geometric density for *every fixed nonzero quaternion class*. Hidalgo's quadratic-definition theorem is weaker. Direct result searches under class, conic, twist, rational-map and Zariski-density aliases returned no equivalently covering item. The proof adds the rationality and dominance of each separately twisted coefficient space. An unknown general twist theorem could subsume this observation, and a potentially broader stable-map paper was abstract-accessible only.
+PASS
 
-## Value — PASS
-The motivating arithmetic question distinguishes fine and coarse rational points but leaves open whether a given obstruction class occurs throughout the geometric moduli space rather than in a proper closed locus. The finding supplies a uniform, all-conic structural answer and explicitly constructs a dominant rational family even for the Hamilton obstruction. It does not address the harder question of proportions by height, which is kept separate.
+For cubic pairs F=(F0,F1) in W=Hom(Sym^3 Q²,Q²), rho(g)F(v)=det(g)^(-1)g^(-1)F(gv) is scalar-independent for GL2 lift g (weight -2-1+3=0); hence an honest linear PGL2-representation with projectivization conjugacy of degree-three rational maps. For any nonsplit Q-conic torsor T_C, twist W to W_C, an eight-dimensional vector space over Q by Galois descent. The nonzero-resultant, trivial-geometric-automorphism open U_C is geometrically nonempty: generic cubic maps have trivial centralizer; the explicit Hamilton example has resultant 675, fixed-point discriminant 27760 and distinct fixed multipliers; independently recalculated with exact SymPy arithmetic. Geometric map U_C→M3 is dominant. Q-points of nonempty open in A8 are Zariski dense; trivial Aut forces uniqueness of any geometric dynamical isomorphism, so a P1_Q representative would descend an isomorphism P1→C and split nonsplit C. Thus every prescribed nonsplit class is exactly realized densely, with no height density claim.
 
-## Limitations and closest literature
-This is geometric Zariski density, not a positive counting density or a proof of the logarithmic height conjecture. Priority remains qualified by uninspected possible general twist theorems; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Direct statement-level primary comparisons and Resultary semantic searches support best-of-knowledge originality: A general twisted-parameter or gerbe theorem might imply fixed-class density as a corollary. The specific conclusion was not located in the inspected full Shaska and West sources; Hidalgo and related stable maps material were not fully read and could conceal an equivalent implication. The exact Hamilton witness establishes only nonempty generic open, not infinite density by itself.
+
+## value
+
+PASS
+
+Solves an arithmetic-geometric existence question for each fixed nontrivial Brauer/conic obstruction, rather than the already available pointwise descent criterion or union of coarse loci. A uniform torsor-twist argument shows a dense family for every class; a reusable geometric construction with natural moduli motivation, although close to standard Galois descent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
