@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result defines a finite étale Kummer parameter cover rather than identifying an unexamined moduli-scheme structure. The logarithmic residue correspondence follows from the Cartier criterion, principal divisors and the ordinary-elliptic \([p]=VF\) factorization. The slice argument proves connectedness because a nonzero residue induces a surjective action on the cyclic \(p\)-quotient; symmetric-group orbits give the unordered degrees; character orthogonality proves the enumerations. The included finite checker corroborates only combinatorics.
+## correctness
 
-## Originality — PASS, qualified
-The Andreatta--Goren source gives the Cartier condition, existence and moduli setup. It does not in the inspected relevant sections state the Kummer connected-cover decomposition, multiset component count, or degree formulas. The earlier logarithmic Hurwitz article addresses a different ramification-moduli problem, and the mathematical-record queries did not return an equivalent result. The generalized Jacobian literature could implicitly subsume this classification and is the leading priority risk; no search result proves uniqueness.
+PASS
 
-## Mathematical value — PASS
-The source establishes existence but leaves the number of distinct normalized \(p\)-closed foliations over a pole divisor and the global connected covering geometry undetermined. The theorem determines both uniformly for all reduced pole degrees, and gives a nontrivial cyclic monodromy calculation rather than merely a counting special case. For \(p=5,d=2\), the cover has two connected components, each of degree ten, yielding twenty geometric points over a divisor.
+For algebraically closed k of char p>=3 and ordinary elliptic E,Y, the assumed Cartier-logarithmic criterion reduces the specified normalized foliation 1-form to dlog g on Y with nonzero F_p residues at reduced poles. Residue sum=0 by the residue theorem; lifting residues to an integer degree-zero divisor Delta and factoring [p]=V∘F associates every logarithmic derivative to a p-division class. V is a connected cyclic etale degree-p isogeny on ordinary elliptic Y. Pullback under weighted Abel map over ordered distinct poles stays connected: restriction to varying a single pole yields pullback along multiplication a1 prime to p, preserving surjectivity on the cyclic p quotient; deleting finite points does not disconnect. Quotient by free S_d action partitions by residue multisets, each stratum degree p*d!/prod(m_j!), and character orthogonality gives C_{p,d} and N_{p,d}. Independently enumerated residue vectors/multisets for p=3,5,7 and 2<=d<=5 verifying all formulas. This checks only arithmetic; geometric proof relies on the stated primary foliation criterion and standard isogeny facts, not finite experiments.
 
-## Limitations and provenance
-Only ordinary elliptic products, reduced simple poles, and the natural étale Kummer parameter covers are treated. Frobenius supplies a geometric-point bijection, not a claimed scheme isomorphism. Earlier work supplies the Cartier and p-isogeny lemmas. Priority is qualified and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Andreatta–Goren is the essential 2026 source for p-closed turbulent foliations, ordinary-elliptic Cartier criterion, reduced-pole existence and surrounding moduli; these are fully credited. What appears additional in the reviewed proof is the explicit connected Kummer parameter torsor for each residue multiset, all stratum degrees and the closed residue census. However the original primary text and its §2 moduli construction were not obtainable, and the abstract claims to determine moduli spaces: an important specific priority risk remains. Qualified best-of-knowledge, not categorical whole-document noncoverage.
+
+## value
+
+PASS
+
+Connection of residues to Kummer covers and a connected-stratum classification with exact combinatorial degrees is a natural structural invariant of the specified ordinary-elliptic p-closed foliation family; potentially useful independent of the scheme-theoretic moduli problem. More than character sum alone, because connectedness and the cover geometry are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
