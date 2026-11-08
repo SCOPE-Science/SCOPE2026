@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For \\(d\\ge2\\), \\(a>0\\), and \\(0<h<2/(da)\\), the multiplier \\(c=1-dah\\) has absolute value below one. Synchronous mean-square coupling contracts by \\(u=1-(1-c^2)/d\\); every coordinate is selected infinitely often, giving almost-sure coupling uniqueness without an extraneous moment assumption. The two-sided innovation series is \\(L^4\\)-convergent because \\(\\mathbb E[A_i^4]=1-(1-c^4)/d<1\\). Stationary second-, fourth-, and cross-fourth-moment recursions yield covariance \\(a^{-1}I_d\\), excess kurtosis \\(3(d-1)(1-c^2)/(d(1+c^2))\\), and squared-coordinate covariance \\(-(1-c^2)/(2da^2)\\). At the complete-reset step the geometric backward age gives conditional variance \\((k+1)/(da)\\); its MGF is a nonnegative geometric series whose convergence is equivalent to \\(|t|<\\sqrt{2da\\log(d/(d-1))}\\). Independent exact-rational and finite-series enumeration passed 2018 checks. The infinite and universal assertions rest on the analytic proof, not those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altschuler and Talwar Section 6.2 requires a fixed conditional sub-Gaussian variance proxy for gradient error; here it increases with the unbounded current state, so that theorem is inapplicable.",
+        "Ding et al. 2020 update only the selected state coordinate, unlike the full-noise coordinate-gradient scheme.",
+        "Earlier Gaussian-covariance-matched random-projection kurtosis result assumes a fourth-order directional design that uniform coordinate-axis projections do not satisfy."
+      ],
+      "reasoning": "A stronger general concentration result with a uniform gradient-noise condition does not cover this state-dependent multiplicative gradient noise. The projective fourth-order isotropy assumption is explicitly violated by axis sampling. None of these sources dominates the new precise formulation.",
+      "searches": [
+        "coordinate-subsampled Langevin Monte Carlo Gaussian target kurtosis fourth moment stationary distributions",
+        "random-coordinate Langevin stationary Gaussian variance corrected but nonGaussian marginal positive excess kurtosis exact fourth moment",
+        "subsampled overdamped Langevin coordinate drift stationary renewal Gaussian scale mixture geometric waiting times exponential tails",
+        "simultaneous squared coordinate negative covariance isotropic randomized gradient Langevin",
+        "arxiv:2212.12629 Section 6.2 uniform sub-Gaussian gradient noise",
+        "arxiv:2010.01405 RC-LMC algorithm"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.14209",
+      "https://arxiv.org/html/2010.01405v1",
+      "https://jmlr.csail.mit.edu/papers/volume17/15-494/15-494.pdf",
+      "https://arxiv.org/html/2212.12629v2",
+      "related prior covariance claim a8b905db-9264-4e68-9526-a52a2cc8232a",
+      "related prior random-projector claim 5f1a54a8-987a-425e-aad1-24bcb1b5b5de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Covariance is a second-order invariant and does not determine positive kurtosis, cross-square anticorrelation, or bounded exponential-moment domain.",
+        "For planar coordinate axes, E[(u^T P u)^2]=(u_1^4+u_2^4)/2, whereas the earlier projector theorem requires 3||u||^4/8; taking u=(1,0) gives 1/2 rather than 3/8.",
+        "The 2016 toy has stochastic additive forcing and a deterministic AR multiplier, unlike randomized coordinate cancellation with state-dependent forcing."
+      ],
+      "reasoning": "The previous covariance theorem yields the scalar calibration but none of the proposed fourth-order or renewal law. The previously studied planar projection model assumes rotational fourth-order design and cannot specialize to coordinate-axis selection. The exact new moment and MGF statements are not corollaries of the inspected estimates.",
+      "searches": [
+        "arxiv:2007.14209 full text Algorithm 2 and Theorem 3",
+        "source claim ID a8b905db-9264-4e68-9526-a52a2cc8232a",
+        "source claim ID 5f1a54a8-987a-425e-aad1-24bcb1b5b5de",
+        "jmlr:17-159-2016 Sections 2 and Appendix 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ding and Li Algorithm 2 updates all coordinates with Gaussian noise, but selects one directional gradient; Section 4.2 states Wasserstein bounds, not exact invariant fourth moments.",
+        "Vollmer et al. Appendix 10 derives fourth moments of a deterministic-AR-coefficient Gaussian toy with random additive data forcing."
+      ],
+      "reasoning": "Equivalent SGLD moment expansions or random-recursion formulas were checked by comparing actual update laws. Neither same coefficients nor the joint coordinate-exclusive squared moment law appears in inspected materials; general random-affine recurrence algebra alone is a proof technique and not the exact claim.",
+      "searches": [
+        "random coordinate Langevin quadratic constant Hessian diagonal stationary covariance exact scalar inflation Gaussian target",
+        "randomized coordinate Langevin scalar isotropic covariance exact after noise calibration geometric mixture Gaussian non Gaussian exponential tails",
+        "coordinate-subsampled Langevin Monte Carlo Gaussian target kurtosis fourth moment stationary distributions",
+        "arxiv:2007.14209 RCD-O-LMC Algorithm 2 Section 4.2",
+        "jmlr:17-159-2016 Appendix 10 stationary fourth moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related prior second-moment identifier a8b905db-9264-4e68-9526-a52a2cc8232a proves the uncalibrated covariance factor for diagonal-equal Hessians, not invariant fourth moments.",
+        "Related prior fourth-order projective identifier 5f1a54a8-987a-425e-aad1-24bcb1b5b5de treats rank-one random projections satisfying a fourth-order isotropic design condition, absent here."
+      ],
+      "reasoning": "No matching exact joint fourth-order table or geometric-age MGF result was found in inspected sources or accessible claims. This search is not a global novelty proof; publication-precedence uncertainty is recorded.",
+      "searches": [
+        "randomized coordinate Langevin scalar isotropic covariance exact after noise calibration geometric mixture Gaussian non Gaussian exponential tails",
+        "coordinate-subsampled Langevin Monte Carlo Gaussian target kurtosis fourth moment stationary distributions",
+        "random-coordinate Langevin stationary Gaussian variance corrected but nonGaussian marginal positive excess kurtosis exact fourth moment",
+        "subsampled overdamped Langevin coordinate drift stationary renewal Gaussian scale mixture geometric waiting times exponential tails",
+        "simultaneous squared coordinate negative covariance isotropic randomized gradient Langevin",
+        "source identifier a8b905db-9264-4e68-9526-a52a2cc8232a; source identifier 5f1a54a8-987a-425e-aad1-24bcb1b5b5de"
+      ]
+    },
+    "rationale": "The accepted claim is the exact dimension- and step-dependent marginal fourth moment, the negative cross-square invariant moment, and the sharp renewal-mixture MGF boundary for a scalar-covariance-calibrated version of full-noise random-coordinate Langevin. The exact second-moment covariance multiplier is expressly prior and excluded from novelty. Inspected source algorithms and hypotheses do not logically imply these new fourth-order and MGF identities. Residual specialist-publication risk remains.",
+    "residual_risks": [
+      "No bibliographic search can establish global priority; an exact specialist Gaussian-switching autoregressive calculation could subsume the mixture or fourth-order identities.",
+      "The new work does not claim the already known scalar covariance calibration or non-Gaussianity of generic covariance-matched random projections.",
+      "The claim is limited to isotropic full-noise coordinate-gradient updates; no arbitrary Hessian or coordinate-only update extension is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines original full-noise gradient estimator; bounds convergence but does not supply exact invariant fourth moments or MGF cutoff.",
+        "evidence": [
+          "Algorithm 2 equations (16)-(17) define F=d partial_r f e_r and x_next=x-hF+sqrt(2h)xi.",
+          "Section 4.2 Theorem 3 gives Wasserstein convergence with O(sqrt(h)d) error."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.14209",
+        "material_read": "Full public HTML, especially Algorithm 2 and Section 4.2/Theorem 3 and error analysis",
+        "method": "Primary author full text; checked algorithm and theorem statements",
+        "title": "Langevin Monte Carlo: random coordinate descent and variance reduction",
+        "trigger": "Exact full-noise single-coordinate gradient scheme used for the claim"
+      },
+      {
+        "assessment": "Leaves unselected state coordinates unchanged; not the full-noise model or a dominating fourth-order theorem.",
+        "evidence": [
+          "The RC-LMC algorithm updates a chosen coordinate rather than all coordinates with fresh Gaussian noise."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.01405v1",
+        "material_read": "Full public HTML, algorithm definition and main convergence sections",
+        "method": "Read algorithm and scope, compared update coordinates and Gaussian forcing",
+        "title": "Random Coordinate Langevin Monte Carlo",
+        "trigger": "Potential same-name competing coordinate algorithm"
+      },
+      {
+        "assessment": "Gives a deterministic AR multiplier with stochastic additive data forcing, not this random coordinate multiplicative gradient selector or paired squared-coordinate identity.",
+        "evidence": [
+          "Section 2 equation (14): theta_next=(1-Ah)theta+h B_k+sqrt(h)xi.",
+          "Appendix 10 equation (C.5) gives scalar fourth-moment recurrences for sample-average MSE."
+        ],
+        "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume17/15-494/15-494.pdf",
+        "material_read": "PDF title/abstract page, Section 2 pages 4-6, Appendix 10 page 38 and adjacent moment equations; rendered pages 0,5,38 were inspected",
+        "method": "Primary full PDF text and page images",
+        "title": "Exploration of the (Non-)Asymptotic Bias and Variance of Stochastic Gradient Langevin Dynamics",
+        "trigger": "Older Gaussian toy calculation of SGLD stationary moments including fourth"
+      },
+      {
+        "assessment": "Uniform conditionally sub-Gaussian gradient-noise proxy fails for sampled-coordinate gradient discrepancy proportional to X; concentration result does not dominate the heavy-tail claim.",
+        "evidence": [
+          "Section 6.2 equations (6.2), Theorem 6.3 require a fixed sub-Gaussian proxy sigma^2 for G-gradient f(X)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.12629v2",
+        "material_read": "Full public HTML with Section 6.2, Theorems 6.3 and 6.4, and their stated assumptions",
+        "method": "Read conditional gradient-noise assumption and compared to the unbounded state-dependent coordinate error",
+        "title": "Concentration of the Langevin Algorithm's Stationary Distribution",
+        "trigger": "Potential stronger Gaussian stationary concentration theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4601fc2-c4d4-4f2c-b6bd-3e8644562f95",
+  "value": {
+    "rationale": "Exact target covariance does not certify sampling from the desired Gaussian distribution: strictly positive marginal excess kurtosis and negative dependence between squared coordinates persist for every interior stable step, and the natural complete-reset choice has a sharp finite exponential-moment domain. These are testable fourth-order and tail diagnostics for a canonical coordinate-gradient sampler. They are not entailed by an existing second-moment theorem or by a fourth-order random-projection theorem whose directional-design hypothesis excludes axis sampling. No algorithmic speedup or general-potential claim is made.",
+    "status": "PASS"
+  }
+}
