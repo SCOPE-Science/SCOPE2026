@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The claim concerns every integer \(n\ge3\). The proof is self-contained in `RESULT.md`; its critical steps are the edge-exchange linear lemma, induction on the complete-graph order, and three explicit star-tree evaluations. Those steps, not a finite computation, justify universal quantifiers.
+## correctness
 
-Running `python3 VERIFY.py` from the extracted files uses only the Python standard library and yields the exact prime-field row ranks of the pair-inclusion matrix: \(3\) for \(n=3\) (three trees), \(15\) for \(n=4\) (sixteen trees), \(45\) for \(n=5\) (125 trees), and \(105\) for \(n=6\) (1296 trees). Each equals \(\binom{\binom n2}{2}\). These are independent finite consistency checks: they do not prove the infinitely many larger cases. Modular rank can prove nonzero rational minors in the tested cases but cannot replace the general argument.
+PASS
 
-The normalized Gram rank is measure-independent only when all trees have **strictly positive** probabilities; measures that exclude trees can reduce rank. No nonzero eigenvalue bounds or numerical conditioning claims are made. No independent mathematical audit or validation has occurred.
+For every s>=3, a vanishing linear combination of edge indicators on all trees has every coefficient zero: use tree exchanges across a cut and fixed tree size. Induct on n for a vanishing pair sum: attach reserved vertex n by different leaf edges to force mixed coefficients equal via linear uniqueness; restrict to old trees to determine old pairs; use full star and one-old-edge near-star evaluations to eliminate common mixed weights; omit two star edges and connect omitted vertices via old edges to eliminate remaining pairs. Base n=3 incidence matrix is identity. Fixed tree-size relation reduces constants and singleton indicators to pairs, yielding m+1 independent relations. Exact independent enumeration of Prüfer trees/linear algebra confirmed n=3,4,5 pair ranks 3,15,45; no finite extrapolation.
+
+## originality
+
+PASS
+
+Filmus develops orthogonal basis for a complete fixed-weight Boolean slice but spanning trees are a strict subset, and restriction may lower rank. Burton–Pemantle and Kassel–Wu compute transfer-current joint edge statistics but do not state this exact all-degree-two function independence. Best-of-knowledge O PASS, with larger risk of a general matroid-basis inclusion matrix theorem implying the special case.
+
+## value
+
+PASS
+
+Exact dimension and complete kernel of low-degree Fourier/Walsh observations on a canonical graphically constrained Boolean slice under every positive sampling law; structurally useful for identifiability and covariance/Gram rank, not a rederivation of a generic fixed-slice rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

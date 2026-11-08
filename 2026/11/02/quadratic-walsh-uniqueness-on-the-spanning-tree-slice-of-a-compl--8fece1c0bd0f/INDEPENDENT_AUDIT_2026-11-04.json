@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every s>=3, a vanishing linear combination of edge indicators on all trees has every coefficient zero: use tree exchanges across a cut and fixed tree size. Induct on n for a vanishing pair sum: attach reserved vertex n by different leaf edges to force mixed coefficients equal via linear uniqueness; restrict to old trees to determine old pairs; use full star and one-old-edge near-star evaluations to eliminate common mixed weights; omit two star edges and connect omitted vertices via old edges to eliminate remaining pairs. Base n=3 incidence matrix is identity. Fixed tree-size relation reduces constants and singleton indicators to pairs, yielding m+1 independent relations. Exact independent enumeration of Prüfer trees/linear algebra confirmed n=3,4,5 pair ranks 3,15,45; no finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Transfer current computes joint edge correlations and can express moment Gram entries, not automatically prove absence of low-degree relations."
+        ],
+        "reasoning": "A broad matroidal independence theorem could dominate the claim, but no inspected full theorem establishes pair independence for all graphic matroid bases of K_n.",
+        "searches": [
+          "Kassel Wu arxiv:1312.2946",
+          "Burton Pemantle arxiv:math/0404048",
+          "matroid base inclusion matrix rank"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1406.0142",
+        "https://arxiv.org/abs/1312.2946",
+        "https://arxiv.org/abs/math/0404048"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fixed total edge count generates m+1 universal relations in degree<=2; general covariance identities follow from that."
+        ],
+        "reasoning": "The claim proves these are all relations on the sparse tree slice, which does not follow from fixed edge count alone. Potential unindexed matroid inclusion results are a priority risk.",
+        "searches": [
+          "Filmus arxiv:1406.0142",
+          "Kassel and Wu arxiv:1312.2946"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Filmus gives Fourier analysis on all fixed-weight subsets, whereas K_n spanning trees satisfy cycle exclusion and form a proper subset."
+        ],
+        "reasoning": "Independence on a larger domain is not preserved by restriction, so complete-slice harmonic dimension does not imply this rank.",
+        "searches": [
+          "spanning trees complete graph independent squarefree pair edge incidence functions rank matroid bases inclusion matrix",
+          "Filmus arxiv:1406.0142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small finite ranks n=3,4,5 checked exactly and no matching published Resultary result returned."
+        ],
+        "reasoning": "Finite tables do not establish all n; induction provides the infinite claim, so the result is more than recomputing finite rank tables.",
+        "searches": [
+          "Resultary spanning trees complete graph independent squarefree pair edge incidence functions rank matroid bases inclusion matrix",
+          "complete graph spanning tree edge pair incidence rank"
+        ]
+      },
+      "rationale": "Filmus develops orthogonal basis for a complete fixed-weight Boolean slice but spanning trees are a strict subset, and restriction may lower rank. Burton–Pemantle and Kassel–Wu compute transfer-current joint edge statistics but do not state this exact all-degree-two function independence. Best-of-knowledge O PASS, with larger risk of a general matroid-basis inclusion matrix theorem implying the special case.",
+      "residual_risks": [
+        "A strong general matroid-basis incidence-matrix theorem might imply all pair monomials independent and weaken priority.",
+        "Only ranks for n<=5 independently recomputed; all-size proof relies on carefully checked induction.",
+        "No statement on higher Walsh degrees or other host graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_DOMAIN_NOT_SUFFICIENT",
+          "evidence": [
+            "Full uniform slice results do not assert rank preserved on spanning-tree bases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.0142",
+          "material_read": "Accessible full primary PDF, definitions of fixed-weight slice and harmonic bases",
+          "method": "PDF text extraction and first-page screenshot",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Most obvious full-slice dominance result"
+        },
+        {
+          "assessment": "CORRELATIONS_PRIOR_NOT_EXACT_WALSH_NULLSPACE",
+          "evidence": [
+            "Computes correlations, not the entire pair-inclusion rank for every n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "Accessible full primary PDF, transfer-current/pattern-field definitions and main scope",
+          "method": "PDF text and first page screenshot",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Same graph/tree joint edge observables"
+        },
+        {
+          "assessment": "PROBABILITY_FORMULA_PRIOR",
+          "evidence": [
+            "Joint inclusion determinants could construct Gram entries; not shown to imply independence, full text requires further comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0404048",
+          "material_read": "Bibliographic statement and theorem context, full text not independently inspected this run",
+          "method": "Abstract and citation comparison",
+          "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+          "trigger": "Original transfer-current determinant theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact dimension and complete kernel of low-degree Fourier/Walsh observations on a canonical graphically constrained Boolean slice under every positive sampling law; structurally useful for identifiability and covariance/Gram rank, not a rederivation of a generic fixed-slice rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A strong general matroid-basis incidence-matrix theorem might imply all pair monomials independent and weaken priority.",
+    "Only ranks for n<=5 independently recomputed; all-size proof relies on carefully checked induction.",
+    "No statement on higher Walsh degrees or other host graphs.",
+    "A full independent listing/reconstruction of the entire record Git tree was not obtained; file-blob identities from frozen assigned commit are inspected and matched, and assigned record-tree SHA retained.",
+    "Public source METADATA/AUDIT contains operational run IDs and inherited first_public_date; no unchanged source package is cleared for public release.",
+    "Finite computations corroborate only checked instances; external mathematical certification not claimed."
+  ],
+  "schema_version": 1
+}
