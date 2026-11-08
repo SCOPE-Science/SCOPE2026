@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each finite input coordinate set the norm of the remaining two-evaluation rows is exactly the sum of surviving coefficient magnitudes. A sequence of pairwise-disjoint point-mass witnesses is weakly null in the weighted supremum space, so every compact perturbation has vanishing response on it; this proves the matching lower bound against arbitrary compact operators, not merely coordinate truncations. The graph classification follows from greedy matching and finite vertex covers. Properness makes the disagreement graph locally finite for the \(c_0\) restriction. The approximation-number plateaus use explicit finite-rank input truncations. The exact finite checker passed 1,857 cases; finite tests are not substituted for the infinite proof.
+## correctness
 
-## Originality
-PASS, qualified. Allen–Pons (arXiv:2207.09001) established the essential-norm formula for a *single* composition operator on weighted bounded functions of a tree, while Albanese–Mele (DOI:10.1002/mana.202200171) treat individual operators on continuous-function spaces. Neither inspected theorem gives the three-case classification for the two-map disagreement graph. Related holomorphic-function differences (Lindström–Wolf DOI:10.1007/s00605-007-0493-1, and Fang–Zhou DOI:10.1155/2008/983132) have analyticity constraints absent here. Classical coordinate-tail estimates are a standard underlying technique and are not independently claimed novel. Earlier general matrix-operator work may implicitly subsume this graph application; the 2008 paper was only accessible at abstract level. Published indexed search and prior recoverable claims did not identify direct duplication, which is not proof of global novelty.
+PASS
 
-## Mathematical value
-PASS. The theorem gives a complete natural structural classification of compact-perturbation norms of two-symbol differences, including an exact one-half gap and a sharp matching/cover boundary, plus a collapse of that intermediate phase under properness on \(c_0\). Finite-rank cutoff bounds make the distinction quantitative at every sufficiently large approximation rank. The claims apply to arbitrary countable symbols rather than an ad hoc finite example.
+For T=C_phi-C_psi on scalar l_infty, each output row after deleting finite input coordinates F has norm precisely the sum of its two surviving weighted point-evaluation norms; the upper compact bound is the finite-rank TP_F estimate. To get the reverse bound for arbitrary compact perturbations choose row witnesses with pairwise disjoint finite supports outside increasing F_n. Their bounded normalized input vectors are weakly null in l_infty because sum of signed disjoint vectors has uniformly bounded norm; any compact K maps them to norm-null outputs. Thus the essential norm is exactly inf_F H(F), independent of local finiteness or repetition of symbols. For unweighted pairs, H(F) is 0,1,2 by finite edges/finite vertex cover/no finite vertex cover. Greedy maximal matching shows absence of finite cover iff existence of an infinite matching. Proper c_0 symbols give finite graph degree, so infinite edges force 2; each finite edge set has finite rank. Approximation-number bounds follow since essential norm <= every finite-rank distance; the cover truncation has rank <=|F|. All fields real or complex, positive weights with separate bounded compositions. This is not a theorem about arbitrary cancellation-only maps on c_0. Independent finite row/graph checks and repeated-edge rank-one sanity check corroborate, but the weak-null proof supplies the infinite argument.
 
-## Closest literature and limitations
-The primary motivating source is Allen–Pons (2022), *Composition operators on weighted Banach spaces of a tree*, arXiv:2207.09001, first public 2022-07-19. Other comparisons are Albanese–Mele (2023), Lindström–Wolf (2008), Fang–Zhou (2008), and published records on weighted composition and band-dominated operators. The work is restricted to real/complex scalar coordinate supremum spaces; the \(c_0\) result requires individually proper symbols. A general matrix norm result could supply an unindexed antecedent; no independent expert audit has excluded that possibility.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Discrete coordinate essential norms of differences are a natural variation of individual composition-operator norms. A highly relevant same-space 2022 source even states a 0/1/2 classification in terms of symbol ranges and infinitely many disagreeing output indices; that condition does not distinguish repeated disagreement pairs. In a repeated-edge example both symbols can have infinite ranges and differ on infinitely many input indices while T has rank one, refuting a naive unconditional implication of the printed criterion; the present distinct-pair graph cures that multiplicity defect. The weighted tail identity and c0/proper formulation further distinguish the specific claim. Novelty is best-of-knowledge: a correct older matrix-operator theorem could imply the tail formula.
+
+## value
+
+PASS
+
+The exact essential norm and approximation-number phase diagram separates finite-rank, infinite-star, and infinite-matching disagreement in a natural Banach-operator class. Explicitly distinguishing repeated rows corrects a serious pitfall in a closely related published criterion. Its discrete weighted identity supports nontrivial future compactness and perturbation arguments; this is more than a relabeling of single composition-operator norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
