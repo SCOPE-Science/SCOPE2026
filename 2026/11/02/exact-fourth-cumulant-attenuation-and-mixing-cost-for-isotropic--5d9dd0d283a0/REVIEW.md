@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns a normalized, independently refreshed Haar projection and response model. The exact projector orthogonality identity, elementary spherical second/fourth moments, and a strict \(W_4\) contraction establish existence and uniqueness among finite-fourth-moment invariant laws. Rotational symmetry then yields the exact radial fourth-moment fixed point; its marginal projection is determined by a spherical fourth moment, giving the factor \(3/(2d+1)\). The conditional-mean eigenvalue \(1-1/d\) gives the lag law and an exact geometric-series long-run variance. A standalone checker passed 1,068 groups, with exact rational arithmetic and four fixed-seed sample runs.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+Under synchronous coupling, differences obey P_U(x-x′). Spherical fourth moment E(U^Tv)^4=3||v||^4/[d(d+2)] gives exact W4 contraction alpha=(d²-1)/(d(d+2))<1 for d>=2. The transition has bounded fourth moment and a unique invariant measure; rotational covariance of the update yields isotropy, EX=0 (even if EY != 0 because EU=0). Orthogonality ||P_U X+YU||²=||P_U X||²+Y² gives stationary M2=d sigma² and M4=d(d+2)[2(d-1)sigma⁴+mu4]/(2d+1). Isotropy converts M4 into the coordinate formula. Conditional expectation E[X_{n+1}|X_n]=(1-1/d)X_n yields lag covariance and the geometric summation factor 2d-1. Independent rational checks for dimensions 2..200 confirm algebra, not universal theorem. No Gaussian limit or CLT is inferred.
 
-The motivating full arXiv text of Bergou et al. (arXiv:2308.16904) studies frozen doubly-noisy matrices and right-hand sides, with second-moment convergence bounds. Gower–Richtárik (arXiv:1506.03296) provide the Gaussian Kaczmarz/sketch-and-project algorithm and its standard isotropic rate \(1-1/d\); that rate itself is not new. Agaskar–Wang–Lu (2014) concern exact MSE and optimized sampling; their PDF could not be fully read due an access error, so only the abstract was compared and this uncertainty remains. Recorded searches compared stochastic Gibbs/heatbath, normalized Gaussian directions, Kac-type thermostat terminology, and existing numerical-iteration findings. No inspected primary source or retrieved published scientific record supplied or implied the same non-Gaussian stationary fourth-cumulant coefficient jointly with the exact correlation-cost law. This is a qualified literature comparison, not an assertion that unindexed results cannot exist.
+## originality
 
-## Value — PASS
+PASS
 
-Non-Gaussian fresh measurement noise is a natural modification of randomized row-action solvers. Exact stationary MSE alone cannot detect heavy/light fourth-moment distortion, and matching covariance does not imply a Gaussian invariant law. The coefficient \(3/(2d+1)\) gives a dimension-explicit distribution diagnostic, while the competing \(2d-1\) correlation cost determines the effective variance of time averaging. The theorem supplies an exact benchmark for robustness and sampling efficiency across noise laws without presuming any general nonisotropic or frozen-data extension.
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
 
-## Limitations and closest literature
+## value
 
-The result is for independent Haar rows and independent fresh scalar responses with finite fourth moment, and does not claim actual Gaussian convergence or a stationary sampling CLT. The independent audit is unperformed. Specialized random-coordinate thermostat theory and the inaccessible detailed Agaskar–Wang–Lu text remain residual publication-priority risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural stochastic row-projection algorithm with continual observational noise has an exact dimension-dependent trade-off: non-Gaussian response fourth-cumulant is suppressed while stationary time-correlation cost grows linearly in d. The result provides explicit invariant and mixing diagnostics distinct from fixed noisy linear-system Kaczmarz analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

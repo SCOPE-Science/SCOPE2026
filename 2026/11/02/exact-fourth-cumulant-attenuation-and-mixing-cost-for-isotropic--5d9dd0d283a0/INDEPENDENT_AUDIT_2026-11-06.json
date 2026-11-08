@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:45:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under synchronous coupling, differences obey P_U(x-x′). Spherical fourth moment E(U^Tv)^4=3||v||^4/[d(d+2)] gives exact W4 contraction alpha=(d²-1)/(d(d+2))<1 for d>=2. The transition has bounded fourth moment and a unique invariant measure; rotational covariance of the update yields isotropy, EX=0 (even if EY != 0 because EU=0). Orthogonality ||P_U X+YU||²=||P_U X||²+Y² gives stationary M2=d sigma² and M4=d(d+2)[2(d-1)sigma⁴+mu4]/(2d+1). Isotropy converts M4 into the coordinate formula. Conditional expectation E[X_{n+1}|X_n]=(1-1/d)X_n yields lag covariance and the geometric summation factor 2d-1. Independent rational checks for dimensions 2..200 confirm algebra, not universal theorem. No Gaussian limit or CLT is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known second-moment rate 1-1/d and fixed-data noise estimates are prior art.",
+          "No inspected stronger theorem implies the exact stationary non-Gaussian kurtosis coefficient 3/(2d+1) or integrated lag factor for fresh responses."
+        ],
+        "reasoning": "These are exact additional fourth-order and temporal statistics, not a restatement of known L2 contraction.",
+        "searches": [
+          "randomized Kaczmarz isotropic stochastic approximation invariant distribution fourth moments",
+          "Needell 2010 Randomized Kaczmarz Solver for Noisy Linear Systems",
+          "Agaskar Wang Lu 2014 exact MSE randomized Kaczmarz"
+        ]
+      },
+      "checked_sources": [
+        "Gower–Richtárik 2015 primary PDF selected method/proof text and screenshots",
+        "Bergou et al arxiv:2308.16904 abstract/theorem scope",
+        "Agaskar–Wang–Lu 2014 Harvard repository abstract",
+        "Needell 2010 DOI 10.1007/s10543-010-0265-5 metadata",
+        "Resultary query random Kaczmarz fresh isotropic projection random responses stationary fourth moment kurtosis covariance mixing",
+        "Assigned RESULT.md Git blob 98746a722d6580b98c6807e7fdbff1bd9dc626d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known isotropic conditional contraction is credited, as are existing analyses of noisy fixed systems.",
+          "Neither second-moment contraction nor stationary covariance alone determines the fourth cumulant for arbitrary Y. Lag covariance for this fresh-row chain follows after deriving its stationary law."
+        ],
+        "reasoning": "A general stochastic affine-recursion moment-closure theorem could contain the result implicitly; no such stronger explicit stationary coefficient was verified.",
+        "searches": [
+          "Gower Richtárik expected MSE contraction 1-1/d Gaussian Kaczmarz",
+          "Bergou Boucherouite Dutta Li Ma 2023 2308.16904 theorem 3.1",
+          "Agaskar Wang Lu 2014 exact MSE"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gower–Richtárik proves randomized projection contraction against fixed consistent systems; Bergou et al. bound errors in systems with fixed data perturbations.",
+          "Both use Kaczmarz language but do not specify independent redraw of both isotropic row and response or its stationary fourth cumulant."
+        ],
+        "reasoning": "The precise fresh-noise Markov chain must be matched, not only the numerical method name.",
+        "searches": [
+          "random Kaczmarz fresh isotropic projection random responses stationary fourth moment kurtosis covariance mixing",
+          "Gower Richtárik 2015 Randomized Iterative Methods for Linear Systems arxiv:1506.03296",
+          "Bergou et al 2023 doubly noisy Kaczmarz arxiv:2308.16904"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent d=2..200 exact rational identity checks support the formula.",
+          "No matching table, database or exact dimension law was found by targeted research; negative search alone does not prove priority."
+        ],
+        "reasoning": "The claim is all-d and analytically proved rather than a finite dimension table.",
+        "searches": [
+          "stationary fourth cumulant coefficient 3/(2d+1) random projection",
+          "random row Kaczmarz stationary kurtosis dimension d closed formula",
+          "Resultary random Kaczmarz fresh isotropic projection random responses stationary fourth moment kurtosis covariance mixing"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.",
+      "residual_risks": [
+        "An uninspected stochastic affine recursion or kinetic-thermostat literature could already tabulate the same fourth cumulant under an alternative name.",
+        "Gower and related references address fixed-data Kaczmarz; transplanting exact invariant formula to those settings is invalid.",
+        "Stationary finite-fourth-moment uniqueness does not imply Gaussianization or a central limit theorem, and finite Y fourth moment remains essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS second-moment contraction and fixed consistent systems; not verified to cover renewed response stationary fourth cumulant",
+          "evidence": [
+            "Their model solves fixed consistent Ax=b with randomized sketches, not new independent Y each iteration."
+          ],
+          "identifier_or_url": "Gower–Richtárik (2015), arxiv:1506.03296; https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+          "material_read": "Full accessible primary PDF text search, main method and selected proof sections; page images 1 and 9 inspected",
+          "method": "Read relevant primary sections with PDF images",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Same sketch-and-project method and isotropic expected contraction"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL fixed noisy matrix/response rather than continually redrawn independent rows; full coverage not conclusively excluded",
+          "evidence": [
+            "Theorem addresses convergence horizon and mean square error rather than explicitly exact stationary fourth moment."
+          ],
+          "identifier_or_url": "Bergou et al., arxiv:2308.16904 (2023)",
+          "material_read": "Accessible abstract and cited theorem statement/scope, complete primary full text not materially read",
+          "method": "Abstract and scope comparison",
+          "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Strongest cited noisy numerical-method predecessor"
+        },
+        {
+          "assessment": "PRIOR_MSE_COVERAGE; residual primary full-text priority risk",
+          "evidence": [
+            "No valid claim that whole paper lacks higher stationary results."
+          ],
+          "identifier_or_url": "Agaskar–Wang–Lu (2014), https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+          "material_read": "Harvard OA listing/abstract, not the full PDF",
+          "method": "Metadata and summary",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Exact MSE literature might imply some stationary identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural stochastic row-projection algorithm with continual observational noise has an exact dimension-dependent trade-off: non-Gaussian response fourth-cumulant is suppressed while stationary time-correlation cost grows linearly in d. The result provides explicit invariant and mixing diagnostics distinct from fixed noisy linear-system Kaczmarz analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gower–Richtárik 2015 primary PDF selected method/proof text and screenshots",
+    "Bergou et al arxiv:2308.16904 abstract/theorem scope",
+    "Agaskar–Wang–Lu 2014 Harvard repository abstract",
+    "Needell 2010 DOI 10.1007/s10543-010-0265-5 metadata",
+    "Resultary query random Kaczmarz fresh isotropic projection random responses stationary fourth moment kurtosis covariance mixing",
+    "Assigned RESULT.md Git blob 98746a722d6580b98c6807e7fdbff1bd9dc626d3"
+  ],
+  "disposition": "passed",
+  "final_claim": "For d>=2 fresh independent Haar unit rows U and independent fresh response Y with 0<sigma²=EY² and EY⁴ finite, the normalized projection update has unique stationary finite-fourth-moment law, coordinate fourth moment 3 sigma⁴+3(mu4-3 sigma⁴)/(2d+1), lag covariance sigma²(1-1/d)^k and integrated sample-average variance sigma²(2d-1).",
+  "limitations": [
+    "An uninspected stochastic affine recursion or kinetic-thermostat literature could already tabulate the same fourth cumulant under an alternative name.",
+    "Gower and related references address fixed-data Kaczmarz; transplanting exact invariant formula to those settings is invalid.",
+    "Stationary finite-fourth-moment uniqueness does not imply Gaussianization or a central limit theorem, and finite Y fourth moment remains essential."
+  ],
+  "residual_risks": [
+    "An uninspected stochastic affine recursion or kinetic-thermostat literature could already tabulate the same fourth cumulant under an alternative name.",
+    "Gower and related references address fixed-data Kaczmarz; transplanting exact invariant formula to those settings is invalid.",
+    "Stationary finite-fourth-moment uniqueness does not imply Gaussianization or a central limit theorem, and finite Y fourth moment remains essential."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS second-moment contraction and fixed consistent systems; not verified to cover renewed response stationary fourth cumulant",
+      "evidence": [
+        "Their model solves fixed consistent Ax=b with randomized sketches, not new independent Y each iteration."
+      ],
+      "identifier_or_url": "Gower–Richtárik (2015), arxiv:1506.03296; https://pages.stat.wisc.edu/~bwu62/771/gower2015.pdf",
+      "material_read": "Full accessible primary PDF text search, main method and selected proof sections; page images 1 and 9 inspected",
+      "method": "Read relevant primary sections with PDF images",
+      "title": "Randomized Iterative Methods for Linear Systems",
+      "trigger": "Same sketch-and-project method and isotropic expected contraction"
+    },
+    {
+      "assessment": "DIFFERENT_MODEL fixed noisy matrix/response rather than continually redrawn independent rows; full coverage not conclusively excluded",
+      "evidence": [
+        "Theorem addresses convergence horizon and mean square error rather than explicitly exact stationary fourth moment."
+      ],
+      "identifier_or_url": "Bergou et al., arxiv:2308.16904 (2023)",
+      "material_read": "Accessible abstract and cited theorem statement/scope, complete primary full text not materially read",
+      "method": "Abstract and scope comparison",
+      "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+      "trigger": "Strongest cited noisy numerical-method predecessor"
+    },
+    {
+      "assessment": "PRIOR_MSE_COVERAGE; residual primary full-text priority risk",
+      "evidence": [
+        "No valid claim that whole paper lacks higher stationary results."
+      ],
+      "identifier_or_url": "Agaskar–Wang–Lu (2014), https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+      "material_read": "Harvard OA listing/abstract, not the full PDF",
+      "method": "Metadata and summary",
+      "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+      "trigger": "Exact MSE literature might imply some stationary identity"
+    }
+  ]
+}
