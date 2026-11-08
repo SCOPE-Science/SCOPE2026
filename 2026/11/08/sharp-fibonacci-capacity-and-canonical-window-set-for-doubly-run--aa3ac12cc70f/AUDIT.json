@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each n>=4 the complete overlap graph has 2F_(n+1) edges and exactly 2F_(n-3) vertices with outdegree exceeding indegree by one. Every closed edge-simple trail must omit at least one outgoing edge per such vertex. The deleted double-prefix/double-suffix windows balance all degrees; alternating-bit routes prove the remainder strongly connected and thus Eulerian. In an optimum, deleting the other outgoing edge of a positive vertex unbalances a zero-imbalance head, proving equality rigidity. The extracted standalone checker independently reconstructs finite instances n=3..16 and exhaustively verifies n=4,5, complementing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada--Williams--Wong (2016) assumes rotation closure for its specified universal-cycle languages.",
+        "Chee--Etzion--Nguyen--Ta--Tran--Vu (2024) treats an upper bound on consecutive zeros, not a simultaneous bound on both zero and one runs.",
+        "The optimum window set here is not rotation closed: 0010 is included at order four, but its rotation 1000 is not."
+      ],
+      "reasoning": "The one-sided constrained result cannot be used as a sharp bound for the two-sided restriction merely by substitution: our upper-bound obstruction is the imbalance of both endpoint double-pair types, and the unique optimal set is a proper balanced subset of the two-sided admissible graph. The rotation-closed universal-cycle theorem has a hypothesis that the present optimum window set demonstrably fails.",
+      "searches": [
+        "doi:10.37236/5517",
+        "arxiv:2403.01454",
+        "Web query: \"RLL sequences de Bruijn graph forbidding consecutive zeros and ones unique windows maximum length formula\""
+      ]
+    },
+    "checked_sources": [
+      "Sawada--Williams--Wong (2016), DOI 10.37236/5517, full article",
+      "Chee et al. (2024), arXiv:2403.01454, accessible article text",
+      "debruijnsequence.org/db/cutdown, online reference",
+      "Agur--Fraenkel--Klein (1988), abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 construction supplies cycles for rotation-closed families, but the forced maximum window set is not rotation closed.",
+        "The 2024 work studies one-symbol run limits; its subject and all-edge Eulerian construction differ from this two-symbol deletion-balance problem.",
+        "For n=4 this capacity is eight, whereas only six length-four binary windows have no cyclic constant triple, showing that substituting cyclic-admissible word counts cannot produce this result."
+      ],
+      "reasoning": "The sources overlap in the graph model but neither has a theorem implying the all-length two-sided maximum and equality-case uniqueness. An independently known general maximum-Eulerian-subgraph theorem specialized to these finite-type graphs could possibly imply this result; none was identified, and historical-priority risk remains.",
+      "searches": [
+        "doi:10.37236/5517",
+        "arxiv:2403.01454",
+        "https://debruijnsequence.org/db/cutdown"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cut-down de Bruijn reference defines cyclic sequences with no repeated windows but does not specify simultaneous avoidance of both constant triples.",
+        "Neither quoted web search returned a two-sided all-length Fibonacci maximum or a unique maximum window-set theorem."
+      ],
+      "reasoning": "The candidate is equivalently the maximum-edge closed trail of the two-sided no-triple overlap graph. A general cut-down existence theorem for unrestricted binary windows does not imply how many edges survive two simultaneous run exclusions; those exclusions create nonzero vertex imbalances.",
+      "searches": [
+        "Web query: \"maximum length constrained de Bruijn sequences avoiding 000 and 111 all factors distinct\"",
+        "Web query: \"two-sided run length limited maximum period cycle all n blocks distinct\"",
+        "https://debruijnsequence.org/db/cutdown"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The general cut-down resource records unrestricted distinct-window cycles and construction algorithms; it does not list the simultaneous two-triple exclusion extremal Fibonacci profile.",
+        "The inspected searches did not return a table or OEIS entry computing the claimed full infinite family."
+      ],
+      "reasoning": "Even an entry listing small capacities would not automatically cover the all-order formula or rigidity classification without an accompanying proof. A negative search is not itself proof of novelty.",
+      "searches": [
+        "https://debruijnsequence.org/db/cutdown",
+        "Web query: \"maximum length binary cyclic sequence avoiding runs 000 and 111 with all length n factors distinct Fibonacci\"",
+        "Web query: \"binary universal cycles no 000 no 111 maximum distinct windows\""
+      ]
+    },
+    "rationale": "Direct source and semantic-result comparisons found no asserted two-sided no-000/no-111 exact maximum and common optimum window set. The 2016 rotation-closed language theorem is inapplicable to the non-rotation-closed optimum set, and the 2024 one-sided zero-run result does not determine simultaneous two-sided extremality. Unindexed equivalent historical work remains possible.",
+    "residual_risks": [
+      "A specialized, unindexed paper on balanced restricted de Bruijn graphs could contain an equivalent all-order construction.",
+      "The older 1988 source and some additional references were not checked in full, so whole-document absence cannot be claimed.",
+      "Semantic and web searches cannot certify uniqueness of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering; requires rotation closure, violated by the claimed extremal set",
+        "evidence": [
+          "Public 2016-02-05 article and theorem on rotation-closed k-suffix languages",
+          "The order-four example 0010 is retained, while the rotation 1000 is excluded"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/5517",
+        "material_read": "Full freely available article text, focusing on definitions, rotation-closed assumptions, theorem statements and applications",
+        "method": "Read full article and compare exact language hypotheses with canonical maximum window set",
+        "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+        "trigger": "General universal-cycle construction might dominate the new restricted-cycle claim"
+      },
+      {
+        "assessment": "Different model; one-sided zero-run cap does not determine the simultaneous two-symbol run bound",
+        "evidence": [
+          "2024-03-03 initial public arXiv record",
+          "The source maximizes constrained sequences with a 0-run cap; no common maximum two-sided window set was identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.01454",
+        "material_read": "Accessible full HTML article, including mathematical definitions and maximum-length construction statements",
+        "method": "Read source sections introducing one-sided 0-run restriction and main results; compare both sides of run constraint and optimum graph",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Directly discusses maximum length run-length limited de Bruijn sequences"
+      },
+      {
+        "assessment": "General framework, not a sharp two-sided no-triple restriction",
+        "evidence": [
+          "Defines cut-down cycles and general arbitrary-length unconstrained distinct-window existence"
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/cutdown",
+        "material_read": "Public online explanatory page and construction overview",
+        "method": "Read setup and statements on arbitrary-length cut-down cycles",
+        "title": "Cut-down de Bruijn sequences",
+        "trigger": "General existence for cycles of distinct length-n windows"
+      },
+      {
+        "assessment": "A cyclic admissibility count is a different quantity. Whole-document noncoverage is not asserted.",
+        "evidence": [
+          "Abstract indicates cyclic fixed-point or forbidden-run counting, rather than distinct length-n windows along a longer cycle"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+        "material_read": "Accessible abstract/metadata only, not the full paper",
+        "method": "Compared described circular forbidden-factor enumeration to maximum no-repeat-window capacity",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Older enumeration for circular words avoiding 000 and 111"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa3ac12c-c70f-4535-b453-16eee284ff8a",
+  "value": {
+    "rationale": "Combining run-length limited transmission and unique cyclic window identification creates a natural constrained cut-down de Bruijn capacity problem. The forced asymmetry of the allowed full overlap graph means naive counts of allowed windows and existing single-symbol RLL universal cycles do not give this capacity. The result solves the exact optimum for every order n>=4 and establishes a rigid common optimum edge set with an Eulerian construction, a substantive structural answer rather than a numerical lookup.",
+    "status": "PASS"
+  }
+}
