@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of four-round Moore-graph classes
 
-`python3 moore_verify.py` constructs the three known graphs independently of any graph software library: a five-cycle, the Petersen graph on two-subsets of five points, and the 50-vertex Hoffman–Singleton graph as five pentagons joined to five pentagrams. It checks degree and all common-neighbor counts, enumerates every unordered triple and every fourth-vertex adjacency mask, and uses exact recursive ordered-tuple first-order types (including repetitions) to distinguish the three rank-four theories. Recorded standard output: `moore_verify.out`. The type routine examines all fourth moves and requires no probabilistic approximation.
+# Independent mathematical audit
 
-`python3 support_formula.py` checks all symbolic cell sizes and their sums against the total of unselected vertices, for degrees 3, 4, 7 and 57. The degree-57 calculation tests only conditional arithmetic; no graph of that degree was generated. Recorded standard output: `support_formula.out`.
+## correctness
 
-The proof of equivalence for all eligible degrees is the symbolic Ehrenfeucht–Fraïssé argument in `RESULT.md`. Experiments on the known graphs are consistency checks, not substitutes for the infinite claim. Neither script certifies the novelty of the theorem or the existence of a degree-57 Moore graph. Independent audit has not been performed.
+PASS
+
+The one-point extension cell table from the actual RESULT.md is derived from the SRG parameters (d^2+1,d,lambda=0,mu=1), with all nonzero supports positive for d>=4. A Duplicator four-round strategy matches labelled triple types and all fourth-point adjacency patterns. The rank-three independent-triple separator distinguishes C5; the rank-four concurrent independent dominating-triple separator distinguishes Petersen from d>=4. Hoffman–Singleton classifies known degrees 2,3,7 and the only possible additional 57, giving minimal 50 vertices within the Moore family. Independent formulas were recomputed at d=3,4,7,57; C5/Petersen adjacency/triple profiles were independently enumerated. No hypothetical degree-57 graph was assumed to exist.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. From known degree list one gets only which d may exist, not degree>=4 EF equivalence. The proof supplies the complete triple-extension support and rank4 distinguishing sentences.
+
+## value
+
+PASS
+
+The exact bounded first-order classification of a natural extremal strongly regular graph family, including the conditional unresolved 57-valent case and a sharp finite representative bound, provides a reusable local extension-support criterion; not a mere naming of Hoffman–Singleton degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

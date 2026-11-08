@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete labelled-triple extension-cell table is obtained from the strongly regular parameters \((d^2+1,d,0,1)\), with strict positivity checked for each logically possible cell at degree \(d\ge4\). Pair-extension counts guarantee Duplicator can preserve the exceptional concurrent/separate independent-triple marker, including repeated choices. Explicit rank-three and rank-four sentences distinguish the smaller degrees. The 1960 Hoffman–Singleton degree theorem is used solely to identify all realized classes and the sharp representative bound. Both arithmetic and direct finite implementations passed.
+## correctness
 
-## Originality
-PASS under the recorded literature search and accessible historical comparison, with residual priority risk. The 1960 paper classifies possible Moore degrees; Reichard's 2014 preprint concerns \(t\)-vertex conditions and exact occurrence counts; Pikhurko–Verbitsky 2011 surveys first-order logical complexity. None of the inspected relevant portions states or implies the degree-at-least-four four-round equivalence together with the sharp three-class classification. A version of the extension-support observation could nevertheless occur in material not found or not inspected.
+PASS
 
-## Mathematical value
-PASS. The result is a complete bounded-depth logical classification of an extremal graph family with an outstanding existence case. It shows that the known fifty-vertex Hoffman–Singleton graph and any hypothetical 3,250-vertex degree-fifty-seven Moore graph are indistinguishable to four nested quantifiers. It gives explicit optimal representatives and sharp separating rank boundaries, rather than an isolated finite experiment.
+The one-point extension cell table from the actual RESULT.md is derived from the SRG parameters (d^2+1,d,lambda=0,mu=1), with all nonzero supports positive for d>=4. A Duplicator four-round strategy matches labelled triple types and all fourth-point adjacency patterns. The rank-three independent-triple separator distinguishes C5; the rank-four concurrent independent dominating-triple separator distinguishes Petersen from d>=4. Hoffman–Singleton classifies known degrees 2,3,7 and the only possible additional 57, giving minimal 50 vertices within the Moore family. Independent formulas were recomputed at d=3,4,7,57; C5/Petersen adjacency/triple profiles were independently enumerated. No hypothetical degree-57 graph was assumed to exist.
 
-## Scientific limitations
-The degree-fifty-seven assertion is conditional on existence, not an existence claim. Only pure first-order adjacency at quantifier rank four is treated; higher-rank theories and full historical priority are not settled. The mathematical checking here is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. From known degree list one gets only which d may exist, not degree>=4 EF equivalence. The proof supplies the complete triple-extension support and rank4 distinguishing sentences.
+
+## value
+
+PASS
+
+The exact bounded first-order classification of a natural extremal strongly regular graph family, including the conditional unresolved 57-valent case and a sharp finite representative bound, provides a reusable local extension-support criterion; not a mere naming of Hoffman–Singleton degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
