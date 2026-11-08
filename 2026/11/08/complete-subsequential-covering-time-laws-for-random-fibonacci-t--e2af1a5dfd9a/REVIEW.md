@@ -1,0 +1,15 @@
+# Self-review of the complete limit-family classification
+
+## Correctness — PASS
+The starting reduction is the fixed-target exact geometric-delay law and coordinate independence established in Amit et al., arXiv:2611.08317v1, Theorems 3.4 and 4.3. The new necessity proof extracts a unique phase anchor, stabilizes the finitely many integer offsets, handles offsets escaping to infinity with a uniform geometric tail, and takes limits of explicit finite products. The sufficiency proof independently realizes any admissible phase offset and canonical rank fraction by selecting the associated increasing weighted subset sum. Full details, including the boundary parameter \(\kappa=1\), appear in `RESULT.md`. A standalone checker passed 5,330 exact assertions. Risk: a coding test cannot certify the arbitrary-dimension/scale proof, so the displayed deductions were checked separately by hand-level mathematical reasoning.
+
+## Originality — PASS, subject to external priority review
+Amit et al., arXiv:2611.08317v1, Theorems 3.1, 3.4, 4.3, and Section 5.3 provide the exact pointwise law, its rank interval, tightness, and qualitative parameter dependence. They **do not** supply the complete attainable parameter space or construct every limiting law, and their Section 7 expressly raises the subsequential-law classification. The present work characterizes all possible limits in both directions and proves exact recurrence of dyadic parameter laws at unbounded distances. Exact pointwise formulas in the source make this a close conceptual extension and are acknowledged; they do not themselves state the inverse realizability theorem. The deterministic geometry in Engholm–Miller, arXiv:2607.19960v1, does not analyze random coverage. The searches and source comparisons are recorded in `AUDIT.json`. Residual risk: priority from inaccessible or differently indexed work, or interpretation of the classification as an implicit algebraic corollary of the original formula.
+
+## Value — PASS
+Amit et al. identify the limiting-law classification as a remaining question. The answer is complete, rather than a single example: it gives the exact discrete phase constraints, a continuous cube of independent parameters, every boundary value, and a constructive realization. The exact repetition of a dense dyadic family reveals strong nonuniversality beyond tightness and gives finite-size distributions that are already equal to their limiting laws. This is a natural structural classification for the model's principal statistic, not a relabeling or arbitrary parameter slice.
+
+## Limits and evidence
+The model assumes fixed dimension and independent fair attachment directions; other centerings and growing dimension remain outside scope. The reported 5,330 exact assertions only test finite cases. Full textual comparisons inspected the primary model paper and its deterministic precursor; relevant published published-finding corpus semantic searches did not return a matching limit-law classification, but a search miss is not novelty proof. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
