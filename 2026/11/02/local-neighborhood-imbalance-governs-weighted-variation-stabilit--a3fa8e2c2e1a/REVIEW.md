@@ -1,19 +1,21 @@
-# Scientific review: local neighborhood imbalance governs graph gossip variation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every third vertex, an exact two-point convexity inequality bounds the effect of exchanging endpoint values by the weighted neighbor discrepancy. The omitted edge contributes exactly the stated gap reduction; the locally sharp choices at each third vertex can be made simultaneously. Coarea reduces the quotient norm to characteristic functions of graph cuts. Exhaustive rational cut evaluations, data tests, and independent two-terminal minimum-cut comparisons support the analytic proof. The exceptional graph with only two vertices is expressly outside the main norm statement.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For a weighted simple connected graph |V|>=3, separate each third vertex's two incident weights and use convexity of the absolute-distance sum to prove a sharp local gain theta|w_uz-w_vz||f(u)-f(v)|. The edge uv contributes -2 min(theta,1-theta) w_uv, and independent selection of remaining vertex levels attains the sum. Discrete coarea/layer cake reduces the induced J_w norm modulo constants to characteristic cuts; their explicit gains give the cut formula, and positive cut weight plus vertex modular costs yield a standard u-v min-cut threshold for k>=1. Unit-weight tree and multipartite subclasses follow from neighborhood degrees. Independently calculated exactly all cuts for 30 random rational weighted graphs at each n=3,4,5,6 and verified optimal sharp gain and inequalities; this is bounded corroboration, not the general proof.
 
-Boyd et al. (2006) define classical pairwise consensus and analyze mixing eigenvalues; their statement does not supply graph-edge variation-norm criteria. Ben-Ameur, Bianchi and Jakubowicz (2012) study a nonlinear distributed TV-regularized optimization algorithm, not the weighted BV norm of ordinary pairwise exchange; their relevant sections were read in full-text PDF. Kováč and Smith (arXiv:0911.1928) establish graph-edge variation as a regression penalty, but only an abstract was accessible, so whole-document noncoverage is not asserted. Available earlier findings address different heat diffusion and conditional averaging operators. Mathematical record searches for neighbor-profile criteria, partial swaps, graph-BV contraction and exact cut norms found no directly covering result. Hidden prior equivalence remains possible, especially because the underlying local inequality is elementary; this risk does not amount to demonstrated coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp phase criterion answers whether each individual averaging communication can increase measured roughness; its conjunction over edges characterizes pathwise variation monotonicity for every gossip sequence. A sharp induced norm with minimum-cut threshold permits quantitative guarantees when the local test fails. Explicit complete multipartite and tree classifications and growing star amplification show structural implications rather than merely restating a general bound.
+Classical randomized gossip papers optimize L2 spectral convergence and nonlinear TV gossip optimizes a different objective; neither entails this exact J_w edge-exchange operator norm. The specialization of established coarea/mincut methods to arbitrary positive weighted edge-exchanges and the iff neighborhood imbalance criterion are the assessed claim. Operator norm methods for Markov kernels may potentially contain a previously unnoticed equivalent formulation.
 
-## Limits and source comparison
+## value
 
-The result holds for finite connected simple undirected weighted graphs, at least three vertices, symmetric endpoint exchanges in the unit interval, and real signals. It does not address arbitrary mixers, nonlinear TV flow, or mixing times. Sources inspected: Boyd et al., *Randomized Gossip Algorithms* (2006); Ben-Ameur et al., *Robust Average Consensus using Total Variation Gossip Algorithm* (2012); Kováč and Smith, *Regression on a Graph* (arXiv:0911.1928, abstract only); Boyd et al. (2004, conference paper overview only). Independent mathematical assessment is still required before treating novelty as conclusively established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem provides an exact, sharp practical criterion for monotone weighted edge variation under each local gossip exchange, a mincut algorithm for the full seminorm norm, and graph-family classification; a researcher designing TV-stable consensus can use these exact constants directly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

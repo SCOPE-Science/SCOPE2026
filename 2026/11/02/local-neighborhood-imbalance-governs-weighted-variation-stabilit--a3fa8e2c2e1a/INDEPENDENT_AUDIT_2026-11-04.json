@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:07:09.120581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a weighted simple connected graph |V|>=3, separate each third vertex's two incident weights and use convexity of the absolute-distance sum to prove a sharp local gain theta|w_uz-w_vz||f(u)-f(v)|. The edge uv contributes -2 min(theta,1-theta) w_uv, and independent selection of remaining vertex levels attains the sum. Discrete coarea/layer cake reduces the induced J_w norm modulo constants to characteristic cuts; their explicit gains give the cut formula, and positive cut weight plus vertex modular costs yield a standard u-v min-cut threshold for k>=1. Unit-weight tree and multipartite subclasses follow from neighborhood degrees. Independently calculated exactly all cuts for 30 random rational weighted graphs at each n=3,4,5,6 and verified optimal sharp gain and inequalities; this is bounded corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neither inspected method implies the coefficient D_e or the exact θ interval as a trivial corollary."
+        ],
+        "reasoning": "Boyd et al 2006 optimize stochastic gossip convergence with the second eigenvalue; Ben-Ameur et al study nonlinear TV-regularized consensus, not linear single-edge J_w nonexpansiveness.",
+        "searches": [
+          "Resultary semantic query: weighted graph gossip averaging edge total variation contraction neighborhood imbalance minimum cut exact operator norm",
+          "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "https://doi.org/10.4108/valuetools.2012.250316"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 9e36050c2b475795d9c16a37b57e7c7982ebdb7a and verify_gossip_variation.py SHA 1a04c1b9d9b90ad69124eaebc246c2e452976726",
+        "Boyd et al 2006 full OA PDF relevant sections",
+        "Ben-Ameur et al 2012 abstract and limited text",
+        "Resultary graph variation/consensus norm query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary min-cut theory computes a stated threshold only once the exact sharp cut-cost identity has been derived."
+        ],
+        "reasoning": "Spectral L2 contractivity of pairwise averaging does not imply total-variation contractivity on irregular graphs; a star with many leaves gives explicit amplification.",
+        "searches": [
+          "Resultary semantic query: weighted graph gossip averaging edge total variation contraction neighborhood imbalance minimum cut exact operator norm",
+          "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "https://doi.org/10.4108/valuetools.2012.250316"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph norm on functions modulo constants is exactly a maximum over all nontrivial cut indicators, reducing operator norm to a nonlinear cut ratio."
+        ],
+        "reasoning": "The J_w variation seminorm is the graph cut coarea integral; T_(e,theta) is a symmetric two-site Markov averaging operator.",
+        "searches": [
+          "Resultary semantic query: weighted graph gossip averaging edge total variation contraction neighborhood imbalance minimum cut exact operator norm",
+          "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "https://doi.org/10.4108/valuetools.2012.250316"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "120 random rational small-graph checks cannot establish the general inequality; its proof supplies that."
+        ],
+        "reasoning": "Finite weighted graphs admit exhaustive cut tables, but the theorem covers arbitrary graph size/weights by coarea.",
+        "searches": [
+          "Resultary semantic query: weighted graph gossip averaging edge total variation contraction neighborhood imbalance minimum cut exact operator norm",
+          "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "https://doi.org/10.4108/valuetools.2012.250316"
+        ]
+      },
+      "rationale": "Classical randomized gossip papers optimize L2 spectral convergence and nonlinear TV gossip optimizes a different objective; neither entails this exact J_w edge-exchange operator norm. The specialization of established coarea/mincut methods to arbitrary positive weighted edge-exchanges and the iff neighborhood imbalance criterion are the assessed claim. Operator norm methods for Markov kernels may potentially contain a previously unnoticed equivalent formulation.",
+      "residual_risks": [
+        "A general Lipschitz cut-operator norm theorem in earlier Markov/TV literature may implicitly include this identity.",
+        "The min-cut threshold reduction is stated only for k>=1 and the |V|=2 case is separate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT L2 spectral mixing objective, not weighted edge TV norm",
+          "evidence": "Abstract and model base performance on second largest eigenvalue, not J_w contractivity.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "material_read": "full OA PDF; abstract, model, convergence theorem/optimization discussion and first-page screenshot",
+          "method": "Stanford PDF text and screenshot",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "classical edge-pair averaging literature"
+        },
+        {
+          "assessment": "Different nonlinear TV regularization is suggested, whole-paper priority risk remains",
+          "evidence": "Text distinguishes conventional linear gossip and TV regularization; detailed sections not exhaustively inspected.",
+          "identifier_or_url": "https://doi.org/10.4108/valuetools.2012.250316",
+          "material_read": "accessible article abstract and text excerpt; no whole-document noncoverage asserted because page screenshot timed out",
+          "method": "publisher OA PDF extraction, limited access",
+          "title": "Robust Average Consensus using Total Variation Gossip Algorithm",
+          "trigger": "closest TV-gossip named prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem provides an exact, sharp practical criterion for monotone weighted edge variation under each local gossip exchange, a mincut algorithm for the full seminorm norm, and graph-family classification; a researcher designing TV-stable consensus can use these exact constants directly.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob 9e36050c2b475795d9c16a37b57e7c7982ebdb7a and verify_gossip_variation.py SHA 1a04c1b9d9b90ad69124eaebc246c2e452976726",
+    "Boyd et al 2006 full OA PDF relevant sections",
+    "Ben-Ameur et al 2012 abstract and limited text",
+    "Resultary graph variation/consensus norm query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Single simultaneous symmetric two-vertex exchange on positive weighted finite connected simple graph; no multi-vertex mixing, nonsymmetric operators or stochastic convergence rate claims.",
+    "A general Lipschitz cut-operator norm theorem in earlier Markov/TV literature may implicitly include this identity.",
+    "The min-cut threshold reduction is stated only for k>=1 and the |V|=2 case is separate."
+  ],
+  "schema_version": 1
+}

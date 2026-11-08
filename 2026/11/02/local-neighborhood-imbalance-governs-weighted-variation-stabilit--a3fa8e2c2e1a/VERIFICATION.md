@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify_gossip_variation.py` with Python 3.11 or later and the dependency from `requirements.txt`. The exact-rational tests enumerate all indicator cuts in each selected small graph; for independent cross-checking, separate minimum-cut computations are performed on further samples. The random seeds, construction, and sample counts are contained in the script. An observed success is a finite diagnostic, not a replacement for the proof's layer-cake reduction or local weighted displacement lemma.
+## correctness
 
-The analytical proof covers all finite connected simple undirected graphs with strictly positive edge variation weights, at least three vertices, real signals, and \(0\le\theta\le1\). The two-vertex boundary case has norm \(|1-2\theta|\) and is deliberately excluded from the formula containing a baseline one. No external or independent audit has been performed.
+PASS
+
+For a weighted simple connected graph |V|>=3, separate each third vertex's two incident weights and use convexity of the absolute-distance sum to prove a sharp local gain theta|w_uz-w_vz||f(u)-f(v)|. The edge uv contributes -2 min(theta,1-theta) w_uv, and independent selection of remaining vertex levels attains the sum. Discrete coarea/layer cake reduces the induced J_w norm modulo constants to characteristic cuts; their explicit gains give the cut formula, and positive cut weight plus vertex modular costs yield a standard u-v min-cut threshold for k>=1. Unit-weight tree and multipartite subclasses follow from neighborhood degrees. Independently calculated exactly all cuts for 30 random rational weighted graphs at each n=3,4,5,6 and verified optimal sharp gain and inequalities; this is bounded corroboration, not the general proof.
+
+## originality
+
+PASS
+
+Classical randomized gossip papers optimize L2 spectral convergence and nonlinear TV gossip optimizes a different objective; neither entails this exact J_w edge-exchange operator norm. The specialization of established coarea/mincut methods to arbitrary positive weighted edge-exchanges and the iff neighborhood imbalance criterion are the assessed claim. Operator norm methods for Markov kernels may potentially contain a previously unnoticed equivalent formulation.
+
+## value
+
+PASS
+
+The theorem provides an exact, sharp practical criterion for monotone weighted edge variation under each local gossip exchange, a mincut algorithm for the full seminorm norm, and graph-family classification; a researcher designing TV-stable consensus can use these exact constants directly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
