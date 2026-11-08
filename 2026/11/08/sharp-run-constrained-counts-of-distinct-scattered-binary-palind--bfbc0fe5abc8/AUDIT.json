@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every palindrome has an odd run count. A subsequence using all \\(2k+1\\) source runs corresponds bijectively to choices of matching paired exponents, giving \\(a_{k+1}\\prod_{i=1}^{k}\\min(a_i,a_{2k+2-i})\\). The AM–GM bound is sharp at leading order, while all shorter-run palindromes number at most \\(2\\sum_{j=0}^{k-1} n^{j+1}\\). Exact one-/three-run counts, a complete four-case inequality, and witnesses establish \\(n+\\lfloor n^2/8\\rfloor\\) for three and four host runs. The script checked 1,365 run compositions, 3,807 direct-vs-dynamic-programming word instances, and 32 constructions. Infinite correctness rests on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Pandoh (2021), Theorem 4.2 and Theorem 5.4, establishes a Fibonacci upper bound and a fixed-alphabet-size formula in a large-alphabet range.",
+        "Müllner–Ryzhikov (2019), pp. 1–3, concerns subsequence length bounds and circular words.",
+        "Holub–Saari (2009), Sections 3–5, proves palindromic-set determination and optimal bounds for a minimal-palindromic extension ratio, not distinct-subsequence count maxima."
+      ],
+      "reasoning": "The general Fibonacci upper bound is too coarse to force an exact polynomial leading coefficient for fixed binary run count. The large-alphabet regime \\(q\\ge n/2\\) excludes growing \\(n\\) on a fixed binary alphabet except for small lengths. Longest-subsequence results concern a different invariant.",
+      "searches": [
+        "Counting scattered palindromes in a finite word arXiv:2108.02729",
+        "Palindromic Subsequences in Finite Words arXiv:1901.07502",
+        "asymptotic polynomial degree and leading coefficient of distinct scattered palindromes in binary words with fixed run count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.02729v1 (2021-08-05), complete primary source.",
+      "arXiv:1901.07502v1 (2019-01-22), complete related primary source.",
+      "Semantic records matching sharp run-count maxima, scattered palindrome, block/run-count aliases; no dominating matching claim found.",
+      "Holub–Saari (2009), author-hosted complete manuscript on binary scattered-palindrome sets and extension ratio."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 theorem upper-bounds all binary words exponentially in length, and its fixed-q result applies when q is at least half the length.",
+        "The 2019 paper studies largest attainable palindrome lengths, which are single-witness existence questions.",
+        "Holub–Saari (2009), Theorem 2, says equality of scattered-palindrome SETS identifies a word up to reversal. It does not bound the cardinality of these sets by a prescribed host run count."
+      ],
+      "reasoning": "An exponential envelope does not imply an exact leading coefficient in the polynomially growing fixed-run subclass; an existence theorem for a long subsequence cannot determine the number of distinct palindromic subsequences. The new full-run product and low-run equality are neither direct corollaries nor reparameterizations of the inspected primary statements.",
+      "searches": [
+        "asymptotic polynomial degree and leading coefficient of distinct scattered palindromes in binary words with fixed run count",
+        "Counting scattered palindromes in a finite word arXiv 2021 bounds",
+        "Palindromic subsequences finite words length upper bounds 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.02729, Sections 2–5, defines distinct scattered palindromes and gives a length/alphabet bound, not fixed-run maxima.",
+        "No exact fixed-run or paired-minimum theorem appeared among the closest results for the stated queries."
+      ],
+      "reasoning": "The proposed theorem concerns distinct palindromic subsequence STRINGS on a fixed binary alphabet conditioned on exactly r maximal constant runs. Search comparisons included equivalent terminology (scattered palindromes; palindromic subsequences), and the structural paired-run representation. No checked work provided the exact three/four-run equality or polynomial leading coefficient. Search absence remains inconclusive alone.",
+      "searches": [
+        "sharp maximum of distinct palindromic subsequences among binary words with exactly three four five runs n plus floor n squared over 8",
+        "two symbols constant block decomposition paired run minima central run palindromic subsequence counts",
+        "\"scattered palindromes\" \"number of runs\" distinct subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mahalingam–Pandoh provides finite tables indexed by word length and alphabet count, not run count.",
+        "Finite direct enumeration of positive three-/four-run compositions in verify.py is newly supplied and derives from closed formulas, not a published run-count table."
+      ],
+      "reasoning": "A table of unrestricted maxima, or of maxima indexed by alphabet size, is not a table indexed by the exact number of constant runs. No inspected table gives \\(M_3(n)=M_4(n)=n+\\lfloor n^2/8\\rfloor\\) or the fixed-odd-run leading coefficient.",
+      "searches": [
+        "sharp maximum of distinct palindromic subsequences among binary words with exactly three four five runs n plus floor n squared over 8",
+        "binary word number distinct palindromic scattered subsequences number runs 3 4 table"
+      ]
+    },
+    "rationale": "Three highly relevant full-text papers were inspected; the 2021 count bounds are indexed by length/alphabet, the 2009 structural paper studies the palindrome set and longest-word/extension invariants, and the 2019 paper studies longest subsequences. Run-constrained sharp cardinality extrema and their polynomial leading coefficients were not identified. Literature-screen incompleteness is acknowledged.",
+    "residual_risks": [
+      "A prior equivalent classification may be unindexed or use different terminology.",
+      "Bounded literature comparisons do not prove absolute uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general length bounds and large-alphabet results; does not classify extremal counts at exact binary constant-run count.",
+        "evidence": [
+          "arXiv:2108.02729v1, p.1 abstract and introduction; p.15 Theorem 5.4 for \\(q\\ge n/2\\); Section 4 Fibonacci bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+        "material_read": "Full 19-page paper, especially definitions Section 2, lower bounds Section 3, Fibonacci bound Section 4, and alphabet-size extremal Theorem 5.4 and Conjecture 5.6 in Section 5.",
+        "method": "Accessible full arXiv PDF text with page inspection.",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Same exact invariant: count of distinct nonempty scattered palindromic subsequences; source of the extremal problem."
+      },
+      {
+        "assessment": "Focuses on lengths of palindromic or antipalindromic subsequences, not count of distinct subsequence strings for prescribed host run numbers.",
+        "evidence": [
+          "arXiv:1901.07502v1, p.1 abstract and Section 1; throughout, longest-subsequence length constraints."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+        "material_read": "Full seven-page arXiv paper, including abstract, Section 1, circular-word conjectures and longest-subsequence bounds.",
+        "method": "Accessible full arXiv PDF text with title/abstract and page inspection.",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Plausible same-object title and related longest-palindromic-subsequence bounds."
+      },
+      {
+        "assessment": "Studies the longest scattered palindrome, set determination, and extension ratios; it gives no fixed-run maximum of the number of distinct scattered-palindrome strings.",
+        "evidence": [
+          "Holub–Saari (2009) abstract, Sections 3–5 and Theorem 2 (set determination up to reversal)."
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Full accessible author manuscript, Sections 1–6, including Section 3 minimal-palindromic words, Theorem 2 in Section 4, and Section 5 extension-ratio bounds.",
+        "method": "Author-hosted PDF text with page screenshot inspection.",
+        "title": "On highly palindromic words",
+        "trigger": "Found in bibliography of the 2021 primary paper as foundational study of scattered palindromes in binary words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bfbc0fe5-abc8-4f01-8b5f-59440b2d15b4",
+  "value": {
+    "rationale": "Run count is a canonical structural parameter of finite binary words; imposing it reveals exact polynomial growth with optimal exponent and leading coefficient for every fixed odd run count, unlike the general exponential upper envelope. The sharp all-length equality of the three- and four-run maxima supplies an additional nonobvious structural boundary. The objects and invariants precede the computation, and the theorem gives a complete asymptotic family rather than an isolated slice.",
+    "status": "PASS"
+  }
+}
