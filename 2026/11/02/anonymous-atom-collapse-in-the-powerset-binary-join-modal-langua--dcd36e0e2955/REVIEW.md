@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The forward/backward union-lifting construction proves modal invariance by structural induction, including the boundary when no unnamed atom exists. The singleton and bottom marker formulas, the membership tests and the exact named-subset disjunction separate every distinct quotient state. The included checker exhaustively tests all named-marker choices of initial segments for carriers with up to five atoms; permutation symmetry makes the chosen initial segment representative of every size, but the infinite theorem depends on the proof.
+## correctness
 
-## Originality
-PASS within the evidence actually inspected. The 2026 semilattice translation source establishes the modal semantic setting, not the displayed state-theory quotient in its inspected sections. General coalgebraic bisimulation results and locality theorems do not themselves supply the explicit least quotient for this fixed marked finite powerset structure. Published mathematical records were queried for semilattice join modality, anonymous generators, modal quotients, and Boolean frame equivalence, and no stronger statement implying the claimed \(2^{k+1}\) quotient was identified. Historical-priority risk remains because the final sections of the motivating paper were not fully accessible and older literature may express the same observation as a semilattice filtration result.
+PASS
 
-## Value
-PASS. The invariant answers a natural finite-state model-checking question for the binary supremum modality: exactly how much of a powerset information state survives observation when only \(k\) atomic events are named? It exhibits a sharp and size-independent collapse from \(2^n\) raw states to \(2^{k+1}\) observable states even with arbitrarily nested binary composition and Boolean negation. This is a structural classification, rather than an isolated finite census; the formula is accompanied by the unique modal-theory partition and a constructive minimal quotient.
+On W=P([n]), R(S,Y,Z)⇔S=Y∪Z, with bottom marker b true only at ∅ and p_i only at singleton {i} for k named i, q(S)=(S∩K)∪{star if S∩H nonempty}. It preserves all unions and is onto P(K∪{star}), or P(K) when H=∅. For any quotient decomposition q(S)=A∪B, placing each named S-member into exactly the quotients containing it, and all unnamed members into each side containing star, lifts it to S=Y∪Z with q(Y)=A,q(Z)=B; marker valuations are inverse images. Thus structural induction over Boolean operations and binary modality yields equivalence across q-fibers. Membership m_i=⟨∨⟩(p_i,top) detects each named coordinate. Recursive δ_J formulas exactly define named-only subsets, so η=∨_{J⊆K}δ_J detects no unnamed coordinate. These distinguish any different q-fibers. Hence exactly 2^{k+1} distinct theories when k<n, else 2^k, with minimum quotient; all n≥1 and 0≤k≤n. No arbitrary valuations or extra graded modalities.
 
-## Scope and risk
-Arbitrary valuations and different modalities are excluded. The available primary-text inspection covered the semantic setting and early translation development; complete later sections remained inaccessible. An equivalent prior formulation under coalgebraic observational equivalence or semilattice p-morphisms cannot be ruled out by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Aloni–Baltag–van Benthem–Bezhanishvili–Knudstorp primary text introduces classical binary supremum modality on semilattices, but the accessible abstract and excerpts do not state the particular k-marker powerset collapse. The 2017 Bakhtiari–Hansen full paper proves a general finitary Hennessy–Milner theorem for predicate-lifting bisimulation, without computing this fixed marked finite frame quotient or explicit 2^{k+1} bound. A general bisimulation principle can justify the qualitative method but does not by itself enumerate the minimal marker-dependent quotient. Later sections of the motivating 2026 article remain unread and could cover this special case.
+
+## value
+
+PASS
+
+The modal theory quotient of a complete n-atom powerset join frame with only k individually nameable atoms is a canonical finite-state observational compression: arbitrarily many unnamed coordinates collapse to a single existential bit under all nested binary joins and Boolean negation. The exact sharp quotient and explicit bounded morphism support model minimization and distinguishability, a structural classification rather than tiny-instance experimentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
