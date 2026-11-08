@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The ambient polytope has an explicit complete 1-, 2- and 3-face list; a vertex-avoiding central section is supported by crossed edges and tetrahedral facets. Exactly two polygon edges and exactly two apex-pair edges cross, while exactly two spokes cross per base vertex, proving the constant vertex count. Facet sign partitions give exact triangle and quadrilateral counts. The two apex-pair crossing vertices have degree n, while all other section vertices have degree four. Their induced neighbor graph consists of paths of lengths k and n-k. This proves both necessity and sufficiency for type classification and gives a sharp realization for all split sizes. The separate checker runs 4,944 finite sign patterns with no external dependencies.
+## correctness
 
-## Originality — PASS
-Actual direct comparisons: Sanyal–Werner–Ziegler (arXiv:0708.3661, full HTML text consulted) concerns four-polytope face numbers without classifying central slices; Brandenburg–De Loera–Meroni (arXiv:2304.14239, full HTML Introduction/Theorem 1.1 inspected) supplies general slicing chambers but no sharp family-specific classification; De Loera–Lopez-Campos–Torres (arXiv:2412.12419, full HTML introduction and results inspected) covers vertex slice sequences of three-polytopes, cyclic polytopes and cubes, not this family; Birkemeyer et al. (arXiv:2609.16195, full HTML Section 3 and especially Proposition 3.10 inspected) gives a lower bound for central bipyramid-section face counts and explicitly stops short of a complete classification for standard bipyramids. Neither these statements nor the published-finding corpus nearest matches imply the exact n-dependent type spectrum. Residual risk: older combinatorial-slicing literature may contain equivalent formulations not surfaced in searches.
+PASS
 
-## Mathematical value — PASS
-In fixed ambient dimension four, this is a natural complete classification that separates face-vector information from section combinatorics. It shows the maximum number of nonisomorphic generic central sections can grow without bound even when **all** face numbers and triangular/quadrilateral face proportions of sections are orientation-independent. The two-hub neighborhood invariant gives a reusable structural way to distinguish those sections. This is not a routine numerical case or renaming of a known formula.
+The standard 4-dimensional double bipyramid has edges: n polygon edges, 4n spokes and four apex-cross edges; 2-faces: 8n triangular, facets: 4n tetrahedra. A vertex-avoiding central hyperplane crosses exactly two polygon edges, two opposite-apex-pair edges and 2n spokes (one to each apex pair per polygon vertex), giving 2n+4 section vertices. Split equal/opposite base edge signs across 4 tetrahedra to obtain 2n triangular and n+2 quadrilateral facets; Euler gives f1=5n+4 and f2=3n+2. In the section graph, only the two apex-apex crossings have degree n≥5; each hub has a neighbor subgraph equal to two vertex-disjoint paths of orders k and n-k. Thus split {k,n-k} is intrinsic, and cyclic relabeling proves sufficiency. An origin-containing strictly convex unit-circle realization with vertices clustered near the antipode realizes all 1≤k≤n−1 split sizes in one K, hence floor(n/2) nonisomorphic types. The finite checker was read (not blindly accepted) and its combinatorial construction matches the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The slicing-chamber algorithms and combinatorial slicing hierarchies known by 2026 do not, in their accessible statements, provide the exact every-generic-section face vector and full path-neighborhood type classification for one standard double bipyramid. A September 2026 paper directly studies bipyramid sections, so it is a significant priority risk: its complete text could not be obtained via attempted arXiv/OA and authorized institutional access (VPN disconnected). No snippet-only NOT_COVERING conclusion is asserted about that source; best-of-knowledge PASS is qualified by that unresolved historical risk.
+
+## value
+
+PASS
+
+For a geometrically natural infinite family in fixed ambient dimension four, the theorem exhibits a complete central-section classification with unbounded combinatorial-type multiplicity despite identical face vectors and facet polygon counts. This isolates a structural limitation of face-vector tomography and gives a concrete graph-theoretic invariant; it is neither a finite computational anecdote nor a mere renaming of slicing chambers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
