@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's Bernoulli RandProx-LC Algorithm 4 and 5 were reconstructed, including the \(\omega=(1-p)/p\) scaling and the final \(1/p\) primal correction. With \(\gamma=1/\mu\) the primal dependence on its initial value cancels in the first step, leaving one multiplicative iid dual factor. The displayed recurrences yield exact time-indexed moments, the iff interval \(0<a<2\) under nonzero initial dual, the geometric integrated squared-feasibility objective and its unique positive optimum. Algebraic differentiation and boundary/asymptotic calculations were checked both directly and with the packaged symbolic verifier. Finite enumeration supplies corroboration but is not the proof of infinite-time statements.
+## correctness
 
-## Originality — PASS, qualified
-The inspected full HTML of Condat–Richtárik, arXiv:2207.12891v3 (Algorithms 2, 4 and 5, Theorem 4, Appendix A.1) supplies the stochastic framework and the sufficient step condition; it does not state the specialized exact cumulative feasibility optimum. ProxSkip, arXiv:2202.09357v2 (Algorithm 1, Theorem 3.6 and Section 3.5), controls Lyapunov rate and sampling frequency at a fixed parameter coupling rather than this unconstrained dual-stepsize tradeoff. Actual search comparisons examined close deterministic primal–dual tuning claims and stochastic variance-reduction results; their assumptions or objectives do not imply the claimed Bernoulli RandProx-LC cumulative law. A related earlier exact scalar analysis under different terminology remains possible, so this is a best-knowledge originality judgment, not independent priority certification.
+PASS
 
-## Value — PASS
-The mean-square feasibility of an equality-constrained solver measures the extent of constraint violation at every iterate, whereas optimizing only the asymptotic dual rate can allow large intermittent primal residuals. The result gives an explicit and unique risk-optimal parameter, separates it from the fastest mean-square rate and from the generic theorem's sufficient boundary, and proves an asymptotically unbounded cumulative-risk improvement as skipped updates become rare. Its practical reach is limited to the stated scalar exact-gradient problem; the exact tradeoff provides a mathematically motivated boundary example, not a broad algorithmic recommendation.
+Direct substitution into Condat–Richtárik RandProx-LC Algorithm 4 with scalar K=1, b=g=0, f(x)=µx²/2, γ=1/µ and unbiased Bernoulli R(z)=Iz/p gives xhat=−γu, u_next=(1−aI)u and x_next=−γ(1−aI/p)u. Independence yields q=1−pa(2−a), c=1−2a+a²/p; mean-square stability iff 0<a<2 (given u0≠0), and the accumulated primal-squared feasibility S=c/[pa(2−a)]. Differentiation yields S'=2((1−p)a²+pa−p)/(p²a²(2−a)²), one strictly increasing numerator root a*=2√p/(√p+√(4−3p)) in (p,1), hence unique global optimum. As p→0 S(a*)~p^(−3/2) versus S(p)~(1/2)p^(−2) and S(1)~p^(−2). Independent SymPy differentiation plus all 15 separate short Bernoulli-trees corroborated; the iid recurrence/geometric series proves the full horizon.
 
-## Scope and remaining risks
-The quadratic is scalar, the primal step exactly cancels its smooth gradient, skip indicators are iid, and the metric is cumulative expected squared feasibility. Originality risk persists for unindexed analyses of linear stochastic fixed-point splittings. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Condat–Richtárik arXiv:2207.12891 Algorithms 4/5 and Theorem 4 already give RandProx-LC and the general sufficient γτ≤p after specialization. The user-visible finding is neither a new algorithm nor a global stability recommendation: it proves the scalar exact stability interval and optimizes a distinct cumulative constraint-violation criterion outside the sufficient source region. Mishchenko et al. ProxSkip 2022 optimize communications/iteration coupling, not this free scalar dual step at fixed p. Originality remains subject to possible equivalent one-dimensional stochastic splitting analyses.
+
+## value
+
+PASS
+
+The mean-square rate alone can hide rare but costly primal constraint excursions. A unique cumulative feasibility optimizer and asymptotically unbounded risk gain over both the general certified step and rate-optimal dual step provide a sharp, motivated algorithmic boundary example, even though the instance is scalar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

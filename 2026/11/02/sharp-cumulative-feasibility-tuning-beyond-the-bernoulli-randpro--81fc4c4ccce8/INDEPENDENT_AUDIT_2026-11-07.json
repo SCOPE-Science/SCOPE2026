@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:11:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct substitution into Condat–Richtárik RandProx-LC Algorithm 4 with scalar K=1, b=g=0, f(x)=µx²/2, γ=1/µ and unbiased Bernoulli R(z)=Iz/p gives xhat=−γu, u_next=(1−aI)u and x_next=−γ(1−aI/p)u. Independence yields q=1−pa(2−a), c=1−2a+a²/p; mean-square stability iff 0<a<2 (given u0≠0), and the accumulated primal-squared feasibility S=c/[pa(2−a)]. Differentiation yields S'=2((1−p)a²+pa−p)/(p²a²(2−a)²), one strictly increasing numerator root a*=2√p/(√p+√(4−3p)) in (p,1), hence unique global optimum. As p→0 S(a*)~p^(−3/2) versus S(p)~(1/2)p^(−2) and S(1)~p^(−2). Independent SymPy differentiation plus all 15 separate short Bernoulli-trees corroborated; the iid recurrence/geometric series proves the full horizon.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Condat–Richtárik convergence theorem certifies a<=p but does not assert necessity.",
+          "General ProxSkip rate bound controls different quantities."
+        ],
+        "reasoning": "A stronger generic convergence theorem could imply scalar convergence at some larger a, but it would still need an integrated-risk optimization to imply this particular a*.",
+        "searches": [
+          "RandProx linearly constrained Bernoulli skip scalar quadratic cumulative squared constraint feasibility optimal steps",
+          "arXiv:2207.12891",
+          "arXiv:2202.09357"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.12891",
+        "arXiv:2202.09357",
+        "RandProx linearly constrained Bernoulli skip scalar quadratic cumulative squared constraint feasibility optimal steps",
+        "Resultary semantic search for exact scientific formulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published update supplies the algebra, general sufficient a<=p.",
+          "Published ProxSkip step/probability tuning targets iteration/communication rates rather than sum_t E[x_t²]."
+        ],
+        "reasoning": "The claimed optimum a*>p lies outside the source theorem's sufficient range, so cannot be inferred from that theorem, and its criterion is distinct from ProxSkip convergence bounds.",
+        "searches": [
+          "RandProx linearly constrained Bernoulli skip scalar quadratic cumulative squared constraint feasibility optimal steps",
+          "arXiv:2207.12891 Algorithm 4, Theorem 4",
+          "arXiv:2202.09357 Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent scalar mathematical model is iid multiplier u_next=(1−aI)u and risk J=sum E x_t².",
+          "The direct scalar reduction is not itself in Condat–Richtárik Theorem 4."
+        ],
+        "reasoning": "Random multiplicative scalar recursion has simple exact moments, but optimally tuning cumulative constraint excursions is a separate risk criterion, not a renamed rate bound.",
+        "searches": [
+          "RandProx linearly constrained Bernoulli skip scalar quadratic cumulative squared constraint feasibility optimal steps",
+          "arXiv:2207.12891",
+          "arXiv:2202.09357"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact scalar dual-step cumulative feasibility table emerged from actual Resultary semantic search.",
+          "This is an all-p closed-form optimizer, not a finite numerical-table claim."
+        ],
+        "reasoning": "A tabulation is not the natural prior-covering form; a general closed-form scalar stochastic-system risk theorem would be relevant but was not found in inspected actual sources.",
+        "searches": [
+          "RandProx linearly constrained Bernoulli skip scalar quadratic cumulative squared constraint feasibility optimal steps",
+          "Resultary stochastic quadratic optimization published summaries"
+        ]
+      },
+      "rationale": "Condat–Richtárik arXiv:2207.12891 Algorithms 4/5 and Theorem 4 already give RandProx-LC and the general sufficient γτ≤p after specialization. The user-visible finding is neither a new algorithm nor a global stability recommendation: it proves the scalar exact stability interval and optimizes a distinct cumulative constraint-violation criterion outside the sufficient source region. Mishchenko et al. ProxSkip 2022 optimize communications/iteration coupling, not this free scalar dual step at fixed p. Originality remains subject to possible equivalent one-dimensional stochastic splitting analyses.",
+      "residual_risks": [
+        "Possibility of a pre-existing single-variable stochastic linear-systems cumulative cost solution under different notation.",
+        "Practical benefit needs numerical/finite-precision modeling absent from the exact scalar result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS update and general sufficient a<=p; does not state the scalar integrated feasibility objective optimum",
+          "evidence": "Algorithm 4 specifies xhat, stochastic dual proximal update and corrected primal; Theorem 4 is sufficient.",
+          "identifier_or_url": "arXiv:2207.12891",
+          "material_read": "Public full PDF, Algorithm 4 and stochastic operator/step-size theorem, visually inspected algorithm page 8 of 27",
+          "method": "Primary PDF text and page screenshot",
+          "title": "RandProx: Primal–Dual Optimization Algorithms with Randomized Proximal Updates",
+          "trigger": "Identical named algorithm and Bernoulli sufficient condition"
+        },
+        {
+          "assessment": "Different skipped proximal model and optimization variable; no same γτ scalar cumulative feasibility optimum in inspected sections",
+          "evidence": "ProxSkip Section 3 controls communication rate as skip probability varies, not fixed-p dual-step risk.",
+          "identifier_or_url": "arXiv:2202.09357",
+          "material_read": "Full 20-page public arXiv PDF, algorithms, theorem on skip-controlled rates and communication vs iteration tradeoffs",
+          "method": "Full primary PDF text and screenshot",
+          "title": "ProxSkip: Yes! Local Gradient Steps Provably Lead to Communication Acceleration! Finally!",
+          "trigger": "Closest skip-update and Lyapunov tuning analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mean-square rate alone can hide rare but costly primal constraint excursions. A unique cumulative feasibility optimizer and asymptotically unbounded risk gain over both the general certified step and rate-optimal dual step provide a sharp, motivated algorithmic boundary example, even though the instance is scalar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only scalar strongly convex quadratic with γ=1/µ, deterministic nonzero dual u0 and iid Bernoulli skips.",
+    "The criterion is total expected squared feasibility after update, not universal objective convergence or communication optimum.",
+    "No extension of larger stable a to arbitrary RandProx inputs is supported."
+  ]
+}
