@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:04:48.307265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Z_n=Z_{n-1}a_nZ_{n-1} with strictly increasing distinct alphabet interleaves a1 at all even positions and shifted alphabet symbols at odd positions. Lexicographic even/odd splitting gives S_n=(2L)||(2S_{n-1})||(2S_{n-1}+1), L=2^(n-1)-1. Proper-suffix prefix ties under cyclic wrap preserve order because a1 continues the shorter suffix while a larger odd-position symbol follows in the longer. Predecessor characters and zero-position row recursion give exact sentinel-free cyclic BWT blocks and original row n; rank-two adjacent a1 blocks merge, yielding r=1,2,2n-1 for n=1,2,n>=3. Independent direct suffix/rotation sorts and BWT/run comparisons succeeded for ranks 1..8 (length through 255); the all-n result rests on the interleaving proof, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brlek et al 2019 explicitly evaluate Thue–Morse and generalized Fibonacci/Tribonacci morphic word BWTs, not this expanding-alphabet Zimin recurrence.",
+          "Simpson–Puglisi 2008 fully clustered restriction allows one BWT block per alphabet symbol, inconsistent with the multi-block n>=3 form."
+        ],
+        "reasoning": "Fixed-alphabet morphism results and fully clustered characterizations do not imply the distinct-letter-growing Zimin suffix order.",
+        "searches": [
+          "Burrows Wheeler transform of words defined by morphisms 2019",
+          "Words with Simple Burrows-Wheeler Transforms Simpson Puglisi 2008",
+          "Resultary: Zimin word suffix array cyclic Burrows Wheeler transform run count 2n-1"
+        ]
+      },
+      "checked_sources": [
+        "Brlek et al 2019 OA morphic BWT text",
+        "Simpson & Puglisi 2008 fully clustered theorem scope",
+        "Resultary Zimin suffix/BWT search",
+        "Frozen RESULT.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zimin alphabet cardinality equals n; fixed finite-alphabet morphic results cannot be directly specialized to its strictly increasing new symbols.",
+          "Fully clustered one-block BWT implies exactly n runs, whereas this claim has 2n-1 runs for n>=3."
+        ],
+        "reasoning": "No inspected stronger statement implies both the suffix-array recursion and cyclic-BWT full formula.",
+        "searches": [
+          "Brlek et al 2019 BWT morphisms",
+          "Simpson Puglisi 2008",
+          "Resultary: Zimin word suffix array cyclic Burrows Wheeler transform run count 2n-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=3 the known abacaba example matches the specialization, but a single example does not imply the all-n interleaved order.",
+          "Cyclic transform must be distinguished from sentinel-terminated BWT, and fully clustered BWT has one run per symbol, unlike this 2n-1 run pattern."
+        ],
+        "reasoning": "Checked convention and low-rank equivalence; no full-rank formula inferred from an isolated n=3 occurrence.",
+        "searches": [
+          "Resultary: Zimin word suffix array cyclic Burrows Wheeler transform run count 2n-1",
+          "Zimin word abacaba cyclic BWT exact transform suffix array"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=3 abacaba computation appears in prior literature; the inspected sources do not list all n suffix arrays or explicit block exponents 2^(n-j)-1."
+        ],
+        "reasoning": "Earlier small tables are acknowledged, but no general all-rank database coverage found.",
+        "searches": [
+          "Resultary: Zimin word suffix array cyclic Burrows Wheeler transform run count 2n-1",
+          "Zimin cyclic BWT run count 2n-1 exact suffix array"
+        ]
+      },
+      "rationale": "Known BWT basic results, fully clustered word descriptions, morphic Thue–Morse/Fibonacci/Tribonacci formulas, and the shared low-rank example abacaba do not determine the full expanding-alphabet Zimin suffix array and cyclic BWT expression. The precise no-sentinel convention and two-block alphabet pattern differ. Prior scattered higher Zimin examples remain a risk.",
+      "residual_risks": [
+        "Historically known rank-three abacaba example is not new; another all-rank derivation could be unindexed.",
+        "Only finite *literal* increasing-alphabet Zimin strings and no-sentinel cyclic transform."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No identified all-rank Zimin formula",
+          "evidence": "The analyzed morphic families and fixed-alphabet hypotheses differ; low-rank example is duly credited.",
+          "identifier_or_url": "https://flore.unifi.it/bitstream/2158/1171602/6/BWT-morphism_%20Last.pdf",
+          "material_read": "Full lawful-OA PDF text, main sections treating Thue–Morse, Fibonacci/Tribonacci and examples, with low-rank abacaba overlap",
+          "method": "PDF text/html extraction; first-page screenshot also checked",
+          "title": "Burrows–Wheeler Transform of Words Defined by Morphisms",
+          "trigger": "plausible direct BWT formulas for recursive words"
+        },
+        {
+          "assessment": "Not established whole-document absence; theorem hypothesis inapplicable",
+          "evidence": "One contiguous BWT block per alphabet letter is not the 2n-1 Zimin run structure.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1r83/pdf/",
+          "material_read": "Available paper summary and fully clustered theorem scope",
+          "method": "bibliographic/theorem scope inspection",
+          "title": "Words with Simple Burrows-Wheeler Transforms",
+          "trigger": "plausible fully clustered characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite Zimin words are canonical recursively unavoidable patterns. Their complete suffix order and exactly 2n-1 cyclic BWT runs quantify logarithmic run-compressibility for an alphabet whose size grows with word rank; a concrete structural fact relevant to text indexing and compression, beyond simply noticing that each symbol must occupy a run.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brlek et al 2019 OA morphic BWT text",
+    "Simpson & Puglisi 2008 fully clustered theorem scope",
+    "Resultary Zimin suffix/BWT search",
+    "Frozen RESULT.md and checker.py",
+    "Git tree 0ec90cba02a8d8d84474ea2cf6092c95a391a0d3 @ 2c8d98134d9930cd11887f086cc209007a54248d",
+    "Independent calculation audit08_checks_20261104.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No sentinel appended; increasing distinct alphabet; BWT rank exceptions at n=1,2; no arbitrary alphabet permutation.",
+    "Historically known rank-three abacaba example is not new; another all-rank derivation could be unindexed.",
+    "Only finite *literal* increasing-alphabet Zimin strings and no-sentinel cyclic transform."
+  ],
+  "schema_version": 1
+}

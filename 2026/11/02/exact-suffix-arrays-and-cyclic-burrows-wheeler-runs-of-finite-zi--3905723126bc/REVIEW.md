@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The position-parity interleaving identity follows directly from the Zimin recursion. Its strict alphabet separation proves the suffix-array recurrence, and the all-\(a_1\) odd-position structure proves that proper-prefix comparisons are unchanged when suffixes are replaced by cyclic rotations. Exact predecessor letters yield the transform and the exceptional run count at rank two. The independent Python checker verified every suffix order through rank 11 and full rotation order through rank 9. Finite tests do not replace the proof of all ranks.
+## correctness
 
-## Originality
-PASS, qualified. Actual semantic searches for Zimin/ruler BWT blocks, suffix-array recurrences, and the exact \(2n-1\) run law found no dominating result. Prior examples of \(abacaba\) already give the rank-three transform, including the Tribonacci example in Brlek et al. (2019), which is expressly excluded from a claim of low-rank novelty. Simpson–Puglisi (2008) analyzes completely clustered transforms on arbitrary alphabets rather than the alternating Zimin block structure. Prior prior on Zimin factor automata concerns languages and transitions, not lexicographic suffix order; prior binary Cantor BWT results involve another family. The full text of Restivo–Rosone (2009) was not accessible; the available abstract addresses one-block-per-letter transforms and remains a historical-priority risk, rather than a proved source of the present formula. Searches do not prove uniqueness or absolute priority.
+PASS
 
-## Value
-PASS. The theorem characterizes a canonical compression and indexing transform of a classical recursive word family at every rank, including all block lengths and the original row, without expanding its exponential-length input. The \(O(\log |Z_n|)\) run-size law and exact suffix-array permutation are useful structural test cases for BWT and succinct indexing. The value is the complete symbol-resolved classification, not merely an easy alphabet-size lower bound. There is no claim of optimum among words with the same alphabet.
+Z_n=Z_{n-1}a_nZ_{n-1} with strictly increasing distinct alphabet interleaves a1 at all even positions and shifted alphabet symbols at odd positions. Lexicographic even/odd splitting gives S_n=(2L)||(2S_{n-1})||(2S_{n-1}+1), L=2^(n-1)-1. Proper-suffix prefix ties under cyclic wrap preserve order because a1 continues the shorter suffix while a larger odd-position symbol follows in the longer. Predecessor characters and zero-position row recursion give exact sentinel-free cyclic BWT blocks and original row n; rank-two adjacent a1 blocks merge, yielding r=1,2,2n-1 for n=1,2,n>=3. Independent direct suffix/rotation sorts and BWT/run comparisons succeeded for ranks 1..8 (length through 255); the all-n result rests on the interleaving proof, not finite extrapolation.
 
-## Closest literature and limits
-See Burrows–Wheeler (1994); Simpson–Puglisi (2008); Restivo–Rosone (2009, abstract available); Fici et al. (2014); and Brlek et al. (2019, full text inspected). The claim concerns sentinel-free cyclic BWT of literal finite Zimin words with increasing alphabet order; it excludes appended-terminator variants and arbitrary alphabet relabelings. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known BWT basic results, fully clustered word descriptions, morphic Thue–Morse/Fibonacci/Tribonacci formulas, and the shared low-rank example abacaba do not determine the full expanding-alphabet Zimin suffix array and cyclic BWT expression. The precise no-sentinel convention and two-block alphabet pattern differ. Prior scattered higher Zimin examples remain a risk.
+
+## value
+
+PASS
+
+Finite Zimin words are canonical recursively unavoidable patterns. Their complete suffix order and exactly 2n-1 cyclic BWT runs quantify logarithmic run-compressibility for an alphabet whose size grows with word rank; a concrete structural fact relevant to text indexing and compression, beyond simply noticing that each symbol must occupy a run.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
