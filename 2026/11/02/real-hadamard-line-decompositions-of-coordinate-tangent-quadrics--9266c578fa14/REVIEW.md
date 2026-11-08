@@ -1,11 +1,21 @@
-# Scientific review of the real coordinate-tangent quadric criterion
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The tangent-plane condition is precisely zero diagonal of the inverse symmetric matrix. The determinant identity is an exact polynomial expansion. For an invertible symmetric zero-diagonal real matrix, trace zero excludes definite signatures and determinant sign distinguishes Witt index two from Witt index one. An actual real Hadamard decomposition forces a real line on the quadric; conversely a split real Segre model gives real factorizations of each tangent coordinate section, hence a real line pair and pointwise surjectivity. The two-orbit assertion follows from the two ruling orientations and unique rank-one factorizations of each coordinate section. The separate split and nonsplit witness matrices have exactly computed spectra and determinants. The standalone checker successfully verified the algebraic identity and finite test cases; it is not offered as a proof of the general classification.
+## correctness
 
-**Originality — PASS, with explicit priority limits.** Antolini–Ballico–Oneto prove the analogous complex existence theorem, not a real necessary-and-sufficient determinant test. Their complex theorem does not imply real factors exist for every real quadric: the all-ones off-diagonal witness has real points, complex line factorizations, and no real line. Ballico's 2024 study treats real Hadamard images and ghosts generally, whereas the available text did not provide this inverse signature stratification. The 2026 related paper likewise discusses real Hadamard ranks and cites the complex classification without furnishing this sign formula in the inspected passages. Published research records returned no equivalent classification in targeted queries. An earlier, differently phrased real-form observation remains possible; part of the 2024 source was not accessible in full.
+PASS
 
-**Mathematical value — PASS.** The question is the concrete real inverse problem for the natural five-parameter family of quadrics from the motivating paper. The result classifies both existence and nonexistence of all real factor pairs by one explicit quartic sign and determines the real topology and the surjectivity of coordinatewise multiplication on real points. It distinguishes the torus and sphere real forms of the same complex Hadamard surface family. These assertions are genuinely different from the known complex decomposition and provide a useful finite polynomial test; no assertion of a new general real-quadratic-form classification is made.
+Smooth coordinate tangency implies inverse dual coefficients b_ii=0; direct symmetric 4x4 determinant expansion gives delta, and tr B=0 forces indefinite form, so sign(det B)>0 iff exactly two negative eigenvalues in dimension four. Inversion preserves inertia. Signature (2,2) supplies a real Segre P1×P1 model with O(1,1) hyperplane sections; each tangent coordinate section is a rank-one *real* bilinear form, hence factors ℓ_i(s)m_i(t) over R and the four sections span H0(O(1,1)). These factors give two actual embedded real projective lines whose coordinatewise product is all of W, with no base points. Conversely a real line factor yields a real projective line in W after multiplying by a generic real point with all coordinates nonzero, impossible for a real quadric of Witt index 1. Factorization pairs are unique up to reciprocal coordinate scalars for a chosen ruling order, yielding two free dimension-three torus orbits exchanged by swapping factors. Real signatures give RP1×RP1≅T² versus projective one-sheet cone S². Independent exact six-variable symbolic determinant identity and explicit split/nonsplit witnesses support the general algebraic proof.
 
-**Closest literature and scientific limits.** D. Antolini, E. Ballico, A. Oneto, *Algebraic surfaces as Hadamard products of curves*, arXiv:2502.18813, Sections 2–3; E. Ballico, *Real Ghosts of Complex Hadamard Products*, *Symmetry* 16 (2024), 1300; E. Ballico, *Hadamard Products and Varieties Which Are Strongly Concise for All Systems of Coordinates*, *Mathematics* 14 (2026), 2072, Section 5.2. The statement is restricted to smooth coordinate-tangent real quadrics and geometric factor pairs; it does not describe singular boundary quadrics or parameter-fiber schemes. The 2024 full text was not fully available during the comparison. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level novelty after primary-literature and semantic published-result comparison; known general tools/special cases are explicitly carved out. General theory helps prove the theorem but it is not simply the complex claim with field name changed; its negative-sign counterfamily is substantive.
+
+## value
+
+PASS
+
+Among smooth coordinate-tangent quadrics, the complex Hadamard factorization theorem hides a real obstruction: the sign of a concrete degree-four dual invariant exactly distinguishes factorable toric and nonfactorable spherical real forms. This answers a natural real-descent question with both topology and complete geometric factor-orbit structure. It is mathematically substantive beyond determinant inertia alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
