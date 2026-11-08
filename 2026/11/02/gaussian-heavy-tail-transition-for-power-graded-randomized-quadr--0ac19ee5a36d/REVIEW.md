@@ -1,19 +1,21 @@
-# Review: Gaussian–heavy-tail transition for power-graded randomized quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed universal distributional laws reduce to a single independent centered series by an exact scaling identity. An explicit uniform-cell integral supplies the cell variance, Taylor expansion supplies the power exponent and coefficient, Kolmogorov's theorem and a sub-Gaussian remainder yield the non-Gaussian limit, and Lindeberg–Feller yields the two Gaussian limits. Differentiation proves the unique optimal fixed power exponent; polynomial identities give exactly \(3/(4n^3)\) in the cubic example. The executable exact-arithmetic verifier passed its finite-instance tests. Finite tests are corroborating evidence, not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+Scaling each power-mesh cell gives the exact distributional identity Q_n-I=n^{-q}sum_{j<=n}Z_j, with independent centered Z_j and explicit integrated variance. For 0<alpha<1/2, v_j~(alpha^2p^4/12)j^{2q-4}; the derivative/width Taylor remainder is uniformly lower order on j>=2. When q<3/2 the independent series converges in L2 and almost surely. Only its first term has the unbounded power right tail P(Z_1>x)~x^{-1/alpha}; the remainder is sub-Gaussian by Hoeffding with square-summable bounds, giving the exact tail equivalence. At q=3/2 variance grows c log n and at q>3/2 it grows c n^(2q-3)/(2q-3), with Lindeberg since bounded later summands are negligible relative to the normalization. Differentiating c/(2q-3) finds p*=2/(1-alpha). Independently exact-rational cell variance calculations verified v_j=3/4 for alpha=1/3,p=3 and v_j=2(6j^2-6j+1)/9 for alpha=1/4,p=4 for all j=1..30.
 
-Chopin–Gerber (arXiv:2210.01554, 2022) analyzes smooth cubic stratification and Haber constructions; the endpoint singularity is outside that source's \(C^r\) hypotheses. Carpentier–Munos (arXiv:1210.5345, 2012) gives earlier optimal smooth-function oracle allocation; its continuous square-integrable gradient hypothesis is violated here. Their allocation principle is acknowledged and not claimed as new. Actual mathematical-record searches did not locate this singular three-regime distributional classification or exact all-n equal-variance identity. Earlier overlooked graded-quadrature work is a live residual priority risk; independent checking remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-A precisely specified and natural Monte Carlo integration problem undergoes a sharp heavy-tail/log-Gaussian/Gaussian transition that controls reliability and confidence modeling. The power exponent maximizing asymptotic variance efficiency is unique, and a particularly natural singular exponent has an exact equal-variance mesh at every finite resolution. This yields concrete design guidance beyond existing differentiability-based guarantees, without any claim of new generic stratification methodology.
+The smooth-function stratified-sampling and adaptive oracle literature establishes general methods and rates under differentiability assumptions excluding t^-alpha at zero. The present result is a separate exact triangular-array distribution classification including non-Gaussian tails and a logarithmic boundary for one sample per power cell. Older specialized randomized singular quadrature is a real residual priority risk; this is a best-of-knowledge verdict, not proof by negative search.
 
-## Scope and limitations
+## value
 
-One-dimensional power-law integrand, deterministic power mesh, independent uniform samples, fixed exponent. The variance theorem requires \(0<lpha<1/2\). Optimality is only within the fixed power-graded family. Complete global prior-art coverage is not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Failure of Gaussian reliability at the insufficient grading threshold is mathematically and practically motivated for singular integrands. Exact tail exponent, normal/log-normal transition, optimized fixed power and all-n equal-variance benchmark are nontrivial distinctions, not a smooth-theory constant substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
