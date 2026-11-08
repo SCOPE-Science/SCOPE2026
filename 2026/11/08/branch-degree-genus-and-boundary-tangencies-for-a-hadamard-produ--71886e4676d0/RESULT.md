@@ -1,0 +1,45 @@
+# Branch degree, genus, and boundary tangencies for a Hadamard product of two general conics
+
+## Finding
+Let \(C,D\subset\mathbb P^2_{\mathbb C}\) be a pair of general smooth conics, and let \(f:C\times D\to\mathbb P^2\) be coordinatewise multiplication, \(([x_0:x_1:x_2],[y_0:y_1:y_2])\mapsto[x_0y_0:x_1y_1:x_2y_2]\). The morphism is finite of degree \(8\). Its ramification divisor \(R\) is a smooth irreducible curve of genus \(9\), of bidegree \((4,4)\) on \(C\times D\simeq\mathbb P^1\times\mathbb P^1\). The reduced branch curve \(B=f(R)\) is irreducible of degree \(16\), and \(f|_R:R\to B\) is its normalization. Its singularities therefore have total delta invariant \(96\).
+
+More specifically, each coordinate line \(H_i=\{z_i=0\}\) meets \(B\) in precisely twelve distinct points: four smooth points where the intersection multiplicity is \(2\), and eight smooth points where the intersection multiplicity is \(1\). Thus its intersection cycle is \(B\cdot H_i=2\sum_{j=1}^4 P_{ij}+\sum_{j=1}^8Q_{ij}\). The twelve points are pairwise distinct for each \(i\). (The assertion of smoothness at these twelve points is proved below from the differential normal forms and finite birationality.)
+
+## Assumptions and scope
+All geometry is over \(\mathbb C\); “general” means on a nonempty Zariski-open subset of the irreducible parameter space of ordered pairs of smooth plane conics. The coordinate axes and vertices are fixed. Both conics meet each coordinate line transversely and avoid the three coordinate vertices. Denote by \(B\) the reduced image of the ramification curve, not the scheme-theoretic discriminant with possible multiplicities. No claim about singularity types of \(B\) away from the coordinate axes is made.
+
+## Proof
+Parametrize \(C\) and \(D\) by three independent binary quadratics \(A_0,A_1,A_2\) and \(T_0,T_1,T_2\), respectively. The three functions \(A_i(s,t)T_i(u,v)\) are global sections of \(\mathcal O(2,2)\). They have no common zero: a zero would require disjoint nonempty subsets of the coordinates vanishing on the two conics, so at least one conic would pass through a coordinate vertex. Consequently the multiplication map is a morphism with \(f^*\mathcal O(1)=\mathcal O(2,2)\). This bundle is ample, so \(f\) is finite onto its two-dimensional image, hence onto \(\mathbb P^2\). The equality \((f^*H)^2=(2,2)^2=8\) proves \(\deg f=8\).
+
+The canonical divisor formula gives \(R\sim K_{\mathbb P^1\times\mathbb P^1}-f^*K_{\mathbb P^2}=(-2,-2)+3(2,2)=(4,4)\). The determinant \(\det(F,\partial_sF,\partial_uF)\), where \(F_i=A_i(s)T_i(u)\) in affine parameters, is a bihomogeneous \((4,4)\)-equation of \(R\). A concrete nonempty-open certificate of smoothness appears in Verification below. Smoothness is open in the conic-pair parameter space and the exhibited integer-coefficient pair reduces to a smooth ramification curve modulo \(101\); therefore the general complex ramification divisor is smooth. A smooth effective ample divisor of type \((4,4)\) is connected, hence irreducible; adjunction yields \(g(R)=(4-1)(4-1)=9\).
+
+We analyze the target line \(H_0=\{z_0=0\}\); the same computation holds for the other two axes after relabeling coordinates. Set \(a=A_1/A_2\), \(b=T_1/T_2\) wherever defined. If \(A_0=0\) but \(T_0\ne0\), the transverse coordinate of the map is a local parameter on the first conic, while its coordinate along \(H_0\) is \(a b\). The ramification condition on this fiber is precisely \(db=0\). Since \(b:\mathbb P^1\to\mathbb P^1\) has degree two, it has two simple critical points, giving four points (two roots of \(A_0\), two critical points of \(b\)). Interchanging the two factors gives four further points (two roots of \(T_0\) and two critical points of \(a\)). At each, local coordinates give the standard fold map \((u,v)\mapsto(u,v^2+\lambda u+\cdots)\), so the branch is smooth and transverse to \(H_0\).
+
+Finally, there are four pairs of zeros of \(A_0\) and \(T_0\). At such a pair take local parameters \(u,v\) so that the transverse target coordinate is \(uv\) up to a unit, and the coordinate along \(H_0\) is \(w=w_0+\alpha u+\beta v+O((u,v)^2)\), where \(\alpha\beta\ne0\) generically. The Jacobian equation has initial form \(\beta v-\alpha u=0\); restricted to \(R\) the transverse target coordinate vanishes to order \(2\), and \(w-w_0\) has order \(1\). Therefore the image branch has contact order \(2\) with \(H_0\) there.
+
+The twelve target images are pairwise distinct on a nonempty Zariski open, as witnessed by the exact finite-field computation below. In particular \(\deg B\ge 12\). By the projection formula, \(\deg(f|_R)\deg B=(f^*H)\cdot R=(2,2)\cdot(4,4)=16\). Since \(\deg(f|_R)\) is a positive integer and \(\deg B\ge12\), this forces \(\deg B=16\) and \(\deg(f|_R)=1\). Thus \(R\) is the normalization of \(B\), because it is smooth and the map is finite and birational. The twelve axis-intersection contributions have total multiplicity \(4\cdot2+8=16\), so no further point of \(B\cap H_0\) is possible; each listed point has exactly one ramification preimage and is a smooth point of the branch because the local branch maps are immersions and no other component or branch can lie there. The same holds for every \(H_i\). The arithmetic genus of a degree-\(16\) plane curve is \((16-1)(16-2)/2=105\); subtracting the normalization genus gives \(\sum_{P\in\mathrm{Sing}(B)}\delta_P=105-9=96\).
+
+## Verification
+The accompanying `verify_hadamard.py` provides a standalone exact certificate using the prime field of order \(101\). The rows of the two binary-quadratic coefficient matrices are
+
+```
+A = [[ 5,-2, 3], [ 4,-1,-3], [-5, 3,-5]]
+T = [[-1, 5, 6], [ 2,-1,-2], [ 3, 6,-1]]
+```
+
+The determinants are \(21\) and \(57\) modulo \(101\), respectively. All six coordinate quadratics have distinct roots and no two in the same triple share a root. The ramification determinant has bidegree \((4,4)\). Its affine singularity ideal \((R,R_s,R_u)\) is the unit ideal; the corresponding gcd checks on the two boundary charts have degree zero, and its value at the double-infinity corner is \(59\ne0\). Thus the entire projective ramification curve is smooth. On \(H_0\), the zero sets and critical sets are \(\{17,44\},\{20,91\}\) for the first factor and \(\{6,100\},\{93,95\}\) for the second. The twelve normalized target coordinates are \(33,8,20,63,47,7,4,93,60,88,97,48\), which are all distinct. All checks are exact modulo \(101\). Reduction modulo a prime is used solely to show an integer defining polynomial for each open condition is nonzero, hence that the characteristic-zero parameter-open is nonempty. The calculations do not assert a complete census over any finite field.
+
+Run `python verify_hadamard.py` with SymPy; the recorded output is in `verification_output.txt`. The independent mathematical proof above establishes the theorem for all sufficiently general complex conic pairs.
+
+## Relationship to prior work
+Bocci, Carlini and Kileel (2015) introduce and analyze Hadamard products of linear spaces and related degree problems; their geometric setup motivates replacing the source lines by two conics. Later treatments of Hadamard products of hypersurfaces and of general algebraic varieties provide the ambient terminology and general perspective. The source texts inspected do not give the simultaneous degree-sixteen branch normalization, genus-nine ramification, and twelve-point axis tangency pattern for two general conics. The elementary adjunction and degree formulas themselves are standard, and are not claimed as original results. The Hadamard-specific boundary tangency pattern, and the joint classification for the generic conic pair, are the assessed contribution.
+
+## Limitations
+This is a generic theorem, not a classification for special conic pairs. It does not classify the singularity types or locations away from coordinate axes or give the defining equation of the branch curve. The total delta invariant alone does not determine the number of nodes and cusps. Historical priority remains provisional: an implicit specialization of older work on general finite maps from \(\mathbb P^1\times\mathbb P^1\) or an unindexed treatment of Hadamard conics could overlap these statements. The full 2024 Bocci--Carlini monograph was not accessible and cannot be certified non-covering from its public preview.
+
+## References
+- C. Bocci, E. Carlini and J. Kileel, *Hadamard Products of Linear Spaces*, arXiv:1504.04301 (first public version April 16, 2015), https://arxiv.org/abs/1504.04301 .
+- C. Bocci and E. Carlini, *Hadamard Products of Hypersurfaces*, arXiv:2109.09548, https://arxiv.org/abs/2109.09548 .
+- N. Friedenberg, A. Oneto and R. L. Williams, *Minkowski sums and Hadamard products of algebraic varieties*, arXiv:1701.03191, https://arxiv.org/abs/1701.03191 .
+- C. Bocci and E. Carlini, *Hadamard Products of Projective Varieties*, Birkhäuser (2024), DOI:10.1007/978-3-031-54263-3 (publisher preview only; full text not inspected).
+- Standard intersection theory, adjunction, Riemann--Hurwitz and normalization of projective curves (used as background, not claimed as new).
