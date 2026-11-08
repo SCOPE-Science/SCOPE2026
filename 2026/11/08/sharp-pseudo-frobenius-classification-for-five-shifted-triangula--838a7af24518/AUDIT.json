@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The recurrence c(n+10)=c(n)+1 is proved by first 50 exact integer entries and a size argument forcing a ten-coin for n>=40. For a>=18 every Apéry representative is r+a*c(r) by a strict min-length inequality for offsets r+ja. Generator membership reduces PF candidates to four displayed coin-length inequalities. The uniform table follows from at most 100 explicit residue cases for a>=30, and 12 small parameters 18..29 are directly checked. A=17 is a sharp counterexample. Replaying verify_five.py independently computes shortest-path Apéry sets for all 983 parameters 18..1000, directly tests ten cases via gap reachability, and matches the table, though finite checks alone are not proof of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stamate–Strazzanti proves PF transport for every shifted family with n>N_0; with offsets 1,3,6,10, this gives n>100 rather than n>=18 and does not give initial PF sets.",
+        "Morales–Dung describes the AAG family involving an arithmetic progression of at least three nonmultiplicity generators, which fails for 1,3,6,10."
+      ],
+      "reasoning": "The general shift theorem genuinely covers qualitative eventual periodicity and its recurrence, and the result does not claim these as new. It does not by itself state the fully evaluated ten PF sets, the type vector or the boundary 18. AAG complete formulas concern a distinct architecture.",
+      "searches": [
+        "arxiv:2601.19629 Theorem 2.1 Corollary 2.8 Remark 2.3",
+        "arxiv:2601.07467 Theorem 3.14 AAG numerical semigroups",
+        "Numerical semigroup shifted triangular generator offsets 0 1 3 6 10 pseudo-Frobenius type threshold",
+        "Numerical semigroup Apéry pseudo Frobenius all translated five generator sets Fibonacci triangular sequences periodic type 10"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.03459 (PDF sections cited)",
+      "arxiv:2601.19629 (full-text HTML Theorems 1.2 and 2.1, Corollary 2.8, Remark 2.3)",
+      "arxiv:2601.07467 (PDF intro and generating-family definition)",
+      "Public mathematical research-index exact-target and alias searches; closest result about a different power-obstruction semigroup",
+      "Comparison with the published and accessible claims for infinite-generator triangular semigroups and shifted-square semigroups"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General eventual PF transfer alone does not imply the exact a=18 bound or the explicit PF base elements without calculating this family.",
+        "The GCNS monotone multiplier sequence assumption fails at offset 3 to 6.",
+        "The AAG presentation requires an arithmetic-progression triple absent from 1,3,6,10."
+      ],
+      "reasoning": "The strongest genuine partial implication is eventual period ten; it is explicitly disclaimed as original. The remaining exact table and sharp starting domain are not stated by the compared theorems. The new proof supplies family-specific coin-length and endpoint enumeration needed to obtain them.",
+      "searches": [
+        "Stamate Strazzanti arxiv:2601.19629 theorem 2.1 threshold N0 and corollary 2.8",
+        "Liu Xin Ye Yin arxiv:2306.03459 Theorem 2.12 Collection GCNS",
+        "Morales Dung arxiv:2601.07467 AAG definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact searched coefficients include a ten-period type vector 7,8,8,9,10,7,5,6,5,6 and ten PF boundary sets.",
+        "The closest indexed result described a tenth-power obstruction semigroup, a mathematically different object; no matching exact type vector was identified."
+      ],
+      "reasoning": "For fixed a, the PF set can be expressed via Apéry maxima or local coin-length inequalities. The claim is the uniform ten-class closed classification and sharp start, not an abstract reformulation of the standard Apéry test. No indexed exact equivalent form was retrieved.",
+      "searches": [
+        "Complete pseudo-Frobenius classification and numerical semigroup type for translated five triangular numbers S(a)=<a,a+1,a+3,a+6,a+10> for a>=18, explicit period 10, type 7 8 8 9 10 7 5 6 5 6",
+        "Numerical semigroup shifted triangular generator offsets 0 1 3 6 10 pseudo-Frobenius type threshold",
+        "Numerical semigroup Apéry pseudo Frobenius all translated five generator sets Fibonacci triangular sequences periodic type 10",
+        "\"a,a+1,a+3,a+6,a+10\" semigroup type",
+        "\"0,1,3,6,10\" numerical semigroup"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-family searches in a public mathematical research index did not return a matching research record or type table.",
+        "Literal-web exact-generator searches returned no numerical-semigroup spectrum with these parameters.",
+        "Related previously available claims include a distinct infinite-generator triangular semigroup and five shifted-square generators; neither is the five-term triangular-prefix family."
+      ],
+      "reasoning": "Checking literal parameter sets and equivalent semigroup invariants locates no exact table. Index absence cannot establish absolute uniqueness; unindexed sources remain a residual risk.",
+      "searches": [
+        "Public research-index semantic exact a+1 a+3 a+6 a+10 PF threshold 18 period ten",
+        "\"a+1\" \"a+3\" \"a+6\" \"a+10\" semigroup type",
+        "\"1,3,6,10\" \"numerical semigroup\" pseudo Frobenius"
+      ]
+    },
+    "rationale": "The closest arbitrary-shift theorem (Stamate–Strazzanti 2026) proves eventual PF transport for all fixed offsets but does not evaluate the exact ten PF sets or prove the sharp starting bound 18, which is below its explicit N0=100 for this family. Liu–Xin–Ye–Yin (2023) do not treat this offset pattern in their exact PF families; Morales–Dung (2026) requires a three-term arithmetic progression among the nonmultiplicity generators. No exact equivalent was identified in published mathematical research indexes, web search, or prior related claims. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "The general PF transport theorem reduces evaluation of any shifted family to finite base cases; an unindexed author may already have tabulated these ten cases.",
+      "A plausible equivalent specialization may exist in unindexed published or unpublished literature; absence from the examined database is not a novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Theorem 2.12 gives Frobenius/genus for a monotone multiplier sequence; the offset sequence 1,3,6,10 does not satisfy its recurrence, and its stated explicit PF families are distinct geometric/repunit-like objects.",
+        "evidence": [
+          "Collection GCNS assumes b_(i+1)=s_i*b_i+1 with integral s_i; 3 to 6 would require s_i=5/3.",
+          "PDF introduction and Theorem 2.12 emphasize F and g; specialized PF results concern repunit/Thabit families, not all translated triangular-prefix offsets."
+        ],
+        "identifier_or_url": "arxiv:2306.03459",
+        "material_read": "Full-text PDF pages 1-3 and sections around Theorem 2.12, Collections 1.1-1.2, the pseudo-Frobenius applications in Sections 3-4, and reference listings; PDF pages 1 and 3 visually inspected.",
+        "method": "Original arXiv open-access PDF with section/text searches and page inspection.",
+        "title": "A Combinatorial Model of Numerical Semigroup (revised title: On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups)",
+        "trigger": "Primary 11D07 Apéry/minimal coin-length machinery and first public source from June 2023"
+      },
+      {
+        "assessment": "PARTIAL_BROADER_COVERAGE: Eventual type periodicity and an explicit bijection under shifts by ten are already established in this general family. However no ten-entry type vector, ten explicit PF boundary sets, or exact threshold a=18 is given. This overlap limits any novelty claim to the family-wide exact computation and early sharp boundary.",
+        "evidence": [
+          "Notation 1.1 covers arbitrary offsets; Theorem 2.1 and Corollary 2.8 relate PF(M_n) and PF(M_(n+r_k)) for n>N_0.",
+          "Here r_k=10 and S=<1,3,6,10>=N0, so F(S)=-1 and N_0=max(100,90)=100; the general theorem is stated for n>100 and does not assert the a>=18 cutoff or list the ten values.",
+          "Remark 2.3 explicitly attributes eventual periodicity to earlier work; that phenomenon is not claimed as new."
+        ],
+        "identifier_or_url": "arxiv:2601.19629",
+        "material_read": "Open-access full-text HTML Introduction, Notation 1.1 and Theorem 1.2, section 2 Theorem 2.1, Example 2.2, Remark 2.3, Corollary 2.8 and Proposition 2.11.",
+        "method": "Open-access arXiv HTML primary text, including exact theorem and proof scopes.",
+        "title": "Nearly Gorenstein and almost symmetric properties in shifted numerical semigroups",
+        "trigger": "Potential strongest dominating statement: exact arbitrary-shift pseudo-Frobenius transport."
+      },
+      {
+        "assessment": "INAPPLICABLE TO THIS FIVE-GENERATOR FAMILY: Three generators besides the multiplicity must lie in an arithmetic progression and one further generator is allowed. The four nonzero offsets 1,3,6,10 contain no three-term arithmetic progression. Thus the source does not give the ten-class classification by specialization.",
+        "evidence": [
+          "Definition states minimally generated by a,ha+d,...,ha+kd,c with embedding dimension k+2. For five distinct generators k=3, requiring three arithmetic-progression generators besides a.",
+          "All 4 choose 3 triples of 1,3,6,10 fail the midpoint equality."
+        ],
+        "identifier_or_url": "arxiv:2601.07467",
+        "material_read": "Open-access 32-page PDF title, introduction, definition of generalized almost arithmetic sequences, and theorem scope; first two pages visually inspected.",
+        "method": "Open-access arXiv PDF text and page inspection.",
+        "title": "Frobenius Number Of Almost Symmetric Numerical Generalized Almost Arithmetic Semigroups",
+        "trigger": "Direct complete-PF theorem for a five-generator family, a plausible dominating theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "838a7af2-4518-46bc-9551-c633a9986751",
+  "value": {
+    "rationale": "A natural finite prefix of triangular offsets yields a 5-minimal-generator infinite family, and the complete PF spectrum is a structural invariant not determined by a simple Frobenius number. The theorem resolves every parameter a>=18 with explicit low/interior exceptions, ten high-boundary sets, exact type vector of minimum 5 and maximum 10, and a sharp failing boundary 17. This is a complete motivated classification rather than a routine or arbitrary short census; qualitative eventual periodicity is appropriately attributed to prior results.",
+    "status": "PASS"
+  }
+}
