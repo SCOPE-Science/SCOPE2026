@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Execute \(`python3 verify.py`\) with Python 3.10 or later; the expected final marker is \(`VERIFY_OK`\). All arithmetic for polynomial coefficients, root-free inequality checks, and strict log-concavity slacks uses exact Python integers. No third-party dependencies or downloaded data are required.
+## correctness
 
-Every path/cycle component multiset with total order \(5\) through \(13\) is enumerated once. The counts by order are \(11,19,29,46,70,106,156,232,334\), totaling \(1003\). The minimum positive log-concavity slacks are \(15,21,28,36,45,55,66,78,91\). For all 175 types of orders \(5\) through \(9\), a separate graph-distance routine independently counts general-position sets and checks the complete polynomial. Additional nonexhaustive stress tests cover orders up to \(100\).
+PASS
 
-Finite enumeration proves the nine bounded orders only. The argument for every \(n\ge14\) is an ordinary mathematical proof from a complete induced-subgraph classification, the negative-real-rooted path/cycle independence polynomials, Newton's inequalities, and explicit uniform independent-set coefficient bounds; it does not depend on extrapolating numerical experiments. Independent mathematical auditing has not been performed. Publication priority remains subject to possible unindexed or unnoticed stronger literature.
+PASS: For n>=5 and Delta(H)<=2 every nonedge of complement G has a common G-neighbor, hence diam(G)<=2. A G-general-position set induces a disjoint union of cliques, equivalently H[S] complete multipartite; under max degree 2 its nonindependent possibilities are precisely K2,P3,K3,C4. Counting these gives ψ(G;z)=I(H;z)+e(H)z²+(p+t)z³+qz⁴. Independence polynomials of paths/cycles have negative real zeros and strict Newton ratio bounds. The displayed n>=14 union-bound inequalities control the four disturbed coefficients; independent integer program exhaustively regenerated all unordered path/cycle component multisets of n=5..13, obtaining counts 11,19,29,46,70,106,156,232,334 and minimum log-concavity slack 15,21,28,36,45,55,66,78,91, all positive. Finite enumeration covers only n<=13, with separate symbolic bounds for n>=14; selected unbounded stress cases are not treated as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the stated final claim (not preceding methods or special cases), with explicitly bounded access and implication risks. The geodesic/cluster translation is established structural theory and credited; the new exact correction and strict inequalities are additional statements, not mere rephrasing of graph diameter.
+
+## value
+
+PASS
+
+PASS: Supplies an exact full cardinality enumerator and global strict log-concavity for a natural infinite closure of complements of paths and cycles, including disconnected graphs, with a genuine threshold between mere unimodality and stronger coefficient geometry. The C5 counterexample prevents claiming real-rootedness; complete coefficient classification is independently useful beyond the known maximum GP size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
