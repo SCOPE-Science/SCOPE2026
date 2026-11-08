@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The character and Haar normalizations are reconstructed explicitly. Exact differentiation yields B_L=-N cos(2Ntheta)+(cot theta/2)sin(2Ntheta). Exact removal of spin L-1 gives main angular multiplier -(2cos(2theta)-1)N cos(2Ltheta), with O(log N) remainder in L1. The bounded-variation absolute-cosine averaging lemma and exact |2cos(2theta)-1| integral pi/3+2sqrt(3) prove both sharp asymptotic constants for every integer L tending to infinity. Finite symbolic and quadrature checks corroborate, but cannot replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giulini–Travaglini (JFA 1986) Theorem 1 gives two-sided power-order bounds for complete spherical Dirichlet kernels; its polyhedral results also give power orders. It does not provide the exact punctured SO(3) norm constant.",
+        "Zhang arXiv:2005.11451 introduction and Theorem 1.1 give sharp Lp character bounds and restriction estimates; neither controls the sharp L1 norm of the deleted-block convolution kernel.",
+        "The full RESULT.md of the published SU(2) all-block limit explicitly restricts itself to an intact low-pass cutoff."
+      ],
+      "reasoning": "Order bounds and unpunctured asymptotics allow both increases and decreases after deleting one representation of weight proportional to the cutoff; they do not dominate or imply this positive linear gap.",
+      "searches": [
+        "Sharp Estimates for Lebesgue Constants on Compact Lie Groups Giulini Travaglini 1986",
+        "On Fourier restriction type problems on compact Lie groups Zhang arxiv:2005.11451",
+        "published-finding corpus 2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+        "nonabelian spectral hole Fourier projection asymptotic SO(3) 43A80"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2005.11451 (first version 2020-05-23; initial paper and main theorems inspected)",
+      "doi:10.1016/0022-1236(86)90059-5 (original journal full-text theorem and core proof inspected)",
+      "arxiv:1807.04670 (introduction and theorem inspected)",
+      "published-finding corpus 2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c (public RESULT.md full proof inspected)",
+      "published-finding corpus 2026/10/11/SCOPE-exact-endpoint-norms-of-single-peter-weyl-blocks-on-su-2--91e7da647bb6 (published search summary compared; no full-text inference of noncoverage)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242 (published search summary compared; different group and operator)",
+      "doi:10.1007/BF01474178 (full text inaccessible; comparison risk recorded)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest unpunctured SO(3) or SU(2) estimates do not contain an estimate of the absolute integral for the high-frequency angular multiplier 2cos(2theta)-1.",
+        "The exact finite-cyclic 3-frequency result shares the numerical expression 1/3+2sqrt(3)/pi but is an abelian discrete Fourier projection, not a compact Lie group representation-block subtraction."
+      ],
+      "reasoning": "A single deleted spin has dimension proportional to L, and changing its kernel can change the leading profile. Neither a bound on the complete series nor one on the deleted block determines their difference; one must derive its oscillatory angular coefficient and take an absolute-value mean. The present proof does so directly.",
+      "searches": [
+        "Giulini Travaglini DOI 10.1016/0022-1236(86)90059-5 full text pp 1-6",
+        "Zhang arxiv 2005.11451 theorem introduction and full pdf",
+        "published-finding corpus 2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+        "published-finding corpus 2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present SO(3) even-highest-weight kernel has a missing spin-(L-1) contribution; its leading absolute profile is |2cos(2theta)-1| and has norm ratio 1/3+2sqrt(3)/pi.",
+        "The inspected published-finding corpus SU(2) all-highest-weight low-pass RESULT.md treats the intact consecutive spectrum and gives 8(L+1)/pi^2, with no interior deletion.",
+        "The published-finding corpus single SU(2) block result estimates one irrep kernel, not a large sum minus one block."
+      ],
+      "reasoning": "SU(2) and SO(3) are related by central quotient, but SO(3) retains only even SU(2) highest weights; the missing penultimate spin cannot be rewritten as the intact SU(2) full-spectrum low-pass in the published claim. Numeric coincidence with finite cyclic 3-character Lebesgue constant is not an operator equivalence.",
+      "searches": [
+        "SO(3) Peter Weyl spin spectral cutoff missing L-1 sharp L1 norm inflation",
+        "rotation group Fourier projection norm removing one high frequency irreducible block",
+        "nonmonotonicity Lebesgue constants spectral deletion compact noncommutative Lie groups",
+        "published-finding corpus 2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+        "published-finding corpus 2026/10/11/SCOPE-exact-endpoint-norms-of-single-peter-weyl-blocks-on-su-2--91e7da647bb6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus searches returned exact SU(2) low-pass and single-block theorems, not a matching moving penultimate SO(3) deletion invariant.",
+        "Accessible summaries of Giacalone–Ricci (1988) and Casarino (2003) refer to norm estimates for individual harmonic projections, not this missing-block sequence."
+      ],
+      "reasoning": "No accessible table or database entry directly supplied the asserted ratio; negative search results are not a uniqueness or novelty certificate. The inaccessible 1988 full text is a residual bibliographic risk.",
+      "searches": [
+        "SO(3) Peter Weyl spin spectral cutoff missing L-1 sharp L1 norm inflation",
+        "SO(3) deleted penultimate Peter-Weyl Fourier block sharp L1 endpoint norm ratio 1/3+2sqrt3/pi",
+        "SO3 punctured Dirichlet kernel missing near top spin representation exact asymptotic Lebesgue constant",
+        "Giacalone Ricci Norms of harmonic projection operators on compact Lie groups 1988 Lp exact results",
+        "nonmonotonicity Lebesgue constants spectral deletion compact noncommutative Lie groups"
+      ]
+    },
+    "rationale": "The first-public 2020 compact Lie group harmonic-analysis literature establishes irreducible character and eigenfunction restriction estimates, not the one-hole Peter–Weyl endpoint comparison. The 1986 general Lebesgue-constant full-text theorem establishes growth orders for complete cutoffs. The closest published exact SU(2) theorem treats every highest weight, not SO(3) even weights with the penultimate spin deleted. The exact trig polynomial profile and norm inflation factor are not corollaries of their stated claims. Search is not proof of priority; one plausible 1988 specialist article remains inaccessible.",
+    "residual_risks": [
+      "The inaccessible 1988 Giacalone–Ricci specialist paper could contain a general statement implying the new punctured limit; accessible descriptions do not demonstrate that it does.",
+      "An earlier equivalent spectral-mask asymptotic under different terminology may be absent from the searched sources.",
+      "No independent specialist or journal priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MAIN_THEOREMS_NOT_COVERING",
+        "evidence": "Theorems prove two-sided growth-order bounds for spherical/polyhedral Dirichlet kernels, not a sharp coefficient for removal of a moving penultimate SO(3) block.",
+        "identifier_or_url": "doi:10.1016/0022-1236(86)90059-5",
+        "material_read": "Primary full-text introduction and Theorem 1 (pp. 1–3), argument and notation in proof (pp. 4–6)",
+        "method": "Page-extracted full text of original Journal of Functional Analysis article",
+        "title": "Sharp Estimates for Lebesgue Constants on Compact Lie Groups",
+        "trigger": "Compact semisimple-group Lebesgue constants, exact same operator class before spectral deletion"
+      },
+      {
+        "assessment": "NOT_COVERING_STATED_CLAIM",
+        "evidence": "Lp estimates for individual irreducible characters, joint eigenfunctions, and restriction are not exact L1-to-L1 sums of matrix-coefficient block projection kernels with deleted spin L-1.",
+        "identifier_or_url": "https://arxiv.org/pdf/2005.11451",
+        "material_read": "First five pages, abstract, main introductory theorems and motivation",
+        "method": "Open-access arXiv PDF text and page-image inspection",
+        "title": "On Fourier Restriction Type Problems on Compact Lie Groups",
+        "trigger": "Focal first-public 2020 Lie-group harmonic-analysis paper; potential stronger estimates for characters"
+      },
+      {
+        "assessment": "NOT_COVERING_STATED_CLAIM",
+        "evidence": "The theorem concerns Hausdorff–Young inequalities and their local sharp constants, not norms of punctured Peter–Weyl partial sums.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.04670",
+        "material_read": "ArXiv PDF abstract, introduction and theorem statements",
+        "method": "Open-access PDF text and page-image inspection",
+        "title": "The Hausdorff–Young Inequality on Lie Groups",
+        "trigger": "Sharp Fourier operator bounds on Lie groups may imply endpoint estimates"
+      },
+      {
+        "assessment": "NOT_IMPLYING_PUNCTURED_SO3",
+        "evidence": "Its kernel sums highest weights 0..L without holes, with asymptotic 8(L+1)/pi^2, unlike the present even-weight SO(3) kernel missing one spin.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-exact-leading-constant-for-spherical-fourier-partial-sums-on-su--9a49e9fca04c",
+        "material_read": "Complete RESULT.md, including proof and exact scope of low-pass spin ranges",
+        "method": "Read the complete published primary research result markdown",
+        "title": "Exact leading constant for spherical Fourier partial sums on SU(2)",
+        "trigger": "Closest existing published exact leading endpoint-norm theorem"
+      },
+      {
+        "assessment": "UNRESOLVED_SPECIALIST_PRIORITY_RISK",
+        "evidence": "Secondary descriptions indicate individual harmonic projection norm estimates, not a direct statement of the one-hole cutoff asymptotic, but absence of full-text comparison leaves a priority risk.",
+        "identifier_or_url": "doi:10.1007/BF01474178",
+        "material_read": "Bibliographic identification and secondary descriptions only; primary full text unavailable",
+        "method": "Searched open-access copies and available bibliographic listings; full text remained inaccessible",
+        "title": "Norms of Harmonic Projection Operators on Compact Lie Groups",
+        "trigger": "Highly similar specialist title and compact Lie group projection norm topic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35f960a3-951c-4dd6-a3b7-37982da9095b",
+  "value": {
+    "rationale": "Spectral Lebesgue constants quantify sharp endpoint amplification of rotation-group Fourier approximations. The explicit ratio 1/3+2sqrt(3)/pi>1 shows a substantial strict degradation from omitting only one adjacent-high-spin irreducible sector. This motivates spectral-mask design; the all-spin leading constant and complete exact one-hole ratio are a natural nontrivial invariant, not a routine numerical finite slice.",
+    "status": "PASS"
+  }
+}
