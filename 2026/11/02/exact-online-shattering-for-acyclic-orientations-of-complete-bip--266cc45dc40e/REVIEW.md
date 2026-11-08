@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an exact all-parameter theorem. The two opposed directed paths characterize directed four-cycles, giving an explicit three-state recurrence; strong induction solves it, and a graph-theoretic forest argument supplies the VC formula. Enumerative and exact online rank calculations independently confirm the first seven cases and 27,000 residual states.
+## correctness
 
-**Originality — PASS subject to historical-priority risk.** The prior forest shattering criterion and earlier isolated \(K_{2,3}\) adaptive case are acknowledged rather than claimed. The exact formula for all complete bicliques is not implied by the isolated case or constructions joined by bridges. Full relevant definitions and general tools in Walker (arXiv:2203.12211) and the accessible graph-orientation literature do not supply the signature-state closed formula. Broader search cannot establish absolute uniqueness; alternate terminology is a residual risk.
+PASS
 
-**Value — PASS.** Unlike merely counting concepts or giving one isolated example, the result computes the exact all-order online rank and proves an unbounded online/static separation within a strongly constrained two-vertex-connected planar graph family. Its closed residual formula also specifies optimal query choices after arbitrary partial edge observations.
+In K_{2,n}, each leaf yields two orientation bits. Only local patterns 10 and 01 are opposite hub-to-hub directed two-paths, and a directed cycle exists exactly when both occur on different leaves. Hence the class is the union of two 3^n product languages with 2^n overlap, giving |A|=2*3^n-2^n. The residual ternary state (u,a,b) has an exact one-query Littlestone recurrence with independent three-state two-bit factors of rank one after a hub-path signature is forced. Strong induction solves the recurrence F=max(u+a,u+b,ceil((3u+a+b)/2)). Initially Ldim=ceil(3n/2). Static shattered coordinates are exactly forests, giving VCdim=n+1. Independent recurrence verified 4096 states and direct concept-class shattering recursion verified n=1..5, with correct orientation counts.
 
-Limitations: no assertion for \(K_{p,q}\) with \(p>2\), independent human audit, or universal minimality of a gap gadget.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kozma–Moran 2013 establishes static orientation shattering/forest correspondences; Walker 2022 gives general tree and Littlestone dimension bounds, but neither computes adaptive shattering for acyclic K_{2,n}. The exact residual rank law and its growing gap on 2-vertex-connected planar bicliques are not present in inspected primary statements. Broader online orientation-learning models and unnamed extremal class theorems remain priority risks.
+
+## value
+
+PASS
+
+Shows that adaptive and nonadaptive shattering genuinely separate by an unbounded amount even on 2-vertex-connected planar bipartite graphs. The exact residual state formula is a structural theorem for every n, not a numerical fit, and can serve as a reusable online-learning benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

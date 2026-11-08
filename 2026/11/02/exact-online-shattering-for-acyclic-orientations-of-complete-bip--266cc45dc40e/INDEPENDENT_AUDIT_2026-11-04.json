@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:45:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e/RESULT.md",
+        "2026/11/02/exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e/verify.py"
+      ],
+      "rationale": "In K_{2,n}, each leaf yields two orientation bits. Only local patterns 10 and 01 are opposite hub-to-hub directed two-paths, and a directed cycle exists exactly when both occur on different leaves. Hence the class is the union of two 3^n product languages with 2^n overlap, giving |A|=2*3^n-2^n. The residual ternary state (u,a,b) has an exact one-query Littlestone recurrence with independent three-state two-bit factors of rank one after a hub-path signature is forced. Strong induction solves the recurrence F=max(u+a,u+b,ceil((3u+a+b)/2)). Initially Ldim=ceil(3n/2). Static shattered coordinates are exactly forests, giving VCdim=n+1. Independent recurrence verified 4096 states and direct concept-class shattering recursion verified n=1..5, with correct orientation counts.",
+      "residual_risks": [
+        "Prior online mistake-bound literature may contain an equivalent formula under a different concept-class representation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozma–Moran analyze orientation VC/shattering and connectivity; Walker gives a Sauer-Shelah-type size upper bound using Littlestone dimension."
+        ],
+        "reasoning": "Neither broad result gives equality for the specific K2n online game. A general exact graph-parameter identity could imply this theorem, but none found in inspected literature.",
+        "searches": [
+          "Kozma Moran 2013 shattering graph orientations",
+          "Walker arxiv:2203.12211 Thm1.3 Cor1.10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "https://arxiv.org/pdf/1211.1319",
+        "https://arxiv.org/pdf/2203.12211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical forest shattering implies VCdim n+1 but not the adaptive dimension; general tree bound does not force ceil(3n/2) equality."
+        ],
+        "reasoning": "The recurrence calculation is additional structural information beyond the static graph correspondence and general learning-theory bounds.",
+        "searches": [
+          "Kozma Moran arxiv:1211.1319 orientation shattering",
+          "Walker arxiv:2203.12211 Littlestone dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Littlestone dimension equals complete adaptive binary mistake-tree depth; Walker calls it LD or thicket dimension."
+        ],
+        "reasoning": "Matched both naming conventions and query domain (individual edge direction), rather than counting the static VC dimension under another name.",
+        "searches": [
+          "\"acyclic orientations K_{2,n} Littlestone dimension\" web",
+          "Walker Tree Dimension and Sauer-Shelah Dichotomy 2022"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary K3n acyclic orientation outbranching count is a different property."
+        ],
+        "reasoning": "Finite n catalogues cannot establish the full residual formula; no complete adaptive shattering table identified.",
+        "searches": [
+          "Resultary acyclic orientations K2n online shattering search",
+          "\"K2n Littlestone dimension 3n/2\" web"
+        ]
+      },
+      "rationale": "Kozma–Moran 2013 establishes static orientation shattering/forest correspondences; Walker 2022 gives general tree and Littlestone dimension bounds, but neither computes adaptive shattering for acyclic K_{2,n}. The exact residual rank law and its growing gap on 2-vertex-connected planar bicliques are not present in inspected primary statements. Broader online orientation-learning models and unnamed extremal class theorems remain priority risks.",
+      "residual_risks": [
+        "Prior online mistake-bound literature may contain an equivalent formula under a different concept-class representation.",
+        "Only K_{2,n} and individual-edge queries are classified; general K_{m,n}, m>2 not implied.",
+        "Closed recurrence proof depends on exact classification of partially queried leaf types, verified directly for n<=5."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms static graph-orientation shattering literature; no Littlestone term located by full-text search.",
+          "evidence": [
+            "Static orientation shattering and connectivity correspondence, 2013 paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1319",
+          "material_read": "Abstract, introduction and §3 orientation shattering theorems, with searchable text; page screenshot p.5.",
+          "method": "Public arXiv PDF textual theorem reading and screenshot",
+          "title": "Shattering, Graph Orientations, and Connectivity",
+          "trigger": "Primary graph-orientation shattering theory"
+        },
+        {
+          "assessment": "General bound rather than K2n specialization; not an exact adaptive dimension law.",
+          "evidence": [
+            "Definition 1.9 and Corollary 1.10."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+          "material_read": "Abstract, Definitions 1.8–1.9, Theorem 1.3 and Corollary 1.10; page screenshot p.3.",
+          "method": "Public arXiv PDF text and screenshot",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "General Littlestone tree bounds may imply exact result"
+        },
+        {
+          "assessment": "Different property (out-branchings in K3n) and no dimension implication in retrieved summary; no whole-document comparison claim.",
+          "evidence": [
+            "Resultary semantic result title and summary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-separating-out-branchings-in-acyclic-orientations-of-k--3d0efd785163",
+          "material_read": "Published Resultary search title and summary only.",
+          "method": "Resultary semantic retrieval",
+          "title": "Exact non-separating out-branchings in acyclic orientations of K3n",
+          "trigger": "Related published SCOPE orientations of bicliques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-online-shattering-for-acyclic-orientations-of-complete-bip--266cc45dc40e/RESULT.md",
+        "https://arxiv.org/pdf/1211.1319",
+        "https://arxiv.org/pdf/2203.12211"
+      ],
+      "rationale": "Shows that adaptive and nonadaptive shattering genuinely separate by an unbounded amount even on 2-vertex-connected planar bipartite graphs. The exact residual state formula is a structural theorem for every n, not a numerical fit, and can serve as a reusable online-learning benchmark.",
+      "residual_risks": [
+        "Only K_{2,n} and individual-edge queries are classified; general K_{m,n}, m>2 not implied.",
+        "Closed recurrence proof depends on exact classification of partially queried leaf types, verified directly for n<=5."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior online mistake-bound literature may contain an equivalent formula under a different concept-class representation.",
+    "Only K_{2,n} and individual-edge queries are classified; general K_{m,n}, m>2 not implied.",
+    "Closed recurrence proof depends on exact classification of partially queried leaf types, verified directly for n<=5."
+  ],
+  "schema_version": 1
+}
