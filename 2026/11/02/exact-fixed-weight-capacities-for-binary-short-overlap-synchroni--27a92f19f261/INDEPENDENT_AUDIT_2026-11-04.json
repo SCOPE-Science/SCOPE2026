@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:43:29.209317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/verify.py"
+      ],
+      "rationale": "The 1-overlap constraint makes every nonempty code choose a common first bit and opposite final bit; complement reduces to starting 0/ending 1. The four eligible 3-prefixes 000,001,010,011 have nested 3-suffix neighborhoods of sizes 4,3,2,1. Any code is contained in the rectangle for its largest occurring prefix, all rectangles valid for disjoint boundaries n>=6, and a weight-w slice contains coefficient of (1+z)^(n-6) H_j(z) yielding the four binomial expressions. Complement swaps orientations; coefficient asymptotics and exact adjacent crossings give all three density transitions. Independent code enumerated all 255 nonempty subsets of three-bit prefixes at 132 (n,w) pairs n=6..16 and matched the formula; logical nesting proof applies at every n>=6.",
+      "residual_risks": [
+        "n>=6 essential because boundary three-blocks must not overlap."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn establishes unrestricted-cardinality optimal configurations; classical all-proper-overlap restriction forbids additional lengths."
+        ],
+        "reasoning": "Neither unrestricted optimum nor all-proper-overlap formulas dominate the fixed-weight optimum; no primary theorem found resolving each layer.",
+        "searches": [
+          "Blackburn et al 2023 Theorems 5,7,8",
+          "Stanovnik 2025",
+          "Wang and Wang 2021"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/verify.py",
+        "Blackburn–Nasr Esfahani–Kreher–Stinson arxiv:2211.10309v4, IEEE IT 2023 Theorems 5,7,8",
+        "Wang–Wang arxiv:2108.06934 classical nonoverlapping generating functions",
+        "Stanovnik DOI:10.1007/s12190-025-02441-z restricted overlaps 2025",
+        "Resultary semantic fixed-composition short-overlap binary code search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximizing total codewords sums all weight layers and does not maximize any prescribed coefficient."
+        ],
+        "reasoning": "The coefficient-wise envelope needs full nested-neighborhood enumeration and phase comparison; it is not a corollary of the scalar unrestricted optimum.",
+        "searches": [
+          "Blackburn Theorems 7,8 unrestricted maximum",
+          "Wang–Wang generating functions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bipartite compatible-boundary rectangles parameterize all legal code sizes for nonintersecting prefix/suffix (n>=6)."
+        ],
+        "reasoning": "The new condition is exact constant Hamming weight, which changes the optimization compared with counting all boundary pairs.",
+        "searches": [
+          "(1,3)-overlap-free binary codes",
+          "fixed-weight zero-error synchronizing codes",
+          "prefix-suffix incidence bipartite rectangle optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Unrestricted optimal templates use maximal boundary edge count but weight spectrum varies and nonmaximal edge count can win at extreme weights."
+        ],
+        "reasoning": "No corresponding exact fixed-layer four-term table in the inspected main theorems. A specialized constant-composition table remains a risk.",
+        "searches": [
+          "Blackburn et al 2023 boundary templates",
+          "Resultary overlap binary fixed-weight query",
+          "Stanovnik 2025"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.",
+      "residual_risks": [
+        "A separate constant-composition constrained-cross-bifix-free code paper could contain this four-term formula; specialized literature not exhaustively searched.",
+        "n>=6 essential because boundary three-blocks must not overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unweighted short-overlap cardinality and boundary-set method, not weight-w optimum with four phases",
+          "evidence": "Theorems 5,7,8 solve unconditional code size via boundary sets; no coefficient-specific maximal code or weight-density transition in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.10309",
+          "material_read": "Original full arXiv/publisher-open PDF, especially Sections III–IV/VII and Theorems 5, 7, 8 with page screenshots",
+          "method": "Read theorem statements, compatible boundary construction and unrestricted maximum; compare length/weight quantifiers and threshold",
+          "title": "Constructions and bounds for codes with restricted overlaps",
+          "trigger": "Exactly same forbidden overlap model; possible domination by unrestricted bound"
+        },
+        {
+          "assessment": "No verified dominating constant-weight formula; residual possible implication",
+          "evidence": "Named construction and expandability emphasis, without a demonstrated fixed-layer optimization result.",
+          "identifier_or_url": "https://doi.org/10.1007/s12190-025-02441-z",
+          "material_read": "Accessible abstract, sections referenced in source package; no confirmed full-text reading in this audit",
+          "method": "Compare definitions and summary statements to fixed-weight theorem",
+          "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+          "trigger": "Later possibly stronger restricted-overlap constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/verify.py",
+        "Blackburn–Nasr Esfahani–Kreher–Stinson arxiv:2211.10309v4, IEEE IT 2023 Theorems 5,7,8",
+        "Wang–Wang arxiv:2108.06934 classical nonoverlapping generating functions",
+        "Stanovnik DOI:10.1007/s12190-025-02441-z restricted overlaps 2025",
+        "Resultary semantic fixed-composition short-overlap binary code search"
+      ],
+      "rationale": "Constant-composition capacity under short forbidden overlaps is a natural coding problem, distinct from unrestricted code size. Exact four-term capacity and sharp golden-ratio changes in optimal word-boundary structure are mathematically meaningful nontrivial combinatorial classification.",
+      "residual_risks": [
+        "A separate constant-composition constrained-cross-bifix-free code paper could contain this four-term formula; specialized literature not exhaustively searched.",
+        "n>=6 essential because boundary three-blocks must not overlap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-fixed-weight-capacities-for-binary-short-overlap-synchroni--27a92f19f261/verify.py",
+    "Blackburn–Nasr Esfahani–Kreher–Stinson arxiv:2211.10309v4, IEEE IT 2023 Theorems 5,7,8",
+    "Wang–Wang arxiv:2108.06934 classical nonoverlapping generating functions",
+    "Stanovnik DOI:10.1007/s12190-025-02441-z restricted overlaps 2025",
+    "Resultary semantic fixed-composition short-overlap binary code search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For binary length n>=6, weight w, and all ordered pair overlaps of lengths 1,2,3 forbidden, exact maximum is max[C(n-4,w-1),2C(n-5,w-2)+C(n-5,w-3),C(n-5,w-2)+2C(n-5,w-3),C(n-4,w-3)]; four explicit nested boundary rectangles suffice; density transitions at (3-sqrt5)/2,1/2,(sqrt5-1)/2.",
+  "limitations": [
+    "A separate constant-composition constrained-cross-bifix-free code paper could contain this four-term formula; specialized literature not exhaustively searched.",
+    "n>=6 essential because boundary three-blocks must not overlap.",
+    "METADATA.json and AUDIT.json each contain a public-intended scope_run_id operational provenance field; complete semantically cleared guarded replacement bytes were not prepared in this read-only audit.",
+    "All final public-intended bytes were not sanitized and verified end-to-end; publication must be withheld."
+  ],
+  "residual_risks": [
+    "A separate constant-composition constrained-cross-bifix-free code paper could contain this four-term formula; specialized literature not exhaustively searched.",
+    "n>=6 essential because boundary three-blocks must not overlap."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS unweighted short-overlap cardinality and boundary-set method, not weight-w optimum with four phases",
+      "evidence": "Theorems 5,7,8 solve unconditional code size via boundary sets; no coefficient-specific maximal code or weight-density transition in inspected sections.",
+      "identifier_or_url": "https://arxiv.org/abs/2211.10309",
+      "material_read": "Original full arXiv/publisher-open PDF, especially Sections III–IV/VII and Theorems 5, 7, 8 with page screenshots",
+      "method": "Read theorem statements, compatible boundary construction and unrestricted maximum; compare length/weight quantifiers and threshold",
+      "title": "Constructions and bounds for codes with restricted overlaps",
+      "trigger": "Exactly same forbidden overlap model; possible domination by unrestricted bound"
+    },
+    {
+      "assessment": "No verified dominating constant-weight formula; residual possible implication",
+      "evidence": "Named construction and expandability emphasis, without a demonstrated fixed-layer optimization result.",
+      "identifier_or_url": "https://doi.org/10.1007/s12190-025-02441-z",
+      "material_read": "Accessible abstract, sections referenced in source package; no confirmed full-text reading in this audit",
+      "method": "Compare definitions and summary statements to fixed-weight theorem",
+      "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+      "trigger": "Later possibly stronger restricted-overlap constructions"
+    }
+  ]
+}
