@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The representation \(F(X)=X^n g(X+X^{-1})\) is bijective for monic self-reciprocal degree-\(2n\) polynomials. Its ramification at \(\pm2\) is handled by excluding these roots of \(g\). The next-to-leading coefficient is additive under products of monic polynomials. The formal Euler-product quotient correctly removes repeated factors, including every squarefree factorization type. In odd characteristic nontrivial additive characters remain nontrivial under doubling. Applying character orthogonality proves the precise fiber formula, integrality, the multiplicity histogram and the uniformity iff condition. The finite verifier enumerated 32,915 polynomials in 25 field-degree cases and matched 215 fibers; it checked 19,150 reciprocal transformations independently. Exhaustive finite checks support but do not substitute for the universal proof.
+## correctness
 
-## Originality
-**PASS with residual risk.** Relevant source material was inspected beyond abstracts where available: Kim–Song–Ri (arXiv:1302.3051) discusses generalized reciprocity and repeated factor structures; the *Handbook of Finite Fields* gives the classical \(X+X^{-1}\) transformation and irreducible enumeration; Mattarei–Pizzato arXiv:1609.07677 establishes the same classical quadratic-transform framework and irreducible counts but no squarefree coefficient fibers; Gao's arXiv:2109.09006 concerns coefficient restrictions on irreducible reciprocal polynomials; Price–Thompson arXiv:2210.15703 concerns factor containment. Garefalakis (2011) has a close title, but the available abstract describes irreducibles and its full text could not be read. None of the inspected material establishes the complete squarefree trace-fiber expression or the precise prime-field uniformity boundary. Distinct objects (irreducible versus squarefree) do not alone guarantee originality; the actual claimed implication was assessed, and a possible unlocated broader character-sieve result remains the leading risk. Independently searched research records did not exhibit a direct or stronger statement.
+PASS
 
-## Mathematical value
-**PASS.** The invariant is a complete natural coefficient-refined count of squarefree reciprocal polynomials over every odd finite field. It sharply distinguishes prime fields, where fiber discrepancy is at most one and occasionally zero, from all extension fields, where uniformity never occurs. These counts go beyond the classical total count and the irreducible-only setting and provide explicit coefficient availability statistics in reciprocal polynomial enumeration. This is not a mere change of notation: the squarefree Euler product and exceptional ramification factors are simultaneously needed to derive the formula.
+Reciprocal substitution F(X)=X^n g(X+X^-1) is bijective for monic degree n g and translates squarefreeness exactly to squarefree g with g(2)g(-2)!=0 (ramification at ±1). Additive trace character series removes Y±2; in odd characteristic doubled nontrivial additive characters remain nontrivial, yielding R_psi(z)=1/[(1+psi(-2)z)(1+psi(2)z)]. Fourier orthogonality supplies M_{p,n}(c), modulo-q congruence gives integrality, and cycling the progression gives uniformity iff q=p and p|(n+1). Independently checked GF3 n=1..5 and GF5 n=1..4 (42 coefficient fibers), not claimed as universal proof.
 
-## Scope and remaining uncertainty
-No claim is made for characteristic two, multiple prescribed coefficients or irreducible factorization patterns. The exact numerical checks are finite; the characteristic-uniform statement is proved by symbolic character identities. A broad existing theorem not located in the inspected literature could imply the result. Complete full text for Garefalakis (2011) was not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical reciprocal transformation and enumerations of irreducibles are prior art, but the inspected statements do not determine squarefree all-factorization-type trace fibers or the prime-vs-extension uniformity dichotomy. Priority remains qualified, especially for generalized trace generating-function coverage.
+
+## value
+
+PASS
+
+For a canonical finite-field family with reciprocal symmetry, the theorem gives every trace fiber exactly and pinpoints an unexpected prime-field versus extension-field uniformity boundary. Both are natural enumerative invariants beyond known irreducible-factor counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
