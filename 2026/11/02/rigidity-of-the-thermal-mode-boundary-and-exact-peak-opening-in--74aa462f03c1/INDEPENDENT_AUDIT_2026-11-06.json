@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:58:35.188199Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derive the filtered telegraph stationary Beta law f(u)∝(1−u²)^{b−1}; Brownian noise convolves with Gaussian variance B. For z=1/(2B), H=I1/I0 and h=2zH−1, integration by parts yields ∂_z h=(1−b)/z>0 at every root. h→−1 as z→0 and h∼(1−b)/z>0 as z→∞, so all roots cross upward, forcing a unique root; covariance ∂_b H=Cov(t,log(1−t))<0 implies strictly ordered B_*(b). Gaussian total positivity/variation diminution restricts derivative sign changes, converting central curvature into global mode counts; quartic moment identity gives p^(4)(0)/p(0)=−2(1−b)/B_*² and local analytic expansion gives m²=3(B_*−B)+o(B_*−B) and contrast coefficient 3(1−b)/(4B_*²). Independent Gauss–Jacobi moments verified B*(.25)=.53856358,B*(.5)=.31646434,B*(.75)=.18327382 and m²/(B*−B)≈2.996–2.997 near threshold. Finite numerics are corroboration only; zero-crossing and variation-diminishing lemmas supply the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper describes thermal bimodality boundary and Eq. 96.",
+          "The 2026 paper treats same harmonic RTP model with related noise scaling and turning surfaces.",
+          "Total positivity supplies an existing general method that is used, not claimed new."
+        ],
+        "reasoning": "The primary works establish models and location formula, but inspected passages did not establish all global uniqueness/order and exact normalized amplitudes. Broader Gaussian bifurcation theory could subsume the sqrt3 coefficient as a corollary; residual risk explicitly retained.",
+        "searches": [
+          "Sabhapandit Majumdar 2024 harmonic stochastically driven center section 4.1.1",
+          "Guéneau Majumdar Schehr 2026 Sec V.1.1 turning surface",
+          "Gaussian heat semigroup variation diminishing pitchfork"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob b3f34a7df5769b0b5d2a3102fb1f64102029148f",
+        "Actual seven-entry Git tree SHA reconstructed",
+        "Independent Gauss-Jacobi numerical moments and near-critical peak expansion",
+        "Sabhapandit–Majumdar 2024 primary PDF",
+        "Guéneau–Majumdar–Schehr 2026 full preprint relevant sections",
+        "Resultary RTP thermal-mode semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. 96 specifies candidates, but an algebraic threshold equation alone does not prove that there is exactly one candidate for each b.",
+          "At h=0, exact moment and integration-by-parts identities force a negative quartic, enabling the precise sqrt3 and peak-height normalization."
+        ],
+        "reasoning": "The new uniqueness proof is independent of numerically plotting the prior boundary. The coefficient may also follow from standard heat-flow normal forms once model moments are known; claim significance is scoped accordingly.",
+        "searches": [
+          "arXiv:2404.02480 Eq 96 zero curvature",
+          "arXiv:2602.08436 Section V.1.1 peak separation scaling",
+          "Gaussian variation diminishing heat semigroup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sabhapandit–Majumdar Eq. 96 is the same h=0 central-curvature location equation.",
+          "The basic one-/two-peak phase picture and some numerical thresholds are prior results."
+        ],
+        "reasoning": "The claim explicitly excludes novelty of the threshold equation and basic phase-line existence: new statements are unique transversality for every b, strict ordering and exact coefficients.",
+        "searches": [
+          "Resultary: run and tumble harmonic thermal noise bimodal unimodal transition critical variance exact peak separation",
+          "Sabhapandit Majumdar arXiv:2404.02480 Eq 96",
+          "Guéneau Majumdar Schehr 2026 active particle turning-surface scale"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published transition curves and numerical boundary points agree with independently recomputed B_* values.",
+          "The exact quartic ratio and peak contrast coefficient were not located in the inspected primary passages."
+        ],
+        "reasoning": "A numerical phase diagram does not prove the global single-crossing and peak coefficient; absence of these in inspected text is bounded evidence, not categorical noncoverage of all possible source literature.",
+        "searches": [
+          "Sabhapandit Majumdar Fig phase boundary table b B",
+          "Guéneau Majumdar Schehr 2026 numerical RTP thermal transition"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level comparison supports a distinctive theorem at the specified domain; prior strong related results are credited, and inaccessible primary literature is recorded as a residual risk rather than mistaken for an originality proof.",
+      "residual_risks": [
+        "A general heat-semigroup pitchfork theorem may imply some amplitudes without expressly using this model; core global uniqueness must be distinguished from routine local expansion.",
+        "Original 2024 and recent 2026 phase-line calculations predate this claim; no priority asserted for the density or threshold location."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold equation and basic modal phase transition known; additional global unique-crossing proof and exact peak contrast not identified in relevant passages",
+          "evidence": "Section 4.1.1 / Eq. (96), thermal transition phase-diagram examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.02480",
+          "material_read": "Accessible 30-page primary arXiv PDF: stationary mixture, Section 4.1.1, Equation (96), phase-diagram discussion and numerical critical points",
+          "method": "Read primary PDF and inspected relevant PDF page screenshot",
+          "title": "Noninteracting particles in a harmonic trap with a stochastically driven center",
+          "trigger": "Exact same noisy run-and-tumble stationary density and critical line"
+        },
+        {
+          "assessment": "Same-model threshold/boundary scaling established; no inspected statement giving every-b strict monotonicity and exact modal contrast coefficient",
+          "evidence": "Section V.1.1 thermal boundary and small-noise/turning-surface scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.08436",
+          "material_read": "Accessible full preprint text: Section V.1.1 and surrounding discussion of one-dimensional finite-temperature stationary law",
+          "method": "Read accessible preprint full text at directly relevant sections",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Could dominate via recent same-model turning-surface and scaling analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model’s Gaussian–Beta transition line was already known, but global uniqueness, strict monotone ordering and exact quartic/mode-height coefficients are nontrivial structural refinements of a physically natural phase diagram. Neither claiming the elementary pitchfork exponent as novel nor extending beyond harmonic symmetric switching is required for the exact result to matter.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob b3f34a7df5769b0b5d2a3102fb1f64102029148f",
+    "Actual seven-entry Git tree SHA reconstructed",
+    "Independent Gauss-Jacobi numerical moments and near-critical peak expansion",
+    "Sabhapandit–Majumdar 2024 primary PDF",
+    "Guéneau–Majumdar–Schehr 2026 full preprint relevant sections",
+    "Resultary RTP thermal-mode semantic query"
+  ],
+  "disposition": "passed",
+  "final_claim": "In harmonic two-state run-and-tumble motion with strictly positive Brownian diffusivity, the known zero-curvature transition condition has one critical thermal variance B_*(b) for each 0<b<1, strictly decreasing from 1 to 0, with globally one/two modes on either side; exact fourth derivative and universal sqrt(3) peak-opening and height-contrast amplitudes hold. For b≥1 the stationary law is strictly unimodal.",
+  "limitations": [
+    "Only symmetric fixed two-state RTP harmonic trap with independent D>0 Brownian forcing, not other potentials, asymmetry or multiple particles.",
+    "Asymptotic modal expansions local in B near B*(b), not global uniform error bounds."
+  ],
+  "residual_risks": [
+    "A general heat-semigroup pitchfork theorem may imply some amplitudes without expressly using this model; core global uniqueness must be distinguished from routine local expansion.",
+    "Original 2024 and recent 2026 phase-line calculations predate this claim; no priority asserted for the density or threshold location."
+  ],
+  "schema_version": 1
+}

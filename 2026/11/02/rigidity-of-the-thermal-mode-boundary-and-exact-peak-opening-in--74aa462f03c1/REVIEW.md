@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary density is checked from the two-state transport balance plus independent Gaussian noise; a vanishing-boundary integration-by-parts identity proves that every critical zero crosses with derivative \((1-b)/z>0\), proving uniqueness. Strict parameter ordering follows from a negative covariance. A Gaussian variation-diminishing argument controls the number of global modes. Exact second and fourth Gaussian derivative identities imply both the quartic flattening and the peak-opening and height laws. The embedded dependency-free program completed 41 finite corroborative checks. Risks are use of the classical Gaussian variation-diminishing lemma and only asymptotic, not quantitative-error, control of peak locations.
+## correctness
 
-**Originality — PASS, qualified.** Frydel's 2022 convolution, Sabhapandit–Majumdar's 2024 central-curvature Eq. (96) and phase diagram, and Guéneau–Majumdar–Schehr's 2026 phase boundary are acknowledged as established. The present claim adds a global single-crossing proof, strict dependence of the unique threshold on the flip-rate parameter, the fully justified global mode count, and exact quartic/peak-height coefficients. The universal square-root exponent is standard and is not claimed independently as a new phenomenon. A sufficiently strong general Gaussian scale-space theorem could subsume parts of the result, and independent publication-priority confirmation remains necessary.
+PASS
 
-**Mathematical value — PASS.** A published numerical thermal phase diagram is upgraded to a complete no-reentrance classification, with an exact monotone design map and quantitative normal form for the physical emergence of twin density peaks. The strict parameter comparison and critical fourth-derivative identity require more than changing notation or reading a figure, though the ingredients involve standard moment and total-positivity techniques.
+Independently derive the filtered telegraph stationary Beta law f(u)∝(1−u²)^{b−1}; Brownian noise convolves with Gaussian variance B. For z=1/(2B), H=I1/I0 and h=2zH−1, integration by parts yields ∂_z h=(1−b)/z>0 at every root. h→−1 as z→0 and h∼(1−b)/z>0 as z→∞, so all roots cross upward, forcing a unique root; covariance ∂_b H=Cov(t,log(1−t))<0 implies strictly ordered B_*(b). Gaussian total positivity/variation diminution restricts derivative sign changes, converting central curvature into global mode counts; quartic moment identity gives p^(4)(0)/p(0)=−2(1−b)/B_*² and local analytic expansion gives m²=3(B_*−B)+o(B_*−B) and contrast coefficient 3(1−b)/(4B_*²). Independent Gauss–Jacobi moments verified B*(.25)=.53856358,B*(.5)=.31646434,B*(.75)=.18327382 and m²/(B*−B)≈2.996–2.997 near threshold. Finite numerics are corroboration only; zero-crossing and variation-diminishing lemmas supply the universal proof.
 
-**Scope and limitations.** Equal flip rates, harmonic confinement, independent Gaussian forcing, exact population stationary law; no claims for switching asymmetry, noise-color effects, finite observations, or broader universality classes. The independent audit and definitive publication-priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison supports a distinctive theorem at the specified domain; prior strong related results are credited, and inaccessible primary literature is recorded as a residual risk rather than mistaken for an originality proof.
+
+## value
+
+PASS
+
+The model’s Gaussian–Beta transition line was already known, but global uniqueness, strict monotone ordering and exact quartic/mode-height coefficients are nontrivial structural refinements of a physically natural phase diagram. Neither claiming the elementary pitchfork exponent as novel nor extending beyond harmonic symmetric switching is required for the exact result to matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
