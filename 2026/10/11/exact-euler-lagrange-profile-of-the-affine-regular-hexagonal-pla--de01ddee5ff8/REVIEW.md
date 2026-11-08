@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary definition was reconstructed with its quantifiers and normalization. Parameter scale invariance and symmetry reduce to \(0<r\le1\). For fixed radial coefficients, the objective is jointly convex on each product of unit-sphere edges, so every sphere pair is bounded by a vertex pair. The six signed facet functionals then produce exactly eighteen symmetric \(2\times2\) matrix types. With
-\[
-E(r)=\frac{2+r^2+r\sqrt{r^2+4}}2,
-\]
-the diagonal and determinant certificates show \(E(r)I-Q\) is positive semidefinite for every type. The explicit pair \(x=(1,1)\), \(y=\tau(1,0)\), \(\tau=(r+\sqrt{r^2+4})/2\), attains the bound for every \(r\). The maximum \(4/3\) follows from the exact factorization \(4(2r^2-1)^2\). The packaged verifier replays the finite matrix algebra exactly.
+## correctness
 
-## Originality
-PASS. Searches used the invariant name, Euler–Lagrange terminology, Day–James and affine-regular hexagonal aliases, parameter-ratio formulations, and exact nearby family computations. The 2021 primary full text introduces the constant and gives bounds and examples, but not this exact profile. The 2024 Filomat paper computes the same invariant on the regular octagon, a different plane. The 2024 generalized-James paper is an inequality, not an equality theorem. Same-space public records located in the research index concern other constants. No inspected statement implies the complete two-parameter profile. The classical balanced value is explicitly treated as prior knowledge, not as the originality claim.
+PASS
 
-## Value
-PASS. This is a complete exact profile for a canonical non-Hilbert polygonal plane under a geometric constant designed to measure failure of the Euler–Lagrange identity. The result reveals that the worst distortion occurs away from the balanced classical slice, exactly at parameter ratio \(\sqrt2\). The finite-facet semidefinite argument is also reusable for related polygonal norms.
+For lambda,mu>0 normalize the larger to one and r=m/M in (0,1]. The hexagon N(s,t)=max(|s|,|t|,|s-t|) has exactly six displayed vertices and six signed facets. By convexity of the square of a norm on the product of any two boundary edges, for each radial pair (a,b) the maximum of N(au+rbv)^2+N(rau-bv)^2 occurs at a vertex pair. The two facet maxima can be interchanged with the finite maximum; all 36 ordered vertex pairs times 36 ordered facet pairs give exactly 18 distinct symmetric 2x2 coefficient matrices. For E=(2+r²+r sqrt(r²+4))/2, every diagonal Q_ii<=1+r²<=E. An independent SymPy polynomial-remainder calculation in S²=r²+4 verified that all 18 determinants det(EI-Q) equal seven explicitly nonnegative types, with multiplicities 4,1,6,1,1,1,4; all are >=0 on 0<=r<=1. Hence all E I-Q are PSD and the quotient <=E/(1+r²). For u=(1,1), v=(1,0), tau=(r+sqrt(r²+4))/2, x=u,y=tau v, the norms are 1+r tau and tau, and (1,tau) is an eigenvector of [[1,r],[r,1+r²]] with eigenvalue E; this attains equality. The parameter inequality <=4/3 follows by squaring nonnegative sides 3r sqrt(r²+4)<=2+5r²; the difference is exactly 4(2r²-1)², with equality only r=1/sqrt2. At r=1 the value is (3+sqrt5)/4; the excluded r=0 gives only the limiting value 1, not an asserted parameter case.
 
-## Closest literature and limitations
-The defining source is Liu–Li, Mathematics 2021, DOI 10.3390/math9020116. The closest same-invariant exact computation found is the regular-octagon paper DOI 10.2298/FIL2405583Y. A 2024 general comparison DOI 10.7153/mia-2024-27-39 does not determine equality. The theorem does not classify arbitrary Day–James spaces or higher-dimensional polyhedral norms, and literature searches cannot establish absolute uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Statement/implication comparison of the exact two-parameter unrestricted Liu–Li L_YJ on the canonical affine-regular hexagon. The balanced C_NJ=(3+sqrt(5))/4 is known; no novelty claimed for that slice. The 2024 exact L_YJ octagon theorem treats a different eight-vertex norm, while the 2024 James comparison and the published universal L_YJ envelope provide upper bounds, not the sharp hexagonal equality. The 2024/2025 Banas–Fraczek exact result concerns max(lambda|a|,sqrt(a^2+b^2)), a nonpolyhedral Euclidean-arc norm, so is not a linearly isometric presentation of the six-facet target. Published same-hexagon indexed records on generalized von Neumann–Jordan exponent p and Liu–Yang parameter concern different quotients. Primary full-text access to the defining 2021 article was blocked after OA and arXiv attempts, with Oxford VPN disconnected; this remains a named residual priority risk rather than an automatic scientific failure.
+
+## value
+
+PASS
+
+L_YJ quantifies the failure of the Euler–Lagrange/Hilbert identity, and the affine-regular Day–James hexagon is a canonical non-Hilbert two-dimensional norm. Its exact unrestricted two-parameter distortion is a natural invariant not fixed by the known balanced C_NJ value or published universal inequalities. The rigorous continuum profile exhibits a non-obvious off-balanced maximum 4/3 at lambda/mu=sqrt2 or its inverse, strictly exceeding the classical balanced (3+sqrt5)/4. A finite-facet semidefinite proof supplies a reusable exact method for other polyhedral Banach norms. This is a meaningful complete natural-object profile without claiming broader classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

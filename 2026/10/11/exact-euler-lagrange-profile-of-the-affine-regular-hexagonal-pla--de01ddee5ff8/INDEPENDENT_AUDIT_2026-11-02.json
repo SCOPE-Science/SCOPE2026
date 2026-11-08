@@ -1,0 +1,231 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:10:04.961673Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For lambda,mu>0 normalize the larger to one and r=m/M in (0,1]. The hexagon N(s,t)=max(|s|,|t|,|s-t|) has exactly six displayed vertices and six signed facets. By convexity of the square of a norm on the product of any two boundary edges, for each radial pair (a,b) the maximum of N(au+rbv)^2+N(rau-bv)^2 occurs at a vertex pair. The two facet maxima can be interchanged with the finite maximum; all 36 ordered vertex pairs times 36 ordered facet pairs give exactly 18 distinct symmetric 2x2 coefficient matrices. For E=(2+r²+r sqrt(r²+4))/2, every diagonal Q_ii<=1+r²<=E. An independent SymPy polynomial-remainder calculation in S²=r²+4 verified that all 18 determinants det(EI-Q) equal seven explicitly nonnegative types, with multiplicities 4,1,6,1,1,1,4; all are >=0 on 0<=r<=1. Hence all E I-Q are PSD and the quotient <=E/(1+r²). For u=(1,1), v=(1,0), tau=(r+sqrt(r²+4))/2, x=u,y=tau v, the norms are 1+r tau and tau, and (1,tau) is an eigenvector of [[1,r],[r,1+r²]] with eigenvalue E; this attains equality. The parameter inequality <=4/3 follows by squaring nonnegative sides 3r sqrt(r²+4)<=2+5r²; the difference is exactly 4(2r²-1)², with equality only r=1/sqrt2. At r=1 the value is (3+sqrt5)/4; the excluded r=0 gives only the limiting value 1, not an asserted parameter case.",
+      "residual_risks": [
+        "The symbolic computation certifies the finite 1296 facet/vertex combinations; the infinite-to-finite reduction still uses the separately checked analytic convexity argument.",
+        "The claim is for real 2D norm and positive lambda,mu only; not arbitrary hexagonal norms or generalized dimensions."
+      ],
+      "sources": [
+        "Actual RESULT.md blob 779ea1939554d66e6dbf23fb0aa087d6b83c84e7 in assigned tree d75a28db2a9b4247dc493063afd9d64bedff543f",
+        "verify.py blob dff16944231cbb7a45d0dd3e97b8c8899b415083 inspected but not executed as authority",
+        "Independent /mnt/data/scope_worker08_independent_check_20261102.py SymPy enumeration and symbolic polynomial reduction (18 types, 7 certificates)",
+        "Filomat 2024 eq (1.2) verifies definition of unrestricted L_YJ"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md: universal L_YJ <= (lambda+mu)^2/(lambda²+mu²); for this hexagon the claimed E(r)/(1+r²) is strictly below this envelope when r>0.",
+          "https://files.ele-math.com/articles/mia-27-39.pdf: abstract and Theorem/Lemma 2.1 supply generalized James inequalities for arbitrary Banach spaces but no equality at this norm.",
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf: Theorem 2.4 calculates an eight-vertex regular-octagon norm max{|x1|+(sqrt2-1)|x2|,|x2|+(sqrt2-1)|x1|}, not the six-vertex target.",
+          "https://arxiv.org/pdf/2411.13285: Theorem 2.1 gives 1+2xi eta/(xi²+eta²)(1-1/lambda²) for Banas–Fraczek; its parameter dependence peaks at balance unlike this off-balance hexagonal result."
+        ],
+        "reasoning": "General upper envelopes lack matching lower bounds at the canonical hexagon. The adjacent exact family theorems concern inequivalent unit-ball shapes, and their formulas do not force the six-facet formula by specialization or duality.",
+        "searches": [
+          "Resultary query: Euler Lagrange constant generalized von Neumann Jordan upper envelope Banach hexagon Day James plane",
+          "web: \"On the Lyj(λ,μ,x) constant for the regular octagon space\" pdf",
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf",
+          "https://files.ele-math.com/articles/mia-27-39.pdf",
+          "https://arxiv.org/pdf/2411.13285",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math9020116",
+        "DOI:10.2298/FIL2405583Y",
+        "DOI:10.7153/mia-2024-27-39",
+        "arXiv:2411.13285",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md",
+        "Resultary: targeted exact formula, Day–James aliases and generalized constant queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md: C_NJ^(2)(H)=(3+sqrt5)/4 gives only lambda=mu, and exponent p variation changes the power, not lambda/mu.",
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf: octagon Theorem 2.4 has an explicit different unit-ball geometry and parameter branches.",
+          "https://files.ele-math.com/articles/mia-27-39.pdf: one-sided comparison with J_lambda,mu(X) does not imply the exact matching upper/lower bound and explicit extremal pair.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md: universal bound 1+2r/(1+r²) is above the target profile for r>0; at r=1 it is 2 > (3+sqrt5)/4.",
+          "https://arxiv.org/pdf/2411.13285: Banas–Fraczek smooth arcs and balanced-max formula do not cover the off-balance-max polyhedral formula."
+        ],
+        "reasoning": "Known balanced values, parameterized exponent-p constants and general comparisons do not logically determine the entire continuum of two-parameter L_YJ values or their off-balanced equality set. No inspected stronger theorem implies the claimed equality.",
+        "searches": [
+          "https://www.mdpi.com/2227-7390/9/2/116",
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf",
+          "https://files.ele-math.com/articles/mia-27-39.pdf",
+          "https://arxiv.org/pdf/2411.13285",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md",
+          "web: \"On the L_YJ\" \"Banaś-Frączek\" exact definition constant",
+          "Resultary query: L_YJ Euler Lagrange affine hexagon exact two parameter ratio sqrt(r^2+4) Banach norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf: equations (1.2)-(1.3) distinguish unrestricted L_YJ from unit-sphere L_YJ prime; Theorem 2.4 is regular octagon.",
+          "https://arxiv.org/pdf/2411.13285: page 1 norm max{lambda|a|,sqrt(a²+b²)} has curved arcs rather than six polygon facets.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md: exponent-p generalized von Neumann–Jordan uses N(x+y)^p+N(x-y)^p and no weighted cross coefficients; at p=2 it recovers only balanced profile.",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md: Liu–Yang L_Y prime uses weighted convex combination and fixed unit inputs; same displayed number 4/3 is not an equivalent ratio profile."
+        ],
+        "reasoning": "Searched the precise quotient and polygon aliases (hexagon, Day–James ell_inf–ell_1), parameter ratios, generalized NJ and weighted or unit-sphere variants. A shared norm or coincident maximum number does not equate two different suprema; Banas–Fraczek is not linearly isometric to a polygonal unit ball.",
+        "searches": [
+          "Resultary query: L_YJ Euler Lagrange affine hexagon exact two parameter ratio sqrt(r^2+4) Banach norm",
+          "Resultary query: Banach space hexagonal norm exact two parameter Euler Lagrange skew James via duality",
+          "web: \"L_YJ\" \"hexagonal\" Euler Lagrange Banach exact profile",
+          "web: Liu Li Euler Lagrange constant hexagonal plane 2021 mathematics 9 116",
+          "web: \"On the L_YJ\" \"Banaś-Frączek\" exact definition constant",
+          "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf",
+          "https://arxiv.org/pdf/2411.13285",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assignment record itself (not prior independent coverage), plus same-space but different-invariant records; it did not reveal a separate earlier indexed exact L_YJ hexagon table.",
+          "Resultary same-invariant universal-envelope result has no hexagon value, and the primary Filomat 2024 paper gives a neighboring regular-octagon calculation.",
+          "A paper on Heinz means in the exact hexagon norm concerns a different functional, so it is not an exact L_YJ table."
+        ],
+        "reasoning": "Exact formula, object aliases, and known parameterized tables were sought; the duplicate public indexing of this very assignment is not treated as an independent priority predecessor. Failed searches are corroboration only, not proof of novelty.",
+        "searches": [
+          "Resultary query: L_YJ Euler Lagrange affine hexagon exact two parameter ratio sqrt(r^2+4) Banach norm",
+          "Resultary query: Euler Lagrange constant generalized von Neumann Jordan upper envelope Banach hexagon Day James plane",
+          "Resultary query: Banach space hexagonal norm exact two parameter Euler Lagrange skew James via duality",
+          "web: L_YJ affine regular hexagon Banach space 4/3 sqrt2",
+          "web: \"Liu Li\" \"2021\" \"L_YJ\" \"hexagonal\"",
+          "web: \"On a New Geometric Constant Related\" \"hexagon\""
+        ]
+      },
+      "rationale": "Statement/implication comparison of the exact two-parameter unrestricted Liu–Li L_YJ on the canonical affine-regular hexagon. The balanced C_NJ=(3+sqrt(5))/4 is known; no novelty claimed for that slice. The 2024 exact L_YJ octagon theorem treats a different eight-vertex norm, while the 2024 James comparison and the published universal L_YJ envelope provide upper bounds, not the sharp hexagonal equality. The 2024/2025 Banas–Fraczek exact result concerns max(lambda|a|,sqrt(a^2+b^2)), a nonpolyhedral Euclidean-arc norm, so is not a linearly isometric presentation of the six-facet target. Published same-hexagon indexed records on generalized von Neumann–Jordan exponent p and Liu–Yang parameter concern different quotients. Primary full-text access to the defining 2021 article was blocked after OA and arXiv attempts, with Oxford VPN disconnected; this remains a named residual priority risk rather than an automatic scientific failure.",
+      "residual_risks": [
+        "Defining Liu–Li 2021 publisher full text unavailable in this run after open-access 429, arXiv search, and Oxford VPN disconnection; possible uninspected example/appendix priority remains.",
+        "Literature and indexed research search cannot prove absolute novelty; possible alternative name/affine-isometric exact formula outside checked sources.",
+        "Same public indexed assignment was excluded as an independent prior result, but chronology of obscure outside records remains imperfect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definition and general results identified; cannot assert whole-document noncoverage solely from these excerpts; separate later literature descriptions refer to octagonal estimate, leaving residual risk",
+          "evidence": [
+            "https://www.mdpi.com/2227-7390/9/2/116",
+            "Published 2021-01-07; 2024 Filomat Introduction reports Liu et al. estimate on regular octagon",
+            "Oxford DOI request: vpn_disconnected (no automated bypass)"
+          ],
+          "identifier_or_url": "DOI:10.3390/math9020116",
+          "material_read": "Lawfully indexed publisher HTML search result: full abstract, introduction, definition context and selected weak-normal-structure theorem snippet; complete publisher full text not recovered",
+          "method": "OA publisher HTML/PDF and XML attempted (HTTP 429 or inaccessible), exact-title arXiv search empty; Oxford institutional retrieval returned vpn_disconnected",
+          "title": "On a New Geometric Constant Related to the Euler-Lagrange Type Identity in Banach Spaces",
+          "trigger": "Defining source; potential examples could cover the exact norm"
+        },
+        {
+          "assessment": "NOT_COVERING: every exact profile in the theorem concerns the eight-vertex norm stated in Theorem 2.4, not this six-vertex hexagon",
+          "evidence": [
+            "https://web1.pmf.ni.ac.rs/filomat-content/2024/38-5/38-5-6-21850.pdf",
+            "Theorem 2.4 norm max{|x1|+(sqrt2-1)|x2|, |x2|+(sqrt2-1)|x1|}"
+          ],
+          "identifier_or_url": "DOI:10.2298/FIL2405583Y",
+          "material_read": "Lawful full-text PDF title, abstract, introduction and definitions (pp.1-2), Theorem 2.4 exact six-case regular-octagon profile (around p.4), proof portions, Corollary 2.5 and closing remarks",
+          "method": "Open PDF text plus screenshot page 1 via web",
+          "title": "On the L_YJ(lambda,mu,X) constant for the regular octagon space",
+          "trigger": "Closest published exact computation of identical invariant on nearby polygonal norm"
+        },
+        {
+          "assessment": "NOT_COVERING: proves inequalities and auxiliary bounds, not a sharp hexagon-specific formula",
+          "evidence": [
+            "https://files.ele-math.com/articles/mia-27-39.pdf",
+            "Abstract gives L_YJ <= [3max(lambda²,mu²)+min(lambda²,mu²)]/((lambda+mu)(lambda²+mu²))*J_lambda,mu(X)"
+          ],
+          "identifier_or_url": "DOI:10.7153/mia-2024-27-39",
+          "material_read": "Open PDF abstract and introduction with equations (1.2), (1.3); Lemma 2.1, generalized James definition and proof outline",
+          "method": "Open full-text PDF textual inspection plus first-page screenshot",
+          "title": "An inequality between L_YJ(lambda,mu,X) constant and generalized James constant",
+          "trigger": "Potential broad general theorem subsuming hexagonal equality"
+        },
+        {
+          "assessment": "NOT_COVERING: the family has Euclidean circular arcs (unless Hilbert) and is not the polygonal hexagon, while its exact ratio profile peaks at balance, unlike the target",
+          "evidence": [
+            "https://arxiv.org/pdf/2411.13285",
+            "Theorem 2.1: 1+2xi eta/(xi²+eta²)(1-1/lambda²)"
+          ],
+          "identifier_or_url": "arXiv:2411.13285",
+          "material_read": "Lawful full-text preprint PDF cover and unit-ball definition (p.1), Theorem 2.1, main proof ending and Corollaries 2.1-2.4 (pp.4-7)",
+          "method": "arXiv PDF text plus first-page screenshot",
+          "title": "On the L_YJ(xi,eta,X) constant for the Banaś-Frączek space",
+          "trigger": "2025 exact same-invariant two-parameter family theorem; possible reduction or affine-isometric alias"
+        },
+        {
+          "assessment": "Provides a sharp bound across spaces but does not give the strict hexagon value",
+          "evidence": [
+            "L_YJ <= (lambda+mu)^2/(lambda²+mu²), equality only J(X)=2; no hexagon-specific exact formula",
+            "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md theorem, proof, boundary and relationship sections",
+          "method": "Read-only GitHub raw file",
+          "title": "Sharp universal envelope for the Euler–Lagrange geometric constant",
+          "trigger": "Relevant published broad same-invariant theorem"
+        },
+        {
+          "assessment": "C_NJ^(2) is only the balanced L_YJ slice; varying p cannot supply the lambda/mu profile",
+          "evidence": [
+            "At p=2 C_NJ(H)=(3+sqrt(5))/4, which is the target r=1 endpoint",
+            "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md including defining power-p quotient, proof and references",
+          "method": "Read-only GitHub raw file",
+          "title": "Exact generalized von Neumann--Jordan profile of the Day--James hexagon",
+          "trigger": "Published same-space all-exponent exact result, possible equivalent specialization"
+        },
+        {
+          "assessment": "Different weighted unit-sphere functional L_Y prime; equal numeric maximum does not imply equality of full profiles",
+          "evidence": [
+            "L_Y prime=1+2m-3m², m=min{lambda,1-lambda}; target has square-root profile in ratio lambda/mu",
+            "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md, defining quotient, sharpness and limitation",
+          "method": "Read-only GitHub raw file",
+          "title": "Exact Liu–Yang parameter profile of the affine-regular hexagonal plane",
+          "trigger": "Same norm and numerical maximum 4/3, plausible naming/parameter alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "L_YJ quantifies the failure of the Euler–Lagrange/Hilbert identity, and the affine-regular Day–James hexagon is a canonical non-Hilbert two-dimensional norm. Its exact unrestricted two-parameter distortion is a natural invariant not fixed by the known balanced C_NJ value or published universal inequalities. The rigorous continuum profile exhibits a non-obvious off-balanced maximum 4/3 at lambda/mu=sqrt2 or its inverse, strictly exceeding the classical balanced (3+sqrt5)/4. A finite-facet semidefinite proof supplies a reusable exact method for other polyhedral Banach norms. This is a meaningful complete natural-object profile without claiming broader classification.",
+      "residual_risks": [
+        "The result is deliberately one canonical space, not a general theorem for all polygonal norms."
+      ],
+      "sources": [
+        "DOI:10.3390/math9020116 (invariant motivation)",
+        "DOI:10.2298/FIL2405583Y (same-invariant exact computations on canonical polygons)",
+        "Assigned RESULT.md and verified independent 18-type finite certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/math9020116",
+    "DOI:10.2298/FIL2405583Y",
+    "DOI:10.7153/mia-2024-27-39",
+    "arXiv:2411.13285",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-universal-envelope-for-the-euler-lagrange-geometric-consta--83a78f4f408c/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-generalized-von-neumann-jordan-profile-of-the-day-james-he--f84aa4a74a83/RESULT.md",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-liu-yang-parameter-profile-of-the-affine-regular-hexagonal--419e4bfc77ba/RESULT.md",
+    "Resultary: targeted exact formula, Day–James aliases and generalized constant queries",
+    "Assigned seven Git blobs via frozen commit path/tree"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2021 defining Liu–Li MDPI full-text retrieval denied by HTTP 429, no arXiv version found, Oxford VPN disconnected. The abstract/introduction snippets and later full papers do not provide decisive prior coverage, but there remains residual priority risk.",
+    "No claim of exhaustive literature priority or formal external expert attestation.",
+    "The public-bound source METADATA.json/AUDIT.json contains scope_run_id and same_model_review operational fields; REVIEW.md contains same-model provenance. These are not safe to publish unchanged.",
+    "No full, verified confidentiality-safe replacement bytes prepared for these source files; publication remains not_ready and no GitHub changes were made."
+  ],
+  "schema_version": 1
+}
