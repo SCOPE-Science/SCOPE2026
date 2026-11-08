@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, check.py and requirements.txt inspected",
+        "fresh symbolic triangular moments and independent normalized quadrature /mnt/data/scope05_fast_math.py"
+      ],
+      "rationale": "Reconstructed the triangular difference density w(z)=(1−|z|)+ for differences of independent uniforms and the exact kernel F(a,b). Its second-shift derivative has total mass 2 and deviation ≤2(|a|+b), giving F(a,b)=1/3+a²+b²(log(2/b)−1/2)+O((|a|+b)^3) with appropriate control near z=0. Independently evaluated E[Z²]=1/6 and E[Z² log(1/|Z|)]=7/72. For the interior, Mi=1/3+ℓ²[c²/6+(h²/6)log(2/(hℓ))+h²/72]+O(ℓ³). For boundary classify long-long H=1/3+(ℓ²/2)[c²+h²(log(2/(hℓ))−1/2)], long-short C=1/2+O(ℓ²log(1/ℓ)), and short-short V=1/2+O(ℓ); the exact arclength mixture Mb=(H+2ℓC+ℓ²V)/(1+ℓ)^2 cancels the c² second-order boundary term. This yields Mb=1/3+ℓ/3+ℓ²h²[(1/2)log(2/(hℓ))−3/4]+Oθ(ℓ³log), and subtraction yields the full constant −55h²/72−c²/6. Fresh independent high-precision 1D quadrature of both normalized distance expectations at θ=π/2, π/3, 2.2 and ℓ=.02,.006 gives remainders O(ℓ³ log), with scaled residuals between −0.39 and −0.24. No finite numerical extrapolation was used to prove the fixed-angle theorem.",
+      "residual_risks": [
+        "Remainder constants depend on fixed θ; θ→0 or π is explicitly excluded.",
+        "Numerical consistency does not itself bound the analytic remainder uniformly in θ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen and Kukushkin prove positivity for all planar convex bodies, a qualitative lower bound that does not specify the rate toward zero.",
+          "Kukushkin explicitly notes thin rectangles approach equality, but an existence statement of degeneration does not force the ℓ/3 coefficient or sin²θ log term.",
+          "Lotnikov proves planar centrally symmetric inequality, but does not state the local boundary-layer expansion in its accessible abstract."
+        ],
+        "reasoning": "Generality of body class for qualitative positivity does not dominate a quantitative asymptotic with explicit coefficients; no prior theorem inspected implies these coefficients.",
+        "searches": [
+          "Resultary: thin parallelogram mean Euclidean distance boundary versus interior linear logarithmic asymptotics angle",
+          "arXiv:2608.06470 (Shen) abstract and statement",
+          "arXiv:2608.14833 (Kukushkin) abstract and statement",
+          "arXiv:2608.14848 (Lotnikov) abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: thin parallelogram mean Euclidean distance boundary versus interior linear logarithmic asymptotics angle",
+        "arXiv:2608.06470",
+        "arXiv:2608.14833",
+        "arXiv:2608.14848",
+        "Sheng 1985 Adv Appl Probab 17:748-773",
+        "Resultary fourth chord moment parallelogram record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known general bound 0<M_boundary−M_inside for nondegenerate planar convex bodies is consistent with any of numerous rates; positivity cannot yield a numerical coefficient.",
+          "The explicit independent 2D kernel analysis and long/short edge mixture are required for the ℓ²log and −55/72 constants."
+        ],
+        "reasoning": "The full quantified expansion is not a formal corollary of a qualitative inequality or interior-only moment formula; priority risk remains for unread specialist asymptotic line-picking results.",
+        "searches": [
+          "Resultary: thin parallelogram mean Euclidean distance boundary versus interior linear logarithmic asymptotics angle",
+          "Shen arXiv:2608.06470",
+          "Kukushkin arXiv:2608.14833",
+          "Sheng 1985"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M_boundary−M_inside is an expected Euclidean chord-length difference for two different normalized sampling measures.",
+          "Under scaling to long side L, gap multiplies by L, so no alternative aspect-ratio convention changes the coefficient."
+        ],
+        "reasoning": "Exact statement is a thin fixed-angle first moment and not a general convex-body strict inequality, fourth moment, or fixed-angle shape-independent constant.",
+        "searches": [
+          "Resultary: thin parallelogram mean Euclidean distance boundary versus interior linear logarithmic asymptotics angle",
+          "arXiv:2608.06470",
+          "arXiv:2608.14833",
+          "Sheng 1985 line picking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record computes fourth distance moments and their ratios on parallelograms; current claim is first absolute moment and boundary-minus-area asymptotics.",
+          "Sheng gives formulas for distance of two random interior points in planar regions, including parallelograms; this alone does not produce the arclength-boundary term."
+        ],
+        "reasoning": "An exact interior distance formula is at most one component and cannot force the new boundary mixture or its angular logarithmic rate; the old full text could conceal more.",
+        "searches": [
+          "Resultary: thin parallelogram mean Euclidean distance boundary versus interior linear logarithmic asymptotics angle",
+          "Resultary fourth-chord moment amplification and angular phase transition for parallelograms",
+          "Sheng, Advances in Applied Probability 17 (1985), 748–773"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Shen, Kukushkin and Lotnikov establish planar mean-distance comparison or qualitative thin rectangles; Sheng provides interior line-picking formulas. Those statements do not determine the coupled boundary-minus-interior fixed-angle linear coefficient, shear-sensitive ℓ²log term or finite correction. Their full arXiv texts were not retrievable through the available public routes; the novelty is qualified with explicit possible unindexed line-picking overlap.",
+      "residual_risks": [
+        "Shen, Kukushkin and Lotnikov arXiv full-text retrieval failed; their accessible abstracts do not rule out implicit fixed-angle corollaries.",
+        "Sheng 1985 full text and other classical chord-length/asymptotic literature could contain equivalent expansions.",
+        "Negative semantic searches are not exhaustive priority searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract covers planar inequality and higher-dimensional failure, not a claimed fixed-angle asymptotic; full-text overlap remains unexcluded.",
+          "evidence": "Shen arXiv abstract: proves d=2 comparison; no three-term thin parallelogram formula in accessible statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.06470",
+          "material_read": "Accessible full abstract, date and main theorem; arXiv HTML/full text retrieval returned disabled, not read in full.",
+          "method": "arXiv abstract and lawful OA search; attempted HTML.",
+          "title": "The Zaporozhets–Tarasov Conjecture on Mean Distances",
+          "trigger": "Prior general planar M_boundary≥M_inside theorem."
+        },
+        {
+          "assessment": "Strong qualitative contextual result, but no numerical saturation rate in abstract; no whole-paper NOT_COVERING assertion.",
+          "evidence": "Kukushkin abstract says gap tends to zero along thin rectangles but supplies no coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.14833",
+          "material_read": "Accessible primary abstract and exact scope; arXiv HTML/full text not retrievable via available route.",
+          "method": "arXiv abstract, indexed research record.",
+          "title": "The Zaporozhets–Tarasov Inequality for an Arbitrary Planar Convex Body",
+          "trigger": "Specifically mentions thin-rectangle near equality."
+        },
+        {
+          "assessment": "May cover interior component, cannot certify absence of boundary asymptotic in unread original.",
+          "evidence": "Sheng 1985 first-moment line-picking formulas describe two interior random points.",
+          "identifier_or_url": "doi:10.2307/1427086",
+          "material_read": "Abstract and bibliographic description, no full text.",
+          "method": "Academic index and bibliography search.",
+          "title": "The distance between two random points in plane regions",
+          "trigger": "Classical original formulas for interior distance in rectangles/parallelograms."
+        },
+        {
+          "assessment": "Fourth moment ratio cannot directly determine first-distance boundary layer.",
+          "evidence": "The indexed invariant is E|X−Y|^4, not E|X−Y|.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+          "material_read": "Indexed published finding summary only.",
+          "method": "Resultary semantic search.",
+          "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+          "trigger": "Same polygon family, different distance moment."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "analytic decomposition of two geometric sampling measures",
+        "prior Zaporozhets–Tarasov thin-rectangle qualitative sharpness"
+      ],
+      "rationale": "The known planar boundary/interior strict inequality has a natural sharpness question on thin convex bodies. The complete fixed-angle first and logarithmic second coefficients classify how the inequality degenerates under a shear and exhibit a nonanalytic angular observable that cannot be read from simple perimeter or area scaling. This is a motivated asymptotic boundary phenomenon with a full finite correction, not a routine restatement of positivity.",
+      "residual_risks": [
+        "Only fixed-angle parallelograms; no uniform angular stability for arbitrary convex sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for θ simultaneously tending to 0 or π with ℓ.",
+    "No universally optimal next remainder constant."
+  ],
+  "schema_version": 1
+}
