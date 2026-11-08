@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:55:39.211077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The deterministic graft identity H=max_v(K_v+sum_{external edges}(1+left/right record spine length of parent)) reduces the problem to finitely many independent uniform BST blocks. Independent online relative ranks give left/right record path means log m+O(1), variances log m+O(1) and covariance O(1), hence asymptotically independent Gaussian edge labels by multivariate Lindeberg. Positive fixed block masses give N_i proportional to n; published Reed uniform BST mean c*log n-beta loglog n+O(1), bounded variance, make internal K_v deviations o(sqrt(log n)). Shallow external vertices have at least log n deterministic deficit, so only deepest v survive. Uniform integrability follows second-moment bounds and finite external k; first moment converges. Separately constructed 1350 small BSTs and computed heights from grafting and direct insertion, all agreeing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peca-Medlin–Zhong Theorem 2 gives (c*+h)log n leading order for fixed external size.",
+          "Reed gives internal uniform-BST second-order mean/variance only."
+        ],
+        "reasoning": "Those theorems provide proof ingredients but no joint edge-field CLT or branch-competition correction; the broader leading-order bound cannot imply the sqrt(log n) distribution.",
+        "searches": [
+          "block permutation permuton binary search tree second order height Gaussian branch fluctuations extreme-record paths",
+          "arXiv:2507.04505",
+          "arXiv:2403.03151",
+          "DOI:10.1145/765568.765571"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2403.03151",
+        "https://doi.org/10.1145/765568.765571",
+        "https://arxiv.org/abs/2507.04505"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known first-order height asymptotics leave an entire sqrt(log n) fluctuation scale undetermined."
+        ],
+        "reasoning": "Adding the multivariate record path CLT, covariance structure and uniform-integrability argument genuinely supplies a stronger second-order statement.",
+        "searches": [
+          "arXiv:2507.04505",
+          "arXiv:2403.03151",
+          "DOI:10.1145/765568.765571"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Extreme-spine root-to-leaf costs are sums of independent left/right records with asymptotically independent normal fluctuations.",
+          "Published block-BST heights supply deterministic grafting but only first-order asymptotics in the fixed external-size theorem."
+        ],
+        "reasoning": "Searched block BST/permuton, extrema record spines, Gaussian branch fluctuations and second-order height aliases. No equivalent Gaussian-maximum formula located.",
+        "searches": [
+          "block permutation permuton binary search tree second order height Gaussian branch fluctuations extreme-record paths",
+          "arXiv:2507.04505",
+          "arXiv:2403.03151"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform BST record-path moments are classical exactly known, but the Gaussian-tree second-order law is a limit, not a finite table result."
+        ],
+        "reasoning": "No matching all-external-shapes Gaussian-covariance limit table identified; three-block examples are corollaries of the actual general limit.",
+        "searches": [
+          "block permutation permuton binary search tree second order height Gaussian branch fluctuations extreme-record paths",
+          "arXiv:2507.04505"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Peca-Medlin–Zhong already prove the grafting identity and first-order c*+h law, while Corsini–Dubach–Féray develop permuton-sampled BST; neither inspected result states the second-order correlated Gaussian tree maximum or exact positive sqrt(log n) mean correction by deepest-branch multiplicity.",
+      "residual_risks": [
+        "First-order block graft theorem and record-spine CLT might be combined in older implicit fluctuation work.",
+        "Dependence on Reed quantitative internal height bounds is external and original paper full text not completely inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Grafting and leading order are prior art; no matching second-order fixed external-shape Gaussian tree limit identified.",
+          "evidence": [
+            "Section 2 Lemma 1 and Corollary 2; first-order height theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.04505",
+          "material_read": "Full OA PDF including Section 2, Lemma 1, Corollary 2, Theorem 2 and proof of the block grafting identity",
+          "method": "ArXiv PDF text and rendered page screenshots",
+          "title": "Heights of butterfly trees",
+          "trigger": "Direct block-BST construction and first-order height bound"
+        },
+        {
+          "assessment": "Studies first-order/permuton conditions, not the fixed-block Gaussian tree fluctuation.",
+          "evidence": [
+            "First-order permuton BST height results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.03151",
+          "material_read": "Open PDF, opening theorems and relevant height/results sections",
+          "method": "ArXiv PDF page reading and screenshots",
+          "title": "Binary search trees of permuton samples",
+          "trigger": "Same permuton BST sampling model"
+        },
+        {
+          "assessment": "Mean correction and bounded variance used as external input; original theorem details remain a residual verification dependency.",
+          "evidence": [
+            "Mean c*log m-beta loglog m+O(1), variance O(1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/765568.765571",
+          "material_read": "Published theorem stated in the inspected mathematical package; Reed bibliography and supporting citations in block-BST primary paper, not complete original Reed full text",
+          "method": "Secondary mathematical source/theorem cross-check",
+          "title": "The height of a random binary search tree",
+          "trigger": "Quantitative internal uniform BST height premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Second-order height fluctuations and expectation corrections directly quantify search-tree performance and distinguish balanced from skew fixed external block structures; a natural general fixed-k classification rather than renaming the known leading-order bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2403.03151",
+    "https://doi.org/10.1145/765568.765571",
+    "https://arxiv.org/abs/2507.04505"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed finite block-permutation permuton and external shape rho, H_n-(c*+h)log n divided by sqrt(log n) converges to max of Gaussian root-path edge sums over deepest external nodes; expected height has coefficient E[max G], positive iff multiple deepest nodes; explicit k=3 balanced/skew laws.",
+  "limitations": [
+    "k and positive block masses fixed; no vanishing mass, growing external k or general permuton fluctuation theorem.",
+    "1350 deterministic finite grafting checks supplement the limiting Gaussian argument."
+  ],
+  "residual_risks": [
+    "First-order block graft theorem and record-spine CLT might be combined in older implicit fluctuation work.",
+    "Dependence on Reed quantitative internal height bounds is external and original paper full text not completely inspected."
+  ],
+  "schema_version": 1
+}

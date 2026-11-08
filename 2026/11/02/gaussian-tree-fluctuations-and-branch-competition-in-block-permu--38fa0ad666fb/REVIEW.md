@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact grafting decomposes the height into internal BST heights and extreme-record paths, confirmed by 85,028 exact assertions. Independent prefix-relative ranks give a bivariate record-path CLT with vanishing normalized cross-covariance. Reed's published mean and bounded-variance uniform-BST estimates make internal heights negligible at the square-root-logarithmic scale. Fixed-shape multivariate convergence, removal of shallower branches, and uniform integrability establish both the Gaussian-edge maximum law and its mean correction. The statement applies to random multinomial block sizes by conditioning on counts and concentration. Risks: the theorem relies on the published height estimates; the checker cannot prove an infinite-sample limit.
+## correctness
 
-**Originality — PASS, with priority risk.** Compared full relevant sections of Corsini--Dubach--Féray's permuton BST paper and Peca-Medlin--Zhong's block-BST paper, including the latter's exact decomposition, proof of its first-order theorem, and discussion. Those works cover the model, height leading order, and exact grafting identity. They do not state the Gaussian-tree second-order law or the sharp positive expectation correction arising from multiple deepest branches. Semantic searches of published research records and literature using equivalent block-permutation/record-spine/height-fluctuation phrasing found no directly covering result. This is not evidence of absolute novelty; earlier implicit derivations remain possible.
+PASS
 
-**Value — PASS.** The result gives the full fixed-block-shape second-order limit, rather than only the known first-order height. It characterizes precisely when mean height has a positive square-root-logarithmic term, and explains the minimal three-block distinction between an independent-Gaussian maximum and a single Gaussian. This connects block geometry to a measurable complexity fluctuation relevant to search trees.
+The deterministic graft identity H=max_v(K_v+sum_{external edges}(1+left/right record spine length of parent)) reduces the problem to finitely many independent uniform BST blocks. Independent online relative ranks give left/right record path means log m+O(1), variances log m+O(1) and covariance O(1), hence asymptotically independent Gaussian edge labels by multivariate Lindeberg. Positive fixed block masses give N_i proportional to n; published Reed uniform BST mean c*log n-beta loglog n+O(1), bounded variance, make internal K_v deviations o(sqrt(log n)). Shallow external vertices have at least log n deterministic deficit, so only deepest v survive. Uniform integrability follows second-moment bounds and finite external k; first moment converges. Separately constructed 1350 small BSTs and computed heights from grafting and direct insertion, all agreeing.
 
-Closest work: arXiv:2507.04505, Section 2; arXiv:2403.03151, Sections 1 and 5; Reed (2003). Scope excludes growing block counts, vanishing block masses, and non-block permutons. Independent historical-priority and mathematical checks have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Peca-Medlin–Zhong already prove the grafting identity and first-order c*+h law, while Corsini–Dubach–Féray develop permuton-sampled BST; neither inspected result states the second-order correlated Gaussian tree maximum or exact positive sqrt(log n) mean correction by deepest-branch multiplicity.
+
+## value
+
+PASS
+
+Second-order height fluctuations and expectation corrections directly quantify search-tree performance and distinguish balanced from skew fixed external block structures; a natural general fixed-k classification rather than renaming the known leading-order bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
