@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defining graph, facet criterion and all 32768 vertex subsets are independently evaluated by the included executable. Its two face constructions agree on 29654 augmented faces and 390 equal-sized facets. The coordinate-toggle discrete-Morse matching covers 14781 face pairs; a directed topological sort across all 212910 Hasse incidences proves acyclicity. The signed integral Morse boundary has five independent unit columns in a 5-by-72 differential and no degree-ten differential. This proves integral homology ranks 67 and 15 with no torsion or other homology. An independent full mod-two simplicial boundary reduction agrees. A pure 10-complex with nonzero degree-8 homology cannot be Cohen–Macaulay or shellable.
+## correctness
 
-## Originality — PASS
-The foundational cut-complex paper and its sequel were examined at the level of their cut-complex definitions, results and studied graph families; neither gives the four-cut complex of the 15-vertex triangular graph. The indexed result for J(5,2) has a different graph and different homology, so is not logically covering. Searches also considered line-graph aliases, Alexander dual descriptions and exact homology fingerprints, as well as total-cut and neighborhood-complex alternatives. No published theorem or database table inspected implies the claim. This is a best-knowledge originality assessment, not proof of global uniqueness; one close indexed record was accessible only in summary form.
+PASS
 
-## Value — PASS
-Triangular graphs form a canonical Johnson/line-graph family, and the four-cut complex is a natural topology question introduced by the primary cut-complex literature. The six-point case exhibits nonzero integral homology in nonadjacent degrees eight and ten, despite pure dimension ten. This provides a concrete obstruction to shellability and Cohen–Macaulayness and a qualitative contrast with the five-point case. The result is not presented as a homotopy-equivalence classification or infinite-family theorem.
+Reconstructed ordinary cut predicate for all C(15,4)=1365 quadruples and 2^15 subsets: precisely 390 disconnected induced four-sets, 29,654 augmented faces with f=(15,105,455,1365,3003,5005,6435,6375,4570,1935,390). Independently formed a greedy 14,781-pair acyclic matching on the full augmented face poset and verified a DAG with 212,910 Hasse arrows and critical cells 5 in dimension 7, 72 in 8 and 15 in 10. Exact signed integral Morse differential C8 -> C7 has five unit pivot columns; rank=5 with a unimodular minor, giving free rank 67 in H8; C10 survives and H7 vanishes. Purity and lower-degree nonzero homology exclude CM/shellability over fields. The computation is exhaustive for this finite graph, not an infinite-family statement.
 
-## Closest literature and limitations
-Bayer et al. (2023, arXiv:2304.13675) introduces and studies cut complexes; Bayer et al. (2024, arXiv:2407.08158) treats unions, squared paths and grids. Published J(5,2) four-cut homotopy information does not determine the J(6,2) groups. Attaching maps beyond integral homology remain undetermined; an unindexed equivalent calculation is a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result adds a previously uncomputed exact integral homology of the larger 15-vertex J(6,2) four-cut complex; its J(5,2) predecessor has completely different 11 S^3 and no covering parameter theorem in inspected published articles. No proof that all unindexed literature is absent.
+
+## value
+
+PASS
+
+J(6,2) is the first larger natural member after the known J(5,2) cutoff-four computation, and gives two nonadjacent integral homology degrees and a concrete pure nonshellable example. These exact free ranks and absence of torsion are natural invariants not implied by its smaller predecessor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

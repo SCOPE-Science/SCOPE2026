@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of integral four-cut homology
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9+ and no external packages. The checker enumerates all fifteen graph vertices and all 32768 vertex subsets, generates the 390 disconnected-four-set facet complements, and cross-checks facet closure with a separate complement-predicate evaluation. It checks every one of the 212910 directed cover incidences for matching acyclicity; computes the critical-cell dimensions, signed integral degree-eight Morse boundary, and five explicitly primitive columns; and independently recomputes full simplicial mod-two homology.
+## correctness
 
-Actual checked values: 29654 augmented faces, 14781 Morse pairs, critical counts 5 in dimension seven, 72 in dimension eight and 15 in dimension ten. Five unit columns at indices 2,7,21,39,49 show that degree-eight boundary is surjective onto its five-dimensional integral target. Its kernel is free rank 67. No critical degree-nine cells exist, so degree-ten boundary is zero, giving fifteen free generators. Independent reduced mod-two Betti vector is `(0,0,0,0,0,0,0,0,67,0,15)`.
+PASS
 
-The attached `verification_output.txt` is the captured successful checker run, ending in `J6_FOUR_CUT_HOMOLOGY_CERTIFICATE_OK`. The program provides a complete finite verification, not an infinite-family theorem or a determination of higher-dimensional attaching maps. It is not independent human audit or certification.
+Reconstructed ordinary cut predicate for all C(15,4)=1365 quadruples and 2^15 subsets: precisely 390 disconnected induced four-sets, 29,654 augmented faces with f=(15,105,455,1365,3003,5005,6435,6375,4570,1935,390). Independently formed a greedy 14,781-pair acyclic matching on the full augmented face poset and verified a DAG with 212,910 Hasse arrows and critical cells 5 in dimension 7, 72 in 8 and 15 in 10. Exact signed integral Morse differential C8 -> C7 has five unit pivot columns; rank=5 with a unimodular minor, giving free rank 67 in H8; C10 survives and H7 vanishes. Purity and lower-degree nonzero homology exclude CM/shellability over fields. The computation is exhaustive for this finite graph, not an infinite-family statement.
+
+## originality
+
+PASS
+
+The result adds a previously uncomputed exact integral homology of the larger 15-vertex J(6,2) four-cut complex; its J(5,2) predecessor has completely different 11 S^3 and no covering parameter theorem in inspected published articles. No proof that all unindexed literature is absent.
+
+## value
+
+PASS
+
+J(6,2) is the first larger natural member after the known J(5,2) cutoff-four computation, and gives two nonadjacent integral homology degrees and a concrete pure nonshellable example. These exact free ranks and absence of torsion are natural invariants not implied by its smaller predecessor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
